@@ -1,0 +1,25 @@
+{
+  "_about": "Glyph, shaping and line-breaking TEST strings for `marketing.py fonts` (one per approved locale): public pangrams, the widely used 'I can eat glass' test sentences and script samples (Thai stacked marks, Devanagari conjuncts and reordered vowels, CJK punctuation, Vietnamese stacked diacritics). They are NOT marketing copy and NOT translations of any game's copy: never put them in a manifest's strings or a store listing.",
+  "samples": {
+    "en-US": {"headline": "The quick brown fox jumps over the lazy dog", "title": "Sphinx of black quartz", "subtitle": "0123456789 & ! ? : %"},
+    "es-419": {"headline": "El veloz murciélago hindú comía feliz cardillo y kiwi", "title": "¿Qué? ¡Sí! Ñandú", "subtitle": "0123456789 áéíóúü"},
+    "es-ES": {"headline": "El veloz murciélago hindú comía feliz cardillo y kiwi", "title": "¿Qué? ¡Sí! Ñandú", "subtitle": "0123456789 áéíóúü"},
+    "pt-BR": {"headline": "Luís argüia à Júlia que «brações, fé, chá, óxido, pôr, zângão» eram palavras do português", "title": "Ação, pão e açúcar", "subtitle": "0123456789 ãõâêôàç"},
+    "fr-FR": {"headline": "Portez ce vieux whisky au juge blond qui fume", "title": "Œuvre, ça, où, île", "subtitle": "0123456789 « » éèêëç"},
+    "de-DE": {"headline": "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich", "title": "Größe, Übermaß, Äpfel", "subtitle": "0123456789 äöüß ÄÖÜ"},
+    "it-IT": {"headline": "Quel vituperabile xenofobo zelante assaggia il whisky ed esclama: alleluja!", "title": "Perché è così", "subtitle": "0123456789 àèéìòù"},
+    "nl-NL": {"headline": "Pa's wijze lynx bezag vroom het fikse aquaduct", "title": "Één ruïne, café", "subtitle": "0123456789 ëïé ĳ"},
+    "pl-PL": {"headline": "Pchnąć w tę łódź jeża lub ośm skrzyń fig", "title": "Zażółć gęślą jaźń", "subtitle": "0123456789 ąćęłńóśźż"},
+    "ru-RU": {"headline": "Съешь же ещё этих мягких французских булок, да выпей чаю", "title": "Съешь же ещё", "subtitle": "0123456789 ЁЙЩЪЫЭЮЯ"},
+    "uk-UA": {"headline": "Чуєш їх, доцю, га? Кумедна ж ти, прощайся без ґольфів!", "title": "Чуєш їх, доцю", "subtitle": "0123456789 ЄІЇҐ єіїґ"},
+    "tr-TR": {"headline": "Pijamalı hasta yağız şoföre çabucak güvendi", "title": "İstanbul ılık", "subtitle": "0123456789 ğışöüçİ"},
+    "id-ID": {"headline": "Saya bisa makan kaca, itu tidak melukai saya", "title": "Saya bisa makan kaca", "subtitle": "0123456789 & ! ? :"},
+    "vi-VN": {"headline": "Tôi có thể ăn thủy tinh mà không hại gì", "title": "Tiếng Việt: ặ ữ ở ỡ", "subtitle": "0123456789 Ắ Ặ Ẫ Ở Ợ Ữ"},
+    "th-TH": {"headline": "เป็นมนุษย์สุดประเสริฐเลิศคุณค่า กว่าบรรดาฝูงสัตว์เดรัจฉาน", "title": "ฉันกินกระจกได้", "subtitle": "๐๑๒๓๔๕๖๗๘๙ กำ ปี่ ญู ฐุ"},
+    "hi-IN": {"headline": "मैं काँच खा सकता हूँ और मुझे उससे कोई चोट नहीं पहुंचती", "title": "क्षत्रिय श्री हिन्दी", "subtitle": "०१२३४५६७८९ क्ष त्र ज्ञ र्क द्ध"},
+    "ja-JP": {"headline": "私はガラスを食べられます。それは私を傷つけません。", "title": "いろはにほへと", "subtitle": "0123456789「カタカナ」、ー。"},
+    "ko-KR": {"headline": "나는 유리를 먹을 수 있어요. 그래도 아프지 않아요", "title": "다람쥐 헌 쳇바퀴에 타고파", "subtitle": "0123456789 한국어"},
+    "zh-CN": {"headline": "我能吞下玻璃而不伤身体。天地玄黄，宇宙洪荒。", "title": "天地玄黄", "subtitle": "0123456789「简体中文」，。"},
+    "zh-TW": {"headline": "我能吞下玻璃而不傷身體。天地玄黃，宇宙洪荒。", "title": "天地玄黃", "subtitle": "0123456789「繁體中文」，。"}
+  }
+}

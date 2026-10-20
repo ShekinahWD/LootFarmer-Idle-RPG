@@ -1,0 +1,118 @@
+{
+  "version": "0.4.0",
+  "requires": "LootFarmer v0.3.3",
+  "files": [
+    {
+      "path": "assets/GUIPackCartoon/Demo/Fonts/BPreplayExtendedBold.otf.import",
+      "sha256": "e5f905b451065eb7c4cc01d57e0f64f9cec1df4ce5d58c4e4a66e1793ca58ca2"
+    },
+    {
+      "path": "data/game/catalog.json",
+      "sha256": "a5ac868719ead12a4e19f3b5631d7707b2807a2579ebc2b7e6e1e93ac1870787"
+    },
+    {
+      "path": "docs/LootFarmer_Asset_Registry.md",
+      "sha256": "e47c92cc15ba89c927dccb34f02335ab0356873553e1f86dcd4f11b9c84f463c"
+    },
+    {
+      "path": "docs/LootFarmer_Checkpoints.md",
+      "sha256": "79e178961f5ddac9e5605148a9f6dd19d9d85230e1992254505fd5cb2f029745"
+    },
+    {
+      "path": "docs/LootFarmer_GDD.md",
+      "sha256": "4a2b9549df78b66dc9af2fc568bea1b7be0a00e5b615c91da7cd63791aef94a0"
+    },
+    {
+      "path": "docs/LootFarmer_Prototype_Status.md",
+      "sha256": "5bbb85b3265633cc9ed8286c7cb305773fefd37418b89f51014456ed72b32af9"
+    },
+    {
+      "path": "docs/LootFarmer_v0.4.0_Notes.md",
+      "sha256": "eaa67cad25375023d6a0ea5fc56e361cc2afce315b0c8c7b7b7b84989ceaa557"
+    },
+    {
+      "path": "docs/World_Inspector_Evidence/Map_Layout.png",
+      "sha256": "75c8e1b7c3ae62fc4289ba5992b5129723c07c46cc4ddde9aad323ee2e0d4cf4"
+    },
+    {
+      "path": "docs/World_Inspector_Evidence/fullpass-bootstrap.log",
+      "sha256": "ac8ac0125f5fa3a2a97e116e57a20a644b3a7b1eebb13df66e4db5c62a3d239c"
+    },
+    {
+      "path": "docs/World_Inspector_Evidence/fullpass-camera.log",
+      "sha256": "92c2751261da89f20afa0b3e6f0fbf0a99ef2f9d77ddc09e5d19b2d6721b63ce"
+    },
+    {
+      "path": "docs/World_Inspector_Evidence/fullpass-gameplay.log",
+      "sha256": "9ae1b7d40a81ea2dfdb49d0b993019b92688b88f5114d7053815b7c8dff3453c"
+    },
+    {
+      "path": "docs/World_Inspector_Evidence/fullpass-inspectors.log",
+      "sha256": "a57b21a09a85adff2922d3a9ea41e04685f7715b8a2bf1bb4352fea34b9e3e90"
+    },
+    {
+      "path": "docs/World_Inspector_Evidence/fullpass-ui.log",
+      "sha256": "3123d903ed4a7aa51f02367dc38d8cee1d801de18b34bc9cbcdc60ee78e5edec"
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "581ed4deb150286499c88d4282f663c934f61f5918363726c8aabd3d8d909c81"
+    },
+    {
+      "path": "localization/en.po",
+      "sha256": "84b02c78bf508f54aba6f077174244d28054e5bc842e627b4c6023718a4566cb"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "75366de39b6a87a3531a3158cd4fb1df60acdadcd36c96ac9e22e1dc11553514"
+    },
+    {
+      "path": "scenes/game/actor.tscn",
+      "sha256": "645bf0946a13ef2e8d9e6afae46b8036f014e738de7f45f846e177542a6fdb1a"
+    },
+    {
+      "path": "scenes/game/main.tscn",
+      "sha256": "2e6cc8df382180761acd0494659939f57858cb5091e3de69fe35c4fc664acc9d"
+    },
+    {
+      "path": "scenes/game/world.tscn",
+      "sha256": "42a97ab7b9dab3570c9fe25faf8a808b4184297de541a2294468a7b28a69d6d1"
+    },
+    {
+      "path": "scripts/game/game_ui.gd",
+      "sha256": "2c195c2f01bc2191c00862aec0aca83ba24bba96038239f4a73cf0e9aa5f4413"
+    },
+    {
+      "path": "scripts/game/simulation.gd",
+      "sha256": "51e1d1e65b2bf9b678a1ae0f8fd4e9362af7416155c6e65df317560333cfabb6"
+    },
+    {
+      "path": "scripts/game/world.gd",
+      "sha256": "d21f4a8db4df4f3bec08e4a1390c973b1673768a87fca59fa28ba1f7d5c7cbfd"
+    },
+    {
+      "path": "tests/inspector_probe.gd",
+      "sha256": "a3dfaac56a7ba984cd53b4384fee8c1694707a9b5fcb86e5bc98755db08593ed"
+    },
+    {
+      "path": "tests/inspector_probe.gd.uid",
+      "sha256": "ec73ac96c23656a8ba7e708f739e272f83fd3e1bbc9fa3bf80f5054eb5f2a6ab"
+    },
+    {
+      "path": "tests/inspector_probe.tscn",
+      "sha256": "166b51d7270579ab8d019564b1c4b0f5535d19349fa33015e46029e17ecf2be0"
+    },
+    {
+      "path": "tests/ui_probe.gd",
+      "sha256": "a5024552ecac02719d893bc347ab85b7e3a4304fc525ec9b2dbe34c9abee923d"
+    },
+    {
+      "path": "tools/build_map.gd",
+      "sha256": "3881ff8d0fc5694542285f4aee8a8f591a9dea0a2437227c6e036273a6ecda2e"
+    },
+    {
+      "path": "tools/build_map.gd.uid",
+      "sha256": "8a7f04e5ca0bdbb26864160f076b971d4ffa85b4b5b7cceab392787b0e1bcfd5"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "derived_from": "Playbook embedded starter; no previous production project supplied",
+  "godot_reference": "4.7 source feature; exact installed patch/templates must be recorded locally",
+  "defaults": {
+    "reference_resolution": [
+      720,
+      1280
+    ],
+    "stretch_mode": "canvas_items",
+    "stretch_aspect": "expand",
+    "orientation": "portrait",
+    "renderer": "mobile / gl_compatibility",
+    "android_export": "AAB",
+    "android_architecture": [
+      "arm64-v8a"
+    ],
+    "android_immersive_mode": true,
+    "android_edge_to_edge": false,
+    "android_user_data_backup": false,
+    "version_name_source": "application/config/version via blank Android version/name",
+    "android_package_prefix": "com.shekinahwelefuldesigns",
+    "android_package_rule": "prefix + normalized lowercase game name"
+  },
+  "included_reusable_services": [
+    "LayoutService",
+    "NumberFormat",
+    "SettingsState",
+    "AudioService",
+    "SaveService",
+    "BootContext",
+    "LocalizationService"
+  ],
+  "must_replace_per_game": [
+    "application name",
+    "semantic version",
+    "Android version code",
+    "orientation/reference resolution if different",
+    "icons/branding",
+    "release signing",
+    "store/service IDs",
+    "permissions",
+    "privacy/community URLs",
+    "game-specific save state"
+  ],
+  "intentionally_excluded": [
+    "previous-game gameplay assets",
+    "previous-game UI theme",
+    "Balance/Profile/Run/Mission/Prestige/Encyclopedia state",
+    "previous-game package ID",
+    "previous-game launcher icons",
+    "previous-game build path/version code",
+    "game-specific scenes/content"
+  ],
+  "application_name": "LootFarmer - Idle RPG",
+  "package_id": "com.shekinahwelefuldesigns.lootfarmeridlerpg",
+  "checkpoint_0_status": "SOURCE_PREPARED_DEVICE_GATE_PENDING",
+  "runtime_validation": "not run: Godot unavailable"
+}

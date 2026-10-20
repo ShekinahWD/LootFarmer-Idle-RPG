@@ -1,0 +1,25 @@
+{
+  "version": "0.6.3",
+  "requires": "0.6.2",
+  "files": {
+    "data/game/catalog.json": "5e66d5b713f79d30b218267dcd5ff6f66f26ce1b630d908263e99d0f010d7f32",
+    "docs/LootFarmer_Asset_Registry.md": "96165893b80298b0d11a974eeaf7a2a95779a763ca37941301c84cf7f62fb77e",
+    "docs/LootFarmer_GDD.md": "52c6fbf9b572e31b2229be93321838d2c13861991a6a2722e3784da39a8cd0a2",
+    "docs/LootFarmer_Prototype_Status.md": "f627c4ed5e2e58b6ebba09e717f6294ea4a5f55a0677985ae0d4490e9e223fd6",
+    "docs/LootFarmer_v0.6.3_Notes.md": "87738b51020b12ac6cc3985a08971948903dd1252e5dd733aa7c08f4cc6974aa",
+    "docs/Reusable_Game_Development_Playbook.md": "9066ee90794d22223ac1281cb2f316d247d86b58dc74ca926024351778d4f8e8",
+    "localization/en.po": "4be481ad21a3ef953a750d2cd229eacc7923bd24c7a0041b06f8e6a2c226bfc4",
+    "project.godot": "468a80974f6c80a27162a08fa6899a884c4d45c050f5eec40dd2996d118a1d75",
+    "scenes/game/main.tscn": "94635c4d4fda56859cd32c41a30c34d6c947819c10dc963cfafb8a76db24e6f3",
+    "scripts/game/catalog.gd": "f7ec083b6a085fbc71f9bba06d88bcb829717240a47259280a547bdbc94650fc",
+    "scripts/game/game_ui.gd": "8a8753f028f555e07d7da434e657ec690145b3ffbed6beeeed676345b665395c",
+    "scripts/game/simulation.gd": "91b863a909469f9692ea9050aa57f13e444db072e79d1efaf5f3c22b50880712",
+    "scripts/game/world.gd": "db712d6537a6cfffc6bd87a62e6751e6398eed0ff99d2d19a22500aba0c4d6d7",
+    "tests/evolution_farming_probe.gd": "6ae458d5bc592d806e53d448e32d4f8539e772ec99f7fed1fbef1101cd36e7ff",
+    "tests/evolution_farming_probe.gd.uid": "2768e1ca8e08e5784b315a9f9fa55ba14dfdc0addd322695bd8d5de086d69b6c",
+    "tests/evolution_farming_probe.tscn": "7b9b62621be350ef8210c2801e752b0cc62efd1b2bfd2c5885616f1297467446",
+    "tests/farming_ui_probe.gd": "abce984ca4144f5076f7b0ec06d7ee169447900adb8421bedbded77fc1304755",
+    "tests/group_progress_probe.gd": "68d3abbfda9198ca6d438808cfd1d1a24a55374fd01ebfdfcd6d1f5f2e110267"
+  },
+  "deleted": []
+}

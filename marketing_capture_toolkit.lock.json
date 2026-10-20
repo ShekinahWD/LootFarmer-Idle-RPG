@@ -1,0 +1,18 @@
+{
+  "toolkit": "Godot-Marketing-Toolkit",
+  "version": "1.0.2",
+  "status": "released",
+  "file_sha256": {
+    "addons/store_screenshot_capture/README.md": "d48cdab9316436899b3d5f16882946a85799b1dc0dc3b1a56464d82e1773ea9e",
+    "addons/store_screenshot_capture/editor_dock.gd": "1439be37f0b75c35a84248adcc62cdee60cf74f025ece35f3c687296cc3a81b4",
+    "addons/store_screenshot_capture/plugin.cfg": "beada6554a9db6484c0b065c579170815f392c7197a320d079e8d24a04555869",
+    "addons/store_screenshot_capture/plugin.gd": "0ff1d07f49111e7cfc75a6f085bed7050ac16c25307638f8c4a61f2e4d5294cd",
+    "addons/store_screenshot_capture/runtime_capture.gd": "e8e33b3cd15d46974cbe5a959b0222356b13f5227e2a5a9768fdf0de61e9c945",
+    "addons/store_screenshot_capture/viewport_capture.gd": "6df598ebb756eb727ddeb5d5e744fd2c7e70df93ecf76415f08577850b2393be",
+    "addons/marketing_capture/capture_runner.gd": "2c872c783f7fc5181a9c1979ea80161acb105be35508a7ef673e9192dcefc77b",
+    "addons/marketing_capture/capture_runner.tscn": "5d9d86547a318481d24ae291129c98338d0ba61db6919ac93b2e305336e16d09",
+    "addons/marketing_capture/marketing_fonts.gd": "863383a1469dad9f4ba28f48be0dd4833221e91bdb3d52516b8f6be3652cc406",
+    "addons/marketing_capture/scenario_adapter.gd": "886d98e35bdae3fd9724ef30f6f278f5d8443bd7273e5fe85e2200510cee6f10",
+    "addons/marketing_capture/text_renderer.gd": "1427188bee38aec75f47c08e9d282848b4c52714b8fdff511ac96f157437ea56"
+  }
+}

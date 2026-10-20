@@ -1,0 +1,930 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Android bootstrap"
+
+msgid "BOOT_DETAIL"
+msgstr "Checkpoint 0 • Gameplay is not implemented yet."
+
+msgid "BOOT_VERSION"
+msgstr "Version %s"
+
+msgid "BOOT_TAPS"
+msgstr "Saved touch count: %d"
+
+msgid "BOOT_TAP"
+msgstr "Test touch and save"
+
+msgid "BOOT_SAVED"
+msgstr "Save completed"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "Save unavailable. Check the validation log."
+
+msgid "BOOT_PAUSE"
+msgstr "Pause"
+
+msgid "BOOT_RESUME"
+msgstr "Resume"
+
+msgid "BOOT_RESET"
+msgstr "Hard Reset"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "Reset progression?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "This clears all progression in this profile. Your settings are kept."
+
+msgid "UI_CONFIRM"
+msgstr "Reset"
+
+msgid "UI_CANCEL"
+msgstr "Cancel"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "Language"
+
+msgid "LANG_AUTOMATIC"
+msgstr "Automatic (English during development)"
+
+msgid "LANG_DISABLED"
+msgstr "Available after translation validation"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "English is enabled. Other languages unlock after validation."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "An unreadable or newer save was preserved. Restore a compatible backup or deliberately reset this profile."
+
+msgid "LANG_EN_US"
+msgstr "English"
+
+msgid "LANG_ES_419"
+msgstr "Spanish (Latin America)"
+
+msgid "LANG_ES_ES"
+msgstr "Spanish (Spain)"
+
+msgid "LANG_PT_BR"
+msgstr "Portuguese (Brazil)"
+
+msgid "LANG_FR_FR"
+msgstr "French"
+
+msgid "LANG_DE_DE"
+msgstr "German"
+
+msgid "LANG_IT_IT"
+msgstr "Italian"
+
+msgid "LANG_NL_NL"
+msgstr "Dutch"
+
+msgid "LANG_PL_PL"
+msgstr "Polish"
+
+msgid "LANG_RU_RU"
+msgstr "Russian"
+
+msgid "LANG_UK_UA"
+msgstr "Ukrainian"
+
+msgid "LANG_TR_TR"
+msgstr "Turkish"
+
+msgid "LANG_ID_ID"
+msgstr "Indonesian"
+
+msgid "LANG_VI_VN"
+msgstr "Vietnamese"
+
+msgid "LANG_TH_TH"
+msgstr "Thai"
+
+msgid "LANG_HI_IN"
+msgstr "Hindi"
+
+msgid "LANG_JA_JP"
+msgstr "Japanese"
+
+msgid "LANG_KO_KR"
+msgstr "Korean"
+
+msgid "LANG_ZH_CN"
+msgstr "Chinese (Simplified)"
+
+msgid "LANG_ZH_TW"
+msgstr "Chinese (Traditional)"
+
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "Coins %s     Gems %s"
+
+msgid "PAUSE"
+msgstr "Pause"
+
+msgid "RESUME"
+msgstr "Resume"
+
+msgid "PLAYER_STATUS"
+msgstr "HP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "Returning to camp in %.1fs"
+
+msgid "BOOST_ACTIVE"
+msgstr "Coin boost %ds"
+
+msgid "GROUP_0"
+msgstr "Sprout Meadow"
+
+msgid "GROUP_1"
+msgstr "Robot Crossing"
+
+msgid "GROUP_2"
+msgstr "Dinosaur Grove"
+
+msgid "GROUP_3"
+msgstr "Death’s Clearing"
+
+msgid "CLOSE"
+msgstr "Close"
+
+msgid "CONFIRM"
+msgstr "Confirm"
+
+msgid "CANCEL"
+msgstr "Cancel"
+
+msgid "LEVEL"
+msgstr "LEVEL"
+
+msgid "INVENTORY_HEADING"
+msgstr "Gear"
+
+msgid "SUPPLY_HEADING"
+msgstr "Supplies"
+
+msgid "GEAR_CAPACITY"
+msgstr "GEAR  %d / %d  ·  tap to inspect"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "SUPPLIES  %d / %d  ·  tap to use or automate"
+
+msgid "EMPTY_SLOT"
+msgstr "Empty"
+
+msgid "EQUIPPED"
+msgstr "Equipped"
+
+msgid "AUTO"
+msgstr "Auto"
+
+msgid "UPGRADES"
+msgstr "Upgrades"
+
+msgid "WORLD"
+msgstr "World"
+
+msgid "STATS"
+msgstr "Stats"
+
+msgid "SETTINGS"
+msgstr "Settings"
+
+msgid "PANEL_ITEM"
+msgstr "Item"
+
+msgid "PANEL_UPGRADES"
+msgstr "Player upgrades"
+
+msgid "PANEL_TRAVEL"
+msgstr "Camps & farming"
+
+msgid "PANEL_STATS"
+msgstr "Your build"
+
+msgid "PANEL_SETTINGS"
+msgstr "Settings"
+
+msgid "PANEL_HISTORY"
+msgstr "Recent acquisitions"
+
+msgid "PANEL_PRESTIGE"
+msgstr "A new beginning"
+
+msgid "HELP_0"
+msgstr "Use the joystick to explore north. Release it to auto-fight nearby enemies."
+
+msgid "HELP_1"
+msgstr "Sprouts fight alone. Stay near them to farm; tap dropped gear to collect it."
+
+msgid "HELP_2"
+msgstr "Tap an item on the ground. Coins and gems go straight to your wallet."
+
+msgid "HELP_3"
+msgstr "Tap your new gear below, then equip it. You can wear one outfit and one weapon."
+
+msgid "HELP_4"
+msgstr "Merge a duplicate to strengthen that item type. Its bonus survives using or selling it."
+
+msgid "HELP_5"
+msgstr "Open an enemy type and buy auto-collect to gather its loot while you farm."
+
+msgid "HELP_6"
+msgstr "Grow your build, explore north, and defeat Death. The world is open from the start."
+
+msgid "HELP_7"
+msgstr "Your permanent bonuses remain. Build a stronger run and challenge Death again."
+
+msgid "HELP_VICTORY"
+msgstr "Death defeated! Continue farming or choose a prestige card under World."
+
+msgid "HELP_PAUSED"
+msgstr "Paused · inventory management is available. Resume to continue farming."
+
+msgid "HISTORY_EMPTY"
+msgstr "Your latest finds appear here.\nTap to view the last ten."
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s gems"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "Sold %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "Wooden Sword"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "Stone Sword"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "Iron Sword"
+
+msgid "ITEM_SPROUT"
+msgstr "Sprout Outfit"
+
+msgid "ITEM_ROBOT"
+msgstr "Robot Outfit"
+
+msgid "ITEM_DINOSAUR"
+msgstr "Dinosaur Outfit"
+
+msgid "ITEM_POTION"
+msgstr "Health Potion"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "Coin Tonic"
+
+msgid "ITEM_QUANTITY"
+msgstr "Owned: %s"
+
+msgid "NORMAL_STATS"
+msgstr "Normal stats · improved by merging"
+
+msgid "EXTRA_STATS"
+msgstr "Extra stats · shared by this item type"
+
+msgid "EQUIP"
+msgstr "Equip"
+
+msgid "UNEQUIP"
+msgstr "Unequip"
+
+msgid "REROLL"
+msgstr "Reroll both extras · %d gems"
+
+msgid "REROLL_CONFIRM"
+msgstr "Spend %d gems to replace both extra stats? The new roll replaces the old one, even if weaker."
+
+msgid "USE"
+msgstr "Use one"
+
+msgid "MERGE_ONE"
+msgstr "Merge one spare copy"
+
+msgid "MERGE_ALL"
+msgstr "Merge %d spare copies"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "At ^100, spend 100 spare copies for one next-tier item. Keep the source item and its merge level. A target stack or empty slot of the same category is required."
+
+msgid "EVOLVE"
+msgstr "Evolve → %s"
+
+msgid "SELL_ONE"
+msgstr "Sell one spare · +%d coins"
+
+msgid "SELL_ALL"
+msgstr "Sell %d spare copies · +%d coins"
+
+msgid "SELL_CONFIRM"
+msgstr "Sell %d %s for %d coins? Merge progress and shared extras remain."
+
+msgid "AUTO_SELL_STATUS"
+msgstr "Sell future pickups: %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "Toggle automation for this slot"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "Use this slot automatically: %s"
+
+msgid "ON"
+msgstr "On"
+
+msgid "OFF"
+msgstr "Off"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "This slot is empty. New item types need an empty slot; existing types stack together."
+
+msgid "BUY_POTION"
+msgstr "Buy Health Potion · 10 coins"
+
+msgid "BUY_BOOST"
+msgstr "Buy Coin Tonic · 30 coins"
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "Group upgrades affect every member. Each enemy rolls its own loot. Coins and gems credit immediately."
+
+msgid "GROUP_SELECT"
+msgstr "Enemy group: %s · tap to change"
+
+msgid "AUTOMATION_HEADING"
+msgstr "Inventory & automation · retained through prestige"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "coins"
+
+msgid "GEMS"
+msgstr "gems"
+
+msgid "SELL_LIST_EXPLAIN"
+msgstr "Auto-sell list: %d / %d types. Mark known items below. Selected pickups sell when collected, even with a full inventory."
+
+msgid "SELL_RULE"
+msgstr "%s · auto-sell %s"
+
+msgid "TRAVEL_HELP"
+msgstr "Tap a camp on the map to select your respawn point. Unlocking through a camp panel also selects it. No teleporting."
+
+msgid "SPAWN_SELECT"
+msgstr "Select camp %d"
+
+msgid "SPAWN_BUY"
+msgstr "Unlock camp %d · %d coins"
+
+msgid "SELECTED"
+msgstr "Selected"
+
+msgid "FOCUS_HELP"
+msgstr "Unlock farming per enemy type, then choose outfit-only, weapon-only or both. Return to that camp after death. Manual movement cancels farming."
+
+msgid "FOCUS_GROUP"
+msgstr "Farm %s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "Choose a prestige card"
+
+msgid "PRESTIGE_COUNT"
+msgstr "Prestiges completed: %d"
+
+msgid "NO_OFFLINE"
+msgstr "Progress is saved. Offline rewards are planned for the full game; this build does not simulate while closed or backgrounded."
+
+msgid "SAVE_NOW"
+msgstr "Save now"
+
+msgid "SOUND_STATUS"
+msgstr "Sound effects: %s"
+
+msgid "HARD_RESET"
+msgstr "Hard Reset"
+
+msgid "RESET_CONFIRM"
+msgstr "Erase all progression, inventory, automation and prestige cards? Settings will be kept. This cannot be undone."
+
+msgid "LANGUAGE_NOTE"
+msgstr "English is available during development. The other 19 languages will unlock after translation validation."
+
+msgid "CREDITS"
+msgstr "Character & world art: Pixel Plains by SnowHex. Interface: Kenney Fantasy UI Borders (CC0). Font: DejaVu Sans. Premium game · no ads, purchases or tracking."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "Choose one permanent +5% card. Bonuses accumulate across runs. You may close this panel and keep farming."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "Begin a new run with this permanent card? Reset currencies, inventory, item merges/extras, enemy farming upgrades and camps. Keep revealed enemy information, automation levels, inventory capacities and all prestige cards."
+
+msgid "CARD_DAMAGE"
+msgstr "+5% damage · permanent"
+
+msgid "CARD_HP"
+msgstr "+5% maximum health · permanent"
+
+msgid "CARD_COINS"
+msgstr "+5% coin amount · permanent"
+
+msgid "CARD_GEMS"
+msgstr "+5% gem chance (relative) · permanent"
+
+msgid "CARD_LOOT"
+msgstr "+5% gear drop chance (relative) · permanent"
+
+msgid "CARD_MERGE"
+msgstr "+5% normal-stat merge gains · permanent"
+
+msgid "STAT_HP"
+msgstr "Maximum health"
+
+msgid "STAT_DAMAGE"
+msgstr "Damage"
+
+msgid "STAT_DEFENSE"
+msgstr "Defense"
+
+msgid "STAT_CRIT"
+msgstr "Critical chance"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "Critical multiplier"
+
+msgid "STAT_LIFESTEAL"
+msgstr "Lifesteal"
+
+msgid "STAT_REGEN"
+msgstr "Health per second"
+
+msgid "STAT_SPEED"
+msgstr "Attack speed bonus"
+
+msgid "STAT_HEAL"
+msgstr "Healing"
+
+msgid "STAT_COIN_BONUS"
+msgstr "Coin amount bonus"
+
+msgid "NEED_DUPLICATES"
+msgstr "You need a spare copy to merge."
+
+msgid "MERGE_MAX"
+msgstr "This item is at ^100."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "Evolution needs ^100 and 101 source copies."
+
+msgid "INVENTORY_FULL"
+msgstr "No empty slot. Make room or expand this inventory."
+
+msgid "EQUIPPED_PROTECTED"
+msgstr "Unequip before selling your last copy."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "Unlock this automation under Upgrades."
+
+msgid "UNEQUIP_FIRST"
+msgstr "Unequip this item before marking it for auto-sell."
+
+msgid "SELL_LIST_FULL"
+msgstr "Your auto-sell list is full. Upgrade its capacity."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "Unlock another auto-use slot under Upgrades."
+
+msgid "CANNOT_USE"
+msgstr "No usable supply, or your character is dead."
+
+msgid "POTION_CONDITION"
+msgstr "Potions require health below 80% and a 2-second cooldown."
+
+msgid "UPGRADE_MAX"
+msgstr "MAX"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "Not enough coins."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "Not enough gems."
+
+msgid "SPAWN_BOUGHT"
+msgstr "Camp unlocked. Select it to use it for respawning."
+
+msgid "EVOLVED"
+msgstr "Next-tier item acquired. Your source progression remains."
+
+msgid "PLAYER_DIED"
+msgstr "Returning to your selected camp. Nothing is lost."
+
+msgid "BOSS_DEFEATED"
+msgstr "Death defeated! A permanent prestige card awaits."
+
+msgid "PRESTIGED"
+msgstr "A new run begins. Your permanent bonuses remain."
+
+msgid "SAVED"
+msgstr "Progress saved."
+
+msgid "SAVE_ERROR"
+msgstr "Could not save. Your progress remains in memory; please retry."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "Save could not be loaded safely. Saving is disabled until a deliberate Hard Reset."
+
+msgid "ACTION_PREVIEW"
+msgstr "Action · cost and effect"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "Gear capacity +1"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "Supply capacity +1"
+
+msgid "UP_COLLECT"
+msgstr "Unlock auto-collect"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "Collect range +20"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "Collect batch +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "Collect interval −0.4s"
+
+msgid "UP_SELL"
+msgstr "Unlock auto-sell (1 item type)"
+
+msgid "UP_SELL_CAPACITY"
+msgstr "Auto-sell list capacity +1"
+
+msgid "UP_MERGE_GEAR"
+msgstr "Unlock gear auto-merge"
+
+msgid "UP_MERGE_SUPPLIES"
+msgstr "Unlock supply auto-merge"
+
+msgid "UP_MERGE_SPEED"
+msgstr "Merge interval −0.5s"
+
+msgid "UP_AUTO_USE"
+msgstr "Automated supply slots +1"
+
+msgid "UP_USE_SPEED"
+msgstr "Auto-use interval −1s"
+
+msgid "UP_FOCUS"
+msgstr "Unlock focused farming"
+
+msgid "UP_RESPAWN"
+msgstr "Respawn delay −1s"
+
+msgid "UP_LOOT"
+msgstr "Gear drop chance +2 points"
+
+msgid "UP_COIN_CHANCE"
+msgstr "Coin drop chance"
+
+msgid "UP_GEM_CHANCE"
+msgstr "Global gem drop chance"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "Coins per drop +1"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "Global gems per drop"
+
+msgid "CHAT_SURPRISE"
+msgstr "Hey! My outfit!"
+
+msgid "CHAT_LOOT"
+msgstr "I was wearing that!"
+
+msgid "RECENT_HEADER"
+msgstr "Recent finds · tap for history"
+
+msgid "ZOOM_IN"
+msgstr "Zoom in"
+
+msgid "ZOOM_OUT"
+msgstr "Zoom out"
+
+msgid "CAMERA_ZOOM"
+msgstr "Camera zoom"
+
+msgid "PANEL_ENEMY"
+msgstr "Enemy"
+
+msgid "PANEL_CAMP"
+msgstr "Respawn camp"
+
+msgid "TAB_AUTOMATION"
+msgstr "Automation"
+
+msgid "TAB_INVENTORY"
+msgstr "Inventory"
+
+msgid "TAB_SUPPLIES"
+msgstr "Supplies"
+
+msgid "TAB_OVERVIEW"
+msgstr "Overview"
+
+msgid "TAB_UPGRADES"
+msgstr "Upgrades"
+
+msgid "UP_REVEAL_STATS"
+msgstr "Reveal stats · permanent"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "Reveal drops · permanent"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "ENEMY STATS"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "POSSIBLE DROPS"
+
+msgid "UNKNOWN_STATS"
+msgstr "HP ???   •   Damage ???\nAttack interval ???   •   Defense ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "HP %s   •   Damage %s\nAttack every %ss   •   Defense %s"
+
+msgid "DROP_COINS"
+msgstr "Coins ×%s · guaranteed"
+
+msgid "DROP_GEMS"
+msgstr "Gems · %s%% chance · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "One equipment roll chooses one of the two gear items. Gems and supplies roll separately. Chances include your current upgrades."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 percentage point / level · max +15"
+
+msgid "ENEMY_CAT"
+msgstr "Summoned cat"
+
+msgid "CAT_DETAILS"
+msgstr "Death’s summoned minion.\nNo drops or group upgrades."
+
+msgid "CAMP_NAME"
+msgstr "Camp %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "Tap to select"
+
+msgid "CAMP_LOCKED"
+msgstr "Locked · tap to unlock"
+
+msgid "CAMP_HELP"
+msgstr "Select this camp as your respawn point. Your character stays where they are. Unlocking here also selects the camp."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "Respawn camp selected."
+
+msgid "OPEN_PLAYER"
+msgstr "Player upgrades"
+
+msgid "OPEN_GROUP"
+msgstr "Inspect %s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "Onyx Scythe"
+
+msgid "ITEM_REAPER"
+msgstr "Reaper Outfit"
+
+msgid "VARIANT_OUTFIT"
+msgstr "Outfit"
+
+msgid "VARIANT_WEAPON"
+msgstr "Weapon"
+
+msgid "VARIANT_BOTH"
+msgstr "Both"
+
+msgid "ITEM_DETAILS"
+msgstr "Item details"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "Level up!"
+
+msgid "GEAR"
+msgstr "Gear"
+
+msgid "CONSUMABLES"
+msgstr "Supplies"
+
+msgid "HUD_HP"
+msgstr "HP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "Revive in %.1fs"
+
+msgid "HUD_LEVEL"
+msgstr "LEVEL %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "Gear %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "Supplies %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "MERGE %d"
+
+msgid "ITEM_OWNED"
+msgstr "Owned: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "Equipped · 100% contribution"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "Stored · 30% contribution (once per weapon type)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "Merge"
+
+msgid "ITEM_SELL_ACTION"
+msgstr "Sell · %d"
+
+msgid "LESS_OPTIONS"
+msgstr "Less options"
+
+msgid "MORE_OPTIONS"
+msgstr "More options"
+
+msgid "LOOT_HISTORY"
+msgstr "Loot history"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "LEVEL %d / 1,000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "LEVEL %d · HP and damage increased"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "Tap supply to use · Hold for details"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "Next merge: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "Achievements"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "Shared by all camps of this enemy type. Collection upgrades persist; other type upgrades reset on prestige."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 percentage point / level · max +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "+10% XP / level · max +200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "Consumable drop chance"
+
+msgid "UP_GROUP_XP"
+msgstr "Experience earned"
+
+msgid "GROUP_XP_VALUE"
+msgstr "XP per kill: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "Permanent kill milestones, shared across this enemy type’s camps. Rewards apply automatically and survive prestige."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "Against this type: +%.0f%% damage · +%.1f percentage points gem chance"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · %d kills\nReward: +%.0f%% damage and +%.1f percentage points gem chance for this type"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "Completed"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "Kill achievements"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%.0f%% damage · +%.1f points gem chance"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "Automatically merges this enemy type’s weapons and outfits."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "+%s coins per kill / level"
+
+msgid "ACTION_PAUSED"
+msgstr "Unavailable while paused"
+
+msgid "ACTION_SUSPENDED"
+msgstr "Unavailable while app is inactive"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "Requirements not met"
+
+msgid "VALUE_MAX"
+msgstr "MAX"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s XP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s s"
+
+msgid "HP_PER_SECOND"
+msgstr "HP/s"
+
+msgid "STAT_SOURCES"
+msgstr "Stat contributions (before multipliers and caps)"
+
+msgid "SOURCE_BASE"
+msgstr "Base stats"
+
+msgid "SOURCE_LEVEL"
+msgstr "Player levels"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "Equipped gear"
+
+msgid "SOURCE_STORED"
+msgstr "Stored weapons"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "Permanent bonuses: HP ×%s · Damage ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "Totals above include caps: critical chance 75%, critical damage ×4, lifesteal 15%, attack speed bonus 200%."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "Potion: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "Tonic: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · Tier %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "Tier %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · T%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "Gems"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "Applies to every enemy. Resets on prestige. Enemy achievement bonuses remain specific to each type."
+
+msgid "FARM_VARIANT"
+msgstr "Farm %s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "Farming selection: %s. Returns here after respawning."
+
+msgid "MAX_ITEM_TIER"
+msgstr "Final tier reached. Merging is still available up to ^100."
+
+msgid "TAB_PLAYER"
+msgstr "Player"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "Enemies per spot"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "Enemy respawn delay"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "Boss gem chance"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "Boss gems per drop"
+

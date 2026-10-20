@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Theme" path="res://resources/game/theme.tres" id="theme"]
+[node name="Action" type="Button"]
+custom_minimum_size=Vector2(0,72)
+size_flags_horizontal=3
+theme=ExtResource("theme")
+alignment=0
+autowrap_mode=2
+text="ACTION_PREVIEW"

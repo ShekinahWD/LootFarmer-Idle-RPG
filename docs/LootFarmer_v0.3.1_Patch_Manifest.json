@@ -1,0 +1,90 @@
+{
+  "version": "0.3.1",
+  "requires": "LootFarmer prototype v0.3",
+  "files": [
+    {
+      "path": "docs/LootFarmer_Asset_Registry.md",
+      "sha256": "bff5dc386751362e3bb04e113b29195a9bcb02f5648bce9e940b2b5a5cdd7a95"
+    },
+    {
+      "path": "docs/LootFarmer_Prototype_Status.md",
+      "sha256": "fb296dba7ad967baf80145910b962f342c9814979d82aa8b28654b177c72a16b"
+    },
+    {
+      "path": "docs/Visual_Correction_Evidence/Attack.png",
+      "sha256": "1da759596c64f23fa77ef588af95f31a7d16642ee9b2cdecb71905e2d254c391"
+    },
+    {
+      "path": "docs/Visual_Correction_Evidence/Gameplay.png",
+      "sha256": "3d72277f226512548ff07af78535190e242d035e554bef5f805c1d91dcd28bcd"
+    },
+    {
+      "path": "docs/Visual_Correction_Evidence/visual-bootstrap.log",
+      "sha256": "ac8ac0125f5fa3a2a97e116e57a20a644b3a7b1eebb13df66e4db5c62a3d239c"
+    },
+    {
+      "path": "docs/Visual_Correction_Evidence/visual-gameplay.log",
+      "sha256": "9ae1b7d40a81ea2dfdb49d0b993019b92688b88f5114d7053815b7c8dff3453c"
+    },
+    {
+      "path": "docs/Visual_Correction_Evidence/visual-ui.log",
+      "sha256": "3123d903ed4a7aa51f02367dc38d8cee1d801de18b34bc9cbcdc60ee78e5edec"
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "b0be0ea0c2d818a870f99c211baafda21f170dce264dea889cb5dbbce4807791"
+    },
+    {
+      "path": "localization/en.po",
+      "sha256": "f83554aaf9bb967a26538364e1e6515ac67740cb09e6410359e522289157d2c4"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "be827b215d174caa4401953ffeeefb6ad379dec7cef2847faae2ad3c72b3e31f"
+    },
+    {
+      "path": "resources/game/theme.tres",
+      "sha256": "b9b4000e61f4d4dc785e8232902ed69f9e49c90374f8688e6ee5cdecace53733"
+    },
+    {
+      "path": "scenes/game/actor.tscn",
+      "sha256": "c713b866258248742867ac86e6ef1dac3fe8af6cf5c7868fe352163211e60ee9"
+    },
+    {
+      "path": "scenes/game/main.tscn",
+      "sha256": "1977eb9f2d8758e1ac63c22058b37ff1ac41e52d7c9245ec541570d2e1cf9744"
+    },
+    {
+      "path": "scenes/game/world.tscn",
+      "sha256": "cea10e46120278567fb92c29ec76e42f0c9c53dec9b61a51488ac120b695c9b0"
+    },
+    {
+      "path": "scripts/autoload/settings_state.gd",
+      "sha256": "b6e743216fbb6d9bfde59394a6eb07033475a551e1f0c767495fbc83ecd98e95"
+    },
+    {
+      "path": "scripts/game/actor_view.gd",
+      "sha256": "c75bcd81814028d115f7c25a62baa00dd3baf5b61d7698270987b32408256862"
+    },
+    {
+      "path": "scripts/game/catalog.gd",
+      "sha256": "8892f1ab2d46f7c9d822ad6b5fb9b5bc854b388656561ec1337c3e93ca6c8a43"
+    },
+    {
+      "path": "scripts/game/game_ui.gd",
+      "sha256": "c176223c1bd674301a17e5aa160921468dc382d351cd9c36a6c7bbf3837bd192"
+    },
+    {
+      "path": "scripts/game/simulation.gd",
+      "sha256": "c1170c36dcdeab5f1fd481f6037433170fdc072a95af428b8582c2c2daf3cf28"
+    },
+    {
+      "path": "scripts/game/world.gd",
+      "sha256": "9ed9a89bb4da5ebe6d6800ce985ab106496a16964b96bea185552a4dbddb055b"
+    },
+    {
+      "path": "tests/ui_probe.gd",
+      "sha256": "a0214508ec32f044a454febc319ae44f172bf1a3295c7baf088f2fd7070f6a4b"
+    }
+  ]
+}

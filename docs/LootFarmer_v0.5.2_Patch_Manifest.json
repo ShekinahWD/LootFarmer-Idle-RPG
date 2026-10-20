@@ -1,0 +1,19 @@
+{
+  "version": "0.5.2",
+  "base": "0.5.1",
+  "files": [
+    "docs/LootFarmer_v0.5.2_Notes.md",
+    "localization/en.po",
+    "project.godot",
+    "scripts/game/game_ui.gd",
+    "scripts/game/map_gestures.gd",
+    "scripts/game/simulation.gd",
+    "scripts/game/world.gd",
+    "tests/camera_probe.gd",
+    "tests/gameplay_probe.gd",
+    "tests/progression_probe.gd",
+    "tests/targeting_probe.gd",
+    "tests/targeting_probe.tscn",
+    "ui/bootstrap_theme.tres"
+  ]
+}

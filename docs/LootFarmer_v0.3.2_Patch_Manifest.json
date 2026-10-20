@@ -1,0 +1,82 @@
+{
+  "version": "0.3.2",
+  "requires": "LootFarmer v0.3.1",
+  "files": [
+    {
+      "path": "docs/Camera_Gesture_Evidence/Slider.png",
+      "sha256": "933aa8aa9c4f047ecad6e4dcb899bfdbb0eb3688f1f9e529b66717096dec3c5a"
+    },
+    {
+      "path": "docs/Camera_Gesture_Evidence/gesture-camera.log",
+      "sha256": "92c2751261da89f20afa0b3e6f0fbf0a99ef2f9d77ddc09e5d19b2d6721b63ce"
+    },
+    {
+      "path": "docs/Camera_Gesture_Evidence/gesture-ui.log",
+      "sha256": "3123d903ed4a7aa51f02367dc38d8cee1d801de18b34bc9cbcdc60ee78e5edec"
+    },
+    {
+      "path": "docs/LootFarmer_Asset_Registry.md",
+      "sha256": "2c58c7f9f47068e6de388d9238a4c4474e6969b6fd96591fc87c089a843dbb8f"
+    },
+    {
+      "path": "docs/LootFarmer_Prototype_Status.md",
+      "sha256": "0d6cbba44a5f4509e785da4e8a8a0043383e25453a0902e7c8869ac6d4070fef"
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "3e401f5b2c7d4d517622714b526b412f09d3bae21075e1524ee987e66afd9741"
+    },
+    {
+      "path": "localization/en.po",
+      "sha256": "f4297c8e4ed6a16f1a7c549714a76c7ca0e296d0444e5b4be8d9ce71487511bc"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "979b2aefd1a7d487102947ff779ae9af53750b3930333e064629592a45073ad4"
+    },
+    {
+      "path": "resources/game/art/zoom_handle.svg",
+      "sha256": "ee0d71567649e92214fa885741d70a9989ee1d48f14fc691b6de652fe9340d28"
+    },
+    {
+      "path": "resources/game/theme.tres",
+      "sha256": "8e0368723ffc4656fe2d7afb9e31ba4cb0e560c1e414de116381eebf9f3df12d"
+    },
+    {
+      "path": "scenes/game/main.tscn",
+      "sha256": "cc7389ab9c94b3e7ace1e16467a78a39d9db97d28db1ae06edc34017aa798ce4"
+    },
+    {
+      "path": "scripts/game/game_ui.gd",
+      "sha256": "50db02b42c9b6ca5e6e63566ee6559ec223745252a02a9830ff4bd5f32b3ca16"
+    },
+    {
+      "path": "scripts/game/map_gestures.gd",
+      "sha256": "da8d001e95fc2747f874dc3515d9cf6300ab90455396935085722e3b08590daf"
+    },
+    {
+      "path": "scripts/game/map_gestures.gd.uid",
+      "sha256": "f7c042236ccade25ab4c1e8e56a8f1c6245babde09b3e082a805ee444c7c777d"
+    },
+    {
+      "path": "scripts/game/world.gd",
+      "sha256": "3395802904438a3e53fe07a973201444a3fa982fc5ef8dea46a6b36fdccf442e"
+    },
+    {
+      "path": "tests/camera_probe.gd",
+      "sha256": "cb1f46409828e72ed694f41af72e5e6cb1c12c74dfe0b64592452b7f8ccf3a6a"
+    },
+    {
+      "path": "tests/camera_probe.gd.uid",
+      "sha256": "df15d493e59928519995569ca72ccf875f19dcdfd75fe33ea07f75e8f5a1514b"
+    },
+    {
+      "path": "tests/camera_probe.tscn",
+      "sha256": "92f91e65077d0a0e378c2a3fd8f983dff3782fae500b029f713c9335a0679678"
+    },
+    {
+      "path": "tests/ui_probe.gd",
+      "sha256": "194140f78e98dad552cc06e1a9683dc3e4a43fcf668eb1e7127325e490106e95"
+    }
+  ]
+}

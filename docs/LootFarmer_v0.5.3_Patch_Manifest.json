@@ -1,0 +1,15 @@
+{
+  "version": "0.5.3",
+  "base": "0.5.2",
+  "files": [
+    "docs/LootFarmer_v0.5.3_Notes.md",
+    "project.godot",
+    "scenes/game/main.tscn",
+    "scripts/game/actor_view.gd",
+    "scripts/game/game_ui.gd",
+    "scripts/game/simulation.gd",
+    "tests/feedback_probe.gd",
+    "tests/feedback_probe.tscn",
+    "tests/targeting_probe.gd.uid"
+  ]
+}

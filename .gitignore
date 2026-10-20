@@ -1,0 +1,59 @@
+# Godot-generated caches (keep authored .gdignore files and *.gd.uid files tracked)
+/.godot/
+
+# Generated Android Gradle workspace and export artifacts
+# If you customize Android template/plugin code, preserve it in a reproducible
+# source/patch/install process instead of relying on this ignored workspace.
+/android/
+/builds/
+*.apk
+*.aab
+*.pck
+
+# Generated marketing assets and raw recordings
+# KEEP /marketing/ (scenario adapters, manifests and approved source copy).
+/store_assets/
+/recordings/
+
+# Temporary marketing capture override, never a committed project setting
+/override.cfg
+
+# Test scratch files and Python tooling caches
+/tests/tmp/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Signing materials and local environment secrets: NEVER commit these
+*.keystore
+*.jks
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example
+
+# Local archives and temporary files
+/*.zip
+/*.7z
+/*.rar
+*.tmp
+*.swp
+*.swo
+*~
+
+# OS/editor metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+
+# DO NOT ignore /addons/, /Godot-Marketing-Toolkit/, /marketing/,
+# docs, source assets, .gdignore, *.gd.uid, marketing_capture_toolkit.lock.json,
+# or approved toolkit fonts/licenses. They are required for reproducible builds.

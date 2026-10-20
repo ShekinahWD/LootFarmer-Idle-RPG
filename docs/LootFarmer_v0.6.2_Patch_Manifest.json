@@ -1,0 +1,23 @@
+{
+  "version": "0.6.2",
+  "requires": "0.6.1",
+  "files": {
+    "docs/LootFarmer_GDD.md": "5511b3861f2229615cc55b9a10875e6a0fa58f088ff36b586076d5254f20196d",
+    "docs/LootFarmer_Prototype_Status.md": "5a584944a1bf639e3ac9c5a860a1014132f20731a7e330936912a0d78d9ea69b",
+    "docs/LootFarmer_v0.6.2_Notes.md": "c8d7e48d16b7b5f42ed52a07fbd86ed701b2eb51cf7b2e866d94d829e9d71e50",
+    "localization/en.po": "2b647e479826078389573537fdca884965b150e4af266572ba92167e8ef99024",
+    "project.godot": "51a8bb9c42e1d52d9fe7f6dbb26a44df9126cf84443ec162cf370733cb8d1e50",
+    "scenes/game/main.tscn": "c228ef9272a775e6c6a1389c1759e5e9e2f12e2697ee2e9983fbfa1a56d8459e",
+    "scripts/game/actor_view.gd": "b103db863e158ee9f78582680e6041932680c8d2d37b482d9dc6a92459c250fd",
+    "scripts/game/game_ui.gd": "1aca35919c908eec587ab41439e530b98555f65a283265a28a12cfd120bbccf1",
+    "scripts/game/inventory_slot.gd": "b59e03d139e63d9b028338cb6afccf7f1bd4f020f0d726582308a31f259b2c9d",
+    "scripts/game/simulation.gd": "c19c8c7261cbd1d452e8e59be06fdbd38e2ed1afdf591c9e8ea5b6da9bc6d744",
+    "scripts/game/touch_scroll.gd": "5a082c196e95e6c1172d9ff4d27f25689c98f6fe606910ad524617bc31443ed8",
+    "scripts/game/touch_scroll.gd.uid": "380cf8c56c5c8565f808c0b9562a76cfcae65ac19ca7ada2d3d87333116d4ebd",
+    "scripts/game/world.gd": "1ca35fa302526444cd37497874e0296a68dd4f2cefb6961e5d1ec5b002b8be62",
+    "tests/audit_probe.gd": "effbef12bcefb95660c50d632aa3fc8450032c21a52a62344d31198d9d228b16",
+    "tests/audit_probe.gd.uid": "caab484efe7113d17f055f53a4d1b468ae255562282194e368e82a4544e697da",
+    "tests/audit_probe.tscn": "01129078e4bdc4fc3fa288cc7f1a0c6370ccdaeb968daaec2ff65e0d02ce3296"
+  },
+  "deleted": []
+}

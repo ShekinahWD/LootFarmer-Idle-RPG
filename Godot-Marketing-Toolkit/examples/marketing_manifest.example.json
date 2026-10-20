@@ -1,0 +1,297 @@
+{
+  "game_scene": "res://scenes/main.tscn",
+  "adapter_script": "res://marketing/game_scenarios.gd",
+  "ui_group": "store_screenshot_ui",
+  "godot_user_args": [
+    "--save-path=user://marketing_capture_test.json",
+    "--fresh-save",
+    "--no-autosave"
+  ],
+  "capture_jobs": [
+    {
+      "id": "hero_screenshot_phone",
+      "kind": "screenshot",
+      "scenario": "show_main_gameplay",
+      "options": {
+        "seed": 12345,
+        "camera": "hero"
+      },
+      "width": 1920,
+      "height": 1080,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../marketing_output/raw/hero_phone.png",
+      "capture_frame": 30
+    },
+    {
+      "id": "battle_video_landscape",
+      "kind": "video",
+      "scenario": "action_gameplay",
+      "options": {
+        "seed": 12345,
+        "camera": "battle"
+      },
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 4.0,
+      "capture_ui": true,
+      "output": "../marketing_output/raw/battle_landscape.avi"
+    },
+    {
+      "id": "building_video_landscape",
+      "kind": "video",
+      "scenario": "building_gameplay",
+      "options": {
+        "seed": 12345,
+        "camera": "building"
+      },
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 6.0,
+      "capture_ui": true,
+      "output": "../marketing_output/raw/building_landscape.avi"
+    }
+  ],
+  "text_renderer": "auto",
+  "quality": "high",
+  "fonts": {
+    "default": "fonts/your_licensed_latin_font.ttf",
+    "th-TH": [
+      "fonts/your_licensed_latin_font.ttf",
+      {
+        "file": "toolkit:NotoSansThai[wdth,wght].ttf",
+        "weight": 700
+      }
+    ],
+    "hi-IN": [
+      "fonts/your_licensed_latin_font.ttf",
+      {
+        "file": "toolkit:NotoSansDevanagari[wdth,wght].ttf",
+        "weight": 700
+      }
+    ],
+    "ja-JP": [
+      "fonts/your_licensed_latin_font.ttf",
+      {
+        "file": "toolkit:NotoSansJP[wght].ttf",
+        "weight": 700
+      }
+    ],
+    "ko-KR": [
+      "fonts/your_licensed_latin_font.ttf",
+      {
+        "file": "toolkit:NotoSansKR[wght].ttf",
+        "weight": 700
+      }
+    ],
+    "zh-CN": [
+      "fonts/your_licensed_latin_font.ttf",
+      {
+        "file": "toolkit:NotoSansSC[wght].ttf",
+        "weight": 700
+      }
+    ],
+    "zh-TW": [
+      "fonts/your_licensed_latin_font.ttf",
+      {
+        "file": "toolkit:NotoSansTC[wght].ttf",
+        "weight": 700
+      }
+    ]
+  },
+  "strings": {
+    "en-US": {
+      "SCREENSHOT.HERO": "BUILD YOUR WORLD",
+      "VIDEO.BATTLE": "COMMAND THE ACTION",
+      "VIDEO.CARD": "CHOOSE YOUR STRATEGY",
+      "SOCIAL.HOOK": "CAN YOU HOLD THE LINE?",
+      "SOCIAL.NAME": "YOUR GAME",
+      "SOCIAL.FEATURE": "BUILD AS YOU FIGHT"
+    },
+    "es-419": {
+      "SCREENSHOT.HERO": "CONSTRUYE TU MUNDO",
+      "VIDEO.BATTLE": "DIRIGE LA ACCIÓN",
+      "VIDEO.CARD": "ELIGE TU ESTRATEGIA",
+      "SOCIAL.HOOK": "¿PUEDES RESISTIR?",
+      "SOCIAL.NAME": "TU JUEGO",
+      "SOCIAL.FEATURE": "CONSTRUYE MIENTRAS LUCHAS"
+    }
+  },
+  "screenshots": [
+    {
+      "id": "hero",
+      "raw": "../marketing_output/raw/hero_phone.png",
+      "output": "../marketing_output/marketing/hero.png",
+      "headline": false
+    },
+    {
+      "id": "hero_headline_exception",
+      "raw": "../marketing_output/raw/hero_phone.png",
+      "output": "../marketing_output/marketing/hero_headline_exception.png",
+      "headline": true,
+      "headline_key": "SCREENSHOT.HERO",
+      "position": "top"
+    }
+  ],
+  "output_root": "../marketing_output",
+  "style": {
+    "text_color": "#FFFFFF",
+    "subtitle_color": "#F2C454",
+    "accent_color": "#F2C454",
+    "band_opacity": 0.62,
+    "text_fade": 0.2
+  },
+  "videos": [
+    {
+      "profile": "play_store",
+      "target_duration": 11.0,
+      "output": "../marketing_output/marketing/trailer.mp4",
+      "shots": [
+        {
+          "id": "battle",
+          "kind": "clip",
+          "source": "../marketing_output/raw/battle_landscape.avi",
+          "duration": 4.0,
+          "headline_key": "VIDEO.BATTLE",
+          "position": "top"
+        },
+        {
+          "id": "title",
+          "kind": "card",
+          "duration": "auto",
+          "headline_key": "VIDEO.CARD",
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "building",
+          "kind": "clip",
+          "source": "../marketing_output/raw/building_landscape.avi",
+          "start": 0.0,
+          "duration": "fill",
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        }
+      ],
+      "id": "trailer",
+      "fade_out": 0.6,
+      "music": "audio/your_licensed_music.wav",
+      "music_volume": 0.8,
+      "game_audio": true,
+      "game_volume": 0.6
+    },
+    {
+      "id": "social_hook",
+      "profile": "tiktok",
+      "target_duration": 9.0,
+      "output": "../marketing_output/marketing/social/social_hook.mp4",
+      "music": "audio/your_licensed_music.wav",
+      "music_start": 0.0,
+      "music_fade_out": 0.5,
+      "game_audio": true,
+      "game_volume": 0.4,
+      "shots": [
+        {
+          "id": "hook",
+          "kind": "clip",
+          "source": "../marketing_output/raw/battle_landscape.avi",
+          "start": 0.5,
+          "duration": 3.5,
+          "reframe": {
+            "x": 0.5,
+            "y": 0.5,
+            "width": 0.46
+          },
+          "headline_key": "SOCIAL.HOOK",
+          "position": "top"
+        },
+        {
+          "id": "loop",
+          "kind": "clip",
+          "source": "../marketing_output/raw/building_landscape.avi",
+          "duration": "fill",
+          "reframe": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "transition_in": {
+            "type": "cut"
+          }
+        },
+        {
+          "id": "brand",
+          "kind": "card",
+          "duration": "auto",
+          "headline_key": "SOCIAL.NAME",
+          "text_min_hold": 1.9,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        }
+      ]
+    },
+    {
+      "id": "social_full_frame",
+      "profile": "tiktok",
+      "target_duration": 10.0,
+      "output": "../marketing_output/marketing/social/social_full_frame.mp4",
+      "music": "audio/your_licensed_music.wav",
+      "music_start": 0.0,
+      "music_fade_out": 0.5,
+      "game_audio": true,
+      "game_volume": 0.4,
+      "shots": [
+        {
+          "id": "hook_full",
+          "kind": "clip",
+          "source": "../marketing_output/raw/battle_landscape.avi",
+          "start": 0.5,
+          "duration": 3.5,
+          "reframe": {
+            "x": 0.5,
+            "y": 0.5,
+            "width": 1.0,
+            "fill": "black"
+          },
+          "headline_key": "SOCIAL.HOOK",
+          "position": "top"
+        },
+        {
+          "id": "feature_full",
+          "kind": "clip",
+          "source": "../marketing_output/raw/building_landscape.avi",
+          "duration": "fill",
+          "reframe": {
+            "x": 0.5,
+            "y": 0.5,
+            "width": 1.0,
+            "fill": "black"
+          },
+          "headline_key": "SOCIAL.FEATURE",
+          "position": "top",
+          "transition_in": {
+            "type": "cut"
+          }
+        },
+        {
+          "id": "brand",
+          "kind": "card",
+          "duration": "auto",
+          "headline_key": "SOCIAL.NAME",
+          "text_min_hold": 1.9,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        }
+      ]
+    }
+  ]
+}

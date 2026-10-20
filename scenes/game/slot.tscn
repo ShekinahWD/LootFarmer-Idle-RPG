@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Theme" path="res://resources/game/theme.tres" id="theme"]
+[ext_resource type="Script" path="res://scripts/game/inventory_slot.gd" id="script"]
+[node name="Slot" type="Button"]
+custom_minimum_size=Vector2(100,100)
+script=ExtResource("script")
+theme=ExtResource("theme")
+theme_type_variation=&"Slot"
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode=0
+anchor_right=1.0
+anchor_bottom=1.0
+offset_left=20.0
+offset_top=24.0
+offset_right=-20.0
+offset_bottom=-32.0
+mouse_filter=2
+expand_mode=1
+stretch_mode=5
+texture_filter=1
+[node name="Count" type="Label" parent="."]
+layout_mode=0
+anchor_top=1.0
+anchor_right=1.0
+anchor_bottom=1.0
+offset_left=6.0
+offset_top=-28.0
+offset_right=-6.0
+offset_bottom=-4.0
+text="EMPTY_SLOT"
+horizontal_alignment=1
+theme_override_font_sizes/font_size=17
+mouse_filter=2
+[node name="Badge" type="Label" parent="."]
+layout_mode=0
+offset_left=5.0
+offset_top=0.0
+anchor_right=1.0
+offset_right=-5.0
+offset_bottom=24.0
+theme_override_font_sizes/font_size=15
+mouse_filter=2
+
+[node name="Cooldown" type="Label" parent="."]
+layout_mode=1
+anchor_right=1.0
+anchor_bottom=1.0
+horizontal_alignment=1
+vertical_alignment=1
+theme_override_font_sizes/font_size=26
+theme_override_colors/font_color=Color(1,1,1,1)
+theme_override_colors/font_outline_color=Color(0,0,0,1)
+theme_override_constants/outline_size=6
+mouse_filter=2

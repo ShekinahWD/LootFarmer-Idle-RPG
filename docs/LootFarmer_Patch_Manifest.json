@@ -1,0 +1,166 @@
+{
+  "source_archive": "01-lootFarmer.zip",
+  "status": "bootstrap-source-prepared-android-gate-pending",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "c5ae99bc9400e23707ce680d7e88b0f276ad3fca31562c31b826e48a6acc7743"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "8e47954aa5084f47dcaa046aebd95b0edd170bbc16c7812c173a84f327daa7bb"
+    },
+    {
+      "path": "addons/marketing_capture/capture_runner.gd",
+      "sha256": "2c872c783f7fc5181a9c1979ea80161acb105be35508a7ef673e9192dcefc77b"
+    },
+    {
+      "path": "addons/marketing_capture/capture_runner.tscn",
+      "sha256": "5d9d86547a318481d24ae291129c98338d0ba61db6919ac93b2e305336e16d09"
+    },
+    {
+      "path": "addons/marketing_capture/marketing_fonts.gd",
+      "sha256": "863383a1469dad9f4ba28f48be0dd4833221e91bdb3d52516b8f6be3652cc406"
+    },
+    {
+      "path": "addons/marketing_capture/scenario_adapter.gd",
+      "sha256": "886d98e35bdae3fd9724ef30f6f278f5d8443bd7273e5fe85e2200510cee6f10"
+    },
+    {
+      "path": "addons/marketing_capture/text_renderer.gd",
+      "sha256": "1427188bee38aec75f47c08e9d282848b4c52714b8fdff511ac96f157437ea56"
+    },
+    {
+      "path": "addons/store_screenshot_capture/README.md",
+      "sha256": "d48cdab9316436899b3d5f16882946a85799b1dc0dc3b1a56464d82e1773ea9e"
+    },
+    {
+      "path": "addons/store_screenshot_capture/editor_dock.gd",
+      "sha256": "1439be37f0b75c35a84248adcc62cdee60cf74f025ece35f3c687296cc3a81b4"
+    },
+    {
+      "path": "addons/store_screenshot_capture/plugin.cfg",
+      "sha256": "beada6554a9db6484c0b065c579170815f392c7197a320d079e8d24a04555869"
+    },
+    {
+      "path": "addons/store_screenshot_capture/plugin.gd",
+      "sha256": "0ff1d07f49111e7cfc75a6f085bed7050ac16c25307638f8c4a61f2e4d5294cd"
+    },
+    {
+      "path": "addons/store_screenshot_capture/runtime_capture.gd",
+      "sha256": "e8e33b3cd15d46974cbe5a959b0222356b13f5227e2a5a9768fdf0de61e9c945"
+    },
+    {
+      "path": "addons/store_screenshot_capture/viewport_capture.gd",
+      "sha256": "6df598ebb756eb727ddeb5d5e744fd2c7e70df93ecf76415f08577850b2393be"
+    },
+    {
+      "path": "bootstrap_manifest.json",
+      "sha256": "329fbe0586be6525718d7b32dac4e0341450da237872a9b8562c8c3193427cba"
+    },
+    {
+      "path": "docs/LootFarmer_Bootstrap_Status.md",
+      "sha256": "5e3a3e018b6a17355d0684b708ae26106138a2cb5cb8b4795ead05aa73a3e4b5"
+    },
+    {
+      "path": "docs/LootFarmer_Checkpoints.md",
+      "sha256": "d48ced9f0107bb821d8f85f40e3e2c33fd94f953b9945501a0afc6d6c7597146"
+    },
+    {
+      "path": "docs/LootFarmer_Design_Audit.md",
+      "sha256": "7d28ed1da7faf7a5fd0acda5c6bb6fa269268d8eee9a0a489a5b346a74c5502e"
+    },
+    {
+      "path": "docs/LootFarmer_Design_README.md",
+      "sha256": "e942cd2b17a05718c961e5f0d9e7b316f7a8b8113f6aef470bc095185c084411"
+    },
+    {
+      "path": "docs/LootFarmer_GDD.md",
+      "sha256": "ea0af2a59c7715a27b29c6bb3f9751aaa282fc47a7ef266aafb1fc71b552afeb"
+    },
+    {
+      "path": "docs/Reusable_Game_Development_Playbook.md",
+      "sha256": "d01a31943fc66079e149f8ab8421c9d756a867c6541ed104aec36af7ad0aaaba"
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "557eaa3c036658b8e92872f4e8a42fba3f7c29e85804d26bad431a6e58eccd84"
+    },
+    {
+      "path": "icon.svg",
+      "sha256": "b0660604ded76138569f4aa4588ef73fe71008e9e761023e7c601bfa25b34977"
+    },
+    {
+      "path": "localization/en.po",
+      "sha256": "bee25d73da785b830d4bd6d19c2e99421883770ea2740f5377cbc50357e668e6"
+    },
+    {
+      "path": "marketing_capture_toolkit.lock.json",
+      "sha256": "50c5563e9f3aad268799be908e96a41f26e9277fb19dd348c284e5fe4f517203"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "7f40309645fa1aed913f849f302941f748d8fd11983a54d0fe9779bd28012706"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "sha256": "32ee3e8c4be114bed1143989a3f97f09299346daa94abface315ecb9e5704b0a"
+    },
+    {
+      "path": "scripts/autoload/audio_service.gd",
+      "sha256": "4881c4eab9e0c77da288b954b1889ca7a835f6f2821853f038c566e0dc03098c"
+    },
+    {
+      "path": "scripts/autoload/boot_context.gd",
+      "sha256": "014153fd9e4d84bba305e2cef1d0d5f7305cd91549123c5d5d6107bad7ce5c97"
+    },
+    {
+      "path": "scripts/autoload/layout_service.gd",
+      "sha256": "ab3916fb9b4cfb365a7382b03d584867bbd48c2f3a6adea11e3329cd32fc8f3f"
+    },
+    {
+      "path": "scripts/autoload/localization_service.gd",
+      "sha256": "75771c827a9d7b2751d5df2270b39ae38e4c8fc599e03135adbfb9118824676c"
+    },
+    {
+      "path": "scripts/autoload/number_format.gd",
+      "sha256": "1927e00c7fec6798d267cfe7dcb4c3479eed66bbe500f414572aa4f34242dc9b"
+    },
+    {
+      "path": "scripts/autoload/save_service.gd",
+      "sha256": "08655127f7c6b5872517db64b8198d7fb93c84a6aa5b86abf9a9b460f5069021"
+    },
+    {
+      "path": "scripts/autoload/settings_state.gd",
+      "sha256": "d05b76d69f68738697201e1099b40bb52041956f055ba12f1cc07150dafdfe3d"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "e9c992555c29abe1aaf43a7f45186500edc5860b8e69fb936923e6a91f60f1f2"
+    },
+    {
+      "path": "tests/bootstrap_probe.gd",
+      "sha256": "d2748e577b815fc8362c8d3e5dec45f310380e61b476bc833b4923e6a2c8c1b7"
+    },
+    {
+      "path": "tests/bootstrap_probe.tscn",
+      "sha256": "d33c97746d169c3f9084bb76b425efb1f2ceae077c90b58fc833e6c58d429d9e"
+    },
+    {
+      "path": "tools/android_checkpoint0.ps1",
+      "sha256": "de2852fafc52f78e9b8f823ed087597c88b2c8aade043c40aa42e143be7e8561"
+    },
+    {
+      "path": "tools/bootstrap_new_game.py",
+      "sha256": "7f0a5eec8dda261fd999ab4959ba71d2880adb40c2e53ebedfb795f00683d5ca"
+    },
+    {
+      "path": "tools/validate_bootstrap_source.py",
+      "sha256": "ce114b2ad303d3ddc978c0771f9cf2a7bb5208c476420ca381654a5295121ba3"
+    },
+    {
+      "path": "ui/bootstrap_theme.tres",
+      "sha256": "4c8591872a04c16d49ee83494790bf09267a36f99bf5ea3af0b48735e685837d"
+    }
+  ]
+}

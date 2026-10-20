@@ -1,0 +1,6 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+BOSS_BUILD dinosaur won=true seconds=38.3 hp=113.532051282074 stats={ "hp": 175.0, "damage": 42.0, "defense": 4.0, "crit": 0.05, "crit_damage": 1.5, "lifesteal": 0.04, "regen": 1.0, "speed": 0.06 }
+BOSS_BUILD robot won=false seconds=31.2 hp=0.0 stats={ "hp": 115.0, "damage": 42.0, "defense": 4.0, "crit": 0.1, "crit_damage": 1.75, "lifesteal": 0.015, "regen": 0.0, "speed": 0.06 }
+BOSS_BUILD sprout won=true seconds=38.3 hp=11.8653846153847 stats={ "hp": 145.0, "damage": 42.0, "defense": 4.0, "crit": 0.05, "crit_damage": 1.5, "lifesteal": 0.015, "regen": 0.0, "speed": 0.06 }
+BOSS_LOADOUT_GATE wins=2 required=2

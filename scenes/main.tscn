@@ -1,0 +1,264 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="Theme" path="res://ui/bootstrap_theme.tres" id="2_theme"]
+
+[node name="Main" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_main")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.065, 0.09, 0.12, 1)
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="Scroll" type="ScrollContainer" parent="SafeArea"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Content" type="VBoxContainer" parent="SafeArea/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="Title" type="Label" parent="SafeArea/Scroll/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "APP_TITLE"
+autowrap_mode = 3
+
+[node name="Subtitle" type="Label" parent="SafeArea/Scroll/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "BOOT_TITLE"
+autowrap_mode = 3
+
+[node name="Detail" type="Label" parent="SafeArea/Scroll/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 22
+text = "BOOT_DETAIL"
+autowrap_mode = 3
+
+[node name="Version" type="Label" parent="SafeArea/Scroll/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 22
+text = ""
+autowrap_mode = 3
+
+[node name="Count" type="Label" parent="SafeArea/Scroll/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = ""
+autowrap_mode = 3
+
+[node name="Status" type="Label" parent="SafeArea/Scroll/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 22
+text = ""
+autowrap_mode = 3
+
+[node name="Tap" type="Button" parent="SafeArea/Scroll/Content"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "BOOT_TAP"
+
+[node name="Pause" type="Button" parent="SafeArea/Scroll/Content"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "BOOT_PAUSE"
+
+[node name="Reset" type="Button" parent="SafeArea/Scroll/Content"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "BOOT_RESET"
+
+[node name="LanguagesTitle" type="Label" parent="SafeArea/Scroll/Content"]
+layout_mode = 2
+text = "SETTINGS_LANGUAGES"
+autowrap_mode = 3
+
+[node name="LanguagesHint" type="Label" parent="SafeArea/Scroll/Content"]
+layout_mode = 2
+text = "BOOT_LANGUAGE_GATE"
+autowrap_mode = 3
+
+[node name="Languages" type="VBoxContainer" parent="SafeArea/Scroll/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="automatic" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_AUTOMATIC"
+
+[node name="en_US" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_EN_US"
+
+[node name="es_419" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_ES_419"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="es_ES" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_ES_ES"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="pt_BR" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_PT_BR"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="fr_FR" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_FR_FR"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="de_DE" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_DE_DE"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="it_IT" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_IT_IT"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="nl_NL" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_NL_NL"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="pl_PL" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_PL_PL"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="ru_RU" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_RU_RU"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="uk_UA" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_UK_UA"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="tr_TR" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_TR_TR"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="id_ID" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_ID_ID"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="vi_VN" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_VI_VN"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="th_TH" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_TH_TH"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="hi_IN" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_HI_IN"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="ja_JP" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_JA_JP"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="ko_KR" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_KO_KR"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="zh_CN" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_ZH_CN"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="zh_TW" type="Button" parent="SafeArea/Scroll/Content/Languages"]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "LANG_ZH_TW"
+disabled = true
+tooltip_text = "LANG_DISABLED"
+
+[node name="ResetConfirm" type="ConfirmationDialog" parent="."]
+title = "BOOT_RESET_TITLE"
+initial_position = 2
+size = Vector2i(560, 220)
+dialog_text = "BOOT_RESET_DETAIL"
+ok_button_text = "UI_CONFIRM"
+cancel_button_text = "UI_CANCEL"

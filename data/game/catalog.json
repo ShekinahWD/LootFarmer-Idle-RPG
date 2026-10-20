@@ -1,0 +1,2473 @@
+{
+  "items": {
+    "wood_sword": {
+      "kind": "weapon",
+      "tier": 1,
+      "normal": {
+        "damage": [
+          3,
+          0.04
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 2,
+      "reroll": 3,
+      "next": "stone_sword",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "art_id": "wood_sword",
+      "family": "wood_sword"
+    },
+    "stone_sword": {
+      "kind": "weapon",
+      "tier": 2,
+      "normal": {
+        "damage": [
+          9,
+          0.08
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 6,
+      "reroll": 6,
+      "next": "iron_sword",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        32,
+        0,
+        32,
+        32
+      ],
+      "art_id": "stone_sword",
+      "family": "stone_sword"
+    },
+    "iron_sword": {
+      "kind": "weapon",
+      "tier": 3,
+      "normal": {
+        "damage": [
+          22,
+          0.15
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 15,
+      "reroll": 12,
+      "next": "iron_sword_tier_4",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        64,
+        0,
+        32,
+        32
+      ],
+      "art_id": "iron_sword",
+      "family": "iron_sword"
+    },
+    "sprout": {
+      "kind": "outfit",
+      "tier": 1,
+      "normal": {
+        "hp": [
+          20,
+          0.1
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 2,
+      "reroll": 3,
+      "next": "sprout_tier_2",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "sprout",
+      "family": "sprout"
+    },
+    "robot": {
+      "kind": "outfit",
+      "tier": 2,
+      "normal": {
+        "crit": [
+          0.04,
+          0.0001
+        ],
+        "crit_damage": [
+          0.15,
+          0.001
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 6,
+      "reroll": 6,
+      "next": "robot_tier_3",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "robot",
+      "family": "robot"
+    },
+    "dinosaur": {
+      "kind": "outfit",
+      "tier": 3,
+      "normal": {
+        "hp": [
+          40,
+          0.2
+        ],
+        "regen": [
+          0.5,
+          0.005
+        ],
+        "lifesteal": [
+          0.02,
+          5e-05
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 15,
+      "reroll": 12,
+      "next": "dinosaur_tier_4",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "dinosaur",
+      "family": "dinosaur"
+    },
+    "potion": {
+      "kind": "consumable",
+      "tier": 1,
+      "normal": {
+        "heal": [
+          10,
+          0.01
+        ]
+      },
+      "extras": {},
+      "sell": 1,
+      "next": "potion_tier_2",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
+      "merge_gain": {
+        "heal": 0.4
+      },
+      "art_id": "potion",
+      "family": "potion"
+    },
+    "coin_boost": {
+      "kind": "consumable",
+      "tier": 1,
+      "normal": {
+        "coin_bonus": [
+          0.25,
+          0.001
+        ]
+      },
+      "extras": {},
+      "sell": 1,
+      "next": "coin_boost_tier_2",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
+      "art_id": "coin_boost",
+      "family": "coin_boost"
+    },
+    "death_scythe": {
+      "kind": "weapon",
+      "tier": 4,
+      "normal": {
+        "damage": [
+          40,
+          0.25
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 30,
+      "reroll": 18,
+      "next": "death_scythe_tier_5",
+      "texture": "res://assets/PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png",
+      "icon": [
+        144,
+        16,
+        32,
+        16
+      ],
+      "art_id": "death_scythe",
+      "family": "death_scythe"
+    },
+    "reaper": {
+      "kind": "outfit",
+      "tier": 4,
+      "normal": {
+        "hp": [
+          75,
+          0.3
+        ],
+        "defense": [
+          8,
+          0.03
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 30,
+      "reroll": 18,
+      "next": "reaper_tier_5",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "reaper",
+      "family": "reaper"
+    },
+    "iron_sword_tier_4": {
+      "kind": "weapon",
+      "tier": 4,
+      "normal": {
+        "damage": [
+          83.75,
+          0.1875
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 30,
+      "reroll": 24,
+      "next": "iron_sword_tier_5",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        64,
+        0,
+        32,
+        32
+      ],
+      "art_id": "iron_sword",
+      "family": "iron_sword",
+      "merge_gain": {
+        "damage": 0.5625
+      }
+    },
+    "iron_sword_tier_5": {
+      "kind": "weapon",
+      "tier": 5,
+      "normal": {
+        "damage": [
+          175.0,
+          0.234375
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 60,
+      "reroll": 48,
+      "next": "iron_sword_tier_6",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        64,
+        0,
+        32,
+        32
+      ],
+      "art_id": "iron_sword",
+      "family": "iron_sword",
+      "merge_gain": {
+        "damage": 0.703125
+      }
+    },
+    "iron_sword_tier_6": {
+      "kind": "weapon",
+      "tier": 6,
+      "normal": {
+        "damage": [
+          306.640625,
+          0.29296875
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 120,
+      "reroll": 96,
+      "next": "iron_sword_tier_7",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        64,
+        0,
+        32,
+        32
+      ],
+      "art_id": "iron_sword",
+      "family": "iron_sword",
+      "merge_gain": {
+        "damage": 0.87890625
+      }
+    },
+    "iron_sword_tier_7": {
+      "kind": "weapon",
+      "tier": 7,
+      "normal": {
+        "damage": [
+          493.1640625,
+          0.3662109375
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 240,
+      "reroll": 192,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        64,
+        0,
+        32,
+        32
+      ],
+      "art_id": "iron_sword",
+      "family": "iron_sword",
+      "merge_gain": {
+        "damage": 1.0986328125
+      }
+    },
+    "sprout_tier_2": {
+      "kind": "outfit",
+      "tier": 2,
+      "normal": {
+        "hp": [
+          62.5,
+          0.125
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 4,
+      "reroll": 6,
+      "next": "sprout_tier_3",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "sprout",
+      "family": "sprout",
+      "merge_gain": {
+        "hp": 0.375
+      }
+    },
+    "sprout_tier_3": {
+      "kind": "outfit",
+      "tier": 3,
+      "normal": {
+        "hp": [
+          125.0,
+          0.15625
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 8,
+      "reroll": 12,
+      "next": "sprout_tier_4",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "sprout",
+      "family": "sprout",
+      "merge_gain": {
+        "hp": 0.46875
+      }
+    },
+    "sprout_tier_4": {
+      "kind": "outfit",
+      "tier": 4,
+      "normal": {
+        "hp": [
+          214.84375,
+          0.1953125
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 16,
+      "reroll": 24,
+      "next": "sprout_tier_5",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "sprout",
+      "family": "sprout",
+      "merge_gain": {
+        "hp": 0.5859375
+      }
+    },
+    "sprout_tier_5": {
+      "kind": "outfit",
+      "tier": 5,
+      "normal": {
+        "hp": [
+          341.796875,
+          0.244140625
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 32,
+      "reroll": 48,
+      "next": "sprout_tier_6",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "sprout",
+      "family": "sprout",
+      "merge_gain": {
+        "hp": 0.732421875
+      }
+    },
+    "sprout_tier_6": {
+      "kind": "outfit",
+      "tier": 6,
+      "normal": {
+        "hp": [
+          518.798828125,
+          0.3051757812
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 64,
+      "reroll": 96,
+      "next": "sprout_tier_7",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "sprout",
+      "family": "sprout",
+      "merge_gain": {
+        "hp": 0.9155273438
+      }
+    },
+    "sprout_tier_7": {
+      "kind": "outfit",
+      "tier": 7,
+      "normal": {
+        "hp": [
+          762.9394531312,
+          0.3814697266
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 128,
+      "reroll": 192,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "sprout",
+      "family": "sprout",
+      "merge_gain": {
+        "hp": 1.1444091798
+      }
+    },
+    "robot_tier_3": {
+      "kind": "outfit",
+      "tier": 3,
+      "normal": {
+        "crit": [
+          0.0875,
+          0.000125
+        ],
+        "crit_damage": [
+          0.5625,
+          0.00125
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 12,
+      "reroll": 12,
+      "next": "robot_tier_4",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "robot",
+      "family": "robot",
+      "merge_gain": {
+        "crit": 0.000375,
+        "crit_damage": 0.00375
+      }
+    },
+    "robot_tier_4": {
+      "kind": "outfit",
+      "tier": 4,
+      "normal": {
+        "crit": [
+          0.15625,
+          0.00015625
+        ],
+        "crit_damage": [
+          1.171875,
+          0.0015625
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 24,
+      "reroll": 24,
+      "next": "robot_tier_5",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "robot",
+      "family": "robot",
+      "merge_gain": {
+        "crit": 0.00046875,
+        "crit_damage": 0.0046875
+      }
+    },
+    "robot_tier_5": {
+      "kind": "outfit",
+      "tier": 5,
+      "normal": {
+        "crit": [
+          0.25390625,
+          0.0001953125
+        ],
+        "crit_damage": [
+          2.05078125,
+          0.001953125
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 48,
+      "reroll": 48,
+      "next": "robot_tier_6",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "robot",
+      "family": "robot",
+      "merge_gain": {
+        "crit": 0.0005859375,
+        "crit_damage": 0.005859375
+      }
+    },
+    "robot_tier_6": {
+      "kind": "outfit",
+      "tier": 6,
+      "normal": {
+        "crit": [
+          0.390625,
+          0.0002441406
+        ],
+        "crit_damage": [
+          3.2958984375,
+          0.0024414062
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 96,
+      "reroll": 96,
+      "next": "robot_tier_7",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "robot",
+      "family": "robot",
+      "merge_gain": {
+        "crit": 0.0007324219,
+        "crit_damage": 0.0073242188
+      }
+    },
+    "robot_tier_7": {
+      "kind": "outfit",
+      "tier": 7,
+      "normal": {
+        "crit": [
+          0.5798339875,
+          0.0003051758
+        ],
+        "crit_damage": [
+          5.0354003969,
+          0.0030517578
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 192,
+      "reroll": 192,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "robot",
+      "family": "robot",
+      "merge_gain": {
+        "crit": 0.0009155274,
+        "crit_damage": 0.0091552735
+      }
+    },
+    "dinosaur_tier_4": {
+      "kind": "outfit",
+      "tier": 4,
+      "normal": {
+        "hp": [
+          125.0,
+          0.25
+        ],
+        "regen": [
+          2.5,
+          0.00625
+        ],
+        "lifesteal": [
+          0.04375,
+          6.25e-05
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 30,
+      "reroll": 24,
+      "next": "dinosaur_tier_5",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "dinosaur",
+      "family": "dinosaur",
+      "merge_gain": {
+        "hp": 0.75,
+        "regen": 0.01875,
+        "lifesteal": 0.0001875
+      }
+    },
+    "dinosaur_tier_5": {
+      "kind": "outfit",
+      "tier": 5,
+      "normal": {
+        "hp": [
+          250.0,
+          0.3125
+        ],
+        "regen": [
+          5.46875,
+          0.0078125
+        ],
+        "lifesteal": [
+          0.078125,
+          7.8125e-05
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 60,
+      "reroll": 48,
+      "next": "dinosaur_tier_6",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "dinosaur",
+      "family": "dinosaur",
+      "merge_gain": {
+        "hp": 0.9375,
+        "regen": 0.0234375,
+        "lifesteal": 0.000234375
+      }
+    },
+    "dinosaur_tier_6": {
+      "kind": "outfit",
+      "tier": 6,
+      "normal": {
+        "hp": [
+          429.6875,
+          0.390625
+        ],
+        "regen": [
+          9.765625,
+          0.009765625
+        ],
+        "lifesteal": [
+          0.126953125,
+          9.76562e-05
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 120,
+      "reroll": 96,
+      "next": "dinosaur_tier_7",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "dinosaur",
+      "family": "dinosaur",
+      "merge_gain": {
+        "hp": 1.171875,
+        "regen": 0.029296875,
+        "lifesteal": 0.0002929687
+      }
+    },
+    "dinosaur_tier_7": {
+      "kind": "outfit",
+      "tier": 7,
+      "normal": {
+        "hp": [
+          683.59375,
+          0.48828125
+        ],
+        "regen": [
+          15.869140625,
+          0.0122070312
+        ],
+        "lifesteal": [
+          0.1953124938,
+          0.0001220703
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 240,
+      "reroll": 192,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "dinosaur",
+      "family": "dinosaur",
+      "merge_gain": {
+        "hp": 1.46484375,
+        "regen": 0.0366210938,
+        "lifesteal": 0.0003662109
+      }
+    },
+    "potion_tier_2": {
+      "kind": "consumable",
+      "tier": 2,
+      "normal": {
+        "heal": [
+          62.5,
+          0.1666666667
+        ]
+      },
+      "extras": {},
+      "sell": 2,
+      "next": "potion_tier_3",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
+      "merge_gain": {
+        "heal": 0.5
+      },
+      "art_id": "potion",
+      "family": "potion",
+      "reroll": 0
+    },
+    "potion_tier_3": {
+      "kind": "consumable",
+      "tier": 3,
+      "normal": {
+        "heal": [
+          140.625,
+          0.2083333333
+        ]
+      },
+      "extras": {},
+      "sell": 4,
+      "next": "potion_tier_4",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
+      "merge_gain": {
+        "heal": 0.625
+      },
+      "art_id": "potion",
+      "family": "potion",
+      "reroll": 0
+    },
+    "potion_tier_4": {
+      "kind": "consumable",
+      "tier": 4,
+      "normal": {
+        "heal": [
+          253.90625,
+          0.2604166667
+        ]
+      },
+      "extras": {},
+      "sell": 8,
+      "next": "potion_tier_5",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
+      "merge_gain": {
+        "heal": 0.78125
+      },
+      "art_id": "potion",
+      "family": "potion",
+      "reroll": 0
+    },
+    "potion_tier_5": {
+      "kind": "consumable",
+      "tier": 5,
+      "normal": {
+        "heal": [
+          415.0390625,
+          0.3255208333
+        ]
+      },
+      "extras": {},
+      "sell": 16,
+      "next": "potion_tier_6",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
+      "merge_gain": {
+        "heal": 0.9765625
+      },
+      "art_id": "potion",
+      "family": "potion",
+      "reroll": 0
+    },
+    "potion_tier_6": {
+      "kind": "consumable",
+      "tier": 6,
+      "normal": {
+        "heal": [
+          640.869140625,
+          0.4069010417
+        ]
+      },
+      "extras": {},
+      "sell": 32,
+      "next": "potion_tier_7",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
+      "merge_gain": {
+        "heal": 1.220703125
+      },
+      "art_id": "potion",
+      "family": "potion",
+      "reroll": 0
+    },
+    "potion_tier_7": {
+      "kind": "consumable",
+      "tier": 7,
+      "normal": {
+        "heal": [
+          953.6743164062,
+          0.5086263021
+        ]
+      },
+      "extras": {},
+      "sell": 64,
+      "next": "",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
+      "merge_gain": {
+        "heal": 1.5258789062
+      },
+      "art_id": "potion",
+      "family": "potion",
+      "reroll": 0
+    },
+    "coin_boost_tier_2": {
+      "kind": "consumable",
+      "tier": 2,
+      "normal": {
+        "coin_bonus": [
+          0.6875,
+          0.00125
+        ]
+      },
+      "extras": {},
+      "sell": 2,
+      "next": "coin_boost_tier_3",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
+      "art_id": "coin_boost",
+      "family": "coin_boost",
+      "merge_gain": {
+        "coin_bonus": 0.00375
+      },
+      "reroll": 0
+    },
+    "coin_boost_tier_3": {
+      "kind": "consumable",
+      "tier": 3,
+      "normal": {
+        "coin_bonus": [
+          1.328125,
+          0.0015625
+        ]
+      },
+      "extras": {},
+      "sell": 4,
+      "next": "coin_boost_tier_4",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
+      "art_id": "coin_boost",
+      "family": "coin_boost",
+      "merge_gain": {
+        "coin_bonus": 0.0046875
+      },
+      "reroll": 0
+    },
+    "coin_boost_tier_4": {
+      "kind": "consumable",
+      "tier": 4,
+      "normal": {
+        "coin_bonus": [
+          2.24609375,
+          0.001953125
+        ]
+      },
+      "extras": {},
+      "sell": 8,
+      "next": "coin_boost_tier_5",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
+      "art_id": "coin_boost",
+      "family": "coin_boost",
+      "merge_gain": {
+        "coin_bonus": 0.005859375
+      },
+      "reroll": 0
+    },
+    "coin_boost_tier_5": {
+      "kind": "consumable",
+      "tier": 5,
+      "normal": {
+        "coin_bonus": [
+          3.5400390625,
+          0.0024414062
+        ]
+      },
+      "extras": {},
+      "sell": 16,
+      "next": "coin_boost_tier_6",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
+      "art_id": "coin_boost",
+      "family": "coin_boost",
+      "merge_gain": {
+        "coin_bonus": 0.0073242188
+      },
+      "reroll": 0
+    },
+    "coin_boost_tier_6": {
+      "kind": "consumable",
+      "tier": 6,
+      "normal": {
+        "coin_bonus": [
+          5.3405761781,
+          0.0030517578
+        ]
+      },
+      "extras": {},
+      "sell": 32,
+      "next": "coin_boost_tier_7",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
+      "art_id": "coin_boost",
+      "family": "coin_boost",
+      "merge_gain": {
+        "coin_bonus": 0.0091552735
+      },
+      "reroll": 0
+    },
+    "coin_boost_tier_7": {
+      "kind": "consumable",
+      "tier": 7,
+      "normal": {
+        "coin_bonus": [
+          7.8201294101,
+          0.0038146973
+        ]
+      },
+      "extras": {},
+      "sell": 64,
+      "next": "",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
+      "art_id": "coin_boost",
+      "family": "coin_boost",
+      "merge_gain": {
+        "coin_bonus": 0.0114440919
+      },
+      "reroll": 0
+    },
+    "death_scythe_tier_5": {
+      "kind": "weapon",
+      "tier": 5,
+      "normal": {
+        "damage": [
+          143.75,
+          0.3125
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 60,
+      "reroll": 36,
+      "next": "death_scythe_tier_6",
+      "texture": "res://assets/PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png",
+      "icon": [
+        144,
+        16,
+        32,
+        16
+      ],
+      "art_id": "death_scythe",
+      "family": "death_scythe",
+      "merge_gain": {
+        "damage": 0.9375
+      }
+    },
+    "death_scythe_tier_6": {
+      "kind": "weapon",
+      "tier": 6,
+      "normal": {
+        "damage": [
+          296.875,
+          0.390625
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 120,
+      "reroll": 72,
+      "next": "death_scythe_tier_7",
+      "texture": "res://assets/PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png",
+      "icon": [
+        144,
+        16,
+        32,
+        16
+      ],
+      "art_id": "death_scythe",
+      "family": "death_scythe",
+      "merge_gain": {
+        "damage": 1.171875
+      }
+    },
+    "death_scythe_tier_7": {
+      "kind": "weapon",
+      "tier": 7,
+      "normal": {
+        "damage": [
+          517.578125,
+          0.48828125
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "sell": 240,
+      "reroll": 144,
+      "next": "",
+      "texture": "res://assets/PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png",
+      "icon": [
+        144,
+        16,
+        32,
+        16
+      ],
+      "art_id": "death_scythe",
+      "family": "death_scythe",
+      "merge_gain": {
+        "damage": 1.46484375
+      }
+    },
+    "reaper_tier_5": {
+      "kind": "outfit",
+      "tier": 5,
+      "normal": {
+        "hp": [
+          206.25,
+          0.375
+        ],
+        "defense": [
+          21.25,
+          0.0375
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 60,
+      "reroll": 36,
+      "next": "reaper_tier_6",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "reaper",
+      "family": "reaper",
+      "merge_gain": {
+        "hp": 1.125,
+        "defense": 0.1125
+      }
+    },
+    "reaper_tier_6": {
+      "kind": "outfit",
+      "tier": 6,
+      "normal": {
+        "hp": [
+          398.4375,
+          0.46875
+        ],
+        "defense": [
+          40.625,
+          0.046875
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 120,
+      "reroll": 72,
+      "next": "reaper_tier_7",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "reaper",
+      "family": "reaper",
+      "merge_gain": {
+        "hp": 1.40625,
+        "defense": 0.140625
+      }
+    },
+    "reaper_tier_7": {
+      "kind": "outfit",
+      "tier": 7,
+      "normal": {
+        "hp": [
+          673.828125,
+          0.5859375
+        ],
+        "defense": [
+          68.359375,
+          0.05859375
+        ]
+      },
+      "extras": {
+        "hp": [
+          5,
+          15
+        ],
+        "defense": [
+          1,
+          4
+        ],
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ],
+        "regen": [
+          0.1,
+          0.3
+        ]
+      },
+      "sell": 240,
+      "reroll": 144,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v2.png",
+      "icon": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "art_id": "reaper",
+      "family": "reaper",
+      "merge_gain": {
+        "hp": 1.7578125,
+        "defense": 0.17578125
+      }
+    }
+  },
+  "groups": [
+    {
+      "id": "0",
+      "center": [
+        540,
+        1150
+      ],
+      "hp": 28,
+      "damage": 3,
+      "interval": 2,
+      "defense": 0,
+      "respawn": 5,
+      "body": "sprout",
+      "weapon": "wood_sword",
+      "count": 3,
+      "aggro": 0,
+      "loot": [
+        "wood_sword",
+        "sprout"
+      ],
+      "coins": 1,
+      "gear_chance": 0.1,
+      "xp": 6
+    },
+    {
+      "id": "1",
+      "center": [
+        540,
+        810
+      ],
+      "hp": 220,
+      "damage": 14,
+      "interval": 1.8,
+      "defense": 5,
+      "respawn": 7,
+      "body": "robot",
+      "weapon": "stone_sword",
+      "count": 3,
+      "aggro": 1,
+      "loot": [
+        "stone_sword",
+        "robot"
+      ],
+      "coins": 3,
+      "gear_chance": 0.09,
+      "xp": 30
+    },
+    {
+      "id": "2",
+      "center": [
+        540,
+        470
+      ],
+      "hp": 950,
+      "damage": 42,
+      "interval": 1.6,
+      "defense": 10,
+      "respawn": 10,
+      "body": "dinosaur",
+      "weapon": "iron_sword",
+      "count": 3,
+      "aggro": 2,
+      "loot": [
+        "iron_sword",
+        "dinosaur"
+      ],
+      "coins": 7,
+      "gear_chance": 0.08,
+      "xp": 110
+    },
+    {
+      "id": "3",
+      "center": [
+        540,
+        130
+      ],
+      "hp": 6500,
+      "damage": 95,
+      "interval": 1.8,
+      "defense": 20,
+      "respawn": 30,
+      "body": "reaper",
+      "weapon": "death_scythe",
+      "count": 1,
+      "aggro": 3,
+      "loot": [
+        "death_scythe",
+        "reaper"
+      ],
+      "coins": 50,
+      "gear_chance": 0.3,
+      "xp": 600
+    }
+  ],
+  "upgrades": {
+    "gear_slots": {
+      "currency": "gems",
+      "base": 10,
+      "growth": 1.8,
+      "cap": 9,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
+    },
+    "supply_slots": {
+      "currency": "gems",
+      "base": 8,
+      "growth": 1.8,
+      "cap": 5,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
+    },
+    "collect": {
+      "currency": "coins",
+      "base": 20,
+      "growth": 1,
+      "cap": 1,
+      "keep": true,
+      "effect": 1,
+      "scope": "type"
+    },
+    "collect_range": {
+      "currency": "coins",
+      "base": 30,
+      "growth": 1.5,
+      "cap": 6,
+      "keep": true,
+      "effect": 20,
+      "scope": "type"
+    },
+    "collect_batch": {
+      "currency": "coins",
+      "base": 30,
+      "growth": 1.5,
+      "cap": 5,
+      "keep": true,
+      "effect": 1,
+      "scope": "type"
+    },
+    "collect_speed": {
+      "currency": "coins",
+      "base": 30,
+      "growth": 1.5,
+      "cap": 5,
+      "keep": true,
+      "effect": 1,
+      "scope": "type"
+    },
+    "sell": {
+      "currency": "gems",
+      "base": 20,
+      "growth": 1,
+      "cap": 1,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
+    },
+    "sell_capacity": {
+      "currency": "gems",
+      "base": 10,
+      "growth": 1.8,
+      "cap": 7,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
+    },
+    "merge_gear": {
+      "currency": "gems",
+      "base": 30,
+      "growth": 1,
+      "cap": 1,
+      "keep": false,
+      "effect": 1,
+      "scope": "type"
+    },
+    "merge_supplies": {
+      "currency": "gems",
+      "base": 20,
+      "growth": 1,
+      "cap": 1,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
+    },
+    "merge_speed": {
+      "currency": "gems",
+      "base": 10,
+      "growth": 1.6,
+      "cap": 8,
+      "keep": true,
+      "effect": 0.5,
+      "scope": "global"
+    },
+    "auto_use": {
+      "currency": "gems",
+      "base": 10,
+      "growth": 2.4,
+      "cap": 3,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
+    },
+    "use_speed": {
+      "currency": "gems",
+      "base": 8,
+      "growth": 1.5,
+      "cap": 8,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
+    },
+    "focus": {
+      "currency": "gems",
+      "base": 25,
+      "growth": 1,
+      "cap": 1,
+      "keep": false,
+      "effect": 1,
+      "scope": "type"
+    },
+    "respawn": {
+      "currency": "coins",
+      "base": 30,
+      "growth": 1.7,
+      "cap": 7,
+      "keep": false,
+      "effect": 1,
+      "scope": "global"
+    },
+    "loot": {
+      "currency": "coins",
+      "base": 20,
+      "growth": 1.35,
+      "cap": 15,
+      "keep": false,
+      "effect": 0.01,
+      "scope": "type"
+    },
+    "coin_chance": {
+      "currency": "coins",
+      "base": 20,
+      "growth": 1.35,
+      "cap": 0,
+      "keep": false,
+      "effect": 0,
+      "scope": "global"
+    },
+    "gem_chance": {
+      "currency": "gems",
+      "base": 50,
+      "growth": 1,
+      "cap": 12,
+      "keep": false,
+      "effect": 0.01,
+      "prices": [
+        50,
+        75,
+        105,
+        140,
+        180,
+        220,
+        265,
+        320,
+        400,
+        500,
+        600,
+        700
+      ],
+      "scope": "global"
+    },
+    "coin_amount": {
+      "currency": "coins",
+      "base": 30,
+      "growth": 1.4,
+      "cap": 30,
+      "keep": false,
+      "effect": 1,
+      "scope": "type"
+    },
+    "gem_amount": {
+      "currency": "gems",
+      "base": 50,
+      "growth": 1,
+      "cap": 10,
+      "keep": false,
+      "effect": 0.5,
+      "prices": [
+        50,
+        75,
+        105,
+        140,
+        180,
+        220,
+        265,
+        320,
+        400,
+        500
+      ],
+      "scope": "global"
+    },
+    "reveal_stats": {
+      "currency": "coins",
+      "base": 25,
+      "growth": 1,
+      "cap": 1,
+      "keep": false,
+      "effect": 1,
+      "scope": "type"
+    },
+    "reveal_drops": {
+      "currency": "coins",
+      "base": 40,
+      "growth": 1,
+      "cap": 1,
+      "keep": false,
+      "effect": 1,
+      "scope": "type"
+    },
+    "supply_drop": {
+      "currency": "coins",
+      "base": 20,
+      "growth": 1.35,
+      "cap": 15,
+      "keep": false,
+      "effect": 0.01,
+      "scope": "type"
+    },
+    "group_xp": {
+      "currency": "coins",
+      "base": 25,
+      "growth": 1.4,
+      "cap": 20,
+      "keep": false,
+      "effect": 0.1,
+      "scope": "type"
+    },
+    "boss_gem_chance": {
+      "currency": "gems",
+      "base": 100,
+      "growth": 1,
+      "cap": 8,
+      "keep": false,
+      "effect": 0.05,
+      "prices": [
+        100,
+        150,
+        225,
+        325,
+        450,
+        600,
+        800,
+        1000
+      ],
+      "scope": "boss"
+    },
+    "boss_gem_amount": {
+      "currency": "gems",
+      "base": 50,
+      "growth": 1,
+      "cap": 10,
+      "keep": false,
+      "effect": 1,
+      "prices": [
+        50,
+        75,
+        105,
+        140,
+        180,
+        220,
+        265,
+        320,
+        400,
+        500
+      ],
+      "scope": "boss"
+    },
+    "spawn_amount": {
+      "currency": "gems",
+      "base": 150,
+      "growth": 1,
+      "cap": 3,
+      "keep": false,
+      "effect": 1,
+      "prices": [
+        150,
+        250,
+        400
+      ],
+      "scope": "normal_type"
+    },
+    "spawn_cooldown": {
+      "currency": "gems",
+      "base": 100,
+      "growth": 1,
+      "cap": 5,
+      "keep": false,
+      "effect": 0.1,
+      "prices": [
+        100,
+        175,
+        275,
+        400,
+        550
+      ],
+      "scope": "normal_type"
+    }
+  },
+  "cards": [
+    "damage",
+    "hp",
+    "coins",
+    "gems",
+    "loot",
+    "merge"
+  ],
+  "world": {
+    "size": [
+      1080,
+      1500
+    ],
+    "spawns": [
+      [
+        180,
+        1390
+      ],
+      [
+        180,
+        960
+      ],
+      [
+        180,
+        620
+      ]
+    ],
+    "spawn_prices": [
+      0,
+      50,
+      150
+    ],
+    "player_speed": 90,
+    "acquisition": 140,
+    "reach": 28,
+    "leash": 220
+  },
+  "progression": {
+    "max_level": 1000,
+    "hp_per_level": 5.0,
+    "damage_per_level": 0.5,
+    "xp_base": 12,
+    "xp_growth": 1.35,
+    "stored_weapon_factor": 0.3,
+    "achievements": {
+      "kills": [
+        25,
+        100,
+        250,
+        500,
+        1000,
+        2500,
+        5000,
+        10000
+      ],
+      "boss_kills": [
+        1,
+        3,
+        10,
+        25,
+        50,
+        100,
+        250,
+        500
+      ],
+      "damage_per_milestone": 0.05,
+      "gems_per_milestone": 0.005
+    },
+    "group_cost_multipliers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "coin_upgrade_cost_multipliers": [
+      1,
+      4,
+      12,
+      30
+    ],
+    "coin_upgrade_cost_growth": [
+      1.4,
+      1.5,
+      1.6,
+      1.7
+    ],
+    "coin_upgrade_gain": [
+      0.5,
+      1,
+      1,
+      1
+    ],
+    "evolution": {
+      "max_tier": 7,
+      "required_merge": 100,
+      "spare_cost": 100,
+      "base_multiplier": 1.25,
+      "merge_gain_multiplier": 1.25
+    },
+    "tier_colors": [
+      "#73523d",
+      "#576173",
+      "#4d6e9e",
+      "#7a4d7a",
+      "#367d72",
+      "#ad8540",
+      "#a34b52"
+    ],
+    "collection": {
+      "base_interval": 10,
+      "base_range": 100,
+      "base_batch": 1
+    },
+    "gem_limits": {
+      "base_chance": 0.08,
+      "normal_cap": 0.2,
+      "boss_cap": 0.6
+    }
+  }
+}

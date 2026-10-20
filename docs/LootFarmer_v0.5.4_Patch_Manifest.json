@@ -1,0 +1,17 @@
+{
+  "version": "0.5.4",
+  "base": "0.5.3",
+  "files": [
+    "docs/LootFarmer_v0.5.4_Notes.md",
+    "project.godot",
+    "resources/game/coin.tres",
+    "resources/game/gem.tres",
+    "scenes/game/main.tscn",
+    "scripts/game/actor_view.gd",
+    "scripts/game/game_ui.gd",
+    "scripts/game/simulation.gd",
+    "tests/attack_timing_probe.gd",
+    "tests/attack_timing_probe.tscn",
+    "tests/feedback_probe.gd.uid"
+  ]
+}

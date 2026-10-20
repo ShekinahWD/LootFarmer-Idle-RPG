@@ -1,0 +1,227 @@
+{
+  "version": "0.3.0",
+  "base": "lootFarmer(2).zip",
+  "files": [
+    {
+      "path": "data/game/catalog.json",
+      "sha256": "5704fb087c5626c2b2112972b32a789cd602c0abb921ebf5ba8fb14f0bdfe2fb"
+    },
+    {
+      "path": "docs/LootFarmer_Asset_Registry.md",
+      "sha256": "44bee60f316829abc8eab9d2c1c61170433f1e0ea5f5350e063275c02557ce30"
+    },
+    {
+      "path": "docs/LootFarmer_Bootstrap_Status.md",
+      "sha256": "24128e016bf3cab708e1f6a315b6a147511b10070539ac0e8aaf9b90d94c1688"
+    },
+    {
+      "path": "docs/LootFarmer_Checkpoints.md",
+      "sha256": "3e660f5c5b7c61ec8abea8e36b15ad89cc8feaf3ddca862b4efcd07b1409b78f"
+    },
+    {
+      "path": "docs/LootFarmer_Design_Audit.md",
+      "sha256": "e5693bfab7eb3bfb7b8f86af4968f2d4445be7654fa11ae75b4e8042a30ae429"
+    },
+    {
+      "path": "docs/LootFarmer_Design_README.md",
+      "sha256": "441aac842d29eff8fc185a7adbd89f3d2427c30264cea455d8d8a4d136fa1271"
+    },
+    {
+      "path": "docs/LootFarmer_GDD.md",
+      "sha256": "83967d7536c8852ca5080c7f93199eb434ac73b162dd1ebcb7f9bdf78ca08202"
+    },
+    {
+      "path": "docs/LootFarmer_Prototype_Status.md",
+      "sha256": "2b1f88c467a0b5f670f6e80d4beeb289e4a3784f885880b9170bf673fb9d1b09"
+    },
+    {
+      "path": "docs/Prototype_Evidence/Gameplay.png",
+      "sha256": "a42eceb87faf915bd03a11b9174ebccbbe3367962f90c311fc3f689e83b810f8"
+    },
+    {
+      "path": "docs/Prototype_Evidence/Item_Details.png",
+      "sha256": "f0c91552075d45f4608a2b31c4a7a5eb7868ba894438fba797b8ebf3773218ec"
+    },
+    {
+      "path": "docs/Prototype_Evidence/balance-final.log",
+      "sha256": "f42f5b6a560e01cb09c286f9cbdd93bfb9a04a7585315aec98bd60c0d1ab072b"
+    },
+    {
+      "path": "docs/Prototype_Evidence/bootstrap-final.log",
+      "sha256": "ac8ac0125f5fa3a2a97e116e57a20a644b3a7b1eebb13df66e4db5c62a3d239c"
+    },
+    {
+      "path": "docs/Prototype_Evidence/gameplay-final.log",
+      "sha256": "9ae1b7d40a81ea2dfdb49d0b993019b92688b88f5114d7053815b7c8dff3453c"
+    },
+    {
+      "path": "docs/Prototype_Evidence/pack-final.log",
+      "sha256": "2b6560eb96b2bf0ee7d4c27ac570f44412326f93a49eb4cbed384ec89f8ab334"
+    },
+    {
+      "path": "docs/Prototype_Evidence/ui-final.log",
+      "sha256": "89c27ee10c6a77dd603567f4f6d5f3a7538ac0a035136cfdef844ffd8ab68449"
+    },
+    {
+      "path": "docs/Prototype_Evidence/visual.log",
+      "sha256": "616ce014f2da67c910cfc0b3d5d060bfb8645a0f71dcbe7246f25edbd5a351e9"
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "ef04551e783293ca42d902e2883e0386e8e1d6921c7b69a5a33ffbaae6db71e5"
+    },
+    {
+      "path": "localization/en.po",
+      "sha256": "3fd43924d7b384cf2c85a94e6e8ba791b2ccab106e1287622d8bb71c1dbec60c"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "397dc9a3cd4e00b2029fc3b85bab5f4f24e54b168db08371d20d32c485f0cc70"
+    },
+    {
+      "path": "resources/game/art/button.png",
+      "sha256": "6aaf3b9b6cd199f9ede9677985191d79ec36fa3c1c0858abae848be7289fa09d"
+    },
+    {
+      "path": "resources/game/art/disabled.png",
+      "sha256": "ee8efbc099a1f44ab06cc588e8e6e0020716044ac4dcf91e02c7d70c446f208a"
+    },
+    {
+      "path": "resources/game/art/panel.png",
+      "sha256": "0defb4bfb762b48d685edece901d7e4b0cb4d3a996e941a311ecca12bacf48c2"
+    },
+    {
+      "path": "resources/game/art/pressed.png",
+      "sha256": "13aa736977833067aa46fdb22cde952cfc87d823ba8b1519358f81369e682991"
+    },
+    {
+      "path": "resources/game/art/slot.png",
+      "sha256": "17d2cb9e42cbf024ef402d400dae55c1ab839626ef1509baabffd1330a517d2f"
+    },
+    {
+      "path": "resources/game/death_weapon.tres",
+      "sha256": "457d6eaffd3a26d43360333ba7bcc4d1376aee2f2f47518a02925beae0ae6d59"
+    },
+    {
+      "path": "resources/game/theme.tres",
+      "sha256": "035d591511f812f9b2b76db10d4a134f6ba1212d504991bfd9457e130319c2d7"
+    },
+    {
+      "path": "scenes/game/action_row.tscn",
+      "sha256": "986fdfc18b80aff7a5d08bfb472730566b3fac1910f60bf191c63fc4286c353e"
+    },
+    {
+      "path": "scenes/game/actor.tscn",
+      "sha256": "eec8d3f909b45f58c35343b0519801adf45cfd957e81894741d2b0b44913d4ac"
+    },
+    {
+      "path": "scenes/game/joystick.tscn",
+      "sha256": "0f21cf2524376e0855f8a228768022193ed6450ced6105360ca1f474da4ca48b"
+    },
+    {
+      "path": "scenes/game/main.tscn",
+      "sha256": "a9d5e60b2a81bc7bb13a0f7ab4eaf79179bd697d8b70da69be89c4a6a4ec8204"
+    },
+    {
+      "path": "scenes/game/pickup.tscn",
+      "sha256": "28c72d99fdc0afa9aaaa9b83614a4f23526d9efa3918fd218fac589f150b05a0"
+    },
+    {
+      "path": "scenes/game/slot.tscn",
+      "sha256": "b58cef59f1f0d9790d6b5adedbd2504740f7f0660fedbf6bcf785a9b8a4e50ba"
+    },
+    {
+      "path": "scenes/game/world.tscn",
+      "sha256": "3597e3a847451b2339ac3721a2f7653881d6551101e34c152684ed5a2cbf5df6"
+    },
+    {
+      "path": "scripts/autoload/save_service.gd",
+      "sha256": "ee345475434b4a98af61f4c5bb355a49b0db9b19616422f8be7a20a0454aef24"
+    },
+    {
+      "path": "scripts/game/actor_view.gd",
+      "sha256": "82402ac137cc7439b0c10653f8fd9d14398fcf4a931c6332f0673f59c9a0d285"
+    },
+    {
+      "path": "scripts/game/actor_view.gd.uid",
+      "sha256": "ff6dcc13ee59699c070ae01dd17701475c0bff5ad141a99d4d46fa867ee2c9b2"
+    },
+    {
+      "path": "scripts/game/catalog.gd",
+      "sha256": "df62f6d45302cef5349c82b0a43b7c81529d655df7fb47904b51583a890bf63c"
+    },
+    {
+      "path": "scripts/game/catalog.gd.uid",
+      "sha256": "0ff8bf06ad0f72aaa6ad0525bc14efa58c448bf132d7a4907513b3bd958d00f8"
+    },
+    {
+      "path": "scripts/game/game_ui.gd",
+      "sha256": "280e051562875f6c45a0f11b6bee78a58c210526c236568e88a4b0696a664a53"
+    },
+    {
+      "path": "scripts/game/game_ui.gd.uid",
+      "sha256": "00511381412b7c62c8ef468ea0ba618dabdecb9799a0a4113c85c9d97064bc9d"
+    },
+    {
+      "path": "scripts/game/joystick.gd",
+      "sha256": "36dc0c2af8248fdd72d009ab1a3b7e990f7168fb00f8de23b6d07ab31d244d4c"
+    },
+    {
+      "path": "scripts/game/joystick.gd.uid",
+      "sha256": "d1a36f11c5cf3fc1e8c5ffa06a3438b19fd338333fc3e7ea1dc6c3b27083de0a"
+    },
+    {
+      "path": "scripts/game/simulation.gd",
+      "sha256": "cba752bb85d478e310e8e032266b48ed5a29a5d3c7bfda752c48aa8c58f49b36"
+    },
+    {
+      "path": "scripts/game/simulation.gd.uid",
+      "sha256": "0eb55251f197dcfb29c3741765ff2a0ca323b1e3dae6f3ba4c0ac4cf6266ee82"
+    },
+    {
+      "path": "scripts/game/world.gd",
+      "sha256": "f4e966bf1abfa38f41d9739ad176321b8d94f4f458f68ba260fd96ac67b488b6"
+    },
+    {
+      "path": "scripts/game/world.gd.uid",
+      "sha256": "e91b27899ca210b02d4f1ec68b7f9f8ccc7ee6831a71c4fcfff5b8d6a2077c5d"
+    },
+    {
+      "path": "tests/balance_probe.gd",
+      "sha256": "171e228303e7245141aff76cd83ad26af40bc8e21c8045833805d747d20b1a91"
+    },
+    {
+      "path": "tests/balance_probe.gd.uid",
+      "sha256": "9a39be8f242ebba098e6fb3ab2b86e49402c6c1f6151a379f98151572cca3955"
+    },
+    {
+      "path": "tests/balance_probe.tscn",
+      "sha256": "efb056f4a45d665444f3d445cf1829564301e15ad290c7fc7c01860ca161c1fe"
+    },
+    {
+      "path": "tests/gameplay_probe.gd",
+      "sha256": "2cd41d85f1566b4c7f21eba2b499d90359388a0724b412e41689fb35c645608e"
+    },
+    {
+      "path": "tests/gameplay_probe.gd.uid",
+      "sha256": "2226c73372acb8c027409af9774d2822c154837a5a1807e63a6bef2e47e8e50f"
+    },
+    {
+      "path": "tests/gameplay_probe.tscn",
+      "sha256": "89ec867e26698a8360926127a00313f50d38f3014a1880f0ff351475ad9c709b"
+    },
+    {
+      "path": "tests/ui_probe.gd",
+      "sha256": "b5e0187c68d3ed41de6d4b3291836a043ffa3d8a6cb7a56f2728f97f23f6dfe9"
+    },
+    {
+      "path": "tests/ui_probe.gd.uid",
+      "sha256": "964b76f357d172f1fad4c72cf34e50cea3e896d84a16f377bfd992e67bff6782"
+    },
+    {
+      "path": "tests/ui_probe.tscn",
+      "sha256": "bd52fe0fc7f6c1e6f4399d9a4f02146329a0a6b00d4897e0ed540608b342a0d8"
+    }
+  ],
+  "deletions": []
+}

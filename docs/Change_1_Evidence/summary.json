@@ -1,0 +1,103 @@
+{
+  "engine": "Godot 4.6 stable Linux headless",
+  "declared_project_engine": "4.7",
+  "physical_device_tested": false,
+  "probes": [
+    {
+      "probe": "attack_timing_probe",
+      "checks": 49,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "audit_probe",
+      "checks": 187,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "balance_probe",
+      "checks": null,
+      "result": "known_existing_failure",
+      "failures": null
+    },
+    {
+      "probe": "bootstrap_probe",
+      "checks": null,
+      "result": "pass",
+      "failures": null
+    },
+    {
+      "probe": "camera_probe",
+      "checks": 17,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "change_1_probe",
+      "checks": 131,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "evolution_farming_probe",
+      "checks": 166,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "farming_ui_probe",
+      "checks": 29,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "feedback_probe",
+      "checks": 13,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "gameplay_probe",
+      "checks": 52,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "group_progress_probe",
+      "checks": 24,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "inspector_probe",
+      "checks": 32,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "inventory_probe",
+      "checks": 125,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "progression_probe",
+      "checks": 199,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "targeting_probe",
+      "checks": 23,
+      "result": "pass",
+      "failures": 0
+    },
+    {
+      "probe": "ui_probe",
+      "checks": 24,
+      "result": "pass",
+      "failures": 0
+    }
+  ]
+}

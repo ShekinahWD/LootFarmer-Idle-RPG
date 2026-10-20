@@ -1,0 +1,14 @@
+# PACKAGE_FILES.sha256 hashes the canonical bytes: every text file is LF in the
+# repository and in every checkout, whatever core.autocrlf / core.eol says.
+* text=auto eol=lf
+
+# Hashed byte for byte; never converted.
+*.ttf binary
+*.otf binary
+*.png binary
+*.jpg binary
+*.webp binary
+*.avi binary
+*.mp4 binary
+*.wav binary
+*.ogg binary

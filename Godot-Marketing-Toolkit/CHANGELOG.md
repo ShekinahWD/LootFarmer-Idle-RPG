@@ -1,0 +1,91 @@
+# Change log
+
+## 1.0.2 — 2026-10-15 (Google Play locale validation fix)
+
+- **Correct Play-facing locale validation.** `tools/play_store_listing.py` now distinguishes the 20 runtime language IDs from the 20 Google Play store listing tags. The verified baseline normalizes `uk-UA → uk`, `id-ID → id`, `vi-VN → vi`, and `th-TH → th`; the other 16 identifiers are unchanged. Legacy JSON with region-qualified runtime tags for those four languages now fails with actionable missing/unexpected Play locale feedback. The English `source_locale` remains `en-US`.
+- **Explicit override when Play Console changes.** `validate <file> --locale-map <reviewed-map.json>` accepts a complete runtime-to-Play map for the same 20 logical languages. Reject missing/extra runtime entries, duplicate Play tags, malformed values or incorrect English source. This does not automatically discover which tags Play Console accepts: importing and verifying the detected 19 translations remains mandatory.
+- Included `examples/play_locale_map.example.json` as an editable starting point. Added regression tests for mappings, required coverage, collisions, legacy tags, source identity and CLI overrides. The screenshot/trailer/social tools and installed Godot addons are unchanged from 1.0.1. Upgrading the toolkit does not require recapturing assets. Version and package hashes have been regenerated for this release.
+
+## 1.0.1 — 2026-10-15 (maintenance: packaging/integrity fix)
+
+Packaging only; no functional change. Installed addons, CLI, capture, trailer and social-video composition, fonts, localization/store-listing tooling and `install` / `status` are unchanged from 1.0.0 (the lock's `_sha` already normalised line endings, so installs were never affected).
+
+- **`PACKAGE_FILES.sha256` verifies on a fresh clone.** 1.0.0's manifest was hashed from a Windows working tree where `assets/fonts/font_manifest.json`, `examples/marketing_manifest.example.json` and `tests/test_toolkit.py` were CRLF; the repository and every fresh clone hold them as LF, so `sha256sum -c` failed on those three (found during Everfort consolidation). All text files are now canonical LF and the manifest is regenerated from them.
+- **Toolkit `.gitattributes`:** `* text=auto eol=lf`, fonts and media `binary`, so every checkout produces the hashed bytes whatever `core.autocrlf` / `core.eol` a contributor uses, also when the toolkit lives in its own repository.
+- **Regression test `tests/test_package.py`:** the manifest is sorted `sha256sum` format and lists every package file; text files are LF; the working copy verifies; the package committed to a throwaway repository and cloned with `core.autocrlf=true`, `false`, `input` and `core.eol=crlf` verifies in every clone; the repository stores LF text and untouched binaries; and a manifest hashed over CRLF bytes (the 1.0.0 defect) is caught.
+- README (package integrity), integration notes and release notes updated.
+
+## 1.0.0 — 2026-10-14 (stable reusable baseline)
+
+Promoted after Everfort production validation. Installed addon behavior is unchanged from the validated candidate; the package is now the approved reusable Windows/Godot baseline. New-project integration is generic rather than Everfort-specific, Python bytecode caches are excluded, and the package includes a pure-Python Google Play 20-locale listing validator.
+
+
+- **A hard cut before a fade no longer fails the encode.** FFmpeg's `concat` (a `cut`) outputs a 1/1000000 timebase; a later `xfade` (a `fade` or `crossfade`, e.g. into a title card) refused it ("First input link main timebase ... do not match"), so a trailer of cut-joined gameplay clips followed by a card could not be built (found in Everfort's trailer on Windows, FFmpeg 8.0.1). The concat output is now set back to `1/fps`, like every input. Test: `test_cut_before_a_fade` (fails without the fix). 36 tests pass on Windows (FFmpeg 8.0.1, Godot 4.7.2 with `MARKETING_GODOT`); 37 with the language-neutral screenshot test below.
+
+- **Store screenshots are language-neutral by default.** A `screenshots[]` entry without `headline_key` (or with `headline: false`) is copied byte for byte and needs no copy in any locale; a headline is drawn only when `headline_key` is set (or `headline: true`), the rule video shots already used. Before, an entry with neither was sent through the text renderer with empty text and re-encoded. README, integration notes and the example manifest now treat added screenshot text as an approved exception, not the normal workflow (Reusable Game Development Playbook §87). Test: `test_screenshots_are_language_neutral_by_default` (fails without the change).
+
+- **Short-form social videos from approved footage (TikTok / Reels / Shorts).** A clip may set `reframe` `{x, y, width, fill}`: a window of its source (centred on the action) scaled to the video's width, letterboxed when wider than the video's aspect with a blurred, darkened copy of the same moment (`fill: "blur"`, default) or black. Without `reframe`, footage of another aspect is still refused (never cropped implicitly); the window is checked before any output. So a 1080×1920 cut is one more `videos[]` entry over the trailer's landscape raws, with no new capture. New `reels` profile (1080×1920, 30 fps). Tests: `test_landscape_footage_in_a_vertical_video_needs_an_explicit_reframe`, `test_reframe_crops_on_the_action_and_fills_a_wider_window`.
+- **Safe text margins:** `style.safe_area` `{top, bottom, left, right}` (shares of the frame) keeps headlines and card text clear of the platform's UI; `tiktok`, `reels` and `shorts` default to `SOCIAL_SAFE_AREA` (top 8 %, bottom 22 %, left 6 %, right 12 %), every other profile to the whole frame (unchanged output). Test: `test_vertical_social_profiles_keep_text_out_of_the_platform_ui`.
+- **Frame measurement fix:** the per-frame brightness used by the transition, text-hold and `analyze` checks is now read from the luma plane and expanded from limited range in Python. swscale's YUV-to-grey conversion during the 64×36 downscale was biased at dark levels and inconsistent between frames (black measured anywhere from 5 to 13; a smooth fade on a dark card measured as a one-frame jump). Black now measures 0. The approved Everfort trailer analyses the same (same fades, cuts and edges).
+- **Social set: 10 masters, 5 focused + 5 full-landscape (supersedes "2–3 variants").** The default short-form deliverable is ten ~15 s 1080×1920 masters with distinct feature-based hooks, from the approved trailer footage and music, reused for TikTok/Reels/Shorts, and one set (localized variants only on request). Five are focused reframes (blur fill); five keep the **whole landscape frame** through the existing `reframe` (`{"width": 1.0, "fill": "black"}`, no separate rendering path). On such a black-letterboxed shot a headline is now set **in the black band**: `position` `top` above the picture, `bottom` below it, centred in the band inside the safe area, without the translucent strip; `center` is refused, and copy that cannot fit its band is refused before any output instead of being drawn over the gameplay. Blur-fill and unreframed shots render exactly as before (Everfort's first two TikTok masters are unchanged). New `reframe_picture()` (the rows the footage covers) shared by the frame filter and the text layout. Example manifest: `social_full_frame` (full-landscape cut beside the focused `social_hook`). Test: `test_full_landscape_in_black_bands_keeps_text_off_the_gameplay`. 42 tests pass on Windows (FFmpeg 8.0.1, Godot 4.7.2 with `MARKETING_GODOT`).
+- Example manifest: a `social_hook` 9 s vertical cut derived from the example's landscape clips; `test_example_videos_plan_with_their_capture_jobs` plans every example video and checks its reframes. README: "Short-form social videos" (defaults: 9:16 1080×1920, gameplay first, hook in 1–2 s, real gameplay only, variants from approved footage, safe margins, configurable copy; the variant count and composition split are superseded by the 10-master, 5/5 entry above). 40 tests pass on Windows (FFmpeg 8.0.1, Godot 4.7.2).
+
+## 1.0.0-rc1 — 2026-10-14 (Everfort validation candidate)
+
+- Standalone release candidate based on the cross-game-tested 0.3.1-draft implementation; **not** a stable v1.0 release.
+- Excludes Python caches and all game-specific PixelPlains/Loopcremental or Growing Kingdom code/assets.
+- Ships seven Noto font families, their seven SIL OFL licenses, font checksums, generic addons, CLI, synthetic tests and examples.
+- Packaging changes only: installation lock now records `status: prerelease` for an `rc` version; game-independent integration instructions and release checklist added. No gameplay capture or composition behavior changed.
+- Awaiting Everfort integration, authentic marketing output review and phone playback before stable promotion.
+
+
+## 0.3.1-draft — 2026-10-14 (readable text, Noto Sans default, safe re-takes; validated in Loopcremental)
+
+Draft, not a release. Installed addons change in `text_renderer.gd` only (balanced wrapping): reinstall with `install --overwrite`, then `status`.
+
+- **Title-card reading time:** every card's text and every headline over gameplay must stay **fully visible, fades excluded, for at least `style.text_min_hold` (default 3.0 s)**, longer for longer copy: reading units ÷ `style.reading_cps` (default 15; a Han/Kana character counts 2, a Hangul syllable 1.5, a Thai/Devanagari cluster 1). Checked per locale before any output (the message says how long the shot must be and suggests `"auto"`, shorter copy or one card fewer), then **measured in the encoded frames** for cards (the run of frames at full text brightness); `_review.json` gets `text_holds`. A shot may set its own `text_min_hold` / `reading_cps`. In 0.3.0 a 2 s card next to 0.4 s fades showed its text fully for about 0.7 s.
+- **`"duration": "auto"`** (cards): transitions + text fades + the locale's reading time. **`"duration": "fill"`** (clips): the clips share what `target_duration` leaves, as evenly as their bounds allow (at least `min_duration`, default 1 s, and their headline's reading time; at most their footage after `start`). Longer or localized copy lengthens its card and shortens the fill clips; the total stays exactly `target_duration`. When it cannot, the video is refused (never unreadable text): drop a card, shorten the copy, or lengthen the video.
+- **Noto Sans is the default Latin/Cyrillic face:** `NotoSans[wdth,wght].ttf` (SIL OFL 1.1, recorded in `font_manifest.json` as `default`). A locale the manifest's `fonts` maps neither itself nor through `default` gets the toolkit's Noto chain at weight 700: Noto Sans for the 14 Latin/Cyrillic locales, Noto Sans Thai / Devanagari then Noto Sans, Noto Sans JP / KR / SC / TC. A manifest's own mapping still wins. All 20 locales' test strings are covered (tested), so `fonts --locales all` passes without a game font.
+- **Wrapping before shrinking:** authored lines may shrink to `style.keep_lines_scale` (0.85, was a fixed 0.6) before the text is re-wrapped at full size; wrapped lines are **balanced** (the narrowest width with the same line count, no orphaned last word) in both renderers; nothing is set below `style.min_text_scale` (0.5) of its start size — longer copy is refused ("shorten the copy") instead of shrunk to 16 px. Portrait headlines now wrap at 70 px where 0.3.0 kept one line at 42 px (hi-IN test string, and the Loopcremental test caption).
+- **`record --overwrite` keeps the existing recording until a new one passes:** Godot writes `<name>.partial.<ext>`, checked (AVI size/fps/frame count, PNG size) and only then moved over the master; a crash, a wrong size or a failed check deletes the partial file and leaves the master untouched. Test with a stand-in Godot (crash, wrong size, success).
+- Tests: 35 (from 25), including reading-time, fill/auto planning, measured card holds, localized card lengths at a constant total, default-font coverage and a 20-locale proof with no `fonts` mapping, balanced wrapping (Pillow and Godot), and the re-take preservation.
+
+Also in this version (found by the first Loopcremental validation, Python CLI and docs only):
+
+- **`record` / `pipeline` honour `MARKETING_GODOT`:** `--godot` no longer defaults to `godot` on PATH (which ignored the environment variable, for captures and, in `pipeline`, for the text renderer too). Godot is resolved before an output is replaced, so a run that cannot start Godot no longer deletes the existing raw master under `--overwrite`. Test: `test_record_without_godot_keeps_the_master`.
+- **Font proof report:** `fonts_proof.json` listed both the landscape and the portrait block under `headline` and under `portrait` (blocks were matched by text only); each layout now reports exactly the blocks it set. The proof images were already right.
+- `check`: the Raqm line no longer claims Thai/Devanagari "will not render correctly" (Godot sets them since 0.3.0).
+- README: the installed-files list now includes `marketing_fonts.gd` and `text_renderer.gd`.
+
+## 0.3.0-draft — 2026-10-14 (all 20 locales, Godot text rendering, MP4 quality presets)
+
+- **Fonts:** Noto Sans Thai, Devanagari, JP, KR, SC and TC bundled in `assets/fonts/` (variable, SIL OFL 1.1, with licences and `font_manifest.json`: source, size, SHA-256). Manifests name them `toolkit:<file>`; they are never installed into a game, so no export grows by them. `fonts` verifies them against their record.
+- **Font chains:** a locale (or `default`) maps to a face, `{"file", "weight", "width"}` (variable axes) or a fallback list (brand face first, Noto after). System fonts are never used.
+- **Godot text renderer:** `addons/marketing_capture/text_renderer.gd` + `marketing_fonts.gd`, run headless in a throwaway project, one batch per composition: HarfBuzz shaping (Thai, Devanagari), ICU line breaking (Thai words, CJK), fallback chains. `text_renderer` `auto` (default) uses it only for locales that need it, so Latin/Cyrillic output is unchanged and needs no Godot; `pillow` and `godot` force one. Raqm is no longer required.
+- **Fail closed on text:** a character no face of the locale has, or a shaped script Pillow cannot shape, stops the command before any output (the old tests had silently drawn a missing-glyph box for '¡' in Pillow's ASCII-only bundled font). Pillow's wrap keeps Thai marks with their base, joins Indic conjuncts, never breaks inside unspaced Thai words, and keeps CJK kinsoku.
+- **Proof:** `fonts --manifest ... --locales all` renders each locale's test strings (`assets/fonts/script_samples.json`, never marketing copy) through the real headline band and card, sets every approved string, and writes `fonts_<locale>.png`, `fonts_proof.png` and `fonts_proof.json`.
+- **MP4 quality presets:** `preview` (CRF 26, veryfast), `standard` (CRF 21, medium), `high` (CRF 18, slow; the default, for final exports) via `--quality`, a video's or the manifest's `quality`, and `quality_presets` overrides; non-default presets write `_<quality>` files, so a preview never replaces a final. Recorded in `_review.json`. (0.2.0 encoded at CRF 17.)
+- `--godot` on `screenshots`, `video` and `fonts` (or `MARKETING_GODOT`); `pipeline` passes its own on, plus `--quality`.
+
+## 0.2.0-draft — 2026-10-14 (first engine integration: Growing Kingdom, Godot 4.7.2)
+
+Fixes found by running the draft in a real project:
+
+- **Package:** the toolkit now carries its `addons/` (the draft's `install` had nothing to copy); `.gdignore` at its root. `install --overwrite` syncs managed files and keeps Godot `.uid` files; new `status` checks installed == lock == toolkit source (line endings normalised).
+- **Movie Maker size:** Godot 4.7.2 records at the project's window size and ignores `--resolution`: `record` writes a temporary, marked `override.cfg` per run (never replacing a game's own).
+- **Window size:** Windows clamps windows to the screen; `viewport_capture.fit_window()` raises the maximum size first (portrait 1080×1920 and 2560×1440 on a 1080-p screen). The runner checks the window size, not the virtual canvas (which differs under `expand`).
+- **Freeze:** the game and adapter inherited the runner's `PROCESS_MODE_ALWAYS`, so the screenshot "freeze" froze nothing; they are now `PAUSABLE`.
+- **Transitions:** card text crossfaded with gameplay; now held back until the picture is black and faded in/out (`style.text_fade`); a fade between clips is a linear dip to black (FFmpeg's `fadeblack` falls to black in two frames); `fade_in` / `fade_out` for the whole video. Every encode is verified frame by frame (`_review.json`, `_review.png`); `analyze` finds hard cuts in any video.
+- **Colour range:** Movie Maker's MJPEG is full range; output is converted to limited-range yuv420p.
+- **Tests:** ran only with a Linux DejaVu font; now use Pillow's bundled font (`builtin:pillow`) and cover the new behaviour.
+
+Added: clip in-points (`start`), game audio from the clips mixed with music (`game_audio`, volumes, `music_start`, limiter), styled cards (subtitle, accent rule, image), several `videos` per manifest, screenshot `capture_frame` (a frame of live play), per-run Godot logs, `.gdignore` on `output_root`, `check --godot`. The overlay (`store_screenshot_capture` 1.1.0) and the runner share `viewport_capture.gd`. Card titles shrink to fit their authored lines before re-wrapping.
+
+## 0.1.0-draft — 2026-10-13
+
+- Extracted the unchanged Growing Kingdom editor screenshot addon as reusable source.
+- Added a game-neutral Godot scenario adapter interface and explicit real-game capture runner with test-save safety requirement.
+- Added pinned-version addon installer, data-driven shot/capture manifests, one-command pipeline, and FFmpeg/Pillow screenshot/video composition CLI.
+- Added optional 20-locale marketing headlines, no-headline copies, portrait/landscape/square video profiles, black title cards, real fades/cuts, supplied-music muxing, and ffprobe output validation.
+- Added synthetic smoke tests for screenshot preservation, localization failures, scene transitions and MP4 duration.
+- **Pending:** first Godot engine run, Growing Kingdom scenario adapter, Android export safety validation, full 20-language font/layout checks, real video review, and stable toolkit promotion.

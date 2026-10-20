@@ -1,0 +1,174 @@
+{
+  "change": 1,
+  "source": "lootFarmer(4).zip / 0.6.3",
+  "project_version": "1",
+  "android_version_code": 8,
+  "save_schema": 5,
+  "install": "Extract at existing project root and overwrite. No files to delete.",
+  "files": [
+    {
+      "path": "data/game/catalog.json",
+      "sha256": "9d132d31db367e8f2b063a9bd7201b6476e67cd4f15211dfe9d2488205652732"
+    },
+    {
+      "path": "docs/Change_1_Evidence/attack_timing_probe.log",
+      "sha256": "4fce4aacf398514d038f404880e144caec338f8977d42d2a52e7d4accce30c7b"
+    },
+    {
+      "path": "docs/Change_1_Evidence/audit_probe.log",
+      "sha256": "263a612fe12c197048ed08f9ceea3ab7845c8ff402db4613735f823d0569c123"
+    },
+    {
+      "path": "docs/Change_1_Evidence/balance_probe.log",
+      "sha256": "f903bab899ea9f5bc0b788afd736fda4b759b0386b0f766efed5531badcc1ef7"
+    },
+    {
+      "path": "docs/Change_1_Evidence/bootstrap_probe.log",
+      "sha256": "db04d183e94a26dbb0794de00b31e05803c6d1f8bc88f2191981d7bd3fe872e1"
+    },
+    {
+      "path": "docs/Change_1_Evidence/camera_probe.log",
+      "sha256": "75603b83dac176c31f784a079058511fc17c609a2b71a339cd3019b6dc0558cc"
+    },
+    {
+      "path": "docs/Change_1_Evidence/change_1_probe.log",
+      "sha256": "ceb5b16835904d446443cabfaef4d88f1bc28cd75dc2b15b6303f29386abc122"
+    },
+    {
+      "path": "docs/Change_1_Evidence/evolution_farming_probe.log",
+      "sha256": "4fe4252e5344d868804e6de0dfcb0cc5fe22177b274dc57b2db71daaa532f331"
+    },
+    {
+      "path": "docs/Change_1_Evidence/farming_ui_probe.log",
+      "sha256": "447002b87eb1dd1630205f927773d9aaeea59cc88063aab0c154e9478686db2c"
+    },
+    {
+      "path": "docs/Change_1_Evidence/feedback_probe.log",
+      "sha256": "173985676eb6dea082d3912ad295bb1da35acc8d26b1b0ae75a823c40fc9762b"
+    },
+    {
+      "path": "docs/Change_1_Evidence/gameplay_probe.log",
+      "sha256": "84a33c5488e7ca1abdcc1ffb6ded9be666752a2f443c4f522650f8f7f1c6c2cf"
+    },
+    {
+      "path": "docs/Change_1_Evidence/group_progress_probe.log",
+      "sha256": "d337ca97792d9604c92e647a7d01ecc06df025f1ac22b7bedc5ecc9360d45647"
+    },
+    {
+      "path": "docs/Change_1_Evidence/inspector_probe.log",
+      "sha256": "b934104b1cf478ac72ead1d6601617e638c061ff00fb03f0d882a8bf117ffd8f"
+    },
+    {
+      "path": "docs/Change_1_Evidence/inventory_probe.log",
+      "sha256": "c1274adad88b8c9933099437d794eb0da7216b378cf02d54a41d30661c2fba38"
+    },
+    {
+      "path": "docs/Change_1_Evidence/original_source_balance_probe.log",
+      "sha256": "f903bab899ea9f5bc0b788afd736fda4b759b0386b0f766efed5531badcc1ef7"
+    },
+    {
+      "path": "docs/Change_1_Evidence/progression_probe.log",
+      "sha256": "fb494e15de2320e992e50bc3ccc246be7cb2cf2983cf48e26713f3d0cbad5ad9"
+    },
+    {
+      "path": "docs/Change_1_Evidence/summary.json",
+      "sha256": "af8c4f2caafa39ffdcb55cfd192166a458b0f0aa22ba448491d879a7f4f6b122"
+    },
+    {
+      "path": "docs/Change_1_Evidence/targeting_probe.log",
+      "sha256": "4fe8e61517e98f5c7da348e5fcabff0d0c3c7171b787f89ba34b69046a41f8cb"
+    },
+    {
+      "path": "docs/Change_1_Evidence/ui_probe.log",
+      "sha256": "c2c6381d10a2e56c28e5321c34447b662d79dd9edf75c1a84b60a1c6f8819f77"
+    },
+    {
+      "path": "docs/LootFarmer_Change_1_Notes.md",
+      "sha256": "88dfc13566751e19bf7220b4173cd6b71cf081b6c4930f05dfde45897948fb30"
+    },
+    {
+      "path": "docs/LootFarmer_Checkpoints.md",
+      "sha256": "73af91c6815a6b77e8b659d5e66f12505669fa414e9ffbb077529e4d6ef65a09"
+    },
+    {
+      "path": "docs/LootFarmer_Design_README.md",
+      "sha256": "f4b1e8db8afc062e8a10964516d7bb9d16b87a42a0980b2b766e06185f531329"
+    },
+    {
+      "path": "docs/LootFarmer_GDD.md",
+      "sha256": "2107a32ae334cc368a83fdf411b154b814bcac04779c53cf178649efa3a1652f"
+    },
+    {
+      "path": "docs/LootFarmer_Prototype_Status.md",
+      "sha256": "f193cab0c8a9f03dbb0ea1dd2a7e642a8a825e9d9dd47054a11b9b6b01ba3736"
+    },
+    {
+      "path": "docs/Reusable_Game_Development_Playbook.md",
+      "sha256": "3fd7a492f5088ead30e9bbe2bddfa682e2d835c3ed508b67d5333a575240e67a"
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "1af047858f0e9c042636c137cbe188c167b4f8d90a2d59fd5c79549b5dde9808"
+    },
+    {
+      "path": "localization/en.po",
+      "sha256": "90cc3bdaf00e4c6c4c003047da1407bae99ada6abd90f43c0da1094afb85bd21"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "a96d92a933ee1b9aa984a5f26a979b8932f9b66e41061a238b5ba236968dc75c"
+    },
+    {
+      "path": "scenes/game/main.tscn",
+      "sha256": "57c8c92fde5e2fe6bed4cd69841f6de0b4b470eebcd8a2e1d90ad253cd15187b"
+    },
+    {
+      "path": "scripts/game/game_ui.gd",
+      "sha256": "f17268a919c3fc7d5cde355ce7f203a77f4bba9924a917919a6f4cb34c8bb52c"
+    },
+    {
+      "path": "scripts/game/simulation.gd",
+      "sha256": "610376a74b1574ea4543c07addac8882fafac546f158345f7de923bb972aecb6"
+    },
+    {
+      "path": "tests/balance_probe.gd",
+      "sha256": "36d673ab9a7b1c98ee9ddb8038286da3a8e1a5043c59af1dc1a00d394ab86cfe"
+    },
+    {
+      "path": "tests/change_1_probe.gd",
+      "sha256": "6662d947e29850b71282727d60b245ce7be45d1059f2c1f6242c518e0ab1a662"
+    },
+    {
+      "path": "tests/change_1_probe.gd.uid",
+      "sha256": "a49344fceba0efe758175fa40314c20fcafc213d43fc16067b5772f6578b261a"
+    },
+    {
+      "path": "tests/change_1_probe.tscn",
+      "sha256": "5ab5892c1160749b8ddcc502c1e663486e1f741617e2c8dff10005c6d0bcd65f"
+    },
+    {
+      "path": "tests/evolution_farming_probe.gd",
+      "sha256": "c366309c8a41fb9ebae41a60c5b571f9d2ea9467e94ef261412985e0bbef59b4"
+    },
+    {
+      "path": "tests/farming_ui_probe.gd",
+      "sha256": "3cdd27e54ad96f4ca7b2b4134a3c9db405d4caf7ecc4f5ac419d97728d90feed"
+    },
+    {
+      "path": "tests/feedback_probe.gd",
+      "sha256": "d434db4a617b6d0a65cdc2ca3c30c684ec12962e581536fd43f14ea630449b9d"
+    },
+    {
+      "path": "tests/gameplay_probe.gd",
+      "sha256": "bcc2035e1ddeac73d4b85b8167fc54988c87875b3c5c33c6639784cf45bc1372"
+    },
+    {
+      "path": "tests/group_progress_probe.gd",
+      "sha256": "dc7d97e0a7439f0eaa0bf5651a9663146d04a17929fa85cfa53cb4f1facd31c7"
+    },
+    {
+      "path": "tests/inspector_probe.gd",
+      "sha256": "d8e1f5f95871faf8da05181e9fee9591bd5181a02a073db17ebdefd673d36258"
+    }
+  ]
+}

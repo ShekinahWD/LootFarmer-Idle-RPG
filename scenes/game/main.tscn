@@ -1,0 +1,392 @@
+[gd_scene load_steps=10 format=3]
+[ext_resource type="Script" path="res://scripts/game/game_ui.gd" id="ui"]
+[ext_resource type="Script" path="res://scripts/game/simulation.gd" id="sim"]
+[ext_resource type="PackedScene" path="res://scenes/game/world.tscn" id="world"]
+[ext_resource type="PackedScene" path="res://scenes/game/joystick.tscn" id="stick"]
+[ext_resource type="Theme" path="res://resources/game/theme.tres" id="theme"]
+[ext_resource type="Texture2D" path="res://resources/game/coin.tres" id="coin"]
+[ext_resource type="Texture2D" path="res://resources/game/gem.tres" id="gem"]
+[ext_resource type="Script" path="res://scripts/game/map_gestures.gd" id="gestures"]
+[ext_resource type="Script" path="res://scripts/game/touch_scroll.gd" id="touch_scroll"]
+[node name="LootFarmer" type="Control"]
+process_mode=3
+layout_mode=3
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+theme=ExtResource("theme")
+script=ExtResource("ui")
+[node name="Simulation" type="Node" parent="."]
+process_mode=1
+script=ExtResource("sim")
+[node name="Safe" type="MarginContainer" parent="."]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+[node name="Layout" type="VBoxContainer" parent="Safe"]
+layout_mode=2
+theme_override_constants/separation=0
+[node name="Map" type="Control" parent="Safe/Layout"]
+layout_mode=2
+custom_minimum_size=Vector2(0,400)
+size_flags_vertical=3
+clip_contents=true
+[node name="ViewportContainer" type="SubViewportContainer" parent="Safe/Layout/Map"]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+stretch=true
+mouse_filter=2
+[node name="Viewport" type="SubViewport" parent="Safe/Layout/Map/ViewportContainer"]
+handle_input_locally=false
+size=Vector2i(720,700)
+render_target_update_mode=4
+[node name="World" parent="Safe/Layout/Map/ViewportContainer/Viewport" instance=ExtResource("world")]
+process_mode=1
+[node name="GestureSurface" type="Control" parent="Safe/Layout/Map"]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+script=ExtResource("gestures")
+[node name="Joystick" parent="Safe/Layout/Map" instance=ExtResource("stick")]
+layout_mode=1
+anchor_left=0.5
+anchor_right=0.5
+anchor_top=1.0
+anchor_bottom=1.0
+offset_left=-90.0
+offset_top=-196.0
+offset_right=90.0
+offset_bottom=-16.0
+[node name="Hint" type="Label" parent="Safe/Layout/Map"]
+layout_mode=1
+anchor_top=1.0
+anchor_bottom=1.0
+anchor_right=1.0
+offset_left=18.0
+offset_top=-270.0
+offset_right=-18.0
+offset_bottom=-206.0
+mouse_filter=2
+autowrap_mode=2
+text="HELP_0"
+theme_override_font_sizes/font_size=18
+[node name="History" type="VBoxContainer" parent="Safe/Layout/Map"]
+layout_mode=0
+offset_left=18.0
+offset_top=16.0
+offset_right=270.0
+offset_bottom=152.0
+theme_override_constants/separation=4
+mouse_filter=2
+[node name="GemPickup" type="HBoxContainer" parent="Safe/Layout/Map"]
+visible=false
+layout_mode=0
+offset_left=18.0
+offset_top=164.0
+offset_right=160.0
+offset_bottom=200.0
+mouse_filter=2
+[node name="Icon" type="TextureRect" parent="Safe/Layout/Map/GemPickup"]
+layout_mode=2
+custom_minimum_size=Vector2(44,44)
+texture=ExtResource("gem")
+expand_mode=1
+stretch_mode=5
+mouse_filter=2
+[node name="Amount" type="Label" parent="Safe/Layout/Map/GemPickup"]
+layout_mode=2
+theme_override_font_sizes/font_size=24
+theme_override_colors/font_color=Color(0.5,1,1,1)
+theme_override_constants/outline_size=4
+mouse_filter=2
+[node name="EnemySection" type="Label" parent="Safe/Layout/Map"]
+layout_mode=0
+offset_left=18.0
+offset_top=212.0
+offset_right=310.0
+offset_bottom=238.0
+theme_override_font_sizes/font_size=18
+mouse_filter=2
+[node name="Achievement" type="Button" parent="Safe/Layout/Map"]
+layout_mode=0
+offset_left=18.0
+offset_top=242.0
+offset_right=176.0
+offset_bottom=302.0
+theme_override_font_sizes/font_size=16
+autowrap_mode=2
+[node name="EnemyUpgrades" type="Button" parent="Safe/Layout/Map"]
+layout_mode=0
+offset_left=18.0
+offset_top=310.0
+offset_right=176.0
+offset_bottom=370.0
+theme_override_font_sizes/font_size=16
+text="TAB_UPGRADES"
+[node name="Zoom" type="HBoxContainer" parent="Safe/Layout/Map"]
+layout_mode=1
+anchor_left=1.0
+anchor_right=1.0
+offset_left=-260.0
+offset_right=-18.0
+offset_top=16.0
+offset_bottom=76.0
+[node name="Slider" type="HSlider" parent="Safe/Layout/Map/Zoom"]
+layout_mode=2
+custom_minimum_size=Vector2(150,60)
+size_flags_horizontal=3
+min_value=1.0
+max_value=3.0
+step=0.01
+value=2.0
+scrollable=false
+tooltip_text="CAMERA_ZOOM"
+[node name="Value" type="Label" parent="Safe/Layout/Map/Zoom"]
+layout_mode=2
+custom_minimum_size=Vector2(76,0)
+horizontal_alignment=1
+text="2.00×"
+mouse_filter=2
+[node name="Top" type="PanelContainer" parent="Safe/Layout"]
+layout_mode=2
+[node name="Content" type="VBoxContainer" parent="Safe/Layout/Top"]
+layout_mode=2
+[node name="Meters" type="HBoxContainer" parent="Safe/Layout/Top/Content"]
+layout_mode=2
+theme_override_constants/separation=12
+[node name="HP" type="ProgressBar" parent="Safe/Layout/Top/Content/Meters"]
+layout_mode=2
+custom_minimum_size=Vector2(0,32)
+size_flags_horizontal=3
+value=100.0
+show_percentage=false
+[node name="Text" type="Label" parent="Safe/Layout/Top/Content/Meters/HP"]
+layout_mode=1
+anchor_right=1.0
+anchor_bottom=1.0
+horizontal_alignment=1
+vertical_alignment=1
+theme_override_font_sizes/font_size=17
+mouse_filter=2
+[node name="XP" type="ProgressBar" parent="Safe/Layout/Top/Content/Meters"]
+layout_mode=2
+custom_minimum_size=Vector2(0,32)
+size_flags_horizontal=3
+theme_type_variation=&"XP"
+value=0.0
+show_percentage=false
+[node name="Text" type="Label" parent="Safe/Layout/Top/Content/Meters/XP"]
+layout_mode=1
+anchor_right=1.0
+anchor_bottom=1.0
+horizontal_alignment=1
+vertical_alignment=1
+theme_override_font_sizes/font_size=17
+mouse_filter=2
+[node name="Bar" type="HBoxContainer" parent="Safe/Layout/Top/Content"]
+layout_mode=2
+[node name="CoinIcon" type="TextureRect" parent="Safe/Layout/Top/Content/Bar"]
+layout_mode=2
+custom_minimum_size=Vector2(44,44)
+texture=ExtResource("coin")
+expand_mode=1
+stretch_mode=5
+[node name="Coins" type="Label" parent="Safe/Layout/Top/Content/Bar"]
+layout_mode=2
+custom_minimum_size=Vector2(90,0)
+text="0"
+[node name="GemIcon" type="TextureRect" parent="Safe/Layout/Top/Content/Bar"]
+layout_mode=2
+custom_minimum_size=Vector2(44,44)
+texture=ExtResource("gem")
+expand_mode=1
+stretch_mode=5
+[node name="Gems" type="Label" parent="Safe/Layout/Top/Content/Bar"]
+layout_mode=2
+size_flags_horizontal=3
+text="0"
+[node name="Pause" type="Button" parent="Safe/Layout/Top/Content/Bar"]
+layout_mode=2
+custom_minimum_size=Vector2(110,48)
+text="PAUSE"
+[node name="Status" type="Label" parent="Safe/Layout/Top/Content"]
+visible=false
+layout_mode=2
+text="PLAYER_STATUS"
+theme_override_font_sizes/font_size=18
+[node name="Dock" type="PanelContainer" parent="Safe/Layout"]
+layout_mode=2
+[node name="Content" type="VBoxContainer" parent="Safe/Layout/Dock"]
+layout_mode=2
+theme_override_constants/separation=8
+[node name="Inventory" type="HBoxContainer" parent="Safe/Layout/Dock/Content"]
+layout_mode=2
+theme_override_constants/separation=12
+[node name="GearColumn" type="VBoxContainer" parent="Safe/Layout/Dock/Content/Inventory"]
+layout_mode=2
+size_flags_horizontal=3
+size_flags_stretch_ratio=3.0
+[node name="Heading" type="Label" parent="Safe/Layout/Dock/Content/Inventory/GearColumn"]
+layout_mode=2
+text="GEAR"
+theme_override_font_sizes/font_size=18
+[node name="GearScroll" type="ScrollContainer" parent="Safe/Layout/Dock/Content/Inventory/GearColumn"]
+script=ExtResource("touch_scroll")
+layout_mode=2
+custom_minimum_size=Vector2(0,240)
+size_flags_vertical=3
+horizontal_scroll_mode=0
+vertical_scroll_mode=1
+[node name="Gear" type="GridContainer" parent="Safe/Layout/Dock/Content/Inventory/GearColumn/GearScroll"]
+layout_mode=2
+columns=3
+theme_override_constants/h_separation=8
+theme_override_constants/v_separation=8
+[node name="Divider" type="ColorRect" parent="Safe/Layout/Dock/Content/Inventory"]
+layout_mode=2
+custom_minimum_size=Vector2(2,0)
+color=Color(0.48,0.53,0.60,0.8)
+mouse_filter=2
+[node name="SupplyColumn" type="VBoxContainer" parent="Safe/Layout/Dock/Content/Inventory"]
+layout_mode=2
+size_flags_horizontal=3
+size_flags_stretch_ratio=1.0
+[node name="SupplyHeading" type="Label" parent="Safe/Layout/Dock/Content/Inventory/SupplyColumn"]
+layout_mode=2
+text="SUPPLIES"
+theme_override_font_sizes/font_size=18
+[node name="SupplyScroll" type="ScrollContainer" parent="Safe/Layout/Dock/Content/Inventory/SupplyColumn"]
+script=ExtResource("touch_scroll")
+layout_mode=2
+custom_minimum_size=Vector2(0,240)
+size_flags_vertical=3
+horizontal_scroll_mode=0
+vertical_scroll_mode=1
+[node name="Supplies" type="GridContainer" parent="Safe/Layout/Dock/Content/Inventory/SupplyColumn/SupplyScroll"]
+layout_mode=2
+theme_override_constants/h_separation=8
+theme_override_constants/v_separation=8
+[node name="SupplyHint" type="Label" parent="Safe/Layout/Dock/Content"]
+layout_mode=2
+text="SUPPLY_QUICK_HELP"
+theme_override_font_sizes/font_size=16
+horizontal_alignment=2
+[node name="Navigation" type="HBoxContainer" parent="Safe/Layout/Dock/Content"]
+layout_mode=2
+[node name="Travel" type="Button" parent="Safe/Layout/Dock/Content/Navigation"]
+layout_mode=2
+custom_minimum_size=Vector2(0,50)
+size_flags_horizontal=3
+text="WORLD"
+[node name="Stats" type="Button" parent="Safe/Layout/Dock/Content/Navigation"]
+layout_mode=2
+size_flags_horizontal=3
+text="STATS"
+[node name="Settings" type="Button" parent="Safe/Layout/Dock/Content/Navigation"]
+layout_mode=2
+size_flags_horizontal=3
+text="SETTINGS"
+[node name="Sheet" type="PanelContainer" parent="."]
+visible=false
+layout_mode=1
+anchor_top=0.13
+anchor_right=1.0
+anchor_bottom=0.72
+offset_left=18.0
+offset_right=-18.0
+[node name="Margin" type="MarginContainer" parent="Sheet"]
+layout_mode=2
+theme_override_constants/margin_left=8
+theme_override_constants/margin_right=8
+[node name="Content" type="VBoxContainer" parent="Sheet/Margin"]
+layout_mode=2
+[node name="Header" type="HBoxContainer" parent="Sheet/Margin/Content"]
+layout_mode=2
+[node name="Title" type="Label" parent="Sheet/Margin/Content/Header"]
+layout_mode=2
+size_flags_horizontal=3
+text="INVENTORY_HEADING"
+autowrap_mode=2
+[node name="Close" type="Button" parent="Sheet/Margin/Content/Header"]
+layout_mode=2
+custom_minimum_size=Vector2(110,58)
+text="CLOSE"
+[node name="Scroll" type="ScrollContainer" parent="Sheet/Margin/Content"]
+script=ExtResource("touch_scroll")
+layout_mode=2
+size_flags_vertical=3
+horizontal_scroll_mode=0
+[node name="Rows" type="VBoxContainer" parent="Sheet/Margin/Content/Scroll"]
+layout_mode=2
+size_flags_horizontal=3
+theme_override_constants/separation=10
+[node name="Notice" type="Label" parent="Sheet/Margin/Content"]
+layout_mode=2
+custom_minimum_size=Vector2(0,26)
+autowrap_mode=2
+theme_override_font_sizes/font_size=18
+[node name="Toast" type="Label" parent="."]
+layout_mode=1
+anchor_top=0.0
+anchor_right=0.6
+offset_left=24.0
+offset_right=-24.0
+offset_top=120.0
+offset_bottom=180.0
+horizontal_alignment=1
+autowrap_mode=2
+mouse_filter=2
+[node name="Confirm" type="Control" parent="."]
+process_mode=3
+visible=false
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+mouse_filter=0
+[node name="Panel" type="PanelContainer" parent="Confirm"]
+layout_mode=0
+[node name="Margin" type="MarginContainer" parent="Confirm/Panel"]
+layout_mode=2
+theme_override_constants/margin_left=18
+theme_override_constants/margin_top=18
+theme_override_constants/margin_right=18
+theme_override_constants/margin_bottom=18
+[node name="Content" type="VBoxContainer" parent="Confirm/Panel/Margin"]
+layout_mode=2
+theme_override_constants/separation=12
+[node name="Title" type="Label" parent="Confirm/Panel/Margin/Content"]
+layout_mode=2
+text="CONFIRM"
+[node name="Scroll" type="ScrollContainer" parent="Confirm/Panel/Margin/Content"]
+layout_mode=2
+size_flags_vertical=3
+horizontal_scroll_mode=0
+script=ExtResource("touch_scroll")
+[node name="Text" type="Label" parent="Confirm/Panel/Margin/Content/Scroll"]
+layout_mode=2
+size_flags_horizontal=3
+autowrap_mode=2
+[node name="Actions" type="HBoxContainer" parent="Confirm/Panel/Margin/Content"]
+layout_mode=2
+theme_override_constants/separation=12
+[node name="Cancel" type="Button" parent="Confirm/Panel/Margin/Content/Actions"]
+layout_mode=2
+size_flags_horizontal=3
+custom_minimum_size=Vector2(0,60)
+text="CANCEL"
+[node name="Confirm" type="Button" parent="Confirm/Panel/Margin/Content/Actions"]
+layout_mode=2
+size_flags_horizontal=3
+custom_minimum_size=Vector2(0,60)
+text="CONFIRM"
