@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/change_6_capture.gd" id="capture"]
+[node name="Change6Capture" type="Node"]
+script=ExtResource("capture")

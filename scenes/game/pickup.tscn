@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 [ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/16x16 All Items v1.png" id="item"]
+[ext_resource type="Script" path="res://scripts/game/pickup_spark.gd" id="spark"]
 [node name="Pickup" type="Node2D"]
 texture_filter=1
+script=ExtResource("spark")
 [node name="Icon" type="Sprite2D" parent="."]
 texture=ExtResource("item")
 scale=Vector2(0.5,0.5)

@@ -1,0 +1,38 @@
+{
+  "change": 2,
+  "scope": "documentation only",
+  "source": "lootFarmer(6).zip",
+  "runtime_change": 1,
+  "fresh_validation": [
+    "source ZIP CRC",
+    "ZIP5/ZIP6 file comparison",
+    "toolkit SHA-256 lock/source comparison",
+    "literal gameplay resource references",
+    "spell sheet/frame dimensions",
+    "WAV headers",
+    "historical documentation byte preservation"
+  ],
+  "not_performed": [
+    "fresh Godot runtime tests",
+    "Android export",
+    "physical device tests",
+    "listening/playback review"
+  ],
+  "files": {
+    "docs/LootFarmer_Asset_Registry.md": "4dd3555bda8b738f68508fabc373cd8011e1066a7990fe57c7ca20ef4d4ec8a5",
+    "docs/LootFarmer_Bootstrap_Status.md": "eefddb03ae5a65f415937c81fcddbcf35bbc87d3036a4dc7da8ba1f2d0efe5d3",
+    "docs/LootFarmer_Checkpoints.md": "8995a9be2214026567f77e1b044f57a07a39cf7329824028759eb7b1e8b426d8",
+    "docs/LootFarmer_Design_Audit.md": "934b716378fd924a2d2bfa9cf070e76f5619429a75d09a12d34f34a406cf101b",
+    "docs/LootFarmer_Design_README.md": "3ad66e1d6dad619e2e37dff8af6f14d648e4c245be9f3021fbd73ba6319ad9cf",
+    "docs/LootFarmer_GDD.md": "e537923b39f28af352ba1f64677098043d61f969e952c78d33753e0e6c443cb9",
+    "docs/LootFarmer_Prototype_Status.md": "ff87c9243ebbdf8d63f9bce190aeeefe89338837c6012b4cf09e6255ede8e689",
+    "docs/Reusable_Game_Development_Playbook.md": "1eac728bda2973440331aa34d107a75473f911e135b6ff37aa095687922b9cc8",
+    "docs/history/pre_change_2/LootFarmer_Asset_Registry.md": "96165893b80298b0d11a974eeaf7a2a95779a763ca37941301c84cf7f62fb77e",
+    "docs/history/pre_change_2/LootFarmer_Bootstrap_Status.md": "24128e016bf3cab708e1f6a315b6a147511b10070539ac0e8aaf9b90d94c1688",
+    "docs/history/pre_change_2/LootFarmer_Checkpoints.md": "73af91c6815a6b77e8b659d5e66f12505669fa414e9ffbb077529e4d6ef65a09",
+    "docs/history/pre_change_2/LootFarmer_Design_Audit.md": "e5693bfab7eb3bfb7b8f86af4968f2d4445be7654fa11ae75b4e8042a30ae429",
+    "docs/history/pre_change_2/LootFarmer_Design_README.md": "f4b1e8db8afc062e8a10964516d7bb9d16b87a42a0980b2b766e06185f531329",
+    "docs/history/pre_change_2/LootFarmer_GDD.md": "2107a32ae334cc368a83fdf411b154b814bcac04779c53cf178649efa3a1652f",
+    "docs/history/pre_change_2/LootFarmer_Prototype_Status.md": "f193cab0c8a9f03dbb0ea1dd2a7e642a8a825e9d9dd47054a11b9b6b01ba3736"
+  }
+}

@@ -1,0 +1,1051 @@
+{
+  "change": 6,
+  "baseline": "Workspace with LootFarmer-5-corrections-changed-files.zip applied (verified byte-identical)",
+  "files": [
+    {
+      "path": "data/game/catalog.json",
+      "status": "modified",
+      "sha256": "7bf42fb99935b76cc667ef44e92072aa3ea544f852836a8898fcf358d58aaaf1"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/00_chooser.png",
+      "status": "added",
+      "sha256": "7c6998105af439e0fd65b9257e4f0a3fccd1a16c2fe0e3ecd06f5608bfaccb92"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/00_chooser_20x9.png",
+      "status": "added",
+      "sha256": "bb03b48cf213f956d872a2523e13f2b3090c5b1b2e6dcecc257576b0b8a15307"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/01_lesson_move.png",
+      "status": "added",
+      "sha256": "13a5a8884ef92759ecfc440ed3e90372cd864b9ca49ac0438d10c71c13dd989a"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/01_lesson_move_20x9.png",
+      "status": "added",
+      "sha256": "c174836d5828ad2ee515789c01f8bb2b7f2cfba419dc66cdc1b3d57fa1e42a32"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/02_lesson_kill.png",
+      "status": "added",
+      "sha256": "fb2fdeea714a91bbc0882f3506c91900464a7625e5e5ce636684c258cbb1e23c"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/02_lesson_kill_20x9.png",
+      "status": "added",
+      "sha256": "72bc3dc57f3ed12cfc3857aa3e2e67060d2a76b293333eb6c0e84746c8396b37"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/03_lesson_collect.png",
+      "status": "added",
+      "sha256": "1698093c464d21a420ca9efa62d3c27d2ab634ffd4283659f1cfa8b70f81f54a"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/03_lesson_collect_20x9.png",
+      "status": "added",
+      "sha256": "8d72a9be4cef3a89b4dc013cee3a4e6d85c954b3a1bb9d8fc869cfd9f50b7b01"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/04_lesson_equip_slot.png",
+      "status": "added",
+      "sha256": "6cdbb2483fb849aa3bd7872065453b1bbd67b19e61bc116dd7a5838b5b3e2030"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/04_lesson_equip_slot_20x9.png",
+      "status": "added",
+      "sha256": "b97ac697938cc90fe0d813eaca7a2dcb105c13e6ecfd71621db1925ef9c21ce4"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/05_lesson_equip_button.png",
+      "status": "added",
+      "sha256": "e8c37c9da39ea81384160239846ca459b80e07a1780efcbe8c26959403e9089f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/05_lesson_equip_button_20x9.png",
+      "status": "added",
+      "sha256": "e212bc949a74a8f5f56690259e73b327afd5ea4a6f21d15bb189ad23c42169c3"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/06_lesson_merge_slot.png",
+      "status": "added",
+      "sha256": "1a6ed5a66a40c8242a68c4946557ac1f7019615d6f416cb20e8d9e8bfe4a31de"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/06_lesson_merge_slot_20x9.png",
+      "status": "added",
+      "sha256": "226965129c1cf263787d9b133b3b262dbe1543635967288a4dda59ac750b1e82"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/07_item_compare_arrows.png",
+      "status": "added",
+      "sha256": "8c4e42275facf4abcdcb52a69a1b395f6585c5d4f63594b5f96ecf17e0b99e48"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/07_item_compare_arrows_20x9.png",
+      "status": "added",
+      "sha256": "b83057406443ba5d518ac43b503c0db75ff51295a6e9eb6a774e40d926bab47b"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/08_item_next.png",
+      "status": "added",
+      "sha256": "8459fffe3a2ea1222d463cd5a5aa6c328062b46d9e90011bb8ee00aee6610f55"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/08_item_next_20x9.png",
+      "status": "added",
+      "sha256": "025c21d0e1afb1963ac1e87ebb103697b71756945cadcd297b2e9e869c3d6441"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/09_lesson_upgrade_hud.png",
+      "status": "added",
+      "sha256": "a2966457407f14e65a06bde9025a5b13109cb3b7f06b4f9fd0ff5aa1c9087c4d"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/09_lesson_upgrade_hud_20x9.png",
+      "status": "added",
+      "sha256": "565b0230777a4524395fea675e72703e5a34d174e5dae5450198047084b15928"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/10_lesson_upgrade_tab.png",
+      "status": "added",
+      "sha256": "ce034268d95f5df5b3e06526ed9e05aec182861fc3eae55684c8e3e9c38579dd"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/10_lesson_upgrade_tab_20x9.png",
+      "status": "added",
+      "sha256": "f7b90b82b90b9952ed8ffafbd4bcb9c69368653bdd934cd4cb5302bea1f2a3a1"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/11_lesson_upgrade_buy.png",
+      "status": "added",
+      "sha256": "523588af0927504bca40c57f041104ea70dd1a7072608d108442416b4c39aff1"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/11_lesson_upgrade_buy_20x9.png",
+      "status": "added",
+      "sha256": "4139f9d41b83336458259754c424c428a5c131a1435909af795056d8fc8cb079"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/12_lesson_camp_explore.png",
+      "status": "added",
+      "sha256": "4eec9fb17fa5f5829ff6f1c3b3784f9224b98b15c59d726eca55bb3f52dcc971"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/12_lesson_camp_explore_20x9.png",
+      "status": "added",
+      "sha256": "9496aadec63b324f02c1a015c900ef12c26aa5f1583498cf689d5bdf5c603781"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/13_lesson_camp_world_button.png",
+      "status": "added",
+      "sha256": "85b6788de947ee73bdb8c188b7d0c7e57d7d9a380c2019218bd6e522dcce8723"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/13_lesson_camp_world_button_20x9.png",
+      "status": "added",
+      "sha256": "3add699c13efaf7bac7ca215e2a8c54bf22e5db69d0fde2f2246a4fdb1c79961"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/14_world_panel_camp_unlock.png",
+      "status": "added",
+      "sha256": "b7e853cbc4f22406a7a9f7ceae28bc0146ee607dda9ae45b2ea1ca57ff05f71c"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/14_world_panel_camp_unlock_20x9.png",
+      "status": "added",
+      "sha256": "2cd46d742162ef92b0fca28ecc4bd34ac577cf8d7d15dd2cd409c24f19c48d79"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/15_world_after_unlock.png",
+      "status": "added",
+      "sha256": "b44c380081156329aae4193e3036b5afc64f6f2f4ef6313365675c1ac12052bd"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/15_world_after_unlock_20x9.png",
+      "status": "added",
+      "sha256": "b93a61b785b8b89adb13e5c9e4030a5eeaea7d04d4b92299ad9602e7816f1eeb"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/16_camp_done_intro.png",
+      "status": "added",
+      "sha256": "718796649c95ae9d603d6a8335e1263ea6848e95c15a3edeb7d4a767e384d00d"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/16_camp_done_intro_20x9.png",
+      "status": "added",
+      "sha256": "291795e0175aedf903296e49b2c4672c8f28881b00e5a0435c04bdb7fda788c8"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/17_toast_on_snow.png",
+      "status": "added",
+      "sha256": "c48e9adb3640905fe2e0b4991371bb4b606e6eb2dc157e3834cd56e569d6d170"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/17_toast_on_snow_20x9.png",
+      "status": "added",
+      "sha256": "8194d4f73d0e5dc3f3201ea9be87349de7aa7b495d451e05bb13febafc04102c"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/18_milestone_banner.png",
+      "status": "added",
+      "sha256": "8f731fab74ddce8e6cf42d7af1ee78364f9a32f77c2673a3de3f970b04516f2b"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/18_milestone_banner_20x9.png",
+      "status": "added",
+      "sha256": "4f07cffd2db1609af211fda22eee960a8c216e6ef879f4b0a40262d217b55273"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/18b_milestone_banner_late.png",
+      "status": "added",
+      "sha256": "0ea2d83a829b0ee7d2be09b1526ecb7a2463b3144ebf3f4a2ee2421a6023132c"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/18b_milestone_banner_late_20x9.png",
+      "status": "added",
+      "sha256": "dcfc5c3caede6d5bffa1da95e83fb3c6f1953fac0e23928d5767a5e7740675a8"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/19_prestige_overview.png",
+      "status": "added",
+      "sha256": "c2f481cddef55c5d2f25af6e9875bbe7011bd196a61912e68044138709410700"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/19_prestige_overview_20x9.png",
+      "status": "added",
+      "sha256": "1557356c081dfd7c1cd0fcb107d5a6ab025434a1d6980649b35f6656c1bc7ebb"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/20_prestige_cards.png",
+      "status": "added",
+      "sha256": "b8a97efbd122981634b459f3c06712ad704b2cce6b2c3a4ba27a93974e03fb76"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/20_prestige_cards_20x9.png",
+      "status": "added",
+      "sha256": "9004be167b2aee59ab994916426dcbe07c19a7a45a0b1868b44e24b6b40998e2"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/21_prestige_card_selected.png",
+      "status": "added",
+      "sha256": "3317c3affacfede50fd9ddec27f26813c0521c3d607c1d5e8da186becb220c1f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/21_prestige_card_selected_20x9.png",
+      "status": "added",
+      "sha256": "6e483863b403eac9e8a2785693a29b9490b42e30cdc8e3040bab5ddb653aa7f1"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/22_missions.png",
+      "status": "added",
+      "sha256": "8502adec1a73ef3973f8fecf4ac50a23b55096bf09f688ea53e522668a5c34a6"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/22_missions_20x9.png",
+      "status": "added",
+      "sha256": "b51d698351b3fc34f3ad63ab60227853183b14296c09a8d53c9d8b2dda3025a9"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/23_upgrades_player.png",
+      "status": "added",
+      "sha256": "81116c5a41607ad6bb4269d7b0ba397753e260f013fdf480886b40a0eca064c1"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/23_upgrades_player_20x9.png",
+      "status": "added",
+      "sha256": "1ce55ef680f6d1c7a1bf1ce0f8e8330b7e7857fe7e7e618be77a095348e96c12"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/24_enemy_upgrades.png",
+      "status": "added",
+      "sha256": "5478d8f0651f08e47d91859bd67e449cdbf3969162aaa9171e9689ec41445a7c"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/24_enemy_upgrades_20x9.png",
+      "status": "added",
+      "sha256": "46e83e35678ef9324c29714d827eee15bf9344ca243a9dfe0d0ed94f084db4cd"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/25_settings.png",
+      "status": "added",
+      "sha256": "eb5e9c9bf5684b5684b985cee432222906f3d710336837ce480e333856e87ccd"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/25_settings_20x9.png",
+      "status": "added",
+      "sha256": "5cb03906dfa2b4223d9ae9afcc24c7a53fc9d2b2d02c5a8c31ee530d7bce6f32"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/26_opening_layout_wide.png",
+      "status": "added",
+      "sha256": "5a0b560fa35d75fdbb78bb719b6419bc36f8dc46702820cb8795f759cf5b6994"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/26_opening_layout_wide_20x9.png",
+      "status": "added",
+      "sha256": "c15632816eedc2705318b262514e2f398d222f9fc037538bf72733a46bad1641"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/27_boss_arena_wide.png",
+      "status": "added",
+      "sha256": "2cdddf14e0dc9e6f14828edc319df0dec9293b5f022f5e07bfc77374b4c2fdc3"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/27_boss_arena_wide_20x9.png",
+      "status": "added",
+      "sha256": "e04e703d6ee16852c343ec298afe47f32a2981e7c9a725ee65dcd7a88ac0a0a0"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/28_upgrades_large_numbers.png",
+      "status": "added",
+      "sha256": "bc9e33e400ad9866d6500dd15fe2f32397c3c18f0214d6d527dbb1e9eeec69da"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/28_upgrades_large_numbers_20x9.png",
+      "status": "added",
+      "sha256": "41f1815c21eff47f8311da28bcd57a44eb3092838202b964d69f19c8726a1988"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/29_item_high_tier.png",
+      "status": "added",
+      "sha256": "3c4cb75b1338c06f451a87e7fe85e8997cbbe985b220e2152c1f4432f7f1b51f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/29_item_high_tier_20x9.png",
+      "status": "added",
+      "sha256": "f85c000d61cceb8b5f6639327920048a0c83652ade29aa15d0b59ecb1f2334c8"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/30_contrast_stage_1.png",
+      "status": "added",
+      "sha256": "7f9dbc2bfe4c84e17756ad89aafbbeadd4994f68d18e3c7763f26f483377bb66"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/30_contrast_stage_3.png",
+      "status": "added",
+      "sha256": "71087d2e5610e6007af6feb29d2ce0fb1740dfdef788777d8f98800ea51b5905"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/30_contrast_stage_5.png",
+      "status": "added",
+      "sha256": "10d0b3a1c2a802d9b4bb10eb70966ea7fca3e00c036d75ef742569bb72b1ef22"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/30_contrast_stage_7.png",
+      "status": "added",
+      "sha256": "03657bdc98895ea4a5294f11c7445d6f984068c6964c99e44cbf5acbfae17429"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/stage_1_layout.png",
+      "status": "added",
+      "sha256": "c7e015d34f32c6d78be5f20cc8198ec781b42e12cc552397b3b904e7def3807f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/stage_2_layout.png",
+      "status": "added",
+      "sha256": "0e334b03917f5a64b48661fd8dccc863657d7bcfeb43d97a6e08cb0b8c37a6cd"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/stage_3_layout.png",
+      "status": "added",
+      "sha256": "6d111e0ee856dd8873a4024b69c4404c4e93613de9b621f70ecf74e3a4f4a351"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/stage_4_layout.png",
+      "status": "added",
+      "sha256": "653d14c81558ab5fc4faeb21b0c2e77cc2f4d4e4cb7693fbe8a85df13a1a1209"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/stage_5_layout.png",
+      "status": "added",
+      "sha256": "1c079c7c1dd6cd248014ba12e150e372982ba1f6acf278508a4c11f2f8931a25"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/stage_6_layout.png",
+      "status": "added",
+      "sha256": "9e6f1307a889e8a49dae80211389b6ab47f40ec9cbfa09e32e68730c5cc300c1"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/stage_7_layout.png",
+      "status": "added",
+      "sha256": "778d8c9bab6e614e9411ca6b8ad965be0550ea63dca5ff829158c4cbd8d6eab9"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/stage_8_layout.png",
+      "status": "added",
+      "sha256": "b9769d0d573f888ca472ae578d6115ebb527e2a29672786f379ad4fd9f226564"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/timings_pass1.txt",
+      "status": "added",
+      "sha256": "2fef8aff30b95334f7debefb536ec735dbe3e2e099145558ef098e3ef9d05b04"
+    },
+    {
+      "path": "docs/Change_6_Evidence/after/timings_pass2.txt",
+      "status": "added",
+      "sha256": "09d2f4ee65d05a01558688310c8dde8984c9ff793e1f2a66c54ce926e96a3f99"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/01_first_lesson.png",
+      "status": "added",
+      "sha256": "31012913cac0cdac631bbeac11d33114e46144d278f24123afe0b22f9103f65f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/02_camp_lesson_hud.png",
+      "status": "added",
+      "sha256": "ffaa91dea4d8ee86e31a0cf42df48fde519bb940fe5c665bed21775247993ce5"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/03_world_panel_camp_lesson.png",
+      "status": "added",
+      "sha256": "21092fe12a2ace855db8da742fc7dfbf45a6c0a8a32fa0210c89eb3f9a5e3c18"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/04_item_details.png",
+      "status": "added",
+      "sha256": "1f012a1613bf61a6282d164654f31b8d9a76f929fac72dccba29d9ef591c8363"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/05_upgrades.png",
+      "status": "added",
+      "sha256": "888a39bc173c8d1f7389a0a60317d03f22bc74b070763efea01d66aa419ce750"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/06_toast_on_winter.png",
+      "status": "added",
+      "sha256": "3bef7906bb5fb821c69f52021cb8556bbf9b21ae544c1263fabdecb9479ff57d"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/07_prestige_choice.png",
+      "status": "added",
+      "sha256": "e1c3989b9b2e1905ccd732329d3031814a5b54c27a97aab90aa2b368985db165"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/08_opening_layout.png",
+      "status": "added",
+      "sha256": "6333a2e84b2143a40c4bdb4397555cfbfa4b2220140f58a46112e458ff9e6024"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/timings_contended_cpu.txt",
+      "status": "added",
+      "sha256": "c54f15bd03f1f798b94fda5acc8343ad5fbc4845e2e619c50f55b463e7624603"
+    },
+    {
+      "path": "docs/Change_6_Evidence/before/timings_idle.txt",
+      "status": "added",
+      "sha256": "20bdfadcfb02238bce0f9d386f8da3a0c0215ff4af4b85897a235d04ce088295"
+    },
+    {
+      "path": "docs/Change_6_Evidence/compare/encounter_layouts_all_stages.png",
+      "status": "added",
+      "sha256": "fa8f6ecff88cd1361d48d7f5ca09db05a40918f287978b4248231263712d5376"
+    },
+    {
+      "path": "docs/Change_6_Evidence/compare/first_lesson.png",
+      "status": "added",
+      "sha256": "51cf4ddd22e9280bf507baa0b5df960fc387b3f09acae8db4ea678fcac869dc8"
+    },
+    {
+      "path": "docs/Change_6_Evidence/compare/item_details.png",
+      "status": "added",
+      "sha256": "2e8b40797e331b3a46b604fcfa217edc08ce1bb469de76476e54278f0ffec19c"
+    },
+    {
+      "path": "docs/Change_6_Evidence/compare/opening_layout.png",
+      "status": "added",
+      "sha256": "854fa6f14f254b99ef4dc59b68229ffe3645c500fb2efedae7b88ceb20755942"
+    },
+    {
+      "path": "docs/Change_6_Evidence/compare/prestige_choice.png",
+      "status": "added",
+      "sha256": "1877005e81c0ec1f2be31630ae37ae7d80fcbfa912c953163c4a1e8a68118ebe"
+    },
+    {
+      "path": "docs/Change_6_Evidence/compare/upgrades.png",
+      "status": "added",
+      "sha256": "47dbdb04345884b965d8734ffc1b6eff3a7e2717e24be885e14cfb115b555660"
+    },
+    {
+      "path": "docs/Change_6_Evidence/compare/winter_notification.png",
+      "status": "added",
+      "sha256": "b09ed081a8cc0432fa93bd726f47731faee3b33d3089bf8586d248cf13395677"
+    },
+    {
+      "path": "docs/Change_6_Evidence/compare/world_camp_lesson.png",
+      "status": "added",
+      "sha256": "938e8482ba3958b67e18f93503c06a737e99f65bc61d021e0e65bb161bf9bcce"
+    },
+    {
+      "path": "docs/Change_6_Evidence/logs/campaign_content_probe.log",
+      "status": "added",
+      "sha256": "4ec9fd0cfa71da148af9105659257d89b9b8d8b91cbf72a2e6942c3f4747247d"
+    },
+    {
+      "path": "docs/Change_6_Evidence/logs/campaign_probe.log",
+      "status": "added",
+      "sha256": "2c37b8afb4f3c9f6aa84b1620452149b99eac6d7d7bfa708c3c4427c10d460e3"
+    },
+    {
+      "path": "docs/Change_6_Evidence/logs/change_5_probe.log",
+      "status": "added",
+      "sha256": "f3edbb2e811755db15a0a9152cae9393a8f3860a538e67879a1f49adac8e91ae"
+    },
+    {
+      "path": "docs/Change_6_Evidence/logs/change_6_probe.log",
+      "status": "added",
+      "sha256": "58b7134d525b8e2714b3e60bdc715d84976219f6269aecc8abaac3399f38e16f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_batch3_1.txt",
+      "status": "added",
+      "sha256": "4d900bc79984a1a06e37bbcab6fc92d4f268a02556d2b23e62111421f95bc7b2"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_batch3_2.txt",
+      "status": "added",
+      "sha256": "fd79953f3209558a6483ecc72952cec95ccebb05b0feb821537175e09e8e724b"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_batch3_3.txt",
+      "status": "added",
+      "sha256": "01e6a766b3ada8491a4904754aa11d65d64f44e414fa39beb426d1d99dd6ba4b"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_boss_1.txt",
+      "status": "added",
+      "sha256": "63163af055404a532211d8fd05f77067859893ca29583d3c5a77cef0875b784b"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_boss_2.txt",
+      "status": "added",
+      "sha256": "b121988a995e2e3bf45e1c920d0eceeda48728f730c187072da72c6ddb19928f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_boss_3.txt",
+      "status": "added",
+      "sha256": "21389f5c976e9d8ea873bdd3a8d411d3e330b8b227f26c32bad0a8d79eec10e4"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_crit_1.txt",
+      "status": "added",
+      "sha256": "4892c62e9da54754be93852f1f84f010070f4281edc17bc51d82445aec4142ff"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_crit_2.txt",
+      "status": "added",
+      "sha256": "928a2ba483284f4ddb5e42aafae80440f6d79224e5674d0857ee24b387d537c1"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_crit_3.txt",
+      "status": "added",
+      "sha256": "7d6d4de062df61ae9a160f25aaa99ef9fa7c8bf884e3ab5e3f2c2d2f7c183988"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_dmg_1.txt",
+      "status": "added",
+      "sha256": "c6a628c00d2b7eb67c35d32965d5dc7f8b4a98fb1693156b5abb3ad58d0aeab4"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_dmg_2.txt",
+      "status": "added",
+      "sha256": "ac9812bbee479caaff5ed9196a13c6fa340e1989b125a19f517e2bef1cdcd08b"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_dmg_3.txt",
+      "status": "added",
+      "sha256": "dc12e75159ede9e5be1a0960e97ae3cb24ff9e6e9f2c0bd4597ca38a56ad2ae8"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_exp_1.txt",
+      "status": "added",
+      "sha256": "1f174683ce7057f611b0e2ddce0501e3844e54ed57a548fe1421c938809b7dbb"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_exp_2.txt",
+      "status": "added",
+      "sha256": "ace94ff54f9b87e4d1952a3deabc6a7048aa80f202317df50fd74cb22352a9b6"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_exp_3.txt",
+      "status": "added",
+      "sha256": "b348a70b8048a56962e1586db887adc5b236fd02a1198aa0d266e81b70720c1f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_hp_1.txt",
+      "status": "added",
+      "sha256": "7f404b9ba582c299706c72e1e5c71ba03be7f00e679864fb07251998f6438093"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_hp_2.txt",
+      "status": "added",
+      "sha256": "b17350399fb9ad8225bd4d4300fd4e33b1026e7e4bc67c4b59e3c74c10538543"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_hp_3.txt",
+      "status": "added",
+      "sha256": "e5a70003076d92dbb12ee8f01cc902eb7ff961722bc069761c06b10ccf11e62f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_mission_1.txt",
+      "status": "added",
+      "sha256": "f39e44082823644d08ae6596398ac92849af1a9bd66c47ff705e9e0cc110f8c0"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_mission_2.txt",
+      "status": "added",
+      "sha256": "56fb03c5fc1ce5fd1717d18af24fa3ade197335e992d1995cfd9bbbc789a9e47"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_mission_3.txt",
+      "status": "added",
+      "sha256": "4ce7c1726765767d1c998b61fcd1b851862749baa780c66c1dffa6bc833b499e"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_ord_1.txt",
+      "status": "added",
+      "sha256": "21fe1679b72ca68db66c9b0dae047d50f692e23cc4737a82ae8277096588902d"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_ord_2.txt",
+      "status": "added",
+      "sha256": "754aeb0616dfca218f86b12cbc8649329c68da82d702ae7647aaa605a28a694b"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_ord_3.txt",
+      "status": "added",
+      "sha256": "6d5457370329c1836c76a4ef9e16cec453550f43a4b5de213d49b9c8c21f6f93"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_prestige_hunter_1.txt",
+      "status": "added",
+      "sha256": "3942051356f660faaf1b0f189825047c1ef642805dbc353321ad7318fb7fb10c"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_prestige_hunter_2.txt",
+      "status": "added",
+      "sha256": "4bd9183ffe13aeb15d5713ad94578d95b7e1e356e7639b24528671843d920522"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_prestige_hunter_3.txt",
+      "status": "added",
+      "sha256": "59a6c886b676257b461962faea3d49807389fd6bde7a84bfa3a245ead5407721"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_rush_1.txt",
+      "status": "added",
+      "sha256": "86a9c02054da5efb5d20f01717afda9bb99eee045f0f747e9f5e17a166bdf49a"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_rush_2.txt",
+      "status": "added",
+      "sha256": "dd8de2908622ac8559d4e4e15b72b1111c109a05b2fef5444042066b44cb58ae"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_rush_3.txt",
+      "status": "added",
+      "sha256": "2f292ed0208edfe56c8c3e016ab03126ee237b7994aa82a4dce4f481708b71d9"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_xp_1.txt",
+      "status": "added",
+      "sha256": "60e6ce5e78e654c1259014bdb40ed07cd94320316a38ff41f3ca50f44dfa749a"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_xp_2.txt",
+      "status": "added",
+      "sha256": "239f1d107924bb89a2bf0905849286d9add0ad3c5bc01a735e38eb05b67e6c51"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/after_xp_3.txt",
+      "status": "added",
+      "sha256": "833fd5c9ad9c50fb54ce8fdb94f1fdc0e2a99d017cee2f6205c1a77f8466783f"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/before_ordinary_1.txt",
+      "status": "added",
+      "sha256": "56a2322d43fd3205138362722710e06c79476553c65b64381f83a09638aec60e"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/before_ordinary_2.txt",
+      "status": "added",
+      "sha256": "002c0f139d9ec877a421349d5dd6b516608ca2e2168e821e67413bfa9f54fb08"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/before_ordinary_3.txt",
+      "status": "added",
+      "sha256": "8a52fabc1de6683e57bc5446ed95983c2c9ef138042e79a0ce03f0650ba8c4dc"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/before_prestige_hunter_1.txt",
+      "status": "added",
+      "sha256": "56d23c45b031648f949bcc98af8d59a430213f337cafad19bfdff723ff3d1c53"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/before_prestige_hunter_2.txt",
+      "status": "added",
+      "sha256": "8c999cdcb6eef8f33cfa0cff03f787bb20b6ccb86ee21fb89ef6a66a57425cc8"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/before_prestige_hunter_3.txt",
+      "status": "added",
+      "sha256": "63d2f2c81ce535382094c79fdbf496605dae24f96365de0d3a9ff953b957144b"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/before_rush_1.txt",
+      "status": "added",
+      "sha256": "a25f93f6d98dd43134dd212d8975c18f9fc07e404de33f228f08f79339b7e435"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/before_rush_2.txt",
+      "status": "added",
+      "sha256": "1da7b54865795fd690d17117a8fe9c87009d0da8e50a1ace34055cfc110c92a2"
+    },
+    {
+      "path": "docs/Change_6_Evidence/pacing/before_rush_3.txt",
+      "status": "added",
+      "sha256": "ae31f6a90a9d208948ee35888ccbc08a1b3e252645123526d2753b34b35926c6"
+    },
+    {
+      "path": "docs/Change_6_Evidence/static_checks.json",
+      "status": "added",
+      "sha256": "0f88fd5170f786e151325a818a88edcff4c7038b20dd6b030a62e14cfce114f9"
+    },
+    {
+      "path": "docs/LootFarmer_Asset_Registry.md",
+      "status": "modified",
+      "sha256": "f6ba2a13eccc975926f76e7fba05868997af6d66b6fb35ee188391ab640158eb"
+    },
+    {
+      "path": "docs/LootFarmer_Change_6_Apply.md",
+      "status": "added",
+      "sha256": "0f30593f098fa44ddd6a49c032e648718ef327b864f58e468748622f1ef03929"
+    },
+    {
+      "path": "docs/LootFarmer_Change_6_Notes.md",
+      "status": "added",
+      "sha256": "5f956593cd0012dc0c9599c7acb67d0da62ad8c159b72f799c80468882bf205d"
+    },
+    {
+      "path": "docs/LootFarmer_Change_6_Patch_Manifest.json",
+      "status": "added",
+      "sha256": "c0764b7f096fbabda65ad359c4834c434e0afcc6aedc4cd622667b0f0a05ac5d"
+    },
+    {
+      "path": "docs/LootFarmer_Change_6_Playbook_Audit.md",
+      "status": "added",
+      "sha256": "1e4864b0bbd17c9f09e57078d6cdad5c205bd2fd6d5d19ba57a7ac2559414cd9"
+    },
+    {
+      "path": "docs/LootFarmer_Change_6_Validation.md",
+      "status": "added",
+      "sha256": "f3608a1a7b708a92dafdee8352e9fed18479f91fae573c5245d180f66ba761c3"
+    },
+    {
+      "path": "docs/LootFarmer_Checkpoints.md",
+      "status": "modified",
+      "sha256": "ff7c41325686a5deb877746e2d678f3a5cc4258fe0bc5b90a51060e59cd42e0b"
+    },
+    {
+      "path": "docs/LootFarmer_Content_and_Balance.md",
+      "status": "modified",
+      "sha256": "cc18bbdb85528fd865a45ca7678f33b2b115c173b204d4bde8b22bcab8bc618e"
+    },
+    {
+      "path": "docs/LootFarmer_Design_Audit.md",
+      "status": "modified",
+      "sha256": "ceb75838b05ea73ffde11e4449542911351e983ae1aa2f40f982248432f07782"
+    },
+    {
+      "path": "docs/LootFarmer_Design_README.md",
+      "status": "modified",
+      "sha256": "19db70b7fb3ea3043fd170a7f85d7410d416081c6701e5a3dbae91349fa67dbe"
+    },
+    {
+      "path": "docs/LootFarmer_GDD.md",
+      "status": "modified",
+      "sha256": "acbba2cf49036cdd189d7f345ee289a6bfe14f11e0a88916a6b78da09874cbf8"
+    },
+    {
+      "path": "docs/LootFarmer_Implementation_Plan.md",
+      "status": "modified",
+      "sha256": "cacfb4a15de04c6a239c950aeab2bf284c7373f92e3560b13f852073919451d1"
+    },
+    {
+      "path": "docs/LootFarmer_Prestige_Catalog.md",
+      "status": "modified",
+      "sha256": "f59731d86118f988102964571e15dccc770e6cdc5cf95a29566cda3d292ce2b7"
+    },
+    {
+      "path": "docs/LootFarmer_Prototype_Status.md",
+      "status": "modified",
+      "sha256": "84b9c0a7bb7b52936a40164b0f9fd4d80bf031bc3b85378fe5bed78d108de623"
+    },
+    {
+      "path": "docs/LootFarmer_State_Contracts.md",
+      "status": "modified",
+      "sha256": "3596be4830764d2f5896a903bc38fa927693c16f18fed9a577de0168dbf27d31"
+    },
+    {
+      "path": "docs/LootFarmer_Upgrade_Catalog.md",
+      "status": "modified",
+      "sha256": "5389db6c5394cd6bca5ad41969abd3298a4f4c19eb886acc7e18518b4366fafa"
+    },
+    {
+      "path": "docs/Reusable_Game_Development_Playbook.md",
+      "status": "modified",
+      "sha256": "c136b2a332e9ffc027c2da455dcd6f364f0b08c057689fe323a96bf855774428"
+    },
+    {
+      "path": "localization/en.po",
+      "status": "modified",
+      "sha256": "8278f5c24c00426bbfbaea55889194c3534de9bc46781e0e30746f3191489f80"
+    },
+    {
+      "path": "project.godot",
+      "status": "modified",
+      "sha256": "57097c40bd21e41fafa19b2e1113079c84c3f4138d929e4fed7d97f5cb491e1b"
+    },
+    {
+      "path": "resources/game/theme.tres",
+      "status": "modified",
+      "sha256": "e7609a93e287e8883e7c2856365ab156486776cbc8f86f25002aa54ee942c96c"
+    },
+    {
+      "path": "scenes/game/actor.tscn",
+      "status": "modified",
+      "sha256": "a6e5021c6cff5c6b4e6f621e4da2d93f6f397ef9a71575e6dd8796b75781de17"
+    },
+    {
+      "path": "scenes/game/main.tscn",
+      "status": "modified",
+      "sha256": "4264a026a9a64418312f24fb50a91d8ee0b691fc96230e744841acca0e598899"
+    },
+    {
+      "path": "scenes/game/stages/stage_1.tscn",
+      "status": "modified",
+      "sha256": "c2cffdcabca43c093bb282c31e1a7cffbf474e564ac0c08c2cbe95d84b197c57"
+    },
+    {
+      "path": "scenes/game/stages/stage_2.tscn",
+      "status": "modified",
+      "sha256": "7f261a0d69f371b407c92d74852ed9c2bba8f5362cf0100b255b9a2f6cea0fd2"
+    },
+    {
+      "path": "scenes/game/stages/stage_3.tscn",
+      "status": "modified",
+      "sha256": "d6eda2ea5715769b51dc90b09256628a56cb0c85e1e6930b1f8d7292d5080c97"
+    },
+    {
+      "path": "scenes/game/stages/stage_4.tscn",
+      "status": "modified",
+      "sha256": "9f186559d41b95fe86ec06199bec68c7a7c227cd15b6492b5fcfe46cee04c708"
+    },
+    {
+      "path": "scenes/game/stages/stage_5.tscn",
+      "status": "modified",
+      "sha256": "d045125961869f43a54dbde01ff9ee481181ff14e0e7f63530df8cf571d80c20"
+    },
+    {
+      "path": "scenes/game/stages/stage_6.tscn",
+      "status": "modified",
+      "sha256": "3a9becf0b87458d4f6ec014b49a7f6acecaa9b65afc8861cf3efe0a680cc5180"
+    },
+    {
+      "path": "scenes/game/stages/stage_7.tscn",
+      "status": "modified",
+      "sha256": "9f65b9a188d5d7ec44d1e74a9f7bacafa37a26ba2971fc6b7aa9fd39444e17b4"
+    },
+    {
+      "path": "scenes/game/stages/stage_8.tscn",
+      "status": "modified",
+      "sha256": "04fc10e38fc6e03c7228550111df0ee22dd3d1c225f13c3ac838fbd7a0bf3ff8"
+    },
+    {
+      "path": "scripts/game/actor_view.gd",
+      "status": "modified",
+      "sha256": "f53fdcf420ff7580cd1d3926c18ed3acc53a8db888977c5a4c4dd64e26e5996d"
+    },
+    {
+      "path": "scripts/game/campaign.gd",
+      "status": "modified",
+      "sha256": "3978a113b3a2abb4c318f8ad596b4b2238b4e51336bd4548ff0adf4c7860a697"
+    },
+    {
+      "path": "scripts/game/fog_rules.gd",
+      "status": "modified",
+      "sha256": "27b168b0d95e32a6c64c38182f2ba808b0b1991a22455f3a9b0d3e2fa803394e"
+    },
+    {
+      "path": "scripts/game/game_ui.gd",
+      "status": "modified",
+      "sha256": "3d577cb7ca2b3ae857bf57b403c098ebe379a7bcf5be9a512f31f991527f37b8"
+    },
+    {
+      "path": "scripts/game/milestone_banner.gd",
+      "status": "modified",
+      "sha256": "1169d4dc2df04dc7456d29b983ed61e30124e42a169878cc1daa6f93120bd308"
+    },
+    {
+      "path": "scripts/game/milestone_banner.gd.uid",
+      "status": "modified",
+      "sha256": "dacd13190bbd039982c5ba78dbe48e842f26ab44fb200d2696480e64f02685b7"
+    },
+    {
+      "path": "scripts/game/prestige_card.gd",
+      "status": "modified",
+      "sha256": "3427f3dde9d945c77041950ccf6c80891392c1b4f51ef1ba433c0b7e3f33219c"
+    },
+    {
+      "path": "scripts/game/prestige_card.gd.uid",
+      "status": "modified",
+      "sha256": "f01e8eb3de44b88a5054c7350df85d50355d3af5a1205fbe3b26381dbcdb47f0"
+    },
+    {
+      "path": "scripts/game/simulation.gd",
+      "status": "modified",
+      "sha256": "dd8dd29d29584cecfc63f005d3bb2987e79df48fd81635084bab6522ba5173e9"
+    },
+    {
+      "path": "scripts/game/tutorial_guide.gd",
+      "status": "modified",
+      "sha256": "32e21daa852115c69873e6bbbc79a1f1e573ebffdbc4eb75fb92cc50add78937"
+    },
+    {
+      "path": "scripts/game/ui_art.gd",
+      "status": "added",
+      "sha256": "2b449a3994544ecd1581f8ed18b0eeb09949720d431e6defd4af2b6a0e553ab8"
+    },
+    {
+      "path": "scripts/game/ui_art.gd.uid",
+      "status": "added",
+      "sha256": "3a9ebb71a808c5756b49681a779dd3214e0509f0fe580c005cd43d46bf1cfadf"
+    },
+    {
+      "path": "scripts/game/world.gd",
+      "status": "modified",
+      "sha256": "c246e74c334954b4dc9da495a39069ee503abdc9291db2e3e498e72209b0ef4c"
+    },
+    {
+      "path": "tests/campaign_content_probe.gd",
+      "status": "modified",
+      "sha256": "e48dbf9f6e5833af9faf6df767c3f43f2f34eb853c3b5959f2fc1d01b4a4adc0"
+    },
+    {
+      "path": "tests/change_5_probe.gd",
+      "status": "modified",
+      "sha256": "ecb9a1f0e72dc234cca898a4a3675712b8ee67396c6e567d49b4fddcc1b793fd"
+    },
+    {
+      "path": "tests/change_6_before.gd",
+      "status": "added",
+      "sha256": "eab4563e7bae6a8f9759399cc3382e59d837ffc544bf64a93ed7ba806a1c1754"
+    },
+    {
+      "path": "tests/change_6_before.gd.uid",
+      "status": "added",
+      "sha256": "e87a05edca81aa33e03ba3bbeece92e1bb375bb26b945ab9df18500b0a2f3640"
+    },
+    {
+      "path": "tests/change_6_before.tscn",
+      "status": "added",
+      "sha256": "153b13ee9e719ce4dfdabaded5eb35fe854cbf2f77ed7c3e4ef7ac8d241d8c5c"
+    },
+    {
+      "path": "tests/change_6_capture.gd",
+      "status": "added",
+      "sha256": "788f0c4101482f2a38118029ceef634fca831c5784582114a165b40cbaa9ecb0"
+    },
+    {
+      "path": "tests/change_6_capture.gd.uid",
+      "status": "added",
+      "sha256": "fa586134e44d86b31e58ff859bfb3d2284e77f5f7395d1fc788d1568960eb7db"
+    },
+    {
+      "path": "tests/change_6_capture.tscn",
+      "status": "added",
+      "sha256": "4ae984599d8499912f21343d7233575b4d55a132ae63c1977469712aa6acd935"
+    },
+    {
+      "path": "tests/change_6_probe.gd",
+      "status": "added",
+      "sha256": "6d923308abe6e274ae11b398ac9ced4df26d885a7a301a67b762e61f99f66e49"
+    },
+    {
+      "path": "tests/change_6_probe.gd.uid",
+      "status": "added",
+      "sha256": "7bb9def35db6c4e94852bacd97ede8f3274c17f5e468204c893fc54f60e5651c"
+    },
+    {
+      "path": "tests/change_6_probe.tscn",
+      "status": "added",
+      "sha256": "320320dc9011b4f6df8cefdee23f1c49ac8fafa22506625d9d32d9c5565f8fb9"
+    },
+    {
+      "path": "tests/pacing_bot.gd",
+      "status": "added",
+      "sha256": "cc55973ff7335be9cf9c5525056318d20c3bf033a5a2b33fa74f80f1953fd9ac"
+    },
+    {
+      "path": "tests/pacing_bot.gd.uid",
+      "status": "added",
+      "sha256": "0b266c3b78387930d4afaa05ca20ed991b72337012a7d4da9f7c97d43b7e608a"
+    },
+    {
+      "path": "tests/pacing_bot.tscn",
+      "status": "added",
+      "sha256": "622a5455bb6f7b9d246e58854a845d58323fde726a6fb31d555b98953a92911a"
+    },
+    {
+      "path": "tests/stage_overview_capture.gd",
+      "status": "added",
+      "sha256": "0c1c7b7d69acb2b4e2dd6675da9b3185f225c3e6e13121a38aad923a28431585"
+    },
+    {
+      "path": "tests/stage_overview_capture.gd.uid",
+      "status": "added",
+      "sha256": "8b1a52ca56f8a0a7ec4c49bf63e87ff4675eb9d93af614755e1f1f1e8faaf11a"
+    },
+    {
+      "path": "tests/stage_overview_capture.tscn",
+      "status": "added",
+      "sha256": "10334d6b24607df0e0222dbd642a551d7868194a817ee6e4b7fe1e4b8b4870df"
+    },
+    {
+      "path": "tools/layout_campaign_groups.py",
+      "status": "added",
+      "sha256": "34f204e213769ee0b08e038f60dfa51ce4357085de9960a660c03fcfbbd12710"
+    },
+    {
+      "path": "tools/po_set.py",
+      "status": "added",
+      "sha256": "894c1bfab9ab2584840fac2a194bcd73f6ce4817174313bcb893b1e9cb8005ad"
+    },
+    {
+      "path": "tools/relocate_boss_arenas.gd",
+      "status": "added",
+      "sha256": "5fce890aa64ecf585cd1fcdeb7638a7caf93048467f368265865192e23b6f21e"
+    },
+    {
+      "path": "tools/relocate_boss_arenas.gd.uid",
+      "status": "added",
+      "sha256": "b939f76aa4ebed4ed079d62912afb007d4d0127729e772a0520d281dc67584e1"
+    },
+    {
+      "path": "tools/tune_campaign.py",
+      "status": "added",
+      "sha256": "1d86eb7ea826d9eda3401d05d79050465356f9375e37ec7ba6833ff36923f2bc"
+    },
+    {
+      "path": "tools/validate_campaign_source.py",
+      "status": "modified",
+      "sha256": "7698d6d68b1fad87a7f946baf7db79d248706a309c5e26f6f375afe1c86fe853"
+    },
+    {
+      "path": "tools/write_prestige_catalog.py",
+      "status": "added",
+      "sha256": "1d818c62b59a0a0c90dbfac5f0dde6bce41d763e4263a2ba395b29b60292f5a8"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+Godot Engine v4.6.stable.official.89cea1439 - https://godotengine.org
+
+WARNING: SaveService: save_read_only
+     at: push_warning (core/variant/variant_utility.cpp:1034)
+     GDScript backtrace (most recent call first):
+         [0] _fail (res://scripts/autoload/save_service.gd:154)
+         [1] save_now (res://scripts/autoload/save_service.gd:119)
+         [2] settle_offline (res://scripts/game/campaign.gd:582)
+         [3] run (res://tests/campaign_probe.gd:116)
+         [4] frames (res://tests/campaign_probe.gd:16)
+CAMPAIGN_PROBE checks=260 failures=0

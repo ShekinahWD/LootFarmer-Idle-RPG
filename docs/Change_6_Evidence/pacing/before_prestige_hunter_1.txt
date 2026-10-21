@@ -1,0 +1,9 @@
+
+    1.0 min  first_prestige_discovered  (level 2, coins 8, dmg 5.5, hp 105)
+    1.0 min  unlock_stage_2  (level 2, coins 8, dmg 5.5, hp 105)
+    1.0 min  kill_boss-snowman  (level 2, coins 108, dmg 5.5, hp 110)
+    1.1 min  first_camp  (level 2, coins 58, dmg 5.5, hp 121)
+    1.2 min  first_kill  (level 3, coins 12, dmg 6.0, hp 128)
+    1.9 min  first_equip  (level 3, coins 24, dmg 9.0, hp 128)
+PACING policy=prestige seed=1 cards= simulated_min=30.0 level=4 stage=1 unlocked=2 deaths=0 boss_attempts=1
+PACING ready=[] discovered=["hunter_o1", "challenge_o1", "trophy_o1", "regional_o1", "collection_o1", "arsenal_o1"]

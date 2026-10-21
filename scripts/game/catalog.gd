@@ -7,6 +7,9 @@ var groups: Array
 var upgrades: Dictionary
 var cards: Array
 var world: Dictionary
+var stages: Array
+var skills: Dictionary
+var campaign: Dictionary
 var progression: Dictionary
 var _icons: Dictionary = {}
 
@@ -18,6 +21,14 @@ func _init() -> void:
     cards = data.cards
     world = data.world
     progression = data.progression
+    stages = data.stages
+    skills = data.skills
+    campaign = data.campaign
+    for entry in groups+stages+skills.values():
+        entry.name=tr(entry.name)
+    for entry in campaign.cards.values()+campaign.opportunities+campaign.combos:
+        if entry.has("name"):entry.name=tr(entry.name)
+        if entry.has("description"):entry.description=tr(entry.description)
 
 func name_of(id: String) -> String:
     return "ITEM_" + id.to_upper()
@@ -49,7 +60,7 @@ func art_id(id: String) -> String:
     return str(items.get(id,{}).get("art_id",id))
 
 func display_name(id: String) -> String:
-    var title:=tr(name_of(art_id(id)))
+    var title: String=tr(items[art_id(id)].get("name",name_of(art_id(id))))
     if id!=art_id(id):
         return tr("ITEM_TIER_NAME") % [title,int(items[id].tier)]
     return title

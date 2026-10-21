@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://fxvusjqgp46c"
+
+[deps]
+
+files=["res://assets/LootFarmer-seasonal-animation-sheets/index.position.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.file.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.source.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.width.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.height.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.cell.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.sha256.translation"]
+
+source_file="res://assets/LootFarmer-seasonal-animation-sheets/index.csv"
+dest_files=["res://assets/LootFarmer-seasonal-animation-sheets/index.position.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.file.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.source.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.width.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.height.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.cell.translation", "res://assets/LootFarmer-seasonal-animation-sheets/index.sha256.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

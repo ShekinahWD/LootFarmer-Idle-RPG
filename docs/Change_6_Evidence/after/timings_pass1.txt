@@ -1,0 +1,17 @@
+upgrades_cold build_ms=12.04 first_frame_ms=18.68 nodes=4
+upgrades_warm_0 build_ms=5.61 first_frame_ms=13.53 nodes=4
+upgrades_warm_1 build_ms=5.22 first_frame_ms=15.26 nodes=4
+upgrades_warm_2 build_ms=5.74 first_frame_ms=15.13 nodes=4
+upgrades_warm_3 build_ms=4.06 first_frame_ms=15.47 nodes=4
+upgrades_warm_4 build_ms=4.53 first_frame_ms=15.10 nodes=4
+upgrades_refresh median_ms=1.83 p95_ms=2.82 max_ms=3.13
+upgrades_buy_refresh median_ms=1.83 p95_ms=2.60
+enemy_upgrades_cold build_ms=17.60 first_frame_ms=26.41 nodes=14
+enemy_upgrades_warm build_ms=15.67 first_frame_ms=23.54 nodes=14
+world build_ms=7.90 first_frame_ms=12.50 nodes=10
+item build_ms=6.29 first_frame_ms=10.08 nodes=2
+item_browse median_ms=5.58 p95_ms=7.31
+prestige build_ms=2.61 first_frame_ms=7.69 nodes=7
+open_close_x30 nodes_before=617 nodes_after=617
+gameplay_frame median_ms=16.66 p95_ms=16.72 (includes engine frame)
+sim_step median_ms=0.497 p95_ms=1.161

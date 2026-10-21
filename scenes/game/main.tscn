@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=12 format=3]
 [ext_resource type="Script" path="res://scripts/game/game_ui.gd" id="ui"]
 [ext_resource type="Script" path="res://scripts/game/simulation.gd" id="sim"]
 [ext_resource type="PackedScene" path="res://scenes/game/world.tscn" id="world"]
@@ -8,7 +8,18 @@
 [ext_resource type="Texture2D" path="res://resources/game/gem.tres" id="gem"]
 [ext_resource type="Script" path="res://scripts/game/map_gestures.gd" id="gestures"]
 [ext_resource type="Script" path="res://scripts/game/touch_scroll.gd" id="touch_scroll"]
+[ext_resource type="Script" path="res://scripts/game/map_view.gd" id="minimap"]
+
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Divider/divider-003.png" id="divider"]
+[ext_resource type="PackedScene" path="res://scenes/game/milestone_banner.tscn" id="banner"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-249.png" id="nav_world"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-60.png" id="nav_missions"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-211.png" id="nav_prestige"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-42.png" id="nav_stats"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-209.png" id="nav_settings"]
+
 [node name="LootFarmer" type="Control"]
+texture_filter=1
 process_mode=3
 layout_mode=3
 anchors_preset=15
@@ -65,19 +76,6 @@ offset_left=-90.0
 offset_top=-196.0
 offset_right=90.0
 offset_bottom=-16.0
-[node name="Hint" type="Label" parent="Safe/Layout/Map"]
-layout_mode=1
-anchor_top=1.0
-anchor_bottom=1.0
-anchor_right=1.0
-offset_left=18.0
-offset_top=-270.0
-offset_right=-18.0
-offset_bottom=-206.0
-mouse_filter=2
-autowrap_mode=2
-text="HELP_0"
-theme_override_font_sizes/font_size=18
 [node name="History" type="VBoxContainer" parent="Safe/Layout/Map"]
 layout_mode=0
 offset_left=18.0
@@ -114,6 +112,7 @@ offset_top=212.0
 offset_right=310.0
 offset_bottom=238.0
 theme_override_font_sizes/font_size=18
+theme_override_constants/outline_size=6
 mouse_filter=2
 [node name="Achievement" type="Button" parent="Safe/Layout/Map"]
 layout_mode=0
@@ -154,7 +153,19 @@ layout_mode=2
 custom_minimum_size=Vector2(76,0)
 horizontal_alignment=1
 text="2.00×"
+theme_override_constants/outline_size=6
 mouse_filter=2
+[node name="MiniMap" type="Control" parent="Safe/Layout/Map"]
+layout_mode=1
+anchor_left=1.0
+anchor_right=1.0
+offset_left=-148.0
+offset_right=-18.0
+offset_top=90.0
+offset_bottom=220.0
+script=ExtResource("minimap")
+mini=true
+tooltip_text="MINIMAP"
 [node name="Top" type="PanelContainer" parent="Safe/Layout"]
 layout_mode=2
 [node name="Content" type="VBoxContainer" parent="Safe/Layout/Top"]
@@ -217,11 +228,26 @@ text="0"
 layout_mode=2
 custom_minimum_size=Vector2(110,48)
 text="PAUSE"
-[node name="Status" type="Label" parent="Safe/Layout/Top/Content"]
-visible=false
+[node name="Skills" type="HBoxContainer" parent="Safe/Layout"]
 layout_mode=2
-text="PLAYER_STATUS"
-theme_override_font_sizes/font_size=18
+[node name="Skill1" type="Button" parent="Safe/Layout/Skills"]
+layout_mode=2
+size_flags_horizontal=3
+custom_minimum_size=Vector2(0,56)
+expand_icon=true
+theme_override_constants/icon_max_width=32
+[node name="Skill2" type="Button" parent="Safe/Layout/Skills"]
+layout_mode=2
+size_flags_horizontal=3
+custom_minimum_size=Vector2(0,56)
+expand_icon=true
+theme_override_constants/icon_max_width=32
+[node name="Skill3" type="Button" parent="Safe/Layout/Skills"]
+layout_mode=2
+size_flags_horizontal=3
+custom_minimum_size=Vector2(0,56)
+expand_icon=true
+theme_override_constants/icon_max_width=32
 [node name="Dock" type="PanelContainer" parent="Safe/Layout"]
 layout_mode=2
 [node name="Content" type="VBoxContainer" parent="Safe/Layout/Dock"]
@@ -250,10 +276,12 @@ layout_mode=2
 columns=3
 theme_override_constants/h_separation=8
 theme_override_constants/v_separation=8
-[node name="Divider" type="ColorRect" parent="Safe/Layout/Dock/Content/Inventory"]
+[node name="Divider" type="TextureRect" parent="Safe/Layout/Dock/Content/Inventory"]
 layout_mode=2
 custom_minimum_size=Vector2(2,0)
-color=Color(0.48,0.53,0.60,0.8)
+texture=ExtResource("divider")
+expand_mode=1
+stretch_mode=0
 mouse_filter=2
 [node name="SupplyColumn" type="VBoxContainer" parent="Safe/Layout/Dock/Content/Inventory"]
 layout_mode=2
@@ -281,19 +309,142 @@ theme_override_font_sizes/font_size=16
 horizontal_alignment=2
 [node name="Navigation" type="HBoxContainer" parent="Safe/Layout/Dock/Content"]
 layout_mode=2
-[node name="Travel" type="Button" parent="Safe/Layout/Dock/Content/Navigation"]
+theme_override_constants/separation=6
+[node name="World" type="Button" parent="Safe/Layout/Dock/Content/Navigation"]
 layout_mode=2
-custom_minimum_size=Vector2(0,50)
+custom_minimum_size=Vector2(0,78)
 size_flags_horizontal=3
 text="WORLD"
+icon=ExtResource("nav_world")
+icon_alignment=1
+vertical_icon_alignment=0
+expand_icon=true
+theme_override_constants/icon_max_width=34
+theme_override_font_sizes/font_size=17
+[node name="Badge" type="Label" parent="Safe/Layout/Dock/Content/Navigation/World"]
+visible=false
+layout_mode=1
+anchor_left=1.0
+anchor_right=1.0
+offset_left=-34.0
+offset_top=2.0
+offset_right=-4.0
+offset_bottom=32.0
+horizontal_alignment=1
+mouse_filter=2
+text="!"
+theme_override_font_sizes/font_size=24
+theme_override_colors/font_color=Color(0.45,1,0.55,1)
+theme_override_colors/font_outline_color=Color(0,0,0,1)
+theme_override_constants/outline_size=7
+[node name="Missions" type="Button" parent="Safe/Layout/Dock/Content/Navigation"]
+layout_mode=2
+custom_minimum_size=Vector2(0,78)
+size_flags_horizontal=3
+text="PANEL_MISSIONS"
+icon=ExtResource("nav_missions")
+icon_alignment=1
+vertical_icon_alignment=0
+expand_icon=true
+theme_override_constants/icon_max_width=34
+theme_override_font_sizes/font_size=17
+[node name="Badge" type="Label" parent="Safe/Layout/Dock/Content/Navigation/Missions"]
+visible=false
+layout_mode=1
+anchor_left=1.0
+anchor_right=1.0
+offset_left=-34.0
+offset_top=2.0
+offset_right=-4.0
+offset_bottom=32.0
+horizontal_alignment=1
+mouse_filter=2
+text="!"
+theme_override_font_sizes/font_size=24
+theme_override_colors/font_color=Color(0.45,1,0.55,1)
+theme_override_colors/font_outline_color=Color(0,0,0,1)
+theme_override_constants/outline_size=7
+[node name="Prestige" type="Button" parent="Safe/Layout/Dock/Content/Navigation"]
+layout_mode=2
+custom_minimum_size=Vector2(0,78)
+size_flags_horizontal=3
+text="NAV_PRESTIGE"
+icon=ExtResource("nav_prestige")
+icon_alignment=1
+vertical_icon_alignment=0
+expand_icon=true
+theme_override_constants/icon_max_width=34
+theme_override_font_sizes/font_size=17
+[node name="Badge" type="Label" parent="Safe/Layout/Dock/Content/Navigation/Prestige"]
+visible=false
+layout_mode=1
+anchor_left=1.0
+anchor_right=1.0
+offset_left=-34.0
+offset_top=2.0
+offset_right=-4.0
+offset_bottom=32.0
+horizontal_alignment=1
+mouse_filter=2
+text="!"
+theme_override_font_sizes/font_size=24
+theme_override_colors/font_color=Color(0.45,1,0.55,1)
+theme_override_colors/font_outline_color=Color(0,0,0,1)
+theme_override_constants/outline_size=7
 [node name="Stats" type="Button" parent="Safe/Layout/Dock/Content/Navigation"]
 layout_mode=2
+custom_minimum_size=Vector2(0,78)
 size_flags_horizontal=3
 text="STATS"
+icon=ExtResource("nav_stats")
+icon_alignment=1
+vertical_icon_alignment=0
+expand_icon=true
+theme_override_constants/icon_max_width=34
+theme_override_font_sizes/font_size=17
+[node name="Badge" type="Label" parent="Safe/Layout/Dock/Content/Navigation/Stats"]
+visible=false
+layout_mode=1
+anchor_left=1.0
+anchor_right=1.0
+offset_left=-34.0
+offset_top=2.0
+offset_right=-4.0
+offset_bottom=32.0
+horizontal_alignment=1
+mouse_filter=2
+text="!"
+theme_override_font_sizes/font_size=24
+theme_override_colors/font_color=Color(0.45,1,0.55,1)
+theme_override_colors/font_outline_color=Color(0,0,0,1)
+theme_override_constants/outline_size=7
 [node name="Settings" type="Button" parent="Safe/Layout/Dock/Content/Navigation"]
 layout_mode=2
+custom_minimum_size=Vector2(0,78)
 size_flags_horizontal=3
 text="SETTINGS"
+icon=ExtResource("nav_settings")
+icon_alignment=1
+vertical_icon_alignment=0
+expand_icon=true
+theme_override_constants/icon_max_width=34
+theme_override_font_sizes/font_size=17
+[node name="Badge" type="Label" parent="Safe/Layout/Dock/Content/Navigation/Settings"]
+visible=false
+layout_mode=1
+anchor_left=1.0
+anchor_right=1.0
+offset_left=-34.0
+offset_top=2.0
+offset_right=-4.0
+offset_bottom=32.0
+horizontal_alignment=1
+mouse_filter=2
+text="!"
+theme_override_font_sizes/font_size=24
+theme_override_colors/font_color=Color(0.45,1,0.55,1)
+theme_override_colors/font_outline_color=Color(0,0,0,1)
+theme_override_constants/outline_size=7
 [node name="Sheet" type="PanelContainer" parent="."]
 visible=false
 layout_mode=1
@@ -306,6 +457,7 @@ offset_right=-18.0
 layout_mode=2
 theme_override_constants/margin_left=8
 theme_override_constants/margin_right=8
+theme_override_constants/margin_bottom=4
 [node name="Content" type="VBoxContainer" parent="Sheet/Margin"]
 layout_mode=2
 [node name="Header" type="HBoxContainer" parent="Sheet/Margin/Content"]
@@ -328,22 +480,34 @@ horizontal_scroll_mode=0
 layout_mode=2
 size_flags_horizontal=3
 theme_override_constants/separation=10
+[node name="Actions" type="HBoxContainer" parent="Sheet/Margin/Content"]
+layout_mode=2
+theme_override_constants/separation=10
 [node name="Notice" type="Label" parent="Sheet/Margin/Content"]
 layout_mode=2
-custom_minimum_size=Vector2(0,26)
-autowrap_mode=2
+custom_minimum_size=Vector2(0,28)
+horizontal_alignment=1
+text_overrun_behavior=3
 theme_override_font_sizes/font_size=18
-[node name="Toast" type="Label" parent="."]
-layout_mode=1
-anchor_top=0.0
-anchor_right=0.6
-offset_left=24.0
-offset_right=-24.0
+theme_override_colors/font_color=Color(1,0.9,0.6,1)
+[node name="Toast" type="PanelContainer" parent="."]
+visible=false
+layout_mode=0
+offset_left=60.0
 offset_top=120.0
-offset_bottom=180.0
+offset_right=660.0
+offset_bottom=170.0
+mouse_filter=2
+theme_type_variation=&"Backing"
+[node name="Text" type="Label" parent="Toast"]
+layout_mode=2
 horizontal_alignment=1
 autowrap_mode=2
 mouse_filter=2
+theme_override_font_sizes/font_size=22
+theme_override_constants/outline_size=5
+[node name="Banner" parent="." instance=ExtResource("banner")]
+layout_mode=0
 [node name="Confirm" type="Control" parent="."]
 process_mode=3
 visible=false

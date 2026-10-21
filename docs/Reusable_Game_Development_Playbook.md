@@ -12,6 +12,8 @@
 
 > **Asset-workflow update — 2026-10-18:** Added lessons from Loopcremental's supplied-asset prototype review: verified animation inventories and base-unit composition (22.1–22.3), action/contact/death presentation contracts (13.1–13.4), asset-only UI boundaries (22.2, 125.10), practical editor-editability checks (63.1), and evidence-based visual audits (56.1). These additions document reusable requirements and approved examples; they do not certify the prototype or its previous test reports. The 2026-10-15 production baseline and unrelated guidance remain unchanged.
 
+> **Change 3 documentation merge — 2026-10-20:** Incorporated supplied fog sections 117.9, 124.12 and 127.6 without replacing the existing LootFarmer asset registry or section 136. Added reusable contracts for camp reveal, copy-count bonuses, evolution baselines and batched rewards. These are specifications, not implementation evidence.
+
 ## Topic map
 
 | Topic | Sections |
@@ -1502,6 +1504,8 @@ When a run-level multiplier lets runs go much further than intended, gating the 
 - **Valuable random offers persist** from the moment they are rolled, so relaunching never rerolls them (section 53).
 - **The reset boundary is a table** of what a Prestige keeps and resets, enforced by a probe (section 110), and the confirmation names every loss.
 
+**Gate the first reset on run progression when side objectives can finish early** (LootFarmer Change 6). Opportunities that complete in minutes (a mission chain, an easy challenge, a long offline absence) made a reset available at 15 minutes. Keep discovery and readiness early, but require a run milestone (clear the first season) before any redemption, state it in the prestige panel, and measure the fastest route with a bot rather than inspecting the catalog.
+
 Reusable rule:
 
 > Give every layer one job the player can name, put universally wanted utility in the steady layer and choices in the draft, let a higher layer build on the lower one without bypassing it, and author bounded progressions as tables.
@@ -1590,6 +1594,8 @@ Avoid hardcoding per-stage enemy values.
 ---
 
 # 7. Support units need percentage-aware scaling
+
+When repeatable healing and consumable healing coexist, assign distinct roles: sustainable modest recovery versus larger immediate rescue. Compare effective healing across tiers, merges and maximum-health growth; test cooldown independence and missing-health clamping. Do not tune only the starting item pair or allow free healing to erase the consumable’s purpose.
 
 A flat heal that works at Stage 30 may become meaningless at Stage 90.
 
@@ -1981,6 +1987,8 @@ Before choosing spawn areas:
 
 On a map with generated decoration, the generator itself must keep every decoration's tap rectangle off every authored plot, and a probe must tap the centre of every plot and check that the plot is selected (sections 115.9, 122.2). HUD controls must also shield the world from taps and pans that start on them (section 121.2).
 
+**Derive encounter spacing from the targeting rules.** When idle auto-attack acquires the nearest enemy within a range, every farming spot must be farther from every other spot than acquisition + reach (measured between the closest actors, after spawn spread), and respawn points must sit outside every spot's range; otherwise farming one spot silently chains into its neighbour. Put the weakest encounter nearest the arrival and bosses farthest. Encode the rules in a layout tool with a check mode and a probe over every map (LootFarmer `tools/layout_campaign_groups.py`).
+
 ## 14.5 Avoid bottom-edge UI
 
 Phones have:
@@ -2076,6 +2084,8 @@ Reuse (Growing Kingdom): `PanelHost` (settle-then-reveal, `SETTLE_FRAMES`), `Gam
 **Small panels expose their actions directly.** Do not add a More/Less Options gate when the complete set fits comfortably in the existing scroll panel. Group related controls by what they affect: player actions on the player, enemy-type automation on the enemy type, shared upgrades in a clearly named Upgrades section. Record scope, price scaling, pickup provenance and reset behavior in the game's GDD; moving an upgrade must migrate purchased levels deliberately.
 
 **Confirmation bounds are part of the layout contract.** A desktop/native dialog with a fixed minimum width can escape a scaled mobile viewport even when the underlying settings panel fits. Use the existing UI theme, constrain the confirmation to the safe canvas rectangle, wrap/scroll its message and pin explicit Confirm/Cancel controls. Block input to underlying UI while it is open, clear stale callbacks on cancellation, and test long text, narrow/tall/wide layouts and destructive reset from pause. Check the dialog against the viewport and its buttons against the dialog, not just children against their own containers.
+
+Two measurement traps found in Godot 4.7 (LootFarmer Change 6): buttons inside a flow container must not autowrap, or each collapses to one word per line and the flow reports hundreds of pixels of height; and descriptions built off-tree cannot resolve theme defaults, so when reconciling them into live controls compare only explicit overrides, or every refresh replaces the controls it meant to keep.
 
 ## 16.4 A HUD progress element as the entry to a read-only ownership surface
 
@@ -2511,6 +2521,8 @@ Record per asset family:
 Do not carry guessed row indices between different sheets. Preview at least one complete loop/one-shot for every mapping, then verify it in gameplay. The idle-row-as-walk failure makes moving characters appear to float even when a frame counter is advancing.
 
 ## 22.2 Separate interface assets from displayed game content
+
+When changing an atlas or panel texture, verify its actual corner dimensions and update nine-slice margins together. Render at the target UI scale: a valid texture path with stale slice margins can stretch ornaments across the whole panel.
 
 Declare the asset policy before composing screens. A project may require one pack for all interface surfaces while using another for characters, equipment, resources and world content shown inside those surfaces.
 
@@ -3725,6 +3737,8 @@ Whether old saves must keep working is not a technical constant; it depends on w
 
 ## 61.1 Pre-release / development (the default until the developer says otherwise)
 
+Test a real serialize-to-disk/load cycle for the current schema. JSON numbers can return as floating point: normalize integral IDs and membership arrays before validation, and use canonical integer stage/map keys. An in-memory snapshot restore alone cannot prove save correctness. A permitted development reset must leave a fresh profile writable.
+
 Old development saves carry **no compatibility obligation**.
 
 - One current schema, an explicit `SAVE_VERSION`, defensive defaults inside the current schema, and a version mismatch that loads a fresh profile.
@@ -4659,6 +4673,8 @@ A command-line run with the **editor binary** reports `editor_runtime` too: an e
 
 Godot's fixed embedded-game viewport can otherwise produce a screenshot with the wrong dimensions even when the surrounding editor window changed. Fail loudly instead of writing a mislabeled file.
 
+A desktop monitor can clamp the capture window: 720×1280 on a 1080-pixel screen became 720×1084, and `canvas_items` + `expand` widened the canvas, so the "phone" capture was a different aspect. Choose capture sizes that fit the monitor at the exact target aspect (540×960 for 9:16, 432×960 for about 20:9) and check the saved image's size.
+
 ## 87.8 Trigger and ownership: the UI-readiness gate
 
 Screenshots belong to **stage 16, Google Play Store Preparation & Marketing Assets** (0.9). Prepare the reusable capture infrastructure earlier during bootstrap/implementation if useful, but generate final store screenshots once **the UI is mostly ready**, core gameplay is representative and sufficient visual content exists. Final balance, full completion and perfect progression pacing are **not** required for screenshot staging. Regenerate affected marketing captures after significant UI/visual or feature changes.
@@ -5489,6 +5505,8 @@ commit (irreversible confirmation)
 
 **Build the exit before the content that reaches it.** The Final Assault ends by calling `trigger_dragon_defeat()`. That function, its Grand Prestige flow, persistence and probes were finished and validated with a debug "Force Dragon kill" before any combat code existed. The combat batch then only had to call one proven entry point.
 
+**A lock owned by a pending decision must not disable that decision's own controls.** LootFarmer's prestige batch locks gameplay actions, and a generic pinned-action helper applied the same lock to the batch's Keep button, so the choice could never be confirmed. Probe the confirm control of every modal decision while its own lock is held.
+
 Reusable rule:
 
 > An irreversible transition is one save. Build and validate the endgame's exit before the gameplay that reaches it.
@@ -5540,6 +5558,8 @@ Growing Kingdom added these:
 - **Bots must agree with play, not replace it.** Growing Kingdom's bot accepted a wave table with a one-enemy wall at wave 20 that the developer's first playtest rejected at once ("the Brute is too strong"). Treat the bot as a check that must agree with the human verdict.
 
 Reuse: `tests/pacing_probe.gd` in Feed the Dragon (profiles and flags in its header; `--journey` plays to the first kill with the reset-layer checks, `--think-seconds` models a slower player); `docs/BALANCE_QA_REPORT.md` sections 3 and 10 show the before and after tables and the deferred playtest questions. Growing Kingdom: `tests/pacing_probe.gd` (`--think`, `--trace`, `--journey`), `tools/gen_waves.py`.
+
+**Remove bot artifacts before trusting a pacing result.** Two LootFarmer bot bugs looked like balance walls: a 0.5 s steering interval overshot a 26-unit arrival radius at 117 units/s and the bot oscillated forever, and boss attempts that were re-decided every tick turned back whenever enemies on the route lowered HP. Steer at the simulation step, treat a boss attempt as a commitment held until a retreat threshold, print periodic summaries (level, margin, position), and run several seeds and policies (ordinary, rush, expert).
 
 ## 112.1 Controlled composition audits
 
@@ -6072,6 +6092,116 @@ func _move(dt: float) -> void:
 - Running movement with real time instead of the simulation step, which breaks game speed and headless probes.
 
 Reference implementation: `scripts/world/nav_grid.gd`, `scripts/world/terrain.gd`, `tools/build_terrain.gd` (painting the markers), the `get_work_point()` and `get_dropoff_point()` functions in `scripts/world/resource_node.gd` and `scripts/world/building_slot.gd`.
+
+---
+
+## 117.9 Fog of war: discovery is state, fog is presentation
+
+Use this pattern when the game includes exploration or finding enemies/resources through a map. Do not silently add fog, vision obstruction, marker upgrades or exploration rewards to a game whose GDD does not require them. The world camera, minimap and expanded map must read one discovery authority; moving the camera must never explore the world.
+
+**Percent-explored goals must count the same cell unit as the discovery store.** LootFarmer's "explore 90%" counted 24-unit fog cells against an area measured in 48-unit blocks, so it passed at about 22.5% real exploration. When an authored layout moves sites, bump the discovery layout revision and re-home saved actors to their authored homes on load instead of requiring a Hard Reset.
+
+### A. Separate three spatial states and entity knowledge
+
+| Spatial state | State definition | Presentation policy |
+|---|---|---|
+| Unexplored | Cell has never been revealed in this discovery lifetime | Cover terrain and suppress undiscovered points of interest, unless the GDD explicitly exposes known landmarks |
+| Explored, outside current vision | Cell was revealed earlier but no active vision source sees it now | Show remembered terrain dimmed; entity markers follow the memory/intelligence policy |
+| Currently visible | Cell is within an eligible source's current vision | Show terrain and entities allowed by the game's identification rules |
+
+Maintain a durable `explored` set/bitset and a transient `visible_now` set/bitset, with `visible_now` a subset of `explored`. For discovery-only games, retain the explored mask without imposing a dimmed current-vision layer. Store the selected fog mode explicitly in the design/configuration.
+
+Cell discovery is not automatically enemy identification. Keep an explicit discovery record per stable point-of-interest/enemy-type id when identification, a bestiary, camps or stairs must remain known after the original entity moves or despawns. Define the identification trigger: first sight, approach, interaction or defeat. A renderer must not mark something discovered merely because it instantiated a node.
+
+### B. One coordinate contract and data owner
+
+Use map-local coordinates with an explicit origin, cell size and integer width/height. A simple dense index is `index = y * width + x`; reject out-of-bounds positions before indexing. Convert world positions through the map transform first; do not assume the terrain is rooted at world zero or has unit scale.
+
+Fog may share navigation cell dimensions, but walkability and visibility are different data. Water can be visible without being walkable. If walls/cliffs block sight, author an independent opaque-cell layer or another explicit visibility representation; do not infer occlusion from decorative sprite silhouettes or treat every unwalkable cell as opaque.
+
+Suggested ownership, adapted to the project's existing architecture:
+
+- A map definition/resource owns stable `map_id`, layout revision, bounds, cell size, discoverable-area mask, vision rules and public landmark policy.
+- The authoritative run/profile state owns explored cells and entity-discovery records under that map id and the chosen progression lifetime (116, 109).
+- A visibility service computes current vision from eligible simulation actors and exposes queries such as cell explored/visible and marker disclosure. It can be part of the state owner; do not create a second competing state store.
+- Views receive dirty regions or a visibility revision and render masks/markers. They never own the durable exploration result.
+
+Use inspector-editable resources/layers for radius, opacity, update cadence, occluders and map bounds where practical (63.1, 67). Code owns the spatial algorithm. A shader, debug overlay or sample preview must not write exploration to a production save.
+
+### C. Reveal from active actors, not from the viewport
+
+1. At boot/load/travel, register the map definition, load validated discovery, then build current vision before showing the first world/map frame. Avoid briefly drawing all markers while the mask initializes.
+2. Gather eligible vision sources from simulation state. Typically these are living, deployed companions or the player; dead/resting/queued units and drag/inventory previews do not reveal terrain. Any exceptions belong in the GDD.
+3. For each source, inspect only the bounded cell region around its map-local position. For circular vision, test cell-center distance against the configured radius. Union the results so overlapping allies share sight correctly.
+4. If the game requires blocked sight, apply the chosen deterministic line-of-sight/shadowcasting rule to candidate cells. Define whether the blocking cell itself is revealed and how corners behave. Otherwise document unobstructed radial reveal; fog does not imply wall occlusion.
+5. Replace `visible_now` with the union. Add newly visible cells to `explored`, record any genuinely discovered entities, and emit one revision/dirty-region notification. Losing a source removes only its contribution to current vision, not previous exploration.
+6. Update on movement/radius/source changes at a bounded simulation cadence. On teleport, spawn, death, map replacement, load or a vision upgrade, invalidate immediately so hidden markers cannot remain for a frame. Define pause behavior: no movement-based exploration while simulation is paused, while initial/load synchronization still completes.
+
+For continuous movement, account for the distance moved between samples. Reveal along the traversed movement segment or use a cadence/spatial threshold that cannot leave holes behind a fast actor. Teleport is different: reveal the destination, not the straight line across intermediate territory, unless explicitly designed otherwise.
+
+Illustrative state flow, not engine API or a second simulation loop:
+
+```text
+next_visible = union(compute_vision(source, map_definition) for eligible sources)
+newly_explored = next_visible minus explored
+explored = explored union next_visible
+visible_now = next_visible
+update_discovery_records_from_authoritative_sight()
+publish_visibility_revision_if_state_changed()
+```
+
+### D. Marker disclosure is separate from revealing terrain
+
+Centralize disclosure in a query returning `hidden`, `unknown`, `identified`, or an explicitly supported remembered state. Both map views, tooltips, picking and world-adjacent labels must use the same policy. Apply it before choosing an icon, building a label or creating a hit target.
+
+An optional configurable progression, discussed for Loopcremental, is:
+
+| Intelligence rank | Eligible, already discovered points of interest |
+|---|---|
+| 0 | No point-of-interest markers |
+| 1 | Generic `?` markers |
+| 2 | Specific resource/enemy/chest icons |
+
+This example does not reveal undiscovered locations. Companions and discovered stairs can be explicit exceptions; which markers qualify, whether they persist outside current vision, and when ranks reset are game-specific decisions. Do not impose repurchasing map upgrades each level as a reusable rule.
+
+Distinguish known locations from live remote tracking. Remembering a resource deposit, camp or enemy spawn site does not authorize displaying the exact current position/HP of an unseen moving enemy. For a memory-based game, store last-seen location/status and label it as such, or hide the marker; do not silently read live hidden state. Define how opened chests, depleted resources, dead enemies and respawns invalidate memory. If global up-to-date marker knowledge is intentionally granted by an upgrade, document that exception.
+
+Fog is also an information rule: hidden icons must not remain selectable, open tooltips, expose names/HP bars, appear in search/auto-locate, or leak exact live totals through counters. The GDD may intentionally disclose authored totals or boss requirements; identify those as public information. Decorative particles, loot popups and selection effects must not bypass the same disclosure boundary.
+
+Keep simulation permission separate from map presentation. Fog does not automatically stop off-screen combat, resource simulation or AI pathing. If auto-targeting may only use discovered enemies or unseen cells may be explored by a move order, enforce that gameplay rule in the action/state layer rather than relying on invisible controls.
+
+### E. Persistence, revisits and reset boundaries
+
+Save discovery under stable map id plus the appropriate run/cycle/profile scope, alongside any required layout revision and entity knowledge. Recompute `visible_now` from restored actors; do not trust stale serialized current vision. Serialize a copied, deterministic representation such as validated cell indices or a bounded bitset; reject invalid lengths, indices and unknown map ids.
+
+State the lifetime of each field explicitly:
+
+| Event | Required design decision |
+|---|---|
+| Ordinary death/respawn | Does discovery remain? Where does current sight resume? |
+| Leave and revisit a level | Restore its discovery, or deliberately begin a new instance? |
+| New run / Prestige | Which discovery records and intelligence ranks reset? |
+| Hard Reset | Clear all progression-owned discovery and ranks; preserve only the independent settings defined by the reset contract |
+| Offline interval | No exploration from merely opening a camera or calculating generic offline income; reveal only if an approved offline exploration simulation actually advances eligible actors |
+| Changed map layout | Apply an explicit revision policy; never interpret an old index with a different width/origin silently |
+
+Integrate discovery into the normal save/checkpoint policy. Define the acceptable force-close rollback rather than saving on every revealed pixel or claiming stronger durability than the implementation provides. For layout changes, preserve/migrate known cells only when their meaning is stable; otherwise reset the affected map's discovery intentionally according to section 61, without clearing unrelated progression.
+
+Exploration percentage uses the authored discoverable-area mask as its denominator, not viewport pixels or the entire bounding rectangle. Decide whether water, unreachable decoration or secret regions count. Handle zero-area maps safely and keep progress consistent across world/minimap/expanded map.
+
+### F. Render efficiently without creating another truth
+
+A practical Godot presentation can upload the state masks as a cached low-resolution texture aligned to map bounds and sample them in a fog material, or draw cached cell regions through a dedicated fog layer. This is an implementation option, not a mandated shader or a claim of measured Android performance. Use supplied fog artwork/materials where available and respect the approved asset policy; functional masks do not authorize replacement UI frames or unapproved decorative artwork.
+
+Keep the cover above concealed content and below allowed UI/owned-unit indicators. A world-only dark overlay is insufficient if enemy labels or minimap icons draw above it. Alternatively, filter unknown entity presentation before drawing; in either case the logical disclosure queries remain authoritative.
+
+Update dirty regions/chunks or batch a mask upload when visibility changes; avoid rebuilding every cell node, full UI panel or all map textures every rendered frame. For multiple sources, use a fresh union or correct per-cell source counts so one source leaving does not erase another's sight. Keep discovery and masks bounded to map dimensions. Profile worst-case roster, reveal radius, high game speed, repeated map opening and large maps on a target Android device.
+
+Soft edges are presentation only: blur/fades must not reveal hidden labels or permit picking cells that the state still considers unknown. Full-screen fog should ignore pointer input; interactive map controls follow section 121's input arbitration.
+
+This section is the reusable implementation specification. Keep actual source paths, measured costs, selected algorithm, exact radii and visual acceptance captures in the project's implementation registry and validation report once verified.
+
+---
 
 ---
 
@@ -7154,6 +7284,20 @@ Reference implementation (Feed the Dragon): `scripts/ui/hud.gd`, `scripts/ui/vil
 
 ---
 
+## 124.12 Minimap and expanded map share the fog contract
+
+Use the discovery/visibility queries in 117.9 for every map surface. Fit the map into a content rectangle using one uniform scale with letterboxing where necessary; never stretch X and Y independently. Exclude headers, legends and controls from the drawable map rectangle.
+
+Map-local bounds, including a nonzero origin, determine normalization. Apply the same content rectangle, zoom, pan and clipping transform to terrain, fog, markers and pointer-to-map conversion. A tap in a letterbox margin is not a map location. Reopening, resizing or switching between minimap and expanded view must not alter exploration or briefly show hidden markers.
+
+Use representative approved icons for identified enemies/resources/chests, a supplied unknown marker for unknown entries, and the game's explicit owned-unit/known-landmark exceptions. Do not create fake marker art when the required pack lacks an icon; follow the asset-gap process (22.2). Tooltips should be compact, placed beside/below their anchor, clamped to safe bounds and nonblocking. Any timed expiry, such as three seconds, is configurable.
+
+If a map supports tap-to-locate, selection or navigation, filter the hit candidates with the same disclosure decision used for drawing. If opening uses double tap/click, keep it distinct from camera panning, pinching and single-tap selection. Panel-open pause and UI animation must not change discovery ownership.
+
+---
+
+---
+
 # 125. World readability and feedback techniques
 
 "Readable" came from a set of concrete techniques, each cheap. Sections 13, 24, 25 and 76 give the principles; this is the validated toolkit.
@@ -7425,6 +7569,36 @@ Defects that were in the probes, not the game, and the habits that prevent them:
 - **A rule change can remove a probe's scaffolding.** Probes that parked soldiers with a Move to build a stall broke when Moves became temporary (they now end after idle time). When an order, timer or state becomes self-ending, search the probes for every place that used it as a fixture, and keep the fixture alive explicitly (re-issue it on its end event) rather than weakening the new rule.
 
 Reuse (Growing Kingdom): `tests/probe_env.gd` (`hide_dev_overlays()`), the watchdog in each probe, `tools/run_probes.ps1`.
+
+---
+
+## 127.6 Fog and map-discovery acceptance matrix
+
+Use isolated saves and deterministic map fixtures. These are required checks for a game implementing section 117.9, not results claimed for the current project.
+
+| Case | Assert |
+|---|---|
+| Fresh map | Only intended starting vision/public landmarks are exposed; no one-frame full-map reveal |
+| Movement and fast movement | The expected cells become explored; sampled movement leaves no unexplained gaps; camera-only motion reveals nothing |
+| Overlapping sources | Union is correct; death/removal of one source does not remove another's current sight; explored cells remain |
+| Ineligible actors | Dead/resting/queued actors, inventory previews and dragged portraits do not reveal cells |
+| Optional occlusion | Chosen wall/corner behavior is deterministic; walkability alone does not decide visibility |
+| Teleport / map switch | Destination vision is recomputed immediately; no reveal along teleport path or discovery copied from another map id |
+| Knowledge ranks | Rank 0/1/2 follows configured hidden/unknown/specific policy; upgrading never exposes an undiscovered location |
+| Information leaks | Hidden entities have no pickable marker, tooltip, name, HP, auto-locate result or unintended counter/effect disclosure |
+| Remembered moving entities | Marker is hidden or explicitly last-seen, unless a documented live-tracking upgrade permits otherwise |
+| Depletion / death / respawn | Marker and knowledge updates follow the declared memory policy without granting hidden live information |
+| Save / reload / revisit | Exact explored state and required knowledge persist; current vision recomputes from actors before presentation |
+| Reset / Prestige / offline | Each follows the documented lifetime table; settings remain independent; offline income does not explore terrain |
+| Invalid/older saves | Out-of-range cells, malformed masks, unknown map ids and layout-revision changes have bounded, explicit handling |
+| Minimap / expanded map | Same discovery and markers; square and non-square maps retain proportions under zoom, pan, safe areas and resize |
+| Input / pause | Fog does not swallow world input; hidden markers cannot be clicked; opening/panning maps while paused does not explore |
+| Exploration percentage | Correct discoverable-area denominator, safe zero-area case, same value on every surface |
+| Performance / lifecycle | Worst-case map/roster/radius and repeated openings stay within measured target-device budgets; subscriptions/masks do not accumulate |
+
+Combine state assertions, actual pointer/touch input and rendered checks. A source scan or screenshot alone cannot establish hidden-information safety. Device performance, finger interaction and soft-edge readability remain unverified until measured on physical hardware. Record the selected mode, exceptions, reset decisions, fixtures and evidence with the implementation.
+
+---
 
 ---
 
@@ -8146,3 +8320,75 @@ Toolkit **1.0.2 is production-ready as reusable source** for the validated Windo
 
 **Reuse gate:** The toolkit's README/installer must say what gets copied to a new project; the project's ignore rules must preserve that install contract. Claude reports new `.gitignore` exceptions when adding new generators, tools or Android plugins, and keeps this Playbook template aligned after a reviewed change.
 
+
+# 136. Whole-project review and design reconciliation
+
+Added in documentation Change 2, 2026-10-20. These are reusable review rules; a game's content, prices and reset matrix belong in its GDD.
+
+## 136.1 Distinguish available, approved, implemented and verified
+
+For each major system, record four separate states: resources supplied, behavior approved, code implemented and evidence verified. An asset copied into a project is not an integrated feature. A headless test is not a physical-device review. When auditing a new archive, compare it with the prior source and identify whether code, content or only assets changed. State the audit method and limitations; preserve historical failures without relabeling old results as fresh runs.
+
+## 136.2 Reconcile documents instead of stacking contradictory authority
+
+After substantial design discussion, consolidate latest explicit decisions into one current GDD. Separate superseded examples/proposals, delegated numerical authoring and unresolved choices. Update the entry point, audit, checkpoints, asset registry and status documents together. Archive previous versions as clearly historical; keep original release notes and test evidence immutable. Do not leave old APPROVED headers looking like final-game sign-off. Keep reusable methodology in this Playbook and game-specific rules in the game's documents.
+
+Continue integer change numbering once per delivered batch. Documentation-only changes record their own batch but do not silently change executable version, store code or save schema. Never imply a new playable build was tested when only documentation changed.
+
+## 136.3 Resource and license checks
+
+Read actual manifests and files: frame dimensions/counts/timing/loop flags, file paths, audio headers and license terms. Distinguish a sprite's appearances/variants from enemy species and audio encodings from distinct sound variations. Record supplied but unintegrated resources and their intended event mappings. Presence/header checks do not replace animation playback or listening. Trace generic renamed audio to its source/license; missing proof is a release follow-up, not an assumption of permission or prohibition. Do not include standalone restricted asset packs in documentation patches.
+
+## 136.4 Bounded confirmations and persistent-state contracts
+
+Every destructive confirmation must fit supported viewports and safe areas, wrap or scroll its explanation, and keep both action and cancel reachable without reducing readable text. Verify paused/dead/long-text states through the real UI. Do not infer that fixing desktop geometry proves phone acceptance.
+
+For refreshable rewards, offline accumulation and batched permanent choices, document ownership, refresh/reset scope, commit point, interruption/resume behavior and duplicate-credit prevention before implementation. Separate lifetime progress from run progress and animation/audio from authoritative rewards. Use targeted interruption tests when these systems are built.
+
+## 136.5 Clean handoff and honest sign-off
+
+Apply section 135.4 to ZIPs as well as Git: packaging a whole directory can include caches and credentials despite .gitignore. Check archive contents without displaying secret values. Produce handoffs from reviewed source; do not delete local untracked work. Verify installed toolkit hashes against both lock and source before claiming reuse integrity. Keep intended-engine, Android signing/device, localization, performance and balance gates explicit until actually verified.
+
+
+## 136.6 Stationary discovery sources and staged intelligence
+
+When explicitly approved, unlocked camps can reveal a configured radius without the player present. Treat them as stationary sources owned by discovery state, not cameras. Camp radius, player radius and map-information rank are independent purchases with explicit map/camp scope. Apply reveal at unlock/radius change; do not repeatedly scan inactive maps each frame. A remembered spawn location is not live enemy tracking. Teleports reveal the destination only. Keep upgrade lifetime separate from map exploration lifetime and test both.
+
+## 136.7 Stock bonuses and evolution comparisons
+
+If holding spare copies grants power, derive that bonus from current quantity; do not silently consume copies or store it as an irreversible permanent stat. Every quantity-changing operation must use the same effective-stat getter, including consumable use, merging, evolution and offline grants. Define which copies count, activation threshold, caps and reset scope. Do not infer a copy reservation system from an evolution cost.
+
+Specify evolution's reference precisely: source merge level, intrinsic stats, quantity bonuses, random rolls and external buffs. Use a stable catalog baseline when intended, so temporary buffs or repeated evolution cannot compound into stronger newly minted items. Compare successor start and successor growth with the source on the actual equipment screen, not only in a spreadsheet. Preserve source/target identity rules and validate output capacity before spending. Keep game-specific percentages and formulas in the game's balance document.
+
+## 136.8 Persistent keys and batched unique rewards
+
+Distinguish permanent quest discovery, permanent collected keys, run gate kills and once-only quest rewards. Reset each according to an explicit matrix; a world reset must not inadvertently erase permanent keys or grant the quest reward again. Separate fight eligibility from an already-completed objective record.
+
+For multiple earned opportunities resolved in one reset, snapshot eligible opportunity ids and remaining card ids before choice. Save each choice and resume interruption without rerolling, duplicate grants or partial resets. Derive combo ownership idempotently from unique cards. Offline grants carry provenance so they cannot accidentally increment online challenges through shared inventory/currency event handlers.
+
+
+---
+
+# 137. Campaign migration and verification lessons
+
+## 137.1 Shared travel authority
+
+Every UI surface that can teleport must query the same authoritative combat/travel rule. Include pending player contact, enemy aggression/windups, recent damage, death, pause/suspension and an unresolved permanent-choice transaction. A disabled button and its reason derive from that query; direct commands validate it again. Respawn is a distinct action, not a route around travel restrictions.
+
+## 137.2 Changing inventory policy is a migration
+
+Compatibility work here is conditional on section 61: preserve production saves, or development saves explicitly promised compatibility. For an authorized pre-release reset, document the reset boundary instead of keeping obsolete migration/refund machinery.
+
+Removing an economy service means removing its controls, callbacks, definitions and active strings, and explicitly handling existing purchases. Preserve owned item identities and their progress. If refunding removed upgrades, derive the refund from the old schedule and guard it with the schema transition; repeated loads must not repeat it. Historical test/source evidence can retain the old contract but must be labelled historical.
+
+## 137.3 Test the reachable ceiling before polishing exponential growth
+
+Compute the authored final enemy against the actual catalog's upper loadout bound before claiming a full campaign is viable. A fixed-level exponent can outgrow every item by orders of magnitude. Correct that defect without replacing fixed authored levels with player scaling. A maximum-loadout check establishes a bound only: separately test borderline loadouts, skill encounters and natural time-to-first-prestige.
+
+## 137.4 Provenance must survive consumption
+
+If a quest accepts online-earned items/currency only, a cumulative earned counter is insufficient. Track unspent eligible credit, decrement it on spending, and bound submissions by both eligible credit and present stock. A later offline replacement must not inherit the spent online copy's provenance. Record per-opportunity credits after discovery; a relevant triggering acquisition may count once.
+
+## 137.5 Separate authoring from runtime
+
+Bake editable stage TileMapLayers from a deterministic authoring utility; gameplay loads the baked scenes. Keep scenario data, stable ids, scene resources and validation probes together in root-relative patches. Importing successfully with another engine version is not proof of the declared target engine or Android release artifact.

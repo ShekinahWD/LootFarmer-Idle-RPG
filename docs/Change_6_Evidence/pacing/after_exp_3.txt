@@ -1,0 +1,19 @@
+
+    0.1 min  first_kill  (level 1, coins 1, dmg 5.0, hp 100)
+    0.2 min  first_equip  (level 1, coins 2, dmg 8.0, hp 100)
+    0.4 min  first_prestige_discovered  (level 2, coins 20, dmg 8.5, hp 105)
+    2.4 min  level_5  (level 5, coins 24, dmg 10.2, hp 120)
+    9.7 min  unlock_stage_2  (level 9, coins 22, dmg 13.9, hp 140)
+    9.7 min  kill_boss-snowman  (level 9, coins 122, dmg 13.9, hp 140)
+    9.8 min  enter_stage_2  (level 9, coins 22, dmg 13.9, hp 140)
+   12.2 min  level_10  (level 10, coins 47, dmg 14.4, hp 154)
+   20.8 min  first_prestige_ready  (level 12, coins 54, dmg 15.4, hp 166)
+   20.8 min  first_opportunity_ready_any  (level 12, coins 54, dmg 15.4, hp 166)
+   35.2 min  level_15  (level 15, coins 70, dmg 16.9, hp 185)
+   57.8 min  level_20  (level 20, coins 164, dmg 21.2, hp 212)
+  118.6 min  level_30  (level 30, coins 507, dmg 33.0, hp 270)
+  144.7 min  unlock_stage_3  (level 33, coins 75, dmg 35.0, hp 285)
+  144.7 min  kill_boss-cyan-robot  (level 33, coins 275, dmg 35.9, hp 285)
+  144.7 min  prestige_allowed  (level 33, coins 275, dmg 35.9, hp 285)
+PACING policy=expert seed=3 cards= simulated_min=144.7 level=33 stage=2 unlocked=3 deaths=10 boss_attempts=0
+PACING ready=["masterwork_o1", "specialist_o1", "arsenal_o1"] discovered=["expedition_o1", "masterwork_o1", "specialist_o1", "hunter_o1", "trophy_o1", "regional_o1", "arsenal_o1", "collection_o1", "offering_o1", "arsenal_o2", "challenge_o1", "collection_o2"]

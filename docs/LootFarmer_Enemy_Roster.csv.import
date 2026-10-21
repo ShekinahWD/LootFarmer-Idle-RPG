@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://brnny805jkubd"
+
+[deps]
+
+files=["res://docs/LootFarmer_Enemy_Roster.stage.translation", "res://docs/LootFarmer_Enemy_Roster.role.translation", "res://docs/LootFarmer_Enemy_Roster.level.translation", "res://docs/LootFarmer_Enemy_Roster.skill.translation", "res://docs/LootFarmer_Enemy_Roster.gate.translation", "res://docs/LootFarmer_Enemy_Roster.source.translation", "res://docs/LootFarmer_Enemy_Roster.source.translation"]
+
+source_file="res://docs/LootFarmer_Enemy_Roster.csv"
+dest_files=["res://docs/LootFarmer_Enemy_Roster.stage.translation", "res://docs/LootFarmer_Enemy_Roster.role.translation", "res://docs/LootFarmer_Enemy_Roster.level.translation", "res://docs/LootFarmer_Enemy_Roster.skill.translation", "res://docs/LootFarmer_Enemy_Roster.gate.translation", "res://docs/LootFarmer_Enemy_Roster.source.translation", "res://docs/LootFarmer_Enemy_Roster.source.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

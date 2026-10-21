@@ -4,7 +4,7 @@ extends Node
 signal saved()
 signal save_failed(reason: String)
 
-const SAVE_VERSION: int = 1
+const SAVE_VERSION: int = 2
 const DIRTY_SAVE_INTERVAL: float = 5.0
 const PERIODIC_SAVE_INTERVAL: float = 120.0
 var _providers: Dictionary = {}
@@ -85,26 +85,18 @@ func _read(path: String) -> Dictionary:
 func load_and_apply() -> void:
     var data := _read(save_path())
     write_blocked = false
-    if int(data.get("version", 0)) > SAVE_VERSION:
-        write_blocked = true
-        last_load_result = "newer_version"
-        return
-    if int(data.get("version", -1)) != SAVE_VERSION:
-        data = _read(save_path() + ".bak")
-        if int(data.get("version", 0)) > SAVE_VERSION:
-            write_blocked = true
-            last_load_result = "newer_version"
+    if int(data.get("version",-1))!=SAVE_VERSION:
+        var backup:=_read(save_path()+".bak")
+        if int(backup.get("version",-1))==SAVE_VERSION:
+            data=backup;last_load_result="backup"
+        else:
+            # Development-only policy: obsolete or unreadable profiles start fresh.
+            _loaded_sections={}
+            if data.get("settings") is Dictionary:SettingsState.from_save_dict(data.settings)
+            last_load_result="development_reset" if FileAccess.file_exists(save_path()) else "new"
+            _dirty=true
             return
-        last_load_result = "backup"
-    else:
-        last_load_result = "primary"
-    if int(data.get("version", -1)) != SAVE_VERSION:
-        _loaded_sections = {}
-        SettingsState.reset_to_defaults()
-        # Preserve unreadable files until a deliberate Hard Reset, not an autosave.
-        write_blocked = FileAccess.file_exists(save_path()) or FileAccess.file_exists(save_path() + ".bak")
-        last_load_result = "invalid" if write_blocked else "new"
-        return
+    else:last_load_result="primary"
     SettingsState.from_save_dict(data["settings"])
     _loaded_sections = data["sections"].duplicate(true)
     for key in _providers:

@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3]
+[ext_resource type="Theme" path="res://resources/game/theme.tres" id="theme"]
+[ext_resource type="Script" path="res://scripts/game/milestone_banner.gd" id="script"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-211.png" id="star"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-011.png" id="border"]
+[node name="MilestoneBanner" type="Control"]
+layout_mode=3
+anchors_preset=0
+offset_right=640.0
+offset_bottom=150.0
+mouse_filter=2
+theme=ExtResource("theme")
+script=ExtResource("script")
+[node name="Plate" type="PanelContainer" parent="."]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+theme_type_variation=&"Backing"
+mouse_filter=0
+[node name="Row" type="HBoxContainer" parent="Plate"]
+layout_mode=2
+mouse_filter=2
+theme_override_constants/separation=16
+[node name="Art" type="TextureRect" parent="Plate/Row"]
+layout_mode=2
+custom_minimum_size=Vector2(84,84)
+mouse_filter=2
+texture=ExtResource("star")
+expand_mode=1
+stretch_mode=5
+texture_filter=1
+[node name="Text" type="VBoxContainer" parent="Plate/Row"]
+layout_mode=2
+size_flags_horizontal=3
+alignment=1
+mouse_filter=2
+[node name="Title" type="Label" parent="Plate/Row/Text"]
+layout_mode=2
+autowrap_mode=2
+mouse_filter=2
+theme_override_font_sizes/font_size=27
+theme_override_colors/font_color=Color(1,0.84,0.34,1)
+theme_override_colors/font_outline_color=Color(0.12,0.07,0.0,1)
+theme_override_constants/outline_size=6
+[node name="Subtitle" type="Label" parent="Plate/Row/Text"]
+layout_mode=2
+autowrap_mode=2
+mouse_filter=2
+theme_override_font_sizes/font_size=20
+theme_override_constants/outline_size=4
+[node name="Rewards" type="HBoxContainer" parent="Plate/Row/Text"]
+layout_mode=2
+mouse_filter=2
+theme_override_constants/separation=14
+[node name="Frame" type="NinePatchRect" parent="Plate"]
+layout_mode=2
+modulate=Color(1,0.82,0.3,1)
+mouse_filter=2
+texture=ExtResource("border")
+patch_margin_left=16
+patch_margin_top=16
+patch_margin_right=16
+patch_margin_bottom=16
+[node name="Sparks" type="Control" parent="."]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+mouse_filter=2
+[node name="Spark0" type="TextureRect" parent="Sparks"]
+layout_mode=0
+offset_left=-14.0
+offset_top=-18.0
+offset_right=36.0
+offset_bottom=36.0
+mouse_filter=2
+texture_filter=1
+expand_mode=1
+stretch_mode=5
+[node name="Spark1" type="TextureRect" parent="Sparks"]
+layout_mode=1
+anchor_left=1.0
+anchor_right=1.0
+offset_left=-36.0
+offset_top=-18.0
+offset_right=14.0
+offset_bottom=36.0
+mouse_filter=2
+texture_filter=1
+expand_mode=1
+stretch_mode=5
+[node name="Spark2" type="TextureRect" parent="Sparks"]
+layout_mode=1
+anchor_top=1.0
+anchor_bottom=1.0
+anchor_left=0.5
+anchor_right=0.5
+offset_left=-25.0
+offset_top=-30.0
+offset_right=25.0
+offset_bottom=24.0
+mouse_filter=2
+texture_filter=1
+expand_mode=1
+stretch_mode=5

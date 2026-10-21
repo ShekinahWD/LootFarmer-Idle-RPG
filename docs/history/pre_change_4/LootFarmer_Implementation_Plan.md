@@ -1,0 +1,15 @@
+# LootFarmer — Implementation Plan — Change 3
+
+This batch authorizes documentation only. Gameplay implementation needs separate user authorization. Follow Playbook inspector-editable resources/scenes, reuse pinned toolkit, central effective-value getters and targeted verification. Do not fabricate final-game completion from the prototype.
+
+1. Catalog and state foundation: stable stage/type/variant/item/path/card ids, authored upgrade tables and explicit reset matrix. Resolve provisional gear/skill merge-rate purchase and initial equipment-art mappings. Inventory/quantity/evolution migration; remove sell UI/actions and legacy auto-sell settings with a documented policy. Preserve owned inventory/currency; do not silently hard reset player saves. Validate old schemas in isolated profiles.
+2. Item vertical slice: 85% intrinsic evolution, reversible spare-copy bonus, 30% stored outfits, no duplicates counted twice, dynamic capacities. Show accurate source/successor previews; test retained source, existing successor, full inventory, consumable depletion and tier 7.
+3. World and maps: eight authored scenes/resources, safe camps/travel, three double-boss gates, shared map/fog state and per-stage/per-camp upgrades. Implement one stage and verify gestures/disclosure before expanding. Keep source art mappings external to behavior code.
+4. Skills: shared inventory/equipment, family cooldown and per-slot automation; integrate six VFX/SFX. Fourth spots and boss skill combinations; make no permanent overhead variant label. Validate one authoritative hit, pause/death cancellation and audio priority limits on dense scenes.
+5. Missions and final quest: regular refresh/claim/new slots, main chain, persistent keys after discovery, per-run gate/final-clear flags. Verify mission reward history vs reset keys/gates without duplicate final rewards.
+6. Prestige: all opportunities/cards/combos and Follow HUD, automatic sequences and restrictions, durable multi-choice transaction, one reset. Do not retain old first-boss/random-duplicate-card system.
+7. Offline: fixed rates and permanent upgrades, owned-id snapshots, category credits, 5–48h cap, lifetime offline path, tagged reward isolation and clock/settlement tests.
+8. Full content and balance: use CSV roster, skill and upgrade tables, missions and all 33 opportunities. Run reachability/loadout/affordability scenarios, repair existing boss-balance failure, measure first prestige and mid/endgame pacing. Exact prices are tunable; approved reset scopes are not.
+9. Release: physical Android touch/safe areas/lifecycle/performance/audio, pinned engine/export templates, language workflow, asset provenance, signed builds, actual marketing captures and source packaging without .git/.godot/export credentials. Keep toolkit source untouched unless a separately versioned upgrade is warranted.
+
+Each implementation batch updates evidence/status/changelog and returns only changed project-relative files. Run compile/import and focused behavior probes for its risks; full regression at stable milestones. Device results are required for device claims. Documentation checks do not replace runtime tests.

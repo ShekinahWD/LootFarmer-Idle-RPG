@@ -236,7 +236,7 @@ msgid "HELP_3"
 msgstr "Tap your new gear below, then equip it. You can wear one outfit and one weapon."
 
 msgid "HELP_4"
-msgstr "Merge a duplicate to strengthen that item type. Its bonus survives using or selling it."
+msgstr "Merge a duplicate to strengthen that item type. Its progress stays even when its stock reaches zero."
 
 msgid "HELP_5"
 msgstr "Open an enemy type and buy auto-collect to gather its loot while you farm."
@@ -325,18 +325,6 @@ msgstr "At ^100, spend 100 spare copies for one next-tier item. Keep the source 
 msgid "EVOLVE"
 msgstr "Evolve → %s"
 
-msgid "SELL_ONE"
-msgstr "Sell one spare · +%d coins"
-
-msgid "SELL_ALL"
-msgstr "Sell %d spare copies · +%d coins"
-
-msgid "SELL_CONFIRM"
-msgstr "Sell %d %s for %d coins? Merge progress and shared extras remain."
-
-msgid "AUTO_SELL_STATUS"
-msgstr "Sell future pickups: %s"
-
 msgid "AUTO_SLOT_TOGGLE"
 msgstr "Toggle automation for this slot"
 
@@ -375,12 +363,6 @@ msgstr "coins"
 
 msgid "GEMS"
 msgstr "gems"
-
-msgid "SELL_LIST_EXPLAIN"
-msgstr "Auto-sell list: %d / %d types. Mark known items below. Selected pickups sell when collected, even with a full inventory."
-
-msgid "SELL_RULE"
-msgstr "%s · auto-sell %s"
 
 msgid "TRAVEL_HELP"
 msgstr "Tap a camp on the map to select your respawn point. Unlocking through a camp panel also selects it. No teleporting."
@@ -493,17 +475,8 @@ msgstr "Evolution needs ^100 and 101 source copies."
 msgid "INVENTORY_FULL"
 msgstr "No empty slot. Make room or expand this inventory."
 
-msgid "EQUIPPED_PROTECTED"
-msgstr "Unequip before selling your last copy."
-
 msgid "AUTOMATION_LOCKED"
 msgstr "Unlock this automation under Upgrades."
-
-msgid "UNEQUIP_FIRST"
-msgstr "Unequip this item before marking it for auto-sell."
-
-msgid "SELL_LIST_FULL"
-msgstr "Your auto-sell list is full. Upgrade its capacity."
 
 msgid "AUTO_SLOTS_FULL"
 msgstr "Unlock another auto-use slot under Upgrades."
@@ -560,19 +533,13 @@ msgid "UP_COLLECT"
 msgstr "Unlock auto-collect"
 
 msgid "UP_COLLECT_RANGE"
-msgstr "Collect range +20"
+msgstr "Collect range +50"
 
 msgid "UP_COLLECT_BATCH"
 msgstr "Collect batch +1"
 
 msgid "UP_COLLECT_SPEED"
-msgstr "Collect interval −0.4s"
-
-msgid "UP_SELL"
-msgstr "Unlock auto-sell (1 item type)"
-
-msgid "UP_SELL_CAPACITY"
-msgstr "Auto-sell list capacity +1"
+msgstr "Collect interval −1 s"
 
 msgid "UP_MERGE_GEAR"
 msgstr "Unlock gear auto-merge"
@@ -581,7 +548,7 @@ msgid "UP_MERGE_SUPPLIES"
 msgstr "Unlock supply auto-merge"
 
 msgid "UP_MERGE_SPEED"
-msgstr "Merge interval −0.5s"
+msgstr "Supply merge interval −1 s"
 
 msgid "UP_AUTO_USE"
 msgstr "Automated supply slots +1"
@@ -596,7 +563,7 @@ msgid "UP_RESPAWN"
 msgstr "Respawn delay −1s"
 
 msgid "UP_LOOT"
-msgstr "Gear drop chance +2 points"
+msgstr "Gear drop chance +1 point"
 
 msgid "UP_COIN_CHANCE"
 msgstr "Coin drop chance"
@@ -605,7 +572,7 @@ msgid "UP_GEM_CHANCE"
 msgstr "Global gem drop chance"
 
 msgid "UP_COIN_AMOUNT"
-msgstr "Coins per drop +1"
+msgstr "Coins per enemy +50%"
 
 msgid "UP_GEM_AMOUNT"
 msgstr "Global gems per drop"
@@ -701,7 +668,7 @@ msgid "CAMP_LOCKED"
 msgstr "Locked · tap to unlock"
 
 msgid "CAMP_HELP"
-msgstr "Select this camp as your respawn point. Your character stays where they are. Unlocking here also selects the camp."
+msgstr "Camps are respawn points. Rest beside an unlocked camp to recover quickly. Unlocking, choosing it for respawn and travelling are separate actions."
 
 msgid "CAMP_SELECTED_NOTICE"
 msgstr "Respawn camp selected."
@@ -769,9 +736,6 @@ msgstr "Stored · 30% contribution (once per weapon type)"
 msgid "ITEM_MERGE_ACTION"
 msgstr "Merge"
 
-msgid "ITEM_SELL_ACTION"
-msgstr "Sell · %d"
-
 msgid "LESS_OPTIONS"
 msgstr "Less options"
 
@@ -806,10 +770,10 @@ msgid "GROUP_XP_EFFECT"
 msgstr "+10% XP / level · max +200%"
 
 msgid "UP_SUPPLY_DROP"
-msgstr "Consumable drop chance"
+msgstr "Supply drop chance +1 point"
 
 msgid "UP_GROUP_XP"
-msgstr "Experience earned"
+msgstr "Experience +10%"
 
 msgid "GROUP_XP_VALUE"
 msgstr "XP per kill: %s"
@@ -928,3 +892,3233 @@ msgstr "Boss gem chance"
 msgid "UP_BOSS_GEM_AMOUNT"
 msgstr "Boss gems per drop"
 
+
+
+msgid "TRAVEL_COMBAT"
+msgstr "Finish combat before travelling."
+
+msgid "TRAVEL_CAMP"
+msgstr "Travel · %s · Camp %d"
+
+msgid "STAGE_LOCKED"
+msgstr "Defeat the stage gate bosses first."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "Explore this camp first."
+
+msgid "STAGE_UNLOCKED"
+msgstr "Next stage unlocked!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "The final guardian is sealed. Defeat the other 13 bosses to collect their keys. Collected keys stay through prestige."
+
+msgid "WORLD_COMPLETE"
+msgstr "All Spring II enemies defeated — final mission complete!"
+
+msgid "UNDISCOVERED"
+msgstr "Unexplored"
+
+msgid "ENEMY_LEVEL"
+msgstr "Level %d"
+
+msgid "ALL_ITEMS"
+msgstr "All"
+
+msgid "WEAPONS"
+msgstr "Weapons"
+
+msgid "OUTFITS"
+msgstr "Outfits"
+
+msgid "SKILLS"
+msgstr "Skills"
+
+msgid "VARIANT_SKILL"
+msgstr "Elite"
+
+msgid "SKILL_EMPTY"
+msgstr "Skill slot %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "This skill family is already equipped."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "Unequip a skill or unlock another slot."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "Equip in slot %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "Slot %d automatic casting: %s"
+
+msgid "STOCK_BONUS"
+msgstr "Spare-copy bonus: +%s%% intrinsic power. Copies remain owned."
+
+msgid "CLAIM"
+msgstr "Claim"
+
+msgid "CLAIM_REWARD"
+msgstr "Claim · %s coins · %s gems"
+
+msgid "MISSION_AUTO"
+msgstr "Automatic claiming: %s"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "Complete this objective first."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "Claimed. Refreshes at local midnight."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "Main objectives"
+
+msgid "KEY_PROGRESS"
+msgstr "Boss keys: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "Gate bosses defeated: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "%s coins/h · %s gems/h · %s-hour reward cap"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "Welcome back! %s rewarded hours · %s coins · %s gems"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "Finish choosing your prestige rewards first."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "New prestige opportunity discovered."
+
+msgid "PRESTIGE_BATCH"
+msgstr "Prestige · %d card(s)"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "Choose one unique card for every ready opportunity, then reset the run once. Items, coins, camps, fog and coin upgrades reset. Keys, achievements, cards and gem upgrades stay."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "Keep %s permanently? This choice is saved now and cannot be changed."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "Choose card %d of %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "Unique cards: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "Finish a discovered prestige opportunity first."
+
+msgid "IN_PROGRESS"
+msgstr "In progress"
+
+msgid "FOLLOW"
+msgstr "Follow"
+
+msgid "UNFOLLOW"
+msgstr "Unfollow"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "Submit required items or currency"
+
+msgid "CONTRACT_NEEDS"
+msgstr "Collect the required copies online and keep one of each."
+
+msgid "OFFERING_NEEDS"
+msgstr "You need the required balance and unspent online-earned currency."
+
+msgid "OWNED_CARDS"
+msgstr "Owned cards"
+
+msgid "COMBOS"
+msgstr "Card sets"
+
+msgid "PANEL_INVENTORY"
+msgstr "Inventory"
+
+msgid "PANEL_MAP"
+msgstr "Map"
+
+msgid "PANEL_MISSIONS"
+msgstr "Missions"
+
+msgid "PANEL_OFFLINE"
+msgstr "Offline rewards"
+
+msgid "GOAL_KILL"
+msgstr "Hunt"
+
+msgid "GOAL_BOSS"
+msgstr "Boss hunt"
+
+msgid "GOAL_GEAR"
+msgstr "Collect gear"
+
+msgid "GOAL_MERGE"
+msgstr "Merge"
+
+msgid "GOAL_COINS"
+msgstr "Earn coins"
+
+msgid "GOAL_CAST"
+msgstr "Cast skills"
+
+msgid "GOAL_WAITING"
+msgstr "Explore to find another objective"
+
+msgid "STAT_POWER"
+msgstr "Power"
+
+msgid "INTRINSIC_POWER"
+msgstr "Intrinsic %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "Next tier starts at 85% of this tier’s intrinsic ^100 power, before stock and external bonuses."
+
+msgid "MAP_FARMING"
+msgstr "%s · %d spots · %d per spot · %ss respawn"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "Final-stage types defeated: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "Camp reveal radius"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "Player reveal radius"
+
+msgid "UP_MAP_DETAIL"
+msgstr "Map detail"
+
+msgid "UP_MOVEMENT"
+msgstr "Movement speed +10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "Auto-merge interval −1 s"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "Unlock automatic mission claiming"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "Mission slots"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "Equipped skill slots"
+
+msgid "UP_SKILL_DROP"
+msgstr "Skill drop chance"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "Offline reward duration"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "Offline coins per hour"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "Offline gems per hour"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "Unlock offline weapon drops"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "Unlock offline outfit drops"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "Unlock offline consumables"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "Offline weapons per hour"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "Offline outfits per hour"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "Offline consumables per hour"
+
+msgid "MAP_LEGEND"
+msgstr "Unexplored areas stay hidden. Camps reveal nearby terrain."
+
+msgid "MINIMAP"
+msgstr "Map"
+
+msgid "SKILL_TUTORIAL"
+msgstr "Elite enemies carry a weapon, outfit and skill. Each drop has its own roll. Equip a skill from your inventory and tap its button to cast."
+
+msgid "MAIN_0"
+msgstr "Defeat 5 normal enemies"
+
+msgid "MAIN_1"
+msgstr "Equip your first item"
+
+msgid "MAIN_2"
+msgstr "Merge a duplicate"
+
+msgid "MAIN_3"
+msgstr "Unlock an extra camp"
+
+msgid "MAIN_4"
+msgstr "Unlock Winter II"
+
+msgid "MAIN_5"
+msgstr "Equip Heal"
+
+msgid "MAIN_6"
+msgstr "Upgrade map detail"
+
+msgid "MAIN_7"
+msgstr "Acquire Frost Burst"
+
+msgid "MAIN_8"
+msgstr "Unlock Summer I"
+
+msgid "MAIN_9"
+msgstr "Evolve an item"
+
+msgid "MAIN_10"
+msgstr "Acquire 4 skill families"
+
+msgid "MAIN_11"
+msgstr "Unlock Autumn I"
+
+msgid "MAIN_12"
+msgstr "Acquire all 6 skill families"
+
+msgid "MAIN_13"
+msgstr "Unlock Spring I"
+
+msgid "MAIN_14"
+msgstr "Complete a prestige"
+
+msgid "MAIN_15"
+msgstr "Collect every boss key and clear Spring II"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "Heal cooldown"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "Frost cooldown"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "Fire cooldown"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "Lightning cooldown"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "Focus cooldown"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "Strike cooldown"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "Unlock automatic casting · slot 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "Unlock automatic casting · slot 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "Unlock automatic casting · slot 3"
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "Heal"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "Heal"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "Heal"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "Heal"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "Heal"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "Heal"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "Heal"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "Frost Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "Frost Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "Frost Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "Frost Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "Frost Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "Frost Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "Frost Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "Fire Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "Fire Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "Fire Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "Fire Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "Fire Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "Fire Burst"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "Fire Burst"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "Lightning Strike"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "Lightning Strike"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "Lightning Strike"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "Lightning Strike"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "Lightning Strike"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "Lightning Strike"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "Lightning Strike"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "Arcane Focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "Arcane Focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "Arcane Focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "Arcane Focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "Arcane Focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "Arcane Focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "Arcane Focus"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "Arcane Strike"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "Arcane Strike"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "Arcane Strike"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "Arcane Strike"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "Arcane Strike"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "Arcane Strike"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "Arcane Strike"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "Blue Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "Blue Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "Blue Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "Blue Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "Blue Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "Blue Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "Blue Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "Blue Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "Blue Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "Blue Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "Blue Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "Blue Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "Blue Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "Blue Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "Red Scarf Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "Red Scarf Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "Red Scarf Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "Red Scarf Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "Red Scarf Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "Red Scarf Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "Red Scarf Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "Red Scarf Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "Red Scarf Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "Red Scarf Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "Red Scarf Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "Red Scarf Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "Red Scarf Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "Red Scarf Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "Chef Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "Chef Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "Chef Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "Chef Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "Chef Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "Chef Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "Chef Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "Chef Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "Chef Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "Chef Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "Chef Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "Chef Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "Chef Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "Chef Hat Sword"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "Snowman Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "Snowman Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "Snowman Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "Snowman Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "Snowman Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "Snowman Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "Snowman Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "Wolf Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "Wolf Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "Wolf Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "Wolf Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "Wolf Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "Wolf Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "Wolf Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "Wolf Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "Wolf Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "Wolf Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "Wolf Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "Wolf Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "Wolf Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "Wolf Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "Calico Cat Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "Calico Cat Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "Calico Cat Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "Calico Cat Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "Calico Cat Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "Calico Cat Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "Calico Cat Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "Calico Cat Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "Calico Cat Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "Calico Cat Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "Calico Cat Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "Calico Cat Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "Calico Cat Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "Calico Cat Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "Golden Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "Golden Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "Golden Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "Golden Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "Golden Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "Golden Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "Golden Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "Golden Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "Golden Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "Golden Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "Golden Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "Golden Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "Golden Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "Golden Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "Reindeer Antlers Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "Reindeer Antlers Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "Reindeer Antlers Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "Reindeer Antlers Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "Reindeer Antlers Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "Reindeer Antlers Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "Reindeer Antlers Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "Reindeer Antlers Sword"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "Reindeer Antlers Sword"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "Reindeer Antlers Sword"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "Reindeer Antlers Sword"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "Reindeer Antlers Sword"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "Reindeer Antlers Sword"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "Reindeer Antlers Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "Santa Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "Santa Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "Santa Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "Santa Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "Santa Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "Santa Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "Santa Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "Santa Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "Santa Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "Santa Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "Santa Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "Santa Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "Santa Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "Santa Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "Space Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "Space Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "Space Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "Space Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "Space Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "Space Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "Space Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "Space Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "Space Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "Space Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "Space Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "Space Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "Space Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "Space Helmet Sword"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "Cyan Robot Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "Cyan Robot Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "Cyan Robot Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "Cyan Robot Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "Cyan Robot Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "Cyan Robot Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "Cyan Robot Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "Straw Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "Straw Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "Straw Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "Straw Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "Straw Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "Straw Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "Straw Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "Straw Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "Straw Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "Straw Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "Straw Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "Straw Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "Straw Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "Straw Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "Sunglasses Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "Sunglasses Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "Sunglasses Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "Sunglasses Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "Sunglasses Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "Sunglasses Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "Sunglasses Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "Sunglasses Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "Sunglasses Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "Sunglasses Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "Sunglasses Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "Sunglasses Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "Sunglasses Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "Sunglasses Sword"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "Yellow Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "Yellow Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "Yellow Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "Yellow Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "Yellow Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "Yellow Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "Yellow Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "Yellow Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "Yellow Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "Yellow Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "Yellow Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "Yellow Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "Yellow Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "Yellow Cap Sword"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "Gray Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "Gray Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "Gray Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "Gray Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "Gray Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "Gray Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "Gray Cat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "Cowboy Bandana Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "Cowboy Bandana Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "Cowboy Bandana Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "Cowboy Bandana Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "Cowboy Bandana Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "Cowboy Bandana Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "Cowboy Bandana Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "Cowboy Bandana Sword"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "Cowboy Bandana Sword"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "Cowboy Bandana Sword"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "Cowboy Bandana Sword"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "Cowboy Bandana Sword"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "Cowboy Bandana Sword"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "Cowboy Bandana Sword"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "Duck Swim Ring Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "Duck Swim Ring Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "Duck Swim Ring Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "Duck Swim Ring Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "Duck Swim Ring Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "Duck Swim Ring Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "Duck Swim Ring Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "Duck Swim Ring Sword"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "Duck Swim Ring Sword"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "Duck Swim Ring Sword"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "Duck Swim Ring Sword"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "Duck Swim Ring Sword"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "Duck Swim Ring Sword"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "Duck Swim Ring Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "Rainbow Clown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "Rainbow Clown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "Rainbow Clown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "Rainbow Clown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "Rainbow Clown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "Rainbow Clown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "Rainbow Clown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "Rainbow Clown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "Rainbow Clown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "Rainbow Clown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "Rainbow Clown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "Rainbow Clown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "Rainbow Clown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "Rainbow Clown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "Red Cap Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "Red Cap Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "Red Cap Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "Red Cap Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "Red Cap Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "Red Cap Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "Red Cap Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "Red Cap Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "Red Cap Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "Red Cap Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "Red Cap Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "Red Cap Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "Red Cap Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "Red Cap Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "Snorkeler Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "Snorkeler Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "Snorkeler Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "Snorkeler Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "Snorkeler Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "Snorkeler Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "Snorkeler Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "Snorkeler Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "Snorkeler Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "Snorkeler Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "Snorkeler Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "Snorkeler Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "Snorkeler Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "Snorkeler Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "Straw Hat Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "Straw Hat Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "Straw Hat Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "Straw Hat Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "Straw Hat Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "Straw Hat Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "Straw Hat Swimmer Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "Straw Hat Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "Straw Hat Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "Straw Hat Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "Straw Hat Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "Straw Hat Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "Straw Hat Swimmer Sword"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "Straw Hat Swimmer Sword"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "Elephant Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "Elephant Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "Elephant Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "Elephant Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "Elephant Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "Elephant Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "Elephant Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "Teal Dinosaur Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "Teal Dinosaur Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "Teal Dinosaur Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "Teal Dinosaur Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "Teal Dinosaur Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "Teal Dinosaur Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "Teal Dinosaur Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "Black Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "Black Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "Black Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "Black Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "Black Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "Black Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "Black Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "Black Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "Black Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "Black Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "Black Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "Black Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "Black Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "Black Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "Mushroom Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "Mushroom Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "Mushroom Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "Mushroom Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "Mushroom Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "Mushroom Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "Mushroom Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "Mushroom Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "Mushroom Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "Mushroom Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "Mushroom Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "Mushroom Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "Mushroom Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "Mushroom Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "Pumpkin Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "Pumpkin Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "Pumpkin Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "Pumpkin Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "Pumpkin Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "Pumpkin Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "Pumpkin Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "Pumpkin Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "Pumpkin Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "Pumpkin Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "Pumpkin Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "Pumpkin Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "Pumpkin Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "Pumpkin Head Sword"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "Squirrel Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "Squirrel Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "Squirrel Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "Squirrel Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "Squirrel Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "Squirrel Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "Squirrel Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "Red Fox Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "Red Fox Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "Red Fox Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "Red Fox Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "Red Fox Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "Red Fox Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "Red Fox Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "Horned Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "Horned Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "Horned Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "Horned Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "Horned Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "Horned Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "Horned Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "Horned Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "Horned Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "Horned Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "Horned Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "Horned Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "Horned Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "Horned Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "Orange Screen Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "Orange Screen Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "Orange Screen Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "Orange Screen Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "Orange Screen Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "Orange Screen Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "Orange Screen Helmet Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "Orange Screen Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "Orange Screen Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "Orange Screen Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "Orange Screen Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "Orange Screen Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "Orange Screen Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "Orange Screen Helmet Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "Television Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "Television Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "Television Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "Television Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "Television Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "Television Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "Television Head Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "Television Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "Television Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "Television Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "Television Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "Television Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "Television Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "Television Head Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "Top Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "Top Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "Top Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "Top Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "Top Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "Top Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "Top Hat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "Top Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "Top Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "Top Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "Top Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "Top Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "Top Hat Sword"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "Top Hat Sword"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "Black Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "Black Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "Black Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "Black Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "Black Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "Black Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "Black Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "Grim Reaper Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "Grim Reaper Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "Grim Reaper Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "Grim Reaper Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "Grim Reaper Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "Grim Reaper Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "Grim Reaper Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "Bunny Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "Bunny Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "Bunny Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "Bunny Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "Bunny Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "Bunny Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "Bunny Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "Bunny Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "Bunny Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "Bunny Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "Bunny Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "Bunny Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "Bunny Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "Bunny Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "Cat Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "Cat Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "Cat Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "Cat Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "Cat Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "Cat Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "Cat Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "Cat Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "Cat Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "Cat Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "Cat Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "Cat Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "Cat Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "Cat Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "Elf Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "Elf Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "Elf Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "Elf Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "Elf Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "Elf Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "Elf Ears Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "Elf Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "Elf Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "Elf Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "Elf Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "Elf Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "Elf Ears Sword"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "Elf Ears Sword"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "Bee Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "Bee Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "Bee Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "Bee Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "Bee Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "Bee Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "Bee Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "Orange Tabby Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "Orange Tabby Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "Orange Tabby Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "Orange Tabby Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "Orange Tabby Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "Orange Tabby Cat Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "Orange Tabby Cat Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "Flower Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "Flower Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "Flower Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "Flower Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "Flower Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "Flower Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "Flower Crown Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "Flower Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "Flower Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "Flower Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "Flower Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "Flower Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "Flower Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "Flower Crown Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "Green Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "Green Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "Green Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "Green Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "Green Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "Green Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "Green Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "Green Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "Green Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "Green Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "Green Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "Green Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "Green Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "Green Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "Pink Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "Pink Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "Pink Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "Pink Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "Pink Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "Pink Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "Pink Cap Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "Pink Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "Pink Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "Pink Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "Pink Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "Pink Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "Pink Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "Pink Cap Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "Pink Flower Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "Pink Flower Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "Pink Flower Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "Pink Flower Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "Pink Flower Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "Pink Flower Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "Pink Flower Hood Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "Pink Flower Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "Pink Flower Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "Pink Flower Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "Pink Flower Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "Pink Flower Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "Pink Flower Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "Pink Flower Hood Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "Plain Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "Plain Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "Plain Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "Plain Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "Plain Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "Plain Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "Plain Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "Plain Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "Plain Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "Plain Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "Plain Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "Plain Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "Plain Sword"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "Plain Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "Sprout Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "Sprout Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "Sprout Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "Sprout Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "Sprout Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "Sprout Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "Sprout Outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "Sprout Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "Sprout Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "Sprout Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "Sprout Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "Sprout Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "Sprout Sword"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "Sprout Sword"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "Red Panda Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "Red Panda Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "Red Panda Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "Red Panda Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "Red Panda Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "Red Panda Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "Red Panda Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "Sunflower Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "Sunflower Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "Sunflower Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "Sunflower Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "Sunflower Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "Sunflower Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "Sunflower Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "Green Alien Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "Green Alien Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "Green Alien Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "Green Alien Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "Green Alien Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "Green Alien Outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "Green Alien Outfit"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "Heal"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "Frost Burst"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "Fire Burst"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "Lightning Strike"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "Arcane Focus"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "Arcane Strike"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "Blue Cap"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "Red Scarf"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "Chef Hat"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "Snowman"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "Wolf Hood"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "Calico Cat Hood"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "Golden Crown"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "Reindeer Antlers"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "Santa Hat"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "Space Helmet"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "Cyan Robot"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "Straw Hat"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "Sunglasses"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "Yellow Cap"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "Gray Cat"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "Cowboy Bandana"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "Duck Swim Ring"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "Rainbow Clown"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "Red Cap Swimmer"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "Snorkeler"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "Straw Hat Swimmer"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "Elephant"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "Teal Dinosaur"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "Black Cap"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "Mushroom Cap"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "Pumpkin Head"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "Squirrel"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "Red Fox"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "Horned Hood"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "Orange Screen Helmet"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "Television Head"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "Top Hat"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "Black Cat"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "Grim Reaper"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "Bunny Ears"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "Cat Ears"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "Elf Ears"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "Bee"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "Orange Tabby Cat"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "Flower Crown"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "Green Cap"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "Pink Cap"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "Pink Flower Hood"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "Plain"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "Sprout"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "Red Panda"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "Sunflower"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "Green Alien"
+
+msgid "CONTENT_STAGES_1"
+msgstr "Winter I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "Winter II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "Summer I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "Summer II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "Autumn I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "Autumn II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "Spring I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "Spring II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "First bounty"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "Defeat the Snowman 10 times"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "Summer bounty"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "Defeat the Gray Cat 20 times"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "Autumn bounty"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "Defeat the Grim Reaper 30 times"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "Winter route"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "In order: defeat 100 Blue Caps, 100 Red Scarves, then 100 Chef Hats"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "Summer route"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "In order: defeat 150 Straw Hats, 150 Sunglasses, then 150 Yellow Caps"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "Spring route"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "In order: defeat 200 Bunny Ears, 200 Cat Ears, then 200 Elf Ears"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "Winter collection"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "Find and hand in 20 each of the Blue Cap, Red Scarf and Chef Hat outfits"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "Summer collection"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "Find and hand in 30 each of the Straw Hat, Sunglasses and Yellow Cap outfits"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "Spring collection"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "Find and hand in 40 each of the Bunny Ears, Cat Ears and Elf Ears outfits"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "First masterwork"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "Merge any item to ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "Second tier"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "Merge a tier 2 item to ^100"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "Third tier"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "Merge a tier 3 item to ^100"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "Paired gear"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "Merge one weapon and one outfit to ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "Broad arsenal"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "Merge 3 different weapons and 3 different outfits to ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "Evolved arsenal"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "Merge 3 tier 2 weapons and 3 tier 2 outfits to ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "Winter mastery"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "Explore 90% of both winter maps, defeat both winter bosses and unlock every winter camp"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "Summer mastery"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "Explore 90% of both summer maps, defeat all three summer bosses and unlock every summer camp"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "Spring mastery"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "Explore 90% of both spring maps, defeat all five spring bosses and unlock every spring camp"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "Unassisted winter"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "Defeat the Cyan Robot without using any supplies during the fight"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "Unassisted summer"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "Defeat the Teal Dinosaur without using any supplies during the fight"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "Unassisted autumn"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "Defeat the Grim Reaper without using any supplies during the fight"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "Small offering"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "Donate 2,000 coins and 30 gems earned in battle this run"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "Growing offering"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "Donate 20,000 coins and 100 gems earned in battle this run"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "Grand offering"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "Donate 100,000 coins and 300 gems earned in battle this run"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "Short chain"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "In order: defeat 100 enemies, find 10 gear drops, then merge 10 times"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "Long chain"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "In order: defeat 250 enemies and 3 bosses, merge 25 times, then cast 30 skills"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "Master chain"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "In order: defeat 500 enemies and 10 bosses, merge 50 times, then finish 3 missions"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "Winter trophies"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "Win a trophy from the Snowman and the Cyan Robot"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "Summer trophies"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "Win a trophy from the Gray Cat, Elephant and Teal Dinosaur"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "Autumn trophies"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "Win a trophy from the Squirrel, Red Fox, Black Cat and Grim Reaper"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "Time away"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "Spend 72 hours away in total"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "Long rest"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "Stay away for 24 hours in one go"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "Offline income"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "Earn 10,000 coins while away"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "+20% XP from bosses"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+10% movement speed"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+50% auto-collect range"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "+10% base stats of equipped gear"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+10% maximum HP"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "+25% exploration radius around you"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "+10% damage against bosses"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "+10% coins from every enemy"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "+25% coins from missions"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "+25% gems from bosses"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "+25% offline coins per hour"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "Respawn 2 seconds sooner (minimum 2 s)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "+15% coins from normal enemies"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "+10% stats gained from every merge"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "+10% damage against bosses"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "+25% offline item rates"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+10% maximum HP"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "Giant Slayer"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "+25% damage against bosses"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "Boss Guard"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "Take 20% less damage from bosses"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "Bounty"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "+100% coins from bosses"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "Tracker"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "+20% damage against normal enemies"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "Trail Coins"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "+30% coins from normal enemies"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "Trail Learning"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "+30% XP from normal enemies"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "Careful Collector"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+100% auto-collect range"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "Gear Fortune"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "+3 points equipment drop chance"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "Supply Fortune"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "+5 points supply drop chance"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "Fine Craft"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "+25% stats gained from every merge"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "Reroll Craft"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "Rerolls cost 50% fewer gems"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "Strong Foundation"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "+20% base stats of your equipped weapon and outfit"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "Armor Reserve"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+20% maximum HP"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "Weapon Training"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "+15% damage from attacks and skills"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "Balanced Loadout"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "Take 10% less damage from every enemy"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "Explorer"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+15% movement speed"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "Far Sight"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "+50% exploration radius around you"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "Camp Survey"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "Camps cost 50% fewer coins"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "Precision"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "+15 points critical hit chance"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "Resolve"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "Heal 5% of the damage you deal"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "Hard Hit"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "Critical hits deal +75% more damage"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "Coin Wisdom"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "+25% coins from every enemy"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "Gem Wisdom"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "+3 points gem drop chance (normal enemies up to 20%)"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "Wise Spending"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "Coin upgrades cost 15% less"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "Mission Coins"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "+50% coins from missions"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "Mission Gems"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "+50% gems from missions"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "Focused Practice"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "+25% skill damage, healing and Focus"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "Trophy Hunter"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "+50% XP from bosses"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "Trophy Power"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "+20% damage against bosses"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "Trophy Gems"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "+50% gems from bosses"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "Quiet Coins"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "+50% offline coins per hour"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "Quiet Gems"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "+50% offline gems per hour"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "Quiet Finds"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "+50% offline item rates"
+
+
+msgid "CHAIN_PROGRESS"
+msgstr "Step %d/%d · %s %s · %d/%d"
+
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "Development save reset for this update. New progress can be saved."
+
+msgid "HEAL_ROLE"
+msgstr "Sustain: %s HP now, every %ss. Free to cast; capped at 12%% max HP. Potions provide stronger emergency healing."
+
+msgid "POTION_ROLE"
+msgstr "Emergency healing. Consumes one potion; 2s cooldown. Usable at 80% HP or below."
+
+msgid "REGULAR_MISSIONS"
+msgstr "Hunting tasks"
+
+msgid "GUIDE_CHOOSE"
+msgstr "How much guidance would you like?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "Guided · Learn one action at a time"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "Overview · A short introduction"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "None · Discover things yourself"
+
+msgid "GUIDE_REVIEW"
+msgstr "Tutorial and help"
+
+msgid "GUIDE_GOT_IT"
+msgstr "Got it"
+
+msgid "GUIDE_MOVE"
+msgstr "Move with the joystick"
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "Drag the control to walk toward the nearest enemies."
+
+msgid "GUIDE_KILL"
+msgstr "Stop next to an enemy to attack"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "Stand still for a moment and you attack automatically. Winter enemies only fight back."
+
+msgid "GUIDE_COLLECT"
+msgstr "Tap the dropped item"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "Loot stays on the ground for a while. Coins and gems are added automatically."
+
+msgid "GUIDE_EQUIP"
+msgstr "Tap your new item"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "Item details compare it with what you wear now."
+
+msgid "GUIDE_MERGE"
+msgstr "Open the item you own twice"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "Merging a copy makes the item permanently stronger."
+
+msgid "GUIDE_UPGRADE"
+msgstr "Tap Upgrades for this enemy"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "Each enemy type has its own upgrades for loot, coins and experience."
+
+msgid "GUIDE_CAMP"
+msgstr "Open World to unlock a camp"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "You have found a camp and can afford it."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "Move, fight, collect, improve"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "Stop near enemies to attack. Tap loot, equip and merge items. Rest at camps to heal."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "These enemies notice you nearby"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "Winter II enemies attack when you come close. Approach one at a time."
+
+msgid "GUIDE_SKILLS"
+msgstr "Skills support your gear"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "Tap an equipped skill to cast it. Heal is steady; potions restore more at once."
+
+msgid "GUIDE_GROUPS"
+msgstr "Some enemies now call allies"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "Summer enemies help nearby allies of the same kind. Watch your health."
+
+msgid "PRESTIGE_GATE"
+msgstr "Clear Winter first: defeat the Cyan Robot to reach Summer I."
+
+msgid "NAV_PRESTIGE"
+msgstr "Prestige"
+
+msgid "PANEL_WORLD"
+msgstr "World"
+
+msgid "TAB_OFFLINE"
+msgstr "Offline"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "Tap your character at any time to open these upgrades."
+
+msgid "HUD_RESTING"
+msgstr "· Resting"
+
+msgid "ITEM_PREVIOUS"
+msgstr "Previous item"
+
+msgid "ITEM_NEXT"
+msgstr "Next item"
+
+msgid "ITEM_POSITION"
+msgstr "%d of %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "If equipped: %s"
+
+msgid "NO_CHANGE"
+msgstr "no change"
+
+msgid "EQUIPPED_NOW"
+msgstr "Equipped now: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "Nothing equipped in this slot yet."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "Equipped: full stats"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "Stored: 30% of its stats"
+
+msgid "UPGRADE_LEVEL"
+msgstr "Level %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "Boss"
+
+msgid "ENEMY_KILLS"
+msgstr "Defeated: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "Respawn camp"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "Unlocked"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "Locked · %d coins"
+
+msgid "SECTION_CAMPS"
+msgstr "Camps"
+
+msgid "CAMPS_HIDDEN"
+msgstr "%d more camp(s) to discover by exploring."
+
+msgid "SECTION_TRAVEL"
+msgstr "Travel to another stage"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "Map upgrades"
+
+msgid "SECTION_DANGER"
+msgstr "Danger zone"
+
+msgid "CAMP_UNLOCK"
+msgstr "Unlock"
+
+msgid "CAMP_SELECT"
+msgstr "Respawn here"
+
+msgid "CAMP_TRAVEL"
+msgstr "Travel"
+
+msgid "CARD_OWNED"
+msgstr "Owned"
+
+msgid "CARD_SELECTED"
+msgstr "Selected"
+
+msgid "CARD_LOCKED"
+msgstr "Not yet earned"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "Ready"
+
+msgid "PRESTIGE_INTRO"
+msgstr "Complete opportunities to earn permanent cards. Prestige redeems every ready one at once and starts a new run."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "Ready: %d  ·  Cards owned: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "No opportunities discovered yet. Defeat bosses, merge and explore to find them."
+
+msgid "NO_CARDS_YET"
+msgstr "No cards yet."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "Redeem %d ready opportunit(ies): %s.\n\nYou choose one permanent card for each, then the run restarts once.\n\nKeep: cards, boss keys, achievements, gem upgrades, automation, settings.\nReset: coins, items, level, camps, map exploration, coin upgrades and unfinished challenges."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "Choose a reward · %d of %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "Already chosen: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "You keep"
+
+msgid "PRESTIGE_KEEP"
+msgstr "Cards and sets, boss keys, enemy achievements, gem upgrades, automation, inventory space and settings."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "This run resets"
+
+msgid "PRESTIGE_RESET"
+msgstr "Coins, gems, items and merges, level, camps, map exploration, coin upgrades and unfinished challenges."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "Keep %s"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "Tap a card to choose it"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "Keep %s permanently? This is the last choice: the new run starts right after."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "Prestige opportunity found!"
+
+msgid "MILESTONE_READY"
+msgstr "Opportunity complete!"
+
+msgid "MILESTONE_CARD"
+msgstr "Card earned: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "A new run begins"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "%d permanent card(s) added to your collection."
+
+msgid "MILESTONE_STAGE"
+msgstr "New stage unlocked"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "Boss Hunter set"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "Expedition set"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "Collection set"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "Masterwork set"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "Arsenal set"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "Regional set"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "Challenge set"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "Offering set"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "Specialist set"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "Trophy set"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "Offline set"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "Prepared Explorer"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "Dedicated Farmer"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "Crafting Journey"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "Boss Specialist"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "Patient Collector"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "Balanced Growth"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "Keep defeating enemies"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "About one enemy in ten drops its weapon or outfit."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "Tap Equip"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "Equipped gear gives full stats. Stored gear still gives 30%."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "Tap Merge"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "Each merge uses one spare copy and raises the item's level."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "Collect a second copy"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "Keep fighting the same enemy type: it drops the same gear again."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "Find an enemy first"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "Walk close to enemies so their upgrades become available."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "Earn coins for an upgrade"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "%d more coins needed. Every defeated enemy drops coins."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "Open the Upgrades tab"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "Upgrades for this enemy type are listed there."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "Buy an upgrade"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "Better loot chance is a good first choice."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "Explore to find another camp"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "Walk into the fog. Camps appear once you reveal them."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "Earn coins for the camp"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "%d more coins needed. Keep defeating enemies."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "Tap Unlock"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "The camp becomes a respawn point and reveals the land around it."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "Camp unlocked"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "Use Respawn here to return there after defeat. Resting beside a camp heals fast."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "Prestige opportunity found"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "Complete it for a permanent card. Prestige opens once you clear Winter."
+
+msgid "GUIDE_REST"
+msgstr "Low on health?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "Step away from fights. Resting beside an unlocked camp heals you quickly."
+
+msgid "SECTION_REWARDS"
+msgstr "Rewards"
+
+msgid "SECTION_AUTOMATION"
+msgstr "Automation"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "Locked"
+
+msgid "PROGRESS_MERGE"
+msgstr "Best so far: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "Weapons at ^50: %d/%d · Outfits at ^50: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "Trophies: %d / %d (each boss drops one on its next defeat)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "Found this run: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "Win the fight without using potions or tonics."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "Explored %s · bosses %d/%d · camps %d/%d"

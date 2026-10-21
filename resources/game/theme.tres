@@ -1,8 +1,21 @@
-[gd_resource type="Theme" load_steps=16 format=3]
+[gd_resource type="Theme" load_steps=18 format=3]
 [ext_resource type="FontFile" path="res://assets/Fonts/DejaVuSans.ttf" id="font"]
-[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-015.png" id="panel"]
-[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-015.png" id="button"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-000.png" id="panel"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-000.png" id="button"]
 [ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-014.png" id="slot"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-015.png" id="card_texture"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-011.png" id="prestige_texture"]
+[sub_resource type="StyleBoxTexture" id="card"]
+texture=ExtResource("card_texture")
+modulate_color=Color(0.22,0.31,0.36,1)
+texture_margin_left=6.0
+texture_margin_right=6.0
+texture_margin_top=6.0
+texture_margin_bottom=6.0
+content_margin_left=16.0
+content_margin_right=16.0
+content_margin_top=14.0
+content_margin_bottom=14.0
 [sub_resource type="AtlasTexture" id="flat"]
 atlas=ExtResource("button")
 region=Rect2(20,20,8,8)
@@ -11,58 +24,58 @@ atlas=ExtResource("slot")
 region=Rect2(12,12,24,24)
 [sub_resource type="StyleBoxTexture" id="panel"]
 texture=ExtResource("panel")
-modulate_color=Color(0.20,0.23,0.28,1)
-texture_margin_left=6.0
+modulate_color=Color(0.12,0.19,0.24,1)
+texture_margin_left=12.0
 content_margin_left=12.0
-texture_margin_right=6.0
+texture_margin_right=12.0
 content_margin_right=12.0
-texture_margin_top=6.0
+texture_margin_top=12.0
 content_margin_top=8.0
-texture_margin_bottom=6.0
+texture_margin_bottom=12.0
 content_margin_bottom=8.0
 [sub_resource type="StyleBoxTexture" id="normal"]
 texture=ExtResource("button")
-modulate_color=Color(0.32,0.38,0.46,1)
-texture_margin_left=6.0
+modulate_color=Color(0.25,0.36,0.40,1)
+texture_margin_left=12.0
 content_margin_left=12.0
-texture_margin_right=6.0
+texture_margin_right=12.0
 content_margin_right=12.0
-texture_margin_top=6.0
+texture_margin_top=12.0
 content_margin_top=8.0
-texture_margin_bottom=6.0
+texture_margin_bottom=12.0
 content_margin_bottom=8.0
 [sub_resource type="StyleBoxTexture" id="hover"]
 texture=ExtResource("button")
 modulate_color=Color(0.43,0.51,0.61,1)
-texture_margin_left=6.0
+texture_margin_left=12.0
 content_margin_left=12.0
-texture_margin_right=6.0
+texture_margin_right=12.0
 content_margin_right=12.0
-texture_margin_top=6.0
+texture_margin_top=12.0
 content_margin_top=8.0
-texture_margin_bottom=6.0
+texture_margin_bottom=12.0
 content_margin_bottom=8.0
 [sub_resource type="StyleBoxTexture" id="pressed"]
 texture=ExtResource("button")
 modulate_color=Color(0.22,0.29,0.37,1)
-texture_margin_left=6.0
+texture_margin_left=12.0
 content_margin_left=12.0
-texture_margin_right=6.0
+texture_margin_right=12.0
 content_margin_right=12.0
-texture_margin_top=6.0
+texture_margin_top=12.0
 content_margin_top=8.0
-texture_margin_bottom=6.0
+texture_margin_bottom=12.0
 content_margin_bottom=8.0
 [sub_resource type="StyleBoxTexture" id="disabled"]
 texture=ExtResource("button")
 modulate_color=Color(0.18,0.20,0.24,1)
-texture_margin_left=6.0
+texture_margin_left=12.0
 content_margin_left=12.0
-texture_margin_right=6.0
+texture_margin_right=12.0
 content_margin_right=12.0
-texture_margin_top=6.0
+texture_margin_top=12.0
 content_margin_top=8.0
-texture_margin_bottom=6.0
+texture_margin_bottom=12.0
 content_margin_bottom=8.0
 [sub_resource type="StyleBoxTexture" id="slot"]
 texture=ExtResource("slot")
@@ -108,6 +121,66 @@ texture_margin_top=0.0
 content_margin_top=4.0
 texture_margin_bottom=0.0
 content_margin_bottom=4.0
+[sub_resource type="StyleBoxTexture" id="prestige"]
+texture=ExtResource("prestige_texture")
+modulate_color=Color(0.35,0.30,0.45,1)
+texture_margin_left=16.0
+content_margin_left=14.0
+texture_margin_right=16.0
+content_margin_right=14.0
+texture_margin_top=16.0
+content_margin_top=14.0
+texture_margin_bottom=16.0
+content_margin_bottom=14.0
+
+[sub_resource type="StyleBoxTexture" id="backing"]
+texture=ExtResource("panel")
+modulate_color=Color(0.05,0.07,0.10,0.9)
+texture_margin_left=12.0
+content_margin_left=14.0
+texture_margin_right=12.0
+content_margin_right=14.0
+texture_margin_top=12.0
+content_margin_top=6.0
+texture_margin_bottom=12.0
+content_margin_bottom=6.0
+
+[sub_resource type="StyleBoxTexture" id="primary"]
+texture=ExtResource("button")
+modulate_color=Color(0.70,0.47,0.16,1)
+texture_margin_left=12.0
+content_margin_left=12.0
+texture_margin_right=12.0
+content_margin_right=12.0
+texture_margin_top=12.0
+content_margin_top=8.0
+texture_margin_bottom=12.0
+content_margin_bottom=8.0
+
+[sub_resource type="StyleBoxTexture" id="primary_hover"]
+texture=ExtResource("button")
+modulate_color=Color(0.82,0.58,0.24,1)
+texture_margin_left=12.0
+content_margin_left=12.0
+texture_margin_right=12.0
+content_margin_right=12.0
+texture_margin_top=12.0
+content_margin_top=8.0
+texture_margin_bottom=12.0
+content_margin_bottom=8.0
+
+[sub_resource type="StyleBoxTexture" id="primary_pressed"]
+texture=ExtResource("button")
+modulate_color=Color(0.56,0.37,0.12,1)
+texture_margin_left=12.0
+content_margin_left=12.0
+texture_margin_right=12.0
+content_margin_right=12.0
+texture_margin_top=12.0
+content_margin_top=8.0
+texture_margin_bottom=12.0
+content_margin_bottom=8.0
+
 [resource]
 default_font=ExtResource("font")
 default_font_size=22
@@ -145,3 +218,21 @@ HScrollBar/styles/grabber_highlight=SubResource("hover")
 HScrollBar/styles/grabber_pressed=SubResource("pressed")
 PopupMenu/styles/panel=SubResource("panel")
 Window/styles/embedded_border=SubResource("panel")
+
+Card/base_type=&"PanelContainer"
+Card/styles/panel=SubResource("card")
+PrestigeCard/base_type=&"Button"
+PrestigeCard/styles/normal=SubResource("prestige")
+PrestigeCard/styles/hover=SubResource("prestige")
+PrestigeCard/styles/pressed=SubResource("prestige")
+PrestigeCard/styles/focus=SubResource("prestige")
+Backing/base_type=&"PanelContainer"
+Backing/styles/panel=SubResource("backing")
+Primary/base_type=&"Button"
+Primary/styles/normal=SubResource("primary")
+Primary/styles/hover=SubResource("primary_hover")
+Primary/styles/pressed=SubResource("primary_pressed")
+Primary/styles/disabled=SubResource("disabled")
+Primary/colors/font_color=Color(1,0.98,0.92,1)
+Primary/colors/font_outline_color=Color(0.18,0.1,0.02,1)
+Primary/constants/outline_size=4

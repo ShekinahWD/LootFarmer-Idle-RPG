@@ -1,0 +1,272 @@
+{
+  "change": 5,
+  "base": "user-supplied ZIP 7 (01-lootFarmer-7-.zip)",
+  "base_sha256": "d124b95fdab1d2b1e9cb38063e6693331417a691ef0ce6dc3cbf5931a3083fcc",
+  "format": "project-relative changed files; overlay on extracted base",
+  "files": [
+    {
+      "path": "data/game/catalog.json",
+      "sha256": "7b881f6411db9641015b3ada3ffae328d69019e70ff12cac9cf0b44395381b47"
+    },
+    {
+      "path": "docs/Change_5_Evidence/achievements.png",
+      "sha256": "ce323bd7e64411fa33b9c3c6f1fd5268f89b5b6eaf29446d479517327300c23b"
+    },
+    {
+      "path": "docs/Change_5_Evidence/boss_arena.png",
+      "sha256": "e6d172598e59a63729d55b0289b16431bd8ccdb172ead41b2fecc181cbb83494"
+    },
+    {
+      "path": "docs/Change_5_Evidence/campaign_content_probe.log",
+      "sha256": "d75181062a2682e6f8a4ce1b8db8e670fa2a988fe1c8f80cd62c6259dcb780b0"
+    },
+    {
+      "path": "docs/Change_5_Evidence/campaign_probe.log",
+      "sha256": "55298acb0e11da47df179fc29ba00259dda06a8abefe3f9ab33269cf345af3be"
+    },
+    {
+      "path": "docs/Change_5_Evidence/change_5_probe.log",
+      "sha256": "729d0bc50daa531b6bb14b67fcfabc1b0b73291596d1483fa186d3c327722f2d"
+    },
+    {
+      "path": "docs/Change_5_Evidence/enemy_upgrades.png",
+      "sha256": "ecf93f231db3988cc35c0e8f1e430696aee8d81f4d40607e6200e1ae6a0cb121"
+    },
+    {
+      "path": "docs/Change_5_Evidence/first_lesson.png",
+      "sha256": "bfe212138a74a8cd430aa0054e0f6835f77e45eb3967b580cff93a5a348293b1"
+    },
+    {
+      "path": "docs/Change_5_Evidence/map.png",
+      "sha256": "919a496d8f3de48442ccd309ba742293880930504301e7ce0fd313e128777c54"
+    },
+    {
+      "path": "docs/Change_5_Evidence/missions.png",
+      "sha256": "2641838b4bae91d09ea14f0eb04ea5ad854d74f461f665f70255d71f17e08d68"
+    },
+    {
+      "path": "docs/Change_5_Evidence/onboarding.png",
+      "sha256": "d36f49fac2f9b9fc2bd41e5a81e0fe64a2f8aa08f92301653822ef2f35a354e3"
+    },
+    {
+      "path": "docs/Change_5_Evidence/potion.png",
+      "sha256": "dbfb0b61906c3d88f8c0651fcf8f7ab373e1228fc4a509425d888898f3c6e4e3"
+    },
+    {
+      "path": "docs/Change_5_Evidence/static_checks.json",
+      "sha256": "b632da262173d59e1379a5049012efefcfb1c0f0b227ac0e35d5ed9af6703122"
+    },
+    {
+      "path": "docs/LootFarmer_Asset_Registry.md",
+      "sha256": "48bce1962381021bf96d4481d284f2594d01db8e2784a18e2dca24252d777c95"
+    },
+    {
+      "path": "docs/LootFarmer_Change_5_Apply.md",
+      "sha256": "53389579c940a521eee46f985e9bc95e2c32ad9b4f7dbf35ad5f84b284b4d5e8"
+    },
+    {
+      "path": "docs/LootFarmer_Change_5_Notes.md",
+      "sha256": "3d29f253b5b73ccabcd4793dbf57cef0d1d5a8056d9691b0bb7c80292c689e93"
+    },
+    {
+      "path": "docs/LootFarmer_Change_5_Playbook_Audit.md",
+      "sha256": "fb4a2bfd923293629140f22af8d25ea595ba1be4631d26a1382afb09ff26f18d"
+    },
+    {
+      "path": "docs/LootFarmer_Change_5_Validation.md",
+      "sha256": "2688153bce0a536a939da2e3f07eb770bfec9b31b6a95e87674a7ff0719c3abf"
+    },
+    {
+      "path": "docs/LootFarmer_Checkpoints.md",
+      "sha256": "c31123d155b1d9d077fb0581ec2b51e8019b4743561d1c437ca011813c7cce47"
+    },
+    {
+      "path": "docs/LootFarmer_Content_and_Balance.md",
+      "sha256": "5f84a1050d22d61cf0fb82cfa03c59f933e5cb22d15f37b0d0e80cb04a301d54"
+    },
+    {
+      "path": "docs/LootFarmer_Design_Audit.md",
+      "sha256": "2d11da7a5899a51f90a2ccf6abc84c4e7db0db4dbf89ac4b7eecfe092a094cc3"
+    },
+    {
+      "path": "docs/LootFarmer_Design_README.md",
+      "sha256": "41a551649846a351c4fc80aa8de8f280e736846f531ef10bca4db6de37bb32b6"
+    },
+    {
+      "path": "docs/LootFarmer_Enemy_Roster.csv",
+      "sha256": "a5061f916bc08d9d0788206e8d9070e67d6bbacb7ee6eff55940014f404092e8"
+    },
+    {
+      "path": "docs/LootFarmer_GDD.md",
+      "sha256": "78d95abae87fded8bce080934c2c6310c5061325ec3c773de8147a00e23a43d9"
+    },
+    {
+      "path": "docs/LootFarmer_Implementation_Plan.md",
+      "sha256": "1e21fbde4ed30fbc4843097e1f1eda0af8e83e9d4c983ffabfe6e5b5d9f9bd63"
+    },
+    {
+      "path": "docs/LootFarmer_Prototype_Status.md",
+      "sha256": "897f00bb317ebbac2a1e23bc6ae34271e297280fe027d00c6ad3bb0fd3513651"
+    },
+    {
+      "path": "docs/LootFarmer_State_Contracts.md",
+      "sha256": "2d77d51eed01076b28a8a8128ab6aa6ea835de8a6ba0b8da5ccce9fb9f72af79"
+    },
+    {
+      "path": "docs/LootFarmer_Upgrade_Catalog.md",
+      "sha256": "f6e9748c0a69edcd9483a1310b6419b8ecb8bed0f269bb041524700cfe71f694"
+    },
+    {
+      "path": "docs/Reusable_Game_Development_Playbook.md",
+      "sha256": "9b6143e237747afe4f59bd11143e02b07825fa27d87cfcc14d408576da5a0ba2"
+    },
+    {
+      "path": "localization/en.po",
+      "sha256": "793249592785cf606c90a6f5723c8a6949b2bb1ffc6dbadf49ddb2c609b6295b"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "40f00fdd488ac165e3df159fa7469154960e651198f0be40c23440e8e83ff437"
+    },
+    {
+      "path": "resources/game/fog_rules.tres",
+      "sha256": "a7d7a360ce1460fc945527c13e501f974bc6957535ace5d2798640714a506f59"
+    },
+    {
+      "path": "resources/game/theme.tres",
+      "sha256": "3791bff30f3c4a3361d1ea4eeb714a4fcc24c4f3019bff60e022c49298a68509"
+    },
+    {
+      "path": "scenes/game/actor.tscn",
+      "sha256": "cd56c88f2496901834c87513e4cfbe27d23eab0aa51435b8b37f9e7e433cf163"
+    },
+    {
+      "path": "scenes/game/info_card.tscn",
+      "sha256": "86d4534f07c31cb5584d0cc1b8fe00bf71c1a61ecdcd1ed7aa6838dce6a4f2b3"
+    },
+    {
+      "path": "scenes/game/main.tscn",
+      "sha256": "dde3a89e118e45360342c55ce54dbc39b6fae14a8a95a04af845c763c5c7c5d2"
+    },
+    {
+      "path": "scenes/game/stages/stage_1.tscn",
+      "sha256": "cc4ad1ffa7c80a0747d58ed920171fc90a2f54312fd96fbc0a82a5178c302481"
+    },
+    {
+      "path": "scenes/game/stages/stage_2.tscn",
+      "sha256": "50c7d472c5c85d2e4d13e31a3baa2beab5eedcd4224bff9ea42bee423a18c8f4"
+    },
+    {
+      "path": "scenes/game/stages/stage_3.tscn",
+      "sha256": "53729c0489fc668ad54ea9d8b555d1237a009860da36ac9e5318d3f108024df1"
+    },
+    {
+      "path": "scenes/game/stages/stage_4.tscn",
+      "sha256": "dd58c2540acd145498a1a802579a7a98b57fb992da0161884998a71ef99ff2ad"
+    },
+    {
+      "path": "scenes/game/stages/stage_5.tscn",
+      "sha256": "44d69d5f1367f9fbad6951b0c5da446135dc10899179a8472bfd8a704f707fc8"
+    },
+    {
+      "path": "scenes/game/stages/stage_6.tscn",
+      "sha256": "de12db97be4c1c5f08ded4a8329e6fd03d04aa8579e297714dba3cb25c251880"
+    },
+    {
+      "path": "scenes/game/stages/stage_7.tscn",
+      "sha256": "5c72390e8158ff0e34a22357219537d336dd3521a15f25aa9b8e53d34129c1c5"
+    },
+    {
+      "path": "scenes/game/stages/stage_8.tscn",
+      "sha256": "6a05d30965ad13eadc87fbfe90f61eca3aed917466a49273f135c6b1b7e5c4c2"
+    },
+    {
+      "path": "scenes/game/world.tscn",
+      "sha256": "5248c9676574e9319f90328424ee867ad83c3ee9cd78d0477d69a829764e041e"
+    },
+    {
+      "path": "scripts/autoload/audio_service.gd",
+      "sha256": "bcd9afa7e89913840f9c65bc7f2245f8ad24f5049a365965cdb8c615fb2fc9f1"
+    },
+    {
+      "path": "scripts/autoload/save_service.gd",
+      "sha256": "938e969dc5b411e48084ac356502b02a469917ad34b0276840a514f3a8fea84a"
+    },
+    {
+      "path": "scripts/game/actor_view.gd",
+      "sha256": "26d97c50090af1fcd2c0dabf714b43f59f791f19d87c33ebed4bc742998364a4"
+    },
+    {
+      "path": "scripts/game/campaign.gd",
+      "sha256": "9dcbe621adc54da2a7462f09899e6d4e5992d325c72bfe8ea2aebc667f62a6c7"
+    },
+    {
+      "path": "scripts/game/fog_layer.gd",
+      "sha256": "15493c57674eec1a9926acc331e8ed5ca9a21cb9cd3555e06c0685306b1c8193"
+    },
+    {
+      "path": "scripts/game/fog_rules.gd",
+      "sha256": "814708d2d74eee220722d294b3eefc06c4365c8005cc15c6770a930c841b79fb"
+    },
+    {
+      "path": "scripts/game/fog_rules.gd.uid",
+      "sha256": "e5e37db0878536ab90cabd70731817491b9819891ad1af1f910208afafdf1bf8"
+    },
+    {
+      "path": "scripts/game/game_ui.gd",
+      "sha256": "8e42fc01438db53a49f57f48316d753794ebbada1e52699ef8500f10c77e6017"
+    },
+    {
+      "path": "scripts/game/map_view.gd",
+      "sha256": "428e23fb1fcc5dc8f4d12acd0fe2c7d85609c159b0927df6a7765e538748ef76"
+    },
+    {
+      "path": "scripts/game/simulation.gd",
+      "sha256": "32bffef478c029fbd8da3e7a33f86495b25b46ffb5e336c98cccf7bf395ba7fb"
+    },
+    {
+      "path": "scripts/game/tutorial_guide.gd",
+      "sha256": "769ac4f4b5506e2ad7eb5808030523852e0cc88dbb62454688fa140602b06634"
+    },
+    {
+      "path": "scripts/game/tutorial_guide.gd.uid",
+      "sha256": "23ff6ba03b441fa8f0e7dd43140274b99fcb36c290926381627a65de1b567db7"
+    },
+    {
+      "path": "scripts/game/world.gd",
+      "sha256": "84be94ea76ec73c26d1066d4822b25cdd75d3d4102c1f0006be6c184799f4038"
+    },
+    {
+      "path": "tests/campaign_content_probe.gd",
+      "sha256": "94d2752fe3ff116d20ed25080bab4d41f1f387e621efa8d6f1e37defa438627f"
+    },
+    {
+      "path": "tests/campaign_probe.gd",
+      "sha256": "917242812ae0c0eeae5bb9413956e46d71784bc1d729095e24ac6ba144c46d47"
+    },
+    {
+      "path": "tests/change_5_capture.gd",
+      "sha256": "14a1116b91da57ee74f0f9c5092764ae8a82c19ead6d0e149fb7e145975afef8"
+    },
+    {
+      "path": "tests/change_5_capture.tscn",
+      "sha256": "da8999c780e04cf07a5de689bd9f9dd0171df06d916c03c08fbc8d0cf9e49d5c"
+    },
+    {
+      "path": "tests/change_5_probe.gd",
+      "sha256": "690edf3a103901a8f21813e52e0d7bae0211e821921986af8f75f1cf0531451f"
+    },
+    {
+      "path": "tests/change_5_probe.tscn",
+      "sha256": "7c7bd87add8846e3493ea06e4f310fc30d156c054738785c1dd154addff6b132"
+    },
+    {
+      "path": "tools/build_campaign_maps.gd",
+      "sha256": "6e34e655e0ef8fbed03f6204ac60c9ef94491db42b5531ca318b1482520d3544"
+    },
+    {
+      "path": "tools/validate_campaign_source.py",
+      "sha256": "ff334342cfe6da7ec4f7469eb295414660157184cf3e8d91bea50d06353d782a"
+    }
+  ]
+}

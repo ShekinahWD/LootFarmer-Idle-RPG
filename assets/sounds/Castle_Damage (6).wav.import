@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://crfcvuk870knv"
+path="res://.godot/imported/Castle_Damage (6).wav-3f9f7e6565b0b590d1203f46860a7a41.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Castle_Damage (6).wav"
+dest_files=["res://.godot/imported/Castle_Damage (6).wav-3f9f7e6565b0b590d1203f46860a7a41.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

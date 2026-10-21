@@ -1,0 +1,17 @@
+
+    0.4 min  first_kill  (level 1, coins 14, dmg 5.0, hp 105)
+    1.9 min  first_prestige_discovered  (level 3, coins 26, dmg 6.9, hp 126)
+    1.9 min  first_equip  (level 3, coins 26, dmg 9.0, hp 126)
+    3.9 min  level_5  (level 5, coins 19, dmg 10.1, hp 137)
+   13.9 min  level_10  (level 10, coins 53, dmg 13.7, hp 163)
+   16.5 min  first_prestige_ready  (level 10, coins 50, dmg 13.9, hp 164)
+   16.5 min  first_opportunity_ready_any  (level 10, coins 50, dmg 14.0, hp 164)
+   21.4 min  unlock_stage_2  (level 12, coins 18, dmg 15.5, hp 176)
+   21.4 min  kill_boss-snowman  (level 12, coins 118, dmg 15.5, hp 184)
+   21.4 min  enter_stage_2  (level 12, coins 18, dmg 15.5, hp 187)
+   33.3 min  level_15  (level 15, coins 13, dmg 19.2, hp 208)
+   63.5 min  level_20  (level 20, coins 58, dmg 24.3, hp 240)
+   94.7 min  first_camp  (level 24, coins 0, dmg 28.9, hp 256)
+  132.9 min  level_30  (level 30, coins 68, dmg 34.6, hp 295)
+PACING policy=ordinary seed=2 cards=expedition_c3 simulated_min=150.0 level=32 stage=2 unlocked=2 deaths=24 boss_attempts=1
+PACING ready=["arsenal_o1", "specialist_o1", "masterwork_o1"] discovered=["arsenal_o1", "specialist_o1", "masterwork_o1", "hunter_o1", "trophy_o1", "regional_o1", "collection_o1", "arsenal_o2", "offering_o1"]

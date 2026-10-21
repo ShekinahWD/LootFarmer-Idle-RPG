@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/change_5_probe.gd" id="test"]
+[node name="Change5Probe" type="Node"]
+script=ExtResource("test")

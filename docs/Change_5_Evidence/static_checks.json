@@ -1,0 +1,7118 @@
+{
+  "checks": 1778,
+  "failures": 0,
+  "results": [
+    {
+      "check": "8 stages / 48 types / 34 normal / 14 bosses",
+      "pass": true
+    },
+    {
+      "check": "unique stable group ids",
+      "pass": true
+    },
+    {
+      "check": "single superior final boss",
+      "pass": true
+    },
+    {
+      "check": "three double gates",
+      "pass": true
+    },
+    {
+      "check": "selling absent from item and upgrade definitions",
+      "pass": true
+    },
+    {
+      "check": "catalog capacity includes every tier",
+      "pass": true
+    },
+    {
+      "check": "automerge nine reductions from ten to one",
+      "pass": true
+    },
+    {
+      "check": "eight baked stage scenes",
+      "pass": true
+    },
+    {
+      "check": "asset wood_sword texture",
+      "pass": true
+    },
+    {
+      "check": "successor wood_sword",
+      "pass": true
+    },
+    {
+      "check": "asset stone_sword texture",
+      "pass": true
+    },
+    {
+      "check": "successor stone_sword",
+      "pass": true
+    },
+    {
+      "check": "asset iron_sword texture",
+      "pass": true
+    },
+    {
+      "check": "successor iron_sword",
+      "pass": true
+    },
+    {
+      "check": "asset sprout texture",
+      "pass": true
+    },
+    {
+      "check": "successor sprout",
+      "pass": true
+    },
+    {
+      "check": "asset robot texture",
+      "pass": true
+    },
+    {
+      "check": "successor robot",
+      "pass": true
+    },
+    {
+      "check": "asset dinosaur texture",
+      "pass": true
+    },
+    {
+      "check": "successor dinosaur",
+      "pass": true
+    },
+    {
+      "check": "asset potion icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor potion",
+      "pass": true
+    },
+    {
+      "check": "asset coin_boost icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor coin_boost",
+      "pass": true
+    },
+    {
+      "check": "asset death_scythe texture",
+      "pass": true
+    },
+    {
+      "check": "successor death_scythe",
+      "pass": true
+    },
+    {
+      "check": "asset reaper texture",
+      "pass": true
+    },
+    {
+      "check": "successor reaper",
+      "pass": true
+    },
+    {
+      "check": "asset iron_sword_tier_4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor iron_sword_tier_4",
+      "pass": true
+    },
+    {
+      "check": "asset iron_sword_tier_5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor iron_sword_tier_5",
+      "pass": true
+    },
+    {
+      "check": "asset iron_sword_tier_6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor iron_sword_tier_6",
+      "pass": true
+    },
+    {
+      "check": "asset iron_sword_tier_7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor iron_sword_tier_7",
+      "pass": true
+    },
+    {
+      "check": "asset sprout_tier_2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor sprout_tier_2",
+      "pass": true
+    },
+    {
+      "check": "asset sprout_tier_3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor sprout_tier_3",
+      "pass": true
+    },
+    {
+      "check": "asset sprout_tier_4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor sprout_tier_4",
+      "pass": true
+    },
+    {
+      "check": "asset sprout_tier_5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor sprout_tier_5",
+      "pass": true
+    },
+    {
+      "check": "asset sprout_tier_6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor sprout_tier_6",
+      "pass": true
+    },
+    {
+      "check": "asset sprout_tier_7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor sprout_tier_7",
+      "pass": true
+    },
+    {
+      "check": "asset robot_tier_3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor robot_tier_3",
+      "pass": true
+    },
+    {
+      "check": "asset robot_tier_4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor robot_tier_4",
+      "pass": true
+    },
+    {
+      "check": "asset robot_tier_5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor robot_tier_5",
+      "pass": true
+    },
+    {
+      "check": "asset robot_tier_6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor robot_tier_6",
+      "pass": true
+    },
+    {
+      "check": "asset robot_tier_7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor robot_tier_7",
+      "pass": true
+    },
+    {
+      "check": "asset dinosaur_tier_4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor dinosaur_tier_4",
+      "pass": true
+    },
+    {
+      "check": "asset dinosaur_tier_5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor dinosaur_tier_5",
+      "pass": true
+    },
+    {
+      "check": "asset dinosaur_tier_6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor dinosaur_tier_6",
+      "pass": true
+    },
+    {
+      "check": "asset dinosaur_tier_7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor dinosaur_tier_7",
+      "pass": true
+    },
+    {
+      "check": "asset potion_tier_2 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor potion_tier_2",
+      "pass": true
+    },
+    {
+      "check": "asset potion_tier_3 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor potion_tier_3",
+      "pass": true
+    },
+    {
+      "check": "asset potion_tier_4 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor potion_tier_4",
+      "pass": true
+    },
+    {
+      "check": "asset potion_tier_5 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor potion_tier_5",
+      "pass": true
+    },
+    {
+      "check": "asset potion_tier_6 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor potion_tier_6",
+      "pass": true
+    },
+    {
+      "check": "asset potion_tier_7 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor potion_tier_7",
+      "pass": true
+    },
+    {
+      "check": "asset coin_boost_tier_2 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor coin_boost_tier_2",
+      "pass": true
+    },
+    {
+      "check": "asset coin_boost_tier_3 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor coin_boost_tier_3",
+      "pass": true
+    },
+    {
+      "check": "asset coin_boost_tier_4 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor coin_boost_tier_4",
+      "pass": true
+    },
+    {
+      "check": "asset coin_boost_tier_5 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor coin_boost_tier_5",
+      "pass": true
+    },
+    {
+      "check": "asset coin_boost_tier_6 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor coin_boost_tier_6",
+      "pass": true
+    },
+    {
+      "check": "asset coin_boost_tier_7 icon_path",
+      "pass": true
+    },
+    {
+      "check": "successor coin_boost_tier_7",
+      "pass": true
+    },
+    {
+      "check": "asset death_scythe_tier_5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor death_scythe_tier_5",
+      "pass": true
+    },
+    {
+      "check": "asset death_scythe_tier_6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor death_scythe_tier_6",
+      "pass": true
+    },
+    {
+      "check": "asset death_scythe_tier_7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor death_scythe_tier_7",
+      "pass": true
+    },
+    {
+      "check": "asset reaper_tier_5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor reaper_tier_5",
+      "pass": true
+    },
+    {
+      "check": "asset reaper_tier_6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor reaper_tier_6",
+      "pass": true
+    },
+    {
+      "check": "asset reaper_tier_7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor reaper_tier_7",
+      "pass": true
+    },
+    {
+      "check": "asset skill_heal texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_heal",
+      "pass": true
+    },
+    {
+      "check": "asset skill_heal_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_heal_t2",
+      "pass": true
+    },
+    {
+      "check": "asset skill_heal_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_heal_t3",
+      "pass": true
+    },
+    {
+      "check": "asset skill_heal_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_heal_t4",
+      "pass": true
+    },
+    {
+      "check": "asset skill_heal_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_heal_t5",
+      "pass": true
+    },
+    {
+      "check": "asset skill_heal_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_heal_t6",
+      "pass": true
+    },
+    {
+      "check": "asset skill_heal_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_heal_t7",
+      "pass": true
+    },
+    {
+      "check": "asset skill_frost texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_frost",
+      "pass": true
+    },
+    {
+      "check": "asset skill_frost_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_frost_t2",
+      "pass": true
+    },
+    {
+      "check": "asset skill_frost_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_frost_t3",
+      "pass": true
+    },
+    {
+      "check": "asset skill_frost_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_frost_t4",
+      "pass": true
+    },
+    {
+      "check": "asset skill_frost_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_frost_t5",
+      "pass": true
+    },
+    {
+      "check": "asset skill_frost_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_frost_t6",
+      "pass": true
+    },
+    {
+      "check": "asset skill_frost_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_frost_t7",
+      "pass": true
+    },
+    {
+      "check": "asset skill_fire texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_fire",
+      "pass": true
+    },
+    {
+      "check": "asset skill_fire_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_fire_t2",
+      "pass": true
+    },
+    {
+      "check": "asset skill_fire_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_fire_t3",
+      "pass": true
+    },
+    {
+      "check": "asset skill_fire_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_fire_t4",
+      "pass": true
+    },
+    {
+      "check": "asset skill_fire_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_fire_t5",
+      "pass": true
+    },
+    {
+      "check": "asset skill_fire_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_fire_t6",
+      "pass": true
+    },
+    {
+      "check": "asset skill_fire_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_fire_t7",
+      "pass": true
+    },
+    {
+      "check": "asset skill_lightning texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_lightning",
+      "pass": true
+    },
+    {
+      "check": "asset skill_lightning_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_lightning_t2",
+      "pass": true
+    },
+    {
+      "check": "asset skill_lightning_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_lightning_t3",
+      "pass": true
+    },
+    {
+      "check": "asset skill_lightning_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_lightning_t4",
+      "pass": true
+    },
+    {
+      "check": "asset skill_lightning_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_lightning_t5",
+      "pass": true
+    },
+    {
+      "check": "asset skill_lightning_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_lightning_t6",
+      "pass": true
+    },
+    {
+      "check": "asset skill_lightning_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_lightning_t7",
+      "pass": true
+    },
+    {
+      "check": "asset skill_focus texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_focus",
+      "pass": true
+    },
+    {
+      "check": "asset skill_focus_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_focus_t2",
+      "pass": true
+    },
+    {
+      "check": "asset skill_focus_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_focus_t3",
+      "pass": true
+    },
+    {
+      "check": "asset skill_focus_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_focus_t4",
+      "pass": true
+    },
+    {
+      "check": "asset skill_focus_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_focus_t5",
+      "pass": true
+    },
+    {
+      "check": "asset skill_focus_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_focus_t6",
+      "pass": true
+    },
+    {
+      "check": "asset skill_focus_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_focus_t7",
+      "pass": true
+    },
+    {
+      "check": "asset skill_strike texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_strike",
+      "pass": true
+    },
+    {
+      "check": "asset skill_strike_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_strike_t2",
+      "pass": true
+    },
+    {
+      "check": "asset skill_strike_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_strike_t3",
+      "pass": true
+    },
+    {
+      "check": "asset skill_strike_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_strike_t4",
+      "pass": true
+    },
+    {
+      "check": "asset skill_strike_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_strike_t5",
+      "pass": true
+    },
+    {
+      "check": "asset skill_strike_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_strike_t6",
+      "pass": true
+    },
+    {
+      "check": "asset skill_strike_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor skill_strike_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-blue-cap_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-blue-cap_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-scarf_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-scarf_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-chef-hat_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-chef-hat_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-snowman_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-snowman_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-snowman_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-snowman_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-snowman_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-snowman_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-snowman_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-snowman_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-snowman_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-snowman_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-snowman_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-snowman_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-snowman_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-snowman_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-wolf-hood_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-wolf-hood_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-calico-cat-hood_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-calico-cat-hood_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-golden-crown_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-golden-crown_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-reindeer-antlers_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-reindeer-antlers_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-santa-hat_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-santa-hat_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-space-helmet_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-space-helmet_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-cyan-robot_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-cyan-robot_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-cyan-robot_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-cyan-robot_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-cyan-robot_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-cyan-robot_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-cyan-robot_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-cyan-robot_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-cyan-robot_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-cyan-robot_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-cyan-robot_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-cyan-robot_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-cyan-robot_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-cyan-robot_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sunglasses_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sunglasses_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-yellow-cap_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-yellow-cap_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-gray-cat_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-gray-cat_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-gray-cat_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-gray-cat_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-gray-cat_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-gray-cat_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-gray-cat_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-gray-cat_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-gray-cat_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-gray-cat_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-gray-cat_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-gray-cat_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-gray-cat_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-gray-cat_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cowboy-bandana_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cowboy-bandana_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-duck-swim-ring_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-duck-swim-ring_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-rainbow-clown_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-rainbow-clown_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-red-cap-swimmer_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-red-cap-swimmer_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-snorkeler_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-snorkeler_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-straw-hat-swimmer_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-straw-hat-swimmer_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-elephant_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-elephant_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-elephant_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-elephant_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-elephant_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-elephant_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-elephant_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-elephant_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-elephant_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-elephant_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-elephant_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-elephant_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-elephant_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-elephant_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-teal-dinosaur_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-teal-dinosaur_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-teal-dinosaur_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-teal-dinosaur_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-teal-dinosaur_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-teal-dinosaur_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-teal-dinosaur_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-teal-dinosaur_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-teal-dinosaur_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-teal-dinosaur_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-teal-dinosaur_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-teal-dinosaur_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-teal-dinosaur_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-teal-dinosaur_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-black-cap_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-black-cap_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-mushroom-cap_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-mushroom-cap_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pumpkin-head_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pumpkin-head_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-squirrel_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-squirrel_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-squirrel_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-squirrel_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-squirrel_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-squirrel_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-squirrel_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-squirrel_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-squirrel_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-squirrel_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-squirrel_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-squirrel_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-squirrel_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-squirrel_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-fox_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-fox_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-fox_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-fox_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-fox_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-fox_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-fox_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-fox_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-fox_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-fox_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-fox_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-fox_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-fox_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-fox_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-horned-hood_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-horned-hood_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-orange-screen-helmet_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-orange-screen-helmet_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-television-head_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-television-head_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-top-hat_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-top-hat_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-black-cat_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-black-cat_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-black-cat_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-black-cat_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-black-cat_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-black-cat_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-black-cat_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-black-cat_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-black-cat_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-black-cat_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-black-cat_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-black-cat_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-black-cat_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-black-cat_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-grim-reaper_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-grim-reaper_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-grim-reaper_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-grim-reaper_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-grim-reaper_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-grim-reaper_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-grim-reaper_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-grim-reaper_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-grim-reaper_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-grim-reaper_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-grim-reaper_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-grim-reaper_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-grim-reaper_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-grim-reaper_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-bunny-ears_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-bunny-ears_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-cat-ears_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-cat-ears_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-elf-ears_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-elf-ears_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-bee_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-bee_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-bee_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-bee_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-bee_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-bee_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-bee_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-bee_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-bee_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-bee_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-bee_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-bee_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-bee_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-bee_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-orange-tabby-cat_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-orange-tabby-cat_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-orange-tabby-cat_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-orange-tabby-cat_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-orange-tabby-cat_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-orange-tabby-cat_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-orange-tabby-cat_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-orange-tabby-cat_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-orange-tabby-cat_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-orange-tabby-cat_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-orange-tabby-cat_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-orange-tabby-cat_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-orange-tabby-cat_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-orange-tabby-cat_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-flower-crown_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-flower-crown_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-green-cap_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-green-cap_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-cap_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-cap_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-pink-flower-hood_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-pink-flower-hood_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-plain_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-plain_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_weapon",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t2 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_weapon_t2",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t3 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_weapon_t3",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t4 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_weapon_t4",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t5 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_weapon_t5",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t6 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_weapon_t6",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "asset unit-sprout_weapon_t7 attack",
+      "pass": true
+    },
+    {
+      "check": "successor unit-sprout_weapon_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-panda_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-panda_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-panda_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-panda_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-panda_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-panda_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-panda_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-panda_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-panda_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-panda_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-panda_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-panda_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-red-panda_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-red-panda_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-sunflower_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-sunflower_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-sunflower_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-sunflower_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-sunflower_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-sunflower_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-sunflower_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-sunflower_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-sunflower_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-sunflower_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-sunflower_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-sunflower_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-sunflower_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-sunflower_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "asset boss-green-alien_outfit texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-green-alien_outfit",
+      "pass": true
+    },
+    {
+      "check": "asset boss-green-alien_outfit_t2 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-green-alien_outfit_t2",
+      "pass": true
+    },
+    {
+      "check": "asset boss-green-alien_outfit_t3 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-green-alien_outfit_t3",
+      "pass": true
+    },
+    {
+      "check": "asset boss-green-alien_outfit_t4 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-green-alien_outfit_t4",
+      "pass": true
+    },
+    {
+      "check": "asset boss-green-alien_outfit_t5 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-green-alien_outfit_t5",
+      "pass": true
+    },
+    {
+      "check": "asset boss-green-alien_outfit_t6 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-green-alien_outfit_t6",
+      "pass": true
+    },
+    {
+      "check": "asset boss-green-alien_outfit_t7 texture",
+      "pass": true
+    },
+    {
+      "check": "successor boss-green-alien_outfit_t7",
+      "pass": true
+    },
+    {
+      "check": "combo hunter_set",
+      "pass": true
+    },
+    {
+      "check": "combo expedition_set",
+      "pass": true
+    },
+    {
+      "check": "combo collection_set",
+      "pass": true
+    },
+    {
+      "check": "combo masterwork_set",
+      "pass": true
+    },
+    {
+      "check": "combo arsenal_set",
+      "pass": true
+    },
+    {
+      "check": "combo regional_set",
+      "pass": true
+    },
+    {
+      "check": "combo challenge_set",
+      "pass": true
+    },
+    {
+      "check": "combo offering_set",
+      "pass": true
+    },
+    {
+      "check": "combo specialist_set",
+      "pass": true
+    },
+    {
+      "check": "combo trophy_set",
+      "pass": true
+    },
+    {
+      "check": "combo offline_set",
+      "pass": true
+    },
+    {
+      "check": "combo prepared_explorer",
+      "pass": true
+    },
+    {
+      "check": "combo dedicated_farmer",
+      "pass": true
+    },
+    {
+      "check": "combo crafting_journey",
+      "pass": true
+    },
+    {
+      "check": "combo boss_specialist",
+      "pass": true
+    },
+    {
+      "check": "combo patient_collector",
+      "pass": true
+    },
+    {
+      "check": "combo balanced_growth",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_READY",
+      "pass": true
+    },
+    {
+      "check": "translation CHAIN_PROGRESS",
+      "pass": true
+    },
+    {
+      "check": "translation IN_PROGRESS",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_EMPTY",
+      "pass": true
+    },
+    {
+      "check": "translation RESPAWNING",
+      "pass": true
+    },
+    {
+      "check": "translation PLAYER_STATUS",
+      "pass": true
+    },
+    {
+      "check": "translation BOOST_ACTIVE",
+      "pass": true
+    },
+    {
+      "check": "translation HUD_HP",
+      "pass": true
+    },
+    {
+      "check": "translation HUD_REVIVE",
+      "pass": true
+    },
+    {
+      "check": "translation HUD_LEVEL",
+      "pass": true
+    },
+    {
+      "check": "translation VALUE_MAX",
+      "pass": true
+    },
+    {
+      "check": "translation XP_PROGRESS",
+      "pass": true
+    },
+    {
+      "check": "translation XP_PROGRESS",
+      "pass": true
+    },
+    {
+      "check": "translation EMPTY_SLOT",
+      "pass": true
+    },
+    {
+      "check": "translation EQUIPPED",
+      "pass": true
+    },
+    {
+      "check": "translation AUTO",
+      "pass": true
+    },
+    {
+      "check": "translation EMPTY_SLOT",
+      "pass": true
+    },
+    {
+      "check": "translation HUD_GEAR",
+      "pass": true
+    },
+    {
+      "check": "translation HUD_SUPPLIES",
+      "pass": true
+    },
+    {
+      "check": "translation SECONDS_VALUE",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_UP_NOTICE",
+      "pass": true
+    },
+    {
+      "check": "translation CONFIRM",
+      "pass": true
+    },
+    {
+      "check": "translation CONFIRM",
+      "pass": true
+    },
+    {
+      "check": "translation CANCEL",
+      "pass": true
+    },
+    {
+      "check": "translation PAUSE",
+      "pass": true
+    },
+    {
+      "check": "translation EMPTY_SLOT_HELP",
+      "pass": true
+    },
+    {
+      "check": "translation AUTO_SLOT_TOGGLE",
+      "pass": true
+    },
+    {
+      "check": "translation BUY_POTION",
+      "pass": true
+    },
+    {
+      "check": "translation BUY_BOOST",
+      "pass": true
+    },
+    {
+      "check": "translation ITEM_DETAILS",
+      "pass": true
+    },
+    {
+      "check": "translation ITEM_TIER_MERGE",
+      "pass": true
+    },
+    {
+      "check": "translation POTION_ROLE",
+      "pass": true
+    },
+    {
+      "check": "translation HEAL_ROLE",
+      "pass": true
+    },
+    {
+      "check": "translation ITEM_OWNED",
+      "pass": true
+    },
+    {
+      "check": "translation ITEM_EQUIPPED_CONTRIBUTION",
+      "pass": true
+    },
+    {
+      "check": "translation ITEM_STORED_CONTRIBUTION",
+      "pass": true
+    },
+    {
+      "check": "translation USE",
+      "pass": true
+    },
+    {
+      "check": "translation NEXT_MERGE_GAIN",
+      "pass": true
+    },
+    {
+      "check": "translation ITEM_MERGE_ACTION",
+      "pass": true
+    },
+    {
+      "check": "translation EVOLUTION_EXPLAIN",
+      "pass": true
+    },
+    {
+      "check": "translation EVOLUTION_PREVIEW",
+      "pass": true
+    },
+    {
+      "check": "translation EVOLVE",
+      "pass": true
+    },
+    {
+      "check": "translation MAX_ITEM_TIER",
+      "pass": true
+    },
+    {
+      "check": "translation MERGE_ALL",
+      "pass": true
+    },
+    {
+      "check": "translation AUTO_SLOT_STATUS",
+      "pass": true
+    },
+    {
+      "check": "translation REROLL",
+      "pass": true
+    },
+    {
+      "check": "translation REROLL_CONFIRM",
+      "pass": true
+    },
+    {
+      "check": "translation STOCK_BONUS",
+      "pass": true
+    },
+    {
+      "check": "translation EQUIP_SKILL_SLOT",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_AUTO_TOGGLE",
+      "pass": true
+    },
+    {
+      "check": "translation PANEL_INVENTORY",
+      "pass": true
+    },
+    {
+      "check": "translation BUY_POTION",
+      "pass": true
+    },
+    {
+      "check": "translation BUY_BOOST",
+      "pass": true
+    },
+    {
+      "check": "translation UNDISCOVERED",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_TUTORIAL",
+      "pass": true
+    },
+    {
+      "check": "translation FOCUS_GROUP",
+      "pass": true
+    },
+    {
+      "check": "translation ENEMY_LEVEL",
+      "pass": true
+    },
+    {
+      "check": "translation ENEMY_STATS_VALUES",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_COINS",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_GEMS",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_ITEM",
+      "pass": true
+    },
+    {
+      "check": "translation CAMP_NAME",
+      "pass": true
+    },
+    {
+      "check": "translation CAMP_HELP",
+      "pass": true
+    },
+    {
+      "check": "translation SPAWN_SELECT",
+      "pass": true
+    },
+    {
+      "check": "translation SPAWN_BUY",
+      "pass": true
+    },
+    {
+      "check": "translation TRAVEL_CAMP",
+      "pass": true
+    },
+    {
+      "check": "translation SPAWN_SELECT",
+      "pass": true
+    },
+    {
+      "check": "translation SPAWN_BUY",
+      "pass": true
+    },
+    {
+      "check": "translation PLAYER_LEVEL_CAP",
+      "pass": true
+    },
+    {
+      "check": "translation STAT_SOURCES",
+      "pass": true
+    },
+    {
+      "check": "translation PERMANENT_MULTIPLIERS",
+      "pass": true
+    },
+    {
+      "check": "translation STAT_CAPS_NOTE",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_COUNT",
+      "pass": true
+    },
+    {
+      "check": "translation HP_PER_SECOND",
+      "pass": true
+    },
+    {
+      "check": "translation LOOT_HISTORY",
+      "pass": true
+    },
+    {
+      "check": "translation SAVE_NOW",
+      "pass": true
+    },
+    {
+      "check": "translation SOUND_STATUS",
+      "pass": true
+    },
+    {
+      "check": "translation HARD_RESET",
+      "pass": true
+    },
+    {
+      "check": "translation RESET_CONFIRM",
+      "pass": true
+    },
+    {
+      "check": "translation GUIDE_REVIEW",
+      "pass": true
+    },
+    {
+      "check": "translation LANGUAGE_NOTE",
+      "pass": true
+    },
+    {
+      "check": "translation LANG_AUTOMATIC",
+      "pass": true
+    },
+    {
+      "check": "translation CREDITS",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_CHOICES",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_CARD_CONFIRM",
+      "pass": true
+    },
+    {
+      "check": "translation CANCEL",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_COLLECTION",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_BATCH",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_CONFIRM_NEW",
+      "pass": true
+    },
+    {
+      "check": "translation SUBMIT_CONTRACT",
+      "pass": true
+    },
+    {
+      "check": "translation OWNED_CARDS",
+      "pass": true
+    },
+    {
+      "check": "translation COMBOS",
+      "pass": true
+    },
+    {
+      "check": "translation HISTORY_CURRENCY",
+      "pass": true
+    },
+    {
+      "check": "translation HISTORY_ITEM",
+      "pass": true
+    },
+    {
+      "check": "translation KILL_ACHIEVEMENTS",
+      "pass": true
+    },
+    {
+      "check": "translation ACHIEVEMENT_BONUS",
+      "pass": true
+    },
+    {
+      "check": "translation ACHIEVEMENT_DONE",
+      "pass": true
+    },
+    {
+      "check": "translation ACHIEVEMENT_REWARD_SHORT",
+      "pass": true
+    },
+    {
+      "check": "translation ACHIEVEMENT_PERMANENT",
+      "pass": true
+    },
+    {
+      "check": "translation UNDISCOVERED",
+      "pass": true
+    },
+    {
+      "check": "translation ACHIEVEMENT_DONE",
+      "pass": true
+    },
+    {
+      "check": "translation TAB_ACHIEVEMENTS",
+      "pass": true
+    },
+    {
+      "check": "translation UPGRADE_MAX",
+      "pass": true
+    },
+    {
+      "check": "translation UPGRADE_TRANSITION",
+      "pass": true
+    },
+    {
+      "check": "translation ON",
+      "pass": true
+    },
+    {
+      "check": "translation UPGRADE_TRANSITION",
+      "pass": true
+    },
+    {
+      "check": "translation SECONDS_VALUE",
+      "pass": true
+    },
+    {
+      "check": "translation POTION_CHANCE_VALUE",
+      "pass": true
+    },
+    {
+      "check": "translation TONIC_CHANCE_VALUE",
+      "pass": true
+    },
+    {
+      "check": "translation UPGRADE_TRANSITION",
+      "pass": true
+    },
+    {
+      "check": "translation REGULAR_MISSIONS",
+      "pass": true
+    },
+    {
+      "check": "translation MISSION_GOAL",
+      "pass": true
+    },
+    {
+      "check": "translation CLAIM",
+      "pass": true
+    },
+    {
+      "check": "translation MAIN_OBJECTIVES",
+      "pass": true
+    },
+    {
+      "check": "translation CLAIM",
+      "pass": true
+    },
+    {
+      "check": "translation KEY_PROGRESS",
+      "pass": true
+    },
+    {
+      "check": "translation MISSION_AUTO",
+      "pass": true
+    },
+    {
+      "check": "translation OFFLINE_RECEIPT",
+      "pass": true
+    },
+    {
+      "check": "translation OFFLINE_RATES",
+      "pass": true
+    },
+    {
+      "check": "translation GATE_PROGRESS",
+      "pass": true
+    },
+    {
+      "check": "translation FINAL_CLEAR_PROGRESS",
+      "pass": true
+    },
+    {
+      "check": "translation MAP_LEGEND",
+      "pass": true
+    },
+    {
+      "check": "translation MAP_FARMING",
+      "pass": true
+    },
+    {
+      "check": "translation PANEL_TRAVEL",
+      "pass": true
+    },
+    {
+      "check": "translation ITEM_TIER_NAME",
+      "pass": true
+    },
+    {
+      "check": "translation GUIDE_CHOOSE",
+      "pass": true
+    },
+    {
+      "check": "translation GUIDE_GOT_IT",
+      "pass": true
+    },
+    {
+      "check": "translation CAMP_NAME",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation gear_slots",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation supply_slots",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation collect",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation collect_range",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation collect_batch",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation collect_speed",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation merge_gear",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation merge_supplies",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation merge_speed",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation auto_use",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation use_speed",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation focus",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation respawn",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation loot",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation coin_chance",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation gem_chance",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation coin_amount",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation gem_amount",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation reveal_stats",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation reveal_drops",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation supply_drop",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation group_xp",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation boss_gem_chance",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation boss_gem_amount",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation spawn_amount",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation spawn_cooldown",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation movement",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation gear_merge_speed",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation skill_slots",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation skill_auto_0",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation skill_auto_1",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation skill_auto_2",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation cooldown_heal",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation cooldown_frost",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation cooldown_fire",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation cooldown_lightning",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation cooldown_focus",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation cooldown_strike",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation skill_drop",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation map_detail",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation reveal_radius",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation camp_radius",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation mission_slots",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation mission_claim",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation offline_cap",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation offline_coins",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation offline_gems",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation offline_weapon",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation offline_weapon_rate",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation offline_outfit",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation offline_outfit_rate",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation offline_consumable",
+      "pass": true
+    },
+    {
+      "check": "upgrade translation offline_consumable_rate",
+      "pass": true
+    },
+    {
+      "check": "season clear/effect 1",
+      "pass": true
+    },
+    {
+      "check": "season clear/effect 2",
+      "pass": true
+    },
+    {
+      "check": "season clear/effect 3",
+      "pass": true
+    },
+    {
+      "check": "season clear/effect 4",
+      "pass": true
+    },
+    {
+      "check": "season clear/effect 5",
+      "pass": true
+    },
+    {
+      "check": "season clear/effect 6",
+      "pass": true
+    },
+    {
+      "check": "season clear/effect 7",
+      "pass": true
+    },
+    {
+      "check": "season clear/effect 8",
+      "pass": true
+    }
+  ]
+}

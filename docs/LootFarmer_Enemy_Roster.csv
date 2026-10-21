@@ -1,0 +1,49 @@
+id,stage,role,level,skill_families,gate_role,source_sheet,source_sha256
+unit-blue-cap,1,normal,1,,,assets/PixelPlains/Characters 24x24/Character 10 v1.png,a30a48683175e43632f4b68e8a12ad81f6993d383587f6400d9595401d43692f
+unit-red-scarf,1,normal,3,,,assets/PixelPlains/Characters 24x24/Winter 1 v1.png,83eb0e18f8fd1848942f347086e37274abe33d1e13063fcce1827c776e212fa6
+unit-chef-hat,1,normal,5,,,assets/PixelPlains/Characters 24x24/Character 14 v1.png,fa586d46bfb998eb867f099b801d9528f2ccb9c26e01082e448d0227cee4af4b
+boss-snowman,1,boss,7,,gate,assets/PixelPlains/Characters 24x24/Winter 4 v1.png,0492cc1ed6d247c8e2c2a8b04ee2f9447cc5c29b29ae6640458547ff85e53ce2
+unit-wolf-hood,2,normal,8,,,assets/PixelPlains/Characters 24x24/Character 2 v1.png,2169afbc5a96fcb80e3a9c6018c6c7f353f6bec325178ed378dca42728bdcf9f
+unit-calico-cat-hood,2,normal,10,,,assets/PixelPlains/Characters 24x24/Gato 2 v1.png,ec4676c85650c97f2fcdf44d84be7fc3255230c5436d35776b62cf8e1ffd05b4
+unit-golden-crown,2,normal,11,,,assets/PixelPlains/Characters 24x24/Character 15 v1.png,1cdcf34662cc45369da5670931ada76f1dc9ff3b706f64c166b4938f6fb89565
+unit-reindeer-antlers,2,normal,13,,,assets/PixelPlains/Characters 24x24/Winter 3 v1.png,fbcd9236b91d664cbd2ff892100a59d26e6caf4a6988d655667f52700eec0198
+unit-santa-hat,2,normal,14,,,assets/PixelPlains/Characters 24x24/Winter 2 v1.png,3463c2ba78c10a19bdb0a10698e2cc46a2a35a3939f46f8c234d683283020a0b
+unit-space-helmet,2,normal,16,Heal,,assets/PixelPlains/Characters 24x24/Character 7 v1.png,b197165c13f2786500b80313cf9e8696b2ab3133dca0fa0ee12e2eb9cf1ba33d
+boss-cyan-robot,2,boss,20,Heal,gate,assets/PixelPlains/Characters 24x24/Character 18 v1.png,8949dae1944cb1284bc612147c33452379aad9dc320095560ef043fbb45f67c5
+unit-straw-hat,3,normal,22,Frost Burst,,assets/PixelPlains/Characters 24x24/Character 16 v1.png,48f9e3689ff1cb71897e8ba152c4aa4b7821024913f9fc27d77a65dd52cd85cd
+unit-sunglasses,3,normal,26,Fire Burst,,assets/PixelPlains/Characters 24x24/Character 20 v1.png,740c8daed1454cd16980d0b5489ba9cd1e858d4995290e0fbcbe0f22c1c41b3c
+unit-yellow-cap,3,normal,30,Lightning Strike,,assets/PixelPlains/Characters 24x24/Character 11 v1.png,06ca05b177a3ed93adcd5eb597a03ed085ef01410d344c8f491abeb2a82e6a19
+boss-gray-cat,3,boss,35,Lightning Strike,gate,assets/PixelPlains/Characters 24x24/Gato 3 v1.png,d66086f156703912a7e7e6a6a92fb4edae35dd3eddfe700c2ff36835c0de6d02
+unit-cowboy-bandana,4,normal,38,,,assets/PixelPlains/Characters 24x24/Character 21 v1.png,a35d1872d4aba9ba61d732b2b2066fe9353866a695ea38d7d18f0501aecc7eab
+unit-duck-swim-ring,4,normal,41,,,assets/PixelPlains/Characters 24x24/Summer 3 v1.png,bb9234aa1e5dcb9090687778b87dc6d9db67f8c4d08d154d25f222ba47713de0
+unit-rainbow-clown,4,normal,44,Arcane Focus,,assets/PixelPlains/Characters 24x24/Character 19 v1.png,bee7e2c58719a81192c287067ff50844b07e5540c9ad7deac487dba6bd96e048
+unit-red-cap-swimmer,4,normal,46,,,assets/PixelPlains/Characters 24x24/Summer 4 v1.png,c8f4d9edadb6b2753c611d80f970fd825975cc83ac970738b8cb2929dbf3eee1
+unit-snorkeler,4,normal,49,Arcane Strike,,assets/PixelPlains/Characters 24x24/Summer 1 v1.png,201b4a51b03cfd118fde81d7f1c02d8d5ae115a7981504d896fd51599c9ac762
+unit-straw-hat-swimmer,4,normal,52,,,assets/PixelPlains/Characters 24x24/Summer 2 v1.png,684d41eba6015b0942ce0ab03dd0ca4799d4f32a38935a2b55e75bc212bdb16c
+boss-elephant,4,boss,60,Arcane Focus,gate,assets/PixelPlains/Characters 24x24/Special 1 v1.png,b2d56a8e597acc09741b246cfb3518bd9b715e2abcc1d69405138b614b190ba0
+boss-teal-dinosaur,4,boss,65,Fire Burst,gate,assets/PixelPlains/Characters 24x24/Special 3 v1.png,09012fbe81a9afafe1e1ab569d645cbb95e4c37a8342545dec81c5ed7d59c967
+unit-black-cap,5,normal,65,,,assets/PixelPlains/Characters 24x24/Character 12 v1.png,07392e247a09b66f8b09cd5e07a5f8db2b71e4d525f6893491650cbf5bd4da1e
+unit-mushroom-cap,5,normal,72,Heal,,assets/PixelPlains/Characters 24x24/Autumn 2 v1.png,287fca83f956682af1ce217dd69096a90fbaa20ec90a868ea5a79c23261b63f0
+unit-pumpkin-head,5,normal,80,Fire Burst,,assets/PixelPlains/Characters 24x24/Autumn 3 v1.png,e9afcf1ece9b3dadabfcd9126bbd09a0bd0dbdb653b929720f1c4f38b8dc155f
+boss-squirrel,5,boss,90,Heal; Arcane Focus,optional,assets/PixelPlains/Characters 24x24/Autumn 1 v1.png,e23224ac3b9bc1a1a2abf6307b52ef65b2fe98fb3fd3b9fe89da6b744f0fe8d0
+boss-red-fox,5,boss,95,Fire Burst; Arcane Strike,gate,assets/PixelPlains/Characters 24x24/Special 2 v1.png,97016fc876fb230c7c8211fbd13f1c708529ba2cf24ea52b1fc4370503c141d9
+unit-horned-hood,6,normal,95,Arcane Strike,,assets/PixelPlains/Characters 24x24/Character 6 v1.png,4a866cffa482fa22a4fa7cbfd2b497765bbc5c24f8c42a96ee837b82f65bde85
+unit-orange-screen-helmet,6,normal,103,,,assets/PixelPlains/Characters 24x24/Character 13 v1.png,5825db6a821708332da3bd1b264c57ce7567b74487cd0b943e4239b1937909ea
+unit-television-head,6,normal,112,Lightning Strike,,assets/PixelPlains/Characters 24x24/Character 17 v1.png,7f1f07bcc23ffd10e57fe3cd247452b9bacac191521fa734b4e7ea06eb654301
+unit-top-hat,6,normal,120,,,assets/PixelPlains/Characters 24x24/Character 4 v1.png,464533daf68a4a1c1a81d7b7c70b02a1714e3c039b2bb891ccc8a8f92f7cbe89
+boss-black-cat,6,boss,135,Lightning Strike; Arcane Focus,gate,assets/PixelPlains/Characters 24x24/Gato 4 v1.png,2c5756a54209d406b91562a76608c1497cb2fe6d855a7f41b3ff1828b90ab387
+boss-grim-reaper,6,boss,140,Frost Burst; Arcane Strike,gate,assets/PixelPlains/Characters 24x24/Autumn 4 v1.png,2392e221a0febfe62e04c2ec410de23845c8c2745d183dc742a824d7309f15f8
+unit-bunny-ears,7,normal,140,Frost Burst,,assets/PixelPlains/Characters 24x24/Basic Bunny character v1.png,f168a132d0ad26d8c308ae4b3f0a942638e695189af36c2cf2831d5c6623f918
+unit-cat-ears,7,normal,155,,,assets/PixelPlains/Characters 24x24/Character 5 v1.png,00ef3b39c0898494c98269cf57701201b0f590b6d28515403af031db86a6e883
+unit-elf-ears,7,normal,170,Arcane Focus,,assets/PixelPlains/Characters 24x24/Character 3 v1.png,a744d9e6cca3630cc13dbc8e149a46d992cf070a842813db243af4fe942eec9e
+boss-bee,7,boss,190,Lightning Strike; Heal,gate,assets/PixelPlains/Characters 24x24/Spring 3 v1.png,e23236f75991804128d02a54e8cc9894bbd9b8f3894c435fc9dd3d7b3ea731d3
+boss-orange-tabby-cat,7,boss,195,Fire Burst; Arcane Focus,gate,assets/PixelPlains/Characters 24x24/Gato 5 v1.png,9a003fbd2db35bb55061b3cfa8773e0f7adf2be58b69a84fbfd5cc9ec6af6198
+unit-flower-crown,8,normal,200,Heal,,assets/PixelPlains/Characters 24x24/Spring 1 v1.png,8717fbd312e1cbbafcf9518ea57860397385b369deeed6a7614dc2a707b3eab9
+unit-green-cap,8,normal,210,Lightning Strike,,assets/PixelPlains/Characters 24x24/Character 9 v1.png,33568273ed6e00d06a4361f6c7015345cbabe77e01b46cd1738a4e72c8081e3b
+unit-pink-cap,8,normal,220,,,assets/PixelPlains/Characters 24x24/Character 8 v1.png,a83e8169e2363c8029aa85ab605cdef600657cfe12bab2c7a478275c6bbc6c69
+unit-pink-flower-hood,8,normal,230,Fire Burst,,assets/PixelPlains/Characters 24x24/Spring 4 v1.png,632fe0078384a347350dff2e30d5984e8105724d9ad12b7aea51f3889ef1e6fb
+unit-plain,8,normal,240,,,assets/PixelPlains/Characters 24x24/Basic character v1.png,c00390a5f1f989f98e1cab6ffbdc224bc88c6b250cf8673c0ddbc3aa60f5be4c
+unit-sprout,8,normal,250,Arcane Focus,,assets/PixelPlains/Characters 24x24/Character 1 v1.png,ddf521ba3358093f927e4a9c2fb448a5babe8d2c59b417979f4d4797577494e1
+boss-red-panda,8,boss,300,Frost Burst; Heal,optional,assets/PixelPlains/Characters 24x24/Special 5 v1.png,6f160150d4ddf04b7d0933665110ede7401f98d7b546d583f7cf22e6475f77a2
+boss-sunflower,8,boss,305,Heal; Arcane Focus,optional,assets/PixelPlains/Characters 24x24/Spring 2 v1.png,1310aa59fa65f899d0e9d7614297e3e2b96698925fb1bf910888a2eb56f4b42f
+boss-green-alien,8,boss,350,Arcane Focus; Fire Burst; Arcane Strike,final,assets/PixelPlains/Characters 24x24/Special 4 v1.png,7a84ce04e98a2f2567c1be177d6d04ea2bfb0568c163024dfe3a359c379b3467

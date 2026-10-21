@@ -1,98 +1,77 @@
-# LootFarmer v0.3.1 asset and presentation registry
+# LootFarmer — Current Asset Registry — Change 6
 
-## Shared actor
+Source: supplied ZIP 7, corrected 2026-10-21. Supplied does not mean integrated. Historical mappings are archived under history/pre_change_2 and must not override this status.
 
-`scenes/game/actor.tscn` and `scripts/game/actor_view.gd` own presentation only. The simulation owns all contact, health, loot and timing. The scene separates ground shadow, visual body, weapon, player marker, health, hit text and speech. Selected outfit sheets already contain body and clothing pixels; there is no fabricated independent clothing/expression layer. Item icons use the same authored identities and first body frame.
+## Existing visual baseline
 
-All chosen character sources are under `assets/PixelPlains/Characters 24x24/`:
+The implemented interface uses Kenney Fantasy UI, not the retired Cartoon GUI interface. Current exact crops, nine-slices, fonts and actor mapping are recorded in Playbook section 22.4 and implemented resources. Cartoon GUI references in old notes are historical. Keep game-specific future mappings here.
 
-| Role | Source |
-|---|---|
-| Unclothed player | `Basic character v2.png` |
-| Sprout outfit/enemy | `Character 1 v2.png` |
-| Robot outfit/enemy | `Character 18 v2.png` |
-| Dinosaur outfit/enemy | `Special 3 v2.png` |
-| Death | `Autumn 4 v2.png` |
-| Black cat | `Gato 4 v2.png` |
-| Ground shadow | `Shadow.png` (17×6; use the full texture, not a 24×24 region) |
+PixelPlains selected characters: Basic character v2 (player), Character 1 v2 (Sprout), Character 18 v2 (Robot), Special 3 v2 (Dinosaur), Autumn 4 v2 (Death), Gato 4 v2 (cat). Current actor sheets use 24×24 cells within 216×120 sheets. Historical verified mappings: idle row 0 columns 0–7, movement row 1 columns 0–3, death row 2 columns 0–8. Weapon attack sheets are eight 64×32 cells; contact is simulation-owned. Preserve established mappings until actual playback review supports a change.
 
-The chosen sheets are 216×120 with 24×24 cells. Source-frame inspection distinguished the mostly stationary first row from the four lifted-leg poses on the second row. This mapping was corrected during QA; filenames alone were not treated as evidence.
+54 v2 character appearances are available, not 54 guaranteed enemy species. Environment tiles, props, items, weapon animation sets and UI resources are included. Final enemy/area assignments in LootFarmer_Enemy_Roster.csv are implemented. Eight baked editable stage scenes replace the old active world. Headless loads pass; visual playback/device acceptance remains pending.
 
-| State | Mapping, zero-based | Behavior |
-|---|---|---|
-| Idle | row 0, columns 0–7, 5 FPS | Loop |
-| Move | row 1, columns 0–3, 10 FPS | Loop only during actual movement |
-| Armed attack | PixelPlainsAnimationPack tool/hands sheets, 64×32, all 8 frames | One-shot; first slash (frame 2) starts at simulation contact |
-| Death | row 2, columns 0–8, 12 FPS | Clamp to last frame; hide at 1 second; no looping |
+## Magic Spells VFX Lite — integrated in Change 4
 
-Horizontal mirroring supplies facing. Ground origin remains fixed; the body offset is (0,−10), and the animated tool layer sits at (0,−14) with its native pixel scale. Hit flash and damage text follow the authoritative contact. Unarmed actors hide the weapon. The normal contact is at 0.22 seconds; the eight-frame sequence finishes at 0.88 seconds. Upgraded attack speed shortens both contact and presentation together. These outfit sheets have no dedicated matching attack row, so their idle body remains under the full animated weapon/hands layer. Unarmed actors retain a small presentation-only lunge; no weapon is fabricated. Manual movement/death cancels pending contact. The runtime probe traverses all four walk poses and verifies the visible-death boundary.
+Root: assets/magic-spells-vfx-lite/. Author: Willosuna. README, manifest and LICENSE included. All cells 64×64 RGBA; single-row sheets. Separate frames match the following counts.
 
-Body/outfit-specific expressions are baked into these sheets. Dedicated modular attacks with every outfit are not claimed. The authored movement-pose lunge is the deliberate first-playable fallback, keeping outfits aligned instead of overlaying unrelated 64×32 bodies.
+| Effect | Sheet size | Frames | Frame time | Loop | Planned skill |
+|---|---|---|---|---|---|
+| cast | 512×64 | 8 | 70ms | No | Arcane Focus |
+| impact | 512×64 | 8 | 60ms | No | Arcane Strike |
+| fire_impact | 704×64 | 11 | 70ms | No | Fire Burst |
+| ice_shatter | 768×64 | 12 | 70ms | No | Frost Burst |
+| zap | 512×64 | 8 | 60ms | No | Lightning Strike |
+| heal | 768×64 | 12 | 80ms | Yes | Heal |
 
-## Items and world
+Use manifest paths `<effect>/<effect>_sheet.png`. Stop Heal after the intended cast presentation. Visual loops and frame counts never control repeated rewards/damage. Check ground anchors, scaling, readability and simultaneous casts on device before acceptance.
 
-- Sword icons: `assets/PixelPlains/Items/16x16 All Items v1.png`, **32×32 item cells**, despite the filename. Wooden/Stone/Iron regions are (0,0,32,32), (32,0,32,32), (64,0,32,32).
-- Death's dark scythe: Onix set `Scythe 7 64x32.png`; atlas region (144,16,32,16) includes the inspected broad tool pose. This is the resting weapon only; attacks use the entire eight-frame Scythe 7 sheet.
-- Health Potion/Coin Tonic: supplied Cartoon GUI colored red/yellow potion icons. These are the prototype's explicit consumable-art selection; no new item categories were inferred from icon sheets.
-- Grass/path/flowers/camp sign: inspected regions in `Basic Tiles 1.png`. Trees: `Basic Tiles 4 (Trees & Bushes).png`.
-- Terrain/decoration is scene-authored in `world.tscn`, not regenerated during gameplay. Edit its Sprite2D placement to tune composition. Enemy/group balance and positions are data-authored in `data/game/catalog.json`; that file is authoritative for spawning.
+## Magic Spells SFX Lite — integrated in Change 4
 
-## Interface
+Root: assets/magic-spells-sfx-lite/. Includes manifest, README, license and 30 WAV/OGG pairs. WAV headers verify mono 44.1kHz; durations 0.53–2.71s. Choose one playback encoding per sound for the shipped runtime; do not count both formats as separate variations.
 
-The Cartoon GUI Pack supplies surfaces, controls, joystick, font, player marker and sparse sounds. `resources/game/theme.tres` contains shared styles. The actor's small health fill is an explicitly authored StyleBoxFlat; this project has not imposed an asset-only restriction. Floating text and health values are presentation, not new rewards.
+Primary mappings: cast/cast_01, impact/impact_01, fire_impact/fire_impact_01, ice_shatter/ice_shatter_01, zap/zap_01, heal/heal_01. Remaining 24 families are optional resources, not approval to add 24 spells. Reuse AudioService semantic events; author effect priority/overlap/volume rules so enemy swarms do not drown out feedback. Listening and target-device mix acceptance remain pending.
 
-Derived files under `resources/game/art/` resize these supplied textures solely for correct nine-slice border dimensions:
+Both spell licenses allow personal/commercial projects, editing and optional attribution. Do not redistribute standalone raw asset collections. Preserve licenses with source. This source patch references existing supplied assets; no standalone asset collection is redistributed.
 
-| Derived file | Source under `assets/GUIPackCartoon/Demo/Sprites/` | Size |
-|---|---|---|
-| panel.png | Shapes/Shapes/Rectangle/Rounded Rectangle - 256px.png | 64×64 |
-| slot.png | Buttons/Square/Dark.png | 64×64 |
-| button.png | Buttons/Rectangles/Teal.png | 130×50 |
-| pressed.png | Buttons/Rectangles/Blue.png | 130×50 |
-| disabled.png | Buttons/Rectangles/Gray.png | 130×50 |
+## Other audio and provenance
 
-Original assets are unchanged. Reuse remains scoped to this game project under the supplied asset licenses.
+assets/sounds contains 16 WAVs: background music; six Castle_Damage clips; defeat; mission_ready; move_command_units; move_command_villager; reveal_unlock; stage_clear; ui_click; ui_confirm; ui_error. They have no accompanying folder license or confirmed byte-identical source elsewhere in ZIP 6. Keep pending source/license verification and listening review; do not silently replace current Audio/button and Audio/prestige mappings.
 
-## Editor verification
-
-- Open `main.tscn`: the top bar, map viewport, dock rows, navigation, sheet and dialog are visible authored nodes.
-- Open `slot.tscn`/`action_row.tscn`: dimensions, icon/count placement and button styles are editor-editable; runtime instantiates and binds these templates.
-- Open `actor.tscn`: body/weapon offsets, shadow, animation fields, hit text and marker are inspectable without starting combat.
-- Runtime respects scene-authored terrain and attachment offsets. The management sheet's position/size is intentionally responsive to the map rectangle; its inset is exported on the root UI script.
-- Dynamic list length, item definitions and actor populations are data driven rather than manually duplicating scenes.
-
-## v0.3.1 visual correction mapping
-
-- Wooden Sword: `PixelPlainsAnimationPack/Wood set/Sword 1 64x32.png`.
-- Stone Sword: `PixelPlainsAnimationPack/Onix set/Sword 7 64x32.png` (dark tool variant; no Stone set exists).
-- Iron Sword: `PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png`.
-- Death: `PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png`.
-- Each attack sheet is 512×32, eight 64×32 cells. Native orientation faces right; mirror the complete Visual branch for left. First slash at frame 2; later poses are recovery and never apply extra damage. Simulation owns windup/contact. Tools remain native size during attacks; resting weapon visible bounds fit 12 world units.
-- Catalog icons crop transparent padding once and cache their atlas region. Inventory fits cropped icons to existing slots. Ground loot fits a 14-world-unit box, independent of source resolution; potion/tonic no longer inherit a fixed half-scale.
-- Currency header uses Cartoon GUI `Icons/Icons Colored/Coins/Coin.png` and `Gems/Gem - Blue.png`, in 32×32 controls.
-- Main HP uses a 12px-high flat style with 3px corners. Actor fills are per-instance: player green, enemies red.
-- Camera follows the exact player position on both axes. Existing grass source supplies a surrounding backdrop at map edges. Zoom is a saved setting: default 2×, minimum original 1×, maximum 3×, step 0.25×. Zoom also works while explicitly paused. Hard reset restores 2×.
-
-## v0.3.2 camera input
-
-`map_gestures.gd` owns only map-origin pointers, with a 10px drag threshold and at most two touch pointers. The editor-authored GestureSurface sits behind the joystick/history/zoom controls. The zoom slider uses a 60px-high touch control and a 28px teal SVG handle (`resources/game/art/zoom_handle.svg`), an authored interface primitive. Pinch and slider share SettingsState.camera_zoom without recursive value-change signals.
+Kenney, spell packs, fonts and toolkit font licenses are included. PixelPlains and the new generic audio need explicit retained provenance/license evidence before release. Original purchase files may supply it; absence here is not a claim of prohibited use.
 
 
-## v0.4.0 map and text
+## Seasonal and weather additions
 
-- Ground/details/path borders: Basic Tiles 1.png (16px cells; path border square at 320,96; dark woodland border at 400,144).
-- Stone court border: Basic Tiles 2.png at 400,192,48,48; matching 16px paving detail cells at y=256.
-- Pond border: Basic Tiles 3 (Water).png at 640,192,48,48; matching water detail cells at y=144.
-- Camp shrine: Props.png fountain region 176,272,48,64 plus bench 64,0,48,48. Selected camp adds the supplied planter marker and a gold Selected label; unowned shrine is dimmed.
-- Native 16px tiles are baked into editable TileMapLayers by tools/build_map.gd. No giant stretched grass sprite remains. Large trees are scenery beyond the existing walkable bounds.
-- BPreplayExtendedBold.otf enables MSDF through its import settings; world/actor labels explicitly override nearest-neighbor filtering with linear filtering. This changes font rendering, not pixel-art sprite filtering.
+The 48 selected preview sheets use dark-outline v1 art, 216×120 with 24×24 cells. The prototype uses v2 for some actors; the 48 v1 enemy appearances are now the active mapping. Roster CSV records source file and SHA-256 for every selected character. Sheets remain unchanged in the supplied project. Existing seasonal ZIP misspells its boss folders `bosss/`; do not depend on that spelling as a runtime path. Use original project asset paths from the CSV. Future exports should use `bosses/` consistently.
 
+Winter I/II use `assets/PixelPlains/Winter/`; Summer uses `Summer/`; Autumn uses `Fall/`; Spring uses root Spring tiles. Winter II effect: `Winter/Falling leaves.png` (blue leaves, visually reviewed in conversation). Autumn II: seasonal falling leaves. Summer II and Spring II: `Rain full anim sheet 52x216.png` / `Rain Sheet.png` (15 horizontal 52×216 frames, drawn at half-size with low opacity). First seasonal stages clear.
 
-## Approved implementation revision — 0.5.0
+Spark sources under PixelPlains: `Spark (White Ver.) 7x5.png` (40×7), `Spark 7x5.png` (40×7), `Sparks 25x27.png` (400×27). Visually inspected as white/yellow single spark and yellow clustered sparkle sequences; useful optional feedback/ambience. Filenames alone do not establish frame stride/timing. Sparks 25x27 uses 16 horizontal 25×27 frames as sparse ground-loot sparkle; it inherits fog hiding from the pickup node. Weather is cosmetic and must not leak hidden actors.
 
-The current interface, XP progression, stored-weapon bonuses, three-column enemy variants, worn-gear drops and schema-2 migration are specified in `LootFarmer_v0.5.0_Notes.md`. Those rules supersede earlier single-group map/UI and equipped-only stat descriptions. Test evidence is in `Progression_UI_Evidence/`. Physical-phone visual review and a complete natural run remain pending.
+Use six approved Willosuna effects only; no new spell roster from unused audio names. Final enemy types still require actual composite weapon/body/skill playback checks, contact alignment and readable silhouettes. Full-body appearance labels identify bosses but do not prove animation coverage without source verification.
 
+## Exact Change 4 runtime integration
 
-## v0.6.3 asset implementation reference
+- Stage scenes use seasonal Basic Tiles 1/2/3 atlases, paths and court topology, perimeter Trees & Bushes, and Props camp fountains/benches. `tools/build_campaign_maps.gd` is an authoring tool; gameplay loads the baked scenes. World bounds are square, not a stretched prototype strip.
+- All 48 roster appearance sheets are referenced by their original paths. New weapon families reuse the existing wood sword icon and 64×32 attack animation; legacy mappings remain for migrated inventory. No new unverified weapon artwork is claimed.
+- Six VFX sheets use the table above; Heal plays once per cast. Icons crop the nonempty representative frame. Boss attacks announce an aim point before contact, and area damage resolves against that point. The VFX never apply damage.
+- Audio paths are `assets/magic-spells-sfx-lite/ogg/<effect>_01.ogg`, routed through AudioService. A 250ms per-family throttle limits swarm repetition; the existing six-player pool and volume controls are retained.
+- Winter II and Autumn II falling leaves use 16×16 frame cells. Rain is decorative on Summer II/Spring II only. All effects are filtered against the same explored-cell query as actors/pickups.
 
-The detailed current mapping is in Reusable_Game_Development_Playbook.md section 22.4: actor rows/frames, attack segments/contact, exact currency crops, Kenney panel-014/015 slices, fonts and removal of GUIPackCartoon dependencies. Generated higher-tier items keep a catalog `art_id` and `family`; use `art_id` for sprites, icons and attack mapping, while gameplay uses the unique item ID. Tier backgrounds come from `progression.tier_colors`, with explicit tier in item details. This section supersedes historical references to Cartoon GUI Pack for LootFarmer. Phone visual acceptance remains separate from headless verification.
+Remaining release evidence: PixelPlains purchase/provenance record, original generic audio provenance if those unused files are later activated, actual animation alignment, on-device audio mix and simultaneous-cast readability.
+
+## Change 5 asset-backed presentation
+
+No new drawn/generated art. Shared panel/button frames use Kenney panel-000 with 12-pixel slices; Card variation uses panel-015 and contrasting tint. Main divider uses divider-003. Actor HP bars use the shared theme. Item and map icons come from existing separated PixelPlains item files; portraits retain existing atlas crops. `scenes/game/info_card.tscn` exposes card composition in the editor. Dynamic panel lists still have code-owned construction; see audit limitations.
+
+Each stage has editor-visible BossLandmarks under its existing scene: seasonal Props atlas stone-post region (0,176,32,32), approach signs (128,144,16,32), surrounding the existing distinct boss floor patch. Boss scale is catalog data, carried through actor art, weapon, shadow, bar offsets and picking bounds. Bee and squirrel are deliberate normal-size exceptions. Actors use Y-sort on z=1; supplied spell animations use z=0; scenery stays below them.
+
+Rendered evidence: Change_5_Evidence contains onboarding, first lesson, missions, upgrades, achievements, boss arena, map and potion screenshots. These are desktop render checks at 450×800, not phone certification.
+
+## Change 6 asset use (no new or generated art)
+
+- **Guidance pointer and item arrows:** PixelPlains `Items/All v3 (Separated Files, Black Outline)/Item-273.png` (arrow), cropped to its used pixels and rotated in code (`UiArt.cropped`, base direction up-left). Kenney Fantasy UI and Cartoon GUI contain no LootFarmer-approved pointer; Cartoon GUI arrows/hand exist but that pack is retired for this game's interface.
+- **Prestige cards:** Kenney `Panel/panel-011.png` (theme variation `PrestigeCard`, tinted per path), selected frame `Border/panel-border-011.png` tinted gold. Path art (cropped PixelPlains items): Boss Hunter 269, Expedition 97, Collection 216, Masterwork 12, Arsenal 44, Regional 266, Challenge 264, Offering 208, Specialist 57, Trophy 94, Offline 171. Recorded in `catalog.campaign.paths`.
+- **Milestone banner:** `scenes/game/milestone_banner.tscn`: Kenney panel-000 `Backing`, gold `panel-border-011`, PixelPlains Item-211 star, `Sparks 25x27.png` (16 frames, 25×27, cycled at 20 fps) and the existing `Audio/prestige.wav`. The unverified `assets/sounds` set remains unused.
+- **Dock icons:** World 249, Missions 60, Prestige 211, Stats 42, Settings 209 (cropped). **Notification backing:** theme variation `Backing` (panel-000, near-black 90% alpha) behind toasts, recent finds, tutorial cards and the banner. **Primary action:** theme variation `Primary` (panel-000 tinted amber) for the main action of a panel and affordable purchases.
+- **Contrast:** floating combat numbers and speech labels have a 4/3-px dark outline; world camp labels get a 5-px outline at runtime. Meaning is carried by sign and glyph (−, +, !, ▲/▼, ✓), with colour as reinforcement.

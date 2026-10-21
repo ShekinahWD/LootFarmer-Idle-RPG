@@ -1,0 +1,576 @@
+{
+  "change": 4,
+  "base_archive_sha256": "483a9fd1e60c97d49be9e8d33290a4f4fa4e37b93093ad753103e1ac4943356f",
+  "save_schema": 6,
+  "application_version": "4",
+  "engine_declared": "4.7",
+  "engine_tested": "4.6.stable.official.89cea1439",
+  "deletions": [],
+  "files": [
+    {
+      "path": "data/game/catalog.json",
+      "bytes": 696839,
+      "sha256": "694b232b40be55024960730865d680724c4d6b4fd168323ff6acf7b9da44aa27",
+      "action": "replace"
+    },
+    {
+      "path": "docs/Change_4_Evidence/campaign_probe.log",
+      "bytes": 561,
+      "sha256": "c0c0ad760d6ba8828886a65cae01ac2bc96374da9a4d86ce48d66b54088405e6",
+      "action": "add"
+    },
+    {
+      "path": "docs/Change_4_Evidence/content_probe.log",
+      "bytes": 295,
+      "sha256": "0bf478bbfa9bf18b799394ab622a0c7b7ad92bc87acc7e3380d21c5af77b159f",
+      "action": "add"
+    },
+    {
+      "path": "docs/Change_4_Evidence/editor_import.log",
+      "bytes": 2270,
+      "sha256": "d40f5430756a95efb64fd16fd31ad60367fe1f1cd4cb129616cf2b873917acfe",
+      "action": "add"
+    },
+    {
+      "path": "docs/Change_4_Evidence/static_checks.json",
+      "bytes": 152561,
+      "sha256": "749dee506d26d549d54b3e38b0aa1ca9031f2e63ac8f8cbe6434ffcab89823b0",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Asset_Registry.md",
+      "bytes": 7292,
+      "sha256": "a8cb0ec46975022defe95333e099b56ec38a5c9824bebe999478049d13864854",
+      "action": "replace"
+    },
+    {
+      "path": "docs/LootFarmer_Bootstrap_Status.md",
+      "bytes": 1032,
+      "sha256": "e8f4ea47f26ea196392533d89e0285fc510de23e434e2b24244499e7a62948f4",
+      "action": "replace"
+    },
+    {
+      "path": "docs/LootFarmer_Change_3_Apply.md",
+      "bytes": 1066,
+      "sha256": "e86e0576574a19e14104d95c23273aac226def37e21ea22b4a6415baaad4cf13",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Change_3_Patch_Manifest.json",
+      "bytes": 5641,
+      "sha256": "7b977bc32623e935d7d25043ab0e7b60f6871e6b86bd9f7665f6a786ddabc5b9",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Change_3_Validation.md",
+      "bytes": 1590,
+      "sha256": "5d68451e2dd03cc6df5aeda006680734c111a2934e317346e2afc64acc59e19e",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Change_4_Apply.md",
+      "bytes": 1461,
+      "sha256": "1f656ebde919d12a875186e05fb141e93cbfa7813b0d14b979c7ca8af98b9e1d",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Change_4_Notes.md",
+      "bytes": 1230,
+      "sha256": "733daed16562f94da623680bcba36ddd5384f451e277ac0617d56f13c62b5923",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Change_4_Playbook_Audit.md",
+      "bytes": 30034,
+      "sha256": "120bd26600ffe752ffb9b276affa0700775c1c63fddbd43a2c5d038916041218",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Change_4_Validation.md",
+      "bytes": 4048,
+      "sha256": "9046cdfc58b0fc1c689a7d8eaa6d5d008e369c4bfe0aa5f6ccd32fd406cd3876",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Checkpoints.md",
+      "bytes": 1027,
+      "sha256": "0038bab7bc6459b66e5efee675b7ade2c1f33005d8cdc6e7e83d941218bbcab5",
+      "action": "replace"
+    },
+    {
+      "path": "docs/LootFarmer_Content_and_Balance.md",
+      "bytes": 12645,
+      "sha256": "12deef4838c61483acb194341f9a40055d83a8e1fd29fdcdc7dca9f92d25fc54",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Design_Audit.md",
+      "bytes": 1190,
+      "sha256": "5350467f232a410217231c6427c21e002891515b0a43fdac3b68220a954eaf94",
+      "action": "replace"
+    },
+    {
+      "path": "docs/LootFarmer_Design_README.md",
+      "bytes": 1141,
+      "sha256": "4524f479750605ba311e979e3717f2e2bf1834704a360290ee1f71c61d140983",
+      "action": "replace"
+    },
+    {
+      "path": "docs/LootFarmer_Enemy_Roster.csv",
+      "bytes": 7796,
+      "sha256": "19c8f8da87111878f0647d2f00a19f618c79f5218b0d152920a2d00a46ad1f79",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Enemy_Roster.gate.translation",
+      "bytes": 889,
+      "sha256": "3588da69ed319e3858b64dea03892ea7751e063f1b824cda249502965fd9d969",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Enemy_Roster.level.translation",
+      "bytes": 2038,
+      "sha256": "97332c9f8fc7b49082ec8030fe7ea9e3feea0bd16541175282553d96975994cb",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Enemy_Roster.role.translation",
+      "bytes": 2153,
+      "sha256": "a7a673790293c3a95554cd743a9f176c6becde76038dc996aba7c75065bf5b08",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Enemy_Roster.skill.translation",
+      "bytes": 1746,
+      "sha256": "735a41bfa0385d5cb9989c7a16beb2be007d6ede90219f962795534ea0f4b218",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Enemy_Roster.source.translation",
+      "bytes": 4999,
+      "sha256": "7107da4f3af47a2a49248647bf0896a59e9db192893303f48fd25c0c805b8e67",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Enemy_Roster.stage.translation",
+      "bytes": 1974,
+      "sha256": "5b35226814d2c4be3d4f3cffd049799228a75fbc6e06a5d4c2fcf94eff83645f",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_GDD.md",
+      "bytes": 13707,
+      "sha256": "7ee51b6d596c0ad8e066124d3d54ad8c17826bdd8b7da81214268d5ca171e0c1",
+      "action": "replace"
+    },
+    {
+      "path": "docs/LootFarmer_Implementation_Plan.md",
+      "bytes": 1395,
+      "sha256": "e509269427337809385fce45d5e02d0e59c9f937efa54cbd04c59e1bfc95b961",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Prestige_Catalog.md",
+      "bytes": 12303,
+      "sha256": "05ac7d96719cc3569f7df856ca38b7a2abd7b5ade7453d644605043d87b6c0bc",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Prototype_Status.md",
+      "bytes": 533,
+      "sha256": "ab5e1ff4f63ef3fa591e9b811ad5ef37ed87beb81aa9960468ea5c05c0a4d5dd",
+      "action": "replace"
+    },
+    {
+      "path": "docs/LootFarmer_State_Contracts.md",
+      "bytes": 8936,
+      "sha256": "e0e005593badc1676886316465da003e4dd7e1b0e4d6ee625740d48e0c4121f7",
+      "action": "add"
+    },
+    {
+      "path": "docs/LootFarmer_Upgrade_Catalog.md",
+      "bytes": 6343,
+      "sha256": "95e59453ce315b4d19cf746ae695c0e61cf9688437e3d6f02723fe90a10ddaa9",
+      "action": "add"
+    },
+    {
+      "path": "docs/Reusable_Game_Development_Playbook.md",
+      "bytes": 599865,
+      "sha256": "b368451f923a1cf08d312e58487dc5e72969426b7c5a8c3db065dd30ead7a0c9",
+      "action": "replace"
+    },
+    {
+      "path": "docs/history/README.md",
+      "bytes": 327,
+      "sha256": "a8613e56fb13d4c7fb0f3dc04e6ebdab9021189d784d04aa15351fa70ce1628a",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_2/LootFarmer_Asset_Registry.md",
+      "bytes": 9302,
+      "sha256": "96165893b80298b0d11a974eeaf7a2a95779a763ca37941301c84cf7f62fb77e",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_2/LootFarmer_Bootstrap_Status.md",
+      "bytes": 8946,
+      "sha256": "24128e016bf3cab708e1f6a315b6a147511b10070539ac0e8aaf9b90d94c1688",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_2/LootFarmer_Checkpoints.md",
+      "bytes": 10808,
+      "sha256": "73af91c6815a6b77e8b659d5e66f12505669fa414e9ffbb077529e4d6ef65a09",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_2/LootFarmer_Design_Audit.md",
+      "bytes": 8862,
+      "sha256": "e5693bfab7eb3bfb7b8f86af4968f2d4445be7654fa11ae75b4e8042a30ae429",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_2/LootFarmer_Design_README.md",
+      "bytes": 1218,
+      "sha256": "f4b1e8db8afc062e8a10964516d7bb9d16b87a42a0980b2b766e06185f531329",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_2/LootFarmer_GDD.md",
+      "bytes": 31975,
+      "sha256": "2107a32ae334cc368a83fdf411b154b814bcac04779c53cf178649efa3a1652f",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_2/LootFarmer_Prototype_Status.md",
+      "bytes": 10107,
+      "sha256": "f193cab0c8a9f03dbb0ea1dd2a7e642a8a825e9d9dd47054a11b9b6b01ba3736",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_3/LootFarmer_Asset_Registry.md",
+      "bytes": 3954,
+      "sha256": "4dd3555bda8b738f68508fabc373cd8011e1066a7990fe57c7ca20ef4d4ec8a5",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_3/LootFarmer_Bootstrap_Status.md",
+      "bytes": 996,
+      "sha256": "eefddb03ae5a65f415937c81fcddbcf35bbc87d3036a4dc7da8ba1f2d0efe5d3",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_3/LootFarmer_Checkpoints.md",
+      "bytes": 1895,
+      "sha256": "8995a9be2214026567f77e1b044f57a07a39cf7329824028759eb7b1e8b426d8",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_3/LootFarmer_Design_Audit.md",
+      "bytes": 8420,
+      "sha256": "934b716378fd924a2d2bfa9cf070e76f5619429a75d09a12d34f34a406cf101b",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_3/LootFarmer_Design_README.md",
+      "bytes": 1070,
+      "sha256": "3ad66e1d6dad619e2e37dff8af6f14d648e4c245be9f3021fbd73ba6319ad9cf",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_3/LootFarmer_GDD.md",
+      "bytes": 15291,
+      "sha256": "e537923b39f28af352ba1f64677098043d61f969e952c78d33753e0e6c443cb9",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_3/LootFarmer_Prototype_Status.md",
+      "bytes": 773,
+      "sha256": "ff87c9243ebbdf8d63f9bce190aeeefe89338837c6012b4cf09e6255ede8e689",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_Asset_Registry.md",
+      "bytes": 5731,
+      "sha256": "88e81650734f5e9566eee7d4d3e1a4125eb833e473b71b3d79ce7ed87fffc7ac",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_Content_and_Balance.md",
+      "bytes": 11021,
+      "sha256": "60205e3f2e44e2eb852ec60d717db8652437a6869dd8c799da7287a943905b42",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_Design_Audit.md",
+      "bytes": 2759,
+      "sha256": "da1d32845b6054b324b1d29b06815d57771137daceaa03f7513cdb66ad13c5cd",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_Design_README.md",
+      "bytes": 1263,
+      "sha256": "c337406df4a8f7191f9f6af0bf6b796f3d2b30c11eb31190356d4e518542b4a5",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_GDD.md",
+      "bytes": 13459,
+      "sha256": "7649a757e87c3fe4ad658155daae4935f6f7363de18df786ca079823dbdbbc83",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_Implementation_Plan.md",
+      "bytes": 3170,
+      "sha256": "d01e9514aef380e5f7a2f56516986e0bae6a1931b49b0ea14cb80c4428938d0c",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_Prestige_Catalog.md",
+      "bytes": 12303,
+      "sha256": "a6ecc9826daf2a5a8d049b4b11267f02f1f15eda620f744d959f6e08db090b13",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_Prototype_Status.md",
+      "bytes": 1032,
+      "sha256": "1d6da8a14663d0924f5d2f825e8228a7f112cead3b38d6cf7bb0b279fbf3bc0d",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_State_Contracts.md",
+      "bytes": 7287,
+      "sha256": "b264254138b39ddf3ce7b67904df171711dbf637ea03258898a253aed6428ca5",
+      "action": "add"
+    },
+    {
+      "path": "docs/history/pre_change_4/LootFarmer_Upgrade_Catalog.md",
+      "bytes": 7409,
+      "sha256": "1d15d95107b1f58bd0347ca2042a9a7ce1e19951047f0c25c501442afad0f1f7",
+      "action": "add"
+    },
+    {
+      "path": "localization/en.po",
+      "bytes": 85796,
+      "sha256": "dbf947605afd37d4e517670e3af5d08a9b220cd0e2b1a3cd3fe6a758406a4443",
+      "action": "replace"
+    },
+    {
+      "path": "project.godot",
+      "bytes": 1420,
+      "sha256": "218228abdb94e15d3ff5841699bfed96e4ca02f33ac67272cf227903082f89b1",
+      "action": "replace"
+    },
+    {
+      "path": "scenes/game/main.tscn",
+      "bytes": 13484,
+      "sha256": "0aff25a8bdaf3d562d0fd440f0c98c7b7528f3f2ea189a50c4f28d3f075fac53",
+      "action": "replace"
+    },
+    {
+      "path": "scenes/game/pickup.tscn",
+      "bytes": 395,
+      "sha256": "f9e59da2484cb53828e7845c800a8a119b1869a9cb17b980f08cbf9bfefc7689",
+      "action": "replace"
+    },
+    {
+      "path": "scenes/game/stages/stage_1.tscn",
+      "bytes": 196697,
+      "sha256": "1f6b304bdc742a714f1e88e63d64f29f783ea269a66fa80b9648c023634a3837",
+      "action": "add"
+    },
+    {
+      "path": "scenes/game/stages/stage_2.tscn",
+      "bytes": 353777,
+      "sha256": "5dd70de538b5eda6d46c0b805c13f8e94c0f1f771835e9ab4d8816b43eb70006",
+      "action": "add"
+    },
+    {
+      "path": "scenes/game/stages/stage_3.tscn",
+      "bytes": 246346,
+      "sha256": "b5ad7b40f4da8778b0387baf778650016353950b86b1c3ba586f0619c5dfc6eb",
+      "action": "add"
+    },
+    {
+      "path": "scenes/game/stages/stage_4.tscn",
+      "bytes": 416128,
+      "sha256": "dbbfa4bd57803b19be22382781d652b09fbe6daab504c179f6a8ec3016378d92",
+      "action": "add"
+    },
+    {
+      "path": "scenes/game/stages/stage_5.tscn",
+      "bytes": 272947,
+      "sha256": "04978ca0f6437f3b362747757db57a2933cf5f08e25ce43fd1dd1d6ea9d6af42",
+      "action": "add"
+    },
+    {
+      "path": "scenes/game/stages/stage_6.tscn",
+      "bytes": 355515,
+      "sha256": "f02741d9b5a389bd38ee26bc13f9905192f63796b967daee906b0cd28e2cace9",
+      "action": "add"
+    },
+    {
+      "path": "scenes/game/stages/stage_7.tscn",
+      "bytes": 299249,
+      "sha256": "d35baed79a61ebe5fb3a898891a2e0ed6869d4bbeb4588757e9527e190334b5e",
+      "action": "add"
+    },
+    {
+      "path": "scenes/game/stages/stage_8.tscn",
+      "bytes": 553001,
+      "sha256": "743ee370f99b2599e996f1337a492c8ab1e3e729c2e6d46d4387cc7cd72b8f2b",
+      "action": "add"
+    },
+    {
+      "path": "scenes/game/world.tscn",
+      "bytes": 392,
+      "sha256": "7fc1037186d0f1d0df00c0ec452491a7806a8b004771a6a08153fb5be20aee6f",
+      "action": "replace"
+    },
+    {
+      "path": "scripts/game/actor_view.gd",
+      "bytes": 5008,
+      "sha256": "4a60b3bbcd843b9777bc6fabb7471302995c1d6d7556db72d6e7cc8ff6790ced",
+      "action": "replace"
+    },
+    {
+      "path": "scripts/game/campaign.gd",
+      "bytes": 47322,
+      "sha256": "dc094f2ac678cffa81c71beb46489db6db02b90d9abf36d373ad53ee8b52656f",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/campaign.gd.uid",
+      "bytes": 20,
+      "sha256": "332b0944a5eab6a279276b0a4c5bccb3365197574cfd685b9f9abcf63c249d40",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/catalog.gd",
+      "bytes": 2183,
+      "sha256": "002aba1ab559c561d4fa48468b428d4cdaa6e3dbba7e81ba3bc743e6075acbbc",
+      "action": "replace"
+    },
+    {
+      "path": "scripts/game/fog_layer.gd",
+      "bytes": 517,
+      "sha256": "cd83e48a691360a26b0f76d7ed02f4cc55074c3bfc203b02f6175a123064257e",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/fog_layer.gd.uid",
+      "bytes": 20,
+      "sha256": "c6a11d8c901876a977b2f05e1fe71a51781bdf8907e267e98213094ee019eb6d",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/game_ui.gd",
+      "bytes": 50156,
+      "sha256": "a3455b7ed450962ee890cec110a204217895ffe8a6835211edd5f7eecfea404d",
+      "action": "replace"
+    },
+    {
+      "path": "scripts/game/map_view.gd",
+      "bytes": 2408,
+      "sha256": "535017065eff8f0ecee0887a22b537324debec0e839fdd7273f858ac71237614",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/map_view.gd.uid",
+      "bytes": 20,
+      "sha256": "12e25c6537160d30630ff1cdaf05a787615ff8d75542f95c3be25887b9a286e0",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/pickup_spark.gd",
+      "bytes": 380,
+      "sha256": "9cf25fa6df8db9130cef65ed8c7fedcbf928232368088c524c0b9592453e7d49",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/pickup_spark.gd.uid",
+      "bytes": 20,
+      "sha256": "eee740068adc5b54a42d63df0ceeded689c4002d8413b32287fdd191d16c6ae4",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/season_weather.gd",
+      "bytes": 1218,
+      "sha256": "ba14de4b17f2dd8227184cf06d0753780732c5eb7d0f0d780aa9188e47a44978",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/season_weather.gd.uid",
+      "bytes": 20,
+      "sha256": "b5a55b3769b17b2f013d2b1f0d348a8735deb53479baa22628a3b9ab1a735338",
+      "action": "add"
+    },
+    {
+      "path": "scripts/game/simulation.gd",
+      "bytes": 39013,
+      "sha256": "369ed75cefdc88b9ecf7198307e0f53ee921a26dd124ecc910c8d8ce8366f67c",
+      "action": "replace"
+    },
+    {
+      "path": "scripts/game/world.gd",
+      "bytes": 9990,
+      "sha256": "904968158a7c7c35bef5e62cfe3293496b3f89d1bd2f8dd55b05f386cbd6db92",
+      "action": "replace"
+    },
+    {
+      "path": "tests/campaign_content_probe.gd",
+      "bytes": 7827,
+      "sha256": "8bfd729e4ab43c03f04cd60264d9569ce5ff9794740e5f5bd48208a0f62431f8",
+      "action": "add"
+    },
+    {
+      "path": "tests/campaign_content_probe.gd.uid",
+      "bytes": 19,
+      "sha256": "c8b432667cafe87d3e8128c6141724eb0b9bac1530a409f7c87de6de3728d336",
+      "action": "add"
+    },
+    {
+      "path": "tests/campaign_content_probe.tscn",
+      "bytes": 177,
+      "sha256": "f2e0a187f4dd3d6b6637e587fc242a3d3be202346eff783cb659f9e630f4cd84",
+      "action": "add"
+    },
+    {
+      "path": "tests/campaign_probe.gd",
+      "bytes": 9311,
+      "sha256": "c58a73e201287a51ffbfdb41beac9f97a1f76c8992997db43b5a696cd8fedde8",
+      "action": "add"
+    },
+    {
+      "path": "tests/campaign_probe.gd.uid",
+      "bytes": 20,
+      "sha256": "7022f0cd8b9ce57e88d756c4ec74c438686a7a1471c5c7d48a9d8db6b43e7829",
+      "action": "add"
+    },
+    {
+      "path": "tests/campaign_probe.tscn",
+      "bytes": 172,
+      "sha256": "ec747a1dc5f68d8eccb89f9bdb7694c5b51cb6d59a8d44cded26f79f42ed4dba",
+      "action": "add"
+    },
+    {
+      "path": "tools/build_campaign_maps.gd",
+      "bytes": 6565,
+      "sha256": "e87375d9975d4427174b2dab6e0aba61ddf1b277d3ade0adb1c90057a5b645ea",
+      "action": "add"
+    },
+    {
+      "path": "tools/build_campaign_maps.gd.uid",
+      "bytes": 20,
+      "sha256": "adf96f0af62fc239bcfe844869635a2042f5d943e3ff7d8e6ed888b9fac74e39",
+      "action": "add"
+    },
+    {
+      "path": "tools/validate_campaign_source.py",
+      "bytes": 2751,
+      "sha256": "520e5b79abb5b87411d855f4069932570500c2a5210fa372f07a86d07777bda4",
+      "action": "add"
+    }
+  ],
+  "notes": "Cumulative changed-files overlay against supplied ZIP 6. Current docs included. Device/release gates remain open."
+}

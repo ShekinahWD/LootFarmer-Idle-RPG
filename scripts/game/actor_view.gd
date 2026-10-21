@@ -9,7 +9,7 @@ extends Node2D
             $Visual/Body.texture=value
 @export var weapon_texture: Texture2D
 @export var attack_texture: Texture2D
-var hp_fill := StyleBoxFlat.new()
+@export_range(1.0,3.0,.25) var visual_scale: float=1.0
 @export var preview_walking := false
 @export var cell_size := Vector2(24,24)
 @export var idle_frames := 8
@@ -23,13 +23,13 @@ var hp_fill := StyleBoxFlat.new()
 @export var death_fps := 12.0
 var elapsed:=0.0
 var actor: Dictionary={}
+var disclosed:=true
 var max_hp:=100.0
 var _last_body: Texture2D
 var hit_tween: Tween
 var speech_tween: Tween
 
 func _ready() -> void:
-    $HP.add_theme_stylebox_override("fill",hp_fill)
     $Visual/Body.texture=body_texture
     $Visual/Weapon.texture=weapon_texture
     $Visual/Weapon.visible=weapon_texture!=null
@@ -47,11 +47,10 @@ func _process(dt: float) -> void:
         facing=actor.facing
         attack_age=actor.attack_age
         dead=actor.hp<=0
-        visible=not dead or actor.dead_age<float(death_frames)/death_fps+.2
+        visible=disclosed and (not dead or actor.dead_age<float(death_frames)/death_fps+.2)
         $Shadow.visible=visible
         $HP.visible=not dead and actor.hp<max_hp
         $HP.value=100.0*actor.hp/max_hp
-        hp_fill.bg_color=Color(.95,.18,.22)
         $Visual.modulate=Color(2,1.4,1.4) if actor.hurt>0 else Color.WHITE
     if walking:
         row=walk_row
@@ -59,9 +58,14 @@ func _process(dt: float) -> void:
     if dead:
         row=death_row
         col=mini(death_frames-1,int(actor.dead_age*death_fps))
-    $Visual.scale.x=facing
+    $Visual.scale.x=facing*visual_scale
     $Visual.position=Vector2.ZERO
-    $Visual.scale.y=1.0
+    $Shadow.scale=Vector2.ONE*visual_scale
+    $HP.position=Vector2(-12*visual_scale,-27*visual_scale)
+    $HP.size=Vector2(24*visual_scale,4)
+    $Marker.position=Vector2(-8,-38*visual_scale)
+    $Speech.position.y=-52*visual_scale
+    $Visual.scale.y=visual_scale
     if not dead and actor.get("hurt",0)>0:
         $Visual.position.x=-facing*2.0*sin(float(actor.hurt)/.16*PI)
     if dead:
@@ -91,17 +95,19 @@ func _process(dt: float) -> void:
         if attack_texture==null:
             var pulse:=sin(clampf(phase/2.0,0,1)*PI)
             $Visual.position+=Vector2(pulse*4.0*facing,-pulse*5.0)
-            $Visual.scale.y=1.0-.08*pulse
+            $Visual.scale.y=visual_scale-.08*pulse
         else:
             $Visual.position.x+=sin(clampf(phase/2.0,0,1)*PI)*1.5*facing
 
-func show_hit(value: float, healing: bool, critical: bool=false) -> void:
+func show_hit(value: float, healing: bool, critical: bool=false, on_player: bool=false) -> void:
     # Keep each hit independent, including after its actor dies or despawns.
     var label: Label=$Hit.duplicate()
     get_parent().add_child(label)
-    label.position=position+Vector2(-22,-35)
+    # Small horizontal spread so simultaneous hits stay readable instead of stacking.
+    label.position=position+Vector2(-22+randf_range(-12,12),-35*visual_scale-randf_range(0,6))
     label.text=("+" if healing else "−")+NumberFormat.number(value,2)+("!" if critical else "")
-    label.modulate=Color(.5,1,.6) if healing else (Color(1,.75,.2) if critical else Color(1,.85,.85))
+    # Sign and "!" carry the meaning; colour reinforces it (outlined for snow and bright effects).
+    label.modulate=Color(.45,1,.55) if healing else (Color(1,.78,.2) if critical else (Color(1,.42,.38) if on_player else Color.WHITE))
     label.z_index=100
     var tween:=label.create_tween()
     tween.set_parallel()

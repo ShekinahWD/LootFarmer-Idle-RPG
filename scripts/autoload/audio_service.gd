@@ -99,3 +99,20 @@ func _apply_music_volume() -> void:
 
 func _volume_to_db(value: float) -> float:
     return linear_to_db(value) if value > 0.0 else SILENT_DB
+
+
+func stop_all_sfx() -> void:
+    for player in _sfx_players:
+        player.stop()
+        player.stream=null
+
+func _exit_tree() -> void:
+    for player in _sfx_players:
+        if is_instance_valid(player):
+            player.stop()
+            player.stream=null
+    if is_instance_valid(_music_player):
+        _music_player.stop()
+        _music_player.stream=null
+    _sfx_streams.clear()
+    _music_streams.clear()

@@ -1,0 +1,19 @@
+
+    1.0 min  first_prestige_discovered  (level 2, coins 8, dmg 5.5, hp 105)
+    1.0 min  unlock_stage_2  (level 2, coins 8, dmg 5.5, hp 105)
+    1.0 min  kill_boss-snowman  (level 2, coins 108, dmg 5.5, hp 110)
+    1.1 min  first_camp  (level 2, coins 58, dmg 5.5, hp 121)
+    1.1 min  enter_stage_2  (level 2, coins 31, dmg 5.5, hp 121)
+    4.5 min  first_kill  (level 3, coins 32, dmg 6.0, hp 126)
+    6.2 min  first_equip  (level 4, coins 32, dmg 9.7, hp 134)
+    7.3 min  level_5  (level 5, coins 47, dmg 10.3, hp 139)
+   10.8 min  unlock_stage_3  (level 7, coins 58, dmg 12.4, hp 149)
+   10.8 min  kill_boss-cyan-robot  (level 7, coins 258, dmg 12.4, hp 149)
+   11.7 min  enter_stage_3  (level 7, coins 16, dmg 12.4, hp 149)
+   20.8 min  unlock_stage_4  (level 8, coins 41, dmg 12.9, hp 154)
+   20.8 min  kill_boss-gray-cat  (level 8, coins 41, dmg 12.9, hp 154)
+   20.9 min  enter_stage_4  (level 8, coins 41, dmg 12.9, hp 154)
+   33.8 min  level_10  (level 10, coins 67, dmg 15.3, hp 164)
+   33.8 min  kill_boss-elephant  (level 10, coins 83, dmg 15.3, hp 170)
+PACING policy=rush seed=3 cards= simulated_min=60.0 level=10 stage=4 unlocked=4 deaths=10 boss_attempts=4
+PACING ready=[] discovered=["hunter_o1", "challenge_o1", "trophy_o1", "regional_o1", "collection_o1", "arsenal_o1", "arsenal_o2", "collection_o2", "hunter_o2", "trophy_o2", "regional_o2", "specialist_o1"]

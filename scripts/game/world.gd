@@ -2,6 +2,10 @@ extends Node2D
 signal actor_selected(group: int,variant: int)
 signal camp_selected(index: int)
 var camp_revision: int=-1
+var active_stage: int=-1
+var scenery: Node2D
+var fog: Node2D
+var spell_sounds: Dictionary={}
 const ACTOR=preload("res://scenes/game/actor.tscn")
 const ATTACKS={
     "death_scythe": preload("res://assets/PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png"),
@@ -19,15 +23,39 @@ var textures: Dictionary={}
 
 func setup(value: LootSimulation) -> void:
     sim=value
+    sim.spell_cast.connect(_spell)
+    fog=preload("res://scripts/game/fog_layer.gd").new()
+    fog.sim=sim
+    fog.z_index=50
+    add_child(fog)
+    var weather=preload("res://scripts/game/season_weather.gd").new()
+    weather.sim=sim
+    weather.z_index=51
+    add_child(weather)
     sim.feedback.connect(_feedback)
     sim.chatter.connect(func(id: String,key: String)->void:
-        if views.has(id):views[id].say(key))
+        if views.has(id) and views[id].disclosed:views[id].say(key))
     for id in sim.catalog.items:
         textures[id]=sim.catalog.icon(id)
 
 func _process(_delta: float) -> void:
     if sim==null:
         return
+    if active_stage!=int(sim.state.stage):
+        active_stage=int(sim.state.stage)
+        for effect in get_children():
+            if effect is AnimatedSprite2D:effect.queue_free()
+        if scenery:remove_child(scenery);scenery.queue_free()
+        scenery=load("res://scenes/game/stages/stage_%d.tscn" % active_stage).instantiate()
+        scenery.z_index=-2
+        add_child(scenery)
+        for camp in scenery.get_node("Camps").get_children():
+            var label: Label=camp.get_node("Label")
+            label.add_theme_constant_override("outline_size",5)
+            label.add_theme_color_override("font_outline_color",Color(.04,.04,.06))
+        move_child(scenery,0)
+        camp_revision=-1
+        follow_player()
     var actors: Array=[sim.state.player]+sim.state.enemies
     var seen: Dictionary={}
     for actor in actors:
@@ -40,7 +68,7 @@ func _process(_delta: float) -> void:
         var v: LootActorView=views[id]
         v.actor=actor
         v.get_node("Marker").visible=(id=="player" or id==sim.manual_target) and actor.hp>0
-        v.get_node("Marker").text="▼" if id==sim.manual_target else "•"
+        v.get_node("Marker").texture=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-211.png")
         v.get_node("Marker").modulate=Color(1,.75,.2) if id==sim.manual_target else Color(.45,.8,1)
         v.position=sim.position_of(actor)
         var body: String=""
@@ -49,20 +77,19 @@ func _process(_delta: float) -> void:
             body=sim.state.outfit
             weapon=sim.state.weapon
             v.max_hp=sim.stats().hp
+            v.visual_scale=1.0
         else:
             var group:=int(actor.group)
-            if group==4:
-                body="cat"
-                v.max_hp=25.0
-            else:
-                var g: Dictionary=sim.enemy_definition(group,int(actor.get("variant",2)))
-                body=g.body
-                weapon=g.weapon
-                v.max_hp=g.hp
+            var g: Dictionary=sim.enemy_definition(group,int(actor.get("variant",2)))
+            body=g.body
+            weapon=g.weapon
+            v.max_hp=g.hp
+            v.visual_scale=float(g.visual_scale)
+        v.disclosed=id=="player" or sim.campaign.cell_known(sim.position_of(actor))
         body=sim.catalog.art_id(body)
         weapon=sim.catalog.art_id(weapon)
         var path: String="res://assets/PixelPlains/Characters 24x24/Basic character v2.png"
-        if body in ["sprout","robot","dinosaur","reaper"]:
+        if sim.catalog.items.has(body) and sim.catalog.items[body].kind=="outfit":
             path=sim.catalog.items[body].texture
         elif body=="death":
             path="res://assets/PixelPlains/Characters 24x24/Autumn 4 v2.png"
@@ -72,7 +99,7 @@ func _process(_delta: float) -> void:
             textures[path]=load(path)
         if v.body_texture!=textures[path]:
             v.body_texture=textures[path]
-        v.attack_texture=ATTACKS.get(weapon)
+        v.attack_texture=load(sim.catalog.items[weapon].attack) if sim.catalog.items.has(weapon) and sim.catalog.items[weapon].has("attack") else ATTACKS.get(weapon)
         v.weapon_texture=textures.get(weapon)
         if body=="death":
             v.weapon_texture=preload("res://resources/game/death_weapon.tres")
@@ -93,6 +120,7 @@ func _process(_delta: float) -> void:
             $Pickups.add_child(node)
             pickups[id]=node
         pickups[id].position=Vector2(drop.x,drop.y)
+        pickups[id].visible=sim.campaign.cell_known(Vector2(drop.x,drop.y))
         pickups[id].modulate.a=.55 if drop.ttl<30 else 1.0
     for id in pickups.keys():
         if not seen.has(id):
@@ -101,16 +129,15 @@ func _process(_delta: float) -> void:
     update_camera()
 
 func _update_camps() -> void:
-    if camp_revision!=sim.revision:
-        camp_revision=sim.revision
-        for i in range(3):
-            var camp=get_node("Camps/Camp%d" % i)
-            var owned: bool=sim.state.spawns.has(i)
-            var active: bool=int(sim.state.spawn)==i
-            camp.get_node("Fountain").modulate=Color.WHITE if owned else Color(.5,.55,.6)
-            camp.get_node("Selected").visible=active
-            camp.get_node("Label").modulate=Color(1,.9,.45) if active else Color.WHITE
-            camp.get_node("Label").text=tr("CAMP_NAME") % (i+1)+"\n"+tr("SELECTED" if active else ("CAMP_AVAILABLE" if owned else "CAMP_LOCKED"))
+    if scenery==null or active_stage!=int(sim.state.stage):return
+    for i in range(sim.campaign.stage().spawns.size()):
+        var camp=scenery.get_node("Camps/Camp%d" % i)
+        var owned: bool=sim.state.spawns.has(i)
+        var active: bool=int(sim.state.spawn)==i
+        camp.visible=sim.campaign.cell_known(camp.position)
+        camp.get_node("Fountain").modulate=Color.WHITE if owned else Color(.5,.55,.6)
+        camp.get_node("Selected").visible=active
+        camp.get_node("Label").text=tr("CAMP_NAME") % (i+1)+(" ✓" if active else ("" if owned else " · "+tr("CAMP_LOCKED_SHORT")))
 
 func update_camera() -> void:
     if sim==null:
@@ -130,7 +157,7 @@ func follow_player() -> void:
 func pan_camera(delta: Vector2) -> void:
     following_player=false
     camera_position-=delta/$Camera.zoom
-    camera_position=camera_position.clamp(Vector2.ZERO,Vector2(1080,1500))
+    camera_position=camera_position.clamp(Vector2.ZERO,Vector2(sim.catalog.world.size[0],sim.catalog.world.size[1]))
     update_camera()
 
 func collect_at(screen_point: Vector2) -> void:
@@ -143,7 +170,7 @@ func collect_at(screen_point: Vector2) -> void:
     if not get_tree().paused:
         for drop in sim.state.pickups:
             var d:=Vector2(drop.x,drop.y).distance_to(point)
-            if d<distance:
+            if d<distance and sim.campaign.cell_known(Vector2(drop.x,drop.y)):
                 closest=drop
                 distance=d
     if not closest.is_empty():
@@ -152,24 +179,29 @@ func collect_at(screen_point: Vector2) -> void:
     var selected_actor: Dictionary={}
     distance=18.0
     for actor in [sim.state.player]+sim.state.enemies:
-        if actor.hp<=0:
+        if actor.hp<=0 or (actor.id!="player" and not sim.campaign.cell_known(sim.position_of(actor))):
             continue
-        var d: float=(sim.position_of(actor)+Vector2(0,-10)).distance_to(point)
-        if d<distance:
+        var d: float=actor_pick_rect(actor).get_center().distance_to(point)
+        if actor_pick_rect(actor).has_point(point) and (selected_actor.is_empty() or d<distance):
             selected_actor=actor
             distance=d
     if not selected_actor.is_empty():
         actor_selected.emit(int(selected_actor.group),int(selected_actor.get("variant",2)))
         return
-    for i in range(3):
-        var camp_position: Vector2=get_node("Camps/Camp%d" % i).position
+    for i in range(sim.campaign.stage().spawns.size()):
+        var camp_position: Vector2=scenery.get_node("Camps/Camp%d" % i).position
+        if not sim.campaign.cell_known(camp_position):continue
         if Rect2(camp_position+Vector2(-36,-58),Vector2(72,86)).has_point(point):
             camp_selected.emit(i)
             return
 
 func _feedback(id: String,amount: float,healing: bool) -> void:
-    if views.has(id):
-        views[id].show_hit(amount,healing,bool(sim._find_actor(id).get("critical_hit",false)) and not healing)
+    if views.has(id) and views[id].disclosed:
+        views[id].show_hit(amount,healing,bool(sim._find_actor(id).get("critical_hit",false)) and not healing,id=="player")
+
+func actor_pick_rect(actor: Dictionary) -> Rect2:
+    var factor: float=1.0 if actor.id=="player" else float(sim.catalog.groups[int(actor.group)].visual_scale)
+    return Rect2(sim.position_of(actor)+Vector2(-15,-27)*factor,Vector2(30,32)*factor)
 
 func actor_at_screen(screen_point: Vector2,player_only:=false) -> Dictionary:
     var point:=get_canvas_transform().affine_inverse()*screen_point
@@ -177,13 +209,38 @@ func actor_at_screen(screen_point: Vector2,player_only:=false) -> Dictionary:
     var distance:=22.0
     var candidates: Array=[sim.state.player] if player_only else sim.state.enemies
     for actor in candidates:
-        if actor.hp<=0:
+        if actor.hp<=0 or (actor.id!="player" and not sim.campaign.cell_known(sim.position_of(actor))):
             continue
-        var d: float=(sim.position_of(actor)+Vector2(0,-10)).distance_to(point)
-        if d<distance:
+        var d: float=actor_pick_rect(actor).get_center().distance_to(point)
+        if actor_pick_rect(actor).has_point(point) and (best.is_empty() or d<distance):
             best=actor
             distance=d
     return best
 
 func player_screen_position() -> Vector2:
     return get_canvas_transform()*(sim.position_of(sim.state.player)+Vector2(0,-10))
+
+func _spell(actor_id: String,key: String,pos: Vector2) -> void:
+    if not sim.campaign.cell_known(pos):return
+    var d: Dictionary=sim.catalog.skills[key]
+    var frames:=SpriteFrames.new()
+    frames.set_animation_speed("default",1.0/float(d.frame_time))
+    frames.set_animation_loop("default",false)
+    var texture: Texture2D=load("res://assets/magic-spells-vfx-lite/%s/%s_sheet.png" % [d.effect,d.effect])
+    for i in range(int(d.frames)):
+        var atlas:=AtlasTexture.new()
+        atlas.atlas=texture;atlas.region=Rect2(i*64,0,64,64)
+        frames.add_frame("default",atlas)
+    var sprite:=AnimatedSprite2D.new()
+    sprite.sprite_frames=frames
+    sprite.position=pos
+    sprite.z_index=0
+    add_child(sprite)
+    sprite.animation_finished.connect(sprite.queue_free)
+    sprite.play()
+    var audio_path: String="res://assets/magic-spells-sfx-lite/ogg/"+str(d.effect)+"_01.ogg"
+    var now: int=Time.get_ticks_msec()
+    if ResourceLoader.exists(audio_path) and now-int(spell_sounds.get(key,-1000))>=250:
+        spell_sounds[key]=now
+        AudioService.register_sfx("spell_"+key,load(audio_path))
+        AudioService.play_sfx("spell_"+key)
