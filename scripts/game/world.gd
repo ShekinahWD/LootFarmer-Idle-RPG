@@ -14,6 +14,10 @@ const ATTACKS={
     "iron_sword": preload("res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png")
 }
 const PICKUP=preload("res://scenes/game/pickup.tscn")
+const SELF_EFFECTS:=["heal","focus"]
+## Ground-ring offset below the centre of a 64 px self-effect frame, and the effect size per actor scale.
+@export var self_effect_ring:=20.0
+@export var self_effect_scale:=0.75
 var following_player:=true
 var camera_position:=Vector2.ZERO
 var sim: LootSimulation
@@ -234,6 +238,13 @@ func _spell(actor_id: String,key: String,pos: Vector2) -> void:
     var sprite:=AnimatedSprite2D.new()
     sprite.sprite_frames=frames
     sprite.position=pos
+    # Self effects (Heal, Focus) are drawn on the caster: their sheets put the ground ring about
+    # self_effect_ring px below the frame centre, so the ring is placed on the actor's feet and the
+    # effect scales with the actor's rendered size (bosses draw at visual_scale 2).
+    if key in SELF_EFFECTS:
+        var factor: float=self_effect_scale*(float(views[actor_id].visual_scale) if views.has(actor_id) else 1.0)
+        sprite.scale=Vector2.ONE*factor
+        sprite.position=pos-Vector2(0,self_effect_ring*factor)
     sprite.z_index=0
     add_child(sprite)
     sprite.animation_finished.connect(sprite.queue_free)

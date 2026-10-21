@@ -13,8 +13,21 @@ func _process(dt: float) -> void:
     if sim==null:return
     if refresh<.15 and signature!="":return
     refresh=0
-    var next:="%s:%s:%s:%s:%s" % [size,sim.state.stage,sim.campaign.discovery_revision,sim.level("map_detail",int(sim.state.stage)),sim.position_of(sim.state.player)]
+    var next:="%s:%s:%s:%s:%s:%s" % [size,sim.state.stage,sim.campaign.discovery_revision,sim.level("map_detail",int(sim.state.stage)),sim.position_of(sim.state.player),_bosses_alive()]
     if next!=signature:signature=next;queue_redraw()
+## A boss marker only shows while that boss is alive on this stage (and, as for every marker, only
+## once discovered and with map detail bought): defeated bosses lose it until they respawn.
+func boss_alive(g: int) -> bool:
+    for e in sim.state.enemies:
+        if int(e.group)==g and float(e.hp)>0:return true
+    return false
+func _bosses_alive() -> String:
+    var bits:=""
+    for g in sim.campaign.stage().groups:
+        if sim.catalog.groups[g].boss:bits+="1" if boss_alive(g) else "0"
+    return bits
+func marker_visible(g: int) -> bool:
+    return sim.campaign.discovered(g) and (not sim.catalog.groups[g].boss or boss_alive(g))
 func transform_rect() -> Rect2:
     var bounds=Vector2(sim.catalog.world.size[0],sim.catalog.world.size[1])
     var scale_factor=minf(size.x/bounds.x,size.y/bounds.y)
@@ -30,7 +43,7 @@ func _draw() -> void:
         draw_rect(Rect2(rect.position+pos*scale_factor,Vector2.ONE*cell*scale_factor),Color(.28,.4,.32))
     var rank=sim.level("map_detail",int(sim.state.stage))
     for g in sim.campaign.stage().groups:
-        if rank==0 or not sim.campaign.discovered(g):continue
+        if rank==0 or not marker_visible(g):continue
         var d=sim.catalog.groups[g];var pos=rect.position+Vector2(d.center[0],d.center[1])*scale_factor
         if rank==1:draw_texture_rect(STAR if d.boss else BADGE,Rect2(pos-Vector2.ONE*7,Vector2.ONE*14),false)
         else:draw_texture_rect(sim.catalog.icon(d.body),Rect2(pos-Vector2(12,12),Vector2(24,24)),false)
@@ -45,6 +58,6 @@ func _gui_input(event: InputEvent) -> void:
         if not rect.has_point(event.position) or sim.level("map_detail",int(sim.state.stage))<2:return
         var scale_factor=rect.size.x/float(sim.catalog.world.size[0])
         for g in sim.campaign.stage().groups:
-            if not sim.campaign.discovered(g):continue
+            if not marker_visible(g):continue
             var d=sim.catalog.groups[g];var p=rect.position+Vector2(d.center[0],d.center[1])*scale_factor
             if p.distance_to(event.position)<20:selected.emit(g);accept_event();return

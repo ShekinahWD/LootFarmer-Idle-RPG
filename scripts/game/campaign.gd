@@ -10,7 +10,7 @@ func _init(owner) -> void: sim=owner
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={}
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":[]},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":[]},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false},true)
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
     refresh_missions()
@@ -484,8 +484,9 @@ func evaluate() -> void:
                 for key in o:
                     if key.begins_with("merge_") and int(o[key])>=50:
                         var item: Dictionary=sim.catalog.items[key.trim_prefix("merge_")]
+                        # Weapons are shared families since Change 7: distinct weapons count by item.
                         if int(item.tier)>=(2 if n==3 else 1):
-                            if item.kind=="weapon":weapons[item.family]=true
+                            if item.kind=="weapon":weapons[key]=true
                             elif item.kind=="outfit":outfits[item.family]=true
                 ready=weapons.size()>=(1 if n==1 else 3) and outfits.size()>=(1 if n==1 else 3)
             "regional":
@@ -502,7 +503,10 @@ func evaluate() -> void:
                 var bosses: Array=[["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"]][n-1]
                 for boss in bosses:
                     if not o.get("trophy_boss-"+boss,false):ready=false
-        if ready:o.ready=true;sim.event.emit("PRESTIGE_READY");sim.milestone.emit("ready",op.id)
+        if ready:
+            o.ready=true
+            if sim.state.follow==op.id:sim.state.follow=""
+            sim.event.emit("PRESTIGE_READY");sim.milestone.emit("ready",op.id)
     evaluate_main()
 func submit(id: String) -> bool:
     if not sim.action_lock_reason().is_empty() or not sim.state.opportunities.has(id):return false
@@ -517,14 +521,29 @@ func submit(id: String) -> bool:
         var names: Array=[['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
         var count=10+10*n
         for name in names:
-            var item: String="unit-"+name+"_outfit"
+            var item: String=contract_outfit(name)
             if sim.quantity(item)<count+1 or minf(float(sim.state.online_items.get(item,0)),float(o.get("item_"+item,0)))<count:return sim.fail("CONTRACT_NEEDS")
         for name in names:
-            var item: String="unit-"+name+"_outfit";sim._remove(item,count)
+            var item: String=contract_outfit(name);sim._remove(item,count)
     else:return false
     o.submitted=true;evaluate();sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     return true
+## Follow marks one opportunity the player is working toward. A ready or redeemed opportunity has
+## nothing left to work toward, so it cannot be followed; unfollowing is always allowed.
+func can_follow(id: String) -> bool:
+    return sim.state.opportunities.has(id) and not sim.state.consumed.has(id) and not bool(sim.state.opportunities[id].ready)
+func toggle_follow(id: String) -> bool:
+    if sim.state.follow==id:sim.state.follow="";sim.touch();return true
+    if not sim.action_lock_reason().is_empty():return sim.fail(sim.action_lock_reason())
+    if not can_follow(id):return sim.fail("FOLLOW_UNAVAILABLE")
+    sim.state.follow=id;sim.touch();return true
+## The outfit a normal type drops (its stage tier since Change 7), used by collection contracts.
+func contract_outfit(name: String) -> String:
+    var g:=group_id("unit-"+name)
+    for id in sim.catalog.groups[g].loot:
+        if sim.catalog.items[id].kind=="outfit":return id
+    return "unit-"+name+"_outfit"
 func ready_ids() -> Array:
     var ids: Array=[]
     for id in sim.state.opportunities:
@@ -562,7 +581,7 @@ func choose_card(id: String) -> bool:
     var final: bool=granted.size()==sim.state.prestige_batch.ids.size()
     if final:
         var keep: Dictionary={}
-        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -608,6 +627,9 @@ func offline_snapshot() -> Dictionary:
         var kind: String=sim.catalog.items[id].kind
         if eligible.has(kind) and sim.quantity(id)>0:eligible[kind].append(id)
     return {"time":maxf(Time.get_unix_time_from_system(),float(sim.state.get("offline_snapshot",{}).get("time",0))),"cap":[5,8,12,18,24,36,48][sim.level("offline_cap")]*3600,"coins":(120+60*sim.level("offline_coins"))*(1+bonus("offline_coins")),"gems":(2+.5*sim.level("offline_gems"))*(1+bonus("offline_gems")),"eligible":eligible,"rates":{"weapon":(1+.5*sim.level("offline_weapon_rate"))*sim.level("offline_weapon"),"outfit":(1+.5*sim.level("offline_outfit_rate"))*sim.level("offline_outfit"),"consumable":(2+sim.level("offline_consumable_rate"))*sim.level("offline_consumable")},"items_bonus":1+bonus("offline_items"),"eligible_time":sim.state.prestige_batch.is_empty()}
+## Background settlement only records what was earned: rewards wait in offline_pending (saved, merged
+## across several absences, each interval capped as before) until the player claims them in game.
+## Only the claim pays out and advances the offline counters that discover offline opportunities.
 func settle_offline(now: float=-1) -> void:
     var snap: Dictionary=sim.state.get("offline_snapshot",{})
     if snap.is_empty():return
@@ -620,9 +642,6 @@ func settle_offline(now: float=-1) -> void:
     sim.state.offline_snapshot["settlement_id"]=str(int(now))
     if not snap.get("eligible_time",true):sim.touch();SaveService.save_now();return
     var hours=minf(elapsed,float(snap.cap))/3600.0
-    var coins=hours*float(snap.coins);var gems=hours*float(snap.gems)
-    sim.state.coins+=coins;sim.state.gems+=gems;sim.state.offline_income+=coins
-    sim.state.offline_total+=elapsed;sim.state.offline_longest=maxf(sim.state.offline_longest,elapsed)
     var items: Dictionary={}
     for kind in snap.eligible:
         var ids: Array=snap.eligible[kind]
@@ -631,10 +650,38 @@ func settle_offline(now: float=-1) -> void:
         sim.state.offline_remainders[kind]=credit-floor(credit)
         for i in range(int(credit)):
             var id: String=ids[sim.rng.randi_range(0,ids.size()-1)]
-            if sim.add_item(id):items[id]=int(items.get(id,0))+1
-    offline_receipt={"seconds":elapsed,"rewarded_hours":hours,"coins":coins,"gems":gems,"items":items}
+            items[id]=int(items.get(id,0))+1
+    var pending: Dictionary=sim.state.offline_pending
+    if pending.is_empty():pending={"id":"","seconds":0.0,"longest":0.0,"rewarded_hours":0.0,"coins":0.0,"gems":0.0,"items":{}}
+    pending.id=str(int(now))+"-"+str(sim.rng.randi())
+    pending.seconds=float(pending.seconds)+elapsed
+    pending.longest=maxf(float(pending.longest),elapsed)
+    pending.rewarded_hours=float(pending.rewarded_hours)+hours
+    pending.coins=float(pending.coins)+hours*float(snap.coins)
+    pending.gems=float(pending.gems)+hours*float(snap.gems)
+    for id in items:pending.items[id]=int(pending.items.get(id,0))+int(items[id])
+    sim.state.offline_pending=pending
+    sim.touch()
+    if not SaveService.save_now():sim.state=before;sim.rng.state=rng_before;sim.touch()
+## Pays the pending offline earnings once. The pending record is cleared in the same durable write,
+## so a reload can never claim the same interval twice.
+func claim_offline() -> bool:
+    var pending: Dictionary=sim.state.get("offline_pending",{})
+    if pending.is_empty():return false
+    if not sim.action_lock_reason().is_empty():return sim.fail(sim.action_lock_reason())
+    var before: Dictionary=sim.state.duplicate(true)
+    sim.state.coins+=float(pending.coins);sim.state.gems+=float(pending.gems);sim.state.offline_income+=float(pending.coins)
+    sim.state.offline_total+=float(pending.seconds);sim.state.offline_longest=maxf(sim.state.offline_longest,float(pending.longest))
+    var granted: Dictionary={}
+    for id in pending.items:
+        if sim.catalog.items.has(id) and sim.add_item(id,int(pending.items[id])):granted[id]=int(pending.items[id])
+    sim.state.offline_pending={}
+    var receipt: Dictionary=pending.duplicate(true);receipt.items=granted
     evaluate();sim.touch()
-    if not SaveService.save_now():sim.state=before;sim.rng.state=rng_before;offline_receipt={};sim.touch()
+    if not SaveService.save_now():sim.state=before;sim.touch();return false
+    offline_receipt=receipt
+    sim.event.emit("OFFLINE_CLAIMED")
+    return true
 func normalize_snapshot(data: Dictionary) -> Dictionary:
     var out: Dictionary=data.duplicate(true)
     for key in sim.state:
@@ -665,6 +712,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
             var g:=int(parts[1]) if parts.size()==2 else -1
             if not sim._upgrade_scope_valid(parts[0],g) or not number(out.upgrades[key]):out.upgrades.erase(key)
             else:out.upgrades[key]=clampi(int(out.upgrades[key]),0,int(sim.catalog.upgrades[parts[0]].cap))
+    remap_legacy_items(out)
     if out.get("items") is Dictionary:
         for id in out.items.keys():
             if not sim.catalog.items.has(id):out.items.erase(id)
@@ -677,6 +725,77 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     if int(out.get("fog_layout_revision",0))!=fog_rules.layout_revision:
         out.explored={};out.discovered={};out.fog_layout_revision=fog_rules.layout_revision
     return out
+## Change 7 replaced per-enemy weapons with shared families: a small deterministic map
+## (catalog.legacy_items) moves current-schema saves onto the new ids. Stacks join (quantities add,
+## the best merge level stays) and every reference follows; unknown ids are dropped as before.
+func remap_legacy_items(out: Dictionary) -> void:
+    var legacy: Dictionary=sim.catalog.legacy_items
+    if out.get("items") is Dictionary:
+        for id in out.items.keys():
+            if not legacy.has(id) or not out.items[id] is Dictionary:continue
+            var r: Dictionary=out.items[id];out.items.erase(id)
+            var target: String=legacy[id]
+            if out.items.get(target) is Dictionary:
+                var t: Dictionary=out.items[target]
+                t.qty=float(t.get("qty",0))+float(r.get("qty",0));t.merge=maxf(float(t.get("merge",0)),float(r.get("merge",0)))
+            else:out.items[target]=r
+    for field in ["gear","supplies","skills"]:
+        if out.get(field) is Array:
+            var seen: Dictionary={}
+            for i in range(out[field].size()):
+                var id=_legacy_id(out[field][i],legacy)
+                if id is String and id!="" and seen.has(id):id=""
+                if id is String and id!="":seen[id]=true
+                out[field][i]=id
+    for field in ["weapon","outfit"]:out[field]=_legacy_id(out.get(field,""),legacy)
+    var drops: Array=[out.get("pickups",[])]
+    if out.get("stage_worlds") is Dictionary:
+        for w in out.stage_worlds.values():
+            if w is Dictionary:drops.append(w.get("pickups",[]))
+    for list in drops:
+        if list is Array:
+            for d in list:
+                if d is Dictionary:d.item=_legacy_id(d.get("item",""),legacy)
+    if out.get("history") is Array:
+        var kept: Array=[]
+        for e in out.history:
+            if not e is Dictionary:continue
+            e.id=_legacy_id(str(e.get("id","")),legacy)
+            if e.id=="" or sim.catalog.items.has(e.id):kept.append(e)
+        out.history=kept
+    for field in ["online_items","counters"]:
+        if out.get(field) is Dictionary:out[field]=_remap_keys(out[field],legacy,false)
+    if out.get("opportunities") is Dictionary:
+        for id in out.opportunities:
+            if out.opportunities[id] is Dictionary:out.opportunities[id]=_remap_keys(out.opportunities[id],legacy,true)
+    var snap=out.get("offline_snapshot",{})
+    if snap is Dictionary and snap.get("eligible") is Dictionary:
+        for kind in snap.eligible:
+            if snap.eligible[kind] is Array:
+                var ids: Array=[]
+                for id in snap.eligible[kind]:
+                    var mapped=_legacy_id(id,legacy)
+                    if not ids.has(mapped):ids.append(mapped)
+                snap.eligible[kind]=ids
+    var pending=out.get("offline_pending",{})
+    if pending is Dictionary and pending.get("items") is Dictionary:pending.items=_remap_keys(pending.items,legacy,false)
+func _legacy_id(id,legacy: Dictionary):
+    return legacy.get(id,id) if id is String else id
+## Re-keys "<id>", "<kind>:<id>" and "<prefix>_<id>" entries; numeric values join (merge keys keep the max).
+func _remap_keys(source: Dictionary,legacy: Dictionary,prefixed: bool) -> Dictionary:
+    var result: Dictionary={}
+    for key in source:
+        var k: String=str(key);var value=source[key]
+        var renamed:=k
+        if legacy.has(k):renamed=legacy[k]
+        elif ":" in k and legacy.has(k.get_slice(":",1)):renamed=k.get_slice(":",0)+":"+legacy[k.get_slice(":",1)]
+        elif prefixed:
+            for prefix in ["item_","merge_"]:
+                if k.begins_with(prefix) and legacy.has(k.trim_prefix(prefix)):renamed=prefix+legacy[k.trim_prefix(prefix)]
+        if result.has(renamed) and number(result[renamed]) and number(value):
+            result[renamed]=maxf(result[renamed],value) if renamed.begins_with("merge_") else result[renamed]+value
+        else:result[renamed]=value
+    return result
 func valid_snapshot(data: Dictionary) -> bool:
     if int(data.get("schema",0))!=7 or not finite_tree(data):return false
     for key in sim.state:
@@ -751,6 +870,13 @@ func valid_snapshot(data: Dictionary) -> bool:
             if not snap.eligible.get(kind,null) is Array or not number(snap.rates.get(kind,null)):return false
             for id in snap.eligible[kind]:
                 if not sim.catalog.items.has(id) or sim.catalog.items[id].kind!=kind:return false
+    var pending: Dictionary=data.offline_pending
+    if not pending.is_empty():
+        if not pending.has_all(["id","seconds","longest","rewarded_hours","coins","gems","items"]) or not pending.items is Dictionary:return false
+        for key in ["seconds","longest","rewarded_hours","coins","gems"]:
+            if not number(pending[key]) or pending[key]<0:return false
+        for id in pending.items:
+            if not sim.catalog.items.has(id) or not number(pending.items[id]) or pending.items[id]<0:return false
     var batch: Dictionary=data.prestige_batch
     if not batch.is_empty():
         if not batch.get("ids",null) is Array or not batch.get("choices",null) is Array or batch.ids.is_empty() or batch.choices.size()>=batch.ids.size():return false
@@ -813,7 +939,9 @@ func opportunity_progress(id: String) -> String:
         for key in o:
             if key.begins_with("merge_") and int(o[key])>=50:
                 var item: Dictionary=sim.catalog.items[key.trim_prefix("merge_")]
-                if int(item.tier)>=(2 if n==3 else 1):(weapons if item.kind=="weapon" else outfits)[item.family]=true
+                if int(item.tier)>=(2 if n==3 else 1):
+                    if item.kind=="weapon":weapons[key]=true
+                    else:outfits[item.family]=true
         var need:=1 if n==1 else 3
         return sim.tr("PROGRESS_ARSENAL") % [mini(weapons.size(),need),need,mini(outfits.size(),need),need]
     if path=="trophy":
@@ -826,7 +954,7 @@ func opportunity_progress(id: String) -> String:
         var names: Array=[['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
         var parts: Array=[]
         for name in names:
-            var item: String="unit-"+name+"_outfit"
+            var item: String=contract_outfit(name)
             parts.append("%d/%d" % [mini(10+10*n,int(minf(float(sim.state.online_items.get(item,0)),float(o.get("item_"+item,0))))),10+10*n])
         return sim.tr("PROGRESS_COLLECTION") % " · ".join(parts)
     if path=="challenge":return sim.tr("PROGRESS_CHALLENGE")

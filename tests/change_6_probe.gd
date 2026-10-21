@@ -116,12 +116,12 @@ func rest_checks() -> void:
 
 func save_checks() -> void:
     fresh()
-    sim.add_item("unit-blue-cap_weapon",3);sim.equip("unit-blue-cap_weapon");sim.campaign.reveal_segment(sim.position_of(sim.state.player),Vector2(300,500))
+    sim.add_item("wood_sword",3);sim.equip("wood_sword");sim.campaign.reveal_segment(sim.position_of(sim.state.player),Vector2(300,500))
     var expected=sim.snapshot()
     check(int(expected.fog_layout_revision)==int(sim.campaign.fog_rules.layout_revision),"New profiles carry the current fog layout revision")
     check(SaveService.save_now(),"Current profile writes")
     sim.state.items={};SaveService.load_and_apply()
-    check(sim.quantity("unit-blue-cap_weapon")==3 and sim.state.explored==expected.explored and not SaveService.write_blocked,"Current save reloads with items and exploration")
+    check(sim.quantity("wood_sword")==3 and sim.state.explored==expected.explored and not SaveService.write_blocked,"Current save reloads with items and exploration")
     # A current-schema save written before the layout moved: actors re-home, discovery resets once.
     var old=sim.snapshot();old.fog_layout_revision=1
     for a in old.enemies:a.home_x+=300;a.x=a.home_x
@@ -136,10 +136,10 @@ func save_checks() -> void:
 
 func ui_checks() -> void:
     fresh()
-    for id in ["unit-blue-cap_weapon","unit-blue-cap_outfit","unit-red-scarf_weapon"]:sim.add_item(id,2)
+    for id in ["wood_sword","unit-blue-cap_outfit","wood_axe"]:sim.add_item(id,2)
     sim.add_item("potion",2)
     var map: Control=game.get_node("Safe/Layout/Map")
-    game.selected="unit-blue-cap_weapon";game.selected_slot=-1;game._open("item");await frames(8)
+    game.selected="wood_sword";game.selected_slot=-1;game._open("item");await frames(8)
     check(game.sheet.size.y<map.size.y*.7,"Item details are content-sized (%.0f of %.0f)" % [game.sheet.size.y,map.size.y])
     check(is_equal_approx(game.sheet.position.y+game.sheet.size.y,map.global_position.y+map.size.y-game.sheet_inset.y),"Sheet is anchored to the bottom of the map")
     var bar_rect: Rect2=game.actions.get_global_rect()
@@ -149,9 +149,9 @@ func ui_checks() -> void:
     check(game.selected=="unit-blue-cap_outfit","Next follows the inventory display order")
     check(game.actions.get_global_rect().position.y==bar_rect.position.y,"Pinned actions keep their position while browsing")
     game._browse(1);await frames(8)
-    check(game.selected=="unit-red-scarf_weapon" and game.actions.get_child(game.actions.get_child_count()-1).disabled,"Last item: next disabled")
+    check(game.selected=="wood_axe" and game.actions.get_child(game.actions.get_child_count()-1).disabled,"Last item: next disabled")
     game._browse(1);await frames(2)
-    check(game.selected=="unit-red-scarf_weapon","Boundary does not wrap")
+    check(game.selected=="wood_axe","Boundary does not wrap")
     # Stale callbacks: an action captured for one item never acts on another.
     var equip_for_scarf: Button=game.actions.get_child(1)
     game._browse(-1);await frames(4)
@@ -230,5 +230,5 @@ func tutorial_checks() -> void:
             if node.mouse_filter!=Control.MOUSE_FILTER_IGNORE:check(false,"Guide node takes input: "+str(node.name))
     check(true,"Guide presentation ignores input")
     # Doing a lesson ahead of time completes it.
-    fresh();sim.state.tutorial.mode="guided";sim.add_item("unit-blue-cap_weapon",2);sim.equip("unit-blue-cap_weapon");sim.merge("unit-blue-cap_weapon");await frames(3)
+    fresh();sim.state.tutorial.mode="guided";sim.add_item("wood_sword",2);sim.equip("wood_sword");sim.merge("wood_sword");await frames(3)
     check(sim.state.tutorial.done.has("equip") and sim.state.tutorial.done.has("merge"),"Lessons done out of order are recognised")

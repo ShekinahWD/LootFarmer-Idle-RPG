@@ -110,3 +110,5 @@ Reset cost at the gate (about 90 min of ordinary play): level ~22, every item an
 | balanced_growth | specialist_c3, masterwork_c3, offline_c1 | +10% maximum HP |
 
 Runtime counts: 33 opportunities, 33 cards, 17 sets.
+
+**Change 7 note (shared weapons):** collection contracts ask for the outfit each type actually drops — tier 2 for the Summer I types (collection_o2) and tier 4 for the Spring I types (collection_o3). Arsenal paths count *distinct weapon items* (e.g. Wood Sword, Wood Axe, Stone Sword) because weapons are now two shared families; outfits still count by family. All other requirements and every card are unchanged.

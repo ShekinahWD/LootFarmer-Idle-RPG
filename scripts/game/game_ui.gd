@@ -19,7 +19,7 @@ const SLOT=preload("res://scenes/game/slot.tscn")
 const ROW=preload("res://scenes/game/action_row.tscn")
 ## Values copied from a freshly built description into the live control of the same shape.
 const SYNC_PROPERTIES:=["text","disabled","tooltip_text","value","max_value","texture","icon","modulate","self_modulate","visible","theme_type_variation"]
-const PANEL_ALIASES:={"travel":"world","map":"world","offline":"upgrades"}
+const PANEL_ALIASES:={"travel":"world","map":"world"}
 const UPGRADE_TABS:=["TAB_PLAYER","TAB_INVENTORY","TAB_SUPPLIES","TAB_GEMS","TAB_OFFLINE"]
 var guide
 @onready var sim: LootSimulation=$Simulation
@@ -64,6 +64,9 @@ var inventory_filter:=0
 var slot_signatures: Dictionary={}
 var tier_styles: Dictionary={}
 var arrow_art: Texture2D
+## Offline claim already offered for this pending settlement id (the panel opens once per return).
+var offline_prompted:=""
+var show_completed_main:=false
 
 func _ready() -> void:
     world.setup(sim)
@@ -107,9 +110,13 @@ func _ready() -> void:
     sim.gem_pickup.connect(_show_gem_pickup)
     sim.combat_group_changed.connect(func(g: int)->void:combat_group=g)
     sim.milestone.connect(_milestone)
+    # Revival always brings the view back to the player, even after the camera was dragged away.
+    sim.revived.connect(func()->void:
+        $Safe/Layout/Map/GestureSurface.cancel_gesture()
+        world.follow_player())
     var nav: Node=dock.get_node("Navigation")
     for page in ["World","Missions","Prestige","Stats","Settings"]:
-        nav.get_node(page).pressed.connect(func()->void:_open(page.to_lower()))
+        nav.get_node(page).pressed.connect(func()->void:_nav(page.to_lower()))
     $Confirm/Panel/Margin/Content/Actions/Confirm.pressed.connect(func()->void:
         var action:=confirm_action
         _cancel_confirm()
@@ -134,7 +141,6 @@ func _ready() -> void:
         $Safe/Layout/Skills.get_child(i).pressed.connect(func()->void:sim.campaign.cast(i))
     _refresh_slots()
     if not sim.state.prestige_batch.is_empty():_open("prestige")
-    elif not sim.campaign.offline_receipt.is_empty():_open("offline")
     guide=preload("res://scripts/game/tutorial_guide.gd").new()
     add_child(guide);guide.setup(self)
     if SaveService.last_load_result in ["development_reset","invalid_profile_reset"]:_event("DEVELOPMENT_SAVE_RESET")
@@ -171,7 +177,9 @@ func _process(dt: float) -> void:
         _layout_sheet()
         if settle_frames==0:sheet.modulate.a=1.0
     panel_clock+=dt
-    if sheet.visible and (panel_revision!=sim.revision or previous_pause!=get_tree().paused) and panel_clock>=refresh_interval:
+    # Stats (playtime) and an item with a running Coin Tonic also tick without state revisions.
+    var ticking: bool=panel=="stats" or (panel=="item" and sim.state.boost_time>0)
+    if sheet.visible and (panel_revision!=sim.revision or previous_pause!=get_tree().paused or (ticking and panel_clock>=1.0)) and panel_clock>=refresh_interval:
         _refresh_panel()
     elapsed+=dt
     if elapsed<.15:
@@ -194,10 +202,20 @@ func _process(dt: float) -> void:
     _refresh_combat_achievement()
     _refresh_loot_notifications()
     _refresh_badges()
+    _offer_offline_claim()
     if last_revision!=sim.revision or previous_pause!=get_tree().paused:
         last_revision=sim.revision
         _refresh_slots()
     previous_pause=get_tree().paused
+
+## Offline earnings are claimed in game: offer the claim once per settlement, when nothing else
+## (a panel, a confirmation, the guide chooser or a prestige choice) is in front of the player.
+func _offer_offline_claim() -> void:
+    var pending_id: String=str(sim.state.offline_pending.get("id",""))
+    if pending_id=="" or pending_id==offline_prompted or sheet.visible or $Confirm.visible:return
+    if not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending" or sim.suspended:return
+    offline_prompted=pending_id
+    _open("offline")
 
 func _update_skill_buttons() -> void:
     var owned:=sim.campaign.skill_count()>0
@@ -295,9 +313,15 @@ func _update_supply_cooldowns() -> void:
     var slots=dock.get_node("Inventory/SupplyColumn/SupplyScroll/Supplies")
     for i in range(mini(slots.get_child_count(),sim.state.supplies.size())):
         var node=slots.get_child(i)
-        var cooling: bool=sim.catalog.art_id(sim.state.supplies[i])=="potion" and sim.state.use_cd>0
-        var text:=tr("SECONDS_VALUE") % fmt(sim.state.use_cd) if cooling else ""
-        if node.get_node("Cooldown").text!=text:node.get_node("Cooldown").text=text
+        var art: String=sim.catalog.art_id(sim.state.supplies[i])
+        var cooling: bool=art=="potion" and sim.state.use_cd>0
+        # A running Coin Tonic shows its remaining time on its own slot (gold, icon not dimmed).
+        var boosting: bool=art=="coin_boost" and sim.state.boost_time>0
+        var text:=tr("SECONDS_VALUE") % fmt(sim.state.use_cd) if cooling else (tr("SECONDS_VALUE") % str(ceili(sim.state.boost_time)) if boosting else "")
+        var label: Label=node.get_node("Cooldown")
+        if label.text!=text:
+            label.text=text
+            label.add_theme_color_override("font_color",Color(1,.84,.34) if boosting else Color.WHITE)
         node.get_node("Icon").modulate=Color(1,1,1,.4) if cooling else Color.WHITE
 
 func _activate_slot(type: int,index: int) -> void:
@@ -314,8 +338,15 @@ func _select_slot(type: int,index: int) -> void:
     selected=sim.state.supplies[index] if type==1 else sim.state.gear[index]
     _open("item")
 
+## A navigation button toggles its own panel: tapping the open one closes it, another switches.
+func _nav(which: String) -> void:
+    if sheet.visible and panel==PANEL_ALIASES.get(which,which):
+        _close()
+        AudioService.play_sfx("button")
+        return
+    _open(which)
+
 func _open(which: String) -> void:
-    if which=="offline":player_tab=4
     which=PANEL_ALIASES.get(which,which)
     $Safe/Layout/Map/GestureSurface.cancel_gesture()
     var reopening: bool=sheet.visible and panel==which
@@ -522,7 +553,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
-    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size()]
+    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main]
 
 func _refresh_panel(force_layout:=false) -> void:
     panel_clock=0.0
@@ -550,6 +581,7 @@ func _refresh_panel(force_layout:=false) -> void:
         "prestige":_prestige_panel()
         "missions":_missions_panel()
         "inventory":_inventory_panel()
+        "offline":_offline_panel()
     var context:=_panel_context()
     var replace:=context!=panel_context
     var mapping: Dictionary={}
@@ -734,7 +766,13 @@ func _item_panel() -> void:
         var effect:=[]
         for key in ["damage","hp","crit","speed","defense","lifesteal","regen"]:
             if absf(deltas.get(key,0.0))>=.005:effect.append(_signed_stat(key,deltas[key]))
-        _card_line(details,tr("EQUIP_EFFECT") % (", ".join(effect) if not effect.is_empty() else tr("NO_CHANGE")),18,Color(.72,.9,1))
+        # The summary takes the colour of its overall direction: all gains, all losses or mixed.
+        var gains:=0;var losses:=0
+        for key in ["damage","hp","crit","speed","defense","lifesteal","regen"]:
+            if deltas.get(key,0.0)>=.005:gains+=1
+            elif deltas.get(key,0.0)<=-.005:losses+=1
+        var tone:=Color(.45,1,.55) if gains>0 and losses==0 else (Color(1,.5,.45) if losses>0 and gains==0 else (Color(1,.86,.5) if gains>0 else Color(.72,.9,1)))
+        _card_line(details,tr("EQUIP_EFFECT") % (", ".join(effect) if not effect.is_empty() else tr("NO_CHANGE")),18,tone)
     if compare!="":
         _card_line(details,tr("EQUIPPED_NOW") % [sim.catalog.display_name(compare),sim.record(compare).merge],17,Color(.7,.75,.82))
     elif def.kind in ["weapon","outfit"] and sim.state[def.kind]=="" and not sim.equipped(id):
@@ -750,7 +788,10 @@ func _item_panel() -> void:
         _card_line(details,tr("NEXT_MERGE_GAIN")+" "+", ".join(gains),17,Color(.5,1,.65))
     else:
         _card_line(details,tr("STOCK_BONUS") % fmt(maxi(0,int(r.qty)-1)*.05),17,Color(.5,1,.65))
-    if sim.catalog.art_id(id)=="potion":_text(tr("POTION_ROLE"),17,Color(.8,.84,.9))
+    if sim.catalog.art_id(id)=="potion":_text(tr("POTION_ROLE") % fmt_value(float(sim.catalog.progression.potion_cooldown)),17,Color(.8,.84,.9))
+    if sim.catalog.art_id(id)=="coin_boost":
+        _text(tr("COIN_TONIC_ROLE") % [fmt(sim.normal(id).coin_bonus*100),fmt_value(sim.coin_boost_duration())],17,Color(.8,.84,.9))
+        if sim.state.boost_time>0:_text(tr("COIN_TONIC_ACTIVE") % [fmt(float(sim.state.boost_power)*100),ceili(sim.state.boost_time)],18,Color(1,.84,.34))
     if def.get("skill","")=="heal":_text(tr("HEAL_ROLE") % [fmt(minf(sim.normal(id).power*(1+sim.campaign.bonus("skill")),sim.stats().hp*.12)),fmt(sim.player_upgrade_value("cooldown_heal"))],17,Color(.8,.84,.9))
     # Secondary actions: a wrapping row, sized for their widest label.
     var more:=HFlowContainer.new()
@@ -852,10 +893,14 @@ func _upgrades_panel() -> void:
     var sections: Array=[["respawn","movement","skill_slots","skill_auto_0","skill_auto_1","skill_auto_2"],["gear_slots","supply_slots"],["merge_supplies","merge_speed","auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
     if player_tab==0:_text(tr("UPGRADES_PLAYER_HINT"),17,Color(.75,.8,.87))
     if player_tab==4:
-        var r: Dictionary=sim.campaign.offline_receipt
-        if not r.is_empty():
-            _text(tr("OFFLINE_RECEIPT") % [fmt(r.rewarded_hours),fmt(r.coins),fmt(r.gems)])
-            for id in r.items:_text(sim.catalog.display_name(id)+" ×"+fmt(r.items[id]),18)
+        if not sim.state.offline_pending.is_empty():
+            _text(tr("OFFLINE_PENDING_NOTE"),18,Color(1,.86,.5))
+            _action(tr("OFFLINE_CLAIM"),func()->void:_open("offline"))
+        else:
+            var r: Dictionary=sim.campaign.offline_receipt
+            if not r.is_empty():
+                _text(tr("OFFLINE_CLAIMED_RECEIPT") % [fmt(r.rewarded_hours),fmt(r.coins),fmt(r.gems)])
+                for id in r.items:_text(sim.catalog.display_name(id)+" ×"+fmt(r.items[id]),18)
         var snap: Dictionary=sim.campaign.offline_snapshot()
         _text(tr("OFFLINE_RATES") % [fmt(snap.coins),fmt(snap.gems),fmt(snap.cap/3600)],18,Color(.8,.84,.9))
     for id in sections[player_tab]:
@@ -996,7 +1041,7 @@ func _enemy_panel() -> void:
         _loot_row("potion",sim.consumable_chance(group,"potion")*80)
         _loot_row("coin_boost",sim.consumable_chance(group,"coin_boost")*20)
 
-func _loot_row(id: String,chance: float) -> void:
+func _loot_row(id: String,chance: float,count:=0) -> void:
     var row:=HBoxContainer.new()
     var icon:=TextureRect.new()
     icon.texture=icon_cache[id]
@@ -1006,7 +1051,7 @@ func _loot_row(id: String,chance: float) -> void:
     icon.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
     row.add_child(icon)
     var label:=Label.new()
-    label.text=sim.catalog.display_name(id) if chance<0 else tr("DROP_ITEM") % [sim.catalog.display_name(id),fmt(chance)]
+    label.text=(sim.catalog.display_name(id)+(" ×"+fmt_count(count) if count>0 else "")) if chance<0 else tr("DROP_ITEM") % [sim.catalog.display_name(id),fmt(chance)]
     label.add_theme_font_size_override("font_size",18)
     label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
     label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -1172,6 +1217,9 @@ func _camp_panel() -> void:
 
 func _stats_panel() -> void:
     _text(tr("PLAYER_LEVEL_CAP") % sim.state.player_level,20)
+    # Active play only (no pause, background, offline or prestige-choice time); see simulation.step.
+    _text(tr("PLAYTIME_LINE") % [fmt_duration(float(sim.state.get("playtime_total",0.0))),fmt_duration(float(sim.state.get("playtime_run",0.0)))],18,Color(.8,.84,.9))
+    if sim.state.boost_time>0:_text(tr("COIN_TONIC_ACTIVE") % [fmt(float(sim.state.boost_power)*100),ceili(sim.state.boost_time)],18,Color(1,.84,.34))
     var grid:=GridContainer.new()
     grid.columns=2
     grid.add_theme_constant_override("h_separation",18)
@@ -1191,6 +1239,14 @@ func _stats_panel() -> void:
     _text(tr("PERMANENT_MULTIPLIERS") % [fmt(sim.card("hp")),fmt(sim.card("damage"))],17,Color(.8,.84,.9))
     _text(tr("PRESTIGE_COUNT") % sim.state.prestiges,17,Color(.8,.84,.9))
     _text(tr("STAT_CAPS_NOTE"),17,Color(.7,.75,.82))
+
+## Compact Android-friendly duration: 2h 05m, 4m 09s, 37s.
+static func fmt_duration(seconds: float) -> String:
+    var total:=int(floorf(maxf(0,seconds)))
+    var h:=total/3600;var m:=(total%3600)/60;var sec:=total%60
+    if h>0:return "%dh %02dm" % [h,m]
+    if m>0:return "%dm %02ds" % [m,sec]
+    return "%ds" % sec
 
 func _stat_text(key: String,value: float,bonus: bool=false) -> String:
     if key in ["crit","lifesteal","speed","coin_bonus"]:
@@ -1235,6 +1291,28 @@ func _inventory_panel() -> void:
             var b:=_action("%s · ×%s · ^%d" % [sim.catalog.display_name(id),fmt_count(sim.quantity(id)),sim.record(id).merge],func()->void:selected=id;selected_slot=sim.state.supplies.find(id);_open("item"))
             b.icon=icon_cache.get(id);b.expand_icon=true;b.add_theme_constant_override("icon_max_width",36)
 
+## The explicit claim step for offline earnings. Nothing is paid, and no offline prestige
+## opportunity is discovered, until Claim is pressed (campaign.claim_offline).
+func _offline_panel() -> void:
+    var pending: Dictionary=sim.state.offline_pending
+    if pending.is_empty():
+        _text(tr("OFFLINE_NOTHING"),18,Color(.75,.8,.87))
+        return
+    _set_title(tr("OFFLINE_WELCOME"),Color(1,.86,.5))
+    _text(tr("OFFLINE_AWAY") % [fmt_duration(float(pending.seconds)),fmt(float(pending.rewarded_hours))],18,Color(.8,.84,.9))
+    var reward:=HBoxContainer.new()
+    reward.add_theme_constant_override("separation",8)
+    rows.add_child(reward)
+    for pair in [[COIN,float(pending.coins)],[GEM,float(pending.gems)]]:
+        _card_icon(reward,pair[0],Color.WHITE,30)
+        _card_line(reward,fmt_currency(pair[1]),22,Color(1,.88,.55))
+    for id in pending.items:
+        if sim.catalog.items.has(id):_loot_row(id,-1,int(pending.items[id]))
+    _pinned(tr("OFFLINE_CLAIM"),func()->void:
+        if sim.campaign.claim_offline():
+            _close()
+            _toast(tr("OFFLINE_CLAIMED")),true,"",true,"claim_offline")
+
 # ---------------------------------------------------------------- missions
 
 func _missions_panel() -> void:
@@ -1244,7 +1322,7 @@ func _missions_panel() -> void:
         var g: int=sim.campaign.group_id(str(m.target))
         var art: Texture2D=icon_cache.get(sim.catalog.groups[g].body) if g>=0 else _art(60)
         var ready: bool=not m.claimed and m.progress>=m.goal
-        _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),"%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)],m.progress,m.goal,m.coins,m.gems,func()->void:sim.campaign.claim_mission(i),ready,"MISSION_NOT_READY" if not m.claimed else "MISSION_WAIT_REFRESH")
+        _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),"%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)],m.progress,m.goal,m.coins,m.gems,func()->void:sim.campaign.claim_mission(i),ready,"MISSION_NOT_READY",bool(m.claimed))
     _section(tr("MAIN_OBJECTIVES"))
     var shown:=0
     for i in range(16):
@@ -1254,7 +1332,14 @@ func _missions_panel() -> void:
         shown+=1
         var rewards: Array=sim.catalog.campaign.main_rewards[i]
         var done: bool=sim.state.main_ready.has(str(i))
-        _task_card(_art(211),tr("MAIN_%d" % i),tr("PRESTIGE_READY_SHORT") if done else tr("IN_PROGRESS"),1 if done else 0,1,rewards[0],rewards[1],func()->void:sim.campaign.claim_main(i),done,"MISSION_NOT_READY")
+        _task_card(_art(211),tr("MAIN_%d" % i),tr("MISSION_STATE_READY") if done else tr("IN_PROGRESS"),1 if done else 0,1,rewards[0],rewards[1],func()->void:sim.campaign.claim_main(i),done,"MISSION_NOT_READY")
+    # Claimed main objectives stay discoverable as a compact history.
+    var claimed_main: Array=sim.state.main_claimed.duplicate()
+    claimed_main.sort()
+    if not claimed_main.is_empty():
+        _action(tr("MAIN_COMPLETED_TOGGLE") % [claimed_main.size(),tr("HIDE" if show_completed_main else "SHOW")],func()->void:show_completed_main=not show_completed_main)
+        if show_completed_main:
+            for i in claimed_main:_text("✓ "+tr("MAIN_%d" % int(i)),17,Color(.5,1,.65))
     if sim.state.final_discovered:
         _text(tr("KEY_PROGRESS") % sim.state.keys.size(),18,Color(1,.86,.5))
         var keys:=HFlowContainer.new();rows.add_child(keys)
@@ -1266,9 +1351,12 @@ func _missions_panel() -> void:
         _game_action(tr("MISSION_AUTO") % tr("ON" if sim.state.mission_auto else "OFF"),func()->void:sim.state.mission_auto=not sim.state.mission_auto;sim.touch())
 
 ## Compact objective card: icon, title, progress bar with value, rewards and a claim button.
-func _task_card(art: Texture2D,title: String,value: String,progress: float,goal: float,coins: float,gems: float,claim: Callable,ready: bool,reason: String) -> void:
+## States read at a glance: In progress (muted chip), Ready to claim (primary Claim button) and
+## Claimed (dimmed card, green check, no button), so a claimed card never looks like a disabled claim.
+func _task_card(art: Texture2D,title: String,value: String,progress: float,goal: float,coins: float,gems: float,claim: Callable,ready: bool,reason: String,claimed:=false) -> void:
     var card:=PanelContainer.new()
     card.theme_type_variation=&"Card"
+    if claimed:card.modulate=Color(1,1,1,.62)
     rows.add_child(card)
     var line:=HBoxContainer.new()
     line.add_theme_constant_override("separation",12)
@@ -1278,7 +1366,7 @@ func _task_card(art: Texture2D,title: String,value: String,progress: float,goal:
     text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     text.add_theme_constant_override("separation",3)
     line.add_child(text)
-    _card_line(text,title,20,Color.WHITE)
+    _card_line(text,("✓ " if claimed else "")+title,20,Color(.5,1,.65) if claimed else Color.WHITE)
     var bar:=ProgressBar.new()
     bar.theme_type_variation=&"XP"
     bar.custom_minimum_size=Vector2(0,16)
@@ -1294,8 +1382,20 @@ func _task_card(art: Texture2D,title: String,value: String,progress: float,goal:
         if pair[1]<=0:continue
         _card_icon(reward,pair[0],Color.WHITE,24)
         _card_line(reward,fmt_currency(pair[1]),17,Color(1,.88,.55))
-    var button:=_inline_button(tr("CLAIM"),claim,ready,reason,line,true)
-    button.custom_minimum_size=Vector2(112,76)
+    if claimed:_card_line(text,tr("MISSION_WAIT_REFRESH"),16,Color(.7,.75,.82))
+    if ready:
+        var button:=_inline_button(tr("CLAIM"),claim,true,reason,line,true)
+        button.custom_minimum_size=Vector2(112,76)
+        return
+    var chip:=Label.new()
+    chip.text=tr("MISSION_STATE_CLAIMED") if claimed else tr("IN_PROGRESS")
+    chip.custom_minimum_size=Vector2(112,76)
+    chip.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+    chip.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
+    chip.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+    chip.add_theme_font_size_override("font_size",17)
+    chip.add_theme_color_override("font_color",Color(.5,1,.65) if claimed else Color(.7,.75,.82))
+    line.add_child(chip)
 
 # ---------------------------------------------------------------- prestige
 
@@ -1333,6 +1433,8 @@ func _prestige_panel() -> void:
     _text(tr("PRESTIGE_INTRO"),18,Color(.8,.84,.9))
     if gate!="":
         _text(tr(gate),20,Color(1,.72,.45))
+    elif ready.is_empty() and sim.state.prestige_batch.is_empty():
+        _text(tr("NO_READY_PRESTIGE"),18,Color(1,.86,.5))
     _text(tr("PRESTIGE_READY_COUNT") % [ready.size(),sim.state.owned_cards.size(),sim.catalog.campaign.cards.size()],20,Color(1,.86,.5))
     _pinned(tr("PRESTIGE_BATCH") % ready.size(),func()->void:_confirm(_prestige_summary(ready),func()->void:sim.campaign.begin_prestige()),sim.campaign.prestige_block_reason().is_empty(),sim.campaign.prestige_block_reason(),true,"begin_prestige")
     # Ready first, then in progress, then completed history.
@@ -1397,11 +1499,14 @@ func _opportunity_card(op: Dictionary) -> void:
         chips.add_child(chip)
     var row:=HBoxContainer.new()
     row.add_theme_constant_override("separation",8)
-    content.add_child(row)
-    var follow:=_inline_button(tr("UNFOLLOW" if sim.state.follow==op.id else "FOLLOW"),func()->void:sim.state.follow="" if sim.state.follow==op.id else op.id;sim.touch(),true,"",row,false)
-    follow.custom_minimum_size=Vector2(150,64)
-    if op.path in ["offering","collection"]:
-        _inline_button(tr("SUBMIT_CONTRACT"),func()->void:sim.campaign.submit(op.id),not ready,"ACHIEVEMENT_DONE",row,true).custom_minimum_size=Vector2(200,64)
+    # A ready opportunity has nothing left to follow (the action layer refuses it too).
+    if sim.campaign.can_follow(op.id) or sim.state.follow==op.id:
+        var follow:=_inline_button(tr("UNFOLLOW" if sim.state.follow==op.id else "FOLLOW"),func()->void:sim.campaign.toggle_follow(op.id),true,"",row,false)
+        follow.custom_minimum_size=Vector2(150,64)
+    if op.path in ["offering","collection"] and not ready:
+        _inline_button(tr("SUBMIT_CONTRACT"),func()->void:sim.campaign.submit(op.id),true,"",row,true).custom_minimum_size=Vector2(200,64)
+    if row.get_child_count()>0:content.add_child(row)
+    else:row.free()
 
 func _mark_prestige_seen() -> void:
     var seen: Array=sim.state.tutorial.seen
@@ -1461,6 +1566,16 @@ func _refresh_badges() -> void:
     var unseen:=false
     for id in sim.state.opportunities:
         if not sim.state.consumed.has(id) and not sim.state.tutorial.seen.has("op:"+str(id)+(":ready" if sim.state.opportunities[id].ready else "")):unseen=true
+    # The button itself names the reset gate while it applies (the panel has the full reason).
+    var button: Button=nav.get_node("Prestige")
+    var gated: bool=sim.campaign.prestige_gate_reason()!="" and sim.state.prestige_batch.is_empty()
+    var label:=tr("NAV_PRESTIGE")+("\n"+tr("NAV_PRESTIGE_GATE") % sim.catalog.stages[int(sim.catalog.progression.prestige_gate_stage)-2].name if gated else "")
+    if button.text!=label:
+        button.text=label
+        button.add_theme_font_size_override("font_size",14 if gated else 17)
+        button.add_theme_constant_override("icon_max_width",24 if gated else 34)
+        if gated:button.add_theme_color_override("font_color",Color(1,.84,.55))
+        else:button.remove_theme_color_override("font_color")
     var badge: Label=nav.get_node("Prestige/Badge")
     badge.visible=ready or unseen
     badge.text="!" if ready else "✦"

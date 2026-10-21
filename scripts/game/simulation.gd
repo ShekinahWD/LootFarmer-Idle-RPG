@@ -10,6 +10,8 @@ signal event(key: String)
 signal chatter(actor_id: String, key: String)
 ## Major milestones for presentation (discovered/ready opportunity, card, prestiged, stage).
 signal milestone(kind: String, id: String)
+## The player came back to life at the active camp (presentation recenters the camera).
+signal revived
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 signal spell_cast(actor_id: String, skill: String, position: Vector2)
@@ -43,7 +45,8 @@ func new_profile() -> void:
         "spawns":[0],"spawn":0,"cards":{},"prestiges":0,"offer":[],"victory":false,
         "focus":-1,"focus_variant":2,"boost_time":0.0,"boost_power":0.0,"use_cd":0.0,"history":[],
         "pickups":[],"next_pickup":0,"clock":0.0,"collect_clock":0.0,"collect_clocks":[0.0,0.0,0.0,0.0],"merge_clock":0.0,
-        "use_clock":0.0,"summon_clock":0.0,"next_cat":0,"help":0,"paused":false}
+        "use_clock":0.0,"summon_clock":0.0,"next_cat":0,"help":0,"paused":false,
+        "playtime_total":0.0,"playtime_run":0.0}
     campaign.initialize()
     _reset_world()
     campaign.reveal()
@@ -252,12 +255,13 @@ func _build_definition(group: int,variant: int) -> Dictionary:
     if not def.boss:
         def.hp*=1.25 if variant==0 else (.75 if variant==1 else (1.35 if variant==3 else 1.0))
         def.damage*=.75 if variant==0 else (1.25 if variant==1 else (1.35 if variant==3 else 1.0))
+        # Loot is [shared weapon, stage-tier outfit]; one-piece variants drop only what they wear.
         if variant==0:
             def.weapon=""
-            def.loot=[def.body]
+            def.loot=def.loot.filter(func(id):return catalog.items[id].kind=="outfit")
         elif variant==1:
             def.body=""
-            def.loot=[def.weapon]
+            def.loot=def.loot.filter(func(id):return catalog.items[id].kind=="weapon")
         if variant!=3:def.skills=[]
     return def
 
@@ -399,7 +403,7 @@ func use_item(id: String) -> bool:
         state.use_cd=float(catalog.progression.potion_cooldown)
         feedback.emit("player",gain,true)
     elif catalog.art_id(id)=="coin_boost":
-        state.boost_time = 30.0
+        state.boost_time = coin_boost_duration()
         state.boost_power = maxf(state.boost_power,normal(id).coin_bonus)
     else:
         return false
@@ -407,6 +411,10 @@ func use_item(id: String) -> bool:
     _remove(id,1)
     touch()
     return true
+
+## Real Coin Tonic duration in seconds (authored in catalog.progression; a new tonic refreshes it).
+func coin_boost_duration() -> float:
+    return float(catalog.progression.get("coin_boost_duration",30.0))
 
 func purchase_consumable(id: String) -> bool:
     if not action_lock_reason().is_empty():
@@ -654,6 +662,10 @@ func step(dt: float) -> void:
         return
     dt=minf(maxf(dt,0),.1)
     state.clock+=dt
+    # Active play only: step never runs while paused, suspended (background, guide chooser) or
+    # during a prestige choice, and offline settlement never advances these clocks.
+    state.playtime_total=float(state.get("playtime_total",0.0))+dt
+    state.playtime_run=float(state.get("playtime_run",0.0))+dt
     campaign.step(dt)
     state.use_cd=maxf(0,state.use_cd-dt)
     state.boost_time=maxf(0,state.boost_time-dt)
@@ -673,6 +685,7 @@ func step(dt: float) -> void:
             p.attack_age=9.0
             campaign.reveal()
             touch()
+            revived.emit()
     else:
         p.hp=minf(stats().hp,p.hp+(stats().regen+stats().hp*campaign.rest_rate())*dt)
         if movement.length()>.1:
@@ -816,13 +829,18 @@ func merge_gain(id: String,stat: String) -> float:
     var gain: float=float(definition.get("merge_gain",{}).get(stat,float(definition.normal[stat][1])*3.0))
     return gain*card("merge")
 
+## The enemy type whose automation merges this item: any type that drops its family (shared
+## weapons and every tier of an outfit), preferring one with Auto Merge bought.
 func gear_group(id: String) -> int:
-    var item: String=catalog.art_id(id)
+    var family: String=str(catalog.items[id].get("family",id))
+    var skill: String=str(catalog.items[id].get("skill",""))
+    var first:=-1
     for g in range(catalog.groups.size()):
-        if level("merge_gear",g)>0 and (catalog.groups[g].loot.has(item) or catalog.groups[g].skills.has(item.trim_prefix("skill_"))):return g
-    for g in range(catalog.groups.size()):
-        if catalog.groups[g].loot.has(item) or catalog.groups[g].skills.has(item.trim_prefix("skill_")):return g
-    return -1
+        var drops: bool=catalog.groups[g].skills.has(skill) if skill!="" else catalog.groups[g].loot.any(func(l):return str(catalog.items[l].family)==family)
+        if not drops:continue
+        if level("merge_gear",g)>0:return g
+        if first<0:first=g
+    return first
 
 func can_auto_merge(id: String) -> bool:
     if catalog.items[id].kind=="consumable":

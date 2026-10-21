@@ -43,7 +43,7 @@ func run() -> void:
     sim.state.upgrades.cooldown_heal=6
     check(is_equal_approx(sim.player_upgrade_value("cooldown_heal"),12.6),"Max cooldown upgrade stays meaningful")
     # Real save/load with JSON serialization and registered provider.
-    fresh();sim.add_item("potion",4);sim.add_item("unit-blue-cap_weapon",3);sim.equip("unit-blue-cap_weapon");sim.merge("unit-blue-cap_weapon")
+    fresh();sim.add_item("potion",4);sim.add_item("wood_sword",3);sim.equip("wood_sword");sim.merge("wood_sword")
     sim.state.coins=123.5;sim.state.gems=55.25;sim.buy_upgrade("coin_amount",0)
     sim.state.main_claimed=[0];sim.state.auto_slots=[0]
     sim.state.tutorial.done=["move","kill"];sim.state.tutorial.seen=["overview"]
@@ -51,7 +51,7 @@ func run() -> void:
     var expected=sim.snapshot();check(sim._valid_snapshot(expected),"Current save validates")
     check(SaveService.save_now(),"Current snapshot writes to disk")
     sim.state.coins=0;sim.state.items={};SaveService.load_and_apply()
-    check(not SaveService.write_blocked and sim.quantity("potion")==4 and sim.quantity("unit-blue-cap_weapon")==2,"Disk reload preserves inventory")
+    check(not SaveService.write_blocked and sim.quantity("potion")==4 and sim.quantity("wood_sword")==2,"Disk reload preserves inventory")
     check(is_equal_approx(sim.state.coins,expected.coins) and sim.state.weapon==expected.weapon,"Disk reload preserves currency and equipment")
     check(sim.state.tutorial.done==expected.tutorial.done and sim.state.explored==expected.explored,"Disk reload preserves guidance and exploration")
     check(sim.state.spawns.has(0) and sim.state.camps["1"].has(0) and sim.state.main_claimed.has(0) and sim.state.auto_slots.has(0),"JSON round trip preserves integer membership")

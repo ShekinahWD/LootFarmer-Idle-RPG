@@ -266,7 +266,7 @@ msgid "HISTORY_SOLD"
 msgstr "Sold %s %s"
 
 msgid "ITEM_WOOD_SWORD"
-msgstr "Wooden Sword"
+msgstr "Wood Sword"
 
 msgid "ITEM_STONE_SWORD"
 msgstr "Stone Sword"
@@ -970,7 +970,7 @@ msgid "MISSION_NOT_READY"
 msgstr "Complete this objective first."
 
 msgid "MISSION_WAIT_REFRESH"
-msgstr "Claimed. Refreshes at local midnight."
+msgstr "A new task arrives at local midnight."
 
 msgid "MAIN_OBJECTIVES"
 msgstr "Main objectives"
@@ -3713,7 +3713,7 @@ msgid "HEAL_ROLE"
 msgstr "Sustain: %s HP now, every %ss. Free to cast; capped at 12%% max HP. Potions provide stronger emergency healing."
 
 msgid "POTION_ROLE"
-msgstr "Emergency healing. Consumes one potion; 2s cooldown. Usable at 80% HP or below."
+msgstr "Emergency healing. Consumes one potion; %ss cooldown. Usable at 80%% HP or below."
 
 msgid "REGULAR_MISSIONS"
 msgstr "Hunting tasks"
@@ -4122,3 +4122,99 @@ msgstr "Win the fight without using potions or tonics."
 
 msgid "PROGRESS_REGIONAL"
 msgstr "Explored %s · bosses %d/%d · camps %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "Gold Sword"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "Diamond Sword"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "Emerald Sword"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "Obsidian Sword"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "Wood Axe"
+
+msgid "ITEM_STONE_AXE"
+msgstr "Stone Axe"
+
+msgid "ITEM_IRON_AXE"
+msgstr "Iron Axe"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "Gold Axe"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "Diamond Axe"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "Emerald Axe"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "Obsidian Axe"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "Find a weapon or outfit"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "That find was a supply. Keep defeating enemies: they sometimes drop the weapon or outfit they wear, which fills an empty gear slot."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "Pick up the gear"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "A weapon or outfit dropped. Tap it to put it in a gear slot."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "Only an opportunity in progress can be followed."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "Clear %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "Ready to claim"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ Claimed"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "Completed objectives (%d) · %s"
+
+msgid "SHOW"
+msgstr "Show"
+
+msgid "HIDE"
+msgstr "Hide"
+
+msgid "COIN_TONIC_ROLE"
+msgstr "+%s%% coins from defeated enemies for %s s. Using another restarts the timer; the strongest bonus applies."
+
+msgid "COIN_TONIC_ACTIVE"
+msgstr "Coin Tonic active: +%s%% coins · %ds left"
+
+msgid "PLAYTIME_LINE"
+msgstr "Time played: %s · This run: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "Welcome back!"
+
+msgid "OFFLINE_AWAY"
+msgstr "Away %s · %s rewarded hours"
+
+msgid "OFFLINE_CLAIM"
+msgstr "Claim offline earnings"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "Offline earnings claimed"
+
+msgid "OFFLINE_NOTHING"
+msgstr "No offline earnings are waiting."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "Offline earnings are waiting to be claimed."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "Last claim: %s rewarded hours · %s coins · %s gems"

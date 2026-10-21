@@ -27,7 +27,7 @@ for key in c['upgrades']:check('upgrade translation '+key,'UP_'+key.upper() in s
 for s in c['stages']:
     check('season clear/effect '+str(s['id']), bool(s['weather'])==(s['id']%2==0))
 # Change 6: keys built dynamically by the guide, cards and prestige panel.
-steps=['move','kill','collect','collect_wait','equip','equip_tap','merge','merge_tap','merge_wait','upgrade','upgrade_find','upgrade_earn','upgrade_tab','upgrade_buy','camp','camp_explore','camp_earn','camp_buy','camp_done','overview','aggression','skills','groups','prestige','rest']
+steps=['move','kill','collect','collect_wait','equip','equip_tap','equip_find','equip_collect','merge','merge_tap','merge_wait','upgrade','upgrade_find','upgrade_earn','upgrade_tab','upgrade_buy','camp','camp_explore','camp_earn','camp_buy','camp_done','overview','aggression','skills','groups','prestige','rest']
 for step in steps:
     for suffix in ['','_DETAIL']:check('guide translation '+step+suffix,'GUIDE_'+step.upper()+suffix in strings)
 for combo in c['campaign']['combos']:check('combo name '+combo['id'],'COMBO_'+combo['id'].upper() in strings)
@@ -35,11 +35,16 @@ for tab in ['TAB_PLAYER','TAB_INVENTORY','TAB_SUPPLIES','TAB_GEMS','TAB_OFFLINE'
 check('prestige gate stage present',c['progression'].get('prestige_gate_stage')==3)
 check('every path has card art',set(x['path'] for x in c['campaign']['cards'].values())==set(c['campaign']['paths']))
 import subprocess
-for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py']:
+# Change 7: shared weapon families, stage-tiered gear and the legacy id map.
+check('shared weapons: no enemy-specific weapon items',not any(re.fullmatch(r'unit-[a-z-]+_weapon(_t\d)?',k) for k in c['items']))
+check('shared weapons: every group carries a Sword or Axe',all(c['items'][g['weapon']]['family'] in ('sword','axe') for g in c['groups']))
+check('legacy map targets exist',all(v in c['items'] for v in c.get('legacy_items',{}).values()))
+check('coin tonic duration authored',c['progression'].get('coin_boost_duration')==30.0)
+for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py']:
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}
-output=ROOT/'docs/Change_6_Evidence/static_checks.json'
+output=ROOT/'docs/Change_7_Evidence/static_checks.json'
 output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({k:report[k] for k in ['checks','failures']}))
 for item in checks:

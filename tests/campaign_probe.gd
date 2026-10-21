@@ -49,7 +49,7 @@ func run() -> void:
     check(sim.buy_upgrade("camp_radius",10),"Camp reveal upgrade")
     check(sim.state.explored['1'].size()>before['1'].size(),"Camp upgrade really reveals larger area")
     fresh();sim.state.gear.resize(20);sim.state.gear.fill("")
-    var id="unit-blue-cap_weapon"
+    var id="wood_sword"
     sim.add_item(id,201);sim.merge(id,true)
     check(sim.quantity(id)==101 and sim.record(id).merge==100,"Merge consumes 100 duplicates")
     var d=sim.catalog.items[id];var intrinsic=float(d.normal.damage[0])+float(d.merge_gain.damage)*100
@@ -58,7 +58,7 @@ func run() -> void:
     check(sim.quantity(id)==1 and sim.quantity(d.next)==1,"Evolution consumes only 100 spare copies")
     check(is_equal_approx(sim.normal(d.next).damage,intrinsic*.85),"Evolution retains 85% intrinsic power")
     check(is_equal_approx(sim.normal(id).damage,intrinsic),"Consuming spare copies removes stock bonus")
-    var tier7="unit-blue-cap_weapon_t7";sim.add_item(tier7,201);sim.merge(tier7,true)
+    var tier7="obsidian_sword";sim.add_item(tier7,201);sim.merge(tier7,true)
     check(not sim.evolve(tier7) and sim.normal(tier7).damage>sim.catalog.items[tier7].normal.damage[0]*3,"Final tier keeps stock growth")
     sim.add_item("skill_heal",3);sim.equip("skill_heal");sim.state.player.hp=1
     check(sim.campaign.cast(0),"Heal casts")
@@ -105,16 +105,19 @@ func run() -> void:
     fresh();sim.add_item("wood_sword");sim.state.upgrades.offline_weapon=1
     sim.state.offline_snapshot=sim.campaign.offline_snapshot();sim.state.offline_snapshot.time=1000
     sim.campaign.settle_offline(1000+10*3600)
+    # Change 7: settlement only records a pending claim; the in-game claim pays it.
+    check(sim.state.coins==0 and sim.quantity("wood_sword")==1 and sim.state.offline_total==0 and not sim.state.offline_pending.is_empty(),"Offline settlement waits for the claim")
+    check(sim.campaign.claim_offline() and sim.state.offline_pending.is_empty(),"Offline claim pays once")
     var coins=sim.state.coins;var qty=sim.quantity("wood_sword")
     check(is_equal_approx(coins,600) and qty==6,"Offline cap limits five hours and owned-only drops")
     check(sim.state.offline_total==36000 and sim.state.counters.is_empty(),"True absence counts, offline gives no online objective progress")
     sim.campaign.settle_offline(1000+10*3600)
-    check(sim.state.coins==coins and sim.quantity("wood_sword")==qty,"Same interval cannot settle twice")
+    check(sim.state.coins==coins and sim.quantity("wood_sword")==qty and sim.state.offline_pending.is_empty() and not sim.campaign.claim_offline(),"Same interval cannot settle or claim twice")
     sim.campaign.settle_offline(900)
     check(sim.state.coins==coins,"Clock rollback grants nothing")
     fresh();sim.state.offline_snapshot=sim.campaign.offline_snapshot();sim.state.offline_snapshot.time=1000
     SaveService.write_blocked=true;sim.campaign.settle_offline(5000)
-    check(sim.state.coins==0 and sim.state.offline_snapshot.time==1000,"Failed save rolls back offline grant")
+    check(sim.state.coins==0 and sim.state.offline_snapshot.time==1000 and sim.state.offline_pending.is_empty(),"Failed save rolls back offline grant")
     SaveService.write_blocked=false
     fresh();var m=sim.state.missions[0];m.progress=m.goal
     check(sim.campaign.claim_mission(0),"Mission claim succeeds")

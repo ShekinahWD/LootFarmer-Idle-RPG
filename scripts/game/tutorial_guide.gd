@@ -121,6 +121,15 @@ func _lesson(lesson: String) -> void:
         "equip":
             surfaces=["","item"]
             var id:=_first_item(func(i):return sim.catalog.items[i].kind in ["weapon","outfit"])
+            # The first find may be a supply. Progress follows the real inventory: with no gear to
+            # equip, ask for an attainable step (pick up gear on the ground, or farm for it, pointing
+            # at an empty gear slot when no enemy is in sight) instead of an impossible Equip.
+            if id=="":
+                var drop:=_nearest_pickup(true)
+                if drop!=Vector2.INF:step="equip_collect";world_target=drop;return
+                step="equip_find";world_target=_nearest_enemy()
+                if world_target==Vector2.INF:target=_slot("")
+                return
             if ui.sheet.visible and ui.panel=="item" and ui.selected!="" and sim.catalog.items[ui.selected].kind in ["weapon","outfit"]:
                 step="equip_tap";target=_panel_control("equip")
             else:
@@ -167,9 +176,10 @@ func _nearest_enemy() -> Vector2:
         if best==Vector2.INF or sim.position_of(e).distance_to(sim.position_of(sim.state.player))<best.distance_to(sim.position_of(sim.state.player)):best=sim.position_of(e)
     return best
 
-func _nearest_pickup() -> Vector2:
+func _nearest_pickup(gear_only:=false) -> Vector2:
     var best:=Vector2.INF
     for d in sim.state.pickups:
+        if gear_only and sim.catalog.items[d.item].kind not in ["weapon","outfit"]:continue
         var p:=Vector2(d.x,d.y)
         if sim.campaign.cell_known(p) and (best==Vector2.INF or p.distance_to(sim.position_of(sim.state.player))<best.distance_to(sim.position_of(sim.state.player))):best=p
     return best
@@ -208,7 +218,7 @@ func _present() -> void:
     title.text=tr("GUIDE_"+step.to_upper())
     support.text=tr("GUIDE_"+step.to_upper()+"_DETAIL")
     if "%d" in support.text:support.text=support.text % support_value
-    picture.texture=ui._art( (212 if step in ["skills","rest"] else (249 if step.begins_with("camp") else (211 if step=="prestige" else (1 if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find"] else 60)))))
+    picture.texture=ui._art( (212 if step in ["skills","rest"] else (249 if step.begins_with("camp") else (211 if step=="prestige" else (1 if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect"] else 60)))))
     intro_button.visible=intro_id!=""
     card.mouse_filter=Control.MOUSE_FILTER_IGNORE
     _place_card()

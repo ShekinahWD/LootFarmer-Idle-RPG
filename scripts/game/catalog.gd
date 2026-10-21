@@ -11,6 +11,8 @@ var stages: Array
 var skills: Dictionary
 var campaign: Dictionary
 var progression: Dictionary
+## Removed item id -> replacement (Change 7 shared weapons); applied when a save loads.
+var legacy_items: Dictionary
 var _icons: Dictionary = {}
 
 func _init() -> void:
@@ -24,6 +26,7 @@ func _init() -> void:
     stages = data.stages
     skills = data.skills
     campaign = data.campaign
+    legacy_items = data.get("legacy_items",{})
     for entry in groups+stages+skills.values():
         entry.name=tr(entry.name)
     for entry in campaign.cards.values()+campaign.opportunities+campaign.combos:

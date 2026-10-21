@@ -8392,3 +8392,31 @@ If a quest accepts online-earned items/currency only, a cumulative earned counte
 ## 137.5 Separate authoring from runtime
 
 Bake editable stage TileMapLayers from a deterministic authoring utility; gameplay loads the baked scenes. Keep scenario data, stable ids, scene resources and validation probes together in root-relative patches. Importing successfully with another engine version is not proof of the declared target engine or Android release artifact.
+
+---
+
+# 138. Device playtest correction lessons (LootFarmer Change 7)
+
+## 138.1 One identity per item, and beware breadth-stacked passives
+
+When many sources carry "the same" item (every enemy type had its own visually identical sword), give the item one identity and let sources differ by tier, not by copy. Before collapsing duplicates, measure what the duplicates were secretly worth: a passive "each owned item adds 30%" bonus turns N duplicate families into N stacked bonuses. Compare damage at the first hard gate before and after (one deterministic bot run) and compensate in the shared item's base, not by raising the passive share. Map removed ids to their successors in the catalog and apply the map wherever an id can live in a save (items, slots, equipped, ground loot, history, counters, quest progress).
+
+## 138.2 Offline earnings are claimed, not silently applied
+
+Background or startup settlement records a pending claim (saved, merged across absences, each interval capped as before). Payment, offline counters and anything they discover happen on an explicit in-game claim, which clears the pending record in the same durable write so a reload cannot repeat it.
+
+## 138.3 Ambient particles belong to the world
+
+Lay weather out on a fixed world grid with the same local pattern in every cell and drift it with time; the camera rectangle only culls. A camera-relative layout follows pans and zooms. Keep the placement a pure function so a probe can compare two camera rectangles.
+
+## 138.4 Anchor self effects to the rendered actor
+
+Place an effect from the art's own anchor (a heal ring 20 px below the frame centre) on the actor's feet, scaled with the actor's rendered scale, not at the actor coordinate. Large bosses expose the error first.
+
+## 138.5 A reveal-radius cut can hide authored landmarks
+
+Lowering a fog radius changes which landmarks the natural route uncovers. After a cut, check that each authored camp or shrine is still found on the ordinary path (a short bot slice is enough). Prefer lowering the burst radius at arrival over the walking radius.
+
+Reusable rule:
+
+> Share identities and compensate the passive breadth you remove; pay offline rewards on an explicit claim; keep ambient effects world-anchored and self effects anchored to the art; re-check landmark discovery after any fog change.
