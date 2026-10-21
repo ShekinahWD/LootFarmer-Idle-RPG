@@ -82,7 +82,10 @@ def apply(data):
             put(entry, 'legacy', key not in dropped, key + '.legacy')
     progression = data['progression']
     put(progression, 'merge', MERGE, 'progression.merge')
-    put(progression, 'prestige_unlock_kills', 1, 'progression.prestige_unlock_kills')
+    put(progression, 'prestige_unlock_boss', 'boss-snowman', 'progression.prestige_unlock_boss')
+    if 'prestige_unlock_kills' in progression:
+        del progression['prestige_unlock_kills']
+        changes.append('progression.prestige_unlock_kills removed')
     if 'prestige_gate_stage' in progression:
         del progression['prestige_gate_stage']
         changes.append('progression.prestige_gate_stage removed')

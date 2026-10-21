@@ -694,17 +694,20 @@ func ready_ids() -> Array:
     for id in sim.state.opportunities:
         if sim.state.opportunities[id].ready and not sim.state.consumed.has(id):ids.append(id)
     ids.sort();return ids
-## Change 8: the Prestige system opens after the first enemy kill ever (lifetime kills, kept by
-## prestige). A reset then needs one ready opportunity that can still award a card; the card is
-## chosen during the reset, so owning a card beforehand is never required.
-func lifetime_kills() -> int:
-    var total:=0
-    for n in sim.state.group_kills:total+=int(n)
-    return total
+## Change 8 (corrected): the Prestige system opens after the first boss (Winter I Snowman) is defeated
+## once ever (lifetime group_kills, kept by prestige). A reset then needs one ready opportunity that
+## can still award a card; the card is chosen during the reset, so owning a card beforehand is never
+## required.
+func prestige_unlock_group() -> int:
+    var id: String=sim.catalog.progression.get("prestige_unlock_boss","boss-snowman")
+    for g in sim.catalog.groups.size():
+        if sim.catalog.groups[g].id==id:return g
+    return -1
 func prestige_unlocked() -> bool:
-    return lifetime_kills()>=int(sim.catalog.progression.get("prestige_unlock_kills",1))
+    var g:=prestige_unlock_group()
+    return g>=0 and int(sim.state.group_kills[g])>0
 func prestige_gate_reason() -> String:
-    if not prestige_unlocked():return "PRESTIGE_LOCKED_FIRST_KILL"
+    if not prestige_unlocked():return "PRESTIGE_LOCKED_FIRST_BOSS"
     return ""
 ## Ready opportunities that can still award a card, in batch order: each path offers its cards that
 ## are not owned yet, and every opportunity of the batch takes one of them.

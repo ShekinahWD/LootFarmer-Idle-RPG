@@ -447,9 +447,9 @@ func _nav(which: String) -> void:
         _close()
         AudioService.play_sfx("button")
         return
-    # The Prestige system opens with the first enemy defeated; until then the button says so.
+    # The Prestige system opens with the first boss defeated; until then the button says so.
     if which=="prestige" and not sim.campaign.prestige_unlocked() and sim.state.prestige_batch.is_empty():
-        _event("PRESTIGE_LOCKED_FIRST_KILL")
+        _event("PRESTIGE_LOCKED_FIRST_BOSS")
         AudioService.play_sfx("button")
         return
     _open(which)

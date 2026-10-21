@@ -38,13 +38,15 @@ func run() -> void:
     await get_tree().create_timer(.1).timeout
     get_tree().quit(1 if failures else 0)
 
-## 4.1 Prestige opens with the first kill; a reset needs a ready opportunity with a card left; the
-## card is chosen inside the reset.
+## 4.1 Prestige opens with the first boss (Snowman) defeated; a reset needs a ready opportunity with
+## a card left; the card is chosen inside the reset.
 func prestige_gate_checks() -> void:
     fresh()
-    check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_KILL","New profile: prestige locked until the first kill")
-    sim.state.group_kills[0]=1 # labelled: one recorded kill
-    check(sim.campaign.prestige_unlocked(),"First kill unlocks Prestige")
+    check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS","New profile: prestige locked until the first boss")
+    sim.state.group_kills[0]=1 # labelled: one regular kill
+    check(not sim.campaign.prestige_unlocked(),"A regular kill does not unlock Prestige")
+    sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1 # labelled: Snowman defeated
+    check(sim.campaign.prestige_unlocked(),"First boss unlocks Prestige")
     check(sim.campaign.prestige_block_reason()=="NO_READY_PRESTIGE","Unlocked without a ready opportunity: needs one")
     check(sim.state.owned_cards.is_empty(),"No card owned beforehand")
     sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0} # labelled: ready opportunity
@@ -54,7 +56,7 @@ func prestige_gate_checks() -> void:
     check(not offered.is_empty(),"Cards offered during the reset")
     check(sim.prestige(offered[0]),"Card chosen during the reset commits")
     check(sim.state.prestiges==1 and sim.state.owned_cards.has(offered[0]),"One reset, one card")
-    check(sim.campaign.prestige_unlocked(),"Lifetime kills keep Prestige open after the reset")
+    check(sim.campaign.prestige_unlocked(),"The lifetime Snowman kill keeps Prestige open after the reset")
 
 ## 3.1-3.3 Outfits and skills merge their own copies up to the cap; weapons keep ^100.
 func merge_cap_checks() -> void:
@@ -183,7 +185,7 @@ func skill_checks() -> void:
     check(sim.upgrade_block_reason("cooldown_frost")!="UNDISCOVERED","Frost upgrades unlocked")
     check(sim.merge("skill_frost",true) and sim.record("skill_frost").merge==3 and str(sim.catalog.items["skill_frost"].next)=="","Skill merges copies and never evolves")
     sim.skill_discovered.disconnect(_notice)
-    sim.state.group_kills[0]=1;sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
+    sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1;sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     sim.campaign.begin_prestige();sim.prestige(sim.campaign.offered_cards()[0])
     check(sim.skill_seen("frost") and sim.quantity("skill_frost")==0,"Discovery survives prestige; the item does not")
 

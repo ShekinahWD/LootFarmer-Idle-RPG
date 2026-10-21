@@ -81,7 +81,7 @@ Only inspect enough to implement this approved scope correctly. Do **not** launc
 
 ## 4. Prestige availability and compact tracker
 
-**4.1 Prestige entry gate.** Unlock **access to the Prestige system immediately after the player kills the first enemy**. The actual reset/prestige action is permitted **only when at least one prestige opportunity is completed/ready and can award at least one card choice**. A card is **selected during the prestige process**; do **not** require the player to own a prestige card beforehand. Explain unmet requirements on the button/panel and preserve card selection, reset, rewards, keys and duplicate-award protections. Update any previous stage-based reset gate accordingly, without unnecessary additional restrictions.
+**4.1 Prestige entry gate.** Unlock **access to the Prestige system immediately after the player defeats the first boss (Winter I Snowman)**. *(Corrected: an earlier wording said "the first enemy"; regular kills do not unlock Prestige.)* The actual reset/prestige action is permitted **only when at least one prestige opportunity is completed/ready and can award at least one card choice**. A card is **selected during the prestige process**; do **not** require the player to own a prestige card beforehand. Explain unmet requirements on the button/panel and preserve card selection, reset, rewards, keys and duplicate-award protections. Update any previous stage-based reset gate accordingly, without unnecessary additional restrictions.
 
 **4.2 Followed prestige HUD — MINIMAL.** While following an in-progress opportunity, display a **small persistent lower-left tracker** with only:
 

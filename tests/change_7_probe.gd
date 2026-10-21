@@ -164,9 +164,9 @@ func prestige_checks() -> void:
     game._close()
     game._refresh_badges()
     var nav: Button=game.dock.get_node("Navigation/Prestige")
-    # Change 8 replaced the Winter II gate with the first kill.
+    # Change 8 replaced the Winter II gate with the first boss (Snowman).
     check(nav.text.contains(tr("NAV_PRESTIGE_LOCKED")),"Gated Prestige button names its requirement: "+nav.text.replace("\n"," | "))
-    sim.state.group_kills[0]=1;game._refresh_badges()
+    sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1;game._refresh_badges()
     check(nav.text==tr("NAV_PRESTIGE"),"Ungated Prestige button returns to its plain label")
     await frames(2)
     check(nav.get_combined_minimum_size().y<=nav.custom_minimum_size.y+12,"Gate label keeps the navigation height")
@@ -301,7 +301,7 @@ func playtime_checks() -> void:
     game._open("stats");await frames(2)
     check(_find_label(game.rows,tr("STATS_TIME_TOTAL"))!=null and _find_label(game.rows,game.fmt_duration(sim.state.playtime_total))!=null and _find_label(game.rows,tr("STATS_TIME_RUN"))!=null,"Stats shows lifetime and run playtime (Change 8 rows)")
     game._close()
-    sim.state.group_kills[0]=1;sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
+    sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1;sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     check(sim.campaign.begin_prestige(),"Prestige begins")
     sim.prestige(sim.campaign.offered_cards()[0])
     check(sim.state.prestiges==1 and is_equal_approx(sim.state.playtime_total,10.0) and sim.state.playtime_run==0.0,"Prestige keeps lifetime and resets the run")

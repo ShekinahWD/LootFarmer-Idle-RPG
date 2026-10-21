@@ -64,18 +64,18 @@ func layout_checks() -> void:
     check(groups_hit.keys()==["0:2"],"Idle farming stays on its spot through kills and respawns: %s" % [groups_hit.keys()])
     check(sim.position_of(sim.state.player).distance_to(home)<120 or sim.state.player.hp<=0 or sim.campaign.resting_camp()>=0,"Player remains at its farming spot")
 
-## Change 8 replaced the Winter II gate: Prestige opens with the first kill, then any ready
+## Change 8 replaced the Winter II gate: Prestige opens with the first boss defeated, then any ready
 ## opportunity that can award a card may reset (early routes included).
 func prestige_checks() -> void:
     for route in ["challenge_o1","specialist_o1","offline_o2","trophy_o1"]:
         fresh()
         sim.state.opportunities[route]={"ready":true,"baseline":{},"step":0,"count":0}   # fixture: readiness
-        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_KILL","Early %s waits for the first kill" % route)
-        check(not sim.campaign.begin_prestige() and sim.state.prestige_batch.is_empty(),"Begin refused before the first kill: "+route)
-        sim.state.group_kills[0]=1   # fixture: first kill
-        check(sim.campaign.prestige_block_reason()=="","Early %s may reset after the first kill" % route)
+        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS","Early %s waits for the first boss" % route)
+        check(not sim.campaign.begin_prestige() and sim.state.prestige_batch.is_empty(),"Begin refused before the first boss: "+route)
+        sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1   # fixture: Snowman defeated
+        check(sim.campaign.prestige_block_reason()=="","Early %s may reset after the first boss" % route)
     fresh()
-    sim.state.group_kills[0]=1;sim.state.opportunities["specialist_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
+    sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1;sim.state.opportunities["specialist_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     check(sim.campaign.prestige_block_reason()=="","A ready opportunity may prestige")
     check(sim.campaign.begin_prestige() and sim.campaign.offered_cards().size()==3,"Batch offers three path cards")
     sim.state.prestige_batch={};sim.touch()
@@ -186,7 +186,7 @@ func ui_checks() -> void:
     game._close();game._toast("Probe toast");await frames(3)
     check(game.get_node("Toast").visible,"Toast shows on the HUD")
     # Prestige choices are real cards and the selection is explicit.
-    fresh();sim.state.unlocked_stage=3;sim.state.group_kills[0]=1;sim.state.opportunities["arsenal_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
+    fresh();sim.state.unlocked_stage=3;sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1;sim.state.opportunities["arsenal_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     sim.campaign.begin_prestige();game._open("prestige");await frames(8)
     var cards: Array=game.rows.find_children("*","Button",true,false).filter(func(b):return b.get_meta("guide","")=="card")
     check(cards.size()==3 and cards.all(func(c):return c.get_script()==load("res://scripts/game/prestige_card.gd")),"Batch renders three prestige card scenes")

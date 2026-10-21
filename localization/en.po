@@ -4228,11 +4228,11 @@ msgstr "Stats"
 msgid "SKILL_UPGRADES_UNLOCKED"
 msgstr "New upgrades unlocked: %s (Player Upgrades)"
 
-msgid "PRESTIGE_LOCKED_FIRST_KILL"
-msgstr "Defeat your first enemy to unlock Prestige."
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "Defeat the Snowman, the first boss, to unlock Prestige."
 
 msgid "NAV_PRESTIGE_LOCKED"
-msgstr "Defeat 1 enemy"
+msgstr "Defeat the Snowman"
 
 msgid "NO_CARD_AVAILABLE"
 msgstr "You already own every card these ready opportunities could give."

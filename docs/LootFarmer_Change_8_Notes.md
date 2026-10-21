@@ -18,7 +18,7 @@ Baseline: the committed Change 7 tree (f397381). Brief: `docs/LootFarmer_Change_
 | 3.5 | Normal gear drops | 5% per carried item for every normal enemy on every stage, rolled independently. Before: 10% in Winter I, falling to 3% in Spring II. Bosses stay at 30%. |
 | 3.6 | Loot Chance | +0.5 points per level, 15 levels: 5% → 12.5% per item (bosses 30% → 37.5%). Price 20 × 1.35^level × 2^(stage−1) coins, so later enemy types cost more. Labels, math and the probe use `catalog.upgrades.loot.effect`. |
 | 3.7 | Skill upgrades | `skills_seen` records skill families ever obtained; prestige keeps it and Hard Reset clears it. A skill's cooldown upgrade, and the slot and auto-cast upgrades (which need at least one skill), stay hidden and unbuyable until then. The first copy shows "New upgrades unlocked: Frost (Player Upgrades)"; duplicates show nothing. |
-| 4.1 | Prestige entry | Opens after the first enemy kill (lifetime `group_kills`, which survive prestige). A reset needs a ready opportunity that can still award a card (`awardable_ids`), and the card is chosen during the reset. Removed: `progression.prestige_gate_stage`. Before the first kill the button reads "Prestige · Defeat 1 enemy". |
+| 4.1 | Prestige entry | Opens after the first boss, the Winter I Snowman, is defeated (its lifetime `group_kills`, which survive prestige; `progression.prestige_unlock_boss`). Regular kills do not open it. A reset needs a ready opportunity that can still award a card (`awardable_ids`), and the card is chosen during the reset. Removed: `progression.prestige_gate_stage`. Before the Snowman falls the button reads "Prestige · Defeat the Snowman". *Corrected after Phase C: the first build of Change 8 opened Prestige on the first regular kill, which was wrong.* |
 | 4.2 | Follow tracker | A lower-left HUD backing shows the path icon, the opportunity name and one line: "Step 2/3 — Hunt Red Scarf: 12/100" (or "Defeat Snowman: 3/10", or "Ready! Open Prestige…"). Tapping it opens Prestige. It hides when unfollowed or consumed. Following a ready opportunity is still refused (Change 7 rule). |
 | 5.1 | Reveal vs vision | Permanent reveal is 48 (Change 7: 144). Vision is `vision_factor` 2.0 × reveal = 96, is never saved, is drawn as a lighter veil (`vision_color`), and allows seeing, targeting and loot pickup. Reveal-radius upgrades and cards scale both. |
 | 5.2 | Discoverability | Camps are sighted from `camp_sight_radius` 400. They are stored per stage in `camps_known`, show a "Camp spotted!" notice, and reveal a 40-unit footprint so the camp shows through fog. That radius was chosen from the authored layout: every camp is within 400 of a farm spot or of its gate boss court (the largest gap is 533 to a farm spot, 243 to a boss: Spring II camp 3). Camp unlock/select requires a sighted camp. |
@@ -145,7 +145,7 @@ These fields are never copied from the live state. Explored cells are kept as th
 
 | Suite | Result |
 |---|---|
-| `tests/change_8_probe` (new, one case per §9 item: camp entry/re-entry, nav and Settings → Stats, pinned equipment, comparison, HP text, skill/outfit merge and cap, migration, boss tier and per-item loot, Loot Chance 15 levels and prices, first-kill gate and card transaction, follow tracker and Ready, reveal vs vision, hidden-spot disclosure, per-spot loadout markers, banner centring) | 72 / 0 |
+| `tests/change_8_probe` (new, one case per §9 item: camp entry/re-entry, nav and Settings → Stats, pinned equipment, comparison, HP text, skill/outfit merge and cap, migration, boss tier and per-item loot, Loot Chance 15 levels and prices, first-boss gate and card transaction, follow tracker and Ready, reveal vs vision, hidden-spot disclosure, per-spot loadout markers, banner centring) | 72 / 0 |
 | `tests/change_8_walk_probe` (eight-stage movement around solids) | 2,178 walks / 0 stalls |
 | `tests/change_7_smoke` | clean |
 | `tests/change_7_probe` | 78 / 0 |
@@ -157,7 +157,7 @@ These fields are never copied from the live state. Explored cells are kept as th
 
 **Assertions updated** (each one encoded a rule Change 8 replaced; production logic unchanged):
 
-- the Winter II reset gate is now the first kill (Change 6/7 probes, campaign_probe fixture, validator);
+- the Winter II reset gate is now the first boss defeated (Change 6/7 probes, campaign_probe fixture, validator; corrected from "first kill" after Phase C);
 - the Stats nav button is now Upgrades, with Stats in Settings;
 - boss weapon tiers are +1;
 - the first enemy type is found by walking to a spot (48 reveal);
@@ -170,7 +170,7 @@ These fields are never copied from the live state. Explored cells are kept as th
 **One pacing scenario** (`pacing_bot --policy=ordinary --seed=1`, desktop):
 
 - first kill 0.8 min, second camp 3.4 min (Change 7: 1.0), level 10 at 17.3 min, Snowman 18.6 min, Winter II entered 18.7 min;
-- the first prestige was allowed at 29.1 min (Specialist ready). Under the Change 6/7 Winter II gate this was 76–113 min; this is the brief's first-kill rule working as asked;
+- the first prestige was allowed at 29.1 min (Specialist ready). Under the Change 6/7 Winter II gate this was 76–113 min; this run used the since-corrected first-kill rule, but the Snowman fell at 18.6 min, before any opportunity was ready, so the first-boss rule would allow the same 29.1 min (not re-measured);
 - no stall from the close fog or the solid scenery.
 
 **Needs a developer decision:** the content probe's theoretical ceiling still kills the final boss in 463 s, unchanged. Its survival fell from 256 s to 14 s, because outfits no longer evolve to tiers 5–7. The best reachable outfit is now a tier-4 boss outfit: about 400 HP base, about 2.5K at ^500. If late-game survivability feels short on device, the options are:

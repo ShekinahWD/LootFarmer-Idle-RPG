@@ -21888,7 +21888,7 @@
       "tail_scale": 100.0,
       "stock_bonus_per_copy": 0.0005
     },
-    "prestige_unlock_kills": 1
+    "prestige_unlock_boss": "boss-snowman"
   },
   "skills": {
     "heal": {
