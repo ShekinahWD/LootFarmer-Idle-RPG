@@ -12,6 +12,8 @@ signal chatter(actor_id: String, key: String)
 signal milestone(kind: String, id: String)
 ## The player came back to life at the active camp (presentation recenters the camera).
 signal revived
+## First copy of a skill family ever obtained: its Player Upgrades become visible (Change 8).
+signal skill_discovered(family: String)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 signal spell_cast(actor_id: String, skill: String, position: Vector2)
@@ -185,10 +187,33 @@ func quantity(id: String) -> int:
 func normal(id: String) -> Dictionary:
     var output: Dictionary = {}
     var merge_level := int(state.items.get(id,{}).get("merge",0))
+    var levels:=merge_levels(id,merge_level)
+    var stock:=1.0+float(catalog.progression.merge.stock_bonus_per_copy)*maxi(0,quantity(id)-1) if merge_level>=merge_cap(id) else 1.0
     for stat in catalog.items[id].normal:
         var pair: Array = catalog.items[id].normal[stat]
-        output[stat] = (float(pair[0]) + merge_gain(id,stat) * merge_level) * (1.0+.0005*maxi(0,quantity(id)-1) if merge_level==100 else 1.0)
+        output[stat] = (float(pair[0]) + merge_gain(id,stat) * levels) * stock
     return output
+
+## Outfits and skills grow from copies of themselves (no evolution, Change 8); weapons and supplies
+## keep ^100 and evolve. Caps and the curve live in catalog.progression.merge.
+func copy_growth(id: String) -> bool:
+    return str(catalog.items[id].kind) in ["outfit","skill"]
+
+func merge_cap(id: String) -> int:
+    return int(catalog.progression.merge.copy_cap if copy_growth(id) else catalog.progression.merge.weapon_cap)
+
+## Effective merge levels: linear up to linear_levels, then logarithmic (each merge adds less), so
+## ^500 is about 2.6x the stat gain of ^100 instead of 5x. Weapons stay linear to ^100.
+func merge_levels(id: String,merge_level: int) -> float:
+    var m: Dictionary=catalog.progression.merge
+    var linear: float=float(m.linear_levels)
+    if not copy_growth(id) or merge_level<=linear:return float(merge_level)
+    return linear+float(m.tail_scale)*log(1.0+(merge_level-linear)/float(m.tail_scale))
+
+## Stat gained by the next single merge (shrinks past the linear part for outfits and skills).
+func next_merge_gain(id: String,stat: String) -> float:
+    var m:=int(record(id).merge)
+    return merge_gain(id,stat)*(merge_levels(id,m+1)-merge_levels(id,m))
 
 func stats() -> Dictionary:
     if _stats_revision == revision and not _stats.is_empty():
@@ -285,8 +310,19 @@ func add_item(id: String, amount: int = 1, _legacy_reward_flag: bool = true) -> 
         list[list.find("")] = id
     r.qty += amount
     history("HISTORY_ITEM",id,amount,0)
+    if catalog.items[id].kind=="skill":discover_skill(str(catalog.items[id].skill))
     touch()
     return true
+
+## Skill upgrades stay hidden until a copy of that skill is obtained once (any run: the record is
+## kept by prestige, cleared by Hard Reset). Only the first copy notifies.
+func discover_skill(family: String,silent:=false) -> void:
+    if family=="" or state.skills_seen.has(family):return
+    state.skills_seen.append(family)
+    if not silent:skill_discovered.emit(family)
+
+func skill_seen(family: String) -> bool:
+    return state.skills_seen.has(family)
 
 func _remove(id: String, amount: int) -> void:
     var r := record(id)
@@ -318,7 +354,7 @@ func merge(id: String, all: bool = false) -> bool:
     if quantity(id)<2:
         return fail("NEED_DUPLICATES")
     var r := record(id)
-    var count := mini(int(r.qty)-1,100-int(r.merge))
+    var count := mini(int(r.qty)-1,merge_cap(id)-int(r.merge))
     if not all:
         count = mini(1,count)
     if count<1:
@@ -478,6 +514,9 @@ func focus(group: int,variant: int=2) -> bool:
     if group<0 or group>=catalog.groups.size() or not campaign.stage().groups.has(group) or not campaign.discovered(group) or not campaign.variants(group).has(variant):
         return false
     if catalog.groups[group].boss:variant=2
+    # Auto-farm never walks to a spot the player has not found (no hidden coordinates).
+    if not campaign.spot_discovered(group,variant):
+        return fail("SPOT_UNDISCOVERED")
     if level("focus",group)==0:
         return fail("AUTOMATION_LOCKED")
     clear_target()
@@ -878,6 +917,8 @@ func upgrade_block_reason(id: String,g: int=-1) -> String:
     if id.begins_with("offline_") and id.ends_with("_rate") and level(id.trim_suffix("_rate"))==0:return "AUTOMATION_LOCKED"
     if id.begins_with("skill_auto_") and int(id.right(1))>=1+level("skill_slots"):return "SKILL_SLOTS_FULL"
     if id=="skill_drop" and catalog.groups[g].skills.is_empty():return "ACTION_UNAVAILABLE"
+    if id.begins_with("cooldown_") and not skill_seen(id.trim_prefix("cooldown_")):return "UNDISCOVERED"
+    if (id=="skill_slots" or id.begins_with("skill_auto_")) and state.skills_seen.is_empty():return "UNDISCOVERED"
     if upgrade_maxed(id,g):return "UPGRADE_MAX"
     var currency: String=catalog.upgrades[id].currency
     if state[currency]<upgrade_cost(id,g):return "NOT_ENOUGH_"+currency.to_upper()
@@ -903,7 +944,8 @@ func group_upgrade_value(id: String,g: int,variant: int=2,extra: int=0) -> float
     var n:=level(id,g)+extra
     match id:
         "reveal_radius","camp_radius":return n*.25
-        "loot":return float(catalog.groups[g].gear_chance)+minf(.15,.01*n)+campaign.bonus("gear_chance")
+        # 5% per carried item (bosses 30%), +0.5 points per Loot Chance level (catalog effect/cap).
+        "loot":return float(catalog.groups[g].gear_chance)+float(catalog.upgrades.loot.effect)*mini(n,int(catalog.upgrades.loot.cap))+campaign.bonus("gear_chance")
         "supply_drop":return (.15 if catalog.groups[g].boss else .05)+minf(.15,.01*n)
         "skill_drop":return (.1 if catalog.groups[g].boss else .05)+minf(.15,.01*n)
         "group_xp":return float(enemy_definition(g,variant).xp)*(1.0+n*.1)*(1+campaign.bonus("boss_xp" if catalog.groups[g].boss else "normal_xp"))

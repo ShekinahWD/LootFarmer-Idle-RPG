@@ -26,7 +26,7 @@ func _draw() -> void:
     var half: Vector2=get_viewport_rect().size/camera.zoom*.5
     for particle in particles(Rect2(camera.position-half,half*2).grow(120)):
         var pos: Vector2=particle[0];var i: int=particle[1]
-        if not sim.campaign.cell_known(pos):continue
+        if not sim.campaign.can_see(pos):continue
         if weather=="rain":draw_texture_rect_region(texture,Rect2(pos,Vector2(26,108)),Rect2((int(clock*10)+i)%15*52,0,52,216),Color(1,1,1,.4))
         else:draw_texture_rect_region(texture,Rect2(pos,Vector2(16,16)),Rect2((int(clock*8)+i)%8*16,(i%6)*16,16,16),Color(1,1,1,.65))
 ## World positions [position, index] of the particles inside a world rect at the current clock.

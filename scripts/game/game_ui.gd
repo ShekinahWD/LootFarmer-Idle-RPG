@@ -8,6 +8,12 @@ extends Control
 @export var refresh_interval:=0.25
 @export var toast_seconds:=2.4
 @export var toast_busy_seconds:=1.4
+## Walking (by hand) to within this many world units of a sighted camp opens its panel once; it
+## opens again only after leaving and coming back (Change 8).
+@export var camp_open_radius:=64.0
+## Prestige milestone banner: width cap and gap below the top safe-area edge.
+@export var banner_max_width:=640.0
+@export var banner_top_gap:=12.0
 const INFO_CARD=preload("res://scenes/game/info_card.tscn")
 const PRESTIGE_CARD=preload("res://scenes/game/prestige_card.tscn")
 const PRESTIGE_CARD_SCRIPT=preload("res://scripts/game/prestige_card.gd")
@@ -29,6 +35,8 @@ var guide
 @onready var sheet=$Sheet
 @onready var rows=$Sheet/Margin/Content/Scroll/Rows
 @onready var actions=$Sheet/Margin/Content/Actions
+## Non-scrolling area under the panel header (the Inventory panel's equipped section).
+@onready var pinned_rows=$Sheet/Margin/Content/Pinned
 @onready var notice=$Sheet/Margin/Content/Notice
 @onready var stick=$Safe/Layout/Map/Joystick
 @onready var banner=$Banner
@@ -67,6 +75,9 @@ var arrow_art: Texture2D
 ## Offline claim already offered for this pending settlement id (the panel opens once per return).
 var offline_prompted:=""
 var show_completed_main:=false
+## Camp the player currently stands in (-1 outside) and whether entering it still owes the panel.
+var camp_inside:=-1
+var camp_pending:=false
 
 func _ready() -> void:
     world.setup(sim)
@@ -97,7 +108,7 @@ func _ready() -> void:
     for font_size in [17,18,20,24,34]:font.get_string_size(sample,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size)
     # Crop the fixed UI art at load with the item icons, so no panel pays the readback on first open.
     for index in [1,42,57,60,94,97,147,171,208,209,211,212,216,249,264,266,269,12,44]:_art(index)
-    for page in ["World","Missions","Prestige","Stats","Settings"]:
+    for page in ["World","Missions","Prestige","Upgrades","Settings"]:
         var nav_button: Button=dock.get_node("Navigation/"+page)
         nav_button.icon=cropped(nav_button.icon)
     stick.direction_changed.connect(func(value: Vector2)->void:
@@ -113,10 +124,20 @@ func _ready() -> void:
     # Revival always brings the view back to the player, even after the camera was dragged away.
     sim.revived.connect(func()->void:
         $Safe/Layout/Map/GestureSurface.cancel_gesture()
-        world.follow_player())
+        world.follow_player()
+        _settle_camp())
+    sim.skill_discovered.connect(func(family: String)->void:
+        _say(tr("SKILL_UPGRADES_UNLOCKED") % sim.catalog.skills[family].name))
     var nav: Node=dock.get_node("Navigation")
-    for page in ["World","Missions","Prestige","Stats","Settings"]:
+    for page in ["World","Missions","Prestige","Upgrades","Settings"]:
         nav.get_node(page).pressed.connect(func()->void:_nav(page.to_lower()))
+    var pinned: Node=dock.get_node("Inventory/GearColumn/Head/Equipped")
+    for kind in ["Weapon","Outfit"]:
+        pinned.get_node(kind).pressed.connect(func()->void:_open_equipped(kind.to_lower()))
+    $Safe/Layout/Map/FollowTracker.gui_input.connect(func(event: InputEvent)->void:
+        if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
+            accept_event();_open("prestige"))
+    _settle_camp()
     $Confirm/Panel/Margin/Content/Actions/Confirm.pressed.connect(func()->void:
         var action:=confirm_action
         _cancel_confirm()
@@ -171,6 +192,7 @@ func _process(dt: float) -> void:
         $Safe/Layout/Map/GestureSurface.cancel_gesture()
         world.follow_player()
     _update_toast(dt)
+    _layout_banner()
     banner.held=sheet.visible or $Confirm.visible or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending"
     if settle_frames>0:
         settle_frames-=1
@@ -202,11 +224,84 @@ func _process(dt: float) -> void:
     _refresh_combat_achievement()
     _refresh_loot_notifications()
     _refresh_badges()
+    _refresh_follow_tracker()
     _offer_offline_claim()
+    _check_camp_entry()
     if last_revision!=sim.revision or previous_pause!=get_tree().paused:
         last_revision=sim.revision
         _refresh_slots()
     previous_pause=get_tree().paused
+
+## Prestige discovery banner: horizontally centred at the top of the safe area (Change 8).
+func _layout_banner() -> void:
+    if not banner.visible:return
+    var insets:=LayoutService.get_safe_area_insets_canvas()
+    var available:=size.x-insets.x-insets.z-24
+    var width:=minf(banner_max_width,available)
+    var plate: Control=banner.get_node("Plate")
+    var height:=maxf(plate.get_combined_minimum_size().y,96)
+    var wanted:=Vector2(width,height)
+    if not banner.size.is_equal_approx(wanted):banner.size=wanted
+    var at:=Vector2(insets.x+12+(available-width)*.5,insets.y+banner_top_gap)
+    if not banner.position.is_equal_approx(at):banner.position=at
+
+## The camp the player stands in, by hand: entering one (sighted, in this stage) opens its panel
+## once; dismissing it keeps it closed until the player leaves and comes back. Arrivals by respawn,
+## teleport or load count as already inside, so they never pop the panel.
+func _camp_at_player() -> int:
+    if sim.state.player.hp<=0:return -1
+    var p: Vector2=sim.position_of(sim.state.player)
+    var spawns: Array=sim.campaign.stage().spawns
+    for i in range(spawns.size()):
+        if sim.campaign.camp_known(i) and p.distance_to(Vector2(spawns[i][0],spawns[i][1]))<=camp_open_radius:return i
+    return -1
+
+func _settle_camp() -> void:
+    camp_inside=_camp_at_player()
+    camp_pending=false
+
+func _check_camp_entry() -> void:
+    var here:=_camp_at_player()
+    if here!=camp_inside:
+        # Only a walk-in by hand owes the panel; auto-farm routes passing a camp never pop it.
+        camp_pending=here>=0 and sim.movement.length()>.1
+        camp_inside=here
+    if not camp_pending or here<0:return
+    if sheet.visible or $Confirm.visible or get_tree().paused or sim.suspended or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending" or sim.campaign.in_combat():return
+    camp_pending=false
+    selected_camp=here
+    _open("camp")
+
+func _open_equipped(kind: String) -> void:
+    var id: String=sim.state[kind]
+    if id=="":
+        _say(tr("NOTHING_EQUIPPED"))
+        return
+    selected=id
+    selected_slot=-1
+    _open("item")
+
+## Lower-left HUD for the followed prestige opportunity: name, icon and the next step only.
+func _refresh_follow_tracker() -> void:
+    var tracker: Control=$Safe/Layout/Map/FollowTracker
+    var id: String=str(sim.state.follow)
+    var o: Dictionary=sim.state.opportunities.get(id,{})
+    var ready: bool=not o.is_empty() and bool(o.ready) and not sim.state.consumed.has(id)
+    var show: bool=id!="" and not o.is_empty() and not sim.state.consumed.has(id) and sim.state.prestige_batch.is_empty()
+    if tracker.visible!=show:tracker.visible=show
+    if not show:return
+    var op: Dictionary=_opportunity(id)
+    var name_label: Label=tracker.get_node("Row/Text/Name")
+    var step: Label=tracker.get_node("Row/Text/Step")
+    if name_label.text!=str(op.name):name_label.text=str(op.name)
+    var text: String=sim.campaign.follow_summary(id)
+    if step.text!=text:step.text=text
+    var color:=Color(.45,1,.55) if ready else Color(.94,.95,.97)
+    if step.get_theme_color("font_color")!=color:step.add_theme_color_override("font_color",color)
+    var icon: TextureRect=tracker.get_node("Row/Icon")
+    var art:=_path_art(str(op.path))
+    if icon.texture!=art:icon.texture=art
+    if tracker.mouse_filter!=Control.MOUSE_FILTER_STOP:tracker.mouse_filter=Control.MOUSE_FILTER_STOP
 
 ## Offline earnings are claimed in game: offer the claim once per settlement, when nothing else
 ## (a panel, a confirmation, the guide chooser or a prestige choice) is in front of the player.
@@ -284,7 +379,15 @@ func _refresh_slots() -> void:
             node.tooltip_text=sim.catalog.display_name(id) if id!="" else tr("EMPTY_SLOT")
             node.visible=shown
     _layout_inventory()
-    dock.get_node("Inventory/GearColumn/Heading").text=tr("HUD_GEAR") % [sim.state.gear.size()-sim.state.gear.count(""),sim.state.gear.size()]
+    dock.get_node("Inventory/GearColumn/Head/Heading").text=tr("HUD_GEAR") % [sim.state.gear.size()-sim.state.gear.count(""),sim.state.gear.size()]
+    # Pinned equipped weapon and outfit: views of the equipped ids, never extra inventory entries.
+    for kind in ["weapon","outfit"]:
+        var button: Button=dock.get_node("Inventory/GearColumn/Head/Equipped/"+kind.capitalize())
+        var id: String=sim.state[kind]
+        button.icon=icon_cache.get(id) if id!="" else null
+        button.text="" if id!="" else "—"
+        button.tooltip_text=(tr("EQUIPPED_WEAPON" if kind=="weapon" else "EQUIPPED_OUTFIT")+": "+(sim.catalog.display_name(id) if id!="" else tr("NOTHING_EQUIPPED_SHORT")))
+        button.add_theme_stylebox_override("normal",_tier_style(id,panel=="item" and selected==id and id!=""))
     dock.get_node("Inventory/SupplyColumn/SupplyHeading").text=tr("HUD_SUPPLIES") % [sim.state.supplies.size()-sim.state.supplies.count(""),sim.state.supplies.size()]
 
 ## One cached style per tier color and highlight state; slots never duplicate styles per refresh.
@@ -344,6 +447,11 @@ func _nav(which: String) -> void:
         _close()
         AudioService.play_sfx("button")
         return
+    # The Prestige system opens with the first enemy defeated; until then the button says so.
+    if which=="prestige" and not sim.campaign.prestige_unlocked() and sim.state.prestige_batch.is_empty():
+        _event("PRESTIGE_LOCKED_FIRST_KILL")
+        AudioService.play_sfx("button")
+        return
     _open(which)
 
 func _open(which: String) -> void:
@@ -363,7 +471,7 @@ func _open(which: String) -> void:
 func _close() -> void:
     sheet.hide()
     # Free the hidden panel's rows so the tree returns to its baseline; reopening rebuilds anyway.
-    for root in [rows,actions]:
+    for root in [rows,actions,pinned_rows]:
         for child in root.get_children():
             root.remove_child(child)
             child.queue_free()
@@ -388,6 +496,10 @@ func _event(key: String) -> void:
     if key=="PRESTIGED":
         _close()
         return
+    _say(text)
+
+## Short text on the open panel's notice line, otherwise as a toast.
+func _say(text: String) -> void:
     if sheet.visible:notice.text=text
     else:_toast(text)
 
@@ -563,10 +675,13 @@ func _refresh_panel(force_layout:=false) -> void:
     var scroll: int=$Sheet/Margin/Content/Scroll.scroll_vertical
     var live_rows: VBoxContainer=rows
     var live_actions: HBoxContainer=actions
+    var live_pinned: VBoxContainer=pinned_rows
     var draft:=VBoxContainer.new()
     var draft_actions:=HBoxContainer.new()
+    var draft_pinned:=VBoxContainer.new()
     rows=draft
     actions=draft_actions
+    pinned_rows=draft_pinned
     action_buttons.clear()
     _set_title(tr("PANEL_"+panel.to_upper()))
     match panel:
@@ -587,13 +702,17 @@ func _refresh_panel(force_layout:=false) -> void:
     var mapping: Dictionary={}
     var structural:=_sync_panel_children(live_rows,draft,mapping,replace)
     structural=_sync_panel_children(live_actions,draft_actions,mapping,replace) or structural
+    structural=_sync_panel_children(live_pinned,draft_pinned,mapping,replace) or structural
     for info in action_buttons:
         info.node=mapping.get(info.node,info.node)
     rows=live_rows
     actions=live_actions
+    pinned_rows=live_pinned
     draft.free()
     draft_actions.free()
+    draft_pinned.free()
     actions.visible=actions.get_child_count()>0
+    pinned_rows.visible=pinned_rows.get_child_count()>0
     panel_context=context
     if get_tree().paused:
         $Sheet/Margin/Content/Header/Title.text+=" · "+tr("PAUSE")
@@ -717,77 +836,57 @@ func _item_panel() -> void:
     var id:=selected
     var def: Dictionary=sim.catalog.items[id]
     var r:=sim.record(id)
-    _set_title(sim.catalog.display_name(id),_tier_color(id).lightened(.55))
-    var card:=HBoxContainer.new()
-    card.add_theme_constant_override("separation",16)
-    rows.add_child(card)
-    var tile:=VBoxContainer.new()
-    tile.custom_minimum_size.x=112
-    card.add_child(tile)
-    var frame:=PanelContainer.new()
-    frame.add_theme_stylebox_override("panel",_tier_style(id,false))
-    tile.add_child(frame)
-    var icon:=TextureRect.new()
-    icon.texture=icon_cache[id]
-    icon.custom_minimum_size=Vector2(84,84)
-    icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
-    icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-    icon.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
-    frame.add_child(icon)
-    var tier_label:=Label.new()
-    tier_label.text=tr("ITEM_TIER_MERGE") % [int(def.tier),r.merge]
-    tier_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-    tier_label.add_theme_font_size_override("font_size",17)
-    tile.add_child(tier_label)
-    var count:=Label.new()
     var list:=_browse_list()
-    count.text=tr("ITEM_POSITION") % [list.find(id)+1,list.size()] if list.size()>1 else ""
-    count.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-    count.add_theme_font_size_override("font_size",17)
-    count.add_theme_color_override("font_color",Color(.7,.75,.82))
-    tile.add_child(count)
-    var details:=VBoxContainer.new()
-    details.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-    details.add_theme_constant_override("separation",4)
-    card.add_child(details)
-    # Effective change if equipped, from the same stat getter the simulation uses.
+    _set_title(sim.catalog.display_name(id),_tier_color(id).lightened(.55))
+    # Comparison layout (Change 8): the equipped item of this slot on top, the prospective item
+    # below it, next to the pinned Equip button. Deltas come from the simulation's own stat getter.
+    var comparing: bool=def.kind in ["weapon","outfit"] and not sim.equipped(id)
     var deltas: Dictionary={}
-    var compare:=""
-    if def.kind in ["weapon","outfit"] and not sim.equipped(id):
+    if comparing:
+        var current: String=sim.state[def.kind]
+        var equipped_box:=_item_summary_card(current,tr("COMPARE_EQUIPPED"),Color(.6,1,.75))
+        if current!="":
+            for key in sim.normal(current):_stat_line(equipped_box,_stat_text(key,sim.normal(current)[key],true),0.0,key,18,Color(.86,.89,.93))
+            for key in sim.record(current).extras:_stat_line(equipped_box,"+ "+_stat_text(key,sim.record(current).extras[key],true),0.0,key,17,Color(.7,.75,.82))
         var now: Dictionary=sim.stats()
         var after: Dictionary=sim.stats_with(id if def.kind=="weapon" else sim.state.weapon,id if def.kind=="outfit" else sim.state.outfit)
         for key in now:deltas[key]=float(after[key])-float(now[key])
-        compare=sim.state[def.kind]
+    var ribbon:=tr("COMPARE_SELECTED") if comparing else (tr("COMPARE_EQUIPPED") if sim.equipped(id) else tr("COMPARE_ITEM"))
+    var details:=_item_summary_card(id,ribbon,Color(1,.86,.5) if comparing else Color(.6,1,.75),list.find(id),list.size())
+    var shown: Dictionary={}
     for key in sim.normal(id):
-        _stat_line(details,_stat_text(key,sim.normal(id)[key],true),deltas.get(key,0.0),key,24)
+        _stat_line(details,_stat_text(key,sim.normal(id)[key],true),deltas.get(key,0.0),key,22)
+        shown[key]=true
     for key in r.extras:
-        _stat_line(details,"+ "+_stat_text(key,r.extras[key],true),0.0,key,20,Color(.75,.8,.87))
-    if not deltas.is_empty():
+        _stat_line(details,"+ "+_stat_text(key,r.extras[key],true),0.0 if shown.has(key) else deltas.get(key,0.0),key,19,Color(.75,.8,.87))
+        shown[key]=true
+    # Stats only the equipped item gives: shown as what equipping this one would lose.
+    for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen"]:
+        if not shown.has(key) and absf(deltas.get(key,0.0))>=.005:
+            _stat_line(details,tr("STAT_"+key.to_upper())+"  —",deltas[key],key,19,Color(.7,.75,.82))
+    if comparing:
         var effect:=[]
-        for key in ["damage","hp","crit","speed","defense","lifesteal","regen"]:
-            if absf(deltas.get(key,0.0))>=.005:effect.append(_signed_stat(key,deltas[key]))
-        # The summary takes the colour of its overall direction: all gains, all losses or mixed.
         var gains:=0;var losses:=0
         for key in ["damage","hp","crit","speed","defense","lifesteal","regen"]:
+            if absf(deltas.get(key,0.0))>=.005:effect.append(_signed_stat(key,deltas[key]))
             if deltas.get(key,0.0)>=.005:gains+=1
             elif deltas.get(key,0.0)<=-.005:losses+=1
+        # The summary takes the colour of its overall direction: all gains, all losses or mixed.
         var tone:=Color(.45,1,.55) if gains>0 and losses==0 else (Color(1,.5,.45) if losses>0 and gains==0 else (Color(1,.86,.5) if gains>0 else Color(.72,.9,1)))
-        _card_line(details,tr("EQUIP_EFFECT") % (", ".join(effect) if not effect.is_empty() else tr("NO_CHANGE")),18,tone)
-    if compare!="":
-        _card_line(details,tr("EQUIPPED_NOW") % [sim.catalog.display_name(compare),sim.record(compare).merge],17,Color(.7,.75,.82))
-    elif def.kind in ["weapon","outfit"] and sim.state[def.kind]=="" and not sim.equipped(id):
-        _card_line(details,tr("NOTHING_EQUIPPED"),17,Color(.7,.75,.82))
+        var verdict:=tr("COMPARE_UPGRADE") if gains>0 and losses==0 else (tr("COMPARE_DOWNGRADE") if losses>0 and gains==0 else (tr("COMPARE_MIXED") if gains>0 else tr("NO_CHANGE")))
+        _card_line(details,verdict+" · "+(tr("EQUIP_EFFECT") % (", ".join(effect) if not effect.is_empty() else tr("NO_CHANGE"))),18,tone)
     var owned:=tr("ITEM_OWNED") % fmt_count(r.qty)
     if def.kind in ["weapon","outfit"]:owned+=" · "+tr("ITEM_EQUIPPED_SHORT" if sim.equipped(id) else "ITEM_STORED_SHORT")
     _card_line(details,owned,17,Color(.8,.84,.9))
-    if r.merge<100:
+    var cap:=sim.merge_cap(id)
+    if r.merge<cap:
         var gains: Array[String]=[]
         for stat in def.normal:
-            var gain: float=sim.merge_gain(id,stat)
+            var gain: float=sim.next_merge_gain(id,stat)
             if gain>0:gains.append(_stat_text(stat,gain,true))
         _card_line(details,tr("NEXT_MERGE_GAIN")+" "+", ".join(gains),17,Color(.5,1,.65))
     else:
-        _card_line(details,tr("STOCK_BONUS") % fmt(maxi(0,int(r.qty)-1)*.05),17,Color(.5,1,.65))
+        _card_line(details,tr("STOCK_BONUS") % fmt(maxi(0,int(r.qty)-1)*float(sim.catalog.progression.merge.stock_bonus_per_copy)*100),17,Color(.5,1,.65))
     if sim.catalog.art_id(id)=="potion":_text(tr("POTION_ROLE") % fmt_value(float(sim.catalog.progression.potion_cooldown)),17,Color(.8,.84,.9))
     if sim.catalog.art_id(id)=="coin_boost":
         _text(tr("COIN_TONIC_ROLE") % [fmt(sim.normal(id).coin_bonus*100),fmt_value(sim.coin_boost_duration())],17,Color(.8,.84,.9))
@@ -797,9 +896,9 @@ func _item_panel() -> void:
     var more:=HFlowContainer.new()
     more.add_theme_constant_override("h_separation",8)
     more.add_theme_constant_override("v_separation",8)
-    var amount:=mini(int(r.qty)-1,100-int(r.merge))
-    if r.merge<100 and amount>1:_game_action(tr("MERGE_ALL") % amount,func()->void:if selected==id:sim.merge(id,true),true,"",more)
-    if def.next!="" and r.merge>=100:
+    var amount:=mini(int(r.qty)-1,cap-int(r.merge))
+    if r.merge<cap and amount>1:_game_action(tr("MERGE_ALL") % amount,func()->void:if selected==id:sim.merge(id,true),true,"",more)
+    if def.next!="" and r.merge>=cap:
         _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:sim.evolve(id),r.qty>=101,"EVOLUTION_NEEDS",more)
     if def.kind=="skill":
         for i in range(1+sim.level("skill_slots")):
@@ -815,7 +914,9 @@ func _item_panel() -> void:
         button.add_theme_font_size_override("font_size",18)
     if more.get_child_count()>0:rows.add_child(more)
     else:more.free()
-    if def.next!="" and r.merge>=100:
+    if sim.copy_growth(id):
+        _text(tr("COPY_GROWTH_EXPLAIN") % cap,17,Color(.8,.84,.9))
+    elif def.next!="" and r.merge>=cap:
         _text(tr("EVOLUTION_EXPLAIN"),17,Color(.8,.84,.9))
     elif def.next=="":
         _text(tr("MAX_ITEM_TIER"),17,Color(.8,.84,.9))
@@ -826,8 +927,56 @@ func _item_panel() -> void:
         _pinned(tr("USE"),func()->void:if selected==id:sim.use_item(id),true,"",true,"use")
     else:
         _pinned(tr("UNEQUIP" if sim.equipped(id) else "EQUIP"),func()->void:if selected==id:sim.equip(id),true,"",not sim.equipped(id),"equip")
-    _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:sim.merge(id),r.qty>1 and r.merge<100,"NEED_DUPLICATES" if r.qty<2 else "MERGE_MAX",false,"merge")
+    _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:sim.merge(id),r.qty>1 and r.merge<cap,"NEED_DUPLICATES" if r.qty<2 else "MERGE_MAX",false,"merge")
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
+
+## One item card: a small ribbon (Equipped / Selected), the tier-framed icon and the name with tier
+## and merge level. Returns the details column for stat lines. An empty id is the slot placeholder.
+func _item_summary_card(id: String,ribbon: String,ribbon_color: Color,at:=-1,count:=0) -> VBoxContainer:
+    var card:=PanelContainer.new()
+    card.theme_type_variation=&"Card"
+    rows.add_child(card)
+    var box:=VBoxContainer.new()
+    box.add_theme_constant_override("separation",4)
+    card.add_child(box)
+    var head:=HBoxContainer.new()
+    box.add_child(head)
+    var tag:=Label.new()
+    tag.text=ribbon
+    tag.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    tag.add_theme_font_size_override("font_size",16)
+    tag.add_theme_color_override("font_color",ribbon_color)
+    head.add_child(tag)
+    var where:=Label.new()
+    where.text=tr("ITEM_POSITION") % [at+1,count] if count>1 and at>=0 else ""
+    where.add_theme_font_size_override("font_size",16)
+    where.add_theme_color_override("font_color",Color(.7,.75,.82))
+    head.add_child(where)
+    var line:=HBoxContainer.new()
+    line.add_theme_constant_override("separation",14)
+    box.add_child(line)
+    var frame:=PanelContainer.new()
+    frame.add_theme_stylebox_override("panel",_tier_style(id,false))
+    frame.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
+    line.add_child(frame)
+    var icon:=TextureRect.new()
+    icon.texture=icon_cache.get(id) if id!="" else null
+    icon.custom_minimum_size=Vector2(72,72)
+    icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+    icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    icon.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+    frame.add_child(icon)
+    var details:=VBoxContainer.new()
+    details.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    details.add_theme_constant_override("separation",3)
+    line.add_child(details)
+    if id=="":
+        _card_line(details,tr("NOTHING_EQUIPPED"),18,Color(.7,.75,.82))
+        return details
+    _card_line(details,sim.catalog.display_name(id),21,_tier_color(id).lightened(.55))
+    var merge_text:=(tr("ITEM_TIER_MERGE_CAP") % [int(sim.catalog.items[id].tier),int(sim.record(id).merge),sim.merge_cap(id)]) if sim.copy_growth(id) else (tr("ITEM_TIER_MERGE") % [int(sim.catalog.items[id].tier),int(sim.record(id).merge)])
+    _card_line(details,merge_text,17,Color(.75,.8,.87))
+    return details
 
 func _stat_line(parent: Control,text: String,delta: float,key: String,font_size: int,color:=Color.WHITE) -> void:
     var line:=HBoxContainer.new()
@@ -904,14 +1053,16 @@ func _upgrades_panel() -> void:
         var snap: Dictionary=sim.campaign.offline_snapshot()
         _text(tr("OFFLINE_RATES") % [fmt(snap.coins),fmt(snap.gems),fmt(snap.cap/3600)],18,Color(.8,.84,.9))
     for id in sections[player_tab]:
-        if id.begins_with("skill_") and sim.state.unlocked_stage<2:continue
+        # Skill slots and auto-cast appear with the first skill found (Change 8).
+        if id.begins_with("skill_") and sim.state.skills_seen.is_empty():continue
         _group_upgrade_card(id,-1)
     if player_tab==0:
         for i in range(1+sim.level("skill_slots")):
             if sim.level("skill_auto_"+str(i))>0:
                 _game_action(tr("SKILL_AUTO_TOGGLE") % [i+1,tr("ON" if sim.state.skill_auto[i] else "OFF")],func()->void:sim.state.skill_auto[i]=not sim.state.skill_auto[i];sim.touch())
+        # A skill's own upgrades stay hidden until that skill has been obtained once.
         for key in sim.catalog.skills:
-            if sim.state.unlocked_stage>=2:_group_upgrade_card("cooldown_"+key,-1)
+            if sim.skill_seen(key):_group_upgrade_card("cooldown_"+key,-1)
     if player_tab==1:_action(tr("PANEL_INVENTORY"),func()->void:_open("inventory"))
     if player_tab==2:
         var row:=HFlowContainer.new();rows.add_child(row)
@@ -1018,7 +1169,7 @@ func _enemy_panel() -> void:
     if not d.boss:_tabs(["VARIANT_OUTFIT","VARIANT_WEAPON","VARIANT_BOTH","VARIANT_SKILL"].slice(0,variants.size()),enemy_variant,func(i: int)->void:enemy_variant=i)
     _tabs(["TAB_OVERVIEW","TAB_UPGRADES","TAB_ACHIEVEMENTS"],enemy_tab,func(i: int)->void:enemy_tab=i)
     if enemy_tab==2:_group_achievements_panel();return
-    if sim.level("focus",group)>0:_game_action(tr("FOCUS_GROUP") % [d.name,tr("ON" if sim.state.focus==group and sim.state.focus_variant==enemy_variant else "OFF")],func()->void:sim.focus(group,enemy_variant))
+    if sim.level("focus",group)>0:_game_action(tr("FOCUS_GROUP") % [d.name,tr("ON" if sim.state.focus==group and sim.state.focus_variant==enemy_variant else "OFF")],func()->void:sim.focus(group,enemy_variant),sim.campaign.spot_discovered(group,enemy_variant),"SPOT_UNDISCOVERED")
     if enemy_tab==1:
         _section(tr("SECTION_REWARDS"))
         for id in ["loot","coin_amount","group_xp","supply_drop"]:_group_upgrade_card(id,group)
@@ -1134,17 +1285,17 @@ func _world_panel() -> void:
     _section(tr("SECTION_CAMPS"))
     var hidden:=0
     for i in range(stage.spawns.size()):
-        var a: Array=stage.spawns[i]
-        if not sim.campaign.cell_known(Vector2(a[0],a[1])) and not sim.state.spawns.has(i):
+        if not sim.campaign.camp_known(i):
             hidden+=1
             continue
         _camp_row(i)
     if hidden>0:_text(tr("CAMPS_HIDDEN") % hidden,17,Color(.7,.75,.82))
     var map=preload("res://scripts/game/map_view.gd").new()
     map.sim=sim
-    map.custom_minimum_size=Vector2(0,300)
+    # Taller than Change 7 (300) so one marker per spot stays tappable on the largest stages.
+    map.custom_minimum_size=Vector2(0,420)
     map.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-    map.selected.connect(func(g: int)->void:group=g;enemy_variant=2;enemy_tab=0;_open("enemy"))
+    map.selected.connect(func(g: int,v: int)->void:group=g;enemy_variant=v;enemy_tab=0;_open("enemy"))
     rows.add_child(map)
     if sim.level("map_detail",int(sim.state.stage))>=2:
         var known:=HFlowContainer.new()
@@ -1215,30 +1366,91 @@ func _camp_panel() -> void:
 
 # ---------------------------------------------------------------- stats, settings, history, inventory
 
+## Stats, opened from Settings since Change 8: short sections of aligned name/value rows (effective
+## values first, then what boosts them, then time), one value per row with its unit.
 func _stats_panel() -> void:
-    _text(tr("PLAYER_LEVEL_CAP") % sim.state.player_level,20)
+    var s:=sim.stats()
+    var defense: float=float(s.defense)
+    _stat_section(tr("STATS_SECTION_CHARACTER"),[
+        [tr("STATS_LEVEL"),tr("STATS_LEVEL_VALUE") % [sim.state.player_level,int(sim.catalog.progression.max_level)]],
+        [tr("STATS_STAGE"),str(sim.campaign.stage().name)],
+        [tr("STATS_PRESTIGES"),str(int(sim.state.prestiges))],
+        [tr("STATS_CARDS"),"%d / %d" % [sim.state.owned_cards.size(),sim.catalog.campaign.cards.size()]]])
+    _stat_section(tr("STATS_SECTION_OFFENSE"),[
+        [tr("STAT_DAMAGE"),fmt(s.damage)],
+        [tr("STAT_CRIT"),fmt_value(s.crit*100)+"%"],
+        [tr("STAT_CRIT_DAMAGE"),"×"+fmt(s.crit_damage)],
+        [tr("STATS_ATTACK_SPEED"),tr("STATS_ATTACK_SPEED_VALUE") % [fmt_value(1.0+s.speed),fmt_value(s.speed*100)]],
+        [tr("STAT_LIFESTEAL"),fmt_value(s.lifesteal*100)+"%"]])
+    _stat_section(tr("STATS_SECTION_DEFENSE"),[
+        [tr("STAT_HP"),fmt_count(s.hp)],
+        [tr("STAT_DEFENSE"),tr("STATS_DEFENSE_VALUE") % [fmt_value(defense),fmt_value(100.0*defense/(100.0+defense))] if defense>0 else "0"],
+        [tr("STAT_REGEN"),fmt_value(s.regen)+" "+tr("HP_PER_SECOND")],
+        [tr("STATS_RESPAWN"),tr("SECONDS_VALUE") % fmt_value(sim.player_upgrade_value("respawn"))]])
+    var boosts: Array=[
+        [tr("STATS_PRESTIGE_HP"),"×"+fmt_value(sim.card("hp"))],
+        [tr("STATS_PRESTIGE_DAMAGE"),"×"+fmt_value(sim.card("damage"))],
+        [tr("STATS_MOVEMENT"),"+"+fmt_value((sim.campaign.move_speed()/90.0-1.0)*100)+"%"],
+        [tr("STATS_STORED_SHARE"),fmt_value(float(sim.catalog.progression.stored_weapon_factor)*100)+"%"]]
+    if sim.campaign.bonus("equipped")>0:boosts.append([tr("STATS_EQUIPPED_BONUS"),"+"+fmt(sim.campaign.bonus("equipped")*100)+"%"])
+    if sim.state.boost_time>0:boosts.append([tr("STAT_COIN_BONUS"),tr("STATS_TONIC_VALUE") % [fmt(float(sim.state.boost_power)*100),ceili(sim.state.boost_time)]])
+    _stat_section(tr("STATS_SECTION_BOOSTS"),boosts)
+    # What each source adds before multipliers and caps (playbook 17.2), damage and HP first.
+    var sources: Array=[]
+    for source in sim.stat_sources():
+        var values: Dictionary=sim.stat_sources()[source]
+        var parts: Array=[]
+        for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen"]:
+            if absf(float(values.get(key,0.0)))>=.005:parts.append(_short_stat(key,float(values[key])))
+        if not parts.is_empty():sources.append([tr(source),", ".join(parts)])
+    _stat_section(tr("STAT_SOURCES"),sources)
     # Active play only (no pause, background, offline or prestige-choice time); see simulation.step.
-    _text(tr("PLAYTIME_LINE") % [fmt_duration(float(sim.state.get("playtime_total",0.0))),fmt_duration(float(sim.state.get("playtime_run",0.0)))],18,Color(.8,.84,.9))
-    if sim.state.boost_time>0:_text(tr("COIN_TONIC_ACTIVE") % [fmt(float(sim.state.boost_power)*100),ceili(sim.state.boost_time)],18,Color(1,.84,.34))
+    _stat_section(tr("STATS_SECTION_TIME"),[
+        [tr("STATS_TIME_TOTAL"),fmt_duration(float(sim.state.get("playtime_total",0.0)))],
+        [tr("STATS_TIME_RUN"),fmt_duration(float(sim.state.get("playtime_run",0.0)))]])
+    _text(tr("STAT_CAPS_NOTE"),16,Color(.7,.75,.82))
+
+## One stats card: a heading, then name (left, muted) and value (right, bright) per row.
+func _stat_section(title: String,entries: Array) -> void:
+    if entries.is_empty():return
+    var card:=PanelContainer.new()
+    card.theme_type_variation=&"Card"
+    rows.add_child(card)
+    var box:=VBoxContainer.new()
+    box.add_theme_constant_override("separation",4)
+    card.add_child(box)
+    var heading:=Label.new()
+    heading.text=title
+    heading.add_theme_font_size_override("font_size",18)
+    heading.add_theme_color_override("font_color",Color(1,.86,.5))
+    box.add_child(heading)
     var grid:=GridContainer.new()
     grid.columns=2
-    grid.add_theme_constant_override("h_separation",18)
-    rows.add_child(grid)
-    for key in sim.stats():
-        var label:=Label.new()
-        label.text=_stat_text(key,sim.stats()[key])
-        label.add_theme_font_size_override("font_size",20)
-        label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-        grid.add_child(label)
-    _action(tr("PANEL_UPGRADES"),func()->void:_open("upgrades"))
-    _section(tr("STAT_SOURCES"))
-    for source in sim.stat_sources():
-        var parts: Array=[]
-        for key in sim.stat_sources()[source]:parts.append(_stat_text(key,sim.stat_sources()[source][key],true))
-        if not parts.is_empty():_text(tr(source)+": "+", ".join(parts),17,Color(.8,.84,.9))
-    _text(tr("PERMANENT_MULTIPLIERS") % [fmt(sim.card("hp")),fmt(sim.card("damage"))],17,Color(.8,.84,.9))
-    _text(tr("PRESTIGE_COUNT") % sim.state.prestiges,17,Color(.8,.84,.9))
-    _text(tr("STAT_CAPS_NOTE"),17,Color(.7,.75,.82))
+    grid.add_theme_constant_override("h_separation",16)
+    grid.add_theme_constant_override("v_separation",2)
+    box.add_child(grid)
+    for entry in entries:
+        var name_label:=Label.new()
+        name_label.text=str(entry[0])
+        name_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        name_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+        name_label.add_theme_font_size_override("font_size",18)
+        name_label.add_theme_color_override("font_color",Color(.78,.82,.88))
+        grid.add_child(name_label)
+        var value:=Label.new()
+        value.text=str(entry[1])
+        value.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
+        value.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+        value.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        value.add_theme_font_size_override("font_size",19)
+        value.add_theme_color_override("font_color",Color.WHITE)
+        grid.add_child(value)
+
+## Compact contribution text: "+12.5 dmg", "+3% crit".
+func _short_stat(key: String,value: float) -> String:
+    if key in ["crit","lifesteal","speed"]:return "+%s%% %s" % [fmt(value*100),tr("STATS_SHORT_"+key.to_upper())]
+    if key=="crit_damage":return "+%s%% %s" % [fmt(value*100),tr("STATS_SHORT_"+key.to_upper())]
+    return "+%s %s" % [fmt(value),tr("STATS_SHORT_"+key.to_upper())]
 
 ## Compact Android-friendly duration: 2h 05m, 4m 09s, 37s.
 static func fmt_duration(seconds: float) -> String:
@@ -1260,6 +1472,8 @@ func _settings_panel() -> void:
     row.add_theme_constant_override("h_separation",8)
     row.add_theme_constant_override("v_separation",8)
     rows.add_child(row)
+    # Stats moved here from the navigation bar (Change 8); Player Upgrades took its place.
+    _action(tr("STATS_OPEN"),func()->void:_open("stats"),true,"",row).set_meta("guide","open_stats")
     _action(tr("SOUND_STATUS") % tr("ON" if SettingsState.sfx_enabled else "OFF"),func()->void:SettingsState.sfx_enabled=not SettingsState.sfx_enabled;SettingsState.settings_changed.emit(),true,"",row)
     _action(tr("GUIDE_REVIEW"),func()->void:sim.state.tutorial.mode="pending";_close(),true,"",row)
     _action(tr("LOOT_HISTORY"),func()->void:_open("history"),true,"",row)
@@ -1285,11 +1499,41 @@ func _history_text(entry: Dictionary) -> String:
     return tr("HISTORY_ITEM") % [fmt_count(entry.amount),sim.catalog.display_name(entry.id)]
 
 func _inventory_panel() -> void:
+    _pinned_equipment()
     _tabs(["ALL_ITEMS","WEAPONS","OUTFITS","SKILLS"],inventory_filter,func(i: int)->void:inventory_filter=i;slot_signatures.clear();_refresh_slots())
     for id in sim.state.items:
         if sim.quantity(id)>0 and (inventory_filter==0 or sim.catalog.items[id].kind==["","weapon","outfit","skill"][inventory_filter]):
             var b:=_action("%s · ×%s · ^%d" % [sim.catalog.display_name(id),fmt_count(sim.quantity(id)),sim.record(id).merge],func()->void:selected=id;selected_slot=sim.state.supplies.find(id);_open("item"))
             b.icon=icon_cache.get(id);b.expand_icon=true;b.add_theme_constant_override("icon_max_width",36)
+
+## Equipped weapon and outfit, pinned above the list: independent of filter, order and scroll.
+## They are views of the equipped ids (the list below still shows each item once).
+func _pinned_equipment() -> void:
+    var heading:=Label.new()
+    heading.text=tr("EQUIPPED_PINNED")
+    heading.add_theme_font_size_override("font_size",17)
+    heading.add_theme_color_override("font_color",Color(.6,1,.75))
+    pinned_rows.add_child(heading)
+    var line:=HBoxContainer.new()
+    line.add_theme_constant_override("separation",8)
+    pinned_rows.add_child(line)
+    for kind in ["weapon","outfit"]:
+        var id: String=sim.state[kind]
+        var button:=Button.new()
+        button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        button.custom_minimum_size=Vector2(0,64)
+        button.alignment=HORIZONTAL_ALIGNMENT_LEFT
+        button.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+        button.add_theme_font_size_override("font_size",17)
+        button.text=(tr("EQUIPPED_WEAPON") if kind=="weapon" else tr("EQUIPPED_OUTFIT"))+"
+"+(sim.catalog.display_name(id)+" ^%d" % int(sim.record(id).merge) if id!="" else tr("NOTHING_EQUIPPED_SHORT"))
+        button.icon=icon_cache.get(id) if id!="" else null
+        button.expand_icon=true
+        button.add_theme_constant_override("icon_max_width",40)
+        button.add_theme_stylebox_override("normal",_tier_style(id,false))
+        button.disabled=id==""
+        button.pressed.connect(func()->void:_open_equipped(kind))
+        line.add_child(button)
 
 ## The explicit claim step for offline earnings. Nothing is paid, and no offline prestige
 ## opportunity is discovered, until Claim is pressed (campaign.claim_offline).
@@ -1429,12 +1673,15 @@ func _prestige_panel() -> void:
         return
     _mark_prestige_seen()
     var gate:=sim.campaign.prestige_gate_reason()
-    var ready:=sim.campaign.ready_ids()
+    # Only ready opportunities that can still award a card enter the batch (Change 8 gate).
+    var ready:=sim.campaign.awardable_ids()
     _text(tr("PRESTIGE_INTRO"),18,Color(.8,.84,.9))
     if gate!="":
         _text(tr(gate),20,Color(1,.72,.45))
-    elif ready.is_empty() and sim.state.prestige_batch.is_empty():
+    elif sim.campaign.ready_ids().is_empty():
         _text(tr("NO_READY_PRESTIGE"),18,Color(1,.86,.5))
+    elif ready.is_empty():
+        _text(tr("NO_CARD_AVAILABLE"),18,Color(1,.86,.5))
     _text(tr("PRESTIGE_READY_COUNT") % [ready.size(),sim.state.owned_cards.size(),sim.catalog.campaign.cards.size()],20,Color(1,.86,.5))
     _pinned(tr("PRESTIGE_BATCH") % ready.size(),func()->void:_confirm(_prestige_summary(ready),func()->void:sim.campaign.begin_prestige()),sim.campaign.prestige_block_reason().is_empty(),sim.campaign.prestige_block_reason(),true,"begin_prestige")
     # Ready first, then in progress, then completed history.
@@ -1569,7 +1816,7 @@ func _refresh_badges() -> void:
     # The button itself names the reset gate while it applies (the panel has the full reason).
     var button: Button=nav.get_node("Prestige")
     var gated: bool=sim.campaign.prestige_gate_reason()!="" and sim.state.prestige_batch.is_empty()
-    var label:=tr("NAV_PRESTIGE")+("\n"+tr("NAV_PRESTIGE_GATE") % sim.catalog.stages[int(sim.catalog.progression.prestige_gate_stage)-2].name if gated else "")
+    var label:=tr("NAV_PRESTIGE")+("\n"+tr("NAV_PRESTIGE_LOCKED") if gated else "")
     if button.text!=label:
         button.text=label
         button.add_theme_font_size_override("font_size",14 if gated else 17)

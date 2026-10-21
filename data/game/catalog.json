@@ -285,11 +285,12 @@
       "tier": 1,
       "family": "skill_heal",
       "art_id": "skill_heal",
-      "next": "skill_heal_t2",
+      "next": "",
       "reroll": 3,
       "merge_gain": {
         "power": 0.2
-      }
+      },
+      "legacy": false
     },
     "skill_heal_t2": {
       "kind": "skill",
@@ -312,11 +313,12 @@
       "tier": 2,
       "family": "skill_heal",
       "art_id": "skill_heal",
-      "next": "skill_heal_t3",
+      "next": "",
       "reroll": 6,
       "merge_gain": {
         "power": 0.51
-      }
+      },
+      "legacy": true
     },
     "skill_heal_t3": {
       "kind": "skill",
@@ -339,11 +341,12 @@
       "tier": 3,
       "family": "skill_heal",
       "art_id": "skill_heal",
-      "next": "skill_heal_t4",
+      "next": "",
       "reroll": 12,
       "merge_gain": {
         "power": 1.3005
-      }
+      },
+      "legacy": true
     },
     "skill_heal_t4": {
       "kind": "skill",
@@ -366,11 +369,12 @@
       "tier": 4,
       "family": "skill_heal",
       "art_id": "skill_heal",
-      "next": "skill_heal_t5",
+      "next": "",
       "reroll": 24,
       "merge_gain": {
         "power": 3.316275
-      }
+      },
+      "legacy": true
     },
     "skill_heal_t5": {
       "kind": "skill",
@@ -393,11 +397,12 @@
       "tier": 5,
       "family": "skill_heal",
       "art_id": "skill_heal",
-      "next": "skill_heal_t6",
+      "next": "",
       "reroll": 48,
       "merge_gain": {
         "power": 8.456501
-      }
+      },
+      "legacy": true
     },
     "skill_heal_t6": {
       "kind": "skill",
@@ -420,11 +425,12 @@
       "tier": 6,
       "family": "skill_heal",
       "art_id": "skill_heal",
-      "next": "skill_heal_t7",
+      "next": "",
       "reroll": 96,
       "merge_gain": {
         "power": 21.564078
-      }
+      },
+      "legacy": true
     },
     "skill_heal_t7": {
       "kind": "skill",
@@ -451,7 +457,8 @@
       "reroll": 192,
       "merge_gain": {
         "power": 54.988399
-      }
+      },
+      "legacy": true
     },
     "skill_frost": {
       "kind": "skill",
@@ -474,11 +481,12 @@
       "tier": 1,
       "family": "skill_frost",
       "art_id": "skill_frost",
-      "next": "skill_frost_t2",
+      "next": "",
       "reroll": 3,
       "merge_gain": {
         "power": 0.024
-      }
+      },
+      "legacy": false
     },
     "skill_frost_t2": {
       "kind": "skill",
@@ -501,11 +509,12 @@
       "tier": 2,
       "family": "skill_frost",
       "art_id": "skill_frost",
-      "next": "skill_frost_t3",
+      "next": "",
       "reroll": 6,
       "merge_gain": {
         "power": 0.06119999999999999
-      }
+      },
+      "legacy": true
     },
     "skill_frost_t3": {
       "kind": "skill",
@@ -528,11 +537,12 @@
       "tier": 3,
       "family": "skill_frost",
       "art_id": "skill_frost",
-      "next": "skill_frost_t4",
+      "next": "",
       "reroll": 12,
       "merge_gain": {
         "power": 0.15606
-      }
+      },
+      "legacy": true
     },
     "skill_frost_t4": {
       "kind": "skill",
@@ -555,11 +565,12 @@
       "tier": 4,
       "family": "skill_frost",
       "art_id": "skill_frost",
-      "next": "skill_frost_t5",
+      "next": "",
       "reroll": 24,
       "merge_gain": {
         "power": 0.397953
-      }
+      },
+      "legacy": true
     },
     "skill_frost_t5": {
       "kind": "skill",
@@ -582,11 +593,12 @@
       "tier": 5,
       "family": "skill_frost",
       "art_id": "skill_frost",
-      "next": "skill_frost_t6",
+      "next": "",
       "reroll": 48,
       "merge_gain": {
         "power": 1.0147801499999998
-      }
+      },
+      "legacy": true
     },
     "skill_frost_t6": {
       "kind": "skill",
@@ -609,11 +621,12 @@
       "tier": 6,
       "family": "skill_frost",
       "art_id": "skill_frost",
-      "next": "skill_frost_t7",
+      "next": "",
       "reroll": 96,
       "merge_gain": {
         "power": 2.587689382499999
-      }
+      },
+      "legacy": true
     },
     "skill_frost_t7": {
       "kind": "skill",
@@ -640,7 +653,8 @@
       "reroll": 192,
       "merge_gain": {
         "power": 6.598607925374997
-      }
+      },
+      "legacy": true
     },
     "skill_fire": {
       "kind": "skill",
@@ -663,11 +677,12 @@
       "tier": 1,
       "family": "skill_fire",
       "art_id": "skill_fire",
-      "next": "skill_fire_t2",
+      "next": "",
       "reroll": 3,
       "merge_gain": {
         "power": 0.032
-      }
+      },
+      "legacy": false
     },
     "skill_fire_t2": {
       "kind": "skill",
@@ -690,11 +705,12 @@
       "tier": 2,
       "family": "skill_fire",
       "art_id": "skill_fire",
-      "next": "skill_fire_t3",
+      "next": "",
       "reroll": 6,
       "merge_gain": {
         "power": 0.0816
-      }
+      },
+      "legacy": true
     },
     "skill_fire_t3": {
       "kind": "skill",
@@ -717,11 +733,12 @@
       "tier": 3,
       "family": "skill_fire",
       "art_id": "skill_fire",
-      "next": "skill_fire_t4",
+      "next": "",
       "reroll": 12,
       "merge_gain": {
         "power": 0.20808000000000001
-      }
+      },
+      "legacy": true
     },
     "skill_fire_t4": {
       "kind": "skill",
@@ -744,11 +761,12 @@
       "tier": 4,
       "family": "skill_fire",
       "art_id": "skill_fire",
-      "next": "skill_fire_t5",
+      "next": "",
       "reroll": 24,
       "merge_gain": {
         "power": 0.5306040000000001
-      }
+      },
+      "legacy": true
     },
     "skill_fire_t5": {
       "kind": "skill",
@@ -771,11 +789,12 @@
       "tier": 5,
       "family": "skill_fire",
       "art_id": "skill_fire",
-      "next": "skill_fire_t6",
+      "next": "",
       "reroll": 48,
       "merge_gain": {
         "power": 1.3530402000000001
-      }
+      },
+      "legacy": true
     },
     "skill_fire_t6": {
       "kind": "skill",
@@ -798,11 +817,12 @@
       "tier": 6,
       "family": "skill_fire",
       "art_id": "skill_fire",
-      "next": "skill_fire_t7",
+      "next": "",
       "reroll": 96,
       "merge_gain": {
         "power": 3.45025251
-      }
+      },
+      "legacy": true
     },
     "skill_fire_t7": {
       "kind": "skill",
@@ -829,7 +849,8 @@
       "reroll": 192,
       "merge_gain": {
         "power": 8.798143900499998
-      }
+      },
+      "legacy": true
     },
     "skill_lightning": {
       "kind": "skill",
@@ -852,11 +873,12 @@
       "tier": 1,
       "family": "skill_lightning",
       "art_id": "skill_lightning",
-      "next": "skill_lightning_t2",
+      "next": "",
       "reroll": 3,
       "merge_gain": {
         "power": 0.027999999999999997
-      }
+      },
+      "legacy": false
     },
     "skill_lightning_t2": {
       "kind": "skill",
@@ -879,11 +901,12 @@
       "tier": 2,
       "family": "skill_lightning",
       "art_id": "skill_lightning",
-      "next": "skill_lightning_t3",
+      "next": "",
       "reroll": 6,
       "merge_gain": {
         "power": 0.07139999999999999
-      }
+      },
+      "legacy": true
     },
     "skill_lightning_t3": {
       "kind": "skill",
@@ -906,11 +929,12 @@
       "tier": 3,
       "family": "skill_lightning",
       "art_id": "skill_lightning",
-      "next": "skill_lightning_t4",
+      "next": "",
       "reroll": 12,
       "merge_gain": {
         "power": 0.18206999999999993
-      }
+      },
+      "legacy": true
     },
     "skill_lightning_t4": {
       "kind": "skill",
@@ -933,11 +957,12 @@
       "tier": 4,
       "family": "skill_lightning",
       "art_id": "skill_lightning",
-      "next": "skill_lightning_t5",
+      "next": "",
       "reroll": 24,
       "merge_gain": {
         "power": 0.46427849999999987
-      }
+      },
+      "legacy": true
     },
     "skill_lightning_t5": {
       "kind": "skill",
@@ -960,11 +985,12 @@
       "tier": 5,
       "family": "skill_lightning",
       "art_id": "skill_lightning",
-      "next": "skill_lightning_t6",
+      "next": "",
       "reroll": 48,
       "merge_gain": {
         "power": 1.1839101749999996
-      }
+      },
+      "legacy": true
     },
     "skill_lightning_t6": {
       "kind": "skill",
@@ -987,11 +1013,12 @@
       "tier": 6,
       "family": "skill_lightning",
       "art_id": "skill_lightning",
-      "next": "skill_lightning_t7",
+      "next": "",
       "reroll": 96,
       "merge_gain": {
         "power": 3.018970946249999
-      }
+      },
+      "legacy": true
     },
     "skill_lightning_t7": {
       "kind": "skill",
@@ -1018,7 +1045,8 @@
       "reroll": 192,
       "merge_gain": {
         "power": 7.698375912937498
-      }
+      },
+      "legacy": true
     },
     "skill_focus": {
       "kind": "skill",
@@ -1041,11 +1069,12 @@
       "tier": 1,
       "family": "skill_focus",
       "art_id": "skill_focus",
-      "next": "skill_focus_t2",
+      "next": "",
       "reroll": 3,
       "merge_gain": {
         "power": 0.003
-      }
+      },
+      "legacy": false
     },
     "skill_focus_t2": {
       "kind": "skill",
@@ -1068,11 +1097,12 @@
       "tier": 2,
       "family": "skill_focus",
       "art_id": "skill_focus",
-      "next": "skill_focus_t3",
+      "next": "",
       "reroll": 6,
       "merge_gain": {
         "power": 0.007649999999999999
-      }
+      },
+      "legacy": true
     },
     "skill_focus_t3": {
       "kind": "skill",
@@ -1095,11 +1125,12 @@
       "tier": 3,
       "family": "skill_focus",
       "art_id": "skill_focus",
-      "next": "skill_focus_t4",
+      "next": "",
       "reroll": 12,
       "merge_gain": {
         "power": 0.0195075
-      }
+      },
+      "legacy": true
     },
     "skill_focus_t4": {
       "kind": "skill",
@@ -1122,11 +1153,12 @@
       "tier": 4,
       "family": "skill_focus",
       "art_id": "skill_focus",
-      "next": "skill_focus_t5",
+      "next": "",
       "reroll": 24,
       "merge_gain": {
         "power": 0.049744125
-      }
+      },
+      "legacy": true
     },
     "skill_focus_t5": {
       "kind": "skill",
@@ -1149,11 +1181,12 @@
       "tier": 5,
       "family": "skill_focus",
       "art_id": "skill_focus",
-      "next": "skill_focus_t6",
+      "next": "",
       "reroll": 48,
       "merge_gain": {
         "power": 0.12684751874999997
-      }
+      },
+      "legacy": true
     },
     "skill_focus_t6": {
       "kind": "skill",
@@ -1176,11 +1209,12 @@
       "tier": 6,
       "family": "skill_focus",
       "art_id": "skill_focus",
-      "next": "skill_focus_t7",
+      "next": "",
       "reroll": 96,
       "merge_gain": {
         "power": 0.32346117281249986
-      }
+      },
+      "legacy": true
     },
     "skill_focus_t7": {
       "kind": "skill",
@@ -1207,7 +1241,8 @@
       "reroll": 192,
       "merge_gain": {
         "power": 0.8248259906718747
-      }
+      },
+      "legacy": true
     },
     "skill_strike": {
       "kind": "skill",
@@ -1230,11 +1265,12 @@
       "tier": 1,
       "family": "skill_strike",
       "art_id": "skill_strike",
-      "next": "skill_strike_t2",
+      "next": "",
       "reroll": 3,
       "merge_gain": {
         "power": 0.055999999999999994
-      }
+      },
+      "legacy": false
     },
     "skill_strike_t2": {
       "kind": "skill",
@@ -1257,11 +1293,12 @@
       "tier": 2,
       "family": "skill_strike",
       "art_id": "skill_strike",
-      "next": "skill_strike_t3",
+      "next": "",
       "reroll": 6,
       "merge_gain": {
         "power": 0.14279999999999998
-      }
+      },
+      "legacy": true
     },
     "skill_strike_t3": {
       "kind": "skill",
@@ -1284,11 +1321,12 @@
       "tier": 3,
       "family": "skill_strike",
       "art_id": "skill_strike",
-      "next": "skill_strike_t4",
+      "next": "",
       "reroll": 12,
       "merge_gain": {
         "power": 0.36413999999999985
-      }
+      },
+      "legacy": true
     },
     "skill_strike_t4": {
       "kind": "skill",
@@ -1311,11 +1349,12 @@
       "tier": 4,
       "family": "skill_strike",
       "art_id": "skill_strike",
-      "next": "skill_strike_t5",
+      "next": "",
       "reroll": 24,
       "merge_gain": {
         "power": 0.9285569999999997
-      }
+      },
+      "legacy": true
     },
     "skill_strike_t5": {
       "kind": "skill",
@@ -1338,11 +1377,12 @@
       "tier": 5,
       "family": "skill_strike",
       "art_id": "skill_strike",
-      "next": "skill_strike_t6",
+      "next": "",
       "reroll": 48,
       "merge_gain": {
         "power": 2.3678203499999992
-      }
+      },
+      "legacy": true
     },
     "skill_strike_t6": {
       "kind": "skill",
@@ -1365,11 +1405,12 @@
       "tier": 6,
       "family": "skill_strike",
       "art_id": "skill_strike",
-      "next": "skill_strike_t7",
+      "next": "",
       "reroll": 96,
       "merge_gain": {
         "power": 6.037941892499998
-      }
+      },
+      "legacy": true
     },
     "skill_strike_t7": {
       "kind": "skill",
@@ -1396,7 +1437,8 @@
       "reroll": 192,
       "merge_gain": {
         "power": 15.396751825874995
-      }
+      },
+      "legacy": true
     },
     "unit-blue-cap_outfit": {
       "kind": "outfit",
@@ -1434,7 +1476,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-blue-cap_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 10 v1.png",
       "icon": [
         0,
@@ -1447,7 +1489,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": false
     },
     "unit-blue-cap_outfit_t2": {
       "kind": "outfit",
@@ -1485,7 +1528,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-blue-cap_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 10 v1.png",
       "icon": [
         0,
@@ -1498,7 +1541,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-blue-cap_outfit_t3": {
       "kind": "outfit",
@@ -1536,7 +1580,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-blue-cap_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 10 v1.png",
       "icon": [
         0,
@@ -1549,7 +1593,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-blue-cap_outfit_t4": {
       "kind": "outfit",
@@ -1587,7 +1632,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-blue-cap_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 10 v1.png",
       "icon": [
         0,
@@ -1600,7 +1645,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-blue-cap_outfit_t5": {
       "kind": "outfit",
@@ -1638,7 +1684,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-blue-cap_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 10 v1.png",
       "icon": [
         0,
@@ -1651,7 +1697,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-blue-cap_outfit_t6": {
       "kind": "outfit",
@@ -1689,7 +1736,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-blue-cap_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 10 v1.png",
       "icon": [
         0,
@@ -1702,7 +1749,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-blue-cap_outfit_t7": {
       "kind": "outfit",
@@ -1753,7 +1801,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-red-scarf_outfit": {
       "kind": "outfit",
@@ -1791,7 +1840,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-red-scarf_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 1 v1.png",
       "icon": [
         0,
@@ -1804,7 +1853,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": false
     },
     "unit-red-scarf_outfit_t2": {
       "kind": "outfit",
@@ -1842,7 +1892,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-red-scarf_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 1 v1.png",
       "icon": [
         0,
@@ -1855,7 +1905,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-red-scarf_outfit_t3": {
       "kind": "outfit",
@@ -1893,7 +1944,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-red-scarf_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 1 v1.png",
       "icon": [
         0,
@@ -1906,7 +1957,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-red-scarf_outfit_t4": {
       "kind": "outfit",
@@ -1944,7 +1996,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-red-scarf_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 1 v1.png",
       "icon": [
         0,
@@ -1957,7 +2009,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-red-scarf_outfit_t5": {
       "kind": "outfit",
@@ -1995,7 +2048,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-red-scarf_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 1 v1.png",
       "icon": [
         0,
@@ -2008,7 +2061,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-red-scarf_outfit_t6": {
       "kind": "outfit",
@@ -2046,7 +2100,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-red-scarf_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 1 v1.png",
       "icon": [
         0,
@@ -2059,7 +2113,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-red-scarf_outfit_t7": {
       "kind": "outfit",
@@ -2110,7 +2165,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-chef-hat_outfit": {
       "kind": "outfit",
@@ -2148,7 +2204,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-chef-hat_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 14 v1.png",
       "icon": [
         0,
@@ -2161,7 +2217,8 @@
       "name": "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": false
     },
     "unit-chef-hat_outfit_t2": {
       "kind": "outfit",
@@ -2199,7 +2256,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-chef-hat_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 14 v1.png",
       "icon": [
         0,
@@ -2212,7 +2269,8 @@
       "name": "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-chef-hat_outfit_t3": {
       "kind": "outfit",
@@ -2250,7 +2308,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-chef-hat_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 14 v1.png",
       "icon": [
         0,
@@ -2263,7 +2321,8 @@
       "name": "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-chef-hat_outfit_t4": {
       "kind": "outfit",
@@ -2301,7 +2360,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-chef-hat_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 14 v1.png",
       "icon": [
         0,
@@ -2314,7 +2373,8 @@
       "name": "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-chef-hat_outfit_t5": {
       "kind": "outfit",
@@ -2352,7 +2412,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-chef-hat_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 14 v1.png",
       "icon": [
         0,
@@ -2365,7 +2425,8 @@
       "name": "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-chef-hat_outfit_t6": {
       "kind": "outfit",
@@ -2403,7 +2464,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-chef-hat_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 14 v1.png",
       "icon": [
         0,
@@ -2416,7 +2477,8 @@
       "name": "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-chef-hat_outfit_t7": {
       "kind": "outfit",
@@ -2467,7 +2529,8 @@
       "name": "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "boss-snowman_outfit": {
       "kind": "outfit",
@@ -2505,7 +2568,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-snowman_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 4 v1.png",
       "icon": [
         0,
@@ -2518,7 +2581,8 @@
       "name": "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": false
     },
     "boss-snowman_outfit_t2": {
       "kind": "outfit",
@@ -2556,7 +2620,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-snowman_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 4 v1.png",
       "icon": [
         0,
@@ -2569,7 +2633,8 @@
       "name": "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-snowman_outfit_t3": {
       "kind": "outfit",
@@ -2607,7 +2672,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-snowman_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 4 v1.png",
       "icon": [
         0,
@@ -2620,7 +2685,8 @@
       "name": "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-snowman_outfit_t4": {
       "kind": "outfit",
@@ -2658,7 +2724,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-snowman_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 4 v1.png",
       "icon": [
         0,
@@ -2671,7 +2737,8 @@
       "name": "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": true
     },
     "boss-snowman_outfit_t5": {
       "kind": "outfit",
@@ -2709,7 +2776,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-snowman_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 4 v1.png",
       "icon": [
         0,
@@ -2722,7 +2789,8 @@
       "name": "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-snowman_outfit_t6": {
       "kind": "outfit",
@@ -2760,7 +2828,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-snowman_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 4 v1.png",
       "icon": [
         0,
@@ -2773,7 +2841,8 @@
       "name": "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-snowman_outfit_t7": {
       "kind": "outfit",
@@ -2824,7 +2893,8 @@
       "name": "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "unit-wolf-hood_outfit": {
       "kind": "outfit",
@@ -2862,7 +2932,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-wolf-hood_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 2 v1.png",
       "icon": [
         0,
@@ -2875,7 +2945,8 @@
       "name": "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": false
     },
     "unit-wolf-hood_outfit_t2": {
       "kind": "outfit",
@@ -2913,7 +2984,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-wolf-hood_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 2 v1.png",
       "icon": [
         0,
@@ -2926,7 +2997,8 @@
       "name": "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-wolf-hood_outfit_t3": {
       "kind": "outfit",
@@ -2964,7 +3036,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-wolf-hood_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 2 v1.png",
       "icon": [
         0,
@@ -2977,7 +3049,8 @@
       "name": "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-wolf-hood_outfit_t4": {
       "kind": "outfit",
@@ -3015,7 +3088,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-wolf-hood_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 2 v1.png",
       "icon": [
         0,
@@ -3028,7 +3101,8 @@
       "name": "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-wolf-hood_outfit_t5": {
       "kind": "outfit",
@@ -3066,7 +3140,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-wolf-hood_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 2 v1.png",
       "icon": [
         0,
@@ -3079,7 +3153,8 @@
       "name": "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-wolf-hood_outfit_t6": {
       "kind": "outfit",
@@ -3117,7 +3192,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-wolf-hood_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 2 v1.png",
       "icon": [
         0,
@@ -3130,7 +3205,8 @@
       "name": "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-wolf-hood_outfit_t7": {
       "kind": "outfit",
@@ -3181,7 +3257,8 @@
       "name": "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-calico-cat-hood_outfit": {
       "kind": "outfit",
@@ -3219,7 +3296,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-calico-cat-hood_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 2 v1.png",
       "icon": [
         0,
@@ -3232,7 +3309,8 @@
       "name": "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": false
     },
     "unit-calico-cat-hood_outfit_t2": {
       "kind": "outfit",
@@ -3270,7 +3348,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-calico-cat-hood_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 2 v1.png",
       "icon": [
         0,
@@ -3283,7 +3361,8 @@
       "name": "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-calico-cat-hood_outfit_t3": {
       "kind": "outfit",
@@ -3321,7 +3400,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-calico-cat-hood_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 2 v1.png",
       "icon": [
         0,
@@ -3334,7 +3413,8 @@
       "name": "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-calico-cat-hood_outfit_t4": {
       "kind": "outfit",
@@ -3372,7 +3452,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-calico-cat-hood_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 2 v1.png",
       "icon": [
         0,
@@ -3385,7 +3465,8 @@
       "name": "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-calico-cat-hood_outfit_t5": {
       "kind": "outfit",
@@ -3423,7 +3504,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-calico-cat-hood_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 2 v1.png",
       "icon": [
         0,
@@ -3436,7 +3517,8 @@
       "name": "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-calico-cat-hood_outfit_t6": {
       "kind": "outfit",
@@ -3474,7 +3556,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-calico-cat-hood_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 2 v1.png",
       "icon": [
         0,
@@ -3487,7 +3569,8 @@
       "name": "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-calico-cat-hood_outfit_t7": {
       "kind": "outfit",
@@ -3538,7 +3621,8 @@
       "name": "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-golden-crown_outfit": {
       "kind": "outfit",
@@ -3576,7 +3660,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-golden-crown_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 15 v1.png",
       "icon": [
         0,
@@ -3589,7 +3673,8 @@
       "name": "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": false
     },
     "unit-golden-crown_outfit_t2": {
       "kind": "outfit",
@@ -3627,7 +3712,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-golden-crown_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 15 v1.png",
       "icon": [
         0,
@@ -3640,7 +3725,8 @@
       "name": "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-golden-crown_outfit_t3": {
       "kind": "outfit",
@@ -3678,7 +3764,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-golden-crown_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 15 v1.png",
       "icon": [
         0,
@@ -3691,7 +3777,8 @@
       "name": "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-golden-crown_outfit_t4": {
       "kind": "outfit",
@@ -3729,7 +3816,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-golden-crown_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 15 v1.png",
       "icon": [
         0,
@@ -3742,7 +3829,8 @@
       "name": "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-golden-crown_outfit_t5": {
       "kind": "outfit",
@@ -3780,7 +3868,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-golden-crown_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 15 v1.png",
       "icon": [
         0,
@@ -3793,7 +3881,8 @@
       "name": "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-golden-crown_outfit_t6": {
       "kind": "outfit",
@@ -3831,7 +3920,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-golden-crown_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 15 v1.png",
       "icon": [
         0,
@@ -3844,7 +3933,8 @@
       "name": "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-golden-crown_outfit_t7": {
       "kind": "outfit",
@@ -3895,7 +3985,8 @@
       "name": "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-reindeer-antlers_outfit": {
       "kind": "outfit",
@@ -3933,7 +4024,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-reindeer-antlers_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 3 v1.png",
       "icon": [
         0,
@@ -3946,7 +4037,8 @@
       "name": "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": false
     },
     "unit-reindeer-antlers_outfit_t2": {
       "kind": "outfit",
@@ -3984,7 +4076,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-reindeer-antlers_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 3 v1.png",
       "icon": [
         0,
@@ -3997,7 +4089,8 @@
       "name": "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-reindeer-antlers_outfit_t3": {
       "kind": "outfit",
@@ -4035,7 +4128,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-reindeer-antlers_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 3 v1.png",
       "icon": [
         0,
@@ -4048,7 +4141,8 @@
       "name": "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-reindeer-antlers_outfit_t4": {
       "kind": "outfit",
@@ -4086,7 +4180,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-reindeer-antlers_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 3 v1.png",
       "icon": [
         0,
@@ -4099,7 +4193,8 @@
       "name": "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-reindeer-antlers_outfit_t5": {
       "kind": "outfit",
@@ -4137,7 +4232,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-reindeer-antlers_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 3 v1.png",
       "icon": [
         0,
@@ -4150,7 +4245,8 @@
       "name": "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-reindeer-antlers_outfit_t6": {
       "kind": "outfit",
@@ -4188,7 +4284,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-reindeer-antlers_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 3 v1.png",
       "icon": [
         0,
@@ -4201,7 +4297,8 @@
       "name": "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-reindeer-antlers_outfit_t7": {
       "kind": "outfit",
@@ -4252,7 +4349,8 @@
       "name": "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-santa-hat_outfit": {
       "kind": "outfit",
@@ -4290,7 +4388,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-santa-hat_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 2 v1.png",
       "icon": [
         0,
@@ -4303,7 +4401,8 @@
       "name": "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": false
     },
     "unit-santa-hat_outfit_t2": {
       "kind": "outfit",
@@ -4341,7 +4440,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-santa-hat_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 2 v1.png",
       "icon": [
         0,
@@ -4354,7 +4453,8 @@
       "name": "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-santa-hat_outfit_t3": {
       "kind": "outfit",
@@ -4392,7 +4492,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-santa-hat_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 2 v1.png",
       "icon": [
         0,
@@ -4405,7 +4505,8 @@
       "name": "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-santa-hat_outfit_t4": {
       "kind": "outfit",
@@ -4443,7 +4544,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-santa-hat_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 2 v1.png",
       "icon": [
         0,
@@ -4456,7 +4557,8 @@
       "name": "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-santa-hat_outfit_t5": {
       "kind": "outfit",
@@ -4494,7 +4596,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-santa-hat_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 2 v1.png",
       "icon": [
         0,
@@ -4507,7 +4609,8 @@
       "name": "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-santa-hat_outfit_t6": {
       "kind": "outfit",
@@ -4545,7 +4648,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-santa-hat_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Winter 2 v1.png",
       "icon": [
         0,
@@ -4558,7 +4661,8 @@
       "name": "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-santa-hat_outfit_t7": {
       "kind": "outfit",
@@ -4609,7 +4713,8 @@
       "name": "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-space-helmet_outfit": {
       "kind": "outfit",
@@ -4647,7 +4752,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-space-helmet_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 7 v1.png",
       "icon": [
         0,
@@ -4660,7 +4765,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": false
     },
     "unit-space-helmet_outfit_t2": {
       "kind": "outfit",
@@ -4698,7 +4804,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-space-helmet_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 7 v1.png",
       "icon": [
         0,
@@ -4711,7 +4817,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-space-helmet_outfit_t3": {
       "kind": "outfit",
@@ -4749,7 +4856,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-space-helmet_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 7 v1.png",
       "icon": [
         0,
@@ -4762,7 +4869,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-space-helmet_outfit_t4": {
       "kind": "outfit",
@@ -4800,7 +4908,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-space-helmet_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 7 v1.png",
       "icon": [
         0,
@@ -4813,7 +4921,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-space-helmet_outfit_t5": {
       "kind": "outfit",
@@ -4851,7 +4960,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-space-helmet_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 7 v1.png",
       "icon": [
         0,
@@ -4864,7 +4973,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-space-helmet_outfit_t6": {
       "kind": "outfit",
@@ -4902,7 +5012,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-space-helmet_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 7 v1.png",
       "icon": [
         0,
@@ -4915,7 +5025,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-space-helmet_outfit_t7": {
       "kind": "outfit",
@@ -4966,7 +5077,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "boss-cyan-robot_outfit": {
       "kind": "outfit",
@@ -5004,7 +5116,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-cyan-robot_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v1.png",
       "icon": [
         0,
@@ -5017,7 +5129,8 @@
       "name": "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": false
     },
     "boss-cyan-robot_outfit_t2": {
       "kind": "outfit",
@@ -5055,7 +5168,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-cyan-robot_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v1.png",
       "icon": [
         0,
@@ -5068,7 +5181,8 @@
       "name": "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-cyan-robot_outfit_t3": {
       "kind": "outfit",
@@ -5106,7 +5220,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-cyan-robot_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v1.png",
       "icon": [
         0,
@@ -5119,7 +5233,8 @@
       "name": "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-cyan-robot_outfit_t4": {
       "kind": "outfit",
@@ -5157,7 +5272,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-cyan-robot_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v1.png",
       "icon": [
         0,
@@ -5170,7 +5285,8 @@
       "name": "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": true
     },
     "boss-cyan-robot_outfit_t5": {
       "kind": "outfit",
@@ -5208,7 +5324,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-cyan-robot_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v1.png",
       "icon": [
         0,
@@ -5221,7 +5337,8 @@
       "name": "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-cyan-robot_outfit_t6": {
       "kind": "outfit",
@@ -5259,7 +5376,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-cyan-robot_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 18 v1.png",
       "icon": [
         0,
@@ -5272,7 +5389,8 @@
       "name": "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-cyan-robot_outfit_t7": {
       "kind": "outfit",
@@ -5323,7 +5441,8 @@
       "name": "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat_outfit": {
       "kind": "outfit",
@@ -5361,7 +5480,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-straw-hat_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 16 v1.png",
       "icon": [
         0,
@@ -5374,7 +5493,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat_outfit_t2": {
       "kind": "outfit",
@@ -5412,7 +5532,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-straw-hat_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 16 v1.png",
       "icon": [
         0,
@@ -5425,7 +5545,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": false
     },
     "unit-straw-hat_outfit_t3": {
       "kind": "outfit",
@@ -5463,7 +5584,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-straw-hat_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 16 v1.png",
       "icon": [
         0,
@@ -5476,7 +5597,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat_outfit_t4": {
       "kind": "outfit",
@@ -5514,7 +5636,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-straw-hat_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 16 v1.png",
       "icon": [
         0,
@@ -5527,7 +5649,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat_outfit_t5": {
       "kind": "outfit",
@@ -5565,7 +5688,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-straw-hat_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 16 v1.png",
       "icon": [
         0,
@@ -5578,7 +5701,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat_outfit_t6": {
       "kind": "outfit",
@@ -5616,7 +5740,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-straw-hat_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 16 v1.png",
       "icon": [
         0,
@@ -5629,7 +5753,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat_outfit_t7": {
       "kind": "outfit",
@@ -5680,7 +5805,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-sunglasses_outfit": {
       "kind": "outfit",
@@ -5718,7 +5844,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-sunglasses_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 20 v1.png",
       "icon": [
         0,
@@ -5731,7 +5857,8 @@
       "name": "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-sunglasses_outfit_t2": {
       "kind": "outfit",
@@ -5769,7 +5896,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-sunglasses_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 20 v1.png",
       "icon": [
         0,
@@ -5782,7 +5909,8 @@
       "name": "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": false
     },
     "unit-sunglasses_outfit_t3": {
       "kind": "outfit",
@@ -5820,7 +5948,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-sunglasses_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 20 v1.png",
       "icon": [
         0,
@@ -5833,7 +5961,8 @@
       "name": "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-sunglasses_outfit_t4": {
       "kind": "outfit",
@@ -5871,7 +6000,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-sunglasses_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 20 v1.png",
       "icon": [
         0,
@@ -5884,7 +6013,8 @@
       "name": "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-sunglasses_outfit_t5": {
       "kind": "outfit",
@@ -5922,7 +6052,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-sunglasses_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 20 v1.png",
       "icon": [
         0,
@@ -5935,7 +6065,8 @@
       "name": "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-sunglasses_outfit_t6": {
       "kind": "outfit",
@@ -5973,7 +6104,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-sunglasses_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 20 v1.png",
       "icon": [
         0,
@@ -5986,7 +6117,8 @@
       "name": "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-sunglasses_outfit_t7": {
       "kind": "outfit",
@@ -6037,7 +6169,8 @@
       "name": "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-yellow-cap_outfit": {
       "kind": "outfit",
@@ -6075,7 +6208,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-yellow-cap_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 11 v1.png",
       "icon": [
         0,
@@ -6088,7 +6221,8 @@
       "name": "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-yellow-cap_outfit_t2": {
       "kind": "outfit",
@@ -6126,7 +6260,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-yellow-cap_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 11 v1.png",
       "icon": [
         0,
@@ -6139,7 +6273,8 @@
       "name": "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": false
     },
     "unit-yellow-cap_outfit_t3": {
       "kind": "outfit",
@@ -6177,7 +6312,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-yellow-cap_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 11 v1.png",
       "icon": [
         0,
@@ -6190,7 +6325,8 @@
       "name": "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-yellow-cap_outfit_t4": {
       "kind": "outfit",
@@ -6228,7 +6364,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-yellow-cap_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 11 v1.png",
       "icon": [
         0,
@@ -6241,7 +6377,8 @@
       "name": "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-yellow-cap_outfit_t5": {
       "kind": "outfit",
@@ -6279,7 +6416,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-yellow-cap_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 11 v1.png",
       "icon": [
         0,
@@ -6292,7 +6429,8 @@
       "name": "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-yellow-cap_outfit_t6": {
       "kind": "outfit",
@@ -6330,7 +6468,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-yellow-cap_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 11 v1.png",
       "icon": [
         0,
@@ -6343,7 +6481,8 @@
       "name": "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-yellow-cap_outfit_t7": {
       "kind": "outfit",
@@ -6394,7 +6533,8 @@
       "name": "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "boss-gray-cat_outfit": {
       "kind": "outfit",
@@ -6432,7 +6572,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-gray-cat_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 3 v1.png",
       "icon": [
         0,
@@ -6445,7 +6585,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-gray-cat_outfit_t2": {
       "kind": "outfit",
@@ -6483,7 +6624,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-gray-cat_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 3 v1.png",
       "icon": [
         0,
@@ -6496,7 +6637,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": false
     },
     "boss-gray-cat_outfit_t3": {
       "kind": "outfit",
@@ -6534,7 +6676,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-gray-cat_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 3 v1.png",
       "icon": [
         0,
@@ -6547,7 +6689,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-gray-cat_outfit_t4": {
       "kind": "outfit",
@@ -6585,7 +6728,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-gray-cat_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 3 v1.png",
       "icon": [
         0,
@@ -6598,7 +6741,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": true
     },
     "boss-gray-cat_outfit_t5": {
       "kind": "outfit",
@@ -6636,7 +6780,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-gray-cat_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 3 v1.png",
       "icon": [
         0,
@@ -6649,7 +6793,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-gray-cat_outfit_t6": {
       "kind": "outfit",
@@ -6687,7 +6832,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-gray-cat_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 3 v1.png",
       "icon": [
         0,
@@ -6700,7 +6845,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-gray-cat_outfit_t7": {
       "kind": "outfit",
@@ -6751,7 +6897,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "unit-cowboy-bandana_outfit": {
       "kind": "outfit",
@@ -6789,7 +6936,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-cowboy-bandana_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 21 v1.png",
       "icon": [
         0,
@@ -6802,7 +6949,8 @@
       "name": "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-cowboy-bandana_outfit_t2": {
       "kind": "outfit",
@@ -6840,7 +6988,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-cowboy-bandana_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 21 v1.png",
       "icon": [
         0,
@@ -6853,7 +7001,8 @@
       "name": "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": false
     },
     "unit-cowboy-bandana_outfit_t3": {
       "kind": "outfit",
@@ -6891,7 +7040,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-cowboy-bandana_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 21 v1.png",
       "icon": [
         0,
@@ -6904,7 +7053,8 @@
       "name": "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-cowboy-bandana_outfit_t4": {
       "kind": "outfit",
@@ -6942,7 +7092,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-cowboy-bandana_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 21 v1.png",
       "icon": [
         0,
@@ -6955,7 +7105,8 @@
       "name": "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-cowboy-bandana_outfit_t5": {
       "kind": "outfit",
@@ -6993,7 +7144,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-cowboy-bandana_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 21 v1.png",
       "icon": [
         0,
@@ -7006,7 +7157,8 @@
       "name": "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-cowboy-bandana_outfit_t6": {
       "kind": "outfit",
@@ -7044,7 +7196,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-cowboy-bandana_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 21 v1.png",
       "icon": [
         0,
@@ -7057,7 +7209,8 @@
       "name": "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-cowboy-bandana_outfit_t7": {
       "kind": "outfit",
@@ -7108,7 +7261,8 @@
       "name": "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-duck-swim-ring_outfit": {
       "kind": "outfit",
@@ -7146,7 +7300,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-duck-swim-ring_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 3 v1.png",
       "icon": [
         0,
@@ -7159,7 +7313,8 @@
       "name": "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-duck-swim-ring_outfit_t2": {
       "kind": "outfit",
@@ -7197,7 +7352,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-duck-swim-ring_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 3 v1.png",
       "icon": [
         0,
@@ -7210,7 +7365,8 @@
       "name": "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": false
     },
     "unit-duck-swim-ring_outfit_t3": {
       "kind": "outfit",
@@ -7248,7 +7404,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-duck-swim-ring_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 3 v1.png",
       "icon": [
         0,
@@ -7261,7 +7417,8 @@
       "name": "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-duck-swim-ring_outfit_t4": {
       "kind": "outfit",
@@ -7299,7 +7456,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-duck-swim-ring_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 3 v1.png",
       "icon": [
         0,
@@ -7312,7 +7469,8 @@
       "name": "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-duck-swim-ring_outfit_t5": {
       "kind": "outfit",
@@ -7350,7 +7508,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-duck-swim-ring_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 3 v1.png",
       "icon": [
         0,
@@ -7363,7 +7521,8 @@
       "name": "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-duck-swim-ring_outfit_t6": {
       "kind": "outfit",
@@ -7401,7 +7560,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-duck-swim-ring_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 3 v1.png",
       "icon": [
         0,
@@ -7414,7 +7573,8 @@
       "name": "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-duck-swim-ring_outfit_t7": {
       "kind": "outfit",
@@ -7465,7 +7625,8 @@
       "name": "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-rainbow-clown_outfit": {
       "kind": "outfit",
@@ -7503,7 +7664,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-rainbow-clown_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 19 v1.png",
       "icon": [
         0,
@@ -7516,7 +7677,8 @@
       "name": "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-rainbow-clown_outfit_t2": {
       "kind": "outfit",
@@ -7554,7 +7716,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-rainbow-clown_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 19 v1.png",
       "icon": [
         0,
@@ -7567,7 +7729,8 @@
       "name": "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": false
     },
     "unit-rainbow-clown_outfit_t3": {
       "kind": "outfit",
@@ -7605,7 +7768,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-rainbow-clown_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 19 v1.png",
       "icon": [
         0,
@@ -7618,7 +7781,8 @@
       "name": "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-rainbow-clown_outfit_t4": {
       "kind": "outfit",
@@ -7656,7 +7820,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-rainbow-clown_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 19 v1.png",
       "icon": [
         0,
@@ -7669,7 +7833,8 @@
       "name": "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-rainbow-clown_outfit_t5": {
       "kind": "outfit",
@@ -7707,7 +7872,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-rainbow-clown_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 19 v1.png",
       "icon": [
         0,
@@ -7720,7 +7885,8 @@
       "name": "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-rainbow-clown_outfit_t6": {
       "kind": "outfit",
@@ -7758,7 +7924,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-rainbow-clown_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 19 v1.png",
       "icon": [
         0,
@@ -7771,7 +7937,8 @@
       "name": "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-rainbow-clown_outfit_t7": {
       "kind": "outfit",
@@ -7822,7 +7989,8 @@
       "name": "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-red-cap-swimmer_outfit": {
       "kind": "outfit",
@@ -7860,7 +8028,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-red-cap-swimmer_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 4 v1.png",
       "icon": [
         0,
@@ -7873,7 +8041,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-red-cap-swimmer_outfit_t2": {
       "kind": "outfit",
@@ -7911,7 +8080,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-red-cap-swimmer_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 4 v1.png",
       "icon": [
         0,
@@ -7924,7 +8093,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": false
     },
     "unit-red-cap-swimmer_outfit_t3": {
       "kind": "outfit",
@@ -7962,7 +8132,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-red-cap-swimmer_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 4 v1.png",
       "icon": [
         0,
@@ -7975,7 +8145,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-red-cap-swimmer_outfit_t4": {
       "kind": "outfit",
@@ -8013,7 +8184,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-red-cap-swimmer_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 4 v1.png",
       "icon": [
         0,
@@ -8026,7 +8197,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-red-cap-swimmer_outfit_t5": {
       "kind": "outfit",
@@ -8064,7 +8236,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-red-cap-swimmer_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 4 v1.png",
       "icon": [
         0,
@@ -8077,7 +8249,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-red-cap-swimmer_outfit_t6": {
       "kind": "outfit",
@@ -8115,7 +8288,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-red-cap-swimmer_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 4 v1.png",
       "icon": [
         0,
@@ -8128,7 +8301,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-red-cap-swimmer_outfit_t7": {
       "kind": "outfit",
@@ -8179,7 +8353,8 @@
       "name": "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-snorkeler_outfit": {
       "kind": "outfit",
@@ -8217,7 +8392,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-snorkeler_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 1 v1.png",
       "icon": [
         0,
@@ -8230,7 +8405,8 @@
       "name": "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-snorkeler_outfit_t2": {
       "kind": "outfit",
@@ -8268,7 +8444,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-snorkeler_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 1 v1.png",
       "icon": [
         0,
@@ -8281,7 +8457,8 @@
       "name": "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": false
     },
     "unit-snorkeler_outfit_t3": {
       "kind": "outfit",
@@ -8319,7 +8496,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-snorkeler_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 1 v1.png",
       "icon": [
         0,
@@ -8332,7 +8509,8 @@
       "name": "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-snorkeler_outfit_t4": {
       "kind": "outfit",
@@ -8370,7 +8548,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-snorkeler_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 1 v1.png",
       "icon": [
         0,
@@ -8383,7 +8561,8 @@
       "name": "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-snorkeler_outfit_t5": {
       "kind": "outfit",
@@ -8421,7 +8600,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-snorkeler_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 1 v1.png",
       "icon": [
         0,
@@ -8434,7 +8613,8 @@
       "name": "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-snorkeler_outfit_t6": {
       "kind": "outfit",
@@ -8472,7 +8652,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-snorkeler_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 1 v1.png",
       "icon": [
         0,
@@ -8485,7 +8665,8 @@
       "name": "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-snorkeler_outfit_t7": {
       "kind": "outfit",
@@ -8536,7 +8717,8 @@
       "name": "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat-swimmer_outfit": {
       "kind": "outfit",
@@ -8574,7 +8756,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-straw-hat-swimmer_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 2 v1.png",
       "icon": [
         0,
@@ -8587,7 +8769,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat-swimmer_outfit_t2": {
       "kind": "outfit",
@@ -8625,7 +8808,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-straw-hat-swimmer_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 2 v1.png",
       "icon": [
         0,
@@ -8638,7 +8821,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": false
     },
     "unit-straw-hat-swimmer_outfit_t3": {
       "kind": "outfit",
@@ -8676,7 +8860,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-straw-hat-swimmer_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 2 v1.png",
       "icon": [
         0,
@@ -8689,7 +8873,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat-swimmer_outfit_t4": {
       "kind": "outfit",
@@ -8727,7 +8912,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-straw-hat-swimmer_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 2 v1.png",
       "icon": [
         0,
@@ -8740,7 +8925,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat-swimmer_outfit_t5": {
       "kind": "outfit",
@@ -8778,7 +8964,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-straw-hat-swimmer_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 2 v1.png",
       "icon": [
         0,
@@ -8791,7 +8977,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat-swimmer_outfit_t6": {
       "kind": "outfit",
@@ -8829,7 +9016,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-straw-hat-swimmer_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Summer 2 v1.png",
       "icon": [
         0,
@@ -8842,7 +9029,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-straw-hat-swimmer_outfit_t7": {
       "kind": "outfit",
@@ -8893,7 +9081,8 @@
       "name": "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "boss-elephant_outfit": {
       "kind": "outfit",
@@ -8931,7 +9120,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-elephant_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 1 v1.png",
       "icon": [
         0,
@@ -8944,7 +9133,8 @@
       "name": "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-elephant_outfit_t2": {
       "kind": "outfit",
@@ -8982,7 +9172,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-elephant_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 1 v1.png",
       "icon": [
         0,
@@ -8995,7 +9185,8 @@
       "name": "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": false
     },
     "boss-elephant_outfit_t3": {
       "kind": "outfit",
@@ -9033,7 +9224,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-elephant_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 1 v1.png",
       "icon": [
         0,
@@ -9046,7 +9237,8 @@
       "name": "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-elephant_outfit_t4": {
       "kind": "outfit",
@@ -9084,7 +9276,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-elephant_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 1 v1.png",
       "icon": [
         0,
@@ -9097,7 +9289,8 @@
       "name": "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": true
     },
     "boss-elephant_outfit_t5": {
       "kind": "outfit",
@@ -9135,7 +9328,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-elephant_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 1 v1.png",
       "icon": [
         0,
@@ -9148,7 +9341,8 @@
       "name": "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-elephant_outfit_t6": {
       "kind": "outfit",
@@ -9186,7 +9380,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-elephant_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 1 v1.png",
       "icon": [
         0,
@@ -9199,7 +9393,8 @@
       "name": "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-elephant_outfit_t7": {
       "kind": "outfit",
@@ -9250,7 +9445,8 @@
       "name": "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "boss-teal-dinosaur_outfit": {
       "kind": "outfit",
@@ -9288,7 +9484,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-teal-dinosaur_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v1.png",
       "icon": [
         0,
@@ -9301,7 +9497,8 @@
       "name": "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-teal-dinosaur_outfit_t2": {
       "kind": "outfit",
@@ -9339,7 +9536,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-teal-dinosaur_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v1.png",
       "icon": [
         0,
@@ -9352,7 +9549,8 @@
       "name": "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": false
     },
     "boss-teal-dinosaur_outfit_t3": {
       "kind": "outfit",
@@ -9390,7 +9588,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-teal-dinosaur_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v1.png",
       "icon": [
         0,
@@ -9403,7 +9601,8 @@
       "name": "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-teal-dinosaur_outfit_t4": {
       "kind": "outfit",
@@ -9441,7 +9640,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-teal-dinosaur_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v1.png",
       "icon": [
         0,
@@ -9454,7 +9653,8 @@
       "name": "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": true
     },
     "boss-teal-dinosaur_outfit_t5": {
       "kind": "outfit",
@@ -9492,7 +9692,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-teal-dinosaur_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v1.png",
       "icon": [
         0,
@@ -9505,7 +9705,8 @@
       "name": "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-teal-dinosaur_outfit_t6": {
       "kind": "outfit",
@@ -9543,7 +9744,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-teal-dinosaur_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 3 v1.png",
       "icon": [
         0,
@@ -9556,7 +9757,8 @@
       "name": "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-teal-dinosaur_outfit_t7": {
       "kind": "outfit",
@@ -9607,7 +9809,8 @@
       "name": "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "unit-black-cap_outfit": {
       "kind": "outfit",
@@ -9645,7 +9848,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-black-cap_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 12 v1.png",
       "icon": [
         0,
@@ -9658,7 +9861,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-black-cap_outfit_t2": {
       "kind": "outfit",
@@ -9696,7 +9900,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-black-cap_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 12 v1.png",
       "icon": [
         0,
@@ -9709,7 +9913,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-black-cap_outfit_t3": {
       "kind": "outfit",
@@ -9747,7 +9952,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-black-cap_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 12 v1.png",
       "icon": [
         0,
@@ -9760,7 +9965,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": false
     },
     "unit-black-cap_outfit_t4": {
       "kind": "outfit",
@@ -9798,7 +10004,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-black-cap_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 12 v1.png",
       "icon": [
         0,
@@ -9811,7 +10017,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-black-cap_outfit_t5": {
       "kind": "outfit",
@@ -9849,7 +10056,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-black-cap_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 12 v1.png",
       "icon": [
         0,
@@ -9862,7 +10069,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-black-cap_outfit_t6": {
       "kind": "outfit",
@@ -9900,7 +10108,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-black-cap_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 12 v1.png",
       "icon": [
         0,
@@ -9913,7 +10121,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-black-cap_outfit_t7": {
       "kind": "outfit",
@@ -9964,7 +10173,8 @@
       "name": "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-mushroom-cap_outfit": {
       "kind": "outfit",
@@ -10002,7 +10212,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-mushroom-cap_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 2 v1.png",
       "icon": [
         0,
@@ -10015,7 +10225,8 @@
       "name": "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-mushroom-cap_outfit_t2": {
       "kind": "outfit",
@@ -10053,7 +10264,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-mushroom-cap_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 2 v1.png",
       "icon": [
         0,
@@ -10066,7 +10277,8 @@
       "name": "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-mushroom-cap_outfit_t3": {
       "kind": "outfit",
@@ -10104,7 +10316,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-mushroom-cap_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 2 v1.png",
       "icon": [
         0,
@@ -10117,7 +10329,8 @@
       "name": "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": false
     },
     "unit-mushroom-cap_outfit_t4": {
       "kind": "outfit",
@@ -10155,7 +10368,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-mushroom-cap_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 2 v1.png",
       "icon": [
         0,
@@ -10168,7 +10381,8 @@
       "name": "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-mushroom-cap_outfit_t5": {
       "kind": "outfit",
@@ -10206,7 +10420,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-mushroom-cap_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 2 v1.png",
       "icon": [
         0,
@@ -10219,7 +10433,8 @@
       "name": "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-mushroom-cap_outfit_t6": {
       "kind": "outfit",
@@ -10257,7 +10472,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-mushroom-cap_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 2 v1.png",
       "icon": [
         0,
@@ -10270,7 +10485,8 @@
       "name": "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-mushroom-cap_outfit_t7": {
       "kind": "outfit",
@@ -10321,7 +10537,8 @@
       "name": "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-pumpkin-head_outfit": {
       "kind": "outfit",
@@ -10359,7 +10576,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-pumpkin-head_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 3 v1.png",
       "icon": [
         0,
@@ -10372,7 +10589,8 @@
       "name": "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-pumpkin-head_outfit_t2": {
       "kind": "outfit",
@@ -10410,7 +10628,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-pumpkin-head_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 3 v1.png",
       "icon": [
         0,
@@ -10423,7 +10641,8 @@
       "name": "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-pumpkin-head_outfit_t3": {
       "kind": "outfit",
@@ -10461,7 +10680,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-pumpkin-head_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 3 v1.png",
       "icon": [
         0,
@@ -10474,7 +10693,8 @@
       "name": "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": false
     },
     "unit-pumpkin-head_outfit_t4": {
       "kind": "outfit",
@@ -10512,7 +10732,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-pumpkin-head_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 3 v1.png",
       "icon": [
         0,
@@ -10525,7 +10745,8 @@
       "name": "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-pumpkin-head_outfit_t5": {
       "kind": "outfit",
@@ -10563,7 +10784,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-pumpkin-head_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 3 v1.png",
       "icon": [
         0,
@@ -10576,7 +10797,8 @@
       "name": "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-pumpkin-head_outfit_t6": {
       "kind": "outfit",
@@ -10614,7 +10836,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-pumpkin-head_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 3 v1.png",
       "icon": [
         0,
@@ -10627,7 +10849,8 @@
       "name": "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-pumpkin-head_outfit_t7": {
       "kind": "outfit",
@@ -10678,7 +10901,8 @@
       "name": "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "boss-squirrel_outfit": {
       "kind": "outfit",
@@ -10716,7 +10940,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-squirrel_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 1 v1.png",
       "icon": [
         0,
@@ -10729,7 +10953,8 @@
       "name": "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-squirrel_outfit_t2": {
       "kind": "outfit",
@@ -10767,7 +10992,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-squirrel_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 1 v1.png",
       "icon": [
         0,
@@ -10780,7 +11005,8 @@
       "name": "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-squirrel_outfit_t3": {
       "kind": "outfit",
@@ -10818,7 +11044,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-squirrel_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 1 v1.png",
       "icon": [
         0,
@@ -10831,7 +11057,8 @@
       "name": "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": false
     },
     "boss-squirrel_outfit_t4": {
       "kind": "outfit",
@@ -10869,7 +11096,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-squirrel_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 1 v1.png",
       "icon": [
         0,
@@ -10882,7 +11109,8 @@
       "name": "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": true
     },
     "boss-squirrel_outfit_t5": {
       "kind": "outfit",
@@ -10920,7 +11148,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-squirrel_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 1 v1.png",
       "icon": [
         0,
@@ -10933,7 +11161,8 @@
       "name": "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-squirrel_outfit_t6": {
       "kind": "outfit",
@@ -10971,7 +11200,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-squirrel_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 1 v1.png",
       "icon": [
         0,
@@ -10984,7 +11213,8 @@
       "name": "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-squirrel_outfit_t7": {
       "kind": "outfit",
@@ -11035,7 +11265,8 @@
       "name": "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "boss-red-fox_outfit": {
       "kind": "outfit",
@@ -11073,7 +11304,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-red-fox_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 2 v1.png",
       "icon": [
         0,
@@ -11086,7 +11317,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-red-fox_outfit_t2": {
       "kind": "outfit",
@@ -11124,7 +11356,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-red-fox_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 2 v1.png",
       "icon": [
         0,
@@ -11137,7 +11369,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-red-fox_outfit_t3": {
       "kind": "outfit",
@@ -11175,7 +11408,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-red-fox_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 2 v1.png",
       "icon": [
         0,
@@ -11188,7 +11421,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": false
     },
     "boss-red-fox_outfit_t4": {
       "kind": "outfit",
@@ -11226,7 +11460,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-red-fox_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 2 v1.png",
       "icon": [
         0,
@@ -11239,7 +11473,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": true
     },
     "boss-red-fox_outfit_t5": {
       "kind": "outfit",
@@ -11277,7 +11512,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-red-fox_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 2 v1.png",
       "icon": [
         0,
@@ -11290,7 +11525,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-red-fox_outfit_t6": {
       "kind": "outfit",
@@ -11328,7 +11564,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-red-fox_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 2 v1.png",
       "icon": [
         0,
@@ -11341,7 +11577,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-red-fox_outfit_t7": {
       "kind": "outfit",
@@ -11392,7 +11629,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "unit-horned-hood_outfit": {
       "kind": "outfit",
@@ -11430,7 +11668,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-horned-hood_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 6 v1.png",
       "icon": [
         0,
@@ -11443,7 +11681,8 @@
       "name": "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-horned-hood_outfit_t2": {
       "kind": "outfit",
@@ -11481,7 +11720,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-horned-hood_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 6 v1.png",
       "icon": [
         0,
@@ -11494,7 +11733,8 @@
       "name": "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-horned-hood_outfit_t3": {
       "kind": "outfit",
@@ -11532,7 +11772,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-horned-hood_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 6 v1.png",
       "icon": [
         0,
@@ -11545,7 +11785,8 @@
       "name": "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": false
     },
     "unit-horned-hood_outfit_t4": {
       "kind": "outfit",
@@ -11583,7 +11824,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-horned-hood_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 6 v1.png",
       "icon": [
         0,
@@ -11596,7 +11837,8 @@
       "name": "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-horned-hood_outfit_t5": {
       "kind": "outfit",
@@ -11634,7 +11876,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-horned-hood_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 6 v1.png",
       "icon": [
         0,
@@ -11647,7 +11889,8 @@
       "name": "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-horned-hood_outfit_t6": {
       "kind": "outfit",
@@ -11685,7 +11928,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-horned-hood_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 6 v1.png",
       "icon": [
         0,
@@ -11698,7 +11941,8 @@
       "name": "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-horned-hood_outfit_t7": {
       "kind": "outfit",
@@ -11749,7 +11993,8 @@
       "name": "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-orange-screen-helmet_outfit": {
       "kind": "outfit",
@@ -11787,7 +12032,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-orange-screen-helmet_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 13 v1.png",
       "icon": [
         0,
@@ -11800,7 +12045,8 @@
       "name": "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-orange-screen-helmet_outfit_t2": {
       "kind": "outfit",
@@ -11838,7 +12084,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-orange-screen-helmet_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 13 v1.png",
       "icon": [
         0,
@@ -11851,7 +12097,8 @@
       "name": "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-orange-screen-helmet_outfit_t3": {
       "kind": "outfit",
@@ -11889,7 +12136,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-orange-screen-helmet_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 13 v1.png",
       "icon": [
         0,
@@ -11902,7 +12149,8 @@
       "name": "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": false
     },
     "unit-orange-screen-helmet_outfit_t4": {
       "kind": "outfit",
@@ -11940,7 +12188,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-orange-screen-helmet_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 13 v1.png",
       "icon": [
         0,
@@ -11953,7 +12201,8 @@
       "name": "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-orange-screen-helmet_outfit_t5": {
       "kind": "outfit",
@@ -11991,7 +12240,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-orange-screen-helmet_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 13 v1.png",
       "icon": [
         0,
@@ -12004,7 +12253,8 @@
       "name": "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-orange-screen-helmet_outfit_t6": {
       "kind": "outfit",
@@ -12042,7 +12292,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-orange-screen-helmet_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 13 v1.png",
       "icon": [
         0,
@@ -12055,7 +12305,8 @@
       "name": "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-orange-screen-helmet_outfit_t7": {
       "kind": "outfit",
@@ -12106,7 +12357,8 @@
       "name": "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-television-head_outfit": {
       "kind": "outfit",
@@ -12144,7 +12396,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-television-head_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 17 v1.png",
       "icon": [
         0,
@@ -12157,7 +12409,8 @@
       "name": "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-television-head_outfit_t2": {
       "kind": "outfit",
@@ -12195,7 +12448,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-television-head_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 17 v1.png",
       "icon": [
         0,
@@ -12208,7 +12461,8 @@
       "name": "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-television-head_outfit_t3": {
       "kind": "outfit",
@@ -12246,7 +12500,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-television-head_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 17 v1.png",
       "icon": [
         0,
@@ -12259,7 +12513,8 @@
       "name": "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": false
     },
     "unit-television-head_outfit_t4": {
       "kind": "outfit",
@@ -12297,7 +12552,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-television-head_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 17 v1.png",
       "icon": [
         0,
@@ -12310,7 +12565,8 @@
       "name": "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-television-head_outfit_t5": {
       "kind": "outfit",
@@ -12348,7 +12604,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-television-head_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 17 v1.png",
       "icon": [
         0,
@@ -12361,7 +12617,8 @@
       "name": "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-television-head_outfit_t6": {
       "kind": "outfit",
@@ -12399,7 +12656,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-television-head_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 17 v1.png",
       "icon": [
         0,
@@ -12412,7 +12669,8 @@
       "name": "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-television-head_outfit_t7": {
       "kind": "outfit",
@@ -12463,7 +12721,8 @@
       "name": "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-top-hat_outfit": {
       "kind": "outfit",
@@ -12501,7 +12760,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-top-hat_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 4 v1.png",
       "icon": [
         0,
@@ -12514,7 +12773,8 @@
       "name": "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-top-hat_outfit_t2": {
       "kind": "outfit",
@@ -12552,7 +12812,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-top-hat_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 4 v1.png",
       "icon": [
         0,
@@ -12565,7 +12825,8 @@
       "name": "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-top-hat_outfit_t3": {
       "kind": "outfit",
@@ -12603,7 +12864,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-top-hat_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 4 v1.png",
       "icon": [
         0,
@@ -12616,7 +12877,8 @@
       "name": "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": false
     },
     "unit-top-hat_outfit_t4": {
       "kind": "outfit",
@@ -12654,7 +12916,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-top-hat_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 4 v1.png",
       "icon": [
         0,
@@ -12667,7 +12929,8 @@
       "name": "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": true
     },
     "unit-top-hat_outfit_t5": {
       "kind": "outfit",
@@ -12705,7 +12968,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-top-hat_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 4 v1.png",
       "icon": [
         0,
@@ -12718,7 +12981,8 @@
       "name": "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-top-hat_outfit_t6": {
       "kind": "outfit",
@@ -12756,7 +13020,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-top-hat_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 4 v1.png",
       "icon": [
         0,
@@ -12769,7 +13033,8 @@
       "name": "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-top-hat_outfit_t7": {
       "kind": "outfit",
@@ -12820,7 +13085,8 @@
       "name": "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "boss-black-cat_outfit": {
       "kind": "outfit",
@@ -12858,7 +13124,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-black-cat_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 4 v1.png",
       "icon": [
         0,
@@ -12871,7 +13137,8 @@
       "name": "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-black-cat_outfit_t2": {
       "kind": "outfit",
@@ -12909,7 +13176,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-black-cat_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 4 v1.png",
       "icon": [
         0,
@@ -12922,7 +13189,8 @@
       "name": "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-black-cat_outfit_t3": {
       "kind": "outfit",
@@ -12960,7 +13228,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-black-cat_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 4 v1.png",
       "icon": [
         0,
@@ -12973,7 +13241,8 @@
       "name": "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": false
     },
     "boss-black-cat_outfit_t4": {
       "kind": "outfit",
@@ -13011,7 +13280,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-black-cat_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 4 v1.png",
       "icon": [
         0,
@@ -13024,7 +13293,8 @@
       "name": "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": true
     },
     "boss-black-cat_outfit_t5": {
       "kind": "outfit",
@@ -13062,7 +13332,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-black-cat_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 4 v1.png",
       "icon": [
         0,
@@ -13075,7 +13345,8 @@
       "name": "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-black-cat_outfit_t6": {
       "kind": "outfit",
@@ -13113,7 +13384,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-black-cat_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 4 v1.png",
       "icon": [
         0,
@@ -13126,7 +13397,8 @@
       "name": "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-black-cat_outfit_t7": {
       "kind": "outfit",
@@ -13177,7 +13449,8 @@
       "name": "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "boss-grim-reaper_outfit": {
       "kind": "outfit",
@@ -13215,7 +13488,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-grim-reaper_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v1.png",
       "icon": [
         0,
@@ -13228,7 +13501,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-grim-reaper_outfit_t2": {
       "kind": "outfit",
@@ -13266,7 +13540,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-grim-reaper_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v1.png",
       "icon": [
         0,
@@ -13279,7 +13553,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-grim-reaper_outfit_t3": {
       "kind": "outfit",
@@ -13317,7 +13592,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-grim-reaper_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v1.png",
       "icon": [
         0,
@@ -13330,7 +13605,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": false
     },
     "boss-grim-reaper_outfit_t4": {
       "kind": "outfit",
@@ -13368,7 +13644,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-grim-reaper_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v1.png",
       "icon": [
         0,
@@ -13381,7 +13657,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": true
     },
     "boss-grim-reaper_outfit_t5": {
       "kind": "outfit",
@@ -13419,7 +13696,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-grim-reaper_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v1.png",
       "icon": [
         0,
@@ -13432,7 +13709,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-grim-reaper_outfit_t6": {
       "kind": "outfit",
@@ -13470,7 +13748,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-grim-reaper_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Autumn 4 v1.png",
       "icon": [
         0,
@@ -13483,7 +13761,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-grim-reaper_outfit_t7": {
       "kind": "outfit",
@@ -13534,7 +13813,8 @@
       "name": "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "unit-bunny-ears_outfit": {
       "kind": "outfit",
@@ -13572,7 +13852,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-bunny-ears_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic Bunny character v1.png",
       "icon": [
         0,
@@ -13585,7 +13865,8 @@
       "name": "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-bunny-ears_outfit_t2": {
       "kind": "outfit",
@@ -13623,7 +13904,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-bunny-ears_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic Bunny character v1.png",
       "icon": [
         0,
@@ -13636,7 +13917,8 @@
       "name": "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-bunny-ears_outfit_t3": {
       "kind": "outfit",
@@ -13674,7 +13956,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-bunny-ears_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic Bunny character v1.png",
       "icon": [
         0,
@@ -13687,7 +13969,8 @@
       "name": "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-bunny-ears_outfit_t4": {
       "kind": "outfit",
@@ -13725,7 +14008,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-bunny-ears_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic Bunny character v1.png",
       "icon": [
         0,
@@ -13738,7 +14021,8 @@
       "name": "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": false
     },
     "unit-bunny-ears_outfit_t5": {
       "kind": "outfit",
@@ -13776,7 +14060,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-bunny-ears_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic Bunny character v1.png",
       "icon": [
         0,
@@ -13789,7 +14073,8 @@
       "name": "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-bunny-ears_outfit_t6": {
       "kind": "outfit",
@@ -13827,7 +14112,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-bunny-ears_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic Bunny character v1.png",
       "icon": [
         0,
@@ -13840,7 +14125,8 @@
       "name": "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-bunny-ears_outfit_t7": {
       "kind": "outfit",
@@ -13891,7 +14177,8 @@
       "name": "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-cat-ears_outfit": {
       "kind": "outfit",
@@ -13929,7 +14216,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-cat-ears_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 5 v1.png",
       "icon": [
         0,
@@ -13942,7 +14229,8 @@
       "name": "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-cat-ears_outfit_t2": {
       "kind": "outfit",
@@ -13980,7 +14268,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-cat-ears_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 5 v1.png",
       "icon": [
         0,
@@ -13993,7 +14281,8 @@
       "name": "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-cat-ears_outfit_t3": {
       "kind": "outfit",
@@ -14031,7 +14320,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-cat-ears_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 5 v1.png",
       "icon": [
         0,
@@ -14044,7 +14333,8 @@
       "name": "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-cat-ears_outfit_t4": {
       "kind": "outfit",
@@ -14082,7 +14372,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-cat-ears_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 5 v1.png",
       "icon": [
         0,
@@ -14095,7 +14385,8 @@
       "name": "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": false
     },
     "unit-cat-ears_outfit_t5": {
       "kind": "outfit",
@@ -14133,7 +14424,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-cat-ears_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 5 v1.png",
       "icon": [
         0,
@@ -14146,7 +14437,8 @@
       "name": "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-cat-ears_outfit_t6": {
       "kind": "outfit",
@@ -14184,7 +14476,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-cat-ears_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 5 v1.png",
       "icon": [
         0,
@@ -14197,7 +14489,8 @@
       "name": "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-cat-ears_outfit_t7": {
       "kind": "outfit",
@@ -14248,7 +14541,8 @@
       "name": "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-elf-ears_outfit": {
       "kind": "outfit",
@@ -14286,7 +14580,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-elf-ears_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 3 v1.png",
       "icon": [
         0,
@@ -14299,7 +14593,8 @@
       "name": "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-elf-ears_outfit_t2": {
       "kind": "outfit",
@@ -14337,7 +14632,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-elf-ears_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 3 v1.png",
       "icon": [
         0,
@@ -14350,7 +14645,8 @@
       "name": "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-elf-ears_outfit_t3": {
       "kind": "outfit",
@@ -14388,7 +14684,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-elf-ears_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 3 v1.png",
       "icon": [
         0,
@@ -14401,7 +14697,8 @@
       "name": "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-elf-ears_outfit_t4": {
       "kind": "outfit",
@@ -14439,7 +14736,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-elf-ears_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 3 v1.png",
       "icon": [
         0,
@@ -14452,7 +14749,8 @@
       "name": "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": false
     },
     "unit-elf-ears_outfit_t5": {
       "kind": "outfit",
@@ -14490,7 +14788,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-elf-ears_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 3 v1.png",
       "icon": [
         0,
@@ -14503,7 +14801,8 @@
       "name": "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-elf-ears_outfit_t6": {
       "kind": "outfit",
@@ -14541,7 +14840,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-elf-ears_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 3 v1.png",
       "icon": [
         0,
@@ -14554,7 +14853,8 @@
       "name": "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-elf-ears_outfit_t7": {
       "kind": "outfit",
@@ -14605,7 +14905,8 @@
       "name": "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "boss-bee_outfit": {
       "kind": "outfit",
@@ -14643,7 +14944,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-bee_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 3 v1.png",
       "icon": [
         0,
@@ -14656,7 +14957,8 @@
       "name": "CONTENT_ITEMS_BOSS-BEE_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-bee_outfit_t2": {
       "kind": "outfit",
@@ -14694,7 +14996,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-bee_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 3 v1.png",
       "icon": [
         0,
@@ -14707,7 +15009,8 @@
       "name": "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-bee_outfit_t3": {
       "kind": "outfit",
@@ -14745,7 +15048,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-bee_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 3 v1.png",
       "icon": [
         0,
@@ -14758,7 +15061,8 @@
       "name": "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-bee_outfit_t4": {
       "kind": "outfit",
@@ -14796,7 +15100,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-bee_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 3 v1.png",
       "icon": [
         0,
@@ -14809,7 +15113,8 @@
       "name": "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": false
     },
     "boss-bee_outfit_t5": {
       "kind": "outfit",
@@ -14847,7 +15152,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-bee_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 3 v1.png",
       "icon": [
         0,
@@ -14860,7 +15165,8 @@
       "name": "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-bee_outfit_t6": {
       "kind": "outfit",
@@ -14898,7 +15204,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-bee_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 3 v1.png",
       "icon": [
         0,
@@ -14911,7 +15217,8 @@
       "name": "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-bee_outfit_t7": {
       "kind": "outfit",
@@ -14962,7 +15269,8 @@
       "name": "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "boss-orange-tabby-cat_outfit": {
       "kind": "outfit",
@@ -15000,7 +15308,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-orange-tabby-cat_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 5 v1.png",
       "icon": [
         0,
@@ -15013,7 +15321,8 @@
       "name": "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-orange-tabby-cat_outfit_t2": {
       "kind": "outfit",
@@ -15051,7 +15360,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-orange-tabby-cat_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 5 v1.png",
       "icon": [
         0,
@@ -15064,7 +15373,8 @@
       "name": "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-orange-tabby-cat_outfit_t3": {
       "kind": "outfit",
@@ -15102,7 +15412,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-orange-tabby-cat_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 5 v1.png",
       "icon": [
         0,
@@ -15115,7 +15425,8 @@
       "name": "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-orange-tabby-cat_outfit_t4": {
       "kind": "outfit",
@@ -15153,7 +15464,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-orange-tabby-cat_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 5 v1.png",
       "icon": [
         0,
@@ -15166,7 +15477,8 @@
       "name": "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": false
     },
     "boss-orange-tabby-cat_outfit_t5": {
       "kind": "outfit",
@@ -15204,7 +15516,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-orange-tabby-cat_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 5 v1.png",
       "icon": [
         0,
@@ -15217,7 +15529,8 @@
       "name": "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-orange-tabby-cat_outfit_t6": {
       "kind": "outfit",
@@ -15255,7 +15568,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-orange-tabby-cat_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Gato 5 v1.png",
       "icon": [
         0,
@@ -15268,7 +15581,8 @@
       "name": "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-orange-tabby-cat_outfit_t7": {
       "kind": "outfit",
@@ -15319,7 +15633,8 @@
       "name": "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "unit-flower-crown_outfit": {
       "kind": "outfit",
@@ -15357,7 +15672,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-flower-crown_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 1 v1.png",
       "icon": [
         0,
@@ -15370,7 +15685,8 @@
       "name": "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-flower-crown_outfit_t2": {
       "kind": "outfit",
@@ -15408,7 +15724,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-flower-crown_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 1 v1.png",
       "icon": [
         0,
@@ -15421,7 +15737,8 @@
       "name": "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-flower-crown_outfit_t3": {
       "kind": "outfit",
@@ -15459,7 +15776,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-flower-crown_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 1 v1.png",
       "icon": [
         0,
@@ -15472,7 +15789,8 @@
       "name": "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-flower-crown_outfit_t4": {
       "kind": "outfit",
@@ -15510,7 +15828,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-flower-crown_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 1 v1.png",
       "icon": [
         0,
@@ -15523,7 +15841,8 @@
       "name": "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": false
     },
     "unit-flower-crown_outfit_t5": {
       "kind": "outfit",
@@ -15561,7 +15880,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-flower-crown_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 1 v1.png",
       "icon": [
         0,
@@ -15574,7 +15893,8 @@
       "name": "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-flower-crown_outfit_t6": {
       "kind": "outfit",
@@ -15612,7 +15932,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-flower-crown_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 1 v1.png",
       "icon": [
         0,
@@ -15625,7 +15945,8 @@
       "name": "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-flower-crown_outfit_t7": {
       "kind": "outfit",
@@ -15676,7 +15997,8 @@
       "name": "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-green-cap_outfit": {
       "kind": "outfit",
@@ -15714,7 +16036,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-green-cap_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 9 v1.png",
       "icon": [
         0,
@@ -15727,7 +16049,8 @@
       "name": "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-green-cap_outfit_t2": {
       "kind": "outfit",
@@ -15765,7 +16088,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-green-cap_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 9 v1.png",
       "icon": [
         0,
@@ -15778,7 +16101,8 @@
       "name": "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-green-cap_outfit_t3": {
       "kind": "outfit",
@@ -15816,7 +16140,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-green-cap_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 9 v1.png",
       "icon": [
         0,
@@ -15829,7 +16153,8 @@
       "name": "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-green-cap_outfit_t4": {
       "kind": "outfit",
@@ -15867,7 +16192,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-green-cap_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 9 v1.png",
       "icon": [
         0,
@@ -15880,7 +16205,8 @@
       "name": "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": false
     },
     "unit-green-cap_outfit_t5": {
       "kind": "outfit",
@@ -15918,7 +16244,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-green-cap_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 9 v1.png",
       "icon": [
         0,
@@ -15931,7 +16257,8 @@
       "name": "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-green-cap_outfit_t6": {
       "kind": "outfit",
@@ -15969,7 +16296,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-green-cap_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 9 v1.png",
       "icon": [
         0,
@@ -15982,7 +16309,8 @@
       "name": "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-green-cap_outfit_t7": {
       "kind": "outfit",
@@ -16033,7 +16361,8 @@
       "name": "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-pink-cap_outfit": {
       "kind": "outfit",
@@ -16071,7 +16400,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-pink-cap_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 8 v1.png",
       "icon": [
         0,
@@ -16084,7 +16413,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-pink-cap_outfit_t2": {
       "kind": "outfit",
@@ -16122,7 +16452,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-pink-cap_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 8 v1.png",
       "icon": [
         0,
@@ -16135,7 +16465,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-pink-cap_outfit_t3": {
       "kind": "outfit",
@@ -16173,7 +16504,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-pink-cap_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 8 v1.png",
       "icon": [
         0,
@@ -16186,7 +16517,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-pink-cap_outfit_t4": {
       "kind": "outfit",
@@ -16224,7 +16556,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-pink-cap_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 8 v1.png",
       "icon": [
         0,
@@ -16237,7 +16569,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": false
     },
     "unit-pink-cap_outfit_t5": {
       "kind": "outfit",
@@ -16275,7 +16608,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-pink-cap_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 8 v1.png",
       "icon": [
         0,
@@ -16288,7 +16621,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-pink-cap_outfit_t6": {
       "kind": "outfit",
@@ -16326,7 +16660,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-pink-cap_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 8 v1.png",
       "icon": [
         0,
@@ -16339,7 +16673,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-pink-cap_outfit_t7": {
       "kind": "outfit",
@@ -16390,7 +16725,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-pink-flower-hood_outfit": {
       "kind": "outfit",
@@ -16428,7 +16764,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-pink-flower-hood_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 4 v1.png",
       "icon": [
         0,
@@ -16441,7 +16777,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-pink-flower-hood_outfit_t2": {
       "kind": "outfit",
@@ -16479,7 +16816,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-pink-flower-hood_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 4 v1.png",
       "icon": [
         0,
@@ -16492,7 +16829,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-pink-flower-hood_outfit_t3": {
       "kind": "outfit",
@@ -16530,7 +16868,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-pink-flower-hood_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 4 v1.png",
       "icon": [
         0,
@@ -16543,7 +16881,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-pink-flower-hood_outfit_t4": {
       "kind": "outfit",
@@ -16581,7 +16920,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-pink-flower-hood_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 4 v1.png",
       "icon": [
         0,
@@ -16594,7 +16933,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": false
     },
     "unit-pink-flower-hood_outfit_t5": {
       "kind": "outfit",
@@ -16632,7 +16972,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-pink-flower-hood_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 4 v1.png",
       "icon": [
         0,
@@ -16645,7 +16985,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-pink-flower-hood_outfit_t6": {
       "kind": "outfit",
@@ -16683,7 +17024,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-pink-flower-hood_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 4 v1.png",
       "icon": [
         0,
@@ -16696,7 +17037,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-pink-flower-hood_outfit_t7": {
       "kind": "outfit",
@@ -16747,7 +17089,8 @@
       "name": "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-plain_outfit": {
       "kind": "outfit",
@@ -16785,7 +17128,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-plain_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic character v1.png",
       "icon": [
         0,
@@ -16798,7 +17141,8 @@
       "name": "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-plain_outfit_t2": {
       "kind": "outfit",
@@ -16836,7 +17180,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-plain_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic character v1.png",
       "icon": [
         0,
@@ -16849,7 +17193,8 @@
       "name": "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-plain_outfit_t3": {
       "kind": "outfit",
@@ -16887,7 +17232,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-plain_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic character v1.png",
       "icon": [
         0,
@@ -16900,7 +17245,8 @@
       "name": "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-plain_outfit_t4": {
       "kind": "outfit",
@@ -16938,7 +17284,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-plain_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic character v1.png",
       "icon": [
         0,
@@ -16951,7 +17297,8 @@
       "name": "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": false
     },
     "unit-plain_outfit_t5": {
       "kind": "outfit",
@@ -16989,7 +17336,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-plain_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic character v1.png",
       "icon": [
         0,
@@ -17002,7 +17349,8 @@
       "name": "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-plain_outfit_t6": {
       "kind": "outfit",
@@ -17040,7 +17388,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-plain_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Basic character v1.png",
       "icon": [
         0,
@@ -17053,7 +17401,8 @@
       "name": "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-plain_outfit_t7": {
       "kind": "outfit",
@@ -17104,7 +17453,8 @@
       "name": "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "unit-sprout_outfit": {
       "kind": "outfit",
@@ -17142,7 +17492,7 @@
         ]
       },
       "reroll": 3,
-      "next": "unit-sprout_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v1.png",
       "icon": [
         0,
@@ -17155,7 +17505,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT",
       "merge_gain": {
         "hp": 0.16
-      }
+      },
+      "legacy": true
     },
     "unit-sprout_outfit_t2": {
       "kind": "outfit",
@@ -17193,7 +17544,7 @@
         ]
       },
       "reroll": 6,
-      "next": "unit-sprout_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v1.png",
       "icon": [
         0,
@@ -17206,7 +17557,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2",
       "merge_gain": {
         "hp": 0.408
-      }
+      },
+      "legacy": true
     },
     "unit-sprout_outfit_t3": {
       "kind": "outfit",
@@ -17244,7 +17596,7 @@
         ]
       },
       "reroll": 12,
-      "next": "unit-sprout_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v1.png",
       "icon": [
         0,
@@ -17257,7 +17609,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3",
       "merge_gain": {
         "hp": 1.0404
-      }
+      },
+      "legacy": true
     },
     "unit-sprout_outfit_t4": {
       "kind": "outfit",
@@ -17295,7 +17648,7 @@
         ]
       },
       "reroll": 24,
-      "next": "unit-sprout_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v1.png",
       "icon": [
         0,
@@ -17308,7 +17661,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4",
       "merge_gain": {
         "hp": 2.6530199999999997
-      }
+      },
+      "legacy": false
     },
     "unit-sprout_outfit_t5": {
       "kind": "outfit",
@@ -17346,7 +17700,7 @@
         ]
       },
       "reroll": 48,
-      "next": "unit-sprout_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v1.png",
       "icon": [
         0,
@@ -17359,7 +17713,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5",
       "merge_gain": {
         "hp": 6.7652009999999985
-      }
+      },
+      "legacy": true
     },
     "unit-sprout_outfit_t6": {
       "kind": "outfit",
@@ -17397,7 +17752,7 @@
         ]
       },
       "reroll": 96,
-      "next": "unit-sprout_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Character 1 v1.png",
       "icon": [
         0,
@@ -17410,7 +17765,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6",
       "merge_gain": {
         "hp": 17.251262549999996
-      }
+      },
+      "legacy": true
     },
     "unit-sprout_outfit_t7": {
       "kind": "outfit",
@@ -17461,7 +17817,8 @@
       "name": "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7",
       "merge_gain": {
         "hp": 43.99071950249998
-      }
+      },
+      "legacy": true
     },
     "boss-red-panda_outfit": {
       "kind": "outfit",
@@ -17499,7 +17856,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-red-panda_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 5 v1.png",
       "icon": [
         0,
@@ -17512,7 +17869,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-red-panda_outfit_t2": {
       "kind": "outfit",
@@ -17550,7 +17908,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-red-panda_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 5 v1.png",
       "icon": [
         0,
@@ -17563,7 +17921,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-red-panda_outfit_t3": {
       "kind": "outfit",
@@ -17601,7 +17960,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-red-panda_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 5 v1.png",
       "icon": [
         0,
@@ -17614,7 +17973,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-red-panda_outfit_t4": {
       "kind": "outfit",
@@ -17652,7 +18012,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-red-panda_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 5 v1.png",
       "icon": [
         0,
@@ -17665,7 +18025,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": false
     },
     "boss-red-panda_outfit_t5": {
       "kind": "outfit",
@@ -17703,7 +18064,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-red-panda_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 5 v1.png",
       "icon": [
         0,
@@ -17716,7 +18077,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-red-panda_outfit_t6": {
       "kind": "outfit",
@@ -17754,7 +18116,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-red-panda_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 5 v1.png",
       "icon": [
         0,
@@ -17767,7 +18129,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-red-panda_outfit_t7": {
       "kind": "outfit",
@@ -17818,7 +18181,8 @@
       "name": "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "boss-sunflower_outfit": {
       "kind": "outfit",
@@ -17856,7 +18220,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-sunflower_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 2 v1.png",
       "icon": [
         0,
@@ -17869,7 +18233,8 @@
       "name": "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-sunflower_outfit_t2": {
       "kind": "outfit",
@@ -17907,7 +18272,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-sunflower_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 2 v1.png",
       "icon": [
         0,
@@ -17920,7 +18285,8 @@
       "name": "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-sunflower_outfit_t3": {
       "kind": "outfit",
@@ -17958,7 +18324,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-sunflower_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 2 v1.png",
       "icon": [
         0,
@@ -17971,7 +18337,8 @@
       "name": "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-sunflower_outfit_t4": {
       "kind": "outfit",
@@ -18009,7 +18376,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-sunflower_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 2 v1.png",
       "icon": [
         0,
@@ -18022,7 +18389,8 @@
       "name": "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": false
     },
     "boss-sunflower_outfit_t5": {
       "kind": "outfit",
@@ -18060,7 +18428,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-sunflower_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 2 v1.png",
       "icon": [
         0,
@@ -18073,7 +18441,8 @@
       "name": "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-sunflower_outfit_t6": {
       "kind": "outfit",
@@ -18111,7 +18480,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-sunflower_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Spring 2 v1.png",
       "icon": [
         0,
@@ -18124,7 +18493,8 @@
       "name": "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-sunflower_outfit_t7": {
       "kind": "outfit",
@@ -18175,7 +18545,8 @@
       "name": "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "boss-green-alien_outfit": {
       "kind": "outfit",
@@ -18213,7 +18584,7 @@
         ]
       },
       "reroll": 3,
-      "next": "boss-green-alien_outfit_t2",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 4 v1.png",
       "icon": [
         0,
@@ -18226,7 +18597,8 @@
       "name": "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT",
       "merge_gain": {
         "hp": 0.48
-      }
+      },
+      "legacy": true
     },
     "boss-green-alien_outfit_t2": {
       "kind": "outfit",
@@ -18264,7 +18636,7 @@
         ]
       },
       "reroll": 6,
-      "next": "boss-green-alien_outfit_t3",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 4 v1.png",
       "icon": [
         0,
@@ -18277,7 +18649,8 @@
       "name": "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2",
       "merge_gain": {
         "hp": 1.224
-      }
+      },
+      "legacy": true
     },
     "boss-green-alien_outfit_t3": {
       "kind": "outfit",
@@ -18315,7 +18688,7 @@
         ]
       },
       "reroll": 12,
-      "next": "boss-green-alien_outfit_t4",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 4 v1.png",
       "icon": [
         0,
@@ -18328,7 +18701,8 @@
       "name": "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3",
       "merge_gain": {
         "hp": 3.1212
-      }
+      },
+      "legacy": true
     },
     "boss-green-alien_outfit_t4": {
       "kind": "outfit",
@@ -18366,7 +18740,7 @@
         ]
       },
       "reroll": 24,
-      "next": "boss-green-alien_outfit_t5",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 4 v1.png",
       "icon": [
         0,
@@ -18379,7 +18753,8 @@
       "name": "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4",
       "merge_gain": {
         "hp": 7.95906
-      }
+      },
+      "legacy": false
     },
     "boss-green-alien_outfit_t5": {
       "kind": "outfit",
@@ -18417,7 +18792,7 @@
         ]
       },
       "reroll": 48,
-      "next": "boss-green-alien_outfit_t6",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 4 v1.png",
       "icon": [
         0,
@@ -18430,7 +18805,8 @@
       "name": "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5",
       "merge_gain": {
         "hp": 20.295602999999996
-      }
+      },
+      "legacy": true
     },
     "boss-green-alien_outfit_t6": {
       "kind": "outfit",
@@ -18468,7 +18844,7 @@
         ]
       },
       "reroll": 96,
-      "next": "boss-green-alien_outfit_t7",
+      "next": "",
       "texture": "res://assets/PixelPlains/Characters 24x24/Special 4 v1.png",
       "icon": [
         0,
@@ -18481,7 +18857,8 @@
       "name": "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6",
       "merge_gain": {
         "hp": 51.753787649999985
-      }
+      },
+      "legacy": true
     },
     "boss-green-alien_outfit_t7": {
       "kind": "outfit",
@@ -18532,7 +18909,8 @@
       "name": "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7",
       "merge_gain": {
         "hp": 131.97215850749993
-      }
+      },
+      "legacy": true
     },
     "wood_sword": {
       "kind": "weapon",
@@ -19209,7 +19587,7 @@
       "respawn": 5,
       "coins": 1.0,
       "xp": 3,
-      "gear_chance": 0.1,
+      "gear_chance": 0.05,
       "loot": [
         "wood_sword",
         "unit-blue-cap_outfit"
@@ -19241,7 +19619,7 @@
       "respawn": 5,
       "coins": 1.0,
       "xp": 4,
-      "gear_chance": 0.1,
+      "gear_chance": 0.05,
       "loot": [
         "wood_sword",
         "unit-red-scarf_outfit"
@@ -19273,7 +19651,7 @@
       "respawn": 5,
       "coins": 1.0,
       "xp": 4,
-      "gear_chance": 0.1,
+      "gear_chance": 0.05,
       "loot": [
         "wood_axe",
         "unit-chef-hat_outfit"
@@ -19291,7 +19669,7 @@
       "final": false,
       "level": 7,
       "body": "boss-snowman_outfit",
-      "weapon": "wood_axe",
+      "weapon": "stone_axe",
       "skills": [],
       "center": [
         800.0,
@@ -19307,7 +19685,7 @@
       "xp": 40,
       "gear_chance": 0.3,
       "loot": [
-        "wood_axe",
+        "stone_axe",
         "boss-snowman_outfit"
       ],
       "aggro_mode": "passive",
@@ -19337,7 +19715,7 @@
       "respawn": 7,
       "coins": 1.25,
       "xp": 4,
-      "gear_chance": 0.09000000000000001,
+      "gear_chance": 0.05,
       "loot": [
         "wood_axe",
         "unit-wolf-hood_outfit"
@@ -19369,7 +19747,7 @@
       "respawn": 7,
       "coins": 1.25,
       "xp": 5,
-      "gear_chance": 0.09000000000000001,
+      "gear_chance": 0.05,
       "loot": [
         "wood_sword",
         "unit-calico-cat-hood_outfit"
@@ -19401,7 +19779,7 @@
       "respawn": 7,
       "coins": 1.25,
       "xp": 5,
-      "gear_chance": 0.09000000000000001,
+      "gear_chance": 0.05,
       "loot": [
         "wood_sword",
         "unit-golden-crown_outfit"
@@ -19433,7 +19811,7 @@
       "respawn": 7,
       "coins": 1.25,
       "xp": 5,
-      "gear_chance": 0.09000000000000001,
+      "gear_chance": 0.05,
       "loot": [
         "wood_axe",
         "unit-reindeer-antlers_outfit"
@@ -19465,7 +19843,7 @@
       "respawn": 7,
       "coins": 1.25,
       "xp": 5,
-      "gear_chance": 0.09000000000000001,
+      "gear_chance": 0.05,
       "loot": [
         "wood_axe",
         "unit-santa-hat_outfit"
@@ -19499,7 +19877,7 @@
       "respawn": 7,
       "coins": 1.25,
       "xp": 6,
-      "gear_chance": 0.09000000000000001,
+      "gear_chance": 0.05,
       "loot": [
         "wood_sword",
         "unit-space-helmet_outfit"
@@ -19517,7 +19895,7 @@
       "final": false,
       "level": 20,
       "body": "boss-cyan-robot_outfit",
-      "weapon": "wood_sword",
+      "weapon": "stone_sword",
       "skills": [
         "heal"
       ],
@@ -19535,7 +19913,7 @@
       "xp": 60,
       "gear_chance": 0.3,
       "loot": [
-        "wood_sword",
+        "stone_sword",
         "boss-cyan-robot_outfit"
       ],
       "aggro_mode": "individual",
@@ -19567,7 +19945,7 @@
       "respawn": 9,
       "coins": 1.5625,
       "xp": 7,
-      "gear_chance": 0.08,
+      "gear_chance": 0.05,
       "loot": [
         "stone_sword",
         "unit-straw-hat_outfit_t2"
@@ -19601,7 +19979,7 @@
       "respawn": 9,
       "coins": 1.5625,
       "xp": 8,
-      "gear_chance": 0.08,
+      "gear_chance": 0.05,
       "loot": [
         "stone_axe",
         "unit-sunglasses_outfit_t2"
@@ -19635,7 +20013,7 @@
       "respawn": 9,
       "coins": 1.5625,
       "xp": 9,
-      "gear_chance": 0.08,
+      "gear_chance": 0.05,
       "loot": [
         "stone_axe",
         "unit-yellow-cap_outfit_t2"
@@ -19653,7 +20031,7 @@
       "final": false,
       "level": 35,
       "body": "boss-gray-cat_outfit",
-      "weapon": "stone_axe",
+      "weapon": "iron_axe",
       "skills": [
         "lightning"
       ],
@@ -19671,7 +20049,7 @@
       "xp": 100,
       "gear_chance": 0.3,
       "loot": [
-        "stone_axe",
+        "iron_axe",
         "boss-gray-cat_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -19701,7 +20079,7 @@
       "respawn": 11,
       "coins": 1.953125,
       "xp": 11,
-      "gear_chance": 0.07,
+      "gear_chance": 0.05,
       "loot": [
         "stone_sword",
         "unit-cowboy-bandana_outfit_t2"
@@ -19733,7 +20111,7 @@
       "respawn": 11,
       "coins": 1.953125,
       "xp": 12,
-      "gear_chance": 0.07,
+      "gear_chance": 0.05,
       "loot": [
         "stone_sword",
         "unit-duck-swim-ring_outfit_t2"
@@ -19767,7 +20145,7 @@
       "respawn": 11,
       "coins": 1.953125,
       "xp": 14,
-      "gear_chance": 0.07,
+      "gear_chance": 0.05,
       "loot": [
         "stone_axe",
         "unit-rainbow-clown_outfit_t2"
@@ -19799,7 +20177,7 @@
       "respawn": 11,
       "coins": 1.953125,
       "xp": 15,
-      "gear_chance": 0.07,
+      "gear_chance": 0.05,
       "loot": [
         "stone_axe",
         "unit-red-cap-swimmer_outfit_t2"
@@ -19833,7 +20211,7 @@
       "respawn": 11,
       "coins": 1.953125,
       "xp": 16,
-      "gear_chance": 0.07,
+      "gear_chance": 0.05,
       "loot": [
         "stone_sword",
         "unit-snorkeler_outfit_t2"
@@ -19865,7 +20243,7 @@
       "respawn": 11,
       "coins": 1.953125,
       "xp": 18,
-      "gear_chance": 0.07,
+      "gear_chance": 0.05,
       "loot": [
         "stone_sword",
         "unit-straw-hat-swimmer_outfit_t2"
@@ -19883,7 +20261,7 @@
       "final": false,
       "level": 60,
       "body": "boss-elephant_outfit",
-      "weapon": "stone_sword",
+      "weapon": "iron_sword",
       "skills": [
         "focus"
       ],
@@ -19901,7 +20279,7 @@
       "xp": 230,
       "gear_chance": 0.3,
       "loot": [
-        "stone_sword",
+        "iron_sword",
         "boss-elephant_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -19917,7 +20295,7 @@
       "final": false,
       "level": 65,
       "body": "boss-teal-dinosaur_outfit",
-      "weapon": "stone_sword",
+      "weapon": "iron_sword",
       "skills": [
         "fire"
       ],
@@ -19935,7 +20313,7 @@
       "xp": 280,
       "gear_chance": 0.3,
       "loot": [
-        "stone_sword",
+        "iron_sword",
         "boss-teal-dinosaur_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -19965,7 +20343,7 @@
       "respawn": 13,
       "coins": 2.44140625,
       "xp": 28,
-      "gear_chance": 0.060000000000000005,
+      "gear_chance": 0.05,
       "loot": [
         "iron_axe",
         "unit-black-cap_outfit_t3"
@@ -19999,7 +20377,7 @@
       "respawn": 13,
       "coins": 2.44140625,
       "xp": 35,
-      "gear_chance": 0.060000000000000005,
+      "gear_chance": 0.05,
       "loot": [
         "iron_axe",
         "unit-mushroom-cap_outfit_t3"
@@ -20033,7 +20411,7 @@
       "respawn": 13,
       "coins": 2.44140625,
       "xp": 46,
-      "gear_chance": 0.060000000000000005,
+      "gear_chance": 0.05,
       "loot": [
         "iron_sword",
         "unit-pumpkin-head_outfit_t3"
@@ -20051,7 +20429,7 @@
       "final": false,
       "level": 90,
       "body": "boss-squirrel_outfit",
-      "weapon": "iron_sword",
+      "weapon": "gold_sword",
       "skills": [
         "heal",
         "focus"
@@ -20070,7 +20448,7 @@
       "xp": 650,
       "gear_chance": 0.3,
       "loot": [
-        "iron_sword",
+        "gold_sword",
         "boss-squirrel_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20086,7 +20464,7 @@
       "final": false,
       "level": 95,
       "body": "boss-red-fox_outfit",
-      "weapon": "iron_sword",
+      "weapon": "gold_sword",
       "skills": [
         "fire",
         "strike"
@@ -20105,7 +20483,7 @@
       "xp": 770,
       "gear_chance": 0.3,
       "loot": [
-        "iron_sword",
+        "gold_sword",
         "boss-red-fox_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20253,7 +20631,7 @@
       "final": false,
       "level": 135,
       "body": "boss-black-cat_outfit",
-      "weapon": "iron_sword",
+      "weapon": "gold_sword",
       "skills": [
         "lightning",
         "focus"
@@ -20272,7 +20650,7 @@
       "xp": 3020,
       "gear_chance": 0.3,
       "loot": [
-        "iron_sword",
+        "gold_sword",
         "boss-black-cat_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20288,7 +20666,7 @@
       "final": false,
       "level": 140,
       "body": "boss-grim-reaper_outfit",
-      "weapon": "iron_sword",
+      "weapon": "gold_sword",
       "skills": [
         "frost",
         "strike"
@@ -20307,7 +20685,7 @@
       "xp": 3580,
       "gear_chance": 0.3,
       "loot": [
-        "iron_sword",
+        "gold_sword",
         "boss-grim-reaper_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20339,7 +20717,7 @@
       "respawn": 17,
       "coins": 3.814697265625,
       "xp": 358,
-      "gear_chance": 0.04000000000000001,
+      "gear_chance": 0.05,
       "loot": [
         "gold_sword",
         "unit-bunny-ears_outfit_t4"
@@ -20371,7 +20749,7 @@
       "respawn": 17,
       "coins": 3.814697265625,
       "xp": 600,
-      "gear_chance": 0.04000000000000001,
+      "gear_chance": 0.05,
       "loot": [
         "gold_axe",
         "unit-cat-ears_outfit_t4"
@@ -20405,7 +20783,7 @@
       "respawn": 17,
       "coins": 3.814697265625,
       "xp": 1005,
-      "gear_chance": 0.04000000000000001,
+      "gear_chance": 0.05,
       "loot": [
         "gold_axe",
         "unit-elf-ears_outfit_t4"
@@ -20423,7 +20801,7 @@
       "final": false,
       "level": 190,
       "body": "boss-bee_outfit",
-      "weapon": "gold_axe",
+      "weapon": "diamond_axe",
       "skills": [
         "lightning",
         "heal"
@@ -20442,7 +20820,7 @@
       "xp": 20000,
       "gear_chance": 0.3,
       "loot": [
-        "gold_axe",
+        "diamond_axe",
         "boss-bee_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20458,7 +20836,7 @@
       "final": false,
       "level": 195,
       "body": "boss-orange-tabby-cat_outfit",
-      "weapon": "gold_axe",
+      "weapon": "diamond_axe",
       "skills": [
         "fire",
         "focus"
@@ -20477,7 +20855,7 @@
       "xp": 23750,
       "gear_chance": 0.3,
       "loot": [
-        "gold_axe",
+        "diamond_axe",
         "boss-orange-tabby-cat_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20509,7 +20887,7 @@
       "respawn": 19,
       "coins": 4.76837158203125,
       "xp": 2821,
-      "gear_chance": 0.03,
+      "gear_chance": 0.05,
       "loot": [
         "gold_sword",
         "unit-flower-crown_outfit_t4"
@@ -20543,7 +20921,7 @@
       "respawn": 19,
       "coins": 4.76837158203125,
       "xp": 3978,
-      "gear_chance": 0.03,
+      "gear_chance": 0.05,
       "loot": [
         "gold_sword",
         "unit-green-cap_outfit_t4"
@@ -20575,7 +20953,7 @@
       "respawn": 19,
       "coins": 4.76837158203125,
       "xp": 5612,
-      "gear_chance": 0.03,
+      "gear_chance": 0.05,
       "loot": [
         "gold_axe",
         "unit-pink-cap_outfit_t4"
@@ -20609,7 +20987,7 @@
       "respawn": 19,
       "coins": 4.76837158203125,
       "xp": 7916,
-      "gear_chance": 0.03,
+      "gear_chance": 0.05,
       "loot": [
         "gold_axe",
         "unit-pink-flower-hood_outfit_t4"
@@ -20641,7 +21019,7 @@
       "respawn": 19,
       "coins": 4.76837158203125,
       "xp": 11166,
-      "gear_chance": 0.03,
+      "gear_chance": 0.05,
       "loot": [
         "gold_sword",
         "unit-plain_outfit_t4"
@@ -20675,7 +21053,7 @@
       "respawn": 19,
       "coins": 4.76837158203125,
       "xp": 15750,
-      "gear_chance": 0.03,
+      "gear_chance": 0.05,
       "loot": [
         "gold_sword",
         "unit-sprout_outfit_t4"
@@ -20693,7 +21071,7 @@
       "final": false,
       "level": 300,
       "body": "boss-red-panda_outfit",
-      "weapon": "gold_sword",
+      "weapon": "diamond_sword",
       "skills": [
         "frost",
         "heal"
@@ -20712,7 +21090,7 @@
       "xp": 879610,
       "gear_chance": 0.3,
       "loot": [
-        "gold_sword",
+        "diamond_sword",
         "boss-red-panda_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20728,7 +21106,7 @@
       "final": false,
       "level": 305,
       "body": "boss-sunflower_outfit",
-      "weapon": "gold_sword",
+      "weapon": "diamond_sword",
       "skills": [
         "heal",
         "focus"
@@ -20747,7 +21125,7 @@
       "xp": 1044700,
       "gear_chance": 0.3,
       "loot": [
-        "gold_sword",
+        "diamond_sword",
         "boss-sunflower_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20763,7 +21141,7 @@
       "final": true,
       "level": 350,
       "body": "boss-green-alien_outfit",
-      "weapon": "gold_sword",
+      "weapon": "diamond_sword",
       "skills": [
         "focus",
         "fire",
@@ -20783,7 +21161,7 @@
       "xp": 4912510,
       "gear_chance": 0.3,
       "loot": [
-        "gold_sword",
+        "diamond_sword",
         "boss-green-alien_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20795,21 +21173,23 @@
   "upgrades": {
     "gear_slots": {
       "currency": "gems",
-      "base": 10,
+      "base": 5,
       "growth": 1,
       "cap": 389,
       "keep": true,
       "effect": 1,
-      "scope": "global"
+      "scope": "global",
+      "step": 1
     },
     "supply_slots": {
       "currency": "gems",
-      "base": 8,
+      "base": 4,
       "growth": 1,
       "cap": 13,
       "keep": true,
       "effect": 1,
-      "scope": "global"
+      "scope": "global",
+      "step": 4
     },
     "collect": {
       "currency": "coins",
@@ -20831,8 +21211,8 @@
     },
     "collect_batch": {
       "currency": "coins",
-      "base": 30,
-      "growth": 1.5,
+      "base": 120,
+      "growth": 3.0,
       "cap": 5,
       "keep": true,
       "effect": 1,
@@ -20858,7 +21238,7 @@
     },
     "merge_supplies": {
       "currency": "gems",
-      "base": 20,
+      "base": 10,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -20867,7 +21247,7 @@
     },
     "merge_speed": {
       "currency": "gems",
-      "base": 25,
+      "base": 12,
       "growth": 1.7,
       "cap": 9,
       "keep": true,
@@ -20876,8 +21256,8 @@
     },
     "auto_use": {
       "currency": "gems",
-      "base": 10,
-      "growth": 2.4,
+      "base": 6,
+      "growth": 2.6,
       "cap": 3,
       "keep": true,
       "effect": 1,
@@ -20916,7 +21296,7 @@
       "growth": 1.35,
       "cap": 15,
       "keep": false,
-      "effect": 0.01,
+      "effect": 0.005,
       "scope": "type"
     },
     "coin_chance": {
@@ -20930,24 +21310,24 @@
     },
     "gem_chance": {
       "currency": "gems",
-      "base": 50,
+      "base": 25,
       "growth": 1,
       "cap": 12,
       "keep": false,
       "effect": 0.01,
       "prices": [
-        50,
-        75,
+        25,
+        40,
+        58,
+        80,
         105,
-        140,
-        180,
-        220,
-        265,
+        135,
+        170,
+        210,
+        260,
         320,
-        400,
-        500,
-        600,
-        700
+        390,
+        470
       ],
       "scope": "global"
     },
@@ -20962,22 +21342,22 @@
     },
     "gem_amount": {
       "currency": "gems",
-      "base": 50,
+      "base": 25,
       "growth": 1,
       "cap": 10,
       "keep": false,
       "effect": 0.5,
       "prices": [
-        50,
-        75,
+        25,
+        40,
+        58,
+        80,
         105,
-        140,
-        180,
-        220,
-        265,
-        320,
-        400,
-        500
+        135,
+        170,
+        210,
+        260,
+        320
       ],
       "scope": "global"
     },
@@ -21019,41 +21399,41 @@
     },
     "boss_gem_chance": {
       "currency": "gems",
-      "base": 100,
+      "base": 50,
       "growth": 1,
       "cap": 8,
       "keep": false,
       "effect": 0.05,
       "prices": [
-        100,
-        150,
-        225,
-        325,
-        450,
-        600,
-        800,
-        1000
+        50,
+        80,
+        120,
+        170,
+        230,
+        310,
+        410,
+        530
       ],
       "scope": "global"
     },
     "boss_gem_amount": {
       "currency": "gems",
-      "base": 50,
+      "base": 25,
       "growth": 1,
       "cap": 10,
       "keep": false,
       "effect": 1,
       "prices": [
-        50,
-        75,
+        25,
+        40,
+        58,
+        80,
         105,
-        140,
-        180,
-        220,
-        265,
-        320,
-        400,
-        500
+        135,
+        170,
+        210,
+        260,
+        320
       ],
       "scope": "global"
     },
@@ -21107,20 +21487,20 @@
     },
     "skill_slots": {
       "currency": "gems",
-      "base": 100,
+      "base": 50,
       "growth": 1,
       "cap": 2,
       "keep": true,
       "effect": 1,
       "scope": "global",
       "prices": [
-        100,
-        300
+        50,
+        160
       ]
     },
     "skill_auto_0": {
       "currency": "gems",
-      "base": 75,
+      "base": 38,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21129,7 +21509,7 @@
     },
     "skill_auto_1": {
       "currency": "gems",
-      "base": 150,
+      "base": 75,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21138,7 +21518,7 @@
     },
     "skill_auto_2": {
       "currency": "gems",
-      "base": 300,
+      "base": 150,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21210,17 +21590,14 @@
     },
     "map_detail": {
       "currency": "coins",
-      "base": 40,
-      "growth": 1,
+      "base": 60,
+      "growth": 1.3,
       "cap": 3,
       "keep": false,
       "effect": 1,
       "scope": "stage",
-      "prices": [
-        40,
-        100,
-        200
-      ]
+      "sequence": true,
+      "floor": 40
     },
     "reveal_radius": {
       "currency": "coins",
@@ -21242,23 +21619,23 @@
     },
     "mission_slots": {
       "currency": "gems",
-      "base": 50,
+      "base": 25,
       "growth": 1,
       "cap": 5,
       "keep": true,
       "effect": 1,
       "scope": "global",
       "prices": [
+        25,
         50,
-        100,
-        175,
-        275,
-        400
+        90,
+        140,
+        200
       ]
     },
     "mission_claim": {
       "currency": "gems",
-      "base": 150,
+      "base": 75,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21267,25 +21644,25 @@
     },
     "offline_cap": {
       "currency": "gems",
-      "base": 50,
+      "base": 25,
       "growth": 1,
       "cap": 6,
       "keep": true,
       "effect": 1,
       "scope": "global",
       "prices": [
+        25,
         50,
-        100,
-        175,
-        275,
-        425,
-        650
+        90,
+        140,
+        215,
+        330
       ]
     },
     "offline_coins": {
       "currency": "coins",
       "base": 100,
-      "growth": 1.5,
+      "growth": 1.3,
       "cap": 20,
       "keep": true,
       "effect": 60,
@@ -21293,8 +21670,8 @@
     },
     "offline_gems": {
       "currency": "gems",
-      "base": 40,
-      "growth": 1.45,
+      "base": 20,
+      "growth": 1.25,
       "cap": 20,
       "keep": true,
       "effect": 0.5,
@@ -21302,7 +21679,7 @@
     },
     "offline_weapon": {
       "currency": "gems",
-      "base": 100,
+      "base": 50,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21320,7 +21697,7 @@
     },
     "offline_outfit": {
       "currency": "gems",
-      "base": 100,
+      "base": 50,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21338,7 +21715,7 @@
     },
     "offline_consumable": {
       "currency": "gems",
-      "base": 75,
+      "base": 38,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21502,9 +21879,16 @@
       "camp": 0.1,
       "camp_radius": 110
     },
-    "prestige_gate_stage": 3,
     "potion_cooldown": 5.0,
-    "coin_boost_duration": 30.0
+    "coin_boost_duration": 30.0,
+    "merge": {
+      "weapon_cap": 100,
+      "copy_cap": 500,
+      "linear_levels": 100,
+      "tail_scale": 100.0,
+      "stock_bonus_per_copy": 0.0005
+    },
+    "prestige_unlock_kills": 1
   },
   "skills": {
     "heal": {

@@ -89,7 +89,7 @@ func _process(_delta: float) -> void:
             weapon=g.weapon
             v.max_hp=g.hp
             v.visual_scale=float(g.visual_scale)
-        v.disclosed=id=="player" or sim.campaign.cell_known(sim.position_of(actor))
+        v.disclosed=id=="player" or sim.campaign.can_see(sim.position_of(actor))
         body=sim.catalog.art_id(body)
         weapon=sim.catalog.art_id(weapon)
         var path: String="res://assets/PixelPlains/Characters 24x24/Basic character v2.png"
@@ -124,7 +124,7 @@ func _process(_delta: float) -> void:
             $Pickups.add_child(node)
             pickups[id]=node
         pickups[id].position=Vector2(drop.x,drop.y)
-        pickups[id].visible=sim.campaign.cell_known(Vector2(drop.x,drop.y))
+        pickups[id].visible=sim.campaign.can_see(Vector2(drop.x,drop.y))
         pickups[id].modulate.a=.55 if drop.ttl<30 else 1.0
     for id in pickups.keys():
         if not seen.has(id):
@@ -138,7 +138,7 @@ func _update_camps() -> void:
         var camp=scenery.get_node("Camps/Camp%d" % i)
         var owned: bool=sim.state.spawns.has(i)
         var active: bool=int(sim.state.spawn)==i
-        camp.visible=sim.campaign.cell_known(camp.position)
+        camp.visible=sim.campaign.camp_known(i)
         camp.get_node("Fountain").modulate=Color.WHITE if owned else Color(.5,.55,.6)
         camp.get_node("Selected").visible=active
         camp.get_node("Label").text=tr("CAMP_NAME") % (i+1)+(" ✓" if active else ("" if owned else " · "+tr("CAMP_LOCKED_SHORT")))
@@ -174,7 +174,7 @@ func collect_at(screen_point: Vector2) -> void:
     if not get_tree().paused:
         for drop in sim.state.pickups:
             var d:=Vector2(drop.x,drop.y).distance_to(point)
-            if d<distance and sim.campaign.cell_known(Vector2(drop.x,drop.y)):
+            if d<distance and sim.campaign.can_see(Vector2(drop.x,drop.y)):
                 closest=drop
                 distance=d
     if not closest.is_empty():
@@ -183,7 +183,7 @@ func collect_at(screen_point: Vector2) -> void:
     var selected_actor: Dictionary={}
     distance=18.0
     for actor in [sim.state.player]+sim.state.enemies:
-        if actor.hp<=0 or (actor.id!="player" and not sim.campaign.cell_known(sim.position_of(actor))):
+        if actor.hp<=0 or (actor.id!="player" and not sim.campaign.can_see(sim.position_of(actor))):
             continue
         var d: float=actor_pick_rect(actor).get_center().distance_to(point)
         if actor_pick_rect(actor).has_point(point) and (selected_actor.is_empty() or d<distance):
@@ -194,7 +194,7 @@ func collect_at(screen_point: Vector2) -> void:
         return
     for i in range(sim.campaign.stage().spawns.size()):
         var camp_position: Vector2=scenery.get_node("Camps/Camp%d" % i).position
-        if not sim.campaign.cell_known(camp_position):continue
+        if not sim.campaign.camp_known(i):continue
         if Rect2(camp_position+Vector2(-36,-58),Vector2(72,86)).has_point(point):
             camp_selected.emit(i)
             return
@@ -213,7 +213,7 @@ func actor_at_screen(screen_point: Vector2,player_only:=false) -> Dictionary:
     var distance:=22.0
     var candidates: Array=[sim.state.player] if player_only else sim.state.enemies
     for actor in candidates:
-        if actor.hp<=0 or (actor.id!="player" and not sim.campaign.cell_known(sim.position_of(actor))):
+        if actor.hp<=0 or (actor.id!="player" and not sim.campaign.can_see(sim.position_of(actor))):
             continue
         var d: float=actor_pick_rect(actor).get_center().distance_to(point)
         if actor_pick_rect(actor).has_point(point) and (best.is_empty() or d<distance):
@@ -225,7 +225,7 @@ func player_screen_position() -> Vector2:
     return get_canvas_transform()*(sim.position_of(sim.state.player)+Vector2(0,-10))
 
 func _spell(actor_id: String,key: String,pos: Vector2) -> void:
-    if not sim.campaign.cell_known(pos):return
+    if not sim.campaign.can_see(pos):return
     var d: Dictionary=sim.catalog.skills[key]
     var frames:=SpriteFrames.new()
     frames.set_animation_speed("default",1.0/float(d.frame_time))

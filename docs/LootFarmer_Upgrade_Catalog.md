@@ -79,3 +79,24 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 Upgrade scope and prerequisites are checked in the simulation. Hidden/locked enemy types cannot be purchased remotely; automation rate/range purchases require the unlock. Rerolls retain stock/merge and change only random extras, priced at 3×2^(tier−1) before card discount. Skills with no random pool have no reroll action. Selling has no UI, service, price or automation. Older development saves reset under schema 7; no selling-refund migration is retained.
 
 Change 5: Heal cooldown starts at 18 seconds; six 5% reductions reach 12.6 seconds. Heal remains capped at 12% maximum HP per cast.
+
+## Change 8 prices and rules
+
+Prices are data: `prices` list, `step` (linear: base + step × level), `sequence` (Map Details: base × growth^k, where k is the number of Map Details purchased this run on any stage, with a floor of `floor` × 2^(stage−1)), otherwise base × growth^level. The Gem first prices of Player Upgrades are roughly halved. Full table and arithmetic: docs/LootFarmer_Change_8_Notes.md.
+
+| Runtime id | Change 8 schedule |
+|---|---|
+| gear_slots | 5 + level gems (each slot costs 1 more than the previous one) |
+| supply_slots | 4 + 4 × level gems |
+| merge_supplies / merge_speed / auto_use | 10 / 12 × 1.7^n / 6 × 2.6^n gems |
+| gem_chance, gem_amount, boss_gem_amount | [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, (390, 470)] gems |
+| boss_gem_chance | [50, 80, 120, 170, 230, 310, 410, 530] gems |
+| skill_slots / skill_auto_0,1,2 | [50, 160] / 38, 75, 150 gems |
+| mission_slots / mission_claim | [25, 50, 90, 140, 200] / 75 gems |
+| offline_cap / offline_gems / offline_weapon, outfit, consumable | [25, 50, 90, 140, 215, 330] / 20 × 1.25^n / 50, 50, 38 gems |
+| offline_coins | 100 × 1.3^n coins |
+| loot | +0.5 points per level, 15 levels (5% → 12.5% per carried item; bosses 30% → 37.5%); 20 × 1.35^n × 2^(stage−1) coins |
+| collect_batch | premium: 120 × 3^n × 2^(stage−1) coins (effect unchanged, batch 1 → 6) |
+| map_detail | sequence: max(60 × 1.3^k, 40 × 2^(stage−1)) coins |
+
+Skill cooldown upgrades for a skill appear only after that skill was obtained once (`skills_seen`); skill slot and auto-cast upgrades need any skill. Hidden upgrades also refuse purchases (`UNDISCOVERED`).

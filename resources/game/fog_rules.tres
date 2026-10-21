@@ -2,5 +2,8 @@
 [ext_resource type="Script" path="res://scripts/game/fog_rules.gd" id="rules"]
 [resource]
 script=ExtResource("rules")
-player_radius=144.0
+player_radius=48.0
+vision_factor=2.0
 camp_radius=160.0
+camp_sight_radius=400.0
+camp_footprint_radius=40.0

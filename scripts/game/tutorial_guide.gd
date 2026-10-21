@@ -136,10 +136,10 @@ func _lesson(lesson: String) -> void:
                 step="equip";target=_slot(id)
         "merge":
             surfaces=["","item"]
-            var id:=_first_item(func(i):return sim.quantity(i)>1 and sim.record(i).merge<100)
+            var id:=_first_item(func(i):return sim.quantity(i)>1 and sim.record(i).merge<sim.merge_cap(i))
             if id=="":step="merge_wait";world_target=_nearest_enemy();return
             var open: String=ui.selected if ui.sheet.visible and ui.panel=="item" else ""
-            if open!="" and sim.catalog.items.has(open) and sim.quantity(open)>1 and sim.record(open).merge<100:step="merge_tap";target=_panel_control("merge")
+            if open!="" and sim.catalog.items.has(open) and sim.quantity(open)>1 and sim.record(open).merge<sim.merge_cap(open):step="merge_tap";target=_panel_control("merge")
             else:step="merge";target=_slot(id)
         "upgrade":
             surfaces=["","enemy"]
@@ -158,7 +158,7 @@ func _lesson(lesson: String) -> void:
             var camp:=-1
             for i in range(sim.campaign.stage().spawns.size()):
                 var a: Array=sim.campaign.stage().spawns[i]
-                if not sim.state.spawns.has(i) and sim.campaign.cell_known(Vector2(a[0],a[1])):camp=i;break
+                if not sim.state.spawns.has(i) and sim.campaign.camp_known(i):camp=i;break
             # Never point at an undiscovered place: ask for exploration instead.
             if camp<0:step="camp_explore";target=ui.stick;return
             var price: int=sim.campaign.camp_price(camp)
@@ -172,7 +172,7 @@ var support_value:=0
 func _nearest_enemy() -> Vector2:
     var best:=Vector2.INF
     for e in sim.state.enemies:
-        if e.hp<=0 or not sim.campaign.cell_known(sim.position_of(e)) or sim.catalog.groups[int(e.group)].boss:continue
+        if e.hp<=0 or not sim.campaign.can_see(sim.position_of(e)) or sim.catalog.groups[int(e.group)].boss:continue
         if best==Vector2.INF or sim.position_of(e).distance_to(sim.position_of(sim.state.player))<best.distance_to(sim.position_of(sim.state.player)):best=sim.position_of(e)
     return best
 
@@ -181,7 +181,7 @@ func _nearest_pickup(gear_only:=false) -> Vector2:
     for d in sim.state.pickups:
         if gear_only and sim.catalog.items[d.item].kind not in ["weapon","outfit"]:continue
         var p:=Vector2(d.x,d.y)
-        if sim.campaign.cell_known(p) and (best==Vector2.INF or p.distance_to(sim.position_of(sim.state.player))<best.distance_to(sim.position_of(sim.state.player))):best=p
+        if sim.campaign.can_see(p) and (best==Vector2.INF or p.distance_to(sim.position_of(sim.state.player))<best.distance_to(sim.position_of(sim.state.player))):best=p
     return best
 
 func _first_item(test: Callable) -> String:

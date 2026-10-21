@@ -73,3 +73,13 @@ Per-encounter consumable restriction records first hostile contact, clears on de
 - **Recovery:** `campaign.rest_rate()` is 0 in combat, `rest.field` elsewhere, `rest.camp` within `rest.camp_radius` of an owned camp in the current stage. Applied in the simulation step only.
 - **Seen prestige discoveries:** opening the Prestige panel records `op:<id>` / `op:<id>:ready` in `tutorial.seen` (kept by prestige, cleared by Hard Reset), which drives the gold discovery badge.
 - **Regional exploration:** area uses `fog_rules.cell_size` (24) to match the stored cells; Change 4/5 counted 48-unit blocks and accepted about 22.5% real exploration as 90%.
+
+## Change 8 contracts
+
+- **Prestige entry:** `prestige_gate_reason()` returns `PRESTIGE_LOCKED_FIRST_KILL` until lifetime kills (sum of `group_kills`, which prestige keeps) reach `progression.prestige_unlock_kills` (1). `prestige_block_reason()` then requires a ready opportunity (`NO_READY_PRESTIGE`) that can still award a card (`NO_CARD_AVAILABLE`). The batch snapshots `awardable_ids()`: ready ids in order, each taking one unowned card of its path. The Winter II stage gate is removed.
+- **Fog:** `explored` cells (saved) come from the player's 48-unit reveal and from camp reveals. Vision (`vision_radius()` = reveal × `vision_factor`) is computed live from the living player and never saved. `can_see()` = explored or in vision; it decides world drawing, targeting, pickups, spell effects and the guide's world targets. Vision never discovers a spot.
+- **Spots:** `discovered_spots["g:v"]` (bosses use variant 2) is set when a spot's home cell is explored, a living actor of the spot stands on an explored cell, or the player kills one of its enemies. `discovered[g]` (type known) follows the first found spot. Map markers, map taps and Focus use spots; enemy panels and upgrades still use the type.
+- **Camps:** `camps_known[stage]` holds camps sighted within `camp_sight_radius`. Owned camps are always known. A sighted camp reveals `camp_footprint_radius` once. Unlock, select and taps need a known camp.
+- **Merges:** `merge_cap(id)` is 500 for outfits and skills (`copy_growth`) and 100 otherwise. `merge_levels()` is linear to 100, then logarithmic. The stock bonus applies at the item's own cap. Validation uses the per-item cap. Outfits and skills never evolve (`next` empty); legacy evolved tiers stay valid items.
+- **Prestige keep list** adds `skills_seen`.
+- **Migration:** see docs/LootFarmer_Change_8_Notes.md, section Saves. Older current-schema saves derive the three new fields on load and are never reset for them.

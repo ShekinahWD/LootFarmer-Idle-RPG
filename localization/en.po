@@ -563,7 +563,7 @@ msgid "UP_RESPAWN"
 msgstr "Respawn delay −1s"
 
 msgid "UP_LOOT"
-msgstr "Gear drop chance +1 point"
+msgstr "Gear drop chance +0.5 points (per item)"
 
 msgid "UP_COIN_CHANCE"
 msgstr "Coin drop chance"
@@ -824,7 +824,7 @@ msgid "HP_PER_SECOND"
 msgstr "HP/s"
 
 msgid "STAT_SOURCES"
-msgstr "Stat contributions (before multipliers and caps)"
+msgstr "Where your stats come from"
 
 msgid "SOURCE_BASE"
 msgstr "Base stats"
@@ -1138,7 +1138,7 @@ msgid "UP_OFFLINE_CONSUMABLE_RATE"
 msgstr "Offline consumables per hour"
 
 msgid "MAP_LEGEND"
-msgstr "Unexplored areas stay hidden. Camps reveal nearby terrain."
+msgstr "Ground you have explored stays clear; nearby ground shows only while you are there. Camps can be spotted from farther away."
 
 msgid "MINIMAP"
 msgstr "Map"
@@ -3815,7 +3815,7 @@ msgid "TAB_OFFLINE"
 msgstr "Offline"
 
 msgid "UPGRADES_PLAYER_HINT"
-msgstr "Tap your character at any time to open these upgrades."
+msgstr "Open these upgrades with the Upgrades button or by tapping your character."
 
 msgid "HUD_RESTING"
 msgstr "· Resting"
@@ -4218,3 +4218,174 @@ msgstr "Offline earnings are waiting to be claimed."
 
 msgid "OFFLINE_CLAIMED_RECEIPT"
 msgstr "Last claim: %s rewarded hours · %s coins · %s gems"
+
+msgid "NAV_UPGRADES"
+msgstr "Upgrades"
+
+msgid "STATS_OPEN"
+msgstr "Stats"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "New upgrades unlocked: %s (Player Upgrades)"
+
+msgid "PRESTIGE_LOCKED_FIRST_KILL"
+msgstr "Defeat your first enemy to unlock Prestige."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "Defeat 1 enemy"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "You already own every card these ready opportunities could give."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "Find this spot on the map first."
+
+msgid "EQUIPPED_PINNED"
+msgstr "Equipped"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "Weapon"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "Outfit"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "Empty slot"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "EQUIPPED"
+
+msgid "COMPARE_SELECTED"
+msgstr "SELECTED"
+
+msgid "COMPARE_ITEM"
+msgstr "ITEM"
+
+msgid "COMPARE_UPGRADE"
+msgstr "Upgrade"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "Downgrade"
+
+msgid "COMPARE_MIXED"
+msgstr "Trade-off"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "Tier %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "Grows by merging copies of itself, up to ^%d. It never turns into another item; past ^100 each merge adds a little less."
+
+msgid "FOLLOW_READY"
+msgstr "Ready! Open Prestige to choose a card"
+
+msgid "FOLLOW_STEP"
+msgstr "Step %d/%d — %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "Defeat %s: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "Defeat %s without supplies"
+
+msgid "GOAL_MISSION"
+msgstr "Claim missions"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "Character"
+
+msgid "STATS_LEVEL"
+msgstr "Level"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "Stage"
+
+msgid "STATS_PRESTIGES"
+msgstr "Prestiges completed"
+
+msgid "STATS_CARDS"
+msgstr "Prestige cards"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "Offense"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "Attack speed"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/s (+%s%%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "Defense and recovery"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%s%% dmg)"
+
+msgid "STATS_RESPAWN"
+msgstr "Respawn time"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "Boosts"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "Prestige multipliers"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "HP ×%s · Damage ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "Movement speed"
+
+msgid "STATS_STORED_SHARE"
+msgstr "Stored gear counts"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "Equipped gear bonus"
+
+msgid "STATS_TONIC_VALUE"
+msgstr "+%s%% · %ds left"
+
+msgid "STATS_SECTION_TIME"
+msgstr "Time played"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "All runs"
+
+msgid "STATS_TIME_RUN"
+msgstr "This run"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "dmg"
+
+msgid "STATS_SHORT_HP"
+msgstr "HP"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "def"
+
+msgid "STATS_SHORT_CRIT"
+msgstr "crit"
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "crit dmg"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "atk speed"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "lifesteal"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "HP/s"
+
+msgid "CAMP_SIGHTED"
+msgstr "Camp spotted! It is now on your map and in the World panel."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "Prestige HP bonus"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "Prestige damage bonus"

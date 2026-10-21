@@ -21,6 +21,11 @@ extends Node2D
 @export var idle_fps := 5.0
 @export var walk_fps := 10.0
 @export var death_fps := 12.0
+## HP bar (Change 8: remaining/maximum HP drawn inside it). Width scales with the actor; the text
+## is laid out at 1/hp_text_scale size and scaled down so it stays crisp under the camera zoom.
+@export var hp_bar_width := 32.0
+@export var hp_bar_height := 7.0
+@export var hp_text_scale := 0.25
 var elapsed:=0.0
 var actor: Dictionary={}
 var disclosed:=true
@@ -51,6 +56,9 @@ func _process(dt: float) -> void:
         $Shadow.visible=visible
         $HP.visible=not dead and actor.hp<max_hp
         $HP.value=100.0*actor.hp/max_hp
+        if $HP.visible:
+            var text:=hp_text(float(actor.hp),max_hp)
+            if $HP/Text.text!=text:$HP/Text.text=text
         $Visual.modulate=Color(2,1.4,1.4) if actor.hurt>0 else Color.WHITE
     if walking:
         row=walk_row
@@ -61,8 +69,11 @@ func _process(dt: float) -> void:
     $Visual.scale.x=facing*visual_scale
     $Visual.position=Vector2.ZERO
     $Shadow.scale=Vector2.ONE*visual_scale
-    $HP.position=Vector2(-12*visual_scale,-27*visual_scale)
-    $HP.size=Vector2(24*visual_scale,4)
+    var bar:=Vector2(hp_bar_width*visual_scale,hp_bar_height)
+    $HP.position=Vector2(-bar.x*.5,-27*visual_scale-bar.y+3)
+    $HP.size=bar
+    $HP/Text.scale=Vector2.ONE*hp_text_scale
+    $HP/Text.size=bar/hp_text_scale
     $Marker.position=Vector2(-8,-38*visual_scale)
     $Speech.position.y=-52*visual_scale
     $Visual.scale.y=visual_scale
@@ -98,6 +109,13 @@ func _process(dt: float) -> void:
             $Visual.scale.y=visual_scale-.08*pulse
         else:
             $Visual.position.x+=sin(clampf(phase/2.0,0,1)*PI)*1.5*facing
+
+## "18/25", "1.2K/3.4K": whole numbers below 1,000 (rounded up, so a living actor never reads 0).
+static func hp_text(hp: float,maximum: float) -> String:
+    return "%s/%s" % [_hp_number(ceilf(maxf(0,hp))),_hp_number(ceilf(maximum))]
+
+static func _hp_number(value: float) -> String:
+    return str(int(value)) if value<1000 else NumberFormat.number(value,1)
 
 func show_hit(value: float, healing: bool, critical: bool=false, on_player: bool=false) -> void:
     # Keep each hit independent, including after its actor dies or despawns.

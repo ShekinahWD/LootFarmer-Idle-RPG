@@ -10,7 +10,7 @@ func _init(owner) -> void: sim=owner
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={}
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":[]},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":[]},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{}},true)
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
     refresh_missions()
@@ -32,6 +32,7 @@ func variants(g: int) -> Array:
 ## Variant spots sit this far from the type center on both axes. tools/layout_campaign_groups.py uses
 ## the same value to keep every spot outside the auto-acquisition range of every other spot.
 const SPOT_OFFSET:=100.0
+func spot_offset() -> float:return SPOT_OFFSET
 func spot(g: int,v: int) -> Vector2:
     var d: Dictionary=sim.catalog.groups[g]
     var pos=Vector2(d.center[0],d.center[1])
@@ -105,7 +106,7 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
         sim.touch();SaveService.save_now();return true
     if st!=int(sim.state.stage) or camp<0 or camp>=stage().spawns.size():return false
     if not sim.state.spawns.has(camp):
-        if not cell_known(Vector2(stage().spawns[camp][0],stage().spawns[camp][1])):return sim.fail("CAMP_UNDISCOVERED")
+        if not camp_known(camp):return sim.fail("CAMP_UNDISCOVERED")
         if not sim.pay("coins",camp_price(camp)):return false
         sim.state.spawns.append(camp)
         sim.state.camps[str(st)]=sim.state.spawns
@@ -119,8 +120,45 @@ func in_bounds(pos: Vector2) -> bool:
 func cell_known(pos: Vector2) -> bool:
     return in_bounds(pos) and sim.state.explored.get(str(sim.state.stage),{}).has(cell_key(pos))
 func discovered(g: int) -> bool:return sim.state.discovered.has(str(g))
+## One encounter spot (type + loadout variant). Only found spots get map markers or auto-farm.
+func spot_key(g: int,v: int) -> String:return "%d:%d" % [g,2 if sim.catalog.groups[g].boss else v]
+func spot_discovered(g: int,v: int) -> bool:return sim.state.discovered_spots.has(spot_key(g,v))
+func discover_spot(g: int,v: int) -> void:
+    var key:=spot_key(g,v)
+    if not sim.state.discovered_spots.has(key):sim.state.discovered_spots[key]=true;discovery_revision+=1;SaveService.mark_dirty()
+    if not discovered(g):sim.state.discovered[str(g)]=true;discovery_revision+=1;SaveService.mark_dirty()
+## Permanent reveal (explored cells, saved). Change 8: about a third of Change 7's 144.
 func player_radius() -> float:
     return fog_rules.player_radius*(1+.25*sim.level("reveal_radius",int(sim.state.stage))+bonus("reveal"))
+## Momentary sight around the living player: terrain and enemies show and can be fought, but nothing
+## is remembered and no encounter spot is discovered by sight alone. Never saved.
+func vision_radius() -> float:
+    return player_radius()*fog_rules.vision_factor
+func cell_visible(pos: Vector2) -> bool:
+    if sim.state.player.hp<=0 or not in_bounds(pos):return false
+    var cell: float=fog_rules.cell_size
+    var center:=(Vector2(floorf(pos.x/cell),floorf(pos.y/cell))+Vector2.ONE*.5)*cell
+    return center.distance_to(sim.position_of(sim.state.player))<=vision_radius()
+## Explored or currently in sight: what the world view may draw and what the player may target.
+func can_see(pos: Vector2) -> bool:
+    return cell_known(pos) or cell_visible(pos)
+## Camps are landmarks: sighted from camp_sight_radius, remembered per stage, and their footprint is
+## revealed so the camp itself shows through the fog. Enemy spots never use this rule.
+func camp_known(camp: int,st: int=-1) -> bool:
+    if st<0:st=int(sim.state.stage)
+    return sim.state.camps.get(str(st),[0]).has(camp) or sim.state.camps_known.get(str(st),[]).has(camp)
+func sight_camps() -> void:
+    if sim.state.player.hp<=0:return
+    var key:=str(sim.state.stage)
+    var known: Array=sim.state.camps_known.get(key,[])
+    for i in range(stage().spawns.size()):
+        if camp_known(i):continue
+        var a:=Vector2(stage().spawns[i][0],stage().spawns[i][1])
+        if a.distance_to(sim.position_of(sim.state.player))<=fog_rules.camp_sight_radius:
+            known.append(i);sim.state.camps_known[key]=known
+            reveal_circle(a,fog_rules.camp_footprint_radius)
+            discovery_revision+=1;SaveService.mark_dirty()
+            sim.event.emit("CAMP_SIGHTED")
 func reveal_circle(pos: Vector2,radius: float) -> bool:
     var mask: Dictionary=sim.state.explored.get(str(sim.state.stage),{})
     var cell: float=fog_rules.cell_size
@@ -138,23 +176,25 @@ func reveal_segment(start: Vector2,finish: Vector2) -> void:
     var samples:=maxi(1,ceili(start.distance_to(finish)/(fog_rules.cell_size*.5)))
     for i in range(1,samples+1):reveal_circle(start.lerp(finish,float(i)/samples),player_radius())
     identify_sites()
+## A spot is discovered when its authored home cell, or one of its living actors, stands on an
+## explored cell (Change 8: per spot, not per type; the type is known once any spot is).
 func identify_sites() -> void:
     for g in stage().groups:
-        var d: Dictionary=sim.catalog.groups[g]
-        if cell_known(Vector2(d.center[0],d.center[1])) and not discovered(g):
-            sim.state.discovered[str(g)]=true;discovery_revision+=1;SaveService.mark_dirty()
+        for v in variants(g):
+            if not spot_discovered(g,v) and cell_known(spot(g,v)):discover_spot(g,v)
     for actor in sim.state.enemies:
-        if cell_known(sim.position_of(actor)) and not discovered(int(actor.group)):
-            sim.state.discovered[str(int(actor.group))]=true;discovery_revision+=1;SaveService.mark_dirty()
+        if float(actor.hp)>0 and not spot_discovered(int(actor.group),int(actor.get("variant",2))) and cell_known(sim.position_of(actor)):
+            discover_spot(int(actor.group),int(actor.get("variant",2)))
 func reveal() -> void:
     if sim.state.player.hp>0:reveal_circle(sim.position_of(sim.state.player),player_radius())
+    sight_camps()
     for camp in sim.state.spawns:
         var a: Array=stage().spawns[int(camp)]
         reveal_circle(Vector2(a[0],a[1]),fog_rules.camp_radius*(1+.25*sim.level("camp_radius",int(sim.state.stage)*10+int(camp))+bonus("camp_reveal")))
     identify_sites()
 func target_allowed(e: Dictionary) -> bool:
     var d: Dictionary=sim.catalog.groups[int(e.group)]
-    return cell_known(sim.position_of(e)) and (not d.final or sim.state.keys.size()==13)
+    return can_see(sim.position_of(e)) and (not d.final or sim.state.keys.size()==13)
 func damage_multiplier(a: Dictionary,b: Dictionary) -> float:
     var n=1.0
     if a.id=="player":n+=bonus("boss_damage" if sim.catalog.groups[int(b.group)].boss else "normal_damage")
@@ -171,9 +211,19 @@ func upgrade_cost(id: String,g: int) -> int:
     var factor=pow(2,st-1) if d.currency=="coins" else 1+.25*(st-1)
     var price=float(d.base)*pow(float(d.growth),n)
     if d.has("prices"):price=float(d.prices[mini(n,d.prices.size()-1)])
-    if id=="gear_slots":price=10+5*floor(n/10.0)
-    if id=="supply_slots":price=8+4*n
+    # Linear schedules: every purchase costs `step` more than the one before (slots).
+    if d.has("step"):price=float(d.base)+float(d.step)*n
+    # Sequence schedules (Map Details): one rising price per purchase on any stage this run, with a
+    # per-stage floor so a late stage is never trivially cheap.
+    if d.get("sequence",false):
+        factor=1.0
+        price=maxf(float(d.base)*pow(float(d.growth),sequence_count(id)),float(d.get("floor",0))*pow(2,st-1))
     return maxi(1,ceili(price*factor*(1-bonus("coin_discount") if d.currency=="coins" else 1)))
+func sequence_count(id: String) -> int:
+    var total:=0
+    for key in sim.state.upgrades:
+        if str(key).get_slice(":",0)==id:total+=int(sim.state.upgrades[key])
+    return total
 func upgrade_bought(id: String,g: int) -> void:
     if id in ["map_detail","reveal_radius","camp_radius"]:reveal()
     if id=="mission_slots":refresh_missions()
@@ -304,12 +354,13 @@ func merge_cycle(key: String,interval: float,dt: float,g: int) -> void:
     for offset in range(ids.size()):
         var i: int=(start+offset)%ids.size();var id: String=ids[i]
         var eligible: bool=sim.catalog.items[id].kind=="consumable" if g<0 else (sim.gear_group(id)==g and sim.catalog.items[id].kind!="consumable")
-        if eligible and sim.quantity(id)>1 and sim.record(id).merge<100:
+        if eligible and sim.quantity(id)>1 and sim.record(id).merge<sim.merge_cap(id):
             sim.merge(id);sim.state.merge_cursors[key]=(i+1)%ids.size();break
 func begin_encounter(a: Dictionary) -> void:
     if a.id!="player" and not a.has("encounter_uses"):a.encounter_uses=sim.state.consumable_uses
 func killed(a: Dictionary) -> void:
     var d: Dictionary=sim.catalog.groups[int(a.group)]
+    discover_spot(int(a.group),int(a.get("variant",2)))
     sim.state.run_kills[d.id]=int(sim.state.run_kills.get(d.id,0))+1
     var prior: Array=sim.state.opportunities.keys()
     progress("kill" if not d.boss else "boss_kill",d.id,1)
@@ -392,7 +443,7 @@ func new_mission(index: int,day: String) -> Dictionary:
         elif sim.state.run_kills.get(d.id,0)>0 and (not d.final or sim.state.keys.size()==13):candidates.append({"kind":"boss","target":d.id,"goal":5.0,"coins":200.0*d.stage,"gems":5.0})
     if sim.state.gear.has(""):candidates.append({"kind":"gear","target":"","goal":12.0,"coins":120.0*st,"gems":3.0})
     for id in sim.state.items:
-        if sim.quantity(id)>1 and sim.record(id).merge<100:
+        if sim.quantity(id)>1 and sim.record(id).merge<sim.merge_cap(id):
             candidates.append({"kind":"merge","target":"","goal":20.0,"coins":100.0*st,"gems":3.0});break
     candidates.append({"kind":"coins","target":"","goal":300.0*st,"coins":0.0,"gems":5.0})
     if sim.state.skills.any(func(id):return id!=""):candidates.append({"kind":"cast","target":"","goal":40.0,"coins":100.0*st,"gems":3.0})
@@ -549,20 +600,44 @@ func ready_ids() -> Array:
     for id in sim.state.opportunities:
         if sim.state.opportunities[id].ready and not sim.state.consumed.has(id):ids.append(id)
     ids.sort();return ids
-## First and later runs must clear Winter (defeat the Winter II boss) before any reset; discovery
-## and readiness can happen earlier, but no opportunity can be redeemed before this milestone.
+## Change 8: the Prestige system opens after the first enemy kill ever (lifetime kills, kept by
+## prestige). A reset then needs one ready opportunity that can still award a card; the card is
+## chosen during the reset, so owning a card beforehand is never required.
+func lifetime_kills() -> int:
+    var total:=0
+    for n in sim.state.group_kills:total+=int(n)
+    return total
+func prestige_unlocked() -> bool:
+    return lifetime_kills()>=int(sim.catalog.progression.get("prestige_unlock_kills",1))
 func prestige_gate_reason() -> String:
-    if int(sim.state.unlocked_stage)<int(sim.catalog.progression.prestige_gate_stage):return "PRESTIGE_GATE"
+    if not prestige_unlocked():return "PRESTIGE_LOCKED_FIRST_KILL"
     return ""
+## Ready opportunities that can still award a card, in batch order: each path offers its cards that
+## are not owned yet, and every opportunity of the batch takes one of them.
+func awardable_ids() -> Array:
+    var left: Dictionary={}
+    var result: Array=[]
+    for id in ready_ids():
+        var path: String=id.rsplit("_",true,1)[0]
+        if not left.has(path):
+            left[path]=0
+            for key in sim.catalog.campaign.cards:
+                if sim.catalog.campaign.cards[key].path==path and not sim.state.owned_cards.has(key):left[path]+=1
+        if int(left[path])>0:
+            left[path]-=1;result.append(id)
+    return result
 func prestige_block_reason() -> String:
     var lock: String=sim.action_lock_reason()
     if lock!="":return lock
+    var gate:=prestige_gate_reason()
+    if gate!="":return gate
     if ready_ids().is_empty():return "NO_READY_PRESTIGE"
-    return prestige_gate_reason()
+    if awardable_ids().is_empty():return "NO_CARD_AVAILABLE"
+    return ""
 func begin_prestige() -> bool:
     if not prestige_block_reason().is_empty():return sim.fail(prestige_block_reason())
     var before: Dictionary=sim.state.duplicate(true)
-    sim.state.prestige_batch={"ids":ready_ids(),"choices":[],"transaction":str(Time.get_unix_time_from_system())+"-"+str(sim.rng.randi())}
+    sim.state.prestige_batch={"ids":awardable_ids(),"choices":[],"transaction":str(Time.get_unix_time_from_system())+"-"+str(sim.rng.randi())}
     sim.clear_target();sim.movement=Vector2.ZERO;sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     return true
@@ -581,7 +656,7 @@ func choose_card(id: String) -> bool:
     var final: bool=granted.size()==sim.state.prestige_batch.ids.size()
     if final:
         var keep: Dictionary={}
-        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -684,6 +759,10 @@ func claim_offline() -> bool:
     return true
 func normalize_snapshot(data: Dictionary) -> Dictionary:
     var out: Dictionary=data.duplicate(true)
+    # Change 8 fields are derived for older current-schema saves, never copied from the live state.
+    var change8: Array=[]
+    for key in ["skills_seen","discovered_spots","camps_known"]:
+        if not out.has(key):change8.append(key);out[key]=[] if key=="skills_seen" else {}
     for key in sim.state:
         if not out.has(key):out[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
     for field in ["schema","stage","unlocked_stage","spawn","player_level","prestiges","focus","focus_variant","next_pickup","next_cat","help","consumable_uses","fog_layout_revision"]:
@@ -693,11 +772,12 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
         if out.get(field) is Array:
             for i in range(out[field].size()):
                 if number(out[field][i]):out[field][i]=int(out[field][i])
-    if out.get("camps") is Dictionary:
-        for key in out.camps:
-            if out.camps[key] is Array:
-                for i in range(out.camps[key].size()):
-                    if number(out.camps[key][i]):out.camps[key][i]=int(out.camps[key][i])
+    for field in ["camps","camps_known"]:
+        if out.get(field) is Dictionary:
+            for key in out[field]:
+                if out[field][key] is Array:
+                    for i in range(out[field][key].size()):
+                        if number(out[field][key][i]):out[field][key][i]=int(out[field][key][i])
     var worlds: Array=[out]
     if out.get("stage_worlds") is Dictionary:worlds.append_array(out.stage_worlds.values())
     for world in worlds:
@@ -724,7 +804,36 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
             if not out.items.has(out.get(field,"")):out[field]=""
     if int(out.get("fog_layout_revision",0))!=fog_rules.layout_revision:
         out.explored={};out.discovered={};out.fog_layout_revision=fog_rules.layout_revision
+    migrate_change8(out,change8)
     return out
+## Older saves: skills already owned (or upgraded) count as seen, without a notice; spots of known
+## types whose home cell was explored become found spots; explored or owned camps are sighted.
+## Explored cells are kept as they are (no new reveal, no reset).
+func migrate_change8(out: Dictionary,missing: Array) -> void:
+    if missing.has("skills_seen") and out.get("items") is Dictionary:
+        for id in out.items:
+            var family: String=str(sim.catalog.items[id].get("skill",""))
+            if family!="" and not out.skills_seen.has(family):out.skills_seen.append(family)
+        if out.get("upgrades") is Dictionary:
+            for key in out.upgrades:
+                var family: String=str(key).trim_prefix("cooldown_")
+                if str(key).begins_with("cooldown_") and int(out.upgrades[key])>0 and not out.skills_seen.has(family):out.skills_seen.append(family)
+    var explored: Dictionary=out.get("explored",{}) if out.get("explored") is Dictionary else {}
+    if missing.has("discovered_spots") and out.get("discovered") is Dictionary:
+        for key in out.discovered:
+            var g:=int(key)
+            if g<0 or g>=sim.catalog.groups.size():continue
+            var cells: Dictionary=explored.get(str(int(sim.catalog.groups[g].stage)),{})
+            for v in variants(g):
+                if cells.has(cell_key(spot(g,v))):out.discovered_spots[spot_key(g,v)]=true
+    if missing.has("camps_known"):
+        for st in range(1,9):
+            var cells: Dictionary=explored.get(str(st),{})
+            var known: Array=[]
+            for i in range(sim.catalog.stages[st-1].spawns.size()):
+                var a: Array=sim.catalog.stages[st-1].spawns[i]
+                if cells.has(cell_key(Vector2(a[0],a[1]))):known.append(i)
+            if not known.is_empty():out.camps_known[str(st)]=known
 ## Change 7 replaced per-enemy weapons with shared families: a small deterministic map
 ## (catalog.legacy_items) moves current-schema saves onto the new ids. Stacks join (quantities add,
 ## the best merge level stays) and every reference follows; unknown ids are dropped as before.
@@ -812,7 +921,7 @@ func valid_snapshot(data: Dictionary) -> bool:
     for id in data.items:
         if not sim.catalog.items.has(id) or not data.items[id] is Dictionary:return false
         var r: Dictionary=data.items[id]
-        if not r.has_all(["qty","merge","extras"]) or r.qty<0 or r.qty!=floor(r.qty) or r.merge<0 or r.merge>100:return false
+        if not r.has_all(["qty","merge","extras"]) or r.qty<0 or r.qty!=floor(r.qty) or r.merge<0 or r.merge>sim.merge_cap(id):return false
     for id in data.gear+data.supplies:
         if id!="" and (not data.items.has(id) or data.items[id].qty<=0):return false
     for key in data.upgrades:
@@ -958,16 +1067,40 @@ func opportunity_progress(id: String) -> String:
             parts.append("%d/%d" % [mini(10+10*n,int(minf(float(sim.state.online_items.get(item,0)),float(o.get("item_"+item,0))))),10+10*n])
         return sim.tr("PROGRESS_COLLECTION") % " · ".join(parts)
     if path=="challenge":return sim.tr("PROGRESS_CHALLENGE")
-    if path=="regional":
-        var explored: Array=[];var bosses:=0;var killed:=0;var camps:=0;var owned:=0
-        for st in ([1,2] if n==1 else ([3,4] if n==2 else [7,8])):
-            var d: Dictionary=sim.catalog.stages[st-1]
-            var area: float=ceil(d.size[0]/fog_rules.cell_size)*ceil(d.size[1]/fog_rules.cell_size)
-            explored.append("%d%%" % mini(100,int(100.0*sim.state.explored.get(str(st),{}).size()/area)))
-            camps+=d.spawns.size();owned+=sim.state.camps.get(str(st),[]).size()
-            for g in d.groups:
-                if sim.catalog.groups[g].boss:
-                    bosses+=1
-                    if sim.state.run_kills.get(sim.catalog.groups[g].id,0)>0:killed+=1
-        return sim.tr("PROGRESS_REGIONAL") % [" + ".join(explored),killed,bosses,owned,camps]
+    if path=="regional":return _regional_progress(n)
     return sim.tr("IN_PROGRESS")
+
+## One short line for the followed-opportunity HUD: the current step and its next objective with
+## numeric progress ("Step 2/3 — Hunt Wolf Hood: 12/100"); details stay in the Prestige panel.
+func follow_summary(id: String) -> String:
+    var o: Dictionary=sim.state.opportunities.get(id,{})
+    if o.is_empty():return ""
+    if o.ready:return sim.tr("FOLLOW_READY")
+    var n=int(id.right(1));var path=id.split("_o")[0]
+    if path in ["expedition","specialist"]:
+        var chain=chain_for(id);var index=int(o.get("step",0))
+        if index>=chain.size():return sim.tr("FOLLOW_READY")
+        var q: Array=chain[index]
+        var g:=group_id(str(q[1]))
+        var target: String=(" "+str(sim.catalog.groups[g].name)) if g>=0 else ""
+        return sim.tr("FOLLOW_STEP") % [index+1,chain.size(),sim.tr("GOAL_"+str(q[0]).to_upper())+target,int(o.get("count",0)),int(q[2])]
+    if path in ["hunter","challenge"]:
+        var g:=group_id(boss_goal(path,n))
+        var boss: String=str(sim.catalog.groups[g].name)
+        if path=="challenge":return sim.tr("FOLLOW_CHALLENGE") % boss
+        var k="boss:"+boss_goal(path,n)
+        return sim.tr("FOLLOW_HUNT") % [boss,int(counter(k)-float(o.baseline.get(k,0))),hunter_goal(n)]
+    return opportunity_progress(id)
+
+func _regional_progress(n: int) -> String:
+    var explored: Array=[];var bosses:=0;var killed:=0;var camps:=0;var owned:=0
+    for st in ([1,2] if n==1 else ([3,4] if n==2 else [7,8])):
+        var d: Dictionary=sim.catalog.stages[st-1]
+        var area: float=ceil(d.size[0]/fog_rules.cell_size)*ceil(d.size[1]/fog_rules.cell_size)
+        explored.append("%d%%" % mini(100,int(100.0*sim.state.explored.get(str(st),{}).size()/area)))
+        camps+=d.spawns.size();owned+=sim.state.camps.get(str(st),[]).size()
+        for g in d.groups:
+            if sim.catalog.groups[g].boss:
+                bosses+=1
+                if sim.state.run_kills.get(sim.catalog.groups[g].id,0)>0:killed+=1
+    return sim.tr("PROGRESS_REGIONAL") % [" + ".join(explored),killed,bosses,owned,camps]
