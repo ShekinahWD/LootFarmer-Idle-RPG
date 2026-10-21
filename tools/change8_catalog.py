@@ -21,8 +21,10 @@ CATALOG = ROOT / 'data/game/catalog.json'
 MATERIALS = ['wood', 'stone', 'iron', 'gold', 'diamond', 'emerald', 'obsidian']
 NORMAL_GEAR_CHANCE = 0.05
 BOSS_GEAR_CHANCE = 0.3
+# Change 9: outfits grow linearly past ^100 at outfit_tail_rate merge levels per copy (2% then 1% of
+# base per copy); skills keep the logarithmic tail (tail_scale).
 MERGE = {'weapon_cap': 100, 'copy_cap': 500, 'linear_levels': 100, 'tail_scale': 100.0,
-         'stock_bonus_per_copy': 0.0005}
+         'outfit_tail_rate': 0.5, 'stock_bonus_per_copy': 0.0005}
 # id -> fields replaced on the upgrade definition. "step" = linear price (base + step * level);
 # "sequence" = price grows with every purchase of this upgrade on any stage this run.
 UPGRADES = {

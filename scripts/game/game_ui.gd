@@ -861,16 +861,18 @@ func _item_panel() -> void:
         _stat_line(details,"+ "+_stat_text(key,r.extras[key],true),0.0 if shown.has(key) else deltas.get(key,0.0),key,19,Color(.75,.8,.87))
         shown[key]=true
     # Stats only the equipped item gives: shown as what equipping this one would lose.
-    for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen"]:
-        if not shown.has(key) and absf(deltas.get(key,0.0))>=.005:
+    for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen","regen_pct"]:
+        if not shown.has(key) and _meaningful(key,deltas.get(key,0.0)):
             _stat_line(details,tr("STAT_"+key.to_upper())+"  —",deltas[key],key,19,Color(.7,.75,.82))
     if comparing:
         var effect:=[]
         var gains:=0;var losses:=0
-        for key in ["damage","hp","crit","speed","defense","lifesteal","regen"]:
-            if absf(deltas.get(key,0.0))>=.005:effect.append(_signed_stat(key,deltas[key]))
-            if deltas.get(key,0.0)>=.005:gains+=1
-            elif deltas.get(key,0.0)<=-.005:losses+=1
+        for key in ["damage","hp","crit","speed","defense","lifesteal","regen","regen_pct"]:
+            var delta: float=deltas.get(key,0.0)
+            if _meaningful(key,delta):
+                effect.append(_signed_stat(key,delta))
+                if delta>0:gains+=1
+                else:losses+=1
         # The summary takes the colour of its overall direction: all gains, all losses or mixed.
         var tone:=Color(.45,1,.55) if gains>0 and losses==0 else (Color(1,.5,.45) if losses>0 and gains==0 else (Color(1,.86,.5) if gains>0 else Color(.72,.9,1)))
         var verdict:=tr("COMPARE_UPGRADE") if gains>0 and losses==0 else (tr("COMPARE_DOWNGRADE") if losses>0 and gains==0 else (tr("COMPARE_MIXED") if gains>0 else tr("NO_CHANGE")))
@@ -887,6 +889,7 @@ func _item_panel() -> void:
         _card_line(details,tr("NEXT_MERGE_GAIN")+" "+", ".join(gains),17,Color(.5,1,.65))
     else:
         _card_line(details,tr("STOCK_BONUS") % fmt(maxi(0,int(r.qty)-1)*float(sim.catalog.progression.merge.stock_bonus_per_copy)*100),17,Color(.5,1,.65))
+    if def.kind=="outfit":_outfit_milestone_lines(details,id)
     if sim.catalog.art_id(id)=="potion":_text(tr("POTION_ROLE") % fmt_value(float(sim.catalog.progression.potion_cooldown)),17,Color(.8,.84,.9))
     if sim.catalog.art_id(id)=="coin_boost":
         _text(tr("COIN_TONIC_ROLE") % [fmt(sim.normal(id).coin_bonus*100),fmt_value(sim.coin_boost_duration())],17,Color(.8,.84,.9))
@@ -914,7 +917,9 @@ func _item_panel() -> void:
         button.add_theme_font_size_override("font_size",18)
     if more.get_child_count()>0:rows.add_child(more)
     else:more.free()
-    if sim.copy_growth(id):
+    if def.kind=="outfit":
+        _text(tr("OUTFIT_GROWTH_EXPLAIN") % [cap,fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100)],17,Color(.8,.84,.9))
+    elif sim.copy_growth(id):
         _text(tr("COPY_GROWTH_EXPLAIN") % cap,17,Color(.8,.84,.9))
     elif def.next!="" and r.merge>=cap:
         _text(tr("EVOLUTION_EXPLAIN"),17,Color(.8,.84,.9))
@@ -929,6 +934,30 @@ func _item_panel() -> void:
         _pinned(tr("UNEQUIP" if sim.equipped(id) else "EQUIP"),func()->void:if selected==id:sim.equip(id),true,"",not sim.equipped(id),"equip")
     _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:sim.merge(id),r.qty>1 and r.merge<cap,"NEED_DUPLICATES" if r.qty<2 else "MERGE_MAX",false,"merge")
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
+
+## Outfit milestone track (Change 9): what this outfit's merges have unlocked and the next step. The
+## effects apply only while this outfit is worn; values come from sim.outfit_milestones().
+func _outfit_milestone_lines(box: VBoxContainer,id: String) -> void:
+    var active:=sim.outfit_milestones(id)
+    var parts: Array[String]=[]
+    if float(active.defense)>0:parts.append(tr("MILESTONE_GUARD") % fmt_value(active.defense))
+    if float(active.hp)>0:parts.append(tr("MILESTONE_HP_ACTIVE") % fmt(active.hp))
+    if float(active.regen_pct)>0:parts.append(tr("MILESTONE_RECOVERY") % fmt_value(float(active.regen_pct)*100))
+    var worn: bool=sim.state.outfit==id
+    var tone:=Color(.5,1,.65) if worn and not parts.is_empty() else Color(.75,.8,.87)
+    _card_line(box,(tr("MILESTONES_ACTIVE") % ", ".join(parts)) if not parts.is_empty() else tr("MILESTONES_NONE"),17,tone)
+    var step:=sim.next_outfit_milestone(id)
+    if step.is_empty():
+        _card_line(box,tr("MILESTONES_COMPLETE"),17,Color(1,.86,.5))
+    else:
+        _card_line(box,tr("MILESTONE_NEXT") % [int(step.merge),_milestone_step_text(step,float(sim.catalog.items[id].tier))],17,Color(1,.86,.5))
+
+func _milestone_step_text(step: Dictionary,tier: float) -> String:
+    var parts: Array[String]=[]
+    if step.has("defense_per_tier"):parts.append(tr("MILESTONE_GUARD") % fmt_value(float(step.defense_per_tier)*tier))
+    if step.has("hp_share"):parts.append(tr("MILESTONE_HP_STEP") % fmt_value(float(step.hp_share)*100))
+    if step.has("regen_pct_per_tier"):parts.append(tr("MILESTONE_RECOVERY") % fmt_value(float(step.regen_pct_per_tier)*tier*100))
+    return ", ".join(parts)
 
 ## One item card: a small ribbon (Equipped / Selected), the tier-framed icon and the name with tier
 ## and merge level. Returns the details column for stat lines. An empty id is the slot placeholder.
@@ -995,8 +1024,13 @@ func _stat_line(parent: Control,text: String,delta: float,key: String,font_size:
         change.add_theme_constant_override("outline_size",3)
         line.add_child(change)
 
+## Smallest change worth showing; Recovery is a fraction of max HP per second (0.0025 = 0.25%).
+func _meaningful(key: String,value: float) -> bool:
+    return absf(value)>=(.00001 if key=="regen_pct" else .005)
+
 func _signed_stat(key: String,value: float) -> String:
     var sign:="+" if value>=0 else "−"
+    if key=="regen_pct":return sign+fmt_value(absf(value)*100)+"% "+tr("STAT_REGEN_PCT")
     if key in ["crit","lifesteal","speed","coin_bonus"]:return sign+fmt(absf(value)*100)+"% "+tr("STAT_"+key.to_upper())
     return sign+fmt(absf(value))+" "+tr("STAT_"+key.to_upper())
 
@@ -1386,12 +1420,13 @@ func _stats_panel() -> void:
         [tr("STAT_HP"),fmt_count(s.hp)],
         [tr("STAT_DEFENSE"),tr("STATS_DEFENSE_VALUE") % [fmt_value(defense),fmt_value(100.0*defense/(100.0+defense))] if defense>0 else "0"],
         [tr("STAT_REGEN"),fmt_value(s.regen)+" "+tr("HP_PER_SECOND")],
+        [tr("STAT_REGEN_PCT"),tr("STATS_RECOVERY_VALUE") % [fmt_value(float(s.regen_pct)*100),fmt_value(float(s.regen_pct)*float(s.hp))]],
         [tr("STATS_RESPAWN"),tr("SECONDS_VALUE") % fmt_value(sim.player_upgrade_value("respawn"))]])
     var boosts: Array=[
         [tr("STATS_PRESTIGE_HP"),"×"+fmt_value(sim.card("hp"))],
         [tr("STATS_PRESTIGE_DAMAGE"),"×"+fmt_value(sim.card("damage"))],
         [tr("STATS_MOVEMENT"),"+"+fmt_value((sim.campaign.move_speed()/90.0-1.0)*100)+"%"],
-        [tr("STATS_STORED_SHARE"),fmt_value(float(sim.catalog.progression.stored_weapon_factor)*100)+"%"]]
+        [tr("STATS_STORED_SHARE"),tr("STATS_STORED_SHARE_VALUE") % [fmt_value(float(sim.catalog.progression.stored_weapon_factor)*100),fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100)]]]
     if sim.campaign.bonus("equipped")>0:boosts.append([tr("STATS_EQUIPPED_BONUS"),"+"+fmt(sim.campaign.bonus("equipped")*100)+"%"])
     if sim.state.boost_time>0:boosts.append([tr("STAT_COIN_BONUS"),tr("STATS_TONIC_VALUE") % [fmt(float(sim.state.boost_power)*100),ceili(sim.state.boost_time)]])
     _stat_section(tr("STATS_SECTION_BOOSTS"),boosts)
@@ -1400,8 +1435,8 @@ func _stats_panel() -> void:
     for source in sim.stat_sources():
         var values: Dictionary=sim.stat_sources()[source]
         var parts: Array=[]
-        for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen"]:
-            if absf(float(values.get(key,0.0)))>=.005:parts.append(_short_stat(key,float(values[key])))
+        for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen","regen_pct"]:
+            if _meaningful(key,float(values.get(key,0.0))):parts.append(_short_stat(key,float(values[key])))
         if not parts.is_empty():sources.append([tr(source),", ".join(parts)])
     _stat_section(tr("STAT_SOURCES"),sources)
     # Active play only (no pause, background, offline or prestige-choice time); see simulation.step.
@@ -1448,6 +1483,7 @@ func _stat_section(title: String,entries: Array) -> void:
 
 ## Compact contribution text: "+12.5 dmg", "+3% crit".
 func _short_stat(key: String,value: float) -> String:
+    if key=="regen_pct":return "+%s%% %s" % [fmt_value(value*100),tr("STATS_SHORT_REGEN_PCT")]
     if key in ["crit","lifesteal","speed"]:return "+%s%% %s" % [fmt(value*100),tr("STATS_SHORT_"+key.to_upper())]
     if key=="crit_damage":return "+%s%% %s" % [fmt(value*100),tr("STATS_SHORT_"+key.to_upper())]
     return "+%s %s" % [fmt(value),tr("STATS_SHORT_"+key.to_upper())]
@@ -1461,6 +1497,7 @@ static func fmt_duration(seconds: float) -> String:
     return "%ds" % sec
 
 func _stat_text(key: String,value: float,bonus: bool=false) -> String:
+    if key=="regen_pct":return "%s  %s%% %s" % [tr("STAT_REGEN_PCT"),fmt_value(value*100),tr("MAX_HP_PER_SECOND")]
     if key in ["crit","lifesteal","speed","coin_bonus"]:
         return "%s  %s%%" % [tr("STAT_"+key.to_upper()),fmt(value*100)]
     if key=="crit_damage":

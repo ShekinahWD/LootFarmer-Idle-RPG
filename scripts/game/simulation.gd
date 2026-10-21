@@ -202,13 +202,51 @@ func copy_growth(id: String) -> bool:
 func merge_cap(id: String) -> int:
     return int(catalog.progression.merge.copy_cap if copy_growth(id) else catalog.progression.merge.weapon_cap)
 
-## Effective merge levels: linear up to linear_levels, then logarithmic (each merge adds less), so
-## ^500 is about 2.6x the stat gain of ^100 instead of 5x. Weapons stay linear to ^100.
+## Effective merge levels. Weapons stay linear to ^100. Outfits (Change 9): linear to linear_levels,
+## then outfit_tail_rate levels per copy, so with a 2%-of-base merge gain the core stat is
+## base x (1 + 0.02 min(m,100) + 0.01 max(0,m-100)): 3x at ^100, 7x at ^500. Skills keep the Change 8
+## logarithmic tail.
 func merge_levels(id: String,merge_level: int) -> float:
     var m: Dictionary=catalog.progression.merge
     var linear: float=float(m.linear_levels)
+    merge_level=clampi(merge_level,0,merge_cap(id))
     if not copy_growth(id) or merge_level<=linear:return float(merge_level)
+    if str(catalog.items[id].kind)=="outfit":return linear+float(m.outfit_tail_rate)*(merge_level-linear)
     return linear+float(m.tail_scale)*log(1.0+(merge_level-linear)/float(m.tail_scale))
+
+## Outfit milestone effects (Change 9, catalog.progression.outfit_milestones): Guard (Defense), Recovery
+## (fraction of max HP per second) and a share of the outfit's own core HP. Later steps replace the
+## Guard/Recovery values. stat_sources() applies them for the equipped outfit only.
+func outfit_milestones(id: String) -> Dictionary:
+    var out:={"defense":0.0,"regen_pct":0.0,"hp":0.0}
+    if not catalog.items.has(id) or str(catalog.items[id].kind)!="outfit":return out
+    var merge_level:=int(state.items.get(id,{}).get("merge",0))
+    var tier:=float(catalog.items[id].tier)
+    var share:=0.0
+    for step in catalog.progression.outfit_milestones:
+        if merge_level<int(step.merge):break
+        if step.has("defense_per_tier"):out.defense=float(step.defense_per_tier)*tier
+        if step.has("regen_pct_per_tier"):out.regen_pct=float(step.regen_pct_per_tier)*tier
+        if step.has("hp_share"):share=float(step.hp_share)
+    # A share of the core HP (base + merges), never of the spare-copy stock bonus or random extras.
+    if share>0:
+        var pair: Array=catalog.items[id].normal.get("hp",[0.0,0.0])
+        out.hp=share*(float(pair[0])+merge_gain(id,"hp")*merge_levels(id,merge_level))
+    return out
+
+## Next milestone this outfit can reach, or {} at the end of the track.
+func next_outfit_milestone(id: String) -> Dictionary:
+    var merge_level:=int(state.items.get(id,{}).get("merge",0))
+    for step in catalog.progression.outfit_milestones:
+        if merge_level<int(step.merge):return step
+    return {}
+
+## Share of an owned but unequipped item's stats that still counts (Change 9: outfits 15%, weapons 30%).
+func stored_factor(id: String) -> float:
+    match str(catalog.items[id].kind):
+        "weapon":return float(catalog.progression.stored_weapon_factor)
+        "outfit":return float(catalog.progression.stored_outfit_factor)
+    return 0.0
 
 ## Stat gained by the next single merge (shrinks past the linear part for outfits and skills).
 func next_merge_gain(id: String,stat: String) -> float:
@@ -218,7 +256,7 @@ func next_merge_gain(id: String,stat: String) -> float:
 func stats() -> Dictionary:
     if _stats_revision == revision and not _stats.is_empty():
         return _stats
-    var s := {"hp":0.0,"damage":0.0,"defense":0.0,"crit":0.0,"crit_damage":0.0,"lifesteal":0.0,"regen":0.0,"speed":0.0}
+    var s := {"hp":0.0,"damage":0.0,"defense":0.0,"crit":0.0,"crit_damage":0.0,"lifesteal":0.0,"regen":0.0,"regen_pct":0.0,"speed":0.0}
     for bucket in stat_sources().values():
         for key in bucket:s[key]=float(s.get(key,0))+float(bucket[key])
     s.hp *= card("hp")
@@ -726,7 +764,8 @@ func step(dt: float) -> void:
             touch()
             revived.emit()
     else:
-        p.hp=minf(stats().hp,p.hp+(stats().regen+stats().hp*campaign.rest_rate())*dt)
+        # Recovery (regen_pct, equipped outfit milestone) heals like regen: alive, unpaused, online only.
+        p.hp=minf(stats().hp,p.hp+(stats().regen+stats().hp*(campaign.rest_rate()+stats().regen_pct))*dt)
         if movement.length()>.1:
             clear_target()
             if int(state.focus)>=0:
@@ -932,12 +971,17 @@ func stat_sources() -> Dictionary:
     result["SOURCE_STORED"]={}
     for id in state.items:
         if quantity(id)<1 or catalog.items[id].kind not in ["weapon","outfit"]:continue
-        var weight:=1.0 if equipped(id) else (float(catalog.progression.stored_weapon_factor) if catalog.items[id].kind in ["weapon","outfit"] else 0.0)
+        # The equipped item counts once at full value; owned copies of it add nothing more.
+        var weight:=1.0 if equipped(id) else stored_factor(id)
         if weight==0:continue
         var bucket: Dictionary=result["SOURCE_EQUIPPED" if equipped(id) else "SOURCE_STORED"]
         for intrinsic in [true,false]:
             var values: Dictionary=normal(id) if intrinsic else state.items[id].extras
             for key in values:bucket[key]=float(bucket.get(key,0))+float(values[key])*weight*(1.0+campaign.bonus("equipped") if intrinsic and equipped(id) else 1.0)
+    # Milestones of the equipped outfit only; stored outfits never add Guard, Recovery or milestone HP.
+    if state.outfit!="" and quantity(state.outfit)>0:
+        var milestone:=outfit_milestones(state.outfit)
+        if milestone.values().any(func(v):return float(v)>0):result["SOURCE_MILESTONE"]=milestone
     return result
 
 func group_upgrade_value(id: String,g: int,variant: int=2,extra: int=0) -> float:

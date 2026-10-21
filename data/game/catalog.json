@@ -15842,7 +15842,7 @@
       "merge_gain": {
         "hp": 2.6530199999999997
       },
-      "legacy": false
+      "legacy": true
     },
     "unit-flower-crown_outfit_t5": {
       "kind": "outfit",
@@ -15894,7 +15894,7 @@
       "merge_gain": {
         "hp": 6.7652009999999985
       },
-      "legacy": true
+      "legacy": false
     },
     "unit-flower-crown_outfit_t6": {
       "kind": "outfit",
@@ -16206,7 +16206,7 @@
       "merge_gain": {
         "hp": 2.6530199999999997
       },
-      "legacy": false
+      "legacy": true
     },
     "unit-green-cap_outfit_t5": {
       "kind": "outfit",
@@ -16258,7 +16258,7 @@
       "merge_gain": {
         "hp": 6.7652009999999985
       },
-      "legacy": true
+      "legacy": false
     },
     "unit-green-cap_outfit_t6": {
       "kind": "outfit",
@@ -16570,7 +16570,7 @@
       "merge_gain": {
         "hp": 2.6530199999999997
       },
-      "legacy": false
+      "legacy": true
     },
     "unit-pink-cap_outfit_t5": {
       "kind": "outfit",
@@ -16622,7 +16622,7 @@
       "merge_gain": {
         "hp": 6.7652009999999985
       },
-      "legacy": true
+      "legacy": false
     },
     "unit-pink-cap_outfit_t6": {
       "kind": "outfit",
@@ -16934,7 +16934,7 @@
       "merge_gain": {
         "hp": 2.6530199999999997
       },
-      "legacy": false
+      "legacy": true
     },
     "unit-pink-flower-hood_outfit_t5": {
       "kind": "outfit",
@@ -16986,7 +16986,7 @@
       "merge_gain": {
         "hp": 6.7652009999999985
       },
-      "legacy": true
+      "legacy": false
     },
     "unit-pink-flower-hood_outfit_t6": {
       "kind": "outfit",
@@ -17298,7 +17298,7 @@
       "merge_gain": {
         "hp": 2.6530199999999997
       },
-      "legacy": false
+      "legacy": true
     },
     "unit-plain_outfit_t5": {
       "kind": "outfit",
@@ -17350,7 +17350,7 @@
       "merge_gain": {
         "hp": 6.7652009999999985
       },
-      "legacy": true
+      "legacy": false
     },
     "unit-plain_outfit_t6": {
       "kind": "outfit",
@@ -17662,7 +17662,7 @@
       "merge_gain": {
         "hp": 2.6530199999999997
       },
-      "legacy": false
+      "legacy": true
     },
     "unit-sprout_outfit_t5": {
       "kind": "outfit",
@@ -17714,7 +17714,7 @@
       "merge_gain": {
         "hp": 6.7652009999999985
       },
-      "legacy": true
+      "legacy": false
     },
     "unit-sprout_outfit_t6": {
       "kind": "outfit",
@@ -18026,7 +18026,7 @@
       "merge_gain": {
         "hp": 7.95906
       },
-      "legacy": false
+      "legacy": true
     },
     "boss-red-panda_outfit_t5": {
       "kind": "outfit",
@@ -18078,7 +18078,7 @@
       "merge_gain": {
         "hp": 20.295602999999996
       },
-      "legacy": true
+      "legacy": false
     },
     "boss-red-panda_outfit_t6": {
       "kind": "outfit",
@@ -18390,7 +18390,7 @@
       "merge_gain": {
         "hp": 7.95906
       },
-      "legacy": false
+      "legacy": true
     },
     "boss-sunflower_outfit_t5": {
       "kind": "outfit",
@@ -18442,7 +18442,7 @@
       "merge_gain": {
         "hp": 20.295602999999996
       },
-      "legacy": true
+      "legacy": false
     },
     "boss-sunflower_outfit_t6": {
       "kind": "outfit",
@@ -18754,7 +18754,7 @@
       "merge_gain": {
         "hp": 7.95906
       },
-      "legacy": false
+      "legacy": true
     },
     "boss-green-alien_outfit_t5": {
       "kind": "outfit",
@@ -18806,7 +18806,7 @@
       "merge_gain": {
         "hp": 20.295602999999996
       },
-      "legacy": true
+      "legacy": false
     },
     "boss-green-alien_outfit_t6": {
       "kind": "outfit",
@@ -20869,9 +20869,9 @@
       "stage": 8,
       "boss": false,
       "final": false,
-      "level": 200,
+      "level": 195,
       "body": "unit-flower-crown_outfit",
-      "weapon": "gold_sword",
+      "weapon": "diamond_sword",
       "skills": [
         "heal"
       ],
@@ -20880,8 +20880,8 @@
         1856.0
       ],
       "count": 3,
-      "hp": 5698.8802,
-      "damage": 111.34,
+      "hp": 5111.3433,
+      "damage": 103.8631,
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
@@ -20889,8 +20889,8 @@
       "xp": 2821,
       "gear_chance": 0.05,
       "loot": [
-        "gold_sword",
-        "unit-flower-crown_outfit_t4"
+        "diamond_sword",
+        "unit-flower-crown_outfit_t5"
       ],
       "aggro_mode": "group",
       "aggro_radius": 58,
@@ -20903,9 +20903,9 @@
       "stage": 8,
       "boss": false,
       "final": false,
-      "level": 210,
+      "level": 201,
       "body": "unit-green-cap_outfit",
-      "weapon": "gold_sword",
+      "weapon": "diamond_sword",
       "skills": [
         "lightning"
       ],
@@ -20914,8 +20914,8 @@
         1504.0
       ],
       "count": 3,
-      "hp": 7084.3251,
-      "damage": 127.9472,
+      "hp": 5824.2556,
+      "damage": 112.8987,
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
@@ -20923,8 +20923,8 @@
       "xp": 3978,
       "gear_chance": 0.05,
       "loot": [
-        "gold_sword",
-        "unit-green-cap_outfit_t4"
+        "diamond_sword",
+        "unit-green-cap_outfit_t5"
       ],
       "aggro_mode": "group",
       "aggro_radius": 58,
@@ -20937,17 +20937,17 @@
       "stage": 8,
       "boss": false,
       "final": false,
-      "level": 220,
+      "level": 207,
       "body": "unit-pink-cap_outfit",
-      "weapon": "gold_axe",
+      "weapon": "diamond_axe",
       "skills": [],
       "center": [
         880.0,
         1232.0
       ],
       "count": 3,
-      "hp": 8806.5832,
-      "damage": 147.0314,
+      "hp": 6636.6024,
+      "damage": 122.7204,
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
@@ -20955,8 +20955,8 @@
       "xp": 5612,
       "gear_chance": 0.05,
       "loot": [
-        "gold_axe",
-        "unit-pink-cap_outfit_t4"
+        "diamond_axe",
+        "unit-pink-cap_outfit_t5"
       ],
       "aggro_mode": "group",
       "aggro_radius": 58,
@@ -20969,9 +20969,9 @@
       "stage": 8,
       "boss": false,
       "final": false,
-      "level": 230,
+      "level": 213,
       "body": "unit-pink-flower-hood_outfit",
-      "weapon": "gold_axe",
+      "weapon": "diamond_axe",
       "skills": [
         "fire"
       ],
@@ -20980,8 +20980,8 @@
         1632.0
       ],
       "count": 3,
-      "hp": 10947.5365,
-      "damage": 168.9623,
+      "hp": 7562.2525,
+      "damage": 133.3965,
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
@@ -20989,8 +20989,8 @@
       "xp": 7916,
       "gear_chance": 0.05,
       "loot": [
-        "gold_axe",
-        "unit-pink-flower-hood_outfit_t4"
+        "diamond_axe",
+        "unit-pink-flower-hood_outfit_t5"
       ],
       "aggro_mode": "group",
       "aggro_radius": 58,
@@ -21003,17 +21003,17 @@
       "stage": 8,
       "boss": false,
       "final": false,
-      "level": 240,
+      "level": 219,
       "body": "unit-plain_outfit",
-      "weapon": "gold_sword",
+      "weapon": "diamond_sword",
       "skills": [],
       "center": [
         1280.0,
         800.0
       ],
       "count": 3,
-      "hp": 13608.9732,
-      "damage": 194.1643,
+      "hp": 8617.009,
+      "damage": 145.0014,
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
@@ -21021,8 +21021,8 @@
       "xp": 11166,
       "gear_chance": 0.05,
       "loot": [
-        "gold_sword",
-        "unit-plain_outfit_t4"
+        "diamond_sword",
+        "unit-plain_outfit_t5"
       ],
       "aggro_mode": "group",
       "aggro_radius": 58,
@@ -21035,9 +21035,9 @@
       "stage": 8,
       "boss": false,
       "final": false,
-      "level": 250,
+      "level": 225,
       "body": "unit-sprout_outfit",
-      "weapon": "gold_sword",
+      "weapon": "diamond_sword",
       "skills": [
         "focus"
       ],
@@ -21046,8 +21046,8 @@
         688.0
       ],
       "count": 3,
-      "hp": 16917.4272,
-      "damage": 223.1253,
+      "hp": 9818.8793,
+      "damage": 157.6159,
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
@@ -21055,8 +21055,8 @@
       "xp": 15750,
       "gear_chance": 0.05,
       "loot": [
-        "gold_sword",
-        "unit-sprout_outfit_t4"
+        "diamond_sword",
+        "unit-sprout_outfit_t5"
       ],
       "aggro_mode": "group",
       "aggro_radius": 58,
@@ -21069,9 +21069,9 @@
       "stage": 8,
       "boss": true,
       "final": false,
-      "level": 300,
+      "level": 235,
       "body": "boss-red-panda_outfit",
-      "weapon": "diamond_sword",
+      "weapon": "emerald_sword",
       "skills": [
         "frost",
         "heal"
@@ -21081,8 +21081,8 @@
         448.0
       ],
       "count": 1,
-      "hp": 728194.0222,
-      "damage": 693.0719,
+      "hp": 176985.9872,
+      "damage": 280.7445,
       "defense": 0,
       "interval": 2,
       "respawn": 60,
@@ -21090,8 +21090,8 @@
       "xp": 879610,
       "gear_chance": 0.3,
       "loot": [
-        "diamond_sword",
-        "boss-red-panda_outfit_t4"
+        "emerald_sword",
+        "boss-red-panda_outfit_t5"
       ],
       "aggro_mode": "group",
       "aggro_radius": 58,
@@ -21104,9 +21104,9 @@
       "stage": 8,
       "boss": true,
       "final": false,
-      "level": 305,
+      "level": 240,
       "body": "boss-sunflower_outfit",
-      "weapon": "diamond_sword",
+      "weapon": "emerald_sword",
       "skills": [
         "heal",
         "focus"
@@ -21116,8 +21116,8 @@
         208.0
       ],
       "count": 1,
-      "hp": 811898.2184,
-      "damage": 742.9645,
+      "hp": 197330.1116,
+      "damage": 300.9546,
       "defense": 0,
       "interval": 2,
       "respawn": 60,
@@ -21125,8 +21125,8 @@
       "xp": 1044700,
       "gear_chance": 0.3,
       "loot": [
-        "diamond_sword",
-        "boss-sunflower_outfit_t4"
+        "emerald_sword",
+        "boss-sunflower_outfit_t5"
       ],
       "aggro_mode": "group",
       "aggro_radius": 58,
@@ -21139,9 +21139,9 @@
       "stage": 8,
       "boss": true,
       "final": true,
-      "level": 350,
+      "level": 250,
       "body": "boss-green-alien_outfit",
-      "weapon": "diamond_sword",
+      "weapon": "emerald_sword",
       "skills": [
         "focus",
         "fire",
@@ -21152,8 +21152,8 @@
         253.44
       ],
       "count": 1,
-      "hp": 2161682.4634,
-      "damage": 1388.9162,
+      "hp": 304513.6903,
+      "damage": 345.8442,
       "defense": 0,
       "interval": 2,
       "respawn": 120,
@@ -21161,8 +21161,8 @@
       "xp": 4912510,
       "gear_chance": 0.3,
       "loot": [
-        "diamond_sword",
-        "boss-green-alien_outfit_t4"
+        "emerald_sword",
+        "boss-green-alien_outfit_t5"
       ],
       "aggro_mode": "group",
       "aggro_radius": 58,
@@ -21860,7 +21860,7 @@
       "ramp_damage_div": 16,
       "boss_hp": 14.5,
       "boss_damage": 1.55,
-      "final_hp": 14.5,
+      "final_hp": 18.0,
       "final_damage": 1.55,
       "opening_type": "unit-blue-cap",
       "opening": [
@@ -21886,9 +21886,39 @@
       "copy_cap": 500,
       "linear_levels": 100,
       "tail_scale": 100.0,
+      "outfit_tail_rate": 0.5,
       "stock_bonus_per_copy": 0.0005
     },
-    "prestige_unlock_boss": "boss-snowman"
+    "prestige_unlock_boss": "boss-snowman",
+    "outfit_milestones": [
+      {
+        "merge": 100,
+        "id": "guard",
+        "defense_per_tier": 3.0
+      },
+      {
+        "merge": 200,
+        "id": "vitality",
+        "hp_share": 0.1
+      },
+      {
+        "merge": 300,
+        "id": "recovery",
+        "regen_pct_per_tier": 0.0005
+      },
+      {
+        "merge": 400,
+        "id": "guard_2",
+        "defense_per_tier": 6.0
+      },
+      {
+        "merge": 500,
+        "id": "mastery",
+        "defense_per_tier": 10.0,
+        "regen_pct_per_tier": 0.0008
+      }
+    ],
+    "stored_outfit_factor": 0.15
   },
   "skills": {
     "heal": {

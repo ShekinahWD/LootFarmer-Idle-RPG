@@ -836,7 +836,7 @@ msgid "SOURCE_EQUIPPED"
 msgstr "Equipped gear"
 
 msgid "SOURCE_STORED"
-msgstr "Stored weapons"
+msgstr "Stored gear"
 
 msgid "PERMANENT_MULTIPLIERS"
 msgstr "Permanent bonuses: HP ×%s · Damage ×%s"
@@ -4389,3 +4389,48 @@ msgstr "Prestige HP bonus"
 
 msgid "STATS_PRESTIGE_DAMAGE"
 msgstr "Prestige damage bonus"
+
+msgid "STAT_REGEN_PCT"
+msgstr "Recovery"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "max HP/s"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "max HP/s"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s%% max HP/s (%s HP/s)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "Outfit milestones (worn)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "Weapons %s%% · Outfits %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "Guard +%s Defense"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s HP"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%s%% outfit HP"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "Recovery %s%% max HP/s"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "Milestones (while worn): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "Milestones: none yet. The first unlocks at ^100."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "All milestones reached (Mastery)."
+
+msgid "MILESTONE_NEXT"
+msgstr "Next at ^%d: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "Grows by merging copies of itself, up to ^%d: +2%% of base HP per copy to ^100, then +1%% per copy. It never turns into another item. Milestones work only while worn; stored, it counts %s%% of its HP."
