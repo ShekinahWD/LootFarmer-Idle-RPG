@@ -14,7 +14,101 @@ func initialize() -> void:
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
     refresh_missions()
+## Change 8 solid scenery: the stage scene's Decor carries editor-visible "Block" shapes at tree
+## trunks, boulders, lamps, ponds and fenced fields. They are read once per stage per process.
+static var _obstacle_cache: Dictionary={}
+var obstacle_list: Array=[]
+var obstacle_grid: Dictionary={}
+const OBSTACLE_CELL:=64.0
+## Actors are points with this clearance; tools/compose_stage_art.gd keeps solids far enough apart.
+const ACTOR_CLEARANCE:=6.0
+func load_obstacles() -> void:
+    var id:=int(sim.state.stage)
+    if not _obstacle_cache.has(id):_obstacle_cache[id]=_read_obstacles(id)
+    obstacle_list=_obstacle_cache[id].list;obstacle_grid=_obstacle_cache[id].grid
+func _read_obstacles(id: int) -> Dictionary:
+    var list: Array=[];var grid: Dictionary={}
+    var path:="res://scenes/game/stages/stage_%d.tscn" % id
+    if not ResourceLoader.exists(path):return {"list":list,"grid":grid}
+    var scene: Node=load(path).instantiate()
+    for node in scene.find_children("*","CollisionShape2D",true,false):
+        var shape: CollisionShape2D=node
+        var pos:=Vector2.ZERO;var n: Node=shape
+        while n!=null and n!=scene:
+            if n is Node2D:pos+=(n as Node2D).position
+            n=n.get_parent()
+        if shape.shape is CircleShape2D:list.append({"c":pos,"r":(shape.shape as CircleShape2D).radius})
+        elif shape.shape is RectangleShape2D:
+            var size: Vector2=(shape.shape as RectangleShape2D).size
+            list.append({"rect":Rect2(pos-size*.5,size)})
+    scene.free()
+    for i in range(list.size()):
+        var o: Dictionary=list[i]
+        var box: Rect2=(Rect2(o.c-Vector2.ONE*o.r,Vector2.ONE*o.r*2) if o.has("c") else o.rect).grow(ACTOR_CLEARANCE+1)
+        for y in range(floori(box.position.y/OBSTACLE_CELL),floori(box.end.y/OBSTACLE_CELL)+1):
+            for x in range(floori(box.position.x/OBSTACLE_CELL),floori(box.end.x/OBSTACLE_CELL)+1):
+                var key:=Vector2i(x,y)
+                if not grid.has(key):grid[key]=[]
+                grid[key].append(i)
+    return {"list":list,"grid":grid}
+## Is this point inside a solid (inflated by the actor clearance)? Returns the outward normal or ZERO.
+## Rectangles are measured from their nearest point, so their inflated corners are round and an actor
+## rounds a corner smoothly instead of flipping between two sides.
+func _contact(o: Dictionary,p: Vector2,tolerance:=0.0) -> Vector2:
+    var q: Vector2=o.c if o.has("c") else Vector2(clampf(p.x,o.rect.position.x,o.rect.end.x),clampf(p.y,o.rect.position.y,o.rect.end.y))
+    var r: float=float(o.r) if o.has("c") else 0.0
+    var d: Vector2=p-q
+    if d.length()>=r+ACTOR_CLEARANCE+tolerance:return Vector2.ZERO
+    if d.length()>.001:return d.normalized()
+    if o.has("c"):return Vector2.UP
+    # Inside the rectangle itself: leave by the nearest side.
+    var rect: Rect2=o.rect
+    var sides:=[p.x-rect.position.x,rect.end.x-p.x,p.y-rect.position.y,rect.end.y-p.y]
+    var best:=0
+    for i in range(4):
+        if sides[i]<sides[best]:best=i
+    return [Vector2.LEFT,Vector2.RIGHT,Vector2.UP,Vector2.DOWN][best]
+func _push_out(o: Dictionary,p: Vector2) -> Vector2:
+    var n:=_contact(o,p)
+    if n==Vector2.ZERO:return p
+    if o.has("c"):return o.c+n*(float(o.r)+ACTOR_CLEARANCE+.01)
+    var rect: Rect2=o.rect
+    var q:=Vector2(clampf(p.x,rect.position.x,rect.end.x),clampf(p.y,rect.position.y,rect.end.y))
+    if rect.has_point(p):q=p+n*minf(minf(p.x-rect.position.x,rect.end.x-p.x),minf(p.y-rect.position.y,rect.end.y-p.y))
+    return q+n*(ACTOR_CLEARANCE+.01)
+## A movement step that meets a solid slides along it, on the side that still heads for the goal, so
+## chasing, returning home and auto-farm walk around trees instead of stopping. Facing a long solid
+## (a pond or fenced field) head-on, the slide heads for its nearer end. Solids are convex and always
+## separated by a walkable gap (tools/compose_stage_art.gd), so this never traps an actor.
+func blocked_step(old: Vector2,next: Vector2,goal: Vector2) -> Vector2:
+    if obstacle_list.is_empty():return next
+    var ids: Array=obstacle_grid.get(Vector2i(floori(next.x/OBSTACLE_CELL),floori(next.y/OBSTACLE_CELL)),[])
+    if ids.is_empty():return next
+    var length:=old.distance_to(next)
+    var heading:=(goal-old).normalized()
+    for i in ids:
+        var o: Dictionary=obstacle_list[i]
+        if _contact(o,next)==Vector2.ZERO:continue
+        # The side the actor is touching now decides the slide (the tentative step can slip past a
+        # corner and report the wrong side).
+        var n:=_contact(o,old,.5)
+        if n==Vector2.ZERO:n=_contact(o,next)
+        var t:=Vector2(-n.y,n.x)
+        if t.dot(heading)<0:t=-t
+        if o.has("rect") and absf(t.dot(heading))<.35:
+            var rect: Rect2=o.rect
+            var along: float=old.dot(t.abs());var lo: float=rect.position.dot(t.abs());var hi: float=rect.end.dot(t.abs())
+            var aim: float=goal.dot(t.abs())
+            if aim>lo and aim<hi:t=t.abs()*(-1.0 if along-lo<hi-along else 1.0)
+        next=_push_out(o,old+t*length)
+    for i in ids:next=_push_out(obstacle_list[i],next)
+    return next
+func solid_at(p: Vector2) -> bool:
+    for i in obstacle_grid.get(Vector2i(floori(p.x/OBSTACLE_CELL),floori(p.y/OBSTACLE_CELL)),[]):
+        if _contact(obstacle_list[i],p)!=Vector2.ZERO:return true
+    return false
 func configure_stage() -> void:
+    load_obstacles()
     var d=stage()
     sim.catalog.world.size=d.size
     sim.catalog.world.spawns=d.spawns

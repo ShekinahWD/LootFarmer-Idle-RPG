@@ -3,6 +3,7 @@
 [node name="World" type="Node2D"]
 script=ExtResource("world")
 texture_filter=1
+y_sort_enabled=true
 [node name="Actors" type="Node2D" parent="."]
 y_sort_enabled=true
 z_index=1

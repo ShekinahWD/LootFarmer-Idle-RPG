@@ -562,7 +562,7 @@ func nearest_group() -> int:
 
 func _move(a: Dictionary, destination: Vector2, speed: float, delta: float) -> void:
     var old := position_of(a)
-    var next := old.move_toward(destination,speed*delta)
+    var next := campaign.blocked_step(old,old.move_toward(destination,speed*delta),destination)
     a.x = clampf(next.x,14,catalog.world.size[0]-14)
     a.y = clampf(next.y,30,catalog.world.size[1]-14)
     a.moving = old.distance_to(position_of(a))>.01

@@ -90,3 +90,51 @@ These fields are never copied from the live state. Explored cells are kept as th
 - `tests/change_7_smoke`: clean, no script errors.
 - `tests/change_8_probe` (Phase A build-safety cases): 22 checks, 0 failures. Covers the prestige gate and transaction, merge cap and validation, migration of a Change 7 save, and reveal vs vision radii.
 - `tests/change_8_capture`: one rendered check of the HUD, comparison, Stats, Inventory and Upgrades (`docs/Change_8_Evidence/ui`).
+
+## Phase B: eight-map environment pass (§8)
+
+`tools/compose_stage_art.gd` is a deterministic, re-runnable authoring tool (`godot --headless --path . --script res://tools/compose_stage_art.gd -- [--stage=N]`). It works on each existing stage scene: everything it adds is ordinary editor content, and the authored Ground layer, border Scenery, Camps and BossLandmarks keep their node ids.
+
+| Layer | What it holds |
+|---|---|
+| Regions | Darker ground patches (the sheet's dark-region autotile, with inner corners) that carry the groves, as in references 03/04 |
+| Paths | One connected route network: a minimum spanning tree over camps, encounter-type centres and boss courts, drawn as 3-tile dirt routes (it replaces the Change 1 grid roads that no longer matched the Change 6 layout) |
+| Clearings | Camp courts are dirt plazas on the route network; boss courts are dark ground. The old court autotile was mis-indexed and drew white stripes. |
+| Water | Ponds: blue water, frozen pools in Winter. Reeds and pebbles line their shores. |
+| Details | Non-blocking decals: tufts, flower bunches on a low-frequency wave (rhythm, not noise), pebbles, mushrooms (Autumn and Spring) |
+| Decor | Y-sorted with actors: groves and lone trees in the stage's season colours, a tree line along the map edge, boulders, rock pillars (Winter and Autumn), lamp pairs at each camp, lamps at route bends, and a fenced crop field (Summer and Spring flowers, Autumn I pumpkins, Autumn II sunflowers) |
+
+- **Season identity:**
+  - Winter: teal, mint and white snow trees, ice ponds, pillars.
+  - Summer: green with orange accents, ponds, flower field.
+  - Autumn: red, orange and pink groves, crimson ground, pumpkins and sunflowers.
+  - Spring: green with purple blossom, flower fields, mushrooms.
+- **Winter camps:** they now use the Winter sheet's fountain, bench and planter; the builder had used Spring sheet coordinates, which drew gravestones and swords.
+- **Depth:** World, the stage root and Decor are y-sorted with Actors (z 1). Every ground layer has an absolute z below that, so trees and actors sort by their feet.
+
+**Blocking:** trees (trunk circle r 6–9, never the canopy), boulders (7–10), pillars (8), lamps (4), ponds and fenced fields (rectangles) carry an editor-visible `Block` StaticBody2D. It has no physics layers; the simulation reads its shape. The tool enforces these rules:
+
+- no solid within 96 of a camp, 64 of a spot, or 110 of a boss;
+- every two solids leave a walkable gap (14 after the 6-unit actor clearance), so solids never form a concave trap;
+- a grid BFS proves every camp, every actor home and every boss home is reachable from the arrival camp (no solid had to be removed on any stage).
+
+`campaign.blocked_step()` slides any moving actor (player, enemies, auto-farm, leash return) along a solid toward its goal. Rectangles have round corners, and a head-on approach to a long solid heads for its nearer end. The shapes are read once per stage per process and bucketed in a 64-unit grid.
+
+| Stage | Decor nodes | Solids |
+|---|---:|---:|
+| Winter I | 93 | 93 |
+| Winter II | 329 | 329 |
+| Summer I | 156 | 138 |
+| Summer II | 377 | 351 |
+| Autumn I | 189 | 175 |
+| Autumn II | 307 | 281 |
+| Spring I | 252 | 226 |
+| Spring II | 675 | 657 |
+
+**Unchanged:** camps, spot and boss positions, teleport destinations, map bounds and the fog layout revision. Old saves and their explored cells stay valid.
+
+**Checks (desktop, headless or rendered; not device evidence):**
+
+- `tests/change_8_walk_probe`: on every stage, the simulation's own movement walks from each camp to every camp, actor home and boss home. 2,178 walks, 0 stalls, worst detour 1.11× the straight line, no home inside a solid.
+- `change_8_probe` 22/0; `change_7_smoke` clean.
+- Before/after overviews: `docs/Change_8_Evidence/maps/before|after`. The camp at gameplay zoom: `docs/Change_8_Evidence/ui/01_hud.png`.
