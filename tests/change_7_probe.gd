@@ -65,8 +65,9 @@ func shared_weapon_checks() -> void:
         var d: Dictionary=c.groups[g]
         var w: Dictionary=c.items[d.weapon]
         families[w.family]=true
-        if int(w.tier)!=1+(int(d.stage)-1)/2:bad+=1
-    check(bad==0 and families.keys().size()==2,"Every enemy carries a shared Sword or Axe of its stage tier")
+        # Change 8: bosses carry one tier above their stage's normal enemies.
+        if int(w.tier)!=1+(int(d.stage)-1)/2+(1 if d.boss else 0):bad+=1
+    check(bad==0 and families.keys().size()==2,"Every enemy carries a shared Sword or Axe of its stage tier (bosses +1, Change 8)")
     check(c.groups[sim.campaign.group_id("unit-red-scarf")].weapon=="wood_sword" and c.groups[sim.campaign.group_id("unit-blue-cap")].weapon=="wood_sword","Red Scarf and Blue Cap carry the same Wood Sword")
     var chain: Array=[];var id:="wood_sword"
     while id!="":chain.append(id);id=c.items[id].next
@@ -163,8 +164,9 @@ func prestige_checks() -> void:
     game._close()
     game._refresh_badges()
     var nav: Button=game.dock.get_node("Navigation/Prestige")
-    check(nav.text.contains(sim.catalog.stages[1].name),"Gated Prestige button names the stage to clear: "+nav.text.replace("\n"," | "))
-    sim.state.unlocked_stage=3;game._refresh_badges()
+    # Change 8 replaced the Winter II gate with the first kill.
+    check(nav.text.contains(tr("NAV_PRESTIGE_LOCKED")),"Gated Prestige button names its requirement: "+nav.text.replace("\n"," | "))
+    sim.state.group_kills[0]=1;game._refresh_badges()
     check(nav.text==tr("NAV_PRESTIGE"),"Ungated Prestige button returns to its plain label")
     await frames(2)
     check(nav.get_combined_minimum_size().y<=nav.custom_minimum_size.y+12,"Gate label keeps the navigation height")
@@ -206,14 +208,15 @@ func tonic_checks() -> void:
 func nav_checks() -> void:
     fresh()
     var nav: Node=game.dock.get_node("Navigation")
-    nav.get_node("Stats").pressed.emit();await frames(2)
-    check(game.sheet.visible and game.panel=="stats","Nav opens its panel")
+    nav.get_node("Upgrades").pressed.emit();await frames(2)
+    check(game.sheet.visible and game.panel=="upgrades","Nav opens its panel")
     nav.get_node("Missions").pressed.emit();await frames(2)
     check(game.sheet.visible and game.panel=="missions","Another nav button switches panels")
     nav.get_node("Missions").pressed.emit();await frames(2)
     check(not game.sheet.visible,"Tapping the open panel's button closes it")
-    game._open("upgrades");nav.get_node("Stats").pressed.emit();await frames(2)
-    check(game.sheet.visible and game.panel=="stats","A sub-panel switches to the tapped page instead of closing")
+    # Change 8: Stats lives in Settings; from it, the Upgrades button switches pages.
+    game._open("stats");nav.get_node("Upgrades").pressed.emit();await frames(2)
+    check(game.sheet.visible and game.panel=="upgrades","A sub-panel switches to the tapped page instead of closing")
     game._close()
     sim.add_item("wood_sword",1);sim.add_item("stone_sword",1);sim.equip("wood_sword")
     game.selected="stone_sword";game.selected_slot=-1;game._open("item");await frames(3)
@@ -231,8 +234,10 @@ func fog_checks() -> void:
     # (under three seconds at base speed) must find it.
     var camp: Array=sim.campaign.stage().spawns[0]
     var start:=Vector2(camp[0],camp[1]);var first: Array=sim.catalog.groups[sim.campaign.group_id("unit-blue-cap")].center
-    sim.campaign.reveal_segment(start,start+(Vector2(first[0],first[1])-start).normalized()*240)
-    check(sim.campaign.discovered(sim.campaign.group_id("unit-blue-cap")),"The first enemy type is found within a short walk from arrival")
+    # Change 8: spots are found by walking to them (48 reveal); sight alone never discovers them.
+    var g: int=sim.campaign.group_id("unit-blue-cap")
+    sim.campaign.reveal_segment(start,sim.campaign.spot(g,2))
+    check(sim.campaign.discovered(g),"The first enemy type is found by walking to its nearest spot")
 
 ## 12-15. Boss markers, respawn camera, world weather, self-effect placement.
 func world_checks() -> void:
@@ -247,7 +252,7 @@ func world_checks() -> void:
     check(not map.marker_visible(boss_g),"Defeated boss loses its marker")
     boss.hp=1.0
     check(map.marker_visible(boss_g),"Respawned boss regains its marker")
-    sim.state.discovered.erase(str(boss_g))
+    sim.state.discovered.erase(str(boss_g));sim.state.discovered_spots.erase(sim.campaign.spot_key(boss_g,2))
     check(not map.marker_visible(boss_g),"Undiscovered boss never shows a marker")
     map.free()
     # Heal on the 2x robot: ground ring on its feet, scaled with it.
@@ -294,9 +299,9 @@ func playtime_checks() -> void:
     sim.restore(JSON.parse_string(JSON.stringify(sim.snapshot())))
     check(is_equal_approx(sim.state.playtime_total,10.0) and is_equal_approx(sim.state.playtime_run,10.0),"Playtime persists across save and load")
     game._open("stats");await frames(2)
-    check(_find_label(game.rows,tr("PLAYTIME_LINE") % [game.fmt_duration(sim.state.playtime_total),game.fmt_duration(sim.state.playtime_run)])!=null,"Stats shows lifetime and run playtime")
+    check(_find_label(game.rows,tr("STATS_TIME_TOTAL"))!=null and _find_label(game.rows,game.fmt_duration(sim.state.playtime_total))!=null and _find_label(game.rows,tr("STATS_TIME_RUN"))!=null,"Stats shows lifetime and run playtime (Change 8 rows)")
     game._close()
-    sim.state.unlocked_stage=3;sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
+    sim.state.group_kills[0]=1;sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     check(sim.campaign.begin_prestige(),"Prestige begins")
     sim.prestige(sim.campaign.offered_cards()[0])
     check(sim.state.prestiges==1 and is_equal_approx(sim.state.playtime_total,10.0) and sim.state.playtime_run==0.0,"Prestige keeps lifetime and resets the run")

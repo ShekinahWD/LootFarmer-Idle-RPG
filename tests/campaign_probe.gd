@@ -90,6 +90,7 @@ func run() -> void:
     check(sim.campaign.claim_main(15) and not sim.campaign.claim_main(15),"Final reward claim is once-only")
     # Batch all three same-path opportunities: shrinking options, one reset, unique cards.
     sim.state.opportunities={}
+    sim.state.group_kills[0]=1   # fixture: first kill opens Prestige (Change 8)
     for i in range(1,4):sim.state.opportunities["hunter_o"+str(i)]={"ready":true,"baseline":{}}
     check(sim.campaign.begin_prestige(),"Prestige batch begins")
     check(sim.campaign.offered_cards().size()==3,"First choice three cards")

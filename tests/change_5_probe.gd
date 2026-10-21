@@ -36,7 +36,8 @@ func run() -> void:
         check(not sim.use_item(potion),"Potion cooldown prevents double use")
         sim.state.player.hp=sim.stats().hp;sim.state.skill_cooldowns={};sim.state.use_cd=0;qty=sim.quantity(potion)
         check(not sim.campaign.cast(0) and not sim.use_item(potion) and sim.quantity(potion)==qty,"Full health wastes neither healing source")
-        potion=sim.catalog.items[potion].next;heal=sim.catalog.items[heal].next
+        # Change 8: skills no longer evolve; the authored tiers remain (legacy ids) and are walked directly.
+        potion=sim.catalog.items[potion].next;heal="skill_heal_t%d" % (tier+1)
     fresh();sim.add_item("potion",2);sim.add_item("skill_heal",2);sim.equip("skill_heal")
     check(sim.normal("potion").heal==25 and sim.normal("skill_heal").power==10,"Distinct tier-one base heals (Change 6: Heal 6 -> 10)")
     check(sim.player_upgrade_value("cooldown_heal")==18,"Heal base cooldown")

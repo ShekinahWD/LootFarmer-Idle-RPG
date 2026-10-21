@@ -64,16 +64,19 @@ func layout_checks() -> void:
     check(groups_hit.keys()==["0:2"],"Idle farming stays on its spot through kills and respawns: %s" % [groups_hit.keys()])
     check(sim.position_of(sim.state.player).distance_to(home)<120 or sim.state.player.hp<=0 or sim.campaign.resting_camp()>=0,"Player remains at its farming spot")
 
-## Every early route is blocked until Winter is cleared, and the gate does not block discovery.
+## Change 8 replaced the Winter II gate: Prestige opens with the first kill, then any ready
+## opportunity that can award a card may reset (early routes included).
 func prestige_checks() -> void:
     for route in ["challenge_o1","specialist_o1","offline_o2","trophy_o1"]:
         fresh()
         sim.state.opportunities[route]={"ready":true,"baseline":{},"step":0,"count":0}   # fixture: readiness
-        check(sim.campaign.prestige_block_reason()=="PRESTIGE_GATE","Early %s cannot reset before Winter" % route)
-        check(not sim.campaign.begin_prestige() and sim.state.prestige_batch.is_empty(),"Begin refused before gate: "+route)
+        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_KILL","Early %s waits for the first kill" % route)
+        check(not sim.campaign.begin_prestige() and sim.state.prestige_batch.is_empty(),"Begin refused before the first kill: "+route)
+        sim.state.group_kills[0]=1   # fixture: first kill
+        check(sim.campaign.prestige_block_reason()=="","Early %s may reset after the first kill" % route)
     fresh()
-    sim.state.unlocked_stage=3;sim.state.opportunities["specialist_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
-    check(sim.campaign.prestige_block_reason()=="","Cleared Winter with a ready opportunity may prestige")
+    sim.state.group_kills[0]=1;sim.state.opportunities["specialist_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
+    check(sim.campaign.prestige_block_reason()=="","A ready opportunity may prestige")
     check(sim.campaign.begin_prestige() and sim.campaign.offered_cards().size()==3,"Batch offers three path cards")
     sim.state.prestige_batch={};sim.touch()
     fresh();sim.campaign.progress("boss","boss-snowman",1);sim.state.counters["boss:boss-snowman"]=1;sim.campaign.evaluate()
@@ -140,7 +143,8 @@ func ui_checks() -> void:
     sim.add_item("potion",2)
     var map: Control=game.get_node("Safe/Layout/Map")
     game.selected="wood_sword";game.selected_slot=-1;game._open("item");await frames(8)
-    check(game.sheet.size.y<map.size.y*.7,"Item details are content-sized (%.0f of %.0f)" % [game.sheet.size.y,map.size.y])
+    # Change 8's comparison shows the equipped card above the selected one: taller, still content-sized.
+    check(game.sheet.size.y<map.size.y*.85,"Item details are content-sized (%.0f of %.0f)" % [game.sheet.size.y,map.size.y])
     check(is_equal_approx(game.sheet.position.y+game.sheet.size.y,map.global_position.y+map.size.y-game.sheet_inset.y),"Sheet is anchored to the bottom of the map")
     var bar_rect: Rect2=game.actions.get_global_rect()
     var prev: Button=game.actions.get_child(0);var next: Button=game.actions.get_child(game.actions.get_child_count()-1)
@@ -182,7 +186,7 @@ func ui_checks() -> void:
     game._close();game._toast("Probe toast");await frames(3)
     check(game.get_node("Toast").visible,"Toast shows on the HUD")
     # Prestige choices are real cards and the selection is explicit.
-    fresh();sim.state.unlocked_stage=3;sim.state.opportunities["arsenal_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
+    fresh();sim.state.unlocked_stage=3;sim.state.group_kills[0]=1;sim.state.opportunities["arsenal_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     sim.campaign.begin_prestige();game._open("prestige");await frames(8)
     var cards: Array=game.rows.find_children("*","Button",true,false).filter(func(b):return b.get_meta("guide","")=="card")
     check(cards.size()==3 and cards.all(func(c):return c.get_script()==load("res://scripts/game/prestige_card.gd")),"Batch renders three prestige card scenes")
@@ -212,7 +216,7 @@ func tutorial_checks() -> void:
     check(game.guide.pending=="camp" and game.guide.step=="camp_explore","Undiscovered camp asks for exploration")
     check(game.guide.target==game.stick,"Exploration points at movement, not at the hidden camp")
     var camp: Array=sim.campaign.stage().spawns[1]
-    sim.campaign.reveal_circle(Vector2(camp[0],camp[1]),60);sim.state.coins=0;await frames(3)
+    sim.state.camps_known["1"]=[1];sim.state.coins=0;await frames(3)   # fixture: camp sighted (Change 8)
     check(game.guide.step=="camp_earn","Known but unaffordable camp asks for coins")
     sim.state.coins=sim.campaign.camp_price(1);sim.touch();await frames(3)
     check(game.guide.step=="camp" and game.guide.target==game.dock.get_node("Navigation/World"),"Affordable camp points at World")

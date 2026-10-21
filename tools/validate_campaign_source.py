@@ -32,7 +32,7 @@ for step in steps:
     for suffix in ['','_DETAIL']:check('guide translation '+step+suffix,'GUIDE_'+step.upper()+suffix in strings)
 for combo in c['campaign']['combos']:check('combo name '+combo['id'],'COMBO_'+combo['id'].upper() in strings)
 for tab in ['TAB_PLAYER','TAB_INVENTORY','TAB_SUPPLIES','TAB_GEMS','TAB_OFFLINE','PANEL_WORLD']:check('tab translation '+tab,tab in strings)
-check('prestige gate stage present',c['progression'].get('prestige_gate_stage')==3)
+check('prestige opens after the first kill (Change 8; Winter II gate removed)',c['progression'].get('prestige_unlock_kills')==1 and 'prestige_gate_stage' not in c['progression'])
 check('every path has card art',set(x['path'] for x in c['campaign']['cards'].values())==set(c['campaign']['paths']))
 import subprocess
 # Change 7: shared weapon families, stage-tiered gear and the legacy id map.
@@ -44,7 +44,7 @@ for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/s
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}
-output=ROOT/'docs/Change_7_Evidence/static_checks.json'
+output=ROOT/'docs/Change_8_Evidence/static_checks.json'
 output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({k:report[k] for k in ['checks','failures']}))
 for item in checks:

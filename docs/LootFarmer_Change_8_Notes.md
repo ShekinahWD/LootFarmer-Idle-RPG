@@ -138,3 +138,43 @@ These fields are never copied from the live state. Explored cells are kept as th
 - `tests/change_8_walk_probe`: on every stage, the simulation's own movement walks from each camp to every camp, actor home and boss home. 2,178 walks, 0 stalls, worst detour 1.11× the straight line, no home inside a solid.
 - `change_8_probe` 22/0; `change_7_smoke` clean.
 - Before/after overviews: `docs/Change_8_Evidence/maps/before|after`. The camp at gameplay zoom: `docs/Change_8_Evidence/ui/01_hud.png`.
+
+## Phase C: focused tests and fixes
+
+**Fix found by the new tests (gameplay, so the Phase B APK is outdated):** `catalog.gd` now converts stage group ids to ints. They came from JSON as floats, and `Array.has()` is type-strict, so `sim.focus()` refused every request. The Focus (auto-farm) button has never worked on any build so far. No other behaviour depends on it.
+
+| Suite | Result |
+|---|---|
+| `tests/change_8_probe` (new, one case per §9 item: camp entry/re-entry, nav and Settings → Stats, pinned equipment, comparison, HP text, skill/outfit merge and cap, migration, boss tier and per-item loot, Loot Chance 15 levels and prices, first-kill gate and card transaction, follow tracker and Ready, reveal vs vision, hidden-spot disclosure, per-spot loadout markers, banner centring) | 72 / 0 |
+| `tests/change_8_walk_probe` (eight-stage movement around solids) | 2,178 walks / 0 stalls |
+| `tests/change_7_smoke` | clean |
+| `tests/change_7_probe` | 78 / 0 |
+| `tests/change_6_probe` | 200 / 0 |
+| `tests/change_5_probe` | 137 / 0 |
+| `tests/campaign_probe` | 262 / 0 |
+| `tests/campaign_content_probe` | 102 / 0 (the 324 fewer checks are the evolved outfit/skill transitions that no longer exist) |
+| `tools/validate_campaign_source.py` | 1223 / 0 (now writes docs/Change_8_Evidence/static_checks.json) |
+
+**Assertions updated** (each one encoded a rule Change 8 replaced; production logic unchanged):
+
+- the Winter II reset gate is now the first kill (Change 6/7 probes, campaign_probe fixture, validator);
+- the Stats nav button is now Upgrades, with Stats in Settings;
+- boss weapon tiers are +1;
+- the first enemy type is found by walking to a spot (48 reveal);
+- the Stats playtime rows;
+- the boss-marker test also erases the spot record;
+- the Change 6 camp lesson fixture uses a sighted camp;
+- the item-sheet height bound is 85% of the map (the two-card comparison is taller but still content-sized);
+- the Change 5 heal-role walk iterates the authored legacy tiers directly.
+
+**One pacing scenario** (`pacing_bot --policy=ordinary --seed=1`, desktop):
+
+- first kill 0.8 min, second camp 3.4 min (Change 7: 1.0), level 10 at 17.3 min, Snowman 18.6 min, Winter II entered 18.7 min;
+- the first prestige was allowed at 29.1 min (Specialist ready). Under the Change 6/7 Winter II gate this was 76–113 min; this is the brief's first-kill rule working as asked;
+- no stall from the close fog or the solid scenery.
+
+**Needs a developer decision:** the content probe's theoretical ceiling still kills the final boss in 463 s, unchanged. Its survival fell from 256 s to 14 s, because outfits no longer evolve to tiers 5–7. The best reachable outfit is now a tier-4 boss outfit: about 400 HP base, about 2.5K at ^500. If late-game survivability feels short on device, the options are:
+
+1. raise the late stages' outfit tiers;
+2. raise `copy_cap`;
+3. retune the late bosses in tools/tune_campaign.py (already open from Change 7).

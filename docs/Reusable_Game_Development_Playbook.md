@@ -8420,3 +8420,48 @@ Lowering a fog radius changes which landmarks the natural route uncovers. After 
 Reusable rule:
 
 > Share identities and compensate the passive breadth you remove; pay offline rewards on an explicit claim; keep ambient effects world-anchored and self effects anchored to the art; re-check landmark discovery after any fog change.
+
+---
+
+# 139. Close reveal, separate sight, and solid scenery (LootFarmer Change 8)
+
+## 139.1 Split permanent exploration from momentary vision
+
+When the player asks for exploration to stay close to the character, do not just shrink one radius. Keep two states with different jobs:
+
+- **Explored cells (saved):** reveal a small radius around the walking player. They drive map memory and encounter discovery.
+- **Vision (never saved):** a live radius around the living player, about 2× the reveal. Terrain, enemies and loot inside it are drawn through a lighter veil and can be fought or picked up, but vision never discovers an encounter.
+
+Upgrades and cards that scale the reveal should scale both. Persist only the explored set, so load, relaunch and teleport never produce a fresh full reveal.
+
+## 139.2 Discover per spot, and give landmarks their own sighting rule
+
+Track discovery per encounter spot (type + loadout), not per type. The map then draws one small marker per found spot and none for an unfound one at any map-intelligence rank, and auto-farm can never walk to hidden coordinates. A spot is found when its home cell is explored, a living actor of it stands on explored ground, or the player defeats one of its enemies.
+
+A close reveal can hide authored landmarks (138.5). Instead of restoring the big reveal, let landmarks such as camps be sighted from farther away. Remember them, show a short notice, and reveal only their footprint. Compute the sighting radius from the layout: every landmark must lie within it of an ordinary farming spot or of a gate encounter.
+
+## 139.3 Solid scenery for a point-movement simulation
+
+When the simulation moves points directly (no physics):
+
+- **Store solids as editor content:** a physics-free StaticBody2D with a circle or rectangle shape at the trunk or base, never the canopy. The simulation reads the shapes once per stage and buckets them in a coarse grid.
+- **Slide, don't stop:** a blocked step slides along the solid toward the goal. Take the contact normal at the actor's current, touching position, because the tentative step can slip past a corner. Give rectangles round corners (normal from the nearest point). A head-on approach to a long solid heads for its nearer end.
+- **Prevent traps at authoring time:** keep every pair of solids at least a walkable gap apart, so no concave pocket can trap an actor. Keep solids out of camp, spot and boss keep-clear disks, and prove reachability of every actor home with a grid BFS before saving the scene.
+- **Test with the real mover:** walk the simulation's own movement between every camp and every actor home on every stage. A topology BFS alone missed the corner and head-on stalls.
+
+## 139.4 Data from JSON is float until proven otherwise
+
+`Array.has()` is type-strict in Godot 4. Id lists loaded from JSON (`[0, 1, 2]` arrives as floats) must be converted to ints once, in the catalog loader. In LootFarmer this silently refused every Focus (auto-farm) request for several releases, because no probe called the real entry point with an int.
+
+## 139.5 Evolution versus growth from copies
+
+When identities should stay fixed (outfits, skills), replace successor evolution with a copy-growth cap:
+
+- linear up to the old cap, then logarithmic, so the extra power stays bounded;
+- coefficients kept in data;
+- check that the capped lower tier stays below the next tier's normal ^100 item, so later drops still matter;
+- keep unreachable successor ids as legacy items, so saves keep what they own.
+
+Reusable rule:
+
+> Save exploration, not sight; discover encounters per spot; sight landmarks from afar; make blockers editor content with walkable gaps and test them with the game's own mover; convert JSON ids to ints at load.
