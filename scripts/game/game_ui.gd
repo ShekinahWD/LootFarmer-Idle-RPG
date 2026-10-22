@@ -94,6 +94,13 @@ var teleport_target: Array=[]
 ## Last text written to the "Map Explored" chip above the minimap (written only when it changes).
 var explored_text:=""
 var gate_text:=""
+## Map Mastery: 0 lists the maps, otherwise the stage whose page is open.
+var mastery_stage:=0
+## Change 15: panels that belong to a revealed system (campaign.onboarding). Every way into a panel
+## goes through _open, so a hidden system cannot be reached from the minimap, the character, an
+## enemy, a camp, the follow tracker or a banner either.
+const PANEL_FEATURE:={"missions":"missions","enemy":"enemy","world":"world","camp":"world","teleport":"world","farming":"world","upgrades":"upgrades","filters":"upgrades","prestige":"prestige","mastery":"prestige"}
+const MASTERY_ART:={"explore":249,"hunt":1,"research":60,"collect":147,"forge":211}
 
 func _ready() -> void:
     world.setup(sim)
@@ -169,7 +176,8 @@ func _ready() -> void:
         enemy_tab=1
         _open("enemy"))
     banner.opened.connect(func(kind: String)->void:
-        if kind in ["discovered","ready","card","prestiged"]:_open("prestige"))
+        if kind in ["discovered","ready","card","prestiged","prestige_unlocked"]:_open("prestige")
+        elif kind in ["mastery_map","mastery_game"]:mastery_stage=0;_open("mastery"))
     sim.event.connect(_event)
     SaveService.save_failed.connect(func(_reason: String)->void:_event("SAVE_ERROR"))
     get_viewport().size_changed.connect(_safe_area)
@@ -185,6 +193,7 @@ func _ready() -> void:
     if not sim.state.prestige_batch.is_empty():_open("prestige")
     guide=preload("res://scripts/game/tutorial_guide.gd").new()
     add_child(guide);guide.setup(self)
+    _refresh_reveal()
     if SaveService.last_load_result in ["development_reset","invalid_profile_reset"]:_event("DEVELOPMENT_SAVE_RESET")
     if SaveService.write_blocked:
         _event("SAVE_INCOMPATIBLE")
@@ -245,6 +254,7 @@ func _process(dt: float) -> void:
     if sim.state.boost_time>0:top.get_node("Meters/XP/Text").text+="  "+tr("BOOST_ACTIVE") % int(ceil(sim.state.boost_time))
     # A quiet hint that the bar opens Player Level & Growth.
     top.get_node("Meters/XP/Text").text+="  ›"
+    _refresh_reveal()
     _refresh_combat_achievement()
     _refresh_loot_notifications()
     _refresh_badges()
@@ -292,7 +302,7 @@ func _check_camp_entry() -> void:
         # Only a walk-in by hand owes the panel; auto-farm routes passing a camp never pop it.
         camp_pending=here>=0 and sim.movement.length()>.1
         camp_inside=here
-    if not camp_pending or here<0:return
+    if not camp_pending or here<0 or not revealed("world"):return
     if sheet.visible or $Confirm.visible or get_tree().paused or sim.suspended or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending" or sim.campaign.in_combat():return
     camp_pending=false
     selected_camp=here
@@ -313,7 +323,7 @@ func _refresh_follow_tracker() -> void:
     var id: String=str(sim.state.follow)
     var o: Dictionary=sim.state.opportunities.get(id,{})
     var ready: bool=not o.is_empty() and bool(o.ready) and not sim.state.consumed.has(id)
-    var show: bool=id!="" and not o.is_empty() and not sim.state.consumed.has(id) and sim.state.prestige_batch.is_empty()
+    var show: bool=id!="" and not o.is_empty() and not sim.state.consumed.has(id) and sim.state.prestige_batch.is_empty() and revealed("prestige")
     if tracker.visible!=show:tracker.visible=show
     if not show:return
     var op: Dictionary=_opportunity(id)
@@ -348,7 +358,8 @@ func _refresh_explored() -> void:
 func _refresh_gate() -> void:
     var status: Dictionary=sim.campaign.gate_status()
     var text:=""
-    if not status.is_empty():
+    # Change 15: the chip is the Defeat the Snowman objective, shown once that objective is revealed.
+    if not status.is_empty() and revealed("objective"):
         text=tr("GATE_HUD_WORLD" if status.kind=="world" else "GATE_HUD") % [int(status.killed),int(status.total)]
     if text==gate_text:return
     gate_text=text
@@ -553,8 +564,25 @@ func _nav(which: String) -> void:
     # Change 10: Prestige always opens; only the reset action inside the panel is gated.
     _open(which)
 
+func revealed(feature: String) -> bool:
+    return sim.campaign.onboarding.revealed(feature)
+
+func panel_allowed(which: String) -> bool:
+    which=PANEL_ALIASES.get(which,which)
+    # A Prestige choice in progress always owns its panel.
+    if which=="prestige" and not sim.state.prestige_batch.is_empty():return true
+    return not PANEL_FEATURE.has(which) or revealed(PANEL_FEATURE[which])
+
+## A revealed menu not opened yet carries the gold ✦ on its button (every mode: a status, not a hint).
+func unopened(feature: String) -> bool:
+    return revealed(feature) and not sim.state.tutorial.seen.has("opened:"+feature)
+
 func _open(which: String) -> void:
     which=PANEL_ALIASES.get(which,which)
+    if not panel_allowed(which):return
+    var feature: String=PANEL_FEATURE.get(which,"")
+    if feature!="" and not sim.state.tutorial.seen.has("opened:"+feature):
+        sim.state.tutorial.seen.append("opened:"+feature);SaveService.mark_dirty()
     if panel=="filters" and which!="filters":_clear_filters()
     $Safe/Layout/Map/GestureSurface.cancel_gesture()
     var reopening: bool=sheet.visible and panel==which
@@ -615,8 +643,19 @@ func _recenter_on_player() -> void:
 ## audio service merges it with anything else requested in the same frame.
 func _notice(kind: String,_id: String) -> void:
     match kind:
-        "mission_ready":AudioService.play("mission_ready")
+        # Change 15: one notification sound (mission_ready) for every progression notice; a system
+        # that is not revealed yet stays silent (it announces itself when it appears).
+        "mission_ready":if revealed("missions"):AudioService.play("mission_ready")
+        "main_ready":if revealed("missions"):AudioService.play("main_ready")
         "follow_step":AudioService.play("prestige_step")
+        "feature_unlocked":AudioService.play("feature_unlocked")
+        "mastery_objective":
+            if revealed("prestige"):
+                var bits: PackedStringArray=_id.split(":")
+                AudioService.play("mastery_objective")
+                _say(tr("MASTERY_OBJECTIVE_DONE") % [sim.catalog.stages[int(bits[0])-1].name,tr("MASTERY_"+bits[1].to_upper())])
+        "mastery_map":if revealed("prestige"):AudioService.play("mastery_map")
+        "game_complete":AudioService.play("game_complete")
         # Change 14: the first Focused Farming purchase confirms itself on the panel's notice line
         # (or as a toast); the guide then points at the Farm button once.
         "focus_unlocked":_say(tr("FOCUS_UNLOCKED"))
@@ -662,6 +701,8 @@ func _milestone(kind: String,id: String) -> void:
         "reset":
             banner.queue.clear();banner._finish();toast_queue.clear()
         "discovered","ready":
+            # Change 15: Prestige is introduced after the Snowman; earlier finds wait for its reveal.
+            if not revealed("prestige"):return
             var op: Dictionary=_opportunity(id)
             for card_id in _path_cards(str(op.path)):
                 var d: Dictionary=sim.catalog.campaign.cards[card_id]
@@ -677,6 +718,15 @@ func _milestone(kind: String,id: String) -> void:
         "stage":
             banner.push(kind,tr("MILESTONE_STAGE"),sim.catalog.stages[int(id)-1].name)
             AudioService.play("stage_unlocked")
+        # Change 15 milestones (the notice that comes with each plays the sound).
+        "prestige_unlocked":
+            banner.push(kind,tr("MILESTONE_PRESTIGE_UNLOCKED"),tr("MILESTONE_PRESTIGE_UNLOCKED_DETAIL") % int(id) if int(id)>0 else tr("MILESTONE_PRESTIGE_UNLOCKED_NONE"))
+        "mastery_map":
+            if revealed("prestige"):
+                var st:=int(id)
+                banner.push(kind,tr("MILESTONE_MASTERY_MAP") % sim.catalog.stages[st-1].name,mastery_reward_text(sim.campaign.mastery.rules.map_rewards[st-1]))
+        "mastery_game":
+            banner.push(kind,tr("MILESTONE_MASTERY_GAME"),tr("MASTER_FARMER_TITLE")+" · "+mastery_reward_text(sim.campaign.mastery.rules.completion_reward))
 
 func _text(value: String,font_size:=20,color:=Color(.94,.95,.97)) -> Label:
     var label:=Label.new()
@@ -803,7 +853,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
-    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target),sim.campaign.focus_hint]
+    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target),sim.campaign.focus_hint,mastery_stage]
 
 func _refresh_panel(force_layout:=false) -> void:
     panel_clock=0.0
@@ -838,6 +888,7 @@ func _refresh_panel(force_layout:=false) -> void:
         "offline":_offline_panel()
         "level":_level_panel()
         "farming":_farming_panel()
+        "mastery":_mastery_panel()
     var context:=_panel_context()
     var replace:=context!=panel_context
     var mapping: Dictionary={}
@@ -1337,7 +1388,7 @@ func _upgrades_panel() -> void:
 func _buy_supply_actions(row: Node) -> void:
     for id in sim.supply_ids():
         var price:=int(sim.supply(id).get("price",0))
-        if price>0:_game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),fmt_cost(price)],func()->void:_confirmed(sim.purchase_consumable(id)),true,"",row)
+        if price>0:_game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),fmt_cost(price)],func()->void:_confirmed(sim.purchase_consumable(id)),true,"",row).set_meta("guide","buy_supply_"+id)
 
 ## Compact upgrade card: icon, name, computed benefit, a fixed status line and the buy button.
 ## The status line is always present, so a reason never changes the card's height.
@@ -1377,7 +1428,7 @@ func _group_upgrade_card(id: String,g: int) -> void:
     buy.theme_type_variation=&"Primary" if reason.is_empty() else &""
     buy.tooltip_text=tr(reason) if not reason.is_empty() else tr("UP_"+id.to_upper())
     buy.set_meta("upgrade",id)
-    buy.set_meta("guide","buy_"+id if id=="loot" else "buy_upgrade")
+    buy.set_meta("guide","buy_"+id if id in ["loot","gear_slots"] else "buy_upgrade")
     buy.pressed.connect(func()->void:
         if not _confirmed(sim.buy_upgrade(id,g)):AudioService.play("ui_click"))
     line.add_child(buy)
@@ -1548,7 +1599,8 @@ func _refresh_combat_achievement() -> void:
     # Keep this section available between kills, including one-hit kills.
     var g:=combat_group
     var button: Button=$Safe/Layout/Map/Achievement
-    var known: bool=sim.campaign.discovered(g)
+    # Change 15: the enemy chips belong to the revealed enemy system.
+    var known: bool=sim.campaign.discovered(g) and revealed("enemy")
     button.visible=known
     $Safe/Layout/Map/EnemyUpgrades.visible=known
     $Safe/Layout/Map/EnemySection.visible=known
@@ -1622,6 +1674,9 @@ func _world_panel() -> void:
     else:_text(tr("MAP_LEGEND"),17,Color(.7,.75,.82))
     # Change 10: the map-by-map Farming Guide (opens per map once its research is complete).
     _action(tr("FARMING_GUIDE_OPEN"),func()->void:guide_stage=0;_open("farming")).set_meta("guide","farming_guide")
+    # Change 15: Map Mastery (revealed with Prestige, after the Snowman).
+    if revealed("prestige"):
+        _action(tr("MASTERY_OPEN") % sim.campaign.mastery.game_percent(),func()->void:mastery_stage=0;_open("mastery")).set_meta("guide","mastery")
     if int(sim.state.unlocked_stage)>1:
         _section(tr("SECTION_TRAVEL"))
         for st in range(1,int(sim.state.unlocked_stage)+1):
@@ -1759,7 +1814,7 @@ func _stats_panel() -> void:
         [tr("STATS_LEVEL"),tr("STATS_LEVEL_VALUE") % [sim.state.player_level,int(sim.catalog.progression.max_level)]],
         [tr("STATS_STAGE"),str(sim.campaign.stage().name)],
         [tr("STATS_PRESTIGES"),str(int(sim.state.prestiges))],
-        [tr("STATS_CARDS"),"%d / %d" % [sim.state.owned_cards.size(),sim.catalog.campaign.cards.size()]]])
+        [tr("STATS_CARDS"),"%d / %d" % [sim.state.owned_cards.size(),sim.catalog.campaign.cards.size()]]]+_mastery_stats())
     _stat_section(tr("STATS_SECTION_OFFENSE"),[
         [tr("STAT_DAMAGE"),fmt(s.damage)],
         [tr("STAT_CRIT"),fmt_value(s.crit*100)+"%"],
@@ -1778,6 +1833,8 @@ func _stats_panel() -> void:
         [tr("STATS_MOVEMENT"),"+"+fmt_value((sim.campaign.move_speed()/90.0-1.0)*100)+"%"],
         [tr("STATS_STORED_SHARE"),tr("STATS_STORED_SHARE_VALUE") % [fmt_value(float(sim.catalog.progression.stored_weapon_factor)*100),fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100)]]]
     if sim.campaign.bonus("equipped")>0:boosts.append([tr("STATS_EQUIPPED_BONUS"),"+"+fmt(sim.campaign.bonus("equipped")*100)+"%"])
+    var mastery: Dictionary=sim.campaign.mastery.rewards()
+    if not mastery.is_empty():boosts.append([tr("STATS_MASTERY"),mastery_reward_text(mastery)])
     for id in sim.supply_ids():
         if sim.buff_time(id)>0:boosts.append([sim.catalog.display_name(id),tr("STATS_SUPPLY_VALUE") % [_supply_amount(id,sim.buff_power(id)),ceili(sim.buff_time(id))]])
     _stat_section(tr("STATS_SECTION_BOOSTS"),boosts)
@@ -1911,10 +1968,22 @@ func _settings_panel() -> void:
     rows.add_child(row)
     # Stats moved here from the navigation bar (Change 8); Player Upgrades took its place.
     _action(tr("STATS_OPEN"),func()->void:_open("stats"),true,"",row).set_meta("guide","open_stats")
-    _action(tr("GUIDE_REVIEW"),func()->void:sim.state.tutorial.mode="pending";_close(),true,"",row)
     _action(tr("LOOT_HISTORY"),func()->void:_open("history"),true,"",row)
     _action(tr("SAVE_NOW"),func()->void:if SaveService.save_now():_event("SAVED"),true,"",row)
     for button in row.get_children():
+        button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
+    # Change 15: Tutorial and help. Choosing the guidance again keeps the menus already revealed;
+    # Show all menus now reveals every system at once (a way past the first-profile progression).
+    _section(tr("SECTION_TUTORIAL"))
+    var help:=HFlowContainer.new()
+    help.add_theme_constant_override("h_separation",8)
+    help.add_theme_constant_override("v_separation",8)
+    rows.add_child(help)
+    _action(tr("GUIDE_REVIEW"),func()->void:sim.state.tutorial.mode="pending";_close(),true,"",help)
+    var all_shown: bool=sim.campaign.onboarding.all_revealed()
+    _action(tr("SHOW_ALL_MENUS"),func()->void:_confirm(tr("SHOW_ALL_MENUS_CONFIRM"),func()->void:
+        sim.campaign.onboarding.reveal_all(true);_say(tr("ALL_MENUS_SHOWN"))),not all_shown,"ALL_MENUS_ALREADY",help).set_meta("guide","show_all_menus")
+    for button in help.get_children():
         button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
     # Change 12: music and sound-effect volumes (0 = silent) and two independent mutes.
     _section(tr("SECTION_AUDIO"))
@@ -2137,6 +2206,146 @@ func _farming_panel() -> void:
             _card_line(text,tr("FARMING_LOCKED") % " · ".join(missing),17,Color(1,.72,.45))
     if unreached>0:_text(tr("FARMING_GUIDE_UNREACHED") % unreached,17,Color(.7,.75,.82))
 
+# ---------------------------------------------------------------- Map Mastery (Change 15)
+
+## Game completion and the title in Stats, once Map Mastery is revealed.
+func _mastery_stats() -> Array:
+    if not revealed("prestige"):return []
+    var lines: Array=[[tr("STATS_COMPLETION"),"%d%%" % sim.campaign.mastery.game_percent()]]
+    if sim.campaign.mastery.game_complete():lines.append([tr("STATS_TITLE"),tr("MASTER_FARMER_TITLE")])
+    return lines
+
+## One reward as a short line: "+10% coins · +1 pt Loot Chance".
+func mastery_reward_text(reward: Dictionary) -> String:
+    var parts: Array=[]
+    for key in ["hp","damage","coins","xp","gear_chance","gem_chance"]:
+        if not reward.has(key):continue
+        var value: float=float(reward[key])*100
+        parts.append(tr("MASTERY_REWARD_"+key.to_upper()) % fmt_value(value))
+    return " · ".join(parts)
+
+## A type the player has met: found this run, or defeated in any run. Others stay unnamed.
+func _type_known(g: int) -> bool:
+    return sim.campaign.discovered(g) or int(sim.state.group_kills[g])>0
+
+func _item_known(id: String) -> bool:
+    if sim.state.mastery.found.has(id):return true
+    for g in range(sim.catalog.groups.size()):
+        if not _type_known(g):continue
+        var d: Dictionary=sim.catalog.groups[g]
+        if d.loot.has(id) or (id.begins_with("skill_") and d.skills.has(id.trim_prefix("skill_"))):return true
+    return false
+
+func _mastery_panel() -> void:
+    var m=sim.campaign.mastery
+    if mastery_stage>0 and mastery_stage<=int(sim.state.unlocked_stage):
+        _mastery_map(mastery_stage)
+        return
+    mastery_stage=0
+    _text(tr("MASTERY_INTRO"),17,Color(.8,.84,.9))
+    var total:=PanelContainer.new()
+    total.theme_type_variation=&"Card"
+    rows.add_child(total)
+    var box:=VBoxContainer.new()
+    box.add_theme_constant_override("separation",4)
+    total.add_child(box)
+    _card_line(box,tr("MASTERY_GAME") % m.game_percent(),22,Color(1,.86,.5))
+    _mastery_bar(box,m.game_fraction())
+    _card_line(box,(tr("MASTERY_GAME_REWARD_EARNED") if m.game_complete() else tr("MASTERY_GAME_REWARD")) % [tr("MASTER_FARMER_TITLE"),mastery_reward_text(m.rules.completion_reward)],17,Color(.6,1,.75) if m.game_complete() else Color(.8,.84,.9))
+    for st in range(1,sim.catalog.stages.size()+1):
+        var reached: bool=st<=int(sim.state.unlocked_stage)
+        var card:=PanelContainer.new()
+        card.theme_type_variation=&"Card"
+        rows.add_child(card)
+        var line:=HBoxContainer.new()
+        line.add_theme_constant_override("separation",10)
+        card.add_child(line)
+        _card_icon(line,_art(249),Color.WHITE if reached else Color(.45,.45,.5))
+        var text:=VBoxContainer.new()
+        text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        text.add_theme_constant_override("separation",2)
+        line.add_child(text)
+        var done: bool=m.map_complete(st)
+        _card_line(text,("✓ " if done else "")+str(sim.catalog.stages[st-1].name)+"  ·  %d%%" % m.map_percent(st),20,Color(.5,1,.65) if done else Color.WHITE)
+        if reached:_mastery_bar(text,m.map_fraction(st))
+        _card_line(text,(tr("MASTERY_REWARD_EARNED") if done else tr("MASTERY_REWARD")) % mastery_reward_text(m.rules.map_rewards[st-1]),17,Color(.6,1,.75) if done else Color(.8,.84,.9))
+        if reached:
+            var open:=_action(tr("MASTERY_DETAILS"),func()->void:
+                mastery_stage=st
+                $Sheet/Margin/Content/Scroll.scroll_vertical=0,true,"",line)
+            open.size_flags_horizontal=0
+            open.custom_minimum_size=Vector2(120,64)
+            open.set_meta("guide","mastery_map_%d" % st)
+        else:_card_line(text,tr("MASTERY_NOT_REACHED"),17,Color(.7,.75,.82))
+
+func _mastery_bar(parent: Control,fraction: float) -> void:
+    var bar:=ProgressBar.new()
+    bar.theme_type_variation=&"XP"
+    bar.custom_minimum_size=Vector2(0,14)
+    bar.max_value=1000
+    bar.value=roundf(clampf(fraction,0,1)*1000)
+    bar.show_percentage=false
+    parent.add_child(bar)
+
+## One map: its five categories with progress and exactly what remains (unmet types stay unnamed).
+func _mastery_map(st: int) -> void:
+    var m=sim.campaign.mastery
+    _set_title(tr("MASTERY_MAP_TITLE") % sim.catalog.stages[st-1].name)
+    _action(tr("MASTERY_BACK"),func()->void:mastery_stage=0;$Sheet/Margin/Content/Scroll.scroll_vertical=0).set_meta("guide","mastery_back")
+    var done: bool=m.map_complete(st)
+    _text("%d%%  ·  " % m.map_percent(st)+((tr("MASTERY_REWARD_EARNED") if done else tr("MASTERY_REWARD")) % mastery_reward_text(m.rules.map_rewards[st-1])),18,Color(.6,1,.75) if done else Color(1,.86,.5))
+    for category in m.CATEGORIES:
+        var o: Dictionary=m.objective(st,category)
+        var complete: bool=bool(o.complete)
+        var card:=PanelContainer.new()
+        card.theme_type_variation=&"Card"
+        rows.add_child(card)
+        var line:=HBoxContainer.new()
+        line.add_theme_constant_override("separation",10)
+        card.add_child(line)
+        _card_icon(line,_art(MASTERY_ART[category]),Color.WHITE if complete else Color(.75,.75,.8))
+        var text:=VBoxContainer.new()
+        text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        text.add_theme_constant_override("separation",2)
+        line.add_child(text)
+        _card_line(text,("✓ " if complete else "")+tr("MASTERY_"+category.to_upper())+"  ·  %d / %d" % [int(o.done),int(o.total)],20,Color(.5,1,.65) if complete else Color.WHITE)
+        _card_line(text,tr("MASTERY_"+category.to_upper()+"_RULE") % _mastery_rule_values(category),16,Color(.75,.8,.87))
+        if complete:continue
+        _mastery_bar(text,float(o.fraction))
+        var missing: Array=[]
+        for part in o.parts:
+            if int(part[2])<int(part[3]):missing.append(_mastery_missing(st,part))
+        var shown: Array=missing.slice(0,6)
+        if missing.size()>6:shown.append(tr("MASTERY_MORE") % (missing.size()-6))
+        _card_line(text,"\n".join(shown),17,Color(1,.86,.5))
+
+func _mastery_rule_values(category: String) -> Array:
+    var r=sim.campaign.mastery.rules
+    match category:
+        "hunt":return [int(sim.catalog.progression.achievements.kills[r.hunt_milestone-1]),int(sim.catalog.progression.achievements.boss_kills[r.hunt_milestone-1])]
+        "forge":return [r.normal_outfit_merge,r.boss_outfit_merge]
+    return []
+
+## What one unmet requirement still needs, without naming anything the player has not met.
+func _mastery_missing(st: int,part: Array) -> String:
+    var kind: String=part[0]
+    match kind:
+        "explored":return tr("MASTERY_NEED_EXPLORED") % int(part[2])
+        "camp":return tr("MASTERY_NEED_CAMP") % (int(part[1])+1)
+        "kills":
+            var g:=int(part[1])
+            return tr("MASTERY_NEED_KILLS") % [sim.catalog.groups[g].name if _type_known(g) else tr("MASTERY_UNKNOWN_ENEMY"),fmt_count(part[2]),fmt_count(part[3])]
+        "stats","drops":
+            var g:=int(part[1])
+            return tr("MASTERY_NEED_"+kind.to_upper()) % (sim.catalog.groups[g].name if _type_known(g) else tr("MASTERY_UNKNOWN_ENEMY"))
+        "item":return tr("MASTERY_NEED_ITEM") % (sim.catalog.display_name(part[1]) if _item_known(part[1]) else tr("MASTERY_UNKNOWN_ITEM"))
+        "merge":return tr("MASTERY_NEED_MERGE") % [sim.catalog.display_name(part[1]) if _item_known(part[1]) else tr("MASTERY_UNKNOWN_ITEM"),int(part[2]),int(part[3])]
+        "evolve":
+            var names: Array=[]
+            for id in sim.campaign.mastery.content(st).weapons:names.append(sim.catalog.display_name(id) if _item_known(id) else "?")
+            return tr("MASTERY_NEED_EVOLVE") % ", ".join(names)
+    return ""
+
 func _farming_map(st: int) -> void:
     var stage: Dictionary=sim.catalog.stages[st-1]
     _set_title(tr("FARMING_MAP_TITLE") % stage.name)
@@ -2275,6 +2484,7 @@ func _task_card(art: Texture2D,title: String,value: String,progress: float,goal:
     if ready:
         var button:=_inline_button(tr("CLAIM"),claim,true,reason,line,true)
         button.custom_minimum_size=Vector2(112,76)
+        button.set_meta("guide","claim")
         return
     var chip:=Label.new()
     chip.text=tr("MISSION_STATE_CLAIMED") if claimed else tr("IN_PROGRESS")
@@ -2393,6 +2603,7 @@ func _opportunity_card(op: Dictionary) -> void:
     if sim.campaign.can_follow(op.id) or sim.state.follow==op.id:
         var follow:=_inline_button(tr("UNFOLLOW" if sim.state.follow==op.id else "FOLLOW"),func()->void:sim.campaign.toggle_follow(op.id),true,"",row,false)
         follow.custom_minimum_size=Vector2(150,64)
+        if sim.state.follow!=op.id:follow.set_meta("guide","follow")
     if op.path in ["offering","collection"] and not ready:
         _inline_button(tr("SUBMIT_CONTRACT"),func()->void:sim.campaign.submit(op.id),true,"",row,true).custom_minimum_size=Vector2(200,64)
     if row.get_child_count()>0:content.add_child(row)
@@ -2471,18 +2682,50 @@ func _prestige_choice(batch: Dictionary) -> void:
 
 # ---------------------------------------------------------------- HUD helpers
 
+## Change 15: only revealed systems show on the HUD. A navigation button keeps its place but stays
+## invisible and untouchable until its system is revealed, so Settings never moves and each new
+## button appears where it will stay. The minimap and its Map Explored chip come with World, Filters
+## with Player Upgrades.
+func _refresh_reveal() -> void:
+    var nav: Node=dock.get_node("Navigation")
+    for pair in [["World","world"],["Missions","missions"],["Prestige","prestige"],["Upgrades","upgrades"]]:
+        var button: Button=nav.get_node(pair[0])
+        var show: bool=revealed(pair[1])
+        if button.disabled==show:
+            button.disabled=not show
+            button.modulate.a=1.0 if show else 0.0
+            button.mouse_filter=Control.MOUSE_FILTER_STOP if show else Control.MOUSE_FILTER_IGNORE
+            button.focus_mode=Control.FOCUS_ALL if show else Control.FOCUS_NONE
+    var map_on: bool=revealed("world")
+    for path in ["MiniMap","Explored"]:
+        var node: Control=get_node("Safe/Layout/Map/"+path)
+        if node.visible!=map_on:node.visible=map_on
+    var filters: Control=dock.get_node("Inventory/GearColumn/Head/Filters")
+    if filters.visible!=revealed("upgrades"):filters.visible=revealed("upgrades")
+
+func _set_badge(badge: Label,show: bool,text: String,color: Color) -> void:
+    if badge.visible!=show:badge.visible=show
+    if not show:return
+    if badge.text!=text:badge.text=text
+    badge.add_theme_color_override("font_color",color)
+
 func _refresh_badges() -> void:
     var nav: Node=dock.get_node("Navigation")
     # Change 14: the same eligibility as the Claim buttons the panel shows (campaign.has_claimable).
-    nav.get_node("Missions/Badge").visible=sim.campaign.has_claimable()
+    # Change 15: a newly revealed menu shows a gold ✦ until it is opened once.
+    var claim: bool=revealed("missions") and sim.campaign.has_claimable()
+    _set_badge(nav.get_node("Missions/Badge"),claim or unopened("missions"),"!" if claim else "✦",Color(.45,1,.55) if claim else Color(1,.84,.34))
+    for pair in [["World","world"],["Upgrades","upgrades"]]:
+        _set_badge(nav.get_node(pair[0]+"/Badge"),unopened(pair[1]),"✦",Color(1,.84,.34))
     var ready: bool=not sim.campaign.ready_ids().is_empty() or not sim.state.prestige_batch.is_empty()
     var unseen:=false
     for id in sim.state.opportunities:
         if not sim.state.consumed.has(id) and not sim.state.tutorial.seen.has("op:"+str(id)+(":ready" if sim.state.opportunities[id].ready else "")):unseen=true
     # Change 10: the Prestige button is plain navigation in every state; the reset gate is shown
     # inside the panel, on its action.
+    if unopened("prestige"):unseen=true
     var badge: Label=nav.get_node("Prestige/Badge")
-    badge.visible=ready or unseen
+    badge.visible=(ready or unseen) and revealed("prestige")
     badge.text="!" if ready else "✦"
     badge.add_theme_color_override("font_color",Color(.45,1,.55) if ready else Color(1,.84,.34))
 

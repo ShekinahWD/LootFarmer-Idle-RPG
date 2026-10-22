@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MasteryRules" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/mastery_rules.gd" id="rules"]
+
+[resource]
+script = ExtResource("rules")
+normal_outfit_merge = 25
+boss_outfit_merge = 5
+hunt_milestone = 2
+map_rewards = Array[Dictionary]([{"coins": 0.1}, {"xp": 0.1}, {"hp": 0.1}, {"damage": 0.1}, {"gear_chance": 0.01}, {"hp": 0.15}, {"damage": 0.15}, {"gem_chance": 0.02}])
+completion_reward = {"coins": 0.25, "damage": 0.1, "hp": 0.1, "xp": 0.25}

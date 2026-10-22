@@ -58,7 +58,7 @@ func touch() -> void:
 func new_profile() -> void:
     suspended=false
     clear_target()
-    state = {"schema":7,"group_kills":[0,0,0,0],"player_level":1,"xp":0.0,"coins":0,"gems":0,"items":{},"gear":["","",""],"supplies":[""],
+    state = {"schema":8,"group_kills":[0,0,0,0],"player_level":1,"xp":0.0,"coins":0,"gems":0,"items":{},"gear":["","",""],"supplies":[""],
         "weapon":"","outfit":"","upgrades":{},"auto_slots":[],
         "spawns":[0],"spawn":0,"cards":{},"prestiges":0,"offer":[],"victory":false,
         "focus":-1,"focus_variant":2,"boost_time":0.0,"boost_power":0.0,"use_cd":0.0,"history":[],
@@ -132,7 +132,8 @@ func snapshot() -> Dictionary:
 
 func restore(data: Dictionary) -> void:
     # Development profiles may reset. Current snapshots still validate before use.
-    if int(data.get("schema",0))!=7:
+    # Change 15: schema 8 adds the onboarding and Map Mastery records (development saves reset).
+    if int(data.get("schema",0))!=8:
         new_profile()
         SaveService.write_blocked=false
         SaveService.last_load_result="development_reset"
@@ -160,6 +161,9 @@ func restore(data: Dictionary) -> void:
     state.player.idle = 0.0
     state.paused = false # Pause is session-owned.
     campaign.reveal()
+    campaign.mastery.reset_cache()
+    # Records only rise; latch anything already complete without announcing it again on load.
+    campaign.mastery.evaluate(false)
     campaign.settle_offline()
     touch()
 
@@ -527,6 +531,7 @@ func add_item(id: String, amount: int = 1, _legacy_reward_flag: bool = true) -> 
         state.supply_found[id]=int(state.supply_found.get(id,0))+amount
     history("HISTORY_ITEM",id,amount,0)
     if catalog.items[id].kind=="skill":discover_skill(str(catalog.items[id].skill))
+    campaign.mastery.record_found(id)
     touch()
     return true
 
@@ -722,6 +727,8 @@ func purchase_consumable(id: String) -> bool:
     if not pay("coins",cost):
         return false
     add_item(id,1,false)
+    # Change 15: a shop purchase is one of the demonstrated actions of the reveal table.
+    campaign.progress("supply_buy",id,1)
     return true
 
 func upgrade_cost(id: String, group: int = -1) -> int:
@@ -966,6 +973,8 @@ func _reward(a: Dictionary) -> void:
     if rng.randf()<consumable_chance(group,"supply"):dropped.append(_drop(_roll_supply(group),a))
     if not def.skills.is_empty() and rng.randf()<(.1 if def.boss else .05)+.01*level("skill_drop",group):
         dropped.append(_drop("skill_"+str(def.skills[rng.randi_range(0,def.skills.size()-1)]),a))
+    # Change 15: the profile's first weapon or outfit and a matching copy, if no natural drop came.
+    campaign.onboarding.loot_kill(a,def,dropped)
     _loot_speech(a,dropped)
 
 ## Change 11: a defeated enemy's loot line follows what it actually dropped, after every roll: one
@@ -1340,7 +1349,7 @@ func group_upgrade_value(id: String,g: int,variant: int=2,extra: int=0) -> float
         "loot":return float(catalog.groups[g].gear_chance)+float(catalog.upgrades.loot.effect)*mini(n,int(catalog.upgrades.loot.cap))+campaign.bonus("gear_chance")
         "supply_drop":return (.15 if catalog.groups[g].boss else .05)+minf(.15,.01*n)
         "skill_drop":return (.1 if catalog.groups[g].boss else .05)+minf(.15,.01*n)
-        "group_xp":return float(enemy_definition(g,variant).xp)*(1.0+n*.1)*(1+campaign.bonus("boss_xp" if catalog.groups[g].boss else "normal_xp"))
+        "group_xp":return float(enemy_definition(g,variant).xp)*(1.0+n*.1)*(1+campaign.bonus("boss_xp" if catalog.groups[g].boss else "normal_xp")+campaign.bonus("xp"))
         "coin_amount":return float(catalog.groups[g].coins)*(1.0+.5*n)*card("coins")*(1.0+float(state.boost_power))*(1+campaign.bonus("boss_coins" if catalog.groups[g].boss else "normal_coins"))
         "spawn_amount":return spawn_amount(g,extra)
         "spawn_cooldown":return spawn_cooldown(g,extra)

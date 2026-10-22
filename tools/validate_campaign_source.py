@@ -32,7 +32,9 @@ for key in c['upgrades']:check('upgrade translation '+key,'UP_'+key.upper() in s
 for s in c['stages']:
     check('season clear/effect '+str(s['id']), bool(s['weather'])==(s['id']%2==0))
 # Change 6: keys built dynamically by the guide, cards and prestige panel.
-steps=['move','kill','collect','collect_wait','equip','equip_tap','equip_find','equip_collect','merge','merge_tap','merge_wait','upgrade','upgrade_find','upgrade_earn','upgrade_tab','upgrade_buy','camp','camp_explore','camp_earn','camp_buy','camp_done','overview','aggression','skills','groups','prestige','rest']
+steps=['move','kill','collect','collect_wait','equip','equip_tap','equip_find','equip_collect','merge','merge_tap','merge_wait','upgrade','upgrade_find','upgrade_earn','upgrade_tab','upgrade_buy','camp','camp_explore','camp_earn','camp_buy','camp_done','overview','aggression','skills','groups','prestige','rest',
+    # Change 15: lessons and Basic cards of the reveal sequence.
+    'missions','missions_claim','missions_wait','slots','slots_tab','slots_buy','slots_supply_tab','slots_potion','slots_earn','snowman','prestige_open','prestige_follow','prestige_info','tip_equip','tip_merge']+['feature_'+f for f in ['missions','enemy','world','upgrades','objective','prestige']]
 for step in steps:
     for suffix in ['','_DETAIL']:check('guide translation '+step+suffix,'GUIDE_'+step.upper()+suffix in strings)
 for combo in c['campaign']['combos']:check('combo name '+combo['id'],'COMBO_'+combo['id'].upper() in strings)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OnboardingRules" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/onboarding_rules.gd" id="rules"]
+
+[resource]
+script = ExtResource("rules")
+first_item_kills = 5
+copy_kills = 5
+missions_level = 3
+enemy_level = 4
+world_level = 5
+upgrades_level = 6
+objective_level = 7
+card_seconds = 20.0

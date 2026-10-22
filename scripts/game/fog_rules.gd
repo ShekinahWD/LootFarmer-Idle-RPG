@@ -15,6 +15,11 @@ extends Resource
 @export var camp_sight_radius: float=400.0
 @export var camp_footprint_radius: float=40.0
 @export_range(.05,.5,.05) var update_interval: float=.15
+## Change 15: fog cells no walking player can reveal (inside large solid scenery), per stage number,
+## as "x,y" cell keys. They count neither as explored nor in the map's area, so "Map Explored: 100%"
+## and Map Mastery's Explore are always reachable. Regenerate with tools/fog_reachability.gd after
+## moving solid scenery; change_15_probe recomputes and compares them.
+@export var unreachable_cells: Dictionary={}
 ## Change 6 moved encounter sites: revision 2 resets saved discovery once (playbook 117.9).
 @export var layout_revision: int=2
 @export var cover_color: Color=Color(.035,.05,.07,1)

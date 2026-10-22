@@ -45,6 +45,10 @@ SUITE = {
 def run(name, timeout):
     command = [GODOT, '--headless', '--path', str(ROOT), 'res://tests/%s.tscn' % name, '--',
                '--probe', '--profile=probe-suite-%s' % name, '--no-autosave']
+    # Change 15 (Playbook 18.10): probes of ordinary play start with the first-profile progression
+    # complete; the onboarding probes (change_15_*) cover the progression itself and run without it.
+    if not name.startswith('change_15'):
+        command.append('--first-run-complete')
     start = time.time()
     try:
         result = subprocess.run(command, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=timeout)

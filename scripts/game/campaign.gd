@@ -6,11 +6,18 @@ var discovery_revision: int=0
 var fog_rules=preload("res://resources/game/fog_rules.tres")
 var objective_clock: float=0
 var offline_receipt: Dictionary={}
-func _init(owner) -> void: sim=owner
+## Change 15: first-profile progression (menu reveals, early equipment guarantee) and Map Mastery.
+var onboarding
+var mastery
+func _init(owner) -> void:
+    sim=owner
+    onboarding=preload("res://scripts/game/onboarding.gd").new(owner)
+    mastery=preload("res://scripts/game/mastery.gd").new(owner)
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={}
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":[]},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{}},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial()},true)
+    mastery.reset_cache()
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
     refresh_missions()
@@ -145,6 +152,8 @@ func bonus(key: String) -> float:
         if d.effect==key and combo_owned(d):total+=float(d.value)
     # Old prototype cards remain valid migration bonuses, not new duplicates.
     total+=.05*float(sim.state.get("cards",{}).get(key,0))
+    # Change 15: Map Mastery rewards add to the same pool, so every getter applies them exactly once.
+    total+=mastery.bonus(key)
     return total
 func combo_owned(d: Dictionary) -> bool:
     for id in d.cards:
@@ -465,7 +474,7 @@ func step(dt: float) -> void:
     evolve_clock+=dt
     if reveal_clock>=fog_rules.update_interval:reveal_clock=0;reveal()
     if objective_clock>=1:
-        objective_clock=0;refresh_missions();evaluate();sim.touch()
+        objective_clock=0;refresh_missions();evaluate();onboarding.evaluate();mastery.evaluate();sim.touch()
 ## A boss announces a skill for the telegraph time before it resolves. Self effects play once, on
 ## success (apply_skill); attacks show their aim as a warning.
 func _begin_telegraph(a: Dictionary,key: String) -> void:
@@ -614,6 +623,9 @@ func killed(a: Dictionary) -> void:
         if complete and not sim.state.world_complete:
             sim.state.world_complete=true;sim.event.emit("WORLD_COMPLETE")
     evaluate()
+    # Change 15: the Snowman's defeat reveals Prestige and every remaining menu (after the new map's
+    # banner, so the two milestones read in order).
+    onboarding.evaluate()
     a.erase("encounter_uses")
     if d.boss:SaveService.save_now()
 func progress(kind: String,id: String,amount: float) -> void:
@@ -621,6 +633,7 @@ func progress(kind: String,id: String,amount: float) -> void:
     sim.state.counters[kind]=float(sim.state.counters.get(kind,0))+amount
     sim.state.counters[kind+":"+id]=float(sim.state.counters.get(kind+":"+id,0))+amount
     if kind=="coins":sim.state.online_coins+=amount
+    if kind=="evolve":mastery.record_evolved(id)
     if kind=="collect":sim.state.online_items[id]=float(sim.state.online_items.get(id,0))+amount
     for m in sim.state.missions:
         if not m.claimed and m.kind==kind and (m.target=="" or m.target==id):
@@ -656,6 +669,8 @@ func progress(kind: String,id: String,amount: float) -> void:
             var q: Array=chain_for(op.id)[0]
             if q[0]==kind and (q[1]=="" or q[1]==id):o.count=amount
     evaluate()
+    # Change 15: the demonstrated actions that reveal the next menu take effect at once.
+    if kind in ["merge","upgrade","camp","mission","supply_buy"]:onboarding.evaluate()
 func counter(key: String) -> float:return float(sim.state.counters.get(key,0))
 func missions_auto_claimed() -> bool:return bool(sim.state.mission_auto) and sim.level("mission_claim")>0
 func refresh_missions() -> void:
@@ -980,7 +995,7 @@ func choose_card(id: String) -> bool:
     var final: bool=granted.size()==sim.state.prestige_batch.ids.size()
     if final:
         var keep: Dictionary={}
-        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found","onboarding","mastery"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1006,7 +1021,10 @@ func cancel_prestige() -> bool:
 func evaluate_main() -> void:
     var goals: Array=[counter("kill")>=5,counter("equip")>=1,counter("merge")>=1,counter("camp")>=1,sim.state.unlocked_stage>=2,sim.state.skills.any(func(id):return id.begins_with("skill_heal")),counter("upgrade:map_detail")>0,sim.quantity("skill_frost")>0,sim.state.unlocked_stage>=3,counter("evolve")>0,skill_count()>=4,sim.state.unlocked_stage>=5,skill_count()>=6,sim.state.unlocked_stage>=7,sim.state.prestiges>0,sim.state.world_complete]
     for i in range(goals.size()):
-        if goals[i] and not sim.state.main_claimed.has(i):sim.state.main_ready[str(i)]=true
+        if goals[i] and not sim.state.main_claimed.has(i) and not sim.state.main_ready.has(str(i)):
+            sim.state.main_ready[str(i)]=true
+            # Change 15: a main objective waiting for its Claim earns the notification sound once.
+            if i!=15 or sim.state.final_discovered:sim.notice.emit("main_ready",str(i))
 func skill_count() -> int:
     var n=0
     for family in sim.catalog.skills:
@@ -1019,6 +1037,7 @@ func claim_main(i: int) -> bool:
     var before: Dictionary=sim.state.duplicate(true)
     sim.state.coins+=rewards[i][0];sim.state.gems+=rewards[i][1];sim.state.main_claimed.append(i);sim.state.main_ready.erase(str(i))
     if i==15:sim.state.final_complete=true
+    onboarding.evaluate()
     sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     return true
@@ -1285,7 +1304,7 @@ func _remap_keys(source: Dictionary,legacy: Dictionary,prefixed: bool) -> Dictio
         else:result[renamed]=value
     return result
 func valid_snapshot(data: Dictionary) -> bool:
-    if int(data.get("schema",0))!=7 or not finite_tree(data):return false
+    if int(data.get("schema",0))!=8 or not finite_tree(data):return false
     for key in sim.state:
         if not data.has(key):return false
         var a: int=typeof(sim.state[key]);var b: int=typeof(data[key])
@@ -1293,6 +1312,7 @@ func valid_snapshot(data: Dictionary) -> bool:
             if b not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(data[key])):return false
         elif a!=b:return false
     if not data.tutorial.has_all(["mode","done","seen"]) or data.tutorial.mode not in ["pending","guided","basic","none"] or not data.tutorial.done is Array or not data.tutorial.seen is Array:return false
+    if not onboarding_valid(data.onboarding) or not mastery_valid(data.mastery):return false
     if data.stage<1 or data.stage>8 or data.unlocked_stage<data.stage or data.unlocked_stage>8:return false
     if data.coins<0 or data.gems<0 or data.group_kills.size()!=48 or data.collect_clocks.size()!=48:return false
     if data.skills.size()!=3 or data.skill_auto.size()!=3:return false
@@ -1380,6 +1400,30 @@ func valid_snapshot(data: Dictionary) -> bool:
             if i<batch.choices.size():
                 var id=batch.choices[i]
                 if not sim.catalog.campaign.cards.has(id) or data.owned_cards.has(id) or batch.choices.count(id)!=1 or not str(id).begins_with(str(opid).split("_o")[0]+"_c"):return false
+    return true
+## Change 15 profile records (schema 8).
+func onboarding_valid(o) -> bool:
+    if not o is Dictionary or not o.get("reveal",null) is Array or not number(o.get("loot_phase",null)) or not number(o.get("loot_kills",null)):return false
+    for f in o.reveal:
+        if not onboarding.FEATURES.has(f) or o.reveal.count(f)!=1:return false
+    return int(o.loot_phase) in range(4) and o.loot_kills>=0
+func mastery_valid(m) -> bool:
+    if not m is Dictionary:return false
+    for key in ["explored","camps","found","merge","evolved"]:
+        if not m.get(key,null) is Dictionary:return false
+    if not m.get("done",null) is Array:return false
+    for id in m.found.keys()+m.merge.keys()+m.evolved.keys():
+        if not sim.catalog.items.has(id):return false
+    for key in m.explored.keys()+m.camps.keys():
+        if not str(key).is_valid_int() or int(key) not in range(1,9):return false
+    for key in m.explored:
+        if not number(m.explored[key]) or m.explored[key]<0 or m.explored[key]>100:return false
+    for key in m.merge:
+        if not number(m.merge[key]) or m.merge[key]<0:return false
+    for key in m.camps:
+        if not m.camps[key] is Array:return false
+        for camp in m.camps[key]:
+            if not number(camp) or int(camp) not in range(sim.catalog.stages[int(key)-1].spawns.size()):return false
     return true
 func number(value) -> bool:return typeof(value) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(value))
 func finite_tree(value) -> bool:
@@ -1503,15 +1547,60 @@ func collection_counts(id: String) -> Array:
     return result
 
 ## Discoverable cells of a map: its full fog grid (the authored map size in fog cells).
+## Change 15: only reachable cells count (fog_rules.unreachable_cells lists the few inside large solid
+## scenery), so every map can reach 100%.
 func explore_area(st: int) -> int:
     var d: Dictionary=sim.catalog.stages[st-1]
-    return int(ceil(d.size[0]/fog_rules.cell_size)*ceil(d.size[1]/fog_rules.cell_size))
+    return int(ceil(d.size[0]/fog_rules.cell_size)*ceil(d.size[1]/fog_rules.cell_size))-unreachable_cells(st).size()
+func unreachable_cells(st: int) -> Array:
+    return fog_rules.unreachable_cells.get(st,[])
 ## Permanently explored share of a map, 0..1, from the saved explored cells only (never momentary
-## sight or camera panning). The HUD, World and the Regional opportunities all read this.
+## sight or camera panning). The HUD, World, Map Mastery and the Regional opportunities all read this.
 func explored_fraction(st: int) -> float:
     var area:=explore_area(st)
     if area<=0:return 0.0
-    return clampf(float(sim.state.explored.get(str(st),{}).size())/area,0.0,1.0)
+    var mask: Dictionary=sim.state.explored.get(str(st),{})
+    var count:=mask.size()
+    for key in unreachable_cells(st):
+        if mask.has(key):count-=1
+    return clampf(float(count)/area,0.0,1.0)
+## Fog cells of a stage that no walking player can reveal: a flood fill of walkable points (8-unit
+## lattice, the movement bounds and the solid scenery with the actor clearance) from the arrival camp,
+## then every cell whose centre is farther than the base reveal radius from all of them. Slow (up to
+## half a second on Spring II): only tools/fog_reachability.gd and change_15_probe call it, and the
+## result is stored in fog_rules.unreachable_cells.
+func compute_unreachable_cells(d: Dictionary,st: int) -> Array:
+    if not _obstacle_cache.has(st):_obstacle_cache[st]=_read_obstacles(st)
+    var saved: Array=[obstacle_list,obstacle_grid]
+    obstacle_list=_obstacle_cache[st].list;obstacle_grid=_obstacle_cache[st].grid
+    var step:=8.0
+    var w:=float(d.size[0]);var h:=float(d.size[1])
+    var start:=Vector2i(roundi(float(d.spawns[0][0])/step),roundi(float(d.spawns[0][1])/step))
+    var seen: Dictionary={start:true}
+    var queue: Array=[start]
+    var i:=0
+    while i<queue.size():
+        var n: Vector2i=queue[i];i+=1
+        for offset in [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]:
+            var m: Vector2i=n+offset
+            if seen.has(m):continue
+            var p:=Vector2(m)*step
+            if p.x<14 or p.y<30 or p.x>w-14 or p.y>h-14 or solid_at(p):continue
+            seen[m]=true;queue.append(m)
+    obstacle_list=saved[0];obstacle_grid=saved[1]
+    var cell: float=fog_rules.cell_size
+    var radius: float=fog_rules.player_radius
+    var result: Array=[]
+    for y in range(ceili(h/cell)):
+        for x in range(ceili(w/cell)):
+            var center:=Vector2(x+.5,y+.5)*cell
+            var ok:=false
+            for yy in range(floori((center.y-radius)/step),ceili((center.y+radius)/step)+1):
+                for xx in range(floori((center.x-radius)/step),ceili((center.x+radius)/step)+1):
+                    if seen.has(Vector2i(xx,yy)) and (Vector2(xx,yy)*step).distance_to(center)<=radius:ok=true;break
+                if ok:break
+            if not ok:result.append("%d,%d" % [x,y])
+    return result
 ## Whole percent, rounded down, so 100% means every cell is explored.
 func explored_percent(st: int) -> int:
     return mini(100,floori(explored_fraction(st)*100.0+.000001))

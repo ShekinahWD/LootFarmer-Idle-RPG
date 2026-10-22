@@ -19,6 +19,7 @@ var _music_mix_db: float = 0.0
 var _music_wanted: bool = false
 var _pending: Array[String] = []
 var _last_played_ms: Dictionary = {}
+var _last_stream_ms: Dictionary = {}
 var _sfx_players: Array[AudioStreamPlayer] = []
 var _music_player: AudioStreamPlayer
 ## Most recent first: cue ids that actually played (for probes; never read by gameplay).
@@ -98,12 +99,18 @@ func flush() -> String:
             continue
         if now - int(_last_played_ms.get(id, -1000000)) < int(float(cue.cooldown) * 1000.0):
             continue
+        # Change 15: cues that share one sound (the notification family) share its cooldown, so two
+        # notifications a frame apart never play the same file twice.
+        if cue.stream != null and now - int(_last_stream_ms.get(cue.stream.get_instance_id(), -1000000)) < int(float(cue.cooldown) * 1000.0):
+            continue
         if best == "" or int(cue.priority) > int(_cues[best].priority):
             best = id
     _pending.clear()
     if best == "":
         return ""
     _last_played_ms[best] = now
+    if _cues[best].stream != null:
+        _last_stream_ms[_cues[best].stream.get_instance_id()] = now
     played_log.push_front(best)
     if played_log.size() > LOG_SIZE:
         played_log.pop_back()
@@ -122,6 +129,7 @@ func flush() -> String:
 func reset_history() -> void:
     _pending.clear()
     _last_played_ms.clear()
+    _last_stream_ms.clear()
     played_log.clear()
 
 

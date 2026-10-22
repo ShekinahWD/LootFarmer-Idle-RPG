@@ -152,3 +152,25 @@ A supply's effect is `base + gain × mastery` (gain = 1% of base, so ^100 double
 - **Skill effects** (`world._spell`, `_warning`, `_effect`): presentation only, from `resources/game/skill_effects.tres`. Boss attack wind-ups emit `sim.skill_warning(actor, key, aim)`; `spell_cast` fires once per resolved skill. For Lightning and Strike its position is the hit actor's; for Fire the aim; for Frost the caster.
 - **Rain splash** (`season_weather.particles`): a particle in frame ≥ `splash_frame` is placed at the clock of its impact frame, `(tick − (frame − splash_frame)) / fps`. Pure function of clock and world grid.
 - No save-schema change (schema 7) and no migration.
+
+## Change 15
+
+Save schema **8** (`simulation.new_profile`, `restore`, `campaign.valid_snapshot`). Schema 7 development saves reset (no migration, by instruction).
+
+| Field | Meaning | Default | Save | Prestige | Hard Reset |
+|---|---|---|---|---|---|
+| `onboarding.reveal` | Revealed systems in reveal order, from `missions`, `enemy`, `world`, `upgrades`, `objective`, `prestige` (`campaign.onboarding.FEATURES`). Latched, never removed. | `[]` (all six with `--first-run-complete` in probes) | saved | keep | clear |
+| `onboarding.loot_phase` | Early equipment guarantee: 0 none, 1 one item without a match, 2 a pair dropped and still on the ground, 3 done (a pair owned or merged). | 0 (3 in probe fixtures) | saved | keep | clear |
+| `onboarding.loot_kills` | Eligible kills counted in the current phase. | 0 | saved | keep | clear |
+| `tutorial.seen` gains `"opened:<feature>"`, `"snowman"`, `"prestige_intro"`, `"tip_*"`, `"feature_*"` | A revealed menu was opened (no more ✦); Guided/Basic cards seen. | absent | with tutorial | keep | clear |
+| `mastery.explored` | Best Map Explored percent per stage key ("1"–"8"). | `{}` | saved | keep | clear |
+| `mastery.camps` | Camp indices ever owned per stage key. | `{}` | saved | keep | clear |
+| `mastery.found` | Weapons, outfits and skills ever obtained (set). | `{}` | saved | keep | clear |
+| `mastery.merge` | Best merge level ever reached per item. | `{}` | saved | keep | clear |
+| `mastery.evolved` | Weapons ever evolved (source ids, set). | `{}` | saved | keep | clear |
+| `mastery.done` | Latched completions: `"<stage>:<category>"`, `"map:<stage>"`, `"game"`. | `[]` | saved | keep | clear |
+
+- **Reveal evaluation** (`onboarding.evaluate`): on the campaign's one-second tick, after `progress()` of merge, upgrade, camp, mission and supply_buy, after `claim_main` and at the end of `killed()`. The Snowman's lifetime kill (`prestige_unlocked()`) reveals everything and emits `notice("feature_unlocked","prestige")` and `milestone("prestige_unlocked", n opportunities)`. A full equipment row reveals every feature up to `upgrades`. `reveal_all(true)` (Settings) is silent. Presentation (`game_ui.panel_allowed`, `_refresh_reveal`, the badges, `_milestone`, `_notice`) reads `revealed()`; the simulation never refuses an action because of it.
+- **Guarantee** (`onboarding.loot_kill`, from `simulation._reward` after the natural rolls, before the loot line): the phase is recomputed from owned stock and ground pickups (`loot_state`), so an expired drop lowers it and the next eligible kill replaces it. `loot_state` never creates item records (no RNG use).
+- **Mastery** (`campaign.mastery`): `refresh_records()` copies run values upward; `evaluate(announce)` latches completions and emits `notice("mastery_objective")`, `notice/milestone("mastery_map")`, `notice("game_complete")` and `milestone("mastery_game")` once each. `restore` calls `evaluate(false)`. `mastery.bonus(key)` is added inside `campaign.bonus(key)`, so HP, damage, coins (`card`), XP (`group_xp` adds `bonus("xp")`), Loot Chance (`gear_chance`) and Gem Chance (`gem_chance`) each apply it exactly once.
+- **Explored percent** (`campaign.explored_fraction`) excludes `fog_rules.unreachable_cells[stage]` from both the explored count and the area.

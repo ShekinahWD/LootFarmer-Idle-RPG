@@ -6,10 +6,19 @@ extends Control
 ##   frame. Nothing here takes input except the "Got it" button of an introduction card.
 ## An unrelated panel, a confirmation, pause or a prestige choice suspends (hides) all guidance; the
 ## step stays pending and returns when that surface closes.
+## Change 15: what exists is the first-profile reveal table (campaign.onboarding), the same in every
+## mode; the mode decides how much is explained. Guided teaches each revealed system with the pointer,
+## one lesson at a time, ending with Prestige after the Snowman. Basic shows one short card (or tip)
+## when something new appears, retired by Got it or after OnboardingRules.card_seconds on screen.
+## None shows no guide at all (badges, objectives and milestone banners are game feedback, not guide).
 const FRAME=preload("res://assets/KenneyFantasyUI/PNG/Default/Transparent center/panel-transparent-center-000.png")
 const ARROW=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-273.png")
 const ITEM_ROOT="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png"
-const LESSONS=["move","kill","collect","equip","merge","upgrade","camp"]
+const LESSONS=["move","kill","collect","equip","merge","missions","upgrade","camp","slots","snowman","prestige"]
+## A lesson waits (and shows nothing) until the feature it teaches is revealed.
+const LESSON_FEATURE:={"missions":"missions","upgrade":"enemy","camp":"world","slots":"upgrades","snowman":"objective","prestige":"prestige"}
+## Guided introduction cards that also point (the Next Stage chip, the Follow button).
+const POINTING_INTROS:=["snowman","prestige_follow","prestige_info"]
 ## The cropped arrow art points up-left; its tip sits about 0.45 of the pointer size from the center.
 const ARROW_BASE_ANGLE:=-PI*.75
 const POINTER_SIZE:=64.0
@@ -37,6 +46,9 @@ var pulse: float=0
 ## Change 14: seconds the Focused Farming pointer has been on screen; it retires after FOCUS_HINT_SECONDS.
 const FOCUS_HINT_SECONDS:=45.0
 var focus_shown: float=0
+## Change 15: seconds the current Basic card has been on screen, and which card that is.
+var card_shown: float=0
+var card_for:=""
 
 func setup(owner_ui) -> void:
     ui=owner_ui;sim=ui.sim
@@ -96,14 +108,26 @@ func _process(dt: float) -> void:
     evaluate()
     _present()
     if pending=="focus" and (card.visible or pointer.visible):focus_shown+=dt
+    # Basic cards retire on their own after a readable time on screen (no permanent instructions).
+    if data.mode=="basic" and intro_id!="" and pending!="focus" and card.visible:
+        if card_for!=intro_id:card_for=intro_id;card_shown=0
+        card_shown+=dt
+        if card_shown>=sim.campaign.onboarding.rules.card_seconds and not data.seen.has(intro_id):
+            data.seen.append(intro_id);card_shown=0;sim.touch()
 
 ## A lesson completes when its learned state exists, however and whenever the player reached it.
 func _complete_lessons() -> void:
     var data: Dictionary=sim.state.tutorial
     var arrival: Array=sim.campaign.stage().spawns[0]
+    var claimed: bool=not sim.state.main_claimed.is_empty() or sim.campaign.counter("mission")>0
     var complete: Array=[sim.position_of(sim.state.player).distance_to(Vector2(arrival[0],arrival[1]))>48 or sim.campaign.counter("kill")>0,
         sim.campaign.counter("kill")>0,not sim.state.items.is_empty(),sim.state.weapon!="" or sim.state.outfit!="",
-        sim.state.items.values().any(func(r):return r.merge>0),not sim.state.upgrades.is_empty(),sim.campaign.counter("camp")>0]
+        sim.state.items.values().any(func(r):return r.merge>0),
+        claimed or (data.seen.has("opened:missions") and not sim.campaign.has_claimable()),
+        not sim.state.upgrades.is_empty(),sim.campaign.counter("camp")>0,
+        sim.campaign.onboarding.player_purchase(),
+        data.seen.has("snowman") or sim.campaign.prestige_unlocked(),
+        str(sim.state.follow)!="" or data.seen.has("prestige_intro")]
     for i in range(LESSONS.size()):
         if complete[i] and not data.done.has(LESSONS[i]):data.done.append(LESSONS[i]);sim.touch()
 
@@ -115,12 +139,29 @@ func evaluate() -> void:
     if data.mode=="guided":
         for lesson in LESSONS:
             if not data.done.has(lesson):pending=lesson;break
-        if pending!="":_lesson(pending);return
-    elif not data.seen.has("overview"):
-        pending="overview";intro_id="overview";step="overview";return
-    # Contextual introductions in every mode except None: shown once, on the HUD only.
-    for pair in [["camp_done",sim.campaign.counter("camp")>0 and data.mode=="guided"],["aggression",sim.state.stage>=2],["skills",sim.campaign.skill_count()>0],["groups",sim.state.stage>=3],["prestige",not sim.state.opportunities.is_empty()],["rest",sim.state.player.hp>0 and sim.state.player.hp<sim.stats().hp*.4 and not sim.campaign.in_combat()]]:
+        # A lesson whose system is not revealed yet waits; the contextual cards below may show meanwhile.
+        if pending!="" and (not LESSON_FEATURE.has(pending) or sim.campaign.onboarding.revealed(LESSON_FEATURE[pending])):
+            _lesson(pending);return
+        pending=""
+    elif _basic_card():return
+    # Contextual introductions in every mode except None: shown once, on the HUD only. (Change 15:
+    # Prestige is introduced by its reveal, after the Snowman, not by the first opportunity found.)
+    for pair in [["camp_done",sim.campaign.counter("camp")>0 and data.mode=="guided"],["aggression",sim.state.stage>=2],["skills",sim.campaign.skill_count()>0],["groups",sim.state.stage>=3],["rest",sim.state.player.hp>0 and sim.state.player.hp<sim.stats().hp*.4 and not sim.campaign.in_combat()]]:
         if pair[1] and not data.seen.has(pair[0]):pending=pair[0];intro_id=pair[0];step=pair[0];return
+
+## Basic (Change 15): a concrete opening card, two short tips for the first equip and merge while they
+## apply, then one card per system as it is revealed, in reveal order. Text only, never a pointer.
+func _basic_card() -> bool:
+    var data: Dictionary=sim.state.tutorial
+    var order: Array=[["overview",true],
+        ["tip_equip",not data.done.has("equip") and _first_item(func(i):return sim.catalog.items[i].kind in ["weapon","outfit"])!=""],
+        ["tip_merge",not data.done.has("merge") and _first_item(func(i):return sim.can_merge(i) and sim.catalog.items[i].kind in ["weapon","outfit"])!=""]]
+    for feature in sim.campaign.onboarding.FEATURES:order.append(["feature_"+feature,sim.campaign.onboarding.revealed(feature)])
+    for pair in order:
+        if pair[1] and not data.seen.has(pair[0]):
+            pending=pair[0];intro_id=pair[0];step=pair[0]
+            return true
+    return false
 
 func _lesson(lesson: String) -> void:
     step=lesson
@@ -178,6 +219,40 @@ func _lesson(lesson: String) -> void:
             if ui.sheet.visible and ui.panel in ["world","camp"]:
                 step="camp_buy";target=_panel_control("camp_buy_%d" % camp)
             else:step="camp";target=ui.dock.get_node("Navigation/World")
+        # Change 15 lessons, each on the system the reveal table has just opened.
+        "missions":
+            surfaces=["","missions"]
+            if ui.sheet.visible and ui.panel=="missions":
+                target=_panel_control("claim",true)
+                step="missions_claim" if target!=null else "missions_wait"
+            else:step="missions";target=ui.dock.get_node("Navigation/Missions")
+        "slots":
+            surfaces=["","upgrades"]
+            # The first Player Upgrade: an equipment slot when the Gems allow it, else a Health Potion.
+            var slot_ok: bool=sim.upgrade_block_reason("gear_slots")==""
+            var potion_price: int=int(sim.supply("potion").get("price",0))
+            var potion_ok: bool=potion_price>0 and sim.state.coins>=potion_price and sim.can_add("potion")
+            if not slot_ok and not potion_ok:
+                step="slots_earn";support_value=float(potion_price)-float(sim.state.coins);return
+            if ui.sheet.visible and ui.panel=="upgrades":
+                var tab:=1 if slot_ok else 2
+                if ui.player_tab!=tab:
+                    step="slots_tab" if slot_ok else "slots_supply_tab"
+                    target=_panel_control("tab_tab_inventory" if slot_ok else "tab_tab_supplies")
+                else:
+                    step="slots_buy" if slot_ok else "slots_potion"
+                    target=_panel_control("buy_gear_slots" if slot_ok else "buy_supply_potion",true)
+            else:step="slots";target=ui.dock.get_node("Navigation/Upgrades")
+        "snowman":
+            # The main objective, once: why the Snowman matters, pointing at the Next Stage chip.
+            intro_id="snowman";target=ui.get_node("Safe/Layout/Map/Gate")
+        "prestige":
+            surfaces=["","prestige"]
+            if ui.sheet.visible and ui.panel=="prestige":
+                intro_id="prestige_intro"
+                target=_panel_control("follow",true)
+                step="prestige_follow" if target!=null else "prestige_info"
+            else:step="prestige_open";target=ui.dock.get_node("Navigation/Prestige")
 
 var support_value:=0.0
 
@@ -256,14 +331,24 @@ func _present() -> void:
     support.text=tr("GUIDE_"+step.to_upper()+"_DETAIL")
     # Coins still needed, in the shared currency format rounded up (Change 13).
     if "%s" in support.text:support.text=support.text % NumberFormat.currency(support_value,true)
-    picture.texture=ui._art(147 if step.begins_with("focus") else (212 if step in ["skills","rest"] else (249 if step.begins_with("camp") else (211 if step=="prestige" else (1 if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect"] else 60)))))
+    picture.texture=_picture()
     intro_button.visible=intro_id!=""
     card.mouse_filter=Control.MOUSE_FILTER_IGNORE
     _place_card()
-    # Introductions are text only, except the Focused Farming hint, which points in every mode but None.
-    if (data.mode!="guided" or intro_id!="") and pending!="focus":
+    # Introductions are text only, except the Focused Farming hint (every mode but None) and the
+    # Guided Snowman objective and Prestige cards, which point at their control.
+    if pending!="focus" and (data.mode!="guided" or (intro_id!="" and not step in POINTING_INTROS)):
         highlight.hide();shade.hide();pointer.hide();return
     _point()
+
+func _picture() -> Texture2D:
+    if step in ["snowman","feature_objective"]:return ui.icon_cache.get("boss-snowman_outfit")
+    if step.begins_with("focus") or step.begins_with("slots") or step=="feature_upgrades":return ui._art(147)
+    if step in ["skills","rest"]:return ui._art(212)
+    if step.begins_with("camp") or step=="feature_world":return ui._art(249)
+    if step.begins_with("prestige") or step.begins_with("missions") or step in ["feature_prestige","feature_missions"]:return ui._art(211)
+    if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect","feature_enemy"]:return ui._art(1)
+    return ui._art(60)
 
 ## The caption never covers the open panel: above it when there is room, otherwise hidden
 ## (the pointer alone continues the lesson). Without a panel it sits above the joystick.
