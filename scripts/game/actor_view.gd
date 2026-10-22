@@ -30,7 +30,7 @@ extends Node2D
 @export var hp_text_scale := 0.25
 ## Size of a healing number relative to a damage number (Change 12).
 @export var heal_text_scale := 1.3
-## Change 13: a summoned helper's body tint, and the World banner beside the HP bar of a discovered
+## Change 13: a summoned helper's body tint, and the World banner above the HP bar of a discovered
 ## boss the next map still needs (the Gate node holds its art and colour).
 @export var body_tint := Color.WHITE
 var gate := false
@@ -91,7 +91,8 @@ func _process(dt: float) -> void:
         $Visual.modulate.a=clampf((float(death_frames)/death_fps+.2-float(actor.dead_age))/.2,0,1)
     $Visual/Body.self_modulate=body_tint
     $Gate.visible=gate and visible and not dead
-    $Gate.position=Vector2(-bar.x*.5-7,-27*visual_scale-bar.y*.5+3)
+    # Centred just above where the HP bar sits, so it stays on the boss with the bar shown or hidden.
+    $Gate.position=Vector2(0,-27*visual_scale-bar.y-4)
     $Visual/Body.region_rect=Rect2(Vector2(col,row)*cell_size,cell_size)
     # First slash is frame 2. Match its onset to authoritative windup,
     # including upgraded attack speed. Frames 0–4 contain one swing;
