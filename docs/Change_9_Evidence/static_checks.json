@@ -1,5 +1,5 @@
 {
-  "checks": 1361,
+  "checks": 1443,
   "failures": 0,
   "results": [
     {
@@ -3515,6 +3515,10 @@
       "pass": true
     },
     {
+      "check": "translation MASTERY_OBJECTIVE_DONE",
+      "pass": true
+    },
+    {
       "check": "translation FOCUS_UNLOCKED",
       "pass": true
     },
@@ -3532,6 +3536,30 @@
     },
     {
       "check": "translation MILESTONE_STAGE",
+      "pass": true
+    },
+    {
+      "check": "translation MILESTONE_PRESTIGE_UNLOCKED",
+      "pass": true
+    },
+    {
+      "check": "translation MILESTONE_PRESTIGE_UNLOCKED_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "translation MILESTONE_PRESTIGE_UNLOCKED_NONE",
+      "pass": true
+    },
+    {
+      "check": "translation MILESTONE_MASTERY_MAP",
+      "pass": true
+    },
+    {
+      "check": "translation MILESTONE_MASTERY_GAME",
+      "pass": true
+    },
+    {
+      "check": "translation MASTER_FARMER_TITLE",
       "pass": true
     },
     {
@@ -4027,6 +4055,10 @@
       "pass": true
     },
     {
+      "check": "translation MASTERY_OPEN",
+      "pass": true
+    },
+    {
       "check": "translation SECTION_TRAVEL",
       "pass": true
     },
@@ -4215,6 +4247,10 @@
       "pass": true
     },
     {
+      "check": "translation STATS_MASTERY",
+      "pass": true
+    },
+    {
       "check": "translation STATS_SUPPLY_VALUE",
       "pass": true
     },
@@ -4295,15 +4331,31 @@
       "pass": true
     },
     {
-      "check": "translation GUIDE_REVIEW",
-      "pass": true
-    },
-    {
       "check": "translation LOOT_HISTORY",
       "pass": true
     },
     {
       "check": "translation SAVE_NOW",
+      "pass": true
+    },
+    {
+      "check": "translation SECTION_TUTORIAL",
+      "pass": true
+    },
+    {
+      "check": "translation GUIDE_REVIEW",
+      "pass": true
+    },
+    {
+      "check": "translation SHOW_ALL_MENUS",
+      "pass": true
+    },
+    {
+      "check": "translation SHOW_ALL_MENUS_CONFIRM",
+      "pass": true
+    },
+    {
+      "check": "translation ALL_MENUS_SHOWN",
       "pass": true
     },
     {
@@ -4500,6 +4552,114 @@
     },
     {
       "check": "translation FARMING_GUIDE_UNREACHED",
+      "pass": true
+    },
+    {
+      "check": "translation STATS_COMPLETION",
+      "pass": true
+    },
+    {
+      "check": "translation STATS_TITLE",
+      "pass": true
+    },
+    {
+      "check": "translation MASTER_FARMER_TITLE",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_INTRO",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_GAME",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_GAME_REWARD_EARNED",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_GAME_REWARD",
+      "pass": true
+    },
+    {
+      "check": "translation MASTER_FARMER_TITLE",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_REWARD_EARNED",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_REWARD",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_DETAILS",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_NOT_REACHED",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_MAP_TITLE",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_BACK",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_REWARD_EARNED",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_REWARD",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_MORE",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_NEED_EXPLORED",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_NEED_CAMP",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_NEED_KILLS",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_UNKNOWN_ENEMY",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_UNKNOWN_ENEMY",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_NEED_ITEM",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_UNKNOWN_ITEM",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_NEED_MERGE",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_UNKNOWN_ITEM",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_NEED_EVOLVE",
       "pass": true
     },
     {
@@ -5176,6 +5336,174 @@
     },
     {
       "check": "guide translation rest_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation missions",
+      "pass": true
+    },
+    {
+      "check": "guide translation missions_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation missions_claim",
+      "pass": true
+    },
+    {
+      "check": "guide translation missions_claim_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation missions_wait",
+      "pass": true
+    },
+    {
+      "check": "guide translation missions_wait_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_tab",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_tab_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_buy",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_buy_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_supply_tab",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_supply_tab_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_potion",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_potion_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_earn",
+      "pass": true
+    },
+    {
+      "check": "guide translation slots_earn_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation snowman",
+      "pass": true
+    },
+    {
+      "check": "guide translation snowman_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation prestige_open",
+      "pass": true
+    },
+    {
+      "check": "guide translation prestige_open_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation prestige_follow",
+      "pass": true
+    },
+    {
+      "check": "guide translation prestige_follow_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation prestige_info",
+      "pass": true
+    },
+    {
+      "check": "guide translation prestige_info_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation tip_equip",
+      "pass": true
+    },
+    {
+      "check": "guide translation tip_equip_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation tip_merge",
+      "pass": true
+    },
+    {
+      "check": "guide translation tip_merge_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_missions",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_missions_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_enemy",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_enemy_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_world",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_world_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_upgrades",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_upgrades_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_objective",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_objective_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_prestige",
+      "pass": true
+    },
+    {
+      "check": "guide translation feature_prestige_DETAIL",
       "pass": true
     },
     {

@@ -1,12 +1,13 @@
-# LootFarmer — Test Suite (Change 14)
+# LootFarmer — Test Suite (Change 15)
 
 ## Maintained regression suite (gating)
 
-Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> …`. It starts with `tools/validate_campaign_source.py`, then runs each probe headless and **sequentially** (playbook 60.1), each with a hard timeout. A run fails on a non-zero exit, a timeout, any `SCRIPT ERROR` line or a missing summary line: a runtime script error aborts a probe's coroutine before it can quit, so without the runner it looks like a hang. Set `GODOT` to the console executable on another machine.
+Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> …`. It starts with `tools/validate_campaign_source.py`, then runs each probe headless and **sequentially** (playbook 60.1), each with a hard timeout. Since Change 15 the runner passes `--first-run-complete` to every probe except `change_15_*`: fresh profiles in probes of ordinary play start with every menu revealed and the early equipment guarantee spent (Playbook 18.10); the Change 15 probe covers the progression itself. When running another probe by hand, add the flag. A run fails on a non-zero exit, a timeout, any `SCRIPT ERROR` line or a missing summary line: a runtime script error aborts a probe's coroutine before it can quit, so without the runner it looks like a hang. Set `GODOT` to the console executable on another machine.
 
 | Probe | Covers |
 |---|---|
 | validate_campaign_source.py | Catalog and source contracts, translations, every catalog tool's `--check` (1,361 checks) |
+| change_15_probe | Early equipment guarantee (3 modes × 3 Winter I types × 4 seeds with natural drops; exact kills 5 and 10 per type and loadout; type switch; natural drops first; supplies and non-matching gear; expiry; bosses; full row; once per profile), menu reveal (hidden HUD and refused panels from every path, the chain, level backstops, full row, Snowman first and banner order, silent opportunities before the reveal, save/load, Prestige, Hard Reset, validation, Show all menus now), Guided sequence to Prestige, Basic cards, None without guidance, notification sounds (streams, triggers, hidden systems silent, shared cooldown, same frame, mutes), Map Mastery (content, records, shared items, latches and notices, percentages, rewards exactly once, Prestige, save/load, Hard Reset, optional), reachable exploration on all eight maps, panels (World entry, list, map page, unnamed unmet enemies, Stats), World map dot through panel refreshes (177 checks) |
 | change_14_probe | Top-right map cluster (order, chips, contrast, insets, gate count, explored percent), Missions badge against the Claim rules (ready objectives listed first, auto-claim, waiting slots, Hard Reset), rain splashes frozen at impact, the six skill effects for player and enemy casts (placement, layer, scale, real effect, cooldowns, one effect per boss attack), Reveal Stats / Reveal Drops on both enemy tabs, joystick contrast layers and unchanged input, one-time Focused Farming guidance (modes, exits, suspension) |
 | change_13_probe | Exact-identity Auto-Merge (sword and axe Wood→Stone, shared drops, outfits, skills, supplies), Auto Evolution (flat price, manual rule, one tier, own droppers, full inventory, save/Prestige/Hard Reset, panel), potion 12 s and floor, skill prices and cooldowns, next-stage guidance and discovery-only boss markers, currency format across surfaces, rainy-map overcast and world-anchored rain, summoned helpers (cap, no rewards, cleanup, never saved), final boss (Heal priority below 50%, attack pool, pace, summons) |
 | change_12_probe | Cyan Robot Heal (real HP, telegraph, cooldown, death, effects on the caster, heal numbers), map explored percent (source, rounding, vision/panning, map switch, placement), Settings copy and audio controls, audio categories/priority/cooldown/persistence, followed-step and mission cues once per transition, Merge All (purchase, rules, UI, save, Prestige, Hard Reset), stone-tier swing mapping, camera after Prestige, gem chance formula and prices |
@@ -24,7 +25,23 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 | bootstrap_probe | Boot, profile isolation and save-container basics |
 | change_8_walk_probe | Movement around solid scenery on every stage |
 
-Change 11 final run: 19 / 19 passed. Change 12 run: 21 / 21. Change 13 run: 22 / 22. **Change 14 run: 23 / 23** (`tools/run_probes.py`; three stale contracts were updated first, see below).
+Change 11 final run: 19 / 19 passed. Change 12 run: 21 / 21. Change 13 run: 22 / 22. Change 14 run: 23 / 23. **Change 15 run: 24 / 24** (`tools/run_probes.py`; stale contracts updated first, see below).
+
+`tools/fog_reachability.gd` (run with `godot --headless --path . -s tools/fog_reachability.gd`) checks the stored unreachable fog cells against a fresh flood fill (8 / 8 maps match).
+
+## Change 15 test updates
+
+First full run after the implementation: 17 / 23. Every failure was a stale contract or a test artefact, and was updated with the same intent. The run also exposed one production bug, fixed in `e52054a`.
+
+| Test | Change | Reason |
+|---|---|---|
+| change_12_probe | "three different sounds" → the three share the mission-ready sound; notices filtered to follow_step / mission_ready; Merge All fixture marks "Merge a duplicate" claimed | Change 15 notification sound family; the new `main_ready` notice (a main objective that becomes ready outranks the confirm click, by design) |
+| change_5_probe, campaign_content_probe | `schema==7` → `schema==8` | Change 15 save schema |
+| change_8 / 9 / 10_probe | none (passed on rerun) | Their probe profiles on disk were schema 7, so `last_load_result` read `development_reset` once; the same one-time reset happens to a device save |
+| change_6_probe | the node-count baseline excludes the world viewport | A damage number expiring during the open/close cycles made the check flaky; the check is about panels |
+| change_6_probe (script error) | — | **Production bug:** the panel reconciler pruned the World map's player dot on an in-place refresh. Fixed in `e52054a`; change_15_probe has a regression check that fails without the fix |
+| change_15_probe | New, in the suite (177 checks) | Change 15 contracts |
+| change_15_capture | New, rendered | docs/Change_15_Evidence/ui/ (desktop evidence only; run without `--first-run-complete`) |
 
 ## Change 14 test updates
 
@@ -67,7 +84,7 @@ One full maintained-suite run after the implementation: 18 / 22 passed. The four
 |---|---|---|
 | change_9_balance | Passes | A balance fixture (deterministic duels); run it deliberately when combat numbers change. |
 | pacing_bot | Not run | Natural-pace benchmark (minutes per run); for pacing questions only. |
-| change_*_capture (change_14_capture added), change_6_before, change_8_stage_capture, stage_overview_capture | Not gating | Rendered evidence (screenshots); run with a window. |
+| change_*_capture (change_15_capture added), change_6_before, change_8_stage_capture, stage_overview_capture | Not gating | Rendered evidence (screenshots); run with a window. |
 | change_7_smoke, change_10_smoke | Pass | Superseded for build readiness by change_11_smoke; kept as history. |
 | audit_probe | Historical, fails | Calls the removed `sim.sell` (hangs on the script error). |
 | balance_probe | Historical, fails | Reads removed legacy items (`dinosaur`); superseded by change_9_balance. |

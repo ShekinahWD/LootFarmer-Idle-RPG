@@ -8547,3 +8547,33 @@ Map completion in a far corner and a stage-gate line in pale text under the mini
 Reusable rule:
 
 > One predicate per claimable thing for badge, button and list; effects placed by contact row, body lift and layer, from data; warnings distinct from hits; impact phases frozen in world space; unlock lessons once, at the next real tap; map facts grouped by the map on dark plates.
+
+# 144. First-profile reveals, onboarding guarantees and completion tracking (LootFarmer Change 15)
+
+## 144.1 A pity guarantee reads the inventory and the ground, never a "dropped" flag
+
+To promise the first item (and a mergeable copy) within N kills without touching drop chances, add a drop after the natural rolls only when nothing suitable came, and derive the step from state: nothing owned or on the ground, one item without a match, a matching pair still on the ground, a pair owned. A natural drop advances the step and restarts the count; supplies and non-matching items never count. Because the ground is part of the state, a drop that expires before pickup lowers the step again and the next eligible kill replaces it. The guarantee must not depend on which enemy the player farms: when the farmed enemy carries nothing that matches, give two copies of its own item, and with a full row a copy of an owned item (a stack needs no slot). Never create item records while checking (here `record()` rolled extras and moved the RNG). Latch it done as soon as a pair is owned, keep it through Prestige and clear it with Hard Reset.
+
+## 144.2 One reveal table for every onboarding mode; hidden buttons keep their place
+
+Progressive menus are first-profile progression (section 18.10), not tutorial depth: Guided, Basic and None share one reveal table, and the mode decides only how much is explained (pointer lessons, short cards that retire after a readable time, nothing). Each step needs the previous one and opens on a demonstrated action, with a player-level backstop so a player who ignores a new menu still gets the next one; a hard blocker (a full inventory) reveals what unblocks it at once, and the gate boss reveals everything left. Latch reveals in the profile. Refuse hidden panels in the one panel opener, so the minimap, the character, an enemy, a camp, a tracker and a banner cannot reach them either. Keep a hidden navigation button's slot (transparent, disabled, ignoring input) so nothing shifts as buttons appear. Mark a new menu with the existing "new" badge until it is opened. Notices for a hidden system stay silent and a single milestone announces its reveal. Offer "Show all menus now" behind a confirmation as the way out.
+
+## 144.3 Completion that survives resets copies the best values as they happen
+
+When run state resets (exploration, camps, items, merge levels), a permanent completion system cannot read it later. Copy the best values into permanent records as they happen (ever obtained, best merge, ever owned, best percent), latch each completed category, and announce only on the latch, so a reload never repeats a banner and a reset never removes progress. Count shared items wherever they apply rather than assigning them to one place. Rewards go into the same bonus pool as the other permanent sources, so every getter applies them once; probe the exact multiplier on HP, damage, coins, XP and chances. A percentage reads 100 only when everything is complete (round down and cap at 99 otherwise).
+
+## 144.4 "100%" must be reachable: measure it
+
+A coverage percentage over a grid can be impossible to complete when cells sit inside solid scenery. Flood-fill the walkable space with the movement rules, find the cells no walking reveal can reach, store them as inspector data, and exclude them from both the count and the area. Keep a tool that recomputes and compares, and a probe that walks every reachable point with the real reveal rule and expects exactly 100% on every map.
+
+## 144.5 Reconcilers must not prune children a control builds itself
+
+A panel that rebuilds off-tree descriptions and reconciles them into live controls will delete any child a live control created in `_ready` (its off-tree description never ran `_ready`). Let such controls opt out of child reconciliation and keep their own children, and probe two in-place refreshes of the open panel.
+
+## 144.6 One sound for a family of notifications, one cooldown for that sound
+
+When several semantic cues share one sound file, give the file a shared cooldown in the audio service as well as each cue's own, or two notifications a frame apart play the same sound twice. Keep the semantic cue ids separate so the inspector can still reassign them.
+
+Reusable rule:
+
+> Guarantees read inventory and ground, add to natural drops and latch once; one reveal table for every mode with stable slots and one opener that refuses hidden panels; permanent completion copies best values and latches; 100% is measured on reachable cells; reconcilers leave self-built children alone; shared sounds share a cooldown.

@@ -204,9 +204,13 @@ func ui_checks() -> void:
     await frames(6)
     check(count(game)==before,"Open/close cycles return the tree to its baseline (%d -> %d)" % [before,count(game)])
 
+## UI nodes only: the world viewport's combat text and effects come and go with simulated time
+## (Change 15 hardening: a damage number expiring during the cycles made this check flaky).
 func count(node: Node) -> int:
     var n:=1
-    for c in node.get_children():n+=count(c)
+    for c in node.get_children():
+        if c is SubViewportContainer:continue
+        n+=count(c)
     return n
 
 ## The full camp route: explore, earn, open World, unlock; never points at undiscovered places.

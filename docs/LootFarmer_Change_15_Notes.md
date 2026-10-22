@@ -2,6 +2,8 @@
 
 Baseline: Change 14 (`3ea93cb`, tests/docs `0999c15`). Design: the approved Change 15 evaluation (early equipment guarantee, progressive menu reveal for Guided / Basic / None, notification sounds, Map Mastery). This is the final major gameplay addition before release preparation.
 
+Build commits: `416c579` (implementation) and `e52054a` (fixes found by the tests: the World map's player dot, the guarantee latch at pickup, the audio hint text). **Build from `e52054a` or later.** The tests/docs commit after it does not change the game.
+
 ## What changed
 
 | # | Area | Change | Where |
@@ -20,6 +22,27 @@ Baseline: Change 14 (`3ea93cb`, tests/docs `0999c15`). Design: the approved Chan
 - **The guarantee's fallback** when the farmed enemy carries nothing the player owns drops two copies of that enemy's own item (weapon first), so the pair never depends on which Winter I type is farmed. With a full equipment row it drops a copy of an owned item instead (no slot needed).
 - **Guided's Player Upgrades lesson** buys an equipment slot when the Gems allow it (5 Gems, covered by the first objectives), otherwise a Health Potion (10 coins).
 - **Probe fixtures:** suite probes of ordinary play run with `--first-run-complete` (every menu revealed, guarantee spent; Playbook 18.10). The Change 15 probes run without it.
+
+## Fixes found by the tests (`e52054a`)
+
+- **World map player dot (existing bug, surfaced by the suite):** the panel reconciler rebuilds off-tree descriptions and reconciles their children into the live panel. The World map adds its player dot in `_ready`, which an off-tree description never runs, so an in-place refresh of the open World panel deleted the live dot; `map_view` then errored every frame and the dot vanished. Controls that build their own children now carry `own_children` and are reconciled by properties only.
+- **Guarantee latch:** the guarantee was marked done at the next eligible kill after the pair was picked up; it now ends at the pickup (and on the one-second tick). No drop changed.
+- **Audio hint:** the Settings line under the mutes lists the Change 15 notification sounds.
+
+## Tests
+
+| Claim | Static / headless | Rendered on desktop | Needs a phone |
+|---|---|---|---|
+| Guarantee within 5 + 5 kills, any Winter I type, every mode | change_15_probe (36 seeded runs, exact kills 5/10 for all 9 type/loadout pairs, edge cases) | — | Feel of the first minutes |
+| Reveal chain, backstops, unexpected orders, persistence | change_15_probe | CAP 01, 02, 06 | Button appearance |
+| Guided / Basic / None | change_15_probe | CAP 03, 04 | Arrow and card legibility, 20 s timing |
+| Notification sounds | change_15_probe (routing, streams, cooldown, mutes) | — | Mix and frequency |
+| Map Mastery records, latches, rewards once, Prestige | change_15_probe | CAP 07–10 | Panel length, thresholds |
+| 100% exploration reachable | change_15_probe (walks every reachable point of all eight maps to 100%), tools/fog_reachability.gd | — | — |
+
+- `tests/change_15_probe`: 177 checks, 0 failures. Maintained suite: **24 / 24**. Source validator: 1,443 checks.
+- `tests/change_15_capture` (desktop renders, `docs/Change_15_Evidence/ui/`): 01 fresh HUD, 02 Missions revealed with ✦, 03 Basic card, 04 Guided Snowman objective, 05 Settings → Tutorial and help, 06 Prestige unlocked banner, 07 World with Map Mastery, 08 Map Mastery list, 09 Winter I page, 10 Stats.
+- Category totals per map (Explore, Hunt, Research, Collect, Forge): Winter I 3/4/8/7/5, Winter II 4/7/14/11/8, Summer I 4/4/8/10/5, Summer II 4/8/16/14/9, Autumn I 4/5/10/12/6, Autumn II 4/6/12/13/7, Spring I 4/5/10/13/6, Spring II 4/9/18/18/10.
 
 ## Open device checks
 

@@ -26,7 +26,8 @@ func frames(n:=4) -> void:
     for i in range(n):await get_tree().process_frame
 func run() -> void:
     game=load("res://scenes/game/main.tscn").instantiate();add_child(game);sim=game.sim;sim.set_physics_process(false)
-    sim.notice.connect(func(kind: String,id: String)->void:notices.append([kind,id]))
+    # Change 15 added main_ready and feature_unlocked notices (change_15_probe); this probe covers these two.
+    sim.notice.connect(func(kind: String,id: String)->void:if kind in ["follow_step","mission_ready"]:notices.append([kind,id]))
     sim.spell_cast.connect(func(id: String,key: String,_p: Vector2)->void:casts.append([id,key]))
     sim.feedback.connect(func(id: String,amount: float,healing: bool)->void:if healing:heals.append([id,amount]))
     fresh()
@@ -205,7 +206,8 @@ func audio_checks() -> void:
     var missing: Array=game.audio_cues.cues.filter(func(c):return c.stream==null)
     check(missing.is_empty() and game.audio_cues.music!=null and AudioService.music_state().wanted and AudioService.music_state().stream==game.audio_cues.music,"Every cue and the music track have an assigned stream; music is requested")
     for key in sim.catalog.skills:check(AudioService.has_cue("spell_"+key),"Skill %s has a cast sound" % key)
-    check(game.audio_cues.cues.filter(func(c):return c.id in ["prestige_discovered","prestige_step","mission_ready"]).map(func(c):return c.stream.resource_path).reduce(func(a,p):return a if a.has(p) else a+[p],[]).size()==3,"Prestige discovered, followed step and mission ready use three different sounds")
+    # Change 15: every progression notification shares the mission-ready sound (was three sounds).
+    check(game.audio_cues.cues.filter(func(c):return c.id in ["prestige_discovered","prestige_step","mission_ready"]).map(func(c):return c.stream.resource_path).reduce(func(a,p):return a if a.has(p) else a+[p],[]).size()==1,"Prestige discovered, followed step and mission ready share the mission-ready sound (Change 15)")
     AudioService.play("ui_click");check(AudioService.flush()=="ui_click","A click plays")
     SettingsState.set_mute_gameplay(true)
     AudioService.play("ui_click");check(AudioService.flush()=="","Mute gameplay silences a click")
@@ -342,6 +344,9 @@ func merge_all_checks() -> void:
     game._nav("filters");await frames(2)
     var button: Button=button_containing(game.rows,tr("MERGE_ALL_BUTTON") % 11)
     check(button!=null and not button.disabled,"Filters shows \"%s\"" % (tr("MERGE_ALL_BUTTON") % 11))
+    # Change 15: a main objective that becomes ready plays its own notification (it outranks the
+    # confirm); latch any such objective first so this checks Merge All's own sound.
+    sim.state.main_claimed.append(2) # fixture: "Merge a duplicate" already claimed
     AudioService.reset_history()
     button.pressed.emit();await frames(3)
     var same:=true

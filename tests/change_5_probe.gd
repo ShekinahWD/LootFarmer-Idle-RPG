@@ -58,7 +58,7 @@ func run() -> void:
     check(sim.state.tutorial.done==expected.tutorial.done and sim.state.explored==expected.explored,"Disk reload preserves guidance and exploration")
     check(sim.state.spawns.has(0) and sim.state.camps["1"].has(0) and sim.state.main_claimed.has(0) and sim.state.auto_slots.has(0),"JSON round trip preserves integer membership")
     var old=sim.snapshot();old.schema=6;sim.restore(old)
-    check(sim.state.schema==7 and sim.state.coins==0 and not SaveService.write_blocked and SaveService.save_now(),"Obsolete profile resets to writable state")
+    check(sim.state.schema==8 and sim.state.coins==0 and not SaveService.write_blocked and SaveService.save_now(),"Obsolete profile resets to writable state")
     var bad=sim.snapshot();bad.explored['1']['999999,0']=true
     check(not sim._valid_snapshot(bad),"Out-of-bounds fog cells rejected")
     sim.restore(bad);check(not SaveService.write_blocked and SaveService.save_now(),"Invalid development profile recovers to writable state")
