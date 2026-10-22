@@ -1934,6 +1934,7 @@ func _merge_all_action() -> void:
             AudioService.play("ui_confirm")
             _say(tr("MERGE_ALL_DONE") % [int(result.copies),int(result.items)])
         _refresh_slots(),copies>0 and lock.is_empty(),lock if not lock.is_empty() else "NOTHING_TO_MERGE")
+    if not b.disabled:b.theme_type_variation=&"Primary"
     b.set_meta("guide","merge_all")
 
 ## Equipped weapon and outfit, pinned above the list: independent of filter, order and scroll.
