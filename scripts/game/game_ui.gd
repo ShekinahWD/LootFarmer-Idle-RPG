@@ -964,7 +964,9 @@ func _sync_panel_children(live: Node,draft: Node,mapping: Dictionary,replace_all
                     existing.disconnect("pressed",connection.callable)
                 for connection in incoming.get_signal_connection_list("pressed"):
                     existing.connect("pressed",connection.callable)
-            changed=_sync_panel_children(existing,incoming,mapping) or changed
+            # A control that builds its own children (the World map's player dot) is reconciled by its
+            # properties only: its off-tree description never ran _ready, so it has none to compare.
+            if not existing.has_meta("own_children"):changed=_sync_panel_children(existing,incoming,mapping) or changed
     while live.get_child_count()>desired.size():
         var old:=live.get_child(live.get_child_count()-1)
         live.remove_child(old)

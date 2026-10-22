@@ -670,7 +670,7 @@ func progress(kind: String,id: String,amount: float) -> void:
             if q[0]==kind and (q[1]=="" or q[1]==id):o.count=amount
     evaluate()
     # Change 15: the demonstrated actions that reveal the next menu take effect at once.
-    if kind in ["merge","upgrade","camp","mission","supply_buy"]:onboarding.evaluate()
+    if kind in ["merge","upgrade","camp","mission","supply_buy","gear"]:onboarding.evaluate()
 func counter(key: String) -> float:return float(sim.state.counters.get(key,0))
 func missions_auto_claimed() -> bool:return bool(sim.state.mission_auto) and sim.level("mission_claim")>0
 func refresh_missions() -> void:

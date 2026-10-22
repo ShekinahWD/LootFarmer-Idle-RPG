@@ -30,6 +30,9 @@ const PLAIN_BODY="res://assets/PixelPlains/Characters 24x24/Basic character v2.p
 var plain_body: AtlasTexture
 ## The player marker is its own small node: walking moves it without redrawing the cells and markers.
 var player_dot: TextureRect
+## Change 15 fix: the panel reconciler must not prune the player dot this view adds in _ready.
+func _init() -> void:
+    set_meta("own_children",true)
 func _ready() -> void:
     plain_body=AtlasTexture.new();plain_body.atlas=load(PLAIN_BODY);plain_body.region=Rect2(0,0,24,24)
     player_dot=TextureRect.new()

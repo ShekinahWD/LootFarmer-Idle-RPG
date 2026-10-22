@@ -4827,7 +4827,7 @@ msgid "MUTE_SPECIAL_STATUS"
 msgstr "Mute special sounds: %s"
 
 msgid "AUDIO_HINT"
-msgstr "Gameplay sounds: taps, purchases, merges and combat. Special sounds: a new Prestige, a finished step of the Prestige you follow, a mission ready to claim and a new map. The sound-effect volume sets both."
+msgstr "Gameplay sounds: taps, purchases, merges and combat. Special sounds: notifications (a mission or objective ready to claim, Prestige news, a new menu, Map Mastery progress) and milestones (a new map, a Prestige). The sound-effect volume sets both."
 
 msgid "UP_MERGE_ALL"
 msgstr "Merge All"

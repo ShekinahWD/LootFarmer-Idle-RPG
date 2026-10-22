@@ -104,5 +104,6 @@
   "MASTER_FARMER_TITLE": "Master Farmer",
   "STATS_COMPLETION": "Game completion",
   "STATS_TITLE": "Title",
-  "STATS_MASTERY": "Map Mastery"
+  "STATS_MASTERY": "Map Mastery",
+  "AUDIO_HINT": "Gameplay sounds: taps, purchases, merges and combat. Special sounds: notifications (a mission or objective ready to claim, Prestige news, a new menu, Map Mastery progress) and milestones (a new map, a Prestige). The sound-effect volume sets both."
 }

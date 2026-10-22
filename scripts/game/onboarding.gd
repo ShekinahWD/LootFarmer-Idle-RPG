@@ -48,7 +48,12 @@ func all_revealed() -> bool:
 ## Latch every feature whose turn has come. Called on the campaign's one-second tick, after each kill
 ## and after purchases; cheap when everything is revealed.
 func evaluate() -> void:
-    if sim.state.is_empty() or all_revealed():return
+    if sim.state.is_empty():return
+    # The guarantee ends the moment a pair is owned (picked up or merged), not at the next kill.
+    var o: Dictionary=sim.state.onboarding
+    if int(o.loot_phase)<LOOT_DONE and loot_state()==LOOT_DONE:
+        o.loot_phase=LOOT_DONE;o.loot_kills=0;sim.touch()
+    if all_revealed():return
     # The Snowman (a lifetime kill, so a Prestige never relocks it) opens everything at once.
     if sim.campaign.prestige_unlocked():
         reveal_all(false)
