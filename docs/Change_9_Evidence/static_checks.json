@@ -1,5 +1,5 @@
 {
-  "checks": 1343,
+  "checks": 1358,
   "failures": 0,
   "results": [
     {
@@ -3351,6 +3351,10 @@
       "pass": true
     },
     {
+      "check": "translation OFFERING_PROGRESS",
+      "pass": true
+    },
+    {
       "check": "translation PROGRESS_MERGE",
       "pass": true
     },
@@ -3604,6 +3608,10 @@
     },
     {
       "check": "translation STOCK_BONUS",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_COOLDOWN_LINE",
       "pass": true
     },
     {
@@ -3976,6 +3984,14 @@
     },
     {
       "check": "translation GATE_PROGRESS",
+      "pass": true
+    },
+    {
+      "check": "translation GATE_ALREADY_OPEN",
+      "pass": true
+    },
+    {
+      "check": "translation GATE_UNKNOWN_BOSS",
       "pass": true
     },
     {
@@ -4899,6 +4915,10 @@
       "pass": true
     },
     {
+      "check": "upgrade translation auto_evolve",
+      "pass": true
+    },
+    {
       "check": "season clear/effect 1",
       "pass": true
     },
@@ -5343,6 +5363,42 @@
       "pass": true
     },
     {
+      "check": "skill cooldowns: Lightning 8, Fire/Frost/Strike 10, Focus 15, Heal 18",
+      "pass": true
+    },
+    {
+      "check": "auto-cast 100/250/500 gems, skill slots 300/600 gems",
+      "pass": true
+    },
+    {
+      "check": "potion 12 s cooldown with a 10 s mastery floor",
+      "pass": true
+    },
+    {
+      "check": "Auto Evolution: one-time flat 2,000-gem per-type unlock",
+      "pass": true
+    },
+    {
+      "check": "2-3 summoning types incl. the final boss, later stages, helpers are normal types of the same map",
+      "pass": true
+    },
+    {
+      "check": "final boss attack pool uses existing skills",
+      "pass": true
+    },
+    {
+      "check": "weather style rain",
+      "pass": true
+    },
+    {
+      "check": "weather style leaves",
+      "pass": true
+    },
+    {
+      "check": "weather style blue_leaves",
+      "pass": true
+    },
+    {
       "check": "tools/layout_campaign_groups.py --check",
       "pass": true
     },
@@ -5372,6 +5428,10 @@
     },
     {
       "check": "tools/change12_catalog.py --check",
+      "pass": true
+    },
+    {
+      "check": "tools/change13_catalog.py --check",
       "pass": true
     }
   ]

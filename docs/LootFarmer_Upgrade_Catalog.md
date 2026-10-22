@@ -20,7 +20,8 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | collect_range | type | coins | 4 | Keep | 30 / 1.5 |
 | collect_batch | type | coins | 5 | Keep | 30 / 1.5 |
 | collect_speed | type | coins | 5 | Keep | 30 / 1.5 |
-| merge_gear | type | gems | 1 | Keep | 30 / 1 |
+| merge_gear | type | gems | 1 | Keep | 30 / 1 (Change 13: covers the exact items the type drops) |
+| auto_evolve | type | gems | 1 | Keep | 2,000 on every map (`flat`, Change 13) |
 | auto_use | global | gems | 3 | Keep | 10 / 2.4 |
 | use_speed | global | coins | 8 | Keep | 40 / 1.6 |
 | focus | type | gems | 1 | Keep | 25 / 1 |
@@ -40,10 +41,10 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | movement | global | coins | 10 | Reset | 40 / 1.65 |
 | gear_merge_speed | type | gems | 9 | Keep | 30 / 1.7 |
 | merge_all | global | gems | 1 | Keep (Change 12) | 5,000 / 1 (one-time unlock; using Merge All is free) |
-| skill_slots | global | gems | 2 | Keep | [100, 300] |
-| skill_auto_0 | global | gems | 1 | Keep | 75 / 1 |
-| skill_auto_1 | global | gems | 1 | Keep | 150 / 1 |
-| skill_auto_2 | global | gems | 1 | Keep | 300 / 1 |
+| skill_slots | global | gems | 2 | Keep | [300, 600] (Change 13) |
+| skill_auto_0 | global | gems | 1 | Keep | 100 / 1 (Change 13) |
+| skill_auto_1 | global | gems | 1 | Keep | 250 / 1 (Change 13) |
+| skill_auto_2 | global | gems | 1 | Keep | 500 / 1 (Change 13) |
 | cooldown_heal | global | coins | 6 | Reset | 100 / 1.65 |
 | cooldown_frost | global | coins | 6 | Reset | 100 / 1.65 |
 | cooldown_fire | global | coins | 6 | Reset | 100 / 1.65 |
@@ -96,7 +97,7 @@ Prices are data: `prices` list, `step` (linear: base + step × level), `sequence
 | auto_use | 6 × 2.6^n gems (merge_supplies and merge_speed removed in Change 11) |
 | gem_chance, gem_amount, boss_gem_amount | [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, (390, 470)] gems; Change 12 extends Gem Chance with 560 … 1,470 for levels 13–20 |
 | boss_gem_chance | [50, 80, 120, 170, 230, 310, 410, 530] gems |
-| skill_slots / skill_auto_0,1,2 | [50, 160] / 38, 75, 150 gems |
+| skill_slots / skill_auto_0,1,2 | [300, 600] / 100, 250, 500 gems (Change 13; Change 8 had [50, 160] / 38, 75, 150) |
 | mission_slots / mission_claim | [25, 50, 90, 140, 200] / 75 gems |
 | offline_cap / offline_gems / offline_weapon, outfit, consumable | [25, 50, 90, 140, 215, 330] / 20 × 1.25^n / 50, 50, 38 gems |
 | offline_coins | 100 × 1.3^n coins |
@@ -107,3 +108,5 @@ Prices are data: `prices` list, `step` (linear: base + step × level), `sequence
 Skill cooldown upgrades for a skill appear only after that skill was obtained once (`skills_seen`); skill slot and auto-cast upgrades need any skill. Hidden upgrades also refuse purchases (`UNDISCOVERED`).
 
 **Change 10:** Gear capacity caps at 67 purchases (70 equipment slots); loading clamps the level to the cap and the equipment row to 3 + purchases (surplus empty slots go first; items that still do not fit are dropped with their record). Boss Gem payout per successful roll = (3 × (1 + 0.5 × Gem Amount) + Boss Gem Amount) × (1 + boss Gem card). The Farming Guide opens a map's entry at Map Details 3/3 with Reveal Stats and Reveal Drops on every type of that map.
+
+**Change 13:** Auto Evolution (`auto_evolve`) is a one-time 2,000-gem unlock per enemy type, the same price on every map (catalog `flat` skips the stage factor). It evolves, once a second, the weapons that type actually drops, under the manual rule; the successor tier needs a type that drops it. Auto-Merge (`merge_gear`) now covers the exact items the type drops (loot weapon and outfit, base skill items), not evolved or legacy tiers. Skill prices: automatic casting 100 / 250 / 500 gems, second and third skill slots 300 / 600 gems. Both are kept by Prestige and cleared by Hard Reset. Upgrade buttons show prices with the shared currency format, rounded up (1.47K, 2K).

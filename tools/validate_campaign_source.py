@@ -73,7 +73,20 @@ check('gem chance prices 1-12 unchanged, 13-20 rising',g12['prices'][:12]==[25,4
 check('Gem Wisdom +5 points',c['campaign']['cards']['offering_c2']['effect']=='gem_chance' and c['campaign']['cards']['offering_c2']['value']==0.05)
 check('Merge All: one-time 5,000-gem global unlock',c['upgrades']['merge_all']=={'currency':'gems','base':5000,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'global'})
 check('stone-tier weapons swing with the tinted Iron set',all(c['items'][i]['attack'].endswith('Iron set/%s 2 64x32.png' % k) and len(c['items'][i]['attack_tint'])==3 for i,k in [('stone_axe','Axe'),('stone_sword','Sword')]))
-for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py','tools/change10_catalog.py','tools/change11_catalog.py','tools/change12_catalog.py']:
+# Change 13: skill cooldowns and unlock prices, potion cooldown and floor, flat Auto Evolution, enemy
+# ability and weather resources.
+sk={k:v['cooldown'] for k,v in c['skills'].items()}
+check('skill cooldowns: Lightning 8, Fire/Frost/Strike 10, Focus 15, Heal 18',sk=={'heal':18,'frost':10,'fire':10,'lightning':8,'focus':15,'strike':10})
+check('auto-cast 100/250/500 gems, skill slots 300/600 gems',[c['upgrades']['skill_auto_%d' % i]['base'] for i in range(3)]==[100,250,500] and c['upgrades']['skill_slots']['prices']==[300,600] and c['upgrades']['skill_slots']['cap']==2)
+check('potion 12 s cooldown with a 10 s mastery floor',c['items']['potion']['supply']['cooldown']==12 and c['items']['potion']['supply']['cooldown_floor']==10)
+check('Auto Evolution: one-time flat 2,000-gem per-type unlock',c['upgrades']['auto_evolve']=={'currency':'gems','base':2000,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'type','flat':True})
+ab=(ROOT/'resources/game/enemy_abilities.tres').read_text(encoding='utf-8')
+ids={g['id']:g for g in c['groups']}
+pairs=re.findall(r'summoner_id = "([a-z-]+)"\nhelper_id = "([a-z-]+)"',ab)
+check('2-3 summoning types incl. the final boss, later stages, helpers are normal types of the same map',2<=len(pairs)<=3 and any(ids[s]['final'] for s,_ in pairs) and all(ids[s]['stage']>=3 and not ids[h]['boss'] and ids[h]['stage']==ids[s]['stage'] for s,h in pairs))
+check('final boss attack pool uses existing skills',all(k in c['skills'] for k in re.search(r'final_attack_pool = PackedStringArray\(([^)]*)\)',ab).group(1).replace('"','').replace(' ','').split(',')))
+for w in ['rain','leaves','blue_leaves']:check('weather style '+w,(ROOT/f'resources/game/weather_{w}.tres').is_file())
+for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py','tools/change10_catalog.py','tools/change11_catalog.py','tools/change12_catalog.py','tools/change13_catalog.py']:
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}

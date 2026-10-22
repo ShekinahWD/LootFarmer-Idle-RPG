@@ -35,8 +35,8 @@ Player baseline progression stays level 1–1000, +5 HP and +0.5 damage per leve
 |---|---|---|---|---|---|---|
 | heal | Heal | 2 (late) | 6 HP, capped at 12% max HP | 18s | 0.08s cast; self; below 80% HP | heal / heal_01 |
 | frost | Frost Burst | 3 | 1.2 × attack damage | 10s | 96-unit radius; slow 25% for 3s | ice_shatter / ice_shatter_01 |
-| fire | Fire Burst | 3 | 1.6 × attack damage | 8s | 64-unit radius around target | fire_impact / fire_impact_01 |
-| lightning | Lightning Strike | 3 | 1.4 × attack damage | 4s | Current target in 120-unit range | zap / zap_01 |
+| fire | Fire Burst | 3 | 1.6 × attack damage | 10s (Change 13; was 8s) | 64-unit radius around target | fire_impact / fire_impact_01 |
+| lightning | Lightning Strike | 3 | 1.4 × attack damage | 8s (Change 13; was 4s) | Current target in 120-unit range | zap / zap_01 |
 | focus | Arcane Focus | 4 | +15% attack damage | 15s | Self buff 5s, combat only | cast / cast_01 |
 | strike | Arcane Strike | 4 | 2.8 × attack damage | 10s | Current target in 80-unit range | impact / impact_01 |
 
@@ -115,10 +115,18 @@ Five supplies, one identity each; the tier copies and supply evolution are retir
 
 | Supply | Stat | Base | Duration / cooldown | First stage | Roll weight | Shop |
 |---|---|---|---|---|---|---|
-| Health Potion | heal share of max HP | 20% | 5 s cooldown | 1 | 8 | 10 coins |
+| Health Potion | heal share of max HP | 20% | 12 s cooldown, 10 s floor (Change 13; was 5 s) | 1 | 8 | 10 coins |
 | Coin Tonic | coin bonus | +25% | 30 s | 1 | 2 | 30 coins |
 | Guard Tonic | Defense | +20 (−16.7% damage) | 20 s | 2 | 2.5 | no |
 | Recovery Salve | max HP per second | 1.5% | 10 s | 3 | 2 | no |
 | Wisdom Tonic | kill XP | +25% | 60 s | 4 | 1.5 | no |
 
 The per-kill supply roll is unchanged (5% normal, 15% boss, + Supply Drop upgrades and the Supply Fortune card); a successful roll picks among the supplies its map allows, by weight. Winter I keeps the 80/20 Potion/Coin Tonic split; from Summer II on the shares are Potion 50%, Coin Tonic 12.5%, Guard 15.6%, Recovery 12.5%, Wisdom 9.4%. The potion now heals a share of max HP instead of a flat 25 HP, so it stays useful without tiers. Recovery heals 15% (^0) to 48% (^100, 16 s) of max HP over its duration but cannot be started above 90% HP. No damage supply was added: the Focus skill already owns that role. Untested on a device and not balance-simulated; tune weights and values in catalog.json through tools/change11_catalog.py.
+
+## Change 13 combat tuning (see docs/LootFarmer_Change_13_Notes.md)
+
+- **Skill cooldowns** (player and enemy casts alike): Lightning 8 s, Fire 10 s, Frost 10 s, Strike 10 s, Focus 15 s, Heal 18 s. The cooldown upgrade (−5% × 6, 2 s floor) is unchanged.
+- **Health Potion:** 12 s base cooldown, mastery ×0.9 / ×0.85 / ×0.8 with a 10 s floor (12 → 10.8 → 10.2 → 10 s). Heal amount unchanged (20% → 40% of max HP).
+- **Summoners** (`resources/game/enemy_abilities.tres`): Grim Reaper (Horned Hood helpers, 2 per call, max 2, 22 s, 50% HP / 40% damage), Sunflower (Sprout, 2, max 2, 24 s, 35% / 30%), Green Alien (Green Cap, 2, max 3, 20 s, 40% / 35%). Helpers give no rewards and are never saved.
+- **Final boss:** an action every 11 s plus the 0.6 s telegraph. Below 50% HP it heals first when Heal is ready (4% of max HP, 18 s cooldown); otherwise it uses a random ready skill from Fire, Strike, Frost, Lightning, or Focus. HP, damage, drops and the 13-key gate are unchanged.
+- **Measured (one deterministic fixture pass):** final boss ^300 + 4 cards now loses narrowly (boss at 3%; it was a 58 s win); ^400, ^500 and ^300 + 6 cards win. The cause is the slower player skills, not the summons. Untested on a device.

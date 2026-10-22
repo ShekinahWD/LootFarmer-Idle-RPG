@@ -118,3 +118,23 @@ A supply's effect is `base + gain × mastery` (gain = 1% of base, so ^100 double
 - **Skill eligibility** (`campaign.skill_ready`): Heal needs HP below 80% of the caster's maximum; Focus needs combat. Checked before a boss telegraph; `_kill` clears `telegraph`.
 - **Notices** (`sim.notice(kind, id)`): `mission_ready` when an unclaimed mission's progress first reaches its goal and auto-claim is not active; `follow_step` when the followed opportunity's completed-step count rises or it becomes ready. Presentation maps them to special sounds; nothing is saved.
 - No save-schema change. Development saves keep loading; the old `sfx_enabled` / `music_enabled` settings keys are ignored (mutes default to off).
+
+## Change 13
+
+| State | Meaning | Default | Save / load | Prestige | Hard Reset |
+|---|---|---|---|---|---|
+| `upgrades["auto_evolve:g"]` | One-time Auto Evolution unlock for type g (level 0/1, 2,000 gems, `flat`). | absent | saved with upgrades | keep (Gem upgrade) | clear |
+| Summoned helpers (`state.enemies`, `variant` 4, `summoner`) | Live helpers of a summoner. **Never saved**: `sim.snapshot` drops them from the current and stored maps. | none | never saved | gone (fresh world) | gone |
+| Actor `summon_cd`, `summon_cast`, `skill_cds`, `pending` | A boss's summon timer, summon telegraph, per-skill cooldowns (final boss) and announced skill. Transient combat fields; harmless if saved, reset when it leaves combat. | — | saved with actors (ignored by validation) | fresh world | fresh world |
+
+- **Drop identity** (`sim.droppers(id)`): types whose `loot` holds `id`, or whose `skills` include it as `"skill_"+key`. Built once from the catalog. Auto-Merge (`gear_group`) and Auto Evolution (`evolve_group`) both resolve an item through its own droppers only.
+- **Auto Evolution** (`campaign.auto_evolve`, once per second of simulated time): for each owned weapon with `evolve_group(id) >= 0` and `evolve_block_reason(id) == ""`, call `sim.evolve(id)` once. Manual Evolve uses the same block-reason function.
+- **Potion cooldown** (`sim.supply_cooldown` → `supply_cooldown_with(id, milestone multiplier)`): `max(cooldown_floor, cooldown × multiplier)` = max(10, 12 × m).
+- **Skill cooldown**: `campaign.cast` stores `sim.player_upgrade_value("cooldown_"+key)` (the preview's getter).
+- **Heal threshold** (`campaign.heal_threshold`): 80% of max HP for everyone, except the final boss: `EnemyAbilityRules.final_heal_below` (50%). Final-boss Heal restores `final_heal_fraction` (4%).
+- **Summoning** (`campaign._summon_step`): `summon_cd` counts down while the summoner is aggro (reset to `first_delay` out of combat). A call needs no skill telegraph in progress and fewer than `max_alive` live helpers, and for the final boss Heal must not have priority. After `telegraph` seconds it creates `min(per_cast, room)` helpers and restarts the cooldown. With the cap reached it waits a full cooldown.
+- **Helpers** (`sim.is_helper`): `enemy_definition(group, 4)` scales HP and damage by the rule and has no loot, skills, coins or XP. `_kill` gives nothing for a helper and removes it after 1 s. `helper_bound` dissolves it when the summoner is dead, not aggro or returning, the player is dead, or it is off its leash. `identify_sites` and group assistance ignore helpers; `camp_action` clears them before storing a map.
+- **Next-stage guidance** (`campaign.gate_status`): stages 1–7 on the frontier (unlocked_stage == stage) give {killed, total} over `stage().gates` from `run_kills`; Spring II gives the world-clear count over all its types until `world_complete`; otherwise {}. `gate_required(g)` is a discovered boss of the current map that still counts. Presentation only; no new counters.
+- **Currency display** (`NumberFormat.currency(value, round_up)`): presentation only; every purchase compares the exact `state.coins` / `state.gems`.
+- No save-schema change (schema 7) and no migration.
+

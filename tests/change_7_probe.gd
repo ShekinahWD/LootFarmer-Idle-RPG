@@ -86,7 +86,8 @@ func shared_weapon_checks() -> void:
     check(int(c.upgrades.gear_slots.cap)+3==70,"Equipment slot cap is 70 (Change 10)")
     # Auto-merge finds a type for shared weapons and tiered outfits.
     fresh();sim.state.gems=1000000;sim.state.discovered["0"]=true;sim.buy_upgrade("merge_gear",0)
-    check(sim.gear_group("wood_sword")==0 and sim.gear_group("unit-blue-cap_outfit_t3")==0 and sim.can_auto_merge("wood_sword"),"Auto merge covers shared weapons and every outfit tier")
+    # Change 13: Auto-Merge covers the exact items the type drops; evolved or legacy tiers follow their own droppers.
+    check(sim.gear_group("wood_sword")==0 and sim.gear_group("unit-blue-cap_outfit")==0 and sim.gear_group("unit-blue-cap_outfit_t3")==-1 and sim.can_auto_merge("wood_sword"),"Auto merge covers the shared weapon and the outfit this type drops, not other tiers")
 
 ## 3. Same-tier normal outfits are equal; boss outfits are stronger; 30% stored share unchanged.
 func outfit_checks() -> void:

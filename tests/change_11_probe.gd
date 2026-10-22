@@ -292,7 +292,8 @@ func supply_checks() -> void:
     check(not sim.merge("potion") and not sim.can_merge("potion"),"Supplies cannot be merged (no copies are destroyed)")
     sim.add_item("potion",500)
     check(sim.supply_mastery("potion")==100 and near(sim.supply_value("potion"),.4),"Mastery caps at ^100 and doubles the effect")
-    check(near(sim.supply_cooldown("potion"),5*.8) and near(sim.supply_duration("guard_tonic"),20),"^100 potion cooldown 4 s; an unmastered Guard Tonic lasts 20 s")
+    # Change 13: the potion cooldown is 12 s with a 10 s floor (12 x 0.8 = 9.6 -> 10).
+    check(near(sim.supply_cooldown("potion"),10.0) and near(sim.supply_duration("guard_tonic"),20),"^100 potion cooldown 10 s (Change 13 floor); an unmastered Guard Tonic lasts 20 s")
     sim.add_item("guard_tonic",26)
     check(near(sim.supply_duration("guard_tonic"),24),"^25 Steady milestone: Guard Tonic lasts 24 s")
     # Use rules and effects.

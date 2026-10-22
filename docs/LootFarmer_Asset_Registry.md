@@ -82,3 +82,11 @@ Rendered evidence: Change_5_Evidence contains onboarding, first lesson, missions
 
 - **Stone-tier swing:** `PixelPlainsAnimationPack/Iron set/Axe 2 64x32.png` and `Sword 2 64x32.png` with a warm-gray multiply tint (catalog `attack_tint` [0.9, 0.84, 0.84], applied to the swing sprite only) for Stone Axe and Stone Sword. The pack has seven swing sets (Wood, Onix, Iron, Gold, Diamond, Emerald, Ruby) and no Stone set; the stone tier used the navy Onix set, which looked black against the gray stone icon. Onix stays on the Death boss scythe.
 - **Audio:** see Other audio and provenance (Change 12 activation). Cue ids, categories, priorities and cooldowns: `resources/game/audio_cues.tres`.
+
+## Change 13 asset use (no new art or audio)
+
+- **Rain:** `PixelPlains/Rain full anim sheet 52x216.png`, now described by `resources/game/weather_rain.tres` (`WeatherStyle`: 15 frames of 52×216 drawn at 26×108 world units, 64 streaks per 440×500 cell, colour (0.86, 0.93, 1, 0.62), world-anchored). The falling leaves use `weather_leaves.tres` / `weather_blue_leaves.tres` with their Change 7 values. The rainy maps' overcast is a multiply tint on the stage scene (0.77, 0.78, 0.92), measured from the supplied reference pair (docs/LootFarmer_Change_13_Package/visual_refs); camps are restored to their own colours.
+- **Required-boss banner:** `PixelPlains/Items/.../Item-249.png` (the World button's icon) in gold (1, 0.84, 0.34): the HUD Next-stage line (`main.tscn Map/Gate`, 24 px), above a boss's HP bar (`actor.tscn Gate`, 0.75 scale) and on the map/minimap marker corner (`map_view._gate_badge`). Camps on the map use the same icon in white/gray at full marker size, so the small gold corner badge reads as a boss attribute.
+- **Summoning:** `magic-spells-vfx-lite/cast` (the Focus effect) tinted (0.78, 0.66, 1) on the summoner (telegraph) and on each helper; `magic-spells-sfx-lite/ogg/summon_01.ogg` as the `spell_summon` cue (gameplay, priority 10, 0.5 s cooldown, −4 dB). Helpers reuse their copied type's outfit sheet and swing, with the same violet tint on the body.
+- **Provenance still open:** `assets/sounds` licence record (see above); PixelPlains purchase record (only `ReadMe.txt` in the pack folders).
+

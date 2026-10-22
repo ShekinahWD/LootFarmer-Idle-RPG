@@ -174,7 +174,8 @@ func gem_checks() -> void:
     check(ok and hits>0,"Awarded boss Gems equal the displayed amount (%d hits / 200)" % hits)
     sim.state.upgrades["reveal_drops:%d" % boss]=1;sim.campaign.discover_spot(boss,2) # fixture
     game.group=boss;game.enemy_tab=0;game._open("enemy")
-    check(label_containing("×"+game.fmt(amount))!=null,"Enemy panel shows the real boss payout")
+    # Change 13: currency amounts use the shared currency format.
+    check(label_containing("×"+game.fmt_currency(amount))!=null,"Enemy panel shows the real boss payout")
     game._close()
 
 # ---------------------------------------------------------------- §4 farming guide

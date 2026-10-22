@@ -1,4 +1,4 @@
-# LootFarmer — Test Suite (Change 12)
+# LootFarmer — Test Suite (Change 13)
 
 ## Maintained regression suite (gating)
 
@@ -7,6 +7,7 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 | Probe | Covers |
 |---|---|
 | validate_campaign_source.py | Catalog and source contracts, translations, every catalog tool's `--check` (1,343 checks) |
+| change_13_probe | Exact-identity Auto-Merge (sword and axe Wood→Stone, shared drops, outfits, skills, supplies), Auto Evolution (flat price, manual rule, one tier, own droppers, full inventory, save/Prestige/Hard Reset, panel), potion 12 s and floor, skill prices and cooldowns, next-stage guidance and discovery-only boss markers, currency format across surfaces, rainy-map overcast and world-anchored rain, summoned helpers (cap, no rewards, cleanup, never saved), final boss (Heal priority below 50%, attack pool, pace, summons) |
 | change_12_probe | Cyan Robot Heal (real HP, telegraph, cooldown, death, effects on the caster, heal numbers), map explored percent (source, rounding, vision/panning, map switch, placement), Settings copy and audio controls, audio categories/priority/cooldown/persistence, followed-step and mission cues once per transition, Merge All (purchase, rules, UI, save, Prestige, Hard Reset), stone-tier swing mapping, camera after Prestige, gem chance formula and prices |
 | change_12_smoke | Every Change 12 panel and action once on the real main scene |
 | change_11_probe | Collection follower, minimap markers, Teleport picker, loot speech, supplies and mastery, supply save/load/reset, Filters close paths, gem upgrades kept by Prestige, spawn prices |
@@ -22,7 +23,21 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 | bootstrap_probe | Boot, profile isolation and save-container basics |
 | change_8_walk_probe | Movement around solid scenery on every stage |
 
-Change 11 final run: 19 / 19 passed. **Change 12 run: 21 / 21** (`tools/run_probes.py`; change_10_probe and change_7_probe were updated first, see below).
+Change 11 final run: 19 / 19 passed. Change 12 run: 21 / 21. **Change 13 run: 22 / 22** (`tools/run_probes.py`; change_10_probe and change_7_probe were updated first, see below).
+
+## Change 13 test updates
+
+One full maintained-suite run after the implementation: 18 / 22 passed. The four failures were stale contracts for intended Change 13 rules (no production regression) and were updated with the same intent; all four then passed (**22 / 22**).
+
+| Test | Change | Reason |
+|---|---|---|
+| change_7_probe | Auto-Merge covers the type's own outfit, not `unit-blue-cap_outfit_t3` | Change 13 exact-identity Auto-Merge (evolved or legacy tiers follow their own droppers). |
+| change_8_probe | First skill-slot price 50 → 300 gems | Change 13 skill prices. |
+| change_10_probe | Enemy-panel boss payout read with `fmt_currency` | Change 13 currency format ("×15", not "×15.00"). |
+| change_11_probe | Potion ^100 cooldown 4 s → 10 s | Change 13 12 s base with a 10 s floor. |
+| change_13_probe | New, in the suite (154 checks) | Change 13 contracts. |
+| change_13_capture | New, rendered | docs/Change_13_Evidence/ui/ (desktop evidence only). |
+| change_9_balance | Not changed; run once | Non-gating. Now fails "final boss ^300 with 4 cards" (boss at 3%) because of the slower player skills; log in docs/Change_13_Evidence/balance.log. |
 
 ## Change 12 test updates
 

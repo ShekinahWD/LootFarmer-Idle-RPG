@@ -1,0 +1,15 @@
+BALANCE_ROW Bee first kill, Change 8 rules     loss      22s | boss left  80.2% | player left   0.0% | dmg   388 hp   2126 def   0 rec 0.00%/s
+BALANCE_ROW Bee first kill, Change 9           loss      24s | boss left  78.8% | player left   0.0% | dmg   388 hp   2078 def  12 rec 0.00%/s
+BALANCE_ROW Bee, elf-ears ^300, 4 cards        loss      38s | boss left  55.7% | player left   0.0% | dmg   447 hp   2683 def  12 rec 0.20%/s
+BALANCE_ROW Red Panda, sprout ^100             loss      30s | boss left  64.4% | player left   0.0% | dmg   935 hp   3767 def  15 rec 0.00%/s
+BALANCE_ROW Red Panda, sprout ^300             loss      44s | boss left  49.1% | player left   0.0% | dmg   935 hp   4866 def  15 rec 0.25%/s
+BALANCE_ROW Red Panda, sprout ^300, 6 cards    win       82s | boss left   0.0% | player left  59.5% | dmg   935 hp   4866 def  15 rec 0.25%/s
+BALANCE_ROW Red Panda, sprout ^500             win       82s | boss left   0.0% | player left   8.2% | dmg   935 hp   5833 def  50 rec 0.40%/s
+BALANCE_ROW Final, Sunflower outfit ^100       loss      38s | boss left  49.6% | player left   0.0% | dmg  1574 hp   6665 def  15 rec 0.00%/s
+BALANCE_ROW Final, Sunflower outfit ^300       loss      72s | boss left   3.0% | player left   0.0% | dmg  1574 hp   9964 def  15 rec 0.25%/s
+BALANCE_ROW Final, ^300, no cards              loss      42s | boss left  55.1% | player left   0.0% | dmg  1369 hp   7664 def  15 rec 0.25%/s
+BALANCE_ROW Final, ^300, no skills             loss      52s | boss left  68.7% | player left   0.0% | dmg  1574 hp   9964 def  15 rec 0.25%/s
+BALANCE_ROW Final, ^300, stored weapons 15%    loss      62s | boss left  25.0% | player left   0.0% | dmg  1354 hp   9550 def  15 rec 0.25%/s
+BALANCE_ROW Final, Sunflower outfit ^500       win       74s | boss left   0.0% | player left  59.9% | dmg  1574 hp  12866 def  50 rec 0.40%/s
+ERROR: Final boss beatable before ^500 with a plausible loadout, three skills and four cards
+CHANGE_9_BALANCE_CHECKS 35 FAILURES 1
