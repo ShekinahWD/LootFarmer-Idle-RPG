@@ -23,8 +23,10 @@ ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / 'data/game/catalog.json'
 ICONS = 'res://assets/PixelPlains/Items/16x16 All Items v1.png'
 ANIM = 'res://assets/PixelPlainsAnimationPack/'
-# (material id, icon column, swing set folder, swing set number)
-MATERIALS = [('wood', 0, 'Wood set', 1), ('stone', 1, 'Onix set', 7), ('iron', 2, 'Iron set', 2),
+# (material id, icon column, swing set folder, swing set number). The animation pack has no Stone set:
+# since Change 12 the stone tier shares the Iron set swing, tinted warm gray by tools/change12_catalog.py
+# (it used the dark Onix set, which did not match the gray stone icon).
+MATERIALS = [('wood', 0, 'Wood set', 1), ('stone', 1, 'Iron set', 2), ('iron', 2, 'Iron set', 2),
              ('gold', 3, 'Gold set', 3), ('diamond', 4, 'Diamond set', 4), ('emerald', 6, 'Emerald set', 5),
              ('obsidian', 7, 'Ruby set', 6)]
 # One shared stack replaces several stored per-enemy families, so the tier-1 base is a third higher

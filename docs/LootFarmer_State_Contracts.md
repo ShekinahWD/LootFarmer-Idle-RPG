@@ -25,7 +25,7 @@ These contracts are implemented in Change 4 and exercised by the campaign/conten
 | Automation bindings / toggles / farm focus | Retain purchased capabilities and explicitly approved per-skill-slot auto toggles. Clear item/equipment/farm targets and consumable bindings; regular mission-auto toggle resets. |
 | Pending casts / cooldowns / temporary buffs / ground drops | Clear |
 | Tutorial mode / completed lessons / acknowledged introductions | Keep; reset on Hard Reset |
-| Settings / audio / language / accessibility | Keep |
+| Settings / audio / language / accessibility | Keep (Change 12: music_volume, sfx_volume, mute_gameplay, mute_special) |
 
 Teleport is rejected during combat, death, pause, suspension and prestige selection. Respawn is not a travel action. Death and ordinary travel retain progression, keys, exploration and purchases. Hard Reset clears every progression state including permanent keys and cards, but retains settings. Final mission is never paid twice. After world completion, future runs may fight final boss again once the stage is reached because keys remain owned.
 
@@ -102,3 +102,19 @@ Per-encounter consumable restriction records first hostile contact, clears on de
 | `supplies` | Supply slot row, exactly 1 + `supply_slots` (max 5). | `[""]` | load folds retired tier ids into the base supply (`legacy_items`), keeps each supply in its slot when it fits and clamps the row; `auto_slots` must point inside it | size kept, emptied | `[""]` |
 
 A supply's effect is `base + gain × mastery` (gain = 1% of base, so ^100 doubles it); milestones at ^25/^50/^100 lengthen timed supplies (×1.2/×1.4/×1.6) and shorten the potion cooldown (×0.9/×0.85/×0.8). Use and auto-use rules live in `simulation.supply_block_reason` and `supply_auto_ready`; the UI and automation call the same functions.
+
+## Change 12
+
+| Field / rule | Meaning | Default | Save / load | Prestige | Hard Reset |
+|---|---|---|---|---|---|
+| settings `music_volume`, `sfx_volume` | 0–1; 0 is silent. The sound-effect volume applies to both categories. | 1.0 | settings record; clamped to 0–1 | keep | keep (settings survive) |
+| settings `mute_gameplay`, `mute_special` | Independent category mutes (replace `sfx_enabled` / `music_enabled`). | false | settings record; missing → false | keep | keep |
+| `upgrades.merge_all` | One-time 5,000-Gem unlock (level 0/1). Using Merge All is free. | absent | saved with upgrades | keep (Gem upgrade) | clear |
+| `campaign.follow_tracked` / `follow_steps` | Session baseline for followed-step cues. **Not saved**: the first reading after load or a new follow only sets it. | "" / 0 | never saved | — | — |
+
+- **Merge All** (`sim.merge_all`) calls the ordinary `merge(id, true)` for every id where `can_merge(id)` holds, in sorted id order: never supplies, one copy kept, never past `merge_cap(id)`, never `evolve`. Each merge reports its own `progress("merge", id, n)`, exactly as manual merges.
+- **Gem chance** (`sim.gem_chance`): clamp(0.05 + 0.005 × Gem Chance + Gem Wisdom + achievements (+ 0.05 × Boss Gem Chance on bosses), 0, 1). The catalog has no `normal_cap` / `boss_cap`. `upgrade_maxed("gem_chance")` is the level cap (20) only.
+- **Explored percent** (`campaign.explored_percent(stage)`) = floor(100 × saved explored cells ÷ fog-grid cells), capped at 100; vision and the camera never write explored cells.
+- **Skill eligibility** (`campaign.skill_ready`): Heal needs HP below 80% of the caster's maximum; Focus needs combat. Checked before a boss telegraph; `_kill` clears `telegraph`.
+- **Notices** (`sim.notice(kind, id)`): `mission_ready` when an unclaimed mission's progress first reaches its goal and auto-claim is not active; `follow_step` when the followed opportunity's completed-step count rises or it becomes ready. Presentation maps them to special sounds; nothing is saved.
+- No save-schema change. Development saves keep loading; the old `sfx_enabled` / `music_enabled` settings keys are ignored (mutes default to off).

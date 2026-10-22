@@ -8507,3 +8507,13 @@ If the rule is "everything bought with premium currency survives a reset", enfor
 ## 141.5 Headless probes: a script error is a hang, so run them through a watchdog
 
 In Godot, a runtime script error inside a probe's async `run()` aborts the coroutine, so `quit()` is never reached and a headless run waits forever. Old suites then look "slow" or "timed out" instead of failing. Run probes through a runner that applies a hard timeout per probe, counts any `SCRIPT ERROR` line as a failure (playbook 60) and requires the probe's own summary line. When repairing old probes, also check how the harness advances time: a simulation that clamps each step (here to 0.1 s) turns `step(9)` into a tenth of a second, so long spans need a stepping helper. Finally, an assertion that keeps failing can be the only remaining record of a lost rule (here, ground-loot expiry), so read the current contract before deleting it.
+
+# 142. Device playtest correction lessons (LootFarmer Change 12)
+
+## 142.1 A telegraph announces only what can happen
+
+When an enemy warns before a skill (a 0.5–1 s wind-up with its effect), check the skill's own eligibility **before** the warning, not only when it resolves. A self-heal at full health, a buff with no target or a cast whose condition already fails otherwise plays its effect and sound for nothing, again on every retry, and players conclude the skill is broken. Pass an ineligible skill's turn to the next skill in the rotation, or a single blocked skill can silence all the others. Play the success effect, sound and number from the authoritative change (HP actually restored), once, and attach effects that belong to an actor to that actor's view so they follow it. Attack warnings are different: they show where a hit will land, so they still play and the target may dodge.
+
+## 142.2 Progress notifications: announce a rising count against a session baseline
+
+To play one cue when a tracked objective's step completes, compare a derived "steps done" count with a baseline held in memory (not saved). The first reading after a load or after the player picks a new objective only sets the baseline, so nothing re-announces on reopen; a rise announces once and the baseline keeps its maximum, so a step lost and regained is not announced twice. Route the cue through the audio service's per-frame priority, so a final step that also completes the objective plays one sound, not two. When purchased automation consumes the same event repeatedly (auto-claim), stay silent: that is the automation rule of section 85.

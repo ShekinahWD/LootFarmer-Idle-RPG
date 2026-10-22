@@ -153,9 +153,10 @@ func gem_checks() -> void:
     check(sim.gem_amount(0,normal)==3.0 and sim.gem_amount(0,boss)==9.0,"Gem Amount 4: normal 3, boss 9 (3x)")
     sim.state.upgrades["boss_gem_amount"]=2 # fixture
     check(sim.gem_amount(0,boss)==11.0 and sim.gem_amount(0,normal)==3.0,"Boss Gem Amount adds after the x3 (not tripled) and stays boss-only")
-    check(sim.gem_chance(boss)==chance_before and near(sim.gem_chance(normal),.08),"Chances unchanged by amount upgrades")
+    # Change 12: base gem chance 5% (was 8%).
+    check(sim.gem_chance(boss)==chance_before and near(sim.gem_chance(normal),.05),"Chances unchanged by amount upgrades")
     sim.state.upgrades["boss_gem_chance"]=2 # fixture
-    check(near(sim.gem_chance(boss),.18) and near(sim.gem_chance(normal),.08),"Boss chance rules unchanged (base + 5% per level)")
+    check(near(sim.gem_chance(boss),.15) and near(sim.gem_chance(normal),.05),"Boss chance rules unchanged (base + 5% per level)")
     check(sim.player_upgrade_value("boss_gem_amount")==11.0 and sim.player_upgrade_value("boss_gem_amount",1)==12.0,"Boss Gem Amount card shows the real boss payout")
     sim.state.owned_cards=[]
     for key in sim.catalog.campaign.cards:

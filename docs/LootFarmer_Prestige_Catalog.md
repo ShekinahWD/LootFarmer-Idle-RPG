@@ -75,7 +75,7 @@ Reset cost at the gate (about 90 min of ordinary play): level ~22, every item an
 | challenge_c2 | challenge | Resolve | −2% boss damage taken (same effect as Boss Guard) | Heal 5% of the damage you deal | Heals 5% of damage dealt (≈0.75 HP/s at 15 DPS). |
 | challenge_c3 | challenge | Hard Hit | +3% crit damage | Critical hits deal +75% more damage | Crit ×1.5 → ×2.25; strong only with crit chance (synergy card). |
 | offering_c1 | offering | Coin Wisdom | +2% coins | +25% coins from every enemy | +25% coins from every enemy. |
-| offering_c2 | offering | Gem Wisdom | +0.5 pt gem chance | +3 points gem drop chance (normal enemies up to 20%) | Gem chance 8% → 11% (normal cap 20%). |
+| offering_c2 | offering | Gem Wisdom | +0.5 pt gem chance | +5 points gem drop chance (Change 12; was +3) | Gem chance 5% → 10% at no upgrades; still +5 points with Gem Chance maxed (15% → 20%). No cap. |
 | offering_c3 | offering | Wise Spending | −2% coin prices | Coin upgrades cost 15% less | Coin upgrades −15%. |
 | specialist_c1 | specialist | Mission Coins | +3% mission coins | +50% coins from missions | Missions pay +50% coins (Winter hunt 150 → 225). |
 | specialist_c2 | specialist | Mission Gems | +3% mission gems | +50% gems from missions | Missions pay +50% gems. |

@@ -1,4 +1,4 @@
-# LootFarmer — Test Suite (Change 11)
+# LootFarmer — Test Suite (Change 12)
 
 ## Maintained regression suite (gating)
 
@@ -6,7 +6,9 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 
 | Probe | Covers |
 |---|---|
-| validate_campaign_source.py | Catalog and source contracts, translations, every catalog tool's `--check` (1,326 checks) |
+| validate_campaign_source.py | Catalog and source contracts, translations, every catalog tool's `--check` (1,343 checks) |
+| change_12_probe | Cyan Robot Heal (real HP, telegraph, cooldown, death, effects on the caster, heal numbers), map explored percent (source, rounding, vision/panning, map switch, placement), Settings copy and audio controls, audio categories/priority/cooldown/persistence, followed-step and mission cues once per transition, Merge All (purchase, rules, UI, save, Prestige, Hard Reset), stone-tier swing mapping, camera after Prestige, gem chance formula and prices |
+| change_12_smoke | Every Change 12 panel and action once on the real main scene |
 | change_11_probe | Collection follower, minimap markers, Teleport picker, loot speech, supplies and mastery, supply save/load/reset, Filters close paths, gem upgrades kept by Prestige, spawn prices |
 | change_11_smoke | Every Change 11 panel and action once on the real main scene |
 | change_10_probe … change_5_probe | Each change's approved contracts (stale supply checks updated in Change 11) |
@@ -20,7 +22,16 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 | bootstrap_probe | Boot, profile isolation and save-container basics |
 | change_8_walk_probe | Movement around solid scenery on every stage |
 
-Change 11 final run: **19 / 19 passed** (`tools/run_probes.py`).
+Change 11 final run: 19 / 19 passed. **Change 12 run: 21 / 21** (`tools/run_probes.py`; change_10_probe and change_7_probe were updated first, see below).
+
+## Change 12 test updates
+
+| Test | Change | Reason |
+|---|---|---|
+| change_10_probe | 2 checks: base gem chance 8% → 5% | Change 12 gem chance rules (same intent: amount upgrades never change the chance; Boss Gem Chance adds 5 points per level). |
+| change_7_probe | Heal-effect position read from the caster's view | Self effects are now children of the caster's view so they follow it; the check (ring on the feet, at the actor's scale) is unchanged in intent. Before, the probe crashed on the type change (script error). |
+| audit, camera, evolution_farming, inspector, ui probes | `SettingsState.set_sfx_enabled(false)` → `SettingsState.mute_all_sfx()` | The single sound toggle became two category mutes. |
+| change_12_capture | New, rendered | docs/Change_12_Evidence/ui/ (desktop evidence only). |
 
 ## Not in the default suite (non-gating)
 

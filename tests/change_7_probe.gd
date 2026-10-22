@@ -259,13 +259,17 @@ func world_checks() -> void:
     # Heal on the 2x robot: ground ring on its feet, scaled with it.
     sim.campaign.reveal_circle(Vector2(800,800),5000)
     await frames(2)
-    var before: int=game.world.get_children().size()
+    # Change 12: a self effect is a child of the caster's view (it follows the caster), so its
+    # position is local to the view, whose origin is the actor's position.
+    var boss_view: Node2D=game.world.views[boss.id]
+    var before: int=boss_view.get_child_count()
     game.world._spell(boss.id,"heal",sim.position_of(boss))
-    var effect: AnimatedSprite2D=game.world.get_child(game.world.get_child_count()-1)
-    check(game.world.get_children().size()==before+1 and is_equal_approx(effect.scale.x,1.5) and is_equal_approx(effect.position.y,boss.y-30.0),"Robot heal sits on its feet at its scale (%.1f, %.1f)" % [effect.scale.x,effect.position.y-boss.y])
+    var effect: AnimatedSprite2D=boss_view.get_child(boss_view.get_child_count()-1)
+    check(boss_view.get_child_count()==before+1 and is_equal_approx(effect.scale.x,1.5) and is_equal_approx(effect.position.y,-30.0),"Robot heal sits on its feet at its scale (%.1f, %.1f)" % [effect.scale.x,effect.position.y])
+    var player_view: Node2D=game.world.views["player"]
     game.world._spell("player","heal",sim.position_of(sim.state.player))
-    effect=game.world.get_child(game.world.get_child_count()-1)
-    check(is_equal_approx(effect.scale.x,.75) and is_equal_approx(effect.position.y,sim.state.player.y-15.0),"Player heal sits on the player's feet")
+    effect=player_view.get_child(player_view.get_child_count()-1)
+    check(is_equal_approx(effect.scale.x,.75) and is_equal_approx(effect.position.y,-15.0),"Player heal sits on the player's feet")
     # Revival recenters a dragged camera.
     game.world.pan_camera(Vector2(300,200))
     check(not game.world.following_player,"Drag detaches the camera")

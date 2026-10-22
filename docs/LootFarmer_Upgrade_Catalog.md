@@ -2,6 +2,8 @@
 
 **Change 11 retention rule:** Prestige keeps **every upgrade bought with Gems**, whatever its category (player, enemy type, automation, inventory, map/camp, spawn, offline, missions). Coin upgrades keep their own Keep/Reset column below. Every upgrade has exactly one currency, so no level is ever split between currencies. The rule is enforced in code from the currency (`simulation.upgrade_kept`) and mirrored by `keep: true` on every gem row in catalog.json (`tools/change11_catalog.py`, checked by `tools/validate_campaign_source.py`). Hard Reset clears every upgrade. Before Change 11, Gem Chance, Gem Amount, Boss Gem Chance, Boss Gem Amount, Spawn Amount and Spawn Cooldown were gem-funded yet reset; kept Spawn levels now re-spawn the extra actors immediately after the reset.
 
+**Change 12:** Gem Chance has 20 levels of +0.5 points (+10 points in all; it was 12 × +1). Levels 1–12 keep their prices exactly; levels 13–20 cost 560, 660, 770, 890, 1,020, 1,160, 1,310 and 1,470 gems (each step 10 gems larger than the one before). Base gem chance is 5% (was 8%) and the 20% normal / 60% boss caps are gone: the chance is base + Gem Chance + Gem Wisdom + the type's kill achievements (+ Boss Gem Chance on bosses), clamped only to 0–100%. New **Merge All** (`merge_all`): global, gems, 1 rank, 5,000 gems, kept by Prestige; it adds a free Merge All button to Filters (Upgrades → Inventory).
+
 **Change 11 supplies:** supply capacity is 1 initial slot + 4 purchases = 5, one per supply type (Health Potion, Coin Tonic, Guard Tonic, Recovery Salve, Wisdom Tonic). Supply auto-merge (`merge_supplies`, `merge_speed`) is removed: supplies grow permanent mastery from every copy found.
 
 Change 6: prices and caps unchanged. Player-facing labels now state the implemented effect: loot +1 point, collect range +50, collect/merge intervals −1 s, coins per enemy +50%, experience +10%, supply chance +1 point, movement +10%. Enemy upgrades show reward upgrades first and automation refinements only after their automation is unlocked.
@@ -24,7 +26,7 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | focus | type | gems | 1 | Keep | 25 / 1 |
 | respawn | global | coins | 7 | Reset | 30 / 1.7 |
 | loot | type | coins | 15 | Reset | 20 / 1.35 |
-| gem_chance | global | gems | 12 | Keep (Change 11) | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500, 600, 700] |
+| gem_chance | global | gems | 20 (Change 12; was 12) | Keep (Change 11) | [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, 390, 470, 560, 660, 770, 890, 1020, 1160, 1310, 1470] (+0.5 points per level) |
 | coin_amount | type | coins | 20 | Reset | 30 / 1.4 |
 | gem_amount | global | gems | 10 | Keep (Change 11) | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500] |
 | reveal_stats | type | coins | 1 | Keep | 25 / 1 |
@@ -37,6 +39,7 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | spawn_cooldown | normal_type | gems | 5 | Keep (Change 11) | [50, 100, 150, 225, 300] (Change 11; 825 total on Winter I, × 1 + 0.25 × (stage − 1)) |
 | movement | global | coins | 10 | Reset | 40 / 1.65 |
 | gear_merge_speed | type | gems | 9 | Keep | 30 / 1.7 |
+| merge_all | global | gems | 1 | Keep (Change 12) | 5,000 / 1 (one-time unlock; using Merge All is free) |
 | skill_slots | global | gems | 2 | Keep | [100, 300] |
 | skill_auto_0 | global | gems | 1 | Keep | 75 / 1 |
 | skill_auto_1 | global | gems | 1 | Keep | 150 / 1 |
@@ -73,7 +76,7 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 - Gear, supply and skill drop tracks use 15×1 percentage point. Normals start at 5% skill chance, bosses 10%, maximum 20%/25%. One boss skill roll then uniform choice.
 - Normal spawn count 3→6 per variant spot; cooldown five×−10% to half. Bosses have no spawn-count/cooldown purchases.
 - Collection radius 100→300, batch 1→6, interval 10→5 seconds. Coin amount +50% base per rank; XP +10% base per rank.
-- Global gem chance 8→20%, boss extra up to +40pp with final 60% boss cap. Normal amount 1→6, boss extra up to +10. Achievements/cards obey probability caps.
+- Global gem chance 5% base + 20 × 0.5 points (Change 12; was 8→20%), Boss Gem Chance +5 points × 8 on bosses, Gem Wisdom +5 points, kill achievements up to +4 points per type. No game-specific cap (the old 20% / 60% caps are removed); only 0–100% clamping. Fully stacked: 24% normal, 64% boss. Normal amount 1→6, boss extra up to +10.
 - Map detail three ranks: generic sites, identities, farming details. Player reveal 144→288 per stage, camp reveal 192→384 per camp before cards. No rank reveals undiscovered enemy identities.
 - Missions 3→8 slots; automatic claim separate unlock and toggle.
 - Offline reward cap hours [5,8,12,18,24,36,48]; coins 120+60/rank per hour, gems 2+0.5/rank. Owned-only category unlocks; weapons/outfits 1+0.5/rank per hour, consumables 2+1/rank. Skills excluded.
@@ -91,7 +94,7 @@ Prices are data: `prices` list, `step` (linear: base + step × level), `sequence
 | gear_slots | 5 + level gems (each slot costs 1 more than the previous one) |
 | supply_slots | 4 + 4 × level gems |
 | auto_use | 6 × 2.6^n gems (merge_supplies and merge_speed removed in Change 11) |
-| gem_chance, gem_amount, boss_gem_amount | [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, (390, 470)] gems |
+| gem_chance, gem_amount, boss_gem_amount | [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, (390, 470)] gems; Change 12 extends Gem Chance with 560 … 1,470 for levels 13–20 |
 | boss_gem_chance | [50, 80, 120, 170, 230, 310, 410, 530] gems |
 | skill_slots / skill_auto_0,1,2 | [50, 160] / 38, 75, 150 gems |
 | mission_slots / mission_claim | [25, 50, 90, 140, 200] / 75 gems |

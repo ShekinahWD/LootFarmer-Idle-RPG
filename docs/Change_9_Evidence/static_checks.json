@@ -1,5 +1,5 @@
 {
-  "checks": 1326,
+  "checks": 1343,
   "failures": 0,
   "results": [
     {
@@ -3447,6 +3447,10 @@
       "pass": true
     },
     {
+      "check": "translation MAP_EXPLORED",
+      "pass": true
+    },
+    {
       "check": "translation SKILL_EMPTY",
       "pass": true
     },
@@ -3855,6 +3859,14 @@
       "pass": true
     },
     {
+      "check": "translation MERGE_ALL_UNLOCKED",
+      "pass": true
+    },
+    {
+      "check": "translation MERGE_ALL_BENEFIT",
+      "pass": true
+    },
+    {
       "check": "translation UPGRADE_TRANSITION",
       "pass": true
     },
@@ -4255,10 +4267,6 @@
       "pass": true
     },
     {
-      "check": "translation SOUND_STATUS",
-      "pass": true
-    },
-    {
       "check": "translation GUIDE_REVIEW",
       "pass": true
     },
@@ -4268,6 +4276,22 @@
     },
     {
       "check": "translation SAVE_NOW",
+      "pass": true
+    },
+    {
+      "check": "translation SECTION_AUDIO",
+      "pass": true
+    },
+    {
+      "check": "translation MUTE_GAMEPLAY_STATUS",
+      "pass": true
+    },
+    {
+      "check": "translation MUTE_SPECIAL_STATUS",
+      "pass": true
+    },
+    {
+      "check": "translation AUDIO_HINT",
       "pass": true
     },
     {
@@ -4308,6 +4332,22 @@
     },
     {
       "check": "translation FILTERS_HINT",
+      "pass": true
+    },
+    {
+      "check": "translation MERGE_ALL_LOCKED_HINT",
+      "pass": true
+    },
+    {
+      "check": "translation MERGE_ALL_BUTTON",
+      "pass": true
+    },
+    {
+      "check": "translation MERGE_ALL_BUTTON_IDLE",
+      "pass": true
+    },
+    {
+      "check": "translation MERGE_ALL_DONE",
       "pass": true
     },
     {
@@ -4855,6 +4895,10 @@
       "pass": true
     },
     {
+      "check": "upgrade translation merge_all",
+      "pass": true
+    },
+    {
       "check": "season clear/effect 1",
       "pass": true
     },
@@ -5279,6 +5323,26 @@
       "pass": true
     },
     {
+      "check": "gem chance: base 5%, 20 levels of +0.5 points, no game caps",
+      "pass": true
+    },
+    {
+      "check": "gem chance prices 1-12 unchanged, 13-20 rising",
+      "pass": true
+    },
+    {
+      "check": "Gem Wisdom +5 points",
+      "pass": true
+    },
+    {
+      "check": "Merge All: one-time 5,000-gem global unlock",
+      "pass": true
+    },
+    {
+      "check": "stone-tier weapons swing with the tinted Iron set",
+      "pass": true
+    },
+    {
       "check": "tools/layout_campaign_groups.py --check",
       "pass": true
     },
@@ -5304,6 +5368,10 @@
     },
     {
       "check": "tools/change11_catalog.py --check",
+      "pass": true
+    },
+    {
+      "check": "tools/change12_catalog.py --check",
       "pass": true
     }
   ]

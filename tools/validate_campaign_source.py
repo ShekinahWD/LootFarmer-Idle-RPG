@@ -65,7 +65,15 @@ spring=[g for g in c['groups'] if g['stage']==8]
 check('Spring II: Tier 5 normals, Tier 6 boss weapons, Tier 5 outfits',all(c['items'][g['weapon']]['tier']==(6 if g['boss'] else 5) and c['items'][g['loot'][1]]['tier']==5 and not c['items'][g['loot'][1]].get('legacy') for g in spring))
 check('final boss dedicated HP factor 18',c['progression']['balance']['final_hp']==18.0)
 check('dropped gear is never legacy',all(not c['items'][i].get('legacy') for g in c['groups'] for i in g['loot']))
-for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py','tools/change10_catalog.py','tools/change11_catalog.py']:
+# Change 12: gem chance 5% base, 20 x 0.5-point levels (old 12 prices kept), Gem Wisdom +5, no caps;
+# Merge All unlock; stone-tier swing sheet.
+g12=c['upgrades']['gem_chance']
+check('gem chance: base 5%, 20 levels of +0.5 points, no game caps',c['progression']['gem_limits']['base_chance']==0.05 and g12['cap']==20 and g12['effect']==0.005 and 'normal_cap' not in c['progression']['gem_limits'] and 'boss_cap' not in c['progression']['gem_limits'])
+check('gem chance prices 1-12 unchanged, 13-20 rising',g12['prices'][:12]==[25,40,58,80,105,135,170,210,260,320,390,470] and all(b>a for a,b in zip(g12['prices'],g12['prices'][1:])) and len(g12['prices'])==20)
+check('Gem Wisdom +5 points',c['campaign']['cards']['offering_c2']['effect']=='gem_chance' and c['campaign']['cards']['offering_c2']['value']==0.05)
+check('Merge All: one-time 5,000-gem global unlock',c['upgrades']['merge_all']=={'currency':'gems','base':5000,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'global'})
+check('stone-tier weapons swing with the tinted Iron set',all(c['items'][i]['attack'].endswith('Iron set/%s 2 64x32.png' % k) and len(c['items'][i]['attack_tint'])==3 for i,k in [('stone_axe','Axe'),('stone_sword','Sword')]))
+for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py','tools/change10_catalog.py','tools/change11_catalog.py','tools/change12_catalog.py']:
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}
