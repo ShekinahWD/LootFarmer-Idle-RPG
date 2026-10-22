@@ -74,7 +74,7 @@ func inventory_checks() -> void:
     while sim.buy_upgrade("gear_slots"):bought+=1
     check(bought==67 and sim.state.gear.size()==70 and sim.level("gear_slots")==67,"Exactly 67 purchases, ending at 70 slots")
     check(sim.upgrade_maxed("gear_slots") and sim.upgrade_block_reason("gear_slots")=="UPGRADE_MAX" and not sim.buy_upgrade("gear_slots") and sim.state.gear.size()==70,"At 70 the purchase is unavailable (UPGRADE_MAX)")
-    check(int(sim.catalog.upgrades.supply_slots.cap)==13 and sim.player_upgrade_value("supply_slots",13)==14,"Supplies keep their own pool (cap unchanged)")
+    check(int(sim.catalog.upgrades.supply_slots.cap)==4 and sim.player_upgrade_value("supply_slots",4)==5,"Supplies keep their own pool (5 slots since Change 11)")
     game.player_tab=1;game._open("upgrades")
     check(label_containing("70 / 70 · maxed")!=null and button_containing(game.rows,tr("UPGRADE_MAX"))!=null,"Upgrade card says 70 / 70 · maxed with a MAX button")
     game._close();game._refresh_slots()

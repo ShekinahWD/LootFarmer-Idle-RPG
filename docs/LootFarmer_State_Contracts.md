@@ -20,7 +20,8 @@ These contracts are implemented in Change 4 and exercised by the campaign/conten
 | Completed unclaimed main objectives | Discard reward; reset to unfinished, since only completed AND rewarded objectives persist |
 | Regular missions / unclaimed rewards | Clear; assign fresh achievable goals after reset |
 | Currency / level / inventory / equipped bindings / merge, evolution, rolls, copy bonuses | Clear; restore authored starting profile |
-| Upgrade purchases | Follow Upgrade Catalog Keep/Reset field |
+| Upgrade purchases | Every gem-funded upgrade is kept (Change 11, `simulation.upgrade_kept`); coin upgrades follow the Upgrade Catalog Keep/Reset field. Kept Spawn Amount re-spawns its extra actors in the fresh world at once |
+| Supply mastery (`supply_found`) | Keep (Change 11); supply stock, buffs and supply-slot bindings clear with the inventory |
 | Automation bindings / toggles / farm focus | Retain purchased capabilities and explicitly approved per-skill-slot auto toggles. Clear item/equipment/farm targets and consumable bindings; regular mission-auto toggle resets. |
 | Pending casts / cooldowns / temporary buffs / ground drops | Clear |
 | Tutorial mode / completed lessons / acknowledged introductions | Keep; reset on Hard Reset |
@@ -89,3 +90,15 @@ Per-encounter consumable restriction records first hostile contact, clears on de
 - `gear` has exactly 3 + `upgrades.gear_slots` entries (at most 70); `valid_snapshot` requires it and `normalize_snapshot` enforces it (campaign.clamp_equipment_slots). Development saves need no migration (Playbook §61.1).
 - The Farming Guide stores nothing: entries derive from `upgrades.map_detail:<stage>` (reset by prestige), `reveal_stats` / `reveal_drops` (kept) and `discovered` / `discovered_spots` (reset by prestige). Its open map is session UI state.
 - Outfit slot looks derive from `items[id].merge`; nothing new is saved.
+
+## Change 11 supply state
+
+| Field | Meaning | Default | Save / load | Prestige | Hard Reset |
+|---|---|---|---|---|---|
+| `items[id].qty` (supply) | Stock: charges. Use spends one; a found copy or a purchase adds one. | absent | saved; load requires `qty` ≥ 0 | clear (items) | clear |
+| `supply_found[id]` | Lifetime copies **found** (drops, claimed offline earnings). Mastery = clamp(found − 1, 0, 100). Never lowered by use. Purchases do not count. | `{}` | saved; non-supply ids dropped, values clamped ≥ 0 | **keep** | clear |
+| `buffs[id]` | Running timed supply other than the Coin Tonic: `{time, power}` in active (online, unpaused) seconds. Guard adds Defense and Recovery adds max-HP regeneration through `stat_sources()["SOURCE_SUPPLY"]`; Wisdom multiplies kill XP. | `{}` | saved; expired, malformed or non-supply entries dropped | clear | clear |
+| `boost_time`, `boost_power` | Coin Tonic buff (kept from earlier changes). | 0 | saved | clear | clear |
+| `supplies` | Supply slot row, exactly 1 + `supply_slots` (max 5). | `[""]` | load folds retired tier ids into the base supply (`legacy_items`), keeps each supply in its slot when it fits and clamps the row; `auto_slots` must point inside it | size kept, emptied | `[""]` |
+
+A supply's effect is `base + gain × mastery` (gain = 1% of base, so ^100 doubles it); milestones at ^25/^50/^100 lengthen timed supplies (×1.2/×1.4/×1.6) and shorten the potion cooldown (×0.9/×0.85/×0.8). Use and auto-use rules live in `simulation.supply_block_reason` and `supply_auto_ready`; the UI and automation call the same functions.

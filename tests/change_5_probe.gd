@@ -13,7 +13,8 @@ func frames() -> void:
     for i in range(6):await get_tree().process_frame
 func run() -> void:
     game=load("res://scenes/game/main.tscn").instantiate();add_child(game);sim=game.sim;sim.set_physics_process(false);fresh()
-    # Healing roles across the entire authored evolution chain.
+    # Healing roles across the Heal tiers and potion mastery (Change 11: one potion identity whose
+    # mastery, not tiers, grows it; it heals a share of max HP).
     var potion="potion"
     var heal="skill_heal"
     for tier in range(1,8):
@@ -21,10 +22,10 @@ func run() -> void:
         check(sim.add_item(potion,3) and sim.add_item(heal,3),"Healing items fit storage")
         sim.equip(heal)
         for merge in [0,50,100]:
-            sim.record(potion).merge=merge;sim.record(heal).merge=merge;sim.touch()
-            var potion_hp: float=sim.normal(potion).heal
+            sim.state.supply_found[potion]=merge+1;sim.record(heal).merge=merge;sim.touch() # fixture: potion mastery ^merge
+            var potion_hp: float=sim.stats().hp*sim.supply_value(potion)
             var skill_hp: float=minf(sim.normal(heal).power,sim.stats().hp*.12)
-            check(potion_hp>skill_hp*2,"Potion burst exceeds sustain at tier %d merge %d" % [tier,merge])
+            check(potion_hp>skill_hp*1.6,"Potion burst exceeds the Heal cast at Heal tier %d, potion ^%d" % [tier,merge])
         sim.state.player.hp=1;sim.state.skill_cooldowns={};sim.state.use_cd=0
         var qty=sim.quantity(heal);var hp=sim.state.player.hp
         check(sim.campaign.cast(0),"Heal casts while hurt")
@@ -37,9 +38,9 @@ func run() -> void:
         sim.state.player.hp=sim.stats().hp;sim.state.skill_cooldowns={};sim.state.use_cd=0;qty=sim.quantity(potion)
         check(not sim.campaign.cast(0) and not sim.use_item(potion) and sim.quantity(potion)==qty,"Full health wastes neither healing source")
         # Change 8: skills no longer evolve; the authored tiers remain (legacy ids) and are walked directly.
-        potion=sim.catalog.items[potion].next;heal="skill_heal_t%d" % (tier+1)
-    fresh();sim.add_item("potion",2);sim.add_item("skill_heal",2);sim.equip("skill_heal")
-    check(sim.normal("potion").heal==25 and sim.normal("skill_heal").power==10,"Distinct tier-one base heals (Change 6: Heal 6 -> 10)")
+        heal="skill_heal_t%d" % (tier+1)
+    fresh();sim.add_item("potion",2,false);sim.add_item("skill_heal",2);sim.equip("skill_heal") # bought potions: mastery ^0
+    check(is_equal_approx(sim.normal("potion").heal_pct,.2) and sim.normal("skill_heal").power==10,"Distinct tier-one base heals (Change 6: Heal 6 -> 10)")
     check(sim.player_upgrade_value("cooldown_heal")==18,"Heal base cooldown")
     sim.state.upgrades.cooldown_heal=6
     check(is_equal_approx(sim.player_upgrade_value("cooldown_heal"),12.6),"Max cooldown upgrade stays meaningful")

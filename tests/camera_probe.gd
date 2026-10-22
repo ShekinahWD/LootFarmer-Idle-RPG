@@ -28,6 +28,7 @@ func run() -> void:
     add_child(game)
     game.sim.set_physics_process(false)
     game.sim.new_profile()
+    game.sim.state.tutorial.mode="none";game.sim.suspended=false # fixture: onboarding chooser answered (Change 11)
     game.sim.state.player.x=180
     game.sim.state.player.y=800
     await get_tree().process_frame

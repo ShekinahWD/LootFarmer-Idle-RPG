@@ -1,4 +1,8 @@
-# LootFarmer — Upgrade Catalog — Change 6
+# LootFarmer — Upgrade Catalog — Change 6 (retention updated in Change 11)
+
+**Change 11 retention rule:** Prestige keeps **every upgrade bought with Gems**, whatever its category (player, enemy type, automation, inventory, map/camp, spawn, offline, missions). Coin upgrades keep their own Keep/Reset column below. Every upgrade has exactly one currency, so no level is ever split between currencies. The rule is enforced in code from the currency (`simulation.upgrade_kept`) and mirrored by `keep: true` on every gem row in catalog.json (`tools/change11_catalog.py`, checked by `tools/validate_campaign_source.py`). Hard Reset clears every upgrade. Before Change 11, Gem Chance, Gem Amount, Boss Gem Chance, Boss Gem Amount, Spawn Amount and Spawn Cooldown were gem-funded yet reset; kept Spawn levels now re-spawn the extra actors immediately after the reset.
+
+**Change 11 supplies:** supply capacity is 1 initial slot + 4 purchases = 5, one per supply type (Health Potion, Coin Tonic, Guard Tonic, Recovery Salve, Wisdom Tonic). Supply auto-merge (`merge_supplies`, `merge_speed`) is removed: supplies grow permanent mastery from every copy found.
 
 Change 6: prices and caps unchanged. Player-facing labels now state the implemented effect: loot +1 point, collect range +50, collect/merge intervals −1 s, coins per enemy +50%, experience +10%, supply chance +1 point, movement +10%. Enemy upgrades show reward upgrades first and automation refinements only after their automation is unlocked.
 
@@ -9,30 +13,28 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | Runtime id | Scope | Currency | Ranks | Keep at prestige | Base / growth or list |
 |---|---|---|---:|---|---|
 | gear_slots | global | gems | 67 (70 slots, Change 10) | Keep | 5 + level |
-| supply_slots | global | gems | 13 | Keep | 8 / 1 |
+| supply_slots | global | gems | 4 (5 slots, Change 11) | Keep | 4 + 4 × level |
 | collect | type | coins | 1 | Keep | 20 / 1 |
 | collect_range | type | coins | 4 | Keep | 30 / 1.5 |
 | collect_batch | type | coins | 5 | Keep | 30 / 1.5 |
 | collect_speed | type | coins | 5 | Keep | 30 / 1.5 |
 | merge_gear | type | gems | 1 | Keep | 30 / 1 |
-| merge_supplies | global | gems | 1 | Keep | 20 / 1 |
-| merge_speed | global | gems | 9 | Keep | 25 / 1.7 |
 | auto_use | global | gems | 3 | Keep | 10 / 2.4 |
 | use_speed | global | coins | 8 | Keep | 40 / 1.6 |
 | focus | type | gems | 1 | Keep | 25 / 1 |
 | respawn | global | coins | 7 | Reset | 30 / 1.7 |
 | loot | type | coins | 15 | Reset | 20 / 1.35 |
-| gem_chance | global | gems | 12 | Reset | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500, 600, 700] |
+| gem_chance | global | gems | 12 | Keep (Change 11) | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500, 600, 700] |
 | coin_amount | type | coins | 20 | Reset | 30 / 1.4 |
-| gem_amount | global | gems | 10 | Reset | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500] |
+| gem_amount | global | gems | 10 | Keep (Change 11) | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500] |
 | reveal_stats | type | coins | 1 | Keep | 25 / 1 |
 | reveal_drops | type | coins | 1 | Keep | 40 / 1 |
 | supply_drop | type | coins | 15 | Reset | 20 / 1.35 |
 | group_xp | type | coins | 20 | Reset | 25 / 1.4 |
-| boss_gem_chance | global | gems | 8 | Reset | [100, 150, 225, 325, 450, 600, 800, 1000] |
-| boss_gem_amount | global | gems | 10 | Reset | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500] (+1 boss gem per level, added after the boss ×3; Change 10) |
-| spawn_amount | normal_type | gems | 3 | Reset | [150, 250, 400] |
-| spawn_cooldown | normal_type | gems | 5 | Reset | [100, 175, 275, 400, 550] |
+| boss_gem_chance | global | gems | 8 | Keep (Change 11) | [100, 150, 225, 325, 450, 600, 800, 1000] |
+| boss_gem_amount | global | gems | 10 | Keep (Change 11) | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500] (+1 boss gem per level, added after the boss ×3; Change 10) |
+| spawn_amount | normal_type | gems | 3 | Keep (Change 11) | [75, 125, 200] (Change 11; 400 total on Winter I, × 1 + 0.25 × (stage − 1)) |
+| spawn_cooldown | normal_type | gems | 5 | Keep (Change 11) | [50, 100, 150, 225, 300] (Change 11; 825 total on Winter I, × 1 + 0.25 × (stage − 1)) |
 | movement | global | coins | 10 | Reset | 40 / 1.65 |
 | gear_merge_speed | type | gems | 9 | Keep | 30 / 1.7 |
 | skill_slots | global | gems | 2 | Keep | [100, 300] |
@@ -88,7 +90,7 @@ Prices are data: `prices` list, `step` (linear: base + step × level), `sequence
 |---|---|
 | gear_slots | 5 + level gems (each slot costs 1 more than the previous one) |
 | supply_slots | 4 + 4 × level gems |
-| merge_supplies / merge_speed / auto_use | 10 / 12 × 1.7^n / 6 × 2.6^n gems |
+| auto_use | 6 × 2.6^n gems (merge_supplies and merge_speed removed in Change 11) |
 | gem_chance, gem_amount, boss_gem_amount | [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, (390, 470)] gems |
 | boss_gem_chance | [50, 80, 120, 170, 230, 310, 410, 530] gems |
 | skill_slots / skill_auto_0,1,2 | [50, 160] / 38, 75, 150 gems |

@@ -112,3 +112,8 @@ Reset cost at the gate (about 90 min of ordinary play): level ~22, every item an
 Runtime counts: 33 opportunities, 33 cards, 17 sets.
 
 **Change 7 note (shared weapons):** collection contracts ask for the outfit each type actually drops — tier 2 for the Summer I types (collection_o2) and tier 4 for the Spring I types (collection_o3). Arsenal paths count *distinct weapon items* (e.g. Wood Sword, Wood Axe, Stone Sword) because weapons are now two shared families; outfits still count by family. All other requirements and every card are unchanged.
+
+## Change 11
+
+- **Retention:** every upgrade bought with Gems is kept by Prestige (all categories), plus coin upgrades marked Keep in the Upgrade Catalog. Supply mastery is kept; supply stock resets with the inventory. Unspent Gems and coins reset as before.
+- **Followed collection contracts:** the HUD tracker shows "Step n/3 · Collect items · x/y" and then "All found · hand them in from Prestige", with no item names, icons or descriptions. The Prestige panel's progress line names each required outfit with its count ("Blue Cap Outfit 20/20 · …").

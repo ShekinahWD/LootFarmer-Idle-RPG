@@ -108,3 +108,17 @@ Winter I has no skills or group assistance. Winter II introduces individual prox
 | Expert (XP per second, XP upgrades first, potion-backed attempts, knows the map) | 9.7–18.5 min | 144.7 min (1 of 3) | 5–13 |
 
 The fastest measured first-run route to a possible prestige is 76.3 minutes (76.1 in an earlier bot version). Runs that never reached the gate failed on routing to the far-corner boss, not on combat (see Change 6 validation). A perfect human route was not measured; bot models are approximations (no manual dodging exists in combat, so the main human advantage is better upgrade and boss timing). Daily mission and later-stage pacing (Summer II onward) were not re-measured beyond the ceiling check.
+
+## Change 11 supplies (supersedes the potion and Coin Tonic tier text above)
+
+Five supplies, one identity each; the tier copies and supply evolution are retired (old tier ids fold into the base supply on load). Value = base + 1% of base per mastery level (^100 doubles it). Mastery = copies found − 1, capped at ^100, kept by Prestige, never lowered by use; purchases add stock only. Milestones ^25/^50/^100 multiply duration by 1.2/1.4/1.6 and the potion cooldown by 0.9/0.85/0.8.
+
+| Supply | Stat | Base | Duration / cooldown | First stage | Roll weight | Shop |
+|---|---|---|---|---|---|---|
+| Health Potion | heal share of max HP | 20% | 5 s cooldown | 1 | 8 | 10 coins |
+| Coin Tonic | coin bonus | +25% | 30 s | 1 | 2 | 30 coins |
+| Guard Tonic | Defense | +20 (−16.7% damage) | 20 s | 2 | 2.5 | no |
+| Recovery Salve | max HP per second | 1.5% | 10 s | 3 | 2 | no |
+| Wisdom Tonic | kill XP | +25% | 60 s | 4 | 1.5 | no |
+
+The per-kill supply roll is unchanged (5% normal, 15% boss, + Supply Drop upgrades and the Supply Fortune card); a successful roll picks among the supplies its map allows, by weight. Winter I keeps the 80/20 Potion/Coin Tonic split; from Summer II on the shares are Potion 50%, Coin Tonic 12.5%, Guard 15.6%, Recovery 12.5%, Wisdom 9.4%. The potion now heals a share of max HP instead of a flat 25 HP, so it stays useful without tiers. Recovery heals 15% (^0) to 48% (^100, 16 s) of max HP over its duration but cannot be started above 90% HP. No damage supply was added: the Focus skill already owns that role. Untested on a device and not balance-simulated; tune weights and values in catalog.json through tools/change11_catalog.py.

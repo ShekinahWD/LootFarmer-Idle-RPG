@@ -1,4 +1,7 @@
 extends Node
+## Core HUD and presentation contracts (kept, repaired in Change 11): map/dock layout, enemy-panel
+## purchases, supply use from a slot, tap-to-collect ground loot, joystick, walk/death/attack frames,
+## camera zoom bounds and follow, ground-item size and the enemy HP bar.
 var checks:=0
 var failures:=0
 var game
@@ -15,6 +18,7 @@ func run() -> void:
     add_child(game)
     game.sim.set_physics_process(false)
     game.sim.new_profile()
+    game.sim.state.tutorial.mode="none";game.sim.suspended=false # fixture: onboarding chooser answered
     await get_tree().process_frame
     await get_tree().process_frame
     check(game.get_node("Safe/Layout/Map").size.y>=400,"Map keeps playable area")
@@ -27,6 +31,7 @@ func run() -> void:
     game.enemy_tab=1
     game.sim.state.coins=1000
     game.sim.state.gems=1000
+    game.sim.campaign.discover_spot(1,2) # fixture: the type has been found (enemy panels need it)
     game.sim.touch()
     game._open("enemy")
     var bought:=false
@@ -36,13 +41,14 @@ func run() -> void:
             bought=true
             break
     check(bought and game.sim.level("loot",1)==1,"Enemy panel buys the correct group's upgrade")
-    check(not game.get_node("Safe/Layout/Dock/Content/Navigation").has_node("Upgrades"),"Bottom upgrades button is removed")
+    var nav: Node=game.get_node("Safe/Layout/Dock/Content/Navigation")
+    check(["World","Missions","Prestige","Upgrades","Settings"].all(func(n):return nav.has_node(n)),"Navigation: World, Missions, Prestige, Upgrades, Settings")
     game.sim.add_item("potion",4)
     game._select_slot(1,0)
     game.sim.state.player.hp=50
     var used:=false
-    for row in game.rows.find_children("*","Button",true,false):
-        if row.text==tr("USE"):
+    for row in game.actions.find_children("*","Button",true,false)+game.actions.get_children():
+        if row is Button and row.text==tr("USE"):
             row.pressed.emit()
             used=true
             break
@@ -133,7 +139,8 @@ func run() -> void:
     check(not actor.get_node("Visual/Attack").visible,"Attack recovers without looping")
     actor.actor.id="enemy_test"
     actor._process(0)
-    check(actor.hp_fill.bg_color.r>actor.hp_fill.bg_color.g,"Enemy health is red")
+    var fill=actor.get_node("HP").get_theme_stylebox("fill")
+    check(fill is StyleBoxTexture and fill.modulate_color.r>fill.modulate_color.g,"Enemy health is red")
     print("UI_PROBE checks=%d failures=%d" % [checks,failures])
     actor.queue_free()
     game.queue_free()

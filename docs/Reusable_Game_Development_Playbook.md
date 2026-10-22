@@ -8486,3 +8486,24 @@ Hand estimates of time-to-kill against survival count basic hits only. Boss skil
 
 When many identities each contribute a passive share, the collection outweighs the worn item. Lower the passive share for broad collections (48 outfits), keep it for narrow ones (14 weapons), and put new power on the worn item as milestones that never stack across the collection. Prefer percentage effects (Defense through an existing reduction formula, regeneration as a share of max HP) and scale them by the item's tier, so they stay relevant late and cannot trivialise early content.
 
+# 141. Device playtest correction lessons (LootFarmer Change 11)
+
+## 141.1 Consumables: charges and mastery are separate state
+
+When a consumable can improve, keep **stock** (charges spent by use) and **mastery** (permanent growth) in different fields. If mastery is derived from stock, or growth consumes copies the way gear merges do, using an item destroys progress and players hoard instead of using it. Count lifetime copies *found*, derive mastery from that count with a cap, and never lower it on use. Decide explicitly whether bought copies count: if they do, coins buy permanent power. Keep one inventory identity per consumable, so improvement never creates tier ids. Supply capacity can then equal the number of identities exactly.
+
+## 141.2 Flavour that describes an outcome must read the final outcome
+
+Speech, toasts or effects that refer to a result ("my outfit!") must be emitted after every roll that decides the result, from the actual outcome, with one deterministic pick when several qualify. A line attached to an earlier event (the first hit) reads as a promise and turns into a lie whenever the roll fails. Do not re-roll or grant extra rewards to justify a line.
+
+## 141.3 Transient view state needs one reset funnel
+
+A filter, highlight or selection that should last only while a panel is open must be cleared by one function that every close path calls: the close button, the toggle, Back, opening another panel and programmatic closes. Test every path, because each missing one leaves the main view looking empty or broken. Keep durable preferences (such as sort order) in a separate field so the reset cannot erase them.
+
+## 141.4 Derive retention from the property that defines it
+
+If the rule is "everything bought with premium currency survives a reset", enforce it from the currency in code, not from a per-row flag copied into each upgrade. Flags drift: six premium upgrades were silently reset while the reset screen promised the opposite. Keep the flag only as a mirror, validate the mirror statically, and after the reset re-apply anything a kept level changes in the fresh world (for example, spawn extra actors immediately).
+
+## 141.5 Headless probes: a script error is a hang, so run them through a watchdog
+
+In Godot, a runtime script error inside a probe's async `run()` aborts the coroutine, so `quit()` is never reached and a headless run waits forever. Old suites then look "slow" or "timed out" instead of failing. Run probes through a runner that applies a hard timeout per probe, counts any `SCRIPT ERROR` line as a failure (playbook 60) and requires the probe's own summary line. When repairing old probes, also check how the harness advances time: a simulation that clamps each step (here to 0.1 s) turns `step(9)` into a tenth of a second, so long spans need a stepping helper. Finally, an assertion that keeps failing can be the only remaining record of a lost rule (here, ground-loot expiry), so read the current contract before deleting it.

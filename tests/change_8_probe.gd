@@ -228,7 +228,7 @@ func price_checks() -> void:
             last=c;sim.state.upgrades["map_detail:%d" % st]=r+1
     check(ok,"Map Details: every purchase costs more than the one before")
     check(sim.upgrade_cost("collect_batch",0)>=4*sim.upgrade_cost("collect_range",0) and float(sim.catalog.upgrades.collect_batch.growth)>=3.0,"Auto-Collect Batch is premium with steep growth")
-    check(sim.upgrade_cost("merge_supplies")==10 and sim.upgrade_cost("skill_slots")==50,"Gem first prices roughly halved")
+    check(sim.upgrade_cost("auto_use")==6 and sim.upgrade_cost("skill_slots")==50,"Gem first prices roughly halved")
 
 ## 4.2 Followed opportunity tracker: name, icon, step and Ready.
 func follow_checks() -> void:

@@ -1,4 +1,7 @@
 extends Node
+## Dock inventory interaction and layout (kept, repaired in Change 11): a supply tap uses one charge,
+## the cooldown shows on the slot, a hold opens details, a scroll does neither, and square slots fit
+## portrait screens with a full equipment and supply row.
 var checks:=0
 var failures:=0
 func check(ok: bool,label_: String) -> void:
@@ -19,6 +22,7 @@ func run() -> void:
     add_child(game)
     game.sim.set_physics_process(false)
     game.sim.new_profile()
+    game.sim.state.tutorial.mode="none";game.sim.suspended=false # fixture: onboarding chooser answered
     game.sim.add_item("potion",5)
     game.sim.state.player.hp=30
     game._refresh_slots()
@@ -44,7 +48,7 @@ func run() -> void:
     touch(slot,false,Vector2(40,80))
     check(game.sim.quantity("potion")==4 and not game.sheet.visible,"Scrolling gesture neither consumes nor opens details")
     for i in range(9):game.sim.state.gear.append("")
-    for i in range(5):game.sim.state.supplies.append("")
+    for i in range(4):game.sim.state.supplies.append("") # fixture: all five supply slots (Change 11)
     game._refresh_slots()
     for viewport_size in [Vector2i(720,1280),Vector2i(600,1100),Vector2i(720,1600)]:
         get_tree().root.size=viewport_size

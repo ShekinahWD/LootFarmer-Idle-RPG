@@ -1,4 +1,7 @@
 extends Node
+## Targeting and aim contracts (kept, repaired in Change 11): lock persistence, manual selection,
+## chasing a selected enemy, release-to-select aiming, pinch cancel, movement clearing targets and the
+## half-second idle before acquisition.
 var checks:=0
 var failures:=0
 func check(ok: bool,label_: String) -> void:
@@ -6,6 +9,12 @@ func check(ok: bool,label_: String) -> void:
     if not ok:
         failures+=1
         push_error(label_)
+## sim.step() clamps each call to 0.1 s, so longer spans run as 0.1 s steps.
+func advance(sim,seconds: float) -> void:
+    var left:=seconds
+    while left>.0001:
+        sim.step(minf(.1,left))
+        left-=.1
 func _ready() -> void:
     call_deferred("run")
 func run() -> void:
@@ -14,6 +23,7 @@ func run() -> void:
     var sim=game.sim
     sim.set_physics_process(false)
     sim.new_profile()
+    sim.state.tutorial.mode="none";sim.suspended=false # fixture: onboarding chooser answered (Change 11)
     await get_tree().process_frame
     await get_tree().process_frame
     for enemy in sim.state.enemies:enemy.hp=0
@@ -33,6 +43,7 @@ func run() -> void:
     check(sim.select_target(second.id),"Manual target selection succeeds")
     check(sim._combat_target().id==second.id and sim.state.player.windup==0,"Manual selection cancels pending old strike")
     second.x=sim.state.player.x+200
+    sim.campaign.reveal_circle(sim.position_of(second),80) # fixture: explored ground (fog, Change 8: only seen enemies are targets)
     var before: float=sim.state.player.x
     sim.step(.1)
     check(sim.state.player.x>before and sim.locked_target==second.id,"Chases selected enemy beyond acquisition radius")
@@ -51,7 +62,8 @@ func run() -> void:
     surface.end_pointer(0,end)
     check(sim.manual_target==first.id and not surface.aiming,"Release selects and removes aim line")
     game.world._process(0)
-    check(game.world.views[first.id].get_node("Marker").text=="▼" and game.world.views[first.id].get_node("Marker").visible,"Manual target has visible arrow")
+    var marker: TextureRect=game.world.views[first.id].get_node("Marker")
+    check(marker.visible and marker.texture!=null and marker.modulate==Color(1,.75,.2),"Manual target shows its gold marker")
     surface.begin_pointer(0,start)
     surface.move_pointer(0,start+Vector2(80,0))
     surface.begin_pointer(1,start+Vector2(0,80))
@@ -60,6 +72,7 @@ func run() -> void:
     sim._kill(sim.state.player)
     check(sim.locked_target=="" and sim.manual_target=="","Player death clears target")
     sim.new_profile()
+    sim.state.tutorial.mode="none";sim.suspended=false # fixture: onboarding chooser answered (Change 11)
     for enemy in sim.state.enemies:
         enemy.hp=0
         enemy.respawn=99
@@ -82,22 +95,23 @@ func run() -> void:
     check(sim.state.player.windup==0 and sim.state.player.target=="","Movement cancels pending strike")
     check(sim.state.player.cooldown>.7,"Movement preserves weapon cooldown")
     sim.movement=Vector2.ZERO
-    sim.step(.49)
+    advance(sim,.49)
     check(sim.locked_target=="","No acquisition before half-second idle")
     sim.step(.011)
     check(sim.locked_target==nearby.id,"After half-second acquire nearby enemy instead of returning to old target")
     check(sim.state.player.windup==0,"Acquisition does not bypass remaining cooldown")
-    sim.step(.30)
+    advance(sim,.30)
     check(sim.state.player.windup>0,"Attack begins when cooldown permits")
     sim.movement=Vector2.RIGHT
     sim.step(.01)
     check(sim.locked_target=="","Movement also clears automatically acquired target")
     sim.new_profile()
+    sim.state.tutorial.mode="none";sim.suspended=false # fixture: onboarding chooser answered (Change 11)
     sim.add_item("wood_sword",2)
     var base: float=sim.normal("wood_sword").damage
-    var increment: float=sim.catalog.items.wood_sword.normal.damage[1]
+    var increment: float=sim.merge_gain("wood_sword","damage") # explicit catalog merge_gain (Change 6+)
     sim.merge("wood_sword")
-    check(is_equal_approx(sim.normal("wood_sword").damage,base+3*increment),"Merge gives triple authored increment")
-    check(is_equal_approx(sim.stats().damage,5+(base+3*increment)*.3),"Stored weapon receives stronger merged contribution")
+    check(is_equal_approx(sim.normal("wood_sword").damage,base+increment),"A merge adds the authored merge gain")
+    check(is_equal_approx(sim.stats().damage,5+(base+increment)*float(sim.catalog.progression.stored_weapon_factor)),"Stored weapon receives the stronger merged contribution")
     print("TARGETING_PROBE checks=%d failures=%d" % [checks,failures])
     get_tree().quit(1 if failures else 0)

@@ -1,5 +1,5 @@
 {
-  "checks": 1250,
+  "checks": 1326,
   "failures": 0,
   "results": [
     {
@@ -23,7 +23,15 @@
       "pass": true
     },
     {
-      "check": "catalog capacity includes every tier",
+      "check": "equipment capacity is 70 and holds every reachable identity",
+      "pass": true
+    },
+    {
+      "check": "supply capacity equals the supply identities (Change 11: 1 + 4 = 5)",
+      "pass": true
+    },
+    {
+      "check": "boss Gem payout multiplier",
       "pass": true
     },
     {
@@ -51,99 +59,27 @@
       "pass": true
     },
     {
-      "check": "asset potion_tier_2 icon_path",
+      "check": "asset guard_tonic icon_path",
       "pass": true
     },
     {
-      "check": "successor potion_tier_2",
+      "check": "successor guard_tonic",
       "pass": true
     },
     {
-      "check": "asset potion_tier_3 icon_path",
+      "check": "asset recovery_salve icon_path",
       "pass": true
     },
     {
-      "check": "successor potion_tier_3",
+      "check": "successor recovery_salve",
       "pass": true
     },
     {
-      "check": "asset potion_tier_4 icon_path",
+      "check": "asset wisdom_tonic icon_path",
       "pass": true
     },
     {
-      "check": "successor potion_tier_4",
-      "pass": true
-    },
-    {
-      "check": "asset potion_tier_5 icon_path",
-      "pass": true
-    },
-    {
-      "check": "successor potion_tier_5",
-      "pass": true
-    },
-    {
-      "check": "asset potion_tier_6 icon_path",
-      "pass": true
-    },
-    {
-      "check": "successor potion_tier_6",
-      "pass": true
-    },
-    {
-      "check": "asset potion_tier_7 icon_path",
-      "pass": true
-    },
-    {
-      "check": "successor potion_tier_7",
-      "pass": true
-    },
-    {
-      "check": "asset coin_boost_tier_2 icon_path",
-      "pass": true
-    },
-    {
-      "check": "successor coin_boost_tier_2",
-      "pass": true
-    },
-    {
-      "check": "asset coin_boost_tier_3 icon_path",
-      "pass": true
-    },
-    {
-      "check": "successor coin_boost_tier_3",
-      "pass": true
-    },
-    {
-      "check": "asset coin_boost_tier_4 icon_path",
-      "pass": true
-    },
-    {
-      "check": "successor coin_boost_tier_4",
-      "pass": true
-    },
-    {
-      "check": "asset coin_boost_tier_5 icon_path",
-      "pass": true
-    },
-    {
-      "check": "successor coin_boost_tier_5",
-      "pass": true
-    },
-    {
-      "check": "asset coin_boost_tier_6 icon_path",
-      "pass": true
-    },
-    {
-      "check": "successor coin_boost_tier_6",
-      "pass": true
-    },
-    {
-      "check": "asset coin_boost_tier_7 icon_path",
-      "pass": true
-    },
-    {
-      "check": "successor coin_boost_tier_7",
+      "check": "successor wisdom_tonic",
       "pass": true
     },
     {
@@ -3451,6 +3387,14 @@
       "pass": true
     },
     {
+      "check": "translation FOLLOW_COLLECTION_SUBMIT",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_COLLECT",
+      "pass": true
+    },
+    {
       "check": "translation FOLLOW_CHALLENGE",
       "pass": true
     },
@@ -3531,11 +3475,23 @@
       "pass": true
     },
     {
+      "check": "translation UPGRADE_MAX",
+      "pass": true
+    },
+    {
       "check": "translation NOTHING_EQUIPPED_SHORT",
       "pass": true
     },
     {
       "check": "translation HUD_SUPPLIES",
+      "pass": true
+    },
+    {
+      "check": "translation FILTERS_ACTIVE",
+      "pass": true
+    },
+    {
+      "check": "translation FILTERS",
       "pass": true
     },
     {
@@ -3588,14 +3544,6 @@
     },
     {
       "check": "translation EMPTY_SLOT_HELP",
-      "pass": true
-    },
-    {
-      "check": "translation BUY_POTION",
-      "pass": true
-    },
-    {
-      "check": "translation BUY_BOOST",
       "pass": true
     },
     {
@@ -3655,18 +3603,6 @@
       "pass": true
     },
     {
-      "check": "translation POTION_ROLE",
-      "pass": true
-    },
-    {
-      "check": "translation COIN_TONIC_ROLE",
-      "pass": true
-    },
-    {
-      "check": "translation COIN_TONIC_ACTIVE",
-      "pass": true
-    },
-    {
       "check": "translation HEAL_ROLE",
       "pass": true
     },
@@ -3680,10 +3616,6 @@
     },
     {
       "check": "translation EQUIP_SKILL_SLOT",
-      "pass": true
-    },
-    {
-      "check": "translation AUTO_SLOT_STATUS",
       "pass": true
     },
     {
@@ -3711,11 +3643,99 @@
       "pass": true
     },
     {
+      "check": "translation ITEM_MERGE_ACTION",
+      "pass": true
+    },
+    {
+      "check": "translation COMPARE_ITEM",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_STATUS_ACTIVE",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_STATUS_COOLDOWN",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_STATUS_READY",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_STOCK",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_NEXT_COPY",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_MILESTONES_ACTIVE",
+      "pass": true
+    },
+    {
+      "check": "translation MILESTONES_COMPLETE",
+      "pass": true
+    },
+    {
+      "check": "translation MILESTONE_NEXT",
+      "pass": true
+    },
+    {
+      "check": "translation BUY_SUPPLY",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_MASTERY_EXPLAIN",
+      "pass": true
+    },
+    {
       "check": "translation USE",
       "pass": true
     },
     {
-      "check": "translation ITEM_MERGE_ACTION",
+      "check": "translation AUTO_SHORT",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_AMOUNT_HEAL",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_AMOUNT_COINS",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_AMOUNT_XP",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_AMOUNT_DEFENSE",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_AMOUNT_REGEN",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_EFFECT_HEAL",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_EFFECT_COINS",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_EFFECT_GUARD",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_EFFECT_RECOVERY",
+      "pass": true
+    },
+    {
+      "check": "translation SUPPLY_EFFECT_XP",
       "pass": true
     },
     {
@@ -3775,6 +3795,10 @@
       "pass": true
     },
     {
+      "check": "translation SUPPLY_MASTERY_LEVEL",
+      "pass": true
+    },
+    {
       "check": "translation STAT_REGEN_PCT",
       "pass": true
     },
@@ -3803,15 +3827,15 @@
       "pass": true
     },
     {
-      "check": "translation PANEL_INVENTORY",
+      "check": "translation SUPPLY_CAPACITY_NOTE",
       "pass": true
     },
     {
-      "check": "translation BUY_POTION",
+      "check": "translation SUPPLY_MASTERY_EXPLAIN",
       "pass": true
     },
     {
-      "check": "translation BUY_BOOST",
+      "check": "translation BUY_SUPPLY",
       "pass": true
     },
     {
@@ -3820,6 +3844,14 @@
     },
     {
       "check": "translation UPGRADE_MAX",
+      "pass": true
+    },
+    {
+      "check": "translation EQUIPMENT_SLOTS_MAXED",
+      "pass": true
+    },
+    {
+      "check": "translation EQUIPMENT_SLOTS_NEXT",
       "pass": true
     },
     {
@@ -3832,6 +3864,14 @@
     },
     {
       "check": "translation UPGRADE_TRANSITION",
+      "pass": true
+    },
+    {
+      "check": "translation UPGRADE_MAXED_VALUE",
+      "pass": true
+    },
+    {
+      "check": "translation BOSS_GEMS_PER_DROP",
       "pass": true
     },
     {
@@ -3943,6 +3983,10 @@
       "pass": true
     },
     {
+      "check": "translation FARMING_GUIDE_OPEN",
+      "pass": true
+    },
+    {
       "check": "translation SECTION_TRAVEL",
       "pass": true
     },
@@ -3955,6 +3999,38 @@
       "pass": true
     },
     {
+      "check": "translation TELEPORT_TITLE",
+      "pass": true
+    },
+    {
+      "check": "translation TELEPORT_HELP",
+      "pass": true
+    },
+    {
+      "check": "translation TELEPORT_NONE",
+      "pass": true
+    },
+    {
+      "check": "translation TELEPORT_BACK",
+      "pass": true
+    },
+    {
+      "check": "translation TELEPORT_GO",
+      "pass": true
+    },
+    {
+      "check": "translation TELEPORT_PICK",
+      "pass": true
+    },
+    {
+      "check": "translation TELEPORT_DESTINATION",
+      "pass": true
+    },
+    {
+      "check": "translation TELEPORT_CHOOSE",
+      "pass": true
+    },
+    {
       "check": "translation CAMP_NAME",
       "pass": true
     },
@@ -3964,6 +4040,10 @@
     },
     {
       "check": "translation CAMP_SELECT",
+      "pass": true
+    },
+    {
+      "check": "translation CAMP_TELEPORT",
       "pass": true
     },
     {
@@ -4095,11 +4175,7 @@
       "pass": true
     },
     {
-      "check": "translation STAT_COIN_BONUS",
-      "pass": true
-    },
-    {
-      "check": "translation STATS_TONIC_VALUE",
+      "check": "translation STATS_SUPPLY_VALUE",
       "pass": true
     },
     {
@@ -4107,7 +4183,7 @@
       "pass": true
     },
     {
-      "check": "translation STAT_SOURCES",
+      "check": "translation STAT_SOURCES_OTHER",
       "pass": true
     },
     {
@@ -4124,6 +4200,38 @@
     },
     {
       "check": "translation STAT_CAPS_NOTE",
+      "pass": true
+    },
+    {
+      "check": "translation BREAKDOWN_SUBTOTAL",
+      "pass": true
+    },
+    {
+      "check": "translation BREAKDOWN_PRESTIGE",
+      "pass": true
+    },
+    {
+      "check": "translation BREAKDOWN_TOTAL",
+      "pass": true
+    },
+    {
+      "check": "translation SOURCE_LEVEL_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "translation SOURCE_STORED_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "translation SOURCE_EQUIPPED_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "translation PER_HIT_MILESTONES",
+      "pass": true
+    },
+    {
+      "check": "translation PER_HIT_FOCUS",
       "pass": true
     },
     {
@@ -4195,6 +4303,14 @@
       "pass": true
     },
     {
+      "check": "translation PANEL_FILTERS",
+      "pass": true
+    },
+    {
+      "check": "translation FILTERS_HINT",
+      "pass": true
+    },
+    {
       "check": "translation EQUIPPED_PINNED",
       "pass": true
     },
@@ -4228,6 +4344,158 @@
     },
     {
       "check": "translation OFFLINE_CLAIMED",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_LEVEL",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_CAPPED",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_XP",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_PER_LEVEL",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_GAIN",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_FROM_LEVELS",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_GAIN",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_NEXT_HP",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_NEXT_VALUE",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_NEXT_DAMAGE",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_NEXT_VALUE",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_GROWTH",
+      "pass": true
+    },
+    {
+      "check": "translation LEVEL_PANEL_PRESTIGE_NOTE",
+      "pass": true
+    },
+    {
+      "check": "translation STATS_OPEN",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_GUIDE_INTRO",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_YOU_ARE_HERE",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_READY",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_OPEN_MAP",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_NEED_DETAIL",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_NEED_RESEARCH",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_LOCKED",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_GUIDE_UNREACHED",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_MAP_TITLE",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_MAP_HINT",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_BACK",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_UNKNOWN_TYPE",
+      "pass": true
+    },
+    {
+      "check": "translation ENEMY_LEVEL",
+      "pass": true
+    },
+    {
+      "check": "translation BOSS_LABEL",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_REWARDS",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_ITEM",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_SUPPLIES",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_UNDISCOVERED_SPOT",
+      "pass": true
+    },
+    {
+      "check": "translation BOSS_LABEL",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_ITEM",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_ITEM",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_DETAILS",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_AT_CAMP",
+      "pass": true
+    },
+    {
+      "check": "translation FARMING_LOCATION",
       "pass": true
     },
     {
@@ -4279,19 +4547,15 @@
       "pass": true
     },
     {
-      "check": "translation NO_READY_PRESTIGE",
-      "pass": true
-    },
-    {
-      "check": "translation NO_CARD_AVAILABLE",
-      "pass": true
-    },
-    {
       "check": "translation PRESTIGE_READY_COUNT",
       "pass": true
     },
     {
       "check": "translation PRESTIGE_BATCH",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_ACTION_LOCKED",
       "pass": true
     },
     {
@@ -4312,6 +4576,22 @@
     },
     {
       "check": "translation SUBMIT_CONTRACT",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_REQUIREMENTS",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_REQ_BOSS",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_REQ_READY",
+      "pass": true
+    },
+    {
+      "check": "translation NO_CARD_AVAILABLE",
       "pass": true
     },
     {
@@ -4352,14 +4632,6 @@
     },
     {
       "check": "translation PRESTIGE_PICK_CARD",
-      "pass": true
-    },
-    {
-      "check": "translation NAV_PRESTIGE",
-      "pass": true
-    },
-    {
-      "check": "translation NAV_PRESTIGE_LOCKED",
       "pass": true
     },
     {
@@ -4404,14 +4676,6 @@
     },
     {
       "check": "upgrade translation merge_gear",
-      "pass": true
-    },
-    {
-      "check": "upgrade translation merge_supplies",
-      "pass": true
-    },
-    {
-      "check": "upgrade translation merge_speed",
       "pass": true
     },
     {
@@ -4955,6 +5219,38 @@
       "pass": true
     },
     {
+      "check": "five supplies, no tiers or evolution",
+      "pass": true
+    },
+    {
+      "check": "supply mastery doubles the base at ^100",
+      "pass": true
+    },
+    {
+      "check": "every supply drops from some stage",
+      "pass": true
+    },
+    {
+      "check": "retired supply tiers fold into their base supply",
+      "pass": true
+    },
+    {
+      "check": "supply auto-merge upgrades removed",
+      "pass": true
+    },
+    {
+      "check": "every gem upgrade is kept by Prestige",
+      "pass": true
+    },
+    {
+      "check": "spawn prices (Change 11): amount 75/125/200, cooldown 50/100/150/225/300",
+      "pass": true
+    },
+    {
+      "check": "every upgrade has one currency",
+      "pass": true
+    },
+    {
       "check": "outfit growth: ^500 cap, 1% per copy past ^100",
       "pass": true
     },
@@ -5000,6 +5296,14 @@
     },
     {
       "check": "tools/change9_catalog.py --check",
+      "pass": true
+    },
+    {
+      "check": "tools/change10_catalog.py --check",
+      "pass": true
+    },
+    {
+      "check": "tools/change11_catalog.py --check",
       "pass": true
     }
   ]

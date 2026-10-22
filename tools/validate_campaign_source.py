@@ -53,6 +53,7 @@ check('every supply drops from some stage',all(1<=i['supply']['min_stage']<=8 an
 check('retired supply tiers fold into their base supply',all(c['legacy_items'].get(f'{b}_tier_{t}')==b for b in ['potion','coin_boost'] for t in range(2,8)))
 check('supply auto-merge upgrades removed',not any(k in c['upgrades'] for k in ['merge_supplies','merge_speed']))
 check('every gem upgrade is kept by Prestige',all(u['keep'] for u in c['upgrades'].values() if u['currency']=='gems'))
+check('spawn prices (Change 11): amount 75/125/200, cooldown 50/100/150/225/300',c['upgrades']['spawn_amount']['prices']==[75,125,200] and c['upgrades']['spawn_cooldown']['prices']==[50,100,150,225,300])
 check('every upgrade has one currency',all(u['currency'] in ('coins','gems') for u in c['upgrades'].values()))
 # Change 9: outfit growth, milestones, passive shares and the Spring II correction.
 m=c['progression']['merge']

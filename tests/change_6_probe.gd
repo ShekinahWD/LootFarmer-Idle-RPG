@@ -115,7 +115,7 @@ func rest_checks() -> void:
     sim.state.player.quiet=10;sim.state.player.hp=10;var before: float=sim.state.player.hp
     sim.state.player.x=camp[0];sim.state.player.y=camp[1];sim.step(.1);sim.step(.1)
     check(sim.state.player.hp>before,"Out-of-combat recovery applies in the real step")
-    check(float(sim.catalog.progression.potion_cooldown)>=4.0,"Potions cannot be chained every two seconds")
+    check(sim.supply_cooldown("potion")>=4.0,"Potions cannot be chained every two seconds")
 
 func save_checks() -> void:
     fresh()

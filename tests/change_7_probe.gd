@@ -194,7 +194,7 @@ func mission_checks() -> void:
 func tonic_checks() -> void:
     fresh();sim.add_item("coin_boost",2)
     game.selected="coin_boost";game.selected_slot=sim.state.supplies.find("coin_boost");game._open("item");await frames(3)
-    var role:=tr("COIN_TONIC_ROLE") % [game.fmt(sim.normal("coin_boost").coin_bonus*100),game.fmt_value(sim.coin_boost_duration())]
+    var role: String=game._supply_effect_text("coin_boost") # Change 11: the supply panel's effect line
     check(_find_label(game.rows,role)!=null and role.contains("30"),"Description states effect and total duration")
     check(sim.use_item("coin_boost") and is_equal_approx(sim.state.boost_time,30.0),"Real duration unchanged (30 s)")
     for i in range(50):sim.step(.1)
