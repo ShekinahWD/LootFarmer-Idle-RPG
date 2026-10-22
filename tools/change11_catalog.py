@@ -36,12 +36,17 @@ MASTERY = {
 }
 # id: (name key, icon, stat, base, effect, duration s, cooldown s, use HP, auto HP, first stage, weight, price)
 SUPPLIES = {
-    'potion': ('ITEM_POTION', 212, 'heal_pct', 0.2, 'heal', 0, 5, 0.8, 0.8, 1, 8, 10),
+    # Change 13: 12 s potion cooldown (was 5) with a 10 s floor (COOLDOWN_FLOORS), see change13_catalog.py.
+    'potion': ('ITEM_POTION', 212, 'heal_pct', 0.2, 'heal', 0, 12, 0.8, 0.8, 1, 8, 10),
     'coin_boost': ('ITEM_COIN_BOOST', 68, 'coin_bonus', 0.25, 'coins', 30, 0, 1, 1, 1, 2, 30),
     'guard_tonic': ('ITEM_GUARD_TONIC', 67, 'defense', 20, 'guard', 20, 0, 1, 1, 2, 2.5, 0),
     'recovery_salve': ('ITEM_RECOVERY_SALVE', 71, 'regen_pct', 0.015, 'recovery', 10, 0, 0.9, 0.6, 3, 2, 0),
     'wisdom_tonic': ('ITEM_WISDOM_TONIC', 70, 'xp_bonus', 0.25, 'xp', 60, 0, 1, 1, 4, 1.5, 0),
 }
+
+
+# Change 13: the shortest a mastered cooldown may become (seconds).
+COOLDOWN_FLOORS = {'potion': 10}
 
 
 def supply_item(ident, spec):
@@ -53,7 +58,7 @@ def supply_item(ident, spec):
         'next': '', 'icon_path': ART % icon, 'art_id': ident, 'family': ident,
         'supply': {'effect': effect, 'stat': stat, 'duration': duration, 'cooldown': cooldown,
                    'use_hp': use_hp, 'auto_hp': auto_hp, 'min_stage': stage, 'drop_weight': weight,
-                   'price': price},
+                   'price': price, **({'cooldown_floor': COOLDOWN_FLOORS[ident]} if ident in COOLDOWN_FLOORS else {})},
     }
 
 

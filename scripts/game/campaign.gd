@@ -185,6 +185,7 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
         var reason=travel_reason(st,camp)
         if reason!="":return sim.fail(reason)
         if st!=int(sim.state.stage):
+            sim.clear_helpers()
             sim.state.stage_worlds[str(sim.state.stage)]={"enemies":sim.state.enemies.duplicate(true),"pickups":sim.state.pickups.duplicate(true)}
             sim.state.stage=st;sim.state.spawn=camp
             configure_stage()
@@ -277,6 +278,7 @@ func identify_sites() -> void:
         for v in variants(g):
             if not spot_discovered(g,v) and cell_known(spot(g,v)):discover_spot(g,v)
     for actor in sim.state.enemies:
+        if sim.is_helper(actor):continue
         if float(actor.hp)>0 and not spot_discovered(int(actor.group),int(actor.get("variant",2))) and cell_known(sim.position_of(actor)):
             discover_spot(int(actor.group),int(actor.get("variant",2)))
 func reveal() -> void:
@@ -303,6 +305,8 @@ func upgrade_cost(id: String,g: int) -> int:
     elif d.scope=="stage":st=g
     elif d.scope=="camp":st=g/10
     var factor=pow(2,st-1) if d.currency=="coins" else 1+.25*(st-1)
+    # Change 13: a flat price is the same on every map (Auto Evolution: 2,000 gems per type).
+    if d.get("flat",false):factor=1.0
     var price=float(d.base)*pow(float(d.growth),n)
     if d.has("prices"):price=float(d.prices[mini(n,d.prices.size()-1)])
     # Linear schedules: every purchase costs `step` more than the one before (slots).
@@ -347,17 +351,25 @@ func cast(slot: int) -> bool:
     var key: String=sim.catalog.items[id].skill
     if float(sim.state.skill_cooldowns.get(key,0))>0:return false
     if not apply_skill(sim.state.player,key,float(sim.normal(id).power)*(1+bonus("skill"))):return false
-    sim.state.skill_cooldowns[key]=maxf(2,sim.catalog.skills[key].cooldown*(1-.05*sim.level("cooldown_"+key)))
+    sim.state.skill_cooldowns[key]=sim.player_upgrade_value("cooldown_"+key)
     progress("cast",key,1);sim.touch();return true
-## Heal is cast only below this share of maximum HP (player and enemies alike).
+## Heal is cast only below this share of maximum HP (player and enemies alike), except by the final
+## boss, which keeps Heal for its second half and then puts it first (Change 13, heal_threshold).
 const HEAL_BELOW_HP:=.8
+const SELF_SKILLS:=["heal","focus"]
+func heal_threshold(a: Dictionary) -> float:
+    if a.id!="player" and bool(sim.catalog.groups[int(a.group)].final):return float(sim.abilities.final_heal_below)
+    return HEAL_BELOW_HP
+## Reach of an attack skill from its caster to its target (Frost is centred on the caster).
+func skill_range(key: String) -> float:
+    return 96.0 if key=="frost" else (80.0 if key=="strike" else 120.0)
 func actor_max_hp(a: Dictionary) -> float:
     return sim.stats().hp if a.id=="player" else float(sim.enemy_definition(int(a.group),int(a.get("variant",2))).hp)
 ## Whether a self-cast skill can do anything now (Change 12). A boss checks this before telegraphing,
 ## so its Heal effect, sound and number only ever accompany HP actually restored.
 func skill_ready(a: Dictionary,key: String) -> bool:
     if a.hp<=0:return false
-    if key=="heal":return a.hp<actor_max_hp(a)*HEAL_BELOW_HP
+    if key=="heal":return a.hp<actor_max_hp(a)*heal_threshold(a)
     if key=="focus":return in_combat()
     return true
 func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF) -> bool:
@@ -367,7 +379,8 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
     if key=="heal":
         if not skill_ready(a,key):return false
         var maxhp:=actor_max_hp(a)
-        var gain=minf(minf(power,maxhp*float(sim.catalog.skills.heal.player_hp_cap)) if player else maxhp*float(sim.catalog.skills.heal.enemy_hp_fraction),maxhp-a.hp)
+        var fraction: float=float(sim.abilities.final_heal_fraction) if not player and bool(sim.catalog.groups[int(a.group)].final) else float(sim.catalog.skills.heal.enemy_hp_fraction)
+        var gain=minf(minf(power,maxhp*float(sim.catalog.skills.heal.player_hp_cap)) if player else maxhp*fraction,maxhp-a.hp)
         if gain<=0:return false
         a.hp+=gain;sim.feedback.emit(a.id,gain,true)
     elif key=="focus":
@@ -375,8 +388,7 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
         a.focus_time=5.0;a.focus_power=power
     else:
         if target.is_empty() or target.hp<=0:return false
-        var range_limit=96.0 if key=="frost" else (80.0 if key=="strike" else 120.0)
-        if pos.distance_to(sim.position_of(target))>range_limit:return false
+        if pos.distance_to(sim.position_of(target))>skill_range(key):return false
         var center: Vector2=pos if key=="frost" else (sim.position_of(target) if aim==Vector2.INF else aim)
         var targets: Array=sim.state.enemies if player else [sim.state.player]
         var base: float=sim.stats().damage if player else sim.enemy_definition(a.group,a.variant).damage
@@ -406,9 +418,21 @@ func step(dt: float) -> void:
             sim.state.final_discovered=true;sim.touch();SaveService.save_now();sim.event.emit("FINAL_DISCOVERED")
         if d.final and sim.state.keys.size()<13:
             a.aggro=false;a.windup=0;continue
-        if not a.aggro:a.telegraph=false
+        # Change 13: summoners (EnemyAbilityRules) call helpers on their own timer; helpers never summon.
+        var rule: SummonRule=null if sim.is_helper(a) else sim.abilities.summon_rule(str(d.id))
+        if not a.aggro:
+            a.telegraph=false
+            a.summon_cast=0.0
+            if rule!=null:a.summon_cd=rule.first_delay
         a.skill_timer=maxf(0,float(a.get("skill_timer",0))-dt)
-        if a.aggro and not d.skills.is_empty() and a.skill_timer<=0:
+        var cds: Dictionary=a.get("skill_cds",{})
+        for key in cds:cds[key]=maxf(0,float(cds[key])-dt)
+        if not a.aggro:continue
+        if rule!=null and _summon_step(a,d,rule,dt):continue
+        if d.final:
+            _final_turn(a)
+            continue
+        if not d.skills.is_empty() and a.skill_timer<=0:
             var index=int(a.get("skill_index",0))%d.skills.size()
             var key: String=d.skills[index]
             # Change 12: a self-cast skill with nothing to do (Heal at 80%+ HP, Focus out of combat)
@@ -418,20 +442,96 @@ func step(dt: float) -> void:
                 a.skill_index=index+1;a.skill_timer=1.0
                 continue
             if d.boss and not a.get("telegraph",false):
-                a.telegraph=true;a.skill_timer=.6
-                var aim: Vector2=sim.position_of(a) if key in ["heal","focus","frost"] else sim.position_of(sim.state.player)
-                a.aim_x=aim.x;a.aim_y=aim.y
-                # Self effects play once, on success (apply_skill); attacks show their aim as a warning.
-                if not key in ["heal","focus"]:sim.spell_cast.emit(a.id,key,aim)
+                _begin_telegraph(a,key)
             else:
                 if apply_skill(a,key,float(sim.catalog.skills[key].power),Vector2(a.get("aim_x",sim.state.player.x),a.get("aim_y",sim.state.player.y)) if d.boss else Vector2.INF):
                     a.skill_timer=sim.catalog.skills[key].cooldown;a.skill_index=index+1
                 else:a.skill_timer=1.0
                 a.telegraph=false
     reveal_clock+=dt;objective_clock+=dt
+    evolve_clock+=dt
     if reveal_clock>=fog_rules.update_interval:reveal_clock=0;reveal()
     if objective_clock>=1:
         objective_clock=0;refresh_missions();evaluate();sim.touch()
+## A boss announces a skill for the telegraph time before it resolves. Self effects play once, on
+## success (apply_skill); attacks show their aim as a warning.
+func _begin_telegraph(a: Dictionary,key: String) -> void:
+    a.telegraph=true;a.skill_timer=float(sim.abilities.telegraph);a.pending=key
+    var aim: Vector2=sim.position_of(a) if key in ["heal","focus","frost"] else sim.position_of(sim.state.player)
+    a.aim_x=aim.x;a.aim_y=aim.y
+    if not key in SELF_SKILLS:sim.spell_cast.emit(a.id,key,aim)
+
+## Change 13 summoning. Returns true while the summoner is busy with it this frame (telegraph or the
+## call itself), so no skill starts on top of it. A call waits while max_alive helpers live and, for
+## the final boss, while Heal has priority. Helpers are created once, at the end of the telegraph.
+func _summon_step(a: Dictionary,d: Dictionary,rule: SummonRule,dt: float) -> bool:
+    if float(a.get("summon_cast",0))>0:
+        a.summon_cast=maxf(0,float(a.summon_cast)-dt)
+        if a.summon_cast>0:return true
+        var g:=group_id(rule.helper_id)
+        var room: int=rule.max_alive-int(sim.helpers_of(str(a.id)).size())
+        if g>=0 and room>0:sim.spawn_helpers(a,rule,g,mini(rule.per_cast,room))
+        a.summon_cd=rule.cooldown
+        a.skill_timer=maxf(float(a.get("skill_timer",0)),1.0)
+        return true
+    a.summon_cd=maxf(0,float(a.get("summon_cd",rule.first_delay))-dt)
+    if a.summon_cd>0 or a.get("telegraph",false):return false
+    if sim.helpers_of(str(a.id)).size()>=rule.max_alive:
+        a.summon_cd=rule.cooldown
+        return false
+    if d.final and heal_first(a):return false
+    a.summon_cast=float(sim.abilities.telegraph)
+    sim.summon_warning.emit(str(a.id))
+    return true
+
+## Final boss (Change 13): Heal first below final_heal_below while it is off cooldown; otherwise a
+## random ready skill from the attack pool or Focus. Each skill keeps its own cooldown and the boss
+## waits final_action_gap between actions; nothing ready (or in reach) means a short wait, never a
+## stall or a cast without effect.
+func heal_first(a: Dictionary) -> bool:
+    return float(a.get("skill_cds",{}).get("heal",0))<=0 and skill_ready(a,"heal")
+
+func final_choice(a: Dictionary) -> String:
+    if heal_first(a):return "heal"
+    var options: Array=[]
+    var cds: Dictionary=a.get("skill_cds",{})
+    for key in Array(sim.abilities.final_attack_pool)+["focus"]:
+        if not sim.catalog.skills.has(key) or float(cds.get(key,0))>0 or not skill_ready(a,key):continue
+        if not key in SELF_SKILLS and sim.position_of(a).distance_to(sim.position_of(sim.state.player))>skill_range(key):continue
+        options.append(key)
+    if options.is_empty():return ""
+    return options[sim.rng.randi_range(0,options.size()-1)]
+
+func _final_turn(a: Dictionary) -> void:
+    if not a.has("skill_cds"):a.skill_cds={}
+    if a.get("telegraph",false):
+        if a.skill_timer>0:return
+        a.telegraph=false
+        var key: String=str(a.get("pending",""))
+        if key!="" and apply_skill(a,key,float(sim.catalog.skills[key].power),Vector2(a.get("aim_x",sim.state.player.x),a.get("aim_y",sim.state.player.y))):
+            a.skill_cds[key]=float(sim.catalog.skills[key].cooldown)
+            a.skill_timer=float(sim.abilities.final_action_gap)
+        else:a.skill_timer=.5
+        a.pending=""
+        return
+    if a.skill_timer>0:return
+    var key:=final_choice(a)
+    if key=="":
+        a.skill_timer=.5
+        return
+    _begin_telegraph(a,key)
+
+## Change 13 Auto Evolution: once a second, each owned weapon whose exact identity is dropped by a
+## type with Auto Evolution bought evolves once if the manual rules allow it (same function, same
+## cost and result). The successor is judged by its own droppers, so tiers never chain by inheritance.
+var evolve_clock: float=0
+func auto_evolve() -> void:
+    if evolve_clock<1.0:return
+    evolve_clock=0
+    var ids: Array=sim.state.items.keys();ids.sort()
+    for id in ids:
+        if sim.evolve_group(id)>=0 and sim.evolve_block_reason(id)=="":sim.evolve(id)
+
 func automate(dt: float) -> void:
     for g in stage().groups:
         if sim.level("collect",g)>0:
@@ -445,6 +545,7 @@ func automate(dt: float) -> void:
                         if n>=sim.group_upgrade_value("collect_batch",g):break
     for g in range(sim.catalog.groups.size()):
         if sim.level("merge_gear",g)>0:merge_cycle(str(g),10-sim.level("gear_merge_speed",g),dt,g)
+    auto_evolve()
     sim.state.use_clock+=dt
     if sim.state.use_clock>=sim.player_upgrade_value("use_speed"):
         sim.state.use_clock=0
@@ -1373,6 +1474,33 @@ func explored_fraction(st: int) -> float:
 ## Whole percent, rounded down, so 100% means every cell is explored.
 func explored_percent(st: int) -> int:
     return mini(100,floori(explored_fraction(st)*100.0+.000001))
+# ---------------------------------------------------------------- next-stage guidance (Change 13)
+## What still opens the next map, from the authoritative unlock rule (killed(): every gate boss of
+## the current map killed at least once this run, while this map is the frontier). Stages 1-7 count
+## their gate bosses; Spring II counts every type for the world clear. Empty when nothing is pending.
+func gate_status() -> Dictionary:
+    var st:=int(sim.state.stage)
+    if st<8:
+        if int(sim.state.unlocked_stage)!=st or stage().gates.is_empty():return {}
+        var killed:=0
+        for id in stage().gates:
+            if int(sim.state.run_kills.get(id,0))>0:killed+=1
+        return {"kind":"stage","killed":killed,"total":stage().gates.size()}
+    if bool(sim.state.world_complete):return {}
+    var done:=0
+    for g in stage().groups:
+        if int(sim.state.run_kills.get(sim.catalog.groups[g].id,0))>0:done+=1
+    return {"kind":"world","killed":done,"total":stage().groups.size()}
+
+## A boss the player still has to defeat for gate_status(), shown only once its type is discovered
+## (the marker never reveals an unknown boss, its identity or its place).
+func gate_required(g: int) -> bool:
+    if g<0 or g>=sim.catalog.groups.size() or not sim.catalog.groups[g].boss or not discovered(g):return false
+    if not stage().groups.has(g) or gate_status().is_empty():return false
+    var id: String=sim.catalog.groups[g].id
+    if int(sim.state.stage)<8 and not stage().gates.has(id):return false
+    return int(sim.state.run_kills.get(id,0))==0
+
 func _regional_progress(n: int) -> String:
     var explored: Array=[];var bosses:=0;var killed:=0;var camps:=0;var owned:=0
     for st in ([1,2] if n==1 else ([3,4] if n==2 else [7,8])):

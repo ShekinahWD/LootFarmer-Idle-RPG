@@ -152,7 +152,7 @@ func _lesson(lesson: String) -> void:
             var g: int=ui.combat_group if sim.campaign.discovered(ui.combat_group) else sim.nearest_group()
             if not sim.campaign.discovered(g):step="upgrade_find";world_target=_nearest_enemy();return
             var price: int=sim.upgrade_cost("loot",g)
-            if sim.state.coins<price:step="upgrade_earn";support_value=price-int(sim.state.coins);return
+            if sim.state.coins<price:step="upgrade_earn";support_value=float(price)-float(sim.state.coins);return
             if ui.sheet.visible and ui.panel=="enemy":
                 if ui.enemy_tab!=1:step="upgrade_tab";target=_panel_control("tab_tab_upgrades")
                 else:
@@ -168,12 +168,12 @@ func _lesson(lesson: String) -> void:
             # Never point at an undiscovered place: ask for exploration instead.
             if camp<0:step="camp_explore";target=ui.stick;return
             var price: int=sim.campaign.camp_price(camp)
-            if sim.state.coins<price:step="camp_earn";support_value=price-int(sim.state.coins);return
+            if sim.state.coins<price:step="camp_earn";support_value=float(price)-float(sim.state.coins);return
             if ui.sheet.visible and ui.panel in ["world","camp"]:
                 step="camp_buy";target=_panel_control("camp_buy_%d" % camp)
             else:step="camp";target=ui.dock.get_node("Navigation/World")
 
-var support_value:=0
+var support_value:=0.0
 
 func _nearest_enemy() -> Vector2:
     var best:=Vector2.INF
@@ -223,7 +223,8 @@ func _present() -> void:
         _hide_all();return
     title.text=tr("GUIDE_"+step.to_upper())
     support.text=tr("GUIDE_"+step.to_upper()+"_DETAIL")
-    if "%d" in support.text:support.text=support.text % support_value
+    # Coins still needed, in the shared currency format rounded up (Change 13).
+    if "%s" in support.text:support.text=support.text % NumberFormat.currency(support_value,true)
     picture.texture=ui._art( (212 if step in ["skills","rest"] else (249 if step.begins_with("camp") else (211 if step=="prestige" else (1 if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect"] else 60)))))
     intro_button.visible=intro_id!=""
     card.mouse_filter=Control.MOUSE_FILTER_IGNORE

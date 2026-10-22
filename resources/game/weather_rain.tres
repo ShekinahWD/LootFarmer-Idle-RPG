@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeatherStyle" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/weather_style.gd" id="style"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Rain full anim sheet 52x216.png" id="sheet"]
+
+[resource]
+script = ExtResource("style")
+texture = ExtResource("sheet")
+frame_size = Vector2(52, 216)
+frames = 15
+frame_rows = 1
+fps = 10.0
+draw_size = Vector2(26, 108)
+period = Vector2(440, 500)
+particles_per_period = 30
+drift = Vector2(8, 28)
+color = Color(0.86, 0.92, 1, 0.55)
+ambient_tint = Color(0.8, 0.84, 0.9, 1)

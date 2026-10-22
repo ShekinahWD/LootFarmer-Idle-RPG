@@ -1,0 +1,22 @@
+{
+  "UP_AUTO_EVOLVE": "Unlock auto-evolution",
+  "AUTO_MERGE_BENEFIT": "Merges spare copies of: %s",
+  "AUTO_MERGE_ON": "On · merges: %s",
+  "AUTO_EVOLVE_BENEFIT": "Evolves at ^100 with 101 copies: %s",
+  "AUTO_EVOLVE_ON": "On · evolves: %s",
+  "SKILL_COOLDOWN_LINE": "Cooldown: %s s",
+  "GATE_HUD": "Next stage · Bosses %d/%d",
+  "GATE_HUD_WORLD": "World clear · %d/%d",
+  "GATE_HUD_TOOLTIP": "Bosses to defeat on this map to open the next one. Found bosses that still count carry the gold banner.",
+  "GATE_ALREADY_OPEN": "Next stage already open",
+  "GATE_UNKNOWN_BOSS": "Undiscovered boss",
+  "GATE_BOSS_DONE": "✓ %s · defeated",
+  "GATE_BOSS_NEEDED": "• %s · still needed",
+  "REROLL": "Reroll both extras · %s gems",
+  "REROLL_CONFIRM": "Spend %s gems to replace both extra stats? The new roll replaces the old one, even if weaker.",
+  "CAMP_STATE_LOCKED": "Locked · %s coins",
+  "BUY_SUPPLY": "Buy %s · %s coins",
+  "GUIDE_UPGRADE_EARN_DETAIL": "%s more coins needed. Every defeated enemy drops coins.",
+  "GUIDE_CAMP_EARN_DETAIL": "%s more coins needed. Keep defeating enemies.",
+  "SPAWN_BUY": "Unlock camp %d · %s coins"
+}

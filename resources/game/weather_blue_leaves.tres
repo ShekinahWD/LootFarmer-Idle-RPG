@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeatherStyle" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/weather_style.gd" id="style"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Winter/Falling leaves.png" id="sheet"]
+
+[resource]
+script = ExtResource("style")
+texture = ExtResource("sheet")
+frame_size = Vector2(16, 16)
+frames = 8
+frame_rows = 6
+fps = 8.0
+draw_size = Vector2(16, 16)
+period = Vector2(440, 500)
+particles_per_period = 12
+drift = Vector2(8, 28)
+color = Color(1, 1, 1, 0.65)
+ambient_tint = Color(1, 1, 1, 1)

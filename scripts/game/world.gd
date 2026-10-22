@@ -23,6 +23,10 @@ var sim: LootSimulation
 var views: Dictionary={}
 var pickups: Dictionary={}
 var textures: Dictionary={}
+var weather: Node2D
+## Change 13 summoning: the existing cast effect, tinted like the helpers, on the summoner (warning)
+## and where each helper appears.
+const SUMMON_EFFECT:="cast"
 
 func setup(value: LootSimulation) -> void:
     sim=value
@@ -31,11 +35,14 @@ func setup(value: LootSimulation) -> void:
     fog.sim=sim
     fog.z_index=50
     add_child(fog)
-    var weather=preload("res://scripts/game/season_weather.gd").new()
+    weather=preload("res://scripts/game/season_weather.gd").new()
     weather.sim=sim
     weather.z_index=51
     add_child(weather)
     sim.feedback.connect(_feedback)
+    sim.summon_warning.connect(func(id: String)->void:
+        if views.has(id) and views[id].disclosed:_effect(SUMMON_EFFECT,views[id].position,id,sim.abilities.helper_tint))
+    sim.summoned.connect(_summoned)
     sim.chatter.connect(func(id: String,key: String)->void:
         if views.has(id) and views[id].disclosed:views[id].say(key))
     for id in sim.catalog.items:
@@ -57,6 +64,7 @@ func _process(_delta: float) -> void:
             label.add_theme_constant_override("outline_size",5)
             label.add_theme_color_override("font_outline_color",Color(.04,.04,.06))
         move_child(scenery,0)
+        _apply_ambient()
         camp_revision=-1
         follow_player()
     var actors: Array=[sim.state.player]+sim.state.enemies
@@ -88,6 +96,10 @@ func _process(_delta: float) -> void:
             weapon=g.weapon
             v.max_hp=g.hp
             v.visual_scale=float(g.visual_scale)
+            # Change 13: summoned helpers wear a tint; a discovered boss the next map still needs
+            # carries the World banner (never before its type is discovered).
+            v.body_tint=sim.abilities.helper_tint if sim.is_helper(actor) else Color.WHITE
+            v.gate=bool(g.boss) and sim.campaign.gate_required(group)
         v.disclosed=id=="player" or sim.campaign.can_see(sim.position_of(actor))
         body=sim.catalog.art_id(body)
         weapon=sim.catalog.art_id(weapon)
@@ -132,6 +144,22 @@ func _process(_delta: float) -> void:
             pickups[id].queue_free()
             pickups.erase(id)
     update_camera()
+
+## Change 13 overcast: the current weather's ambient tint multiplies the stage art (terrain, scenery,
+## props) only; the camps are restored to their own colours so navigation stays as readable. Actors,
+## loot, effects, fog and rain are siblings of the stage and are never tinted. No shader, no extra draw.
+func _apply_ambient() -> void:
+    if scenery==null:return
+    var tint: Color=weather.styles[sim.campaign.stage().weather].ambient_tint if weather.styles.has(sim.campaign.stage().weather) else Color.WHITE
+    scenery.modulate=tint
+    var camps: Node=scenery.get_node_or_null("Camps")
+    if camps:camps.modulate=Color(1.0/maxf(tint.r,.01),1.0/maxf(tint.g,.01),1.0/maxf(tint.b,.01))
+
+func _summoned(summoner_id: String,ids: Array) -> void:
+    for id in ids:
+        var helper:=sim._find_actor(str(id))
+        if not helper.is_empty() and sim.campaign.can_see(sim.position_of(helper)):_effect(SUMMON_EFFECT,sim.position_of(helper),"",sim.abilities.helper_tint)
+    if views.has(summoner_id) and views[summoner_id].disclosed:AudioService.play("spell_summon")
 
 ## Swing-sheet tint from the catalog (attack_tint, Change 12): the stone tier shares the Iron set's
 ## swing in warm gray so it matches its gray stone icon. White for every other weapon.
@@ -190,7 +218,7 @@ func collect_at(screen_point: Vector2) -> void:
     var selected_actor: Dictionary={}
     distance=18.0
     for actor in [sim.state.player]+sim.state.enemies:
-        if actor.hp<=0 or (actor.id!="player" and not sim.campaign.can_see(sim.position_of(actor))):
+        if actor.hp<=0 or sim.is_helper(actor) or (actor.id!="player" and not sim.campaign.can_see(sim.position_of(actor))):
             continue
         var d: float=actor_pick_rect(actor).get_center().distance_to(point)
         if actor_pick_rect(actor).has_point(point) and (selected_actor.is_empty() or d<distance):
@@ -233,7 +261,14 @@ func player_screen_position() -> Vector2:
 
 func _spell(actor_id: String,key: String,pos: Vector2) -> void:
     if not sim.campaign.can_see(pos):return
-    var d: Dictionary=sim.catalog.skills[key]
+    _effect(key,pos,actor_id if key in SELF_EFFECTS else "",Color.WHITE)
+    # One semantic cue per cast; the audio service owns the asset, category and repeat throttle.
+    AudioService.play("spell_"+key)
+
+## One effect sheet (catalog skill effect, or "cast" for summoning) at a world point, or on the feet of
+## `on_actor` when given (a self effect follows its caster).
+func _effect(key: String,pos: Vector2,on_actor: String,tint: Color) -> void:
+    var d: Dictionary=sim.catalog.skills.get(key,sim.catalog.skills.focus)
     var frames:=SpriteFrames.new()
     frames.set_animation_speed("default",1.0/float(d.frame_time))
     frames.set_animation_loop("default",false)
@@ -246,12 +281,13 @@ func _spell(actor_id: String,key: String,pos: Vector2) -> void:
     sprite.sprite_frames=frames
     sprite.position=pos
     sprite.z_index=0
+    sprite.modulate=tint
     # Self effects (Heal, Focus) are drawn on the caster: their sheets put the ground ring about
     # self_effect_ring px below the frame centre, so the ring is placed on the actor's feet and the
     # effect scales with the actor's rendered size (bosses draw at visual_scale 2). Change 12: the
     # effect is a child of the caster's view, so it stays on the feet while the caster moves.
-    if key in SELF_EFFECTS and views.has(actor_id):
-        var view: LootActorView=views[actor_id]
+    if on_actor!="" and views.has(on_actor):
+        var view: LootActorView=views[on_actor]
         var factor: float=self_effect_scale*float(view.visual_scale)
         sprite.scale=Vector2.ONE*factor
         sprite.position=Vector2(0,-self_effect_ring*factor)
@@ -260,5 +296,3 @@ func _spell(actor_id: String,key: String,pos: Vector2) -> void:
         add_child(sprite)
     sprite.animation_finished.connect(sprite.queue_free)
     sprite.play()
-    # One semantic cue per cast; the audio service owns the asset, category and repeat throttle.
-    AudioService.play("spell_"+key)

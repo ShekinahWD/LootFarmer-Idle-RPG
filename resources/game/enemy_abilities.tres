@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="EnemyAbilityRules" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/enemy_ability_rules.gd" id="rules"]
+[ext_resource type="Script" path="res://scripts/game/summon_rule.gd" id="summon"]
+
+[sub_resource type="Resource" id="grim_reaper"]
+script = ExtResource("summon")
+summoner_id = "boss-grim-reaper"
+helper_id = "unit-horned-hood"
+first_delay = 6.0
+cooldown = 22.0
+per_cast = 2
+max_alive = 2
+hp_scale = 0.5
+damage_scale = 0.4
+spawn_radius = 34.0
+
+[sub_resource type="Resource" id="sunflower"]
+script = ExtResource("summon")
+summoner_id = "boss-sunflower"
+helper_id = "unit-sprout"
+first_delay = 8.0
+cooldown = 24.0
+per_cast = 2
+max_alive = 2
+hp_scale = 0.35
+damage_scale = 0.3
+spawn_radius = 34.0
+
+[sub_resource type="Resource" id="green_alien"]
+script = ExtResource("summon")
+summoner_id = "boss-green-alien"
+helper_id = "unit-green-cap"
+first_delay = 8.0
+cooldown = 20.0
+per_cast = 2
+max_alive = 3
+hp_scale = 0.4
+damage_scale = 0.35
+spawn_radius = 40.0
+
+[resource]
+script = ExtResource("rules")
+summons = Array[ExtResource("summon")]([SubResource("grim_reaper"), SubResource("sunflower"), SubResource("green_alien")])
+final_heal_below = 0.5
+final_heal_fraction = 0.04
+final_attack_pool = PackedStringArray("fire", "strike", "frost", "lightning")
+final_action_gap = 11.0
+telegraph = 0.6
+helper_tint = Color(0.78, 0.66, 1, 1)

@@ -22,12 +22,13 @@
         "effect": "heal",
         "stat": "heal_pct",
         "duration": 0,
-        "cooldown": 5,
+        "cooldown": 12,
         "use_hp": 0.8,
         "auto_hp": 0.8,
         "min_stage": 1,
         "drop_weight": 8,
-        "price": 10
+        "price": 10,
+        "cooldown_floor": 10
       }
     },
     "coin_boost": {
@@ -21373,20 +21374,20 @@
     },
     "skill_slots": {
       "currency": "gems",
-      "base": 50,
+      "base": 300,
       "growth": 1,
       "cap": 2,
       "keep": true,
       "effect": 1,
       "scope": "global",
       "prices": [
-        50,
-        160
+        300,
+        600
       ]
     },
     "skill_auto_0": {
       "currency": "gems",
-      "base": 38,
+      "base": 100,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21395,7 +21396,7 @@
     },
     "skill_auto_1": {
       "currency": "gems",
-      "base": 75,
+      "base": 250,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21404,7 +21405,7 @@
     },
     "skill_auto_2": {
       "currency": "gems",
-      "base": 150,
+      "base": 500,
       "growth": 1,
       "cap": 1,
       "keep": true,
@@ -21625,6 +21626,16 @@
       "keep": true,
       "effect": 1,
       "scope": "global"
+    },
+    "auto_evolve": {
+      "currency": "gems",
+      "base": 2000,
+      "growth": 1,
+      "cap": 1,
+      "keep": true,
+      "effect": 1,
+      "scope": "type",
+      "flat": true
     }
   },
   "cards": [
@@ -21857,7 +21868,7 @@
     "fire": {
       "name": "CONTENT_SKILLS_FIRE",
       "power": 1.6,
-      "cooldown": 8,
+      "cooldown": 10,
       "effect": "fire_impact",
       "frames": 11,
       "frame_time": 0.07
@@ -21865,7 +21876,7 @@
     "lightning": {
       "name": "CONTENT_SKILLS_LIGHTNING",
       "power": 1.4,
-      "cooldown": 4,
+      "cooldown": 8,
       "effect": "zap",
       "frames": 8,
       "frame_time": 0.06

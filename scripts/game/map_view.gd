@@ -49,7 +49,7 @@ func _process(dt: float) -> void:
     var side:=12.0 if mini else 10.0
     player_dot.size=Vector2.ONE*side
     player_dot.position=rect.position+sim.position_of(sim.state.player)*(rect.size.x/float(sim.catalog.world.size[0]))-Vector2.ONE*side*.5
-    var next:="%s:%s:%s:%s:%s:%s" % [size,sim.state.stage,sim.campaign.discovery_revision,sim.level("map_detail",int(sim.state.stage)),_bosses_alive(),sim.state.spawns]
+    var next:="%s:%s:%s:%s:%s:%s:%s" % [size,sim.state.stage,sim.campaign.discovery_revision,sim.level("map_detail",int(sim.state.stage)),_bosses_alive(),sim.state.spawns,sim.campaign.gate_status()]
     if next!=signature:signature=next;queue_redraw()
 ## A boss marker only shows while that boss is alive on this stage (and, as for every marker, only
 ## once discovered and with map detail bought): defeated bosses lose it until they respawn.
@@ -134,6 +134,7 @@ func _marker(g: int,v: int,pos: Vector2,side: float,rank: int) -> void:
     var box:=Rect2(pos-Vector2.ONE*side*.5,Vector2.ONE*side)
     if rank==1:
         draw_texture_rect(STAR if boss else BADGE,box,false)
+        _gate_badge(g,box)
         return
     var def: Dictionary=sim.enemy_definition(g,v)
     var identity: String=str(sim.catalog.groups[g].body)
@@ -142,6 +143,7 @@ func _marker(g: int,v: int,pos: Vector2,side: float,rank: int) -> void:
     var dim: bool=rank>=3 and def.body=="" and not boss
     draw_texture_rect(sim.catalog.icon(identity) if sim.catalog.items.has(identity) else plain_body,box,false,Color(.5,.5,.55) if dim else Color.WHITE)
     if boss:draw_rect(box.grow(1),Color(1,.84,.34),false,1.5)
+    _gate_badge(g,box)
     if rank<3:return
     var badge:=maxf(7.0,side*.55)
     if def.weapon!="":
@@ -150,6 +152,16 @@ func _marker(g: int,v: int,pos: Vector2,side: float,rank: int) -> void:
     if not def.skills.is_empty():
         var k:=Rect2(Vector2(box.end.x-badge*.8,box.position.y-badge*.2),Vector2.ONE*badge)
         draw_rect(k,Color(.25,.1,.4,.85));draw_texture_rect(sim.catalog.icon("skill_"+str(def.skills[0])),k,false)
+## Change 13: a discovered boss the next map still needs carries a small gold World banner on its
+## marker's top-left corner (the World button's icon). Only drawn markers can carry it, so an
+## undiscovered boss, its identity and its place stay hidden.
+func _gate_badge(g: int,box: Rect2) -> void:
+    if not sim.campaign.gate_required(g):return
+    var side:=maxf(8.0,box.size.x*.5)
+    var b:=Rect2(box.position-Vector2.ONE*side*.3,Vector2.ONE*side)
+    draw_rect(b,Color(0,0,0,.65))
+    draw_texture_rect(CAMP,b,false,GATE_COLOR)
+const GATE_COLOR:=Color(1,.84,.34)
 func _gui_input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
         if mini:open_map.emit();accept_event();return

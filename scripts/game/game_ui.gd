@@ -93,6 +93,7 @@ var camp_pending:=false
 var teleport_target: Array=[]
 ## Last text written to the lower-right "Map explored" label (written only when it changes).
 var explored_text:=""
+var gate_text:=""
 
 func _ready() -> void:
     world.setup(sim)
@@ -249,6 +250,7 @@ func _process(dt: float) -> void:
     _refresh_badges()
     _refresh_follow_tracker()
     _refresh_explored()
+    _refresh_gate()
     _offer_offline_claim()
     _check_camp_entry()
     if last_revision!=sim.revision or previous_pause!=get_tree().paused:
@@ -336,6 +338,22 @@ func _refresh_explored() -> void:
         explored_text=text
         $Safe/Layout/Map/Explored.text=text
 
+## Change 13: what opens the next map, under the minimap: "Next stage · Bosses 1/2" from the same
+## state as the unlock rule (campaign.gate_status), or "World clear · 4/9" on Spring II. Hidden when
+## nothing is pending (an earlier map, or the next map already open). It names no boss, so it spoils
+## nothing; discovered required bosses carry the same banner on the map and in the world. Never takes
+## touches; written only when the text changes.
+func _refresh_gate() -> void:
+    var status: Dictionary=sim.campaign.gate_status()
+    var text:=""
+    if not status.is_empty():
+        text=tr("GATE_HUD_WORLD" if status.kind=="world" else "GATE_HUD") % [int(status.killed),int(status.total)]
+    if text==gate_text:return
+    gate_text=text
+    var node: Control=$Safe/Layout/Map/Gate
+    node.visible=text!=""
+    node.get_node("Label").text=text
+
 ## Offline earnings are claimed in game: offer the claim once per settlement, when nothing else
 ## (a panel, a confirmation, the guide chooser or a prestige choice) is in front of the player.
 func _offer_offline_claim() -> void:
@@ -374,11 +392,14 @@ func fmt_value(value: float) -> String:
     if is_equal_approx(value,roundf(value)):return str(int(roundf(value)))
     return str(snappedf(value,.01))
 
-## Currencies are fractional values; show whole amounts and at most one decimal below 100.
+## Coins and Gems held or earned (balances, rewards, rates): the shared currency format, rounded
+## down so the screen never shows more than the player has or gets (Change 13, NumberFormat.currency).
 func fmt_currency(value: float) -> String:
-    if absf(value)>=1000:return NumberFormat.number(value,2)
-    if absf(value)>=100 or is_equal_approx(value,floorf(value)):return NumberFormat.count(floorf(value))
-    return NumberFormat.number(floorf(value*10)/10.0,1)
+    return NumberFormat.currency(value)
+
+## A Coin or Gem price, or an amount still needed: the same format, rounded up.
+func fmt_cost(value: float) -> String:
+    return NumberFormat.currency(value,true)
 
 func _refresh_slots() -> void:
     var containers: Array=[dock.get_node("Inventory/GearColumn/GearScroll/Gear"),dock.get_node("Inventory/SupplyColumn/SupplyScroll/Supplies")]
@@ -1007,6 +1028,8 @@ func _item_panel() -> void:
     else:
         _card_line(details,tr("STOCK_BONUS") % fmt(maxi(0,int(r.qty)-1)*float(sim.catalog.progression.merge.stock_bonus_per_copy)*100),17,Color(.5,1,.65))
     if def.kind=="outfit":_outfit_milestone_lines(details,id)
+    # Change 13: every skill shows its effective cooldown from the same getter the cast uses.
+    if def.kind=="skill" and def.get("skill","")!="heal":_text(tr("SKILL_COOLDOWN_LINE") % fmt_value(sim.player_upgrade_value("cooldown_"+str(def.skill))),17,Color(.8,.84,.9))
     if def.get("skill","")=="heal":_text(tr("HEAL_ROLE") % [fmt(minf(sim.normal(id).power*(1+sim.campaign.bonus("skill")),sim.stats().hp*.12)),fmt(sim.player_upgrade_value("cooldown_heal"))],17,Color(.8,.84,.9))
     # Secondary actions: a wrapping row, sized for their widest label.
     var more:=HFlowContainer.new()
@@ -1021,7 +1044,7 @@ func _item_panel() -> void:
             _game_action(tr("EQUIP_SKILL_SLOT") % (i+1),func()->void:if selected==id:sim.campaign.equip_skill(id,i),true,"",more)
     if not def.extras.is_empty():
         var cost:=ceili(float(def.reroll)*(1-sim.campaign.bonus("reroll_discount")))
-        _game_action(tr("REROLL") % cost,func()->void:_confirm(tr("REROLL_CONFIRM") % cost,func()->void:if selected==id:sim.reroll(id)),true,"",more)
+        _game_action(tr("REROLL") % fmt_cost(cost),func()->void:_confirm(tr("REROLL_CONFIRM") % fmt_cost(cost),func()->void:if selected==id:sim.reroll(id)),true,"",more)
     for button in more.get_children():
         button.size_flags_horizontal=0
         button.custom_minimum_size=Vector2(0,64)
@@ -1088,7 +1111,7 @@ func _supply_panel(id: String,list: Array) -> void:
     more.add_theme_constant_override("v_separation",8)
     rows.add_child(more)
     if int(s.get("price",0))>0:
-        _game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),int(s.price)],func()->void:if selected==id:_confirmed(sim.purchase_consumable(id)),true,"",more)
+        _game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),fmt_cost(int(s.price))],func()->void:if selected==id:_confirmed(sim.purchase_consumable(id)),true,"",more)
     for button in more.get_children():
         button.size_flags_horizontal=0
         button.custom_minimum_size=Vector2(0,64)
@@ -1127,7 +1150,7 @@ func _supply_effect_text(id: String) -> String:
 
 ## A milestone's multiplier as a readable change: "×1.4" duration or a cooldown in seconds.
 func _milestone_factor(id: String,step: Dictionary) -> String:
-    if str(sim.supply(id).effect)=="heal":return fmt_value(float(sim.supply(id).cooldown)*float(step.cooldown))
+    if str(sim.supply(id).effect)=="heal":return fmt_value(sim.supply_cooldown_with(id,float(step.cooldown)))
     return "×"+fmt_value(float(step.duration))
 
 ## Outfit milestone track (Change 9): what this outfit's merges have unlocked and the next step. The
@@ -1283,10 +1306,10 @@ func _upgrades_panel() -> void:
         else:
             var r: Dictionary=sim.campaign.offline_receipt
             if not r.is_empty():
-                _text(tr("OFFLINE_CLAIMED_RECEIPT") % [fmt(r.rewarded_hours),fmt(r.coins),fmt(r.gems)])
+                _text(tr("OFFLINE_CLAIMED_RECEIPT") % [fmt(r.rewarded_hours),fmt_currency(r.coins),fmt_currency(r.gems)])
                 for id in r.items:_text(sim.catalog.display_name(id)+" ×"+fmt(r.items[id]),18)
         var snap: Dictionary=sim.campaign.offline_snapshot()
-        _text(tr("OFFLINE_RATES") % [fmt(snap.coins),fmt(snap.gems),fmt(snap.cap/3600)],18,Color(.8,.84,.9))
+        _text(tr("OFFLINE_RATES") % [fmt_currency(snap.coins),fmt_currency(snap.gems),fmt(snap.cap/3600)],18,Color(.8,.84,.9))
     for id in sections[player_tab]:
         # Skill slots and auto-cast appear with the first skill found (Change 8).
         if id.begins_with("skill_") and sim.state.skills_seen.is_empty():continue
@@ -1309,7 +1332,7 @@ func _upgrades_panel() -> void:
 func _buy_supply_actions(row: Node) -> void:
     for id in sim.supply_ids():
         var price:=int(sim.supply(id).get("price",0))
-        if price>0:_game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),price],func()->void:_confirmed(sim.purchase_consumable(id)),true,"",row)
+        if price>0:_game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),fmt_cost(price)],func()->void:_confirmed(sim.purchase_consumable(id)),true,"",row)
 
 ## Compact upgrade card: icon, name, computed benefit, a fixed status line and the buy button.
 ## The status line is always present, so a reason never changes the card's height.
@@ -1341,7 +1364,7 @@ func _group_upgrade_card(id: String,g: int) -> void:
     text.add_child(status)
     var buy:=Button.new()
     buy.custom_minimum_size=Vector2(128,76)
-    buy.text=tr("UPGRADE_MAX") if maxed else fmt_currency(sim.upgrade_cost(id,g))
+    buy.text=tr("UPGRADE_MAX") if maxed else fmt_cost(sim.upgrade_cost(id,g))
     buy.icon=null if maxed else (COIN if def.currency=="coins" else GEM)
     buy.expand_icon=true
     buy.add_theme_constant_override("icon_max_width",26)
@@ -1365,7 +1388,7 @@ func _upgrade_icon(id: String,g: int) -> Texture2D:
     elif id.begins_with("offline_"):icon=_art(171)
     if id=="coin_amount":icon=COIN
     elif id in ["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"]:icon=GEM
-    elif id in ["loot","merge_gear"] and g>=0:icon=icon_cache.get(sim.catalog.groups[g].weapon)
+    elif id in ["loot","merge_gear","auto_evolve"] and g>=0:icon=icon_cache.get(sim.catalog.groups[g].weapon)
     return icon
 
 func _upgrade_row(id: String,g: int=-1) -> void:
@@ -1378,6 +1401,14 @@ func _upgrade_benefit(id: String,g: int) -> String:
         if next==0:return tr("EQUIPMENT_SLOTS_MAXED") % [sim.equipment_slot_count(),sim.equipment_slot_max()]
         return tr("EQUIPMENT_SLOTS_NEXT") % [sim.equipment_slot_count(),int(sim.player_upgrade_value(id,1)),sim.equipment_slot_max()]
     if id=="merge_all":return tr("MERGE_ALL_UNLOCKED") if sim.level(id)>0 else tr("MERGE_ALL_BENEFIT")
+    # Change 13: each per-type unlock names the exact items it covers (what this type drops; never
+    # the tiers evolved from them, which follow their own droppers).
+    if id=="merge_gear" and g>=0:
+        var drops: Array=sim.catalog.groups[g].loot.duplicate()
+        for skill in sim.catalog.groups[g].skills:drops.append("skill_"+str(skill))
+        return tr("AUTO_MERGE_ON" if sim.level(id,g)>0 else "AUTO_MERGE_BENEFIT") % _item_names(drops)
+    if id=="auto_evolve" and g>=0:
+        return tr("AUTO_EVOLVE_ON" if sim.level(id,g)>0 else "AUTO_EVOLVE_BENEFIT") % _item_names(sim.evolvable_drops(g))
     if int(sim.catalog.upgrades[id].cap)==1:
         return tr("UPGRADE_TRANSITION") % [tr("ON" if sim.level(id,g)>0 else "OFF"),tr("ON")]
     var current:=sim.group_upgrade_value(id,g,enemy_variant) if g>=0 else sim.player_upgrade_value(id)
@@ -1390,6 +1421,9 @@ func _upgrade_benefit(id: String,g: int) -> String:
     if id in ["respawn","collect_speed","gear_merge_speed","use_speed","spawn_cooldown"]:value=tr("SECONDS_VALUE") % value
     if id=="supply_drop":value=tr("POTION_CHANCE_VALUE") % value
     return value
+
+func _item_names(ids: Array) -> String:
+    return ", ".join(ids.map(func(id):return sim.catalog.display_name(str(id))))
 
 # ---------------------------------------------------------------- enemy
 
@@ -1428,7 +1462,9 @@ func _enemy_panel() -> void:
             _group_upgrade_card("spawn_amount",group);_group_upgrade_card("spawn_cooldown",group)
         # Automation refinements appear once their automation is unlocked.
         _section(tr("SECTION_AUTOMATION"))
-        for pair in [["focus",""],["collect",""],["collect_range","collect"],["collect_batch","collect"],["collect_speed","collect"],["merge_gear",""],["gear_merge_speed","merge_gear"]]:
+        # Change 13: Auto Evolution sits beside Auto-Merge, on types that drop an evolvable weapon.
+        for pair in [["focus",""],["collect",""],["collect_range","collect"],["collect_batch","collect"],["collect_speed","collect"],["merge_gear",""],["auto_evolve",""],["gear_merge_speed","merge_gear"]]:
+            if pair[0]=="auto_evolve" and sim.evolvable_drops(group).is_empty():continue
             if pair[1]=="" or sim.level(pair[1],group)>0:_group_upgrade_card(pair[0],group)
         return
     var def: Dictionary=sim.enemy_definition(group,enemy_variant)
@@ -1436,7 +1472,7 @@ func _enemy_panel() -> void:
     else:_text(tr("ENEMY_STATS_VALUES") % [fmt(def.hp),fmt(def.damage),fmt(def.interval),fmt(def.defense)],20)
     if sim.level("reveal_drops",group)==0:_group_upgrade_card("reveal_drops",group)
     else:
-        _text(tr("DROP_COINS") % fmt(sim.coin_reward(group))+"  ·  "+tr("DROP_GEMS") % [fmt(sim.gem_chance(group)*100),fmt(sim.gem_amount(0,group))],18)
+        _text(tr("DROP_COINS") % fmt_currency(sim.coin_reward(group))+"  ·  "+tr("DROP_GEMS") % [fmt(sim.gem_chance(group)*100),fmt_currency(sim.gem_amount(0,group))],18)
         for id in def.loot:_loot_row(id,sim.gear_chance(group)*100)
         for skill in def.skills:_loot_row("skill_"+skill,sim.group_upgrade_value("skill_drop",group)*100/def.skills.size())
         # Supplies this type can drop (later supplies join on later maps), each with its own chance.
@@ -1516,7 +1552,7 @@ func _open_combat_achievements() -> void:
 func _camp_status(st: int,i: int) -> String:
     if st==int(sim.state.stage) and int(sim.state.spawn)==i:return tr("CAMP_STATE_SELECTED")
     if sim.state.camps.get(str(st),[0]).has(i):return tr("CAMP_STATE_OWNED")
-    return tr("CAMP_STATE_LOCKED") % sim.campaign.camp_price(i)
+    return tr("CAMP_STATE_LOCKED") % fmt_cost(sim.campaign.camp_price(i))
 
 ## Camps of the current stage first (where the camp lesson points), then the map, then travel.
 func _world_panel() -> void:
@@ -1526,7 +1562,17 @@ func _world_panel() -> void:
     var count:=0
     for id in gates:
         if sim.state.run_kills.get(id,0)>0:count+=1
-    if int(sim.state.stage)<8:_text(tr("GATE_PROGRESS") % [count,gates.size()],18,Color(1,.86,.5))
+    if int(sim.state.stage)<8:
+        _text(tr("GATE_PROGRESS") % [count,gates.size()],18,Color(1,.86,.5))
+        # Change 13: each gate boss on its own line, so a two-boss gate with one already defeated
+        # reads at a glance. An undiscovered boss is never named.
+        if int(sim.state.unlocked_stage)>int(sim.state.stage):_text(tr("GATE_ALREADY_OPEN"),17,Color(.6,1,.75))
+        else:
+            for id in gates:
+                var g: int=sim.campaign.group_id(str(id))
+                var done: bool=int(sim.state.run_kills.get(id,0))>0
+                var label: String=sim.catalog.groups[g].name if g>=0 and sim.campaign.discovered(g) else tr("GATE_UNKNOWN_BOSS")
+                _text(tr("GATE_BOSS_DONE" if done else "GATE_BOSS_NEEDED") % label,17,Color(.6,1,.75) if done else Color(1,.86,.5))
     else:
         var killed:=0
         for g in stage.groups:
@@ -1904,7 +1950,7 @@ func _history_panel() -> void:
 
 func _history_text(entry: Dictionary) -> String:
     if entry.key=="HISTORY_CURRENCY":
-        return tr("HISTORY_CURRENCY") % fmt(entry.amount) if entry.amount>0 else ""
+        return tr("HISTORY_CURRENCY") % fmt_currency(entry.amount) if entry.amount>0 else ""
     return tr("HISTORY_ITEM") % [fmt_count(entry.amount),sim.catalog.display_name(entry.id)]
 
 ## Filters (Change 11, opened from the dock): the chosen category filters the gear grid and this list
@@ -2103,7 +2149,7 @@ func _farming_type(g: int) -> void:
     text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     head.add_child(text)
     _card_line(text,"%s  ·  %s%s" % [d.name,tr("ENEMY_LEVEL") % d.level,"  ·  "+tr("BOSS_LABEL") if d.boss else ""],19,Color(1,.86,.5) if d.boss else Color.WHITE)
-    _card_line(text,tr("FARMING_REWARDS") % [fmt_value(sim.coin_reward(g)),fmt_value(sim.gem_chance(g)*100),fmt_value(sim.gem_amount(0,g)),fmt_value(sim.group_xp(g))],16,Color(1,.88,.55))
+    _card_line(text,tr("FARMING_REWARDS") % [fmt_currency(sim.coin_reward(g)),fmt_value(sim.gem_chance(g)*100),fmt_currency(sim.gem_amount(0,g)),fmt_value(sim.group_xp(g))],16,Color(1,.88,.55))
     var supplies: Array=[]
     for id in sim.supply_pool(g):supplies.append(tr("DROP_ITEM") % [sim.catalog.display_name(id),fmt_value(sim.supply_drop_chance(g,id)*100)])
     _card_line(text,tr("FARMING_SUPPLIES") % ", ".join(supplies),16,Color(.8,.84,.9))
@@ -2496,7 +2542,7 @@ func _refresh_loot_notifications() -> void:
         row.expand_icon=false
         row.add_theme_constant_override("icon_max_width",30)
         row.add_theme_constant_override("h_separation",8)
-        row.text="+"+(fmt(entry.amount) if entry.key=="HISTORY_CURRENCY" else fmt_count(entry.amount))
+        row.text="+"+(fmt_currency(entry.amount) if entry.key=="HISTORY_CURRENCY" else fmt_count(entry.amount))
         row.tooltip_text=_history_text(entry)
         row.pressed.connect(func()->void:_open("history"))
         container.add_child(row)

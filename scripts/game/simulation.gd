@@ -20,6 +20,14 @@ signal skill_discovered(family: String)
 signal notice(kind: String, id: String)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
+## Change 13: summoning and final-boss action rules (inspector-editable resource).
+var abilities: EnemyAbilityRules = preload("res://resources/game/enemy_abilities.tres")
+## Change 13: summoned helpers use this loadout variant (never an encounter spot, never saved).
+const HELPER_VARIANT:=4
+## Summoned helpers: (summoner id, helper ids) once they appear, for presentation.
+signal summoned(summoner_id: String, helper_ids: Array)
+## A summoner began its call (the telegraph before the helpers appear).
+signal summon_warning(summoner_id: String)
 signal spell_cast(actor_id: String, skill: String, position: Vector2)
 var rng := RandomNumberGenerator.new()
 var state: Dictionary = {}
@@ -109,6 +117,11 @@ func _sync_spawn_counts() -> void:
 
 func snapshot() -> Dictionary:
     var result := state.duplicate(true)
+    # Summoned helpers are encounter-transient (Change 13): never saved, so a load starts clean.
+    result.enemies=result.enemies.filter(func(e):return not is_helper(e))
+    for key in result.get("stage_worlds",{}):
+        var saved: Dictionary=result.stage_worlds[key]
+        saved["enemies"]=saved.get("enemies",[]).filter(func(e):return not is_helper(e))
     result["rng_state"] = str(rng.state)
     result["offline_snapshot"] = state.offline_snapshot.duplicate(true) if suspended else campaign.offline_snapshot()
     return result
@@ -257,7 +270,15 @@ func supply_duration(id: String) -> float:
     return float(supply(id).get("duration",0))*float(supply_milestone(id).duration)
 
 func supply_cooldown(id: String) -> float:
-    return float(supply(id).get("cooldown",0))*float(supply_milestone(id).cooldown)
+    return supply_cooldown_with(id,float(supply_milestone(id).cooldown))
+
+## A supply's cooldown under a mastery multiplier, never below its authored floor (Change 13: the
+## Health Potion is 12 s, 10 s at the shortest, so mastery cannot undo the slowdown).
+func supply_cooldown_with(id: String,multiplier: float) -> float:
+    var s:=supply(id)
+    var base:=float(s.get("cooldown",0))
+    if base<=0:return 0.0
+    return maxf(float(s.get("cooldown_floor",0)),base*multiplier)
 
 func buff_time(id: String) -> float:
     if id=="coin_boost":return float(state.boost_time)
@@ -457,6 +478,14 @@ func enemy_definition(group: int,variant: int=2) -> Dictionary:
 
 func _build_definition(group: int,variant: int) -> Dictionary:
     var def: Dictionary=catalog.groups[group].duplicate(true)
+    # Change 13 helpers: the copied type's own art and attack, scaled by its summon rule, with no
+    # loot, skills, coins or XP (a helper's death is never rewarded; see _kill).
+    if variant==HELPER_VARIANT:
+        var rule: SummonRule=abilities.helper_rule(str(def.id))
+        def.hp*=rule.hp_scale if rule else .5
+        def.damage*=rule.damage_scale if rule else .4
+        def.loot=[];def.skills=[];def.coins=0.0;def.xp=0.0;def.gear_chance=0.0
+        return def
     if not def.boss:
         def.hp*=1.25 if variant==0 else (.75 if variant==1 else (1.35 if variant==3 else 1.0))
         def.damage*=.75 if variant==0 else (1.25 if variant==1 else (1.35 if variant==3 else 1.0))
@@ -580,14 +609,23 @@ func merge_all_copies() -> int:
         if can_merge(id):total+=mini(quantity(id)-1,merge_cap(id)-int(record(id).merge))
     return total
 
-func evolve(id: String) -> bool:
-    if not action_lock_reason().is_empty():
-        return fail(action_lock_reason())
+## Why evolve(id) would refuse now ("" when it would succeed). Manual and Auto Evolution share it.
+func evolve_block_reason(id: String) -> String:
+    var lock:=action_lock_reason()
+    if not lock.is_empty():return lock
+    if not catalog.items.has(id):return "EVOLUTION_NEEDS"
     var target: String = catalog.items[id].next
-    if target=="" or int(record(id).merge)<int(catalog.progression.evolution.required_merge) or quantity(id)<int(catalog.progression.evolution.spare_cost)+1:
-        return fail("EVOLUTION_NEEDS")
+    if target=="" or int(state.items.get(id,{}).get("merge",0))<int(catalog.progression.evolution.required_merge) or quantity(id)<int(catalog.progression.evolution.spare_cost)+1:
+        return "EVOLUTION_NEEDS"
     if not can_add(target):
-        return fail("INVENTORY_FULL")
+        return "INVENTORY_FULL"
+    return ""
+
+func evolve(id: String) -> bool:
+    var reason:=evolve_block_reason(id)
+    if not reason.is_empty():
+        return fail(reason)
+    var target: String = catalog.items[id].next
     # Every validation precedes both mutations; output is committed with its cost.
     _remove(id,int(catalog.progression.evolution.spare_cost))
     add_item(target,1,false)
@@ -859,7 +897,7 @@ func _resolve_attack(a: Dictionary, dt: float) -> void:
         var target_def: Dictionary=catalog.groups[int(target.group)]
         if target_def.aggro_mode=="group":
             for other in state.enemies:
-                if int(other.group)==int(target.group) and other.get("variant",2)==target.get("variant",2) and other.hp>0 and not other.returning and position_of(other).distance_to(position_of(target))<=float(target_def.assist_radius):
+                if int(other.group)==int(target.group) and other.get("variant",2)==target.get("variant",2) and not is_helper(other) and other.hp>0 and not other.returning and position_of(other).distance_to(position_of(target))<=float(target_def.assist_radius):
                     other.aggro=true
     if target.hp<=0:
         _kill(target)
@@ -872,6 +910,12 @@ func _kill(a: Dictionary) -> void:
     a.dead_age=0.0
     a.aggro=false
     a.moving=false
+    # A summoned helper never pays: no XP, coins, gems, loot, kill count, mission, achievement,
+    # discovery or Prestige progress (Change 13). It is removed after its death animation.
+    if is_helper(a):
+        a.respawn=INF
+        touch()
+        return
     if a.id=="player":
         a.respawn=player_upgrade_value("respawn")
         for e in state.enemies:
@@ -1009,6 +1053,13 @@ func step(dt: float) -> void:
             continue
         var group:=int(e.group)
         var maxhp:=float(enemy_definition(group,int(e.get("variant",2))).hp)
+        if is_helper(e):
+            if e.hp<=0:
+                if float(e.dead_age)>=1.0:state.enemies.erase(e)
+                continue
+            if not helper_bound(e):
+                dissolve_helper(e)
+                continue
         if e.hp<=0:
             if e.respawn<=0:
                 e.hp=maxhp
@@ -1123,24 +1174,95 @@ func merge_gain(id: String,stat: String) -> float:
     var gain: float=float(definition.get("merge_gain",{}).get(stat,float(definition.normal[stat][1])*3.0))
     return gain*card("merge")
 
-## The enemy type whose automation merges this item: any type that drops its family (shared
-## weapons and every tier of an outfit), preferring one with Auto Merge bought.
+## Change 13: the enemy types that actually drop this exact item (their loot weapon and outfit, and
+## the base skill item of each of their skills). An evolved successor is not a drop of its source's
+## droppers: a Stone Sword is dropped only by the types whose own loot holds the Stone Sword.
+var _drop_index: Dictionary={}
+func droppers(id: String) -> Array:
+    if _drop_index.is_empty():
+        for g in range(catalog.groups.size()):
+            var ids: Array=catalog.groups[g].loot.duplicate()
+            for skill in catalog.groups[g].skills:ids.append("skill_"+str(skill))
+            for item in ids:
+                if not _drop_index.has(item):_drop_index[item]=[]
+                if not _drop_index[item].has(g):_drop_index[item].append(g)
+    return _drop_index.get(id,[])
+
+## The enemy type whose Auto-Merge merges this item: the first type that drops this exact item and
+## has Auto-Merge bought, or -1. Shared drops work through any of their droppers; supplies never.
 func gear_group(id: String) -> int:
-    var family: String=str(catalog.items[id].get("family",id))
-    var skill: String=str(catalog.items[id].get("skill",""))
-    var first:=-1
-    for g in range(catalog.groups.size()):
-        var drops: bool=catalog.groups[g].skills.has(skill) if skill!="" else catalog.groups[g].loot.any(func(l):return str(catalog.items[l].family)==family)
-        if not drops:continue
+    if not catalog.items.has(id) or catalog.items[id].kind=="consumable":return -1
+    for g in droppers(id):
         if level("merge_gear",g)>0:return g
-        if first<0:first=g
-    return first
+    return -1
 
 func can_auto_merge(id: String) -> bool:
-    if catalog.items[id].kind=="consumable":
-        return false
-    var g:=gear_group(id)
-    return g>=0 and level("merge_gear",g)>0
+    return gear_group(id)>=0
+
+## Change 13 Auto Evolution: the type whose unlock evolves this weapon (the first type that drops this
+## exact weapon with Auto Evolution bought), or -1. Outfits, skills, supplies and the last tier never.
+func evolve_group(id: String) -> int:
+    if not catalog.items.has(id) or catalog.items[id].kind!="weapon" or str(catalog.items[id].next)=="":return -1
+    for g in droppers(id):
+        if level("auto_evolve",g)>0:return g
+    return -1
+
+## Weapons this type drops that can still evolve (Auto Evolution applies to the type only if any).
+func evolvable_drops(g: int) -> Array:
+    return catalog.groups[g].loot.filter(func(id):return catalog.items[id].kind=="weapon" and str(catalog.items[id].next)!="")
+
+# ---------------------------------------------------------------- summoned helpers (Change 13)
+
+func is_helper(a: Dictionary) -> bool:
+    return int(a.get("variant",2))==HELPER_VARIANT
+
+## A helper stays only while its summoner is alive and still fighting the living player, and while it
+## stays on its leash; otherwise it dissolves (no reward).
+func helper_bound(e: Dictionary) -> bool:
+    var owner:=_find_actor(str(e.get("summoner","")))
+    if owner.is_empty() or float(owner.hp)<=0 or not bool(owner.aggro) or bool(owner.get("returning",false)):return false
+    if float(state.player.hp)<=0 or bool(e.get("returning",false)):return false
+    return position_of(e).distance_to(Vector2(e.home_x,e.home_y))<=float(catalog.world.leash)
+
+func dissolve_helper(e: Dictionary) -> void:
+    e.hp=0.0
+    _kill(e)
+
+func helpers_of(summoner_id: String) -> Array:
+    return state.enemies.filter(func(e):return is_helper(e) and float(e.hp)>0 and str(e.get("summoner",""))==summoner_id)
+
+var _helper_serial:=0
+## Creates up to `count` helpers of `group` around the summoner (never inside solid scenery).
+func spawn_helpers(summoner: Dictionary,rule: SummonRule,group: int,count: int) -> Array:
+    var ids: Array=[]
+    var center:=position_of(summoner)
+    for i in range(count):
+        var pos:=center
+        for attempt in range(8):
+            var p:=center+Vector2(rule.spawn_radius,0).rotated(TAU*(float(i)/count+attempt*.125)+.4)
+            p=p.clamp(Vector2(14,30),Vector2(catalog.world.size[0]-14,catalog.world.size[1]-14))
+            if not campaign.solid_at(p):
+                pos=p
+                break
+        _helper_serial+=1
+        var id:="h%d_%s" % [_helper_serial,summoner.id]
+        var a:=_actor(id,pos.x,pos.y,1,group)
+        a["variant"]=HELPER_VARIANT
+        a["summoner"]=str(summoner.id)
+        a.hp=enemy_definition(group,HELPER_VARIANT).hp
+        a.aggro=true
+        a.quiet=0.0
+        a.facing=signf(state.player.x-pos.x) if absf(state.player.x-pos.x)>.01 else 1.0
+        state.enemies.append(a)
+        ids.append(id)
+    if not ids.is_empty():
+        touch()
+        summoned.emit(str(summoner.id),ids)
+    return ids
+
+## Removes every helper at once (map change). Nothing is rewarded.
+func clear_helpers() -> void:
+    state.enemies=state.enemies.filter(func(e):return not is_helper(e))
 
 func _nearest_drop_group(y: float) -> int:
     return nearest_group()
@@ -1171,6 +1293,7 @@ func upgrade_block_reason(id: String,g: int=-1) -> String:
     if id.begins_with("offline_") and id.ends_with("_rate") and level(id.trim_suffix("_rate"))==0:return "AUTOMATION_LOCKED"
     if id.begins_with("skill_auto_") and int(id.right(1))>=1+level("skill_slots"):return "SKILL_SLOTS_FULL"
     if id=="skill_drop" and catalog.groups[g].skills.is_empty():return "ACTION_UNAVAILABLE"
+    if id=="auto_evolve" and evolvable_drops(g).is_empty():return "ACTION_UNAVAILABLE"
     if id.begins_with("cooldown_") and not skill_seen(id.trim_prefix("cooldown_")):return "UNDISCOVERED"
     if (id=="skill_slots" or id.begins_with("skill_auto_")) and state.skills_seen.is_empty():return "UNDISCOVERED"
     if upgrade_maxed(id,g):return "UPGRADE_MAX"

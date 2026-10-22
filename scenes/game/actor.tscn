@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 [ext_resource type="Script" path="res://scripts/game/actor_view.gd" id="script"]
 [ext_resource type="Texture2D" path="res://assets/PixelPlains/Characters 24x24/Basic character v2.png" id="body"]
 [ext_resource type="Texture2D" path="res://assets/PixelPlains/Characters 24x24/Shadow.png" id="shadow"]
 [ext_resource type="Theme" path="res://resources/game/theme.tres" id="theme"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-249.png" id="gate"]
 [node name="Actor" type="Node2D"]
 script=ExtResource("script")
 texture_filter=1
@@ -82,3 +83,9 @@ theme_override_font_sizes/font_size=8
 theme_override_colors/font_outline_color=Color(0.04,0.04,0.06,1)
 theme_override_constants/outline_size=3
 horizontal_alignment=1
+[node name="Gate" type="Sprite2D" parent="."]
+visible=false
+texture=ExtResource("gate")
+scale=Vector2(0.75,0.75)
+modulate=Color(1,0.84,0.34,1)
+z_index=2

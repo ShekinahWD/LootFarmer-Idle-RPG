@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AudioCueSet" load_steps=30 format=3]
+[gd_resource type="Resource" script_class="AudioCueSet" load_steps=32 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/audio_cue_set.gd" id="set"]
 [ext_resource type="Script" path="res://scripts/game/audio_cue.gd" id="cue"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" path="res://assets/Audio/prestige.wav" id="s10"]
 [ext_resource type="AudioStream" path="res://assets/sounds/stage_clear.wav" id="s11"]
 [ext_resource type="AudioStream" path="res://assets/sounds/background_music.wav" id="s12"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/summon_01.ogg" id="s13"]
 
 [sub_resource type="Resource" id="ui_click"]
 script = ExtResource("cue")
@@ -88,6 +89,15 @@ priority = 10
 cooldown = 0.25
 volume_db = -4.0
 
+[sub_resource type="Resource" id="spell_summon"]
+script = ExtResource("cue")
+id = "spell_summon"
+stream = ExtResource("s13")
+category = "gameplay"
+priority = 10
+cooldown = 0.5
+volume_db = -4.0
+
 [sub_resource type="Resource" id="mission_ready"]
 script = ExtResource("cue")
 id = "mission_ready"
@@ -146,4 +156,4 @@ volume_db = 0.0
 script = ExtResource("set")
 music = ExtResource("s12")
 music_volume_db = -8.0
-cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged")])
+cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("spell_summon"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged")])

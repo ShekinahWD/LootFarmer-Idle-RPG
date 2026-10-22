@@ -305,10 +305,10 @@ msgid "UNEQUIP"
 msgstr "Unequip"
 
 msgid "REROLL"
-msgstr "Reroll both extras · %d gems"
+msgstr "Reroll both extras · %s gems"
 
 msgid "REROLL_CONFIRM"
-msgstr "Spend %d gems to replace both extra stats? The new roll replaces the old one, even if weaker."
+msgstr "Spend %s gems to replace both extra stats? The new roll replaces the old one, even if weaker."
 
 msgid "USE"
 msgstr "Use one"
@@ -365,7 +365,7 @@ msgid "SPAWN_SELECT"
 msgstr "Select camp %d"
 
 msgid "SPAWN_BUY"
-msgstr "Unlock camp %d · %d coins"
+msgstr "Unlock camp %d · %s coins"
 
 msgid "SELECTED"
 msgstr "Selected"
@@ -3840,7 +3840,7 @@ msgid "CAMP_STATE_OWNED"
 msgstr "Unlocked"
 
 msgid "CAMP_STATE_LOCKED"
-msgstr "Locked · %d coins"
+msgstr "Locked · %s coins"
 
 msgid "SECTION_CAMPS"
 msgstr "Camps"
@@ -4023,7 +4023,7 @@ msgid "GUIDE_UPGRADE_EARN"
 msgstr "Earn coins for an upgrade"
 
 msgid "GUIDE_UPGRADE_EARN_DETAIL"
-msgstr "%d more coins needed. Every defeated enemy drops coins."
+msgstr "%s more coins needed. Every defeated enemy drops coins."
 
 msgid "GUIDE_UPGRADE_TAB"
 msgstr "Open the Upgrades tab"
@@ -4047,7 +4047,7 @@ msgid "GUIDE_CAMP_EARN"
 msgstr "Earn coins for the camp"
 
 msgid "GUIDE_CAMP_EARN_DETAIL"
-msgstr "%d more coins needed. Keep defeating enemies."
+msgstr "%s more coins needed. Keep defeating enemies."
 
 msgid "GUIDE_CAMP_BUY"
 msgstr "Tap Unlock"
@@ -4668,7 +4668,7 @@ msgid "SUPPLY_MASTERY_EXPLAIN"
 msgstr "Supplies are spent when used, but their mastery is permanent: every copy you find (drops and offline earnings) adds ^1, up to ^%d, and using one never lowers it. Prestige keeps mastery; Hard Reset clears it. Copies bought with coins add stock only."
 
 msgid "BUY_SUPPLY"
-msgstr "Buy %s · %d coins"
+msgstr "Buy %s · %s coins"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · %ds left"
@@ -4855,3 +4855,42 @@ msgstr "Nothing to merge"
 
 msgid "MERGE_ALL_DONE"
 msgstr "Merged %d copies across %d items"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "Unlock auto-evolution"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "Merges spare copies of: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "On · merges: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Evolves at ^100 with 101 copies: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "On · evolves: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "Cooldown: %s s"
+
+msgid "GATE_HUD"
+msgstr "Next stage · Bosses %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "World clear · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "Bosses to defeat on this map to open the next one. Found bosses that still count carry the gold banner."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "Next stage already open"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "Undiscovered boss"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · defeated"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · still needed"

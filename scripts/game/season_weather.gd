@@ -1,44 +1,51 @@
 extends Node2D
 ## Supplied sheet frames; sparse weather with no simulation effects. Particles belong to the world:
-## one authored pattern repeats on a fixed world grid (PERIOD) and drifts with time, so panning or
-## zooming the camera reveals more of the same field instead of carrying the weather along.
-@export var period:=Vector2(440,500)
-@export var particles_per_period:=12
-@export var drift:=Vector2(8,28)
+## one authored pattern repeats on a fixed world grid (the style's period) and drifts with time, so
+## panning or zooming the camera reveals more of the same field instead of carrying the weather along.
+## Change 13: each weather's look lives in an inspector-editable WeatherStyle; rain is denser and its
+## ambient tint darkens the map art toward an overcast sky (world.gd applies it to the stage only).
+@export var styles: Dictionary={
+    "rain":preload("res://resources/game/weather_rain.tres"),
+    "blue_leaves":preload("res://resources/game/weather_blue_leaves.tres"),
+    "leaves":preload("res://resources/game/weather_leaves.tres"),
+}
 var sim
 var clock: float=0
 var weather: String=""
-var texture: Texture2D
+var style: WeatherStyle
 func _process(dt: float) -> void:
     if sim==null:return
     var kind: String=sim.campaign.stage().weather
     if kind!=weather:
         weather=kind
-        texture=null
-        if kind=="rain":texture=load("res://assets/PixelPlains/Rain full anim sheet 52x216.png")
-        elif kind=="blue_leaves":texture=load("res://assets/PixelPlains/Winter/Falling leaves.png")
-        elif kind=="leaves":texture=load("res://assets/PixelPlains/Fall/Falling leaves.png")
+        style=styles.get(kind)
     clock+=dt
     queue_redraw()
+## The map-art tint of the current weather (white without weather).
+func ambient_tint() -> Color:
+    return style.ambient_tint if style!=null else Color.WHITE
 func _draw() -> void:
-    if texture==null:return
+    if style==null or style.texture==null:return
     var camera: Camera2D=get_parent().get_node("Camera")
     var half: Vector2=get_viewport_rect().size/camera.zoom*.5
     for particle in particles(Rect2(camera.position-half,half*2).grow(120)):
         var pos: Vector2=particle[0];var i: int=particle[1]
         if not sim.campaign.can_see(pos):continue
-        if weather=="rain":draw_texture_rect_region(texture,Rect2(pos,Vector2(26,108)),Rect2((int(clock*10)+i)%15*52,0,52,216),Color(1,1,1,.4))
-        else:draw_texture_rect_region(texture,Rect2(pos,Vector2(16,16)),Rect2((int(clock*8)+i)%8*16,(i%6)*16,16,16),Color(1,1,1,.65))
+        var frame:=(int(clock*style.fps)+i)%style.frames
+        draw_texture_rect_region(style.texture,Rect2(pos,style.draw_size),Rect2(Vector2(frame,i%style.frame_rows)*style.frame_size,style.frame_size),style.color)
 ## World positions [position, index] of the particles inside a world rect at the current clock.
 ## Depends only on the clock and the world grid, never on the camera (the rect only culls).
 func particles(visible_rect: Rect2) -> Array:
     var result: Array=[]
+    if style==null:return result
+    var period: Vector2=style.period
+    var drift: Vector2=style.drift
     var first:=Vector2i(floori(visible_rect.position.x/period.x),floori(visible_rect.position.y/period.y))
     var last:=Vector2i(floori(visible_rect.end.x/period.x),floori(visible_rect.end.y/period.y))
     for cy in range(first.y,last.y+1):
         for cx in range(first.x,last.x+1):
             var origin:=Vector2(cx,cy)*period
-            for i in range(particles_per_period):
+            for i in range(style.particles_per_period):
                 # Same local pattern in every period cell: a particle leaving one cell is continued by
                 # its twin entering from the neighbouring cell, so wrapping never pops.
                 var pos:=origin+Vector2(fposmod(i*83.0+clock*drift.x,period.x),fposmod(i*47.0+i*i*13.0+clock*drift.y,period.y))
