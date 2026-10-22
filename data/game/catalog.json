@@ -21307,31 +21307,31 @@
     },
     "spawn_amount": {
       "currency": "gems",
-      "base": 150,
+      "base": 75,
       "growth": 1,
       "cap": 3,
       "keep": true,
       "effect": 1,
       "prices": [
-        150,
-        250,
-        400
+        75,
+        125,
+        200
       ],
       "scope": "normal_type"
     },
     "spawn_cooldown": {
       "currency": "gems",
-      "base": 100,
+      "base": 50,
       "growth": 1,
       "cap": 5,
       "keep": true,
       "effect": 0.1,
       "prices": [
+        50,
         100,
-        175,
-        275,
-        400,
-        550
+        150,
+        225,
+        300
       ],
       "scope": "normal_type"
     },

@@ -12,6 +12,9 @@
 - Every upgrade bought with Gems is kept by Prestige (keep = true), whatever its category; the
   simulation enforces the same rule from the currency (simulation.upgrade_kept). Each upgrade has a
   single currency, so no level is ever split between currencies.
+- Enemy spawn prices (Winter I, per enemy type; later stages keep the gem stage factor
+  1 + 0.25 x (stage - 1)): Spawn Amount 75 / 125 / 200 (400 total), Spawn Cooldown
+  50 / 100 / 150 / 225 / 300 (825 total). Effects and caps unchanged.
 - Supply capacity equals the number of supply identities: 1 initial slot + 4 purchases = 5.
   Supply auto-merge (merge_supplies, merge_speed) is removed: mastery grows on its own.
 """
@@ -22,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / 'data/game/catalog.json'
 ART = 'res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png'
 INITIAL_SUPPLY_SLOTS = 1
+SPAWN_PRICES = {'spawn_amount': [75, 125, 200], 'spawn_cooldown': [50, 100, 150, 225, 300]}
 MASTERY = {
     'cap': 100,
     'milestones': [
@@ -84,6 +88,13 @@ def apply(data):
         if entry['currency'] == 'gems' and entry.get('keep') is not True:
             entry['keep'] = True
             changes.append('keep ' + ident)
+    for ident, prices in SPAWN_PRICES.items():
+        entry = upgrades[ident]
+        assert len(prices) == entry['cap'], ident
+        if entry.get('prices') != prices or entry.get('base') != prices[0]:
+            entry['prices'] = prices
+            entry['base'] = prices[0]
+            changes.append(ident + '.prices')
     cap = len(SUPPLIES) - INITIAL_SUPPLY_SLOTS
     if upgrades['supply_slots'].get('cap') != cap:
         upgrades['supply_slots']['cap'] = cap
