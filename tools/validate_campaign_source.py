@@ -11,7 +11,12 @@ check('unique stable group ids',len({g['id'] for g in c['groups']})==48)
 check('single superior final boss',sum(g['final'] for g in c['groups'])==1 and c['groups'][-1]['hp']>max(g['hp'] for g in c['groups'][:-1]))
 check('three double gates', [s['id'] for s in c['stages'] if len(s['gates'])==2]==[4,6,7])
 check('selling absent from item and upgrade definitions',not any('sell' in k.lower() for k in c['upgrades']) and all(not any('sell' in k.lower() for k in i) for i in c['items'].values()))
-check('catalog capacity includes every tier',c['upgrades']['gear_slots']['cap']+3==sum(i['kind']!='consumable' for i in c['items'].values()) and c['upgrades']['supply_slots']['cap']+1==sum(i['kind']=='consumable' for i in c['items'].values()))
+# Change 10: exactly 70 equipment slots (3 + 67), enough for every reachable equipment identity.
+sys.path.insert(0,str(ROOT/'tools'))
+import change10_catalog
+check('equipment capacity is 70 and holds every reachable identity',c['upgrades']['gear_slots']['cap']+3==70 and len(change10_catalog.reachable_equipment(c))<=70)
+check('supply capacity includes every consumable tier',c['upgrades']['supply_slots']['cap']+1==sum(i['kind']=='consumable' for i in c['items'].values()))
+check('boss Gem payout multiplier',c['progression']['gem_limits'].get('boss_amount_multiplier')==3)
 check('automerge nine reductions from ten to one',c['upgrades']['gear_merge_speed']['cap']==9 and c['upgrades']['merge_speed']['cap']==9)
 check('eight baked stage scenes',all((ROOT/f'scenes/game/stages/stage_{i}.tscn').is_file() for i in range(1,9)))
 for ident,entry in c['items'].items():

@@ -280,21 +280,53 @@ func stats_with(weapon: String, outfit: String) -> Dictionary:
     state.weapon=saved[0];state.outfit=saved[1];_stats_revision=-1
     return result
 
+## Change 10 transparency: how one effective stat is built. The parts are stat_sources() (exactly
+## what stats() adds), the multiplier is the same prestige card factor, and the total is stats()
+## itself, so the Stats and Level panels never recompute a formula. HP and damage have no caps.
+func stat_breakdown(key: String) -> Dictionary:
+    var parts: Array=[]
+    var subtotal:=0.0
+    var sources:=stat_sources()
+    for source in sources:
+        var value:=float(sources[source].get(key,0.0))
+        subtotal+=value
+        if value!=0.0:parts.append([source,value])
+    var multiplier:=card(key) if key in ["hp","damage"] else 1.0
+    return {"parts":parts,"subtotal":subtotal,"multiplier":multiplier,"total":float(stats()[key])}
+
+## Effective stats at another player level, everything else unchanged: the combat getter itself.
+func stats_at_level(player_level: int) -> Dictionary:
+    var saved:=int(state.player_level)
+    state.player_level=clampi(player_level,1,max_level());_stats_revision=-1
+    var result: Dictionary=stats().duplicate()
+    state.player_level=saved;_stats_revision=-1
+    return result
+
+func max_level() -> int:
+    return int(catalog.progression.max_level)
+
+## Equipment slots owned now: 3 + purchased (Change 10 caps it at 70). Supplies are a separate pool.
+func equipment_slot_count() -> int:
+    return int(player_upgrade_value("gear_slots"))
+
+func equipment_slot_max() -> int:
+    return int(player_upgrade_value("gear_slots",int(catalog.upgrades.gear_slots.cap)-level("gear_slots")))
+
 func xp_required(player_level: int = -1) -> float:
     var current:=int(state.player_level) if player_level<0 else player_level
     return ceil(float(catalog.progression.xp_base)*pow(current,float(catalog.progression.xp_growth)))
 
 func gain_xp(amount: float) -> void:
-    if state.player_level>=1000:
+    if state.player_level>=max_level():
         return
     state.xp+=maxf(0,amount)
     var old_hp:=float(stats().hp)
     var gained:=false
-    while state.player_level<1000 and state.xp>=xp_required():
+    while state.player_level<max_level() and state.xp>=xp_required():
         state.xp-=xp_required()
         state.player_level+=1
         gained=true
-    if state.player_level==1000:
+    if state.player_level==max_level():
         state.xp=0.0
     touch()
     if gained:
@@ -1007,6 +1039,7 @@ func player_upgrade_value(id: String,extra: int=0) -> float:
     match id:
         "gem_chance":return gem_base_chance(extra)
         "gem_amount":return gem_amount(extra)
+        "boss_gem_amount":return boss_gem_amount(extra)
         "skill_slots":return 1+n
         "mission_slots":return 3+n
         "offline_cap":return [5,8,12,18,24,36,48][mini(n,6)]
@@ -1028,6 +1061,19 @@ func farming_position() -> Vector2:
 func gem_base_chance(extra: int=0) -> float:
     return minf(float(catalog.progression.gem_limits.normal_cap),float(catalog.progression.gem_limits.base_chance)+campaign.bonus("gem_chance")+float(catalog.upgrades.gem_chance.effect)*(level("gem_chance")+extra))
 
+## Gems paid by one successful Gem roll; the chance is gem_chance(). The single authoritative payout:
+## _reward() grants it and every display reads it. Change 10: a boss pays boss_amount_multiplier (3)
+## times the normal amount under the same Gem Amount upgrades, then adds its boss-only Boss Gem Amount
+## levels (never tripled), and the boss Gem card scales the boss total.
 func gem_amount(extra: int=0,group: int=-1) -> float:
-    var boss: bool=group>=0 and catalog.groups[group].boss
-    return (1.0+.5*(level("gem_amount")+extra)+(level("boss_gem_amount") if boss else 0))*(1+campaign.bonus("boss_gems") if boss else 1)
+    var normal_amount:=1.0+float(catalog.upgrades.gem_amount.effect)*(level("gem_amount")+extra)
+    if group<0 or not catalog.groups[group].boss:return normal_amount
+    return _boss_payout(normal_amount,0)
+
+## Boss payout per successful roll with `extra` more Boss Gem Amount levels (same for every boss).
+func boss_gem_amount(extra: int=0) -> float:
+    return _boss_payout(gem_amount(),extra)
+
+func _boss_payout(normal_amount: float,extra: int) -> float:
+    var tripled:=float(catalog.progression.gem_limits.boss_amount_multiplier)*normal_amount
+    return (tripled+float(catalog.upgrades.boss_gem_amount.effect)*(level("boss_gem_amount")+extra))*(1+campaign.bonus("boss_gems"))

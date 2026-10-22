@@ -79,8 +79,14 @@ func _process(dt: float) -> void:
     blocker.visible=chooser.visible
     if chooser.visible:
         sim.suspended=true
-        chooser.size=Vector2(minf(600,ui.size.x-48),0)
-        chooser.position=(ui.size-chooser.get_combined_minimum_size())*.5
+        # Change 10: centred from the chooser's real size on the X axis of the safe area (it was
+        # placed by its smaller minimum width while drawn 600 wide, so it sat right of centre).
+        var insets:=LayoutService.get_safe_area_insets_canvas()
+        var width:=minf(600,ui.size.x-insets.x-insets.z-48)
+        var wanted:=Vector2(maxf(width,chooser.get_combined_minimum_size().x),chooser.get_combined_minimum_size().y)
+        if not chooser.size.is_equal_approx(wanted):chooser.size=wanted
+        var at:=Vector2(ui.centered_x(chooser.size.x,insets),(ui.size.y-chooser.size.y)*.5)
+        if not chooser.position.is_equal_approx(at):chooser.position=at
         _hide_all();return
     _complete_lessons()
     evaluate()

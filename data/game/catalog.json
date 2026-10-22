@@ -21175,7 +21175,7 @@
       "currency": "gems",
       "base": 5,
       "growth": 1,
-      "cap": 389,
+      "cap": 67,
       "keep": true,
       "effect": 1,
       "scope": "global",
@@ -21848,7 +21848,8 @@
     "gem_limits": {
       "base_chance": 0.08,
       "normal_cap": 0.2,
-      "boss_cap": 0.6
+      "boss_cap": 0.6,
+      "boss_amount_multiplier": 3
     },
     "balance": {
       "hp_base": 25,

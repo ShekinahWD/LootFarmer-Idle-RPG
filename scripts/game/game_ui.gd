@@ -23,9 +23,13 @@ const COIN=preload("res://resources/game/coin.tres")
 const GEM=preload("res://resources/game/gem.tres")
 const SLOT=preload("res://scenes/game/slot.tscn")
 const ROW=preload("res://scenes/game/action_row.tscn")
+## Change 10: outfit slot look per ^100 merge milestone (inspector-editable resource).
+const OUTFIT_SLOT_STYLES: OutfitSlotStyles=preload("res://resources/game/outfit_slot_styles.tres")
 ## Values copied from a freshly built description into the live control of the same shape.
 const SYNC_PROPERTIES:=["text","disabled","tooltip_text","value","max_value","texture","icon","modulate","self_modulate","visible","theme_type_variation"]
 const PANEL_ALIASES:={"travel":"world","map":"world"}
+## Panels a HUD control toggles: a second tap on the control closes its own panel.
+const LEVEL_PANEL:="level"
 const UPGRADE_TABS:=["TAB_PLAYER","TAB_INVENTORY","TAB_SUPPLIES","TAB_GEMS","TAB_OFFLINE"]
 var guide
 @onready var sim: LootSimulation=$Simulation
@@ -75,6 +79,8 @@ var arrow_art: Texture2D
 ## Offline claim already offered for this pending settlement id (the panel opens once per return).
 var offline_prompted:=""
 var show_completed_main:=false
+## Farming Guide: 0 lists the maps, otherwise the stage whose entry is open.
+var guide_stage:=0
 ## Camp the player currently stands in (-1 outside) and whether entering it still owes the panel.
 var camp_inside:=-1
 var camp_pending:=false
@@ -117,6 +123,8 @@ func _ready() -> void:
             $Safe/Layout/Map/GestureSurface.cancel_gesture()
             world.follow_player())
     top.get_node("Bar/Pause").pressed.connect(_pause)
+    # Change 10: the level / XP bar opens Player Level & Growth (a second tap closes it).
+    top.get_node("Meters/XP/Open").pressed.connect(func()->void:_nav(LEVEL_PANEL))
     $Sheet/Margin/Content/Header/Close.pressed.connect(_close)
     sim.gem_pickup.connect(_show_gem_pickup)
     sim.combat_group_changed.connect(func(g: int)->void:combat_group=g)
@@ -218,9 +226,12 @@ func _process(dt: float) -> void:
         top.get_node("Meters/HP/Text").text=tr("HUD_REVIVE") % p.respawn
     elif sim.campaign.rest_rate()>=float(sim.catalog.progression.rest.camp) and p.hp<s.hp:
         top.get_node("Meters/HP/Text").text+="  "+tr("HUD_RESTING")
-    top.get_node("Meters/XP").value=100.0 if sim.state.player_level==1000 else 100.0*sim.state.xp/sim.xp_required()
-    top.get_node("Meters/XP/Text").text=tr("HUD_LEVEL") % [sim.state.player_level,tr("VALUE_MAX") if sim.state.player_level==1000 else tr("XP_PROGRESS") % [fmt_count(sim.state.xp),fmt_count(sim.xp_required())]]
+    var capped: bool=int(sim.state.player_level)>=sim.max_level()
+    top.get_node("Meters/XP").value=100.0 if capped else 100.0*sim.state.xp/sim.xp_required()
+    top.get_node("Meters/XP/Text").text=tr("HUD_LEVEL") % [sim.state.player_level,tr("VALUE_MAX") if capped else tr("XP_PROGRESS") % [fmt_count(sim.state.xp),fmt_count(sim.xp_required())]]
     if sim.state.boost_time>0:top.get_node("Meters/XP/Text").text+="  "+tr("BOOST_ACTIVE") % int(ceil(sim.state.boost_time))
+    # A quiet hint that the bar opens Player Level & Growth.
+    top.get_node("Meters/XP/Text").text+="  ›"
     _refresh_combat_achievement()
     _refresh_loot_notifications()
     _refresh_badges()
@@ -376,10 +387,16 @@ func _refresh_slots() -> void:
             node.get_node("Badge").text=badge
             node.add_theme_stylebox_override("normal",_tier_style(id,panel=="item" and selected==id))
             node.add_theme_stylebox_override("hover",_tier_style(id,true))
+            _apply_milestone_frame(node,id)
+            var rank:=_milestone_rank(id)
+            if rank>0:node.get_node("Count").add_theme_color_override("font_color",OUTFIT_SLOT_STYLES.frame_color(rank))
+            else:node.get_node("Count").remove_theme_color_override("font_color")
             node.tooltip_text=sim.catalog.display_name(id) if id!="" else tr("EMPTY_SLOT")
             node.visible=shown
     _layout_inventory()
-    dock.get_node("Inventory/GearColumn/Head/Heading").text=tr("HUD_GEAR") % [sim.state.gear.size()-sim.state.gear.count(""),sim.state.gear.size()]
+    var heading:=tr("HUD_GEAR") % [sim.state.gear.size()-sim.state.gear.count(""),sim.state.gear.size()]
+    if sim.state.gear.size()>=sim.equipment_slot_max():heading+=" · "+tr("UPGRADE_MAX")
+    dock.get_node("Inventory/GearColumn/Head/Heading").text=heading
     # Pinned equipped weapon and outfit: views of the equipped ids, never extra inventory entries.
     for kind in ["weapon","outfit"]:
         var button: Button=dock.get_node("Inventory/GearColumn/Head/Equipped/"+kind.capitalize())
@@ -388,16 +405,37 @@ func _refresh_slots() -> void:
         button.text="" if id!="" else "—"
         button.tooltip_text=(tr("EQUIPPED_WEAPON" if kind=="weapon" else "EQUIPPED_OUTFIT")+": "+(sim.catalog.display_name(id) if id!="" else tr("NOTHING_EQUIPPED_SHORT")))
         button.add_theme_stylebox_override("normal",_tier_style(id,panel=="item" and selected==id and id!=""))
+        _apply_milestone_frame(button,id)
     dock.get_node("Inventory/SupplyColumn/SupplyHeading").text=tr("HUD_SUPPLIES") % [sim.state.supplies.size()-sim.state.supplies.count(""),sim.state.supplies.size()]
 
-## One cached style per tier color and highlight state; slots never duplicate styles per refresh.
+## One cached style per tier color, outfit milestone rank and highlight state; slots never duplicate
+## styles per refresh. A milestone lifts the tier colour slightly (its hue stays the tier's).
 func _tier_style(id: String,highlight: bool) -> StyleBoxTexture:
-    var key:="%s:%s" % [_tier_color(id).to_html(),highlight]
+    var rank:=_milestone_rank(id)
+    var key:="%s:%d:%s" % [_tier_color(id).to_html(),rank,highlight]
     if not tier_styles.has(key):
         var style: StyleBoxTexture=theme.get_stylebox("normal","Slot").duplicate()
-        style.modulate_color=_tier_color(id).lightened(.22) if highlight else _tier_color(id)
+        var base:=_tier_color(id).lightened(OUTFIT_SLOT_STYLES.lift(rank))
+        style.modulate_color=base.lightened(.22) if highlight else base
         tier_styles[key]=style
     return tier_styles[key]
+
+## Change 10: an outfit's ^100 milestone rank (0-5) decides its slot treatment; other items are 0.
+func _milestone_rank(id: String) -> int:
+    if id=="" or not sim.catalog.items.has(id) or str(sim.catalog.items[id].kind)!="outfit":return 0
+    return OUTFIT_SLOT_STYLES.rank(int(sim.state.items.get(id,{}).get("merge",0)))
+
+## Shows the milestone frame over any slot-like control (a Button or Panel child named MilestoneFrame;
+## created on first need, hidden at rank 0). The equipped/selected states stay on the background.
+func _apply_milestone_frame(node: Control,id: String) -> void:
+    var rank:=_milestone_rank(id)
+    var frame: NinePatchRect=node.get_node_or_null("MilestoneFrame")
+    if frame==null:
+        if rank==0:return
+        frame=NinePatchRect.new()
+        frame.name="MilestoneFrame"
+        node.add_child(frame)
+    OUTFIT_SLOT_STYLES.apply(frame,rank)
 
 func _layout_inventory() -> void:
     var inventory: Control=dock.get_node("Inventory")
@@ -447,11 +485,7 @@ func _nav(which: String) -> void:
         _close()
         AudioService.play_sfx("button")
         return
-    # The Prestige system opens with the first boss defeated; until then the button says so.
-    if which=="prestige" and not sim.campaign.prestige_unlocked() and sim.state.prestige_batch.is_empty():
-        _event("PRESTIGE_LOCKED_FIRST_BOSS")
-        AudioService.play_sfx("button")
-        return
+    # Change 10: Prestige always opens; only the reset action inside the panel is gated.
     _open(which)
 
 func _open(which: String) -> void:
@@ -645,7 +679,9 @@ func _cancel_confirm() -> void:
     $Confirm.hide()
     confirm_action=Callable()
 
-## Content-sized confirmation: width first, then the wrapped text decides the height.
+## Content-sized confirmation (Hard Reset, rerolls, prestige): width first, then the wrapped text
+## decides the height. Change 10: centred on the X axis of the safe area from the box's real size
+## (a control never shrinks below its minimum), so long text cannot push it off centre.
 func _layout_confirm() -> void:
     var insets:=LayoutService.get_safe_area_insets_canvas()
     var available:=size-Vector2(insets.x+insets.z,insets.y+insets.w)-Vector2(40,40)
@@ -654,8 +690,14 @@ func _layout_confirm() -> void:
     var text: Label=$Confirm/Panel/Margin/Content/Scroll/Text
     text.custom_minimum_size.x=width-60
     var wanted:=box.get_combined_minimum_size().y+text.get_combined_minimum_size().y
-    box.size=Vector2(width,clampf(wanted,220,available.y))
-    box.position=Vector2(insets.x+20,insets.y+20)+(available-box.size)*.5
+    var target:=Vector2(width,clampf(wanted,220,available.y))
+    if not box.size.is_equal_approx(target):box.size=target
+    var at:=Vector2(centered_x(box.size.x,insets),insets.y+20+(available.y-box.size.y)*.5)
+    if not box.position.is_equal_approx(at):box.position=at
+
+## Left edge that centres a box of this width on the usable (safe-area) width of the screen.
+func centered_x(width: float,insets: Vector4) -> float:
+    return insets.x+(size.x-insets.x-insets.z-width)*.5
 
 func _unhandled_key_input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):
@@ -665,7 +707,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
-    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main]
+    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage]
 
 func _refresh_panel(force_layout:=false) -> void:
     panel_clock=0.0
@@ -697,6 +739,8 @@ func _refresh_panel(force_layout:=false) -> void:
         "missions":_missions_panel()
         "inventory":_inventory_panel()
         "offline":_offline_panel()
+        "level":_level_panel()
+        "farming":_farming_panel()
     var context:=_panel_context()
     var replace:=context!=panel_context
     var mapping: Dictionary={}
@@ -984,17 +1028,22 @@ func _item_summary_card(id: String,ribbon: String,ribbon_color: Color,at:=-1,cou
     var line:=HBoxContainer.new()
     line.add_theme_constant_override("separation",14)
     box.add_child(line)
-    var frame:=PanelContainer.new()
+    # The same slot look as the inventory (tier colour plus the outfit milestone frame).
+    var frame:=Panel.new()
+    frame.custom_minimum_size=Vector2(96,96)
     frame.add_theme_stylebox_override("panel",_tier_style(id,false))
     frame.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
     line.add_child(frame)
     var icon:=TextureRect.new()
     icon.texture=icon_cache.get(id) if id!="" else null
-    icon.custom_minimum_size=Vector2(72,72)
+    icon.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    icon.offset_left=12;icon.offset_top=12;icon.offset_right=-12;icon.offset_bottom=-12
     icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
     icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
     icon.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+    icon.mouse_filter=Control.MOUSE_FILTER_IGNORE
     frame.add_child(icon)
+    _apply_milestone_frame(frame,id)
     var details:=VBoxContainer.new()
     details.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     details.add_theme_constant_override("separation",3)
@@ -1163,6 +1212,10 @@ func _upgrade_row(id: String,g: int=-1) -> void:
 
 func _upgrade_benefit(id: String,g: int) -> String:
     var next:=0 if sim.upgrade_maxed(id,g) else 1
+    # Change 10: equipment slots read as "slots now -> next of 70", and "70 / 70 · maxed" at the cap.
+    if id=="gear_slots":
+        if next==0:return tr("EQUIPMENT_SLOTS_MAXED") % [sim.equipment_slot_count(),sim.equipment_slot_max()]
+        return tr("EQUIPMENT_SLOTS_NEXT") % [sim.equipment_slot_count(),int(sim.player_upgrade_value(id,1)),sim.equipment_slot_max()]
     if int(sim.catalog.upgrades[id].cap)==1:
         return tr("UPGRADE_TRANSITION") % [tr("ON" if sim.level(id,g)>0 else "OFF"),tr("ON")]
     var current:=sim.group_upgrade_value(id,g,enemy_variant) if g>=0 else sim.player_upgrade_value(id)
@@ -1170,7 +1223,8 @@ func _upgrade_benefit(id: String,g: int) -> String:
     var percent:=id in ["loot","supply_drop","skill_drop","gem_chance","boss_gem_chance","movement","reveal_radius","camp_radius"]
     var left:=fmt_value(current*100)+"%" if percent else fmt_value(current)
     var right:=fmt_value(future*100)+"%" if percent else fmt_value(future)
-    var value:=tr("UPGRADE_TRANSITION") % [left,right]
+    var value:=tr("UPGRADE_TRANSITION") % [left,right] if next>0 else tr("UPGRADE_MAXED_VALUE") % left
+    if id=="boss_gem_amount":value=tr("BOSS_GEMS_PER_DROP") % value
     if id in ["respawn","collect_speed","merge_speed","gear_merge_speed","use_speed","spawn_cooldown"]:value=tr("SECONDS_VALUE") % value
     if id=="supply_drop":value=tr("POTION_CHANCE_VALUE") % value
     return value
@@ -1340,6 +1394,8 @@ func _world_panel() -> void:
                 var b:=_action(sim.catalog.groups[g].name,func()->void:group=g;enemy_variant=2;enemy_tab=0;_open("enemy"),true,"",known)
                 b.size_flags_horizontal=0;b.custom_minimum_size=Vector2(0,56);b.add_theme_font_size_override("font_size",17)
     else:_text(tr("MAP_LEGEND"),17,Color(.7,.75,.82))
+    # Change 10: the map-by-map Farming Guide (opens per map once its research is complete).
+    _action(tr("FARMING_GUIDE_OPEN"),func()->void:guide_stage=0;_open("farming")).set_meta("guide","farming_guide")
     if int(sim.state.unlocked_stage)>1:
         _section(tr("SECTION_TRAVEL"))
         for st in range(1,int(sim.state.unlocked_stage)+1):
@@ -1430,20 +1486,69 @@ func _stats_panel() -> void:
     if sim.campaign.bonus("equipped")>0:boosts.append([tr("STATS_EQUIPPED_BONUS"),"+"+fmt(sim.campaign.bonus("equipped")*100)+"%"])
     if sim.state.boost_time>0:boosts.append([tr("STAT_COIN_BONUS"),tr("STATS_TONIC_VALUE") % [fmt(float(sim.state.boost_power)*100),ceili(sim.state.boost_time)]])
     _stat_section(tr("STATS_SECTION_BOOSTS"),boosts)
-    # What each source adds before multipliers and caps (playbook 17.2), damage and HP first.
+    # Change 10: HP and damage built up source by source (playbook 17.2), from the same parts and
+    # multiplier stats() uses; the other stats list what each source adds before caps.
+    _breakdown_section("hp")
+    _breakdown_section("damage")
     var sources: Array=[]
     for source in sim.stat_sources():
         var values: Dictionary=sim.stat_sources()[source]
         var parts: Array=[]
-        for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen","regen_pct"]:
+        for key in ["defense","crit","crit_damage","speed","lifesteal","regen","regen_pct"]:
             if _meaningful(key,float(values.get(key,0.0))):parts.append(_short_stat(key,float(values[key])))
-        if not parts.is_empty():sources.append([tr(source),", ".join(parts)])
-    _stat_section(tr("STAT_SOURCES"),sources)
+        if not parts.is_empty():sources.append([_source_label(source,""),", ".join(parts)])
+    _stat_section(tr("STAT_SOURCES_OTHER"),sources)
     # Active play only (no pause, background, offline or prestige-choice time); see simulation.step.
     _stat_section(tr("STATS_SECTION_TIME"),[
         [tr("STATS_TIME_TOTAL"),fmt_duration(float(sim.state.get("playtime_total",0.0)))],
         [tr("STATS_TIME_RUN"),fmt_duration(float(sim.state.get("playtime_run",0.0)))]])
     _text(tr("STAT_CAPS_NOTE"),16,Color(.7,.75,.82))
+
+## Where effective HP or damage comes from: each additive source, the prestige multiplier and the
+## total combat uses (sim.stat_breakdown). Damage adds the per-hit modifiers that are not in it.
+func _breakdown_section(key: String) -> void:
+    var b: Dictionary=sim.stat_breakdown(key)
+    var entries: Array=[]
+    for part in b.parts:entries.append([_source_label(str(part[0]),key),"+"+fmt_value(float(part[1]))])
+    if not is_equal_approx(float(b.multiplier),1.0):
+        entries.append([tr("BREAKDOWN_SUBTOTAL"),fmt_value(float(b.subtotal))])
+        entries.append([tr("BREAKDOWN_PRESTIGE"),"×%s  (+%s)" % [fmt_value(float(b.multiplier)),fmt_value(float(b.total)-float(b.subtotal))]])
+    entries.append([tr("BREAKDOWN_TOTAL"),fmt_value(float(b.total))])
+    _stat_section(tr("BREAKDOWN_HP" if key=="hp" else "BREAKDOWN_DAMAGE"),entries)
+    var extra: Array=_per_hit_modifiers() if key=="damage" else _damage_taken_modifiers()
+    if not extra.is_empty():_stat_section(tr("BREAKDOWN_PER_HIT" if key=="damage" else "BREAKDOWN_TAKEN"),extra)
+
+## Source names with what they mean for HP / damage (levels count and per-level value, stored shares).
+func _source_label(source: String,key: String) -> String:
+    match source:
+        "SOURCE_LEVEL":
+            var per:=float(sim.catalog.progression.hp_per_level if key=="hp" else sim.catalog.progression.damage_per_level)
+            if key in ["hp","damage"]:return tr("SOURCE_LEVEL_DETAIL") % [int(sim.state.player_level)-1,fmt_value(per)]
+        "SOURCE_STORED":
+            return tr("SOURCE_STORED_DETAIL") % [fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100),fmt_value(float(sim.catalog.progression.stored_weapon_factor)*100)]
+        "SOURCE_EQUIPPED":
+            if sim.campaign.bonus("equipped")>0:return tr("SOURCE_EQUIPPED_DETAIL") % fmt_value(sim.campaign.bonus("equipped")*100)
+    return tr(source)
+
+## Damage modifiers applied per hit (not in the Damage total): kill milestones of the current enemy
+## type, prestige bonuses against normal enemies or bosses and an active Focus.
+func _per_hit_modifiers() -> Array:
+    var result: Array=[]
+    var g:=combat_group
+    if g in range(sim.catalog.groups.size()) and sim.campaign.discovered(g) and sim.achievement_damage(g)>0:
+        result.append([tr("PER_HIT_MILESTONES") % sim.catalog.groups[g].name,"+"+fmt_value(sim.achievement_damage(g)*100)+"%"])
+    for pair in [["normal_damage","PER_HIT_NORMAL"],["boss_damage","PER_HIT_BOSS"]]:
+        if sim.campaign.bonus(pair[0])>0:result.append([tr(pair[1]),"+"+fmt_value(sim.campaign.bonus(pair[0])*100)+"%"])
+    if float(sim.state.player.get("focus_time",0))>0:
+        result.append([tr("PER_HIT_FOCUS") % ceili(float(sim.state.player.focus_time)),"+"+fmt_value(float(sim.state.player.get("focus_power",.15))*100)+"%"])
+    return result
+
+## Prestige guard cards: damage taken from every enemy / from bosses (they reduce hits, not HP).
+func _damage_taken_modifiers() -> Array:
+    var result: Array=[]
+    for pair in [["guard","TAKEN_GUARD"],["boss_guard","TAKEN_BOSS_GUARD"]]:
+        if sim.campaign.bonus(pair[0])>0:result.append([tr(pair[1]),"−"+fmt_value(sim.campaign.bonus(pair[0])*100)+"%"])
+    return result
 
 ## One stats card: a heading, then name (left, muted) and value (right, bright) per row.
 func _stat_section(title: String,entries: Array) -> void:
@@ -1568,6 +1673,7 @@ func _pinned_equipment() -> void:
         button.expand_icon=true
         button.add_theme_constant_override("icon_max_width",40)
         button.add_theme_stylebox_override("normal",_tier_style(id,false))
+        _apply_milestone_frame(button,id)
         button.disabled=id==""
         button.pressed.connect(func()->void:_open_equipped(kind))
         line.add_child(button)
@@ -1593,6 +1699,158 @@ func _offline_panel() -> void:
         if sim.campaign.claim_offline():
             _close()
             _toast(tr("OFFLINE_CLAIMED")),true,"",true,"claim_offline")
+
+# ---------------------------------------------------------------- player level & growth (Change 10)
+
+## Opened by tapping the level / XP bar: level, XP to the next level, what one level gives (the
+## catalog's per-level values) and what the next level changes in effective HP and damage, read from
+## the combat stat getter at both levels. The HP / damage breakdown follows; full Stats is one tap.
+func _level_panel() -> void:
+    var level:=int(sim.state.player_level)
+    var capped: bool=level>=sim.max_level()
+    var s:=sim.stats()
+    var card:=PanelContainer.new()
+    card.theme_type_variation=&"Card"
+    rows.add_child(card)
+    var box:=VBoxContainer.new()
+    box.add_theme_constant_override("separation",4)
+    card.add_child(box)
+    _card_line(box,tr("LEVEL_PANEL_LEVEL") % [level,sim.max_level()],22,Color.WHITE)
+    var bar:=ProgressBar.new()
+    bar.theme_type_variation=&"XP"
+    bar.custom_minimum_size=Vector2(0,18)
+    bar.show_percentage=false
+    bar.max_value=1.0 if capped else sim.xp_required()
+    bar.value=bar.max_value if capped else float(sim.state.xp)
+    box.add_child(bar)
+    if capped:_card_line(box,tr("LEVEL_PANEL_CAPPED"),18,Color(1,.86,.5))
+    else:_card_line(box,tr("LEVEL_PANEL_XP") % [fmt_count(sim.state.xp),fmt_count(sim.xp_required()),fmt_count(sim.xp_required()-float(sim.state.xp)),level+1],18,Color(.8,.84,.9))
+    var per_hp:=float(sim.catalog.progression.hp_per_level)
+    var per_damage:=float(sim.catalog.progression.damage_per_level)
+    var growth: Array=[[tr("LEVEL_PANEL_PER_LEVEL"),tr("LEVEL_PANEL_GAIN") % [fmt_value(per_hp),fmt_value(per_damage)]],
+        [tr("LEVEL_PANEL_FROM_LEVELS") % (level-1),tr("LEVEL_PANEL_GAIN") % [fmt_value(per_hp*(level-1)),fmt_value(per_damage*(level-1))]]]
+    if not capped:
+        var next:=sim.stats_at_level(level+1)
+        growth.append([tr("LEVEL_PANEL_NEXT_HP") % (level+1),tr("LEVEL_PANEL_NEXT_VALUE") % [fmt_value(s.hp),fmt_value(next.hp),fmt_value(float(next.hp)-float(s.hp))]])
+        growth.append([tr("LEVEL_PANEL_NEXT_DAMAGE") % (level+1),tr("LEVEL_PANEL_NEXT_VALUE") % [fmt_value(s.damage),fmt_value(next.damage),fmt_value(float(next.damage)-float(s.damage))]])
+    _stat_section(tr("LEVEL_PANEL_GROWTH"),growth)
+    if sim.card("hp")>1.0 or sim.card("damage")>1.0:
+        _text(tr("LEVEL_PANEL_PRESTIGE_NOTE") % [fmt_value(sim.card("hp")),fmt_value(sim.card("damage"))],16,Color(.7,.75,.82))
+    _breakdown_section("hp")
+    _breakdown_section("damage")
+    _pinned(tr("STATS_OPEN"),func()->void:_open("stats"),true,"",false,"open_stats",false)
+
+# ---------------------------------------------------------------- farming guide (Change 10)
+
+## Map-by-map farming reference, reached from World. A map's entry opens once its Map Details is
+## fully bought and every enemy type there has Reveal Stats and Reveal Drops. It shows only what the
+## existing discovery rules already allow: undiscovered types and spots stay placeholders with no
+## name, loadout or location. It draws no markers, reveals no fog and never travels.
+func _farming_panel() -> void:
+    if guide_stage>0 and bool(sim.campaign.farming_guide_status(guide_stage).open):
+        _farming_map(guide_stage)
+        return
+    guide_stage=0
+    _text(tr("FARMING_GUIDE_INTRO"),17,Color(.8,.84,.9))
+    var unreached:=0
+    for st in range(1,sim.catalog.stages.size()+1):
+        var status: Dictionary=sim.campaign.farming_guide_status(st)
+        if not status.reached:
+            unreached+=1
+            continue
+        var card:=PanelContainer.new()
+        card.theme_type_variation=&"Card"
+        rows.add_child(card)
+        var line:=HBoxContainer.new()
+        line.add_theme_constant_override("separation",10)
+        card.add_child(line)
+        _card_icon(line,_art(249),Color.WHITE if status.open else Color(.55,.55,.55))
+        var text:=VBoxContainer.new()
+        text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        line.add_child(text)
+        _card_line(text,str(sim.catalog.stages[st-1].name)+("  ·  "+tr("FARMING_YOU_ARE_HERE") if st==int(sim.state.stage) else ""),20,Color.WHITE)
+        if status.open:
+            _card_line(text,tr("FARMING_READY"),17,Color(.6,1,.75))
+            var open:=_action(tr("FARMING_OPEN_MAP"),func()->void:
+                guide_stage=st
+                $Sheet/Margin/Content/Scroll.scroll_vertical=0,true,"",line)
+            open.size_flags_horizontal=0
+            open.custom_minimum_size=Vector2(120,64)
+            open.set_meta("guide","farming_map_%d" % st)
+        else:
+            var missing: Array=[]
+            if int(status.map_detail)<int(status.map_detail_cap):missing.append(tr("FARMING_NEED_DETAIL") % [int(status.map_detail),int(status.map_detail_cap)])
+            if int(status.researched)<int(status.types):missing.append(tr("FARMING_NEED_RESEARCH") % [int(status.researched),int(status.types)])
+            _card_line(text,tr("FARMING_LOCKED") % " · ".join(missing),17,Color(1,.72,.45))
+    if unreached>0:_text(tr("FARMING_GUIDE_UNREACHED") % unreached,17,Color(.7,.75,.82))
+
+func _farming_map(st: int) -> void:
+    var stage: Dictionary=sim.catalog.stages[st-1]
+    _set_title(tr("FARMING_MAP_TITLE") % stage.name)
+    _text(tr("FARMING_MAP_HINT"),16,Color(.7,.75,.82))
+    for g in stage.groups:_farming_type(int(g))
+    _pinned(tr("FARMING_BACK"),func()->void:
+        guide_stage=0
+        $Sheet/Margin/Content/Scroll.scroll_vertical=0,true,"",false,"farming_back",false)
+
+## One enemy type: identity and rewards once, then one compact entry per spot. An undiscovered type
+## or spot is a placeholder only.
+func _farming_type(g: int) -> void:
+    var d: Dictionary=sim.catalog.groups[g]
+    var card:=PanelContainer.new()
+    card.theme_type_variation=&"Card"
+    rows.add_child(card)
+    var box:=VBoxContainer.new()
+    box.add_theme_constant_override("separation",4)
+    card.add_child(box)
+    if not sim.campaign.discovered(g):
+        _card_line(box,"? "+tr("FARMING_UNKNOWN_TYPE"),18,Color(.7,.75,.82))
+        return
+    var head:=HBoxContainer.new()
+    head.add_theme_constant_override("separation",10)
+    box.add_child(head)
+    _card_icon(head,_portrait_texture(d.body))
+    var text:=VBoxContainer.new()
+    text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    head.add_child(text)
+    _card_line(text,"%s  ·  %s%s" % [d.name,tr("ENEMY_LEVEL") % d.level,"  ·  "+tr("BOSS_LABEL") if d.boss else ""],19,Color(1,.86,.5) if d.boss else Color.WHITE)
+    _card_line(text,tr("FARMING_REWARDS") % [fmt_value(sim.coin_reward(g)),fmt_value(sim.gem_chance(g)*100),fmt_value(sim.gem_amount(0,g)),fmt_value(sim.group_xp(g))],16,Color(1,.88,.55))
+    _card_line(text,tr("FARMING_SUPPLIES") % [fmt_value(sim.consumable_chance(g,"potion")*80),fmt_value(sim.consumable_chance(g,"coin_boost")*20)],16,Color(.8,.84,.9))
+    for v in sim.campaign.variants(g):_farming_spot(box,g,int(v))
+
+func _farming_spot(box: VBoxContainer,g: int,v: int) -> void:
+    if not sim.campaign.spot_discovered(g,v):
+        _card_line(box,"· "+tr("FARMING_UNDISCOVERED_SPOT"),16,Color(.62,.66,.72))
+        return
+    var d: Dictionary=sim.catalog.groups[g]
+    var def: Dictionary=sim.enemy_definition(g,v)
+    var line:=HBoxContainer.new()
+    line.add_theme_constant_override("separation",6)
+    box.add_child(line)
+    var kind_label:=Label.new()
+    kind_label.text=tr("BOSS_LABEL") if d.boss else tr(["VARIANT_OUTFIT","VARIANT_WEAPON","VARIANT_BOTH","VARIANT_SKILL"][v])
+    kind_label.custom_minimum_size.x=86
+    kind_label.add_theme_font_size_override("font_size",17)
+    kind_label.add_theme_color_override("font_color",Color(.6,1,.75))
+    line.add_child(kind_label)
+    var drops: Array=[]
+    for id in def.loot:
+        _card_icon(line,icon_cache.get(id),Color.WHITE,30)
+        drops.append(tr("DROP_ITEM") % [sim.catalog.display_name(id),fmt_value(sim.gear_chance(g)*100)])
+    for skill in def.skills:
+        _card_icon(line,icon_cache.get("skill_"+str(skill)),Color.WHITE,30)
+        drops.append(tr("DROP_ITEM") % [sim.catalog.display_name("skill_"+str(skill)),fmt_value(sim.group_upgrade_value("skill_drop",g)*100/def.skills.size())])
+    var spacer:=Control.new()
+    spacer.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    line.add_child(spacer)
+    var details:=_action(tr("FARMING_DETAILS"),func()->void:group=g;enemy_variant=v;enemy_tab=0;_open("enemy"),true,"",line)
+    details.size_flags_horizontal=0
+    details.custom_minimum_size=Vector2(112,56)
+    details.add_theme_font_size_override("font_size",16)
+    var bearing: Array=sim.campaign.spot_bearing(g,v)
+    var where:=tr("FARMING_AT_CAMP") % (int(bearing[0])+1) if bearing[1]=="HERE" else tr("FARMING_LOCATION") % [tr("COMPASS_"+str(bearing[1])),int(bearing[0])+1,tr("DISTANCE_NEAR" if float(bearing[2])<=320 else ("DISTANCE_MID" if float(bearing[2])<=720 else "DISTANCE_FAR"))]
+    _card_line(box,where,16,Color(.72,.9,1))
+    if not drops.is_empty():_card_line(box,", ".join(drops),15,Color(.8,.84,.9))
 
 # ---------------------------------------------------------------- missions
 
@@ -1709,18 +1967,16 @@ func _prestige_panel() -> void:
         _prestige_choice(batch)
         return
     _mark_prestige_seen()
-    var gate:=sim.campaign.prestige_gate_reason()
     # Only ready opportunities that can still award a card enter the batch (Change 8 gate).
     var ready:=sim.campaign.awardable_ids()
     _text(tr("PRESTIGE_INTRO"),18,Color(.8,.84,.9))
-    if gate!="":
-        _text(tr(gate),20,Color(1,.72,.45))
-    elif sim.campaign.ready_ids().is_empty():
-        _text(tr("NO_READY_PRESTIGE"),18,Color(1,.86,.5))
-    elif ready.is_empty():
-        _text(tr("NO_CARD_AVAILABLE"),18,Color(1,.86,.5))
+    # Change 10: the panel always opens; only the reset below is gated. Both conditions are listed
+    # with their state, so a locked action always says what is still missing.
+    _prestige_requirements(ready)
     _text(tr("PRESTIGE_READY_COUNT") % [ready.size(),sim.state.owned_cards.size(),sim.catalog.campaign.cards.size()],20,Color(1,.86,.5))
-    _pinned(tr("PRESTIGE_BATCH") % ready.size(),func()->void:_confirm(_prestige_summary(ready),func()->void:sim.campaign.begin_prestige()),sim.campaign.prestige_block_reason().is_empty(),sim.campaign.prestige_block_reason(),true,"begin_prestige")
+    var block:=sim.campaign.prestige_block_reason()
+    var label:=tr("PRESTIGE_BATCH") % ready.size() if block.is_empty() else tr("PRESTIGE_ACTION_LOCKED") % tr(_prestige_block_short(block))
+    _pinned(label,func()->void:_confirm(_prestige_summary(ready),func()->void:sim.campaign.begin_prestige()),block.is_empty(),block,true,"begin_prestige")
     # Ready first, then in progress, then completed history.
     var order: Array=[]
     for state_rank in [0,1,2]:
@@ -1792,6 +2048,31 @@ func _opportunity_card(op: Dictionary) -> void:
     if row.get_child_count()>0:content.add_child(row)
     else:row.free()
 
+## The two reset conditions as a checklist: the first-boss defeat and one ready opportunity that can
+## still award a card (a card is chosen during the reset, so owning one is never required).
+func _prestige_requirements(ready: Array) -> void:
+    var card:=PanelContainer.new()
+    card.theme_type_variation=&"Card"
+    rows.add_child(card)
+    var box:=VBoxContainer.new()
+    box.add_theme_constant_override("separation",4)
+    card.add_child(box)
+    _card_line(box,tr("PRESTIGE_REQUIREMENTS"),18,Color(1,.86,.5))
+    var boss_done: bool=sim.campaign.prestige_unlocked()
+    _card_line(box,("✓ " if boss_done else "✗ ")+tr("PRESTIGE_REQ_BOSS"),18,Color(.5,1,.65) if boss_done else Color(1,.72,.45))
+    var any_ready: bool=not sim.campaign.ready_ids().is_empty()
+    var ready_text:=tr("PRESTIGE_REQ_READY")
+    if any_ready and ready.is_empty():ready_text+="\n"+tr("NO_CARD_AVAILABLE")
+    _card_line(box,("✓ " if not ready.is_empty() else "✗ ")+ready_text,18,Color(.5,1,.65) if not ready.is_empty() else Color(1,.72,.45))
+
+## Short reason shown on the locked reset button itself.
+func _prestige_block_short(reason: String) -> String:
+    match reason:
+        "PRESTIGE_LOCKED_FIRST_BOSS":return "PRESTIGE_NEEDS_BOSS"
+        "NO_READY_PRESTIGE":return "PRESTIGE_NEEDS_READY"
+        "NO_CARD_AVAILABLE":return "PRESTIGE_NEEDS_CARD"
+    return reason
+
 func _mark_prestige_seen() -> void:
     var seen: Array=sim.state.tutorial.seen
     var changed:=false
@@ -1850,16 +2131,8 @@ func _refresh_badges() -> void:
     var unseen:=false
     for id in sim.state.opportunities:
         if not sim.state.consumed.has(id) and not sim.state.tutorial.seen.has("op:"+str(id)+(":ready" if sim.state.opportunities[id].ready else "")):unseen=true
-    # The button itself names the reset gate while it applies (the panel has the full reason).
-    var button: Button=nav.get_node("Prestige")
-    var gated: bool=sim.campaign.prestige_gate_reason()!="" and sim.state.prestige_batch.is_empty()
-    var label:=tr("NAV_PRESTIGE")+("\n"+tr("NAV_PRESTIGE_LOCKED") if gated else "")
-    if button.text!=label:
-        button.text=label
-        button.add_theme_font_size_override("font_size",14 if gated else 17)
-        button.add_theme_constant_override("icon_max_width",24 if gated else 34)
-        if gated:button.add_theme_color_override("font_color",Color(1,.84,.55))
-        else:button.remove_theme_color_override("font_color")
+    # Change 10: the Prestige button is plain navigation in every state; the reset gate is shown
+    # inside the panel, on its action.
     var badge: Label=nav.get_node("Prestige/Badge")
     badge.visible=ready or unseen
     badge.text="!" if ready else "✦"

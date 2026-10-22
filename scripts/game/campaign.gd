@@ -694,10 +694,38 @@ func ready_ids() -> Array:
     for id in sim.state.opportunities:
         if sim.state.opportunities[id].ready and not sim.state.consumed.has(id):ids.append(id)
     ids.sort();return ids
-## Change 8 (corrected): the Prestige system opens after the first boss (Winter I Snowman) is defeated
-## once ever (lifetime group_kills, kept by prestige). A reset then needs one ready opportunity that
-## can still award a card; the card is chosen during the reset, so owning a card beforehand is never
-## required.
+## Change 10 Farming Guide: a map's entry opens once its Map Details is fully bought and every enemy
+## type on it has both Reveal Stats and Reveal Drops (bosses included). Map Details is per run and
+## the reveals are permanent, so an entry is per run like the map. Opening it reveals nothing: names,
+## loadouts and locations still come only from discovered types and spots (discovered_spots).
+func farming_guide_status(st: int) -> Dictionary:
+    var cap:=int(sim.catalog.upgrades.map_detail.cap)
+    var detail: int=sim.level("map_detail",st)
+    var types: int=sim.catalog.stages[st-1].groups.size()
+    var researched:=0
+    for g in sim.catalog.stages[st-1].groups:
+        if sim.level("reveal_stats",g)>0 and sim.level("reveal_drops",g)>0:researched+=1
+    var reached: bool=st<=int(sim.state.unlocked_stage)
+    return {"reached":reached,"map_detail":detail,"map_detail_cap":cap,"researched":researched,"types":types,"open":reached and detail>=cap and researched==types}
+## Where a spot lies from the nearest camp the player knows on its stage: [camp, compass key,
+## distance]. Callers show it only for a discovered spot; it never decides visibility.
+func spot_bearing(g: int,v: int) -> Array:
+    var st:=int(sim.catalog.groups[g].stage)
+    var spawns: Array=sim.catalog.stages[st-1].spawns
+    var at:=spot(g,v)
+    var best:=0;var distance:=INF
+    for i in range(spawns.size()):
+        if not camp_known(i,st):continue
+        var d:=at.distance_to(Vector2(spawns[i][0],spawns[i][1]))
+        if d<distance:distance=d;best=i
+    if distance==INF:distance=at.distance_to(Vector2(spawns[0][0],spawns[0][1]))
+    var delta:=at-Vector2(spawns[best][0],spawns[best][1])
+    var compass: String="HERE" if delta.length()<80 else ["E","SE","S","SW","W","NW","N","NE"][posmod(roundi(delta.angle()/(PI/4)),8)]
+    return [best,compass,distance]
+## The Prestige reset (Change 8, corrected) needs the first boss (Winter I Snowman) defeated once ever
+## (lifetime group_kills, kept by prestige) and one ready opportunity that can still award a card; the
+## card is chosen during the reset, so owning a card beforehand is never required. Change 10: the
+## Prestige panel itself always opens; only this reset action is gated.
 func prestige_unlock_group() -> int:
     var id: String=sim.catalog.progression.get("prestige_unlock_boss","boss-snowman")
     for g in sim.catalog.groups.size():
@@ -890,6 +918,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
             if not sim._upgrade_scope_valid(parts[0],g) or not number(out.upgrades[key]):out.upgrades.erase(key)
             else:out.upgrades[key]=clampi(int(out.upgrades[key]),0,int(sim.catalog.upgrades[parts[0]].cap))
     remap_legacy_items(out)
+    clamp_equipment_slots(out)
     if out.get("items") is Dictionary:
         for id in out.items.keys():
             if not sim.catalog.items.has(id):out.items.erase(id)
@@ -903,6 +932,21 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
         out.explored={};out.discovered={};out.fog_layout_revision=fog_rules.layout_revision
     migrate_change8(out,change8)
     return out
+## Change 10 bound: the equipment row has exactly 3 + purchased slots (at most 70). Surplus empty
+## slots go first (from the end); items still beyond the bound are dropped with their record.
+func clamp_equipment_slots(out: Dictionary) -> void:
+    if not out.get("gear") is Array:return
+    var bought: int=int(out.upgrades.get("gear_slots",0)) if out.get("upgrades") is Dictionary else 0
+    var size: int=3+bought*int(sim.catalog.upgrades.gear_slots.effect)
+    var gear: Array=out.gear
+    var i: int=gear.size()-1
+    while gear.size()>size and i>=0:
+        if not gear[i] is String or gear[i]=="":gear.remove_at(i)
+        i-=1
+    while gear.size()>size:
+        var id=gear.pop_back()
+        if id is String and out.get("items") is Dictionary:out.items.erase(id)
+    while gear.size()<size:gear.append("")
 ## Older saves: skills already owned (or upgraded) count as seen, without a notice; spots of known
 ## types whose home cell was explored become found spots; explored or owned camps are sighted.
 ## Explored cells are kept as they are (no new reveal, no reset).
@@ -1014,7 +1058,7 @@ func valid_snapshot(data: Dictionary) -> bool:
     if data.stage<1 or data.stage>8 or data.unlocked_stage<data.stage or data.unlocked_stage>8:return false
     if data.coins<0 or data.gems<0 or data.group_kills.size()!=48 or data.collect_clocks.size()!=48:return false
     if data.skills.size()!=3 or data.skill_auto.size()!=3:return false
-    if data.gear.size()>sim.catalog.upgrades.gear_slots.cap+3 or data.supplies.size()>sim.catalog.upgrades.supply_slots.cap+1:return false
+    if data.gear.size()!=3+int(data.upgrades.get("gear_slots",0))*int(sim.catalog.upgrades.gear_slots.effect) or data.supplies.size()>sim.catalog.upgrades.supply_slots.cap+1:return false
     for id in data.items:
         if not sim.catalog.items.has(id) or not data.items[id] is Dictionary:return false
         var r: Dictionary=data.items[id]

@@ -247,6 +247,17 @@ horizontal_alignment=1
 vertical_alignment=1
 theme_override_font_sizes/font_size=17
 mouse_filter=2
+[node name="Open" type="Button" parent="Safe/Layout/Top/Content/Meters/XP"]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+offset_top=-6.0
+offset_bottom=6.0
+focus_mode=0
+mouse_default_cursor_shape=2
+flat=true
+tooltip_text="LEVEL_PANEL_HINT"
 [node name="Bar" type="HBoxContainer" parent="Safe/Layout/Top/Content"]
 layout_mode=2
 [node name="CoinIcon" type="TextureRect" parent="Safe/Layout/Top/Content/Bar"]

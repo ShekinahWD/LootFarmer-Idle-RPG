@@ -128,7 +128,8 @@ def build(data):
         g['loot'] = [g['weapon'], tiered(g['body'], tier)]
     data['legacy_items'] = dict(sorted(legacy.items()))
     gear = sum(i['kind'] != 'consumable' for i in items.values())
-    data['upgrades']['gear_slots']['cap'] = gear - 3
+    # Change 10 caps equipment at 70 slots (tools/change10_catalog.py owns the value).
+    data['upgrades']['gear_slots']['cap'] = min(gear - 3, 67)
     data['progression'].setdefault('coin_boost_duration', 30.0)
     return data
 

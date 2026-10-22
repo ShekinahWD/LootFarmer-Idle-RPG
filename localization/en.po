@@ -524,7 +524,7 @@ msgid "ACTION_PREVIEW"
 msgstr "Action · cost and effect"
 
 msgid "UP_GEAR_SLOTS"
-msgstr "Gear capacity +1"
+msgstr "Equipment slots +1 (max 70)"
 
 msgid "UP_SUPPLY_SLOTS"
 msgstr "Supply capacity +1"
@@ -575,7 +575,7 @@ msgid "UP_COIN_AMOUNT"
 msgstr "Coins per enemy +50%"
 
 msgid "UP_GEM_AMOUNT"
-msgstr "Global gems per drop"
+msgstr "Gems per drop (bosses pay ×3)"
 
 msgid "CHAT_SURPRISE"
 msgstr "Hey! My outfit!"
@@ -890,7 +890,7 @@ msgid "UP_BOSS_GEM_CHANCE"
 msgstr "Boss gem chance"
 
 msgid "UP_BOSS_GEM_AMOUNT"
-msgstr "Boss gems per drop"
+msgstr "Boss bonus gems per drop"
 
 
 
@@ -4229,7 +4229,7 @@ msgid "SKILL_UPGRADES_UNLOCKED"
 msgstr "New upgrades unlocked: %s (Player Upgrades)"
 
 msgid "PRESTIGE_LOCKED_FIRST_BOSS"
-msgstr "Defeat the Snowman, the first boss, to unlock Prestige."
+msgstr "Defeat the Winter I Snowman (the first boss) to unlock the Prestige reset."
 
 msgid "NAV_PRESTIGE_LOCKED"
 msgstr "Defeat the Snowman"
@@ -4434,3 +4434,219 @@ msgstr "Next at ^%d: %s"
 
 msgid "OUTFIT_GROWTH_EXPLAIN"
 msgstr "Grows by merging copies of itself, up to ^%d: +2%% of base HP per copy to ^100, then +1%% per copy. It never turns into another item. Milestones work only while worn; stored, it counts %s%% of its HP."
+
+msgid "PANEL_LEVEL"
+msgstr "Player level & growth"
+
+msgid "PANEL_FARMING"
+msgstr "Farming guide"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "Tap for level growth and stat sources"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "Slots %d → %d of %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "Slots %d / %d · maxed"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · maxed"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "Boss pays %s gems per drop"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "Farming guide"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "Prestige locked · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "Prestige reset needs"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "Defeat the Winter I Snowman (first boss) once"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "At least one ready opportunity that can award a card"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "defeat the Snowman"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "no ready opportunity"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "no card left to award"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "Other stat sources"
+
+msgid "BREAKDOWN_HP"
+msgstr "Where your HP comes from"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "Where your damage comes from"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "Before prestige"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "Prestige cards"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "Total (used in combat)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "Per hit, not in the total"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "Damage you take"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "Player levels (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "Stored gear (outfits %s%%, weapons %s%%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "Equipped gear (incl. +%s%% card)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "Kill milestones vs %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "Prestige vs normal enemies"
+
+msgid "PER_HIT_BOSS"
+msgstr "Prestige vs bosses"
+
+msgid "PER_HIT_FOCUS"
+msgstr "Focus (%ds left)"
+
+msgid "TAKEN_GUARD"
+msgstr "Prestige guard"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "Prestige guard vs bosses"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "Level %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "Maximum level reached. Levels add nothing more."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s XP · %s more to reach level %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "Level growth"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "Each level (base)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s HP · +%s damage"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "From %d levels so far"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "HP at level %d"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "Damage at level %d"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "Prestige cards multiply every source: HP ×%s, damage ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "Where to farm each enemy and what it drops. A map's entry opens once its Map Details is maxed and every enemy type there has Stats and Drops revealed. Only spots you have discovered show their location."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "you are here"
+
+msgid "FARMING_READY"
+msgstr "Entry unlocked"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "Open"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "Map Details %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "Stats & Drops %d/%d types"
+
+msgid "FARMING_LOCKED"
+msgstr "Needs: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "%d more maps not reached yet."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "Farming · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "Chances include your current upgrades. Directions start from your nearest known camp on this map."
+
+msgid "FARMING_BACK"
+msgstr "All maps"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "Undiscovered enemy · explore this map to find it"
+
+msgid "FARMING_REWARDS"
+msgstr "Coins ×%s · Gems %s%% ×%s · XP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "Potion %s%% · Coin Tonic %s%%"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "Undiscovered spot"
+
+msgid "FARMING_DETAILS"
+msgstr "Details"
+
+msgid "FARMING_AT_CAMP"
+msgstr "At Camp %d"
+
+msgid "FARMING_LOCATION"
+msgstr "%s of Camp %d · %s"
+
+msgid "COMPASS_N"
+msgstr "North"
+
+msgid "COMPASS_NE"
+msgstr "North-east"
+
+msgid "COMPASS_E"
+msgstr "East"
+
+msgid "COMPASS_SE"
+msgstr "South-east"
+
+msgid "COMPASS_S"
+msgstr "South"
+
+msgid "COMPASS_SW"
+msgstr "South-west"
+
+msgid "COMPASS_W"
+msgstr "West"
+
+msgid "COMPASS_NW"
+msgstr "North-west"
+
+msgid "DISTANCE_NEAR"
+msgstr "near"
+
+msgid "DISTANCE_MID"
+msgstr "a short walk"
+
+msgid "DISTANCE_FAR"
+msgstr "far"

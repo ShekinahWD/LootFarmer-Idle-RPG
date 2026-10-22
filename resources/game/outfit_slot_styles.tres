@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="OutfitSlotStyles" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/outfit_slot_styles.gd" id="1_styles"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-015.png" id="2_m100"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-001.png" id="3_m200"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-002.png" id="4_m300"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-014.png" id="5_m400"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-025.png" id="6_m500"]
+
+[resource]
+script = ExtResource("1_styles")
+merges = PackedInt32Array(100, 200, 300, 400, 500)
+frames = Array[Texture2D]([ExtResource("2_m100"), ExtResource("3_m200"), ExtResource("4_m300"), ExtResource("5_m400"), ExtResource("6_m500")])
+frame_colors = PackedColorArray(0.86, 0.56, 0.32, 1, 0.84, 0.89, 0.97, 1, 1, 0.82, 0.28, 1, 0.42, 0.95, 1, 1, 1, 0.48, 0.86, 1)
+background_lift = PackedFloat32Array(0.04, 0.08, 0.12, 0.16, 0.22)
+patch_margin = 12
+frame_inset = 1.0
