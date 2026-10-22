@@ -8,6 +8,10 @@ extends Resource
 @export var frames:=15
 @export var frame_rows:=1
 @export var fps:=10.0
+## First frame of the ground splash (Change 14). From this frame to the end of the cycle the particle
+## stays at the world point where it landed: drift stops and the splash plays in place, then the next
+## cycle starts a new drop. -1 for weather without an impact (leaves).
+@export var splash_frame:=-1
 ## Drawn size of one particle in world units.
 @export var draw_size:=Vector2(26,108)
 ## Particles per period cell, the cell size and the drift (world units per second).

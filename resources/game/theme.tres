@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=18 format=3]
+[gd_resource type="Theme" load_steps=19 format=3]
 [ext_resource type="FontFile" path="res://assets/Fonts/DejaVuSans.ttf" id="font"]
 [ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-000.png" id="panel"]
 [ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-000.png" id="button"]
@@ -145,6 +145,18 @@ content_margin_top=6.0
 texture_margin_bottom=12.0
 content_margin_bottom=6.0
 
+[sub_resource type="StyleBoxTexture" id="hud_chip"]
+texture=ExtResource("panel")
+modulate_color=Color(0.04,0.06,0.09,0.86)
+texture_margin_left=12.0
+content_margin_left=10.0
+texture_margin_right=12.0
+content_margin_right=10.0
+texture_margin_top=12.0
+content_margin_top=3.0
+texture_margin_bottom=12.0
+content_margin_bottom=3.0
+
 [sub_resource type="StyleBoxTexture" id="primary"]
 texture=ExtResource("button")
 modulate_color=Color(0.70,0.47,0.16,1)
@@ -228,6 +240,10 @@ PrestigeCard/styles/pressed=SubResource("prestige")
 PrestigeCard/styles/focus=SubResource("prestige")
 Backing/base_type=&"PanelContainer"
 Backing/styles/panel=SubResource("backing")
+HudChip/base_type=&"PanelContainer"
+HudChip/styles/panel=SubResource("hud_chip")
+HudChipLabel/base_type=&"Label"
+HudChipLabel/styles/normal=SubResource("hud_chip")
 Primary/base_type=&"Button"
 Primary/styles/normal=SubResource("primary")
 Primary/styles/hover=SubResource("primary_hover")

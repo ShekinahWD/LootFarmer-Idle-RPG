@@ -5,6 +5,22 @@
 [node name="Joystick" type="Control"]
 custom_minimum_size=Vector2(180,180)
 script=ExtResource("script")
+[node name="Backplate" type="NinePatchRect" parent="."]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+offset_left=3.0
+offset_top=3.0
+offset_right=-3.0
+offset_bottom=-3.0
+mouse_filter=2
+texture=ExtResource("knob")
+patch_margin_left=12
+patch_margin_top=12
+patch_margin_right=12
+patch_margin_bottom=12
+modulate=Color(0.04,0.06,0.09,0.34)
 [node name="Base" type="NinePatchRect" parent="."]
 layout_mode=1
 anchors_preset=15
@@ -16,7 +32,7 @@ patch_margin_left=12
 patch_margin_top=12
 patch_margin_right=12
 patch_margin_bottom=12
-modulate=Color(1,1,1,0.65)
+modulate=Color(0.9,0.94,1,0.8)
 [node name="Knob" type="NinePatchRect" parent="."]
 layout_mode=0
 offset_left=54.0
@@ -29,4 +45,21 @@ patch_margin_left=12
 patch_margin_top=12
 patch_margin_right=12
 patch_margin_bottom=12
-modulate=Color(0.55,0.62,0.70,0.8)
+modulate=Color(0.6,0.67,0.76,0.92)
+[node name="Rim" type="NinePatchRect" parent="Knob"]
+show_behind_parent=true
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+offset_left=-3.0
+offset_top=-3.0
+offset_right=3.0
+offset_bottom=3.0
+mouse_filter=2
+texture=ExtResource("knob")
+patch_margin_left=12
+patch_margin_top=12
+patch_margin_right=12
+patch_margin_bottom=12
+self_modulate=Color(0.05,0.06,0.1,0.8)

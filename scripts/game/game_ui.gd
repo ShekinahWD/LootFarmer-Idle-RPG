@@ -91,7 +91,7 @@ var camp_inside:=-1
 var camp_pending:=false
 ## Camp Teleport picker: the chosen destination as [stage, camp], or empty.
 var teleport_target: Array=[]
-## Last text written to the lower-right "Map explored" label (written only when it changes).
+## Last text written to the "Map Explored" chip above the minimap (written only when it changes).
 var explored_text:=""
 var gate_text:=""
 
@@ -329,20 +329,22 @@ func _refresh_follow_tracker() -> void:
     if icon.texture!=art:icon.texture=art
     if tracker.mouse_filter!=Control.MOUSE_FILTER_STOP:tracker.mouse_filter=Control.MOUSE_FILTER_STOP
 
-## Lower-right HUD (Change 12): the current map's permanently explored share, from the same saved
-## cells and fog grid as World and the Regional opportunities (campaign.explored_percent). Reading
-## the explored-cell count is O(1); the label is written only when the text changes.
+## Map cluster (Change 14: zoom, Map Explored, minimap, Next Stage, top right): the current map's
+## permanently explored share, from the same saved cells and fog grid as World and the Regional
+## opportunities (campaign.explored_percent). Reading the explored-cell count is O(1); the chip is
+## written only when the text changes.
 func _refresh_explored() -> void:
     var text: String=tr("MAP_EXPLORED") % sim.campaign.explored_percent(int(sim.state.stage))
     if text!=explored_text:
         explored_text=text
         $Safe/Layout/Map/Explored.text=text
 
-## Change 13: what opens the next map, under the minimap: "Next stage · Bosses 1/2" from the same
+## Change 13: what opens the next map, under the minimap: "Next Stage · Bosses 1/2" from the same
 ## state as the unlock rule (campaign.gate_status), or "World clear · 4/9" on Spring II. Hidden when
 ## nothing is pending (an earlier map, or the next map already open). It names no boss, so it spoils
 ## nothing; discovered required bosses carry the same banner on the map and in the world. Never takes
-## touches; written only when the text changes.
+## touches; written only when the text changes. Change 14: a dark HudChip plate keeps it readable over
+## snow, sand, fog and rain.
 func _refresh_gate() -> void:
     var status: Dictionary=sim.campaign.gate_status()
     var text:=""
@@ -352,7 +354,7 @@ func _refresh_gate() -> void:
     gate_text=text
     var node: Control=$Safe/Layout/Map/Gate
     node.visible=text!=""
-    node.get_node("Label").text=text
+    node.get_node("Row/Label").text=text
 
 ## Offline earnings are claimed in game: offer the claim once per settlement, when nothing else
 ## (a panel, a confirmation, the guide chooser or a prestige choice) is in front of the player.
@@ -615,6 +617,9 @@ func _notice(kind: String,_id: String) -> void:
     match kind:
         "mission_ready":AudioService.play("mission_ready")
         "follow_step":AudioService.play("prestige_step")
+        # Change 14: the first Focused Farming purchase confirms itself on the panel's notice line
+        # (or as a toast); the guide then points at the Farm button once.
+        "focus_unlocked":_say(tr("FOCUS_UNLOCKED"))
 
 ## A deliberate manual action that succeeded gets the shared confirm (it replaces the click).
 func _confirmed(ok: bool) -> bool:
@@ -798,7 +803,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
-    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target)]
+    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target),sim.campaign.focus_hint]
 
 func _refresh_panel(force_layout:=false) -> void:
     panel_clock=0.0
@@ -1458,7 +1463,10 @@ func _enemy_panel() -> void:
     if not d.boss:_tabs(["VARIANT_OUTFIT","VARIANT_WEAPON","VARIANT_BOTH","VARIANT_SKILL"].slice(0,variants.size()),enemy_variant,func(i: int)->void:enemy_variant=i)
     _tabs(["TAB_OVERVIEW","TAB_UPGRADES","TAB_ACHIEVEMENTS"],enemy_tab,func(i: int)->void:enemy_tab=i)
     if enemy_tab==2:_group_achievements_panel();return
-    if sim.level("focus",group)>0:_game_action(tr("FOCUS_GROUP") % [d.name,tr("ON" if sim.state.focus==group and sim.state.focus_variant==enemy_variant else "OFF")],func()->void:sim.focus(group,enemy_variant),sim.campaign.spot_discovered(group,enemy_variant),"SPOT_UNDISCOVERED")
+    if sim.level("focus",group)>0:
+        _game_action(tr("FOCUS_GROUP") % [d.name,tr("ON" if sim.state.focus==group and sim.state.focus_variant==enemy_variant else "OFF")],func()->void:sim.focus(group,enemy_variant),sim.campaign.spot_discovered(group,enemy_variant),"SPOT_UNDISCOVERED").set_meta("guide","focus_toggle")
+        # Change 14: right after the first Focused Farming purchase, one line says what the button does.
+        if sim.campaign.focus_hint==group:_text(tr("FOCUS_HINT_PANEL"),17,Color(1,.86,.5))
     if enemy_tab==1:
         _section(tr("SECTION_REWARDS"))
         for id in ["loot","coin_amount","group_xp","supply_drop"]:_group_upgrade_card(id,group)
@@ -1471,6 +1479,10 @@ func _enemy_panel() -> void:
         for pair in [["focus",""],["collect",""],["collect_range","collect"],["collect_batch","collect"],["collect_speed","collect"],["merge_gear",""],["auto_evolve",""],["gear_merge_speed","merge_gear"]]:
             if pair[0]=="auto_evolve" and sim.evolvable_drops(group).is_empty():continue
             if pair[1]=="" or sim.level(pair[1],group)>0:_group_upgrade_card(pair[0],group)
+        # Change 14: the same two research upgrades as Overview (same card, same purchase, same
+        # state), listed with this type's other upgrades; owned ones read Max here.
+        _section(tr("SECTION_RESEARCH"))
+        for id in ["reveal_stats","reveal_drops"]:_group_upgrade_card(id,group)
         return
     var def: Dictionary=sim.enemy_definition(group,enemy_variant)
     if sim.level("reveal_stats",group)==0:_group_upgrade_card("reveal_stats",group)
@@ -2205,12 +2217,7 @@ func _missions_panel() -> void:
         var ready: bool=not m.claimed and m.progress>=m.goal
         _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),("%s / %s" % [fmt_currency(m.progress),fmt_cost(m.goal)] if str(m.kind)=="coins" else "%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)]),m.progress,m.goal,m.coins,m.gems,func()->void:_confirmed(sim.campaign.claim_mission(i)),ready,"MISSION_NOT_READY",bool(m.claimed))
     _section(tr("MAIN_OBJECTIVES"))
-    var shown:=0
-    for i in range(16):
-        if sim.state.main_claimed.has(i):continue
-        if i==15 and not sim.state.final_discovered:continue
-        if shown>=3:break
-        shown+=1
+    for i in sim.campaign.main_shown():
         var rewards: Array=sim.catalog.campaign.main_rewards[i]
         var done: bool=sim.state.main_ready.has(str(i))
         _task_card(_art(211),tr("MAIN_%d" % i),tr("MISSION_STATE_READY") if done else tr("IN_PROGRESS"),1 if done else 0,1,rewards[0],rewards[1],func()->void:_confirmed(sim.campaign.claim_main(i)),done,"MISSION_NOT_READY")
@@ -2465,10 +2472,8 @@ func _prestige_choice(batch: Dictionary) -> void:
 
 func _refresh_badges() -> void:
     var nav: Node=dock.get_node("Navigation")
-    var claimable: bool=not sim.state.main_ready.is_empty()
-    for m in sim.state.missions:
-        if not m.claimed and m.progress>=m.goal:claimable=true
-    nav.get_node("Missions/Badge").visible=claimable
+    # Change 14: the same eligibility as the Claim buttons the panel shows (campaign.has_claimable).
+    nav.get_node("Missions/Badge").visible=sim.campaign.has_claimable()
     var ready: bool=not sim.campaign.ready_ids().is_empty() or not sim.state.prestige_batch.is_empty()
     var unseen:=false
     for id in sim.state.opportunities:

@@ -322,9 +322,18 @@ func sequence_count(id: String) -> int:
     for key in sim.state.upgrades:
         if str(key).get_slice(":",0)==id:total+=int(sim.state.upgrades[key])
     return total
+## Change 14: the type whose Farm button the guide points at right after the profile's first Focused
+## Farming purchase (-1 when none). Session only, never saved: "focus_unlocked" in tutorial.seen is
+## written at that purchase, so a reload, Prestige or a later purchase never shows it again.
+var focus_hint: int=-1
 func upgrade_bought(id: String,g: int) -> void:
     if id in ["map_detail","reveal_radius","camp_radius"]:reveal()
     if id=="mission_slots":refresh_missions()
+    if id=="focus" and not sim.state.tutorial.seen.has("focus_unlocked"):
+        sim.state.tutorial.seen.append("focus_unlocked")
+        # The confirmation shows in every mode; the pointer and its line respect "None".
+        if str(sim.state.tutorial.mode)!="none":focus_hint=g
+        sim.notice.emit("focus_unlocked",str(g))
     progress("upgrade",id,1)
 func equip_skill(id: String,slot: int=-1) -> bool:
     if not sim.action_lock_reason().is_empty() or not sim.catalog.items.has(id) or sim.catalog.items[id].kind!="skill" or sim.quantity(id)<1:return false
@@ -376,6 +385,7 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
     var player: bool=a.id=="player"
     var target: Dictionary=sim._combat_target() if player else sim.state.player
     var pos: Vector2=sim.position_of(a)
+    sim.cast_target=""
     if key=="heal":
         if not skill_ready(a,key):return false
         var maxhp:=actor_max_hp(a)
@@ -405,7 +415,10 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
             if key=="frost":b.slow=3.0
             sim.feedback.emit(b.id,damage,false)
             if b.hp<=0:sim._kill(b)
-        pos=center
+        # Change 14: an area effect plays at its centre (Fire's aim, Frost around the caster); a
+        # single-target strike (Lightning, Strike) plays on the actor it hit, wherever a boss aimed.
+        pos=center if key in ["fire","frost"] else sim.position_of(target)
+        sim.cast_target=str(target.id)
     sim.spell_cast.emit(a.id,key,pos)
     return true
 func step(dt: float) -> void:
@@ -459,7 +472,8 @@ func _begin_telegraph(a: Dictionary,key: String) -> void:
     a.telegraph=true;a.skill_timer=float(sim.abilities.telegraph);a.pending=key
     var aim: Vector2=sim.position_of(a) if key in ["heal","focus","frost"] else sim.position_of(sim.state.player)
     a.aim_x=aim.x;a.aim_y=aim.y
-    if not key in SELF_SKILLS:sim.spell_cast.emit(a.id,key,aim)
+    # Change 14: the wind-up is a warning marker; the skill's own effect and sound play once, on the hit.
+    if not key in SELF_SKILLS:sim.skill_warning.emit(a.id,key,aim)
 
 ## Change 13 summoning. Returns true while the summoner is busy with it this frame (telegraph or the
 ## call itself), so no skill starts on top of it. A call waits while max_alive helpers live and, for
@@ -679,6 +693,31 @@ func new_mission(index: int,day: String) -> Dictionary:
     result.merge({"progress":0.0,"day":day,"claimed":false})
     result.coins*=1+bonus("mission_coins");result.gems*=1+bonus("mission_gems")
     return result
+## Change 14: one eligibility rule for the Missions badge and the Claim buttons. A regular mission is
+## claimable when it is complete, unclaimed and not handled by purchased auto-claim (which claims it on
+## the next tick); a main objective when it is ready, unclaimed and listed (main_shown).
+func mission_claimable(i: int) -> bool:
+    if i<0 or i>=sim.state.missions.size():return false
+    var m: Dictionary=sim.state.missions[i]
+    return str(m.kind)!="waiting" and not m.claimed and m.progress>=m.goal and not missions_auto_claimed()
+func main_claimable(i: int) -> bool:
+    return sim.state.main_ready.has(str(i)) and not sim.state.main_claimed.has(i) and (i!=15 or sim.state.final_discovered)
+## The main objectives the Missions panel lists: three at most, ready ones first (in order), then the
+## next unfinished ones. Before Change 14 the first three unclaimed were listed whatever their state, so
+## a later objective could be ready (badge on) with no Claim button anywhere.
+func main_shown() -> Array:
+    var ready: Array=[];var waiting: Array=[]
+    for i in range(16):
+        if sim.state.main_claimed.has(i) or (i==15 and not sim.state.final_discovered):continue
+        if main_claimable(i):ready.append(i)
+        else:waiting.append(i)
+    return (ready+waiting).slice(0,3)
+func has_claimable() -> bool:
+    for i in range(sim.state.missions.size()):
+        if mission_claimable(i):return true
+    for i in main_shown():
+        if main_claimable(i):return true
+    return false
 func claim_mission(i: int) -> bool:
     if not sim.action_lock_reason().is_empty() or i<0 or i>=sim.state.missions.size():return false
     var m: Dictionary=sim.state.missions[i]

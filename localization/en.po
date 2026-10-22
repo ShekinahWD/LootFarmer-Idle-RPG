@@ -4806,7 +4806,7 @@ msgid "TELEPORT_DESTINATION"
 msgstr "%s · Camp %d"
 
 msgid "MAP_EXPLORED"
-msgstr "Map explored: %d%%"
+msgstr "Map Explored: %d%%"
 
 msgid "MAP_EXPLORED_TOOLTIP"
 msgstr "How much of this map you have explored for good. Momentary sight and moving the camera do not count."
@@ -4875,7 +4875,7 @@ msgid "SKILL_COOLDOWN_LINE"
 msgstr "Cooldown: %s s"
 
 msgid "GATE_HUD"
-msgstr "Next stage · Bosses %d/%d"
+msgstr "Next Stage · Bosses %d/%d"
 
 msgid "GATE_HUD_WORLD"
 msgstr "World clear · %d/%d"
@@ -4897,3 +4897,36 @@ msgstr "• %s · still needed"
 
 msgid "OFFERING_PROGRESS"
 msgstr "%s / %s coins · %s / %s gems"
+
+msgid "SECTION_RESEARCH"
+msgstr "Research"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "Focused Farming unlocked"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "Tap Farm above: your hero walks to this spot and fights here by itself. Tap again or move to stop."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "Tap Farm to start"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "Your hero walks to this spot and fights it by itself. Moving stops it."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "Focused Farming unlocked"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "Open this enemy's Upgrades, then tap Farm at the top."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "Focused Farming unlocked"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "Tap that enemy in the world or on the map, then tap Farm."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "Find this spot first"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "Farming walks only to spots you have found. Pick a found one above."

@@ -10,6 +10,7 @@ frame_size = Vector2(52, 216)
 frames = 15
 frame_rows = 1
 fps = 10.0
+splash_frame = 9
 draw_size = Vector2(26, 108)
 period = Vector2(440, 500)
 particles_per_period = 64

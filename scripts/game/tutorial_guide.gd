@@ -34,6 +34,9 @@ var target: Control
 var world_target:=Vector2.INF
 var scrolled_for: String=""
 var pulse: float=0
+## Change 14: seconds the Focused Farming pointer has been on screen; it retires after FOCUS_HINT_SECONDS.
+const FOCUS_HINT_SECONDS:=45.0
+var focus_shown: float=0
 
 func setup(owner_ui) -> void:
     ui=owner_ui;sim=ui.sim
@@ -56,6 +59,7 @@ func setup(owner_ui) -> void:
     support=Label.new();support.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;support.add_theme_font_size_override("font_size",20);support.mouse_filter=Control.MOUSE_FILTER_IGNORE;content.add_child(support)
     intro_button=Button.new();intro_button.text=tr("GUIDE_GOT_IT");intro_button.custom_minimum_size=Vector2(180,64);intro_button.size_flags_horizontal=Control.SIZE_SHRINK_END;content.add_child(intro_button)
     intro_button.pressed.connect(func()->void:
+        if intro_id=="focus":sim.campaign.focus_hint=-1;return
         if intro_id!="" and not sim.state.tutorial.seen.has(intro_id):sim.state.tutorial.seen.append(intro_id);sim.touch())
     shade=_frame(Color(0,0,0,.85));highlight=_frame(Color(1,.85,.4))
     pointer=TextureRect.new();pointer.texture=ui.cropped(ARROW);pointer.custom_minimum_size=Vector2.ONE*POINTER_SIZE;pointer.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;pointer.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
@@ -91,6 +95,7 @@ func _process(dt: float) -> void:
     _complete_lessons()
     evaluate()
     _present()
+    if pending=="focus" and (card.visible or pointer.visible):focus_shown+=dt
 
 ## A lesson completes when its learned state exists, however and whenever the player reached it.
 func _complete_lessons() -> void:
@@ -106,6 +111,7 @@ func evaluate() -> void:
     pending="";step="";surfaces=[""];target=null;world_target=Vector2.INF;intro_id=""
     var data: Dictionary=sim.state.tutorial
     if data.mode=="none":return
+    if _focus_hint():return
     if data.mode=="guided":
         for lesson in LESSONS:
             if not data.done.has(lesson):pending=lesson;break
@@ -175,6 +181,31 @@ func _lesson(lesson: String) -> void:
 
 var support_value:=0.0
 
+## Change 14: right after the first Focused Farming purchase (campaign.focus_hint), point at the next
+## real tap toward that type's Farm button: the button itself in its enemy panel (both tabs show it),
+## else the HUD Upgrades button when it opens that type, else the minimap (map, then the enemy). It
+## ends when Focus is turned on, on "Got it", after FOCUS_HINT_SECONDS on screen, or when it no longer
+## applies (another map, the upgrade gone). Another enemy's panel suspends it like any other panel.
+func _focus_hint() -> bool:
+    var g: int=sim.campaign.focus_hint
+    if g<0:
+        focus_shown=0;return false
+    if int(sim.state.focus)>=0 or g>=sim.catalog.groups.size() or sim.level("focus",g)==0 or not sim.campaign.stage().groups.has(g) or focus_shown>=FOCUS_HINT_SECONDS:
+        sim.campaign.focus_hint=-1;focus_shown=0;return false
+    pending="focus";intro_id="focus";surfaces=["","enemy"]
+    if ui.sheet.visible and ui.panel=="enemy":
+        if ui.group!=g:
+            surfaces=[""];step="focus_open";return true
+        target=_panel_control("focus_toggle",true)
+        step="focus_tap" if target!=null else "focus_spot"
+        return true
+    var hud: Control=ui.get_node("Safe/Layout/Map/EnemyUpgrades")
+    if hud.visible and ui.combat_group==g:
+        step="focus_open";target=hud
+    else:
+        step="focus_find";target=ui.get_node("Safe/Layout/Map/MiniMap")
+    return true
+
 func _nearest_enemy() -> Vector2:
     var best:=Vector2.INF
     for e in sim.state.enemies:
@@ -225,11 +256,12 @@ func _present() -> void:
     support.text=tr("GUIDE_"+step.to_upper()+"_DETAIL")
     # Coins still needed, in the shared currency format rounded up (Change 13).
     if "%s" in support.text:support.text=support.text % NumberFormat.currency(support_value,true)
-    picture.texture=ui._art( (212 if step in ["skills","rest"] else (249 if step.begins_with("camp") else (211 if step=="prestige" else (1 if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect"] else 60)))))
+    picture.texture=ui._art(147 if step.begins_with("focus") else (212 if step in ["skills","rest"] else (249 if step.begins_with("camp") else (211 if step=="prestige" else (1 if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect"] else 60)))))
     intro_button.visible=intro_id!=""
     card.mouse_filter=Control.MOUSE_FILTER_IGNORE
     _place_card()
-    if data.mode!="guided" or intro_id!="":
+    # Introductions are text only, except the Focused Farming hint, which points in every mode but None.
+    if (data.mode!="guided" or intro_id!="") and pending!="focus":
         highlight.hide();shade.hide();pointer.hide();return
     _point()
 

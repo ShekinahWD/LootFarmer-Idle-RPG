@@ -29,6 +29,10 @@ signal summoned(summoner_id: String, helper_ids: Array)
 ## A summoner began its call (the telegraph before the helpers appear).
 signal summon_warning(summoner_id: String)
 signal spell_cast(actor_id: String, skill: String, position: Vector2)
+## Change 14: a boss's attack wind-up at the aimed point (a warning marker, not the skill's effect).
+signal skill_warning(actor_id: String, skill: String, position: Vector2)
+## The actor a single-target skill hit, set just before spell_cast (presentation reads it, never saved).
+var cast_target: String=""
 var rng := RandomNumberGenerator.new()
 var state: Dictionary = {}
 var locked_target: String=""

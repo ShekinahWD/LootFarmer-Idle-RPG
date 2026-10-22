@@ -1,0 +1,101 @@
+[gd_resource type="Resource" script_class="SkillEffectSet" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/skill_effect_set.gd" id="set"]
+[ext_resource type="Script" path="res://scripts/game/skill_effect_style.gd" id="style"]
+
+[sub_resource type="Resource" id="lightning"]
+script = ExtResource("style")
+anchor = "target"
+contact_y = 53.0
+lift = 0.0
+scale = 0.75
+scale_with_actor = true
+above_actors = true
+
+[sub_resource type="Resource" id="strike"]
+script = ExtResource("style")
+anchor = "target"
+contact_y = 32.0
+lift = 10.0
+scale = 0.75
+scale_with_actor = true
+above_actors = true
+
+[sub_resource type="Resource" id="fire"]
+script = ExtResource("style")
+anchor = "point"
+contact_y = 32.0
+lift = 10.0
+scale = 1.0
+scale_with_actor = false
+above_actors = true
+
+[sub_resource type="Resource" id="frost"]
+script = ExtResource("style")
+anchor = "caster_ground"
+contact_y = 32.0
+lift = 0.0
+scale = 1.0
+scale_with_actor = false
+above_actors = false
+
+[sub_resource type="Resource" id="heal"]
+script = ExtResource("style")
+anchor = "caster"
+contact_y = 52.0
+lift = 0.0
+scale = 0.75
+scale_with_actor = true
+above_actors = true
+
+[sub_resource type="Resource" id="focus"]
+script = ExtResource("style")
+anchor = "caster"
+contact_y = 52.0
+lift = 0.0
+scale = 0.75
+scale_with_actor = true
+above_actors = true
+
+[sub_resource type="Resource" id="warning"]
+script = ExtResource("style")
+anchor = "point"
+contact_y = 32.0
+lift = 0.0
+scale = 0.6
+scale_with_actor = false
+above_actors = false
+tint = Color(1, 0.5, 0.32, 0.8)
+
+[sub_resource type="Resource" id="summon"]
+script = ExtResource("style")
+anchor = "caster"
+contact_y = 52.0
+lift = 0.0
+scale = 0.75
+scale_with_actor = true
+above_actors = true
+
+[sub_resource type="Resource" id="summon_appear"]
+script = ExtResource("style")
+anchor = "point"
+contact_y = 32.0
+lift = 0.0
+scale = 1.0
+scale_with_actor = false
+above_actors = false
+
+[resource]
+script = ExtResource("set")
+styles = {
+"fire": SubResource("fire"),
+"focus": SubResource("focus"),
+"frost": SubResource("frost"),
+"heal": SubResource("heal"),
+"lightning": SubResource("lightning"),
+"strike": SubResource("strike"),
+"summon": SubResource("summon"),
+"summon_appear": SubResource("summon_appear"),
+"warning": SubResource("warning")
+}
+above_z = 2
