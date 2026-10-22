@@ -388,8 +388,6 @@ msgstr "Progress is saved. Offline rewards are planned for the full game; this b
 msgid "SAVE_NOW"
 msgstr "Save now"
 
-msgid "SOUND_STATUS"
-msgstr "Sound effects: %s"
 
 msgid "HARD_RESET"
 msgstr "Hard Reset"
@@ -401,7 +399,7 @@ msgid "LANGUAGE_NOTE"
 msgstr "English is available during development. The other 19 languages will unlock after translation validation."
 
 msgid "CREDITS"
-msgstr "Character & world art: Pixel Plains by SnowHex. Interface: Kenney Fantasy UI Borders (CC0). Font: DejaVu Sans. Premium game · no ads, purchases or tracking."
+msgstr "Character & world art: Pixel Plains by SnowHex. Interface: Kenney Fantasy UI Borders (CC0)."
 
 msgid "PRESTIGE_EXPLAIN"
 msgstr "Choose one permanent +5% card. Bonuses accumulate across runs. You may close this panel and keep farming."
@@ -3621,7 +3619,7 @@ msgid "CONTENT_OFFERING_C2_NAME"
 msgstr "Gem Wisdom"
 
 msgid "CONTENT_OFFERING_C2_DESCRIPTION"
-msgstr "+3 points gem drop chance (normal enemies up to 20%)"
+msgstr "+5 points gem drop chance"
 
 msgid "CONTENT_OFFERING_C3_NAME"
 msgstr "Wise Spending"
@@ -4806,3 +4804,54 @@ msgstr "No other camp yet. Unlock another camp to teleport there."
 
 msgid "TELEPORT_DESTINATION"
 msgstr "%s · Camp %d"
+
+msgid "MAP_EXPLORED"
+msgstr "Map explored: %d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "How much of this map you have explored for good. Momentary sight and moving the camera do not count."
+
+msgid "SECTION_AUDIO"
+msgstr "Sound & music"
+
+msgid "MUSIC_VOLUME"
+msgstr "Music %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "Sound effects %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "Mute gameplay sounds: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "Mute special sounds: %s"
+
+msgid "AUDIO_HINT"
+msgstr "Gameplay sounds: taps, purchases, merges and combat. Special sounds: a new Prestige, a finished step of the Prestige you follow, a mission ready to claim and a new map. The sound-effect volume sets both."
+
+msgid "UP_MERGE_ALL"
+msgstr "Merge All"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "One-time unlock: a Merge All button in Filters merges every spare copy in one tap · free to use · kept by Prestige"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "Unlocked · use Merge All in Filters"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "Merge All is not unlocked yet"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "Merge All: unlock it once for 5,000 gems in Upgrades → Inventory."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "Merge All · %d spare copies"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "Merge All"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "Nothing to merge"
+
+msgid "MERGE_ALL_DONE"
+msgstr "Merged %d copies across %d items"

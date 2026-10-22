@@ -11,7 +11,7 @@ func _ready() -> void:call_deferred("run")
 func frames() -> void:
     for i in range(5):await get_tree().process_frame
 func run() -> void:
-    SettingsState.set_sfx_enabled(false)
+    SettingsState.mute_all_sfx()
     game=load("res://scenes/game/main.tscn").instantiate()
     add_child(game)
     var sim=game.sim

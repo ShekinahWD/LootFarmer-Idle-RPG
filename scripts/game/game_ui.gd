@@ -14,6 +14,8 @@ extends Control
 ## Prestige milestone banner: width cap and gap below the top safe-area edge.
 @export var banner_max_width:=640.0
 @export var banner_top_gap:=12.0
+## Change 12: every sound assignment (music, gameplay and special cues) in one editable resource.
+@export var audio_cues: AudioCueSet=preload("res://resources/game/audio_cues.tres")
 const INFO_CARD=preload("res://scenes/game/info_card.tscn")
 const PRESTIGE_CARD=preload("res://scenes/game/prestige_card.tscn")
 const PRESTIGE_CARD_SCRIPT=preload("res://scripts/game/prestige_card.gd")
@@ -89,6 +91,8 @@ var camp_inside:=-1
 var camp_pending:=false
 ## Camp Teleport picker: the chosen destination as [stage, camp], or empty.
 var teleport_target: Array=[]
+## Last text written to the lower-right "Map explored" label (written only when it changes).
+var explored_text:=""
 
 func _ready() -> void:
     world.setup(sim)
@@ -171,8 +175,9 @@ func _ready() -> void:
     $Safe/Layout/Map.resized.connect(func()->void:if sheet.visible:_layout_sheet())
     _safe_area()
     dock.get_node("Inventory").resized.connect(_layout_inventory)
-    AudioService.register_sfx("button",preload("res://assets/Audio/button.wav"))
-    AudioService.register_sfx("prestige",preload("res://assets/Audio/prestige.wav"))
+    AudioService.configure(audio_cues)
+    AudioService.play_music()
+    sim.notice.connect(_notice)
     for i in range(3):
         $Safe/Layout/Skills.get_child(i).pressed.connect(func()->void:sim.campaign.cast(i))
     _refresh_slots()
@@ -243,6 +248,7 @@ func _process(dt: float) -> void:
     _refresh_loot_notifications()
     _refresh_badges()
     _refresh_follow_tracker()
+    _refresh_explored()
     _offer_offline_claim()
     _check_camp_entry()
     if last_revision!=sim.revision or previous_pause!=get_tree().paused:
@@ -320,6 +326,15 @@ func _refresh_follow_tracker() -> void:
     var art:=_path_art(str(op.path))
     if icon.texture!=art:icon.texture=art
     if tracker.mouse_filter!=Control.MOUSE_FILTER_STOP:tracker.mouse_filter=Control.MOUSE_FILTER_STOP
+
+## Lower-right HUD (Change 12): the current map's permanently explored share, from the same saved
+## cells and fog grid as World and the Regional opportunities (campaign.explored_percent). Reading
+## the explored-cell count is O(1); the label is written only when the text changes.
+func _refresh_explored() -> void:
+    var text: String=tr("MAP_EXPLORED") % sim.campaign.explored_percent(int(sim.state.stage))
+    if text!=explored_text:
+        explored_text=text
+        $Safe/Layout/Map/Explored.text=text
 
 ## Offline earnings are claimed in game: offer the claim once per settlement, when nothing else
 ## (a panel, a confirmation, the guide chooser or a prestige choice) is in front of the player.
@@ -510,7 +525,7 @@ func _select_slot(type: int,index: int) -> void:
 func _nav(which: String) -> void:
     if sheet.visible and panel==PANEL_ALIASES.get(which,which):
         _close()
-        AudioService.play_sfx("button")
+        AudioService.play("ui_click")
         return
     # Change 10: Prestige always opens; only the reset action inside the panel is gated.
     _open(which)
@@ -529,7 +544,7 @@ func _open(which: String) -> void:
     sheet.show()
     _refresh_panel(true)
     _sync_filter_button()
-    AudioService.play_sfx("button")
+    AudioService.play("ui_click")
 
 func _close() -> void:
     sheet.hide()
@@ -559,8 +574,31 @@ func _event(key: String) -> void:
     if key=="PLAYER_LEVEL_UP":text=tr("LEVEL_UP_NOTICE") % sim.state.player_level
     if key=="PRESTIGED":
         _close()
+        _recenter_on_player()
         return
     _say(text)
+
+## Change 12: after a Prestige the camera centres on the newly spawned player and follows it again,
+## whatever the camera was doing (a drag in progress, a pan far away). Zoom is kept. The new profile
+## (and the player's new position) is committed before PRESTIGED is emitted, so nothing older can
+## move the camera back on a later frame.
+func _recenter_on_player() -> void:
+    $Safe/Layout/Map/GestureSurface.cancel_gesture()
+    stick.release()
+    stick_input=Vector2.ZERO
+    world.follow_player()
+
+## Notification sounds for authoritative transitions (sim.notice): one cue per transition; the
+## audio service merges it with anything else requested in the same frame.
+func _notice(kind: String,_id: String) -> void:
+    match kind:
+        "mission_ready":AudioService.play("mission_ready")
+        "follow_step":AudioService.play("prestige_step")
+
+## A deliberate manual action that succeeded gets the shared confirm (it replaces the click).
+func _confirmed(ok: bool) -> bool:
+    if ok:AudioService.play("ui_confirm")
+    return ok
 
 ## Short text on the open panel's notice line, otherwise as a toast.
 func _say(text: String) -> void:
@@ -603,14 +641,16 @@ func _milestone(kind: String,id: String) -> void:
                 var d: Dictionary=sim.catalog.campaign.cards[card_id]
                 cards.append({"icon":_path_art(str(op.path)),"text":PRESTIGE_CARD_SCRIPT.headline(d)})
             banner.push(kind,tr("MILESTONE_DISCOVERED" if kind=="discovered" else "MILESTONE_READY"),op.name,cards)
-            AudioService.play_sfx("prestige")
+            AudioService.play("prestige_discovered" if kind=="discovered" else "prestige_ready")
         "card":
             var d: Dictionary=sim.catalog.campaign.cards[id]
             banner.push(kind,tr("MILESTONE_CARD") % d.name,d.description,[{"icon":_path_art(str(d.path)),"text":PRESTIGE_CARD_SCRIPT.headline(d)}])
         "prestiged":
             banner.push(kind,tr("MILESTONE_PRESTIGED"),tr("MILESTONE_PRESTIGED_DETAIL") % id.split(",").size())
+            AudioService.play("prestiged")
         "stage":
             banner.push(kind,tr("MILESTONE_STAGE"),sim.catalog.stages[int(id)-1].name)
+            AudioService.play("stage_unlocked")
 
 func _text(value: String,font_size:=20,color:=Color(.94,.95,.97)) -> Label:
     var label:=Label.new()
@@ -637,7 +677,7 @@ func _action(text: String,callback: Callable,enabled: bool=true,reason: String="
     (rows if parent==null else parent).add_child(button)
     button.pressed.connect(func()->void:
         callback.call()
-        AudioService.play_sfx("button")
+        AudioService.play("ui_click")
         if sheet.visible:
             _refresh_panel())
     return button
@@ -664,7 +704,7 @@ func _pinned(text: String,callback: Callable,enabled: bool=true,reason: String="
     actions.add_child(button)
     button.pressed.connect(func()->void:
         callback.call()
-        AudioService.play_sfx("button")
+        AudioService.play("ui_click")
         if sheet.visible:_refresh_panel())
     return button
 
@@ -691,7 +731,7 @@ func _arrow_button(direction: int,enabled: bool,callback: Callable) -> Button:
     actions.add_child(button)
     button.pressed.connect(func()->void:
         callback.call()
-        AudioService.play_sfx("button"))
+        AudioService.play("ui_click"))
     return button
 
 func _confirm(text: String,callback: Callable) -> void:
@@ -973,9 +1013,9 @@ func _item_panel() -> void:
     more.add_theme_constant_override("h_separation",8)
     more.add_theme_constant_override("v_separation",8)
     var amount:=mini(int(r.qty)-1,cap-int(r.merge))
-    if r.merge<cap and amount>1:_game_action(tr("MERGE_ALL") % amount,func()->void:if selected==id:sim.merge(id,true),true,"",more)
+    if r.merge<cap and amount>1:_game_action(tr("MERGE_ALL") % amount,func()->void:if selected==id:_confirmed(sim.merge(id,true)),true,"",more)
     if def.next!="" and r.merge>=cap:
-        _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:sim.evolve(id),r.qty>=101,"EVOLUTION_NEEDS",more)
+        _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:_confirmed(sim.evolve(id)),r.qty>=101,"EVOLUTION_NEEDS",more)
     if def.kind=="skill":
         for i in range(1+sim.level("skill_slots")):
             _game_action(tr("EQUIP_SKILL_SLOT") % (i+1),func()->void:if selected==id:sim.campaign.equip_skill(id,i),true,"",more)
@@ -1000,7 +1040,7 @@ func _item_panel() -> void:
     var index:=list.find(id)
     _arrow_button(-1,index>0,func()->void:_browse(-1))
     _pinned(tr("UNEQUIP" if sim.equipped(id) else "EQUIP"),func()->void:if selected==id:sim.equip(id),true,"",not sim.equipped(id),"equip")
-    _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:sim.merge(id),r.qty>1 and r.merge<cap,"NEED_DUPLICATES" if r.qty<2 else "MERGE_MAX",false,"merge")
+    _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:_confirmed(sim.merge(id)),r.qty>1 and r.merge<cap,"NEED_DUPLICATES" if r.qty<2 else "MERGE_MAX",false,"merge")
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
 
 ## Supply details (Change 11): what it does now, whether it can be used, stock (charges spent by use)
@@ -1048,7 +1088,7 @@ func _supply_panel(id: String,list: Array) -> void:
     more.add_theme_constant_override("v_separation",8)
     rows.add_child(more)
     if int(s.get("price",0))>0:
-        _game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),int(s.price)],func()->void:if selected==id:sim.purchase_consumable(id),true,"",more)
+        _game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),int(s.price)],func()->void:if selected==id:_confirmed(sim.purchase_consumable(id)),true,"",more)
     for button in more.get_children():
         button.size_flags_horizontal=0
         button.custom_minimum_size=Vector2(0,64)
@@ -1234,7 +1274,7 @@ static func cropped(source: Texture2D) -> Texture2D:
 
 func _upgrades_panel() -> void:
     _tabs(UPGRADE_TABS,player_tab,func(i: int)->void:player_tab=i)
-    var sections: Array=[["respawn","movement","skill_slots","skill_auto_0","skill_auto_1","skill_auto_2"],["gear_slots","supply_slots"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
+    var sections: Array=[["respawn","movement","skill_slots","skill_auto_0","skill_auto_1","skill_auto_2"],["gear_slots","supply_slots","merge_all"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
     if player_tab==0:_text(tr("UPGRADES_PLAYER_HINT"),17,Color(.75,.8,.87))
     if player_tab==4:
         if not sim.state.offline_pending.is_empty():
@@ -1269,7 +1309,7 @@ func _upgrades_panel() -> void:
 func _buy_supply_actions(row: Node) -> void:
     for id in sim.supply_ids():
         var price:=int(sim.supply(id).get("price",0))
-        if price>0:_game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),price],func()->void:sim.purchase_consumable(id),true,"",row)
+        if price>0:_game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),price],func()->void:_confirmed(sim.purchase_consumable(id)),true,"",row)
 
 ## Compact upgrade card: icon, name, computed benefit, a fixed status line and the buy button.
 ## The status line is always present, so a reason never changes the card's height.
@@ -1310,7 +1350,8 @@ func _group_upgrade_card(id: String,g: int) -> void:
     buy.tooltip_text=tr(reason) if not reason.is_empty() else tr("UP_"+id.to_upper())
     buy.set_meta("upgrade",id)
     buy.set_meta("guide","buy_"+id if id=="loot" else "buy_upgrade")
-    buy.pressed.connect(func()->void:sim.buy_upgrade(id,g))
+    buy.pressed.connect(func()->void:
+        if not _confirmed(sim.buy_upgrade(id,g)):AudioService.play("ui_click"))
     line.add_child(buy)
     action_buttons.append({"node":buy,"kind":"upgrade","id":id,"group":g})
 
@@ -1320,6 +1361,7 @@ func _upgrade_icon(id: String,g: int) -> Texture2D:
     if id.begins_with("cooldown_"):icon=icon_cache.get("skill_"+id.trim_prefix("cooldown_"))
     elif id in ["auto_use","use_speed","supply_slots","supply_drop"]:icon=icon_cache.get("potion")
     elif id in ["map_detail","camp_radius","reveal_radius"]:icon=_art(249)
+    elif id=="merge_all":icon=_art(147)
     elif id.begins_with("offline_"):icon=_art(171)
     if id=="coin_amount":icon=COIN
     elif id in ["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"]:icon=GEM
@@ -1335,6 +1377,7 @@ func _upgrade_benefit(id: String,g: int) -> String:
     if id=="gear_slots":
         if next==0:return tr("EQUIPMENT_SLOTS_MAXED") % [sim.equipment_slot_count(),sim.equipment_slot_max()]
         return tr("EQUIPMENT_SLOTS_NEXT") % [sim.equipment_slot_count(),int(sim.player_upgrade_value(id,1)),sim.equipment_slot_max()]
+    if id=="merge_all":return tr("MERGE_ALL_UNLOCKED") if sim.level(id)>0 else tr("MERGE_ALL_BENEFIT")
     if int(sim.catalog.upgrades[id].cap)==1:
         return tr("UPGRADE_TRANSITION") % [tr("ON" if sim.level(id,g)>0 else "OFF"),tr("ON")]
     var current:=sim.group_upgrade_value(id,g,enemy_variant) if g>=0 else sim.player_upgrade_value(id)
@@ -1631,7 +1674,7 @@ func _inline_button(text: String,callback: Callable,enabled: bool,reason: String
     parent.add_child(button)
     button.pressed.connect(func()->void:
         callback.call()
-        AudioService.play_sfx("button")
+        AudioService.play("ui_click")
         if sheet.visible:_refresh_panel())
     return button
 
@@ -1804,12 +1847,24 @@ func _settings_panel() -> void:
     rows.add_child(row)
     # Stats moved here from the navigation bar (Change 8); Player Upgrades took its place.
     _action(tr("STATS_OPEN"),func()->void:_open("stats"),true,"",row).set_meta("guide","open_stats")
-    _action(tr("SOUND_STATUS") % tr("ON" if SettingsState.sfx_enabled else "OFF"),func()->void:SettingsState.sfx_enabled=not SettingsState.sfx_enabled;SettingsState.settings_changed.emit(),true,"",row)
     _action(tr("GUIDE_REVIEW"),func()->void:sim.state.tutorial.mode="pending";_close(),true,"",row)
     _action(tr("LOOT_HISTORY"),func()->void:_open("history"),true,"",row)
     _action(tr("SAVE_NOW"),func()->void:if SaveService.save_now():_event("SAVED"),true,"",row)
     for button in row.get_children():
         button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
+    # Change 12: music and sound-effect volumes (0 = silent) and two independent mutes.
+    _section(tr("SECTION_AUDIO"))
+    _volume_row("MUSIC_VOLUME",SettingsState.music_volume,SettingsState.set_music_volume)
+    _volume_row("SFX_VOLUME",SettingsState.sfx_volume,SettingsState.set_sfx_volume)
+    var mutes:=HFlowContainer.new()
+    mutes.add_theme_constant_override("h_separation",8)
+    mutes.add_theme_constant_override("v_separation",8)
+    rows.add_child(mutes)
+    _action(tr("MUTE_GAMEPLAY_STATUS") % tr("ON" if SettingsState.mute_gameplay else "OFF"),func()->void:SettingsState.set_mute_gameplay(not SettingsState.mute_gameplay),true,"",mutes).set_meta("setting","mute_gameplay")
+    _action(tr("MUTE_SPECIAL_STATUS") % tr("ON" if SettingsState.mute_special else "OFF"),func()->void:SettingsState.set_mute_special(not SettingsState.mute_special),true,"",mutes).set_meta("setting","mute_special")
+    for button in mutes.get_children():
+        button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
+    _text(tr("AUDIO_HINT"),16,Color(.7,.75,.82))
     _section(tr("LANGUAGE_NOTE"))
     _action(tr("LANG_AUTOMATIC"),func()->void:LocalizationService.select_language("automatic"))
     for locale in LocalizationService.RELEASE_LANGUAGES:
@@ -1817,6 +1872,30 @@ func _settings_panel() -> void:
     _section(tr("SECTION_DANGER"))
     _action(tr("HARD_RESET"),func()->void:_confirm(tr("RESET_CONFIRM"),func()->void:SaveService.hard_reset();_close()))
     _text(tr("CREDITS"),17,Color(.7,.75,.82))
+
+## One volume control: "Music 80%" and a 0-100 slider. The label follows the slider directly;
+## settings_changed persists it.
+func _volume_row(key: String,value: float,setter: Callable) -> void:
+    var line:=HBoxContainer.new()
+    line.add_theme_constant_override("separation",12)
+    rows.add_child(line)
+    var label:=_text(tr(key) % roundi(value*100),18)
+    label.custom_minimum_size=Vector2(220,0)
+    label.size_flags_horizontal=Control.SIZE_FILL
+    label.autowrap_mode=TextServer.AUTOWRAP_OFF
+    rows.remove_child(label)
+    line.add_child(label)
+    var slider:=HSlider.new()
+    slider.min_value=0;slider.max_value=100;slider.step=1
+    slider.value=roundf(value*100)
+    slider.custom_minimum_size=Vector2(0,56)
+    slider.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    slider.scrollable=false
+    slider.set_meta("setting",key)
+    slider.value_changed.connect(func(v: float)->void:
+        label.text=tr(key) % roundi(v)
+        setter.call(v/100.0))
+    line.add_child(slider)
 
 func _history_panel() -> void:
     for entry in sim.state.history:
@@ -1835,10 +1914,27 @@ func _inventory_panel() -> void:
     _pinned_equipment()
     _tabs(FILTER_TABS,inventory_filter,func(i: int)->void:inventory_filter=i;slot_signatures.clear();_refresh_slots())
     _text(tr("FILTERS_HINT"),16,Color(.7,.75,.82))
+    _merge_all_action()
     for id in sim.state.items:
         if sim.quantity(id)>0 and (inventory_filter==0 or sim.catalog.items[id].kind==FILTER_KINDS[inventory_filter]):
             var b:=_action("%s · ×%s · ^%d" % [sim.catalog.display_name(id),fmt_count(sim.quantity(id)),sim.merge_level(id)],func()->void:selected=id;selected_slot=sim.state.supplies.find(id);_open("item"))
             b.icon=icon_cache.get(id);b.expand_icon=true;b.add_theme_constant_override("icon_max_width",36)
+
+## Merge All (Change 12): shown once the 5,000-Gem unlock is owned; free to use. It reports one
+## aggregate result (one notice, one confirm) and is disabled with "Nothing to merge" when idle.
+func _merge_all_action() -> void:
+    if sim.level("merge_all")<1:
+        _text(tr("MERGE_ALL_LOCKED_HINT"),16,Color(.7,.75,.82))
+        return
+    var copies:=sim.merge_all_copies()
+    var lock:=sim.action_lock_reason()
+    var b:=_action(tr("MERGE_ALL_BUTTON") % copies if copies>0 else tr("MERGE_ALL_BUTTON_IDLE"),func()->void:
+        var result: Dictionary=sim.merge_all()
+        if int(result.copies)>0:
+            AudioService.play("ui_confirm")
+            _say(tr("MERGE_ALL_DONE") % [int(result.copies),int(result.items)])
+        _refresh_slots(),copies>0 and lock.is_empty(),lock if not lock.is_empty() else "NOTHING_TO_MERGE")
+    b.set_meta("guide","merge_all")
 
 ## Equipped weapon and outfit, pinned above the list: independent of filter, order and scroll.
 ## They are views of the equipped ids (the list below still shows each item once).
@@ -2055,7 +2151,7 @@ func _missions_panel() -> void:
         var g: int=sim.campaign.group_id(str(m.target))
         var art: Texture2D=icon_cache.get(sim.catalog.groups[g].body) if g>=0 else _art(60)
         var ready: bool=not m.claimed and m.progress>=m.goal
-        _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),"%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)],m.progress,m.goal,m.coins,m.gems,func()->void:sim.campaign.claim_mission(i),ready,"MISSION_NOT_READY",bool(m.claimed))
+        _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),"%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)],m.progress,m.goal,m.coins,m.gems,func()->void:_confirmed(sim.campaign.claim_mission(i)),ready,"MISSION_NOT_READY",bool(m.claimed))
     _section(tr("MAIN_OBJECTIVES"))
     var shown:=0
     for i in range(16):
@@ -2065,7 +2161,7 @@ func _missions_panel() -> void:
         shown+=1
         var rewards: Array=sim.catalog.campaign.main_rewards[i]
         var done: bool=sim.state.main_ready.has(str(i))
-        _task_card(_art(211),tr("MAIN_%d" % i),tr("MISSION_STATE_READY") if done else tr("IN_PROGRESS"),1 if done else 0,1,rewards[0],rewards[1],func()->void:sim.campaign.claim_main(i),done,"MISSION_NOT_READY")
+        _task_card(_art(211),tr("MAIN_%d" % i),tr("MISSION_STATE_READY") if done else tr("IN_PROGRESS"),1 if done else 0,1,rewards[0],rewards[1],func()->void:_confirmed(sim.campaign.claim_main(i)),done,"MISSION_NOT_READY")
     # Claimed main objectives stay discoverable as a compact history.
     var claimed_main: Array=sim.state.main_claimed.duplicate()
     claimed_main.sort()
@@ -2294,7 +2390,7 @@ func _prestige_choice(batch: Dictionary) -> void:
     for id in offered:
         var node:=_card_node(id,"selected" if id==selected_card else "offered")
         node.set_meta("guide","card")
-        node.pressed.connect(func()->void:selected_card=id;AudioService.play_sfx("button");_refresh_panel(true))
+        node.pressed.connect(func()->void:selected_card=id;AudioService.play("ui_click");_refresh_panel(true))
         row.add_child(node)
     var earned: Array=[]
     for id in batch.choices:earned.append(sim.catalog.campaign.cards[id].name)
@@ -2311,7 +2407,7 @@ func _prestige_choice(batch: Dictionary) -> void:
         var chosen:=selected_card
         _confirm(tr("PRESTIGE_CARD_CONFIRM_FINAL" if last else "PRESTIGE_CARD_CONFIRM") % sim.catalog.campaign.cards[chosen].name,func()->void:
             selected_card=""
-            sim.prestige(chosen)),selected_card!="","PRESTIGE_PICK_CARD",true,"keep_card",false)
+            _confirmed(sim.prestige(chosen))),selected_card!="","PRESTIGE_PICK_CARD",true,"keep_card",false)
 
 # ---------------------------------------------------------------- HUD helpers
 

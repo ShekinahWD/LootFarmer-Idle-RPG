@@ -14,6 +14,10 @@ signal milestone(kind: String, id: String)
 signal revived
 ## First copy of a skill family ever obtained: its Player Upgrades become visible (Change 8).
 signal skill_discovered(family: String)
+## Change 12: authoritative transitions that earn a notification sound and nothing else:
+## "mission_ready" (a manually claimed mission reaches its goal), "follow_step" (a step of the
+## followed Prestige opportunity is completed). Emitted once per transition, never on load.
+signal notice(kind: String, id: String)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 signal spell_cast(actor_id: String, skill: String, position: Vector2)
@@ -550,6 +554,32 @@ func merge(id: String, all: bool = false) -> bool:
     touch()
     return true
 
+## Merge All (Change 12, a one-time 5,000-Gem unlock): one deliberate action that performs every
+## merge an ordinary Merge (all copies) would, item by item, under the same rules: gear and skills only
+## (supplies grow by themselves), one copy always kept, never past the item's cap, and never an
+## evolution (that stays a separate action). Returns {items, copies}; nothing changes when both are 0.
+func merge_all() -> Dictionary:
+    var result:={"items":0,"copies":0}
+    if level("merge_all")<1:
+        fail("MERGE_ALL_LOCKED");return result
+    if not action_lock_reason().is_empty():
+        fail(action_lock_reason());return result
+    var ids: Array=state.items.keys();ids.sort()
+    for id in ids:
+        if not can_merge(id):continue
+        var before:=int(record(id).merge)
+        if merge(id,true):
+            result.items+=1
+            result.copies+=int(record(id).merge)-before
+    return result
+
+## Copies Merge All would merge now (0 = nothing to merge).
+func merge_all_copies() -> int:
+    var total:=0
+    for id in state.items:
+        if can_merge(id):total+=mini(quantity(id)-1,merge_cap(id)-int(record(id).merge))
+    return total
+
 func evolve(id: String) -> bool:
     if not action_lock_reason().is_empty():
         return fail(action_lock_reason())
@@ -658,9 +688,6 @@ func upgrade_cost(id: String, group: int = -1) -> int:
 func upgrade_maxed(id: String, group: int = -1) -> bool:
     if level(id,group)>=int(catalog.upgrades[id].cap):
         return true
-    if id=="gem_chance":
-        return gem_base_chance()>=float(catalog.progression.gem_limits.normal_cap)
-    if id=="boss_gem_chance":return gem_base_chance()+level(id)*.05>=.6
     return false
 
 func buy_upgrade(id: String, group: int = -1) -> bool:
@@ -840,6 +867,7 @@ func _resolve_attack(a: Dictionary, dt: float) -> void:
 func _kill(a: Dictionary) -> void:
     if a.id==locked_target or a.id=="player":clear_target()
     a.windup=0.0
+    a.telegraph=false
     a.target=""
     a.dead_age=0.0
     a.aggro=false
@@ -862,8 +890,12 @@ func _kill(a: Dictionary) -> void:
 func gear_chance(group: int) -> float:
     return group_upgrade_value("loot",group)
 
+## The one Gem drop probability (Change 12): base 5% + Gem Chance levels + Gem Wisdom + this type's
+## kill achievements, plus Boss Gem Chance on bosses. Only the probability range clamps it; there is
+## no game-specific ceiling, so every earned bonus counts.
 func gem_chance(group: int) -> float:
-    return minf(.6 if catalog.groups[group].boss else .2,gem_base_chance()+achievement_gems(group)+(level("boss_gem_chance")*.05 if catalog.groups[group].boss else 0.0))
+    var boss_bonus:=float(catalog.upgrades.boss_gem_chance.effect)*level("boss_gem_chance") if catalog.groups[group].boss else 0.0
+    return clampf(gem_base_chance()+achievement_gems(group)+boss_bonus,0.0,1.0)
 
 func coin_reward(group: int) -> float:
     return group_upgrade_value("coin_amount",group)
@@ -1214,8 +1246,9 @@ func player_upgrade_value(id: String,extra: int=0) -> float:
 func farming_position() -> Vector2:
     return campaign.spot(int(state.focus),int(state.focus_variant)) if int(state.focus)>=0 else position_of(state.player)
 
+## Base 5% + Gem Chance upgrade levels (+0.5 points each) + Gem Wisdom, before per-type bonuses.
 func gem_base_chance(extra: int=0) -> float:
-    return minf(float(catalog.progression.gem_limits.normal_cap),float(catalog.progression.gem_limits.base_chance)+campaign.bonus("gem_chance")+float(catalog.upgrades.gem_chance.effect)*(level("gem_chance")+extra))
+    return clampf(float(catalog.progression.gem_limits.base_chance)+campaign.bonus("gem_chance")+float(catalog.upgrades.gem_chance.effect)*(level("gem_chance")+extra),0.0,1.0)
 
 ## Gems paid by one successful Gem roll; the chance is gem_chance(). The single authoritative payout:
 ## _reward() grants it and every display reads it. Change 10: a boss pays boss_amount_multiplier (3)

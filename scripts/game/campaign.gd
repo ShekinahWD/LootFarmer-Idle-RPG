@@ -349,14 +349,26 @@ func cast(slot: int) -> bool:
     if not apply_skill(sim.state.player,key,float(sim.normal(id).power)*(1+bonus("skill"))):return false
     sim.state.skill_cooldowns[key]=maxf(2,sim.catalog.skills[key].cooldown*(1-.05*sim.level("cooldown_"+key)))
     progress("cast",key,1);sim.touch();return true
+## Heal is cast only below this share of maximum HP (player and enemies alike).
+const HEAL_BELOW_HP:=.8
+func actor_max_hp(a: Dictionary) -> float:
+    return sim.stats().hp if a.id=="player" else float(sim.enemy_definition(int(a.group),int(a.get("variant",2))).hp)
+## Whether a self-cast skill can do anything now (Change 12). A boss checks this before telegraphing,
+## so its Heal effect, sound and number only ever accompany HP actually restored.
+func skill_ready(a: Dictionary,key: String) -> bool:
+    if a.hp<=0:return false
+    if key=="heal":return a.hp<actor_max_hp(a)*HEAL_BELOW_HP
+    if key=="focus":return in_combat()
+    return true
 func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF) -> bool:
     var player: bool=a.id=="player"
     var target: Dictionary=sim._combat_target() if player else sim.state.player
     var pos: Vector2=sim.position_of(a)
     if key=="heal":
-        var maxhp: float=sim.stats().hp if player else sim.enemy_definition(a.group,a.variant).hp
-        if a.hp>=maxhp*.8:return false
+        if not skill_ready(a,key):return false
+        var maxhp:=actor_max_hp(a)
         var gain=minf(minf(power,maxhp*float(sim.catalog.skills.heal.player_hp_cap)) if player else maxhp*float(sim.catalog.skills.heal.enemy_hp_fraction),maxhp-a.hp)
+        if gain<=0:return false
         a.hp+=gain;sim.feedback.emit(a.id,gain,true)
     elif key=="focus":
         if not in_combat():return false
@@ -399,11 +411,18 @@ func step(dt: float) -> void:
         if a.aggro and not d.skills.is_empty() and a.skill_timer<=0:
             var index=int(a.get("skill_index",0))%d.skills.size()
             var key: String=d.skills[index]
+            # Change 12: a self-cast skill with nothing to do (Heal at 80%+ HP, Focus out of combat)
+            # is passed over without a telegraph, so no effect plays for a heal that cannot happen and
+            # the rotation is not stuck on it; it is tried again on its next turn.
+            if not a.get("telegraph",false) and not skill_ready(a,key):
+                a.skill_index=index+1;a.skill_timer=1.0
+                continue
             if d.boss and not a.get("telegraph",false):
                 a.telegraph=true;a.skill_timer=.6
                 var aim: Vector2=sim.position_of(a) if key in ["heal","focus","frost"] else sim.position_of(sim.state.player)
                 a.aim_x=aim.x;a.aim_y=aim.y
-                sim.spell_cast.emit(a.id,key,aim)
+                # Self effects play once, on success (apply_skill); attacks show their aim as a warning.
+                if not key in ["heal","focus"]:sim.spell_cast.emit(a.id,key,aim)
             else:
                 if apply_skill(a,key,float(sim.catalog.skills[key].power),Vector2(a.get("aim_x",sim.state.player.x),a.get("aim_y",sim.state.player.y)) if d.boss else Vector2.INF):
                     a.skill_timer=sim.catalog.skills[key].cooldown;a.skill_index=index+1
@@ -489,7 +508,12 @@ func progress(kind: String,id: String,amount: float) -> void:
     if kind=="coins":sim.state.online_coins+=amount
     if kind=="collect":sim.state.online_items[id]=float(sim.state.online_items.get(id,0))+amount
     for m in sim.state.missions:
-        if not m.claimed and m.kind==kind and (m.target=="" or m.target==id):m.progress=minf(m.goal,m.progress+amount)
+        if not m.claimed and m.kind==kind and (m.target=="" or m.target==id):
+            var was_ready: bool=m.progress>=m.goal
+            m.progress=minf(m.goal,m.progress+amount)
+            # Change 12: a mission the player claims by hand announces itself once; purchased
+            # auto-claim processes repeated missions silently.
+            if not was_ready and m.progress>=m.goal and not missions_auto_claimed():sim.notice.emit("mission_ready",str(m.kind))
     for op in sim.catalog.campaign.opportunities:
         if not sim.state.opportunities.has(op.id):continue
         var o: Dictionary=sim.state.opportunities[op.id]
@@ -518,6 +542,7 @@ func progress(kind: String,id: String,amount: float) -> void:
             if q[0]==kind and (q[1]=="" or q[1]==id):o.count=amount
     evaluate()
 func counter(key: String) -> float:return float(sim.state.counters.get(key,0))
+func missions_auto_claimed() -> bool:return bool(sim.state.mission_auto) and sim.level("mission_claim")>0
 func refresh_missions() -> void:
     var day=Time.get_date_string_from_system()
     for i in range(sim.state.missions.size()):
@@ -638,8 +663,7 @@ func evaluate() -> void:
                 ready=true
                 for st in ([1,2] if n==1 else ([3,4] if n==2 else [7,8])):
                     var d: Dictionary=sim.catalog.stages[st-1]
-                    var area: float=ceil(d.size[0]/fog_rules.cell_size)*ceil(d.size[1]/fog_rules.cell_size)
-                    if sim.state.explored.get(str(st),{}).size()<area*.9 or sim.state.camps.get(str(st),[]).size()!=d.spawns.size():ready=false
+                    if explored_fraction(st)<.9 or sim.state.camps.get(str(st),[]).size()!=d.spawns.size():ready=false
                     for g in d.groups:
                         if sim.catalog.groups[g].boss and sim.state.run_kills.get(sim.catalog.groups[g].id,0)==0:ready=false
             "collection","offering":ready=bool(o.get("submitted",false))
@@ -650,9 +674,44 @@ func evaluate() -> void:
                     if not o.get("trophy_boss-"+boss,false):ready=false
         if ready:
             o.ready=true
-            if sim.state.follow==op.id:sim.state.follow=""
+            if sim.state.follow==op.id:
+                sim.notice.emit("follow_step",op.id)
+                sim.state.follow="";follow_tracked=""
             sim.event.emit("PRESTIGE_READY");sim.milestone.emit("ready",op.id)
     evaluate_main()
+    check_follow_step()
+
+## Steps of the followed opportunity completed so far (Change 12). A rise is one completed step and
+## earns one notice; the first reading after load or a new follow only sets the baseline, and the
+## count never re-announces a step that was lost and found again.
+func follow_steps_done(id: String) -> int:
+    var o: Dictionary=sim.state.opportunities.get(id,{})
+    if o.is_empty():return 0
+    var n=int(id.right(1));var path=id.split("_o")[0]
+    match path:
+        "expedition","specialist":return int(o.get("step",0))
+        "collection":
+            var done:=0
+            for c in collection_counts(id):
+                if c>=10+10*n:done+=1
+            return done
+        "trophy":
+            var got:=0
+            for boss in [["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"]][n-1]:
+                if o.get("trophy_boss-"+boss,false):got+=1
+            return got
+    return 0
+var follow_tracked:=""
+var follow_steps:=0
+func check_follow_step() -> void:
+    var id: String=str(sim.state.get("follow",""))
+    if id=="" or not sim.state.opportunities.has(id):
+        follow_tracked="";return
+    var done:=follow_steps_done(id)
+    if id!=follow_tracked:
+        follow_tracked=id;follow_steps=done;return
+    if done>follow_steps:sim.notice.emit("follow_step",id)
+    follow_steps=maxi(follow_steps,done)
 func submit(id: String) -> bool:
     if not sim.action_lock_reason().is_empty() or not sim.state.opportunities.has(id):return false
     var n=int(id.right(1));var o: Dictionary=sim.state.opportunities[id]
@@ -1301,12 +1360,24 @@ func collection_counts(id: String) -> Array:
         result.append(mini(10+10*n,int(minf(float(sim.state.online_items.get(item,0)),float(o.get("item_"+item,0))))))
     return result
 
+## Discoverable cells of a map: its full fog grid (the authored map size in fog cells).
+func explore_area(st: int) -> int:
+    var d: Dictionary=sim.catalog.stages[st-1]
+    return int(ceil(d.size[0]/fog_rules.cell_size)*ceil(d.size[1]/fog_rules.cell_size))
+## Permanently explored share of a map, 0..1, from the saved explored cells only (never momentary
+## sight or camera panning). The HUD, World and the Regional opportunities all read this.
+func explored_fraction(st: int) -> float:
+    var area:=explore_area(st)
+    if area<=0:return 0.0
+    return clampf(float(sim.state.explored.get(str(st),{}).size())/area,0.0,1.0)
+## Whole percent, rounded down, so 100% means every cell is explored.
+func explored_percent(st: int) -> int:
+    return mini(100,floori(explored_fraction(st)*100.0+.000001))
 func _regional_progress(n: int) -> String:
     var explored: Array=[];var bosses:=0;var killed:=0;var camps:=0;var owned:=0
     for st in ([1,2] if n==1 else ([3,4] if n==2 else [7,8])):
         var d: Dictionary=sim.catalog.stages[st-1]
-        var area: float=ceil(d.size[0]/fog_rules.cell_size)*ceil(d.size[1]/fog_rules.cell_size)
-        explored.append("%d%%" % mini(100,int(100.0*sim.state.explored.get(str(st),{}).size()/area)))
+        explored.append("%d%%" % explored_percent(st))
         camps+=d.spawns.size();owned+=sim.state.camps.get(str(st),[]).size()
         for g in d.groups:
             if sim.catalog.groups[g].boss:

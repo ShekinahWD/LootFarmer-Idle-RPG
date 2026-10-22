@@ -18881,10 +18881,15 @@
       "art_id": "stone_sword",
       "family": "sword",
       "name": "ITEM_STONE_SWORD",
-      "attack": "res://assets/PixelPlainsAnimationPack/Onix set/Sword 7 64x32.png",
+      "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png",
       "merge_gain": {
         "damage": 0.204
-      }
+      },
+      "attack_tint": [
+        0.9,
+        0.84,
+        0.84
+      ]
     },
     "iron_sword": {
       "kind": "weapon",
@@ -19198,11 +19203,16 @@
       "art_id": "stone_axe",
       "family": "axe",
       "name": "ITEM_STONE_AXE",
-      "attack": "res://assets/PixelPlainsAnimationPack/Onix set/Axe 7 64x32.png",
+      "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Axe 2 64x32.png",
       "merge_gain": {
         "damage": 0.1632,
         "hp": 0.612
-      }
+      },
+      "attack_tint": [
+        0.9,
+        0.84,
+        0.84
+      ]
     },
     "iron_axe": {
       "kind": "weapon",
@@ -21180,9 +21190,9 @@
       "currency": "gems",
       "base": 25,
       "growth": 1,
-      "cap": 12,
+      "cap": 20,
       "keep": true,
-      "effect": 0.01,
+      "effect": 0.005,
       "prices": [
         25,
         40,
@@ -21195,7 +21205,15 @@
         260,
         320,
         390,
-        470
+        470,
+        560,
+        660,
+        770,
+        890,
+        1020,
+        1160,
+        1310,
+        1470
       ],
       "scope": "global"
     },
@@ -21598,6 +21616,15 @@
       "keep": true,
       "effect": 1,
       "scope": "global"
+    },
+    "merge_all": {
+      "currency": "gems",
+      "base": 5000,
+      "growth": 1,
+      "cap": 1,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
     }
   },
   "cards": [
@@ -21714,9 +21741,7 @@
       "base_batch": 1
     },
     "gem_limits": {
-      "base_chance": 0.08,
-      "normal_cap": 0.2,
-      "boss_cap": 0.6,
+      "base_chance": 0.05,
       "boss_amount_multiplier": 3
     },
     "balance": {
@@ -22302,7 +22327,7 @@
         "name": "CONTENT_OFFERING_C2_NAME",
         "description": "CONTENT_OFFERING_C2_DESCRIPTION",
         "effect": "gem_chance",
-        "value": 0.03
+        "value": 0.05
       },
       "offering_c3": {
         "path": "offering",

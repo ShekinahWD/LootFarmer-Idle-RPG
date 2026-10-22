@@ -9,6 +9,8 @@ extends Node2D
             $Visual/Body.texture=value
 @export var weapon_texture: Texture2D
 @export var attack_texture: Texture2D
+## Multiplies the swing sheet only (Change 12: stone-tier weapons tint the Iron set swing warm gray).
+@export var attack_tint: Color = Color.WHITE
 @export_range(1.0,3.0,.25) var visual_scale: float=1.0
 @export var preview_walking := false
 @export var cell_size := Vector2(24,24)
@@ -26,6 +28,8 @@ extends Node2D
 @export var hp_bar_width := 32.0
 @export var hp_bar_height := 7.0
 @export var hp_text_scale := 0.25
+## Size of a healing number relative to a damage number (Change 12).
+@export var heal_text_scale := 1.3
 var elapsed:=0.0
 var actor: Dictionary={}
 var disclosed:=true
@@ -91,6 +95,7 @@ func _process(dt: float) -> void:
     var attacking:=attack_age<duration and not dead and not walking
     $Visual/Attack.visible=attacking and attack_texture!=null
     $Visual/Attack.texture=attack_texture
+    $Visual/Attack.self_modulate=attack_tint
     $Visual/Attack.region_rect=Rect2(frame*64,0,64,32)
     $Visual/Weapon.visible=weapon_texture!=null and not dead and not $Visual/Attack.visible
     $Visual/Weapon.texture=weapon_texture
@@ -121,8 +126,14 @@ func show_hit(value: float, healing: bool, critical: bool=false, on_player: bool
     # Keep each hit independent, including after its actor dies or despawns.
     var label: Label=$Hit.duplicate()
     get_parent().add_child(label)
-    # Small horizontal spread so simultaneous hits stay readable instead of stacking.
-    label.position=position+Vector2(-22+randf_range(-12,12),-35*visual_scale-randf_range(0,6))
+    # Small horizontal spread so simultaneous hits stay readable instead of stacking. Healing (Change
+    # 12) is centred above the head and a little larger, so it reads apart from incoming damage.
+    if healing:
+        label.position=position+Vector2(-22,-35*visual_scale-10)
+        label.pivot_offset=label.size*.5
+        label.scale=Vector2.ONE*heal_text_scale
+    else:
+        label.position=position+Vector2(-22+randf_range(-12,12),-35*visual_scale-randf_range(0,6))
     label.text=("+" if healing else "−")+NumberFormat.number(value,2)+("!" if critical else "")
     # Sign and "!" carry the meaning; colour reinforces it (outlined for snow and bright effects).
     label.modulate=Color(.45,1,.55) if healing else (Color(1,.78,.2) if critical else (Color(1,.42,.38) if on_player else Color.WHITE))

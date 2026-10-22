@@ -22,7 +22,7 @@ func drag(id: int,point: Vector2) -> void:
 func _ready() -> void:
     call_deferred("run")
 func run() -> void:
-    SettingsState.set_sfx_enabled(false)
+    SettingsState.mute_all_sfx()
     SettingsState.set_camera_zoom(2.0)
     game=load("res://scenes/game/main.tscn").instantiate()
     add_child(game)

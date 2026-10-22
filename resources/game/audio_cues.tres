@@ -1,0 +1,149 @@
+[gd_resource type="Resource" script_class="AudioCueSet" load_steps=30 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/audio_cue_set.gd" id="set"]
+[ext_resource type="Script" path="res://scripts/game/audio_cue.gd" id="cue"]
+[ext_resource type="AudioStream" path="res://assets/Audio/button.wav" id="s0"]
+[ext_resource type="AudioStream" path="res://assets/sounds/ui_confirm.wav" id="s1"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/heal_01.ogg" id="s2"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/ice_shatter_01.ogg" id="s3"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/fire_impact_01.ogg" id="s4"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/zap_01.ogg" id="s5"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/cast_01.ogg" id="s6"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/impact_01.ogg" id="s7"]
+[ext_resource type="AudioStream" path="res://assets/sounds/mission_ready.wav" id="s8"]
+[ext_resource type="AudioStream" path="res://assets/sounds/reveal_unlock.wav" id="s9"]
+[ext_resource type="AudioStream" path="res://assets/Audio/prestige.wav" id="s10"]
+[ext_resource type="AudioStream" path="res://assets/sounds/stage_clear.wav" id="s11"]
+[ext_resource type="AudioStream" path="res://assets/sounds/background_music.wav" id="s12"]
+
+[sub_resource type="Resource" id="ui_click"]
+script = ExtResource("cue")
+id = "ui_click"
+stream = ExtResource("s0")
+category = "gameplay"
+priority = 0
+cooldown = 0.04
+volume_db = 0.0
+
+[sub_resource type="Resource" id="ui_confirm"]
+script = ExtResource("cue")
+id = "ui_confirm"
+stream = ExtResource("s1")
+category = "gameplay"
+priority = 20
+cooldown = 0.1
+volume_db = -3.0
+
+[sub_resource type="Resource" id="spell_heal"]
+script = ExtResource("cue")
+id = "spell_heal"
+stream = ExtResource("s2")
+category = "gameplay"
+priority = 10
+cooldown = 0.25
+volume_db = -4.0
+
+[sub_resource type="Resource" id="spell_frost"]
+script = ExtResource("cue")
+id = "spell_frost"
+stream = ExtResource("s3")
+category = "gameplay"
+priority = 10
+cooldown = 0.25
+volume_db = -4.0
+
+[sub_resource type="Resource" id="spell_fire"]
+script = ExtResource("cue")
+id = "spell_fire"
+stream = ExtResource("s4")
+category = "gameplay"
+priority = 10
+cooldown = 0.25
+volume_db = -4.0
+
+[sub_resource type="Resource" id="spell_lightning"]
+script = ExtResource("cue")
+id = "spell_lightning"
+stream = ExtResource("s5")
+category = "gameplay"
+priority = 10
+cooldown = 0.25
+volume_db = -4.0
+
+[sub_resource type="Resource" id="spell_focus"]
+script = ExtResource("cue")
+id = "spell_focus"
+stream = ExtResource("s6")
+category = "gameplay"
+priority = 10
+cooldown = 0.25
+volume_db = -4.0
+
+[sub_resource type="Resource" id="spell_strike"]
+script = ExtResource("cue")
+id = "spell_strike"
+stream = ExtResource("s7")
+category = "gameplay"
+priority = 10
+cooldown = 0.25
+volume_db = -4.0
+
+[sub_resource type="Resource" id="mission_ready"]
+script = ExtResource("cue")
+id = "mission_ready"
+stream = ExtResource("s8")
+category = "special"
+priority = 50
+cooldown = 1.0
+volume_db = 0.0
+
+[sub_resource type="Resource" id="prestige_step"]
+script = ExtResource("cue")
+id = "prestige_step"
+stream = ExtResource("s9")
+category = "special"
+priority = 60
+cooldown = 0.5
+volume_db = 0.0
+
+[sub_resource type="Resource" id="prestige_discovered"]
+script = ExtResource("cue")
+id = "prestige_discovered"
+stream = ExtResource("s10")
+category = "special"
+priority = 70
+cooldown = 0.5
+volume_db = 0.0
+
+[sub_resource type="Resource" id="stage_unlocked"]
+script = ExtResource("cue")
+id = "stage_unlocked"
+stream = ExtResource("s11")
+category = "special"
+priority = 75
+cooldown = 1.0
+volume_db = 0.0
+
+[sub_resource type="Resource" id="prestige_ready"]
+script = ExtResource("cue")
+id = "prestige_ready"
+stream = ExtResource("s10")
+category = "special"
+priority = 80
+cooldown = 0.5
+volume_db = 0.0
+
+[sub_resource type="Resource" id="prestiged"]
+script = ExtResource("cue")
+id = "prestiged"
+stream = ExtResource("s10")
+category = "special"
+priority = 90
+cooldown = 1.0
+volume_db = 0.0
+
+[resource]
+script = ExtResource("set")
+music = ExtResource("s12")
+music_volume_db = -8.0
+cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged")])

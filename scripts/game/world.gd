@@ -5,12 +5,11 @@ var camp_revision: int=-1
 var active_stage: int=-1
 var scenery: Node2D
 var fog: Node2D
-var spell_sounds: Dictionary={}
 const ACTOR=preload("res://scenes/game/actor.tscn")
 const ATTACKS={
     "death_scythe": preload("res://assets/PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png"),
     "wood_sword": preload("res://assets/PixelPlainsAnimationPack/Wood set/Sword 1 64x32.png"),
-    "stone_sword": preload("res://assets/PixelPlainsAnimationPack/Onix set/Sword 7 64x32.png"),
+    "stone_sword": preload("res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png"),
     "iron_sword": preload("res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png")
 }
 const PICKUP=preload("res://scenes/game/pickup.tscn")
@@ -104,8 +103,10 @@ func _process(_delta: float) -> void:
         if v.body_texture!=textures[path]:
             v.body_texture=textures[path]
         v.attack_texture=load(sim.catalog.items[weapon].attack) if sim.catalog.items.has(weapon) and sim.catalog.items[weapon].has("attack") else ATTACKS.get(weapon)
+        v.attack_tint=attack_tint(weapon)
         v.weapon_texture=textures.get(weapon)
         if body=="death":
+            v.attack_tint=Color.WHITE
             v.weapon_texture=preload("res://resources/game/death_weapon.tres")
             v.attack_texture=preload("res://assets/PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png")
     for id in views.keys():
@@ -131,6 +132,12 @@ func _process(_delta: float) -> void:
             pickups[id].queue_free()
             pickups.erase(id)
     update_camera()
+
+## Swing-sheet tint from the catalog (attack_tint, Change 12): the stone tier shares the Iron set's
+## swing in warm gray so it matches its gray stone icon. White for every other weapon.
+func attack_tint(weapon: String) -> Color:
+    var tint: Array=sim.catalog.items.get(weapon,{}).get("attack_tint",[])
+    return Color(float(tint[0]),float(tint[1]),float(tint[2])) if tint.size()>=3 else Color.WHITE
 
 func _update_camps() -> void:
     if scenery==null or active_stage!=int(sim.state.stage):return
@@ -238,20 +245,20 @@ func _spell(actor_id: String,key: String,pos: Vector2) -> void:
     var sprite:=AnimatedSprite2D.new()
     sprite.sprite_frames=frames
     sprite.position=pos
+    sprite.z_index=0
     # Self effects (Heal, Focus) are drawn on the caster: their sheets put the ground ring about
     # self_effect_ring px below the frame centre, so the ring is placed on the actor's feet and the
-    # effect scales with the actor's rendered size (bosses draw at visual_scale 2).
-    if key in SELF_EFFECTS:
-        var factor: float=self_effect_scale*(float(views[actor_id].visual_scale) if views.has(actor_id) else 1.0)
+    # effect scales with the actor's rendered size (bosses draw at visual_scale 2). Change 12: the
+    # effect is a child of the caster's view, so it stays on the feet while the caster moves.
+    if key in SELF_EFFECTS and views.has(actor_id):
+        var view: LootActorView=views[actor_id]
+        var factor: float=self_effect_scale*float(view.visual_scale)
         sprite.scale=Vector2.ONE*factor
-        sprite.position=pos-Vector2(0,self_effect_ring*factor)
-    sprite.z_index=0
-    add_child(sprite)
+        sprite.position=Vector2(0,-self_effect_ring*factor)
+        view.add_child(sprite)
+    else:
+        add_child(sprite)
     sprite.animation_finished.connect(sprite.queue_free)
     sprite.play()
-    var audio_path: String="res://assets/magic-spells-sfx-lite/ogg/"+str(d.effect)+"_01.ogg"
-    var now: int=Time.get_ticks_msec()
-    if ResourceLoader.exists(audio_path) and now-int(spell_sounds.get(key,-1000))>=250:
-        spell_sounds[key]=now
-        AudioService.register_sfx("spell_"+key,load(audio_path))
-        AudioService.play_sfx("spell_"+key)
+    # One semantic cue per cast; the audio service owns the asset, category and repeat throttle.
+    AudioService.play("spell_"+key)

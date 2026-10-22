@@ -46,7 +46,7 @@ func blockers(node: Node) -> void:
 func run() -> void:
     get_tree().root.size=Vector2i(720,1280)
     Input.emulate_mouse_from_touch=true
-    SettingsState.set_sfx_enabled(false)
+    SettingsState.mute_all_sfx()
     game=load("res://scenes/game/main.tscn").instantiate()
     add_child(game)
     var sim=game.sim

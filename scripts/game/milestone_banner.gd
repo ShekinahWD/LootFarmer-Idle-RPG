@@ -70,7 +70,8 @@ func _begin(entry: Dictionary) -> void:
     tween=create_tween().set_parallel()
     tween.tween_property(self,"modulate:a",1.0,.15)
     tween.tween_property($Plate,"scale",Vector2.ONE,.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-    AudioService.play_sfx("prestige")
+    # Change 12: the sound plays at the milestone itself (game_ui._milestone via the audio service),
+    # not when a held banner is finally shown.
 
 func _finish() -> void:
     current={}

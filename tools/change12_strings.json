@@ -1,0 +1,21 @@
+{
+  "CREDITS": "Character & world art: Pixel Plains by SnowHex. Interface: Kenney Fantasy UI Borders (CC0).",
+  "CONTENT_OFFERING_C2_DESCRIPTION": "+5 points gem drop chance",
+  "MAP_EXPLORED": "Map explored: %d%%",
+  "MAP_EXPLORED_TOOLTIP": "How much of this map you have explored for good. Momentary sight and moving the camera do not count.",
+  "SECTION_AUDIO": "Sound & music",
+  "MUSIC_VOLUME": "Music %d%%",
+  "SFX_VOLUME": "Sound effects %d%%",
+  "MUTE_GAMEPLAY_STATUS": "Mute gameplay sounds: %s",
+  "MUTE_SPECIAL_STATUS": "Mute special sounds: %s",
+  "AUDIO_HINT": "Gameplay sounds: taps, purchases, merges and combat. Special sounds: a new Prestige, a finished step of the Prestige you follow, a mission ready to claim and a new map. The sound-effect volume sets both.",
+  "UP_MERGE_ALL": "Merge All",
+  "MERGE_ALL_BENEFIT": "One-time unlock: a Merge All button in Filters merges every spare copy in one tap · free to use · kept by Prestige",
+  "MERGE_ALL_UNLOCKED": "Unlocked · use Merge All in Filters",
+  "MERGE_ALL_LOCKED": "Merge All is not unlocked yet",
+  "MERGE_ALL_LOCKED_HINT": "Merge All: unlock it once for 5,000 gems in Upgrades → Inventory.",
+  "MERGE_ALL_BUTTON": "Merge All · %d spare copies",
+  "MERGE_ALL_BUTTON_IDLE": "Merge All",
+  "NOTHING_TO_MERGE": "Nothing to merge",
+  "MERGE_ALL_DONE": "Merged %d copies across %d items"
+}
