@@ -18,5 +18,11 @@
   "BUY_SUPPLY": "Buy %s · %s coins",
   "GUIDE_UPGRADE_EARN_DETAIL": "%s more coins needed. Every defeated enemy drops coins.",
   "GUIDE_CAMP_EARN_DETAIL": "%s more coins needed. Keep defeating enemies.",
-  "SPAWN_BUY": "Unlock camp %d · %s coins"
+  "SPAWN_BUY": "Unlock camp %d · %s coins",
+  "OFFERING_PROGRESS": "%s / %s coins · %s / %s gems",
+  "CONTENT_OFFERING_O1_DESCRIPTION": "Donate 2K coins and 30 gems earned in battle this run",
+  "CONTENT_OFFERING_O2_DESCRIPTION": "Donate 20K coins and 100 gems earned in battle this run",
+  "CONTENT_OFFERING_O3_DESCRIPTION": "Donate 100K coins and 300 gems earned in battle this run",
+  "CONTENT_OFFLINE_O3_DESCRIPTION": "Earn 10K coins while away",
+  "MERGE_ALL_LOCKED_HINT": "Merge All: unlock it once for 5K gems in Upgrades → Inventory."
 }

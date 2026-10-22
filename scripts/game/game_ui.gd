@@ -1394,6 +1394,8 @@ func _upgrade_icon(id: String,g: int) -> Texture2D:
 func _upgrade_row(id: String,g: int=-1) -> void:
     _group_upgrade_card(id,g)
 
+## Upgrades whose value is an amount of Coins or Gems (per kill, per drop or per hour).
+const CURRENCY_UPGRADES:=["coin_amount","gem_amount","boss_gem_amount","offline_coins","offline_gems"]
 func _upgrade_benefit(id: String,g: int) -> String:
     var next:=0 if sim.upgrade_maxed(id,g) else 1
     # Change 10: equipment slots read as "slots now -> next of 70", and "70 / 70 · maxed" at the cap.
@@ -1416,6 +1418,9 @@ func _upgrade_benefit(id: String,g: int) -> String:
     var percent:=id in ["loot","supply_drop","skill_drop","gem_chance","boss_gem_chance","movement","reveal_radius","camp_radius"]
     var left:=fmt_value(current*100)+"%" if percent else fmt_value(current)
     var right:=fmt_value(future*100)+"%" if percent else fmt_value(future)
+    # Change 13: coin and gem amounts use the shared currency format.
+    if id in CURRENCY_UPGRADES:
+        left=fmt_currency(current);right=fmt_currency(future)
     var value:=tr("UPGRADE_TRANSITION") % [left,right] if next>0 else tr("UPGRADE_MAXED_VALUE") % left
     if id=="boss_gem_amount":value=tr("BOSS_GEMS_PER_DROP") % value
     if id in ["respawn","collect_speed","gear_merge_speed","use_speed","spawn_cooldown"]:value=tr("SECONDS_VALUE") % value
@@ -2198,7 +2203,7 @@ func _missions_panel() -> void:
         var g: int=sim.campaign.group_id(str(m.target))
         var art: Texture2D=icon_cache.get(sim.catalog.groups[g].body) if g>=0 else _art(60)
         var ready: bool=not m.claimed and m.progress>=m.goal
-        _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),"%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)],m.progress,m.goal,m.coins,m.gems,func()->void:_confirmed(sim.campaign.claim_mission(i)),ready,"MISSION_NOT_READY",bool(m.claimed))
+        _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),("%s / %s" % [fmt_currency(m.progress),fmt_cost(m.goal)] if str(m.kind)=="coins" else "%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)]),m.progress,m.goal,m.coins,m.gems,func()->void:_confirmed(sim.campaign.claim_mission(i)),ready,"MISSION_NOT_READY",bool(m.claimed))
     _section(tr("MAIN_OBJECTIVES"))
     var shown:=0
     for i in range(16):

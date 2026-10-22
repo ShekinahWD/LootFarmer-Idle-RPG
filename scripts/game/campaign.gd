@@ -1382,8 +1382,10 @@ func opportunity_progress(id: String) -> String:
         return "%d / %d" % [counter(k)-float(o.baseline.get(k,0)),hunter_goal(n)]
     if path=="offline":
         var value=sim.state.offline_total/3600 if n==1 else (sim.state.offline_longest/3600 if n==2 else sim.state.offline_income)
+        # Change 13: the offline-income milestone counts coins, so it uses the currency format.
+        if n==3:return "%s / %s" % [NumberFormat.currency(value),NumberFormat.currency(10000,true)]
         return "%.1f / %d" % [value,[72,24,10000][n-1]]
-    if path=="offering":return "%d / %d coins · %d / %d gems" % [mini(sim.state.online_coins,sim.state.coins),[2000,20000,100000][n-1],mini(sim.state.online_gems,sim.state.gems),[30,100,300][n-1]]
+    if path=="offering":return sim.tr("OFFERING_PROGRESS") % [NumberFormat.currency(minf(sim.state.online_coins,sim.state.coins)),NumberFormat.currency([2000,20000,100000][n-1],true),NumberFormat.currency(minf(sim.state.online_gems,sim.state.gems)),NumberFormat.currency([30,100,300][n-1],true)]
     if path=="masterwork":
         var best:=0
         for key in o:

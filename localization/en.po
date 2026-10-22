@@ -3364,19 +3364,19 @@ msgid "CONTENT_OFFERING_O1_NAME"
 msgstr "Small offering"
 
 msgid "CONTENT_OFFERING_O1_DESCRIPTION"
-msgstr "Donate 2,000 coins and 30 gems earned in battle this run"
+msgstr "Donate 2K coins and 30 gems earned in battle this run"
 
 msgid "CONTENT_OFFERING_O2_NAME"
 msgstr "Growing offering"
 
 msgid "CONTENT_OFFERING_O2_DESCRIPTION"
-msgstr "Donate 20,000 coins and 100 gems earned in battle this run"
+msgstr "Donate 20K coins and 100 gems earned in battle this run"
 
 msgid "CONTENT_OFFERING_O3_NAME"
 msgstr "Grand offering"
 
 msgid "CONTENT_OFFERING_O3_DESCRIPTION"
-msgstr "Donate 100,000 coins and 300 gems earned in battle this run"
+msgstr "Donate 100K coins and 300 gems earned in battle this run"
 
 msgid "CONTENT_SPECIALIST_O1_NAME"
 msgstr "Short chain"
@@ -3430,7 +3430,7 @@ msgid "CONTENT_OFFLINE_O3_NAME"
 msgstr "Offline income"
 
 msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
-msgstr "Earn 10,000 coins while away"
+msgstr "Earn 10K coins while away"
 
 msgid "CONTENT_HUNTER_SET_DESCRIPTION"
 msgstr "+20% XP from bosses"
@@ -4842,7 +4842,7 @@ msgid "MERGE_ALL_LOCKED"
 msgstr "Merge All is not unlocked yet"
 
 msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Merge All: unlock it once for 5,000 gems in Upgrades → Inventory."
+msgstr "Merge All: unlock it once for 5K gems in Upgrades → Inventory."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Merge All · %d spare copies"
@@ -4894,3 +4894,6 @@ msgstr "✓ %s · defeated"
 
 msgid "GATE_BOSS_NEEDED"
 msgstr "• %s · still needed"
+
+msgid "OFFERING_PROGRESS"
+msgstr "%s / %s coins · %s / %s gems"
