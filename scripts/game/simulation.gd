@@ -918,6 +918,13 @@ func step(dt: float) -> void:
     state.boost_time=maxf(0,state.boost_time-dt)
     if state.boost_time==0:
         state.boost_power=0.0
+    # Ground loot lasts 300 s of active time (it fades for the last 30 s); inactive stage worlds keep
+    # their pickups frozen. Restored in Change 11: the expiry had been dropped, so loot that could not
+    # be collected (a full inventory) piled up without bound in the save and the world view.
+    for pickup in state.pickups:
+        pickup.ttl=float(pickup.ttl)-dt
+    if state.pickups.any(func(v):return float(v.ttl)<=0):
+        state.pickups=state.pickups.filter(func(v):return float(v.ttl)>0)
     # Supply buffs run on active time only; an expiry changes combat stats, so it touches.
     for id in state.buffs.keys():
         state.buffs[id].time=float(state.buffs[id].time)-dt
