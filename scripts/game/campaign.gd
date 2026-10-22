@@ -426,14 +426,14 @@ func automate(dt: float) -> void:
                         if n>=sim.group_upgrade_value("collect_batch",g):break
     for g in range(sim.catalog.groups.size()):
         if sim.level("merge_gear",g)>0:merge_cycle(str(g),10-sim.level("gear_merge_speed",g),dt,g)
-    if sim.level("merge_supplies")>0:merge_cycle("supplies",10-sim.level("merge_speed"),dt,-1)
     sim.state.use_clock+=dt
     if sim.state.use_clock>=sim.player_upgrade_value("use_speed"):
         sim.state.use_clock=0
+        # Each automated slot uses its supply when that supply's own auto condition holds.
         for slot in sim.state.auto_slots:
             if int(slot)<sim.state.supplies.size():
                 var id: String=sim.state.supplies[int(slot)]
-                if id!="" and (sim.catalog.art_id(id)=="potion" and sim.state.player.hp<=sim.stats().hp*.8 or sim.catalog.art_id(id)=="coin_boost" and sim.state.boost_time<=0):sim.use_item(id)
+                if id!="" and sim.supply_auto_ready(id):sim.use_item(id)
     for i in range(1+sim.level("skill_slots")):
         if sim.state.skill_auto[i] and sim.level("skill_auto_"+str(i))>0:cast(i)
     if sim.state.mission_auto and sim.level("mission_claim")>0:
@@ -447,7 +447,7 @@ func merge_cycle(key: String,interval: float,dt: float,g: int) -> void:
     var start=int(sim.state.merge_cursors.get(key,0))
     for offset in range(ids.size()):
         var i: int=(start+offset)%ids.size();var id: String=ids[i]
-        var eligible: bool=sim.catalog.items[id].kind=="consumable" if g<0 else (sim.gear_group(id)==g and sim.catalog.items[id].kind!="consumable")
+        var eligible: bool=sim.gear_group(id)==g and sim.catalog.items[id].kind!="consumable"
         if eligible and sim.quantity(id)>1 and sim.record(id).merge<sim.merge_cap(id):
             sim.merge(id);sim.state.merge_cursors[key]=(i+1)%ids.size();break
 func begin_encounter(a: Dictionary) -> void:
@@ -537,7 +537,7 @@ func new_mission(index: int,day: String) -> Dictionary:
         elif sim.state.run_kills.get(d.id,0)>0 and (not d.final or sim.state.keys.size()==13):candidates.append({"kind":"boss","target":d.id,"goal":5.0,"coins":200.0*d.stage,"gems":5.0})
     if sim.state.gear.has(""):candidates.append({"kind":"gear","target":"","goal":12.0,"coins":120.0*st,"gems":3.0})
     for id in sim.state.items:
-        if sim.quantity(id)>1 and sim.record(id).merge<sim.merge_cap(id):
+        if sim.can_merge(id):
             candidates.append({"kind":"merge","target":"","goal":20.0,"coins":100.0*st,"gems":3.0});break
     candidates.append({"kind":"coins","target":"","goal":300.0*st,"coins":0.0,"gems":5.0})
     if sim.state.skills.any(func(id):return id!=""):candidates.append({"kind":"cast","target":"","goal":40.0,"coins":100.0*st,"gems":3.0})
@@ -781,16 +781,18 @@ func choose_card(id: String) -> bool:
     var final: bool=granted.size()==sim.state.prestige_batch.ids.size()
     if final:
         var keep: Dictionary={}
-        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
         var upgrades: Dictionary={}
         for key in sim.state.upgrades:
-            if sim.catalog.upgrades[key.split(":")[0]].keep:upgrades[key]=sim.state.upgrades[key]
+            if sim.upgrade_kept(key.split(":")[0]):upgrades[key]=sim.state.upgrades[key]
         var runs: int=sim.state.prestiges+1;var gear: int=sim.state.gear.size();var supplies: int=sim.state.supplies.size()
         sim.new_profile();sim.state.merge(keep,true);sim.state.upgrades=upgrades;sim.state.prestiges=runs
         sim.state.gear.resize(gear);sim.state.gear.fill("");sim.state.supplies.resize(supplies);sim.state.supplies.fill("")
+        # Kept spawn upgrades (gems) apply to the fresh world at once, not after the next purchase.
+        sim._sync_spawn_counts()
         sim.state.missions=[];refresh_missions();sim.touch();sim.state.player.hp=sim.stats().hp
     sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
@@ -919,6 +921,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
             else:out.upgrades[key]=clampi(int(out.upgrades[key]),0,int(sim.catalog.upgrades[parts[0]].cap))
     remap_legacy_items(out)
     clamp_equipment_slots(out)
+    clamp_supplies(out)
     if out.get("items") is Dictionary:
         for id in out.items.keys():
             if not sim.catalog.items.has(id):out.items.erase(id)
@@ -947,6 +950,42 @@ func clamp_equipment_slots(out: Dictionary) -> void:
         var id=gear.pop_back()
         if id is String and out.get("items") is Dictionary:out.items.erase(id)
     while gear.size()<size:gear.append("")
+## Change 11 bound: the supply row has exactly 1 + purchased slots (one per supply identity), automated
+## slots point inside it, mastery counts and buffs name real supplies. Saves made before Change 11
+## keep their stock (tier copies fold into the base supply) and start mastery at zero.
+func clamp_supplies(out: Dictionary) -> void:
+    var bought: int=int(out.upgrades.get("supply_slots",0)) if out.get("upgrades") is Dictionary else 0
+    var size: int=1+bought*int(sim.catalog.upgrades.supply_slots.effect)
+    if out.get("supplies") is Array:
+        var list: Array=out.supplies
+        var kept: Array=[]
+        for id in list:
+            if id is String and id!="" and sim.catalog.items.has(id) and sim.catalog.items[id].kind=="consumable" and not kept.has(id):kept.append(id)
+        while kept.size()>size:
+            var id=kept.pop_back()
+            if out.get("items") is Dictionary:out.items.erase(id)
+        # Keep each supply where it was when it still fits, so automated slots stay bound to it.
+        var row: Array=[];row.resize(size);row.fill("")
+        for id in kept:
+            var at: int=list.find(id)
+            if at>=0 and at<size and row[at]=="":row[at]=id
+        for id in kept:
+            if not row.has(id):row[row.find("")]=id
+        out.supplies=row
+    if out.get("auto_slots") is Array:
+        var slots: Array=[]
+        for slot in out.auto_slots:
+            if number(slot) and int(slot)>=0 and int(slot)<size and not slots.has(int(slot)):slots.append(int(slot))
+        out.auto_slots=slots
+    for field in ["supply_found","buffs"]:
+        if not out.get(field) is Dictionary:out[field]={}
+        for id in out[field].keys():
+            if not sim.catalog.items.has(id) or sim.catalog.items[id].kind!="consumable":out[field].erase(id)
+    for id in out.supply_found.keys():
+        out.supply_found[id]=maxi(0,int(out.supply_found[id])) if number(out.supply_found[id]) else 0
+    for id in out.buffs.keys():
+        var b=out.buffs[id]
+        if id=="coin_boost" or not b is Dictionary or not number(b.get("time")) or not number(b.get("power")) or float(b.time)<=0:out.buffs.erase(id)
 ## Older saves: skills already owned (or upgraded) count as seen, without a notice; spots of known
 ## types whose home cell was explored become found spots; explored or owned camps are sighted.
 ## Explored cells are kept as they are (no new reveal, no reset).
@@ -1058,7 +1097,13 @@ func valid_snapshot(data: Dictionary) -> bool:
     if data.stage<1 or data.stage>8 or data.unlocked_stage<data.stage or data.unlocked_stage>8:return false
     if data.coins<0 or data.gems<0 or data.group_kills.size()!=48 or data.collect_clocks.size()!=48:return false
     if data.skills.size()!=3 or data.skill_auto.size()!=3:return false
-    if data.gear.size()!=3+int(data.upgrades.get("gear_slots",0))*int(sim.catalog.upgrades.gear_slots.effect) or data.supplies.size()>sim.catalog.upgrades.supply_slots.cap+1:return false
+    if data.gear.size()!=3+int(data.upgrades.get("gear_slots",0))*int(sim.catalog.upgrades.gear_slots.effect) or data.supplies.size()!=1+int(data.upgrades.get("supply_slots",0))*int(sim.catalog.upgrades.supply_slots.effect):return false
+    for id in data.supplies:
+        if id!="" and sim.catalog.items[id].kind!="consumable":return false
+    for id in data.gear:
+        if id!="" and sim.catalog.items[id].kind=="consumable":return false
+    for id in data.supply_found:
+        if not sim.catalog.items.has(id) or sim.catalog.items[id].kind!="consumable" or not number(data.supply_found[id]) or data.supply_found[id]<0:return false
     for id in data.items:
         if not sim.catalog.items.has(id) or not data.items[id] is Dictionary:return false
         var r: Dictionary=data.items[id]
@@ -1202,10 +1247,11 @@ func opportunity_progress(id: String) -> String:
         return sim.tr("PROGRESS_TROPHY") % [got,bosses.size()]
     if path=="collection":
         var names: Array=[['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
+        # The full panel is the detailed reference: each required outfit by name with its count.
         var parts: Array=[]
-        for name in names:
-            var item: String=contract_outfit(name)
-            parts.append("%d/%d" % [mini(10+10*n,int(minf(float(sim.state.online_items.get(item,0)),float(o.get("item_"+item,0))))),10+10*n])
+        var counts:=collection_counts(id)
+        for i in range(names.size()):
+            parts.append("%s %d/%d" % [sim.catalog.display_name(contract_outfit(names[i])),counts[i],10+10*n])
         return sim.tr("PROGRESS_COLLECTION") % " · ".join(parts)
     if path=="challenge":return sim.tr("PROGRESS_CHALLENGE")
     if path=="regional":return _regional_progress(n)
@@ -1225,6 +1271,17 @@ func follow_summary(id: String) -> String:
         var g:=group_id(str(q[1]))
         var target: String=(" "+str(sim.catalog.groups[g].name)) if g>=0 else ""
         return sim.tr("FOLLOW_STEP") % [index+1,chain.size(),sim.tr("GOAL_"+str(q[0]).to_upper())+target,int(o.get("count",0)),int(q[2])]
+    # Change 11: a collection's follower never names, shows or describes the items it needs (the
+    # Prestige panel does). Step = outfits completed + 1; progress is the closest unfinished one.
+    if path=="collection":
+        var goal: int=10+10*n
+        var counts:=collection_counts(id)
+        var done:=0;var best:=0
+        for c in counts:
+            if c>=goal:done+=1
+            else:best=maxi(best,c)
+        if done>=counts.size():return sim.tr("FOLLOW_COLLECTION_SUBMIT")
+        return sim.tr("FOLLOW_COLLECT") % [done+1,counts.size(),best,goal]
     if path in ["hunter","challenge"]:
         var g:=group_id(boss_goal(path,n))
         var boss: String=str(sim.catalog.groups[g].name)
@@ -1232,6 +1289,17 @@ func follow_summary(id: String) -> String:
         var k="boss:"+boss_goal(path,n)
         return sim.tr("FOLLOW_HUNT") % [boss,int(counter(k)-float(o.baseline.get(k,0))),hunter_goal(n)]
     return opportunity_progress(id)
+
+## Copies of each required outfit found this run since the contract was discovered, capped at its goal.
+func collection_counts(id: String) -> Array:
+    var o: Dictionary=sim.state.opportunities.get(id,{})
+    var n=int(id.right(1))
+    var names: Array=[['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
+    var result: Array=[]
+    for name in names:
+        var item: String=contract_outfit(name)
+        result.append(mini(10+10*n,int(minf(float(sim.state.online_items.get(item,0)),float(o.get("item_"+item,0))))))
+    return result
 
 func _regional_progress(n: int) -> String:
     var explored: Array=[];var bosses:=0;var killed:=0;var camps:=0;var owned:=0

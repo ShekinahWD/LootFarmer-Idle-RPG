@@ -48,7 +48,7 @@ func new_profile() -> void:
         "focus":-1,"focus_variant":2,"boost_time":0.0,"boost_power":0.0,"use_cd":0.0,"history":[],
         "pickups":[],"next_pickup":0,"clock":0.0,"collect_clock":0.0,"collect_clocks":[0.0,0.0,0.0,0.0],"merge_clock":0.0,
         "use_clock":0.0,"summon_clock":0.0,"next_cat":0,"help":0,"paused":false,
-        "playtime_total":0.0,"playtime_run":0.0}
+        "playtime_total":0.0,"playtime_run":0.0,"buffs":{},"supply_found":{}}
     campaign.initialize()
     _reset_world()
     campaign.reveal()
@@ -186,6 +186,12 @@ func quantity(id: String) -> int:
 
 func normal(id: String) -> Dictionary:
     var output: Dictionary = {}
+    # Supplies (Change 11): base + gain x permanent mastery. Stock (charges) never changes the effect.
+    if catalog.items[id].kind=="consumable":
+        for stat in catalog.items[id].normal:
+            var pair: Array=catalog.items[id].normal[stat]
+            output[stat]=float(pair[0])+float(pair[1])*supply_mastery(id)
+        return output
     var merge_level := int(state.items.get(id,{}).get("merge",0))
     var levels:=merge_levels(id,merge_level)
     var stock:=1.0+float(catalog.progression.merge.stock_bonus_per_copy)*maxi(0,quantity(id)-1) if merge_level>=merge_cap(id) else 1.0
@@ -200,7 +206,107 @@ func copy_growth(id: String) -> bool:
     return str(catalog.items[id].kind) in ["outfit","skill"]
 
 func merge_cap(id: String) -> int:
+    if catalog.items[id].kind=="consumable":return int(catalog.progression.supply_mastery.cap)
     return int(catalog.progression.merge.copy_cap if copy_growth(id) else catalog.progression.merge.weapon_cap)
+
+## The ^level shown for an item: a supply's permanent mastery, otherwise its record's merge level.
+func merge_level(id: String) -> int:
+    if catalog.items.has(id) and catalog.items[id].kind=="consumable":return supply_mastery(id)
+    return int(state.items.get(id,{}).get("merge",0))
+
+# ---------------------------------------------------------------- supplies (Change 11)
+# A supply has stock (items[id].qty: charges, spent by use) and permanent mastery: every copy found
+# (a drop or offline earnings, not a shop purchase) after the first adds one level, up to the cap.
+# Mastery lives in supply_found (copies found ever), is kept by Prestige and cleared by Hard Reset;
+# spending a charge never lowers it. Timed supplies run as buffs: the Coin Tonic keeps its
+# boost_time/boost_power fields, the others use state.buffs[id] = {time, power}.
+
+func supply(id: String) -> Dictionary:
+    return catalog.items[id].get("supply",{}) if catalog.items.has(id) else {}
+
+func supply_ids() -> Array:
+    var result: Array=[]
+    for id in catalog.items:
+        if catalog.items[id].kind=="consumable":result.append(id)
+    return result
+
+func supply_mastery(id: String) -> int:
+    return clampi(int(state.get("supply_found",{}).get(id,0))-1,0,int(catalog.progression.supply_mastery.cap))
+
+## Milestone multipliers reached so far: {"duration": x, "cooldown": x} (1.0 before the first).
+func supply_milestone(id: String) -> Dictionary:
+    var out:={"duration":1.0,"cooldown":1.0}
+    for step in catalog.progression.supply_mastery.milestones:
+        if supply_mastery(id)<int(step.merge):break
+        out.duration=float(step.duration);out.cooldown=float(step.cooldown)
+    return out
+
+func next_supply_milestone(id: String) -> Dictionary:
+    for step in catalog.progression.supply_mastery.milestones:
+        if supply_mastery(id)<int(step.merge):return step
+    return {}
+
+func supply_value(id: String) -> float:
+    return float(normal(id).get(str(supply(id).stat),0.0))
+
+func supply_duration(id: String) -> float:
+    return float(supply(id).get("duration",0))*float(supply_milestone(id).duration)
+
+func supply_cooldown(id: String) -> float:
+    return float(supply(id).get("cooldown",0))*float(supply_milestone(id).cooldown)
+
+func buff_time(id: String) -> float:
+    if id=="coin_boost":return float(state.boost_time)
+    return float(state.get("buffs",{}).get(id,{}).get("time",0.0))
+
+func buff_power(id: String) -> float:
+    if id=="coin_boost":return float(state.boost_power)
+    return float(state.get("buffs",{}).get(id,{}).get("power",0.0))
+
+## Why this supply cannot be used right now ("" when it can). Healing needs missing HP (and the
+## potion its cooldown); a timed supply waits until its own buff has run out.
+func supply_block_reason(id: String) -> String:
+    var s:=supply(id)
+    if s.is_empty() or quantity(id)<1 or state.player.hp<=0:return "CANNOT_USE"
+    var maxhp: float=stats().hp
+    if str(s.effect) in ["heal","recovery"] and float(state.player.hp)>maxhp*float(s.use_hp)-.001:return "SUPPLY_HP_HIGH"
+    if str(s.effect)=="heal" and float(state.use_cd)>0:return "SUPPLY_COOLDOWN"
+    if float(s.duration)>0 and buff_time(id)>0:return "SUPPLY_ACTIVE"
+    return ""
+
+## Auto-use is stricter than a tap: healing waits for its auto threshold and Guard for combat.
+func supply_auto_ready(id: String) -> bool:
+    if not supply_block_reason(id).is_empty():return false
+    var s:=supply(id)
+    match str(s.effect):
+        "heal","recovery":return float(state.player.hp)<=stats().hp*float(s.auto_hp)
+        "guard":return campaign.in_combat()
+    return true
+
+## Which supplies an enemy of this type can drop: those whose first stage is reached by its map.
+func supply_pool(group: int) -> Array:
+    var result: Array=[]
+    for id in supply_ids():
+        if int(supply(id).get("min_stage",1))<=int(catalog.groups[group].stage):result.append(id)
+    return result
+
+## Chance that one kill of this type drops this supply (the supply roll times its weight share).
+func supply_drop_chance(group: int,id: String) -> float:
+    var pool:=supply_pool(group)
+    if not pool.has(id):return 0.0
+    var total:=0.0
+    for other in pool:total+=float(supply(other).drop_weight)
+    return consumable_chance(group,id)*float(supply(id).drop_weight)/total
+
+func _roll_supply(group: int) -> String:
+    var pool:=supply_pool(group)
+    var total:=0.0
+    for id in pool:total+=float(supply(id).drop_weight)
+    var roll:=rng.randf()*total
+    for id in pool:
+        roll-=float(supply(id).drop_weight)
+        if roll<0:return id
+    return pool.back()
 
 ## Effective merge levels. Weapons stay linear to ^100. Outfits (Change 9): linear to linear_levels,
 ## then outfit_tail_rate levels per copy, so with a 2%-of-base merge gain the core stat is
@@ -379,6 +485,9 @@ func add_item(id: String, amount: int = 1, _legacy_reward_flag: bool = true) -> 
         var list := slots(id)
         list[list.find("")] = id
     r.qty += amount
+    # Found supply copies (drops, offline) raise permanent mastery; shop purchases add stock only.
+    if catalog.items[id].kind=="consumable" and _legacy_reward_flag:
+        state.supply_found[id]=int(state.supply_found.get(id,0))+amount
     history("HISTORY_ITEM",id,amount,0)
     if catalog.items[id].kind=="skill":discover_skill(str(catalog.items[id].skill))
     touch()
@@ -418,9 +527,15 @@ func history(key: String, id: String, amount: float, coins: float) -> void:
     if list.size()>10:
         list.pop_back()
 
+## Gear or a skill with a spare copy and room to grow (supplies grow by themselves, never by merging).
+func can_merge(id: String) -> bool:
+    return catalog.items.has(id) and catalog.items[id].kind!="consumable" and quantity(id)>1 and int(record(id).merge)<merge_cap(id)
+
 func merge(id: String, all: bool = false) -> bool:
     if not action_lock_reason().is_empty():
         return fail(action_lock_reason())
+    if catalog.items[id].kind=="consumable":
+        return fail("SUPPLY_NO_MERGE")
     if quantity(id)<2:
         return fail("NEED_DUPLICATES")
     var r := record(id)
@@ -499,35 +614,37 @@ func bind_auto(slot: int) -> bool:
 func use_item(id: String) -> bool:
     if not action_lock_reason().is_empty():
         return fail(action_lock_reason())
-    if quantity(id)<1 or state.player.hp<=0:
-        return fail("CANNOT_USE")
-    if catalog.art_id(id)=="potion":
-        if state.player.hp>stats().hp*.8 or state.use_cd>0:
-            return fail("POTION_CONDITION")
-        var gain := minf(normal(id).heal,stats().hp-state.player.hp)
-        state.player.hp += gain
-        state.use_cd=float(catalog.progression.potion_cooldown)
-        feedback.emit("player",gain,true)
-    elif catalog.art_id(id)=="coin_boost":
-        state.boost_time = coin_boost_duration()
-        state.boost_power = maxf(state.boost_power,normal(id).coin_bonus)
-    else:
-        return false
+    var reason:=supply_block_reason(id)
+    if not reason.is_empty():
+        return fail(reason)
+    var value:=supply_value(id)
+    match str(supply(id).effect):
+        "heal":
+            var gain := minf(stats().hp*value,stats().hp-state.player.hp)
+            state.player.hp += gain
+            state.use_cd=supply_cooldown(id)
+            feedback.emit("player",gain,true)
+        "coins":
+            state.boost_time=supply_duration(id)
+            state.boost_power=value
+        _:
+            state.buffs[id]={"time":supply_duration(id),"power":value}
     state["consumable_uses"]=int(state.get("consumable_uses",0))+1
     _remove(id,1)
     touch()
     return true
 
-## Real Coin Tonic duration in seconds (authored in catalog.progression; a new tonic refreshes it).
+## Real Coin Tonic duration in seconds at its current mastery.
 func coin_boost_duration() -> float:
-    return float(catalog.progression.get("coin_boost_duration",30.0))
+    return supply_duration("coin_boost")
 
+## Shop: supplies with a coin price (Health Potion, Coin Tonic). Bought copies add stock only.
 func purchase_consumable(id: String) -> bool:
     if not action_lock_reason().is_empty():
         return fail(action_lock_reason())
-    if id not in ["potion","coin_boost"]:
+    var cost:=int(supply(id).get("price",0))
+    if cost<=0:
         return fail("CANNOT_USE")
-    var cost := 10 if id=="potion" else 30
     if not can_add(id):
         return fail("INVENTORY_FULL")
     if not pay("coins",cost):
@@ -567,6 +684,13 @@ func buy_upgrade(id: String, group: int = -1) -> bool:
     campaign.upgrade_bought(id,group)
     touch()
     return true
+
+## Prestige keeps every upgrade bought with Gems, whatever its category (Change 11), plus the coin
+## upgrades the catalog marks `keep`. Every upgrade has one currency, so levels never need splitting.
+## Hard Reset clears all of them.
+func upgrade_kept(id: String) -> bool:
+    if not catalog.upgrades.has(id):return false
+    return str(catalog.upgrades[id].currency)=="gems" or bool(catalog.upgrades[id].get("keep",false))
 
 func pay(currency: String, cost: int) -> bool:
     if cost<0 or state[currency]<cost:
@@ -747,7 +871,7 @@ func coin_reward(group: int) -> float:
 func _reward(a: Dictionary) -> void:
     var group:=int(a.group)
     var def:=enemy_definition(group,int(a.get("variant",2)))
-    gain_xp(group_xp(group,int(a.get("variant",2))))
+    gain_xp(group_xp(group,int(a.get("variant",2)))*(1.0+buff_power("wisdom_tonic")))
     var coins:=coin_reward(group)
     state.coins+=coins
     campaign.progress("coins","",coins)
@@ -756,15 +880,29 @@ func _reward(a: Dictionary) -> void:
         state.gems+=gems
         state.online_gems+=gems
         history("HISTORY_CURRENCY","",gems,0)
+    var dropped: Array=[]
     for id in def.loot:
-        if rng.randf()<gear_chance(group):_drop(id,a)
-    if rng.randf()<consumable_chance(group,"potion"):_drop("potion" if rng.randf()<.8 else "coin_boost",a)
+        if rng.randf()<gear_chance(group):dropped.append(_drop(id,a))
+    if rng.randf()<consumable_chance(group,"supply"):dropped.append(_drop(_roll_supply(group),a))
     if not def.skills.is_empty() and rng.randf()<(.1 if def.boss else .05)+.01*level("skill_drop",group):
-        _drop("skill_"+str(def.skills[rng.randi_range(0,def.skills.size()-1)]),a)
+        dropped.append(_drop("skill_"+str(def.skills[rng.randi_range(0,def.skills.size()-1)]),a))
+    _loot_speech(a,dropped)
 
-func _drop(id: String,a: Dictionary) -> void:
+## Change 11: a defeated enemy's loot line follows what it actually dropped, after every roll: one
+## bubble at most, for the most personal item (outfit, then weapon, skill, supply); none without a drop.
+const LOOT_SPEECH:=[["outfit","CHAT_LOOT_OUTFIT"],["weapon","CHAT_LOOT_WEAPON"],["skill","CHAT_LOOT_SKILL"],["consumable","CHAT_LOOT_SUPPLY"]]
+func _loot_speech(a: Dictionary,dropped: Array) -> void:
+    if str(a.get("id",""))=="":return
+    for pair in LOOT_SPEECH:
+        for id in dropped:
+            if str(catalog.items[id].kind)==pair[0]:
+                chatter.emit(str(a.id),pair[1])
+                return
+
+func _drop(id: String,a: Dictionary) -> String:
     state.next_pickup+=1
     state.pickups.append({"uid":state.next_pickup,"item":id,"x":a.x+rng.randf_range(-10,10),"y":a.y+rng.randf_range(-8,8),"ttl":300.0,"group":int(a.group)})
+    return id
 
 func step(dt: float) -> void:
     if state.is_empty() or get_tree().paused or suspended or not state.get("prestige_batch",{}).is_empty():
@@ -780,6 +918,12 @@ func step(dt: float) -> void:
     state.boost_time=maxf(0,state.boost_time-dt)
     if state.boost_time==0:
         state.boost_power=0.0
+    # Supply buffs run on active time only; an expiry changes combat stats, so it touches.
+    for id in state.buffs.keys():
+        state.buffs[id].time=float(state.buffs[id].time)-dt
+        if float(state.buffs[id].time)<=0:
+            state.buffs.erase(id)
+            touch()
     var p: Dictionary=state.player
     _actor_timers(p,dt)
     for e in state.enemies.duplicate():
@@ -928,6 +1072,7 @@ func achievement_damage(group: int) -> float:
 func achievement_gems(group: int) -> float:
     return achievement_level(group)*float(catalog.progression.achievements.gems_per_milestone)
 
+## Chance that a kill rolls a supply at all; _roll_supply then picks which one (supply_drop_chance).
 func consumable_chance(group: int,_id: String) -> float:
     return (.15 if catalog.groups[group].boss else .05)+minf(.15,.01*level("supply_drop",group))+campaign.bonus("supply_chance")
 
@@ -954,7 +1099,7 @@ func gear_group(id: String) -> int:
 
 func can_auto_merge(id: String) -> bool:
     if catalog.items[id].kind=="consumable":
-        return level("merge_supplies")>0
+        return false
     var g:=gear_group(id)
     return g>=0 and level("merge_gear",g)>0
 
@@ -983,7 +1128,6 @@ func upgrade_block_reason(id: String,g: int=-1) -> String:
     if scope=="camp" and not state.camps.get(str(g/10),[]).has(g%10):return "CAMP_LOCKED"
     if id in ["collect_range","collect_batch","collect_speed"] and level("collect",g)==0:return "AUTOMATION_LOCKED"
     if id=="gear_merge_speed" and level("merge_gear",g)==0:return "AUTOMATION_LOCKED"
-    if id=="merge_speed" and level("merge_supplies")==0:return "AUTOMATION_LOCKED"
     if id=="use_speed" and level("auto_use")==0:return "AUTOMATION_LOCKED"
     if id.begins_with("offline_") and id.ends_with("_rate") and level(id.trim_suffix("_rate"))==0:return "AUTOMATION_LOCKED"
     if id.begins_with("skill_auto_") and int(id.right(1))>=1+level("skill_slots"):return "SKILL_SLOTS_FULL"
@@ -1014,6 +1158,12 @@ func stat_sources() -> Dictionary:
     if state.outfit!="" and quantity(state.outfit)>0:
         var milestone:=outfit_milestones(state.outfit)
         if milestone.values().any(func(v):return float(v)>0):result["SOURCE_MILESTONE"]=milestone
+    # Active supply buffs (Change 11): Guard Tonic Defense and Recovery Salve healing over time.
+    var active: Dictionary={}
+    for id in state.buffs:
+        var stat: String=str(supply(id).get("stat",""))
+        if stat in ["defense","regen_pct"]:active[stat]=float(active.get(stat,0.0))+buff_power(id)
+    if not active.is_empty():result["SOURCE_SUPPLY"]=active
     return result
 
 func group_upgrade_value(id: String,g: int,variant: int=2,extra: int=0) -> float:
@@ -1049,7 +1199,6 @@ func player_upgrade_value(id: String,extra: int=0) -> float:
         "offline_consumable_rate":return (2+n)*(1+campaign.bonus("offline_items"))
         "gear_slots":return 3+n*effect
         "supply_slots":return 1+n*effect
-        "merge_speed":return 10-n*effect
         "respawn":return maxf(2,10-n*effect-campaign.bonus("respawn"))
         "use_speed":return 10-n*effect
     if id.begins_with("cooldown_"):return maxf(2,float(catalog.skills[id.trim_prefix("cooldown_")].cooldown)*(1-.05*n))

@@ -159,10 +159,10 @@ mouse_filter=2
 layout_mode=1
 anchor_left=1.0
 anchor_right=1.0
-offset_left=-148.0
+offset_left=-248.0
 offset_right=-18.0
 offset_top=90.0
-offset_bottom=220.0
+offset_bottom=320.0
 script=ExtResource("minimap")
 mini=true
 tooltip_text="MINIMAP"
@@ -325,6 +325,14 @@ size_flags_horizontal=3
 size_flags_vertical=4
 text="GEAR"
 theme_override_font_sizes/font_size=18
+[node name="Filters" type="Button" parent="Safe/Layout/Dock/Content/Inventory/GearColumn/Head"]
+layout_mode=2
+custom_minimum_size=Vector2(104,52)
+size_flags_vertical=4
+focus_mode=0
+text="FILTERS"
+tooltip_text="FILTERS_TOOLTIP"
+theme_override_font_sizes/font_size=17
 [node name="Equipped" type="HBoxContainer" parent="Safe/Layout/Dock/Content/Inventory/GearColumn/Head"]
 layout_mode=2
 theme_override_constants/separation=6

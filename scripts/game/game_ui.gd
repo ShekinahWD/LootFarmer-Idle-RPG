@@ -27,7 +27,10 @@ const ROW=preload("res://scenes/game/action_row.tscn")
 const OUTFIT_SLOT_STYLES: OutfitSlotStyles=preload("res://resources/game/outfit_slot_styles.tres")
 ## Values copied from a freshly built description into the live control of the same shape.
 const SYNC_PROPERTIES:=["text","disabled","tooltip_text","value","max_value","texture","icon","modulate","self_modulate","visible","theme_type_variation"]
-const PANEL_ALIASES:={"travel":"world","map":"world"}
+const PANEL_ALIASES:={"travel":"world","map":"world","inventory":"filters"}
+## Inventory filter categories (index 0 shows everything); the dock grid and item browsing use them.
+const FILTER_KINDS:=["","weapon","outfit","skill"]
+const FILTER_TABS:=["ALL_ITEMS","WEAPONS","OUTFITS","SKILLS"]
 ## Panels a HUD control toggles: a second tap on the control closes its own panel.
 const LEVEL_PANEL:="level"
 const UPGRADE_TABS:=["TAB_PLAYER","TAB_INVENTORY","TAB_SUPPLIES","TAB_GEMS","TAB_OFFLINE"]
@@ -84,6 +87,8 @@ var guide_stage:=0
 ## Camp the player currently stands in (-1 outside) and whether entering it still owes the panel.
 var camp_inside:=-1
 var camp_pending:=false
+## Camp Teleport picker: the chosen destination as [stage, camp], or empty.
+var teleport_target: Array=[]
 
 func _ready() -> void:
     world.setup(sim)
@@ -139,6 +144,8 @@ func _ready() -> void:
     var nav: Node=dock.get_node("Navigation")
     for page in ["World","Missions","Prestige","Upgrades","Settings"]:
         nav.get_node(page).pressed.connect(func()->void:_nav(page.to_lower()))
+    # Change 11: Filters sits next to the gear count and opens the filter panel directly.
+    dock.get_node("Inventory/GearColumn/Head/Filters").pressed.connect(func()->void:_nav("filters"))
     var pinned: Node=dock.get_node("Inventory/GearColumn/Head/Equipped")
     for kind in ["Weapon","Outfit"]:
         pinned.get_node(kind).pressed.connect(func()->void:_open_equipped(kind.to_lower()))
@@ -207,8 +214,8 @@ func _process(dt: float) -> void:
         _layout_sheet()
         if settle_frames==0:sheet.modulate.a=1.0
     panel_clock+=dt
-    # Stats (playtime) and an item with a running Coin Tonic also tick without state revisions.
-    var ticking: bool=panel=="stats" or (panel=="item" and sim.state.boost_time>0)
+    # Stats (playtime) and an item panel while a supply timer runs also tick without state revisions.
+    var ticking: bool=panel=="stats" or (panel=="item" and (sim.state.boost_time>0 or not sim.state.buffs.is_empty() or sim.state.use_cd>0))
     if sheet.visible and (panel_revision!=sim.revision or previous_pause!=get_tree().paused or (ticking and panel_clock>=1.0)) and panel_clock>=refresh_interval:
         _refresh_panel()
     elapsed+=dt
@@ -378,12 +385,12 @@ func _refresh_slots() -> void:
             var node: Button=container.get_child(i)
             var id: String=list[i]
             var badge:=tr("EQUIPPED") if id!="" and sim.equipped(id) else (tr("AUTO") if type==1 and sim.state.auto_slots.has(i) else "")
-            var shown: bool=type==1 or inventory_filter==0 or (id!="" and sim.catalog.items[id].kind==["","weapon","outfit","skill"][inventory_filter])
-            var signature:="%s|%d|%d|%s|%s|%s" % [id,sim.quantity(id),int(sim.state.items.get(id,{}).get("merge",0)),badge,shown,panel=="item" and selected==id]
+            var shown: bool=type==1 or inventory_filter==0 or (id!="" and sim.catalog.items[id].kind==FILTER_KINDS[inventory_filter])
+            var signature:="%s|%d|%d|%s|%s|%s" % [id,sim.quantity(id),sim.merge_level(id),badge,shown,panel=="item" and selected==id]
             if slot_signatures.get(node.get_instance_id(),"")==signature:continue
             slot_signatures[node.get_instance_id()]=signature
             node.get_node("Icon").texture=icon_cache.get(id)
-            node.get_node("Count").text=tr("EMPTY_SLOT") if id=="" else "%s · ^%d" % [fmt_count(sim.quantity(id)),sim.record(id).merge]
+            node.get_node("Count").text=tr("EMPTY_SLOT") if id=="" else "%s · ^%d" % [fmt_count(sim.quantity(id)),sim.merge_level(id)]
             node.get_node("Badge").text=badge
             node.add_theme_stylebox_override("normal",_tier_style(id,panel=="item" and selected==id))
             node.add_theme_stylebox_override("hover",_tier_style(id,true))
@@ -407,6 +414,25 @@ func _refresh_slots() -> void:
         button.add_theme_stylebox_override("normal",_tier_style(id,panel=="item" and selected==id and id!=""))
         _apply_milestone_frame(button,id)
     dock.get_node("Inventory/SupplyColumn/SupplyHeading").text=tr("HUD_SUPPLIES") % [sim.state.supplies.size()-sim.state.supplies.count(""),sim.state.supplies.size()]
+    _sync_filter_button()
+
+## The dock's Filters shortcut shows whether the panel is open and which category it shows.
+func _sync_filter_button() -> void:
+    var button: Button=dock.get_node("Inventory/GearColumn/Head/Filters")
+    var open: bool=sheet.visible and panel=="filters"
+    var text:=tr("FILTERS_ACTIVE") % tr(FILTER_TABS[inventory_filter]) if open and inventory_filter>0 else tr("FILTERS")
+    if button.text!=text:button.text=text
+    var variation:=&"Primary" if open else &""
+    if button.theme_type_variation!=variation:button.theme_type_variation=variation
+
+## Change 11: filters last only while the Filters panel is open. Every close path (X, Back, the
+## shortcut again, opening another panel, programmatic closes) ends here, so the dock always
+## returns to the full inventory. Nothing else changes: items, counts, slots and equipment stay.
+func _clear_filters() -> void:
+    if inventory_filter==0:return
+    inventory_filter=0
+    slot_signatures.clear()
+    _refresh_slots()
 
 ## One cached style per tier color, outfit milestone rank and highlight state; slots never duplicate
 ## styles per refresh. A milestone lifts the tier colour slightly (its hue stays the tier's).
@@ -454,11 +480,12 @@ func _update_supply_cooldowns() -> void:
     var slots=dock.get_node("Inventory/SupplyColumn/SupplyScroll/Supplies")
     for i in range(mini(slots.get_child_count(),sim.state.supplies.size())):
         var node=slots.get_child(i)
-        var art: String=sim.catalog.art_id(sim.state.supplies[i])
-        var cooling: bool=art=="potion" and sim.state.use_cd>0
-        # A running Coin Tonic shows its remaining time on its own slot (gold, icon not dimmed).
-        var boosting: bool=art=="coin_boost" and sim.state.boost_time>0
-        var text:=tr("SECONDS_VALUE") % fmt(sim.state.use_cd) if cooling else (tr("SECONDS_VALUE") % str(ceili(sim.state.boost_time)) if boosting else "")
+        var id: String=sim.state.supplies[i]
+        var cooling: bool=id!="" and str(sim.supply(id).get("effect",""))=="heal" and sim.state.use_cd>0
+        # A running buff shows its remaining time on its own slot (gold, icon not dimmed).
+        var left: float=sim.buff_time(id) if id!="" else 0.0
+        var boosting: bool=left>0
+        var text:=tr("SECONDS_VALUE") % fmt(sim.state.use_cd) if cooling else (tr("SECONDS_VALUE") % str(ceili(left)) if boosting else "")
         var label: Label=node.get_node("Cooldown")
         if label.text!=text:
             label.text=text
@@ -490,6 +517,7 @@ func _nav(which: String) -> void:
 
 func _open(which: String) -> void:
     which=PANEL_ALIASES.get(which,which)
+    if panel=="filters" and which!="filters":_clear_filters()
     $Safe/Layout/Map/GestureSurface.cancel_gesture()
     var reopening: bool=sheet.visible and panel==which
     panel=which
@@ -500,10 +528,12 @@ func _open(which: String) -> void:
         sheet.modulate.a=0.0 if not sheet.visible else 1.0
     sheet.show()
     _refresh_panel(true)
+    _sync_filter_button()
     AudioService.play_sfx("button")
 
 func _close() -> void:
     sheet.hide()
+    _clear_filters()
     # Free the hidden panel's rows so the tree returns to its baseline; reopening rebuilds anyway.
     for root in [rows,actions,pinned_rows]:
         for child in root.get_children():
@@ -707,7 +737,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
-    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage]
+    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target)]
 
 func _refresh_panel(force_layout:=false) -> void:
     panel_clock=0.0
@@ -737,7 +767,8 @@ func _refresh_panel(force_layout:=false) -> void:
         "history":_history_panel()
         "prestige":_prestige_panel()
         "missions":_missions_panel()
-        "inventory":_inventory_panel()
+        "filters":_inventory_panel()
+        "teleport":_teleport_panel()
         "offline":_offline_panel()
         "level":_level_panel()
         "farming":_farming_panel()
@@ -848,7 +879,7 @@ func _browse_list() -> Array:
     var result: Array=[]
     for id in (sim.state.supplies if supplies else sim.state.gear):
         if id=="" or result.has(id):continue
-        if not supplies and inventory_filter>0 and sim.catalog.items[id].kind!=["","weapon","outfit","skill"][inventory_filter]:continue
+        if not supplies and inventory_filter>0 and sim.catalog.items[id].kind!=FILTER_KINDS[inventory_filter]:continue
         result.append(id)
     return result
 
@@ -873,14 +904,16 @@ func _item_panel() -> void:
         _text(tr("EMPTY_SLOT_HELP"))
         if selected_slot>=0:
             var row:=HFlowContainer.new();rows.add_child(row)
-            _game_action(tr("BUY_POTION"),func()->void:sim.purchase_consumable("potion"),true,"",row)
-            _game_action(tr("BUY_BOOST"),func()->void:sim.purchase_consumable("coin_boost"),true,"",row)
+            _buy_supply_actions(row)
             _game_action(tr("AUTO_SLOT_STATUS") % tr("ON" if sim.state.auto_slots.has(selected_slot) else "OFF"),func()->void:sim.bind_auto(selected_slot),true,"",row)
         return
     var id:=selected
     var def: Dictionary=sim.catalog.items[id]
     var r:=sim.record(id)
     var list:=_browse_list()
+    if def.kind=="consumable":
+        _supply_panel(id,list)
+        return
     _set_title(sim.catalog.display_name(id),_tier_color(id).lightened(.55))
     # Comparison layout (Change 8): the equipped item of this slot on top, the prospective item
     # below it, next to the pinned Equip button. Deltas come from the simulation's own stat getter.
@@ -934,10 +967,6 @@ func _item_panel() -> void:
     else:
         _card_line(details,tr("STOCK_BONUS") % fmt(maxi(0,int(r.qty)-1)*float(sim.catalog.progression.merge.stock_bonus_per_copy)*100),17,Color(.5,1,.65))
     if def.kind=="outfit":_outfit_milestone_lines(details,id)
-    if sim.catalog.art_id(id)=="potion":_text(tr("POTION_ROLE") % fmt_value(float(sim.catalog.progression.potion_cooldown)),17,Color(.8,.84,.9))
-    if sim.catalog.art_id(id)=="coin_boost":
-        _text(tr("COIN_TONIC_ROLE") % [fmt(sim.normal(id).coin_bonus*100),fmt_value(sim.coin_boost_duration())],17,Color(.8,.84,.9))
-        if sim.state.boost_time>0:_text(tr("COIN_TONIC_ACTIVE") % [fmt(float(sim.state.boost_power)*100),ceili(sim.state.boost_time)],18,Color(1,.84,.34))
     if def.get("skill","")=="heal":_text(tr("HEAL_ROLE") % [fmt(minf(sim.normal(id).power*(1+sim.campaign.bonus("skill")),sim.stats().hp*.12)),fmt(sim.player_upgrade_value("cooldown_heal"))],17,Color(.8,.84,.9))
     # Secondary actions: a wrapping row, sized for their widest label.
     var more:=HFlowContainer.new()
@@ -950,8 +979,6 @@ func _item_panel() -> void:
     if def.kind=="skill":
         for i in range(1+sim.level("skill_slots")):
             _game_action(tr("EQUIP_SKILL_SLOT") % (i+1),func()->void:if selected==id:sim.campaign.equip_skill(id,i),true,"",more)
-    if def.kind=="consumable" and selected_slot>=0:
-        _game_action(tr("AUTO_SLOT_STATUS") % tr("ON" if sim.state.auto_slots.has(selected_slot) else "OFF"),func()->void:sim.bind_auto(selected_slot),true,"",more)
     if not def.extras.is_empty():
         var cost:=ceili(float(def.reroll)*(1-sim.campaign.bonus("reroll_discount")))
         _game_action(tr("REROLL") % cost,func()->void:_confirm(tr("REROLL_CONFIRM") % cost,func()->void:if selected==id:sim.reroll(id)),true,"",more)
@@ -972,12 +999,94 @@ func _item_panel() -> void:
     # Pinned: previous, primary, merge, next. Positions never change while browsing.
     var index:=list.find(id)
     _arrow_button(-1,index>0,func()->void:_browse(-1))
-    if def.kind=="consumable":
-        _pinned(tr("USE"),func()->void:if selected==id:sim.use_item(id),true,"",true,"use")
-    else:
-        _pinned(tr("UNEQUIP" if sim.equipped(id) else "EQUIP"),func()->void:if selected==id:sim.equip(id),true,"",not sim.equipped(id),"equip")
+    _pinned(tr("UNEQUIP" if sim.equipped(id) else "EQUIP"),func()->void:if selected==id:sim.equip(id),true,"",not sim.equipped(id),"equip")
     _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:sim.merge(id),r.qty>1 and r.merge<cap,"NEED_DUPLICATES" if r.qty<2 else "MERGE_MAX",false,"merge")
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
+
+## Supply details (Change 11): what it does now, whether it can be used, stock (charges spent by use)
+## and permanent mastery (raised by every copy found, never lowered by use or Prestige), with the
+## next mastery gain and milestone. Pinned: previous, Use, the slot's auto-use toggle, next.
+func _supply_panel(id: String,list: Array) -> void:
+    var s:=sim.supply(id)
+    var slot: int=sim.state.supplies.find(id)
+    selected_slot=slot
+    _set_title(sim.catalog.display_name(id),Color(.72,.9,1))
+    var details:=_item_summary_card(id,tr("COMPARE_ITEM"),Color(.6,1,.75),list.find(id),list.size())
+    _card_line(details,_supply_effect_text(id),19,Color.WHITE)
+    var reason:=sim.supply_block_reason(id)
+    var status:=""
+    var tone:=Color(.5,1,.65)
+    if sim.buff_time(id)>0:
+        status=tr("SUPPLY_STATUS_ACTIVE") % [_supply_amount(id,sim.buff_power(id)),ceili(sim.buff_time(id))];tone=Color(1,.84,.34)
+    elif str(s.effect)=="heal" and float(sim.state.use_cd)>0:
+        status=tr("SUPPLY_STATUS_COOLDOWN") % fmt(sim.state.use_cd);tone=Color(1,.72,.45)
+    elif reason.is_empty():status=tr("SUPPLY_STATUS_READY")
+    else:
+        status=tr(reason);tone=Color(1,.72,.45)
+    _card_line(details,status,18,tone)
+    var auto_rule:=tr("SUPPLY_AUTO_RULE_"+str(s.effect).to_upper())
+    if str(s.effect) in ["heal","recovery"]:auto_rule=auto_rule % fmt_value(float(s.auto_hp)*100)
+    _card_line(details,auto_rule,16,Color(.75,.8,.87))
+    _card_line(details,tr("SUPPLY_STOCK") % fmt_count(sim.quantity(id)),17,Color(.8,.84,.9))
+    var mastery:=sim.supply_mastery(id)
+    var cap:=sim.merge_cap(id)
+    var gain: float=float(sim.catalog.items[id].normal[str(s.stat)][1])
+    if mastery<cap:_card_line(details,tr("SUPPLY_NEXT_COPY") % _supply_amount(id,gain),17,Color(.5,1,.65))
+    var reached:=sim.supply_milestone(id)
+    if float(reached.duration)>1.0:
+        var active_key:="SUPPLY_MILESTONE_COOLDOWN" if str(s.effect)=="heal" else "SUPPLY_MILESTONE_DURATION"
+        _card_line(details,tr("SUPPLY_MILESTONES_ACTIVE") % (tr(active_key) % _milestone_factor(id,reached)),17,Color(.5,1,.65))
+    var step:=sim.next_supply_milestone(id)
+    if step.is_empty():_card_line(details,tr("MILESTONES_COMPLETE"),17,Color(1,.86,.5))
+    else:
+        var key:="SUPPLY_MILESTONE_COOLDOWN" if str(s.effect)=="heal" else "SUPPLY_MILESTONE_DURATION"
+        _card_line(details,tr("MILESTONE_NEXT") % [int(step.merge),tr(key) % _milestone_factor(id,step)],17,Color(1,.86,.5))
+    var more:=HFlowContainer.new()
+    more.add_theme_constant_override("h_separation",8)
+    more.add_theme_constant_override("v_separation",8)
+    rows.add_child(more)
+    if int(s.get("price",0))>0:
+        _game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),int(s.price)],func()->void:if selected==id:sim.purchase_consumable(id),true,"",more)
+    for button in more.get_children():
+        button.size_flags_horizontal=0
+        button.custom_minimum_size=Vector2(0,64)
+        button.add_theme_font_size_override("font_size",18)
+    if more.get_child_count()==0:
+        rows.remove_child(more);more.free()
+    _text(tr("SUPPLY_MASTERY_EXPLAIN") % cap,17,Color(.8,.84,.9))
+    var index:=list.find(id)
+    _arrow_button(-1,index>0,func()->void:_browse(-1))
+    _pinned(tr("USE"),func()->void:if selected==id:sim.use_item(id),reason.is_empty(),reason,true,"use")
+    _pinned(tr("AUTO_SHORT") % tr("ON" if sim.state.auto_slots.has(slot) else "OFF"),func()->void:if selected==id:sim.bind_auto(sim.state.supplies.find(id)),slot>=0,"CANNOT_USE",false,"auto")
+    _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
+
+## A supply's amount in its own unit: % of max HP, % coins or XP, flat Defense, % max HP per second.
+func _supply_amount(id: String,value: float) -> String:
+    match str(sim.supply(id).get("stat","")):
+        "heal_pct":return tr("SUPPLY_AMOUNT_HEAL") % fmt_value(value*100)
+        "coin_bonus":return tr("SUPPLY_AMOUNT_COINS") % fmt_value(value*100)
+        "xp_bonus":return tr("SUPPLY_AMOUNT_XP") % fmt_value(value*100)
+        "defense":return tr("SUPPLY_AMOUNT_DEFENSE") % fmt_value(value)
+        "regen_pct":return tr("SUPPLY_AMOUNT_REGEN") % fmt_value(value*100)
+    return fmt_value(value)
+
+## Effect, amount now, duration or cooldown and use condition, from the simulation's own getters.
+func _supply_effect_text(id: String) -> String:
+    var s:=sim.supply(id)
+    var value:=sim.supply_value(id)
+    var duration:=fmt_value(sim.supply_duration(id))
+    match str(s.effect):
+        "heal":return tr("SUPPLY_EFFECT_HEAL") % [fmt_value(value*100),fmt_count(sim.stats().hp*value),fmt_value(sim.supply_cooldown(id)),fmt_value(float(s.use_hp)*100)]
+        "coins":return tr("SUPPLY_EFFECT_COINS") % [fmt_value(value*100),duration]
+        "guard":return tr("SUPPLY_EFFECT_GUARD") % [fmt_value(value),fmt_value(100.0*value/(100.0+value)),duration]
+        "recovery":return tr("SUPPLY_EFFECT_RECOVERY") % [fmt_value(value*100),duration,fmt_value(value*sim.supply_duration(id)*100),fmt_value(float(s.use_hp)*100)]
+        "xp":return tr("SUPPLY_EFFECT_XP") % [fmt_value(value*100),duration]
+    return ""
+
+## A milestone's multiplier as a readable change: "×1.4" duration or a cooldown in seconds.
+func _milestone_factor(id: String,step: Dictionary) -> String:
+    if str(sim.supply(id).effect)=="heal":return fmt_value(float(sim.supply(id).cooldown)*float(step.cooldown))
+    return "×"+fmt_value(float(step.duration))
 
 ## Outfit milestone track (Change 9): what this outfit's merges have unlocked and the next step. The
 ## effects apply only while this outfit is worn; values come from sim.outfit_milestones().
@@ -1053,6 +1162,7 @@ func _item_summary_card(id: String,ribbon: String,ribbon_color: Color,at:=-1,cou
         return details
     _card_line(details,sim.catalog.display_name(id),21,_tier_color(id).lightened(.55))
     var merge_text:=(tr("ITEM_TIER_MERGE_CAP") % [int(sim.catalog.items[id].tier),int(sim.record(id).merge),sim.merge_cap(id)]) if sim.copy_growth(id) else (tr("ITEM_TIER_MERGE") % [int(sim.catalog.items[id].tier),int(sim.record(id).merge)])
+    if sim.catalog.items[id].kind=="consumable":merge_text=tr("SUPPLY_MASTERY_LEVEL") % [sim.supply_mastery(id),sim.merge_cap(id)]
     _card_line(details,merge_text,17,Color(.75,.8,.87))
     return details
 
@@ -1122,7 +1232,7 @@ static func cropped(source: Texture2D) -> Texture2D:
 
 func _upgrades_panel() -> void:
     _tabs(UPGRADE_TABS,player_tab,func(i: int)->void:player_tab=i)
-    var sections: Array=[["respawn","movement","skill_slots","skill_auto_0","skill_auto_1","skill_auto_2"],["gear_slots","supply_slots"],["merge_supplies","merge_speed","auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
+    var sections: Array=[["respawn","movement","skill_slots","skill_auto_0","skill_auto_1","skill_auto_2"],["gear_slots","supply_slots"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
     if player_tab==0:_text(tr("UPGRADES_PLAYER_HINT"),17,Color(.75,.8,.87))
     if player_tab==4:
         if not sim.state.offline_pending.is_empty():
@@ -1146,11 +1256,18 @@ func _upgrades_panel() -> void:
         # A skill's own upgrades stay hidden until that skill has been obtained once.
         for key in sim.catalog.skills:
             if sim.skill_seen(key):_group_upgrade_card("cooldown_"+key,-1)
-    if player_tab==1:_action(tr("PANEL_INVENTORY"),func()->void:_open("inventory"))
+    # Inventory filtering moved to the dock's Filters shortcut (Change 11); this tab keeps capacity.
+    if player_tab==1:_text(tr("SUPPLY_CAPACITY_NOTE") % sim.supply_ids().size(),17,Color(.75,.8,.87))
     if player_tab==2:
+        _text(tr("SUPPLY_MASTERY_EXPLAIN") % int(sim.catalog.progression.supply_mastery.cap),17,Color(.75,.8,.87))
         var row:=HFlowContainer.new();rows.add_child(row)
-        _game_action(tr("BUY_POTION"),func()->void:sim.purchase_consumable("potion"),true,"",row)
-        _game_action(tr("BUY_BOOST"),func()->void:sim.purchase_consumable("coin_boost"),true,"",row)
+        _buy_supply_actions(row)
+
+## Shop buttons for supplies with a coin price (Health Potion, Coin Tonic). Bought copies add stock only.
+func _buy_supply_actions(row: Node) -> void:
+    for id in sim.supply_ids():
+        var price:=int(sim.supply(id).get("price",0))
+        if price>0:_game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),price],func()->void:sim.purchase_consumable(id),true,"",row)
 
 ## Compact upgrade card: icon, name, computed benefit, a fixed status line and the buy button.
 ## The status line is always present, so a reason never changes the card's height.
@@ -1199,7 +1316,7 @@ func _upgrade_icon(id: String,g: int) -> Texture2D:
     var def: Dictionary=sim.catalog.upgrades[id]
     var icon: Texture2D=icon_cache.get(sim.catalog.groups[g].body) if g>=0 and def.scope in ["type","normal_type"] else _art(147)
     if id.begins_with("cooldown_"):icon=icon_cache.get("skill_"+id.trim_prefix("cooldown_"))
-    elif id in ["auto_use","use_speed","merge_supplies","merge_speed","supply_slots","supply_drop"]:icon=icon_cache.get("potion")
+    elif id in ["auto_use","use_speed","supply_slots","supply_drop"]:icon=icon_cache.get("potion")
     elif id in ["map_detail","camp_radius","reveal_radius"]:icon=_art(249)
     elif id.begins_with("offline_"):icon=_art(171)
     if id=="coin_amount":icon=COIN
@@ -1225,7 +1342,7 @@ func _upgrade_benefit(id: String,g: int) -> String:
     var right:=fmt_value(future*100)+"%" if percent else fmt_value(future)
     var value:=tr("UPGRADE_TRANSITION") % [left,right] if next>0 else tr("UPGRADE_MAXED_VALUE") % left
     if id=="boss_gem_amount":value=tr("BOSS_GEMS_PER_DROP") % value
-    if id in ["respawn","collect_speed","merge_speed","gear_merge_speed","use_speed","spawn_cooldown"]:value=tr("SECONDS_VALUE") % value
+    if id in ["respawn","collect_speed","gear_merge_speed","use_speed","spawn_cooldown"]:value=tr("SECONDS_VALUE") % value
     if id=="supply_drop":value=tr("POTION_CHANCE_VALUE") % value
     return value
 
@@ -1277,8 +1394,8 @@ func _enemy_panel() -> void:
         _text(tr("DROP_COINS") % fmt(sim.coin_reward(group))+"  ·  "+tr("DROP_GEMS") % [fmt(sim.gem_chance(group)*100),fmt(sim.gem_amount(0,group))],18)
         for id in def.loot:_loot_row(id,sim.gear_chance(group)*100)
         for skill in def.skills:_loot_row("skill_"+skill,sim.group_upgrade_value("skill_drop",group)*100/def.skills.size())
-        _loot_row("potion",sim.consumable_chance(group,"potion")*80)
-        _loot_row("coin_boost",sim.consumable_chance(group,"coin_boost")*20)
+        # Supplies this type can drop (later supplies join on later maps), each with its own chance.
+        for id in sim.supply_pool(group):_loot_row(id,sim.supply_drop_chance(group,id)*100)
 
 func _loot_row(id: String,chance: float,count:=0) -> void:
     var row:=HBoxContainer.new()
@@ -1403,12 +1520,74 @@ func _world_panel() -> void:
             var d: Dictionary=sim.catalog.stages[st-1]
             for i in sim.state.camps.get(str(st),[0]):
                 var reason: String=sim.campaign.travel_reason(st,int(i))
-                _action(tr("TRAVEL_CAMP") % [d.name,int(i)+1],func()->void:if sim.campaign.camp_action(st,int(i),true):world.follow_player();_close(),reason=="",reason)
+                _action(tr("TRAVEL_CAMP") % [d.name,int(i)+1],func()->void:_travel_to(st,int(i)),reason=="",reason)
     _section(tr("SECTION_MAP_UPGRADES"))
     for id in ["map_detail","reveal_radius"]:_group_upgrade_card(id,int(sim.state.stage))
     for i in sim.state.spawns:_group_upgrade_card("camp_radius",int(sim.state.stage)*10+int(i))
 
-func _camp_row(i: int) -> void:
+## Moves to an owned camp by the shared travel rules (campaign.camp_action re-checks combat, stage and
+## ownership at the moment of the move), then closes the panel. Arrival counts as already inside the
+## camp, so it never pops the camp panel (Change 10 rule).
+func _travel_to(st: int,camp: int) -> bool:
+    if not sim.campaign.camp_action(st,camp,true):return false
+    teleport_target=[]
+    world.follow_player()
+    _close()
+    _settle_camp()
+    return true
+
+## Why the Teleport picker cannot travel now ("" when it can): game locks, death and combat.
+func _teleport_reason() -> String:
+    var lock:=sim.action_lock_reason()
+    if lock!="":return lock
+    if sim.state.player.hp<=0:return "CANNOT_USE"
+    if sim.campaign.in_combat():return "TRAVEL_COMBAT"
+    return ""
+
+## Change 11 destination picker, opened by a camp's Teleport: every owned camp on every reached map,
+## the camp the player stands in marked and not selectable, one chosen target, Back to cancel.
+func _teleport_panel() -> void:
+    _set_title(tr("TELEPORT_TITLE"))
+    _text(tr("TELEPORT_HELP"),17,Color(.8,.84,.9))
+    var here:=_camp_at_player()
+    var reason:=_teleport_reason()
+    if reason!="":_text(tr(reason),18,Color(1,.72,.45))
+    var choices:=0
+    for st in range(1,int(sim.state.unlocked_stage)+1):
+        var owned: Array=sim.state.camps.get(str(st),[0]).duplicate()
+        owned.sort()
+        for camp in owned:
+            var current: bool=st==int(sim.state.stage) and int(camp)==here
+            var chosen: bool=teleport_target==[st,int(camp)]
+            if not current:choices+=1
+            _teleport_row(st,int(camp),current,chosen)
+    if choices==0:_text(tr("TELEPORT_NONE"),17,Color(.7,.75,.82))
+    var valid: bool=teleport_target.size()==2 and not (int(teleport_target[0])==int(sim.state.stage) and int(teleport_target[1])==here)
+    var block:=sim.campaign.travel_reason(int(teleport_target[0]),int(teleport_target[1])) if valid else "TELEPORT_PICK"
+    _pinned(tr("TELEPORT_BACK"),func()->void:teleport_target=[];_open("camp"),true,"",false,"teleport_back",false)
+    var label:=tr("TELEPORT_GO") % [sim.catalog.stages[int(teleport_target[0])-1].name,int(teleport_target[1])+1] if valid else tr("TELEPORT_PICK")
+    _pinned(label,func()->void:
+        if teleport_target.size()==2:_travel_to(int(teleport_target[0]),int(teleport_target[1])),block=="",block,true,"teleport_go")
+
+func _teleport_row(st: int,camp: int,current: bool,chosen: bool) -> void:
+    var card:=PanelContainer.new()
+    card.theme_type_variation=&"Card"
+    rows.add_child(card)
+    var line:=HBoxContainer.new()
+    line.add_theme_constant_override("separation",10)
+    card.add_child(line)
+    _card_icon(line,_art(249),Color(1,.86,.5) if chosen else (Color(.55,.55,.55) if current else Color.WHITE))
+    var text:=VBoxContainer.new()
+    text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    line.add_child(text)
+    _card_line(text,tr("TELEPORT_DESTINATION") % [sim.catalog.stages[st-1].name,camp+1],20,Color(1,.86,.5) if chosen else Color.WHITE)
+    var status:="TELEPORT_HERE" if current else ("TELEPORT_CHOSEN" if chosen else ("TELEPORT_THIS_MAP" if st==int(sim.state.stage) else "TELEPORT_OTHER_MAP"))
+    _card_line(text,tr(status),17,Color(.7,.75,.82) if current else (Color(1,.86,.5) if chosen else Color(.6,1,.75)))
+    if current:return
+    var pick:=_inline_button(tr("TELEPORT_CHOOSE") if not chosen else "✓",func()->void:teleport_target=[st,camp],true,"",line,chosen)
+    pick.set_meta("guide","teleport_%d_%d" % [st,camp])
+
+func _camp_row(i: int,picker:=false) -> void:
     var st:=int(sim.state.stage)
     var owned: bool=sim.state.spawns.has(i)
     var card:=PanelContainer.new()
@@ -1429,8 +1608,14 @@ func _camp_row(i: int) -> void:
     else:
         if int(sim.state.spawn)!=i:
             _inline_button(tr("CAMP_SELECT"),func()->void:sim.select_spawn(i);_event("CAMP_SELECTED_NOTICE"),true,"",line,false).set_meta("guide","camp_select_%d" % i)
-        var reason: String=sim.campaign.travel_reason(st,i)
-        _inline_button(tr("CAMP_TRAVEL"),func()->void:if sim.campaign.camp_action(st,i,true):world.follow_player();_close(),reason=="",reason,line,false)
+        if picker:
+            # Change 11: a camp's Teleport opens the destination picker (it used to travel to itself).
+            var lock:=_teleport_reason()
+            _inline_button(tr("CAMP_TELEPORT"),func()->void:teleport_target=[];_open("teleport"),lock=="",lock,line,false).set_meta("guide","camp_teleport")
+        else:
+            var reason: String=sim.campaign.travel_reason(st,i)
+            if i==_camp_at_player():reason="TELEPORT_HERE"
+            _inline_button(tr("CAMP_TRAVEL"),func()->void:_travel_to(st,i),reason=="",reason,line,false)
 
 func _inline_button(text: String,callback: Callable,enabled: bool,reason: String,parent: Node,primary: bool) -> Button:
     var button:=Button.new()
@@ -1452,7 +1637,7 @@ func _inline_button(text: String,callback: Callable,enabled: bool,reason: String
 func _camp_panel() -> void:
     _set_title(tr("CAMP_NAME") % (selected_camp+1))
     _text(tr("CAMP_HELP"),18,Color(.8,.84,.9))
-    _camp_row(selected_camp)
+    _camp_row(selected_camp,true)
 
 # ---------------------------------------------------------------- stats, settings, history, inventory
 
@@ -1484,7 +1669,8 @@ func _stats_panel() -> void:
         [tr("STATS_MOVEMENT"),"+"+fmt_value((sim.campaign.move_speed()/90.0-1.0)*100)+"%"],
         [tr("STATS_STORED_SHARE"),tr("STATS_STORED_SHARE_VALUE") % [fmt_value(float(sim.catalog.progression.stored_weapon_factor)*100),fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100)]]]
     if sim.campaign.bonus("equipped")>0:boosts.append([tr("STATS_EQUIPPED_BONUS"),"+"+fmt(sim.campaign.bonus("equipped")*100)+"%"])
-    if sim.state.boost_time>0:boosts.append([tr("STAT_COIN_BONUS"),tr("STATS_TONIC_VALUE") % [fmt(float(sim.state.boost_power)*100),ceili(sim.state.boost_time)]])
+    for id in sim.supply_ids():
+        if sim.buff_time(id)>0:boosts.append([sim.catalog.display_name(id),tr("STATS_SUPPLY_VALUE") % [_supply_amount(id,sim.buff_power(id)),ceili(sim.buff_time(id))]])
     _stat_section(tr("STATS_SECTION_BOOSTS"),boosts)
     # Change 10: HP and damage built up source by source (playbook 17.2), from the same parts and
     # multiplier stats() uses; the other stats list what each source adds before caps.
@@ -1640,12 +1826,16 @@ func _history_text(entry: Dictionary) -> String:
         return tr("HISTORY_CURRENCY") % fmt(entry.amount) if entry.amount>0 else ""
     return tr("HISTORY_ITEM") % [fmt_count(entry.amount),sim.catalog.display_name(entry.id)]
 
+## Filters (Change 11, opened from the dock): the chosen category filters the gear grid and this list
+## while the panel is open; closing it in any way shows every item again (_clear_filters).
 func _inventory_panel() -> void:
+    _set_title(tr("PANEL_FILTERS"))
     _pinned_equipment()
-    _tabs(["ALL_ITEMS","WEAPONS","OUTFITS","SKILLS"],inventory_filter,func(i: int)->void:inventory_filter=i;slot_signatures.clear();_refresh_slots())
+    _tabs(FILTER_TABS,inventory_filter,func(i: int)->void:inventory_filter=i;slot_signatures.clear();_refresh_slots())
+    _text(tr("FILTERS_HINT"),16,Color(.7,.75,.82))
     for id in sim.state.items:
-        if sim.quantity(id)>0 and (inventory_filter==0 or sim.catalog.items[id].kind==["","weapon","outfit","skill"][inventory_filter]):
-            var b:=_action("%s · ×%s · ^%d" % [sim.catalog.display_name(id),fmt_count(sim.quantity(id)),sim.record(id).merge],func()->void:selected=id;selected_slot=sim.state.supplies.find(id);_open("item"))
+        if sim.quantity(id)>0 and (inventory_filter==0 or sim.catalog.items[id].kind==FILTER_KINDS[inventory_filter]):
+            var b:=_action("%s · ×%s · ^%d" % [sim.catalog.display_name(id),fmt_count(sim.quantity(id)),sim.merge_level(id)],func()->void:selected=id;selected_slot=sim.state.supplies.find(id);_open("item"))
             b.icon=icon_cache.get(id);b.expand_icon=true;b.add_theme_constant_override("icon_max_width",36)
 
 ## Equipped weapon and outfit, pinned above the list: independent of filter, order and scroll.
@@ -1815,7 +2005,9 @@ func _farming_type(g: int) -> void:
     head.add_child(text)
     _card_line(text,"%s  ·  %s%s" % [d.name,tr("ENEMY_LEVEL") % d.level,"  ·  "+tr("BOSS_LABEL") if d.boss else ""],19,Color(1,.86,.5) if d.boss else Color.WHITE)
     _card_line(text,tr("FARMING_REWARDS") % [fmt_value(sim.coin_reward(g)),fmt_value(sim.gem_chance(g)*100),fmt_value(sim.gem_amount(0,g)),fmt_value(sim.group_xp(g))],16,Color(1,.88,.55))
-    _card_line(text,tr("FARMING_SUPPLIES") % [fmt_value(sim.consumable_chance(g,"potion")*80),fmt_value(sim.consumable_chance(g,"coin_boost")*20)],16,Color(.8,.84,.9))
+    var supplies: Array=[]
+    for id in sim.supply_pool(g):supplies.append(tr("DROP_ITEM") % [sim.catalog.display_name(id),fmt_value(sim.supply_drop_chance(g,id)*100)])
+    _card_line(text,tr("FARMING_SUPPLIES") % ", ".join(supplies),16,Color(.8,.84,.9))
     for v in sim.campaign.variants(g):_farming_spot(box,g,int(v))
 
 func _farming_spot(box: VBoxContainer,g: int,v: int) -> void:

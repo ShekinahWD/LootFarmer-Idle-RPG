@@ -15,9 +15,9 @@ check('selling absent from item and upgrade definitions',not any('sell' in k.low
 sys.path.insert(0,str(ROOT/'tools'))
 import change10_catalog
 check('equipment capacity is 70 and holds every reachable identity',c['upgrades']['gear_slots']['cap']+3==70 and len(change10_catalog.reachable_equipment(c))<=70)
-check('supply capacity includes every consumable tier',c['upgrades']['supply_slots']['cap']+1==sum(i['kind']=='consumable' for i in c['items'].values()))
+check('supply capacity equals the supply identities (Change 11: 1 + 4 = 5)',c['upgrades']['supply_slots']['cap']+1==sum(i['kind']=='consumable' for i in c['items'].values())==5)
 check('boss Gem payout multiplier',c['progression']['gem_limits'].get('boss_amount_multiplier')==3)
-check('automerge nine reductions from ten to one',c['upgrades']['gear_merge_speed']['cap']==9 and c['upgrades']['merge_speed']['cap']==9)
+check('automerge nine reductions from ten to one',c['upgrades']['gear_merge_speed']['cap']==9)
 check('eight baked stage scenes',all((ROOT/f'scenes/game/stages/stage_{i}.tscn').is_file() for i in range(1,9)))
 for ident,entry in c['items'].items():
     for key in ['texture','icon_path','attack']:
@@ -44,7 +44,16 @@ import subprocess
 check('shared weapons: no enemy-specific weapon items',not any(re.fullmatch(r'unit-[a-z-]+_weapon(_t\d)?',k) for k in c['items']))
 check('shared weapons: every group carries a Sword or Axe',all(c['items'][g['weapon']]['family'] in ('sword','axe') for g in c['groups']))
 check('legacy map targets exist',all(v in c['items'] for v in c.get('legacy_items',{}).values()))
-check('coin tonic duration authored',c['progression'].get('coin_boost_duration')==30.0)
+check('coin tonic duration authored',c['items']['coin_boost']['supply']['duration']==30)
+# Change 11: supplies are single identities with permanent mastery; gem upgrades survive Prestige.
+supplies={k:i for k,i in c['items'].items() if i['kind']=='consumable'}
+check('five supplies, no tiers or evolution',sorted(supplies)==sorted(['potion','coin_boost','guard_tonic','recovery_salve','wisdom_tonic']) and all(i['next']=='' and i['tier']==1 for i in supplies.values()))
+check('supply mastery doubles the base at ^100',c['progression']['supply_mastery']['cap']==100 and all(abs(list(i['normal'].values())[0][1]*100-list(i['normal'].values())[0][0])<1e-6 for i in supplies.values()))
+check('every supply drops from some stage',all(1<=i['supply']['min_stage']<=8 and i['supply']['drop_weight']>0 for i in supplies.values()))
+check('retired supply tiers fold into their base supply',all(c['legacy_items'].get(f'{b}_tier_{t}')==b for b in ['potion','coin_boost'] for t in range(2,8)))
+check('supply auto-merge upgrades removed',not any(k in c['upgrades'] for k in ['merge_supplies','merge_speed']))
+check('every gem upgrade is kept by Prestige',all(u['keep'] for u in c['upgrades'].values() if u['currency']=='gems'))
+check('every upgrade has one currency',all(u['currency'] in ('coins','gems') for u in c['upgrades'].values()))
 # Change 9: outfit growth, milestones, passive shares and the Spring II correction.
 m=c['progression']['merge']
 check('outfit growth: ^500 cap, 1% per copy past ^100',m['copy_cap']==500 and m['linear_levels']==100 and m['outfit_tail_rate']==0.5)
@@ -55,7 +64,7 @@ spring=[g for g in c['groups'] if g['stage']==8]
 check('Spring II: Tier 5 normals, Tier 6 boss weapons, Tier 5 outfits',all(c['items'][g['weapon']]['tier']==(6 if g['boss'] else 5) and c['items'][g['loot'][1]]['tier']==5 and not c['items'][g['loot'][1]].get('legacy') for g in spring))
 check('final boss dedicated HP factor 18',c['progression']['balance']['final_hp']==18.0)
 check('dropped gear is never legacy',all(not c['items'][i].get('legacy') for g in c['groups'] for i in g['loot']))
-for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py']:
+for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py','tools/change10_catalog.py','tools/change11_catalog.py']:
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}

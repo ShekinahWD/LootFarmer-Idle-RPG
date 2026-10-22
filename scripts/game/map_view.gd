@@ -1,11 +1,13 @@
 extends Control
 ## Minimap and expanded map. Both read the one discovery store (playbook 117.9 / 124.12): explored
-## cells, sighted camps and found encounter spots. Change 8: one small marker per found spot (never
-## per type), so neighbouring spots stay separate; nothing is drawn or tappable for a spot the
-## player has not found, whatever the Map Details rank.
-## Rank 1 generic spot markers, rank 2 the enemy's identity, rank 3 its loadout: weapon badge
-## (bottom right) when that spot carries a weapon, outfit shown by the portrait, skill badge (top
-## right) on skill spots.
+## cells, sighted camps and found encounter spots. Change 8: one marker per found spot (never per
+## type), so neighbouring spots stay separate; nothing is drawn or tappable for a spot the player has
+## not found, whatever the Map Details rank.
+## Rank 1 generic spot markers, rank 2 the enemy's identity (its type portrait), rank 3 its loadout.
+## Change 11: the minimap follows the same ranks (it used to draw generic dots only) and its markers
+## are sized for a phone. Loadout reads at a glance: a weapon badge (bottom right) when the spot
+## carries a weapon, a skill badge (top right) on skill spots, and a dimmed portrait on weapon-only
+## spots, whose enemies do not wear (or drop) the outfit.
 signal selected(group: int,variant: int)
 signal open_map
 @export var mini: bool=false
@@ -13,6 +15,11 @@ signal open_map
 @export var marker_share:=0.42
 @export var marker_min:=7.0
 @export var marker_max:=26.0
+## Minimap marker side limits (Change 11). When markers are wider than the real spacing of a type's
+## spots, the spots are pushed apart around the type centre so they never overlap.
+@export var mini_marker_min:=16.0
+@export var mini_marker_max:=24.0
+@export var mini_gap:=2.0
 var sim
 var refresh: float=0
 var signature: String=""
@@ -21,14 +28,28 @@ const STAR=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Blac
 const CAMP=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-249.png")
 const PLAIN_BODY="res://assets/PixelPlains/Characters 24x24/Basic character v2.png"
 var plain_body: AtlasTexture
+## The player marker is its own small node: walking moves it without redrawing the cells and markers.
+var player_dot: TextureRect
 func _ready() -> void:
     plain_body=AtlasTexture.new();plain_body.atlas=load(PLAIN_BODY);plain_body.region=Rect2(0,0,24,24)
+    player_dot=TextureRect.new()
+    player_dot.texture=STAR
+    player_dot.modulate=Color(.5,.9,1)
+    player_dot.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+    player_dot.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    player_dot.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    player_dot.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+    add_child(player_dot)
 func _process(dt: float) -> void:
     refresh+=dt
     if sim==null:return
     if refresh<.15 and signature!="":return
     refresh=0
-    var next:="%s:%s:%s:%s:%s:%s" % [size,sim.state.stage,sim.campaign.discovery_revision,sim.level("map_detail",int(sim.state.stage)),sim.position_of(sim.state.player),_bosses_alive()]
+    var rect:=transform_rect()
+    var side:=12.0 if mini else 10.0
+    player_dot.size=Vector2.ONE*side
+    player_dot.position=rect.position+sim.position_of(sim.state.player)*(rect.size.x/float(sim.catalog.world.size[0]))-Vector2.ONE*side*.5
+    var next:="%s:%s:%s:%s:%s:%s" % [size,sim.state.stage,sim.campaign.discovery_revision,sim.level("map_detail",int(sim.state.stage)),_bosses_alive(),sim.state.spawns]
     if next!=signature:signature=next;queue_redraw()
 ## A boss marker only shows while that boss is alive on this stage (and, as for every marker, only
 ## once discovered and with map detail bought): defeated bosses lose it until they respawn.
@@ -43,15 +64,27 @@ func _bosses_alive() -> String:
     return bits
 func marker_visible(g: int,v: int=2) -> bool:
     return sim.campaign.spot_discovered(g,v) and (not sim.catalog.groups[g].boss or boss_alive(g))
-## Every found spot of the current stage as [group, variant, map position].
+## Every found spot of the current stage as [group, variant, map position]. A type's spots spread
+## around its centre when their markers would otherwise touch (see marker_spread).
 func spots(rect: Rect2,scale_factor: float) -> Array:
     var result: Array=[]
+    var spread:=marker_spread(scale_factor)
     for g in sim.campaign.stage().groups:
+        var center:=Vector2(sim.catalog.groups[g].center[0],sim.catalog.groups[g].center[1])
         for v in sim.campaign.variants(g):
-            if marker_visible(g,v):result.append([g,v,rect.position+sim.campaign.spot(g,v)*scale_factor])
+            if marker_visible(g,v):result.append([g,v,rect.position+(center+(sim.campaign.spot(g,v)-center)*spread)*scale_factor])
     return result
+## On-map distance between neighbouring spots of one type.
+func spot_spacing(scale_factor: float) -> float:
+    return sim.campaign.spot_offset()*2.0*scale_factor
 func marker_side(scale_factor: float) -> float:
-    return clampf(sim.campaign.spot_offset()*2.0*scale_factor*marker_share,marker_min*(.7 if mini else 1.0),marker_max*(.45 if mini else 1.0))
+    if mini:return clampf(spot_spacing(scale_factor)*.92,mini_marker_min,mini_marker_max)
+    return clampf(spot_spacing(scale_factor)*marker_share,marker_min,marker_max)
+## How far a type's spots are pushed apart from its centre so neighbouring markers keep a gap.
+func marker_spread(scale_factor: float) -> float:
+    var spacing:=spot_spacing(scale_factor)
+    if spacing<=0:return 1.0
+    return maxf(1.0,(marker_side(scale_factor)+mini_gap)/spacing)
 func transform_rect() -> Rect2:
     var bounds=Vector2(sim.catalog.world.size[0],sim.catalog.world.size[1])
     var scale_factor=minf(size.x/bounds.x,size.y/bounds.y)
@@ -65,31 +98,33 @@ func _draw() -> void:
     for key in sim.state.explored.get(str(sim.state.stage),{}):
         var bits=key.split(",");var pos=Vector2(int(bits[0]),int(bits[1]))*cell
         draw_rect(Rect2(rect.position+pos*scale_factor,Vector2.ONE*cell*scale_factor),Color(.28,.4,.32))
+    for i in range(sim.campaign.stage().spawns.size()):
+        var point=sim.campaign.stage().spawns[i];var pos=Vector2(point[0],point[1])
+        if sim.campaign.camp_known(i):draw_texture_rect(CAMP,Rect2(rect.position+pos*scale_factor-Vector2.ONE*6,Vector2.ONE*12),false,Color.WHITE if sim.state.spawns.has(i) else Color(.55,.55,.55))
     var rank=sim.level("map_detail",int(sim.state.stage))
     if rank>0:
         var side:=marker_side(scale_factor)
         for entry in spots(rect,scale_factor):
             _marker(entry[0],entry[1],entry[2],side,rank)
-    for i in range(sim.campaign.stage().spawns.size()):
-        var point=sim.campaign.stage().spawns[i];var pos=Vector2(point[0],point[1])
-        if sim.campaign.camp_known(i):draw_texture_rect(CAMP,Rect2(rect.position+pos*scale_factor-Vector2.ONE*6,Vector2.ONE*12),false,Color.WHITE if sim.state.spawns.has(i) else Color(.55,.55,.55))
-    draw_texture_rect(STAR,Rect2(rect.position+sim.position_of(sim.state.player)*scale_factor-Vector2.ONE*5,Vector2.ONE*10),false,Color(.5,.9,1))
 func _marker(g: int,v: int,pos: Vector2,side: float,rank: int) -> void:
     var boss: bool=sim.catalog.groups[g].boss
     if boss:side*=1.25
     var box:=Rect2(pos-Vector2.ONE*side*.5,Vector2.ONE*side)
-    if rank==1 or mini:
+    if rank==1:
         draw_texture_rect(STAR if boss else BADGE,box,false)
         return
     var def: Dictionary=sim.enemy_definition(g,v)
-    draw_rect(box.grow(1),Color(0,0,0,.55))
-    draw_texture_rect(sim.catalog.icon(def.body) if def.body!="" else plain_body,box,false)
+    var identity: String=str(sim.catalog.groups[g].body)
+    draw_rect(box.grow(1),Color(0,0,0,.6))
+    # The type's own portrait is its identity; a weapon-only spot (rank 3) shows it dimmed.
+    var dim: bool=rank>=3 and def.body=="" and not boss
+    draw_texture_rect(sim.catalog.icon(identity) if sim.catalog.items.has(identity) else plain_body,box,false,Color(.5,.5,.55) if dim else Color.WHITE)
     if boss:draw_rect(box.grow(1),Color(1,.84,.34),false,1.5)
     if rank<3:return
-    var badge:=maxf(5,side*.55)
+    var badge:=maxf(7.0,side*.55)
     if def.weapon!="":
         var w:=Rect2(box.end-Vector2.ONE*badge*.8,Vector2.ONE*badge)
-        draw_rect(w,Color(0,0,0,.6));draw_texture_rect(sim.catalog.icon(def.weapon),w,false)
+        draw_rect(w,Color(0,0,0,.65));draw_texture_rect(sim.catalog.icon(def.weapon),w,false)
     if not def.skills.is_empty():
         var k:=Rect2(Vector2(box.end.x-badge*.8,box.position.y-badge*.2),Vector2.ONE*badge)
         draw_rect(k,Color(.25,.1,.4,.85));draw_texture_rect(sim.catalog.icon("skill_"+str(def.skills[0])),k,false)

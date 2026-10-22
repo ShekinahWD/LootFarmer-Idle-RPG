@@ -2,267 +2,153 @@
   "items": {
     "potion": {
       "kind": "consumable",
+      "name": "ITEM_POTION",
       "tier": 1,
       "normal": {
-        "heal": [
-          25,
-          0.4
+        "heal_pct": [
+          0.2,
+          0.002
         ]
       },
-      "extras": {},
-      "next": "potion_tier_2",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
       "merge_gain": {
-        "heal": 0.4
+        "heal_pct": 0.002
       },
+      "extras": {},
+      "next": "",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
       "art_id": "potion",
-      "family": "potion"
+      "family": "potion",
+      "supply": {
+        "effect": "heal",
+        "stat": "heal_pct",
+        "duration": 0,
+        "cooldown": 5,
+        "use_hp": 0.8,
+        "auto_hp": 0.8,
+        "min_stage": 1,
+        "drop_weight": 8,
+        "price": 10
+      }
     },
     "coin_boost": {
       "kind": "consumable",
+      "name": "ITEM_COIN_BOOST",
       "tier": 1,
       "normal": {
         "coin_bonus": [
           0.25,
-          0.001
+          0.0025
         ]
       },
+      "merge_gain": {
+        "coin_bonus": 0.0025
+      },
       "extras": {},
-      "next": "coin_boost_tier_2",
+      "next": "",
       "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
       "art_id": "coin_boost",
       "family": "coin_boost",
-      "merge_gain": {
-        "coin_bonus": 0.005
+      "supply": {
+        "effect": "coins",
+        "stat": "coin_bonus",
+        "duration": 30,
+        "cooldown": 0,
+        "use_hp": 1,
+        "auto_hp": 1,
+        "min_stage": 1,
+        "drop_weight": 2,
+        "price": 30
       }
     },
-    "potion_tier_2": {
+    "guard_tonic": {
       "kind": "consumable",
-      "tier": 2,
+      "name": "ITEM_GUARD_TONIC",
+      "tier": 1,
       "normal": {
-        "heal": [
-          55.25,
-          1.105
+        "defense": [
+          20,
+          0.2
         ]
       },
-      "extras": {},
-      "next": "potion_tier_3",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
       "merge_gain": {
-        "heal": 1.105
-      },
-      "art_id": "potion",
-      "family": "potion",
-      "reroll": 0
-    },
-    "potion_tier_3": {
-      "kind": "consumable",
-      "tier": 3,
-      "normal": {
-        "heal": [
-          140.8875,
-          2.8177499999999998
-        ]
-      },
-      "extras": {},
-      "next": "potion_tier_4",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
-      "merge_gain": {
-        "heal": 2.8177499999999998
-      },
-      "art_id": "potion",
-      "family": "potion",
-      "reroll": 0
-    },
-    "potion_tier_4": {
-      "kind": "consumable",
-      "tier": 4,
-      "normal": {
-        "heal": [
-          359.26312499999995,
-          7.185262499999999
-        ]
-      },
-      "extras": {},
-      "next": "potion_tier_5",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
-      "merge_gain": {
-        "heal": 7.185262499999999
-      },
-      "art_id": "potion",
-      "family": "potion",
-      "reroll": 0
-    },
-    "potion_tier_5": {
-      "kind": "consumable",
-      "tier": 5,
-      "normal": {
-        "heal": [
-          916.1209687499999,
-          18.322419375
-        ]
-      },
-      "extras": {},
-      "next": "potion_tier_6",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
-      "merge_gain": {
-        "heal": 18.322419375
-      },
-      "art_id": "potion",
-      "family": "potion",
-      "reroll": 0
-    },
-    "potion_tier_6": {
-      "kind": "consumable",
-      "tier": 6,
-      "normal": {
-        "heal": [
-          2336.1084703125,
-          46.722169406249996
-        ]
-      },
-      "extras": {},
-      "next": "potion_tier_7",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
-      "merge_gain": {
-        "heal": 46.722169406249996
-      },
-      "art_id": "potion",
-      "family": "potion",
-      "reroll": 0
-    },
-    "potion_tier_7": {
-      "kind": "consumable",
-      "tier": 7,
-      "normal": {
-        "heal": [
-          5957.0765992968745,
-          119.14153198593749
-        ]
+        "defense": 0.2
       },
       "extras": {},
       "next": "",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png",
-      "merge_gain": {
-        "heal": 119.14153198593749
-      },
-      "art_id": "potion",
-      "family": "potion",
-      "reroll": 0
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-67.png",
+      "art_id": "guard_tonic",
+      "family": "guard_tonic",
+      "supply": {
+        "effect": "guard",
+        "stat": "defense",
+        "duration": 20,
+        "cooldown": 0,
+        "use_hp": 1,
+        "auto_hp": 1,
+        "min_stage": 2,
+        "drop_weight": 2.5,
+        "price": 0
+      }
     },
-    "coin_boost_tier_2": {
+    "recovery_salve": {
       "kind": "consumable",
-      "tier": 2,
+      "name": "ITEM_RECOVERY_SALVE",
+      "tier": 1,
       "normal": {
-        "coin_bonus": [
-          0.6375,
-          0.01275
+        "regen_pct": [
+          0.015,
+          0.00015
         ]
       },
-      "extras": {},
-      "next": "coin_boost_tier_3",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
-      "art_id": "coin_boost",
-      "family": "coin_boost",
       "merge_gain": {
-        "coin_bonus": 0.01275
-      },
-      "reroll": 0
-    },
-    "coin_boost_tier_3": {
-      "kind": "consumable",
-      "tier": 3,
-      "normal": {
-        "coin_bonus": [
-          1.6256249999999999,
-          0.0325125
-        ]
-      },
-      "extras": {},
-      "next": "coin_boost_tier_4",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
-      "art_id": "coin_boost",
-      "family": "coin_boost",
-      "merge_gain": {
-        "coin_bonus": 0.0325125
-      },
-      "reroll": 0
-    },
-    "coin_boost_tier_4": {
-      "kind": "consumable",
-      "tier": 4,
-      "normal": {
-        "coin_bonus": [
-          4.14534375,
-          0.082906875
-        ]
-      },
-      "extras": {},
-      "next": "coin_boost_tier_5",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
-      "art_id": "coin_boost",
-      "family": "coin_boost",
-      "merge_gain": {
-        "coin_bonus": 0.082906875
-      },
-      "reroll": 0
-    },
-    "coin_boost_tier_5": {
-      "kind": "consumable",
-      "tier": 5,
-      "normal": {
-        "coin_bonus": [
-          10.570626562500001,
-          0.21141253125000004
-        ]
-      },
-      "extras": {},
-      "next": "coin_boost_tier_6",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
-      "art_id": "coin_boost",
-      "family": "coin_boost",
-      "merge_gain": {
-        "coin_bonus": 0.21141253125000004
-      },
-      "reroll": 0
-    },
-    "coin_boost_tier_6": {
-      "kind": "consumable",
-      "tier": 6,
-      "normal": {
-        "coin_bonus": [
-          26.955097734375002,
-          0.5391019546875001
-        ]
-      },
-      "extras": {},
-      "next": "coin_boost_tier_7",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
-      "art_id": "coin_boost",
-      "family": "coin_boost",
-      "merge_gain": {
-        "coin_bonus": 0.5391019546875001
-      },
-      "reroll": 0
-    },
-    "coin_boost_tier_7": {
-      "kind": "consumable",
-      "tier": 7,
-      "normal": {
-        "coin_bonus": [
-          68.73549922265626,
-          1.3747099844531252
-        ]
+        "regen_pct": 0.00015
       },
       "extras": {},
       "next": "",
-      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-68.png",
-      "art_id": "coin_boost",
-      "family": "coin_boost",
-      "merge_gain": {
-        "coin_bonus": 1.3747099844531252
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-71.png",
+      "art_id": "recovery_salve",
+      "family": "recovery_salve",
+      "supply": {
+        "effect": "recovery",
+        "stat": "regen_pct",
+        "duration": 10,
+        "cooldown": 0,
+        "use_hp": 0.9,
+        "auto_hp": 0.6,
+        "min_stage": 3,
+        "drop_weight": 2,
+        "price": 0
+      }
+    },
+    "wisdom_tonic": {
+      "kind": "consumable",
+      "name": "ITEM_WISDOM_TONIC",
+      "tier": 1,
+      "normal": {
+        "xp_bonus": [
+          0.25,
+          0.0025
+        ]
       },
-      "reroll": 0
+      "merge_gain": {
+        "xp_bonus": 0.0025
+      },
+      "extras": {},
+      "next": "",
+      "icon_path": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-70.png",
+      "art_id": "wisdom_tonic",
+      "family": "wisdom_tonic",
+      "supply": {
+        "effect": "xp",
+        "stat": "xp_bonus",
+        "duration": 60,
+        "cooldown": 0,
+        "use_hp": 1,
+        "auto_hp": 1,
+        "min_stage": 4,
+        "drop_weight": 1.5,
+        "price": 0
+      }
     },
     "skill_heal": {
       "kind": "skill",
@@ -21185,7 +21071,7 @@
       "currency": "gems",
       "base": 4,
       "growth": 1,
-      "cap": 13,
+      "cap": 4,
       "keep": true,
       "effect": 1,
       "scope": "global",
@@ -21235,24 +21121,6 @@
       "keep": true,
       "effect": 1,
       "scope": "type"
-    },
-    "merge_supplies": {
-      "currency": "gems",
-      "base": 10,
-      "growth": 1,
-      "cap": 1,
-      "keep": true,
-      "effect": 1,
-      "scope": "global"
-    },
-    "merge_speed": {
-      "currency": "gems",
-      "base": 12,
-      "growth": 1.7,
-      "cap": 9,
-      "keep": true,
-      "effect": 1,
-      "scope": "global"
     },
     "auto_use": {
       "currency": "gems",
@@ -21313,7 +21181,7 @@
       "base": 25,
       "growth": 1,
       "cap": 12,
-      "keep": false,
+      "keep": true,
       "effect": 0.01,
       "prices": [
         25,
@@ -21345,7 +21213,7 @@
       "base": 25,
       "growth": 1,
       "cap": 10,
-      "keep": false,
+      "keep": true,
       "effect": 0.5,
       "prices": [
         25,
@@ -21402,7 +21270,7 @@
       "base": 50,
       "growth": 1,
       "cap": 8,
-      "keep": false,
+      "keep": true,
       "effect": 0.05,
       "prices": [
         50,
@@ -21421,7 +21289,7 @@
       "base": 25,
       "growth": 1,
       "cap": 10,
-      "keep": false,
+      "keep": true,
       "effect": 1,
       "prices": [
         25,
@@ -21442,7 +21310,7 @@
       "base": 150,
       "growth": 1,
       "cap": 3,
-      "keep": false,
+      "keep": true,
       "effect": 1,
       "prices": [
         150,
@@ -21456,7 +21324,7 @@
       "base": 100,
       "growth": 1,
       "cap": 5,
-      "keep": false,
+      "keep": true,
       "effect": 0.1,
       "prices": [
         100,
@@ -21880,8 +21748,6 @@
       "camp": 0.1,
       "camp_radius": 110
     },
-    "potion_cooldown": 5.0,
-    "coin_boost_duration": 30.0,
     "merge": {
       "weapon_cap": 100,
       "copy_cap": 500,
@@ -21919,7 +21785,30 @@
         "regen_pct_per_tier": 0.0008
       }
     ],
-    "stored_outfit_factor": 0.15
+    "stored_outfit_factor": 0.15,
+    "supply_mastery": {
+      "cap": 100,
+      "milestones": [
+        {
+          "merge": 25,
+          "id": "steady",
+          "duration": 1.2,
+          "cooldown": 0.9
+        },
+        {
+          "merge": 50,
+          "id": "potent",
+          "duration": 1.4,
+          "cooldown": 0.85
+        },
+        {
+          "merge": 100,
+          "id": "mastered",
+          "duration": 1.6,
+          "cooldown": 0.8
+        }
+      ]
+    }
   },
   "skills": {
     "heal": {
@@ -23322,6 +23211,18 @@
     "unit-yellow-cap_weapon_t4": "gold_axe",
     "unit-yellow-cap_weapon_t5": "diamond_axe",
     "unit-yellow-cap_weapon_t6": "emerald_axe",
-    "unit-yellow-cap_weapon_t7": "obsidian_axe"
+    "unit-yellow-cap_weapon_t7": "obsidian_axe",
+    "potion_tier_2": "potion",
+    "potion_tier_3": "potion",
+    "potion_tier_4": "potion",
+    "potion_tier_5": "potion",
+    "potion_tier_6": "potion",
+    "potion_tier_7": "potion",
+    "coin_boost_tier_2": "coin_boost",
+    "coin_boost_tier_3": "coin_boost",
+    "coin_boost_tier_4": "coin_boost",
+    "coin_boost_tier_5": "coin_boost",
+    "coin_boost_tier_6": "coin_boost",
+    "coin_boost_tier_7": "coin_boost"
   }
 }

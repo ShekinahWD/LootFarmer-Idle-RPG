@@ -92,6 +92,8 @@ def apply(data):
         del progression['prestige_gate_stage']
         changes.append('progression.prestige_gate_stage removed')
     for key, fields in UPGRADES.items():
+        if key not in data['upgrades']:
+            continue  # removed by a later change (Change 11: merge_supplies, merge_speed)
         entry = data['upgrades'][key]
         for field, value in fields.items():
             put(entry, field, value, '%s.%s' % (key, field))

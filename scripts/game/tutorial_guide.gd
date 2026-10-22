@@ -142,10 +142,10 @@ func _lesson(lesson: String) -> void:
                 step="equip";target=_slot(id)
         "merge":
             surfaces=["","item"]
-            var id:=_first_item(func(i):return sim.quantity(i)>1 and sim.record(i).merge<sim.merge_cap(i))
+            var id:=_first_item(func(i):return sim.can_merge(i))
             if id=="":step="merge_wait";world_target=_nearest_enemy();return
             var open: String=ui.selected if ui.sheet.visible and ui.panel=="item" else ""
-            if open!="" and sim.catalog.items.has(open) and sim.quantity(open)>1 and sim.record(open).merge<sim.merge_cap(open):step="merge_tap";target=_panel_control("merge")
+            if open!="" and sim.can_merge(open):step="merge_tap";target=_panel_control("merge")
             else:step="merge";target=_slot(id)
         "upgrade":
             surfaces=["","enemy"]

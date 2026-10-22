@@ -340,12 +340,6 @@ msgstr "Off"
 msgid "EMPTY_SLOT_HELP"
 msgstr "This slot is empty. New item types need an empty slot; existing types stack together."
 
-msgid "BUY_POTION"
-msgstr "Buy Health Potion · 10 coins"
-
-msgid "BUY_BOOST"
-msgstr "Buy Coin Tonic · 30 coins"
-
 msgid "UPGRADES_EXPLAIN"
 msgstr "Group upgrades affect every member. Each enemy rolls its own loot. Coins and gems credit immediately."
 
@@ -484,9 +478,6 @@ msgstr "Unlock another auto-use slot under Upgrades."
 msgid "CANNOT_USE"
 msgstr "No usable supply, or your character is dead."
 
-msgid "POTION_CONDITION"
-msgstr "Potions require health below 80% and a 2-second cooldown."
-
 msgid "UPGRADE_MAX"
 msgstr "MAX"
 
@@ -527,7 +518,7 @@ msgid "UP_GEAR_SLOTS"
 msgstr "Equipment slots +1 (max 70)"
 
 msgid "UP_SUPPLY_SLOTS"
-msgstr "Supply capacity +1"
+msgstr "Supply slots +1 (one per supply type)"
 
 msgid "UP_COLLECT"
 msgstr "Unlock auto-collect"
@@ -543,12 +534,6 @@ msgstr "Collect interval −1 s"
 
 msgid "UP_MERGE_GEAR"
 msgstr "Unlock gear auto-merge"
-
-msgid "UP_MERGE_SUPPLIES"
-msgstr "Unlock supply auto-merge"
-
-msgid "UP_MERGE_SPEED"
-msgstr "Supply merge interval −1 s"
 
 msgid "UP_AUTO_USE"
 msgstr "Automated supply slots +1"
@@ -578,10 +563,7 @@ msgid "UP_GEM_AMOUNT"
 msgstr "Gems per drop (bosses pay ×3)"
 
 msgid "CHAT_SURPRISE"
-msgstr "Hey! My outfit!"
-
-msgid "CHAT_LOOT"
-msgstr "I was wearing that!"
+msgstr "Hey! Watch it!"
 
 msgid "RECENT_HEADER"
 msgstr "Recent finds · tap for history"
@@ -848,7 +830,7 @@ msgid "UPGRADE_TRANSITION"
 msgstr "%s → %s"
 
 msgid "POTION_CHANCE_VALUE"
-msgstr "Potion: %s"
+msgstr "Supply roll: %s"
 
 msgid "TONIC_CHANCE_VALUE"
 msgstr "Tonic: %s"
@@ -3712,9 +3694,6 @@ msgstr "Development save reset for this update. New progress can be saved."
 msgid "HEAL_ROLE"
 msgstr "Sustain: %s HP now, every %ss. Free to cast; capped at 12%% max HP. Potions provide stronger emergency healing."
 
-msgid "POTION_ROLE"
-msgstr "Emergency healing. Consumes one potion; %ss cooldown. Usable at 80%% HP or below."
-
 msgid "REGULAR_MISSIONS"
 msgstr "Hunting tasks"
 
@@ -3926,13 +3905,13 @@ msgid "PRESTIGE_KEEP_TITLE"
 msgstr "You keep"
 
 msgid "PRESTIGE_KEEP"
-msgstr "Cards and sets, boss keys, enemy achievements, gem upgrades, automation, inventory space and settings."
+msgstr "Cards and sets, boss keys, enemy achievements, every upgrade bought with gems (all categories), automation, inventory space, supply mastery and settings."
 
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "This run resets"
 
 msgid "PRESTIGE_RESET"
-msgstr "Coins, gems, items and merges, level, camps, map exploration, coin upgrades and unfinished challenges."
+msgstr "Coins, gems, items (supply stock included) and merges, level, camps, map exploration, coin upgrades and unfinished challenges."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Keep %s"
@@ -4189,12 +4168,6 @@ msgstr "Show"
 msgid "HIDE"
 msgstr "Hide"
 
-msgid "COIN_TONIC_ROLE"
-msgstr "+%s%% coins from defeated enemies for %s s. Using another restarts the timer; the strongest bonus applies."
-
-msgid "COIN_TONIC_ACTIVE"
-msgstr "Coin Tonic active: +%s%% coins · %ds left"
-
 msgid "PLAYTIME_LINE"
 msgstr "Time played: %s · This run: %s"
 
@@ -4344,9 +4317,6 @@ msgstr "Stored gear counts"
 
 msgid "STATS_EQUIPPED_BONUS"
 msgstr "Equipped gear bonus"
-
-msgid "STATS_TONIC_VALUE"
-msgstr "+%s%% · %ds left"
 
 msgid "STATS_SECTION_TIME"
 msgstr "Time played"
@@ -4604,7 +4574,7 @@ msgid "FARMING_REWARDS"
 msgstr "Coins ×%s · Gems %s%% ×%s · XP %s"
 
 msgid "FARMING_SUPPLIES"
-msgstr "Potion %s%% · Coin Tonic %s%%"
+msgstr "Supplies: %s"
 
 msgid "FARMING_UNDISCOVERED_SPOT"
 msgstr "Undiscovered spot"
@@ -4650,3 +4620,189 @@ msgstr "a short walk"
 
 msgid "DISTANCE_FAR"
 msgstr "far"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "Hey! My outfit!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "My weapon!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "My spellbook!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "My supplies!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "Guard Tonic"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "Recovery Salve"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "Wisdom Tonic"
+
+msgid "FOLLOW_COLLECT"
+msgstr "Step %d/%d · Collect items · %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "All found · hand them in from Prestige"
+
+msgid "FILTERS"
+msgstr "Filters"
+
+msgid "FILTERS_ACTIVE"
+msgstr "Filters · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "Filter the gear grid. Closing Filters shows every item again."
+
+msgid "PANEL_FILTERS"
+msgstr "Filters"
+
+msgid "FILTERS_HINT"
+msgstr "The gear grid shows only this category while Filters is open. Closing it shows every item again."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "Supply slots: one per supply type (%d types). Filters sit next to the gear count."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "Supplies are spent when used, but their mastery is permanent: every copy you find (drops and offline earnings) adds ^1, up to ^%d, and using one never lowers it. Prestige keeps mastery; Hard Reset clears it. Copies bought with coins add stock only."
+
+msgid "BUY_SUPPLY"
+msgstr "Buy %s · %d coins"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · %ds left"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "Active: %s · %ds left"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "Cooling down · %s s"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "Ready to use"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "Auto-use: at %s%% HP or below, after the cooldown"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "Auto-use: whenever it is not active"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "Auto-use: during combat, when not active"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "Auto-use: at %s%% HP or below, when not active"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "Auto-use: whenever it is not active"
+
+msgid "SUPPLY_STOCK"
+msgstr "Stock: %s · each use spends one"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "Next copy found: +%s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "Mastery bonus: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "duration %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "cooldown %s s"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%s%% max HP"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%s%% coins"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%s%% XP"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s Defense"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "%s%% max HP per second"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "Heals %s%% of max HP (%s HP now) · cooldown %s s · usable at %s%% HP or below"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "+%s%% coins from defeated enemies for %s s"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s Defense (%s%% less damage taken) for %s s"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "Heals %s%% of max HP per second for %s s (%s%% in total) · usable below %s%% HP"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "+%s%% XP from defeated enemies for %s s"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "Mastery ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "Auto: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "Your HP is too high for this supply."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "The potion is still cooling down."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "Already active. Use it again when it runs out."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "Supplies grow by themselves: every copy found raises mastery."
+
+msgid "SOURCE_SUPPLY"
+msgstr "Active supplies"
+
+msgid "CAMP_TELEPORT"
+msgstr "Teleport"
+
+msgid "PANEL_TELEPORT"
+msgstr "Teleport"
+
+msgid "TELEPORT_TITLE"
+msgstr "Teleport"
+
+msgid "TELEPORT_HELP"
+msgstr "Choose another camp you own, on this map or a map you have reached. Teleporting is blocked during combat."
+
+msgid "TELEPORT_HERE"
+msgstr "You are here"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "Selected destination"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "This map"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "Another map"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "Choose"
+
+msgid "TELEPORT_BACK"
+msgstr "Back"
+
+msgid "TELEPORT_GO"
+msgstr "Teleport · %s · Camp %d"
+
+msgid "TELEPORT_PICK"
+msgstr "Choose a destination"
+
+msgid "TELEPORT_NONE"
+msgstr "No other camp yet. Unlock another camp to teleport there."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · Camp %d"
