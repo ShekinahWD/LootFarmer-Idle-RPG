@@ -27,7 +27,7 @@
   "SUPPLY_AUTO_RULE_RECOVERY": "Auto-use: at %s%% HP or below, when not active",
   "SUPPLY_AUTO_RULE_XP": "Auto-use: whenever it is not active",
   "SUPPLY_STOCK": "Stock: %s · each use spends one",
-  "SUPPLY_NEXT_COPY": "Next copy found: +%s",
+  "SUPPLY_NEXT_COPY": "Next copy found: %s",
   "SUPPLY_MILESTONES_ACTIVE": "Mastery bonus: %s",
   "SUPPLY_MILESTONE_DURATION": "duration %s",
   "SUPPLY_MILESTONE_COOLDOWN": "cooldown %s s",

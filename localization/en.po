@@ -4703,7 +4703,7 @@ msgid "SUPPLY_STOCK"
 msgstr "Stock: %s · each use spends one"
 
 msgid "SUPPLY_NEXT_COPY"
-msgstr "Next copy found: +%s"
+msgstr "Next copy found: %s"
 
 msgid "SUPPLY_MILESTONES_ACTIVE"
 msgstr "Mastery bonus: %s"

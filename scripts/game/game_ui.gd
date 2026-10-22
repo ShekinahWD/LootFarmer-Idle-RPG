@@ -1031,7 +1031,9 @@ func _supply_panel(id: String,list: Array) -> void:
     var mastery:=sim.supply_mastery(id)
     var cap:=sim.merge_cap(id)
     var gain: float=float(sim.catalog.items[id].normal[str(s.stat)][1])
-    if mastery<cap:_card_line(details,tr("SUPPLY_NEXT_COPY") % _supply_amount(id,gain),17,Color(.5,1,.65))
+    if mastery<cap:
+        var next_gain:=_supply_amount(id,gain)
+        _card_line(details,tr("SUPPLY_NEXT_COPY") % (next_gain if next_gain.begins_with("+") else "+"+next_gain),17,Color(.5,1,.65))
     var reached:=sim.supply_milestone(id)
     if float(reached.duration)>1.0:
         var active_key:="SUPPLY_MILESTONE_COOLDOWN" if str(s.effect)=="heal" else "SUPPLY_MILESTONE_DURATION"

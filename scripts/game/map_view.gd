@@ -77,14 +77,36 @@ func spots(rect: Rect2,scale_factor: float) -> Array:
 ## On-map distance between neighbouring spots of one type.
 func spot_spacing(scale_factor: float) -> float:
     return sim.campaign.spot_offset()*2.0*scale_factor
-func marker_side(scale_factor: float) -> float:
+## Preferred marker side before fitting to this map.
+func _wanted_side(scale_factor: float) -> float:
     if mini:return clampf(spot_spacing(scale_factor)*.92,mini_marker_min,mini_marker_max)
     return clampf(spot_spacing(scale_factor)*marker_share,marker_min,marker_max)
+## Marker side: the preferred size, reduced if needed so the closest two spots of this map (of
+## different types too, bosses drawn 1.25x) keep mini_gap between their markers. It is measured over
+## every spot of the stage, found or not, so the size never hints at undiscovered spots.
+var _fit_cache: Dictionary={}
+func marker_side(scale_factor: float) -> float:
+    var wanted:=_wanted_side(scale_factor)
+    var key:="%d:%s:%s" % [int(sim.state.stage),scale_factor,mini]
+    if not _fit_cache.has(key):
+        var spread:=marker_spread(scale_factor)
+        var points: Array=[]
+        for g in sim.campaign.stage().groups:
+            var center:=Vector2(sim.catalog.groups[g].center[0],sim.catalog.groups[g].center[1])
+            for v in sim.campaign.variants(g):
+                points.append([(center+(sim.campaign.spot(g,v)-center)*spread)*scale_factor,1.25 if sim.catalog.groups[g].boss else 1.0])
+        var fit:=INF
+        for i in range(points.size()):
+            for j in range(i+1,points.size()):
+                var d: Vector2=(points[i][0]-points[j][0]).abs()
+                fit=minf(fit,(maxf(d.x,d.y)-mini_gap)*2.0/(points[i][1]+points[j][1]))
+        _fit_cache[key]=fit
+    return maxf(6.0,minf(wanted,float(_fit_cache[key])))
 ## How far a type's spots are pushed apart from its centre so neighbouring markers keep a gap.
 func marker_spread(scale_factor: float) -> float:
     var spacing:=spot_spacing(scale_factor)
     if spacing<=0:return 1.0
-    return maxf(1.0,(marker_side(scale_factor)+mini_gap)/spacing)
+    return maxf(1.0,(_wanted_side(scale_factor)+mini_gap)/spacing)
 func transform_rect() -> Rect2:
     var bounds=Vector2(sim.catalog.world.size[0],sim.catalog.world.size[1])
     var scale_factor=minf(size.x/bounds.x,size.y/bounds.y)
