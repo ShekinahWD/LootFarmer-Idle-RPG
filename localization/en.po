@@ -4905,7 +4905,7 @@ msgid "FOCUS_UNLOCKED"
 msgstr "Focused Farming unlocked"
 
 msgid "FOCUS_HINT_PANEL"
-msgstr "Tap Farm above: your hero walks to this spot and fights here by itself. Tap again or move to stop."
+msgstr "Tap Farm below: your hero walks to this spot and fights here by itself. Tap again or move to stop."
 
 msgid "GUIDE_FOCUS_TAP"
 msgstr "Tap Farm to start"

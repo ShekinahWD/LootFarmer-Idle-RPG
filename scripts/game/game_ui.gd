@@ -1464,9 +1464,10 @@ func _enemy_panel() -> void:
     _tabs(["TAB_OVERVIEW","TAB_UPGRADES","TAB_ACHIEVEMENTS"],enemy_tab,func(i: int)->void:enemy_tab=i)
     if enemy_tab==2:_group_achievements_panel();return
     if sim.level("focus",group)>0:
+        # Change 14: right after the first Focused Farming purchase, one line above the button says
+        # what it does (above it, because the guide's arrow points at the button from below here).
+        if sim.campaign.focus_hint==group and int(sim.state.focus)<0:_text(tr("FOCUS_HINT_PANEL"),17,Color(1,.86,.5))
         _game_action(tr("FOCUS_GROUP") % [d.name,tr("ON" if sim.state.focus==group and sim.state.focus_variant==enemy_variant else "OFF")],func()->void:sim.focus(group,enemy_variant),sim.campaign.spot_discovered(group,enemy_variant),"SPOT_UNDISCOVERED").set_meta("guide","focus_toggle")
-        # Change 14: right after the first Focused Farming purchase, one line says what the button does.
-        if sim.campaign.focus_hint==group:_text(tr("FOCUS_HINT_PANEL"),17,Color(1,.86,.5))
     if enemy_tab==1:
         _section(tr("SECTION_REWARDS"))
         for id in ["loot","coin_amount","group_xp","supply_drop"]:_group_upgrade_card(id,group)
