@@ -25,7 +25,7 @@
 | Automation | 8, 9, 55 |
 | Workers, resources, buildings, the living world | 10 to 13, 80, 109, 115 to 127 |
 | Army management and combat | 5 to 7, 38, 39, 72, 79, 130, 131 |
-| Mobile UI: surfaces, text, controls | 14 to 17, 19 to 21, 70, 78, 123 to 125, 128, 129 |
+| Mobile UI: surfaces, text, controls | 14 to 17, 19 to 21, 70, 78, 123 to 125, 128, 129, 143 |
 | Teaching, onboarding and first-profile progression | 18 |
 | Pause, save, reset and offline | 26 to 31, 57, 58, 61, 110, 111 |
 | Validation, probes, bots and audits | 41 to 43, 59, 60, 100, 112, 113, 127 |
@@ -8512,8 +8512,38 @@ In Godot, a runtime script error inside a probe's async `run()` aborts the corou
 
 ## 142.1 A telegraph announces only what can happen
 
-When an enemy warns before a skill (a 0.5–1 s wind-up with its effect), check the skill's own eligibility **before** the warning, not only when it resolves. A self-heal at full health, a buff with no target or a cast whose condition already fails otherwise plays its effect and sound for nothing, again on every retry, and players conclude the skill is broken. Pass an ineligible skill's turn to the next skill in the rotation, or a single blocked skill can silence all the others. Play the success effect, sound and number from the authoritative change (HP actually restored), once, and attach effects that belong to an actor to that actor's view so they follow it. Attack warnings are different: they show where a hit will land, so they still play and the target may dodge.
+When an enemy warns before a skill (a 0.5–1 s wind-up with its effect), check the skill's own eligibility **before** the warning, not only when it resolves. A self-heal at full health, a buff with no target or a cast whose condition already fails otherwise plays its effect and sound for nothing, again on every retry, and players conclude the skill is broken. Pass an ineligible skill's turn to the next skill in the rotation, or a single blocked skill can silence all the others. Play the success effect, sound and number from the authoritative change (HP actually restored), once, and attach effects that belong to an actor to that actor's view so they follow it. Attack warnings are different: they show where a hit will land, so they still play and the target may dodge, but as a distinct marker, never as a copy of the hit effect (section 143.3).
 
 ## 142.2 Progress notifications: announce a rising count against a session baseline
 
 To play one cue when a tracked objective's step completes, compare a derived "steps done" count with a baseline held in memory (not saved). The first reading after a load or after the player picks a new objective only sets the baseline, so nothing re-announces on reopen; a rise announces once and the baseline keeps its maximum, so a step lost and regained is not announced twice. Route the cue through the audio service's per-frame priority, so a final step that also completes the objective plays one sound, not two. When purchased automation consumes the same event repeatedly (auto-claim), stay silent: that is the automation rule of section 85.
+
+# 143. Device playtest correction lessons (LootFarmer Change 14)
+
+## 143.1 A badge and the action it advertises read one predicate, and the list shows what the badge counts
+
+A "ready" badge that reads its own condition drifts from the Claim buttons it promises. LootFarmer's Missions `!` lit for any ready main objective, while the panel listed only the first three unclaimed objectives whatever their state, so a ready objective further down kept the badge on with no Claim button anywhere. Write one eligibility function per claimable kind and let the badge, the button and the list all call it. When a list is capped, choose its entries by that function, ready ones first, so every lit badge has a visible action behind it. Things that automation will take on the next tick (auto-claim) are not manual actions. Recompute the badge from state rather than storing a flag, so a claim, refresh, reset or load cannot leave it stale.
+
+## 143.2 Place each effect by the sheet's contact point, the body and the layer, per effect
+
+An actor's world origin is its feet, not its body, and an effect sheet's frame centre is not where it hits. A bolt sheet whose ground ring sits 21 px below the frame centre, centred on the feet and drawn under the actors, appeared to strike below and behind its target. Keep for every effect: an anchor (the actor hit, the area centre, the caster's view, the caster's ground point), the frame row that meets the anchor, a lift to the body that scales with the actor's rendered size, a scale rule and a layer. Strikes and blasts go above the actors; ground novas and markers go beneath them. Put these values in one inspector resource and probe the arithmetic (contact row on the feet, top of the effect above the head) for a normal-sized actor and a 2× boss. A single-target hit plays on the actor it actually hit, not on where the attacker aimed.
+
+## 143.3 A wind-up warning is its own small marker
+
+If a telegraph plays the skill's own effect and sound at the aim and the hit plays them again, every attack shows twice. Players read the first as the hit and the second as a bug. Emit a separate warning event and draw a small, tinted ground marker for it, with no skill sound. The real effect and sound then play once, on resolution, from the authoritative outcome.
+
+## 143.4 Sheet particles with an impact phase freeze at the impact
+
+A world-anchored particle that drifts while its sheet plays a fall and then a splash makes the splash slide along the ground. Mark the first impact frame in the particle's style, and from that frame to the end of the cycle compute the position at the impact frame's time rather than the current time. That keeps the placement a pure function of the clock and the world grid (section 138.3): camera moves still cannot shift it, and the next cycle starts a new drop.
+
+## 143.5 After an unlock, teach the next real tap once
+
+A purchased feature whose control lives elsewhere (a toggle inside a panel) needs one contextual lesson at the moment of purchase. That lesson is a short confirmation in every onboarding mode, then the guide's pointer on the next real tap on that path: the control itself when its panel is open, otherwise the button that opens that panel, otherwise the map. Write a seen flag to the profile at purchase time, so a reload or a second purchase never repeats it. Keep the active hint itself in memory only. End it on the demonstrated action, on Got it, after a finite time on screen, or when it no longer applies. Point only at enabled, visible controls. Keep the explanatory line out of the pointer's path: render it, look at the result, and place the line on the far side of the control from the arrow.
+
+## 143.6 Related HUD information lives with its control, on a dark plate
+
+Map completion in a far corner and a stage-gate line in pale text under the minimap were both missed on device. Group map facts with the map they describe (zoom, explored percentage, minimap, gate progress, in that order) and give each one a compact dark plate from the existing panel art. A plate reads over snow, sand, fog and rain, where an outline alone fails. Check contrast against representative light and dark grounds in a probe (7:1 or better for small text). Let a plate grow away from the screen edge for longer text rather than shrinking the font.
+
+Reusable rule:
+
+> One predicate per claimable thing for badge, button and list; effects placed by contact row, body lift and layer, from data; warnings distinct from hits; impact phases frozen in world space; unlock lessons once, at the next real tap; map facts grouped by the map on dark plates.

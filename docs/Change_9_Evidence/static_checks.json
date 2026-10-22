@@ -1,5 +1,5 @@
 {
-  "checks": 1358,
+  "checks": 1361,
   "failures": 0,
   "results": [
     {
@@ -3515,6 +3515,10 @@
       "pass": true
     },
     {
+      "check": "translation FOCUS_UNLOCKED",
+      "pass": true
+    },
+    {
       "check": "translation MILESTONE_CARD",
       "pass": true
     },
@@ -3923,6 +3927,10 @@
       "pass": true
     },
     {
+      "check": "translation FOCUS_HINT_PANEL",
+      "pass": true
+    },
+    {
       "check": "translation FOCUS_GROUP",
       "pass": true
     },
@@ -3932,6 +3940,10 @@
     },
     {
       "check": "translation SECTION_AUTOMATION",
+      "pass": true
+    },
+    {
+      "check": "translation SECTION_RESEARCH",
       "pass": true
     },
     {

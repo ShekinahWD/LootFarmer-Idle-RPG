@@ -138,3 +138,17 @@ A supply's effect is `base + gain × mastery` (gain = 1% of base, so ^100 double
 - **Currency display** (`NumberFormat.currency(value, round_up)`): presentation only; every purchase compares the exact `state.coins` / `state.gems`.
 - No save-schema change (schema 7) and no migration.
 
+
+## Change 14
+
+| Field | Meaning | Default | Save | Prestige | Hard Reset |
+|---|---|---|---|---|---|
+| `tutorial.seen` gains `"focus_unlocked"` | Written at the profile's first Focused Farming purchase (`campaign.upgrade_bought`), so the confirmation and the guidance never show twice. | absent | saved with tutorial | keep (tutorial is kept) | clear |
+| `campaign.focus_hint` | The type whose Farm button the guide points at after that purchase (-1 none). Session only; set only outside onboarding "None". | -1 | **never saved** | — | — |
+| `sim.cast_target` | The actor a single-target skill hit, set just before `spell_cast`; presentation reads it. | "" | never saved | — | — |
+
+- **Missions badge** (`campaign.has_claimable`): any `mission_claimable(i)` (kind not "waiting", unclaimed, `progress ≥ goal`, and not `missions_auto_claimed()`), or any `main_claimable(i)` among `main_shown()`. `main_claimable(i)` = `main_ready[str(i)]`, not in `main_claimed`, and (i ≠ 15 or `final_discovered`). `main_shown()` = up to three unclaimed listed objectives, ready ones first in index order, then unfinished ones. The panel lists exactly `main_shown()`, so a lit badge always has a Claim button behind it. Pure state: no stored flag, recomputed every HUD tick.
+- **Focused Farming hint** (`TutorialGuide._focus_hint`): pending while `focus_hint ≥ 0`; ends (sets -1) when `state.focus ≥ 0`, the upgrade is gone, the type is not on the current map, "Got it" is pressed or `focus_shown ≥ 45 s`. Surfaces: HUD and the enemy panel of that type; any other panel suspends it.
+- **Skill effects** (`world._spell`, `_warning`, `_effect`): presentation only, from `resources/game/skill_effects.tres`. Boss attack wind-ups emit `sim.skill_warning(actor, key, aim)`; `spell_cast` fires once per resolved skill. For Lightning and Strike its position is the hit actor's; for Fire the aim; for Frost the caster.
+- **Rain splash** (`season_weather.particles`): a particle in frame ≥ `splash_frame` is placed at the clock of its impact frame, `(tick − (frame − splash_frame)) / fps`. Pure function of clock and world grid.
+- No save-schema change (schema 7) and no migration.

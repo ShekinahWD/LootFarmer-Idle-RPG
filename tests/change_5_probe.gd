@@ -85,8 +85,12 @@ func run() -> void:
     sim.campaign.reveal_circle(sim.position_of(boss),200);await frames()
     check(game.world.views[boss.id].visual_scale==2,"Boss view receives scale")
     game.world._spell("player","heal",sim.position_of(sim.state.player));await frames()
-    for child in game.world.get_children():
-        if child is AnimatedSprite2D:check(child.z_index<game.world.get_node("Actors").z_index,"Spell renders beneath actors")
+    # Change 14: the layer is chosen per effect (skill_effects.tres): ground effects (Frost, warnings)
+    # beneath the actors, strikes and blasts (Lightning, Strike, Fire) above them.
+    for key in ["frost","lightning"]:
+        game.world._spell("player",key,sim.position_of(sim.state.player))
+        var sprite: AnimatedSprite2D=game.world.get_child(game.world.get_child_count()-1)
+        check((sprite.z_index<game.world.get_node("Actors").z_index)==(not game.world.effects.style(key).above_actors),"%s renders %s actors" % [key,"above" if game.world.effects.style(key).above_actors else "beneath"])
     for route in ["missions","upgrades","stats","prestige","map","travel","inventory","settings","offline"]:
         game._open(route);await frames();check(game.rows.get_child_count()>0,"UI route builds: "+route)
     game._close();game.guide.choose("guided");await frames();check(game.guide.pending=="move","Fresh guided lesson")

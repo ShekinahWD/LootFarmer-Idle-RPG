@@ -27,6 +27,9 @@ func run() -> void:
     game=load("res://scenes/game/main.tscn").instantiate();add_child(game);sim=game.sim;sim.set_physics_process(false)
     SettingsState.mute_all_sfx()
     sim.spell_cast.connect(func(id: String,key: String,_p: Vector2)->void:casts.append([id,key]))
+    # Change 14: a boss wind-up is its own signal (a warning marker, not a second skill effect); the
+    # final-boss pacing checks count warnings and hits together, as they counted two casts before.
+    sim.skill_warning.connect(func(id: String,key: String,_p: Vector2)->void:casts.append([id,key]))
     sim.feedback.connect(func(id: String,amount: float,healing: bool)->void:if healing:heals.append([id,amount]))
     sim.event.connect(func(key: String)->void:events.append(key))
     fresh()
@@ -255,9 +258,9 @@ func gate_checks() -> void:
     stage(4)
     var gate: Control=game.get_node("Safe/Layout/Map/Gate")
     game._refresh_gate()
-    check(gate.visible and gate.get_node("Label").text==tr("GATE_HUD") % [0,2],"Summer II (two gate bosses): HUD reads Next stage · Bosses 0/2")
-    check(gate.get_node("Label").text=="Next stage · Bosses 0/2","…in English: 'Next stage · Bosses 0/2'")
-    check(gate.mouse_filter==Control.MOUSE_FILTER_IGNORE and gate.get_node("Label").mouse_filter==Control.MOUSE_FILTER_IGNORE,"It never takes touches")
+    check(gate.visible and gate.get_node("Row/Label").text==tr("GATE_HUD") % [0,2],"Summer II (two gate bosses): HUD reads Next stage · Bosses 0/2")
+    check(gate.get_node("Row/Label").text=="Next Stage · Bosses 0/2","…in English: 'Next Stage · Bosses 0/2' (Change 14 capitalisation)")
+    check(gate.mouse_filter==Control.MOUSE_FILTER_IGNORE and gate.get_node("Row/Label").mouse_filter==Control.MOUSE_FILTER_IGNORE,"It never takes touches")
     var mini: Control=game.get_node("Safe/Layout/Map/MiniMap")
     check(gate.get_global_rect().position.y>=mini.get_global_rect().end.y and not gate.get_global_rect().intersects(game.get_node("Safe/Layout/Map/Joystick").get_global_rect()),"It sits under the minimap, clear of the joystick")
     var elephant:=group("boss-elephant");var dino:=group("boss-teal-dinosaur")
@@ -269,7 +272,7 @@ func gate_checks() -> void:
     check(not sim.campaign.gate_required(group(sim.catalog.groups[sim.campaign.stage().groups[0]].id)),"Normal enemies are never marked")
     var e:=actor_of("boss-elephant");e.hp=0.0;sim._kill(e) # fixture kill
     game._refresh_gate()
-    check(gate.get_node("Label").text==tr("GATE_HUD") % [1,2] and not sim.campaign.gate_required(elephant),"One of two defeated: 1/2, the Elephant is no longer marked")
+    check(gate.get_node("Row/Label").text==tr("GATE_HUD") % [1,2] and not sim.campaign.gate_required(elephant),"One of two defeated: 1/2, the Elephant is no longer marked")
     check(int(sim.state.unlocked_stage)==4,"The next stage stays locked with one of two")
     game._open("world");await frames(2)
     var text:=labels_text(game.rows)
@@ -285,19 +288,19 @@ func gate_checks() -> void:
     check(not gate.visible,"An earlier map with its exit already open shows no line")
     # Respawned boss after the gate counted: no marker.
     stage(1);sim.state.unlocked_stage=1;sim.campaign.discover_spot(group("boss-snowman"),2);game._refresh_gate()
-    check(gate.get_node("Label").text==tr("GATE_HUD") % [0,1],"Winter I: 0/1")
+    check(gate.get_node("Row/Label").text==tr("GATE_HUD") % [0,1],"Winter I: 0/1")
     sim.state.run_kills["boss-snowman"]=1;sim.state.unlocked_stage=2;game._refresh_gate() # fixture: counted
     check(not sim.campaign.gate_required(group("boss-snowman")) and not gate.visible,"After the kill the respawned Snowman carries no marker")
     # Spring II: world clear count.
     stage(8);game._refresh_gate()
-    check(gate.get_node("Label").text==tr("GATE_HUD_WORLD") % [0,9],"Spring II: World clear · 0/9")
+    check(gate.get_node("Row/Label").text==tr("GATE_HUD_WORLD") % [0,9],"Spring II: World clear · 0/9")
     # Load and Hard Reset recompute from saved state.
     sim.state.run_kills["unit-plain"]=1
     SaveService.save_now();sim.new_profile();SaveService.load_and_apply();await frames(1);game._refresh_gate()
-    check(gate.get_node("Label").text==tr("GATE_HUD_WORLD") % [1,9],"After a load: 1/9 from the saved kills")
+    check(gate.get_node("Row/Label").text==tr("GATE_HUD_WORLD") % [1,9],"After a load: 1/9 from the saved kills")
     sim.state.tutorial.mode="none";sim.suspended=false
     SaveService.hard_reset();sim.state.tutorial.mode="none";sim.suspended=false;game._refresh_gate()
-    check(gate.get_node("Label").text==tr("GATE_HUD") % [0,1],"After Hard Reset: Winter I 0/1")
+    check(gate.get_node("Row/Label").text==tr("GATE_HUD") % [0,1],"After Hard Reset: Winter I 0/1")
     # Map badge: minimap draws the banner only for a drawn (discovered) required boss.
     fresh();stage(4);sim.state.upgrades["map_detail:4"]=2
     var spots: Array=mini.spots(mini.transform_rect(),mini.transform_rect().size.x/float(sim.catalog.world.size[0]))

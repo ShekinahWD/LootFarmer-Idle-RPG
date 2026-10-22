@@ -90,3 +90,11 @@ Rendered evidence: Change_5_Evidence contains onboarding, first lesson, missions
 - **Summoning:** `magic-spells-vfx-lite/cast` (the Focus effect) tinted (0.78, 0.66, 1) on the summoner (telegraph) and on each helper; `magic-spells-sfx-lite/ogg/summon_01.ogg` as the `spell_summon` cue (gameplay, priority 10, 0.5 s cooldown, −4 dB). Helpers reuse their copied type's outfit sheet and swing, with the same violet tint on the body.
 - **Provenance still open:** `assets/sounds` licence record (see above); PixelPlains purchase record (only `ReadMe.txt` in the pack folders).
 
+
+## Change 14 asset use (no new art or audio)
+
+- **HUD chips** (Map Explored, Next Stage): `KenneyFantasyUI/PNG/Default/Panel/panel-000.png` as the `hud_chip` StyleBoxTexture in `resources/game/theme.tres` (dark modulate, the same art as the `Backing` style).
+- **Joystick**: the Backplate and the knob Rim reuse `Panel/panel-014.png` (the knob texture) with dark node modulates in `scenes/game/joystick.tscn`; the ring stays `Transparent center/panel-transparent-center-014.png`.
+- **Skill effects**: the same magic-spells-vfx-lite sheets, now placed per skill by `resources/game/skill_effects.tres` (contact rows: zap ring 53, heal/cast self rings 52, bursts 32). The boss wind-up marker is the `cast` sheet at 0.6×, tinted (1, 0.5, 0.32, 0.8).
+- **Rain**: `PixelPlains/Rain full anim sheet 52x216.png`; frames 0–8 are the fall and 9–14 the ground splash (`weather_rain.tres splash_frame = 9`).
+- **Focused Farming hint**: the guide's existing PixelPlains arrow (Item-273), Kenney frame and caption card, with Item-147 as the card picture.

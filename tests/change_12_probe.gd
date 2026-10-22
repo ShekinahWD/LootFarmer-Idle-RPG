@@ -109,10 +109,12 @@ func heal_checks() -> void:
     var view: LootActorView=game.world.views["player"]
     sim.spell_cast.emit("player","heal",sim.position_of(sim.state.player))
     var effects: Array=view.get_children().filter(func(n):return n is AnimatedSprite2D)
-    var factor: float=game.world.self_effect_scale*view.visual_scale
-    check(effects.size()==1 and effects[0].position.is_equal_approx(Vector2(0,-game.world.self_effect_ring*factor)),"The Heal effect is a child of the caster's view, ring on the feet")
+    var heal_style: SkillEffectStyle=game.world.effects.style("heal")
+    var factor: float=heal_style.scale*view.visual_scale
+    var ring: float=heal_style.contact_y-32.0
+    check(effects.size()==1 and effects[0].position.is_equal_approx(Vector2(0,-ring*factor)),"The Heal effect is a child of the caster's view, ring on the feet")
     sim.state.player.x+=40;await frames(2)
-    check(effects[0].global_position.is_equal_approx(view.to_global(Vector2(0,-game.world.self_effect_ring*factor))),"The effect moves with the caster")
+    check(effects[0].global_position.is_equal_approx(view.to_global(Vector2(0,-ring*factor))),"The effect moves with the caster")
     for e in effects:e.queue_free()
     # Healing numbers read apart from damage numbers.
     var before: int=game.world.get_node("Actors").get_child_count()
@@ -129,7 +131,7 @@ func explored_checks() -> void:
     check(area==ceili(960/24.0)*ceili(960/24.0),"Winter I denominator is its fog grid (%d cells)" % area)
     game._refresh_explored()
     var cells: int=sim.state.explored.get("1",{}).size()
-    check(label.text==tr("MAP_EXPLORED") % floori(100.0*cells/area) and label.text.begins_with("Map explored: "),"Label reads \"%s\" from the saved explored cells" % label.text)
+    check(label.text==tr("MAP_EXPLORED") % floori(100.0*cells/area) and label.text.begins_with("Map Explored: "),"Label reads \"%s\" from the saved explored cells" % label.text)
     var before: String=label.text
     # Momentary sight and camera panning never count.
     var home: Vector2=sim.position_of(sim.state.player)
@@ -162,10 +164,10 @@ func explored_checks() -> void:
     check(SaveService.hard_reset() and sim.campaign.explored_percent(1)<=10,"Hard Reset starts the map over (%d%%)" % sim.campaign.explored_percent(1))
     sim.state.tutorial.mode="none";sim.suspended=false
     await frames(2)
-    # Placement: lower right, inside the map, clear of the joystick, minimap and the left HUD.
+    # Placement (Change 14): top right, between the zoom slider and the minimap, inside the map.
     var map: Control=game.get_node("Safe/Layout/Map")
     var rect:=label.get_global_rect()
-    check(map.get_global_rect().encloses(rect) and rect.end.x<=map.get_global_rect().end.x-12 and rect.end.y<=map.get_global_rect().end.y-12,"The label sits inside the map's lower-right corner, away from its edges")
+    check(map.get_global_rect().encloses(rect) and rect.end.x<=map.get_global_rect().end.x-12 and rect.position.y>=map.get_node("Zoom").get_global_rect().end.y and rect.end.y<=map.get_node("MiniMap").get_global_rect().position.y,"The label sits in the top-right map cluster, between zoom and minimap")
     for path in ["Joystick","MiniMap","FollowTracker","Zoom","EnemyUpgrades","Achievement"]:
         check(not rect.intersects(map.get_node(path).get_global_rect()),"It does not overlap %s" % path)
     check(label.mouse_filter==Control.MOUSE_FILTER_IGNORE,"It never takes touches")

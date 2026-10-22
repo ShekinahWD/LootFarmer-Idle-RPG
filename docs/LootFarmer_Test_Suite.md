@@ -1,4 +1,4 @@
-# LootFarmer — Test Suite (Change 13)
+# LootFarmer — Test Suite (Change 14)
 
 ## Maintained regression suite (gating)
 
@@ -6,7 +6,8 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 
 | Probe | Covers |
 |---|---|
-| validate_campaign_source.py | Catalog and source contracts, translations, every catalog tool's `--check` (1,343 checks) |
+| validate_campaign_source.py | Catalog and source contracts, translations, every catalog tool's `--check` (1,361 checks) |
+| change_14_probe | Top-right map cluster (order, chips, contrast, insets, gate count, explored percent), Missions badge against the Claim rules (ready objectives listed first, auto-claim, waiting slots, Hard Reset), rain splashes frozen at impact, the six skill effects for player and enemy casts (placement, layer, scale, real effect, cooldowns, one effect per boss attack), Reveal Stats / Reveal Drops on both enemy tabs, joystick contrast layers and unchanged input, one-time Focused Farming guidance (modes, exits, suspension) |
 | change_13_probe | Exact-identity Auto-Merge (sword and axe Wood→Stone, shared drops, outfits, skills, supplies), Auto Evolution (flat price, manual rule, one tier, own droppers, full inventory, save/Prestige/Hard Reset, panel), potion 12 s and floor, skill prices and cooldowns, next-stage guidance and discovery-only boss markers, currency format across surfaces, rainy-map overcast and world-anchored rain, summoned helpers (cap, no rewards, cleanup, never saved), final boss (Heal priority below 50%, attack pool, pace, summons) |
 | change_12_probe | Cyan Robot Heal (real HP, telegraph, cooldown, death, effects on the caster, heal numbers), map explored percent (source, rounding, vision/panning, map switch, placement), Settings copy and audio controls, audio categories/priority/cooldown/persistence, followed-step and mission cues once per transition, Merge All (purchase, rules, UI, save, Prestige, Hard Reset), stone-tier swing mapping, camera after Prestige, gem chance formula and prices |
 | change_12_smoke | Every Change 12 panel and action once on the real main scene |
@@ -23,7 +24,19 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 | bootstrap_probe | Boot, profile isolation and save-container basics |
 | change_8_walk_probe | Movement around solid scenery on every stage |
 
-Change 11 final run: 19 / 19 passed. Change 12 run: 21 / 21. **Change 13 run: 22 / 22** (`tools/run_probes.py`; change_10_probe and change_7_probe were updated first, see below).
+Change 11 final run: 19 / 19 passed. Change 12 run: 21 / 21. Change 13 run: 22 / 22. **Change 14 run: 23 / 23** (`tools/run_probes.py`; three stale contracts were updated first, see below).
+
+## Change 14 test updates
+
+One full maintained-suite run after the implementation: **23 / 23**. The three contracts below changed on purpose and were updated with the same intent before that run; none was a production regression.
+
+| Test | Change | Reason |
+|---|---|---|
+| change_5_probe | "Spell renders beneath actors" → Frost beneath, Lightning above, per `skill_effects.tres` | Change 14 per-effect layers (Lightning no longer hidden under its target). |
+| change_12_probe | Explored label placement: top-right cluster between zoom and minimap; "Map Explored"; Heal ring values read from the Heal style | Change 14 map cluster; self-effect values moved from `world.gd` exports to the resource (same numbers). |
+| change_13_probe | Gate label path `Row/Label`, "Next Stage"; boss wind-ups counted from `sim.skill_warning` | Change 14 chip and the separate wind-up signal (one warning plus one hit per action, as before). |
+| change_14_probe | New, in the suite (202 checks) | Change 14 contracts. |
+| change_14_capture | New, rendered | docs/Change_14_Evidence/ui/ (desktop evidence only). |
 
 ## Change 13 test updates
 
@@ -54,7 +67,7 @@ One full maintained-suite run after the implementation: 18 / 22 passed. The four
 |---|---|---|
 | change_9_balance | Passes | A balance fixture (deterministic duels); run it deliberately when combat numbers change. |
 | pacing_bot | Not run | Natural-pace benchmark (minutes per run); for pacing questions only. |
-| change_*_capture, change_6_before, change_8_stage_capture, stage_overview_capture | Not gating | Rendered evidence (screenshots); run with a window. |
+| change_*_capture (change_14_capture added), change_6_before, change_8_stage_capture, stage_overview_capture | Not gating | Rendered evidence (screenshots); run with a window. |
 | change_7_smoke, change_10_smoke | Pass | Superseded for build readiness by change_11_smoke; kept as history. |
 | audit_probe | Historical, fails | Calls the removed `sim.sell` (hangs on the script error). |
 | balance_probe | Historical, fails | Reads removed legacy items (`dinosaur`); superseded by change_9_balance. |

@@ -1,4 +1,4 @@
-"""Maintained LootFarmer regression suite (Change 11; Changes 12 and 13 added their probes). Runs each probe headless, one at a time
+"""Maintained LootFarmer regression suite (Change 11; Changes 12 to 14 added their probes). Runs each probe headless, one at a time
 (playbook 60.1), with a hard timeout, and counts a run as failed when it exits non-zero, times out
 or prints any SCRIPT ERROR (a script error aborts a probe's coroutine before it can quit).
 
@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GODOT = os.environ.get('GODOT', 'D:/Programs/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe')
 # name -> timeout in seconds
 SUITE = {
+    'change_14_probe': 300,
     'change_13_probe': 300,
     'change_12_probe': 300,
     'change_12_smoke': 180,
