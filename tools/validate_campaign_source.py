@@ -40,11 +40,21 @@ check('shared weapons: no enemy-specific weapon items',not any(re.fullmatch(r'un
 check('shared weapons: every group carries a Sword or Axe',all(c['items'][g['weapon']]['family'] in ('sword','axe') for g in c['groups']))
 check('legacy map targets exist',all(v in c['items'] for v in c.get('legacy_items',{}).values()))
 check('coin tonic duration authored',c['progression'].get('coin_boost_duration')==30.0)
-for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py']:
+# Change 9: outfit growth, milestones, passive shares and the Spring II correction.
+m=c['progression']['merge']
+check('outfit growth: ^500 cap, 1% per copy past ^100',m['copy_cap']==500 and m['linear_levels']==100 and m['outfit_tail_rate']==0.5)
+check('outfit merge gain is 2% of base',all(abs(i['merge_gain']['hp']-0.02*i['normal']['hp'][0])<1e-6 for i in c['items'].values() if i['kind']=='outfit'))
+check('outfit milestones ascend ^100..^500',[s_['merge'] for s_ in c['progression']['outfit_milestones']]==[100,200,300,400,500])
+check('stored shares: outfits 15%, weapons 30%',c['progression']['stored_outfit_factor']==0.15 and c['progression']['stored_weapon_factor']==0.3)
+spring=[g for g in c['groups'] if g['stage']==8]
+check('Spring II: Tier 5 normals, Tier 6 boss weapons, Tier 5 outfits',all(c['items'][g['weapon']]['tier']==(6 if g['boss'] else 5) and c['items'][g['loot'][1]]['tier']==5 and not c['items'][g['loot'][1]].get('legacy') for g in spring))
+check('final boss dedicated HP factor 18',c['progression']['balance']['final_hp']==18.0)
+check('dropped gear is never legacy',all(not c['items'][i].get('legacy') for g in c['groups'] for i in g['loot']))
+for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py']:
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}
-output=ROOT/'docs/Change_8_Evidence/static_checks.json'
+output=ROOT/'docs/Change_9_Evidence/static_checks.json'
 output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({k:report[k] for k in ['checks','failures']}))
 for item in checks:

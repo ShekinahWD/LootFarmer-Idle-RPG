@@ -91,26 +91,27 @@ func run() -> void:
     check(not SaveService.write_blocked and SaveService.save_now(),"Reset profile can save")
     var roundtrip=JSON.parse_string(JSON.stringify(sim.snapshot()));sim.restore(roundtrip)
     check(sim.state.schema==7 and not SaveService.write_blocked,"Current profile survives JSON round trip")
-    # Seeded loadout ceiling checks: no late-game numerical wall from old exponent.
-    fresh();sim.state.gear.resize(650);sim.state.gear.fill("");sim.state.player_level=350
-    for g in range(48):
-        var d=sim.catalog.groups[g]
-        for base in d.loot:
-            var id: String=base
-            while sim.catalog.items[id].next!="":id=sim.catalog.items[id].next
-            if sim.quantity(id)==0:sim.add_item(id,101);sim.merge(id,true)
-    sim.equip("obsidian_sword");sim.equip("boss-green-alien_outfit_t7");sim.touch()
+    # Change 9: realistic ceiling fixture. The old one equipped a legacy tier-7 outfit it never owned
+    # (the equip failed silently, so no outfit was worn) and obsidian weapons no enemy drops. Every item
+    # here must be dropped by an enemy (or be at most the best dropped weapon tier) and every equip must
+    # succeed before damage and survival are computed. Full duels: tests/change_9_balance.
+    fresh();sim.state.gear.resize(40);sim.state.gear.fill("");sim.state.player_level=240
+    var best_drop:=0
+    for d in sim.catalog.groups:best_drop=maxi(best_drop,int(sim.catalog.items[d.weapon].tier))
+    var loadout:=[["emerald_sword",50],["boss-sunflower_outfit_t5",300],["diamond_sword",100],["diamond_axe",100],["gold_sword",100],["gold_axe",100]]
+    for pair in loadout:
+        var id: String=pair[0];var e: Dictionary=sim.catalog.items.get(id,{})
+        var natural: bool=not e.is_empty() and not e.get("legacy",false) and (int(e.tier)<=best_drop if e.kind=="weapon" else sim.catalog.groups.any(func(d):return d.loot.has(id)))
+        check(natural and sim.add_item(id,1),"Ceiling item exists and is obtainable: "+id)
+        sim.record(id).merge=pair[1];sim.touch() # labelled: merge level
+    check(sim.equip("emerald_sword") and sim.state.weapon=="emerald_sword","Ceiling weapon equip succeeds")
+    check(sim.equip("boss-sunflower_outfit_t5") and sim.state.outfit=="boss-sunflower_outfit_t5","Ceiling outfit equip succeeds")
     var final=sim.catalog.groups[-1];var stats=sim.stats()
     var attack_dps=stats.damage*(1+stats.speed)*(1+stats.crit*(stats.crit_damage-1))
     var kill_seconds=final.hp/attack_dps
-    var incoming_dps=final.damage/2.0*100/(100+stats.defense)
-    print("BALANCE_CEILING final_hp=",final.hp," final_damage=",final.damage," player_hp=",stats.hp," player_damage=",stats.damage," basic_TTK=",kill_seconds," basic_survival=",stats.hp/incoming_dps)
-    # Change 7: the old ceiling stacked 34 functionally identical per-enemy weapon families at 30%
-    # each; with shared Sword/Axe ladders that breadth is gone, so this theoretical all-tier-7 loadout
-    # no longer reaches the 180 s target. It is reported for a developer decision (late-boss tuning),
-    # not asserted, until the final boss is retuned against the shared-weapon economy.
-    if not (kill_seconds<180 and stats.hp/incoming_dps>kill_seconds):print("DECISION_NEEDED all-gear final-boss ceiling: basic TTK %.0fs (target <180s), survival %.0fs" % [kill_seconds,stats.hp/incoming_dps])
-    check(kill_seconds<1200,"Final boss stays finite against the all-gear loadout (basic attacks)")
+    var incoming_dps=final.damage/2.0*100/(100+stats.defense)-stats.hp*stats.regen_pct
+    print("BALANCE_CEILING final_hp=",final.hp," final_damage=",final.damage," player_hp=",stats.hp," player_damage=",stats.damage," defense=",stats.defense," basic_TTK=",kill_seconds," basic_survival=",stats.hp/incoming_dps)
+    check(kill_seconds<600,"Final boss basic-attack TTK is finite with realistic gear (skills and cards not counted)")
     # All successor definitions, including migrated legacy identities, obey intrinsic ratio.
     for id in sim.catalog.items:
         var d=sim.catalog.items[id]

@@ -66,7 +66,7 @@ func merge_cap_checks() -> void:
     check(sim.merge("unit-blue-cap_outfit",true) and int(sim.record("unit-blue-cap_outfit").merge)==500,"Merge all reaches ^500")
     check(not sim.merge("unit-blue-cap_outfit"),"No merge past the cap")
     var hp: float=sim.normal("unit-blue-cap_outfit").hp
-    check(hp>45 and hp<60,"^500 outfit is bounded (%.1f HP, about 6.2x base)" % hp)
+    check(hp>55.9 and hp<60,"^500 outfit is bounded (%.1f HP: 7x base since Change 9, plus the spare-copy bonus)" % hp)
     check(str(sim.catalog.items["unit-blue-cap_outfit"].next)=="" and not sim.evolve("unit-blue-cap_outfit"),"Outfits do not evolve")
     check(sim.campaign.valid_snapshot(JSON.parse_string(JSON.stringify(sim.snapshot()))),"A ^500 save validates")
 

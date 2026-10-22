@@ -1,0 +1,18 @@
+BALANCE_ROW Bee first kill, Change 8 rules     loss      24s | boss left  70.6% | player left   0.0% | dmg   388 hp   2126 def   0 rec 0.00%/s
+BALANCE_ROW Bee first kill, Change 9           loss      28s | boss left  62.9% | player left   0.0% | dmg   388 hp   2078 def  12 rec 0.00%/s
+BALANCE_ROW Bee, elf-ears ^300, 4 cards        loss      42s | boss left  40.8% | player left   0.0% | dmg   447 hp   2683 def  12 rec 0.20%/s
+BALANCE_ROW Red Panda, sprout ^100             loss      30s | boss left  54.8% | player left   0.0% | dmg   935 hp   3767 def  15 rec 0.00%/s
+BALANCE_ROW Red Panda, sprout ^300             loss      44s | boss left  35.9% | player left   0.0% | dmg   935 hp   4866 def  15 rec 0.25%/s
+BALANCE_ROW Red Panda, sprout ^300, 6 cards    win       65s | boss left   0.0% | player left  63.0% | dmg   935 hp   4866 def  15 rec 0.25%/s
+BALANCE_ROW Red Panda, sprout ^500             win       65s | boss left   0.0% | player left  23.8% | dmg   935 hp   5833 def  50 rec 0.40%/s
+BALANCE_ROW Final, Sunflower outfit ^100       loss      38s | boss left  34.2% | player left   0.0% | dmg  1574 hp   6665 def  15 rec 0.00%/s
+BALANCE_ROW Final, Sunflower outfit ^300       win       58s | boss left   0.0% | player left  25.3% | dmg  1574 hp   9964 def  15 rec 0.25%/s
+BALANCE_ROW Final, ^300, no cards              loss      46s | boss left  44.6% | player left   0.0% | dmg  1369 hp   7664 def  15 rec 0.25%/s
+BALANCE_ROW Final, ^300, no skills             loss      66s | boss left  60.3% | player left   0.0% | dmg  1574 hp   9964 def  15 rec 0.25%/s
+BALANCE_ROW Final, ^300, stored weapons 15%    loss      62s | boss left   6.5% | player left   0.0% | dmg  1354 hp   9550 def  15 rec 0.25%/s
+BALANCE_ROW Final, Sunflower outfit ^500       win       58s | boss left   0.0% | player left  67.9% | dmg  1574 hp  12866 def  50 rec 0.40%/s
+WEAPON_SHARE level 225: damage 935 at 30%, 827 at 15% (11.6% less)
+WEAPON_SHARE level 240: damage 1574 at 30%, 1354 at 15% (13.9% less)
+LEVEL_FEASIBILITY level 225: 1.71M XP total, about 109 sprout kills (15750 XP each)
+LEVEL_FEASIBILITY level 240: 1.99M XP total, about 127 sprout kills (15750 XP each)
+CHANGE_9_BALANCE_CHECKS 35 FAILURES 0

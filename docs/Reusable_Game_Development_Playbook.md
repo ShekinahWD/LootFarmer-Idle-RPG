@@ -8465,3 +8465,24 @@ When identities should stay fixed (outfits, skills), replace successor evolution
 Reusable rule:
 
 > Save exploration, not sight; discover encounters per spot; sight landmarks from afar; make blockers editor content with walkable gaps and test them with the game's own mover; convert JSON ids to ints at load.
+
+---
+
+# 140. Late-game balance lessons (LootFarmer Change 9)
+
+## 140.1 A ceiling fixture must own, equip and verify
+
+A "maximum loadout" check is only as good as its fixture. LootFarmer's ceiling equipped an item it never added; the equip call failed silently, so the reported survival described a player with no outfit at all. It also used weapons no enemy drops. Make a ceiling fixture:
+
+- assert that every item exists, is obtainable (dropped by some enemy, not a legacy id, within the best drop tier) and was added;
+- assert that every equip call succeeded and the slot holds the expected id before computing anything;
+- reject impossible loadouts explicitly in a test, so a later edit cannot quietly reintroduce them.
+
+## 140.2 Measure fights with the real simulation
+
+Hand estimates of time-to-kill against survival count basic hits only. Boss skills, boss healing and the player's auto-cast skills changed the outcome by about 2×. A few short deterministic duels in the real simulation (one seed, at most a few hundred simulated seconds each, a watchdog timer so a script error cannot hang a headless run) are cheap and much more trustworthy than a long multi-seed campaign.
+
+## 140.3 Worn bonuses versus collection passives
+
+When many identities each contribute a passive share, the collection outweighs the worn item. Lower the passive share for broad collections (48 outfits), keep it for narrow ones (14 weapons), and put new power on the worn item as milestones that never stack across the collection. Prefer percentage effects (Defense through an existing reduction formula, regeneration as a share of max HP) and scale them by the item's tier, so they stay relevant late and cannot trivialise early content.
+

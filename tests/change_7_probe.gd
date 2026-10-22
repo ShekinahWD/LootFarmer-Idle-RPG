@@ -65,9 +65,11 @@ func shared_weapon_checks() -> void:
         var d: Dictionary=c.groups[g]
         var w: Dictionary=c.items[d.weapon]
         families[w.family]=true
-        # Change 8: bosses carry one tier above their stage's normal enemies.
-        if int(w.tier)!=1+(int(d.stage)-1)/2+(1 if d.boss else 0):bad+=1
-    check(bad==0 and families.keys().size()==2,"Every enemy carries a shared Sword or Axe of its stage tier (bosses +1, Change 8)")
+        # Change 8: bosses carry one tier above their stage's normal enemies. Change 9: Spring II is Tier 5.
+        var stage_tier: int=5 if int(d.stage)==8 else 1+(int(d.stage)-1)/2
+        if int(w.tier)!=stage_tier+(1 if d.boss else 0):bad+=1
+    check(bad==0 and families.keys().size()==2,"Every enemy carries a shared Sword or Axe of its stage tier (bosses +1, Change 8; Spring II Tier 5, Change 9)")
+    bad=0
     check(c.groups[sim.campaign.group_id("unit-red-scarf")].weapon=="wood_sword" and c.groups[sim.campaign.group_id("unit-blue-cap")].weapon=="wood_sword","Red Scarf and Blue Cap carry the same Wood Sword")
     var chain: Array=[];var id:="wood_sword"
     while id!="":chain.append(id);id=c.items[id].next
