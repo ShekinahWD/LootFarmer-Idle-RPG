@@ -83,3 +83,9 @@ Per-encounter consumable restriction records first hostile contact, clears on de
 - **Merges:** `merge_cap(id)` is 500 for outfits and skills (`copy_growth`) and 100 otherwise. `merge_levels()` is linear to 100; past it, outfits add `outfit_tail_rate` (0.5) levels per copy (Change 9) and skills follow the logarithmic tail. The merge level is clamped to the item's cap. The stock bonus applies at the item's own cap. Validation uses the per-item cap. Outfits and skills never evolve (`next` empty); legacy evolved tiers stay valid items.
 - **Prestige keep list** adds `skills_seen`.
 - **Migration:** see docs/LootFarmer_Change_8_Notes.md, section Saves. Older current-schema saves derive the three new fields on load and are never reset for them.
+
+## Change 10
+
+- `gear` has exactly 3 + `upgrades.gear_slots` entries (at most 70); `valid_snapshot` requires it and `normalize_snapshot` enforces it (campaign.clamp_equipment_slots). Development saves need no migration (Playbook §61.1).
+- The Farming Guide stores nothing: entries derive from `upgrades.map_detail:<stage>` (reset by prestige), `reveal_stats` / `reveal_drops` (kept) and `discovered` / `discovered_spots` (reset by prestige). Its open map is session UI state.
+- Outfit slot looks derive from `items[id].merge`; nothing new is saved.

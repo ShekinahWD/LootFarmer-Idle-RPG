@@ -8,7 +8,7 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 
 | Runtime id | Scope | Currency | Ranks | Keep at prestige | Base / growth or list |
 |---|---|---|---:|---|---|
-| gear_slots | global | gems | 646 | Keep | 10 / 1 |
+| gear_slots | global | gems | 67 (70 slots, Change 10) | Keep | 5 + level |
 | supply_slots | global | gems | 13 | Keep | 8 / 1 |
 | collect | type | coins | 1 | Keep | 20 / 1 |
 | collect_range | type | coins | 4 | Keep | 30 / 1.5 |
@@ -30,7 +30,7 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | supply_drop | type | coins | 15 | Reset | 20 / 1.35 |
 | group_xp | type | coins | 20 | Reset | 25 / 1.4 |
 | boss_gem_chance | global | gems | 8 | Reset | [100, 150, 225, 325, 450, 600, 800, 1000] |
-| boss_gem_amount | global | gems | 10 | Reset | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500] |
+| boss_gem_amount | global | gems | 10 | Reset | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500] (+1 boss gem per level, added after the boss ×3; Change 10) |
 | spawn_amount | normal_type | gems | 3 | Reset | [150, 250, 400] |
 | spawn_cooldown | normal_type | gems | 5 | Reset | [100, 175, 275, 400, 550] |
 | movement | global | coins | 10 | Reset | 40 / 1.65 |
@@ -100,3 +100,5 @@ Prices are data: `prices` list, `step` (linear: base + step × level), `sequence
 | map_detail | sequence: max(60 × 1.3^k, 40 × 2^(stage−1)) coins |
 
 Skill cooldown upgrades for a skill appear only after that skill was obtained once (`skills_seen`); skill slot and auto-cast upgrades need any skill. Hidden upgrades also refuse purchases (`UNDISCOVERED`).
+
+**Change 10:** Gear capacity caps at 67 purchases (70 equipment slots); loading clamps the level to the cap and the equipment row to 3 + purchases (surplus empty slots go first; items that still do not fit are dropped with their record). Boss Gem payout per successful roll = (3 × (1 + 0.5 × Gem Amount) + Boss Gem Amount) × (1 + boss Gem card). The Farming Guide opens a map's entry at Map Details 3/3 with Reveal Stats and Reveal Drops on every type of that map.

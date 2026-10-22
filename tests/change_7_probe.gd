@@ -82,9 +82,8 @@ func shared_weapon_checks() -> void:
     for legacy in c.legacy_items:
         if not c.items.has(c.legacy_items[legacy]):bad+=1
     check(bad==0 and c.legacy_items.has("unit-red-scarf_weapon"),"Every removed id maps to a current item")
-    var gear:=0
-    for item in c.items.values():if item.kind!="consumable":gear+=1
-    check(int(c.upgrades.gear_slots.cap)+3==gear,"Gear slot cap still holds every gear item")
+    # Change 10: exactly 70 equipment slots, enough for every reachable identity (change_10_probe).
+    check(int(c.upgrades.gear_slots.cap)+3==70,"Equipment slot cap is 70 (Change 10)")
     # Auto-merge finds a type for shared weapons and tiered outfits.
     fresh();sim.state.gems=1000000;sim.state.discovered["0"]=true;sim.buy_upgrade("merge_gear",0)
     check(sim.gear_group("wood_sword")==0 and sim.gear_group("unit-blue-cap_outfit_t3")==0 and sim.can_auto_merge("wood_sword"),"Auto merge covers shared weapons and every outfit tier")
@@ -166,10 +165,10 @@ func prestige_checks() -> void:
     game._close()
     game._refresh_badges()
     var nav: Button=game.dock.get_node("Navigation/Prestige")
-    # Change 8 replaced the Winter II gate with the first boss (Snowman).
-    check(nav.text.contains(tr("NAV_PRESTIGE_LOCKED")),"Gated Prestige button names its requirement: "+nav.text.replace("\n"," | "))
+    # Change 10: the button is plain navigation before and after the Snowman (the gate is in the panel).
+    check(nav.text in ["NAV_PRESTIGE",tr("NAV_PRESTIGE")],"Prestige button stays plain before the first boss")
     sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1;game._refresh_badges()
-    check(nav.text==tr("NAV_PRESTIGE"),"Ungated Prestige button returns to its plain label")
+    check(nav.text in ["NAV_PRESTIGE",tr("NAV_PRESTIGE")],"Prestige button unchanged after the first boss")
     await frames(2)
     check(nav.get_combined_minimum_size().y<=nav.custom_minimum_size.y+12,"Gate label keeps the navigation height")
 
