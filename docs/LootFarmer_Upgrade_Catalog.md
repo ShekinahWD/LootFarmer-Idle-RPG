@@ -1,10 +1,23 @@
-# LootFarmer — Upgrade Catalog — Change 20
+# LootFarmer — Upgrade Catalog — Change 21
 
-## Change 20 — current authority (27 October 2026)
+## Change 21 — current corrections (27 October 2026)
+
+Built on the exact delivered Change 20 project; application/Android version is 21 and save schema remains 8. See [Change 21 report](LootFarmer_Change_21_Report.md) for the complete correction checklist and validation.
+
+- Guided Missions unlock 60 active gameplay seconds after the first merge. Inventory expansion now explicitly points to Close before teaching potions. Already advanced saves do not repeat the new close step.
+- Auto-merge item controls appear only with the applicable purchased upgrade, and remain available when excluded.
+- Supplies support six total slots (one initial plus five purchases). Small shows 3 columns × 2 rows, Medium 2 × 2 visible, Large one visible; the viewport stays fixed. Gear and Supply headings and slot rows align.
+- Missions, Mastery, Filters, Prestige and Upgrades show visible scrollbars on overflow. Claim has a compact, centered height.
+- Mission/Prestige followers stack just above the joystick. The farming objective is larger and padded; boss countdowns show only seconds.
+- Prestige opportunities are grouped by relevant unlocked maps with discovered/total counters, followed by General, Owned Cards and Card Sets. Objectives spanning multiple maps appear in each relevant section. General contains offline, merging, arsenal, offering and mission objectives.
+- Expanded map camps are visible without Map Details and support release-to-travel with larger icons/hit areas. Camp-list buttons remain. Combat restrictions still apply.
+
+
+## Change 20 — previous delivery (27 October 2026)
 
 The full 22-section **Remaining Features, UI & Tutorial** brief is implemented, including interfaces. It supersedes the earlier gameplay-only scope and handoff to Claude. Application/Android version is 20; save schema remains 8. See [Change 20 implementation and acceptance report](LootFarmer_Change_20_Report.md) and [current test suite](LootFarmer_Test_Suite.md). Earlier numbered change descriptions are historical evidence, not conflicting current instructions.
 
-Guided onboarding follows saved action outcomes and 120/60-second active-play delays, teaches physical camp purchase, boss preparation, inventory expansion and potion use, and ends in Winter II after a five-second visible-message delay and acknowledgement. Only Guided mode has the tutorial Prestige gate. Slots have saved Small/Medium/Large controls in Filters and Settings. Item details expose Auto-merge On/Off. Prestige keeps player level and XP, but resets Supply Mastery and partial use progress. World stage selection travels directly for one unlocked camp or shows a visual camp map for multiple camps. Map markers, trackers, mission layout and boss discovery/countdown presentation are integrated. All offensive skills (including Focus) require combat and an eligible target within the configurable 64-unit activation distance; Heal needs missing HP and works outside combat. Boss Gem previews include the existing base once.
+Guided onboarding follows saved action outcomes and 60/60-second active-play delays, teaches physical camp purchase, boss preparation, inventory expansion and potion use, and ends in Winter II after a five-second visible-message delay and acknowledgement. Only Guided mode has the tutorial Prestige gate. Slots have saved Small/Medium/Large controls in Filters and Settings. Item details expose Auto-merge On/Off. Prestige keeps player level and XP, but resets Supply Mastery and partial use progress. World stage selection travels directly for one unlocked camp or shows a visual camp map for multiple camps. Map markers, trackers, mission layout and boss discovery/countdown presentation are integrated. All offensive skills (including Focus) require combat and an eligible target within the configurable 64-unit activation distance; Heal needs missing HP and works outside combat. Boss Gem previews include the existing base once.
 
 **Change 16 map pricing and Gem collection:** every Coin price tied to an enemy type, a map or a camp scales by `progression.map_cost_growth`^(map−1) = **1.55** per map (was 2): all `type` / `normal_type` Coin upgrades, `reveal_radius`, `camp_radius`, the `map_detail` floor and camp unlocks (50 / 150 × 1.55^(map−1)). Each upgrade keeps its own base and level growth; `global` Coin upgrades and every Gem price are unchanged (`campaign.map_cost_factor`). The base Coin reward per kill grows 1.5 per map, so each map costs about 3% more relative to its income than the one before. **Auto-Collect** (`collect`) is now bought with **Gems**: 20 on Winter I. **Collect Batch** (`collect_batch`) is bought with **Gems**: 50 × 3^level on Winter I (50 / 150 / 450 / 1,350 / 4,050), limit 5 levels. Both use the Gem map factor 1 + 0.25 × (map − 1) and are kept by Prestige like every Gem upgrade; levels bought with Coins before Change 16 keep their level. Owned by `tools/change16_catalog.py`. The table rows below for `collect` and `collect_batch` are the Change 6 history.
 
@@ -24,7 +37,7 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | Runtime id | Scope | Currency | Ranks | Keep at prestige | Base / growth or list |
 |---|---|---|---:|---|---|
 | gear_slots | global | gems | 67 (70 slots, Change 10) | Keep | 5 + level |
-| supply_slots | global | gems | 4 (5 slots, Change 11) | Keep | 4 + 4 × level |
+| supply_slots | global | gems | 5 (6 slots, Change 21) | Keep | 4 + 4 × level |
 | collect | type | coins | 1 | Keep | 20 / 1 |
 | collect_range | type | coins | 4 | Keep | 30 / 1.5 |
 | collect_batch | type | coins | 5 | Keep | 30 / 1.5 |

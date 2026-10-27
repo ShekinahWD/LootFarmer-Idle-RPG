@@ -1,0 +1,153 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+  ok  Winter II has the Cyan Robot boss with Heal as its only skill
+  ok  At full HP the robot shows no Heal effect and gains nothing for 6 s (was a telegraphed effect every 1.6 s)
+  ok  At 85% HP (Heal needs below 80%) still no effect
+  ok  Wounded: the 0.6 s telegraph starts with no effect yet
+  ok  Heal restores exactly 8% of max HP (87.7) and reports that amount
+  ok  One Heal effect plays, at the moment HP is restored
+  ok  Heal goes on its cooldown (12 s for the Cyan Robot since Change 16)
+  ok  No second heal during the cooldown
+  ok  A robot killed during the telegraph never heals
+  ok  Player Heal at full HP does nothing and shows nothing
+  ok  Player Heal restores min(power, 30% max HP, missing) with one effect
+  ok  A refused Heal cast does not consume its cooldown
+  ok  The Heal effect is a child of the caster's view, ring on the feet
+  ok  The effect moves with the caster
+  ok  A healing number is green, signed + and larger than damage
+  ok  Winter I denominator is its fog grid (1600 cells)
+  ok  Label reads "Map Explored: 7%" from the saved explored cells
+  ok  fixture: a cell in momentary sight is not explored
+  ok  Panning the camera and seeing farther leave the percent unchanged
+  ok  Newly explored cells raise it (Map Explored: 7% → Map Explored: 19%)
+  ok  World / Regional progress reports the same percent
+  ok  Fully explored reads 100%
+  ok  One cell short reads 99% (rounded down)
+  ok  Nothing explored reads 0%
+  ok  Switching map shows that map's own percent
+  ok  Hard Reset starts the map over (7%)
+  ok  The label sits in the top-right map cluster, between zoom and minimap
+  ok  It does not overlap Joystick
+  ok  It does not overlap MiniMap
+  ok  It does not overlap FollowTracker
+  ok  It does not overlap Zoom
+  ok  It does not overlap EnemyUpgrades
+  ok  It does not overlap Achievement
+  ok  It never takes touches
+  ok  Settings shows no font or premium-game copy
+  ok  Credits, Hard Reset and language controls remain
+  ok  Music and Sound effects sliders run 0–100
+  ok  Two independent mute toggles
+  ok  The music slider sets the music volume and its label
+  ok  Sound effects at 0 silences both categories
+  ok  Mute gameplay toggles only gameplay
+  ok  No premium/font copy left in the English strings
+  ok  ui_click is a gameplay sound
+  ok  ui_confirm is a gameplay sound
+  ok  spell_heal is a gameplay sound
+  ok  spell_frost is a gameplay sound
+  ok  spell_fire is a gameplay sound
+  ok  spell_lightning is a gameplay sound
+  ok  spell_focus is a gameplay sound
+  ok  spell_strike is a gameplay sound
+  ok  mission_ready is a special sound
+  ok  prestige_step is a special sound
+  ok  prestige_discovered is a special sound
+  ok  prestige_ready is a special sound
+  ok  stage_unlocked is a special sound
+  ok  prestiged is a special sound
+  ok  Every cue and the music track have an assigned stream; music is requested
+  ok  Skill heal has a cast sound
+  ok  Skill frost has a cast sound
+  ok  Skill fire has a cast sound
+  ok  Skill lightning has a cast sound
+  ok  Skill focus has a cast sound
+  ok  Skill strike has a cast sound
+  ok  Prestige discovered, followed step and mission ready share the mission-ready sound (Change 15)
+  ok  A click plays
+  ok  Mute gameplay silences a click
+  ok  …but a special sound still plays
+  ok  Mute special silences a special sound
+  ok  …but gameplay sounds still play
+  ok  A click and a confirm in one frame: only the confirm plays
+  ok  Step + ready in one frame: one cue (ready)
+  ok  With special muted, the audible gameplay cue still plays instead
+  ok  A cue cannot repeat within its cooldown
+  ok  Save with audio settings written
+  ok  Volumes and both mutes load back from disk
+  ok  The settings record holds the two mutes
+  ok  Prestige keeps audio settings
+  ok  Hard Reset keeps settings (existing policy)
+  ok  Loaded values are clamped; missing mutes default to off
+  ok  Following an opportunity sets a baseline without a sound
+  ok  No cue while the step is still counting (99/100)
+  ok  Completing step 1 emits exactly one notice, at the transition
+  ok  …which plays the step cue even with gameplay sounds muted
+  ok  More kills of the finished step and repeated refreshes add nothing
+  ok  Loading the save (a new session) does not re-announce the step
+  ok  Step 2 emits one more
+  ok  The final step completes the opportunity: one notice
+  ok  …and one sound for it (ready outranks the step cue)
+  ok  Steps of an opportunity you do not follow are silent
+  ok  A collection step (one outfit complete) emits one notice
+  ok  A mission reaching its goal emits one notice (not per kill)
+  ok  With auto-claim active no mission sound is requested
+  ok  A newly discovered Prestige plays the discovery cue once
+  ok  Merge All: one 5,000-Gem global unlock, kept by Prestige
+  ok  Locked: Merge All does nothing
+  ok  Locked: Filters explains where to unlock it
+  ok  Upgrades > Inventory lists Merge All with its description
+  ok  4,999 gems cannot buy it
+  ok  5,000 gems unlock it
+  ok  It cannot be bought twice
+  ok  Eligible spare copies counted: 5 + 4 + 2
+  ok  Filters shows "Merge All · 11 spare copies"
+  ok  One tap performs every eligible merge exactly as manual Merge would
+  ok  Single copies and capped weapons are untouched; nothing evolves
+  ok  Supplies: stock and mastery untouched
+  ok  Using it costs nothing
+  ok  Merge progress counts the 11 merged copies once
+  ok  One aggregate notice and one confirm sound
+  ok  With nothing left the button is disabled: Nothing to merge
+  ok  Timed gear auto-merge is a separate purchase, still not owned
+  ok  Save written
+  ok  The unlock loads back from disk
+  ok  Prestige keeps Merge All
+  ok  …and it still works for free after Prestige
+  ok  Hard Reset removes it
+  ok  The Winter I Snowman carries and drops the Stone Axe (the live id, not Iron Axe)
+  ok  Stone Axe swings with the Iron set sheet and a warm-gray tint (was the dark Onix sheet)
+  ok  Gray-stone icon and the new swing are warm; the old Onix swing is blue (warmth icon 0.10, new 0.04, Onix -0.08)
+    info: brightness icon 0.38, new swing 0.66, Onix 0.49 (swing frames include a white trail)
+  ok  Every axe and sword tier swings with its own set's sheet; only the stone tier is tinted []
+  ok  Player: stone-axe swing sheet and tint applied to the attack sprite only
+  ok  The held weapon is the item's own icon, untinted
+  ok  Snowman: the same swing sheet and tint
+  ok  Iron Axe keeps the untinted Iron set swing
+  ok  Presentation only: no timing or damage fields added
+  ok  fixture: camera dragged far from the player
+  ok  Opening the Prestige panel does not move the camera
+  ok  Prestige restores follow mode and clears the drag
+  ok  The camera is centred on the newly spawned player a few frames later
+  ok  Zoom is unchanged (2.6)
+  ok  Gem Chance prices for levels 1–12 unchanged
+  ok  Levels 13–20 cost 560, 660, 770, 890, 1,020, 1,160, 1,310, 1,470
+  ok  20 levels of +0.5 points, prices strictly rising
+  ok  No 20% / 60% caps in the catalog
+  ok  Base chance 5% for normal and boss rolls
+  ok  Level 20: +10 points (15%)
+  ok  Level 12 is no longer a maximum
+  ok  Gem Wisdom still adds +5 points with the upgrade maxed (20%)
+  ok  Kill achievements: 8 milestones, +4 points (unchanged)
+  ok  Fully stacked normal enemy: 24% (old cap 20% would have hidden 4 points)
+  ok  Boss Gem Chance unchanged: 8 × +5 points, same prices
+  ok  Fully stacked boss: 64% (old cap 60%)
+  ok  The drop roll uses the same value (0.235 observed)
+  ok  Gem chance stacks further cards without a ceiling (0.69)
+  ok  Probability stays within 0–100%
+  ok  Boss gem amount still 3× the normal amount
+  ok  Gem Wisdom text: +5 points, no "up to 20%"
+  ok  Prestige card headline shows +5 pts
+  ok  Gem Chance card previews the 0.5-point step (… → 19.5%%)
+  ok  Gem Chance card shows level 20 / 20 at the maximum
+CHANGE_12_CHECKS 149 FAILURES 0

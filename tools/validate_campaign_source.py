@@ -15,7 +15,7 @@ check('selling absent from item and upgrade definitions',not any('sell' in k.low
 sys.path.insert(0,str(ROOT/'tools'))
 import change10_catalog
 check('equipment capacity is 70 and holds every reachable identity',c['upgrades']['gear_slots']['cap']+3==70 and len(change10_catalog.reachable_equipment(c))<=70)
-check('supply capacity equals the supply identities (Change 11: 1 + 4 = 5)',c['upgrades']['supply_slots']['cap']+1==sum(i['kind']=='consumable' for i in c['items'].values())==5)
+check('supply capacity is six total slots',c['upgrades']['supply_slots']['cap']+1==6)
 check('boss Gem payout multiplier',c['progression']['gem_limits'].get('boss_amount_multiplier')==3)
 check('automerge nine reductions from ten to one',c['upgrades']['gear_merge_speed']['cap']==9)
 check('eight baked stage scenes',all((ROOT/f'scenes/game/stages/stage_{i}.tscn').is_file() for i in range(1,9)))
@@ -111,7 +111,7 @@ for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/s
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}
-output=ROOT/'docs/Change_20_Evidence/static_checks.json'
+output=ROOT/'docs/Change_21_Evidence/static_checks.json'
 output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({k:report[k] for k in ['checks','failures']}))
 for item in checks:

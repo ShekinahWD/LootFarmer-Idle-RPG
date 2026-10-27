@@ -27,10 +27,10 @@ func _draw() -> void:
     for i in range(d.spawns.size()):
         var at:=rect.position+Vector2(d.spawns[i][0],d.spawns[i][1])*factor
         var owned: bool=sim.state.camps.get(str(stage_id),[0]).has(i)
-        draw_circle(at,25,Color(.12,.18,.2))
-        draw_texture_rect(CAMP,Rect2(at-Vector2.ONE*20,Vector2.ONE*40),false,Color.WHITE if owned else Color(.35,.35,.35))
-        draw_arc(at,25,0,TAU,32,Color(.5,1,.7) if owned else Color(.5,.5,.5),2)
-        draw_string(get_theme_default_font(),at+Vector2(-4,37),str(i+1),HORIZONTAL_ALIGNMENT_LEFT,-1,16)
+        draw_circle(at,44,Color(.12,.18,.2))
+        draw_texture_rect(UiArt.cropped(CAMP),Rect2(at-Vector2.ONE*40,Vector2.ONE*80),false,Color.WHITE if owned else Color(.35,.35,.35))
+        draw_arc(at,44,0,TAU,32,Color(.5,1,.7) if owned else Color(.5,.5,.5),2)
+        draw_string(get_theme_default_font(),at+Vector2(-4,59),str(i+1),HORIZONTAL_ALIGNMENT_LEFT,-1,16)
 
 var press_at:=Vector2.INF
 var press_finger:=-2
@@ -60,6 +60,6 @@ func _choose_at(point: Vector2) -> void:
     var rect:=map_rect()
     for i in sim.state.camps.get(str(stage_id),[0]):
         var at:=rect.position+Vector2(d.spawns[int(i)][0],d.spawns[int(i)][1])*(rect.size.x/float(d.size[0]))
-        if at.distance_to(point)<=32:
+        if at.distance_to(point)<=48:
             if sim.campaign.travel_reason(stage_id,int(i)).is_empty():chosen.emit(int(i))
             accept_event();return

@@ -9,6 +9,7 @@ extends Control
 ## carries a weapon, a skill badge (top right) on skill spots, and a dimmed portrait on weapon-only
 ## spots, whose enemies do not wear (or drop) the outfit.
 signal selected(group: int,variant: int)
+signal camp_selected(camp: int)
 signal open_map
 @export var mini: bool=false
 ## Marker side as a share of the on-map distance between neighbouring spots, and its limits.
@@ -137,7 +138,9 @@ func _draw() -> void:
         draw_rect(Rect2(rect.position+pos*scale_factor,Vector2.ONE*cell*scale_factor),Color(.28,.4,.32))
     for i in range(sim.campaign.stage().spawns.size()):
         var point=sim.campaign.stage().spawns[i];var pos=Vector2(point[0],point[1])
-        if sim.campaign.camp_known(i):draw_texture_rect(CAMP,Rect2(rect.position+pos*scale_factor-Vector2.ONE*6,Vector2.ONE*12),false,Color.WHITE if sim.state.spawns.has(i) else Color(.55,.55,.55))
+        if sim.campaign.camp_known(i) or sim.state.spawns.has(i):
+            var side:=24.0
+            draw_texture_rect(UiArt.cropped(CAMP),Rect2(rect.position+pos*scale_factor-Vector2.ONE*side*.5,Vector2.ONE*side),false,Color.WHITE if sim.state.spawns.has(i) else Color(.55,.55,.55))
     var rank=sim.level("map_detail",int(sim.state.stage))
     if rank>0:
         var side:=marker_side(scale_factor)
@@ -177,16 +180,46 @@ func _gate_badge(g: int,box: Rect2) -> void:
     draw_rect(b,Color(0,0,0,.65))
     draw_texture_rect(CAMP,b,false,GATE_COLOR)
 const GATE_COLOR:=Color(1,.84,.34)
+var press_at:=Vector2.INF
+var press_finger:=-2
+var dragged:=false
+
 func _gui_input(event: InputEvent) -> void:
-    if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
-        if mini:open_map.emit();accept_event();return
-        var rect=transform_rect()
-        if not rect.has_point(event.position) or sim.level("map_detail",int(sim.state.stage))<2:return
-        var scale_factor=rect.size.x/float(sim.catalog.world.size[0])
-        # Only drawn (found) spots are candidates; the nearest one within reach wins.
-        var reach:=maxf(20.0,marker_side(scale_factor)*.75)
-        var best: Array=[]
-        for entry in spots(rect,scale_factor):
-            var d: float=entry[2].distance_to(event.position)
-            if d<reach and (best.is_empty() or d<best[2].distance_to(event.position)):best=entry
-        if not best.is_empty():selected.emit(best[0],best[1]);accept_event()
+    if event is InputEventScreenDrag and event.index==press_finger:
+        dragged=dragged or event.position.distance_to(press_at)>12;return
+    if event is InputEventMouseMotion and press_finger==-1:
+        dragged=dragged or event.position.distance_to(press_at)>12;return
+    var finger:=-2
+    if event is InputEventScreenTouch:finger=event.index
+    elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
+        if press_finger>=0:return
+        finger=-1
+    else:return
+    if event.pressed:
+        press_at=event.position;press_finger=finger;dragged=false;return
+    if finger!=press_finger or press_at==Vector2.INF:return
+    var tap: bool=not dragged and event.position.distance_to(press_at)<=12
+    press_at=Vector2.INF;press_finger=-2
+    if tap:_choose_at(event.position)
+
+func _choose_at(point: Vector2) -> void:
+    if mini:open_map.emit();accept_event();return
+    var rect:=transform_rect()
+    var factor: float=rect.size.x/float(sim.catalog.world.size[0])
+    var nearest:=-1
+    var distance:=32.0
+    for i in sim.state.spawns:
+        var pos: Array=sim.campaign.stage().spawns[int(i)]
+        var at:=rect.position+Vector2(pos[0],pos[1])*factor
+        var d:=at.distance_to(point)
+        if d<distance:nearest=int(i);distance=d
+    if nearest>=0:
+        if sim.campaign.travel_reason(int(sim.state.stage),nearest).is_empty():camp_selected.emit(nearest)
+        accept_event();return
+    if not rect.has_point(point) or sim.level("map_detail",int(sim.state.stage))<2:return
+    var reach:=maxf(20.0,marker_side(factor)*.75)
+    var best: Array=[]
+    for entry in spots(rect,factor):
+        var d: float=entry[2].distance_to(point)
+        if d<reach and (best.is_empty() or d<best[2].distance_to(point)):best=entry
+    if not best.is_empty():selected.emit(best[0],best[1]);accept_event()

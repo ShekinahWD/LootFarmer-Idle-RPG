@@ -5571,7 +5571,7 @@ msgid "TRAVEL_MAP_HELP"
 msgstr "Tap a green camp to travel. Dim camps are locked. Travel is unavailable during combat."
 
 msgid "BOSS_RESPAWN_TIME"
-msgstr "Respawn: %ds"
+msgstr "%ds"
 
 msgid "PRESTIGE_TUTORIAL_LOCKED"
 msgstr "Complete Guided onboarding in Winter II before using Prestige."
@@ -5625,7 +5625,7 @@ msgid "GUIDE_BOSS_FARM"
 msgstr "Farm a few more enemies."
 
 msgid "GUIDE_BOSS_FARM_DETAIL"
-msgstr "Build strength and gather Coins before learning inventory expansion and potions."
+msgstr "Build strength and gather Coins before moving on."
 
 msgid "GUIDE_POTION_BUY"
 msgstr "Buy a Health Potion."
@@ -5701,3 +5701,6 @@ msgstr "Medium"
 
 msgid "SLOT_LARGE"
 msgstr "Large"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "General"

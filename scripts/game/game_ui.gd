@@ -189,6 +189,10 @@ func _ready() -> void:
     $PrestigeConfirm.confirmed.connect(func()->void:_confirmed(sim.campaign.begin_prestige()))
     $Safe/Layout/Map/ViewCamp.text=tr("VIEW_CAMP")
     $Safe/Layout/Map/Objective/Text.text=tr("OBJECTIVE_WINTER_BOSS")
+    var objective_style: StyleBox=$Safe/Layout/Map/Objective.get_theme_stylebox("panel").duplicate()
+    objective_style.content_margin_left=10;objective_style.content_margin_right=10
+    objective_style.content_margin_top=8;objective_style.content_margin_bottom=8
+    $Safe/Layout/Map/Objective.add_theme_stylebox_override("panel",objective_style)
     _settle_camp()
     $Confirm/Panel/Margin/Content/Actions/Confirm.pressed.connect(func()->void:
         var action:=confirm_action
@@ -387,19 +391,19 @@ func _refresh_mission_tracker() -> void:
     if icon.texture!=art:icon.texture=art
     if tracker.mouse_filter!=Control.MOUSE_FILTER_STOP:tracker.mouse_filter=Control.MOUSE_FILTER_STOP
 
-## Both trackers share the bottom-right corner: the Prestige tracker at the bottom, the mission
-## tracker stacked above it (or alone at the bottom). Each grows upward with its text.
+## Trackers grow upward just above the joystick, with mission above Prestige.
 func _layout_trackers() -> void:
     var map: Control=$Safe/Layout/Map
-    var anchor: Control=$Safe/Layout/Map/EnemyUpgrades
-    var y:=anchor.position.y+anchor.size.y+10
+    var joystick: Control=$Safe/Layout/Map/Joystick
+    var y: float=joystick.position.y-12
     var width:=minf(360,map.size.x-32)
-    for tracker in [$Safe/Layout/Map/MissionTracker,$Safe/Layout/Map/FollowTracker]:
+    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker]:
         if not tracker.visible:continue
         tracker.set_anchors_preset(Control.PRESET_TOP_LEFT)
         tracker.size=Vector2(width,tracker.get_combined_minimum_size().y)
-        tracker.position=Vector2(clampf(anchor.position.x,16,map.size.x-width-16),y)
-        y+=tracker.size.y+10
+        y-=tracker.size.y
+        tracker.position=Vector2(16,y)
+        y-=10
 
 ## Change 16: a compact Map Mastery summary for the current map above Map Explored ("Mastery 34% ·
 ## 2/5"); a tap opens that map's Mastery page. It comes with Map Mastery (revealed with Prestige).
@@ -442,7 +446,7 @@ func _open_equipped(kind: String) -> void:
     selected_slot=-1
     _open("item")
 
-## Followed Prestige opportunity below contextual Upgrades (Change 20): name, icon and
+## Followed Prestige opportunity above the joystick (Change 21): name, icon and
 ## what to do next with progress (campaign.follow_summary).
 func _refresh_follow_tracker() -> void:
     var tracker: Control=$Safe/Layout/Map/FollowTracker
@@ -656,14 +660,23 @@ func _layout_inventory() -> void:
     var inventory: Control=dock.get_node("Inventory")
     var gear_width: float=inventory.get_node("GearColumn/GearScroll").size.x
     var supply_width: float=inventory.get_node("SupplyColumn/SupplyScroll").size.x
+    if gear_width<48 or supply_width<48:return # wait for the containers to receive their first layout
+    var head: Control=inventory.get_node("GearColumn/Head")
+    inventory.get_node("SupplyColumn/SupplyHeading").custom_minimum_size.y=head.get_combined_minimum_size().y
     var gap: int=inventory.get_node("GearColumn/GearScroll/Gear").get_theme_constant("h_separation")
     var large:=maxf(48,floorf((gear_width-12-2*gap)/3.0))
     var desired: int=[6,4,3][SettingsState.inventory_zoom]
-    var side:=maxf(48,floorf((gear_width-12-(desired-1)*gap)/desired))
+    var gear_side:=maxf(48,floorf((gear_width-18-(desired-1)*gap)/desired))
     for path in ["GearColumn/GearScroll/Gear","SupplyColumn/SupplyScroll/Supplies"]:
         var grid: GridContainer=inventory.get_node(path)
         var width: float=gear_width if path.begins_with("Gear") else supply_width
-        grid.columns=maxi(1,floori((width-12+grid.get_theme_constant("h_separation"))/(side+grid.get_theme_constant("h_separation"))))
+        var side: float=gear_side
+        if path.begins_with("Supply"):
+            var columns: int=[3,2,1][SettingsState.inventory_zoom]
+            side=floorf((width-18-(columns-1)*gap)/columns)
+            grid.columns=columns
+        else:
+            grid.columns=maxi(1,floori((width-18+gap)/(side+gap)))
         for slot in grid.get_children():
             slot.custom_minimum_size=Vector2(side,side)
             var ratio:=side/100.0
@@ -676,7 +689,7 @@ func _layout_inventory() -> void:
             slot.get_node("Badge").offset_bottom=24*ratio
     # Zoom changes the grid density, never the enclosing dock or its scrolling viewport.
     for path in ["GearColumn/GearScroll","SupplyColumn/SupplyScroll"]:
-        inventory.get_node(path).custom_minimum_size.y=large+12
+        inventory.get_node(path).custom_minimum_size.y=maxf(large+12,supply_width-18)
 
 func _update_supply_cooldowns() -> void:
     var slots=dock.get_node("Inventory/SupplyColumn/SupplyScroll/Supplies")
@@ -1275,7 +1288,7 @@ func _item_panel() -> void:
     if not def.extras.is_empty():
         var cost:=ceili(float(def.reroll)*(1-sim.campaign.bonus("reroll_discount")))
         _game_action(tr("REROLL") % fmt_cost(cost),func()->void:_confirm(tr("REROLL_CONFIRM") % fmt_cost(cost),func()->void:if selected==id:sim.reroll(id)),true,"",more)
-    _game_action(tr("ITEM_AUTO_MERGE") % tr("OFF" if sim.auto_merge_excluded(id) else "ON"),func()->void:sim.set_auto_merge_excluded(id,not sim.auto_merge_excluded(id)),true,"",more).set_meta("guide","item_auto_merge")
+    if sim.gear_group(id)>=0:_game_action(tr("ITEM_AUTO_MERGE") % tr("OFF" if sim.auto_merge_excluded(id) else "ON"),func()->void:sim.set_auto_merge_excluded(id,not sim.auto_merge_excluded(id)),true,"",more).set_meta("guide","item_auto_merge")
     _drop_action(id,more)
     for button in more.get_children():
         button.size_flags_horizontal=0
@@ -1894,6 +1907,7 @@ func _world_panel() -> void:
     map.custom_minimum_size=Vector2(0,420)
     map.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     map.selected.connect(func(g: int,v: int)->void:group=g;enemy_variant=v;enemy_tab=0;_open("enemy"))
+    map.camp_selected.connect(func(camp: int)->void:_travel_to(int(sim.state.stage),camp))
     rows.add_child(map)
     if sim.level("map_detail",int(sim.state.stage))>=2:
         var known:=HFlowContainer.new()
@@ -2759,7 +2773,8 @@ func _task_card(art: Texture2D,title: String,value: String,progress: float,goal:
         pin.set_meta("guide","follow_mission")
     if ready:
         var button:=_inline_button(tr("CLAIM"),claim,true,reason,line,true)
-        button.custom_minimum_size=Vector2(112,76)
+        button.custom_minimum_size=Vector2(112,64)
+        button.size_flags_vertical=Control.SIZE_SHRINK_CENTER
         button.set_meta("guide","claim")
         return
     var chip:=Label.new()
@@ -2822,7 +2837,9 @@ func _prestige_panel() -> void:
             var is_ready: bool=sim.state.opportunities[op.id].ready and not done
             if (state_rank==0 and is_ready) or (state_rank==1 and not is_ready and not done) or (state_rank==2 and done):order.append(op)
     if order.is_empty():_text(tr("PRESTIGE_NONE_DISCOVERED"),18,Color(.75,.8,.87))
-    for op in order:_opportunity_card(op)
+    for st in range(1,int(sim.state.unlocked_stage)+1):
+        _prestige_stage_section(st,order)
+    _prestige_stage_section(0,order)
     _section(tr("OWNED_CARDS"))
     if sim.state.owned_cards.is_empty():_text(tr("NO_CARDS_YET"),17,Color(.75,.8,.87))
     else:
@@ -2838,6 +2855,34 @@ func _prestige_panel() -> void:
             if sim.state.owned_cards.has(id):owned+=1
         if owned==0:continue
         _text("%s  %d/3  ·  %s" % [tr("COMBO_"+str(c.id).to_upper()),owned,c.description],17,Color(.6,1,.75) if owned==3 else Color(.8,.84,.9))
+
+## Objectives spanning several maps appear under each relevant unlocked map.
+## Counters describe discovered opportunities, not the shared reward-card pool.
+func prestige_stages(op: Dictionary) -> Array:
+    var n:=int(str(op.id).right(1))-1
+    match str(op.path):
+        "hunter","challenge":
+            var boss: String=sim.campaign.boss_goal(str(op.path),n+1)
+            for st in sim.catalog.stages:
+                for g in st.groups:
+                    if str(sim.catalog.groups[g].id)==boss:return [int(st.id)]
+        "expedition","collection":return [[1],[3],[7]][n]
+        "regional":return [[1,2],[3,4],[7,8]][n]
+        "trophy":return [[1,2],[3,4,5],[6,7,8]][n]
+    return [0]
+
+func _prestige_stage_section(st: int,order: Array) -> void:
+    var total:=0
+    var discovered:=0
+    for op in sim.catalog.campaign.opportunities:
+        if not prestige_stages(op).has(st):continue
+        total+=1
+        if sim.state.opportunities.has(op.id):discovered+=1
+    if total==0:return
+    var title: String=tr("PRESTIGE_GENERAL") if st==0 else sim.catalog.stages[st-1].name
+    _section("%s  %d/%d" % [title,discovered,total])
+    for op in order:
+        if prestige_stages(op).has(st):_opportunity_card(op)
 
 func _opportunity_card(op: Dictionary) -> void:
     var o: Dictionary=sim.state.opportunities[op.id]

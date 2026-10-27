@@ -345,13 +345,15 @@ func _boss_countdowns() -> void:
         if not boss_labels.has(key):
             var label:=Label.new()
             label.mouse_filter=Control.MOUSE_FILTER_IGNORE
-            label.add_theme_font_size_override("font_size",12)
+            label.add_theme_font_size_override("font_size",32)
+            label.scale=Vector2.ONE*.5
+            label.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
             label.add_theme_constant_override("outline_size",4)
             label.add_theme_color_override("font_outline_color",Color.BLACK)
             label.z_index=52
             add_child(label);boss_labels[key]=label
         var label: Label=boss_labels[key]
         label.text=tr("BOSS_RESPAWN_TIME") % ceili(entry.remaining)
-        label.position=entry.position-Vector2(label.get_combined_minimum_size().x*.5,30)
+        label.position=entry.position-Vector2(label.get_combined_minimum_size().x*.25,30)
     for key in boss_labels.keys():
         if not live.has(key):boss_labels[key].queue_free();boss_labels.erase(key)

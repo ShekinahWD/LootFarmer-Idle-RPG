@@ -382,7 +382,7 @@ func tracker_checks() -> void:
     var map_rect: Rect2=map_node("").get_rect() if false else Rect2(Vector2.ZERO,game.get_node("Safe/Layout/Map").size)
     var mr:=mission.get_rect();var fr:=follow.get_rect()
     check(map_rect.encloses(mr) and map_rect.encloses(fr),"Both inside the map")
-    check(mr.position.y>=map_node("EnemyUpgrades").get_rect().end.y and fr.position.y>mr.position.y,"Both below contextual Upgrades")
+    check(absf(fr.end.y-game.stick.get_rect().position.y+12)<1 and fr.position.y>mr.position.y,"Both stacked directly above joystick")
     check(not mr.intersects(fr) and mr.end.y<=fr.position.y,"Stacked: mission above Prestige, no overlap")
     var stick: Rect2=game.stick.get_rect()
     check(not mr.intersects(stick) and not fr.intersects(stick),"Clear of the joystick")

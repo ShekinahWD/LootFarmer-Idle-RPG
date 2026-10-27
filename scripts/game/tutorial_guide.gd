@@ -290,7 +290,7 @@ func _guided_lesson() -> void:
     if current in ["mission_wait","upgrade_wait"]:
         pending="";return
     if current.begins_with("close_"):
-        var expected: String={"close_equip":"item","close_merge":"item","close_missions":"missions","close_upgrade":"upgrades"}[current]
+        var expected: String={"close_equip":"item","close_merge":"item","close_missions":"missions","close_upgrade":"upgrades","close_inventory":"upgrades"}[current]
         if not ui.sheet.visible:
             flow.panel_closed(expected);pending="";return
         surfaces=[expected]

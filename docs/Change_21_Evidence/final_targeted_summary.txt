@@ -1,0 +1,7 @@
+validate_campaign_source PASS           {"checks": 1568, "failures": 0}
+change_21_probe          PASS        3s  CHANGE_21_CHECKS 104 FAILURES 0
+change_16_probe          PASS        5s  CHANGE_16_CHECKS 197 FAILURES 0
+change_11_probe          PASS        7s  CHANGE_11_CHECKS 153 FAILURES 0
+change_8_probe           PASS        3s  CHANGE_8_CHECKS 74 FAILURES 0
+inventory_probe          PASS        4s  INVENTORY_PROBE checks=119 failures=0
+SUITE 6/6 passed

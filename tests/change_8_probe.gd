@@ -246,7 +246,7 @@ func follow_checks() -> void:
     check(tracker.get_node("Row/Icon").texture!=null and tracker.get_node("Row/Text/Name").text!="","Tracker shows icon and name")
     var map: Control=game.get_node("Safe/Layout/Map")
     game._layout_trackers()
-    check(tracker.global_position.y>=game.get_node("Safe/Layout/Map/EnemyUpgrades").get_global_rect().end.y and tracker.get_global_rect().end.y<=map.get_global_rect().end.y,"Tracker sits below contextual Upgrades (Change 20)")
+    check(absf(tracker.get_global_rect().end.y-game.get_node("Safe/Layout/Map/Joystick").global_position.y+12)<1,"Tracker sits directly above joystick (Change 21)")
     sim.state.opportunities.expedition_o1.ready=true
     game.elapsed=1.0;await frames(3)
     check(tracker.visible and tracker.get_node("Row/Text/Step").text==tr("FOLLOW_READY"),"Ready state shown until unfollowed")

@@ -178,15 +178,15 @@ func run() -> void:
     flow.panel_closed("missions");check(flow.next_step()=="close_equip","Wrong panel cannot finish close step")
     flow.panel_closed("item");sim.merge(id);flow.next_step()
     check(flow.next_step()=="close_merge","Merge requires panel close")
-    flow.panel_closed("item");sim.state.playtime_total=119
-    check(flow.next_step()=="mission_wait","Missions wait full 120 gameplay seconds")
+    flow.panel_closed("item");sim.state.playtime_total=59
+    check(flow.next_step()=="mission_wait","Missions wait full 60 gameplay seconds")
     sim.restore(JSON.parse_string(JSON.stringify(sim.snapshot())))
     check(flow.next_step()=="mission_wait","Delay survives JSON restore")
-    sim.state.playtime_total=120
+    sim.state.playtime_total=60
     check(flow.next_step()=="missions" and flow.feature_allowed("missions"),"Missions appear at delay boundary")
-    flow.mark("missions");flow.panel_closed("missions");sim.state.playtime_total=179
+    flow.mark("missions");flow.panel_closed("missions");sim.state.playtime_total=119
     check(flow.next_step()=="upgrade_wait","Player Upgrades wait 60 seconds after closing Missions")
-    sim.state.playtime_total=180
+    sim.state.playtime_total=120
     check(flow.next_step()=="player_upgrade","Player Upgrades timing boundary")
     sim.state.coins=100000;sim.buy_upgrade("respawn")
     check(flow.next_step()=="close_upgrade","Player Upgrade waits for actual close")
@@ -200,7 +200,7 @@ func run() -> void:
     check(flow.next_step()=="expand_inventory","Additional farming before inventory lesson")
     var gems: float=sim.state.gems;flow.next_step();flow.next_step()
     check(sim.state.gems==gems and gems>=sim.upgrade_cost("gear_slots"),"Controlled inventory grant only once")
-    sim.buy_upgrade("gear_slots");flow.next_step();sim.purchase_consumable("potion");flow.next_step()
+    sim.buy_upgrade("gear_slots");flow.next_step();flow.panel_closed("upgrades");sim.purchase_consumable("potion");flow.next_step()
     sim.state.player.hp=sim.stats().hp*.5;sim.use_item("potion")
     check(flow.next_step()=="prestige_intro","Potion lesson precedes Prestige introduction")
     check(sim.campaign.prestige_gate_reason()=="PRESTIGE_TUTORIAL_LOCKED","Guided cannot Prestige early")

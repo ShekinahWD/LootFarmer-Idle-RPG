@@ -21082,7 +21082,7 @@
       "currency": "gems",
       "base": 4,
       "growth": 1,
-      "cap": 4,
+      "cap": 5,
       "keep": true,
       "effect": 1,
       "scope": "global",
@@ -21929,7 +21929,7 @@
       ]
     },
     "change20": {
-      "mission_delay": 120.0,
+      "mission_delay": 60,
       "upgrade_delay": 60.0,
       "post_boss_kills": 10,
       "final_delay": 5.0

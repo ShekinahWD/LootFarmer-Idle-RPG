@@ -1,0 +1,40 @@
+validate_campaign_source PASS           {"checks": 1568, "failures": 0}
+change_21_probe          PASS        4s  CHANGE_21_CHECKS 104 FAILURES 0
+change_20_probe          PASS        5s  CHANGE_20_CHECKS 81 FAILURES 0
+skill_proximity_probe    PASS        1s  SKILL_PROXIMITY_CHECKS 133 FAILURES 0
+change_17_probe          PASS        2s  CHANGE_17_CHECKS 679 FAILURES 0
+change_17_weather        PASS        1s  CHANGE_17_WEATHER_CHECKS 60 FAILURES 0
+change_16_probe          FAIL       31s  CHANGE_16_CHECKS 197 FAILURES 1
+    ERROR: Both below contextual Upgrades
+change_15_probe          PASS       18s  CHANGE_15_CHECKS 169 FAILURES 0
+change_14_probe          PASS        6s  CHANGE_14_CHECKS 202 FAILURES 0
+change_13_probe          PASS       10s  CHANGE_13_CHECKS 154 FAILURES 0
+change_12_probe          PASS        3s  CHANGE_12_CHECKS 149 FAILURES 0
+change_12_smoke          PASS        2s  SMOKE done
+change_11_probe          FAIL        6s  CHANGE_11_CHECKS 153 FAILURES 1
+    ERROR: Change 10 supplies fold into the base supply, 5 slots
+    ERROR: 2 resources still in use at exit (run with --verbose for details).
+change_11_smoke          PASS        3s  SMOKE done
+change_10_probe          PASS        3s  CHANGE_10_CHECKS 90 FAILURES 0
+change_9_probe           PASS        2s  CHANGE_9_CHECKS 51 FAILURES 0
+change_8_probe           FAIL        2s  CHANGE_8_CHECKS 74 FAILURES 1
+    ERROR: Tracker sits below contextual Upgrades (Change 20)
+change_7_probe           PASS        3s  CHANGE_7_CHECKS 78 FAILURES 0
+change_6_probe           PASS        6s  CHANGE_6_CHECKS 201 FAILURES 0
+change_5_probe           PASS        3s  CHANGE_5_CHECKS 159 FAILURES 0
+campaign_probe           PASS        7s  CAMPAIGN_PROBE checks=262 failures=0
+campaign_content_probe   PASS        3s  CONTENT_PROBE checks=98 failures=0
+gameplay_probe           PASS        6s  GAMEPLAY_PROBE checks=72 failures=0
+ui_probe                 PASS        2s  UI_PROBE checks=24 failures=0
+inventory_probe          FAIL        2s  INVENTORY_PROBE checks=119 failures=5
+    ERROR: Tap consumes once without opening details
+    ERROR: Cooldown prevents a second use
+    ERROR: Cooldown is visible on slot
+    ERROR: Hold opens details without consuming
+    ERROR: Scrolling gesture neither consumes nor opens details
+targeting_probe          PASS        2s  TARGETING_PROBE checks=23 failures=0
+camera_probe             PASS        2s  CAMERA_PROBE checks=17 failures=0
+attack_timing_probe      PASS        1s  ATTACK_TIMING_PROBE checks=49 failures=0
+bootstrap_probe          PASS        0s  BOOTSTRAP_PROBE PASS
+change_8_walk_probe      PASS        4s  CHANGE_8_WALK checks=2178 failures=0
+SUITE 26/30 passed

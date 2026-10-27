@@ -26,8 +26,7 @@ func run() -> void:
     game.sim.add_item("potion",5)
     game.sim.state.player.hp=30
     game._refresh_slots()
-    await get_tree().process_frame
-    await get_tree().process_frame
+    for i in range(10):await get_tree().process_frame
     var slot=game.dock.get_node("Inventory/SupplyColumn/SupplyScroll/Supplies").get_child(0)
     touch(slot,true)
     touch(slot,false)

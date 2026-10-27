@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GODOT = os.environ.get('GODOT', 'D:/Programs/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe')
 # name -> timeout in seconds
 SUITE = {
+    'change_21_probe': 180,
     'change_20_probe': 180,
     'skill_proximity_probe': 120,
     'change_17_probe': 120,

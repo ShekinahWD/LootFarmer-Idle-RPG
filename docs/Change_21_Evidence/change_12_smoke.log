@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SMOKE explored=Map Explored: 7%
+SMOKE settings=true
+SMOKE buy_merge_all=true
+SMOKE merge_all={ "items": 1, "copies": 4 } idle=0
+SMOKE heal_ready=true
+SMOKE tint=(0.9, 0.84, 0.84, 1.0)
+SMOKE begin=true
+SMOKE prestiged=true following=true merge_all=1 gem_chance=0.15
+SMOKE done

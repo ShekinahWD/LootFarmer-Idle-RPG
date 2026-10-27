@@ -1,5 +1,12 @@
 # LootFarmer — Test Suite (Change 20)
 
+## Change 21 validation — 27 October 2026
+
+Final combined maintained result: **30/30 entries pass** (static validator plus 29 Godot probes). The full run passed 26/30 initially; the obsolete Change 16/8 tracker placement and Change 11 five-slot migration assertions were updated to the requested behavior. The inventory interaction fixture now waits for container layout before tapping, and the runtime ignores inventory sizing until both column widths exist. All four affected probes pass on the targeted rerun. The new Change 21 probe passes **104 checks, zero failures**; the static validator passes **1,568 checks, zero failures**.
+
+Raw initial run: `Change_21_Evidence/suite_summary.txt`. Final targeted run: `Change_21_Evidence/final_targeted_summary.txt` (6/6 entries, including static and Change 21). Per-probe logs reflect the most recent execution. Existing Change 20 tests still pass 81/0, including real Prestige level/XP retention and mastery reset. Android hardware validation remains outstanding.
+
+
 ## Change 20 current result
 
 **29/29 maintained entries passed in one full run** on Godot 4.7.2 Linux headless: one source validator and 28 Godot scenes, run sequentially. Source validation: **1,567 checks, zero failures**. That full run included **79 checks** in `change_20_probe`. A final targeted rerun after adding dormant automatic-assignment clearing passed **81 checks, zero failures**, plus the source validator. The existing proximity probe passes **133**, original Change 17 gameplay **679**, and weather equivalence **60** checks. No maintained test failures, timeouts or script errors. Exact output: `Change_20_Evidence/suite_summary.txt` and `final_targeted_summary.txt`; per-scene logs and static JSON are beside it.

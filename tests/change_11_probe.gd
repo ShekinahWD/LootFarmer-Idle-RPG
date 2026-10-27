@@ -250,7 +250,7 @@ func supply_checks() -> void:
     fresh()
     var ids: Array=sim.supply_ids()
     check(ids==["potion","coin_boost","guard_tonic","recovery_salve","wisdom_tonic"],"Five supplies (%s)" % [ids])
-    check(int(sim.catalog.upgrades.supply_slots.cap)+1==ids.size() and sim.player_upgrade_value("supply_slots",int(sim.catalog.upgrades.supply_slots.cap))==ids.size(),"Supply slot cap equals the supply types: 5")
+    check(int(sim.catalog.upgrades.supply_slots.cap)+1==6 and sim.player_upgrade_value("supply_slots",int(sim.catalog.upgrades.supply_slots.cap))==6,"Supply slot cap is six (five supply identities)")
     check(not sim.catalog.upgrades.has("merge_supplies") and not sim.catalog.upgrades.has("merge_speed"),"Supply auto-merge upgrades removed")
     check(sim.catalog.items.keys().filter(func(k):return str(k).contains("_tier_") and sim.catalog.items[k].kind=="consumable").is_empty(),"No supply tier identities remain")
     var stages:={}
@@ -383,7 +383,7 @@ func supply_save_checks() -> void:
     SaveService.load_and_apply();await frames(2)
     check(SaveService.last_load_result=="primary" and sim.supply_mastery("potion")==30 and sim.quantity("guard_tonic")==2 and sim.buff_time("guard_tonic")>0 and sim.state.auto_slots==[1],"Disk round trip keeps stock, mastery, the running buff and the auto slot")
     check(sim.campaign.valid_snapshot(JSON.parse_string(JSON.stringify(sim.snapshot()))),"Loaded profile validates")
-    # A Change 10 profile: tier copies and 14 supply slots fold into the five-slot row.
+    # A Change 10 profile: tier copies and 14 supply slots fold into the six-slot row.
     var old: Dictionary=JSON.parse_string(JSON.stringify(sim.snapshot()))
     old.upgrades["supply_slots"]=13.0
     var row: Array=["potion","potion_tier_3","coin_boost_tier_2"];row.resize(14);for i in range(3,14):row[i]=""
@@ -391,7 +391,7 @@ func supply_save_checks() -> void:
     old.items["potion_tier_3"]={"qty":4.0,"merge":0.0,"extras":{}}
     old.items["coin_boost_tier_2"]={"qty":2.0,"merge":12.0,"extras":{}}
     var out: Dictionary=sim.campaign.normalize_snapshot(old)
-    check(sim.campaign.valid_snapshot(out) and out.supplies.size()==5 and int(out.items.potion.qty)==35 and int(out.items.coin_boost.qty)==2 and not out.items.has("potion_tier_3"),"Change 10 supplies fold into the base supply, 5 slots")
+    check(sim.campaign.valid_snapshot(out) and out.supplies.size()==6 and int(out.items.potion.qty)==35 and int(out.items.coin_boost.qty)==2 and not out.items.has("potion_tier_3"),"Change 10 supplies fold into the base supply, 6 slots")
     check(SaveService.hard_reset() and sim.state.supply_found.is_empty() and sim.state.buffs.is_empty() and sim.state.supplies.size()==1,"Hard Reset clears stock, mastery and buffs")
     sim.state.tutorial.mode="none";sim.suspended=false
 

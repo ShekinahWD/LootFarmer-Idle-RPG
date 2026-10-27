@@ -15,7 +15,7 @@
 - Enemy spawn prices (Winter I, per enemy type; later stages keep the gem stage factor
   1 + 0.25 x (stage - 1)): Spawn Amount 75 / 125 / 200 (400 total), Spawn Cooldown
   50 / 100 / 150 / 225 / 300 (825 total). Effects and caps unchanged.
-- Supply capacity equals the number of supply identities: 1 initial slot + 4 purchases = 5.
+- Supply capacity is six: 1 initial slot + 5 purchases (Change 21).
   Supply auto-merge (merge_supplies, merge_speed) is removed: mastery grows on its own.
 """
 from pathlib import Path
@@ -101,7 +101,7 @@ def apply(data):
             entry['prices'] = prices
             entry['base'] = prices[0]
             changes.append(ident + '.prices')
-    cap = len(SUPPLIES) - INITIAL_SUPPLY_SLOTS
+    cap = 6 - INITIAL_SUPPLY_SLOTS
     if upgrades['supply_slots'].get('cap') != cap:
         upgrades['supply_slots']['cap'] = cap
         changes.append('supply_slots.cap')
@@ -120,7 +120,7 @@ def main():
     data = json.loads(CATALOG.read_text(encoding='utf-8'))
     changes = apply(data)
     supplies = [k for k, v in data['items'].items() if v['kind'] == 'consumable']
-    assert data['upgrades']['supply_slots']['cap'] + INITIAL_SUPPLY_SLOTS == len(supplies), supplies
+    assert data['upgrades']['supply_slots']['cap'] + INITIAL_SUPPLY_SLOTS == 6, supplies
     if '--check' in sys.argv:
         print(json.dumps({'pending_changes': changes, 'supplies': supplies}))
         return

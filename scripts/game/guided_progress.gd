@@ -2,7 +2,7 @@ extends RefCounted
 ## Saved, ordered tutorial outcomes. Gameplay time pauses with the simulation and survives reloads.
 ## Presentation asks next_step(); only successful actions and explicit acknowledgements finish steps.
 var sim
-const STEPS:=["move","kill","collect","equip","close_equip","merge","close_merge","mission_wait","missions","close_missions","upgrade_wait","player_upgrade","close_upgrade","camp","boss_find","boss_preparation","boss_farm","expand_inventory","potion_buy","potion_use","prestige_intro","boss_win","world_intro","travel_intro","milestones_intro","winter_two","tutorial_final"]
+const STEPS:=["move","kill","collect","equip","close_equip","merge","close_merge","mission_wait","missions","close_missions","upgrade_wait","player_upgrade","close_upgrade","camp","boss_find","boss_preparation","boss_farm","expand_inventory","close_inventory","potion_buy","potion_use","prestige_intro","boss_win","world_intro","travel_intro","milestones_intro","winter_two","tutorial_final"]
 
 func _init(owner) -> void:sim=owner
 
@@ -39,7 +39,7 @@ func action(kind: String,id: String) -> void:
 func panel_closed(panel: String) -> void:
     if not active():return
     var f:=data()
-    for pair in [["item","equip","close_equip"],["item","merge","close_merge"],["missions","missions","close_missions"],["upgrades","player_upgrade","close_upgrade"]]:
+    for pair in [["item","equip","close_equip"],["item","merge","close_merge"],["missions","missions","close_missions"],["upgrades","player_upgrade","close_upgrade"],["upgrades","expand_inventory","close_inventory"]]:
         if panel==pair[0] and f.done.has(pair[1]):mark(pair[2])
 
 func acknowledge(id: String) -> void:
@@ -120,6 +120,7 @@ func normalize(out: Dictionary) -> void:
     if f.get("done") is Array:
         for id in f.done:
             if id is String and STEPS.has(id) and not done.has(id):done.append(id)
+    if done.has("potion_buy") and not done.has("close_inventory"):done.append("close_inventory")
     f.done=done
     if not f.get("times") is Dictionary:f.times={}
     for id in f.times.keys():

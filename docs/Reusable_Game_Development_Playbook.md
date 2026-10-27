@@ -8641,3 +8641,9 @@ Persist action outcomes separately from instructional acknowledgements and panel
 ### Density controls and marker layers
 
 Inventory density controls should resize slot contents with the slots while retaining the enclosing panel, fixed actions and scroll ownership. Check large/medium/small states on a phone-shaped render and preserve the setting through save/reload. Explicitly place a player map marker above all map markers but below unrelated management panels; increasing its z-index without considering surrounding UI can make it bleed through open panels. Reinspect the rendered result after layer changes.
+
+### Device correction lessons: visible overflow and density
+
+A scrollable panel needs an obvious thumb whenever content overflows; validate it against the actual dark panel at phone scale. Reuse the supplied scrollbar textures with appropriate width and contrast. Shrinking a slot is incomplete unless the grid's column calculation uses its own available width; exercise empty slots as well as filled ones and assert how many complete rows remain visible. Synchronize independent column headers before aligning their first rows.
+
+Anchor follow trackers to the control they must avoid (the joystick), then stack upward using measured wrapped heights. Fixed-height action buttons must opt out of a horizontal container's vertical fill. For map travel, activate on release, cancel after dragging and recheck the shared gameplay travel gate at activation.
