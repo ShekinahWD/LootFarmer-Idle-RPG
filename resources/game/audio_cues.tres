@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AudioCueSet" load_steps=36 format=3]
+[gd_resource type="Resource" script_class="AudioCueSet" load_steps=37 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/audio_cue_set.gd" id="set"]
 [ext_resource type="Script" path="res://scripts/game/audio_cue.gd" id="cue"]
@@ -196,8 +196,17 @@ priority = 85
 cooldown = 1.0
 volume_db = 0.0
 
+[sub_resource type="Resource" id="boss_found"]
+script = ExtResource("cue")
+id = "boss_found"
+stream = ExtResource("s8")
+category = "special"
+priority = 58
+cooldown = 1.0
+volume_db = 0.0
+
 [resource]
 script = ExtResource("set")
 music = ExtResource("s12")
 music_volume_db = -8.0
-cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("spell_summon"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged"), SubResource("main_ready"), SubResource("feature_unlocked"), SubResource("mastery_objective"), SubResource("mastery_map"), SubResource("game_complete")])
+cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("spell_summon"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged"), SubResource("main_ready"), SubResource("feature_unlocked"), SubResource("mastery_objective"), SubResource("mastery_map"), SubResource("game_complete"), SubResource("boss_found")])

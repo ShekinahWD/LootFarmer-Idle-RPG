@@ -1,4 +1,10 @@
-# LootFarmer — Implementation and verification status — Change 6
+# LootFarmer — Implementation and verification status — Change 17
+
+## Change 17 — current gameplay authority (27 October 2026)
+
+Change 17 supersedes earlier descriptions of skill power/cooldowns, supply mastery/healing, automatic skill slots and mission rewards. It adds persistent boss countdown APIs and permanent critical upgrades, reuses the supply interval/shop systems, and optimizes rain calculations without changing authored appearance. Schema 8 saves remain compatible; existing mastery and automation purchases migrate. No UI/tutorial implementation is included.
+
+Read [Change 17 behavior and decisions](LootFarmer_Change_17_Notes.md), [Claude integration API](LootFarmer_Change_17_Claude_Integration.md) and [validation and unresolved balance](LootFarmer_Change_17_Validation.md). The later numbered sections below are historical change records; Change 17 takes precedence where their rules differ.
 
 The user explicitly authorized code and all-game design implementation, including combat-blocked teleport and the 10→1-second automerge correction. The earlier documentation-only restriction and provisional merge-rate note are superseded.
 

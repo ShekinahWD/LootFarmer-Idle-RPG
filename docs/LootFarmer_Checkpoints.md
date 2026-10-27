@@ -13,3 +13,8 @@ Source correction batch on supplied ZIP 7. Current validation and full section a
 ## Change 6 — full-game review and implementation, 2026-10-21
 
 Baseline: the working tree with the Change 5 corrections ZIP already applied (all 67 files byte-identical). Implemented encounter re-layout for all stages, first-boss and prestige pacing with a Winter gate, retuned prestige cards and visual card choices, celebrations, guided routes with an owned arrow pointer, content-sized panels with pinned actions and item browsing, notification contrast, recovery roles and the Upgrades stall fix. Evidence: Change_6_Validation. Physical Android, human playtest, localization and release gates remain open.
+
+
+## Change 17 — 27 October 2026
+
+Gameplay systems delivered without UI: see Change 17 Notes, Claude Integration and Validation. Maintained gates 27/27 on Godot 4.7.2; separate balance 33/35 (baseline 34/35), needs review. Android frame-time/visual verification pending. No commit. Latest 12:37:02 ZIP is the baseline.

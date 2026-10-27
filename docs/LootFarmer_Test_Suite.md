@@ -1,4 +1,12 @@
-# LootFarmer — Test Suite (Change 15)
+# LootFarmer — Test Suite (Change 17)
+
+## Change 17 current result
+
+27/27 maintained entries passing on Godot 4.7.2 (full run plus the targeted wall-clock-tolerance correction). Source validator 1,557/1,557; `change_17_probe` 679/679; `change_17_weather` 60/60 exact original-output comparisons. See [Change 17 validation](LootFarmer_Change_17_Validation.md) and `Change_17_Evidence/` for raw logs and the precise run/rerun history.
+
+New gates cover gameplay/save/Prestige APIs and particle equivalence. `change_17_performance` is a non-gating eight-map simulation CPU sampler; `change_9_balance` was run separately and remains **33/35, two failures**, compared with 34/35 in the untouched supplied project. These balance failures are not suppressed; developer review is required. UI/tutor integration and physical Android GPU testing remain pending.
+
+Changed legacy fixtures assert use-based mastery, the 20-second bases, below-full-HP healing and the approved prices. The old supply-slot membership fixture now owns its automation purchase. `change_16_probe` checks numeric skill-description wiring only; Claude still owns the stale eligibility prose and new effect/cap descriptions.
 
 ## Maintained regression suite (gating)
 
@@ -6,7 +14,8 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 
 | Probe | Covers |
 |---|---|
-| validate_campaign_source.py | Catalog and source contracts, translations, every catalog tool's `--check` (1,361 checks) |
+| validate_campaign_source.py | Catalog and source contracts, translations (code, scene keys and dynamic keys), every catalog tool's `--check` including change16_catalog (1,554 checks) |
+| change_16_probe | Map economy on all 8 maps (income ×1.5, every map-tied Coin purchase ×1.55, global and Gem prices unchanged, rising cost/income), Gem Auto-Collect / Collect Batch (prices, Prestige, older Coin levels), save migration of the new records, boss discovery (once, sound, banner order, Prestige on discovery without a kill, Prestige, Hard Reset), boss names and skill icons (stacking, contrast), the Winter I objective, mission + Prestige trackers together, followers of all 33 opportunities, Prestige keeping Gems and exploration, the Health Potion 10% → 20% and external HP bonuses, Drop All (slot, pile, Auto-Collect, exploit loops, credit, equipped, save, expiry, red UI), Map Mastery reward swap and chip, Cyan Robot Heal interval, skill descriptions, the Prestige confirmation screen, music hold rules, the Guided path opening, View Camp, Help and no development UI (197 checks) |
 | change_15_probe | Early equipment guarantee (3 modes × 3 Winter I types × 4 seeds with natural drops; exact kills 5 and 10 per type and loadout; type switch; natural drops first; supplies and non-matching gear; expiry; bosses; full row; once per profile), menu reveal (hidden HUD and refused panels from every path, the chain, level backstops, full row, Snowman first and banner order, silent opportunities before the reveal, save/load, Prestige, Hard Reset, validation, Show all menus now), Guided sequence to Prestige, Basic cards, None without guidance, notification sounds (streams, triggers, hidden systems silent, shared cooldown, same frame, mutes), Map Mastery (content, records, shared items, latches and notices, percentages, rewards exactly once, Prestige, save/load, Hard Reset, optional), reachable exploration on all eight maps, panels (World entry, list, map page, unnamed unmet enemies, Stats), World map dot through panel refreshes (177 checks) |
 | change_14_probe | Top-right map cluster (order, chips, contrast, insets, gate count, explored percent), Missions badge against the Claim rules (ready objectives listed first, auto-claim, waiting slots, Hard Reset), rain splashes frozen at impact, the six skill effects for player and enemy casts (placement, layer, scale, real effect, cooldowns, one effect per boss attack), Reveal Stats / Reveal Drops on both enemy tabs, joystick contrast layers and unchanged input, one-time Focused Farming guidance (modes, exits, suspension) |
 | change_13_probe | Exact-identity Auto-Merge (sword and axe Wood→Stone, shared drops, outfits, skills, supplies), Auto Evolution (flat price, manual rule, one tier, own droppers, full inventory, save/Prestige/Hard Reset, panel), potion 12 s and floor, skill prices and cooldowns, next-stage guidance and discovery-only boss markers, currency format across surfaces, rainy-map overcast and world-anchored rain, summoned helpers (cap, no rewards, cleanup, never saved), final boss (Heal priority below 50%, attack pool, pace, summons) |
@@ -25,9 +34,28 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 | bootstrap_probe | Boot, profile isolation and save-container basics |
 | change_8_walk_probe | Movement around solid scenery on every stage |
 
-Change 11 final run: 19 / 19 passed. Change 12 run: 21 / 21. Change 13 run: 22 / 22. Change 14 run: 23 / 23. **Change 15 run: 24 / 24** (`tools/run_probes.py`; stale contracts updated first, see below).
+Change 11 final run: 19 / 19 passed. **Change 16 run: 25 / 25** (24 probes and the source validator). Change 12 run: 21 / 21. Change 13 run: 22 / 22. Change 14 run: 23 / 23. **Change 15 run: 24 / 24** (`tools/run_probes.py`; stale contracts updated first, see below).
 
 `tools/fog_reachability.gd` (run with `godot --headless --path . -s tools/fog_reachability.gd`) checks the stored unreachable fog cells against a fresh flood fill (8 / 8 maps match).
+
+## Change 16 test updates
+
+First full run after the implementation: 16 / 24. Every failure was a contract this change replaces on purpose, one date-dependent fixture and one test artefact; each was updated with the same intent. No production regression.
+
+| Test | Change | Reason |
+|---|---|---|
+| change_15_probe | Settings checks: Help present, no Show all menus; `reveal_all(true)` checked directly; MAIN_4 names Winter II only | Change 16 removes Show all menus / Choose guidance again; Prestige opens on finding the Snowman |
+| change_13_probe | Potion ^0 10%; camp-price formatting fixture moved to Spring II (first camp price ≥ 1,000 at 1.55 per map) | Change 16 potion and map pricing |
+| change_12_probe | Cyan Robot Heal timer 12 s; Prestige keeps Gems; the followed-step notice section counts `follow_step` only | Change 16 Robot and retention. The notice failures were date-dependent: the day's daily missions (chosen by a hash of the date) included a Blue Cap hunt that the section's 200 kills completed |
+| change_11_probe | Collection follower names the exact outfit and shows its icon; tracker bottom-right; potion 11% / 20%; Gems kept, coins reset | Change 16 follower, trackers, potion, retention |
+| change_8_probe | Camp approach: no pop-up, View Camp opens it; Collect Batch is a Gem upgrade (50); tracker text first line; tracker bottom-right | Change 16 camps, Gem collection, trackers |
+| change_5_probe | Potion vs Heal role checked for the droppable Heal (tier 1) at every mastery and the legacy tiers at ^100; tier-one potion 10% | Change 16 potion 10% → 20%; legacy Heal tiers 2–7 reach the 12% cap at level 1000 |
+| campaign_probe | Prestige keeps explored cells | Change 16 retention |
+| gameplay_probe | Prestige keeps Gems | Change 16 retention |
+| ui_probe | Unreleased languages are not offered and are refused (were disabled buttons) | Change 16 removes development notices |
+| change_16_probe | New, in the suite (197 checks) | Change 16 contracts |
+| change_16_audio | New, windowed, not in the headless suite (11 checks) | Real music playback |
+| change_16_capture | New, rendered | docs/Change_16_Evidence/ui/ (desktop evidence only) |
 
 ## Change 15 test updates
 
@@ -83,8 +111,9 @@ One full maintained-suite run after the implementation: 18 / 22 passed. The four
 | Item | Status | Why |
 |---|---|---|
 | change_9_balance | Passes | A balance fixture (deterministic duels); run it deliberately when combat numbers change. |
+| change_16_audio | Passes (11 / 11), windowed | Real music playback through volume 0, the game pause and a scene re-entry. The audio service never decodes music headless, so this runs with a window: `godot --path . res://tests/change_16_audio.tscn -- --probe --profile=probe-c16-audio --no-autosave --first-run-complete`. |
 | pacing_bot | Not run | Natural-pace benchmark (minutes per run); for pacing questions only. |
-| change_*_capture (change_15_capture added), change_6_before, change_8_stage_capture, stage_overview_capture | Not gating | Rendered evidence (screenshots); run with a window. |
+| change_*_capture (change_16_capture added), change_6_before, change_8_stage_capture, stage_overview_capture | Not gating | Rendered evidence (screenshots); run with a window. |
 | change_7_smoke, change_10_smoke | Pass | Superseded for build readiness by change_11_smoke; kept as history. |
 | audit_probe | Historical, fails | Calls the removed `sim.sell` (hangs on the script error). |
 | balance_probe | Historical, fails | Reads removed legacy items (`dinosaur`); superseded by change_9_balance. |

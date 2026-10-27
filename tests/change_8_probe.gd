@@ -93,7 +93,8 @@ func fog_checks() -> void:
     check(sim.campaign.can_see(near) or sim.campaign.cell_visible(near),"84 units away is in sight")
     check(not sim.campaign.cell_visible(p+Vector2(200,0)),"200 units away is not in sight")
 
-## 2.1 Walking into a camp opens it once; it re-arms on exit; respawn/teleport arrivals never pop it.
+## 2.1 Change 16 replaces "walking into a camp opens it once": approaching never opens the panel; a
+## View Camp button under the camp's name opens it (change_16_probe covers placement and the guide).
 func camp_entry_checks() -> void:
     fresh()
     var camp: Array=sim.campaign.stage().spawns[1]
@@ -101,16 +102,15 @@ func camp_entry_checks() -> void:
     sim.state.player.x=float(camp[0])+300;sim.state.player.y=float(camp[1]);game._settle_camp()
     sim.state.player.quiet=99.0
     sim.state.player.x=float(camp[0])+20;sim.movement=Vector2.LEFT   # fixture: walked in by hand
-    game._check_camp_entry();await frames(2)
-    check(game.sheet.visible and game.panel=="camp" and game.selected_camp==1,"Walking into a camp opens its panel")
-    game._close();sim.movement=Vector2.ZERO;game._check_camp_entry();await frames(2)
-    check(not game.sheet.visible,"Dismissed camp panel does not reopen while inside")
-    sim.state.player.x=float(camp[0])+300;game._check_camp_entry()
-    sim.state.player.x=float(camp[0])+20;sim.movement=Vector2.LEFT;game._check_camp_entry();await frames(2)
-    check(game.sheet.visible and game.panel=="camp","Leaving and re-entering opens it again")
+    await frames(3)
+    check(not game.sheet.visible,"Walking into a camp no longer opens its panel (Change 16)")
+    check(game.get_node("Safe/Layout/Map/ViewCamp").visible and game.view_camp==1,"…a View Camp button shows instead")
+    game.get_node("Safe/Layout/Map/ViewCamp").pressed.emit();await frames(2)
+    check(game.sheet.visible and game.panel=="camp" and game.selected_camp==1,"View Camp opens its panel")
     game._close();sim.movement=Vector2.ZERO
-    sim.state.player.x=float(camp[0])+300;game._check_camp_entry()
-    sim.state.player.x=float(camp[0]);game._check_camp_entry();await frames(2)
+    sim.state.player.x=float(camp[0])+300;await frames(2)
+    check(not game.get_node("Safe/Layout/Map/ViewCamp").visible,"Leaving the camp hides the button")
+    sim.state.player.x=float(camp[0]);await frames(2)
     check(not game.sheet.visible,"Arriving without walking (teleport/respawn/auto-farm) never opens it")
 
 ## 2.2 Upgrades replaces Stats in the navigation; Stats opens from Settings.
@@ -227,9 +227,10 @@ func price_checks() -> void:
             if c<=last:ok=false
             last=c;sim.state.upgrades["map_detail:%d" % st]=r+1
     check(ok,"Map Details: every purchase costs more than the one before")
-    check(sim.upgrade_cost("collect_batch",0)>=4*sim.upgrade_cost("collect_range",0) and float(sim.catalog.upgrades.collect_batch.growth)>=3.0,"Auto-Collect Batch is premium with steep growth")
+    # Change 16: Collect Batch is bought with Gems (50 on Winter I), still x3 per level.
+    check(str(sim.catalog.upgrades.collect_batch.currency)=="gems" and sim.upgrade_cost("collect_batch",0)==50 and float(sim.catalog.upgrades.collect_batch.growth)>=3.0,"Auto-Collect Batch is a premium Gem upgrade with steep growth")
     # Change 13 sets the second skill slot to 300 gems (auto-use keeps its Change 8 price).
-    check(sim.upgrade_cost("auto_use")==6 and sim.upgrade_cost("skill_slots")==300,"Gem first prices: auto-use 6, second skill slot 300 (Change 13)")
+    check(sim.upgrade_cost("auto_use")==100 and sim.upgrade_cost("skill_slots")==300,"Gem first prices: auto-use 100, second skill slot 300 (Change 13)")
 
 ## 4.2 Followed opportunity tracker: name, icon, step and Ready.
 func follow_checks() -> void:
@@ -239,10 +240,12 @@ func follow_checks() -> void:
     game.elapsed=1.0;await frames(3)
     var tracker: Control=game.get_node("Safe/Layout/Map/FollowTracker")
     var step: String=tracker.get_node("Row/Text/Step").text
-    check(tracker.visible and step.begins_with("Step 2/3") and step.ends_with("12/100"),"Tracker shows step and numeric progress: "+step)
+    check(tracker.visible and step.begins_with("Step 2/3") and step.get_slice("
+",0).ends_with("12/100"),"Tracker shows step and numeric progress: "+step.replace("
+"," / "))
     check(tracker.get_node("Row/Icon").texture!=null and tracker.get_node("Row/Text/Name").text!="","Tracker shows icon and name")
     var map: Control=game.get_node("Safe/Layout/Map")
-    check(tracker.get_global_rect().position.x<map.global_position.x+map.size.x*.5 and tracker.get_global_rect().end.y<=map.global_position.y+map.size.y,"Tracker sits lower-left inside the map")
+    check(tracker.get_global_rect().position.x>map.global_position.x+map.size.x*.5 and tracker.get_global_rect().end.y<=map.global_position.y+map.size.y,"Tracker sits bottom-right inside the map (Change 16)")
     sim.state.opportunities.expedition_o1.ready=true
     game.elapsed=1.0;await frames(3)
     check(tracker.visible and tracker.get_node("Row/Text/Step").text==tr("FOLLOW_READY"),"Ready state shown until unfollowed")

@@ -1,0 +1,157 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+  ok  sword: a wood_sword dropper exists that does not drop stone_sword
+  ok  sword: the Wood unlock covers Wood, not the evolved Stone tier
+  ok  sword: Wood copies auto-merge (one copy kept)
+  ok  sword: the four Stone copies stay unmerged
+  ok  sword: unlocking a natural Stone dropper enables Stone (type boss-cyan-robot)
+  ok  sword: …and the same evolved Stone copies now merge
+  ok  axe: a wood_axe dropper exists that does not drop stone_axe
+  ok  axe: the Wood unlock covers Wood, not the evolved Stone tier
+  ok  axe: Wood copies auto-merge (one copy kept)
+  ok  axe: the four Stone copies stay unmerged
+  ok  axe: unlocking a natural Stone dropper enables Stone (type boss-snowman)
+  ok  axe: …and the same evolved Stone copies now merge
+  ok  Wood Sword is a shared drop (5 types)
+  ok  The last of its droppers alone enables Wood Sword merging
+  ok  …and it merges
+  ok  Outfits: the type's own outfit merges; a legacy evolved tier is not covered
+  ok  Supplies are never auto-merged by the gear unlock
+  ok  Skills: the base skill it drops, not a higher legacy tier
+  ok  Auto-Merge stops at ^100, never evolves and never touches unrelated items
+  ok  Auto Evolution: one-time per-type Gem unlock, kept by Prestige
+  ok  It costs 2,000 gems on every map (Winter I and the final boss)
+  ok  Bought once for 2,000 gems
+  ok  …then shows as owned
+  ok  Independent of Auto-Merge (not granted with it)
+  ok  Evolves by the manual rule: 100 copies spent, one kept with its ^100, one Stone Sword
+  ok  Exactly one evolution
+  ok  Stone is not evolved: the Wood type's unlock does not manage the Stone tier
+  ok  With a Stone dropper's Auto Evolution, Stone evolves by its own unlock
+  ok  …one tier at a time (no recursive chain)
+  ok  Evolving grants no Auto-Merge to the new tier
+  ok  100 copies (needs 101) do not evolve
+  ok  With no free slot it waits silently (no INVENTORY_FULL spam)
+  ok  …and evolves once a slot is free
+  ok  The last tier and outfits never auto-evolve
+  ok  Types without an evolvable weapon cannot buy it
+  ok  Enemy Upgrades shows Auto Evolution with the weapon it evolves
+  ok  …right after Auto-Merge
+  ok  Its button shows the real price (2K gems)
+  ok  Save written
+  ok  Loads back from disk
+  ok  Prestige keeps it
+  ok  Hard Reset removes it
+  ok  Health Potion base cooldown 12 s
+  ok  Heal amount 10% of max HP at ^0 (Change 16)
+  ok  ^25 mastery: 10.8 s
+  ok  ^50 mastery: 10.2 s
+  ok  ^100 mastery: 10.0 s
+  ok  The 10 s floor holds for any multiplier
+  ok  Using it starts the authoritative 12 s cooldown
+  ok  A second use is refused while cooling down
+  ok  Auto-use waits for the same cooldown (11 s, no use)
+  ok  …and drinks at its next check once it is over (auto-use checks every 10 s)
+  ok  The potion details show the 12 s cooldown
+  ok  Saved with a running cooldown
+  ok  The remaining cooldown loads back
+  ok  Pause freezes it
+  ok  heal base cooldown 20 s
+  ok  frost base cooldown 20 s
+  ok  fire base cooldown 20 s
+  ok  lightning base cooldown 20 s
+  ok  focus base cooldown 20 s
+  ok  strike base cooldown 20 s
+  ok  Auto-cast unlocks 100 / 250 / 500 gems
+  ok  Second skill slot 300 gems
+  ok  Third slot 600 gems; still three slots in all
+  ok  Lightning effective cooldown 20 s, 14 s with every cooldown upgrade
+  ok  A cast starts the same 20 s cooldown
+  ok  The skill details show Cooldown: 20 s
+  ok  (cooldown unchanged by opening details)
+  ok  Summer II (two gate bosses): HUD reads Next stage · Bosses 0/2
+  ok  …in English: 'Next Stage · Bosses 0/2' (Change 14 capitalisation)
+  ok  It never takes touches
+  ok  It sits under the minimap, clear of the joystick
+  ok  Undiscovered gate bosses are not marked (no spoiler)
+  ok  …not in the world either
+  ok  Once discovered, the Elephant is marked as required; the unknown Dinosaur is not
+  ok  …with the banner beside its HP bar
+  ok  Normal enemies are never marked
+  ok  One of two defeated: 1/2, the Elephant is no longer marked
+  ok  The next stage stays locked with one of two
+  ok  World lists Elephant defeated and an undiscovered boss still needed (unnamed)
+  ok  The discovered Dinosaur is now marked
+  ok  Both defeated: Autumn I opens and the line hides
+  ok  An earlier map with its exit already open shows no line
+  ok  Winter I: 0/1
+  ok  After the kill the respawned Snowman carries no marker
+  ok  Spring II: World clear · 0/9
+  ok  After a load: 1/9 from the saved kills
+  ok  After Hard Reset: Winter I 0/1
+  ok  Undiscovered boss: no map marker to badge
+  ok  currency(0,down) = 0 (got 0)
+  ok  currency(7,down) = 7 (got 7)
+  ok  currency(12.345,down) = 12.34 (got 12.34)
+  ok  currency(12.345,up) = 12.35 (got 12.35)
+  ok  currency(999,down) = 999 (got 999)
+  ok  currency(1000,down) = 1K (got 1K)
+  ok  currency(1500,down) = 1.5K (got 1.5K)
+  ok  currency(1999,down) = 1.99K (got 1.99K)
+  ok  currency(1999,up) = 2K (got 2K)
+  ok  currency(12345,down) = 12.34K (got 12.34K)
+  ok  currency(999999,up) = 1M (got 1M)
+  ok  currency(2500000,down) = 2.5M (got 2.5M)
+  ok  currency(3000000000.0,down) = 3B (got 3B)
+  ok  HUD balances abbreviate and never round up (1.99K, 12.34K)
+  ok  Camp price 1075 shows as 1.08K, never raw
+  ok  Purchase uses the exact amount (1074.5 short of 1075 is refused)
+  ok  …and the exact price is spent
+  ok  Gem Chance level 20 price 1,470 shows 1.47K
+  ok  Offering progress: 15.23K / 20K coins · 40 / 100 gems
+  ok  Offline income milestone: 1.23K / 10K
+  ok  Earn-coins mission reads 1.23K / 2.4K
+  ok  No written currency amount of 1,000 or more remains unabbreviated in the strings (0 found)
+  ok  No '%d coins' / '%d gems' placeholders remain (0 found)
+  ok  Rain stays on Summer II and Spring II only
+  ok  Rain is denser (64 per cell, was 12) and more visible (alpha 0.62, was 0.40)
+  ok  Summer II art is darkened toward overcast ((0.77, 0.78, 0.92, 1.0))
+  ok  Camps keep their own colours
+  ok  Actors (and their HP bars) are not tinted
+  ok  Rain particles are world-anchored: panning the camera leaves the same 106 particles in place
+  ok  A clear map is not darkened
+  ok  Falling-leaves Autumn II keeps its colours
+  ok  Three summoning types, the final boss among them: ["boss-grim-reaper", "boss-sunflower", "boss-green-alien"]
+  ok  boss-grim-reaper calls unit-horned-hood (existing type of its own map, stage 6)
+  ok  boss-sunflower calls unit-sprout (existing type of its own map, stage 8)
+  ok  boss-green-alien calls unit-green-cap (existing type of its own map, stage 8)
+  ok  No helpers before the first delay (6 s)
+  ok  After the telegraph 2 helpers appear, with one warning
+  ok  Helpers: 50% HP, 40% damage of unit-horned-hood, no loot, no skills
+  ok  They appear outside solid scenery
+  ok  60 s more: never more than 2 alive (max 2 seen)
+  ok  While the cap is reached no new call happens (calls: 1)
+  ok  Killing helpers gives no coins, gems, XP, loot or kill counts
+  ok  …and no discovery, mission or achievement progress
+  ok  Dead helpers are removed after their death animation
+  ok  After the cooldown the boss calls again
+  ok  Helpers are not saved
+  ok  Helper types cannot summon (no chains)
+  ok  When the boss leaves the fight its helpers dissolve
+  ok  When the boss dies its helpers dissolve (the boss kill itself counts)
+  ok  (fixture) a fresh call
+  ok  A map change removes them (none kept in the saved map)
+  ok  Helpers wear the summon tint; the boss does not
+  ok  Summon cue uses the approved pack's summon sound
+  ok  Above 50% HP it never heals
+  ok  Above 50% it uses several attack skills from the pool: ["lightning", "focus", "frost", "fire"]
+  ok  Paced: about 6 actions in 60 s (gap 11.0 s + 0.6 s telegraph)
+  ok  Below 50% it heals first: +12181 (4% of max HP)
+  ok  …with no attack warning before it
+  ok  With Heal on cooldown (120 s) it attacks instead of waiting
+  ok  …and heals again once Heal is ready (one heal, no duplicate)
+  ok  At 60% (above the threshold) Heal stays unused even when ready
+  ok  It summons unit-green-cap helpers, never more than 3 alive (max 3)
+  ok  Without the 13 keys the final boss does nothing (gate unchanged)
+  ok  Baseline HP and its drop skills unchanged
+CHANGE_13_CHECKS 154 FAILURES 0

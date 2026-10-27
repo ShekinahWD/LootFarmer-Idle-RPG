@@ -1,4 +1,10 @@
-# LootFarmer — State and Reset Contracts — Change 6
+# LootFarmer — State and Reset Contracts — Change 17
+
+## Change 17 — current gameplay authority (27 October 2026)
+
+Change 17 supersedes earlier descriptions of skill power/cooldowns, supply mastery/healing, automatic skill slots and mission rewards. It adds persistent boss countdown APIs and permanent critical upgrades, reuses the supply interval/shop systems, and optimizes rain calculations without changing authored appearance. Schema 8 saves remain compatible; existing mastery and automation purchases migrate. No UI/tutorial implementation is included.
+
+Read [Change 17 behavior and decisions](LootFarmer_Change_17_Notes.md), [Claude integration API](LootFarmer_Change_17_Claude_Integration.md) and [validation and unresolved balance](LootFarmer_Change_17_Validation.md). The later numbered sections below are historical change records; Change 17 takes precedence where their rules differ.
 
 These contracts are implemented in Change 4 and exercised by the campaign/content probes; device and interruption-at-OS-write checks remain release gates. Approved reset decisions are explicit; engineering defaults are labelled below.
 
@@ -9,7 +15,8 @@ These contracts are implemented in Change 4 and exercised by the campaign/conten
 | Stage access / gate kills / final-stage per-type kills | Clear; Winter I available |
 | Arrival camps | Winter I free camp restored; later free camps become available with their stages |
 | Purchased camps / selected camp | Clear purchases; select Winter I arrival |
-| Explored cells / discovered map locations / map detail and radius ranks | Clear per stage |
+| Explored cells / sighted camps / found spots and types / found bosses | **Keep** (Change 16; cleared before) |
+| Map detail and radius ranks | Clear per stage |
 | Collected unique boss keys / final-mission discovery | Keep; key drops active on new run if mission discovered |
 | Final boss lock | Requires all 13 persistent keys and physical stage access; independent of mission reward history |
 | Cards / combos / consumed opportunities / discovered opportunity descriptions | Keep |
@@ -19,9 +26,12 @@ These contracts are implemented in Change 4 and exercised by the campaign/conten
 | Unfinished main progress | Clear except persistent final discovery/keys |
 | Completed unclaimed main objectives | Discard reward; reset to unfinished, since only completed AND rewarded objectives persist |
 | Regular missions / unclaimed rewards | Clear; assign fresh achievable goals after reset |
-| Currency / level / inventory / equipped bindings / merge, evolution, rolls, copy bonuses | Clear; restore authored starting profile |
+| Gem balance | **Keep** (Change 16); the run's online Gem credit (`online_gems`, Offering) clears |
+| Coins / level / inventory / equipped bindings / merge, evolution, rolls, copy bonuses | Clear; restore authored starting profile |
 | Upgrade purchases | Every gem-funded upgrade is kept (Change 11, `simulation.upgrade_kept`); coin upgrades follow the Upgrade Catalog Keep/Reset field. Kept Spawn Amount re-spawns its extra actors in the fresh world at once |
-| Supply mastery (`supply_found`) | Keep (Change 11); supply stock, buffs and supply-slot bindings clear with the inventory |
+| Supply mastery (`supply_uses`, `supply_mastery_credit`) | Keep levels and five-use remainder; supply stock, buffs and supply-slot bindings clear |
+| Highest reward stage (`reward_stage`) | Keep, even though stage access resets |
+| Boss countdowns (`boss_respawns`, `boss_saved_at`) | Clear with the run |
 | Automation bindings / toggles / farm focus | Retain purchased capabilities and explicitly approved per-skill-slot auto toggles. Clear item/equipment/farm targets and consumable bindings; regular mission-auto toggle resets. |
 | Pending casts / cooldowns / temporary buffs / ground drops | Clear |
 | Tutorial mode / completed lessons / acknowledged introductions | Keep; reset on Hard Reset |
@@ -61,7 +71,7 @@ Fault-inject before/after each prestige choice and final commit; verify one rese
 
 Tutorial mode, completed lessons and acknowledged introductions persist through prestige; Hard Reset clears them. Failed writes continue to report failure; they do not silently report success. Atomic temporary-file replacement and backup behavior are retained. An injected read-only write tests transaction rollback.
 
-Camp and stage travel call the same travel_reason query used by buttons. Inactive worlds retain enemies and pickups with timers frozen. Save snapshots retain the departure timestamp while suspended. Offline settlement, claims, submissions and card commits roll back in-memory mutations on save failure. Offline settlement also rolls back RNG. Rewards are credited before the receipt is shown.
+Camp and stage travel call the same travel_reason query used by buttons. Inactive worlds retain enemies and pickups with timers frozen, except boss countdowns which advance centrally (Change 17). Save snapshots retain the departure timestamp while suspended. Offline settlement, claims, submissions and card commits roll back in-memory mutations on save failure. Offline settlement also rolls back RNG. Rewards are credited before the receipt is shown.
 
 Per-encounter consumable restriction records first hostile contact, clears on death/leash, and disqualifies only that encounter. The discovering kill cannot retrospectively prove the restriction. Per-opportunity online collection credits decrease when copies are spent. Online currency spending credit also decreases on purchases; offline and mission grants cannot create that credit.
 
@@ -174,3 +184,35 @@ Save schema **8** (`simulation.new_profile`, `restore`, `campaign.valid_snapshot
 - **Guarantee** (`onboarding.loot_kill`, from `simulation._reward` after the natural rolls, before the loot line): the phase is recomputed from owned stock and ground pickups (`loot_state`), so an expired drop lowers it and the next eligible kill replaces it. `loot_state` never creates item records (no RNG use).
 - **Mastery** (`campaign.mastery`): `refresh_records()` copies run values upward; `evaluate(announce)` latches completions and emits `notice("mastery_objective")`, `notice/milestone("mastery_map")`, `notice("game_complete")` and `milestone("mastery_game")` once each. `restore` calls `evaluate(false)`. `mastery.bonus(key)` is added inside `campaign.bonus(key)`, so HP, damage, coins (`card`), XP (`group_xp` adds `bonus("xp")`), Loot Chance (`gear_chance`) and Gem Chance (`gem_chance`) each apply it exactly once.
 - **Explored percent** (`campaign.explored_fraction`) excludes `fog_rules.unreachable_cells[stage]` from both the explored count and the area.
+
+## Change 16
+
+Save schema stays **8**. `normalize_snapshot` adds the new records to existing saves; nothing resets.
+
+| Field | Meaning | Default / migration | Save | Prestige | Hard Reset |
+|---|---|---|---|---|---|
+| `bosses_found` | Boss type ids found by sight (`campaign.sight_bosses`): a living boss the living player can see (`can_see`) within `fog_rules.boss_sight_radius` (160). Each id once. Emits `notice` and `milestone` "boss_found" once. | `[]`; an older save gets every boss with `group_kills > 0` (no warning) | saved; validation: boss ids only, unique | **keep** | clear |
+| `follow_mission` | The followed mission: `"daily:<slot>:<kind>:<target>:<day>"` or `"main:<index>"`, "" for none. Ends (cleared) when the mission is claimed or its slot holds another assignment (`check_follow_mission`, on claims and the 1 s tick). | `""` | saved | clear (missions restart) | clear |
+| `pickups[].qty`, `pickups[].dropped`, `group` −1 | A stack dropped by Drop All (`simulation.discard`): one pile of `qty` copies at the player's feet, owned by no enemy type (no Auto-Collect), 300 s like loot. `dropped = {online, ops}` holds the run's online credit (`online_items[id]`, each opportunity's `item_<id>`) taken with it, at most the quantity. | — | saved with the map's pickups; validation: `group` −1 only with `dropped`, `qty` ≥ 1 | gone (fresh world) | gone |
+
+- **Prestige unlock** (`campaign.prestige_unlocked`): `bosses_found` holds the unlock boss (`progression.prestige_unlock_boss`, the Snowman) **or** its lifetime `group_kills` > 0. `first_boss_defeated()` is the kill alone (the Winter I objective chip).
+- **Prestige keep list** adds `gems`, `explored`, `camps_known`, `discovered`, `discovered_spots`, `bosses_found`; after the reset `reveal()` re-identifies spots on the kept fog.
+- **Drop and pick up** (`simulation.collect` of a `dropped` pile): `add_item(id, qty, found=false, announce=false)` (no supply mastery, no recent-find line), no `progress("collect"/"gear")`, then `_restore_credit` adds back exactly the stored credit. Equipped items refuse (`DROP_EQUIPPED`). A dropped stack leaves its record (merge, extras) in `items` with `qty` 0.
+- **Map-tied Coin prices** (`campaign.map_cost_factor(stage)`): `progression.map_cost_growth`^(stage−1) for Coin upgrades scoped `type`, `normal_type`, `stage`, `camp`, camp unlocks and the Map Details floor.
+- **Enemy skill cooldown** (`campaign.enemy_skill_cooldown`): `EnemyAbilityRules.skill_cooldowns["<type>:<skill>"]` or the catalog skill's cooldown, for the rotation and the final boss alike.
+- **Music** (`AudioService._sync_music`): starts the track only when it is neither playing nor paused; `stream_paused = music_volume ≤ 0 or tree paused`; called on every settings change, `play_music` and `refresh_music` (after the HUD pause). Nothing saved beyond the existing settings.
+
+## Change 17 saved fields and lifecycle
+
+| Field | Meaning/default | Load/migration | Prestige | Hard Reset |
+|---|---|---|---|---|
+| boss_respawns | `{actor_id: {group, stage, remaining, x, y}}`, default `{}` | Rebuild absent store from dead bosses in active/inactive worlds; normalize identities and coordinates | Clear | Clear |
+| boss_saved_at | Timestamp used only for offline elapsed settlement | Advance remaining once at restore/resume; snapshot timestamps frozen while suspended; negative elapsed is zero | Reset | Reset |
+| supply_uses | Per-type successful uses, default `{}`, retained to cap ×5 | Clamp 0..500; no collection-derived uses | Keep | Clear |
+| supply_mastery_credit | Legacy mastery, default `{}` | Once, if absent: clamp(supply_found−1,0,100). Later loads never derive it again | Keep | Clear |
+| reward_stage | Highest reward stage, default 1 | Max prior unlocked/visited-stage evidence; getter maxes with current unlocked_stage | Keep | 1 |
+| upgrades.skill_auto_slots | Capacity 0..3 | Fold old skill_auto_0/1/2 ranks once; erase retired saved ranks | Keep | 0 |
+| skill_auto | Existing three booleans now represent chosen equipped positions | Sanitize/cap to owned slots and capacity; empty selections dormant | Keep | All false |
+| mission.base_gems | Unscaled per-kind Gem amount | Reconstruct missing legacy base from kind, never from scaled totals | Mission resets | Clear |
+
+Critical upgrades and use_speed use existing upgrades serialization and Gem retention. Actor attack_slow/attack_rate are saved with actors; active combat status time remains pausable, with inactive actor statuses frozen as before. Boss offline countdown settlement does not simulate or grant combat kills. Current UI must poll APIs in the Claude handoff; it must not mutate these stores directly.

@@ -41,6 +41,8 @@ var suspended_by: String=""
 var intro_id: String=""
 var target: Control
 var world_target:=Vector2.INF
+## Change 16: the opening lesson's direction arrow, from the player toward this world point (INF: none).
+var path_point:=Vector2.INF
 var scrolled_for: String=""
 var pulse: float=0
 ## Change 14: seconds the Focused Farming pointer has been on screen; it retires after FOCUS_HINT_SECONDS.
@@ -118,9 +120,8 @@ func _process(dt: float) -> void:
 ## A lesson completes when its learned state exists, however and whenever the player reached it.
 func _complete_lessons() -> void:
     var data: Dictionary=sim.state.tutorial
-    var arrival: Array=sim.campaign.stage().spawns[0]
     var claimed: bool=not sim.state.main_claimed.is_empty() or sim.campaign.counter("mission")>0
-    var complete: Array=[sim.position_of(sim.state.player).distance_to(Vector2(arrival[0],arrival[1]))>48 or sim.campaign.counter("kill")>0,
+    var complete: Array=[_path_followed() or sim.campaign.counter("kill")>0,
         sim.campaign.counter("kill")>0,not sim.state.items.is_empty(),sim.state.weapon!="" or sim.state.outfit!="",
         sim.state.items.values().any(func(r):return r.merge>0),
         claimed or (data.seen.has("opened:missions") and not sim.campaign.has_claimable()),
@@ -131,8 +132,19 @@ func _complete_lessons() -> void:
     for i in range(LESSONS.size()):
         if complete[i] and not data.done.has(LESSONS[i]):data.done.append(LESSONS[i]);sim.touch()
 
+## Change 16: the opening lesson is done once the player has walked the path to the left (within
+## OnboardingRules.path_reach of path_target on Winter I). Elsewhere, leaving the arrival camp counts
+## as before. A first defeat also completes it (see _complete_lessons), so walking another way first
+## never strands the tutorial.
+func _path_followed() -> bool:
+    var rules: OnboardingRules=sim.campaign.onboarding.rules
+    var at: Vector2=sim.position_of(sim.state.player)
+    if int(sim.state.stage)==1:return at.distance_to(rules.path_target)<=rules.path_reach
+    var arrival: Array=sim.campaign.stage().spawns[0]
+    return at.distance_to(Vector2(arrival[0],arrival[1]))>48
+
 func evaluate() -> void:
-    pending="";step="";surfaces=[""];target=null;world_target=Vector2.INF;intro_id=""
+    pending="";step="";surfaces=[""];target=null;world_target=Vector2.INF;intro_id="";path_point=Vector2.INF
     var data: Dictionary=sim.state.tutorial
     if data.mode=="none":return
     if _focus_hint():return
@@ -166,7 +178,11 @@ func _basic_card() -> bool:
 func _lesson(lesson: String) -> void:
     step=lesson
     match lesson:
-        "move":target=ui.stick
+        # Change 16: "Follow the path to your left." with the arrow pointing from the player along
+        # the path toward the first enemies (Winter I); elsewhere the joystick as before.
+        "move":
+            if int(sim.state.stage)==1:path_point=sim.campaign.onboarding.rules.path_target
+            else:target=ui.stick
         "kill":world_target=_nearest_enemy()
         "collect":
             world_target=_nearest_pickup()
@@ -218,6 +234,9 @@ func _lesson(lesson: String) -> void:
             if sim.state.coins<price:step="camp_earn";support_value=float(price)-float(sim.state.coins);return
             if ui.sheet.visible and ui.panel in ["world","camp"]:
                 step="camp_buy";target=_panel_control("camp_buy_%d" % camp)
+            elif ui.view_camp==camp:
+                # Change 16: standing at that camp, its View Camp button is the next tap.
+                step="camp_view";target=ui.get_node("Safe/Layout/Map/ViewCamp")
             else:step="camp";target=ui.dock.get_node("Navigation/World")
         # Change 15 lessons, each on the system the reveal table has just opened.
         "missions":
@@ -320,7 +339,7 @@ func _present() -> void:
     var data: Dictionary=sim.state.tutorial
     suspended_by=""
     if get_tree().paused:suspended_by="pause"
-    elif ui.get_node("Confirm").visible:suspended_by="confirmation"
+    elif ui.modal_open():suspended_by="confirmation"
     elif not sim.state.prestige_batch.is_empty():suspended_by="prestige"
     elif not ui.banner.current.is_empty():suspended_by="milestone"
     elif ui.sheet.visible and not surfaces.has(ui.panel):suspended_by=ui.panel
@@ -365,7 +384,28 @@ func _place_card() -> void:
     card.position=Vector2(map.global_position.x+(map.size.x-width)*.5,maxf(map.global_position.y+8,y))
     card.show()
 
+## Change 16: the opening direction arrow. The owned pointer art sits beside the player, turned toward
+## the path's point and bobbing along that direction; it never covers the player or leaves the map.
+const PATH_ARROW_DISTANCE:=88.0
+func _point_path() -> void:
+    highlight.hide();shade.hide()
+    var map: Control=ui.get_node("Safe/Layout/Map")
+    var scale: Vector2=map.size/Vector2(ui.world.get_viewport_rect().size)
+    var from: Vector2=map.global_position+(ui.world.get_canvas_transform()*(sim.position_of(sim.state.player)+Vector2(0,-10)))*scale
+    var to: Vector2=map.global_position+(ui.world.get_canvas_transform()*path_point)*scale
+    if from.distance_to(to)<4:
+        pointer.hide();return
+    var direction:=(to-from).normalized()
+    var bob:=6.0*sin(pulse*5)
+    pointer.rotation=direction.angle()-ARROW_BASE_ANGLE
+    var center:=from+direction*(PATH_ARROW_DISTANCE+bob)
+    pointer.position=(center-pointer.size*.5).clamp(map.global_position+Vector2(4,4),map.global_position+map.size-pointer.size-Vector2(4,4))
+    pointer.show()
+
 func _point() -> void:
+    if path_point!=Vector2.INF:
+        _point_path()
+        return
     var rect:=Rect2()
     var have:=false
     if is_instance_valid(target) and target.is_visible_in_tree() and not target.is_queued_for_deletion():

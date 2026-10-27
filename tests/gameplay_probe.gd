@@ -89,10 +89,10 @@ func supply_rules() -> void:
     reset()
     sim.add_item("potion",2)
     var maxhp: float=sim.stats().hp
-    sim.state.player.hp=maxhp*.8
-    check(not sim.use_item("potion") and sim.quantity("potion")==2,"Exactly 80 percent HP rejects a potion without spending")
-    sim.state.player.hp=maxhp*.8-.1
-    check(sim.use_item("potion") and sim.quantity("potion")==1,"Below 80 percent uses one potion")
+    sim.state.player.hp=maxhp
+    check(not sim.use_item("potion") and sim.quantity("potion")==2,"Full HP rejects a potion without spending")
+    sim.state.player.hp=maxhp-.1
+    check(sim.use_item("potion") and sim.quantity("potion")==1,"Below full HP uses one potion")
     sim.state.player.hp=maxhp*.3
     check(not sim.use_item("potion"),"Cooldown prevents a second use")
     sim.state.supplies.append("")
@@ -180,7 +180,8 @@ func prestige_rules() -> void:
     check(sim.campaign.begin_prestige(),"Prestige batch begins")
     var card: String=sim.campaign.offered_cards()[0]
     check(sim.prestige(card),"Prestige commits a durable new run")
-    check(sim.state.coins==0 and sim.state.gems==0 and sim.state.items.is_empty(),"Prestige resets the run economy and items")
+    # Change 16: Prestige keeps the Gem balance; coins and items reset.
+    check(sim.state.coins==0 and sim.state.gems==45 and sim.state.items.is_empty(),"Prestige resets coins and items and keeps Gems")
     check(sim.level("collect",0)==1 and sim.level("collect_range",0)==2 and sim.level("auto_use")==1 and sim.state.gear.size()==4,"Prestige keeps automation levels and capacity")
     check(sim.level("respawn")==0 and sim.level("loot",0)==0 and sim.state.spawn==0 and sim.state.camps["1"]==[0],"Prestige clears coin run upgrades and camps")
     check(sim.state.auto_slots.is_empty() and sim.state.focus==-1,"Prestige clears unsafe automation bindings")

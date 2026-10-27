@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SIM_CPU stage=1 weather= actors=28 us_per_step=787.661666666667
+SIM_CPU stage=2 weather=blue_leaves actors=58 us_per_step=1366.83666666667
+SIM_CPU stage=3 weather= actors=37 us_per_step=893.758333333333
+SIM_CPU stage=4 weather=rain actors=62 us_per_step=1264.24666666667
+SIM_CPU stage=5 weather= actors=35 us_per_step=810.39
+SIM_CPU stage=6 weather=leaves actors=44 us_per_step=979.206666666667
+SIM_CPU stage=7 weather= actors=35 us_per_step=842.16
+SIM_CPU stage=8 weather=rain actors=69 us_per_step=1525.68166666667
+WEATHER_TRANSITION rain_to_dry=true

@@ -162,7 +162,7 @@ func _preferred(loot: Array) -> String:
 func _ground(id: String) -> int:
     var n:=0
     for d in sim.state.pickups:
-        if str(d.item)==id:n+=1
+        if str(d.item)==id:n+=int(d.get("qty",1))
     return n
 
 func _owned_or_ground(id: String) -> int:

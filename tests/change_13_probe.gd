@@ -201,13 +201,14 @@ func evolve_checks() -> void:
 func potion_checks() -> void:
     fresh()
     check(near(sim.supply_cooldown("potion"),12.0),"Health Potion base cooldown 12 s")
-    check(near(sim.supply_value("potion"),.2),"Heal amount still 20% of max HP at ^0")
+    # Change 16: the potion heals 10% at ^0 (20% at ^100), see change_16_probe.
+    check(near(sim.supply_value("potion"),.1),"Heal amount 10% of max HP at ^0 (Change 16)")
     var expected:=[[25,10.8],[50,10.2],[100,10.0]]
     for pair in expected:
-        sim.state.supply_found["potion"]=int(pair[0])+1 # fixture: mastery
+        sim.state.supply_uses["potion"]=int(pair[0])*5 # fixture: mastery
         check(near(sim.supply_cooldown("potion"),float(pair[1])),"^%d mastery: %s s" % [pair[0],pair[1]])
     check(near(sim.supply_cooldown_with("potion",.5),10.0),"The 10 s floor holds for any multiplier")
-    sim.state.supply_found["potion"]=0
+    sim.state.supply_uses["potion"]=0
     sim.add_item("potion",3,false);sim.state.player.hp=sim.stats().hp*.5 # fixture
     check(sim.use_item("potion") and near(sim.state.use_cd,12.0),"Using it starts the authoritative 12 s cooldown")
     check(not sim.use_item("potion") and sim.supply_block_reason("potion")=="SUPPLY_COOLDOWN","A second use is refused while cooling down")
@@ -231,26 +232,26 @@ func potion_checks() -> void:
 # ---------------------------------------------------------------- §5 skills
 func skill_checks() -> void:
     fresh()
-    var wanted:={"heal":18,"frost":10,"fire":10,"lightning":8,"focus":15,"strike":10}
+    var wanted:={"heal":20,"frost":20,"fire":20,"lightning":20,"focus":20,"strike":20}
     for key in wanted:check(int(sim.catalog.skills[key].cooldown)==wanted[key],"%s base cooldown %d s" % [key,wanted[key]])
-    check(sim.upgrade_cost("skill_auto_0")==100 and sim.upgrade_cost("skill_auto_1")==250 and sim.upgrade_cost("skill_auto_2")==500,"Auto-cast unlocks 100 / 250 / 500 gems")
+    check(sim.catalog.upgrades.skill_auto_slots.prices==[100.0,250.0,500.0],"Auto-cast unlocks 100 / 250 / 500 gems")
     check(sim.upgrade_cost("skill_slots")==300,"Second skill slot 300 gems")
     sim.state.upgrades["skill_slots"]=1
     check(sim.upgrade_cost("skill_slots")==600 and int(sim.catalog.upgrades.skill_slots.cap)==2,"Third slot 600 gems; still three slots in all")
     sim.state.upgrades["skill_slots"]=0
-    check(near(sim.player_upgrade_value("cooldown_lightning"),8.0) and near(sim.player_upgrade_value("cooldown_lightning",6),5.6),"Lightning effective cooldown 8 s, 5.6 s with every cooldown upgrade")
+    check(near(sim.player_upgrade_value("cooldown_lightning"),20.0) and near(sim.player_upgrade_value("cooldown_lightning",6),14.0),"Lightning effective cooldown 20 s, 14 s with every cooldown upgrade")
     stage(3)
     sim.add_item("skill_lightning",1);sim.campaign.equip_skill("skill_lightning")
     var enemy: Dictionary=sim.state.enemies[0]
     enemy.x=sim.state.player.x+40;enemy.y=sim.state.player.y;enemy.hp=1e6 # fixture: a target in reach
     sim.locked_target=enemy.id;sim.state.discovered[str(enemy.group)]=true
     sim.campaign.reveal_circle(sim.position_of(enemy),48.0)
-    check(sim.campaign.cast(0) and near(float(sim.state.skill_cooldowns.lightning),8.0),"A cast starts the same 8 s cooldown")
+    check(sim.campaign.cast(0) and near(float(sim.state.skill_cooldowns.lightning),20.0),"A cast starts the same 20 s cooldown")
     sim.state.skills_seen.append("lightning")
     game.selected="skill_lightning";game._open("item");await frames(3)
-    check(labels_text(game.rows).contains(tr("SKILL_COOLDOWN_LINE") % "8"),"The skill details show Cooldown: 8 s")
+    check(labels_text(game.rows).contains(tr("SKILL_COOLDOWN_LINE") % "20"),"The skill details show Cooldown: 20 s")
     game._close()
-    check(near(float(sim.state.skill_cooldowns.lightning),8.0) or true,"(cooldown unchanged by opening details)")
+    check(near(float(sim.state.skill_cooldowns.lightning),20.0) or true,"(cooldown unchanged by opening details)")
 
 # ---------------------------------------------------------------- §6 next stage guidance
 func gate_checks() -> void:
@@ -315,16 +316,17 @@ func currency_checks() -> void:
     game.elapsed=1.0;game._process(0)
     check(game.top.get_node("Bar/Coins").text=="1.99K" and game.top.get_node("Bar/Gems").text=="12.34K","HUD balances abbreviate and never round up (1.99K, 12.34K)")
     # The reported bug: a locked camp's price.
-    stage(6);sim.campaign.sight_camps()
-    for i in range(sim.campaign.stage().spawns.size()):sim.state.camps_known[str(6)]=[1,2]
+    # Change 16: camp prices grow 1.55 per map, so the first price above 1,000 is on Spring II.
+    stage(8);sim.campaign.sight_camps()
+    for i in range(sim.campaign.stage().spawns.size()):sim.state.camps_known[str(8)]=[1,2]
     game._open("world");await frames(2)
     var price: int=sim.campaign.camp_price(1)
     check(price>=1000 and labels_text(game.rows).contains(tr("CAMP_STATE_LOCKED") % NumberFormat.currency(price,true)) and not labels_text(game.rows).contains(str(price)),"Camp price %d shows as %s, never raw" % [price,NumberFormat.currency(price,true)])
     game._close()
     sim.state.coins=float(price)-.5
-    check(sim.state.coins<price and not sim.campaign.camp_action(6,1,false),"Purchase uses the exact amount (%s short of %s is refused)" % [sim.state.coins,price])
+    check(sim.state.coins<price and not sim.campaign.camp_action(8,1,false),"Purchase uses the exact amount (%s short of %s is refused)" % [sim.state.coins,price])
     sim.state.coins=float(price)
-    check(sim.campaign.camp_action(6,1,false) and near(sim.state.coins,0.0),"…and the exact price is spent")
+    check(sim.campaign.camp_action(8,1,false) and near(sim.state.coins,0.0),"…and the exact price is spent")
     # Upgrade buttons and gem/coin texts.
     fresh();sim.state.upgrades["gem_chance"]=19
     game._open("upgrades");game.player_tab=3;game._refresh_panel();await frames(2)
@@ -478,7 +480,7 @@ func final_boss_checks() -> void:
     # Heal on cooldown: it keeps attacking instead of freezing.
     alien.hp=maxhp*.3;casts.clear();heals.clear()
     campaign_steps(13)
-    check(heals.is_empty() and casts.filter(func(c):return c[0]==alien.id).size()>=2,"With Heal on cooldown (18 s) it attacks instead of waiting")
+    check(heals.is_empty() and casts.filter(func(c):return c[0]==alien.id).size()>=2,"With Heal on cooldown (120 s) it attacks instead of waiting")
     campaign_steps(12)
     check(heals.size()==1,"…and heals again once Heal is ready (one heal, no duplicate)")
     # Healing that would do nothing never shows.

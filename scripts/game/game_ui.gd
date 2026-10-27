@@ -8,8 +8,8 @@ extends Control
 @export var refresh_interval:=0.25
 @export var toast_seconds:=2.4
 @export var toast_busy_seconds:=1.4
-## Walking (by hand) to within this many world units of a sighted camp opens its panel once; it
-## opens again only after leaving and coming back (Change 8).
+## Within this many world units of a sighted camp, a View Camp button shows under the camp's name
+## (Change 16; the camp panel no longer opens by itself on approach, Change 8).
 @export var camp_open_radius:=64.0
 ## Prestige milestone banner: width cap and gap below the top safe-area edge.
 @export var banner_max_width:=640.0
@@ -89,6 +89,10 @@ var guide_stage:=0
 ## Camp the player currently stands in (-1 outside) and whether entering it still owes the panel.
 var camp_inside:=-1
 var camp_pending:=false
+## Change 16: the camp whose View Camp button is showing (-1 when hidden).
+var view_camp:=-1
+## Last texts written to the Mastery chip, the Winter I objective and the mission tracker.
+var mastery_text:=""
 ## Camp Teleport picker: the chosen destination as [stage, camp], or empty.
 var teleport_target: Array=[]
 ## Last text written to the "Map Explored" chip above the minimap (written only when it changes).
@@ -164,6 +168,21 @@ func _ready() -> void:
     $Safe/Layout/Map/FollowTracker.gui_input.connect(func(event: InputEvent)->void:
         if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
             accept_event();_open("prestige"))
+    # Change 16: the followed mission's tracker opens Missions; the Mastery chip opens the current
+    # map's Mastery page; View Camp opens the camp the player stands at.
+    $Safe/Layout/Map/MissionTracker.gui_input.connect(func(event: InputEvent)->void:
+        if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
+            accept_event();_open("missions"))
+    $Safe/Layout/Map/Mastery.pressed.connect(func()->void:
+        mastery_stage=int(sim.state.stage)
+        _open("mastery"))
+    $Safe/Layout/Map/ViewCamp.pressed.connect(func()->void:
+        if view_camp>=0:
+            selected_camp=view_camp
+            _open("camp"))
+    $PrestigeConfirm.confirmed.connect(func()->void:_confirmed(sim.campaign.begin_prestige()))
+    $Safe/Layout/Map/ViewCamp.text=tr("VIEW_CAMP")
+    $Safe/Layout/Map/Objective/Text.text=tr("OBJECTIVE_WINTER_BOSS")
     _settle_camp()
     $Confirm/Panel/Margin/Content/Actions/Confirm.pressed.connect(func()->void:
         var action:=confirm_action
@@ -194,7 +213,7 @@ func _ready() -> void:
     guide=preload("res://scripts/game/tutorial_guide.gd").new()
     add_child(guide);guide.setup(self)
     _refresh_reveal()
-    if SaveService.last_load_result in ["development_reset","invalid_profile_reset"]:_event("DEVELOPMENT_SAVE_RESET")
+    # Change 16: no development notice on a profile reset (the internal load result stays for probes).
     if SaveService.write_blocked:
         _event("SAVE_INCOMPATIBLE")
 
@@ -217,13 +236,15 @@ func _process(dt: float) -> void:
     _update_skill_buttons()
     _update_supply_cooldowns()
     var keys:=Vector2(float(Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT))-float(Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT)),float(Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN))-float(Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP)))
-    sim.movement=Vector2.ZERO if get_tree().paused or sim.suspended or $Confirm.visible or sheet.visible else (stick_input if stick_input.length()>.1 else keys.limit_length())
+    sim.movement=Vector2.ZERO if get_tree().paused or sim.suspended or modal_open() or sheet.visible else (stick_input if stick_input.length()>.1 else keys.limit_length())
     if stick_input.length()>.1 or keys.length()>.1:
         $Safe/Layout/Map/GestureSurface.cancel_gesture()
         world.follow_player()
     _update_toast(dt)
     _layout_banner()
-    banner.held=sheet.visible or $Confirm.visible or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending"
+    # The View Camp button follows the camp on screen every frame (camera moves and pans).
+    _refresh_view_camp()
+    banner.held=sheet.visible or modal_open() or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending"
     if settle_frames>0:
         settle_frames-=1
         _layout_sheet()
@@ -259,10 +280,13 @@ func _process(dt: float) -> void:
     _refresh_loot_notifications()
     _refresh_badges()
     _refresh_follow_tracker()
+    _refresh_mission_tracker()
+    _layout_trackers()
     _refresh_explored()
+    _refresh_mastery_chip()
     _refresh_gate()
+    _refresh_objective()
     _offer_offline_claim()
-    _check_camp_entry()
     if last_revision!=sim.revision or previous_pause!=get_tree().paused:
         last_revision=sim.revision
         _refresh_slots()
@@ -296,17 +320,107 @@ func _settle_camp() -> void:
     camp_inside=_camp_at_player()
     camp_pending=false
 
-func _check_camp_entry() -> void:
+## A confirmation is in front of the game (the ordinary one or the Prestige confirmation).
+func modal_open() -> bool:
+    return $Confirm.visible or $PrestigeConfirm.visible
+
+## Change 16: walking up to a camp no longer opens its panel. While the living player stands within
+## camp_open_radius of a sighted camp (World revealed), a View Camp button sits just under the camp's
+## name on screen and opens that camp. Tapping the camp itself still opens it as before. Hidden under
+## a panel, a confirmation, a Prestige choice and the guide chooser.
+func _refresh_view_camp() -> void:
+    var button: Button=$Safe/Layout/Map/ViewCamp
     var here:=_camp_at_player()
-    if here!=camp_inside:
-        # Only a walk-in by hand owes the panel; auto-farm routes passing a camp never pop it.
-        camp_pending=here>=0 and sim.movement.length()>.1
-        camp_inside=here
-    if not camp_pending or here<0 or not revealed("world"):return
-    if sheet.visible or $Confirm.visible or get_tree().paused or sim.suspended or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending" or sim.campaign.in_combat():return
-    camp_pending=false
-    selected_camp=here
-    _open("camp")
+    var show: bool=here>=0 and revealed("world") and not sheet.visible and not modal_open() and sim.state.prestige_batch.is_empty() and sim.state.tutorial.mode!="pending"
+    var at:=_camp_label_point(here) if show else Vector2.INF
+    show=show and at!=Vector2.INF
+    view_camp=here if show else -1
+    if button.visible!=show:button.visible=show
+    if not show:return
+    var map: Control=$Safe/Layout/Map
+    var pos:=Vector2(at.x-button.size.x*.5,at.y+4)
+    pos=pos.clamp(Vector2(8,8),map.size-button.size-Vector2(8,8))
+    if not button.position.is_equal_approx(pos):button.position=pos
+
+## The bottom centre of a camp's name label, in Map coordinates (INF when the stage art is missing).
+func _camp_label_point(i: int) -> Vector2:
+    if world.scenery==null or i<0:return Vector2.INF
+    var camp: Node=world.scenery.get_node_or_null("Camps/Camp%d" % i)
+    if camp==null:return Vector2.INF
+    var rect: Rect2=(camp.get_node("Label") as Control).get_global_rect()
+    var screen: Vector2=world.get_canvas_transform()*Vector2(rect.get_center().x,rect.end.y)
+    return screen*$Safe/Layout/Map.size/Vector2(world.get_viewport_rect().size)
+
+## Change 16: the followed mission (or main objective) in the bottom-right corner: its name, what to
+## do with progress, and "Ready" in green once a Claim waits. A tap opens Missions.
+func _refresh_mission_tracker() -> void:
+    var tracker: Control=$Safe/Layout/Map/MissionTracker
+    var f: Dictionary=sim.campaign.followed_mission()
+    var show: bool=not f.is_empty() and revealed("missions") and sim.state.prestige_batch.is_empty()
+    if tracker.visible!=show:tracker.visible=show
+    if not show:return
+    var title:="";var art: Texture2D=_art(211);var ready:=false
+    if f.kind=="main":
+        title=tr("MAIN_%d" % int(f.index))
+        ready=sim.campaign.main_claimable(int(f.index))
+    else:
+        var m: Dictionary=sim.state.missions[int(f.index)]
+        var g:=sim.campaign.group_id(str(m.target))
+        title=tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else "")
+        art=icon_cache.get(sim.catalog.groups[g].body) if g>=0 else _art(60)
+        ready=m.progress>=m.goal
+    var name_label: Label=tracker.get_node("Row/Text/Name")
+    if name_label.text!=title:name_label.text=title
+    var step: Label=tracker.get_node("Row/Text/Step")
+    var text: String=sim.campaign.mission_follow_summary()
+    if step.text!=text:step.text=text
+    var color:=Color(.45,1,.55) if ready else Color(.94,.95,.97)
+    if step.get_theme_color("font_color")!=color:step.add_theme_color_override("font_color",color)
+    var icon: TextureRect=tracker.get_node("Row/Icon")
+    if icon.texture!=art:icon.texture=art
+    if tracker.mouse_filter!=Control.MOUSE_FILTER_STOP:tracker.mouse_filter=Control.MOUSE_FILTER_STOP
+
+## Both trackers share the bottom-right corner: the Prestige tracker at the bottom, the mission
+## tracker stacked above it (or alone at the bottom). Each grows upward with its text.
+func _layout_trackers() -> void:
+    var follow: Control=$Safe/Layout/Map/FollowTracker
+    var mission: Control=$Safe/Layout/Map/MissionTracker
+    if not mission.visible:return
+    var bottom:=-16.0-(follow.size.y+8.0 if follow.visible else 0.0)
+    var top:=bottom-mission.get_combined_minimum_size().y
+    if not is_equal_approx(mission.offset_bottom,bottom) or not is_equal_approx(mission.offset_top,top):
+        mission.offset_bottom=bottom;mission.offset_top=top
+
+## Change 16: a compact Map Mastery summary for the current map above Map Explored ("Mastery 34% ·
+## 2/5"); a tap opens that map's Mastery page. It comes with Map Mastery (revealed with Prestige).
+func _refresh_mastery_chip() -> void:
+    var chip: Button=$Safe/Layout/Map/Mastery
+    var show: bool=revealed("prestige") and revealed("world")
+    if chip.visible!=show:chip.visible=show
+    if not show:return
+    var st:=int(sim.state.stage)
+    var m=sim.campaign.mastery
+    var done:=0
+    for category in m.CATEGORIES:
+        if m.category_complete(st,category):done+=1
+    var text:=tr("MASTERY_CHIP") % [m.map_percent(st),done,m.CATEGORIES.size()]
+    if text!=mastery_text:
+        mastery_text=text
+        chip.text=text
+
+## Change 16: on Winter I, until the Snowman has been defeated once, a persistent objective sits in
+## the map cluster: "KEEP FARMING UNTIL YOU CAN BEAT THE BOSS TO ADVANCE." Under the Next Stage chip
+## when that shows, else in the cluster's first free place; it never takes touches.
+func _refresh_objective() -> void:
+    var node: Control=$Safe/Layout/Map/Objective
+    var show: bool=int(sim.state.stage)==1 and not sim.campaign.first_boss_defeated() and sim.state.tutorial.mode!="pending"
+    if node.visible!=show:node.visible=show
+    if not show:return
+    var gate: Control=$Safe/Layout/Map/Gate
+    var top: float=gate.offset_bottom+6.0 if gate.visible else (gate.offset_top if revealed("world") else $Safe/Layout/Map/Mastery.offset_top)
+    var bottom: float=top+node.get_combined_minimum_size().y
+    if not is_equal_approx(node.offset_top,top) or not is_equal_approx(node.offset_bottom,bottom):
+        node.offset_top=top;node.offset_bottom=bottom
 
 func _open_equipped(kind: String) -> void:
     var id: String=sim.state[kind]
@@ -317,7 +431,8 @@ func _open_equipped(kind: String) -> void:
     selected_slot=-1
     _open("item")
 
-## Lower-left HUD for the followed prestige opportunity: name, icon and the next step only.
+## Bottom-right HUD for the followed prestige opportunity (Change 16; lower-left before): name, icon and
+## what to do next with progress (campaign.follow_summary).
 func _refresh_follow_tracker() -> void:
     var tracker: Control=$Safe/Layout/Map/FollowTracker
     var id: String=str(sim.state.follow)
@@ -335,7 +450,11 @@ func _refresh_follow_tracker() -> void:
     var color:=Color(.45,1,.55) if ready else Color(.94,.95,.97)
     if step.get_theme_color("font_color")!=color:step.add_theme_color_override("font_color",color)
     var icon: TextureRect=tracker.get_node("Row/Icon")
-    var art:=_path_art(str(op.path))
+    # Change 16: the exact item a collection still needs, or the enemy the step names, else path art.
+    var focus: Dictionary=sim.campaign.follow_focus(id)
+    var art: Texture2D=_path_art(str(op.path))
+    if focus.has("item"):art=icon_cache.get(focus.item)
+    elif focus.has("group") and int(focus.group)>=0:art=icon_cache.get(sim.catalog.groups[int(focus.group)].body,art)
     if icon.texture!=art:icon.texture=art
     if tracker.mouse_filter!=Control.MOUSE_FILTER_STOP:tracker.mouse_filter=Control.MOUSE_FILTER_STOP
 
@@ -614,6 +733,7 @@ func _close() -> void:
 func _pause() -> void:
     $Safe/Layout/Map/GestureSurface.cancel_gesture()
     get_tree().paused=not get_tree().paused
+    AudioService.refresh_music()
     stick.release()
     SaveService.save_now()
 
@@ -656,6 +776,8 @@ func _notice(kind: String,_id: String) -> void:
                 _say(tr("MASTERY_OBJECTIVE_DONE") % [sim.catalog.stages[int(bits[0])-1].name,tr("MASTERY_"+bits[1].to_upper())])
         "mastery_map":if revealed("prestige"):AudioService.play("mastery_map")
         "game_complete":AudioService.play("game_complete")
+        # Change 16: the first sight of a boss plays the notification (mission-ready) sound, once.
+        "boss_found":AudioService.play("boss_found")
         # Change 14: the first Focused Farming purchase confirms itself on the panel's notice line
         # (or as a toast); the guide then points at the Farm button once.
         "focus_unlocked":_say(tr("FOCUS_UNLOCKED"))
@@ -727,6 +849,12 @@ func _milestone(kind: String,id: String) -> void:
                 banner.push(kind,tr("MILESTONE_MASTERY_MAP") % sim.catalog.stages[st-1].name,mastery_reward_text(sim.campaign.mastery.rules.map_rewards[st-1]))
         "mastery_game":
             banner.push(kind,tr("MILESTONE_MASTERY_GAME"),tr("MASTER_FARMER_TITLE")+" · "+mastery_reward_text(sim.campaign.mastery.rules.completion_reward))
+        # Change 16: a boss seen for the first time: a red warning ahead of any queued banner.
+        "boss_found":
+            var g: int=sim.campaign.group_id(id)
+            if g>=0:
+                var d: Dictionary=sim.catalog.groups[g]
+                banner.push_warning(kind,tr("BOSS_FOUND_WARNING"),tr("BOSS_FOUND_DETAIL") % [d.name,sim.catalog.stages[int(d.stage)-1].name],icon_cache.get(d.body))
 
 func _text(value: String,font_size:=20,color:=Color(.94,.95,.97)) -> Label:
     var label:=Label.new()
@@ -810,11 +938,13 @@ func _arrow_button(direction: int,enabled: bool,callback: Callable) -> Button:
         AudioService.play("ui_click"))
     return button
 
-func _confirm(text: String,callback: Callable) -> void:
+## Change 16: a destructive action can name its button and show it red (theme type "Danger").
+func _confirm(text: String,callback: Callable,action_text:="",danger:=false,title:="") -> void:
     confirm_action=callback
     $Confirm/Panel/Margin/Content/Scroll/Text.text=text
-    $Confirm/Panel/Margin/Content/Title.text=tr("CONFIRM")
-    $Confirm/Panel/Margin/Content/Actions/Confirm.text=tr("CONFIRM")
+    $Confirm/Panel/Margin/Content/Title.text=title if title!="" else tr("CONFIRM")
+    $Confirm/Panel/Margin/Content/Actions/Confirm.text=action_text if action_text!="" else tr("CONFIRM")
+    $Confirm/Panel/Margin/Content/Actions/Confirm.theme_type_variation=&"Danger" if danger else &""
     $Confirm/Panel/Margin/Content/Actions/Cancel.text=tr("CANCEL")
     $Confirm/Panel/Margin/Content/Scroll.scroll_vertical=0
     _layout_confirm()
@@ -889,6 +1019,7 @@ func _refresh_panel(force_layout:=false) -> void:
         "level":_level_panel()
         "farming":_farming_panel()
         "mastery":_mastery_panel()
+        "help":_help_panel()
     var context:=_panel_context()
     var replace:=context!=panel_context
     var mapping: Dictionary={}
@@ -1050,9 +1181,14 @@ func _item_panel() -> void:
     var ribbon:=tr("COMPARE_SELECTED") if comparing else (tr("COMPARE_EQUIPPED") if sim.equipped(id) else tr("COMPARE_ITEM"))
     var details:=_item_summary_card(id,ribbon,Color(1,.86,.5) if comparing else Color(.6,1,.75),list.find(id),list.size())
     var shown: Dictionary={}
-    for key in sim.normal(id):
-        _stat_line(details,_stat_text(key,sim.normal(id)[key],true),deltas.get(key,0.0),key,22)
-        shown[key]=true
+    # Change 16: a skill says what it does with today's numbers instead of a bare "Power" value.
+    if def.kind=="skill":
+        for line in skill_description(id):_card_line(details,line,19,Color.WHITE)
+        shown["power"]=true
+    else:
+        for key in sim.normal(id):
+            _stat_line(details,_stat_text(key,sim.normal(id)[key],true),deltas.get(key,0.0),key,22)
+            shown[key]=true
     for key in r.extras:
         _stat_line(details,"+ "+_stat_text(key,r.extras[key],true),0.0 if shown.has(key) else deltas.get(key,0.0),key,19,Color(.75,.8,.87))
         shown[key]=true
@@ -1081,14 +1217,14 @@ func _item_panel() -> void:
         var gains: Array[String]=[]
         for stat in def.normal:
             var gain: float=sim.next_merge_gain(id,stat)
-            if gain>0:gains.append(_stat_text(stat,gain,true))
+            if gain>0:gains.append(_skill_amount(str(def.skill),gain) if def.kind=="skill" else _stat_text(stat,gain,true))
         _card_line(details,tr("NEXT_MERGE_GAIN")+" "+", ".join(gains),17,Color(.5,1,.65))
     else:
         _card_line(details,tr("STOCK_BONUS") % fmt(maxi(0,int(r.qty)-1)*float(sim.catalog.progression.merge.stock_bonus_per_copy)*100),17,Color(.5,1,.65))
     if def.kind=="outfit":_outfit_milestone_lines(details,id)
-    # Change 13: every skill shows its effective cooldown from the same getter the cast uses.
-    if def.kind=="skill" and def.get("skill","")!="heal":_text(tr("SKILL_COOLDOWN_LINE") % fmt_value(sim.player_upgrade_value("cooldown_"+str(def.skill))),17,Color(.8,.84,.9))
-    if def.get("skill","")=="heal":_text(tr("HEAL_ROLE") % [fmt(minf(sim.normal(id).power*(1+sim.campaign.bonus("skill")),sim.stats().hp*.12)),fmt(sim.player_upgrade_value("cooldown_heal"))],17,Color(.8,.84,.9))
+    # Change 13: every skill shows its effective cooldown from the same getter the cast uses (Change 16:
+    # it is part of skill_description, with targets and range).
+    if def.get("skill","")=="heal":_text(tr("HEAL_ROLE_SHORT"),17,Color(.8,.84,.9))
     # Secondary actions: a wrapping row, sized for their widest label.
     var more:=HFlowContainer.new()
     more.add_theme_constant_override("h_separation",8)
@@ -1103,6 +1239,7 @@ func _item_panel() -> void:
     if not def.extras.is_empty():
         var cost:=ceili(float(def.reroll)*(1-sim.campaign.bonus("reroll_discount")))
         _game_action(tr("REROLL") % fmt_cost(cost),func()->void:_confirm(tr("REROLL_CONFIRM") % fmt_cost(cost),func()->void:if selected==id:sim.reroll(id)),true,"",more)
+    _drop_action(id,more)
     for button in more.get_children():
         button.size_flags_horizontal=0
         button.custom_minimum_size=Vector2(0,64)
@@ -1170,6 +1307,7 @@ func _supply_panel(id: String,list: Array) -> void:
     rows.add_child(more)
     if int(s.get("price",0))>0:
         _game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),fmt_cost(int(s.price))],func()->void:if selected==id:_confirmed(sim.purchase_consumable(id)),true,"",more)
+    _drop_action(id,more)
     for button in more.get_children():
         button.size_flags_horizontal=0
         button.custom_minimum_size=Vector2(0,64)
@@ -1182,6 +1320,50 @@ func _supply_panel(id: String,list: Array) -> void:
     _pinned(tr("USE"),func()->void:if selected==id:sim.use_item(id),reason.is_empty(),reason,true,"use")
     _pinned(tr("AUTO_SHORT") % tr("ON" if sim.state.auto_slots.has(slot) else "OFF"),func()->void:if selected==id:sim.bind_auto(sim.state.supplies.find(id)),slot>=0,"CANNOT_USE",false,"auto")
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
+
+## Change 16 Drop All: discards the whole selected stack to free its inventory slot. The action shows
+## red; the confirmation names the item, its ^level and quantity and its button reads "Drop All" in
+## red. Equipped items say to unequip them first (sim.discard_block_reason).
+func _drop_action(id: String,parent: Node) -> void:
+    var reason:=sim.discard_block_reason(id)
+    var button:=_game_action(tr("DROP_ALL"),func()->void:if selected==id:_confirm_drop(id),reason.is_empty(),reason,parent)
+    button.theme_type_variation=&"Danger" if reason.is_empty() else &""
+    button.set_meta("guide","drop_all")
+
+func _confirm_drop(id: String) -> void:
+    var level:=tr("DROP_ALL_MASTERY") % sim.merge_level(id) if sim.catalog.items[id].kind=="consumable" else "^%d" % sim.merge_level(id)
+    var text:=tr("DROP_ALL_CONFIRM") % [sim.catalog.display_name(id),level,fmt_count(sim.quantity(id))]
+    _confirm(text,func()->void:
+        var count:=sim.quantity(id)
+        if _confirmed(sim.discard(id)):_say(tr("DROPPED_NOTICE") % [fmt_count(count),sim.catalog.display_name(id)])
+        _refresh_slots(),tr("DROP_ALL"),true,tr("DROP_ALL_TITLE"))
+
+## Change 16: what a skill does, from the getters its cast uses, so merges, evolutions, cards and the
+## cooldown upgrade always show: the effect with today's numbers, then targets, range and cooldown.
+func skill_description(id: String) -> Array:
+    var key: String=str(sim.catalog.items[id].skill)
+    var power: float=float(sim.normal(id).power)*(1+sim.campaign.bonus("skill"))
+    var damage: float=float(sim.stats().damage)
+    var lines: Array=[]
+    match key:
+        "heal":
+            var cap: float=float(sim.stats().hp)*float(sim.catalog.skills.heal.player_hp_cap)
+            lines.append(tr("SKILL_DESC_HEAL") % [fmt_value(minf(power,cap)),fmt_value(power),fmt_value(float(sim.catalog.skills.heal.player_hp_cap)*100),fmt_value(sim.campaign.HEAL_BELOW_HP*100)])
+        "focus":lines.append(tr("SKILL_DESC_FOCUS") % [fmt_value(power*100),fmt_value(damage*power)])
+        "frost":lines.append(tr("SKILL_DESC_FROST") % [fmt_value(power),fmt_value(damage*power),fmt_value(sim.campaign.skill_range("frost"))])
+        "fire":lines.append(tr("SKILL_DESC_FIRE") % [fmt_value(power),fmt_value(damage*power),fmt_value(sim.campaign.FIRE_RADIUS)])
+        _:lines.append(tr("SKILL_DESC_"+key.to_upper()) % [fmt_value(power),fmt_value(damage*power)])
+    var targets:="SKILL_TARGET_SELF" if key in ["heal","focus"] else ("SKILL_TARGET_AREA" if key in ["frost","fire"] else "SKILL_TARGET_ONE")
+    var reach:=tr("SKILL_RANGE_SELF") if key in ["heal","focus"] else tr("SKILL_RANGE") % fmt_value(sim.campaign.skill_range(key))
+    lines.append(tr("SKILL_DESC_STATS") % [tr(targets),reach,fmt_value(sim.player_upgrade_value("cooldown_"+key))])
+    return lines
+
+## A skill's strength in its own unit: HP for Heal, a damage share for Focus, × attack for attacks.
+func _skill_amount(key: String,value: float) -> String:
+    match key:
+        "heal":return tr("SKILL_AMOUNT_HP") % fmt_value(value)
+        "focus":return tr("SKILL_AMOUNT_FOCUS") % fmt_value(value*100)
+    return tr("SKILL_AMOUNT_MULTIPLIER") % fmt_value(value)
 
 ## A supply's amount in its own unit: % of max HP, % coins or XP, flat Defense, % max HP per second.
 func _supply_amount(id: String,value: float) -> String:
@@ -1974,19 +2156,11 @@ func _settings_panel() -> void:
     _action(tr("SAVE_NOW"),func()->void:if SaveService.save_now():_event("SAVED"),true,"",row)
     for button in row.get_children():
         button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
-    # Change 15: Tutorial and help. Choosing the guidance again keeps the menus already revealed;
-    # Show all menus now reveals every system at once (a way past the first-profile progression).
+    # Change 16: Help opens the Basic tutorial as a page to read (it changes no progress, discovery or
+    # revealed menu). "Choose guidance again" and "Show all menus now" are gone from the player's
+    # Settings; onboarding.reveal_all stays for probes.
     _section(tr("SECTION_TUTORIAL"))
-    var help:=HFlowContainer.new()
-    help.add_theme_constant_override("h_separation",8)
-    help.add_theme_constant_override("v_separation",8)
-    rows.add_child(help)
-    _action(tr("GUIDE_REVIEW"),func()->void:sim.state.tutorial.mode="pending";_close(),true,"",help)
-    var all_shown: bool=sim.campaign.onboarding.all_revealed()
-    _action(tr("SHOW_ALL_MENUS"),func()->void:_confirm(tr("SHOW_ALL_MENUS_CONFIRM"),func()->void:
-        sim.campaign.onboarding.reveal_all(true);_say(tr("ALL_MENUS_SHOWN"))),not all_shown,"ALL_MENUS_ALREADY",help).set_meta("guide","show_all_menus")
-    for button in help.get_children():
-        button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
+    _action(tr("HELP"),func()->void:_open("help"),true,"").set_meta("guide","help")
     # Change 12: music and sound-effect volumes (0 = silent) and two independent mutes.
     _section(tr("SECTION_AUDIO"))
     _volume_row("MUSIC_VOLUME",SettingsState.music_volume,SettingsState.set_music_volume)
@@ -2000,10 +2174,12 @@ func _settings_panel() -> void:
     for button in mutes.get_children():
         button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
     _text(tr("AUDIO_HINT"),16,Color(.7,.75,.82))
-    _section(tr("LANGUAGE_NOTE"))
+    # Change 16: only the languages that can be chosen today are listed (no development notice).
+    _section(tr("SECTION_LANGUAGE"))
     _action(tr("LANG_AUTOMATIC"),func()->void:LocalizationService.select_language("automatic"))
     for locale in LocalizationService.RELEASE_LANGUAGES:
-        _action(tr("LANG_"+locale.to_upper()),func()->void:LocalizationService.select_language(locale),locale=="en_US")
+        if locale in LocalizationService.available_languages():
+            _action(tr("LANG_"+locale.to_upper()),func()->void:LocalizationService.select_language(locale))
     _section(tr("SECTION_DANGER"))
     _action(tr("HARD_RESET"),func()->void:_confirm(tr("RESET_CONFIRM"),func()->void:SaveService.hard_reset();_close()))
     _text(tr("CREDITS"),17,Color(.7,.75,.82))
@@ -2031,6 +2207,23 @@ func _volume_row(key: String,value: float,setter: Callable) -> void:
         label.text=tr(key) % roundi(v)
         setter.call(v/100.0))
     line.add_child(slider)
+
+## Change 16 Help (Settings → Tutorial and help): the Basic tutorial as one page to read, in the
+## order Basic shows it: the opening card, the two tips, one card per revealed system and the
+## situational cards already met. Reading it changes nothing: no progress, discovery or menu reveal,
+## and the guidance mode stays as chosen. Systems not revealed yet are not described (no spoilers).
+const HELP_ART:={"overview":60,"tip_equip":60,"tip_merge":60,"feature_missions":211,"feature_enemy":1,"feature_world":249,"feature_upgrades":147,"feature_prestige":211,"aggression":1,"groups":1,"skills":212,"rest":212,"camp_done":249}
+func _help_panel() -> void:
+    _text(tr("HELP_INTRO"),17,Color(.8,.84,.9))
+    var cards: Array=["overview","tip_equip","tip_merge"]
+    for feature in sim.campaign.onboarding.FEATURES:
+        if revealed(feature):cards.append("feature_"+feature)
+    for card in ["aggression","groups","skills","rest","camp_done"]:
+        if sim.state.tutorial.seen.has(card):cards.append(card)
+    for card in cards:
+        var art: Texture2D=icon_cache.get("boss-snowman_outfit") if card=="feature_objective" else _art(int(HELP_ART.get(card,60)))
+        _info_card(tr("GUIDE_"+card.to_upper()),tr("GUIDE_"+card.to_upper()+"_DETAIL"),art)
+    _pinned(tr("HELP_BACK"),func()->void:_open("settings"),true,"",false,"help_back",false)
 
 func _history_panel() -> void:
     for entry in sim.state.history:
@@ -2427,12 +2620,14 @@ func _missions_panel() -> void:
         var g: int=sim.campaign.group_id(str(m.target))
         var art: Texture2D=icon_cache.get(sim.catalog.groups[g].body) if g>=0 else _art(60)
         var ready: bool=not m.claimed and m.progress>=m.goal
-        _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),("%s / %s" % [fmt_currency(m.progress),fmt_cost(m.goal)] if str(m.kind)=="coins" else "%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)]),m.progress,m.goal,m.coins,m.gems,func()->void:_confirmed(sim.campaign.claim_mission(i)),ready,"MISSION_NOT_READY",bool(m.claimed))
+        _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),("%s / %s" % [fmt_currency(m.progress),fmt_cost(m.goal)] if str(m.kind)=="coins" else "%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)]),m.progress,m.goal,m.coins,m.gems,func()->void:_confirmed(sim.campaign.claim_mission(i)),ready,"MISSION_NOT_READY",bool(m.claimed),["daily",i])
     _section(tr("MAIN_OBJECTIVES"))
     for i in sim.campaign.main_shown():
         var rewards: Array=sim.catalog.campaign.main_rewards[i]
         var done: bool=sim.state.main_ready.has(str(i))
-        _task_card(_art(211),tr("MAIN_%d" % i),tr("MISSION_STATE_READY") if done else tr("IN_PROGRESS"),1 if done else 0,1,rewards[0],rewards[1],func()->void:_confirmed(sim.campaign.claim_main(i)),done,"MISSION_NOT_READY")
+        var p: Array=sim.campaign.main_progress(i)
+        var value:=tr("MISSION_STATE_READY") if done else (tr("MAIN_HINT_%d" % i)+(": %d/%d" % [int(p[0]),int(p[1])] if int(p[1])>1 else ""))
+        _task_card(_art(211),tr("MAIN_%d" % i),value,1.0 if done else float(p[0]),1.0 if done else float(p[1]),rewards[0],rewards[1],func()->void:_confirmed(sim.campaign.claim_main(i)),done,"MISSION_NOT_READY",false,["main",i])
     # Claimed main objectives stay discoverable as a compact history.
     var claimed_main: Array=sim.state.main_claimed.duplicate()
     claimed_main.sort()
@@ -2453,7 +2648,7 @@ func _missions_panel() -> void:
 ## Compact objective card: icon, title, progress bar with value, rewards and a claim button.
 ## States read at a glance: In progress (muted chip), Ready to claim (primary Claim button) and
 ## Claimed (dimmed card, green check, no button), so a claimed card never looks like a disabled claim.
-func _task_card(art: Texture2D,title: String,value: String,progress: float,goal: float,coins: float,gems: float,claim: Callable,ready: bool,reason: String,claimed:=false) -> void:
+func _task_card(art: Texture2D,title: String,value: String,progress: float,goal: float,coins: float,gems: float,claim: Callable,ready: bool,reason: String,claimed:=false,follow: Array=[]) -> void:
     var card:=PanelContainer.new()
     card.theme_type_variation=&"Card"
     if claimed:card.modulate=Color(1,1,1,.62)
@@ -2483,6 +2678,15 @@ func _task_card(art: Texture2D,title: String,value: String,progress: float,goal:
         _card_icon(reward,pair[0],Color.WHITE,24)
         _card_line(reward,fmt_currency(pair[1]),17,Color(1,.88,.55))
     if claimed:_card_line(text,tr("MISSION_WAIT_REFRESH"),16,Color(.7,.75,.82))
+    # Change 16: Follow pins this mission to the bottom-right tracker (one at a time, independent of
+    # the followed Prestige opportunity); Unfollow removes it.
+    if not follow.is_empty() and (sim.campaign.can_follow_mission(follow[0],follow[1]) or sim.campaign.mission_followed(follow[0],follow[1])):
+        var following: bool=sim.campaign.mission_followed(follow[0],follow[1])
+        var pin:=_inline_button(tr("UNFOLLOW" if following else "FOLLOW"),func()->void:sim.campaign.toggle_follow_mission(follow[0],follow[1]),true,"",text,false)
+        pin.custom_minimum_size=Vector2(132,52)
+        pin.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
+        pin.add_theme_font_size_override("font_size",17)
+        pin.set_meta("guide","follow_mission")
     if ready:
         var button:=_inline_button(tr("CLAIM"),claim,true,reason,line,true)
         button.custom_minimum_size=Vector2(112,76)
@@ -2538,7 +2742,7 @@ func _prestige_panel() -> void:
     _text(tr("PRESTIGE_READY_COUNT") % [ready.size(),sim.state.owned_cards.size(),sim.catalog.campaign.cards.size()],20,Color(1,.86,.5))
     var block:=sim.campaign.prestige_block_reason()
     var label:=tr("PRESTIGE_BATCH") % ready.size() if block.is_empty() else tr("PRESTIGE_ACTION_LOCKED") % tr(_prestige_block_short(block))
-    _pinned(label,func()->void:_confirm(_prestige_summary(ready),func()->void:sim.campaign.begin_prestige()),block.is_empty(),block,true,"begin_prestige")
+    _pinned(label,func()->void:_open_prestige_confirm(ready),block.is_empty(),block,true,"begin_prestige")
     # Ready first, then in progress, then completed history.
     var order: Array=[]
     for state_rank in [0,1,2]:
@@ -2584,7 +2788,11 @@ func _opportunity_card(op: Dictionary) -> void:
     head.add_child(text)
     _card_line(text,op.name+"  ·  "+tr("ACHIEVEMENT_DONE" if done else ("PRESTIGE_READY_SHORT" if ready else "IN_PROGRESS")),20,Color(.45,1,.55) if ready else (Color(.7,.75,.82) if done else Color.WHITE))
     _card_line(text,op.description,17,Color(.8,.84,.9))
-    if not done and not ready:_card_line(text,sim.campaign.opportunity_progress(op.id),17,Color(1,.86,.5))
+    # Change 16: the same actionable line as the tracker (what to do, where, progress, what is next);
+    # a collection also lists every outfit with its count.
+    if not done and not ready:
+        _card_line(text,sim.campaign.follow_summary(op.id),17,Color(1,.86,.5))
+        if str(op.path)=="collection":_card_line(text,sim.campaign.opportunity_progress(op.id),16,Color(.8,.84,.9))
     if done:return
     var chips:=HBoxContainer.new()
     chips.add_theme_constant_override("separation",8)
@@ -2648,6 +2856,18 @@ func _prestige_summary(ready: Array) -> String:
     var names: Array=[]
     for id in ready:names.append(_opportunity(id).name)
     return tr("PRESTIGE_CONFIRM_SUMMARY") % [ready.size(),", ".join(names)]
+
+## Change 16: the Prestige confirmation is a milestone screen (scenes/game/prestige_confirm.tscn):
+## the opportunities redeemed (path art and the cards still on offer), then what stays permanently
+## and what this run resets, from the actual rules (campaign.choose_card's keep list).
+func _open_prestige_confirm(ready: Array) -> void:
+    var rows_: Array=[]
+    for id in ready:
+        var op: Dictionary=_opportunity(id)
+        rows_.append({"icon":_path_art(str(op.path)),"text":str(op.name)+"  ·  "+tr("PRESTIGE_CONFIRM_CHOOSE_CARD")})
+    var keep: Array=[tr("KEEP_LINE_CARDS") % sim.state.owned_cards.size(),tr("KEEP_LINE_GEMS") % fmt_currency(sim.state.gems),tr("KEEP_LINE_MAP"),tr("KEEP_LINE_UPGRADES"),tr("KEEP_LINE_PROGRESS"),tr("KEEP_LINE_SETTINGS")]
+    var reset: Array=[tr("RESET_LINE_COINS") % fmt_currency(sim.state.coins),tr("RESET_LINE_LEVEL") % int(sim.state.player_level),tr("RESET_LINE_ITEMS"),tr("RESET_LINE_MAPS"),tr("RESET_LINE_UPGRADES"),tr("RESET_LINE_CHALLENGES")]
+    $PrestigeConfirm.open(tr("PRESTIGE_CONFIRM_SUBTITLE") % ready.size(),rows_,keep,reset)
 
 ## The batch: one card per ready opportunity, chosen in order. Tap a card to select it, then keep it.
 func _prestige_choice(batch: Dictionary) -> void:

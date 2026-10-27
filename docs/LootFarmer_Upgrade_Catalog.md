@@ -1,4 +1,13 @@
-# LootFarmer — Upgrade Catalog — Change 6 (retention updated in Change 11)
+# LootFarmer — Upgrade Catalog — Change 17 (retention updated in Change 17, map pricing in Change 17)
+
+## Change 17 — current gameplay authority (27 October 2026)
+
+Change 17 supersedes earlier descriptions of skill power/cooldowns, supply mastery/healing, automatic skill slots and mission rewards. It adds persistent boss countdown APIs and permanent critical upgrades, reuses the supply interval/shop systems, and optimizes rain calculations without changing authored appearance. Schema 8 saves remain compatible; existing mastery and automation purchases migrate. No UI/tutorial implementation is included.
+
+Read [Change 17 behavior and decisions](LootFarmer_Change_17_Notes.md), [Claude integration API](LootFarmer_Change_17_Claude_Integration.md) and [validation and unresolved balance](LootFarmer_Change_17_Validation.md). The later numbered sections below are historical change records; Change 17 takes precedence where their rules differ.
+
+**Change 16 map pricing and Gem collection:** every Coin price tied to an enemy type, a map or a camp scales by `progression.map_cost_growth`^(map−1) = **1.55** per map (was 2): all `type` / `normal_type` Coin upgrades, `reveal_radius`, `camp_radius`, the `map_detail` floor and camp unlocks (50 / 150 × 1.55^(map−1)). Each upgrade keeps its own base and level growth; `global` Coin upgrades and every Gem price are unchanged (`campaign.map_cost_factor`). The base Coin reward per kill grows 1.5 per map, so each map costs about 3% more relative to its income than the one before. **Auto-Collect** (`collect`) is now bought with **Gems**: 20 on Winter I. **Collect Batch** (`collect_batch`) is bought with **Gems**: 50 × 3^level on Winter I (50 / 150 / 450 / 1,350 / 4,050), limit 5 levels. Both use the Gem map factor 1 + 0.25 × (map − 1) and are kept by Prestige like every Gem upgrade; levels bought with Coins before Change 16 keep their level. Owned by `tools/change16_catalog.py`. The table rows below for `collect` and `collect_batch` are the Change 6 history.
+
 
 **Change 11 retention rule:** Prestige keeps **every upgrade bought with Gems**, whatever its category (player, enemy type, automation, inventory, map/camp, spawn, offline, missions). Coin upgrades keep their own Keep/Reset column below. Every upgrade has exactly one currency, so no level is ever split between currencies. The rule is enforced in code from the currency (`simulation.upgrade_kept`) and mirrored by `keep: true` on every gem row in catalog.json (`tools/change11_catalog.py`, checked by `tools/validate_campaign_source.py`). Hard Reset clears every upgrade. Before Change 11, Gem Chance, Gem Amount, Boss Gem Chance, Boss Gem Amount, Spawn Amount and Spawn Cooldown were gem-funded yet reset; kept Spawn levels now re-spawn the extra actors immediately after the reset.
 
@@ -10,7 +19,7 @@ Change 6: prices and caps unchanged. Player-facing labels now state the implemen
 
 The user approved implementation, removal of selling and the automerge correction to **10 → 1 seconds**. No merge-rate purchase remains provisional. Prices are tunable authored values; exact runtime ids below are the identifiers used by code and saves.
 
-Next price = ceil(base × growth^rank × owner multiplier), unless the table supplies a price list. Type coin multiplier = 2^(stage−1), type gem multiplier = 1 + 0.25×(stage−1); stage/camp coin upgrades use their stage multiplier. Global tracks use 1. Coin discounts apply before ceil. Storage special prices: gear 10 + 5×floor(rank/10), supplies 8 + 4×rank.
+Next price = ceil(base × growth^rank × owner multiplier), unless the table supplies a price list. Type coin multiplier = 1.55^(stage−1) since Change 16 (was 2^(stage−1)), type gem multiplier = 1 + 0.25×(stage−1); stage/camp coin upgrades use their stage multiplier. Global tracks use 1. Coin discounts apply before ceil. Storage special prices: gear 10 + 5×floor(rank/10), supplies 8 + 4×rank.
 
 | Runtime id | Scope | Currency | Ranks | Keep at prestige | Base / growth or list |
 |---|---|---|---:|---|---|
@@ -22,8 +31,8 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | collect_speed | type | coins | 5 | Keep | 30 / 1.5 |
 | merge_gear | type | gems | 1 | Keep | 30 / 1 (Change 13: covers the exact items the type drops) |
 | auto_evolve | type | gems | 1 | Keep | 2,000 on every map (`flat`, Change 13) |
-| auto_use | global | gems | 3 | Keep | 10 / 2.4 |
-| use_speed | global | coins | 8 | Keep | 40 / 1.6 |
+| auto_use | global | gems | 3 | Keep | 100 / 2.6 |
+| use_speed | global | gems | 8 | Keep | 100 / 1.6; interval 10 → 2 s |
 | focus | type | gems | 1 | Keep | 25 / 1 |
 | respawn | global | coins | 7 | Reset | 30 / 1.7 |
 | loot | type | coins | 15 | Reset | 20 / 1.35 |
@@ -42,9 +51,9 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | gear_merge_speed | type | gems | 9 | Keep | 30 / 1.7 |
 | merge_all | global | gems | 1 | Keep (Change 12) | 5,000 / 1 (one-time unlock; using Merge All is free) |
 | skill_slots | global | gems | 2 | Keep | [300, 600] (Change 13) |
-| skill_auto_0 | global | gems | 1 | Keep | 100 / 1 (Change 13) |
-| skill_auto_1 | global | gems | 1 | Keep | 250 / 1 (Change 13) |
-| skill_auto_2 | global | gems | 1 | Keep | 500 / 1 (Change 13) |
+| skill_auto_slots | global | gems | 3 | Keep | 100 / 250 / 500; freely assign equipped positions |
+| critical_chance | global | gems | 20 | Keep | 250 / 1.5; +1 percentage point per level |
+| critical_damage | global | gems | 20 | Keep | 200 / 1.5; +5 percentage points per level |
 | cooldown_heal | global | coins | 6 | Reset | 100 / 1.65 |
 | cooldown_frost | global | coins | 6 | Reset | 100 / 1.65 |
 | cooldown_fire | global | coins | 6 | Reset | 100 / 1.65 |
@@ -94,7 +103,7 @@ Prices are data: `prices` list, `step` (linear: base + step × level), `sequence
 |---|---|
 | gear_slots | 5 + level gems (each slot costs 1 more than the previous one) |
 | supply_slots | 4 + 4 × level gems |
-| auto_use | 6 × 2.6^n gems (merge_supplies and merge_speed removed in Change 11) |
+| auto_use | 100 × 2.6^n gems (merge_supplies and merge_speed removed in Change 11) |
 | gem_chance, gem_amount, boss_gem_amount | [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, (390, 470)] gems; Change 12 extends Gem Chance with 560 … 1,470 for levels 13–20 |
 | boss_gem_chance | [50, 80, 120, 170, 230, 310, 410, 530] gems |
 | skill_slots / skill_auto_0,1,2 | [300, 600] / 100, 250, 500 gems (Change 13; Change 8 had [50, 160] / 38, 75, 150) |

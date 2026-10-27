@@ -14,11 +14,20 @@ var age:=0.0
 var held:=false
 var spark_textures: Array=[]
 var tween: Tween
+## Change 16: a warning (the first sight of a boss) jumps the queue and reads red: title, frame and
+## sparks take warning_color, and its art is the boss itself. Other milestones keep the gold look.
+@export var warning_color:=Color(1,.3,.24)
+var title_color: Color
+var frame_color: Color
+var default_art: Texture2D
 
 func _ready() -> void:
     mouse_filter=Control.MOUSE_FILTER_IGNORE
     hide()
     $Plate/Row/Art.texture=UiArt.cropped($Plate/Row/Art.texture)
+    default_art=$Plate/Row/Art.texture
+    title_color=$Plate/Row/Text/Title.get_theme_color("font_color")
+    frame_color=$Plate/Frame.modulate
     for i in range(spark_frames):
         var atlas:=AtlasTexture.new();atlas.atlas=SPARKS;atlas.region=Rect2(Vector2(i*spark_size.x,0),spark_size)
         spark_textures.append(atlas)
@@ -32,6 +41,13 @@ func push(kind: String,title: String,subtitle: String,cards: Array=[]) -> void:
         if entry.get("title","")==title and entry.get("subtitle","")==subtitle:return
     queue.append({"kind":kind,"title":title,"subtitle":subtitle,"cards":cards})
     while queue.size()>4:queue.pop_front()
+
+## A warning shown next, ahead of queued celebrations, in warning_color with its own art.
+func push_warning(kind: String,title: String,subtitle: String,art: Texture2D=null) -> void:
+    for entry in queue+[current]:
+        if entry.get("title","")==title and entry.get("subtitle","")==subtitle:return
+    queue.push_front({"kind":kind,"title":title,"subtitle":subtitle,"cards":[],"warning":true,"art":art})
+    while queue.size()>4:queue.pop_back()
 
 func pending() -> int:
     return queue.size()+(0 if current.is_empty() else 1)
@@ -52,6 +68,11 @@ func _process(dt: float) -> void:
 
 func _begin(entry: Dictionary) -> void:
     current=entry;age=0.0
+    var warning: bool=entry.get("warning",false)
+    $Plate/Row/Text/Title.add_theme_color_override("font_color",warning_color if warning else title_color)
+    $Plate/Frame.modulate=warning_color if warning else frame_color
+    $Sparks.modulate=warning_color if warning else Color.WHITE
+    $Plate/Row/Art.texture=entry.get("art") if warning and entry.get("art")!=null else default_art
     $Plate/Row/Text/Title.text=entry.title
     $Plate/Row/Text/Subtitle.text=entry.subtitle
     $Plate/Row/Text/Subtitle.visible=entry.subtitle!=""

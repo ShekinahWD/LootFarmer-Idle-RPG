@@ -19,41 +19,72 @@ func _process(dt: float) -> void:
     if kind!=weather:
         weather=kind
         style=styles.get(kind)
+        queue_redraw() # Also clear the previous weather commands on a dry stage.
     clock+=dt
-    queue_redraw()
+    if style!=null:queue_redraw()
 ## The map-art tint of the current weather (white without weather).
 func ambient_tint() -> Color:
     return style.ambient_tint if style!=null else Color.WHITE
+# Reused pattern buffers: trigonometry/modulo/frame work happens once per particle index, not
+# once per repeated grid cell. Production drawing does not allocate an Array for every particle.
+var _pattern:=PackedVector2Array()
+var _frames:=PackedInt32Array()
+var _regions: Array[Rect2]=[]
+var _pattern_clock: float=-INF
+var _pattern_style: WeatherStyle
+func _prepare_pattern() -> void:
+    if style==null:return
+    if _pattern_style==style and _pattern_clock==clock:return
+    _pattern_style=style;_pattern_clock=clock
+    _pattern.resize(style.particles_per_period);_frames.resize(style.particles_per_period)
+    _regions.resize(style.particles_per_period)
+    var tick:=int(clock*style.fps)
+    for i in range(style.particles_per_period):
+        var frame: int=(tick+i)%style.frames
+        var at:=clock
+        if style.splash_frame>=0 and frame>=style.splash_frame:
+            at=float(tick-(frame-style.splash_frame))/style.fps
+        _pattern[i]=Vector2(fposmod(i*83.0+at*style.drift.x,style.period.x),fposmod(i*47.0+i*i*13.0+at*style.drift.y,style.period.y))
+        _frames[i]=frame
+        _regions[i]=Rect2(Vector2(frame,i%style.frame_rows)*style.frame_size,style.frame_size)
+
 func _draw() -> void:
     if style==null or style.texture==null:return
+    _prepare_pattern()
     var camera: Camera2D=get_parent().get_node("Camera")
     var half: Vector2=get_viewport_rect().size/camera.zoom*.5
-    for particle in particles(Rect2(camera.position-half,half*2).grow(120)):
-        var pos: Vector2=particle[0];var i: int=particle[1];var frame: int=particle[2]
-        if not sim.campaign.can_see(pos):continue
-        draw_texture_rect_region(style.texture,Rect2(pos,style.draw_size),Rect2(Vector2(frame,i%style.frame_rows)*style.frame_size,style.frame_size),style.color)
-## World positions [position, index, frame] of the particles inside a world rect at the current clock.
-## Depends only on the clock and the world grid, never on the camera (the rect only culls).
-## Change 14: a particle in its splash frames is drawn where it was at the impact frame (the first
-## splash frame's start), so the splash never slides with the drift.
+    var rect:=Rect2(camera.position-half,half*2).grow(120)
+    var first:=Vector2i(floori(rect.position.x/style.period.x),floori(rect.position.y/style.period.y))
+    var last:=Vector2i(floori(rect.end.x/style.period.x),floori(rect.end.y/style.period.y))
+    # Visibility inputs are invariant during this draw. Avoid re-deriving card/upgrade bonuses for
+    # each drop in unexplored ground; exact same cell-centred predicate as campaign.can_see().
+    var mask: Dictionary=sim.state.explored.get(str(sim.state.stage),{})
+    var cell: float=sim.campaign.fog_rules.cell_size
+    var player: Vector2=sim.position_of(sim.state.player)
+    var radius: float=sim.campaign.vision_radius() if sim.state.player.hp>0 else -1.0
+    var bounds:=Rect2(Vector2.ZERO,Vector2(sim.catalog.world.size[0],sim.catalog.world.size[1]))
+    for cy in range(first.y,last.y+1):
+        for cx in range(first.x,last.x+1):
+            var origin:=Vector2(cx,cy)*style.period
+            for i in range(_pattern.size()):
+                var pos:=origin+_pattern[i]
+                if not rect.has_point(pos) or not bounds.has_point(pos):continue
+                var grid:=Vector2(floorf(pos.x/cell),floorf(pos.y/cell))
+                if not mask.has("%d,%d" % [int(grid.x),int(grid.y)]) and (radius<0 or ((grid+Vector2.ONE*.5)*cell).distance_to(player)>radius):continue
+                draw_texture_rect_region(style.texture,Rect2(pos,style.draw_size),_regions[i],style.color)
+
+## Diagnostic API retained for existing probes. Rendering uses the buffers directly.
 func particles(visible_rect: Rect2) -> Array:
     var result: Array=[]
     if style==null:return result
-    var period: Vector2=style.period
-    var drift: Vector2=style.drift
-    var tick: int=int(clock*style.fps)
+    _prepare_pattern()
+    var period:=style.period
     var first:=Vector2i(floori(visible_rect.position.x/period.x),floori(visible_rect.position.y/period.y))
     var last:=Vector2i(floori(visible_rect.end.x/period.x),floori(visible_rect.end.y/period.y))
     for cy in range(first.y,last.y+1):
         for cx in range(first.x,last.x+1):
             var origin:=Vector2(cx,cy)*period
-            for i in range(style.particles_per_period):
-                var frame: int=(tick+i)%style.frames
-                var at: float=clock
-                if style.splash_frame>=0 and frame>=style.splash_frame:
-                    at=float(tick-(frame-style.splash_frame))/style.fps
-                # Same local pattern in every period cell: a particle leaving one cell is continued by
-                # its twin entering from the neighbouring cell, so wrapping never pops.
-                var pos:=origin+Vector2(fposmod(i*83.0+at*drift.x,period.x),fposmod(i*47.0+i*i*13.0+at*drift.y,period.y))
-                if visible_rect.has_point(pos):result.append([pos,i,frame])
+            for i in range(_pattern.size()):
+                var pos:=origin+_pattern[i]
+                if visible_rect.has_point(pos):result.append([pos,i,_frames[i]])
     return result

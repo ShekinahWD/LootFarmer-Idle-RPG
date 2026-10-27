@@ -92,6 +92,7 @@ func run() -> void:
     sim.state.opportunities={}
     sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1   # fixture: first boss opens Prestige (Change 8)
     for i in range(1,4):sim.state.opportunities["hunter_o"+str(i)]={"ready":true,"baseline":{}}
+    var fog_before: Dictionary=sim.state.explored.duplicate(true)
     check(sim.campaign.begin_prestige(),"Prestige batch begins")
     check(sim.campaign.offered_cards().size()==3,"First choice three cards")
     check(sim.prestige(sim.campaign.offered_cards()[0]) and sim.state.prestiges==0,"First choice saved without reset")
@@ -101,7 +102,10 @@ func run() -> void:
     sim.prestige(sim.campaign.offered_cards()[0])
     check(sim.state.prestiges==1 and sim.state.owned_cards.size()==3,"Exactly one reset for whole batch")
     check(sim.state.keys.size()==13 and sim.state.final_complete and sim.state.main_claimed.has(15),"Keys and claimed final reward persist")
-    check(sim.state.stage==1 and sim.state.explored.size()==1 and sim.state.explored.has("1") and sim.state.run_kills.is_empty(),"Stages fog and gate kills reset")
+    # Change 16: Prestige keeps explored map areas; stages and gate kills still reset.
+    var fog_kept:=true
+    for key in fog_before:fog_kept=fog_kept and sim.state.explored.get(key,{}).size()>=fog_before[key].size()
+    check(sim.state.stage==1 and fog_kept and sim.state.run_kills.is_empty(),"Stages and gate kills reset; explored cells are kept (Change 16)")
     check(sim.campaign.combo_owned(sim.catalog.campaign.combos[0]),"Same-path set activated idempotently")
     fresh();sim.add_item("wood_sword");sim.state.upgrades.offline_weapon=1
     sim.state.offline_snapshot=sim.campaign.offline_snapshot();sim.state.offline_snapshot.time=1000

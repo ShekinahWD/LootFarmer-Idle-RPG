@@ -52,7 +52,7 @@ msgid "SETTINGS_LANGUAGES"
 msgstr "Language"
 
 msgid "LANG_AUTOMATIC"
-msgstr "Automatic (English during development)"
+msgstr "Automatic"
 
 msgid "LANG_DISABLED"
 msgstr "Available after translation validation"
@@ -648,7 +648,7 @@ msgid "CAMP_LOCKED"
 msgstr "Locked · tap to unlock"
 
 msgid "CAMP_HELP"
-msgstr "Camps are respawn points. Rest beside an unlocked camp to recover quickly. Unlocking, choosing it for respawn and travelling are separate actions."
+msgstr "Camps are respawn points. Rest beside an unlocked camp to recover quickly. Unlocking, choosing it for respawn and travelling are separate actions. Standing at a camp shows a View Camp button."
 
 msgid "CAMP_SELECTED_NOTICE"
 msgstr "Respawn camp selected."
@@ -1139,7 +1139,7 @@ msgid "MAIN_3"
 msgstr "Unlock an extra camp"
 
 msgid "MAIN_4"
-msgstr "Defeat the Snowman · unlocks Winter II and Prestige"
+msgstr "Defeat the Snowman · unlocks Winter II"
 
 msgid "MAIN_5"
 msgstr "Equip Heal"
@@ -3238,73 +3238,73 @@ msgid "CONTENT_HUNTER_O1_NAME"
 msgstr "First bounty"
 
 msgid "CONTENT_HUNTER_O1_DESCRIPTION"
-msgstr "Defeat the Snowman 10 times"
+msgstr "Defeat the Snowman (Winter I boss) 10 times"
 
 msgid "CONTENT_HUNTER_O2_NAME"
 msgstr "Summer bounty"
 
 msgid "CONTENT_HUNTER_O2_DESCRIPTION"
-msgstr "Defeat the Gray Cat 20 times"
+msgstr "Defeat the Gray Cat (Summer I boss) 20 times"
 
 msgid "CONTENT_HUNTER_O3_NAME"
 msgstr "Autumn bounty"
 
 msgid "CONTENT_HUNTER_O3_DESCRIPTION"
-msgstr "Defeat the Grim Reaper 30 times"
+msgstr "Defeat the Grim Reaper (Autumn II boss) 30 times"
 
 msgid "CONTENT_EXPEDITION_O1_NAME"
 msgstr "Winter route"
 
 msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
-msgstr "In order: defeat 100 Blue Caps, 100 Red Scarves, then 100 Chef Hats"
+msgstr "On Winter I, in order: defeat 100 Blue Caps, then 100 Red Scarves, then 100 Chef Hats"
 
 msgid "CONTENT_EXPEDITION_O2_NAME"
 msgstr "Summer route"
 
 msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
-msgstr "In order: defeat 150 Straw Hats, 150 Sunglasses, then 150 Yellow Caps"
+msgstr "On Summer I, in order: defeat 150 Straw Hats, then 150 Sunglasses, then 150 Yellow Caps"
 
 msgid "CONTENT_EXPEDITION_O3_NAME"
 msgstr "Spring route"
 
 msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
-msgstr "In order: defeat 200 Bunny Ears, 200 Cat Ears, then 200 Elf Ears"
+msgstr "On Spring I, in order: defeat 200 Bunny Ears, then 200 Cat Ears, then 200 Elf Ears"
 
 msgid "CONTENT_COLLECTION_O1_NAME"
 msgstr "Winter collection"
 
 msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
-msgstr "Find and hand in 20 each of the Blue Cap, Red Scarf and Chef Hat outfits"
+msgstr "Pick up 20 each of the Blue Cap, Red Scarf and Chef Hat outfits (Winter I drops), then hand them in with Submit"
 
 msgid "CONTENT_COLLECTION_O2_NAME"
 msgstr "Summer collection"
 
 msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
-msgstr "Find and hand in 30 each of the Straw Hat, Sunglasses and Yellow Cap outfits"
+msgstr "Pick up 30 each of the Straw Hat, Sunglasses and Yellow Cap outfits (Summer I drops), then hand them in with Submit"
 
 msgid "CONTENT_COLLECTION_O3_NAME"
 msgstr "Spring collection"
 
 msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
-msgstr "Find and hand in 40 each of the Bunny Ears, Cat Ears and Elf Ears outfits"
+msgstr "Pick up 40 each of the Bunny Ears, Cat Ears and Elf Ears outfits (Spring I drops), then hand them in with Submit"
 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "First masterwork"
 
 msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Merge any item to ^100"
+msgstr "Merge any weapon, outfit or skill to ^100"
 
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Second tier"
 
 msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Merge a tier 2 item to ^100"
+msgstr "Merge a tier 2 or higher item to ^100 (tier 2 drops from Summer I on, or evolve a weapon)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Third tier"
 
 msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Merge a tier 3 item to ^100"
+msgstr "Merge a tier 3 or higher item to ^100 (tier 3 drops from Autumn I on, or evolve a weapon twice)"
 
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Paired gear"
@@ -3322,115 +3322,115 @@ msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Evolved arsenal"
 
 msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Merge 3 tier 2 weapons and 3 tier 2 outfits to ^50"
+msgstr "Merge 3 different tier 2+ weapons and 3 different tier 2+ outfits to ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Winter mastery"
 
 msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
-msgstr "Explore 90% of both winter maps, defeat both winter bosses and unlock every winter camp"
+msgstr "On Winter I and Winter II: explore 90% of each map, defeat both bosses and unlock every camp"
 
 msgid "CONTENT_REGIONAL_O2_NAME"
 msgstr "Summer mastery"
 
 msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
-msgstr "Explore 90% of both summer maps, defeat all three summer bosses and unlock every summer camp"
+msgstr "On Summer I and Summer II: explore 90% of each map, defeat all three bosses and unlock every camp"
 
 msgid "CONTENT_REGIONAL_O3_NAME"
 msgstr "Spring mastery"
 
 msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
-msgstr "Explore 90% of both spring maps, defeat all five spring bosses and unlock every spring camp"
+msgstr "On Spring I and Spring II: explore 90% of each map, defeat all five bosses and unlock every camp"
 
 msgid "CONTENT_CHALLENGE_O1_NAME"
 msgstr "Unassisted winter"
 
 msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
-msgstr "Defeat the Cyan Robot without using any supplies during the fight"
+msgstr "Defeat the Cyan Robot (Winter II boss) without using any supply during the fight"
 
 msgid "CONTENT_CHALLENGE_O2_NAME"
 msgstr "Unassisted summer"
 
 msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
-msgstr "Defeat the Teal Dinosaur without using any supplies during the fight"
+msgstr "Defeat the Teal Dinosaur (Summer II boss) without using any supply during the fight"
 
 msgid "CONTENT_CHALLENGE_O3_NAME"
 msgstr "Unassisted autumn"
 
 msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
-msgstr "Defeat the Grim Reaper without using any supplies during the fight"
+msgstr "Defeat the Grim Reaper (Autumn II boss) without using any supply during the fight"
 
 msgid "CONTENT_OFFERING_O1_NAME"
 msgstr "Small offering"
 
 msgid "CONTENT_OFFERING_O1_DESCRIPTION"
-msgstr "Donate 2K coins and 30 gems earned in battle this run"
+msgstr "Earn 2K coins and 30 gems from enemies this run, then hand them in with Submit"
 
 msgid "CONTENT_OFFERING_O2_NAME"
 msgstr "Growing offering"
 
 msgid "CONTENT_OFFERING_O2_DESCRIPTION"
-msgstr "Donate 20K coins and 100 gems earned in battle this run"
+msgstr "Earn 20K coins and 100 gems from enemies this run, then hand them in with Submit"
 
 msgid "CONTENT_OFFERING_O3_NAME"
 msgstr "Grand offering"
 
 msgid "CONTENT_OFFERING_O3_DESCRIPTION"
-msgstr "Donate 100K coins and 300 gems earned in battle this run"
+msgstr "Earn 100K coins and 300 gems from enemies this run, then hand them in with Submit"
 
 msgid "CONTENT_SPECIALIST_O1_NAME"
 msgstr "Short chain"
 
 msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
-msgstr "In order: defeat 100 enemies, find 10 gear drops, then merge 10 times"
+msgstr "In order: defeat 100 enemies, pick up 10 weapon or outfit drops, then merge 10 times"
 
 msgid "CONTENT_SPECIALIST_O2_NAME"
 msgstr "Long chain"
 
 msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
-msgstr "In order: defeat 250 enemies and 3 bosses, merge 25 times, then cast 30 skills"
+msgstr "In order: defeat 250 enemies, defeat 3 bosses, merge 25 times, then cast 30 skills"
 
 msgid "CONTENT_SPECIALIST_O3_NAME"
 msgstr "Master chain"
 
 msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
-msgstr "In order: defeat 500 enemies and 10 bosses, merge 50 times, then finish 3 missions"
+msgstr "In order: defeat 500 enemies, defeat 10 bosses, merge 50 times, then claim 3 regular missions"
 
 msgid "CONTENT_TROPHY_O1_NAME"
 msgstr "Winter trophies"
 
 msgid "CONTENT_TROPHY_O1_DESCRIPTION"
-msgstr "Win a trophy from the Snowman and the Cyan Robot"
+msgstr "After finding this, defeat the Snowman (Winter I) and the Cyan Robot (Winter II) once each"
 
 msgid "CONTENT_TROPHY_O2_NAME"
 msgstr "Summer trophies"
 
 msgid "CONTENT_TROPHY_O2_DESCRIPTION"
-msgstr "Win a trophy from the Gray Cat, Elephant and Teal Dinosaur"
+msgstr "After finding this, defeat the Gray Cat (Summer I), the Elephant and the Teal Dinosaur (Summer II) once each"
 
 msgid "CONTENT_TROPHY_O3_NAME"
 msgstr "Autumn trophies"
 
 msgid "CONTENT_TROPHY_O3_DESCRIPTION"
-msgstr "Win a trophy from the Squirrel, Red Fox, Black Cat and Grim Reaper"
+msgstr "After finding this, defeat the Squirrel and the Red Fox (Autumn I), the Black Cat and the Grim Reaper (Autumn II) once each"
 
 msgid "CONTENT_OFFLINE_O1_NAME"
 msgstr "Time away"
 
 msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
-msgstr "Spend 72 hours away in total"
+msgstr "Spend 72 hours away from the game in total"
 
 msgid "CONTENT_OFFLINE_O2_NAME"
 msgstr "Long rest"
 
 msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
-msgstr "Stay away for 24 hours in one go"
+msgstr "Stay away from the game for 24 hours in one go"
 
 msgid "CONTENT_OFFLINE_O3_NAME"
 msgstr "Offline income"
 
 msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
-msgstr "Earn 10K coins while away"
+msgstr "Earn 10K coins while away (claim the Welcome back rewards)"
 
 msgid "CONTENT_HUNTER_SET_DESCRIPTION"
 msgstr "+20% XP from bosses"
@@ -3714,10 +3714,10 @@ msgid "GUIDE_GOT_IT"
 msgstr "Got it"
 
 msgid "GUIDE_MOVE"
-msgstr "Move with the joystick"
+msgstr "Follow the path to your left."
 
 msgid "GUIDE_MOVE_DETAIL"
-msgstr "Drag the control to walk toward the nearest enemies."
+msgstr "Drag the joystick toward the arrow. The first enemies wait along the path."
 
 msgid "GUIDE_KILL"
 msgstr "Stop next to an enemy to attack"
@@ -3753,7 +3753,7 @@ msgid "GUIDE_CAMP"
 msgstr "Open World to unlock a camp"
 
 msgid "GUIDE_CAMP_DETAIL"
-msgstr "You have found a camp and can afford it."
+msgstr "You have found a camp and can afford it. Open World, or walk to the camp and tap View Camp."
 
 msgid "GUIDE_OVERVIEW"
 msgstr "Walk, fight, collect"
@@ -3903,13 +3903,13 @@ msgid "PRESTIGE_KEEP_TITLE"
 msgstr "You keep"
 
 msgid "PRESTIGE_KEEP"
-msgstr "Cards and sets, boss keys, enemy achievements, every upgrade bought with gems (all categories), automation, inventory space, supply mastery and settings."
+msgstr "Cards and sets, your Gems, explored map areas, every upgrade bought with gems (all categories), automation, inventory space, boss keys, enemy achievements, supply mastery, Map Mastery and settings."
 
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "This run resets"
 
 msgid "PRESTIGE_RESET"
-msgstr "Coins, gems, items (supply stock included) and merges, level, camps, map exploration, coin upgrades and unfinished challenges."
+msgstr "Coins, items (supply stock included) and merges, level, map access and owned camps, map and coin upgrades and unfinished challenges."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Keep %s"
@@ -4200,10 +4200,10 @@ msgid "SKILL_UPGRADES_UNLOCKED"
 msgstr "New upgrades unlocked: %s (Player Upgrades)"
 
 msgid "PRESTIGE_LOCKED_FIRST_BOSS"
-msgstr "Defeat the Winter I Snowman (the first boss) to unlock the Prestige reset."
+msgstr "Find the Winter I Snowman (the first boss) to unlock the Prestige reset."
 
 msgid "NAV_PRESTIGE_LOCKED"
-msgstr "Defeat the Snowman"
+msgstr "Find the Snowman"
 
 msgid "NO_CARD_AVAILABLE"
 msgstr "You already own every card these ready opportunities could give."
@@ -4251,13 +4251,13 @@ msgid "FOLLOW_READY"
 msgstr "Ready! Open Prestige to choose a card"
 
 msgid "FOLLOW_STEP"
-msgstr "Step %d/%d — %s: %d/%d"
+msgstr "Step %d/%d · %s: %d/%d"
 
 msgid "FOLLOW_HUNT"
 msgstr "Defeat %s: %d/%d"
 
 msgid "FOLLOW_CHALLENGE"
-msgstr "Defeat %s without supplies"
+msgstr "Defeat %s without using any supply during the fight: 0/1"
 
 msgid "GOAL_MISSION"
 msgstr "Claim missions"
@@ -4434,13 +4434,13 @@ msgid "PRESTIGE_REQUIREMENTS"
 msgstr "Prestige reset needs"
 
 msgid "PRESTIGE_REQ_BOSS"
-msgstr "Defeat the Winter I Snowman (first boss) once"
+msgstr "Find the Winter I Snowman (first boss)"
 
 msgid "PRESTIGE_REQ_READY"
 msgstr "At least one ready opportunity that can award a card"
 
 msgid "PRESTIGE_NEEDS_BOSS"
-msgstr "defeat the Snowman"
+msgstr "find the Snowman"
 
 msgid "PRESTIGE_NEEDS_READY"
 msgstr "no ready opportunity"
@@ -4641,10 +4641,10 @@ msgid "ITEM_WISDOM_TONIC"
 msgstr "Wisdom Tonic"
 
 msgid "FOLLOW_COLLECT"
-msgstr "Step %d/%d · Collect items · %d/%d"
+msgstr "Step %d/%d · Collect %s from %s: %d/%d"
 
 msgid "FOLLOW_COLLECTION_SUBMIT"
-msgstr "All found · hand them in from Prestige"
+msgstr "All found! Hand them in: Prestige, then Submit"
 
 msgid "FILTERS"
 msgstr "Filters"
@@ -4827,7 +4827,7 @@ msgid "MUTE_SPECIAL_STATUS"
 msgstr "Mute special sounds: %s"
 
 msgid "AUDIO_HINT"
-msgstr "Gameplay sounds: taps, purchases, merges and combat. Special sounds: notifications (a mission or objective ready to claim, Prestige news, a new menu, Map Mastery progress) and milestones (a new map, a Prestige). The sound-effect volume sets both."
+msgstr "Gameplay sounds: taps, purchases, merges and combat. Special sounds: notifications (a mission or objective ready to claim, Prestige news, a new menu, Map Mastery progress, a boss found) and milestones (a new map, a Prestige). The sound-effect volume sets both."
 
 msgid "UP_MERGE_ALL"
 msgstr "Merge All"
@@ -5001,7 +5001,7 @@ msgid "GUIDE_SNOWMAN"
 msgstr "Main objective: defeat the Snowman"
 
 msgid "GUIDE_SNOWMAN_DETAIL"
-msgstr "It unlocks Winter II and Prestige. Merge gear, level up and bring potions first."
+msgstr "Defeating it opens Winter II; finding it opens Prestige. Merge gear, level up and bring potions first."
 
 msgid "GUIDE_PRESTIGE_OPEN"
 msgstr "Prestige unlocked: open Prestige"
@@ -5049,7 +5049,7 @@ msgid "GUIDE_FEATURE_OBJECTIVE"
 msgstr "Main objective: defeat the Snowman"
 
 msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
-msgstr "It unlocks Winter II and Prestige. Merge gear, level up and bring potions first."
+msgstr "Defeating it opens Winter II; finding it opens Prestige. Merge gear, level up and bring potions first."
 
 msgid "GUIDE_FEATURE_PRESTIGE"
 msgstr "Prestige unlocked"
@@ -5218,3 +5218,321 @@ msgstr "Title"
 
 msgid "STATS_MASTERY"
 msgstr "Map Mastery"
+
+msgid "MAIN_HINT_0"
+msgstr "Defeat enemies"
+
+msgid "MAIN_HINT_1"
+msgstr "Tap a weapon or outfit in your inventory, then Equip"
+
+msgid "MAIN_HINT_2"
+msgstr "Open an item you own twice, then Merge"
+
+msgid "MAIN_HINT_3"
+msgstr "Walk to a camp and tap View Camp, then Unlock"
+
+msgid "MAIN_HINT_4"
+msgstr "Defeat the Snowman, the Winter I boss"
+
+msgid "MAIN_HINT_5"
+msgstr "Equip the Heal skill (Winter II: Space Helmet elites and the Cyan Robot drop it)"
+
+msgid "MAIN_HINT_6"
+msgstr "Buy a Map Details rank in World"
+
+msgid "MAIN_HINT_7"
+msgstr "Find a Frost Burst skill (Summer I: Straw Hat elites drop it)"
+
+msgid "MAIN_HINT_8"
+msgstr "Defeat the Cyan Robot, the Winter II boss, to reach Summer I"
+
+msgid "MAIN_HINT_9"
+msgstr "Evolve a ^100 weapon that has 101 copies (item details, Evolve)"
+
+msgid "MAIN_HINT_10"
+msgstr "Own different skills"
+
+msgid "MAIN_HINT_11"
+msgstr "Defeat both Summer II bosses to reach Autumn I"
+
+msgid "MAIN_HINT_12"
+msgstr "Own different skills"
+
+msgid "MAIN_HINT_13"
+msgstr "Defeat both Autumn II bosses to reach Spring I"
+
+msgid "MAIN_HINT_14"
+msgstr "Complete a Prestige"
+
+msgid "MAIN_HINT_15"
+msgstr "Defeat every Spring II enemy type and boss"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "Ready! Claim it in Missions"
+
+msgid "MISSION_DO_KILL"
+msgstr "Defeat %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "Defeat %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "Pick up weapon or outfit drops"
+
+msgid "MISSION_DO_MERGE"
+msgstr "Merge items"
+
+msgid "MISSION_DO_COINS"
+msgstr "Earn coins from enemies"
+
+msgid "MISSION_DO_CAST"
+msgstr "Cast equipped skills"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "Next: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "Defeat %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "Defeat any enemies"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "Pick up weapon or outfit drops"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "Merge items"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "Defeat any bosses"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "Cast skills"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "Claim regular missions"
+
+msgid "FOLLOW_TROPHY"
+msgstr "Defeat %s for its trophy · trophies %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "Merge any weapon, outfit or skill to ^100: best ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "Merge a tier %d or higher item to ^100: best ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "Merge to ^50: weapons %d/%d · outfits %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "Merge tier 2+ gear to ^50: weapons %d/%d · outfits %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "Earn from enemies this run: coins %s/%s · gems %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "Enough! Hand it in: Prestige, then Submit"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "Time away in total: %.1f/72 h"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "Longest single absence: %.1f/24 h"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "Coins earned while away: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "Explore %s: %d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "Defeat %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "Unlock every camp on %s: %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "Then: %s (%d left)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!WARNING BOSS FOUND!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · %s boss"
+
+msgid "MASTERY_CHIP"
+msgstr "Mastery %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "Map Mastery of this map: percent and completed categories. Tap for details."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "KEEP FARMING UNTIL YOU CAN BEAT THE BOSS TO ADVANCE."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "The Snowman guards the way to Winter II."
+
+msgid "VIEW_CAMP"
+msgstr "View Camp"
+
+msgid "DROP_ALL"
+msgstr "Drop All"
+
+msgid "DROP_ALL_TITLE"
+msgstr "Drop the whole stack?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nEvery copy leaves your inventory and its slot is free at once. The stack waits on the ground for 5 minutes: tap it to pick it up again (Auto-Collect never takes it back). Picking it up again gives no mission, Prestige or Mastery progress."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "mastery ^%d (kept)"
+
+msgid "DROPPED_NOTICE"
+msgstr "Dropped %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "Unequip it first"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "Heals you %s HP now (%s HP, at most %s%% of max HP) when you are below %s%% HP"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "+%s%% attack damage for 5 s (+%s damage per hit now) · only in combat"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× attack damage (%s now) to every enemy within %s of you, and slows them 25%% for 3 s"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× attack damage (%s now) to your target and every enemy within %s of it"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "%s× attack damage (%s now) to your current target"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "%s× attack damage (%s now) to your current target, a heavy close-range hit"
+
+msgid "SKILL_DESC_STATS"
+msgstr "Targets: %s · Range: %s · Cooldown: %s s"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "you"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "all enemies in the area"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 enemy"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "self"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s HP"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s%% damage"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× attack damage"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "Free sustain between potions. Damage numbers above are before enemy Defense; skill cards and merges raise them."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "Prestige"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "Redeem %d opportunit(ies) and begin a new run"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "You choose one permanent card for each:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 card"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "PERMANENT · YOU KEEP"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "THIS RUN RESETS"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "Cards are chosen one at a time and saved at once. The run restarts on Winter I after the last card."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "Begin Prestige"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "Prestige cards and sets (%d owned) plus the new ones"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "Your Gems: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "Explored map areas, sighted camps and found bosses"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "Every Gem upgrade, automation and inventory space"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "Boss keys, enemy achievements, supply mastery and Map Mastery"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "Settings and tutorial progress"
+
+msgid "RESET_LINE_COINS"
+msgstr "Coins: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "Player level %d (back to 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "Items, merges and supply stock"
+
+msgid "RESET_LINE_MAPS"
+msgstr "Map access (back to Winter I) and owned camps"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "Coin upgrades and map upgrades"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "Unfinished opportunities and missions"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "Tap View Camp"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "It opens this camp, where you can unlock it."
+
+msgid "HELP"
+msgstr "Help"
+
+msgid "PANEL_HELP"
+msgstr "Help"
+
+msgid "HELP_INTRO"
+msgstr "The tutorial cards for everything you have unlocked so far. Reading them changes nothing in your game."
+
+msgid "HELP_BACK"
+msgstr "Back to Settings"
+
+msgid "SECTION_LANGUAGE"
+msgstr "Language"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "Critical Chance"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "Critical Damage"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "Automatic Skill Slots"
+
+msgid "SOURCE_UPGRADES"
+msgstr "Upgrades"

@@ -22,14 +22,16 @@ func run() -> void:
         check(sim.add_item(potion,3) and sim.add_item(heal,3),"Healing items fit storage")
         sim.equip(heal)
         for merge in [0,50,100]:
-            sim.state.supply_found[potion]=merge+1;sim.record(heal).merge=merge;sim.touch() # fixture: potion mastery ^merge
+            sim.state.supply_uses[potion]=merge*5;sim.record(heal).merge=merge;sim.touch() # fixture: potion mastery ^merge
             var potion_hp: float=sim.stats().hp*sim.supply_value(potion)
-            var skill_hp: float=minf(sim.normal(heal).power,sim.stats().hp*.12)
-            check(potion_hp>skill_hp*1.6,"Potion burst exceeds the Heal cast at Heal tier %d, potion ^%d" % [tier,merge])
+            var skill_hp: float=minf(sim.normal(heal).power,sim.stats().hp*.3)
+            # Change 17: both are HP-relative; legacy tiers share the same Heal family curve.
+            check(is_equal_approx(potion_hp/sim.stats().hp,.1+.001*merge),"Potion mastery curve")
+            check(is_equal_approx(skill_hp/sim.stats().hp,sim.skill_base_power(heal)),"Legacy Heal family curve")
         sim.state.player.hp=1;sim.state.skill_cooldowns={};sim.state.use_cd=0
         var qty=sim.quantity(heal);var hp=sim.state.player.hp
         check(sim.campaign.cast(0),"Heal casts while hurt")
-        check(sim.quantity(heal)==qty and sim.state.player.hp-hp<=sim.stats().hp*.12+.001,"Free Heal respects HP cap")
+        check(sim.quantity(heal)==qty and sim.state.player.hp-hp<=sim.stats().hp*.3+.001,"Free Heal respects HP cap")
         check(not sim.campaign.cast(0),"Heal cannot bypass cooldown")
         sim.state.player.hp=1;hp=sim.state.player.hp;qty=sim.quantity(potion)
         check(sim.use_item(potion),"Potion works during Heal cooldown")
@@ -40,14 +42,14 @@ func run() -> void:
         # Change 8: skills no longer evolve; the authored tiers remain (legacy ids) and are walked directly.
         heal="skill_heal_t%d" % (tier+1)
     fresh();sim.add_item("potion",2,false);sim.add_item("skill_heal",2);sim.equip("skill_heal") # bought potions: mastery ^0
-    check(is_equal_approx(sim.normal("potion").heal_pct,.2) and sim.normal("skill_heal").power==10,"Distinct tier-one base heals (Change 6: Heal 6 -> 10)")
-    check(sim.player_upgrade_value("cooldown_heal")==18,"Heal base cooldown")
+    check(is_equal_approx(sim.normal("potion").heal_pct,.1) and sim.normal("skill_heal").power==10,"Distinct tier-one base heals (Change 6: Heal 6 -> 10; Change 16: potion 10% at ^0)")
+    check(sim.player_upgrade_value("cooldown_heal")==20,"Heal base cooldown")
     sim.state.upgrades.cooldown_heal=6
-    check(is_equal_approx(sim.player_upgrade_value("cooldown_heal"),12.6),"Max cooldown upgrade stays meaningful")
+    check(is_equal_approx(sim.player_upgrade_value("cooldown_heal"),14.0),"Max cooldown upgrade stays meaningful")
     # Real save/load with JSON serialization and registered provider.
     fresh();sim.add_item("potion",4);sim.add_item("wood_sword",3);sim.equip("wood_sword");sim.merge("wood_sword")
     sim.state.coins=123.5;sim.state.gems=55.25;sim.buy_upgrade("coin_amount",0)
-    sim.state.main_claimed=[0];sim.state.auto_slots=[0]
+    sim.state.main_claimed=[0];sim.state.upgrades.auto_use=1;sim.state.auto_slots=[0]
     sim.state.tutorial.done=["move","kill"];sim.state.tutorial.seen=["overview"]
     sim.campaign.reveal_segment(sim.position_of(sim.state.player),Vector2(350,350))
     var expected=sim.snapshot();check(sim._valid_snapshot(expected),"Current save validates")

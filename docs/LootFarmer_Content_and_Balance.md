@@ -1,4 +1,10 @@
-# LootFarmer — Content and Balance v1 — Change 6
+# LootFarmer — Content and Balance v1 — Change 17
+
+## Change 17 — current gameplay authority (27 October 2026)
+
+Change 17 supersedes earlier descriptions of skill power/cooldowns, supply mastery/healing, automatic skill slots and mission rewards. It adds persistent boss countdown APIs and permanent critical upgrades, reuses the supply interval/shop systems, and optimizes rain calculations without changing authored appearance. Schema 8 saves remain compatible; existing mastery and automation purchases migrate. No UI/tutorial implementation is included.
+
+Read [Change 17 behavior and decisions](LootFarmer_Change_17_Notes.md), [Claude integration API](LootFarmer_Change_17_Claude_Integration.md) and [validation and unresolved balance](LootFarmer_Change_17_Validation.md). The later numbered sections below are historical change records; Change 17 takes precedence where their rules differ.
 
 All exact assignments and newly authored values in this document are delegated starting tuning, NOT approved playtest results. Approved mechanics in GDD remain binding. The Change 4 runtime catalog and eight scene files now implement these assignments. Enemy_Roster.csv assigns all 48 existing sheets exactly once using stable descriptive ids and original paths/hashes.
 
@@ -25,22 +31,24 @@ Normal spawn baseline: 3 actors per variant spot, upgradable to 6. Cooldown = 5 
 
 Let L be fixed roster level. Opening exception: the first normal type uses 18 HP, 2 damage and a 2-second interval. Other normal both-variant HP = 25×1.022^(L−1), damage = 2×1.014^(L−1), attack interval 1.5 seconds. Outfit-only multiplies HP by 1.25 and damage by 0.75; weapon-only HP by 0.75 and damage by 1.25. Fourth variant multiplies both HP and damage by 1.35 and casts its skill. Ordinary boss HP ×6 and damage ×1.6 relative to the normal formula at its level, attack interval 2s. Final boss uses ×12 HP and ×2 damage. These are first-pass formulas requiring loadout/time-to-kill evaluation; the old exponential wall is replaced. A seeded all-gear ceiling probe verifies numerical feasibility; it does not certify natural campaign pacing.
 
-Normal base coin reward = 1.25^(stage−1); boss ×8. Coin chance starts 100%, so no useless coin-chance purchase is shown. XP = ceil(3×1.035^(L−1)); boss ×10. Normal equipment chance = max(3%, 10%−(stage−1) percentage points), boss 30%; independently roll only carried weapon/outfit. Consumable base chance 5% normal, 15% boss; successful roll selects potion 80% or coin tonic 20%. Gear/consumable upgrades add at most 15pp. Normal skill 5%, boss 10%, each +15pp max. For boss skills one roll then uniform selection among used families. Keys are guaranteed separately, never consume loot-roll eligibility. Gem chance (Change 12): 5% base for normal and boss rolls, + Gem Chance (20 × 0.5 points), + Gem Wisdom (5 points), + the type's kill achievements (8 × 0.5 points), + Boss Gem Chance on bosses (8 × 5 points); no game cap, clamped to 0–100% (fully stacked 24% normal, 64% boss). Gem amounts are unchanged (boss 3× normal).
+Normal base coin reward = 1.5^(stage−1) since Change 16 (was 1.25^(stage−1)); boss ×8. Coin chance starts 100%, so no useless coin-chance purchase is shown. XP = ceil(3×1.035^(L−1)); boss ×10. Normal equipment chance = max(3%, 10%−(stage−1) percentage points), boss 30%; independently roll only carried weapon/outfit. Consumable base chance 5% normal, 15% boss; successful roll selects potion 80% or coin tonic 20%. Gear/consumable upgrades add at most 15pp. Normal skill 5%, boss 10%, each +15pp max. For boss skills one roll then uniform selection among used families. Keys are guaranteed separately, never consume loot-roll eligibility. Gem chance (Change 12): 5% base for normal and boss rolls, + Gem Chance (20 × 0.5 points), + Gem Wisdom (5 points), + the type's kill achievements (8 × 0.5 points), + Boss Gem Chance on bosses (8 × 5 points); no game cap, clamped to 0–100% (fully stacked 24% normal, 64% boss). Gem amounts are unchanged (boss 3× normal).
 
 Player baseline progression stays level 1–1000, +5 HP and +0.5 damage per level until measured balancing changes it. XP-to-next starting draft = ceil(10×1.025^(level−1)); cap level without overflow. Target first ready prestige at 1–2 hours and daily tasks 15–60 minutes; adjust reward/HP/XP/price coefficients together based on play evidence, not by deleting failing probes.
 
-## Skill starting table
+## Current player skill table (Change 17)
 
-| ID | Skill | First stage | Tier 1 effect at ^0 | Cooldown | Target / behavior | Asset mapping |
-|---|---|---|---|---|---|---|
-| heal | Heal | 2 (late) | 6 HP, capped at 12% max HP | 18s | 0.08s cast; self; below 80% HP | heal / heal_01 |
-| frost | Frost Burst | 3 | 1.2 × attack damage | 10s | 96-unit radius; slow 25% for 3s | ice_shatter / ice_shatter_01 |
-| fire | Fire Burst | 3 | 1.6 × attack damage | 10s (Change 13; was 8s) | 64-unit radius around target | fire_impact / fire_impact_01 |
-| lightning | Lightning Strike | 3 | 1.4 × attack damage | 8s (Change 13; was 4s) | Current target in 120-unit range | zap / zap_01 |
-| focus | Arcane Focus | 4 | +15% attack damage | 15s | Self buff 5s, combat only | cast / cast_01 |
-| strike | Arcane Strike | 4 | 2.8 × attack damage | 10s | Current target in 80-unit range | impact / impact_01 |
+| Skill | ^0 | ^100 | ^250 | ^500 | Base cooldown | Target |
+|---|---:|---:|---:|---:|---:|---|
+| Heal | 10.00% | 17.66% | 24.69% | 30.00% | 20 s | Self; missing HP |
+| Frost Burst | 0.5000× | 1.0748× | 1.6016× | 2.0000× | 20 s | 96-unit caster area |
+| Fire Burst | 0.7500× | 1.6123× | 2.4023× | 3.0000× | 20 s | 64-unit target area, 120 reach |
+| Lightning Strike | 1.2500× | 2.6871× | 4.0039× | 5.0000× | 20 s | One enemy, 120 reach |
+| Arcane Focus | 10.00% | 25.33% | 39.37% | 50.00% | 20 s | Self, combat only, 5 s |
+| Arcane Strike | 2.0000× | 4.2993× | 6.4062× | 8.0000× | 20 s | One enemy, 80 reach |
 
-Damage skills scale their multiplier; Heal scales HP; Focus scales its additive buff magnitude. Merge scales primary strength only. Frost slow stays 25%, duration/range unchanged by merge; cooldown unchanged except family purchase. Buff/slow refresh, no unbounded stacking. Enemy heal restores at most 8% max HP per cast with same cooldown, below 80%; prevents the first healer becoming an accidental wall. Change 12: an enemy or boss at 80%+ HP passes its Heal turn without a telegraph or effect (the next skill in its rotation gets the turn), and the Heal effect, sound and green number appear only when HP is actually restored. Enemy Focus +15% base, attacks use enemy damage. Telegraph boss area attacks 0.6s before contact with supplied VFX, verify player dodge windows and supplied art in context.
+Values are before Skill/Merge Wisdom and target bonuses. Heal is a fraction of maximum HP; Focus is additional damage. Legacy tier and surplus stock do not inflate player skills. Existing logarithmic merge progress is normalized to the ^500 endpoints. Merge Wisdom accelerates progress up to the endpoint. Heal's effective cap is 30% HP; Fire's effective cap is 3× damage including Focus/Skill/target bonuses. Family cooldown purchases still reduce 20 → 14 seconds.
+
+Frost slows movement 25% for 3 seconds. Player Lightning slows attack rate 50% for 3 seconds, without changing movement. Boss timed statuses last half as long, including their own Focus. Enemy skill power remains separately authored; enemy Heal thresholds remain 80% (final boss 50%), and the Cyan Robot retains its 12-second override. Other skill base cooldowns use the shared 20-second catalog values.
 
 ## Item families and evolution mathematics
 
@@ -58,16 +66,18 @@ Base 120 coins/h and 2 gems/h; upgrades and caps are in Upgrade Catalog. After u
 
 ## Mission templates and main chain
 
-Regular template quantities are authored at assignment from current accessible content; rewards fixed thereafter. Eligibility prevents impossible categories/locked bosses. Initial template set:
+Regular objectives are authored at assignment from current accessible content; unclaimed rewards are recomputed from the highest-ever unlocked stage and current bonuses (Change 17). Eligibility prevents impossible categories/locked bosses. Initial template set:
 
 | Template | Goal | Reward |
 |---|---|---|
-| Hunt | 120 kills of an accessible normal type | 150×stage coins |
-| Collect gear | 12 online weapon/outfit drops | 120×stage coins + 3 gems |
-| Merge | 20 manual/auto merges of owned items | 100×stage coins + 3 gems |
-| Earn | 300×stage coins from online kills | 5 gems |
-| Boss hunt | 5 kills of a previously defeated accessible boss | 200×stage coins + 5 gems |
-| Skill practice | 40 successful casts of an equipped skill | 100×stage coins + 3 gems |
+| Hunt | 120 kills of an accessible normal type | 40 normal kills; no Gems |
+| Collect gear | 12 online weapon/outfit drops | 40 normal kills + 3 base Gems |
+| Merge | 20 manual/auto merges of owned items | 40 normal kills + 3 base Gems |
+| Earn | 300×stage coins from online kills | 40 normal kills + 5 base Gems |
+| Boss hunt | 5 kills of a previously defeated accessible boss | 80 normal kills + 5 base Gems |
+| Skill practice | 40 successful casts of an equipped skill | 40 normal kills + 3 base Gems |
+
+Coin equivalents use the mean normal-enemy payout at the highest-ever unlocked stage. Base Gems use stage multipliers 1/2/3/5/8/12/18/25; mission bonuses apply once.
 
 For progression eligibility, assignment stage is highest unlocked stage with demonstrated kills. Final boss mission is never assigned before key eligibility. No repeat active template+target. Avoid collect/merge tasks if the player cannot accept the needed identity or has no mergeable below-cap items. Quantity estimates need 15–60-minute observed completion; revise templates between assignments only.
 
@@ -130,3 +140,11 @@ The per-kill supply roll is unchanged (5% normal, 15% boss, + Supply Drop upgrad
 - **Summoners** (`resources/game/enemy_abilities.tres`): Grim Reaper (Horned Hood helpers, 2 per call, max 2, 22 s, 50% HP / 40% damage), Sunflower (Sprout, 2, max 2, 24 s, 35% / 30%), Green Alien (Green Cap, 2, max 3, 20 s, 40% / 35%). Helpers give no rewards and are never saved.
 - **Final boss:** an action every 11 s plus the 0.6 s telegraph. Below 50% HP it heals first when Heal is ready (4% of max HP, 18 s cooldown); otherwise it uses a random ready skill from Fire, Strike, Frost, Lightning, or Focus. HP, damage, drops and the 13-key gate are unchanged.
 - **Measured (one deterministic fixture pass):** final boss ^300 + 4 cards now loses narrowly (boss at 3%; it was a 58 s win); ^400, ^500 and ^300 + 6 cards win. The cause is the slower player skills, not the summons. Untested on a device.
+
+## Change 16 economy and combat (see docs/LootFarmer_Change_16_Notes.md)
+
+- **Coin income:** normal base reward 1.5^(map−1): 1, 1.5, 2.25, 3.375, 5.06, 7.59, 11.39, 17.09 (bosses 8×). Owned by `tools/change16_catalog.py`.
+- **Coin prices tied to a map:** ×1.55^(map−1) (enemy upgrades, map and camp upgrades, camp unlocks, the Map Details floor). The ratio "Loot Chance level 1 ÷ base income" goes 20.0, 20.7, 21.8, 22.2, 22.9, 23.6, 24.4, 25.2 (it was 20 → 537 at 2× prices and 1.25× income). Later maps therefore cost far fewer kills per upgrade than in Change 15; this is the requested rule, not separately playtested.
+- **Health Potion:** heal share 0.10 + 0.001 per mastery level (10% at ^0, 20% at ^100); cooldown and floor unchanged. The shared supply rule (^100 doubles the base) still holds for all five supplies.
+- **Cyan Robot Heal:** 12 s between casts (`resources/game/enemy_abilities.tres` `skill_cooldowns`); measured 12.8 s in the probe including the 0.6 s wind-up (18.8 s before). Every other caster keeps the catalog's 18 s.
+- **Map Mastery rewards:** Autumn II +2 pts Gem Chance, Spring II +15% max HP (swapped in `resources/game/mastery_rules.tres`).

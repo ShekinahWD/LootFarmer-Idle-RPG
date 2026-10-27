@@ -286,18 +286,15 @@ func reveal_checks() -> void:
     check(SaveService.hard_reset() and sim.state.onboarding.reveal.is_empty(),"Hard Reset hides them again")
     var bad: Dictionary=sim.snapshot();bad.onboarding.reveal=["missions","missions"]
     check(not sim.campaign.valid_snapshot(bad),"Validation rejects a duplicated reveal")
-    # Settings → Tutorial and help → Show all menus now.
+    # Change 16 removes "Show all menus now" (and "Choose guidance again") from the player's Settings;
+    # Help takes their place (change_16_probe). reveal_all stays for probes and is checked directly.
     fresh();notices.clear()
     game._open("settings");await frames(2)
-    check(labels_text(game.rows).contains(tr("SECTION_TUTORIAL")) or buttons_text(game.rows).contains(tr("GUIDE_REVIEW")),"Settings has Tutorial and help")
-    var show: Button=game.guide._panel_control("show_all_menus",true)
-    check(show!=null and show.text==tr("SHOW_ALL_MENUS"),"…with \"Show all menus now\"")
-    show.pressed.emit();await frames(2)
-    check(game.get_node("Confirm").visible,"It asks for confirmation")
-    game.get_node("Confirm/Panel/Margin/Content/Actions/Confirm").pressed.emit();await frames(2)
-    check(sim.campaign.onboarding.all_revealed() and not notices.any(func(n):return n[0]=="feature_unlocked"),"Confirmed: every menu revealed, silently")
-    check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS","…the Prestige reset still needs the Snowman")
+    check(labels_text(game.rows).contains(tr("SECTION_TUTORIAL")) and game.guide._panel_control("show_all_menus")==null and buttons_text(game.rows).contains(tr("HELP")),"Settings → Tutorial and help offers Help, no Show all menus (Change 16)")
     game._close()
+    sim.campaign.onboarding.reveal_all(true)
+    check(sim.campaign.onboarding.all_revealed() and not notices.any(func(n):return n[0]=="feature_unlocked"),"reveal_all(silent) still reveals every menu, silently (probe use)")
+    check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS","…the Prestige reset still needs the Snowman found")
 
 # ---------------------------------------------------------------- 3. Guided
 func guided_checks() -> void:
@@ -333,8 +330,9 @@ func guided_checks() -> void:
     game._close();await frames(6)
     game._process(.2);await frames(4) # the HUD tick shows the Next Stage chip
     check(guide.pending=="snowman" and guide.card.visible and guide.title.text==tr("GUIDE_SNOWMAN"),"The objective card: \"%s\"" % guide.title.text)
-    check(tr("GUIDE_SNOWMAN_DETAIL").contains("Winter II") and tr("GUIDE_SNOWMAN_DETAIL").contains("Prestige"),"It says the Snowman unlocks Winter II and Prestige")
-    check(tr("MAIN_4").contains("Snowman") and tr("MAIN_4").contains("Winter II") and tr("MAIN_4").contains("Prestige"),"Main objective: \"%s\"" % tr("MAIN_4"))
+    check(tr("GUIDE_SNOWMAN_DETAIL").contains("Winter II") and tr("GUIDE_SNOWMAN_DETAIL").contains("Prestige"),"It says defeating the Snowman opens Winter II and finding it opens Prestige")
+    # Change 16: Prestige opens when the Snowman is found, so the objective names Winter II only.
+    check(tr("MAIN_4").contains("Snowman") and tr("MAIN_4").contains("Winter II"),"Main objective: \"%s\"" % tr("MAIN_4"))
     check(guide.pointer.visible and guide.target==map_node("Gate"),"…pointing at the Next Stage chip")
     guide.intro_button.pressed.emit();await frames(4)
     check(sim.state.tutorial.done.has("snowman") or sim.state.tutorial.seen.has("snowman"),"Got it completes it")

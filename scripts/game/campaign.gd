@@ -16,7 +16,7 @@ func _init(owner) -> void:
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={}
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial()},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"bosses_found":[],"follow_mission":""},true)
     mastery.reset_cache()
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
@@ -126,7 +126,12 @@ func configure_stage() -> void:
     sim.state.spawn=clampi(int(sim.state.spawn),0,d.spawns.size()-1)
 func camp_price(index: int) -> int:
     if index==0:return 0
-    return maxi(1,ceili([0,50,150][index]*pow(2,int(sim.state.stage)-1)*(1-bonus("camp_discount"))))
+    return maxi(1,ceili([0,50,150][index]*map_cost_factor(int(sim.state.stage))*(1-bonus("camp_discount"))))
+## Change 16: every Coin price tied to a map (enemy, map and camp upgrades, camp unlocks, the Map
+## Details floor) grows by progression.map_cost_growth (1.55) per map, slightly faster than the base
+## Coin income (1.5 per map), so each new map costs a little more relative to what it pays.
+func map_cost_factor(st: int) -> float:
+    return pow(float(sim.catalog.progression.get("map_cost_growth",2.0)),st-1)
 func variants(g: int) -> Array:
     if sim.catalog.groups[g].boss:return [2]
     return [0,1,2,3] if not sim.catalog.groups[g].skills.is_empty() else [0,1,2]
@@ -290,9 +295,31 @@ func identify_sites() -> void:
         if sim.is_helper(actor):continue
         if float(actor.hp)>0 and not spot_discovered(int(actor.group),int(actor.get("variant",2))) and cell_known(sim.position_of(actor)):
             discover_spot(int(actor.group),int(actor.get("variant",2)))
+## Change 16: the first time the living player comes within fog_rules.boss_sight_radius of a living
+## boss it can see, that boss is found for good (state.bosses_found: kept by Prestige, cleared by Hard
+## Reset). It earns one "!WARNING BOSS FOUND!" milestone and one notice, never again. Finding the
+## Snowman opens Prestige (prestige_unlocked); it never defeats the boss or opens the next map.
+func sight_bosses() -> void:
+    if sim.state.player.hp<=0:return
+    var p: Vector2=sim.position_of(sim.state.player)
+    for e in sim.state.enemies:
+        if float(e.hp)<=0 or sim.is_helper(e):continue
+        var d: Dictionary=sim.catalog.groups[int(e.group)]
+        if not d.boss or sim.state.bosses_found.has(str(d.id)):continue
+        var at: Vector2=sim.position_of(e)
+        if at.distance_to(p)>fog_rules.boss_sight_radius or not can_see(at):continue
+        sim.state.bosses_found.append(str(d.id))
+        SaveService.mark_dirty()
+        sim.notice.emit("boss_found",str(d.id))
+        sim.milestone.emit("boss_found",str(d.id))
+        # The Snowman's warning comes first, then the Prestige reveal it causes.
+        onboarding.evaluate()
+func boss_found(id: String) -> bool:
+    return sim.state.get("bosses_found",[]).has(id)
 func reveal() -> void:
     if sim.state.player.hp>0:reveal_circle(sim.position_of(sim.state.player),player_radius())
     sight_camps()
+    sight_bosses()
     for camp in sim.state.spawns:
         var a: Array=stage().spawns[int(camp)]
         reveal_circle(Vector2(a[0],a[1]),fog_rules.camp_radius*(1+.25*sim.level("camp_radius",int(sim.state.stage)*10+int(camp))+bonus("camp_reveal")))
@@ -313,7 +340,7 @@ func upgrade_cost(id: String,g: int) -> int:
     if d.scope in ["type","normal_type"]:st=int(sim.catalog.groups[g].stage)
     elif d.scope=="stage":st=g
     elif d.scope=="camp":st=g/10
-    var factor=pow(2,st-1) if d.currency=="coins" else 1+.25*(st-1)
+    var factor=map_cost_factor(st) if d.currency=="coins" else 1+.25*(st-1)
     # Change 13: a flat price is the same on every map (Auto Evolution: 2,000 gems per type).
     if d.get("flat",false):factor=1.0
     var price=float(d.base)*pow(float(d.growth),n)
@@ -324,7 +351,7 @@ func upgrade_cost(id: String,g: int) -> int:
     # per-stage floor so a late stage is never trivially cheap.
     if d.get("sequence",false):
         factor=1.0
-        price=maxf(float(d.base)*pow(float(d.growth),sequence_count(id)),float(d.get("floor",0))*pow(2,st-1))
+        price=maxf(float(d.base)*pow(float(d.growth),sequence_count(id)),float(d.get("floor",0))*map_cost_factor(st))
     return maxi(1,ceili(price*factor*(1-bonus("coin_discount") if d.currency=="coins" else 1)))
 func sequence_count(id: String) -> int:
     var total:=0
@@ -368,19 +395,25 @@ func cast(slot: int) -> bool:
     if id=="" or sim.quantity(id)<1 or sim.state.player.hp<=0:return false
     var key: String=sim.catalog.items[id].skill
     if float(sim.state.skill_cooldowns.get(key,0))>0:return false
-    if not apply_skill(sim.state.player,key,float(sim.normal(id).power)*(1+bonus("skill"))):return false
+    if not apply_skill(sim.state.player,key,sim.skill_power(id)):return false
     sim.state.skill_cooldowns[key]=sim.player_upgrade_value("cooldown_"+key)
     progress("cast",key,1);sim.touch();return true
-## Heal is cast only below this share of maximum HP (player and enemies alike), except by the final
+## Enemy Heal is cast below this share of maximum HP (player Heal needs any missing HP), except the final
 ## boss, which keeps Heal for its second half and then puts it first (Change 13, heal_threshold).
 const HEAL_BELOW_HP:=.8
 const SELF_SKILLS:=["heal","focus"]
 func heal_threshold(a: Dictionary) -> float:
+    if a.id=="player":return 1.0
     if a.id!="player" and bool(sim.catalog.groups[int(a.group)].final):return float(sim.abilities.final_heal_below)
     return HEAL_BELOW_HP
+## Skill geometry and side effects, shared by the casts and the skill descriptions (Change 16).
+const FROST_RADIUS:=96.0
+const FIRE_RADIUS:=64.0
+const FROST_SLOW_SECONDS:=3.0
+const FOCUS_SECONDS:=5.0
 ## Reach of an attack skill from its caster to its target (Frost is centred on the caster).
 func skill_range(key: String) -> float:
-    return 96.0 if key=="frost" else (80.0 if key=="strike" else 120.0)
+    return FROST_RADIUS if key=="frost" else (80.0 if key=="strike" else 120.0)
 func actor_max_hp(a: Dictionary) -> float:
     return sim.stats().hp if a.id=="player" else float(sim.enemy_definition(int(a.group),int(a.get("variant",2))).hp)
 ## Whether a self-cast skill can do anything now (Change 12). A boss checks this before telegraphing,
@@ -404,7 +437,7 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
         a.hp+=gain;sim.feedback.emit(a.id,gain,true)
     elif key=="focus":
         if not in_combat():return false
-        a.focus_time=5.0;a.focus_power=power
+        apply_timed_status(a,"focus_time",FOCUS_SECONDS);a.focus_power=power
     else:
         if target.is_empty() or target.hp<=0:return false
         if pos.distance_to(sim.position_of(target))>skill_range(key):return false
@@ -414,14 +447,19 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
         for b in targets:
             if b.hp<=0 or (player and not target_allowed(b)):continue
             var hits: bool=b.id==target.id
-            if key in ["fire","frost"]:hits=sim.position_of(b).distance_to(center)<=(96 if key=="frost" else 64)
+            if key in ["fire","frost"]:hits=sim.position_of(b).distance_to(center)<=(FROST_RADIUS if key=="frost" else FIRE_RADIUS)
             if not hits:continue
             var defense: float=sim.stats().defense if not player else sim.enemy_definition(b.group,b.variant).defense
-            var damage=maxf(1,base*power*damage_multiplier(a,b)*100/(100+defense))
+            var multiplier:=effective_skill_multiplier(a,b,key,power)
+            var damage=maxf(1,base*multiplier*100/(100+defense))
+            if player and key=="fire":damage=minf(damage,base*float(sim.catalog.progression.change17.fire_effective_cap))
             begin_encounter(b if player else a)
             sim.state.player.quiet=0
             b.hp=maxf(0,b.hp-damage);b.quiet=0;b.aggro=true;b.hurt=.16
-            if key=="frost":b.slow=3.0
+            if key=="frost":apply_timed_status(b,"slow",FROST_SLOW_SECONDS)
+            if key=="lightning" and player:
+                apply_timed_status(b,"attack_slow",float(sim.catalog.progression.change17.lightning_duration))
+                b.attack_rate=float(sim.catalog.progression.change17.lightning_attack_rate)
             sim.feedback.emit(b.id,damage,false)
             if b.hp<=0:sim._kill(b)
         # Change 14: an area effect plays at its centre (Fire's aim, Frost around the caster); a
@@ -467,14 +505,18 @@ func step(dt: float) -> void:
                 _begin_telegraph(a,key)
             else:
                 if apply_skill(a,key,float(sim.catalog.skills[key].power),Vector2(a.get("aim_x",sim.state.player.x),a.get("aim_y",sim.state.player.y)) if d.boss else Vector2.INF):
-                    a.skill_timer=sim.catalog.skills[key].cooldown;a.skill_index=index+1
+                    a.skill_timer=enemy_skill_cooldown(d,key);a.skill_index=index+1
                 else:a.skill_timer=1.0
                 a.telegraph=false
     reveal_clock+=dt;objective_clock+=dt
     evolve_clock+=dt
     if reveal_clock>=fog_rules.update_interval:reveal_clock=0;reveal()
     if objective_clock>=1:
-        objective_clock=0;refresh_missions();evaluate();onboarding.evaluate();mastery.evaluate();sim.touch()
+        objective_clock=0;refresh_missions();evaluate();onboarding.evaluate();mastery.evaluate();check_follow_mission();sim.touch()
+## Seconds before an enemy of this type casts again after a successful skill: the catalog skill's
+## cooldown unless EnemyAbilityRules overrides it for the type (Change 16: Cyan Robot Heal 12 s).
+func enemy_skill_cooldown(d: Dictionary,key: String) -> float:
+    return sim.abilities.skill_cooldown(str(d.id),key,float(sim.catalog.skills[key].cooldown))
 ## A boss announces a skill for the telegraph time before it resolves. Self effects play once, on
 ## success (apply_skill); attacks show their aim as a warning.
 func _begin_telegraph(a: Dictionary,key: String) -> void:
@@ -532,7 +574,7 @@ func _final_turn(a: Dictionary) -> void:
         a.telegraph=false
         var key: String=str(a.get("pending",""))
         if key!="" and apply_skill(a,key,float(sim.catalog.skills[key].power),Vector2(a.get("aim_x",sim.state.player.x),a.get("aim_y",sim.state.player.y))):
-            a.skill_cds[key]=float(sim.catalog.skills[key].cooldown)
+            a.skill_cds[key]=enemy_skill_cooldown(sim.catalog.groups[int(a.group)],key)
             a.skill_timer=float(sim.abilities.final_action_gap)
         else:a.skill_timer=.5
         a.pending=""
@@ -573,12 +615,11 @@ func automate(dt: float) -> void:
     if sim.state.use_clock>=sim.player_upgrade_value("use_speed"):
         sim.state.use_clock=0
         # Each automated slot uses its supply when that supply's own auto condition holds.
-        for slot in sim.state.auto_slots:
-            if int(slot)<sim.state.supplies.size():
+        for slot in sim.state.auto_slots.slice(0,sim.level("auto_use")):
+            if int(slot)>=0 and int(slot)<sim.state.supplies.size():
                 var id: String=sim.state.supplies[int(slot)]
                 if id!="" and sim.supply_auto_ready(id):sim.use_item(id)
-    for i in range(1+sim.level("skill_slots")):
-        if sim.state.skill_auto[i] and sim.level("skill_auto_"+str(i))>0:cast(i)
+    for i in sim.automatic_skill_assignments():cast(int(i))
     if sim.state.mission_auto and sim.level("mission_claim")>0:
         for i in range(sim.state.missions.size()):
             if sim.state.missions[i].progress>=sim.state.missions[i].goal and not sim.state.missions[i].claimed:claim_mission(i)
@@ -678,6 +719,8 @@ func refresh_missions() -> void:
     for i in range(sim.state.missions.size()):
         if sim.state.missions[i].kind=="waiting" or (sim.state.missions[i].claimed and sim.state.missions[i].day!=day):sim.state.missions[i]=new_mission(i,day)
     while sim.state.missions.size()<3+sim.level("mission_slots"):sim.state.missions.append(new_mission(sim.state.missions.size(),day))
+    for m in sim.state.missions:
+        if not m.claimed:price_mission(m)
     sim.state.mission_day=day
 func new_mission(index: int,day: String) -> Dictionary:
     var candidates: Array=[]
@@ -706,7 +749,8 @@ func new_mission(index: int,day: String) -> Dictionary:
     if options.is_empty():return {"kind":"waiting","target":"","goal":1.0,"progress":0.0,"coins":0.0,"gems":0.0,"day":day,"claimed":false}
     var result: Dictionary=options[(index+absi(day.hash()))%options.size()].duplicate(true)
     result.merge({"progress":0.0,"day":day,"claimed":false})
-    result.coins*=1+bonus("mission_coins");result.gems*=1+bonus("mission_gems")
+    result["base_gems"]=result.gems
+    price_mission(result)
     return result
 ## Change 14: one eligibility rule for the Missions badge and the Claim buttons. A regular mission is
 ## claimable when it is complete, unclaimed and not handled by purchased auto-claim (which claims it on
@@ -733,13 +777,77 @@ func has_claimable() -> bool:
     for i in main_shown():
         if main_claimable(i):return true
     return false
+# ---------------------------------------------------------------- followed mission (Change 16)
+## One regular mission or main objective can be followed (state.follow_mission), next to the followed
+## Prestige opportunity; each has its own tracker and its own Follow / Unfollow. A daily mission is
+## identified by its slot and its assignment ("daily:<slot>:<kind>:<target>:<day>"), so a refresh that
+## replaces it ends the follow; "main:<index>" names a main objective. A claim ends the follow.
+func mission_follow_key(kind: String,i: int) -> String:
+    if kind=="main":return "main:%d" % i
+    if i<0 or i>=sim.state.missions.size():return ""
+    var m: Dictionary=sim.state.missions[i]
+    return "daily:%d:%s:%s:%s" % [i,m.kind,m.target,m.day]
+func can_follow_mission(kind: String,i: int) -> bool:
+    if kind=="main":return i>=0 and i<16 and not sim.state.main_claimed.has(i) and (i!=15 or sim.state.final_discovered)
+    if i<0 or i>=sim.state.missions.size():return false
+    var m: Dictionary=sim.state.missions[i]
+    return str(m.kind)!="waiting" and not m.claimed
+func mission_followed(kind: String,i: int) -> bool:
+    var key:=mission_follow_key(kind,i)
+    return key!="" and str(sim.state.get("follow_mission",""))==key
+func toggle_follow_mission(kind: String,i: int) -> bool:
+    if mission_followed(kind,i):sim.state.follow_mission="";sim.touch();return true
+    if not sim.action_lock_reason().is_empty():return sim.fail(sim.action_lock_reason())
+    if not can_follow_mission(kind,i):return sim.fail("FOLLOW_UNAVAILABLE")
+    sim.state.follow_mission=mission_follow_key(kind,i);sim.touch();return true
+## The followed mission as {kind, index} while it still exists and is unclaimed, else {}.
+func followed_mission() -> Dictionary:
+    var key: String=str(sim.state.get("follow_mission",""))
+    if key=="":return {}
+    var bits:=key.split(":")
+    var kind: String=bits[0]
+    var i:=int(bits[1]) if bits.size()>1 else -1
+    if kind!="main" and kind!="daily":return {}
+    if mission_follow_key(kind,i)!=key or not can_follow_mission(kind,i):return {}
+    return {"kind":kind,"index":i}
+## Ends a follow whose mission was claimed or replaced (called after claims, refreshes and the tick).
+func check_follow_mission() -> void:
+    if str(sim.state.get("follow_mission",""))!="" and followed_mission().is_empty():
+        sim.state.follow_mission=""
+        sim.touch()
+## Main objectives as progress the tracker can show: [current, goal] (a done/not-done goal is 0/1).
+func main_progress(i: int) -> Array:
+    match i:
+        0:return [mini(int(counter("kill")),5),5]
+        10:return [mini(skill_count(),4),4]
+        12:return [mini(skill_count(),6),6]
+    return [1 if sim.state.main_ready.has(str(i)) else 0,1]
+## One readable line for the followed mission: what to do, where, and how far along (Change 16).
+func mission_follow_summary() -> String:
+    var f:=followed_mission()
+    if f.is_empty():return ""
+    if f.kind=="main":
+        var i: int=f.index
+        if main_claimable(i):return sim.tr("MISSION_FOLLOW_READY")
+        var p:=main_progress(i)
+        var hint: String=sim.tr("MAIN_HINT_%d" % i)
+        return hint if int(p[1])<=1 else "%s: %d/%d" % [hint,int(p[0]),int(p[1])]
+    var m: Dictionary=sim.state.missions[f.index]
+    if m.progress>=m.goal:return sim.tr("MISSION_FOLLOW_READY")
+    var g:=group_id(str(m.target))
+    var where: String=sim.catalog.stages[int(sim.catalog.groups[g].stage)-1].name if g>=0 else ""
+    var amount: String=("%s / %s" % [NumberFormat.currency(m.progress),NumberFormat.currency(m.goal,true)]) if str(m.kind)=="coins" else ("%s / %s" % [NumberFormat.count(floorf(m.progress)),NumberFormat.count(m.goal)])
+    var what: String=sim.tr("MISSION_DO_"+str(m.kind).to_upper())
+    if g>=0:what=what % [str(sim.catalog.groups[g].name),where]
+    return "%s: %s" % [what,amount]
 func claim_mission(i: int) -> bool:
     if not sim.action_lock_reason().is_empty() or i<0 or i>=sim.state.missions.size():return false
     var m: Dictionary=sim.state.missions[i]
     if m.claimed or m.progress<m.goal:return false
     var before: Dictionary=sim.state.duplicate(true)
+    price_mission(m)
     m.claimed=true;sim.state.coins+=m.coins;sim.state.gems+=m.gems
-    progress("mission","",1);refresh_missions();sim.touch()
+    progress("mission","",1);refresh_missions();check_follow_mission();sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     return true
 func chain_for(id: String) -> Array:
@@ -945,7 +1053,14 @@ func prestige_unlock_group() -> int:
     for g in sim.catalog.groups.size():
         if sim.catalog.groups[g].id==id:return g
     return -1
+## Change 16: Prestige opens when the first boss (the Winter I Snowman) is found, no longer when it
+## is defeated. bosses_found and group_kills are both kept by Prestige, so it never relocks; a
+## defeat also counts (a boss can only be defeated after it was in reach).
 func prestige_unlocked() -> bool:
+    var g:=prestige_unlock_group()
+    return g>=0 and (boss_found(str(sim.catalog.groups[g].id)) or int(sim.state.group_kills[g])>0)
+## The first boss has been defeated at least once ever (lifetime kills, kept by Prestige).
+func first_boss_defeated() -> bool:
     var g:=prestige_unlock_group()
     return g>=0 and int(sim.state.group_kills[g])>0
 func prestige_gate_reason() -> String:
@@ -994,8 +1109,12 @@ func choose_card(id: String) -> bool:
     var granted: Array=sim.state.prestige_batch.choices.duplicate()
     var final: bool=granted.size()==sim.state.prestige_batch.ids.size()
     if final:
+        sim.state.reward_stage=reward_stage()
         var keep: Dictionary={}
-        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found","onboarding","mastery"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        # Change 16: Prestige also keeps the Gem balance, every explored map area (fog cells, sighted
+        # camps and found encounter spots) and the bosses found. Map upgrades, camps owned, coins and
+        # the run's online Gem credit (Offering opportunities) still reset.
+        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found","supply_uses","supply_mastery_credit","reward_stage","onboarding","mastery","gems","explored","camps_known","discovered","discovered_spots","bosses_found"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1007,6 +1126,8 @@ func choose_card(id: String) -> bool:
         sim.state.gear.resize(gear);sim.state.gear.fill("");sim.state.supplies.resize(supplies);sim.state.supplies.fill("")
         # Kept spawn upgrades (gems) apply to the fresh world at once, not after the next purchase.
         sim._sync_spawn_counts()
+        # The kept exploration is drawn and its spots are known again at once.
+        discovery_revision+=1;reveal()
         sim.state.missions=[];refresh_missions();sim.touch();sim.state.player.hp=sim.stats().hp
     sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
@@ -1038,6 +1159,7 @@ func claim_main(i: int) -> bool:
     sim.state.coins+=rewards[i][0];sim.state.gems+=rewards[i][1];sim.state.main_claimed.append(i);sim.state.main_ready.erase(str(i))
     if i==15:sim.state.final_complete=true
     onboarding.evaluate()
+    check_follow_mission()
     sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     return true
@@ -1104,10 +1226,19 @@ func claim_offline() -> bool:
     return true
 func normalize_snapshot(data: Dictionary) -> Dictionary:
     var out: Dictionary=data.duplicate(true)
+    normalize_change17(out)
     # Change 8 fields are derived for older current-schema saves, never copied from the live state.
     var change8: Array=[]
     for key in ["skills_seen","discovered_spots","camps_known"]:
         if not out.has(key):change8.append(key);out[key]=[] if key=="skills_seen" else {}
+    # Change 16 (same schema 8): a boss already defeated counts as found, so an existing save never
+    # replays the warning for it and keeps its Prestige unlock. follow_mission defaults to "".
+    if not out.has("bosses_found"):
+        var found: Array=[]
+        if out.get("group_kills") is Array:
+            for g in range(mini(out.group_kills.size(),sim.catalog.groups.size())):
+                if sim.catalog.groups[g].boss and number(out.group_kills[g]) and float(out.group_kills[g])>0:found.append(str(sim.catalog.groups[g].id))
+        out["bosses_found"]=found
     for key in sim.state:
         if not out.has(key):out[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
     for field in ["schema","stage","unlocked_stage","spawn","player_level","prestiges","focus","focus_variant","next_pickup","next_cat","help","consumable_uses","fog_layout_revision"]:
@@ -1152,6 +1283,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     if int(out.get("fog_layout_revision",0))!=fog_rules.layout_revision:
         out.explored={};out.discovered={};out.fog_layout_revision=fog_rules.layout_revision
     migrate_change8(out,change8)
+    normalize_skill_assignments(out)
     return out
 ## Change 10 bound: the equipment row has exactly 3 + purchased slots (at most 70). Surplus empty
 ## slots go first (from the end); items still beyond the bound are dropped with their record.
@@ -1194,7 +1326,7 @@ func clamp_supplies(out: Dictionary) -> void:
         var slots: Array=[]
         for slot in out.auto_slots:
             if number(slot) and int(slot)>=0 and int(slot)<size and not slots.has(int(slot)):slots.append(int(slot))
-        out.auto_slots=slots
+        out.auto_slots=slots.slice(0,int(out.upgrades.get("auto_use",0)))
     for field in ["supply_found","buffs"]:
         if not out.get(field) is Dictionary:out[field]={}
         for id in out[field].keys():
@@ -1313,6 +1445,9 @@ func valid_snapshot(data: Dictionary) -> bool:
         elif a!=b:return false
     if not data.tutorial.has_all(["mode","done","seen"]) or data.tutorial.mode not in ["pending","guided","basic","none"] or not data.tutorial.done is Array or not data.tutorial.seen is Array:return false
     if not onboarding_valid(data.onboarding) or not mastery_valid(data.mastery):return false
+    for id in data.bosses_found:
+        var g=group_id(str(id))
+        if g<0 or not sim.catalog.groups[g].boss or data.bosses_found.count(id)!=1:return false
     if data.stage<1 or data.stage>8 or data.unlocked_stage<data.stage or data.unlocked_stage>8:return false
     if data.coins<0 or data.gems<0 or data.group_kills.size()!=48 or data.collect_clocks.size()!=48:return false
     if data.skills.size()!=3 or data.skill_auto.size()!=3:return false
@@ -1445,7 +1580,12 @@ func drops_valid(drops) -> bool:
     if not drops is Array:return false
     for d in drops:
         if not d is Dictionary or not d.has_all(["uid","item","x","y","ttl","group"]):return false
-        if not sim.catalog.items.has(d.item) or not number(d.group) or int(d.group) not in range(sim.catalog.groups.size()):return false
+        # Change 16: a stack the player dropped has no source enemy (group -1), a quantity and the
+        # online credit it carries back (simulation.discard).
+        var dropped: bool=d.has("dropped")
+        if dropped and (not d.dropped is Dictionary or not number(d.dropped.get("online")) or not d.dropped.get("ops") is Dictionary):return false
+        if not sim.catalog.items.has(d.item) or not number(d.group) or int(d.group) not in (range(-1,0) if dropped else range(sim.catalog.groups.size())):return false
+        if d.has("qty") and (not number(d.qty) or int(d.qty)<1):return false
         for key in ["uid","x","y","ttl"]:
             if not number(d[key]):return false
     return true
@@ -1502,38 +1642,135 @@ func opportunity_progress(id: String) -> String:
     if path=="regional":return _regional_progress(n)
     return sim.tr("IN_PROGRESS")
 
-## One short line for the followed-opportunity HUD: the current step and its next objective with
-## numeric progress ("Step 2/3 — Hunt Wolf Hood: 12/100"); details stay in the Prestige panel.
+## Change 16: the followed opportunity in plain words, for the HUD tracker and the Prestige panel.
+## Line 1 says what to do now, with the enemy, item or map and the current / required progress;
+## line 2 ("Next: …" or "Then …") says what follows when there is a next requirement. Collection
+## contracts name the exact item (the tracker also shows its icon, follow_focus). Supersedes the
+## Change 11 rule that hid the required outfits.
 func follow_summary(id: String) -> String:
     var o: Dictionary=sim.state.opportunities.get(id,{})
     if o.is_empty():return ""
     if o.ready:return sim.tr("FOLLOW_READY")
     var n=int(id.right(1));var path=id.split("_o")[0]
-    if path in ["expedition","specialist"]:
-        var chain=chain_for(id);var index=int(o.get("step",0))
-        if index>=chain.size():return sim.tr("FOLLOW_READY")
-        var q: Array=chain[index]
-        var g:=group_id(str(q[1]))
-        var target: String=(" "+str(sim.catalog.groups[g].name)) if g>=0 else ""
-        return sim.tr("FOLLOW_STEP") % [index+1,chain.size(),sim.tr("GOAL_"+str(q[0]).to_upper())+target,int(o.get("count",0)),int(q[2])]
-    # Change 11: a collection's follower never names, shows or describes the items it needs (the
-    # Prestige panel does). Step = outfits completed + 1; progress is the closest unfinished one.
-    if path=="collection":
-        var goal: int=10+10*n
-        var counts:=collection_counts(id)
-        var done:=0;var best:=0
-        for c in counts:
-            if c>=goal:done+=1
-            else:best=maxi(best,c)
-        if done>=counts.size():return sim.tr("FOLLOW_COLLECTION_SUBMIT")
-        return sim.tr("FOLLOW_COLLECT") % [done+1,counts.size(),best,goal]
-    if path in ["hunter","challenge"]:
-        var g:=group_id(boss_goal(path,n))
-        var boss: String=str(sim.catalog.groups[g].name)
-        if path=="challenge":return sim.tr("FOLLOW_CHALLENGE") % boss
-        var k="boss:"+boss_goal(path,n)
-        return sim.tr("FOLLOW_HUNT") % [boss,int(counter(k)-float(o.baseline.get(k,0))),hunter_goal(n)]
+    match path:
+        "expedition","specialist":
+            var chain=chain_for(id);var index=int(o.get("step",0))
+            if index>=chain.size():return sim.tr("FOLLOW_READY")
+            var line: String=sim.tr("FOLLOW_STEP") % [index+1,chain.size(),_chain_goal(chain[index]),int(o.get("count",0)),int(chain[index][2])]
+            if index+1<chain.size():line+="\n"+sim.tr("FOLLOW_NEXT") % (_chain_goal(chain[index+1])+" ×%d" % int(chain[index+1][2]))
+            return line
+        "collection":
+            var goal: int=10+10*n
+            var counts:=collection_counts(id)
+            var names:=collection_names(n)
+            var open: Array=[]
+            for i in range(counts.size()):
+                if counts[i]<goal:open.append(i)
+            if open.is_empty():return sim.tr("FOLLOW_COLLECTION_SUBMIT")
+            var item: String=contract_outfit(names[open[0]])
+            var g:=group_id("unit-"+names[open[0]])
+            var line: String=sim.tr("FOLLOW_COLLECT") % [counts.size()-open.size()+1,counts.size(),sim.catalog.display_name(item),_group_place(g),counts[open[0]],goal]
+            if open.size()>1:line+="\n"+sim.tr("FOLLOW_NEXT") % sim.catalog.display_name(contract_outfit(names[open[1]]))
+            return line
+        "hunter":
+            var g:=group_id(boss_goal(path,n))
+            var k="boss:"+boss_goal(path,n)
+            return sim.tr("FOLLOW_HUNT") % [_group_place(g),int(counter(k)-float(o.baseline.get(k,0))),hunter_goal(n)]
+        "challenge":
+            return sim.tr("FOLLOW_CHALLENGE") % _group_place(group_id(boss_goal(path,n)))
+        "trophy":
+            var bosses:=trophy_bosses(n)
+            var open: Array=[]
+            for boss in bosses:
+                if not o.get("trophy_boss-"+boss,false):open.append(boss)
+            var line: String=sim.tr("FOLLOW_TROPHY") % [_group_place(group_id("boss-"+str(open[0]))),bosses.size()-open.size(),bosses.size()]
+            if open.size()>1:line+="\n"+sim.tr("FOLLOW_NEXT") % _group_place(group_id("boss-"+str(open[1])))
+            return line
+        "masterwork":
+            var best:=0
+            for key in o:
+                if key.begins_with("merge_") and int(sim.catalog.items[key.trim_prefix("merge_")].tier)>=n:best=maxi(best,int(o[key]))
+            return sim.tr("FOLLOW_MASTERWORK_ANY" if n==1 else "FOLLOW_MASTERWORK") % ([best] if n==1 else [n,best])
+        "arsenal":
+            var weapons: Dictionary={};var outfits: Dictionary={}
+            for key in o:
+                if key.begins_with("merge_") and int(o[key])>=50:
+                    var item: Dictionary=sim.catalog.items[key.trim_prefix("merge_")]
+                    if int(item.tier)>=(2 if n==3 else 1):
+                        if item.kind=="weapon":weapons[key]=true
+                        elif item.kind=="outfit":outfits[item.family]=true
+            var need:=1 if n==1 else 3
+            var key:="FOLLOW_ARSENAL_T2" if n==3 else "FOLLOW_ARSENAL"
+            var line: String=sim.tr(key) % [mini(weapons.size(),need),need,mini(outfits.size(),need),need]
+            return line
+        "regional":return _regional_follow(n)
+        "offering":
+            var coins: int=[2000,20000,100000][n-1];var gems: int=[30,100,300][n-1]
+            var have_coins:=minf(sim.state.online_coins,sim.state.coins);var have_gems:=minf(sim.state.online_gems,sim.state.gems)
+            var line: String=sim.tr("FOLLOW_OFFERING") % [NumberFormat.currency(have_coins),NumberFormat.currency(coins,true),NumberFormat.currency(have_gems),NumberFormat.currency(gems,true)]
+            if have_coins>=coins and have_gems>=gems:line+="\n"+sim.tr("FOLLOW_SUBMIT")
+            return line
+        "offline":
+            if n==3:return sim.tr("FOLLOW_OFFLINE_INCOME") % [NumberFormat.currency(sim.state.offline_income),NumberFormat.currency(10000,true)]
+            return sim.tr("FOLLOW_OFFLINE_TOTAL" if n==1 else "FOLLOW_OFFLINE_LONGEST") % (sim.state.offline_total/3600.0 if n==1 else sim.state.offline_longest/3600.0)
     return opportunity_progress(id)
+
+## What the follower shows beside its text: the exact item a collection still needs, else the enemy
+## the current step names ({"item": id} or {"group": index}); {} means the path's own art.
+func follow_focus(id: String) -> Dictionary:
+    var o: Dictionary=sim.state.opportunities.get(id,{})
+    if o.is_empty() or o.ready:return {}
+    var n=int(id.right(1));var path=id.split("_o")[0]
+    match path:
+        "collection":
+            var counts:=collection_counts(id)
+            var names:=collection_names(n)
+            for i in range(counts.size()):
+                if counts[i]<10+10*n:return {"item":contract_outfit(names[i])}
+        "expedition":
+            var chain=chain_for(id);var index=int(o.get("step",0))
+            if index<chain.size():return {"group":group_id(str(chain[index][1]))}
+        "hunter","challenge":return {"group":group_id(boss_goal(path,n))}
+        "trophy":
+            for boss in trophy_bosses(n):
+                if not o.get("trophy_boss-"+boss,false):return {"group":group_id("boss-"+str(boss))}
+    return {}
+
+## "Blue Cap (Winter I)": an enemy with the map it lives on.
+func _group_place(g: int) -> String:
+    if g<0:return ""
+    var d: Dictionary=sim.catalog.groups[g]
+    return sim.tr("NAME_ON_MAP") % [str(d.name),str(sim.catalog.stages[int(d.stage)-1].name)]
+
+## One step of an Expedition or Specialist chain as an instruction ("Defeat Blue Cap (Winter I)").
+func _chain_goal(q: Array) -> String:
+    var g:=group_id(str(q[1]))
+    if g>=0:return sim.tr("FOLLOW_GOAL_KILL_TARGET") % _group_place(g)
+    return sim.tr("FOLLOW_GOAL_"+str(q[0]).to_upper())
+
+func collection_names(n: int) -> Array:
+    return [['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
+
+func trophy_bosses(n: int) -> Array:
+    return [["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"]][n-1]
+
+## Regional mastery, first unmet requirement first: explore a map to 90%, defeat a boss, unlock camps.
+func _regional_follow(n: int) -> String:
+    var stages: Array=[1,2] if n==1 else ([3,4] if n==2 else [7,8])
+    var todo: Array=[]
+    for st in stages:
+        if explored_fraction(st)<.9:todo.append(sim.tr("FOLLOW_REGIONAL_EXPLORE") % [sim.catalog.stages[st-1].name,explored_percent(st)])
+    for st in stages:
+        for g in sim.catalog.stages[st-1].groups:
+            if sim.catalog.groups[g].boss and int(sim.state.run_kills.get(sim.catalog.groups[g].id,0))==0:todo.append(sim.tr("FOLLOW_REGIONAL_BOSS") % _group_place(g))
+    for st in stages:
+        var d: Dictionary=sim.catalog.stages[st-1]
+        var owned: int=sim.state.camps.get(str(st),[]).size()
+        if owned<d.spawns.size():todo.append(sim.tr("FOLLOW_REGIONAL_CAMPS") % [d.name,owned,d.spawns.size()])
+    if todo.is_empty():return sim.tr("FOLLOW_READY")
+    var line: String=todo[0]
+    if todo.size()>1:line+="\n"+sim.tr("FOLLOW_THEN_MORE") % [todo[1],todo.size()-1]
+    return line
 
 ## Copies of each required outfit found this run since the contract was discovered, capped at its goal.
 func collection_counts(id: String) -> Array:
@@ -1642,3 +1879,104 @@ func _regional_progress(n: int) -> String:
                 bosses+=1
                 if sim.state.run_kills.get(sim.catalog.groups[g].id,0)>0:killed+=1
     return sim.tr("PROGRESS_REGIONAL") % [" + ".join(explored),killed,bosses,owned,camps]
+
+# ---------------------------------------------------------------- Change 17 combat and reward contracts
+## Every timed status (including future effects) passes through this one duration rule.
+func status_duration(a: Dictionary,seconds: float) -> float:
+    return seconds*float(sim.catalog.progression.change17.boss_status_duration) if a.id!="player" and sim.catalog.groups[int(a.group)].boss else seconds
+func apply_timed_status(a: Dictionary,key: String,seconds: float) -> void:
+    a[key]=status_duration(a,seconds)
+
+func effective_skill_multiplier(a: Dictionary,b: Dictionary,key: String,power: float) -> float:
+    var value:=power*damage_multiplier(a,b)
+    if a.id=="player" and key=="fire":value=minf(value,float(sim.catalog.progression.change17.fire_effective_cap))
+    return value
+
+## Reward stage survives Prestige; travel never lowers it. Getter has no mutation side effects.
+func reward_stage() -> int:
+    return clampi(maxi(int(sim.state.reward_stage),int(sim.state.unlocked_stage)),1,sim.catalog.stages.size())
+
+## Mean current normal-enemy kill payout at the highest unlocked stage. Includes Coin Amount,
+## normal/coin Prestige and active Coin Tonic exactly as killing those enemies would.
+func mission_coin_income() -> float:
+    var total:=0.0
+    var count:=0
+    for g in range(sim.catalog.groups.size()):
+        var d: Dictionary=sim.catalog.groups[g]
+        if int(d.stage)==reward_stage() and not d.boss:total+=sim.coin_reward(g);count+=1
+    return total/maxi(1,count)
+
+func mission_rewards(m: Dictionary) -> Dictionary:
+    if str(m.kind)=="waiting":return {"coins":0.0,"gems":0.0,"stage":reward_stage()}
+    var rules: Dictionary=sim.catalog.progression.change17
+    var kills:=float(rules.mission_boss_kills if m.kind=="boss" else rules.mission_regular_kills)
+    var base_gems:=float(m.get("base_gems",0 if m.kind=="kill" else (5 if m.kind in ["boss","coins"] else 3)))
+    return {"coins":mission_coin_income()*kills*(1+bonus("mission_coins")),
+        "gems":base_gems*float(rules.mission_gem_multipliers[reward_stage()-1])*(1+bonus("mission_gems")),"stage":reward_stage()}
+
+## Compatibility fields read by existing mission UI; always recompute from base, never multiply totals.
+func price_mission(m: Dictionary) -> void:
+    if not m.has("base_gems"):m.base_gems=0 if m.kind=="kill" else (5 if m.kind in ["boss","coins"] else 3)
+    var reward:=mission_rewards(m)
+    m.coins=reward.coins;m.gems=reward.gems;m.reward_stage=reward.stage
+
+func normalize_change17(out: Dictionary) -> void:
+    var rules: Dictionary=sim.catalog.progression.change17
+    if not out.get("supply_uses") is Dictionary:out.supply_uses={}
+    if not out.has("supply_mastery_credit"):
+        out.supply_mastery_credit={}
+        if out.get("supply_found") is Dictionary:
+            for id in out.supply_found:
+                if number(out.supply_found[id]):out.supply_mastery_credit[id]=clampi(int(out.supply_found[id])-1,0,int(sim.catalog.progression.supply_mastery.cap))
+    if not out.supply_mastery_credit is Dictionary:out.supply_mastery_credit={}
+    for field in ["supply_uses","supply_mastery_credit"]:
+        for id in out[field].keys():
+            if not sim.catalog.items.has(id) or sim.catalog.items[id].kind!="consumable" or not number(out[field][id]):out[field].erase(id)
+            else:out[field][id]=clampi(int(out[field][id]),0,int(sim.catalog.progression.supply_mastery.cap)*(int(rules.supply_uses_per_level) if field=="supply_uses" else 1))
+    if not out.has("reward_stage"):
+        out.reward_stage=int(out.get("unlocked_stage",1))
+        # Previously visited worlds are evidence of prior unlocks even after an older Prestige.
+        for field in ["explored","stage_worlds","camps"]:
+            if out.get(field) is Dictionary:
+                for key in out[field]:
+                    if str(key).is_valid_int():out.reward_stage=maxi(out.reward_stage,int(key))
+    out.reward_stage=clampi(int(out.reward_stage) if number(out.reward_stage) else 1,1,8)
+    if out.get("upgrades") is Dictionary:
+        var n:=int(out.upgrades.get("skill_auto_slots",0)) if number(out.upgrades.get("skill_auto_slots",0)) else 0
+        for i in range(3):
+            var key:="skill_auto_"+str(i)
+            if number(out.upgrades.get(key,0)):n+=clampi(int(out.upgrades.get(key,0)),0,1)
+            out.upgrades.erase(key)
+        if n>0:out.upgrades.skill_auto_slots=clampi(n,0,3)
+    if not out.has("boss_respawns"):
+        out.boss_respawns={}
+        var worlds: Array=[out]
+        if out.get("stage_worlds") is Dictionary:
+            for key in out.stage_worlds:
+                if int(key)!=int(out.get("stage",1)):worlds.append(out.stage_worlds[key])
+        for world in worlds:
+            if not world is Dictionary or not world.get("enemies") is Array:continue
+            for a in world.enemies:
+                if not a is Dictionary or not number(a.get("group")):continue
+                var g:=int(a.group)
+                if g>=0 and g<sim.catalog.groups.size() and sim.catalog.groups[g].boss and number(a.get("hp")) and a.hp<=0 and number(a.get("respawn")) and a.respawn>0:
+                    out.boss_respawns[str(a.id)]={"group":g,"stage":int(sim.catalog.groups[g].stage),"remaining":a.respawn,"x":a.home_x,"y":a.home_y}
+    if not out.get("boss_respawns") is Dictionary:out.boss_respawns={}
+    for id in out.boss_respawns.keys():
+        var e=out.boss_respawns[id]
+        if not e is Dictionary or not e.has_all(["group","stage","remaining","x","y"]) or not number(e.group) or not number(e.remaining) or not number(e.x) or not number(e.y):out.boss_respawns.erase(id);continue
+        var g:=int(e.group)
+        if g<0 or g>=sim.catalog.groups.size() or not sim.catalog.groups[g].boss or str(id)!="g%d_v2_0" % g:out.boss_respawns.erase(id);continue
+        e.group=g;e.stage=int(sim.catalog.groups[g].stage);e.remaining=clampf(float(e.remaining),0,sim.spawn_cooldown(g))
+        var home: Vector2=sim.spawn_home(g,2,0);e.x=home.x;e.y=home.y
+    if not number(out.get("boss_saved_at")):out.boss_saved_at=Time.get_unix_time_from_system()
+
+func normalize_skill_assignments(out: Dictionary) -> void:
+    if not out.get("upgrades") is Dictionary:return
+    var capacity:=clampi(int(out.upgrades.get("skill_auto_slots",0)),0,3)
+    var slots:=mini(3,1+int(out.upgrades.get("skill_slots",0)))
+    var old: Array=out.skill_auto if out.get("skill_auto") is Array else []
+    var selected: Array=[false,false,false]
+    for i in range(mini(slots,old.size())):
+        if old[i] is bool and old[i] and capacity>0:selected[i]=true;capacity-=1
+    out.skill_auto=selected

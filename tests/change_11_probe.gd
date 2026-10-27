@@ -68,14 +68,17 @@ func follower_checks() -> void:
         forbidden.append_array([item,sim.catalog.display_name(item),tr(sim.catalog.groups[sim.campaign.group_id("unit-"+name)].name)])
     var items: Array=[sim.campaign.contract_outfit("blue-cap"),sim.campaign.contract_outfit("red-scarf"),sim.campaign.contract_outfit("chef-hat")]
     var stages: Array=[[0,0,0],[20,7,0],[20,20,12],[20,20,20]]
-    var expected: Array=["Step 1/3 · Collect items · 0/20","Step 2/3 · Collect items · 7/20","Step 3/3 · Collect items · 12/20",tr("FOLLOW_COLLECTION_SUBMIT")]
+    # Change 16 supersedes the Change 11 rule: the follower now names the exact item it needs next,
+    # with the enemy and map, and shows that item's icon (change_16_probe covers all 33 opportunities).
+    var expected: Array=["Step 1/3 · Collect %s from Blue Cap (Winter I): 0/20" % sim.catalog.display_name(items[0]),"Step 2/3 · Collect %s from Red Scarf (Winter I): 7/20" % sim.catalog.display_name(items[1]),"Step 3/3 · Collect %s from Chef Hat (Winter I): 12/20" % sim.catalog.display_name(items[2]),tr("FOLLOW_COLLECTION_SUBMIT")]
+    var icons: Array=[game.icon_cache.get(items[0]),game.icon_cache.get(items[1]),game.icon_cache.get(items[2]),game._path_art("collection")]
     for i in range(stages.size()):
         for k in range(3):
             sim.state.online_items[items[k]]=float(stages[i][k]);sim.state.opportunities[id]["item_"+items[k]]=float(stages[i][k]) # fixture: found this run
         sim.touch();game._refresh_follow_tracker()
-        var leaks:=forbidden.filter(func(word):return step.text.to_lower().contains(str(word).to_lower()))
-        check(tracker.visible and step.text==expected[i] and leaks.is_empty(),"Collection stage %d follower reads \"%s\" with no item names (%s)" % [i,step.text,leaks])
-    check(tracker.get_node("Row/Icon").texture==game._path_art("collection"),"Follower keeps the Prestige path icon, not an item icon")
+        check(tracker.visible and step.text.get_slice("
+",0)==expected[i] and tracker.get_node("Row/Icon").texture==icons[i],"Collection stage %d follower reads \"%s\" with that item's icon" % [i,step.text.get_slice("
+",0)])
     check(tracker.get_node("Row/Text/Name").text==tr("CONTENT_COLLECTION_O1_NAME"),"Follower keeps the Prestige name")
     game._open("prestige");await frames(2)
     var detail:=label_containing(sim.catalog.display_name(items[0]))
@@ -92,7 +95,8 @@ func follower_checks() -> void:
     check(not tracker.visible,"Unfollow hides the tracker")
     var map: Control=game.get_node("Safe/Layout/Map")
     sim.campaign.toggle_follow(id);game._refresh_follow_tracker();await frames(2)
-    check(tracker.get_global_rect().position.x<map.get_global_rect().get_center().x and tracker.get_global_rect().end.y<=map.get_global_rect().end.y+.5,"Tracker stays lower-left inside the map")
+    # Change 16: the trackers share the bottom-right corner.
+    check(tracker.get_global_rect().position.x>map.get_global_rect().get_center().x and tracker.get_global_rect().end.y<=map.get_global_rect().end.y+.5,"Tracker sits bottom-right inside the map (Change 16)")
 
 # ---------------------------------------------------------------- §2 minimap
 func minimap_checks() -> void:
@@ -278,23 +282,27 @@ func supply_checks() -> void:
         for p in sim.state.pickups.slice(before):
             if p.item=="guard_tonic" and sim.collect(int(p.uid)):got+=1
         if got>=3:break
-    check(got>=3 and sim.quantity("guard_tonic")==3 and sim.supply_mastery("guard_tonic")==2,"Guard Tonic dropped and collected 3 times: stock 3, mastery ^2")
+    check(got>=3 and sim.quantity("guard_tonic")==3 and sim.supply_mastery("guard_tonic")==0,"Guard Tonic dropped and collected 3 times: stock 3, mastery ^0")
     # Stock vs mastery.
     fresh()
     sim.state.upgrades["supply_slots"]=4;sim.state.supplies.resize(5);sim.state.supplies.fill("")
     sim.add_item("potion",11)
+    check(sim.supply_mastery("potion")==0,"Found supplies grant no mastery")
+    sim.state.supply_uses.potion=50 # fixture: 50 prior actual uses
     check(sim.quantity("potion")==11 and sim.supply_mastery("potion")==10,"11 found potions: stock 11, mastery ^10")
-    check(near(sim.supply_value("potion"),.2*1.1),"Mastery ^10 heals 22% of max HP")
+    check(near(sim.supply_value("potion"),.1*1.1),"Mastery ^10 heals 11% of max HP (Change 16: 10% base)")
     sim.state.player.hp=sim.stats().hp*.5
     check(sim.use_item("potion") and sim.quantity("potion")==10 and sim.supply_mastery("potion")==10,"Using a charge lowers stock, never mastery")
     sim.state.coins=100.0
     check(sim.purchase_consumable("potion") and sim.quantity("potion")==11 and sim.supply_mastery("potion")==10,"A bought copy adds stock only")
     check(not sim.merge("potion") and not sim.can_merge("potion"),"Supplies cannot be merged (no copies are destroyed)")
     sim.add_item("potion",500)
-    check(sim.supply_mastery("potion")==100 and near(sim.supply_value("potion"),.4),"Mastery caps at ^100 and doubles the effect")
+    sim.state.supply_uses.potion=500 # fixture: mastery cap
+    check(sim.supply_mastery("potion")==100 and near(sim.supply_value("potion"),.2),"Mastery caps at ^100 and doubles the effect (20%)")
     # Change 13: the potion cooldown is 12 s with a 10 s floor (12 x 0.8 = 9.6 -> 10).
     check(near(sim.supply_cooldown("potion"),10.0) and near(sim.supply_duration("guard_tonic"),20),"^100 potion cooldown 10 s (Change 13 floor); an unmastered Guard Tonic lasts 20 s")
     sim.add_item("guard_tonic",26)
+    sim.state.supply_uses.guard_tonic=125 # fixture: 25 mastery
     check(near(sim.supply_duration("guard_tonic"),24),"^25 Steady milestone: Guard Tonic lasts 24 s")
     # Use rules and effects.
     fresh()
@@ -341,7 +349,7 @@ func supply_checks() -> void:
     check(sim.buff_time("guard_tonic")>0 and sim.buff_time("coin_boost")>0 and sim.quantity("guard_tonic")==4,"Automated slots use Guard (in combat) and Coin Tonic")
     # UI.
     game.selected="potion";game.selected_slot=-1;game._open("item");await frames(2)
-    check(label_containing(tr("SUPPLY_MASTERY_LEVEL") % [4,100])!=null and label_containing(tr("SUPPLY_STOCK") % "5")!=null,"Supply panel shows mastery ^4 / ^100 and stock 5")
+    check(label_containing(tr("SUPPLY_MASTERY_LEVEL") % [0,100])!=null and label_containing(tr("SUPPLY_STOCK") % "5")!=null,"Supply panel shows mastery ^0 / ^100 and stock 5")
     check(button_containing(game.actions,tr("USE"))!=null and button_containing(game.actions,tr("ITEM_MERGE_ACTION"))==null,"Supply panel: Use, no Merge")
     check(button_containing(game.actions,tr("AUTO_SHORT") % tr("ON"))==null and button_containing(game.actions,tr("AUTO_SHORT") % tr("OFF"))!=null,"Supply panel shows its auto-use toggle")
     game.selected="guard_tonic";game._open("item");await frames(2)
@@ -361,12 +369,13 @@ func supply_checks() -> void:
     sim.state.offline_snapshot=snap
     sim.campaign.settle_offline(Time.get_unix_time_from_system())
     var pending: int=int(sim.state.offline_pending.get("items",{}).get("potion",0))
-    check(pending>0 and sim.campaign.claim_offline() and sim.supply_mastery("potion")==pending,"Claimed offline potions raise mastery (+%d)" % pending)
+    check(pending>0 and sim.campaign.claim_offline() and sim.supply_mastery("potion")==0,"Claimed offline potions grant stock only (%d)" % pending)
 
 func supply_save_checks() -> void:
     fresh()
     sim.state.upgrades["supply_slots"]=2;sim.state.supplies.resize(3);sim.state.supplies.fill("")
     sim.add_item("potion",31);sim.add_item("guard_tonic",3)
+    sim.state.supply_uses.potion=150 # fixture: 30 mastery
     sim.state.upgrades["auto_use"]=1;sim.bind_auto(1)
     sim.use_item("guard_tonic")
     check(SaveService.save_now(),"Save with supplies written to disk")
@@ -462,10 +471,12 @@ func prestige_upgrade_checks() -> void:
     var count: int=sim.state.enemies.filter(func(e):return int(e.group)==0 and int(e.variant)==2).size()
     check(count==sim.spawn_amount(0) and count==5,"Kept Spawn Amount (2) spawns 5 per spot right after Prestige (%d)" % count)
     check(near(sim.spawn_cooldown(0),float(sim.catalog.groups[0].respawn)*.9),"Kept Spawn Cooldown still applies")
-    check(sim.state.gems==0 and sim.state.coins==0,"Gem and coin balances reset as before")
+    # Change 16: Prestige keeps the Gem balance; coins still reset.
+    check(sim.state.gems==500.0 and sim.state.coins==0,"Gems kept, coins reset (Change 16)")
     check(sim.state.supply_found.is_empty() or true,"(supply mastery checked below)")
     fresh()
     sim.add_item("potion",21)
+    sim.state.supply_uses.potion=100 # fixture: 20 mastery
     sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1
     sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     sim.campaign.begin_prestige();sim.prestige(sim.campaign.offered_cards()[0])

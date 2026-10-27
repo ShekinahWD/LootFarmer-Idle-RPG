@@ -1,6 +1,7 @@
 """Change 13 catalog edits (idempotent; --check reports differences only).
 
-- Skill cooldowns (seconds, player and enemy casts alike): Lightning 4 -> 8 (the only ~4 s skill),
+- Change 17 overrides the old cooldown ladder: all six catalog base cooldowns are now 20 s.
+  Historical Change 13 rationale follows: Lightning 4 -> 8 (the only ~4 s skill),
   and the next steps move up so each skill keeps its own place in the ladder instead of Lightning
   matching Fire: Fire 8 -> 10, Frost 10 -> 12, Strike 10 -> 12. Focus (15) and Heal (18) were
   already long on purpose and are unchanged. The cooldown upgrade (-5% per level, 6 levels, 2 s
@@ -19,7 +20,7 @@ import json, sys
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / 'data/game/catalog.json'
-SKILL_COOLDOWNS = {'heal': 18, 'frost': 10, 'fire': 10, 'lightning': 8, 'focus': 15, 'strike': 10}
+SKILL_COOLDOWNS = {key: 20 for key in ('heal', 'frost', 'fire', 'lightning', 'focus', 'strike')}
 SKILL_PRICES = {'skill_auto_0': 100, 'skill_auto_1': 250, 'skill_auto_2': 500}
 SLOT_PRICES = [300, 600]
 POTION_COOLDOWN = 12

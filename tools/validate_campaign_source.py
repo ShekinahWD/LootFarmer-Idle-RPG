@@ -34,7 +34,9 @@ for s in c['stages']:
 # Change 6: keys built dynamically by the guide, cards and prestige panel.
 steps=['move','kill','collect','collect_wait','equip','equip_tap','equip_find','equip_collect','merge','merge_tap','merge_wait','upgrade','upgrade_find','upgrade_earn','upgrade_tab','upgrade_buy','camp','camp_explore','camp_earn','camp_buy','camp_done','overview','aggression','skills','groups','prestige','rest',
     # Change 15: lessons and Basic cards of the reveal sequence.
-    'missions','missions_claim','missions_wait','slots','slots_tab','slots_buy','slots_supply_tab','slots_potion','slots_earn','snowman','prestige_open','prestige_follow','prestige_info','tip_equip','tip_merge']+['feature_'+f for f in ['missions','enemy','world','upgrades','objective','prestige']]
+    'missions','missions_claim','missions_wait','slots','slots_tab','slots_buy','slots_supply_tab','slots_potion','slots_earn','snowman','prestige_open','prestige_follow','prestige_info','tip_equip','tip_merge',
+    # Change 16: the View Camp step of the camp lesson.
+    'camp_view']+['feature_'+f for f in ['missions','enemy','world','upgrades','objective','prestige']]
 for step in steps:
     for suffix in ['','_DETAIL']:check('guide translation '+step+suffix,'GUIDE_'+step.upper()+suffix in strings)
 for combo in c['campaign']['combos']:check('combo name '+combo['id'],'COMBO_'+combo['id'].upper() in strings)
@@ -78,7 +80,7 @@ check('stone-tier weapons swing with the tinted Iron set',all(c['items'][i]['att
 # Change 13: skill cooldowns and unlock prices, potion cooldown and floor, flat Auto Evolution, enemy
 # ability and weather resources.
 sk={k:v['cooldown'] for k,v in c['skills'].items()}
-check('skill cooldowns: Lightning 8, Fire/Frost/Strike 10, Focus 15, Heal 18',sk=={'heal':18,'frost':10,'fire':10,'lightning':8,'focus':15,'strike':10})
+check('all six skill base cooldowns 20 seconds',sk=={k:20 for k in c['skills']})
 check('auto-cast 100/250/500 gems, skill slots 300/600 gems',[c['upgrades']['skill_auto_%d' % i]['base'] for i in range(3)]==[100,250,500] and c['upgrades']['skill_slots']['prices']==[300,600] and c['upgrades']['skill_slots']['cap']==2)
 check('potion 12 s cooldown with a 10 s mastery floor',c['items']['potion']['supply']['cooldown']==12 and c['items']['potion']['supply']['cooldown_floor']==10)
 check('Auto Evolution: one-time flat 2,000-gem per-type unlock',c['upgrades']['auto_evolve']=={'currency':'gems','base':2000,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'type','flat':True})
@@ -87,12 +89,29 @@ ids={g['id']:g for g in c['groups']}
 pairs=re.findall(r'summoner_id = "([a-z-]+)"\nhelper_id = "([a-z-]+)"',ab)
 check('2-3 summoning types incl. the final boss, later stages, helpers are normal types of the same map',2<=len(pairs)<=3 and any(ids[s]['final'] for s,_ in pairs) and all(ids[s]['stage']>=3 and not ids[h]['boss'] and ids[h]['stage']==ids[s]['stage'] for s,h in pairs))
 check('final boss attack pool uses existing skills',all(k in c['skills'] for k in re.search(r'final_attack_pool = PackedStringArray\(([^)]*)\)',ab).group(1).replace('"','').replace(' ','').split(',')))
+# Change 16: map economy (income x1.5 per map, map-tied coin prices x1.55), Gem Auto-Collect and Collect
+# Batch, the potion's 10% -> 20% heal, the Cyan Robot's 12 s Heal, the Mastery reward swap, the boss
+# warning cue, and the strings the new HUD and scenes use.
+check('coin income: normal 1.5^(stage-1), bosses 8x',all(abs(g['coins']-1.5**(g['stage']-1)*(8 if g['boss'] else 1))<1e-6 for g in c['groups']))
+check('map-tied coin prices grow 1.55 per map, a little faster than income',c['progression'].get('map_cost_growth')==1.55 and c['progression'].get('map_reward_growth')==1.5)
+check('Auto-Collect: Gems, 20 on Winter I, kept',{k:c['upgrades']['collect'][k] for k in ['currency','base','cap','keep','scope']}=={'currency':'gems','base':20,'cap':1,'keep':True,'scope':'type'})
+check('Collect Batch: Gems, 50 on Winter I, x3 per level, 5 levels, kept',{k:c['upgrades']['collect_batch'][k] for k in ['currency','base','growth','cap','keep','scope']}=={'currency':'gems','base':50,'growth':3.0,'cap':5,'keep':True,'scope':'type'})
+check('Health Potion heals 10% at ^0 and 20% at ^100 before bonuses',c['items']['potion']['normal']['heal_pct']==[0.1,0.001])
+ab16=(ROOT/'resources/game/enemy_abilities.tres').read_text(encoding='utf-8')
+check('Cyan Robot Heal every 12 s (catalog Heal 20 s for everyone else)','"boss-cyan-robot:heal": 12.0' in ab16 and c['skills']['heal']['cooldown']==20)
+mr=(ROOT/'resources/game/mastery_rules.tres').read_text(encoding='utf-8')
+check('Mastery rewards: Autumn II +2 pts Gem Chance, Spring II +15% HP','{"gear_chance": 0.01}, {"gem_chance": 0.02}, {"damage": 0.15}, {"hp": 0.15}]' in mr)
+check('boss warning cue uses the mission-ready sound','id = "boss_found"\nstream = ExtResource("s8")' in (ROOT/'resources/game/audio_cues.tres').read_text(encoding='utf-8'))
+for scene in ['scenes/game/main.tscn','scenes/game/prestige_confirm.tscn']:
+    for key in re.findall(r'^text="([A-Z][A-Z0-9]*_[A-Z0-9_]+)"$',(ROOT/scene).read_text(encoding='utf-8'),re.M):check('scene translation '+key,key in strings)
+for key in ['MAIN_HINT_%d' % i for i in range(16)]+['MISSION_DO_'+k.upper() for k in ['kill','boss','gear','merge','coins','cast']]+['FOLLOW_GOAL_'+k.upper() for k in ['kill','gear','merge','boss','cast','mission']]+['SKILL_DESC_'+k.upper() for k in c['skills']]:check('Change 16 translation '+key,key in strings)
+check('no double dashes in the English strings (Playbook 74)','--' not in ''.join(re.findall(r'^msgstr "(.*)"$',(ROOT/'localization/en.po').read_text(encoding='utf-8'),re.M)))
 for w in ['rain','leaves','blue_leaves']:check('weather style '+w,(ROOT/f'resources/game/weather_{w}.tres').is_file())
-for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py','tools/change10_catalog.py','tools/change11_catalog.py','tools/change12_catalog.py','tools/change13_catalog.py']:
+for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py','tools/change10_catalog.py','tools/change11_catalog.py','tools/change12_catalog.py','tools/change13_catalog.py','tools/change16_catalog.py']:
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}
-output=ROOT/'docs/Change_9_Evidence/static_checks.json'
+output=ROOT/'docs/Change_17_Evidence/static_checks.json'
 output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({k:report[k] for k in ['checks','failures']}))
 for item in checks:

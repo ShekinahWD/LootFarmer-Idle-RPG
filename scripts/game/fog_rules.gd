@@ -14,6 +14,10 @@ extends Resource
 ## camp's footprint is revealed so the camp shows through the fog. Enemy spots never use it.
 @export var camp_sight_radius: float=400.0
 @export var camp_footprint_radius: float=40.0
+## Change 16: a living boss the player can see within this distance is found for good: one
+## "!WARNING BOSS FOUND!" and the notification sound, the first time only (finding the Snowman opens
+## Prestige). Momentary sight still decides what is visible, so this is a cap, not a reveal.
+@export var boss_sight_radius: float=160.0
 @export_range(.05,.5,.05) var update_interval: float=.15
 ## Change 15: fog cells no walking player can reveal (inside large solid scenery), per stage number,
 ## as "x,y" cell keys. They count neither as explored nor in the map's area, so "Map Explored: 100%"

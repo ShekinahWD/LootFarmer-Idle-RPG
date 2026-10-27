@@ -117,3 +117,12 @@ Runtime counts: 33 opportunities, 33 cards, 17 sets.
 
 - **Retention:** every upgrade bought with Gems is kept by Prestige (all categories), plus coin upgrades marked Keep in the Upgrade Catalog. Supply mastery is kept; supply stock resets with the inventory. Unspent Gems and coins reset as before.
 - **Followed collection contracts:** the HUD tracker shows "Step n/3 · Collect items · x/y" and then "All found · hand them in from Prestige", with no item names, icons or descriptions. The Prestige panel's progress line names each required outfit with its count ("Blue Cap Outfit 20/20 · …").
+
+## Change 16
+
+- **Unlock:** Prestige (and its reset gate) opens when the Winter I Snowman is first **found** (seen within 160 units), not defeated; a past defeat also counts. Discovery is kept by Prestige.
+- **Retention:** Prestige also keeps the **Gem balance** and every explored map area (fog cells, sighted camps, found spots, found bosses). The Offering opportunities still count only Coins and Gems earned in battle this run (`online_gems` resets), and the Regional opportunities still need this run's bosses and camps, but their exploration share is now usually done in later runs.
+- **Descriptions:** all 33 rewritten to be actionable and to name their maps (for example "On Winter I, in order: defeat 100 Blue Caps, then 100 Red Scarves, then 100 Chef Hats"; collections and offerings say to hand in with Submit; trophies say "after finding this, defeat … once each").
+- **Follower (tracker and panel):** what to do now with the enemy, item or map and current/required progress, then "Next:" / "Then:" for the following requirement (`campaign.follow_summary`). Collections name the exact outfit and show its icon (`campaign.follow_focus`), superseding the Change 11 rule above. Examples: "Step 1/3 · Collect Blue Cap Outfit from Blue Cap (Winter I): 7/20 · Next: Red Scarf Outfit"; "Defeat Snowman (Winter I): 3/10"; "Explore Winter I: 45%/90% · Then: Explore Winter II: 0%/90% (5 left)"; "Merge any weapon, outfit or skill to ^100: best ^37/^100".
+- **Confirmation:** a milestone screen lists the opportunities redeemed and separates "PERMANENT · YOU KEEP" from "THIS RUN RESETS" with live values.
+- Cards, sets, requirements and rewards are unchanged.

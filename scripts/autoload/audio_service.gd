@@ -135,20 +135,43 @@ func reset_history() -> void:
 
 func play_music() -> void:
     _music_wanted = true
-    # Headless runs (probes) keep the routing state but never decode or hold the track.
-    if _music_stream == null or DisplayServer.get_name() == "headless":
-        return
-    if _music_player.stream != _music_stream:
-        _music_player.stream = _music_stream
-    _apply_music_volume()
-    if not _music_player.playing:
-        _music_player.play()
-    _music_player.stream_paused = SettingsState.music_volume <= 0.0
+    _sync_music()
 
 
 func stop_music() -> void:
     _music_wanted = false
     _music_player.stop()
+    _music_player.stream_paused = false
+
+
+## Change 16: one place decides the music player's state. A paused stream reports playing == false
+## in Godot 4, so the old code left the music stopped for good once the volume touched 0 (the next
+## volume change saw "not playing" and never unpaused it). Now the track starts only when it has not
+## started yet; otherwise it is paused or resumed in place: Music volume 0 holds its position, any
+## volume above 0 resumes it (no restart), and while the game is paused the track holds its place.
+## Re-entering the game scene (Hard Reset, scene reload) keeps the same playback.
+func _sync_music() -> void:
+    # Headless runs (probes) keep the routing state but never decode or hold the track.
+    if not _music_wanted or _music_stream == null or DisplayServer.get_name() == "headless":
+        return
+    if _music_player.stream != _music_stream:
+        _music_player.stream = _music_stream
+        _music_player.stream_paused = false
+    _apply_music_volume()
+    if not _music_player.playing and not _music_player.stream_paused:
+        _music_player.play()
+    _music_player.stream_paused = music_should_hold()
+
+
+## Re-applies the music state after the game's pause changes (the engine resumes a pausable player on
+## unpause even when the Music volume is 0; this holds it again).
+func refresh_music() -> void:
+    _sync_music()
+
+
+## The track holds its place while the Music volume is 0 or the game is paused.
+func music_should_hold() -> bool:
+    return SettingsState.music_volume <= 0.0 or (is_inside_tree() and get_tree().paused)
 
 
 func music_playing() -> bool:
@@ -157,7 +180,9 @@ func music_playing() -> bool:
 
 ## The configured track, whether the game asked for music, and the player's current level (probes).
 func music_state() -> Dictionary:
-    return {"stream": _music_stream, "wanted": _music_wanted, "volume_db": _music_player.volume_db}
+    return {"stream": _music_stream, "wanted": _music_wanted, "volume_db": _music_player.volume_db,
+        "held": _music_player.stream_paused, "position": _music_player.get_playback_position(),
+        "started": _music_player.playing or _music_player.stream_paused}
 
 
 func _next_free_sfx_player() -> AudioStreamPlayer:
@@ -175,8 +200,7 @@ func _on_music_finished() -> void:
 
 func _on_settings_changed() -> void:
     _apply_music_volume()
-    if _music_wanted and _music_player.playing:
-        _music_player.stream_paused = SettingsState.music_volume <= 0.0
+    _sync_music()
     for player in _sfx_players:
         if not player.playing:
             continue

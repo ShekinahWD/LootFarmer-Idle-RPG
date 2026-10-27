@@ -75,13 +75,13 @@ func run() -> void:
     stick._input(stop)
     check(stick.direction==Vector2.ZERO,"Release outside joystick clears movement")
     game._open("settings")
-    var enabled:=0
-    var disabled:=0
+    # Change 16: the unreleased languages are no longer listed as disabled buttons (a development
+    # notice); they stay unselectable through the localization service.
+    var offered: Array=[]
     for row in game.rows.get_children():
-        if row is Button:
-            if row.disabled:disabled+=1
-            else:enabled+=1
-    check(disabled==19,"All nineteen unreleased languages remain disabled")
+        if row is Button:offered.append(str(row.text))
+    var unreleased:=LocalizationService.RELEASE_LANGUAGES.filter(func(l):return l!="en_US")
+    check(unreleased.size()==19 and not unreleased.any(func(l):return offered.has(tr("LANG_"+l.to_upper()))) and not unreleased.any(func(l):return LocalizationService.select_language(l)),"All nineteen unreleased languages stay unavailable (not offered, refused)")
     for panel in ["item","upgrades","travel","stats","history","prestige"]:
         game._open(panel)
     var actor=load("res://scenes/game/actor.tscn").instantiate()

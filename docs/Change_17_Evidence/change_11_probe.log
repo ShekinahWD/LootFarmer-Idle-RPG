@@ -1,0 +1,161 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+  ok  Winter collection can be followed
+  ok  Collection stage 0 follower reads "Step 1/3 · Collect Blue Cap Outfit from Blue Cap (Winter I): 0/20" with that item's icon
+  ok  Collection stage 1 follower reads "Step 2/3 · Collect Red Scarf Outfit from Red Scarf (Winter I): 7/20" with that item's icon
+  ok  Collection stage 2 follower reads "Step 3/3 · Collect Chef Hat Outfit from Chef Hat (Winter I): 12/20" with that item's icon
+  ok  Collection stage 3 follower reads "All found! Hand them in: Prestige, then Submit" with that item's icon
+  ok  Follower keeps the Prestige name
+  ok  Prestige panel still names each required outfit with its count
+  ok  Prestige panel keeps the full description
+  ok  Boss hunt follower keeps its target and progress (Defeat Snowman (Winter I): 0/10)
+  ok  Expedition follower keeps its own step guidance (Step 1/3 · Defeat Blue Cap (Winter I): 4/100
+Next: Defeat Red Scarf (Winter I) ×100)
+  ok  Unfollow hides the tracker
+  ok  Tracker sits bottom-right inside the map (Change 16)
+  ok  Minimap enlarged to (230.0, 230.0) (was 130 x 130)
+  ok  Minimap clear of the joystick
+  ok  Stage 1 minimap: 10 markers of 24 px, none overlapping
+  ok  Stage 1 full map: 10 markers of 26 px, none overlapping
+  ok  Stage 2 minimap: 19 markers of 24 px, none overlapping
+  ok  Stage 2 full map: 19 markers of 23 px, none overlapping
+  ok  Stage 3 minimap: 12 markers of 24 px, none overlapping
+  ok  Stage 3 full map: 12 markers of 26 px, none overlapping
+  ok  Stage 4 minimap: 20 markers of 20 px, none overlapping
+  ok  Stage 4 full map: 20 markers of 20 px, none overlapping
+  ok  Stage 5 minimap: 11 markers of 24 px, none overlapping
+  ok  Stage 5 full map: 11 markers of 26 px, none overlapping
+  ok  Stage 6 minimap: 14 markers of 23 px, none overlapping
+  ok  Stage 6 full map: 14 markers of 23 px, none overlapping
+  ok  Stage 7 minimap: 11 markers of 24 px, none overlapping
+  ok  Stage 7 full map: 11 markers of 26 px, none overlapping
+  ok  Stage 8 minimap: 22 markers of 20 px, none overlapping
+  ok  Stage 8 full map: 22 markers of 17 px, none overlapping
+  ok  Outfit-only spot: portrait, no weapon badge
+  ok  Weapon-only spot: weapon badge, dimmed portrait
+  ok  Skill spot: skill badge
+  ok  Undiscovered spots never get a marker (1 markers)
+  ok  Walking moves the player dot without a marker redraw
+  ok  Camp menu offers Teleport
+  ok  Teleport opens the destination picker
+  ok  With one camp the picker says so and offers nothing
+  ok  No destination: the teleport action is disabled
+  ok  Current camp marked; the other camp is choosable
+  ok  Only the other owned camp is a destination (locked camp 3 is absent)
+  ok  Selected target is shown
+  ok  In combat the teleport action is disabled
+  ok  A blocked move changes nothing
+  ok  In combat the camp's Teleport is disabled
+  ok  Out of combat the teleport action is enabled
+  ok  Arrived at camp 2, which is now the respawn camp
+  ok  Arrival closes the picker and does not pop the camp menu
+  ok  Camera follows the player after arrival
+  ok  World panel: travel to the camp you stand in is disabled
+  ok  Locked maps and camps are refused
+  ok  Picker lists the reached map's camp and no locked map
+  ok  Teleport across maps arrives at Winter II camp 1
+  ok  Paused: Teleport is disabled
+  ok  First-hit line is not a loot line (Hey! Watch it!)
+  ok  No drop, no loot line (1322 silent deaths)
+  ok  Each loot line matches a real drop, one bubble at most ({ "none_silent": 1322, "none_loot": 0, "outfit_ok": 44, "weapon_ok": 52, "mismatch": 0 })
+  ok  Loot pickup notification unchanged
+  ok  Five supplies (["potion", "coin_boost", "guard_tonic", "recovery_salve", "wisdom_tonic"])
+  ok  Supply slot cap equals the supply types: 5
+  ok  Supply auto-merge upgrades removed
+  ok  No supply tier identities remain
+  ok  potion drops from some enemy (first stage 1)
+  ok  coin_boost drops from some enemy (first stage 1)
+  ok  guard_tonic drops from some enemy (first stage 2)
+  ok  recovery_salve drops from some enemy (first stage 3)
+  ok  wisdom_tonic drops from some enemy (first stage 4)
+  ok  Winter I drops Potion and Coin Tonic only
+  ok  Winter I keeps the 80/20 split
+  ok  Summer II drops all five; the overall supply chance is unchanged
+  ok  Guard Tonic dropped and collected 3 times: stock 3, mastery ^0
+  ok  Found supplies grant no mastery
+  ok  11 found potions: stock 11, mastery ^10
+  ok  Mastery ^10 heals 11% of max HP (Change 16: 10% base)
+  ok  Using a charge lowers stock, never mastery
+  ok  A bought copy adds stock only
+  ok  Supplies cannot be merged (no copies are destroyed)
+  ok  Mastery caps at ^100 and doubles the effect (20%)
+  ok  ^100 potion cooldown 10 s (Change 13 floor); an unmastered Guard Tonic lasts 20 s
+  ok  ^25 Steady milestone: Guard Tonic lasts 24 s
+  ok  Potion refused at full HP
+  ok  Potion heals its share of max HP
+  ok  Potion respects its cooldown
+  ok  Coin Tonic: +coins for 30 s
+  ok  Coin Tonic cannot stack while active
+  ok  Guard Tonic adds its Defense while active
+  ok  Active supplies appear in the stat breakdown
+  ok  Recovery Salve refused above 90% HP
+  ok  Recovery Salve heals a share of max HP per second
+  ok  Wisdom Tonic used
+  ok  Wisdom Tonic: +25% XP per kill
+  ok  Recovery ends after 10 s; Guard is still running
+  ok  Guard ends after 20 s and its Defense goes away
+  ok  Auto: potion at 70% HP, Recovery waits for 60%
+  ok  Auto: Guard waits for combat
+  ok  Auto: Guard in combat
+  ok  Automated slots use Guard (in combat) and Coin Tonic
+  ok  Supply panel shows mastery ^0 / ^100 and stock 5
+  ok  Supply panel: Use, no Merge
+  ok  Supply panel shows its auto-use toggle
+  ok  Active Guard Tonic shows its remaining time
+  ok  Supplies tab: no merge upgrades, auto-use kept
+  ok  Enemy drop research lists each supply with its chance (5)
+  ok  Dock reads Supplies 5 / 5
+  ok  Claimed offline potions grant stock only (4)
+  ok  Save with supplies written to disk
+  ok  Disk round trip keeps stock, mastery, the running buff and the auto slot
+  ok  Loaded profile validates
+  ok  Change 10 supplies fold into the base supply, 5 slots
+  ok  Hard Reset clears stock, mastery and buffs
+  ok  Filters sits right after the gear count
+  ok  Filters reads "Filters" at a touch size ((104.0, 52.0))
+  ok  close button: Filters opens unfiltered
+  ok  close button: an empty filter hides every gear slot while open
+  ok  close button: closing restores the full inventory
+  ok  Filters again: Filters opens unfiltered
+  ok  Filters again: an empty filter hides every gear slot while open
+  ok  Filters again: closing restores the full inventory
+  ok  Back: Filters opens unfiltered
+  ok  Back: an empty filter hides every gear slot while open
+  ok  Back: closing restores the full inventory
+  ok  another panel: Filters opens unfiltered
+  ok  another panel: an empty filter hides every gear slot while open
+  ok  another panel: closing restores the full inventory
+  ok  programmatic: Filters opens unfiltered
+  ok  programmatic: an empty filter hides every gear slot while open
+  ok  programmatic: closing restores the full inventory
+  ok  prestige close: Filters opens unfiltered
+  ok  prestige close: an empty filter hides every gear slot while open
+  ok  prestige close: closing restores the full inventory
+  ok  Filtering never changes items, counts or equipment
+  ok  Upgrades > Inventory keeps capacity purchases, no filter entry
+  ok  Capacity purchases still work
+  ok  Prestige completes
+  ok  Every gem upgrade kept (31), coin upgrades follow their rule (16 reset) []
+  ok  gem_chance is kept by Prestige
+  ok  gem_amount is kept by Prestige
+  ok  boss_gem_chance is kept by Prestige
+  ok  boss_gem_amount is kept by Prestige
+  ok  spawn_amount is kept by Prestige
+  ok  spawn_cooldown is kept by Prestige
+  ok  Kept Gem Chance still applies
+  ok  Kept Spawn Amount (2) spawns 5 per spot right after Prestige (5)
+  ok  Kept Spawn Cooldown still applies
+  ok  Gems kept, coins reset (Change 16)
+  ok  (supply mastery checked below)
+  ok  Prestige keeps supply mastery and clears supply stock
+  ok  Hard Reset clears every upgrade and mastery
+  ok  spawn_amount on Winter I costs [75, 125, 200] (total 400), cap unchanged
+  ok  spawn_amount on Winter II keeps the stage factor 1.25 (94)
+  ok  spawn_cooldown on Winter I costs [50, 100, 150, 225, 300] (total 825), cap unchanged
+  ok  spawn_cooldown on Winter II keeps the stage factor 1.25 (63)
+  ok  Spawn effects unchanged: 6 actors, half respawn time
+CHANGE_11_CHECKS 153 FAILURES 0
+WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BALANCE_ROW Bee first kill, Change 8 rules     loss      24s | boss left  79.3% | player left   0.0% | dmg   388 hp   2126 def   0 rec 0.00%/s
+BALANCE_ROW Bee first kill, Change 9           loss      26s | boss left  77.5% | player left   0.0% | dmg   388 hp   2078 def  12 rec 0.00%/s
+BALANCE_ROW Bee, elf-ears ^300, 4 cards        loss      45s | boss left  65.2% | player left   0.0% | dmg   447 hp   2683 def  12 rec 0.20%/s
+BALANCE_ROW Red Panda, sprout ^100             loss      32s | boss left  80.2% | player left   0.0% | dmg   935 hp   3767 def  15 rec 0.00%/s
+BALANCE_ROW Red Panda, sprout ^300             loss      47s | boss left  66.8% | player left   0.0% | dmg   935 hp   4866 def  15 rec 0.25%/s
+BALANCE_ROW Red Panda, sprout ^300, 6 cards    win      160s | boss left   0.0% | player left  34.7% | dmg   935 hp   4866 def  15 rec 0.25%/s
+BALANCE_ROW Red Panda, sprout ^500             loss      90s | boss left  39.1% | player left   0.0% | dmg   935 hp   5833 def  50 rec 0.40%/s
+BALANCE_ROW Final, Sunflower outfit ^100       loss      32s | boss left  73.1% | player left   0.0% | dmg  1574 hp   6665 def  15 rec 0.00%/s
+BALANCE_ROW Final, Sunflower outfit ^300       loss      51s | boss left  57.8% | player left   0.0% | dmg  1574 hp   9964 def  15 rec 0.25%/s
+BALANCE_ROW Final, ^300, no cards              loss      36s | boss left  79.5% | player left   0.0% | dmg  1369 hp   7664 def  15 rec 0.25%/s
+BALANCE_ROW Final, ^300, no skills             loss      48s | boss left  71.6% | player left   0.0% | dmg  1574 hp   9964 def  15 rec 0.25%/s
+BALANCE_ROW Final, ^300, stored weapons 15%    loss      49s | boss left  65.0% | player left   0.0% | dmg  1354 hp   9550 def  15 rec 0.25%/s
+BALANCE_ROW Final, Sunflower outfit ^500       loss     111s | boss left  17.4% | player left   0.0% | dmg  1574 hp  12866 def  50 rec 0.40%/s
+ERROR: Red Panda: beatable at ^500, or at ^300 with six cards
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/change_9_balance.gd:12)
+       [1] run (res://tests/change_9_balance.gd:51)
+ERROR: Final boss beatable before ^500 with a plausible loadout, three skills and four cards
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/change_9_balance.gd:12)
+       [1] run (res://tests/change_9_balance.gd:52)
+WEAPON_SHARE level 225: damage 935 at 30%, 827 at 15% (11.6% less)
+WEAPON_SHARE level 240: damage 1574 at 30%, 1354 at 15% (13.9% less)
+LEVEL_FEASIBILITY level 225: 1.71M XP total, about 109 sprout kills (15750 XP each)
+LEVEL_FEASIBILITY level 240: 1.99M XP total, about 127 sprout kills (15750 XP each)
+CHANGE_9_BALANCE_CHECKS 35 FAILURES 2

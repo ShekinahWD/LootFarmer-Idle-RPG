@@ -18,3 +18,9 @@ extends Resource
 @export var objective_level: int=7
 ## Basic guidance: a feature card or tip retires after this many seconds on screen (or on Got it).
 @export_range(5.0,60.0,1.0) var card_seconds: float=20.0
+## Change 16 Guided opening, "Follow the path to your left.": a Winter I point on the path that leads
+## from the arrival camp to the first enemies. The guide's arrow points from the player toward it, and
+## the lesson completes once the player is within path_reach of it (or after the first defeat, so a
+## player who walks elsewhere is never stuck).
+@export var path_target: Vector2=Vector2(300,810)
+@export var path_reach: float=110.0

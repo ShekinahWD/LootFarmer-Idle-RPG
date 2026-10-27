@@ -13,6 +13,13 @@ func _ready() -> void:
     TranslationServer.set_locale("en")
 
 
+## Languages a player can pick now: English until the translations pass the release gate.
+func available_languages() -> Array[String]:
+    if TRANSLATIONS_RELEASE_READY:
+        return RELEASE_LANGUAGES.duplicate()
+    return ["en_US"] as Array[String]
+
+
 func select_language(value: String) -> bool:
     if value != "automatic" and value != "en_US":
         return false

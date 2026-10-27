@@ -1,4 +1,4 @@
-"""Change 11: supply catalog with permanent mastery (idempotent; --check reports differences only).
+"""Current supply definitions (Change 17 prices and Potion eligibility); historical Change 11: supply catalog with permanent mastery (idempotent; --check reports differences only).
 
 - Five supply identities, one inventory identity each (no tiers, no evolution):
   Health Potion (heal a share of max HP), Coin Tonic (coins), Guard Tonic (Defense), Recovery Salve
@@ -37,11 +37,12 @@ MASTERY = {
 # id: (name key, icon, stat, base, effect, duration s, cooldown s, use HP, auto HP, first stage, weight, price)
 SUPPLIES = {
     # Change 13: 12 s potion cooldown (was 5) with a 10 s floor (COOLDOWN_FLOORS), see change13_catalog.py.
-    'potion': ('ITEM_POTION', 212, 'heal_pct', 0.2, 'heal', 0, 12, 0.8, 0.8, 1, 8, 10),
-    'coin_boost': ('ITEM_COIN_BOOST', 68, 'coin_bonus', 0.25, 'coins', 30, 0, 1, 1, 1, 2, 30),
-    'guard_tonic': ('ITEM_GUARD_TONIC', 67, 'defense', 20, 'guard', 20, 0, 1, 1, 2, 2.5, 0),
-    'recovery_salve': ('ITEM_RECOVERY_SALVE', 71, 'regen_pct', 0.015, 'recovery', 10, 0, 0.9, 0.6, 3, 2, 0),
-    'wisdom_tonic': ('ITEM_WISDOM_TONIC', 70, 'xp_bonus', 0.25, 'xp', 60, 0, 1, 1, 4, 1.5, 0),
+    # Change 16: heals 10% at ^0 and 20% at ^100 (was 20% -> 40%), see change16_catalog.py.
+    'potion': ('ITEM_POTION', 212, 'heal_pct', 0.1, 'heal', 0, 12, 1, 1, 1, 8, 100),
+    'coin_boost': ('ITEM_COIN_BOOST', 68, 'coin_bonus', 0.25, 'coins', 30, 0, 1, 1, 1, 2, 200),
+    'guard_tonic': ('ITEM_GUARD_TONIC', 67, 'defense', 20, 'guard', 20, 0, 1, 1, 2, 2.5, 300),
+    'recovery_salve': ('ITEM_RECOVERY_SALVE', 71, 'regen_pct', 0.015, 'recovery', 10, 0, 0.9, 0.6, 3, 2, 400),
+    'wisdom_tonic': ('ITEM_WISDOM_TONIC', 70, 'xp_bonus', 0.25, 'xp', 60, 0, 1, 1, 4, 1.5, 500),
 }
 
 

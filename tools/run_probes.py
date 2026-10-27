@@ -1,4 +1,4 @@
-"""Maintained LootFarmer regression suite (Change 11; Changes 12 to 15 added their probes). Runs each probe headless, one at a time
+"""Maintained LootFarmer regression suite (Change 11; Changes 12 to 16 added their probes). Runs each probe headless, one at a time
 (playbook 60.1), with a hard timeout, and counts a run as failed when it exits non-zero, times out
 or prints any SCRIPT ERROR (a script error aborts a probe's coroutine before it can quit).
 
@@ -6,7 +6,8 @@ Usage: python tools/run_probes.py [name ...]      (no names = the whole maintain
        python tools/run_probes.py --list
 Environment: GODOT = path to the Godot 4.7 console executable (default: the developer laptop path).
 
-Not in this suite on purpose: rendered captures (change_*_capture, stage_overview_capture), the
+Not in this suite on purpose: rendered captures (change_*_capture, stage_overview_capture), the windowed
+music playback check (change_16_audio: the audio service never decodes music headless), the
 natural-pace pacing_bot and the change_9_balance fixture (balance benchmarks, run deliberately), and
 the historical probes listed in docs/LootFarmer_Test_Suite.md.
 """
@@ -17,6 +18,9 @@ ROOT = Path(__file__).resolve().parents[1]
 GODOT = os.environ.get('GODOT', 'D:/Programs/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe')
 # name -> timeout in seconds
 SUITE = {
+    'change_17_probe': 120,
+    'change_17_weather': 120,
+    'change_16_probe': 300,
     'change_15_probe': 300,
     'change_14_probe': 300,
     'change_13_probe': 300,
@@ -57,6 +61,9 @@ def run(name, timeout):
     except subprocess.TimeoutExpired as error:
         output = (error.stdout or b'').decode('utf-8', 'replace') if isinstance(error.stdout, bytes) else (error.stdout or '')
         code, timed_out = -1, True
+    if os.environ.get('PROBE_LOG_DIR'):
+        log_dir = Path(os.environ['PROBE_LOG_DIR']); log_dir.mkdir(parents=True, exist_ok=True)
+        (log_dir / (name + '.log')).write_text(output, encoding='utf-8')
     script_errors = len(re.findall(r'SCRIPT ERROR', output))
     summary = [line for line in output.splitlines() if re.search(r'CHECKS|checks=|SMOKE done|_PROBE PASS', line)]
     ok = code == 0 and not timed_out and script_errors == 0 and bool(summary)

@@ -12,3 +12,5 @@ world_level = 5
 upgrades_level = 6
 objective_level = 7
 card_seconds = 20.0
+path_target = Vector2(300, 810)
+path_reach = 110.0

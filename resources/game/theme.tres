@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=3]
+[gd_resource type="Theme" load_steps=23 format=3]
 [ext_resource type="FontFile" path="res://assets/Fonts/DejaVuSans.ttf" id="font"]
 [ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-000.png" id="panel"]
 [ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-000.png" id="button"]
@@ -193,6 +193,54 @@ content_margin_top=8.0
 texture_margin_bottom=12.0
 content_margin_bottom=8.0
 
+[sub_resource type="StyleBoxTexture" id="danger"]
+texture=ExtResource("button")
+modulate_color=Color(0.72,0.16,0.14,1)
+texture_margin_left=12.0
+content_margin_left=12.0
+texture_margin_right=12.0
+content_margin_right=12.0
+texture_margin_top=12.0
+content_margin_top=8.0
+texture_margin_bottom=12.0
+content_margin_bottom=8.0
+
+[sub_resource type="StyleBoxTexture" id="danger_hover"]
+texture=ExtResource("button")
+modulate_color=Color(0.84,0.24,0.2,1)
+texture_margin_left=12.0
+content_margin_left=12.0
+texture_margin_right=12.0
+content_margin_right=12.0
+texture_margin_top=12.0
+content_margin_top=8.0
+texture_margin_bottom=12.0
+content_margin_bottom=8.0
+
+[sub_resource type="StyleBoxTexture" id="danger_pressed"]
+texture=ExtResource("button")
+modulate_color=Color(0.56,0.11,0.1,1)
+texture_margin_left=12.0
+content_margin_left=12.0
+texture_margin_right=12.0
+content_margin_right=12.0
+texture_margin_top=12.0
+content_margin_top=8.0
+texture_margin_bottom=12.0
+content_margin_bottom=8.0
+
+[sub_resource type="StyleBoxTexture" id="hud_chip_pressed"]
+texture=ExtResource("panel")
+modulate_color=Color(0.14,0.19,0.25,0.92)
+texture_margin_left=12.0
+content_margin_left=10.0
+texture_margin_right=12.0
+content_margin_right=10.0
+texture_margin_top=12.0
+content_margin_top=3.0
+texture_margin_bottom=12.0
+content_margin_bottom=3.0
+
 [resource]
 default_font=ExtResource("font")
 default_font_size=22
@@ -244,6 +292,25 @@ HudChip/base_type=&"PanelContainer"
 HudChip/styles/panel=SubResource("hud_chip")
 HudChipLabel/base_type=&"Label"
 HudChipLabel/styles/normal=SubResource("hud_chip")
+HudChipButton/base_type=&"Button"
+HudChipButton/styles/normal=SubResource("hud_chip")
+HudChipButton/styles/hover=SubResource("hud_chip")
+HudChipButton/styles/pressed=SubResource("hud_chip_pressed")
+HudChipButton/styles/focus=SubResource("hud_chip")
+HudChipButton/colors/font_color=Color(1,0.9,0.56,1)
+HudChipButton/colors/font_hover_color=Color(1,0.94,0.7,1)
+HudChipButton/colors/font_pressed_color=Color(1,0.94,0.7,1)
+HudChipButton/colors/font_outline_color=Color(0,0,0,1)
+HudChipButton/constants/outline_size=4
+Danger/base_type=&"Button"
+Danger/styles/normal=SubResource("danger")
+Danger/styles/hover=SubResource("danger_hover")
+Danger/styles/pressed=SubResource("danger_pressed")
+Danger/styles/disabled=SubResource("disabled")
+Danger/colors/font_color=Color(1,0.97,0.95,1)
+Danger/colors/font_hover_color=Color(1,1,1,1)
+Danger/colors/font_outline_color=Color(0.22,0.02,0.02,1)
+Danger/constants/outline_size=4
 Primary/base_type=&"Button"
 Primary/styles/normal=SubResource("primary")
 Primary/styles/hover=SubResource("primary_hover")

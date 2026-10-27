@@ -27,8 +27,8 @@
 | Army management and combat | 5 to 7, 38, 39, 72, 79, 130, 131 |
 | Mobile UI: surfaces, text, controls | 14 to 17, 19 to 21, 70, 78, 123 to 125, 128, 129, 143 |
 | Teaching, onboarding and first-profile progression | 18 |
-| Pause, save, reset and offline | 26 to 31, 57, 58, 61, 110, 111 |
-| Validation, probes, bots and audits | 41 to 43, 59, 60, 100, 112, 113, 127 |
+| Pause, save, reset and offline | 26 to 31, 57, 58, 61, 110, 111, 145 |
+| Validation, probes, bots and audits | 41 to 43, 59, 60, 100, 112, 113, 127, 145 |
 | Assets, terrain and visuals | 22 to 25, 54, 63 to 67, 71, 73, 101, 103, 104 |
 | Android, release and store | 47 to 49, 64, 68, 84, 87 to 89, 95, 96, 134 |
 | Localization across 20 languages | 0.11, 132 |
@@ -8490,7 +8490,7 @@ When many identities each contribute a passive share, the collection outweighs t
 
 ## 141.1 Consumables: charges and mastery are separate state
 
-When a consumable can improve, keep **stock** (charges spent by use) and **mastery** (permanent growth) in different fields. If mastery is derived from stock, or growth consumes copies the way gear merges do, using an item destroys progress and players hoard instead of using it. Count lifetime copies *found*, derive mastery from that count with a cap, and never lower it on use. Decide explicitly whether bought copies count: if they do, coins buy permanent power. Keep one inventory identity per consumable, so improvement never creates tier ids. Supply capacity can then equal the number of identities exactly.
+When a consumable can improve, keep **stock** (charges spent by use) and **mastery** (permanent growth) in different fields. If mastery is derived from stock, or growth consumes copies the way gear merges do, using an item destroys progress and players hoard instead of using it. Choose the authoritative mastery event explicitly: acquisition or successful use, never both by accident. For usage-based mastery, increment a per-type counter only after a successful consumption, retain its remainder, and derive capped levels from uses-per-level. Purchases, drops, offline receipts and re-pickups grant stock only. When replacing acquisition-based mastery in compatible saves, preserve earned levels as one-time legacy credit and add future use-based levels; never rederive that credit on subsequent loads. Decide explicitly whether bought copies count: if acquisition grants mastery, coins buy permanent power. Keep one inventory identity per consumable, so improvement never creates tier ids. Supply capacity can then equal the number of identities exactly.
 
 ## 141.2 Flavour that describes an outcome must read the final outcome
 
@@ -8577,3 +8577,47 @@ When several semantic cues share one sound file, give the file a shared cooldown
 Reusable rule:
 
 > Guarantees read inventory and ground, add to natural drops and latch once; one reveal table for every mode with stable slots and one opener that refuses hidden panels; permanent completion copies best values and latches; 100% is measured on reachable cells; reconcilers leave self-built children alone; shared sounds share a cooldown.
+
+# 145. Correction lessons (LootFarmer Change 16)
+
+## 145.1 A paused audio player is not "playing": decide music state in one place
+
+In Godot 4 an `AudioStreamPlayer` with `stream_paused` set reports `playing == false`. Code that pauses the music at volume 0 and later resumes it only "if playing" never resumes it: the slider leaves the music off for good, the bug players report. Keep the music in one function that derives the state from three facts (the game wants music, the track has started, it should hold now because the volume is 0 or the game is paused): start the track only when it is neither playing nor paused, otherwise set `stream_paused` from "should hold". Call it from every settings change, from the pause button and when the game scene re-enters, so a reload never restarts the song. The engine also resumes a pausable player by itself when the tree unpauses, so re-apply the state after your own pause toggle. Headless runs often skip decoding; test real playback in a short windowed check, and reproduce the reported bug against the old code once before trusting the new one.
+
+## 145.2 Discarding items needs provenance, or it becomes a farming loop
+
+A "drop to free a slot" action must not turn into a way to earn progress. Drop the whole stack as one ground pile that remembers what it is: its quantity, the run credit it took with it (online-earned copies, per-opportunity collection credit) and that it was dropped. Exclude dropped piles from every automatic pickup (no enemy type owns them), and on pickup add the copies back without any of the "found" side effects (missions, opportunity steps, recent finds, permanent mastery from found copies) and restore exactly the stored credit, never more. Leave the item's record (merge level, rolls) in place, as when stock runs out, so the pile restores the item exactly. Prove it with a loop: drop and pick up ten times and compare every counter, mission, credit and permanent record with the start. Refuse to drop what is equipped.
+
+## 145.3 Probes that read content chosen by the calendar
+
+Daily content selected from the date (a hash of the day picks the missions) can make a probe pass one day and fail the next: a section that performs 200 kills of one enemy also completes whichever daily mission happens to target it and adds a notice the section was not about. Count exactly the signal the section measures (here followed-step notices only), or fix the daily content in the fixture. When a probe starts failing with no code change, check what it reads from the clock before suspecting the game.
+
+## 145.4 Scene text that is a translation key reads raw in code
+
+A Label or Button whose scene `text` is a translation key displays the translation, but code and probes that read `.text` get the key. Set such texts with `tr()` in code when anything reads them back, and let the source validator check that every key used as scene text exists in the catalogue.
+
+## 145.5 Per-map economy growth as two explicit constants
+
+When income and prices both grow per map, keep the two growth factors as named data (income per map, map-tied price per map), apply the price factor through one function used by every map-, enemy- and camp-scoped purchase, and test the ratio "price ÷ income" map by map. A price factor slightly above the income factor makes each map a little more expensive relative to what it pays; a large gap (2 against 1.25) silently makes late upgrades hundreds of kills apart. Document the before/after ratio, because players feel it even when each number looks reasonable.
+
+Reusable rule:
+
+> Derive music state from intent, started and hold, never from "playing"; dropped items carry their provenance and earn nothing back; probes count only what they measure, not the day's content; scene key texts are set with tr() where code reads them; per-map growth is two named constants with a tested ratio.
+
+# 146. Gameplay-only integration and bounded-effect changes
+
+## 146.1 Separate purchased capacity from selected positions
+
+An automation purchase buys capacity; a separate validated assignment owns the positions it operates. Route manual and automatic use through the same action. Validate replacements atomically (unique indices, unlocked/equipped slots, purchased count, action lock). Migrate position-specific purchases into capacity once and define whether empty positions retain a dormant binding. Publish state, methods, return values and refresh events when another implementer owns UI; never add temporary controls or claim the unfinished UI is tested.
+
+## 146.2 Caps belong after all applicable multipliers
+
+An advertised hard ceiling must be enforced in the actual resolver after every relevant skill, target and temporary-buff multiplier. Audit legacy tiers and spare-copy growth too. Test endpoints, intermediate levels, legacy identities, large stock, actual HP loss and the minimum-damage floor. Expose the effective getter so presentation cannot promise uncapped results.
+
+## 146.3 A countdown needs an explicit clock and one owner
+
+For per-encounter countdowns, specify active time, pause, inactive maps, background time and Prestige separately. Persist stable identity, remaining time and spawn location, and advance offline elapsed only once. An actor's visual remaining timer is a mirror, not a second timer owner. Test multiple bosses expiring independently, map travel, saved inactive worlds, legacy actor-only saves, resume and real JSON/disk round trips.
+
+## 146.4 Measure ambient work without asserting an Android bottleneck
+
+Compare the original and optimized implementation using the same camera rectangles and timestamps. Reuse repeated-grid particle calculations and frame buffers before reducing density or changing appearance. Capture invariant visibility inputs once per draw. Include weather-to-dry transitions so redraw throttling cannot leave stale commands visible. Measure simulation costs separately: later wet maps often also contain more actors. Headless CPU results cannot establish mobile GPU overdraw or device FPS; report that boundary and leave device profiling explicit.

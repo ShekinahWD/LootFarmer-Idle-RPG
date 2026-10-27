@@ -7,6 +7,7 @@ vision_factor=2.0
 camp_radius=160.0
 camp_sight_radius=400.0
 camp_footprint_radius=40.0
+boss_sight_radius=160.0
 unreachable_cells={
 4: ["46,13", "47,13", "48,13", "65,29"]
 }

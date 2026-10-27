@@ -1,9 +1,11 @@
 class_name LootSimulation
 extends Node
 ## Single authoritative owner for combat, inventory transactions and rewards.
-## Presentation never applies damage. All timers use simulated, pausable time.
+## Presentation never applies damage. Active timers are pausable; boss respawns also settle offline elapsed.
 signal combat_group_changed(group: int)
 signal gem_pickup(amount: float)
+signal boss_respawns_changed
+signal skill_automation_changed
 signal changed
 signal feedback(actor_id: String, amount: float, healing: bool)
 signal event(key: String)
@@ -64,7 +66,7 @@ func new_profile() -> void:
         "focus":-1,"focus_variant":2,"boost_time":0.0,"boost_power":0.0,"use_cd":0.0,"history":[],
         "pickups":[],"next_pickup":0,"clock":0.0,"collect_clock":0.0,"collect_clocks":[0.0,0.0,0.0,0.0],"merge_clock":0.0,
         "use_clock":0.0,"summon_clock":0.0,"next_cat":0,"help":0,"paused":false,
-        "playtime_total":0.0,"playtime_run":0.0,"buffs":{},"supply_found":{}}
+        "playtime_total":0.0,"playtime_run":0.0,"buffs":{},"supply_found":{},"supply_uses":{},"supply_mastery_credit":{},"boss_respawns":{},"boss_saved_at":0.0,"reward_stage":1}
     campaign.initialize()
     _reset_world()
     campaign.reveal()
@@ -126,6 +128,8 @@ func snapshot() -> Dictionary:
     for key in result.get("stage_worlds",{}):
         var saved: Dictionary=result.stage_worlds[key]
         saved["enemies"]=saved.get("enemies",[]).filter(func(e):return not is_helper(e))
+    result["boss_saved_at"] = float(state.boss_saved_at) if suspended else Time.get_unix_time_from_system()
+    result["reward_stage"] = campaign.reward_stage()
     result["rng_state"] = str(rng.state)
     result["offline_snapshot"] = state.offline_snapshot.duplicate(true) if suspended else campaign.offline_snapshot()
     return result
@@ -164,6 +168,7 @@ func restore(data: Dictionary) -> void:
     campaign.mastery.reset_cache()
     # Records only rise; latch anything already complete without announcing it again on load.
     campaign.mastery.evaluate(false)
+    settle_boss_respawns()
     campaign.settle_offline()
     touch()
 
@@ -172,11 +177,13 @@ func _valid_snapshot(data: Dictionary) -> bool:
 
 func _notification(what: int) -> void:
     if what == NOTIFICATION_APPLICATION_PAUSED:
+        state.boss_saved_at=Time.get_unix_time_from_system()
         state.offline_snapshot=campaign.offline_snapshot()
         suspended = true
         movement = Vector2.ZERO
         SaveService.save_now()
     elif what == NOTIFICATION_APPLICATION_RESUMED:
+        settle_boss_respawns()
         campaign.settle_offline()
         suspended = false
         movement = Vector2.ZERO
@@ -217,6 +224,9 @@ func normal(id: String) -> Dictionary:
             var pair: Array=catalog.items[id].normal[stat]
             output[stat]=float(pair[0])+float(pair[1])*supply_mastery(id)
         return output
+    if catalog.items[id].kind=="skill":
+        var value:=skill_base_power(id)
+        return {"power":value*stats().hp if catalog.items[id].skill=="heal" else value}
     var merge_level := int(state.items.get(id,{}).get("merge",0))
     var levels:=merge_levels(id,merge_level)
     var stock:=1.0+float(catalog.progression.merge.stock_bonus_per_copy)*maxi(0,quantity(id)-1) if merge_level>=merge_cap(id) else 1.0
@@ -240,11 +250,10 @@ func merge_level(id: String) -> int:
     return int(state.items.get(id,{}).get("merge",0))
 
 # ---------------------------------------------------------------- supplies (Change 11)
-# A supply has stock (items[id].qty: charges, spent by use) and permanent mastery: every copy found
-# (a drop or offline earnings, not a shop purchase) after the first adds one level, up to the cap.
-# Mastery lives in supply_found (copies found ever), is kept by Prestige and cleared by Hard Reset;
-# spending a charge never lowers it. Timed supplies run as buffs: the Coin Tonic keeps its
-# boost_time/boost_power fields, the others use state.buffs[id] = {time, power}.
+# A supply has stock (items[id].qty) and permanent mastery from successful uses (Change 17).
+# Every five uses add one capped level; one-time supply_mastery_credit preserves older earned levels.
+# supply_found is historical only. Uses and credit survive Prestige; stock/buffs/bindings do not.
+# Coin Tonic keeps boost_time/boost_power; other timed supplies use state.buffs[id] = {time, power}.
 
 func supply(id: String) -> Dictionary:
     return catalog.items[id].get("supply",{}) if catalog.items.has(id) else {}
@@ -256,7 +265,7 @@ func supply_ids() -> Array:
     return result
 
 func supply_mastery(id: String) -> int:
-    return clampi(int(state.get("supply_found",{}).get(id,0))-1,0,int(catalog.progression.supply_mastery.cap))
+    return clampi(int(state.supply_mastery_credit.get(id,0))+int(state.supply_uses.get(id,0))/int(catalog.progression.change17.supply_uses_per_level),0,int(catalog.progression.supply_mastery.cap))
 
 ## Milestone multipliers reached so far: {"duration": x, "cooldown": x} (1.0 before the first).
 func supply_milestone(id: String) -> Dictionary:
@@ -302,12 +311,12 @@ func supply_block_reason(id: String) -> String:
     var s:=supply(id)
     if s.is_empty() or quantity(id)<1 or state.player.hp<=0:return "CANNOT_USE"
     var maxhp: float=stats().hp
-    if str(s.effect) in ["heal","recovery"] and float(state.player.hp)>maxhp*float(s.use_hp)-.001:return "SUPPLY_HP_HIGH"
+    if str(s.effect) in ["heal","recovery"] and float(state.player.hp)>=maxhp*float(s.use_hp):return "SUPPLY_HP_HIGH"
     if str(s.effect)=="heal" and float(state.use_cd)>0:return "SUPPLY_COOLDOWN"
     if float(s.duration)>0 and buff_time(id)>0:return "SUPPLY_ACTIVE"
     return ""
 
-## Auto-use is stricter than a tap: healing waits for its auto threshold and Guard for combat.
+## Auto-use shares eligibility: Potion at any missing HP, Salve at its threshold, Guard in combat.
 func supply_auto_ready(id: String) -> bool:
     if not supply_block_reason(id).is_empty():return false
     var s:=supply(id)
@@ -390,6 +399,8 @@ func stored_factor(id: String) -> float:
 ## Stat gained by the next single merge (shrinks past the linear part for outfits and skills).
 func next_merge_gain(id: String,stat: String) -> float:
     var m:=int(record(id).merge)
+    if catalog.items[id].kind=="skill" and stat=="power":
+        return (skill_base_power(id,m+1)-skill_base_power(id,m))*(stats().hp if catalog.items[id].skill=="heal" else 1.0)
     return merge_gain(id,stat)*(merge_levels(id,m+1)-merge_levels(id,m))
 
 func stats() -> Dictionary:
@@ -516,7 +527,9 @@ func equipped(id: String) -> bool:
 func can_add(id: String) -> bool:
     return quantity(id)>0 or slots(id).has("")
 
-func add_item(id: String, amount: int = 1, _legacy_reward_flag: bool = true) -> bool:
+## found: copies new to the profile (drops, offline earnings), recorded historically; purchases,
+## evolutions and a dropped stack picked up again are not. announce: list it in the recent finds.
+func add_item(id: String, amount: int = 1, found: bool = true, announce: bool = true) -> bool:
     if not catalog.items.has(id) or amount < 1:
         return false
     if not can_add(id):
@@ -526,10 +539,10 @@ func add_item(id: String, amount: int = 1, _legacy_reward_flag: bool = true) -> 
         var list := slots(id)
         list[list.find("")] = id
     r.qty += amount
-    # Found supply copies (drops, offline) raise permanent mastery; shop purchases add stock only.
-    if catalog.items[id].kind=="consumable" and _legacy_reward_flag:
+    # Found copies remain a historical counter; only successful use grants mastery (Change 17).
+    if catalog.items[id].kind=="consumable" and found:
         state.supply_found[id]=int(state.supply_found.get(id,0))+amount
-    history("HISTORY_ITEM",id,amount,0)
+    if announce:history("HISTORY_ITEM",id,amount,0)
     if catalog.items[id].kind=="skill":discover_skill(str(catalog.items[id].skill))
     campaign.mastery.record_found(id)
     touch()
@@ -679,6 +692,7 @@ func reroll(id: String) -> bool:
 func bind_auto(slot: int) -> bool:
     if not action_lock_reason().is_empty():
         return fail(action_lock_reason())
+    if slot<0 or slot>=state.supplies.size():return false
     if state.auto_slots.has(slot):
         state.auto_slots.erase(slot)
     else:
@@ -708,6 +722,7 @@ func use_item(id: String) -> bool:
             state.buffs[id]={"time":supply_duration(id),"power":value}
     state["consumable_uses"]=int(state.get("consumable_uses",0))+1
     _remove(id,1)
+    state.supply_uses[id]=mini(int(catalog.progression.supply_mastery.cap)*int(catalog.progression.change17.supply_uses_per_level),int(state.supply_uses.get(id,0))+1)
     touch()
     return true
 
@@ -715,7 +730,7 @@ func use_item(id: String) -> bool:
 func coin_boost_duration() -> float:
     return supply_duration("coin_boost")
 
-## Shop: supplies with a coin price (Health Potion, Coin Tonic). Bought copies add stock only.
+## Shop: all five authored supplies have Coin prices. Bought copies add stock only.
 func purchase_consumable(id: String) -> bool:
     if not action_lock_reason().is_empty():
         return fail(action_lock_reason())
@@ -732,7 +747,7 @@ func purchase_consumable(id: String) -> bool:
     return true
 
 func upgrade_cost(id: String, group: int = -1) -> int:
-    return campaign.upgrade_cost(id,group)
+    return campaign.upgrade_cost("skill_auto_slots" if id.begins_with("skill_auto_") else id,group)
 
 func upgrade_maxed(id: String, group: int = -1) -> bool:
     if level(id,group)>=int(catalog.upgrades[id].cap):
@@ -740,6 +755,7 @@ func upgrade_maxed(id: String, group: int = -1) -> bool:
     return false
 
 func buy_upgrade(id: String, group: int = -1) -> bool:
+    if id.begins_with("skill_auto_"):id="skill_auto_slots"
     if not action_lock_reason().is_empty():
         return fail(action_lock_reason())
     if not catalog.upgrades.has(id):return false
@@ -757,6 +773,7 @@ func buy_upgrade(id: String, group: int = -1) -> bool:
         state.gear.append("")
     if id=="supply_slots":
         state.supplies.append("")
+    if id=="skill_auto_slots":skill_automation_changed.emit()
     campaign.upgrade_bought(id,group)
     touch()
     return true
@@ -805,6 +822,15 @@ func collect(uid: int) -> bool:
         return fail(action_lock_reason())
     for pickup in state.pickups:
         if int(pickup.uid)==uid:
+            # Change 16: a stack the player dropped comes back as it left: same copies, no recent-find
+            # line, no supply mastery and no mission, Prestige or Mastery progress; only the online
+            # credit it took with it returns (never more), so dropping and picking up earns nothing.
+            if pickup.has("dropped"):
+                if not add_item(pickup.item,int(pickup.get("qty",1)),false,false):return fail("INVENTORY_FULL")
+                _restore_credit(str(pickup.item),pickup.dropped)
+                state.pickups.erase(pickup)
+                touch()
+                return true
             if add_item(pickup.item):
                 campaign.progress("collect",pickup.item,1)
                 if catalog.items[pickup.item].kind in ["weapon","outfit"]:campaign.progress("gear",pickup.item,1)
@@ -812,6 +838,41 @@ func collect(uid: int) -> bool:
                 return true
             return fail("INVENTORY_FULL")
     return false
+
+## Change 16 Drop All: why this whole stack cannot be dropped now ("" when it can). Equipped gear and
+## skills are unequipped first, so the worn loadout never changes by accident.
+func discard_block_reason(id: String) -> String:
+    var lock:=action_lock_reason()
+    if not lock.is_empty():return lock
+    if not catalog.items.has(id) or quantity(id)<1 or float(state.player.hp)<=0:return "CANNOT_USE"
+    if equipped(id):return "DROP_EQUIPPED"
+    return ""
+
+## Drops every copy of an item at the player's feet as one ground stack and frees its slot at once.
+## The record (merge level, extras) stays, as when a stack runs out, so picking it up restores it. The
+## stack expires like other loot and belongs to no enemy type (group -1), so no Auto-Collect takes it
+## back; it can only be tapped. The run's online credit for the item leaves with it (pickup.dropped).
+func discard(id: String) -> bool:
+    var reason:=discard_block_reason(id)
+    if not reason.is_empty():return fail(reason)
+    var amount:=quantity(id)
+    var credit:={"online":minf(float(state.online_items.get(id,0)),amount),"ops":{}}
+    for op_id in state.opportunities:
+        var o: Dictionary=state.opportunities[op_id]
+        if o.has("item_"+id):credit.ops[op_id]=minf(float(o["item_"+id]),amount)
+    _remove(id,amount)
+    state.next_pickup+=1
+    var at:=(position_of(state.player)+Vector2(18.0*float(state.player.facing),6.0)).clamp(Vector2(14,30),Vector2(catalog.world.size[0]-14,catalog.world.size[1]-14))
+    state.pickups.append({"uid":state.next_pickup,"item":id,"qty":amount,"x":at.x,"y":at.y,"ttl":300.0,"group":-1,"dropped":credit})
+    touch()
+    return true
+
+func _restore_credit(id: String,credit: Dictionary) -> void:
+    if float(credit.get("online",0))>0:state.online_items[id]=float(state.online_items.get(id,0))+float(credit.online)
+    for op_id in credit.get("ops",{}):
+        if state.opportunities.has(op_id):
+            var o: Dictionary=state.opportunities[op_id]
+            o["item_"+id]=float(o.get("item_"+id,0))+float(credit.ops[op_id])
 
 func prestige(card_id: String) -> bool:
     return campaign.choose_card(card_id)
@@ -866,17 +927,17 @@ func _start_attack(a: Dictionary, target: Dictionary, interval: float) -> void:
 func _actor_timers(a: Dictionary, dt: float) -> void:
     a.moving=false
     a.attack_age += dt
-    a.cooldown = maxf(0,a.cooldown-dt)
+    a.cooldown = maxf(0,a.cooldown-dt*attack_rate(a,dt))
     a.hurt = maxf(0,a.hurt-dt)
     a.quiet += dt
     if a.hp<=0:
         a.dead_age += dt
-        a.respawn=maxf(0,a.respawn-dt)
+        if not state.boss_respawns.has(str(a.id)):a.respawn=maxf(0,a.respawn-dt)
 
 func _resolve_attack(a: Dictionary, dt: float) -> void:
     if a.hp<=0 or a.windup<=0:
         return
-    a.windup -= dt
+    a.windup -= dt*attack_rate(a,dt)
     if a.windup>0:
         return
     # Clear target before contact so every scheduled action resolves once.
@@ -937,6 +998,9 @@ func _kill(a: Dictionary) -> void:
         event.emit("PLAYER_DIED")
     else:
         a.respawn=spawn_cooldown(int(a.group))
+        if catalog.groups[int(a.group)].boss:
+            state.boss_respawns[str(a.id)]={"group":int(a.group),"stage":int(catalog.groups[int(a.group)].stage),"remaining":a.respawn,"x":a.home_x,"y":a.home_y}
+            boss_respawns_changed.emit()
         state.group_kills[int(a.group)]+=1
         _reward(a)
         campaign.killed(a)
@@ -1002,6 +1066,7 @@ func step(dt: float) -> void:
     # during a prestige choice, and offline settlement never advances these clocks.
     state.playtime_total=float(state.get("playtime_total",0.0))+dt
     state.playtime_run=float(state.get("playtime_run",0.0))+dt
+    tick_boss_respawns(dt)
     campaign.step(dt)
     state.use_cd=maxf(0,state.use_cd-dt)
     state.boost_time=maxf(0,state.boost_time-dt)
@@ -1110,6 +1175,8 @@ func step(dt: float) -> void:
                     _start_attack(e,p,float(catalog.groups[group].interval))
         elif position_of(e).distance_to(home)>1:
             _move(e,home,60,dt)
+    for a in [p]+state.enemies:
+        a.attack_slow=maxf(0,float(a.get("attack_slow",0))-dt)
     if p.hp>0:
         _automate(dt)
     _save_clock+=dt
@@ -1304,7 +1371,11 @@ func upgrade_block_reason(id: String,g: int=-1) -> String:
     if id=="gear_merge_speed" and level("merge_gear",g)==0:return "AUTOMATION_LOCKED"
     if id=="use_speed" and level("auto_use")==0:return "AUTOMATION_LOCKED"
     if id.begins_with("offline_") and id.ends_with("_rate") and level(id.trim_suffix("_rate"))==0:return "AUTOMATION_LOCKED"
-    if id.begins_with("skill_auto_") and int(id.right(1))>=1+level("skill_slots"):return "SKILL_SLOTS_FULL"
+    if id.begins_with("skill_auto_"):
+        if state.skills_seen.is_empty():return "UNDISCOVERED"
+        if automatic_skill_capacity()>=3:return "UPGRADE_MAX"
+        if state.gems<upgrade_cost("skill_auto_slots"):return "NOT_ENOUGH_GEMS"
+        return ""
     if id=="skill_drop" and catalog.groups[g].skills.is_empty():return "ACTION_UNAVAILABLE"
     if id=="auto_evolve" and evolvable_drops(g).is_empty():return "ACTION_UNAVAILABLE"
     if id.begins_with("cooldown_") and not skill_seen(id.trim_prefix("cooldown_")):return "UNDISCOVERED"
@@ -1317,6 +1388,7 @@ func upgrade_block_reason(id: String,g: int=-1) -> String:
 func stat_sources() -> Dictionary:
     var result: Dictionary={}
     result["SOURCE_BASE"]={"hp":100.0,"damage":5.0,"crit":.05,"crit_damage":1.5}
+    result["SOURCE_UPGRADES"]={"crit":player_upgrade_value("critical_chance"),"crit_damage":player_upgrade_value("critical_damage")}
     result["SOURCE_LEVEL"]={"hp":(state.player_level-1)*catalog.progression.hp_per_level,"damage":(state.player_level-1)*catalog.progression.damage_per_level}
     result["SOURCE_EQUIPPED"]={}
     result["SOURCE_STORED"]={}
@@ -1375,7 +1447,7 @@ func player_upgrade_value(id: String,extra: int=0) -> float:
         "gear_slots":return 3+n*effect
         "supply_slots":return 1+n*effect
         "respawn":return maxf(2,10-n*effect-campaign.bonus("respawn"))
-        "use_speed":return 10-n*effect
+        "use_speed":return maxf(float(catalog.progression.change17.auto_supply_min_interval),float(catalog.progression.change17.auto_supply_base_interval)-n*effect)
     if id.begins_with("cooldown_"):return maxf(2,float(catalog.skills[id.trim_prefix("cooldown_")].cooldown)*(1-.05*n))
     return n*effect
 
@@ -1402,3 +1474,79 @@ func boss_gem_amount(extra: int=0) -> float:
 func _boss_payout(normal_amount: float,extra: int) -> float:
     var tripled:=float(catalog.progression.gem_limits.boss_amount_multiplier)*normal_amount
     return (tripled+float(catalog.upgrades.boss_gem_amount.effect)*(level("boss_gem_amount")+extra))*(1+campaign.bonus("boss_gems"))
+
+# ---------------------------------------------------------------- Change 17 systems API
+## Skill power is a family curve, independent of legacy tier and spare-copy stock. Merge Wisdom
+## accelerates progress along the existing merge curve; every family stops at its authored endpoint.
+func skill_base_power(id: String, at_merge: int=-1) -> float:
+    var key: String=catalog.items[id].skill
+    var pair: Array=catalog.progression.change17.skill_curve[key]
+    var m:=int(state.items.get(id,{}).get("merge",0)) if at_merge<0 else at_merge
+    var end:=int(catalog.progression.change17.skill_curve_end)
+    var progress:=clampf(merge_levels(id,m)*card("merge")/merge_levels(id,end),0.0,1.0)
+    return lerpf(float(pair[0]),float(pair[1]),progress)
+
+func skill_power(id: String) -> float:
+    var key: String=catalog.items[id].skill
+    var power:=skill_base_power(id)*(1+campaign.bonus("skill"))
+    if key=="fire":power=minf(power,float(catalog.progression.change17.fire_effective_cap))
+    if key=="heal":power=minf(power,float(catalog.skills.heal.player_hp_cap))*stats().hp
+    return power
+
+func automatic_skill_capacity() -> int:
+    # Legacy keys are tolerated in in-memory fixtures; normalization folds them once on load.
+    var n:=level("skill_auto_slots")
+    for i in range(3):n+=level("skill_auto_"+str(i))
+    return mini(3,n)
+
+func automatic_skill_assignments() -> Array:
+    var selected: Array=[]
+    for i in range(mini(3,1+level("skill_slots"))):
+        if state.skill_auto[i] and selected.size()<automatic_skill_capacity():selected.append(i)
+    return selected
+
+## Atomic replacement; zero-based equipped slot indices, unique, inside owned capacity.
+func assign_automatic_skills(slots_: Array) -> bool:
+    if not action_lock_reason().is_empty() or slots_.size()>automatic_skill_capacity():return false
+    var selected: Array=[]
+    for value in slots_:
+        if not (value is int or value is float) or not is_finite(float(value)) or float(value)!=floorf(float(value)):return false
+        var slot:=int(value)
+        if slot<0 or slot>=1+level("skill_slots") or selected.has(slot) or state.skills[slot]=="":return false
+        selected.append(slot)
+    state.skill_auto=[selected.has(0),selected.has(1),selected.has(2)]
+    touch();skill_automation_changed.emit()
+    return true
+
+## A partially expiring slow only affects its part of this step. Called before status timers tick.
+func attack_rate(a: Dictionary,dt: float) -> float:
+    var left:=float(a.get("attack_slow",0))
+    if left<=0 or dt<=0:return 1.0
+    return 1.0-(1.0-float(a.get("attack_rate",1.0)))*minf(left,dt)/dt
+
+## Read-only copies for countdown presentation; coordinates are authored spawn homes, not corpses.
+func boss_respawn_countdowns(stage_id: int=-1) -> Array:
+    var result: Array=[]
+    for id in state.boss_respawns:
+        var entry: Dictionary=state.boss_respawns[id]
+        if stage_id<0 or int(entry.stage)==stage_id:
+            var row:=entry.duplicate(true);row["actor_id"]=id
+            row["position"]=Vector2(row.x,row.y);result.append(row)
+    return result
+
+## Active pausable seconds on every map. Offline time is settled once at restore/resume.
+func tick_boss_respawns(seconds: float) -> void:
+    for id in state.boss_respawns.keys():
+        var entry: Dictionary=state.boss_respawns[id]
+        entry.remaining=maxf(0,float(entry.remaining)-maxf(0,seconds))
+        var actors: Array=state.enemies if int(entry.stage)==int(state.stage) else state.stage_worlds.get(str(entry.stage),{}).get("enemies",[])
+        for a in actors:
+            if a.id==id and a.hp<=0:a.respawn=entry.remaining
+        if entry.remaining<=0:
+            state.boss_respawns.erase(id);boss_respawns_changed.emit()
+
+func settle_boss_respawns(now: float=-1) -> void:
+    if now<0:now=Time.get_unix_time_from_system()
+    var saved:=float(state.boss_saved_at)
+    if saved>0:tick_boss_respawns(maxf(0,now-saved))
+    state.boss_saved_at=now

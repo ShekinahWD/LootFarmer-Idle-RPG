@@ -29,13 +29,14 @@ MERGE = {'weapon_cap': 100, 'copy_cap': 500, 'linear_levels': 100, 'tail_scale':
 # "sequence" = price grows with every purchase of this upgrade on any stage this run.
 UPGRADES = {
     'loot': {'effect': 0.005, 'cap': 15, 'base': 20, 'growth': 1.35},
-    'collect_batch': {'base': 120, 'growth': 3.0},
+    # Change 16: bought with Gems, 50 on Winter I, still x3 per level (tools/change16_catalog.py).
+    'collect_batch': {'base': 50, 'growth': 3.0},
     'map_detail': {'base': 60, 'growth': 1.3, 'sequence': True, 'floor': 40},
     'gear_slots': {'base': 5, 'step': 1},
     'supply_slots': {'base': 4, 'step': 4},
     'merge_supplies': {'base': 10},
     'merge_speed': {'base': 12, 'growth': 1.7},
-    'auto_use': {'base': 6, 'growth': 2.6},
+    'auto_use': {'base': 100, 'growth': 2.6},
     # Change 12 extends the 12 original prices through level 20 (tools/change12_catalog.py).
     'gem_chance': {'base': 25, 'prices': [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, 390, 470, 560, 660, 770, 890, 1020, 1160, 1310, 1470]},
     'gem_amount': {'base': 25, 'prices': [25, 40, 58, 80, 105, 135, 170, 210, 260, 320]},

@@ -6,12 +6,12 @@
       "tier": 1,
       "normal": {
         "heal_pct": [
-          0.2,
-          0.002
+          0.1,
+          0.001
         ]
       },
       "merge_gain": {
-        "heal_pct": 0.002
+        "heal_pct": 0.001
       },
       "extras": {},
       "next": "",
@@ -23,11 +23,11 @@
         "stat": "heal_pct",
         "duration": 0,
         "cooldown": 12,
-        "use_hp": 0.8,
-        "auto_hp": 0.8,
+        "use_hp": 1,
+        "auto_hp": 1,
         "min_stage": 1,
         "drop_weight": 8,
-        "price": 10,
+        "price": 100,
         "cooldown_floor": 10
       }
     },
@@ -58,7 +58,7 @@
         "auto_hp": 1,
         "min_stage": 1,
         "drop_weight": 2,
-        "price": 30
+        "price": 200
       }
     },
     "guard_tonic": {
@@ -88,7 +88,7 @@
         "auto_hp": 1,
         "min_stage": 2,
         "drop_weight": 2.5,
-        "price": 0
+        "price": 300
       }
     },
     "recovery_salve": {
@@ -118,7 +118,7 @@
         "auto_hp": 0.6,
         "min_stage": 3,
         "drop_weight": 2,
-        "price": 0
+        "price": 400
       }
     },
     "wisdom_tonic": {
@@ -148,7 +148,7 @@
         "auto_hp": 1,
         "min_stage": 4,
         "drop_weight": 1.5,
-        "price": 0
+        "price": 500
       }
     },
     "skill_heal": {
@@ -19610,7 +19610,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 7,
-      "coins": 1.25,
+      "coins": 1.5,
       "xp": 4,
       "gear_chance": 0.05,
       "loot": [
@@ -19642,7 +19642,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 7,
-      "coins": 1.25,
+      "coins": 1.5,
       "xp": 5,
       "gear_chance": 0.05,
       "loot": [
@@ -19674,7 +19674,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 7,
-      "coins": 1.25,
+      "coins": 1.5,
       "xp": 5,
       "gear_chance": 0.05,
       "loot": [
@@ -19706,7 +19706,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 7,
-      "coins": 1.25,
+      "coins": 1.5,
       "xp": 5,
       "gear_chance": 0.05,
       "loot": [
@@ -19738,7 +19738,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 7,
-      "coins": 1.25,
+      "coins": 1.5,
       "xp": 5,
       "gear_chance": 0.05,
       "loot": [
@@ -19772,7 +19772,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 7,
-      "coins": 1.25,
+      "coins": 1.5,
       "xp": 6,
       "gear_chance": 0.05,
       "loot": [
@@ -19806,7 +19806,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 10.0,
+      "coins": 12.0,
       "xp": 60,
       "gear_chance": 0.3,
       "loot": [
@@ -19840,7 +19840,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 9,
-      "coins": 1.5625,
+      "coins": 2.25,
       "xp": 7,
       "gear_chance": 0.05,
       "loot": [
@@ -19874,7 +19874,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 9,
-      "coins": 1.5625,
+      "coins": 2.25,
       "xp": 8,
       "gear_chance": 0.05,
       "loot": [
@@ -19908,7 +19908,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 9,
-      "coins": 1.5625,
+      "coins": 2.25,
       "xp": 9,
       "gear_chance": 0.05,
       "loot": [
@@ -19942,7 +19942,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 12.5,
+      "coins": 18.0,
       "xp": 100,
       "gear_chance": 0.3,
       "loot": [
@@ -19974,7 +19974,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 11,
-      "coins": 1.953125,
+      "coins": 3.375,
       "xp": 11,
       "gear_chance": 0.05,
       "loot": [
@@ -20006,7 +20006,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 11,
-      "coins": 1.953125,
+      "coins": 3.375,
       "xp": 12,
       "gear_chance": 0.05,
       "loot": [
@@ -20040,7 +20040,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 11,
-      "coins": 1.953125,
+      "coins": 3.375,
       "xp": 14,
       "gear_chance": 0.05,
       "loot": [
@@ -20072,7 +20072,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 11,
-      "coins": 1.953125,
+      "coins": 3.375,
       "xp": 15,
       "gear_chance": 0.05,
       "loot": [
@@ -20106,7 +20106,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 11,
-      "coins": 1.953125,
+      "coins": 3.375,
       "xp": 16,
       "gear_chance": 0.05,
       "loot": [
@@ -20138,7 +20138,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 11,
-      "coins": 1.953125,
+      "coins": 3.375,
       "xp": 18,
       "gear_chance": 0.05,
       "loot": [
@@ -20172,7 +20172,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 15.625,
+      "coins": 27.0,
       "xp": 230,
       "gear_chance": 0.3,
       "loot": [
@@ -20206,7 +20206,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 15.625,
+      "coins": 27.0,
       "xp": 280,
       "gear_chance": 0.3,
       "loot": [
@@ -20238,7 +20238,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 13,
-      "coins": 2.44140625,
+      "coins": 5.0625,
       "xp": 28,
       "gear_chance": 0.05,
       "loot": [
@@ -20272,7 +20272,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 13,
-      "coins": 2.44140625,
+      "coins": 5.0625,
       "xp": 35,
       "gear_chance": 0.05,
       "loot": [
@@ -20306,7 +20306,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 13,
-      "coins": 2.44140625,
+      "coins": 5.0625,
       "xp": 46,
       "gear_chance": 0.05,
       "loot": [
@@ -20341,7 +20341,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 19.53125,
+      "coins": 40.5,
       "xp": 650,
       "gear_chance": 0.3,
       "loot": [
@@ -20376,7 +20376,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 19.53125,
+      "coins": 40.5,
       "xp": 770,
       "gear_chance": 0.3,
       "loot": [
@@ -20410,7 +20410,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 15,
-      "coins": 3.0517578125,
+      "coins": 7.59375,
       "xp": 77,
       "gear_chance": 0.05,
       "loot": [
@@ -20442,7 +20442,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 15,
-      "coins": 3.0517578125,
+      "coins": 7.59375,
       "xp": 101,
       "gear_chance": 0.05,
       "loot": [
@@ -20476,7 +20476,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 15,
-      "coins": 3.0517578125,
+      "coins": 7.59375,
       "xp": 137,
       "gear_chance": 0.05,
       "loot": [
@@ -20508,7 +20508,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 15,
-      "coins": 3.0517578125,
+      "coins": 7.59375,
       "xp": 180,
       "gear_chance": 0.05,
       "loot": [
@@ -20543,7 +20543,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 24.4140625,
+      "coins": 60.75,
       "xp": 3020,
       "gear_chance": 0.3,
       "loot": [
@@ -20578,7 +20578,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 24.4140625,
+      "coins": 60.75,
       "xp": 3580,
       "gear_chance": 0.3,
       "loot": [
@@ -20612,7 +20612,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 17,
-      "coins": 3.814697265625,
+      "coins": 11.390625,
       "xp": 358,
       "gear_chance": 0.05,
       "loot": [
@@ -20644,7 +20644,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 17,
-      "coins": 3.814697265625,
+      "coins": 11.390625,
       "xp": 600,
       "gear_chance": 0.05,
       "loot": [
@@ -20678,7 +20678,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 17,
-      "coins": 3.814697265625,
+      "coins": 11.390625,
       "xp": 1005,
       "gear_chance": 0.05,
       "loot": [
@@ -20713,7 +20713,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 30.517578125,
+      "coins": 91.125,
       "xp": 20000,
       "gear_chance": 0.3,
       "loot": [
@@ -20748,7 +20748,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 30.517578125,
+      "coins": 91.125,
       "xp": 23750,
       "gear_chance": 0.3,
       "loot": [
@@ -20782,7 +20782,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
-      "coins": 4.76837158203125,
+      "coins": 17.085938,
       "xp": 2821,
       "gear_chance": 0.05,
       "loot": [
@@ -20816,7 +20816,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
-      "coins": 4.76837158203125,
+      "coins": 17.085938,
       "xp": 3978,
       "gear_chance": 0.05,
       "loot": [
@@ -20848,7 +20848,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
-      "coins": 4.76837158203125,
+      "coins": 17.085938,
       "xp": 5612,
       "gear_chance": 0.05,
       "loot": [
@@ -20882,7 +20882,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
-      "coins": 4.76837158203125,
+      "coins": 17.085938,
       "xp": 7916,
       "gear_chance": 0.05,
       "loot": [
@@ -20914,7 +20914,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
-      "coins": 4.76837158203125,
+      "coins": 17.085938,
       "xp": 11166,
       "gear_chance": 0.05,
       "loot": [
@@ -20948,7 +20948,7 @@
       "defense": 0,
       "interval": 1.5,
       "respawn": 19,
-      "coins": 4.76837158203125,
+      "coins": 17.085938,
       "xp": 15750,
       "gear_chance": 0.05,
       "loot": [
@@ -20983,7 +20983,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 38.14697265625,
+      "coins": 136.6875,
       "xp": 879610,
       "gear_chance": 0.3,
       "loot": [
@@ -21018,7 +21018,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 60,
-      "coins": 38.14697265625,
+      "coins": 136.6875,
       "xp": 1044700,
       "gear_chance": 0.3,
       "loot": [
@@ -21054,7 +21054,7 @@
       "defense": 0,
       "interval": 2,
       "respawn": 120,
-      "coins": 38.14697265625,
+      "coins": 136.6875,
       "xp": 4912510,
       "gear_chance": 0.3,
       "loot": [
@@ -21089,7 +21089,7 @@
       "step": 4
     },
     "collect": {
-      "currency": "coins",
+      "currency": "gems",
       "base": 20,
       "growth": 1,
       "cap": 1,
@@ -21107,8 +21107,8 @@
       "scope": "type"
     },
     "collect_batch": {
-      "currency": "coins",
-      "base": 120,
+      "currency": "gems",
+      "base": 50,
       "growth": 3.0,
       "cap": 5,
       "keep": true,
@@ -21135,7 +21135,7 @@
     },
     "auto_use": {
       "currency": "gems",
-      "base": 6,
+      "base": 100,
       "growth": 2.6,
       "cap": 3,
       "keep": true,
@@ -21143,8 +21143,8 @@
       "scope": "global"
     },
     "use_speed": {
-      "currency": "coins",
-      "base": 40,
+      "currency": "gems",
+      "base": 100,
       "growth": 1.6,
       "cap": 8,
       "keep": true,
@@ -21636,6 +21636,38 @@
       "effect": 1,
       "scope": "type",
       "flat": true
+    },
+    "critical_chance": {
+      "currency": "gems",
+      "base": 250,
+      "growth": 1.5,
+      "cap": 20,
+      "keep": true,
+      "effect": 0.01,
+      "scope": "global"
+    },
+    "critical_damage": {
+      "currency": "gems",
+      "base": 200,
+      "growth": 1.5,
+      "cap": 20,
+      "keep": true,
+      "effect": 0.05,
+      "scope": "global"
+    },
+    "skill_auto_slots": {
+      "currency": "gems",
+      "base": 100,
+      "growth": 1,
+      "prices": [
+        100,
+        250,
+        500
+      ],
+      "cap": 3,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
     }
   },
   "cards": [
@@ -21844,23 +21876,73 @@
           "cooldown": 0.8
         }
       ]
+    },
+    "map_reward_growth": 1.5,
+    "map_cost_growth": 1.55,
+    "change17": {
+      "skill_curve": {
+        "heal": [
+          0.1,
+          0.3
+        ],
+        "frost": [
+          0.5,
+          2.0
+        ],
+        "fire": [
+          0.75,
+          3.0
+        ],
+        "lightning": [
+          1.25,
+          5.0
+        ],
+        "focus": [
+          0.1,
+          0.5
+        ],
+        "strike": [
+          2.0,
+          8.0
+        ]
+      },
+      "skill_curve_end": 500,
+      "fire_effective_cap": 3.0,
+      "boss_status_duration": 0.5,
+      "lightning_attack_rate": 0.5,
+      "lightning_duration": 3.0,
+      "supply_uses_per_level": 5,
+      "auto_supply_base_interval": 10.0,
+      "auto_supply_min_interval": 2.0,
+      "mission_regular_kills": 40,
+      "mission_boss_kills": 80,
+      "mission_gem_multipliers": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        12,
+        18,
+        25
+      ]
     }
   },
   "skills": {
     "heal": {
       "name": "CONTENT_SKILLS_HEAL",
       "power": 10,
-      "cooldown": 18,
+      "cooldown": 20,
       "effect": "heal",
       "frames": 12,
       "frame_time": 0.08,
-      "player_hp_cap": 0.12,
+      "player_hp_cap": 0.3,
       "enemy_hp_fraction": 0.08
     },
     "frost": {
       "name": "CONTENT_SKILLS_FROST",
       "power": 1.2,
-      "cooldown": 10,
+      "cooldown": 20,
       "effect": "ice_shatter",
       "frames": 12,
       "frame_time": 0.07
@@ -21868,7 +21950,7 @@
     "fire": {
       "name": "CONTENT_SKILLS_FIRE",
       "power": 1.6,
-      "cooldown": 10,
+      "cooldown": 20,
       "effect": "fire_impact",
       "frames": 11,
       "frame_time": 0.07
@@ -21876,7 +21958,7 @@
     "lightning": {
       "name": "CONTENT_SKILLS_LIGHTNING",
       "power": 1.4,
-      "cooldown": 8,
+      "cooldown": 20,
       "effect": "zap",
       "frames": 8,
       "frame_time": 0.06
@@ -21884,7 +21966,7 @@
     "focus": {
       "name": "CONTENT_SKILLS_FOCUS",
       "power": 0.15,
-      "cooldown": 15,
+      "cooldown": 20,
       "effect": "cast",
       "frames": 8,
       "frame_time": 0.07
@@ -21892,7 +21974,7 @@
     "strike": {
       "name": "CONTENT_SKILLS_STRIKE",
       "power": 2.8,
-      "cooldown": 10,
+      "cooldown": 20,
       "effect": "impact",
       "frames": 8,
       "frame_time": 0.06

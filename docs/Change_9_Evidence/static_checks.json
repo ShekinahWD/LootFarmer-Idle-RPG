@@ -1,5 +1,5 @@
 {
-  "checks": 1443,
+  "checks": 1554,
   "failures": 0,
   "results": [
     {
@@ -3343,6 +3343,14 @@
       "pass": true
     },
     {
+      "check": "translation MISSION_FOLLOW_READY",
+      "pass": true
+    },
+    {
+      "check": "translation MISSION_FOLLOW_READY",
+      "pass": true
+    },
+    {
       "check": "translation PRESTIGE_READY",
       "pass": true
     },
@@ -3391,6 +3399,10 @@
       "pass": true
     },
     {
+      "check": "translation FOLLOW_NEXT",
+      "pass": true
+    },
+    {
       "check": "translation FOLLOW_COLLECTION_SUBMIT",
       "pass": true
     },
@@ -3399,11 +3411,63 @@
       "pass": true
     },
     {
-      "check": "translation FOLLOW_CHALLENGE",
+      "check": "translation FOLLOW_NEXT",
       "pass": true
     },
     {
       "check": "translation FOLLOW_HUNT",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_CHALLENGE",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_TROPHY",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_NEXT",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_OFFERING",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_SUBMIT",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_OFFLINE_INCOME",
+      "pass": true
+    },
+    {
+      "check": "translation NAME_ON_MAP",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_GOAL_KILL_TARGET",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_REGIONAL_EXPLORE",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_REGIONAL_BOSS",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_REGIONAL_CAMPS",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_READY",
+      "pass": true
+    },
+    {
+      "check": "translation FOLLOW_THEN_MORE",
       "pass": true
     },
     {
@@ -3416,6 +3480,14 @@
     },
     {
       "check": "translation SKILL_UPGRADES_UNLOCKED",
+      "pass": true
+    },
+    {
+      "check": "translation VIEW_CAMP",
+      "pass": true
+    },
+    {
+      "check": "translation OBJECTIVE_WINTER_BOSS",
       "pass": true
     },
     {
@@ -3444,6 +3516,10 @@
     },
     {
       "check": "translation BOOST_ACTIVE",
+      "pass": true
+    },
+    {
+      "check": "translation MASTERY_CHIP",
       "pass": true
     },
     {
@@ -3563,6 +3639,14 @@
       "pass": true
     },
     {
+      "check": "translation BOSS_FOUND_WARNING",
+      "pass": true
+    },
+    {
+      "check": "translation BOSS_FOUND_DETAIL",
+      "pass": true
+    },
+    {
       "check": "translation CONFIRM",
       "pass": true
     },
@@ -3643,11 +3727,7 @@
       "pass": true
     },
     {
-      "check": "translation SKILL_COOLDOWN_LINE",
-      "pass": true
-    },
-    {
-      "check": "translation HEAL_ROLE",
+      "check": "translation HEAL_ROLE_SHORT",
       "pass": true
     },
     {
@@ -3740,6 +3820,70 @@
     },
     {
       "check": "translation AUTO_SHORT",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_ALL",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_ALL_MASTERY",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_ALL_CONFIRM",
+      "pass": true
+    },
+    {
+      "check": "translation DROPPED_NOTICE",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_ALL",
+      "pass": true
+    },
+    {
+      "check": "translation DROP_ALL_TITLE",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_DESC_HEAL",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_DESC_FOCUS",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_DESC_FROST",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_DESC_FIRE",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_RANGE_SELF",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_RANGE",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_DESC_STATS",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_AMOUNT_HP",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_AMOUNT_FOCUS",
+      "pass": true
+    },
+    {
+      "check": "translation SKILL_AMOUNT_MULTIPLIER",
       "pass": true
     },
     {
@@ -4343,19 +4487,7 @@
       "pass": true
     },
     {
-      "check": "translation GUIDE_REVIEW",
-      "pass": true
-    },
-    {
-      "check": "translation SHOW_ALL_MENUS",
-      "pass": true
-    },
-    {
-      "check": "translation SHOW_ALL_MENUS_CONFIRM",
-      "pass": true
-    },
-    {
-      "check": "translation ALL_MENUS_SHOWN",
+      "check": "translation HELP",
       "pass": true
     },
     {
@@ -4375,7 +4507,7 @@
       "pass": true
     },
     {
-      "check": "translation LANGUAGE_NOTE",
+      "check": "translation SECTION_LANGUAGE",
       "pass": true
     },
     {
@@ -4396,6 +4528,14 @@
     },
     {
       "check": "translation CREDITS",
+      "pass": true
+    },
+    {
+      "check": "translation HELP_INTRO",
+      "pass": true
+    },
+    {
+      "check": "translation HELP_BACK",
       "pass": true
     },
     {
@@ -4739,10 +4879,6 @@
       "pass": true
     },
     {
-      "check": "translation IN_PROGRESS",
-      "pass": true
-    },
-    {
       "check": "translation MAIN_COMPLETED_TOGGLE",
       "pass": true
     },
@@ -4824,6 +4960,62 @@
     },
     {
       "check": "translation PRESTIGE_CONFIRM_SUMMARY",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_CONFIRM_CHOOSE_CARD",
+      "pass": true
+    },
+    {
+      "check": "translation KEEP_LINE_CARDS",
+      "pass": true
+    },
+    {
+      "check": "translation KEEP_LINE_GEMS",
+      "pass": true
+    },
+    {
+      "check": "translation KEEP_LINE_MAP",
+      "pass": true
+    },
+    {
+      "check": "translation KEEP_LINE_UPGRADES",
+      "pass": true
+    },
+    {
+      "check": "translation KEEP_LINE_PROGRESS",
+      "pass": true
+    },
+    {
+      "check": "translation KEEP_LINE_SETTINGS",
+      "pass": true
+    },
+    {
+      "check": "translation RESET_LINE_COINS",
+      "pass": true
+    },
+    {
+      "check": "translation RESET_LINE_LEVEL",
+      "pass": true
+    },
+    {
+      "check": "translation RESET_LINE_ITEMS",
+      "pass": true
+    },
+    {
+      "check": "translation RESET_LINE_MAPS",
+      "pass": true
+    },
+    {
+      "check": "translation RESET_LINE_UPGRADES",
+      "pass": true
+    },
+    {
+      "check": "translation RESET_LINE_CHALLENGES",
+      "pass": true
+    },
+    {
+      "check": "translation PRESTIGE_CONFIRM_SUBTITLE",
       "pass": true
     },
     {
@@ -5459,6 +5651,14 @@
       "pass": true
     },
     {
+      "check": "guide translation camp_view",
+      "pass": true
+    },
+    {
+      "check": "guide translation camp_view_DETAIL",
+      "pass": true
+    },
+    {
       "check": "guide translation feature_missions",
       "pass": true
     },
@@ -5727,6 +5927,246 @@
       "pass": true
     },
     {
+      "check": "coin income: normal 1.5^(stage-1), bosses 8x",
+      "pass": true
+    },
+    {
+      "check": "map-tied coin prices grow 1.55 per map, a little faster than income",
+      "pass": true
+    },
+    {
+      "check": "Auto-Collect: Gems, 20 on Winter I, kept",
+      "pass": true
+    },
+    {
+      "check": "Collect Batch: Gems, 50 on Winter I, x3 per level, 5 levels, kept",
+      "pass": true
+    },
+    {
+      "check": "Health Potion heals 10% at ^0 and 20% at ^100 before bonuses",
+      "pass": true
+    },
+    {
+      "check": "Cyan Robot Heal every 12 s (catalog Heal 18 s for everyone else)",
+      "pass": true
+    },
+    {
+      "check": "Mastery rewards: Autumn II +2 pts Gem Chance, Spring II +15% HP",
+      "pass": true
+    },
+    {
+      "check": "boss warning cue uses the mission-ready sound",
+      "pass": true
+    },
+    {
+      "check": "scene translation TAB_UPGRADES",
+      "pass": true
+    },
+    {
+      "check": "scene translation MASTERY_CHIP",
+      "pass": true
+    },
+    {
+      "check": "scene translation OBJECTIVE_WINTER_BOSS",
+      "pass": true
+    },
+    {
+      "check": "scene translation VIEW_CAMP",
+      "pass": true
+    },
+    {
+      "check": "scene translation GATE_HUD",
+      "pass": true
+    },
+    {
+      "check": "scene translation EQUIPPED_PINNED",
+      "pass": true
+    },
+    {
+      "check": "scene translation SUPPLY_QUICK_HELP",
+      "pass": true
+    },
+    {
+      "check": "scene translation PANEL_MISSIONS",
+      "pass": true
+    },
+    {
+      "check": "scene translation NAV_PRESTIGE",
+      "pass": true
+    },
+    {
+      "check": "scene translation NAV_UPGRADES",
+      "pass": true
+    },
+    {
+      "check": "scene translation INVENTORY_HEADING",
+      "pass": true
+    },
+    {
+      "check": "scene translation PRESTIGE_CONFIRM_TITLE",
+      "pass": true
+    },
+    {
+      "check": "scene translation PRESTIGE_CONFIRM_REDEEM",
+      "pass": true
+    },
+    {
+      "check": "scene translation PRESTIGE_CONFIRM_KEEP_TITLE",
+      "pass": true
+    },
+    {
+      "check": "scene translation PRESTIGE_CONFIRM_RESET_TITLE",
+      "pass": true
+    },
+    {
+      "check": "scene translation PRESTIGE_CONFIRM_NOTE",
+      "pass": true
+    },
+    {
+      "check": "scene translation PRESTIGE_CONFIRM_BEGIN",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_0",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_1",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_2",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_3",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_4",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_5",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_6",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_7",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_8",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_9",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_10",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_11",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_12",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_13",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_14",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MAIN_HINT_15",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MISSION_DO_KILL",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MISSION_DO_BOSS",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MISSION_DO_GEAR",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MISSION_DO_MERGE",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MISSION_DO_COINS",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation MISSION_DO_CAST",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation FOLLOW_GOAL_KILL",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation FOLLOW_GOAL_GEAR",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation FOLLOW_GOAL_MERGE",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation FOLLOW_GOAL_BOSS",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation FOLLOW_GOAL_CAST",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation FOLLOW_GOAL_MISSION",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation SKILL_DESC_HEAL",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation SKILL_DESC_FROST",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation SKILL_DESC_FIRE",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation SKILL_DESC_LIGHTNING",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation SKILL_DESC_FOCUS",
+      "pass": true
+    },
+    {
+      "check": "Change 16 translation SKILL_DESC_STRIKE",
+      "pass": true
+    },
+    {
+      "check": "no double dashes in the English strings (Playbook 74)",
+      "pass": true
+    },
+    {
       "check": "weather style rain",
       "pass": true
     },
@@ -5772,6 +6212,10 @@
     },
     {
       "check": "tools/change13_catalog.py --check",
+      "pass": true
+    },
+    {
+      "check": "tools/change16_catalog.py --check",
       "pass": true
     }
   ]

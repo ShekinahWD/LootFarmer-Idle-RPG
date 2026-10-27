@@ -1,0 +1,287 @@
+{
+  "baseline": "lootFarmer(20261027-123702).zip",
+  "baseline_sha256": "fe0e27c00e6182009ac314264bb8499d85be90e7252c6c3c9543ae3981618a5f",
+  "change": 17,
+  "files": [
+    {
+      "path": "data/game/catalog.json",
+      "sha256": "7e48bfda0e69b1ba660f030082dfbb42f8425d158f5e47a914bed100bf0d88b7"
+    },
+    {
+      "path": "docs/Change_17_Evidence/attack_timing_probe.log",
+      "sha256": "6e5d58a16ad34528739a5ad144d71db79e55b2286e9c7b6b67e694d45cb34f28"
+    },
+    {
+      "path": "docs/Change_17_Evidence/balance_change17.log",
+      "sha256": "46050162a7d510038a8dc12f11a025fa4bc03413cd0ce565ab123a2e325b9188"
+    },
+    {
+      "path": "docs/Change_17_Evidence/balance_original.log",
+      "sha256": "e01fddd7b0f945529c7343a7c73ddd4091a9ff221dcb36bc61e0c1955bb5a016"
+    },
+    {
+      "path": "docs/Change_17_Evidence/bootstrap_probe.log",
+      "sha256": "d17112713b9ac35797c8837ea4a0eab0f48e5bbafccf2810a86cd5493e8a99f4"
+    },
+    {
+      "path": "docs/Change_17_Evidence/camera_probe.log",
+      "sha256": "09daeac08a0a2f39cdb8215bdb081ea0125f89909d08b25057bec3b6771e270b"
+    },
+    {
+      "path": "docs/Change_17_Evidence/campaign_content_probe.log",
+      "sha256": "abf3b07fc1090a6b88364f23435ce2d80e6bf0232dd859722c944089776e7b25"
+    },
+    {
+      "path": "docs/Change_17_Evidence/campaign_probe.log",
+      "sha256": "d3970d7372dddd3c7e1a8f912370fb8043b233ab2d7cd0354a407631109f8345"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_10_probe.log",
+      "sha256": "5053bcbb173af9c82f06ea6ad1354d5f871eb4e850cd1e1de6a08406cb97d509"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_11_probe.log",
+      "sha256": "01f11289e5ca507f61c74bc5d3fcaf170bc18c1c85c6d76d268f12d1dcd0a874"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_11_smoke.log",
+      "sha256": "096a1b5c534396daf158fc42ad5efb80c4692c1b1a9d3ca5f5b82ef8260b3073"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_12_probe.log",
+      "sha256": "8aa5ca432e84c0fbdbaee090129e1274dbd6eefd8deccd290db31f55540823cb"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_12_smoke.log",
+      "sha256": "33445344a99607aaa38c4d97815b8c23240af694c9343ae5a28ded4308542e80"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_13_probe.log",
+      "sha256": "256fbb5bc4a69cc5f3b54958f86a6498477abfadc4723f0c80eb65a2614fae6e"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_14_probe.log",
+      "sha256": "acb3fe898de6b7bd265e877bc62073d89b9c65853fee9ec9f606996dbfd0bab0"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_15_probe.log",
+      "sha256": "975501cea44748c072c63e7d02538ff69b2644f7aa23b21f8d01a6b4498653b1"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_16_probe.log",
+      "sha256": "f692a787a6a290ee9982e113421f7e85b675647e4bb1a2a6338ab431d6e48067"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_17_probe.log",
+      "sha256": "4bf92db71971163facd04758a7e5b3afba6eec889e300a401b19f663d84fdb55"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_17_weather.log",
+      "sha256": "415ad9db6be75cd2404af6d133edba4cbbf0e46f018f4d09e8dca1a826438f1e"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_5_probe.log",
+      "sha256": "6b6c10de446124940570ab44c2764b7acf67df5a5a3ef13d71ffcdd49c7b78e9"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_6_probe.log",
+      "sha256": "6ea58fe5dd84bd479924a5be9be77ac4f97ba5ae587b591c20be45d3c0e6832d"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_7_probe.log",
+      "sha256": "9a022e898cce81c21bf4e0693b6afba5a2b9f66e271de4c313febc0138db57db"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_8_probe.log",
+      "sha256": "e7369b75f7a9219b9c3143b8d8fdd49fd480a27aa40f702fe30f762a7722e3fc"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_8_walk_probe.log",
+      "sha256": "797938b9e87b7ccdc5390641b852083a8a653ac843bcaf69318a6a5c5eff18e4"
+    },
+    {
+      "path": "docs/Change_17_Evidence/change_9_probe.log",
+      "sha256": "e6e146a94f73ec1452643977fd4006ecf88ce3c98d895a5e6809d29e95b4f6d2"
+    },
+    {
+      "path": "docs/Change_17_Evidence/full_suite_4_7_2.log",
+      "sha256": "8acadf744c74adbed33428b6e62c9acd729765c472b7823c0c965793550636f4"
+    },
+    {
+      "path": "docs/Change_17_Evidence/gameplay_probe.log",
+      "sha256": "803470beaa4e1ce84ad95554e2c873adf1590de409241c86c755e94dfa7ef940"
+    },
+    {
+      "path": "docs/Change_17_Evidence/inventory_probe.log",
+      "sha256": "fb9d33a6b0a171b6e8413825054ab740786e30ee3a492776de32a33974e1e1e0"
+    },
+    {
+      "path": "docs/Change_17_Evidence/simulation_cpu_change17.log",
+      "sha256": "4f35d8072344039aa82eed8913af2e34b4b8b0594379f89ad4cbabd9b986b82c"
+    },
+    {
+      "path": "docs/Change_17_Evidence/simulation_cpu_original.log",
+      "sha256": "24171d4185e4b6f1a7a750d534920cd1c4cd4a8636f79c422564bcfc9ae10655"
+    },
+    {
+      "path": "docs/Change_17_Evidence/static_checks.json",
+      "sha256": "1eb204e7b8923f169660a409b7aea061d68a52e357eb81b22ef721fa1be7f19e"
+    },
+    {
+      "path": "docs/Change_17_Evidence/targeted_rerun_4_7_2.log",
+      "sha256": "1dcb92d82430a633bc7736de3331d483ca5ba587fcbf516b4a37ea7cb501ab9f"
+    },
+    {
+      "path": "docs/Change_17_Evidence/targeting_probe.log",
+      "sha256": "4d3132bdaf2d87caf67dcbcceb28145ad1a9dded7ebd54f6192e0fa7f5d21376"
+    },
+    {
+      "path": "docs/Change_17_Evidence/ui_probe.log",
+      "sha256": "67d52dd982214df9cef2f6b036195d095263bdbe21d8c888f0117d4cb30ad412"
+    },
+    {
+      "path": "docs/LootFarmer_Change_17_Claude_Integration.md",
+      "sha256": "46ce5f190f9965172c22b06e0d08f70da1a619d66a7ff6278307e83d28555829"
+    },
+    {
+      "path": "docs/LootFarmer_Change_17_Notes.md",
+      "sha256": "96315f6bb7feb86abd7d350075efd6e28ca3a81169e19cc83e35f10ee95c7860"
+    },
+    {
+      "path": "docs/LootFarmer_Change_17_Validation.md",
+      "sha256": "3c39b8338ec5142aca29cd90e2b0e532dec9ceadf754d2f00265e33f41766b3c"
+    },
+    {
+      "path": "docs/LootFarmer_Checkpoints.md",
+      "sha256": "7591061d1a50e58249a9d28acabf57ef487937d49fb8f620322e01828ca2a268"
+    },
+    {
+      "path": "docs/LootFarmer_Content_and_Balance.md",
+      "sha256": "793a34af1b26fd824914a2cf92856ac49c4c053e377ffc55497742970b71e4be"
+    },
+    {
+      "path": "docs/LootFarmer_Design_README.md",
+      "sha256": "8c43ae9368051b6925f03e9a4e4f09710ffbffc4983ae4e3d2c2c7764aae8594"
+    },
+    {
+      "path": "docs/LootFarmer_GDD.md",
+      "sha256": "443fd3dea0162622b166dbc3f93d03115e29a424518044c7a00a937f6f921002"
+    },
+    {
+      "path": "docs/LootFarmer_Implementation_Plan.md",
+      "sha256": "51a2929283ed8737e52fab3d943c65af16662da0002022eeb96f7327b2ff600e"
+    },
+    {
+      "path": "docs/LootFarmer_State_Contracts.md",
+      "sha256": "b03a50108a0c6a37326ca8f9f3bb6a83bfab962939996ad06598cbe63102e4c2"
+    },
+    {
+      "path": "docs/LootFarmer_Test_Suite.md",
+      "sha256": "3ba321830e678b95f47735b77e933c67f830ce61b577df99527ba06ee7742f6a"
+    },
+    {
+      "path": "docs/LootFarmer_Upgrade_Catalog.md",
+      "sha256": "5011cb1b623104bba8f7d6f1cc0766526c093b2eeeb0431c3b876fdb3f22bd58"
+    },
+    {
+      "path": "docs/Reusable_Game_Development_Playbook.md",
+      "sha256": "d916ae43edb1120e5ef83bed34a86058a427e5f18c75149bb03496cc9f742aee"
+    },
+    {
+      "path": "localization/en.po",
+      "sha256": "b6bf68ddba01b4547f6a3f18d3810b1b0789473c6fdea116289e03b1d776e3ab"
+    },
+    {
+      "path": "scripts/game/campaign.gd",
+      "sha256": "2b0ce038f3d1880b50e9048268dd60caa974d9700d2eba3facbd61d84d7ac0b5"
+    },
+    {
+      "path": "scripts/game/season_weather.gd",
+      "sha256": "314485978dcc8e29040b3fd7d53e65e83fbbb60317bc9905273d7f9aed966819"
+    },
+    {
+      "path": "scripts/game/simulation.gd",
+      "sha256": "7ace37e36ab26f27b929fa8814a8ede003aa01c10f1bb6ca1d4d9e4a6a1a49ac"
+    },
+    {
+      "path": "tests/change_11_probe.gd",
+      "sha256": "922a5bac7e10a63349593fa30a75b55fe5a46a4807acaf2a103bc168d7f1b389"
+    },
+    {
+      "path": "tests/change_12_probe.gd",
+      "sha256": "138363550db2e757d50c3354fd05f052c3530095415ab5553f8ff20bd536cbb6"
+    },
+    {
+      "path": "tests/change_13_probe.gd",
+      "sha256": "65694f885c666e7cc92eb2579ff49cc1baa594cbb35742d9fb59ca3bc9098c45"
+    },
+    {
+      "path": "tests/change_16_probe.gd",
+      "sha256": "7bb61f0e976fa99cf6f6550f722544f41161dce61ae11d8afae1b2a99a2d5a6e"
+    },
+    {
+      "path": "tests/change_17_performance.gd",
+      "sha256": "f86cb4585281b2312e60e8d0a7df8155c18a4ea491457e364b189ff7d30ef249"
+    },
+    {
+      "path": "tests/change_17_performance.tscn",
+      "sha256": "bdd9966e9771d4d0d50a6d4e2b8271f2ca40a3bc7e36cc48afd4b35b45259457"
+    },
+    {
+      "path": "tests/change_17_probe.gd",
+      "sha256": "f0c1c04fb728d2e72930b2522c3d45fc03e0ae142bc548d9515dd8f4aa20e681"
+    },
+    {
+      "path": "tests/change_17_probe.gd.uid",
+      "sha256": "010cfd01da7e216f72d7d7f8d399bcc324a63de9bb646c65942daa2e94d843be"
+    },
+    {
+      "path": "tests/change_17_probe.tscn",
+      "sha256": "3e4c46f28374a10000f0f3319f0bfabb9af980982b558e3f2bd1e520b4c50f7d"
+    },
+    {
+      "path": "tests/change_17_weather.gd",
+      "sha256": "1ba45b29085cad26e2c7591c6d9e2d5e912f16c5a1a0013926a75ebb47367df0"
+    },
+    {
+      "path": "tests/change_17_weather.gd.uid",
+      "sha256": "6aa7de3eb0096d11cfa1bf13e37723d054234136bdb99676188cbcaaebe5b57a"
+    },
+    {
+      "path": "tests/change_17_weather.tscn",
+      "sha256": "79619a9d810b19cf3e3b73d6dcb4d8f836406e9bdaf733c257b1400f3de27554"
+    },
+    {
+      "path": "tests/change_5_probe.gd",
+      "sha256": "67370d487542e6a479a3437b6e5d50d2b7117c95850db638f1e44e38c4a4599a"
+    },
+    {
+      "path": "tests/change_8_probe.gd",
+      "sha256": "23ad2e9b7830a37d8ccb6d95b19c3f1a70af7e7a6cf2e329ff6d42d982686a81"
+    },
+    {
+      "path": "tests/gameplay_probe.gd",
+      "sha256": "021fe28e988783fa548c4fb5dbd7a6a7bbe953f0007dc312ac6540d3a223f25f"
+    },
+    {
+      "path": "tools/change11_catalog.py",
+      "sha256": "8184cc91ceba4fdb2b83be7f630674aa8dc028d7a056d0e20898c7571f4c3525"
+    },
+    {
+      "path": "tools/change13_catalog.py",
+      "sha256": "60bbf55245d865917450855bd0b6ea9d29c3dca6c4f9659d79782db918536497"
+    },
+    {
+      "path": "tools/change8_catalog.py",
+      "sha256": "cc8652e0ef09397c3499fe3044544ada127ee07f35f2237e64d9c99d3f1e86a1"
+    },
+    {
+      "path": "tools/run_probes.py",
+      "sha256": "7fa3798b55b37a112acae1fbf7f781290dedfefe9a503670c891f973c71f9b5d"
+    },
+    {
+      "path": "tools/validate_campaign_source.py",
+      "sha256": "e3ddb24166352e8c9fe4c5be3b03887d46a70623a3a99c1f00a6e78c89701c1b"
+    }
+  ]
+}

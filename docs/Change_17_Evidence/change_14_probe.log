@@ -1,0 +1,205 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+  ok  Summer II reads "Next Stage · Bosses 0/2"
+  ok  Map Explored reads "Map Explored: 0%" from the saved explored cells
+  ok  Top-down order: zoom [P: (1020.0, 16.0), S: (242.0, 60.0)], Map Explored [P: (1032.0, 134.0), S: (230.0, 34.0)], minimap [P: (1032.0, 174.0), S: (230.0, 230.0)], Next Stage [P: (985.0, 410.0), S: (277.0, 38.0)]
+  ok  Both chips share the minimap's right edge, top right of the map
+  ok  The percentage is no longer in the lower right (it ends at y 168 of 827)
+  ok  Zoom and Explored do not overlap
+  ok  Zoom and MiniMap do not overlap
+  ok  Zoom and Gate do not overlap
+  ok  Explored and MiniMap do not overlap
+  ok  Explored and Gate do not overlap
+  ok  MiniMap and Gate do not overlap
+  ok  Explored clear of Joystick
+  ok  Gate clear of Joystick
+  ok  Explored clear of EnemyUpgrades
+  ok  Gate clear of EnemyUpgrades
+  ok  Explored clear of Achievement
+  ok  Gate clear of Achievement
+  ok  Explored clear of EnemySection
+  ok  Gate clear of EnemySection
+  ok  Explored clear of History
+  ok  Gate clear of History
+  ok  Explored clear of FollowTracker
+  ok  Gate clear of FollowTracker
+  ok  Explored clear of GemPickup
+  ok  Gate clear of GemPickup
+  ok  Neither chip takes touches
+  ok  Both use the HudChip style (the Kenney backing panel)
+  ok  The plate is dark and nearly opaque ((0.04, 0.06, 0.09, 0.86))
+  ok  Font sizes 19 / 18 (were 18 / 17)
+  ok  Contrast over (0.93, 0.95, 0.98, 1.0) ground: 10.8 / 12.6 (≥ 7)
+  ok  Contrast over (0.22, 0.36, 0.2, 1.0) ground: 14.2 / 16.6 (≥ 7)
+  ok  Contrast over (0.85, 0.75, 0.45, 1.0) ground: 12.0 / 13.9 (≥ 7)
+  ok  Contrast over (0.45, 0.3, 0.2, 1.0) ground: 14.3 / 16.6 (≥ 7)
+  ok  The Next Stage text fits beside the minimap (277 px)
+  ok  After one gate boss: Next Stage · Bosses 1/2
+  ok  Both defeated: the next map is open and the chip hides
+  ok  Spring II keeps the world wording: World clear · 0/9
+  ok  Panning and zoom leave it at "Map Explored: 7%"
+  ok  Newly explored cells raise it (Map Explored: 7% → Map Explored: 19%)
+  ok  Both chips sit inside the safe-area container
+  ok  With 60 px top / 40 px right insets the cluster moves inside and stays ordered
+  ok  fixture: the Claim label is translated
+  ok  Fresh profile, nothing complete: no badge
+  ok  A ready objective is listed first: [8, 0, 1]
+  ok  …and the badge shows
+  ok  The panel shows its Claim button (1)
+  ok  Claiming it pays
+  ok  After the claim: no badge, no Claim button
+  ok  An unlisted final objective never lights the badge
+  ok  …it does once the objective is listed
+  ok  A complete daily mission shows the badge
+  ok  …with one Claim button in the panel
+  ok  Claim
+  ok  After claiming every reward the badge clears
+  ok  A waiting slot never counts
+  ok  With auto-claim on, a complete mission does not light the badge
+  ok  …and auto-claim takes it on the next tick
+  ok  Auto-claim switched off: the complete mission needs a manual claim, badge on
+  ok  Hard Reset clears it
+  ok  Rain: splash frames 9 to 14 of 15
+  ok  7813 splash steps stay exactly where the drop landed (0 slides)
+  ok  13898 falling steps keep the drift (0 stalled)
+  ok  After the last splash frame the particle starts a new drop (1549)
+  ok  The splash starts at the drop's position at the impact frame
+  ok  Panning and zooming leave every drop and splash in place
+  ok  Falling leaves have no splash phase (unchanged)
+  ok  heal has an inspector placement style
+  ok  focus has an inspector placement style
+  ok  frost has an inspector placement style
+  ok  fire has an inspector placement style
+  ok  lightning has an inspector placement style
+  ok  strike has an inspector placement style
+  ok  fixture: Summer I has the Gray Cat (2× boss, Lightning) and Yellow Caps (Lightning)
+  ok  Player lightning on 13 resolves
+  ok  …and deals real damage (7)
+  ok  …one effect event
+  ok  …one effect sprite (1)
+  ok  …scale 0.75
+  ok  Lightning draws above the actors (z 2 > 1), not hidden under the target
+  ok  Lightning's ground ring lands on the target's feet
+  ok  The bolt spans the whole body: from above its head (1020 ≤ 1038) to its feet
+  ok  Player strike on 13 resolves
+  ok  …and deals real damage (14)
+  ok  …one effect event
+  ok  …one effect sprite (1)
+  ok  …scale 0.75
+  ok  Strike bursts on the body centre, above the actors
+  ok  Player fire on 13 resolves
+  ok  …and deals real damage (8)
+  ok  …one effect event
+  ok  …one effect sprite (1)
+  ok  …scale 1.00
+  ok  Fire explodes at its aim, body height, above the actors
+  ok  Player frost on 13 resolves
+  ok  …and deals real damage (6)
+  ok  …Frost slows (3.0 s)
+  ok  …one effect event
+  ok  …one effect sprite (1)
+  ok  …scale 1.00
+  ok  Frost is a ground effect under the actors, centred on the caster
+  ok  Player lightning on 14 resolves
+  ok  …and deals real damage (7)
+  ok  …one effect event
+  ok  …one effect sprite (1)
+  ok  …scale 1.50
+  ok  Lightning draws above the actors (z 2 > 1), not hidden under the target
+  ok  Lightning's ground ring lands on the target's feet
+  ok  The bolt spans the whole body: from above its head (980 ≤ 1016) to its feet
+  ok  Player strike on 14 resolves
+  ok  …and deals real damage (14)
+  ok  …one effect event
+  ok  …one effect sprite (1)
+  ok  …scale 1.50
+  ok  Strike bursts on the body centre, above the actors
+  ok  Player fire on 14 resolves
+  ok  …and deals real damage (8)
+  ok  …one effect event
+  ok  …one effect sprite (1)
+  ok  …scale 1.00
+  ok  Fire explodes at its aim, body height, above the actors
+  ok  Player frost on 14 resolves
+  ok  …and deals real damage (6)
+  ok  …Frost slows (1.5 s)
+  ok  …one effect event
+  ok  …one effect sprite (1)
+  ok  …scale 1.00
+  ok  Frost is a ground effect under the actors, centred on the caster
+  ok  Player Heal restores HP
+  ok  Heal: on the player's view, ring on the feet
+  ok  …and it follows the player
+  ok  Player Focus starts its buff (5 s)
+  ok  Focus plays on the player too
+  ok  lightning player cooldown 20.0 s
+  ok  fire player cooldown 20.0 s
+  ok  frost player cooldown 20.0 s
+  ok  strike player cooldown 20.0 s
+  ok  heal player cooldown 20.0 s
+  ok  focus player cooldown 20.0 s
+  ok  A Yellow Cap's Lightning damages the player
+  ok  …and strikes the player's feet, drawn over the player
+  ok  Boss wind-up: one warning marker, no skill effect yet
+  ok  …a small tinted ground marker at the aim, not the Lightning sheet
+  ok  The attack resolves once with real damage (1 effect events)
+  ok  …and no second warning
+  ok  The bolt lands on the player where they now stand
+  ok  Boss Heal restores HP with no attack warning (10)
+  ok  …on the 2× robot's feet at its scale
+  ok  Overview keeps Reveal Stats and Reveal Drops
+  ok  Stats stay hidden before research
+  ok  Upgrades lists the same two research upgrades
+  ok  …under a Research heading
+  ok  Same price on Upgrades (25)
+  ok  Bought from Upgrades: level 1, charged once (25)
+  ok  Upgrades now shows it owned (Max, disabled)
+  ok  A second purchase is refused and charges nothing
+  ok  Overview shows the revealed stats, no purchase card
+  ok  Drops are still for sale on Overview
+  ok  Drops bought from Overview, charged once
+  ok  …and Upgrades shows it owned at once
+  ok  The Farming Guide counts the type as researched (1 / 4)
+  ok  Position and anchors unchanged (bottom centre)
+  ok  Touch size and movement radius unchanged
+  ok  Backplate takes no touches (input stays on the joystick)
+  ok  Base takes no touches (input stays on the joystick)
+  ok  Knob takes no touches (input stays on the joystick)
+  ok  Rim takes no touches (input stays on the joystick)
+  ok  Backplate under the ring, rim under the knob
+  ok  The backplate is a restrained dark tint (alpha 0.34)
+  ok  The ring is more opaque (0.80, was 0.65)
+  ok  On snow the backplate separates the pad from the ground (2.21:1)
+  ok  Knob reads on (0.93, 0.95, 0.98, 1.0) (knob/rim 5.3:1, knob/pad 1.0:1)
+  ok  Knob reads on (0.22, 0.36, 0.2, 1.0) (knob/rim 6.9:1, knob/pad 4.2:1)
+  ok  Knob reads on (0.85, 0.75, 0.45, 1.0) (knob/rim 5.9:1, knob/pad 1.5:1)
+  ok  Knob reads on (0.45, 0.3, 0.2, 1.0) (knob/rim 6.9:1, knob/pad 4.2:1)
+  ok  Dragging to the edge still moves full right
+  ok  Release recentres the knob
+  ok  Before the purchase: the Focused Farming card, no Farm button
+  ok  First purchase starts the hint (session) and records it in the profile
+  ok  Confirmation on the panel: "Focused Farming unlocked"
+  ok  The Farm button appears in the same panel
+  ok  One line under it says how to use it
+  ok  The guide's step is to tap Farm, on the live button
+  ok  The pointer shows (basic mode too)
+  ok  …next to the Farm button
+  ok  Guidance takes no input
+  ok  Overview tab: still pointing at its Farm button
+  ok  Panel closed: pointer on the HUD Upgrades button for this enemy
+  ok  A short caption with Got it: "Focused Farming unlocked"
+  ok  Settings open: hidden, still pending
+  ok  Another enemy's panel: no pointer (never toward a control not shown)
+  ok  Farm turned on
+  ok  …the hint ends at once
+  ok  …and the panel line goes
+  ok  Buying Focused Farming on another type shows nothing new
+  ok  Only the seen flag is saved; the hint itself never is
+  ok  Guided mode: the same hint, with Got it
+  ok  Got it dismisses it for good
+  ok  After 45 s on screen it retires (no permanent HUD text)
+  ok  An undiscovered spot: "find it first", no pointer at the disabled button
+  ok  Onboarding None: the confirmation, no pointer and no hint line
+  ok  Focus still toggles on
+  ok  …and off
+CHANGE_14_CHECKS 202 FAILURES 0

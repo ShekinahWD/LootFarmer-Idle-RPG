@@ -98,6 +98,10 @@ func _process(_delta: float) -> void:
             # carries the World banner (never before its type is discovered).
             v.body_tint=sim.abilities.helper_tint if sim.is_helper(actor) else Color.WHITE
             v.gate=bool(g.boss) and sim.campaign.gate_required(group)
+            # Change 16: bosses show their name in red above the HP bar; any enemy with skills shows
+            # one small icon per skill above its head (helpers carry none).
+            v.display_name=str(g.name) if bool(g.boss) else ""
+            v.skill_icons=_skill_icons(group,int(actor.get("variant",2)),g)
         v.disclosed=id=="player" or sim.campaign.can_see(sim.position_of(actor))
         body=sim.catalog.art_id(body)
         weapon=sim.catalog.art_id(weapon)
@@ -137,11 +141,26 @@ func _process(_delta: float) -> void:
         pickups[id].position=Vector2(drop.x,drop.y)
         pickups[id].visible=sim.campaign.can_see(Vector2(drop.x,drop.y))
         pickups[id].modulate.a=.55 if drop.ttl<30 else 1.0
+        # Change 16: a dropped stack is one pile on the ground and says how many copies it holds.
+        var count: Label=pickups[id].get_node("Count")
+        var amount:=int(drop.get("qty",1))
+        count.visible=amount>1
+        if amount>1 and count.text!="×"+NumberFormat.count(amount):count.text="×"+NumberFormat.count(amount)
     for id in pickups.keys():
         if not seen.has(id):
             pickups[id].queue_free()
             pickups.erase(id)
     update_camera()
+
+## The skill icons of one enemy loadout (cached per type and variant: definitions never change).
+var _icon_rows: Dictionary={}
+func _skill_icons(group: int,variant: int,def: Dictionary) -> Array:
+    var key:=group*8+variant
+    if not _icon_rows.has(key):
+        var row: Array=[]
+        for skill in def.skills:row.append(textures.get("skill_"+str(skill)))
+        _icon_rows[key]=row
+    return _icon_rows[key]
 
 ## Change 13 overcast: the current weather's ambient tint multiplies the stage art (terrain, scenery,
 ## props) only; the camps are restored to their own colours so navigation stays as readable. Actors,

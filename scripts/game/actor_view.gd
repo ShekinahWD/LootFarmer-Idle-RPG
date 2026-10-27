@@ -33,6 +33,14 @@ extends Node2D
 ## Change 13: a summoned helper's body tint, and the World banner above the HP bar of a discovered
 ## boss the next map still needs (the Gate node holds its art and colour).
 @export var body_tint := Color.WHITE
+## Change 16: a boss's name in threatening red above its HP bar (the Name label's own colours), and
+## one small icon per skill an enemy carries. They stack upward from the HP bar (name, skill icons,
+## World banner, then the speech line), so nothing overlaps. Sizes are world units.
+@export var name_text_scale := 0.3
+@export var skill_icon_size := 9.0
+@export var skill_plate_color := Color(.04,.06,.09,.82)
+var display_name := ""
+var skill_icons: Array = []
 var gate := false
 var elapsed:=0.0
 var actor: Dictionary={}
@@ -82,17 +90,15 @@ func _process(dt: float) -> void:
     $HP.size=bar
     $HP/Text.scale=Vector2.ONE*hp_text_scale
     $HP/Text.size=bar/hp_text_scale
-    $Marker.position=Vector2(-8,-38*visual_scale)
-    $Speech.position.y=-52*visual_scale
+    var top:=_stack_overhead(bar,dead)
+    $Marker.position=Vector2(-8,top-16 if _stack_used else -38*visual_scale)
+    $Speech.position.y=minf(-52*visual_scale,top-14)
     $Visual.scale.y=visual_scale
     if not dead and actor.get("hurt",0)>0:
         $Visual.position.x=-facing*2.0*sin(float(actor.hurt)/.16*PI)
     if dead:
         $Visual.modulate.a=clampf((float(death_frames)/death_fps+.2-float(actor.dead_age))/.2,0,1)
     $Visual/Body.self_modulate=body_tint
-    $Gate.visible=gate and visible and not dead
-    # Centred just above where the HP bar sits, so it stays on the boss with the bar shown or hidden.
-    $Gate.position=Vector2(0,-27*visual_scale-bar.y-4)
     $Visual/Body.region_rect=Rect2(Vector2(col,row)*cell_size,cell_size)
     # First slash is frame 2. Match its onset to authoritative windup,
     # including upgraded attack speed. Frames 0–4 contain one swing;
@@ -122,6 +128,69 @@ func _process(dt: float) -> void:
             $Visual.scale.y=visual_scale-.08*pulse
         else:
             $Visual.position.x+=sin(clampf(phase/2.0,0,1)*PI)*1.5*facing
+
+## Lays out the overhead stack from the HP bar upward and returns its top (world units, negative is
+## up): the boss name, the skill icons, then the World banner of a required boss (Change 13). Each
+## item takes its own row, so names, icons, banner and HP bar never overlap. With nothing to show the
+## top is the HP bar's and the target marker and speech keep their usual places.
+var _stack_used:=false
+func _stack_overhead(bar: Vector2,dead: bool) -> float:
+    var y:=-27*visual_scale-bar.y+2
+    _stack_used=false
+    var alive:=visible and not dead
+    var named:=display_name!="" and alive
+    $Name.visible=named
+    if named:
+        if $Name.text!=display_name:$Name.text=display_name
+        $Name.scale=Vector2.ONE*name_text_scale
+        $Name.position=Vector2(-$Name.size.x*.5*name_text_scale,y-$Name.size.y*name_text_scale)
+        y-=$Name.size.y*name_text_scale+1
+        _stack_used=true
+    _sync_skill_icons()
+    $Skills.visible=alive and not skill_icons.is_empty()
+    if $Skills.visible:
+        var count:=skill_icons.size()
+        # Each icon's disc is 1.24 icon sides wide; rows and neighbours keep a unit of air around it.
+        var cell:=skill_icon_size*1.24+1
+        for i in range(count):
+            ($Skills.get_child(i) as Sprite2D).position=Vector2((i-(count-1)*.5)*cell,y-cell*.5)
+        y-=cell+1
+        _stack_used=true
+    $Gate.visible=gate and alive
+    if $Gate.visible:
+        # The banner art fills the middle 16 of its 32 px at 0.75 scale: 12 world units tall.
+        $Gate.position=Vector2(0,y-6)
+        y-=13
+        _stack_used=true
+    return y
+
+## One Sprite2D per skill icon, each scaled to skill_icon_size; rebuilt only when the list changes.
+func _sync_skill_icons() -> void:
+    var holder: Node2D=$Skills
+    while holder.get_child_count()<skill_icons.size():
+        var sprite:=Sprite2D.new()
+        # A dark disc behind the icon, like the HUD chips, so thin effect art reads on snow and sand.
+        var plate:=Polygon2D.new()
+        var points:=PackedVector2Array()
+        for k in range(12):points.append(Vector2.RIGHT.rotated(TAU*k/12.0))
+        plate.polygon=points
+        plate.color=skill_plate_color
+        plate.show_behind_parent=true
+        sprite.add_child(plate)
+        holder.add_child(sprite)
+    while holder.get_child_count()>skill_icons.size():
+        var extra:=holder.get_child(holder.get_child_count()-1)
+        holder.remove_child(extra)
+        extra.queue_free()
+    for i in range(skill_icons.size()):
+        var sprite: Sprite2D=holder.get_child(i)
+        var texture: Texture2D=skill_icons[i]
+        if sprite.texture!=texture:
+            sprite.texture=texture
+            if texture!=null:
+                sprite.scale=Vector2.ONE*skill_icon_size/maxf(texture.get_width(),texture.get_height())
+                # The disc is drawn in the sprite's space: a radius of 0.62 of the icon's side.
+                (sprite.get_child(0) as Polygon2D).scale=Vector2.ONE*maxf(texture.get_width(),texture.get_height())*.62
 
 ## "18/25", "1.2K/3.4K": whole numbers below 1,000 (rounded up, so a living actor never reads 0).
 static func hp_text(hp: float,maximum: float) -> String:
