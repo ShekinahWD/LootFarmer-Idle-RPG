@@ -1,6 +1,25 @@
-# LootFarmer — Test Suite (Change 17)
+# LootFarmer — Test Suite (Change 20)
 
-## Change 17 current result
+## Change 20 current result
+
+**29/29 maintained entries passed in one full run** on Godot 4.7.2 Linux headless: one source validator and 28 Godot scenes, run sequentially. Source validation: **1,567 checks, zero failures**. That full run included **79 checks** in `change_20_probe`. A final targeted rerun after adding dormant automatic-assignment clearing passed **81 checks, zero failures**, plus the source validator. The existing proximity probe passes **133**, original Change 17 gameplay **679**, and weather equivalence **60** checks. No maintained test failures, timeouts or script errors. Exact output: `Change_20_Evidence/suite_summary.txt` and `final_targeted_summary.txt`; per-scene logs and static JSON are beside it.
+
+The new probe drives the real item toggle, automatic-slot assignment and travel APIs, checks saved state with JSON and actual disk reloads, executes Prestige, verifies level/XP retention and mastery reset, checks 3/4/6-column slot density with fixed enclosing height, checks settings through Hard Reset, verifies boss reveal/countdown and marker priority, tests camp touch/drag/combat behavior, and walks the ordered Guided flow including both waits and delayed final confirmation. Existing Change 6/7/8/11/13/14/15/16/17 assertions were updated where the approved tutorial, layout, combat or Prestige rules changed; their interaction coverage remains in the maintained suite.
+
+Rendered evidence is in `Change_20_Evidence/ui/`. `change_20_capture` is a separate desktop OpenGL Compatibility capture at 540×960, not a headless gate or Android test. It has no script errors, but its renderer reports unsupported V-Sync and shutdown resource warnings. Physical-device visual, touch, background and performance checks remain open; use the checklist in `LootFarmer_Change_20_Report.md`. Earlier late-game balance failures are still documented and are not part of the maintained gating suite.
+
+| New/retained probe | Scope |
+|---|---|
+| `change_20_probe` | Remaining-features/UI/tutorial acceptance, persistence, resets and interactive controls |
+| `skill_proximity_probe` | Manual/automatic activation boundaries, eligible targets, failed-cast side effects and effective Gem chance |
+| `change_17_probe` | Prior 17 gameplay changes, their saves and current Prestige contracts |
+| `change_17_weather` | Weather output equivalence |
+
+## Historical Change 19 result
+
+**28/28 maintained entries passed in one full run**, Godot 4.7.2 Linux headless. Source validation: 1,557 checks; new `skill_proximity_probe`: 133 checks; original Change 17 gameplay: 679 checks; weather equivalence: 60 checks. No failures or script errors. Current evidence is in `Change_19_Evidence/`; see `LootFarmer_Change_19_Report.md` for scope and pending device/UI acceptance. The following Change 17 results are historical.
+
+## Historical Change 17 result
 
 27/27 maintained entries passing on Godot 4.7.2 (full run plus the targeted wall-clock-tolerance correction). Source validator 1,557/1,557; `change_17_probe` 679/679; `change_17_weather` 60/60 exact original-output comparisons. See [Change 17 validation](LootFarmer_Change_17_Validation.md) and `Change_17_Evidence/` for raw logs and the precise run/rerun history.
 

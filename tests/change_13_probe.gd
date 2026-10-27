@@ -243,7 +243,7 @@ func skill_checks() -> void:
     stage(3)
     sim.add_item("skill_lightning",1);sim.campaign.equip_skill("skill_lightning")
     var enemy: Dictionary=sim.state.enemies[0]
-    enemy.x=sim.state.player.x+40;enemy.y=sim.state.player.y;enemy.hp=1e6 # fixture: a target in reach
+    enemy.x=sim.state.player.x+40;enemy.y=sim.state.player.y;enemy.hp=1e6;enemy.aggro=true;sim.state.player.quiet=0 # fixture: active combat target in reach
     sim.locked_target=enemy.id;sim.state.discovered[str(enemy.group)]=true
     sim.campaign.reveal_circle(sim.position_of(enemy),48.0)
     check(sim.campaign.cast(0) and near(float(sim.state.skill_cooldowns.lightning),20.0),"A cast starts the same 20 s cooldown")

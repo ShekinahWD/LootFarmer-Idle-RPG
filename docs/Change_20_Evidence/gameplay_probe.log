@@ -1,0 +1,75 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+  ok  Probe is isolated before save load
+  ok  Acquire initial weapon stack
+  ok  Three duplicates yield three merges and one retained copy
+  ok  Merge never changes extra stats
+  ok  Full equipment row rejects a new identity
+  ok  Full equipment row still stacks an existing identity
+  ok  Weapon merge cap ^100 keeps evolution stock
+  ok  At cap merge consumes nothing
+  ok  Eligible evolution succeeds
+  ok  Evolution keeps the source equipped and creates one target
+  ok  Evolution keeps each identity's progression
+  ok  Existing target merge and roll survive evolution
+  ok  Full row blocks evolution before spending
+  ok  Full HP rejects a potion without spending
+  ok  Below full HP uses one potion
+  ok  Cooldown prevents a second use
+  ok  Coin Tonic: +25% coins for 30 s
+  ok  A running Coin Tonic is not wasted by a second use
+  ok  Stop-to-attack delay prevents early damage
+  ok  Attack starts after half a second
+  ok  Manual movement cancels pending contact
+  ok  Contact resolves once
+  ok  A passive first type does not alert its neighbours
+  ok  Contact kills a weakened enemy
+  ok  A kill rewards only once
+  ok  Reload does not resurrect or reward a killed enemy
+  ok  Respawn respects the ten second delay
+  ok  Respawn restores HP at the selected camp
+  ok  Death costs no currency
+  ok  Explicit pause freezes all simulation clocks
+  ok  Background suspension does not simulate
+  ok  Ground loot expires after 300 s of simulated time
+  ok  Prestige batch begins
+  ok  Prestige commits a durable new run
+  ok  Prestige resets coins and items and keeps Gems
+  ok  Prestige keeps automation levels and capacity
+  ok  Prestige clears coin run upgrades and camps
+  ok  Prestige clears unsafe automation bindings
+  ok  The card is owned exactly once
+  ok  The same opportunity cannot prestige again
+  ok  Prestige survives reloading
+  ok  Hard Reset commits from pause
+  ok  Hard Reset clears progression and resumes
+  ok  Reset backup does not resurrect cards
+  ok  English-only gate remains active
+  ok  An invalid profile loads as a fresh, writable profile (pre-release policy)
+  ok  A leashed enemy returns home
+  ok  An enemy regenerates after five seconds without a hit
+  ok  Focus on a found spot
+  ok  Focus resumes travel after respawn
+  ok  Manual movement cancels focus
+  ok  Collection and gear auto-merge use shared inventory rules
+  ok  Bound auto-use drinks a potion on its scheduled check
+  ok  No collection before ten seconds
+  ok  A type's collector takes only that type's drops
+  ok  Each type's collector and batch work independently
+  ok  Spawn amount caps at six
+  ok  Six real actors on spot 0
+  ok  Six real actors on spot 1
+  ok  Six real actors on spot 2
+  ok  A death uses the upgraded respawn time
+  ok  Bosses have no spawn upgrades
+  ok  Outfit-only enemies are tougher, weapon-only ones hit harder
+  ok  Outfit-only spot drops only its outfit
+  ok  Weapon-only spot drops only its weapon
+  ok  A full loadout drops both
+  ok  Reward rolls respect the worn loadout 0
+  ok  Reward rolls respect the worn loadout 1
+  ok  Reward rolls respect the worn loadout 2
+  ok  Level one base
+  ok  Exact XP threshold
+  ok  A level adds HP capacity and damage
+GAMEPLAY_PROBE checks=72 failures=0

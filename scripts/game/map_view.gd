@@ -36,12 +36,24 @@ func _init() -> void:
 func _ready() -> void:
     plain_body=AtlasTexture.new();plain_body.atlas=load(PLAIN_BODY);plain_body.region=Rect2(0,0,24,24)
     player_dot=TextureRect.new()
-    player_dot.texture=STAR
+    player_dot.texture=UiArt.cropped(STAR)
     player_dot.modulate=Color(.5,.9,1)
     player_dot.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
     player_dot.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
     player_dot.mouse_filter=Control.MOUSE_FILTER_IGNORE
     player_dot.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+    # Every other map marker is drawn at the parent layer. Player is explicitly above it.
+    # Keep this below management panels (layer 10) and confirmations (layer 20).
+    player_dot.z_index=1
+    var outline:=TextureRect.new()
+    outline.texture=player_dot.texture;outline.modulate=Color.BLACK
+    outline.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+    outline.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    outline.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    outline.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    outline.offset_left=-3;outline.offset_top=-3;outline.offset_right=3;outline.offset_bottom=3
+    outline.show_behind_parent=true
+    player_dot.add_child(outline)
     add_child(player_dot)
 func _process(dt: float) -> void:
     refresh+=dt
@@ -49,7 +61,7 @@ func _process(dt: float) -> void:
     if refresh<.15 and signature!="":return
     refresh=0
     var rect:=transform_rect()
-    var side:=12.0 if mini else 10.0
+    var side:=24.0 if mini else 20.0
     player_dot.size=Vector2.ONE*side
     player_dot.position=rect.position+sim.position_of(sim.state.player)*(rect.size.x/float(sim.catalog.world.size[0]))-Vector2.ONE*side*.5
     var next:="%s:%s:%s:%s:%s:%s:%s" % [size,sim.state.stage,sim.campaign.discovery_revision,sim.level("map_detail",int(sim.state.stage)),_bosses_alive(),sim.state.spawns,sim.campaign.gate_status()]

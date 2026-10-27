@@ -100,6 +100,7 @@ var explored_text:=""
 var gate_text:=""
 ## Map Mastery: 0 lists the maps, otherwise the stage whose page is open.
 var mastery_stage:=0
+var travel_stage:=1
 ## Change 15: panels that belong to a revealed system (campaign.onboarding). Every way into a panel
 ## goes through _open, so a hidden system cannot be reached from the minimap, the character, an
 ## enemy, a camp, the follow tracker or a banner either.
@@ -107,6 +108,11 @@ const PANEL_FEATURE:={"missions":"missions","enemy":"enemy","world":"world","cam
 const MASTERY_ART:={"explore":249,"hunt":1,"research":60,"collect":147,"forge":211}
 
 func _ready() -> void:
+    sheet.z_index=10
+    $Confirm.z_index=20
+    $PrestigeConfirm.z_index=20
+    $Toast.z_index=25
+    banner.z_index=15
     world.setup(sim)
     $Safe/Layout/Map/MiniMap.sim=sim
     $Safe/Layout/Map/MiniMap.open_map.connect(func()->void:_open("world"))
@@ -211,6 +217,7 @@ func _ready() -> void:
     _refresh_slots()
     if not sim.state.prestige_batch.is_empty():_open("prestige")
     guide=preload("res://scripts/game/tutorial_guide.gd").new()
+    guide.z_index=15
     add_child(guide);guide.setup(self)
     _refresh_reveal()
     # Change 16: no development notice on a profile reset (the internal load result stays for probes).
@@ -383,13 +390,16 @@ func _refresh_mission_tracker() -> void:
 ## Both trackers share the bottom-right corner: the Prestige tracker at the bottom, the mission
 ## tracker stacked above it (or alone at the bottom). Each grows upward with its text.
 func _layout_trackers() -> void:
-    var follow: Control=$Safe/Layout/Map/FollowTracker
-    var mission: Control=$Safe/Layout/Map/MissionTracker
-    if not mission.visible:return
-    var bottom:=-16.0-(follow.size.y+8.0 if follow.visible else 0.0)
-    var top:=bottom-mission.get_combined_minimum_size().y
-    if not is_equal_approx(mission.offset_bottom,bottom) or not is_equal_approx(mission.offset_top,top):
-        mission.offset_bottom=bottom;mission.offset_top=top
+    var map: Control=$Safe/Layout/Map
+    var anchor: Control=$Safe/Layout/Map/EnemyUpgrades
+    var y:=anchor.position.y+anchor.size.y+10
+    var width:=minf(360,map.size.x-32)
+    for tracker in [$Safe/Layout/Map/MissionTracker,$Safe/Layout/Map/FollowTracker]:
+        if not tracker.visible:continue
+        tracker.set_anchors_preset(Control.PRESET_TOP_LEFT)
+        tracker.size=Vector2(width,tracker.get_combined_minimum_size().y)
+        tracker.position=Vector2(clampf(anchor.position.x,16,map.size.x-width-16),y)
+        y+=tracker.size.y+10
 
 ## Change 16: a compact Map Mastery summary for the current map above Map Explored ("Mastery 34% ·
 ## 2/5"); a tap opens that map's Mastery page. It comes with Map Mastery (revealed with Prestige).
@@ -413,14 +423,15 @@ func _refresh_mastery_chip() -> void:
 ## when that shows, else in the cluster's first free place; it never takes touches.
 func _refresh_objective() -> void:
     var node: Control=$Safe/Layout/Map/Objective
-    var show: bool=int(sim.state.stage)==1 and not sim.campaign.first_boss_defeated() and sim.state.tutorial.mode!="pending"
+    var show: bool=int(sim.state.stage)==1 and sim.campaign.prestige_unlocked() and not sim.campaign.first_boss_defeated() and sim.state.tutorial.mode!="pending" and (sim.state.tutorial.mode!="guided" or sim.state.tutorial.seen.has("boss_preparation"))
     if node.visible!=show:node.visible=show
-    if not show:return
     var gate: Control=$Safe/Layout/Map/Gate
-    var top: float=gate.offset_bottom+6.0 if gate.visible else (gate.offset_top if revealed("world") else $Safe/Layout/Map/Mastery.offset_top)
-    var bottom: float=top+node.get_combined_minimum_size().y
-    if not is_equal_approx(node.offset_top,top) or not is_equal_approx(node.offset_bottom,bottom):
-        node.offset_top=top;node.offset_bottom=bottom
+    var start: float=$Safe/Layout/Map/MiniMap.offset_bottom+8.0
+    if show:
+        node.offset_top=start
+        node.offset_bottom=start+node.get_combined_minimum_size().y
+    gate.offset_top=(node.offset_bottom+6.0) if show else start
+    gate.offset_bottom=gate.offset_top+gate.get_combined_minimum_size().y
 
 func _open_equipped(kind: String) -> void:
     var id: String=sim.state[kind]
@@ -431,7 +442,7 @@ func _open_equipped(kind: String) -> void:
     selected_slot=-1
     _open("item")
 
-## Bottom-right HUD for the followed prestige opportunity (Change 16; lower-left before): name, icon and
+## Followed Prestige opportunity below contextual Upgrades (Change 20): name, icon and
 ## what to do next with progress (campaign.follow_summary).
 func _refresh_follow_tracker() -> void:
     var tracker: Control=$Safe/Layout/Map/FollowTracker
@@ -507,7 +518,7 @@ func _update_skill_buttons() -> void:
         if id!="":
             var cd: float=sim.state.skill_cooldowns.get(sim.catalog.items[id].skill,0)
             if cd>0:text+=" · "+tr("SECONDS_VALUE") % str(ceili(cd))
-            disabled=cd>0 or not sim.action_lock_reason().is_empty()
+            disabled=not sim.campaign.skill_cast_block_reason(i).is_empty()
         if button.text!=text:button.text=text
         button.icon=icon_cache.get(id)
         button.disabled=disabled
@@ -631,18 +642,41 @@ func _apply_milestone_frame(node: Control,id: String) -> void:
         node.add_child(frame)
     OUTFIT_SLOT_STYLES.apply(frame,rank)
 
+func _inventory_zoom_controls() -> void:
+    _section(tr("INVENTORY_ZOOM"))
+    var row:=HBoxContainer.new()
+    rows.add_child(row)
+    for i in range(3):
+        var button:=_action(tr(["SLOT_SMALL","SLOT_MEDIUM","SLOT_LARGE"][i]),func()->void:SettingsState.set_inventory_zoom(i);_layout_inventory();panel_revision=-1,true,"",row)
+        button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        button.theme_type_variation=&"Primary" if i==SettingsState.inventory_zoom else &""
+        button.set_meta("guide","inventory_zoom_%d" % i)
+
 func _layout_inventory() -> void:
     var inventory: Control=dock.get_node("Inventory")
     var gear_width: float=inventory.get_node("GearColumn/GearScroll").size.x
     var supply_width: float=inventory.get_node("SupplyColumn/SupplyScroll").size.x
-    var side:=floorf(minf((gear_width-36.0)/3.0,supply_width-20.0))
-    side=clampf(side,88,156)
+    var gap: int=inventory.get_node("GearColumn/GearScroll/Gear").get_theme_constant("h_separation")
+    var large:=maxf(48,floorf((gear_width-12-2*gap)/3.0))
+    var desired: int=[6,4,3][SettingsState.inventory_zoom]
+    var side:=maxf(48,floorf((gear_width-12-(desired-1)*gap)/desired))
     for path in ["GearColumn/GearScroll/Gear","SupplyColumn/SupplyScroll/Supplies"]:
-        for slot in inventory.get_node(path).get_children():
-            if slot.custom_minimum_size.x!=side:slot.custom_minimum_size=Vector2(side,side)
-    var height:=side+12
+        var grid: GridContainer=inventory.get_node(path)
+        var width: float=gear_width if path.begins_with("Gear") else supply_width
+        grid.columns=maxi(1,floori((width-12+grid.get_theme_constant("h_separation"))/(side+grid.get_theme_constant("h_separation"))))
+        for slot in grid.get_children():
+            slot.custom_minimum_size=Vector2(side,side)
+            var ratio:=side/100.0
+            var icon: Control=slot.get_node("Icon")
+            icon.offset_left=20*ratio;icon.offset_top=24*ratio;icon.offset_right=-20*ratio;icon.offset_bottom=-32*ratio
+            for pair in [["Count",17],["Badge",15],["Cooldown",26]]:
+                slot.get_node(pair[0]).add_theme_font_size_override("font_size",maxi(10,roundi(pair[1]*ratio)))
+            var count: Control=slot.get_node("Count")
+            count.offset_top=-28*ratio;count.offset_bottom=-4*ratio
+            slot.get_node("Badge").offset_bottom=24*ratio
+    # Zoom changes the grid density, never the enclosing dock or its scrolling viewport.
     for path in ["GearColumn/GearScroll","SupplyColumn/SupplyScroll"]:
-        inventory.get_node(path).custom_minimum_size.y=height
+        inventory.get_node(path).custom_minimum_size.y=large+12
 
 func _update_supply_cooldowns() -> void:
     var slots=dock.get_node("Inventory/SupplyColumn/SupplyScroll/Supplies")
@@ -717,6 +751,7 @@ func _open(which: String) -> void:
     AudioService.play("ui_click")
 
 func _close() -> void:
+    sim.campaign.guided.panel_closed(panel)
     sheet.hide()
     _clear_filters()
     # Free the hidden panel's rows so the tree returns to its baseline; reopening rebuilds anyway.
@@ -983,7 +1018,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
-    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target),sim.campaign.focus_hint,mastery_stage]
+    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target)+":"+str(travel_stage),sim.campaign.focus_hint,mastery_stage]
 
 func _refresh_panel(force_layout:=false) -> void:
     panel_clock=0.0
@@ -1019,6 +1054,7 @@ func _refresh_panel(force_layout:=false) -> void:
         "level":_level_panel()
         "farming":_farming_panel()
         "mastery":_mastery_panel()
+        "travel_map":_travel_map_panel()
         "help":_help_panel()
     var context:=_panel_context()
     var replace:=context!=panel_context
@@ -1239,6 +1275,7 @@ func _item_panel() -> void:
     if not def.extras.is_empty():
         var cost:=ceili(float(def.reroll)*(1-sim.campaign.bonus("reroll_discount")))
         _game_action(tr("REROLL") % fmt_cost(cost),func()->void:_confirm(tr("REROLL_CONFIRM") % fmt_cost(cost),func()->void:if selected==id:sim.reroll(id)),true,"",more)
+    _game_action(tr("ITEM_AUTO_MERGE") % tr("OFF" if sim.auto_merge_excluded(id) else "ON"),func()->void:sim.set_auto_merge_excluded(id,not sim.auto_merge_excluded(id)),true,"",more).set_meta("guide","item_auto_merge")
     _drop_action(id,more)
     for button in more.get_children():
         button.size_flags_horizontal=0
@@ -1262,7 +1299,7 @@ func _item_panel() -> void:
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
 
 ## Supply details (Change 11): what it does now, whether it can be used, stock (charges spent by use)
-## and permanent mastery (raised by every copy found, never lowered by use or Prestige), with the
+## and use-based mastery (five actual uses per level, reset by Prestige), with the
 ## next mastery gain and milestone. Pinned: previous, Use, the slot's auto-use toggle, next.
 func _supply_panel(id: String,list: Array) -> void:
     var s:=sim.supply(id)
@@ -1283,7 +1320,8 @@ func _supply_panel(id: String,list: Array) -> void:
         status=tr(reason);tone=Color(1,.72,.45)
     _card_line(details,status,18,tone)
     var auto_rule:=tr("SUPPLY_AUTO_RULE_"+str(s.effect).to_upper())
-    if str(s.effect) in ["heal","recovery"]:auto_rule=auto_rule % fmt_value(float(s.auto_hp)*100)
+    if str(s.effect)=="heal":auto_rule=tr("SUPPLY_HEAL_AUTO_CURRENT")
+    elif str(s.effect)=="recovery":auto_rule=auto_rule % fmt_value(float(s.auto_hp)*100)
     _card_line(details,auto_rule,16,Color(.75,.8,.87))
     _card_line(details,tr("SUPPLY_STOCK") % fmt_count(sim.quantity(id)),17,Color(.8,.84,.9))
     var mastery:=sim.supply_mastery(id)
@@ -1291,7 +1329,7 @@ func _supply_panel(id: String,list: Array) -> void:
     var gain: float=float(sim.catalog.items[id].normal[str(s.stat)][1])
     if mastery<cap:
         var next_gain:=_supply_amount(id,gain)
-        _card_line(details,tr("SUPPLY_NEXT_COPY") % (next_gain if next_gain.begins_with("+") else "+"+next_gain),17,Color(.5,1,.65))
+        _card_line(details,tr("SUPPLY_NEXT_USES") % [int(sim.state.supply_uses.get(id,0))%int(sim.catalog.progression.change17.supply_uses_per_level),int(sim.catalog.progression.change17.supply_uses_per_level),next_gain],17,Color(.5,1,.65))
     var reached:=sim.supply_milestone(id)
     if float(reached.duration)>1.0:
         var active_key:="SUPPLY_MILESTONE_COOLDOWN" if str(s.effect)=="heal" else "SUPPLY_MILESTONE_DURATION"
@@ -1342,13 +1380,12 @@ func _confirm_drop(id: String) -> void:
 ## cooldown upgrade always show: the effect with today's numbers, then targets, range and cooldown.
 func skill_description(id: String) -> Array:
     var key: String=str(sim.catalog.items[id].skill)
-    var power: float=float(sim.normal(id).power)*(1+sim.campaign.bonus("skill"))
+    var power: float=sim.skill_power(id)
     var damage: float=float(sim.stats().damage)
     var lines: Array=[]
     match key:
         "heal":
-            var cap: float=float(sim.stats().hp)*float(sim.catalog.skills.heal.player_hp_cap)
-            lines.append(tr("SKILL_DESC_HEAL") % [fmt_value(minf(power,cap)),fmt_value(power),fmt_value(float(sim.catalog.skills.heal.player_hp_cap)*100),fmt_value(sim.campaign.HEAL_BELOW_HP*100)])
+            lines.append(tr("SKILL_HEAL_CURRENT") % [fmt_value(power),fmt_value(sim.skill_base_power(id)*100)])
         "focus":lines.append(tr("SKILL_DESC_FOCUS") % [fmt_value(power*100),fmt_value(damage*power)])
         "frost":lines.append(tr("SKILL_DESC_FROST") % [fmt_value(power),fmt_value(damage*power),fmt_value(sim.campaign.skill_range("frost"))])
         "fire":lines.append(tr("SKILL_DESC_FIRE") % [fmt_value(power),fmt_value(damage*power),fmt_value(sim.campaign.FIRE_RADIUS)])
@@ -1356,6 +1393,9 @@ func skill_description(id: String) -> Array:
     var targets:="SKILL_TARGET_SELF" if key in ["heal","focus"] else ("SKILL_TARGET_AREA" if key in ["frost","fire"] else "SKILL_TARGET_ONE")
     var reach:=tr("SKILL_RANGE_SELF") if key in ["heal","focus"] else tr("SKILL_RANGE") % fmt_value(sim.campaign.skill_range(key))
     lines.append(tr("SKILL_DESC_STATS") % [tr(targets),reach,fmt_value(sim.player_upgrade_value("cooldown_"+key))])
+    if key!="heal":lines.append(tr("SKILL_ACTIVATION_LIMIT") % fmt_value(sim.campaign.skill_activation_distance()))
+    if key=="lightning":lines.append(tr("LIGHTNING_SLOW_DESCRIPTION") % [fmt_value((1.0-float(sim.catalog.progression.change17.lightning_attack_rate))*100),fmt_value(sim.catalog.progression.change17.lightning_duration),fmt_value(float(sim.catalog.progression.change17.lightning_duration)*float(sim.catalog.progression.change17.boss_status_duration))])
+    if key=="frost":lines.append(tr("BOSS_STATUS_DESCRIPTION"))
     return lines
 
 ## A skill's strength in its own unit: HP for Heal, a damage share for Focus, × attack for attacks.
@@ -1537,7 +1577,7 @@ static func cropped(source: Texture2D) -> Texture2D:
 
 func _upgrades_panel() -> void:
     _tabs(UPGRADE_TABS,player_tab,func(i: int)->void:player_tab=i)
-    var sections: Array=[["respawn","movement","skill_slots","skill_auto_0","skill_auto_1","skill_auto_2"],["gear_slots","supply_slots","merge_all"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
+    var sections: Array=[["respawn","movement","skill_slots","skill_auto_slots","critical_chance","critical_damage"],["gear_slots","supply_slots","merge_all"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
     if player_tab==0:_text(tr("UPGRADES_PLAYER_HINT"),17,Color(.75,.8,.87))
     if player_tab==4:
         if not sim.state.offline_pending.is_empty():
@@ -1555,9 +1595,17 @@ func _upgrades_panel() -> void:
         if id.begins_with("skill_") and sim.state.skills_seen.is_empty():continue
         _group_upgrade_card(id,-1)
     if player_tab==0:
+        _text(tr("AUTO_SKILL_CAPACITY") % [sim.automatic_skill_assignments().size(),sim.automatic_skill_capacity()],18)
         for i in range(1+sim.level("skill_slots")):
-            if sim.level("skill_auto_"+str(i))>0:
-                _game_action(tr("SKILL_AUTO_TOGGLE") % [i+1,tr("ON" if sim.state.skill_auto[i] else "OFF")],func()->void:sim.state.skill_auto[i]=not sim.state.skill_auto[i];sim.touch())
+            var assigned: bool=sim.automatic_skill_assignments().has(i)
+            var available: bool=assigned or (sim.state.skills[i]!="" and sim.automatic_skill_assignments().size()<sim.automatic_skill_capacity())
+            var label: String=tr("SKILL_AUTO_TOGGLE") % [i+1,tr("ON" if assigned else "OFF")]
+            if sim.state.skills[i]!="":label+=" · "+sim.catalog.display_name(sim.state.skills[i])
+            _game_action(label,func()->void:
+                var picks: Array=sim.automatic_skill_assignments()
+                if picks.has(i):picks.erase(i)
+                else:picks.append(i)
+                sim.assign_automatic_skills(picks),available,"AUTO_SKILL_CAPACITY_FULL").set_meta("guide","auto_skill_%d" % i)
         # A skill's own upgrades stay hidden until that skill has been obtained once.
         for key in sim.catalog.skills:
             if sim.skill_seen(key):_group_upgrade_card("cooldown_"+key,-1)
@@ -1568,7 +1616,7 @@ func _upgrades_panel() -> void:
         var row:=HFlowContainer.new();rows.add_child(row)
         _buy_supply_actions(row)
 
-## Shop buttons for supplies with a coin price (Health Potion, Coin Tonic). Bought copies add stock only.
+## Shop buttons for all five priced supplies. Bought copies add stock only.
 func _buy_supply_actions(row: Node) -> void:
     for id in sim.supply_ids():
         var price:=int(sim.supply(id).get("price",0))
@@ -1612,7 +1660,7 @@ func _group_upgrade_card(id: String,g: int) -> void:
     buy.theme_type_variation=&"Primary" if reason.is_empty() else &""
     buy.tooltip_text=tr(reason) if not reason.is_empty() else tr("UP_"+id.to_upper())
     buy.set_meta("upgrade",id)
-    buy.set_meta("guide","buy_"+id if id in ["loot","gear_slots"] else "buy_upgrade")
+    buy.set_meta("guide","buy_"+id if id in ["loot","gear_slots","supply_slots"] else "buy_upgrade")
     buy.pressed.connect(func()->void:
         if not _confirmed(sim.buy_upgrade(id,g)):AudioService.play("ui_click"))
     line.add_child(buy)
@@ -1655,7 +1703,7 @@ func _upgrade_benefit(id: String,g: int) -> String:
         return tr("UPGRADE_TRANSITION") % [tr("ON" if sim.level(id,g)>0 else "OFF"),tr("ON")]
     var current:=sim.group_upgrade_value(id,g,enemy_variant) if g>=0 else sim.player_upgrade_value(id)
     var future:=sim.group_upgrade_value(id,g,enemy_variant,next) if g>=0 else sim.player_upgrade_value(id,next)
-    var percent:=id in ["loot","supply_drop","skill_drop","gem_chance","boss_gem_chance","movement","reveal_radius","camp_radius"]
+    var percent:=id in ["loot","supply_drop","skill_drop","gem_chance","boss_gem_chance","movement","reveal_radius","camp_radius","critical_chance","critical_damage"]
     var left:=fmt_value(current*100)+"%" if percent else fmt_value(current)
     var right:=fmt_value(future*100)+"%" if percent else fmt_value(future)
     # Change 13: coin and gem amounts use the shared currency format.
@@ -1866,9 +1914,7 @@ func _world_panel() -> void:
         for st in range(1,int(sim.state.unlocked_stage)+1):
             if st==int(sim.state.stage):continue
             var d: Dictionary=sim.catalog.stages[st-1]
-            for i in sim.state.camps.get(str(st),[0]):
-                var reason: String=sim.campaign.travel_reason(st,int(i))
-                _action(tr("TRAVEL_CAMP") % [d.name,int(i)+1],func()->void:_travel_to(st,int(i)),reason=="",reason)
+            _action(d.name,func()->void:_select_travel_stage(st),true,"",rows).set_meta("guide","travel_stage_%d" % st)
     _section(tr("SECTION_MAP_UPGRADES"))
     for id in ["map_detail","reveal_radius"]:_group_upgrade_card(id,int(sim.state.stage))
     for i in sim.state.spawns:_group_upgrade_card("camp_radius",int(sim.state.stage)*10+int(i))
@@ -1876,6 +1922,27 @@ func _world_panel() -> void:
 ## Moves to an owned camp by the shared travel rules (campaign.camp_action re-checks combat, stage and
 ## ownership at the moment of the move), then closes the panel. Arrival counts as already inside the
 ## camp, so it never pops the camp panel (Change 10 rule).
+func _select_travel_stage(st: int) -> void:
+    var owned: Array=sim.state.camps.get(str(st),[0])
+    if owned.size()==1:
+        _travel_to(st,int(owned[0]))
+    else:
+        travel_stage=st
+        _open("travel_map")
+
+func _travel_map_panel() -> void:
+    _set_title(sim.catalog.stages[travel_stage-1].name)
+    _text(tr("TRAVEL_MAP_HELP"),18)
+    var map=preload("res://scripts/game/camp_picker.gd").new()
+    map.sim=sim;map.stage_id=travel_stage
+    map.custom_minimum_size=Vector2(0,420)
+    map.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    map.chosen.connect(func(camp: int)->void:_travel_to(travel_stage,camp))
+    rows.add_child(map)
+    var reason:=_teleport_reason()
+    if reason!="":_text(tr(reason),18)
+    _pinned(tr("TELEPORT_BACK"),func()->void:_open("world"),true,"",false,"",false)
+
 func _travel_to(st: int,camp: int) -> bool:
     if not sim.campaign.camp_action(st,camp,true):return false
     teleport_target=[]
@@ -2146,6 +2213,7 @@ func _stat_text(key: String,value: float,bonus: bool=false) -> String:
     return "%s  %s%s" % [tr("STAT_"+key.to_upper()),fmt(value)," "+tr("HP_PER_SECOND") if key=="regen" else ""]
 
 func _settings_panel() -> void:
+    _inventory_zoom_controls()
     var row:=HFlowContainer.new()
     row.add_theme_constant_override("h_separation",8)
     row.add_theme_constant_override("v_separation",8)
@@ -2238,6 +2306,7 @@ func _history_text(entry: Dictionary) -> String:
 ## Filters (Change 11, opened from the dock): the chosen category filters the gear grid and this list
 ## while the panel is open; closing it in any way shows every item again (_clear_filters).
 func _inventory_panel() -> void:
+    _inventory_zoom_controls()
     _set_title(tr("PANEL_FILTERS"))
     _pinned_equipment()
     _tabs(FILTER_TABS,inventory_filter,func(i: int)->void:inventory_filter=i;slot_signatures.clear();_refresh_slots())
@@ -2617,6 +2686,7 @@ func _missions_panel() -> void:
     _section(tr("REGULAR_MISSIONS"))
     for i in range(sim.state.missions.size()):
         var m: Dictionary=sim.state.missions[i]
+        sim.campaign.price_mission(m)
         var g: int=sim.campaign.group_id(str(m.target))
         var art: Texture2D=icon_cache.get(sim.catalog.groups[g].body) if g>=0 else _art(60)
         var ready: bool=not m.claimed and m.progress>=m.goal
@@ -2672,7 +2742,7 @@ func _task_card(art: Texture2D,title: String,value: String,progress: float,goal:
     var reward:=HBoxContainer.new()
     reward.add_theme_constant_override("separation",6)
     text.add_child(reward)
-    _card_line(reward,value,17,Color(.8,.84,.9))
+    _card_line(text,value,17,Color(.8,.84,.9))
     for pair in [[COIN,coins],[GEM,gems]]:
         if pair[1]<=0:continue
         _card_icon(reward,pair[0],Color.WHITE,24)
@@ -2865,8 +2935,8 @@ func _open_prestige_confirm(ready: Array) -> void:
     for id in ready:
         var op: Dictionary=_opportunity(id)
         rows_.append({"icon":_path_art(str(op.path)),"text":str(op.name)+"  ·  "+tr("PRESTIGE_CONFIRM_CHOOSE_CARD")})
-    var keep: Array=[tr("KEEP_LINE_CARDS") % sim.state.owned_cards.size(),tr("KEEP_LINE_GEMS") % fmt_currency(sim.state.gems),tr("KEEP_LINE_MAP"),tr("KEEP_LINE_UPGRADES"),tr("KEEP_LINE_PROGRESS"),tr("KEEP_LINE_SETTINGS")]
-    var reset: Array=[tr("RESET_LINE_COINS") % fmt_currency(sim.state.coins),tr("RESET_LINE_LEVEL") % int(sim.state.player_level),tr("RESET_LINE_ITEMS"),tr("RESET_LINE_MAPS"),tr("RESET_LINE_UPGRADES"),tr("RESET_LINE_CHALLENGES")]
+    var keep: Array=[tr("KEEP_LINE_CARDS") % sim.state.owned_cards.size(),tr("KEEP_LINE_GEMS") % fmt_currency(sim.state.gems),tr("KEEP_LINE_MAP"),tr("KEEP_LINE_UPGRADES"),tr("KEEP_LINE_PROGRESS"),tr("KEEP_LINE_SETTINGS"),tr("KEEP_LINE_LEVEL") % int(sim.state.player_level)]
+    var reset: Array=[tr("RESET_LINE_COINS") % fmt_currency(sim.state.coins),tr("RESET_LINE_SUPPLY_MASTERY"),tr("RESET_LINE_ITEMS"),tr("RESET_LINE_MAPS"),tr("RESET_LINE_UPGRADES"),tr("RESET_LINE_CHALLENGES")]
     $PrestigeConfirm.open(tr("PRESTIGE_CONFIRM_SUBTITLE") % ready.size(),rows_,keep,reset)
 
 ## The batch: one card per ready opportunity, chosen in order. Tap a card to select it, then keep it.

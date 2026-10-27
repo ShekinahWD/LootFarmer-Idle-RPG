@@ -1,0 +1,483 @@
+{
+  "change": 20,
+  "baseline": "lootFarmer(20261027-171448).zip plus LootFarmer_Change_19_Gameplay_Patch.zip",
+  "save_schema": 8,
+  "files": [
+    {
+      "path": "data/game/catalog.json",
+      "sha256": "c81d252e02342aa2c09771da34c47d8d8f4e90c7f6cb848086df3a9a4a89af4f",
+      "previous_sha256": "82c84e56e1df1f292434e6bfcc68ade2177e2307c6370fdba325e46ebcf31b7b"
+    },
+    {
+      "path": "docs/Change_20_Evidence/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/attack_timing_probe.log",
+      "sha256": "6e5d58a16ad34528739a5ad144d71db79e55b2286e9c7b6b67e694d45cb34f28",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/bootstrap_probe.log",
+      "sha256": "d17112713b9ac35797c8837ea4a0eab0f48e5bbafccf2810a86cd5493e8a99f4",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/camera_probe.log",
+      "sha256": "09daeac08a0a2f39cdb8215bdb081ea0125f89909d08b25057bec3b6771e270b",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/campaign_content_probe.log",
+      "sha256": "abf3b07fc1090a6b88364f23435ce2d80e6bf0232dd859722c944089776e7b25",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/campaign_probe.log",
+      "sha256": "320554061c0abed4d7331afab1982fc1ffce248b62fe69a2edf407ef717347fc",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_10_probe.log",
+      "sha256": "e41a3b7963296a23bb530e6f7cfaa2e77b59dc9f80d8827e1333e501b6f1f661",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_11_probe.log",
+      "sha256": "e0fb0e0b2322b9cfa5c6d5673a5ce3e697b00539525cc07b82e279d8389a0e43",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_11_smoke.log",
+      "sha256": "096a1b5c534396daf158fc42ad5efb80c4692c1b1a9d3ca5f5b82ef8260b3073",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_12_probe.log",
+      "sha256": "8aa5ca432e84c0fbdbaee090129e1274dbd6eefd8deccd290db31f55540823cb",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_12_smoke.log",
+      "sha256": "33445344a99607aaa38c4d97815b8c23240af694c9343ae5a28ded4308542e80",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_13_probe.log",
+      "sha256": "56cc4a4137b0643f5a496adf3d047146689dc9ea3b73d1f5f8148880c71fff6b",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_14_probe.log",
+      "sha256": "ccc3fe6ebb577065c38b0e86769e9e225498f8ed86537fde80f073dbead67a94",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_15_probe.log",
+      "sha256": "db04f36fa07950b7fe6b32920a37e631ca4aafbfe8572f9f3f71a4da60f21fff",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_16_probe.log",
+      "sha256": "ee60bfba04e1b6fd532e831fc5c74ca2d1266b04a6b7bd6f93137d30818f0117",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_17_probe.log",
+      "sha256": "4bf92db71971163facd04758a7e5b3afba6eec889e300a401b19f663d84fdb55",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_17_weather.log",
+      "sha256": "5546e74ed33db316a6833b8f7daeaf0b771f1c4f4cd58480f63cfaec28b261d8",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_20_probe.log",
+      "sha256": "3569928d9bcc2fcd80303e8a40a6f2046f1f86b05025185b822e91e12d8bbda5",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_5_probe.log",
+      "sha256": "56586e66d44a80eab51b6bec02699cbcfc2fef6ab9529c47af3698d259f7d99b",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_6_probe.log",
+      "sha256": "1173f4038f90277c80d34f5ecb32086fb96f3d4047d1ed8cb2846d49723cd188",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_7_probe.log",
+      "sha256": "9a022e898cce81c21bf4e0693b6afba5a2b9f66e271de4c313febc0138db57db",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_8_probe.log",
+      "sha256": "e7369b75f7a9219b9c3143b8d8fdd49fd480a27aa40f702fe30f762a7722e3fc",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_8_walk_probe.log",
+      "sha256": "797938b9e87b7ccdc5390641b852083a8a653ac843bcaf69318a6a5c5eff18e4",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/change_9_probe.log",
+      "sha256": "e6e146a94f73ec1452643977fd4006ecf88ce3c98d895a5e6809d29e95b4f6d2",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/final_targeted_summary.txt",
+      "sha256": "53ca0d287b5b817ca77787b02254cccded9bbc92e29ba7b3d25b27b45128e59d",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/gameplay_probe.log",
+      "sha256": "803470beaa4e1ce84ad95554e2c873adf1590de409241c86c755e94dfa7ef940",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/inventory_probe.log",
+      "sha256": "fb9d33a6b0a171b6e8413825054ab740786e30ee3a492776de32a33974e1e1e0",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/render.log",
+      "sha256": "87b6379cf2e6ca972c0f9f05dbe07efd569f124b543bbc2c0733d74b33aa2bec",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/skill_proximity_probe.log",
+      "sha256": "ed50849946fe6aa6e3a19687752b0fecfec3519fe9c5d235c4b0f3e14cfca2d0",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/static_checks.json",
+      "sha256": "203f8868302d97b56e402359e3e2a4f02b65ac69947622cc8d9b8da0db93cbbe",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/suite_summary.txt",
+      "sha256": "9af21534ae143427a10c8cd6e3695d8efcb098fe35bfb0906b76cc1ee74a7cc6",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/targeting_probe.log",
+      "sha256": "4d3132bdaf2d87caf67dcbcceb28145ad1a9dded7ebd54f6192e0fa7f5d21376",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/automatic_skill_selection.png",
+      "sha256": "f405d2b25d5a9a2d6cc5da18ceb731a801f738570cba30e57c2c918b40f7bbc3",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/boss_chance.png",
+      "sha256": "8fc2a36bd1790fe42a095d41f3b6ad29539cd80d96c4fae709e325fb01d7afd8",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/boss_preparation.png",
+      "sha256": "f9899c4d243101ccbca1ae86ba394c0e8761b9ab34e5ea9b90f6d95af433cbd3",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/expanded_map.png",
+      "sha256": "f2a274930b0084973620611499d2854cb4b601f91986d8902e40cd1197ac2074",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/inventory_0.png",
+      "sha256": "d97ff6346320474654ca5d3d047fd512a4be8de3788f31140b93baf303bb25c7",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/inventory_1.png",
+      "sha256": "dbdffa482114c8394ac21a70c73d40bbb74a7fd2d4bb4d171c2228ae931238e8",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/inventory_2.png",
+      "sha256": "9854ce39c4eaae2d4cd7d53e91d31e6828f1f4000f5397b159f22060def10c8d",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/item_auto_merge.png",
+      "sha256": "fcb863ac23699164ca434c923a71d26e43b39d19c153ba3cd7d5be83caa96224",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/lightning_description.png",
+      "sha256": "05aa45d50b346614a26019a9c9731eec53d6977853830da5ec7db830668911b2",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/missions.png",
+      "sha256": "226dec9b0dd715c4bfc37607a64b3562c68471b0b9baeb8c7eb7d7973742567c",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/supplies.png",
+      "sha256": "25ecd9cbea4a95976dfc8e33f665ee1b94193d2c6a9293b969afd2435f7b9c07",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/trackers_and_objective.png",
+      "sha256": "0737e0fa4683f39c0b501088701c88877955aed27bd9d801c5f3cba2c1928b73",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/travel_map.png",
+      "sha256": "8d0786526e3ab34be4ed5da27e304f9b59e466cd2c1bb8f5252adb22591e5ec2",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/tutorial_final.png",
+      "sha256": "ba85218897a06f832473a2b01dfb0639f77107b7e24a9e6fa6f412ae9989d29c",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/tutorial_final_confirm.png",
+      "sha256": "ffccb1ab2d899587884b93b8bacae6ee9c2e7f04dcf62fb58788434c38cecbb2",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/upgrades_and_automation.png",
+      "sha256": "cc4c1a531e447e0cff2711f2b4549868705ffc9b0279d2f6bf18e0279f98d529",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui/zoom_controls.png",
+      "sha256": "b9590a1bcf2c2e225ee1136467f3243f7fb145a540f71413e6df1f7dd066aaff",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/Change_20_Evidence/ui_probe.log",
+      "sha256": "67d52dd982214df9cef2f6b036195d095263bdbe21d8c888f0117d4cb30ad412",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/LootFarmer_Asset_Registry.md",
+      "sha256": "0fa76e31031fb297f258d1911f4e24e7a06af5f1ae3d6441eaa464353e5b6c32",
+      "previous_sha256": "2679235824501c9e0ed6ee2605a69b98673963fd69e41aba85eaa42d1e630447"
+    },
+    {
+      "path": "docs/LootFarmer_Change_17_Claude_Integration.md",
+      "sha256": "b756205c306a10ee27992042892d0e5101a694b419b7ba1103b8be0f044f0dc6",
+      "previous_sha256": "22748e0f7983bf41851e54be2bbfd07bba9db6fb6fb2d9d2a611878c07368bfa"
+    },
+    {
+      "path": "docs/LootFarmer_Change_20_Report.md",
+      "sha256": "810ecdce78ec6b7606d85f433dedbb038d676c23c3198db0a54493d22e5980e6",
+      "previous_sha256": null
+    },
+    {
+      "path": "docs/LootFarmer_Content_and_Balance.md",
+      "sha256": "6c38e20f4b844a8c3a8ff1271b8251a22a93c5d9bf38ad5068da4ff5ec403d5e",
+      "previous_sha256": "793a34af1b26fd824914a2cf92856ac49c4c053e377ffc55497742970b71e4be"
+    },
+    {
+      "path": "docs/LootFarmer_Design_README.md",
+      "sha256": "ed5f37a3e8e428777800fcc252ddbdee5a769b6df9d1fadf8b0e8a7783f6f149",
+      "previous_sha256": "8c43ae9368051b6925f03e9a4e4f09710ffbffc4983ae4e3d2c2c7764aae8594"
+    },
+    {
+      "path": "docs/LootFarmer_GDD.md",
+      "sha256": "b4a6eb2a6569567a16d6302dbf55d7bced5da20ed5670ace9e4b1d112cf99d69",
+      "previous_sha256": "d2d0997a8d883717eedbd3e8942534a48790a8eb15e49ea9bf6eef4fb458f110"
+    },
+    {
+      "path": "docs/LootFarmer_Prototype_Status.md",
+      "sha256": "63df4e5fa22436ac0194145c024d9455f879f5efaa918e952fcee659290efad7",
+      "previous_sha256": "48a5ecc94e3460c3271feeb51ad582f3ee7434301df1e06d2737839fd4c51498"
+    },
+    {
+      "path": "docs/LootFarmer_State_Contracts.md",
+      "sha256": "083fb8aac49596629005931505c6d47b60c9224b537f0577726c3b556ff5e9ae",
+      "previous_sha256": "9193431fb74fe9f9b731c85321cbed5f00dcf7d22a9c89929adbbe12fc06ee93"
+    },
+    {
+      "path": "docs/LootFarmer_Test_Suite.md",
+      "sha256": "3def89f23915db850e3a663d410e97fc0cebe6ae359e87d9d8927462e25b9b46",
+      "previous_sha256": "caaed4ed8351246c078aa1eb3f08dce198143bf42b668a9b4543476e97430dce"
+    },
+    {
+      "path": "docs/LootFarmer_Upgrade_Catalog.md",
+      "sha256": "f5430b80411d4d559ceed7af4d31ed2e1b0ae6497ca98d744bcc1b3415922c8a",
+      "previous_sha256": "5011cb1b623104bba8f7d6f1cc0766526c093b2eeeb0431c3b876fdb3f22bd58"
+    },
+    {
+      "path": "docs/Reusable_Game_Development_Playbook.md",
+      "sha256": "ae8eddd32f3d25d26b09a154d8e8cfcd07c78598b1c1c87bc71c677ee7c6ea1a",
+      "previous_sha256": "945ed8a18aaaef5eb1a9461e51e8ac2ba46ed7d61b0d7ffdcbb4e41e61e82dfd"
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "f3295a774c3e968ec92bd8f97de0fb768c4f1182dbee3c2cabd16881d046c72a",
+      "previous_sha256": "34e778e42a91ca654d26b74f07cbb7dec88cccc6d3c56928e9a87e31f5e80a14"
+    },
+    {
+      "path": "localization/en.po",
+      "sha256": "fa0a8c86b6f0f4e809ce526310c4b473b1b1b933df5c3f3fd4066637038a45b2",
+      "previous_sha256": "b6bf68ddba01b4547f6a3f18d3810b1b0789473c6fdea116289e03b1d776e3ab"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "adb5859ba0c61c156570853e57d5500d736bcdf1b9292852f375dae5afc71abc",
+      "previous_sha256": "86305807a9391d8c7ad2a186463340853d00093b05aec08fcb500ae71c95a626"
+    },
+    {
+      "path": "scripts/autoload/settings_state.gd",
+      "sha256": "e986bedae72aa87c0f5fe75739d351607e68bfbd5dc79af3930fce028076b2b8",
+      "previous_sha256": "4ce2aff9963a412e8d602cdfd4891785f171ed71f4feee648290ebe82f64231e"
+    },
+    {
+      "path": "scripts/game/camp_picker.gd",
+      "sha256": "655a84eaa996239ce5fdfadb5fd5e2c3bcf56bcc08c39faf7078af7d4738d1d5",
+      "previous_sha256": null
+    },
+    {
+      "path": "scripts/game/camp_picker.gd.uid",
+      "sha256": "0961d61e532a2a130a96413c75e996422bd625ed72143ce65a99fd1d263b3eb9",
+      "previous_sha256": null
+    },
+    {
+      "path": "scripts/game/campaign.gd",
+      "sha256": "7b2a372c3f03519d871a83ae10e4f3f2a787849e1d9667757b3765226f3a2bca",
+      "previous_sha256": "bb408abbc7f7f9f33a82b080b9d8293809a9d7d34cae14965848f031a13a26ad"
+    },
+    {
+      "path": "scripts/game/game_ui.gd",
+      "sha256": "62f3c5f910c84f0c2825153e386904c39c6b339415e5d1200928d00e7bdb96da",
+      "previous_sha256": "3c13c0d49bbfb8e568b7336f501401796c65ab04b2ee17037e006da477dafb95"
+    },
+    {
+      "path": "scripts/game/guided_progress.gd",
+      "sha256": "beb64d94f5e655942ee0135dd2643d5c84315141cf4e45e3d89734f00cb09dce",
+      "previous_sha256": null
+    },
+    {
+      "path": "scripts/game/guided_progress.gd.uid",
+      "sha256": "83c4c7ddd483c5db468f2e5077b8f53a6646ea62b5cd3ed36221371be025d35c",
+      "previous_sha256": null
+    },
+    {
+      "path": "scripts/game/map_view.gd",
+      "sha256": "1dc4b6df9eb9977d0c1b89f9124b6e00e4d4b823886d68400197ee272cf261c4",
+      "previous_sha256": "b0e315cb6f670753bdc96d13fd97f4f42a7f977c0835ffc98fe125c8122c0c5b"
+    },
+    {
+      "path": "scripts/game/milestone_banner.gd",
+      "sha256": "b0ed482d7b95e42da5d63da8a7347b2e4f1d278434937cada992ccdb9ada8b8d",
+      "previous_sha256": "64b69ee9feca1a8eab044d5bfc708ed49c4c0285c9d19f86be7b85865f5dd3c8"
+    },
+    {
+      "path": "scripts/game/onboarding.gd",
+      "sha256": "00ca364fb44df7d22506074eb39a9df52691bd736e409aac4d03cdbcc123b3d5",
+      "previous_sha256": "f69a3606a557d29b79916e2182b5b5047371207ca20e76a8d2a185cfcc034a0e"
+    },
+    {
+      "path": "scripts/game/simulation.gd",
+      "sha256": "76aacecef27044fa1c1c07afa456c7e3b8cf68c846aeeabd48577ce087f2c883",
+      "previous_sha256": "e805b20f2bc7ce2e7ae44f40bbe18bcb4ee3132c8ccf5bf94b6979180b7ea453"
+    },
+    {
+      "path": "scripts/game/tutorial_guide.gd",
+      "sha256": "e44fbc4be4c63e9c743f7648abda3155e64370891e0e2d9c591d393cf5c5c525",
+      "previous_sha256": "2c55a1b659be6f36eca4700f626dd666dfd35720524fa62aaa43211c8a85c5da"
+    },
+    {
+      "path": "scripts/game/world.gd",
+      "sha256": "48d231ef936ef51d5cad1c9671e9889280f145b979c789a2d8c6f9a01ec83440",
+      "previous_sha256": "1c10451b35f0b2760a0d13e0fb9347e9d15d429d3b73fb5c38af3c430e3c46f1"
+    },
+    {
+      "path": "tests/change_11_probe.gd",
+      "sha256": "5285dcec1dbee4afb90cc664c902ad3e541ff448392632a9d664732f574d3db4",
+      "previous_sha256": "922a5bac7e10a63349593fa30a75b55fe5a46a4807acaf2a103bc168d7f1b389"
+    },
+    {
+      "path": "tests/change_13_probe.gd",
+      "sha256": "e68b76398973b7e3dd9c8a47172ea6664f0087fd1e8433cf9ea769c977cd3a6a",
+      "previous_sha256": "65694f885c666e7cc92eb2579ff49cc1baa594cbb35742d9fb59ca3bc9098c45"
+    },
+    {
+      "path": "tests/change_14_probe.gd",
+      "sha256": "1e5c0ddac6d651fb8f2b464bb8e23f5979cf971829b28083fd54ab893f37e69e",
+      "previous_sha256": "718ecd0a4adc02d4b437ba77e1c8151edfba6fd19b716846697dba7ccae9ad17"
+    },
+    {
+      "path": "tests/change_15_probe.gd",
+      "sha256": "b350432bc5ef59cb92d461baa464bbd32e71ce37054033fd981617a2e8cca85a",
+      "previous_sha256": "3b6342dd597a80b20ad45422b007009d9e9ba386a41ccf1e82f45910be5a4306"
+    },
+    {
+      "path": "tests/change_16_probe.gd",
+      "sha256": "625765bbd0471348d09dc4b4fd525f3fc391f8811b534d60a3bf7ef045d0e930",
+      "previous_sha256": "7bb61f0e976fa99cf6f6550f722544f41161dce61ae11d8afae1b2a99a2d5a6e"
+    },
+    {
+      "path": "tests/change_17_probe.gd",
+      "sha256": "772227719760e8c3dcc94bf98b4346210ff64ab9cf9aaf1688149cc797a7309a",
+      "previous_sha256": "f0c1c04fb728d2e72930b2522c3d45fc03e0ae142bc548d9515dd8f4aa20e681"
+    },
+    {
+      "path": "tests/change_20_capture.gd",
+      "sha256": "4a7ff6e10c52b505a593c57fd702d7a047b599ed2e26f78036ea310567082a9b",
+      "previous_sha256": null
+    },
+    {
+      "path": "tests/change_20_capture.gd.uid",
+      "sha256": "5ff40181578ae08281de2d4b6789f0b550c9beae2eea19a5041a97a640229ef1",
+      "previous_sha256": null
+    },
+    {
+      "path": "tests/change_20_capture.tscn",
+      "sha256": "dcb896eaa5a1a52dc85db3e74d0943c76fbdc0e8c6b1a62d452f9272bbf81fbf",
+      "previous_sha256": null
+    },
+    {
+      "path": "tests/change_20_probe.gd",
+      "sha256": "f835d36547a5a968df3e49969ae0e568d09d8a1dbc6b238e677fb3411ee93a41",
+      "previous_sha256": null
+    },
+    {
+      "path": "tests/change_20_probe.gd.uid",
+      "sha256": "5785b6f2004bc070f9cb620861a1684f22bd34989b879bc1014524068f7722e9",
+      "previous_sha256": null
+    },
+    {
+      "path": "tests/change_20_probe.tscn",
+      "sha256": "c3f5757321689eb9a1520da3ebaba777c4178418e14240a3e13403529ec67f6f",
+      "previous_sha256": null
+    },
+    {
+      "path": "tests/change_6_probe.gd",
+      "sha256": "82414be36ed6db38f842945ee6f3af04fd5fb5b7b4cfcc716766473d390bc050",
+      "previous_sha256": "ddfebdadf84957b59b2458a975e4f74d88569a9a74a0dbce429e96852f09675b"
+    },
+    {
+      "path": "tests/change_7_probe.gd",
+      "sha256": "bf801dd01c50598d8df499acfc869f8639904e540adc2a90142465b4f34ecdfa",
+      "previous_sha256": "ef03eee5602ceaa4354c643ab7be3875ee8ad0e099ef02ab331feac86e68a47d"
+    },
+    {
+      "path": "tests/change_8_probe.gd",
+      "sha256": "138b4644eaa96b0b7277722b28c0efa8433210b4dd35afaf0ab243b6528f7c2b",
+      "previous_sha256": "23ad2e9b7830a37d8ccb6d95b19c3f1a70af7e7a6cf2e329ff6d42d982686a81"
+    },
+    {
+      "path": "tools/run_probes.py",
+      "sha256": "758addbf2f7e44bcaa1a58693bea16735e66b53e46ceb8557e42b22c2b8ae22b",
+      "previous_sha256": "3b897309443f2ad64a13ccd0f923e12cc9ce1a24350f26f6414002b98078fa88"
+    },
+    {
+      "path": "tools/validate_campaign_source.py",
+      "sha256": "9c7dde13d743d575bed46c9253b9629b6f9e4bcc8b04fb69085a36a2c239c0df",
+      "previous_sha256": "e3ddb24166352e8c9fe4c5be3b03887d46a70623a3a99c1f00a6e78c89701c1b"
+    }
+  ],
+  "note": "Manifest excludes its own hash. No deletions. Extract over the baseline at project.godot."
+}

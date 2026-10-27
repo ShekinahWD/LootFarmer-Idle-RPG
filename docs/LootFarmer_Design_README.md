@@ -1,3 +1,7 @@
+# Current entry point — Change 20
+
+Read `LootFarmer_Change_20_Report.md` for the complete scope and installation, then the GDD, State Contracts and Test Suite. The UI integration is implemented in this package. Earlier handoffs and scopes below are historical.
+
 # LootFarmer — Current project entry point — Change 17
 
 ## Change 17 — current gameplay authority (27 October 2026)

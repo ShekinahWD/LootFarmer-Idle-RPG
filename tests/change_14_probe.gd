@@ -259,7 +259,7 @@ func skill_checks() -> void:
         for key in ["lightning","strike","fire","frost"]:
             fresh();stage(3);sim.campaign.reveal_circle(Vector2(px,py),400.0)
             var t:=actor_of(sim.catalog.groups[int(target.group)].id)
-            t.x=px+40;t.y=py;t.hp=1e7;sim.locked_target=t.id;sim.state.discovered[str(t.group)]=true # fixture: a target in reach
+            t.x=px+40;t.y=py;t.hp=1e7;t.aggro=true;sim.state.player.quiet=0;sim.locked_target=t.id;sim.state.discovered[str(t.group)]=true # fixture: a target in reach
             game.world._process(0);clear_effects();await frames(1)
             var view: LootActorView=game.world.views[t.id]
             var hp: float=t.hp
@@ -480,6 +480,7 @@ func focus_checks() -> void:
     check(not sim.state.has("focus_hint") and sim.state.tutorial.seen.has("focus_unlocked"),"Only the seen flag is saved; the hint itself never is")
     # Got it dismisses it.
     g=await focus_setup("guided")
+    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.duplicate()
     await open_upgrades(g)
     await buy_focus()
     game._close();await frames(4)

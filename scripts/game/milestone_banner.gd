@@ -5,6 +5,7 @@ extends Control
 ## and leaves the persistent Prestige badge as the way back.
 signal opened(kind: String)
 @export var hold_seconds:=3.2
+@export var boss_warning_seconds:=8.0
 @export var spark_frames:=16
 @export var spark_size:=Vector2(25,27)
 const SPARKS=preload("res://assets/PixelPlains/Sparks 25x27.png")
@@ -64,7 +65,7 @@ func _process(dt: float) -> void:
     var frame:=int(age*20.0)%spark_frames
     for i in range($Sparks.get_child_count()):
         $Sparks.get_child(i).texture=spark_textures[(frame+i*5)%spark_frames]
-    if age>=hold_seconds:_finish()
+    if age>=(boss_warning_seconds if current.get("warning",false) else hold_seconds):_finish()
 
 func _begin(entry: Dictionary) -> void:
     current=entry;age=0.0

@@ -1,0 +1,219 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+  ok  Runs with --first-run-complete (fresh profiles start with every menu revealed)
+-- economy
+  ok  Base Coin reward ×1.5 per map, compounded (Winter I 1.0, Spring II 17.085938); bosses 8×
+  ok  Each map pays exactly 1.5× the previous one: [1.0, 1.5, 2.25, 3.375, 5.063, 7.594, 11.391, 17.086]
+  ok  Every map's boss pays 8× its normal enemies
+  ok  Coin Amount still adds +50% of base per level on the new base (Summer I, level 3: ×2.5)
+  ok  External coin bonuses still multiply the new base (Coin Wisdom +25%)
+  ok  Enemy upgrades (collect_range, collect_speed, loot, coin_amount, reveal_stats, reveal_drops, supply_drop, group_xp, skill_drop), map upgrades (reveal_radius) and camp radius cost base × growth^level × 1.55^(map−1) on all 8 maps []
+  ok  Camp unlock prices: 50 / 150 × 1.55^(map−1) (Winter I 50, Spring II 1075)
+  ok  Map Details floor: 40 × 1.55^(map−1) (its per-purchase sequence unchanged)
+  ok  Global prices: Movement 40, Respawn 30, Use speed 100 Gems, Offline coins 100
+  ok  Gem upgrades unchanged: ×(1 + 0.25 × (map−1)), Auto Evolution flat 2,000, Spawn Amount 75 base
+  ok  Every new map costs slightly more relative to its base income (Loot Chance price ÷ income rises map by map)
+-- Gem Auto-Collect and Collect Batch
+  ok  Auto-Collect and Collect Batch are bought with Gems
+  ok  Auto-Collect costs 20 Gems on Winter I
+  ok  Buying Auto-Collect spends 20 Gems and no Coins
+  ok  Collect Batch: 50, 150, 450 Gems (×3 per level as before) [50, 150, 450]
+  ok  Batch grows 1 → 4 after three levels; the 5-level limit (batch 6) is unchanged
+  ok  Winter II: 25 and 63 Gems (Gem scaling 1 + 0.25 per map)
+  ok  Both are Gem upgrades, so Prestige keeps them
+  ok  After a Prestige: Auto-Collect 1, Collect Batch 3
+  ok  Levels bought with Coins earlier load unchanged (batch 3)
+  ok  …and are kept by the next Prestige
+-- save compatibility
+  ok  Save schema stays 8 (no reset of existing saves)
+  ok  A save without the new records loads: defeated bosses count as found ["boss-snowman", "boss-cyan-robot"]
+  ok  …no followed mission, and its Prestige unlock is kept
+  ok  …and every permanent upgrade is kept
+  ok  The migrated profile saves
+  ok  …and reloads from disk unchanged
+  ok  Validation refuses a normal enemy in bosses_found
+-- boss discovery and Prestige
+  ok  Fresh profile: no boss found, Prestige locked
+  ok  240 units away (out of sight): not found
+  ok  Approaching within sight finds the Snowman
+  ok  One notice and the boss cue (boss_found, the mission-ready sound)
+  ok  The boss cue uses the mission_ready sound
+  ok  Milestones: the warning first, then Prestige unlocked ["boss_found", "prestige_unlocked"]
+  ok  Banner: "!WARNING BOSS FOUND!" in red, naming the Snowman
+  ok  Finding the Snowman opens Prestige (button and reset gate)
+  ok  …without defeating it or opening Winter II
+  ok  Approaching again never repeats the warning
+  ok  A defeated (respawning) boss is not found by walking past its spot
+  ok  Prestige keeps the bosses found and the unlock
+  ok  The Prestige checklist reads "Find the Winter I Snowman"
+  ok  Hard Reset clears the found bosses
+-- boss names and skill icons
+  ok  The Cyan Robot's name shows above it
+  ok  …in threatening red ((1.0, 0.27, 0.22, 1.0))
+  ok  …with a dark outline: 5.9:1 against it, readable on snow and grass
+  ok  One skill icon: Heal
+  ok  The World banner of the required boss still shows
+  ok  Name, skill icon, banner and HP bar never overlap
+  ok  Stacked upward: HP bar, name, skill icon, banner
+  ok  The speech line sits above the stack
+  ok  A Space Helmet elite shows its skill icon and no name
+  ok  Enemies without skills show neither
+  ok  A defeated boss hides its name and icons
+  ok  The final boss: three skill icons in one centred row, clear of its name
+-- Winter I objective
+  ok  Winter I shows "KEEP FARMING UNTIL YOU CAN BEAT THE BOSS TO ADVANCE."
+  ok  It never takes touches
+  ok  It sits under the Next Stage chip, on the same right edge
+  ok  Readable: 15 px on the dark chip, 9.5:1
+  ok  Finding the Snowman keeps it (it stays until the Snowman is defeated)
+  ok  From the first second (no menu revealed yet) it sits at the top of the cluster
+  ok  Defeating the Snowman removes it
+  ok  Other maps never show it
+-- mission and Prestige trackers
+  ok  Follow a regular mission
+  ok  Follow a Prestige opportunity as well
+  ok  Both trackers show at once
+  ok  Both inside the map
+  ok  Both in the bottom-right corner
+  ok  Stacked: mission above Prestige, no overlap
+  ok  Clear of the joystick
+  ok  Clear of the map cluster
+  ok  The mission tracker says what to do, where and how far: "Defeat Blue Cap (Winter I): 0 / 120"
+  ok  …with the enemy's portrait
+  ok  Readable text (16 px)
+  ok  Tapping the mission tracker opens Missions
+  ok  Mission cards carry Follow / Unfollow
+  ok  Tapping the Prestige tracker opens Prestige
+  ok  Unfollowing the mission leaves the Prestige tracker
+  ok  Unfollowing the opportunity leaves the mission tracker, moved down to the corner
+  ok  A complete mission says to claim it
+  ok  Claiming it ends the follow
+  ok  …and the tracker goes
+  ok  Main objective 1 reads "Defeat enemies: 3/5"
+  ok  Claiming a followed objective ends the follow
+  ok  Following another mission replaces the first (one at a time)
+  ok  The followed mission is saved
+  ok  Prestige clears the followed mission (missions restart)
+-- Prestige follower text (33 opportunities)
+  ok  Every opportunity says what to do with current/required progress, names the enemy and map where one applies and the next requirement []
+  ok  Winter collection names the exact item: "Step 1/3 · Collect Blue Cap Outfit from Blue Cap (Winter I): 0/20 / Next: Red Scarf Outfit"
+  ok  …and the tracker shows that item's icon
+  ok  Tracker icon = the Blue Cap Outfit
+  ok  After 20 Blue Caps the next outfit is named: "Step 2/3 · Collect Red Scarf Outfit from Red Scarf (Winter I): 0/20 / Next: Chef Hat Outfit"
+  ok  Winter route: "Step 1/3 · Defeat Blue Cap (Winter I): 0/100 / Next: Defeat Red Scarf (Winter I) ×100"
+  ok  First bounty: "Defeat Snowman (Winter I): 0/10"
+  ok  Long chain: "Step 1/4 · Defeat any enemies: 0/250 / Next: Defeat any bosses ×3"
+  ok  Winter trophies: "Defeat Snowman (Winter I) for its trophy · trophies 0/2 / Next: Cyan Robot (Winter II)"
+  ok  Winter mastery: "Explore Winter I: 7%/90% / Then: Explore Winter II: 0%/90% (5 left)"
+  ok  Long rest: "Longest single absence: 0.0/24 h"
+  ok  Descriptions are written out and name their maps ("Defeat the Snowman (Winter I boss) 10 times")
+  ok  The Prestige panel shows the same actionable line
+-- Prestige keeps Gems and exploration
+  ok  Prestige
+  ok  Gems kept: 345
+  ok  Explored cells kept on both maps (Winter I 23%)
+  ok  Sighted camps and found spots kept
+  ok  Coins, owned camps, map upgrades and the run's online Gem credit still reset
+  ok  Other Prestige rules unchanged (card granted, back to Winter I)
+-- Health Potion
+  ok  ^0 heals 10% of max HP
+  ok  ^50 heals 15%
+  ok  ^100 heals 20% before external bonuses
+  ok  Using it at ^100 restores 20.0 of 100 HP (20%)
+  ok  External max-HP bonuses still raise what it restores (24.0 HP, above 20% of the base 100): no healing cap
+  ok  Mastered cooldown unchanged (10 s)
+-- Drop All
+  ok  Drop All on the Wood Sword stack
+  ok  The whole stack leaves and its slot is free at once
+  ok  Its merge level stays with the record
+  ok  One pile of 4 at the player's feet, owned by no enemy type, expiring like loot
+  ok  40 s of Auto-Collect beside it: still on the ground
+  ok  The pile shows ×4
+  ok  Tapping it brings back all 4 at ^2
+  ok  Picking it up gives no mission, Prestige or counter progress and no recent-find line
+  ok  10 drop-and-pickup loops: missions, counters, supply mastery and Map Mastery unchanged
+  ok  …and the collection credit leaves and returns exactly (3 Blue Cap Outfits, credit 3)
+  ok  While on the ground its credit is gone (it cannot be handed in)
+  ok  An equipped item cannot be dropped (unequip it first)
+  ok  Not while paused
+  ok  Full equipment row (fixture)
+  ok  Dropping one stack makes room for a new item
+  ok  With the row full again the pile waits on the ground (Inventory full)
+  ok  A dropped pile saves and loads
+  ok  …and expires like other loot
+  ok  Item details offer a red Drop All
+  ok  The confirmation names the item, its merge level and quantity: "Wood Sword ^1 · ×6"
+  ok  …and its button is a red Drop All
+  ok  Confirming drops the stack
+  ok  The dialog closes
+  ok  Other confirmations keep the ordinary button
+  ok  Supplies can be dropped too
+-- Map Mastery
+  ok  Autumn II rewards +2 pts Gem Chance, Spring II +15% max HP
+  ok  A latched Autumn II pays the Gem Chance (no claim state to migrate)
+  ok  A latched Spring II pays +15% max HP
+  ok  …through save and load
+  ok  The Mastery list shows the swapped rewards
+  ok  Chip reads "Mastery 5% · 0/5"
+  ok  It sits above Map Explored, under the zoom, on the cluster's right edge
+  ok  A 44 px tap target, 17 px text
+  ok  Tapping it opens this map's Mastery page directly
+  ok  Hidden until Map Mastery is revealed
+-- Cyan Robot Heal
+  ok  Configured: catalog Heal 20 s, Cyan Robot 12 s (50% more often)
+  ok  Every other enemy keeps the catalog cooldowns (Space Helmet, Squirrel, Bee, Red Panda and Sunflower Heal 18 s)
+  ok  In combat below 80% HP it heals every [12.8, 12.8, 12.8] s (12 s + the 0.6 s wind-up; was 18.6)
+-- skill descriptions
+  ok  All six skills describe damage or healing, multiplier, targets, range or area, duration and cooldown with today's numbers []
+  ok  A merge updates the numbers ("0.76× attack damage (3.79 now) to your target and every enemy within 64 of it")
+  ok  The cooldown upgrade shows (20 s → 18 s)
+  ok  Skill cards raise the shown multiplier
+  ok  Item details show the description instead of "Power" (ITEM | 4 of 6 | Lightning Strike | Tier 1 · ^0 / ^500 | 1.56× attack damage (7.81 now) to your current target | Targets: 1 enemy · Range: 120 · Cooldown: 20 s | Owned: 3 | Next merge: + 0.01× attack damage | Grows by merging copies of itself, up to ^500. It never turns into another item; past ^100 each merge adds a little less.)
+-- Prestige confirmation
+  ok  The Prestige action is available
+  ok  It opens the Prestige screen, not the ordinary dialog
+  ok  It fits the safe area ([P: (341.7406, 285.1224), S: (596.5187, 740.0561)])
+  ok  Milestone look: gold frame, sparks and the star, like the discovery banner
+  ok  Permanent card lists Gems, exploration and Gem upgrades
+  ok  Reset card lists coins, items and camps
+  ok  Kept and reset read apart (green, orange)
+  ok  It lists the one opportunity redeemed
+  ok  Both buttons are large and reachable
+  ok  Cancel changes nothing
+  ok  Begin Prestige starts the card choice
+-- music settings
+  ok  Music plays at 60%
+  ok  At 0 the track holds its place (paused, not stopped)
+  ok  Above 0 it resumes
+  ok  While the game is paused it holds
+  ok  …and resumes after the pause
+  note  real playback (position kept through 0 volume, pause and a scene reload) is checked by tests/change_16_audio (windowed)
+-- Guided opening and View Camp
+  ok  Guided opens with "Follow the path to your left."
+  ok  An arrow points along the path (OnboardingRules.path_target)
+  ok  …to the left (-0.94, -0.33)
+  ok  …placed on the player's left side
+  ok  Walking right instead: the lesson stays and keeps pointing
+  ok  …still toward the path
+  ok  A first defeat anywhere continues the tutorial
+  ok  Reaching the path completes it and the normal sequence continues (kill)
+  ok  Walking into a camp no longer opens its panel
+  ok  A View Camp button shows
+  ok  …just below the camp's name, centred, 56 px tall
+  ok  View Camp opens that camp
+  ok  …and hides under the panel
+  ok  Tapping the camp itself still opens it
+  ok  Walking away hides the button
+  ok  The camp lesson points at View Camp (camp_view)
+  ok  …then at Unlock in the camp
+  ok  Away from the camp it points at World as before
+-- Settings and Help
+  ok  Settings has no Show all menus and no Choose guidance again
+  ok  …and offers Help
+  ok  No development notices (languages: Automatic and English only)
+  ok  Help opens the Basic tutorial (opening card, tips, one card per revealed system)
+  ok  …never describing systems not revealed yet
+  ok  Reading it changes no progress, discovery, menu or guidance mode
+  ok  Back returns to Settings
+  ok  No development-save toast after a profile reset
+CHANGE_16_CHECKS 197 FAILURES 0

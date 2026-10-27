@@ -298,58 +298,43 @@ func reveal_checks() -> void:
 
 # ---------------------------------------------------------------- 3. Guided
 func guided_checks() -> void:
-    print("-- Guided")
+    print("-- Guided (Change 20 sequence)")
     fresh("guided");await frames(4)
     var guide=game.guide
-    check(guide.pending=="move" and guide.pointer.visible,"Guided starts with the movement lesson and its pointer")
-    sim.state.tutorial.done.append_array(["move","kill","collect","equip","merge"]) # fixture: first five lessons
-    sim.state.counters["kill"]=5;sim.campaign.evaluate_main()
-    sim.state.counters["merge"]=1;sim.campaign.onboarding.evaluate()
-    await frames(4)
-    check(guide.pending=="missions" and guide.step=="missions" and guide.target==nav("Missions") and guide.pointer.visible,"Missions revealed: the pointer goes to the Missions button")
+    var flow=sim.campaign.guided
+    check(guide.pending=="move" and guide.pointer.visible,"Guided starts with movement")
+    for step in ["move","kill","collect","equip","close_equip","merge","close_merge"]:flow.mark(step)
+    sim.state.counters.kill=5;sim.campaign.evaluate_main()
+    sim.state.playtime_total=119;await frames(4)
+    check(guide.pending=="" and not sim.campaign.onboarding.revealed("missions"),"Missions hidden during timed farming interval")
+    sim.state.playtime_total=120;await frames(4)
+    check(guide.pending=="missions" and guide.target==nav("Missions"),"Missions introduced after 120 seconds")
     game._nav("missions");await frames(6)
     var claim: Button=guide._panel_control("claim",true)
-    check(claim!=null and guide.step=="missions_claim" and guide.target==claim,"In Missions: pointing at a Claim button")
-    claim.pressed.emit();await frames(6)
-    check(not sim.state.main_claimed.is_empty() and sim.campaign.onboarding.revealed("enemy") and guide.pending=="upgrade","Claimed: enemy upgrades revealed, next lesson Loot Chance")
-    game._close()
-    sim.campaign.discover_spot(0,2);sim.state.coins=500
-    check(sim.buy_upgrade("loot",0),"Loot Chance bought")
+    check(claim!=null and guide.step=="missions_claim","Mission guide points at real claim")
+    if claim!=null:claim.pressed.emit()
+    await frames(6)
+    check(guide.step=="close_panel" and guide.target==game.get_node("Sheet/Margin/Content/Header/Close"),"Claim asks to close panel")
+    game._close();sim.state.playtime_total+=60;await frames(4)
+    check(guide.pending=="player_upgrade" and sim.campaign.onboarding.revealed("upgrades"),"Player Upgrades introduced after close and delay")
+    sim.state.coins=1000;game._open("upgrades");await frames(6)
+    var buy: Button=guide._panel_control("buy_upgrade",true)
+    check(buy!=null,"Player Upgrade has a real purchase target")
+    if buy!=null:buy.pressed.emit()
     await frames(4)
-    check(sim.campaign.onboarding.revealed("world") and guide.pending=="camp","World revealed: the camp lesson")
-    sim.state.counters["camp"]=1;sim.campaign.onboarding.evaluate();await frames(4) # fixture: a camp
-    check(guide.pending=="slots" and guide.step=="slots" and guide.target==nav("Upgrades"),"Player Upgrades revealed: pointing at Upgrades")
-    sim.state.gems=10
-    game._nav("upgrades");game.player_tab=0;game._refresh_panel(true);await frames(6)
-    check(guide.step=="slots_tab" and guide.target==guide._panel_control("tab_tab_inventory"),"In Upgrades: pointing at the Inventory tab")
-    game.player_tab=1;game._refresh_panel(true);await frames(6)
-    var buy: Button=guide._panel_control("buy_gear_slots",true)
-    check(buy!=null and guide.step=="slots_buy" and guide.target==buy,"…then at the equipment slot")
-    buy.pressed.emit();await frames(6)
-    check(sim.level("gear_slots")==1 and sim.campaign.onboarding.revealed("objective"),"Slot bought: the Snowman objective is revealed")
-    game._close();await frames(6)
-    game._process(.2);await frames(4) # the HUD tick shows the Next Stage chip
-    check(guide.pending=="snowman" and guide.card.visible and guide.title.text==tr("GUIDE_SNOWMAN"),"The objective card: \"%s\"" % guide.title.text)
-    check(tr("GUIDE_SNOWMAN_DETAIL").contains("Winter II") and tr("GUIDE_SNOWMAN_DETAIL").contains("Prestige"),"It says defeating the Snowman opens Winter II and finding it opens Prestige")
-    # Change 16: Prestige opens when the Snowman is found, so the objective names Winter II only.
-    check(tr("MAIN_4").contains("Snowman") and tr("MAIN_4").contains("Winter II"),"Main objective: \"%s\"" % tr("MAIN_4"))
-    check(guide.pointer.visible and guide.target==map_node("Gate"),"…pointing at the Next Stage chip")
+    check(guide.step=="close_panel","Upgrade requires close")
+    game._close();await frames(4)
+    check(guide.pending=="camp" and guide.path_point!=Vector2.INF,"Camp lesson directs physical approach")
+    # An unrelated panel hides guidance without changing its pending outcome.
+    game._open("settings");await frames(4)
+    check(guide.pending=="camp" and not guide.pointer.visible and not guide.card.visible,"Unrelated panel suspends presentation")
+    game._close();await frames(4)
+    check(guide.pending=="camp" and guide.pointer.visible,"Closing unrelated panel restores live direction")
+    flow.mark("camp");sim.state.bosses_found.append("boss-snowman");await frames(4)
+    check(guide.pending=="boss_preparation" and not flow.data().done.has("boss_preparation"),"Boss preparation waits for acknowledgement")
     guide.intro_button.pressed.emit();await frames(4)
-    check(sim.state.tutorial.done.has("snowman") or sim.state.tutorial.seen.has("snowman"),"Got it completes it")
-    check(guide.pending!="prestige","The Prestige lesson waits for the Snowman")
-    snowman_defeated();await frames(6)
-    check(guide.pending=="prestige" and guide.step=="prestige_open" and guide.target==nav("Prestige"),"Snowman defeated: pointing at Prestige (introduced last)")
-    game._nav("prestige");await frames(6)
-    check(guide.step in ["prestige_follow","prestige_info"] and guide.card.visible and guide.intro_button.visible,"In Prestige: what opportunities are, with Got it")
-    guide.intro_button.pressed.emit();await frames(4)
-    check(sim.state.tutorial.done.has("prestige"),"Got it finishes the Guided sequence")
-    game._close()
-    # A lesson already satisfied is skipped (unexpected order).
-    fresh("guided")
-    sim.state.tutorial.done.append_array(["move","kill","collect","equip","merge"])
-    sim.state.main_claimed.append(0);sim.state.counters["merge"]=1;sim.state.counters["upgrade"]=1;sim.state.upgrades["loot:0"]=1;sim.state.counters["camp"]=1 # fixture
-    sim.campaign.onboarding.evaluate();await frames(4)
-    check(sim.state.tutorial.done.has("missions") and sim.state.tutorial.done.has("upgrade") and sim.state.tutorial.done.has("camp") and guide.pending=="slots","Done out of order: claim, upgrade and camp lessons are skipped")
+    check(flow.data().done.has("boss_preparation") and guide.pending=="boss_farm","Acknowledged boss lesson advances to additional farming")
+    check(sim.campaign.prestige_gate_reason()=="PRESTIGE_TUTORIAL_LOCKED","Guided Prestige remains blocked until final acknowledgement")
 
 # ---------------------------------------------------------------- 4. Basic
 func basic_checks() -> void:

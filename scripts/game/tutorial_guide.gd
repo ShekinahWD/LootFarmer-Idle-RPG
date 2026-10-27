@@ -73,6 +73,8 @@ func setup(owner_ui) -> void:
     support=Label.new();support.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;support.add_theme_font_size_override("font_size",20);support.mouse_filter=Control.MOUSE_FILTER_IGNORE;content.add_child(support)
     intro_button=Button.new();intro_button.text=tr("GUIDE_GOT_IT");intro_button.custom_minimum_size=Vector2(180,64);intro_button.size_flags_horizontal=Control.SIZE_SHRINK_END;content.add_child(intro_button)
     intro_button.pressed.connect(func()->void:
+        if intro_id.begins_with("flow:"):
+            sim.campaign.guided.acknowledge(intro_id.trim_prefix("flow:"));return
         if intro_id=="focus":sim.campaign.focus_hint=-1;return
         if intro_id!="" and not sim.state.tutorial.seen.has(intro_id):sim.state.tutorial.seen.append(intro_id);sim.touch())
     shade=_frame(Color(0,0,0,.85));highlight=_frame(Color(1,.85,.4))
@@ -109,6 +111,7 @@ func _process(dt: float) -> void:
     _complete_lessons()
     evaluate()
     _present()
+    if card.visible and intro_id=="flow:tutorial_final" and not get_tree().paused:sim.campaign.guided.shown(dt)
     if pending=="focus" and (card.visible or pointer.visible):focus_shown+=dt
     # Basic cards retire on their own after a readable time on screen (no permanent instructions).
     if data.mode=="basic" and intro_id!="" and pending!="focus" and card.visible:
@@ -147,6 +150,11 @@ func evaluate() -> void:
     pending="";step="";surfaces=[""];target=null;world_target=Vector2.INF;intro_id="";path_point=Vector2.INF
     var data: Dictionary=sim.state.tutorial
     if data.mode=="none":return
+    if data.mode=="guided":
+        if sim.campaign.guided.complete():
+            _focus_hint()
+        else:_guided_lesson()
+        return
     if _focus_hint():return
     if data.mode=="guided":
         for lesson in LESSONS:
@@ -273,6 +281,101 @@ func _lesson(lesson: String) -> void:
                 step="prestige_follow" if target!=null else "prestige_info"
             else:step="prestige_open";target=ui.dock.get_node("Navigation/Prestige")
 
+## The current brief supersedes the historical reveal/lesson order for Guided only.
+func _guided_lesson() -> void:
+    var flow=sim.campaign.guided
+    var current: String=flow.next_step()
+    if current=="":return
+    pending=current;step=current
+    if current in ["mission_wait","upgrade_wait"]:
+        pending="";return
+    if current.begins_with("close_"):
+        var expected: String={"close_equip":"item","close_merge":"item","close_missions":"missions","close_upgrade":"upgrades"}[current]
+        if not ui.sheet.visible:
+            flow.panel_closed(expected);pending="";return
+        surfaces=[expected]
+        step="close_panel"
+        target=ui.get_node("Sheet/Margin/Content/Header/Close")
+        return
+    if current in ["move","kill","collect","equip","merge","missions"]:
+        _lesson(current);return
+    if current in ["boss_preparation","prestige_intro","world_intro","travel_intro","milestones_intro","tutorial_final"]:
+        intro_id="flow:"+current
+        if current=="prestige_intro" and not sim.campaign.ready_ids().is_empty():step="prestige_eligible"
+        return
+    if current in ["player_upgrade","expand_inventory"]:
+        surfaces=["","upgrades"]
+        var upgrade: String="respawn" if current=="player_upgrade" else "gear_slots"
+        var wanted_tab:=0 if current=="player_upgrade" else 1
+        var reason: String=sim.upgrade_block_reason(upgrade)
+        if reason in ["NOT_ENOUGH_COINS","NOT_ENOUGH_GEMS"]:
+            step="upgrade_earn";support_value=maxf(0,sim.upgrade_cost(upgrade)-sim.state.coins);world_target=_nearest_enemy();return
+        if ui.sheet.visible and ui.panel=="upgrades":
+            if ui.player_tab!=wanted_tab:target=_panel_control("tab_"+ui.UPGRADE_TABS[wanted_tab].to_lower())
+            else:target=_panel_control("buy_"+upgrade,true) if upgrade=="gear_slots" else _panel_control("buy_upgrade",true)
+        else:target=ui.dock.get_node("Navigation/Upgrades")
+        return
+    if current=="camp":
+        surfaces=["","camp","world"]
+        var camp:=-1
+        for i in range(1,sim.campaign.stage().spawns.size()):
+            if not sim.state.spawns.has(i):camp=i;break
+        if camp<0:flow.mark("camp");return
+        var at: Array=sim.campaign.stage().spawns[camp]
+        path_point=Vector2(at[0],at[1])
+        if not sim.campaign.camp_known(camp):step="camp_approach";return
+        var price: int=sim.campaign.camp_price(camp)
+        if sim.state.coins<price:
+            step="camp_earn";support_value=price-sim.state.coins;path_point=Vector2.INF
+            if ui.sheet.visible:target=ui.get_node("Sheet/Margin/Content/Header/Close")
+            else:world_target=_nearest_enemy()
+            return
+        if ui.sheet.visible and ui.panel in ["camp","world"]:
+            step="camp_buy";target=_panel_control("camp_buy_%d" % camp);path_point=Vector2.INF
+        elif ui.view_camp==camp:
+            step="camp_view";target=ui.get_node("Safe/Layout/Map/ViewCamp");path_point=Vector2.INF
+        else:step="camp_approach"
+        return
+    if current=="boss_find":
+        var g: int=sim.campaign.prestige_unlock_group()
+        path_point=sim.campaign.spot(g,2)
+        return
+    if current in ["boss_farm","boss_win"]:
+        if current=="boss_farm":world_target=_nearest_enemy()
+        else:pending=""
+        return
+    if current=="potion_buy":
+        surfaces=["","upgrades","item"]
+        if not sim.can_add("potion"):
+            step="potion_capacity"
+            if ui.sheet.visible and ui.panel=="upgrades":
+                if ui.player_tab!=1:target=_panel_control("tab_tab_inventory")
+                else:target=_panel_control("buy_supply_slots",true)
+            else:target=ui.dock.get_node("Navigation/Upgrades")
+            return
+        if sim.state.coins<int(sim.supply("potion").price):
+            step="camp_earn";support_value=int(sim.supply("potion").price)-sim.state.coins;world_target=_nearest_enemy();return
+        if ui.sheet.visible and ui.panel=="upgrades":
+            if ui.player_tab!=2:target=_panel_control("tab_tab_supplies")
+            else:target=_panel_control("buy_supply_potion",true)
+        else:target=ui.dock.get_node("Navigation/Upgrades")
+        return
+    if current=="potion_use":
+        surfaces=["","item"]
+        if sim.quantity("potion")<=0:
+            step="potion_buy";target=ui.dock.get_node("Navigation/Upgrades");return
+        if sim.state.player.hp>=sim.stats().hp:
+            step="potion_wait_hurt";world_target=_nearest_enemy();return
+        if ui.sheet.visible and ui.panel=="item" and ui.selected=="potion":target=_panel_control("use",true)
+        else:
+            var index: int=sim.state.supplies.find("potion")
+            if index>=0:target=ui.dock.get_node("Inventory/SupplyColumn/SupplyScroll/Supplies").get_child(index)
+        return
+    if current=="winter_two":
+        surfaces=["","world","travel_map"]
+        if ui.sheet.visible and ui.panel=="world":target=_panel_control("travel_stage_2")
+        else:target=ui.dock.get_node("Navigation/World")
+
 var support_value:=0.0
 
 ## Change 14: right after the first Focused Farming purchase (campaign.focus_hint), point at the next
@@ -351,7 +454,7 @@ func _present() -> void:
     # Coins still needed, in the shared currency format rounded up (Change 13).
     if "%s" in support.text:support.text=support.text % NumberFormat.currency(support_value,true)
     picture.texture=_picture()
-    intro_button.visible=intro_id!=""
+    intro_button.visible=intro_id!="" and (intro_id!="flow:tutorial_final" or float(sim.campaign.guided.data().final_seconds)>=float(sim.campaign.guided.rules().final_delay))
     card.mouse_filter=Control.MOUSE_FILTER_IGNORE
     _place_card()
     # Introductions are text only, except the Focused Farming hint (every mode but None) and the

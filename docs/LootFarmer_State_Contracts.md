@@ -1,10 +1,10 @@
-# LootFarmer — State and Reset Contracts — Change 17
+# LootFarmer — State and Reset Contracts — Change 20
 
-## Change 17 — current gameplay authority (27 October 2026)
+## Change 20 — current authority (27 October 2026)
 
-Change 17 supersedes earlier descriptions of skill power/cooldowns, supply mastery/healing, automatic skill slots and mission rewards. It adds persistent boss countdown APIs and permanent critical upgrades, reuses the supply interval/shop systems, and optimizes rain calculations without changing authored appearance. Schema 8 saves remain compatible; existing mastery and automation purchases migrate. No UI/tutorial implementation is included.
+The full 22-section **Remaining Features, UI & Tutorial** brief is implemented, including interfaces. It supersedes the earlier gameplay-only scope and handoff to Claude. Application/Android version is 20; save schema remains 8. See [Change 20 implementation and acceptance report](LootFarmer_Change_20_Report.md) and [current test suite](LootFarmer_Test_Suite.md). Earlier numbered change descriptions are historical evidence, not conflicting current instructions.
 
-Read [Change 17 behavior and decisions](LootFarmer_Change_17_Notes.md), [Claude integration API](LootFarmer_Change_17_Claude_Integration.md) and [validation and unresolved balance](LootFarmer_Change_17_Validation.md). The later numbered sections below are historical change records; Change 17 takes precedence where their rules differ.
+Guided onboarding follows saved action outcomes and 120/60-second active-play delays, teaches physical camp purchase, boss preparation, inventory expansion and potion use, and ends in Winter II after a five-second visible-message delay and acknowledgement. Only Guided mode has the tutorial Prestige gate. Slots have saved Small/Medium/Large controls in Filters and Settings. Item details expose Auto-merge On/Off. Prestige keeps player level and XP, but resets Supply Mastery and partial use progress. World stage selection travels directly for one unlocked camp or shows a visual camp map for multiple camps. Map markers, trackers, mission layout and boss discovery/countdown presentation are integrated. All offensive skills (including Focus) require combat and an eligible target within the configurable 64-unit activation distance; Heal needs missing HP and works outside combat. Boss Gem previews include the existing base once.
 
 These contracts are implemented in Change 4 and exercised by the campaign/content probes; device and interruption-at-OS-write checks remain release gates. Approved reset decisions are explicit; engineering defaults are labelled below.
 
@@ -27,9 +27,10 @@ These contracts are implemented in Change 4 and exercised by the campaign/conten
 | Completed unclaimed main objectives | Discard reward; reset to unfinished, since only completed AND rewarded objectives persist |
 | Regular missions / unclaimed rewards | Clear; assign fresh achievable goals after reset |
 | Gem balance | **Keep** (Change 16); the run's online Gem credit (`online_gems`, Offering) clears |
-| Coins / level / inventory / equipped bindings / merge, evolution, rolls, copy bonuses | Clear; restore authored starting profile |
+| Player level / earned XP | **Keep**; derived stats recompute once, no level reward replay |
+| Coins / inventory / equipped bindings / merge, evolution, rolls, copy bonuses | Clear; restore authored starting profile |
 | Upgrade purchases | Every gem-funded upgrade is kept (Change 11, `simulation.upgrade_kept`); coin upgrades follow the Upgrade Catalog Keep/Reset field. Kept Spawn Amount re-spawns its extra actors in the fresh world at once |
-| Supply mastery (`supply_uses`, `supply_mastery_credit`) | Keep levels and five-use remainder; supply stock, buffs and supply-slot bindings clear |
+| Supply mastery (`supply_uses`, `supply_mastery_credit`) | **Clear both**; zero mastery and zero five-use remainder. Supply stock, buffs and bindings also clear |
 | Highest reward stage (`reward_stage`) | Keep, even though stage access resets |
 | Boss countdowns (`boss_respawns`, `boss_saved_at`) | Clear with the run |
 | Automation bindings / toggles / farm focus | Retain purchased capabilities and explicitly approved per-skill-slot auto toggles. Clear item/equipment/farm targets and consumable bindings; regular mission-auto toggle resets. |
@@ -208,11 +209,27 @@ Save schema stays **8**. `normalize_snapshot` adds the new records to existing s
 |---|---|---|---|---|
 | boss_respawns | `{actor_id: {group, stage, remaining, x, y}}`, default `{}` | Rebuild absent store from dead bosses in active/inactive worlds; normalize identities and coordinates | Clear | Clear |
 | boss_saved_at | Timestamp used only for offline elapsed settlement | Advance remaining once at restore/resume; snapshot timestamps frozen while suspended; negative elapsed is zero | Reset | Reset |
-| supply_uses | Per-type successful uses, default `{}`, retained to cap ×5 | Clamp 0..500; no collection-derived uses | Keep | Clear |
-| supply_mastery_credit | Legacy mastery, default `{}` | Once, if absent: clamp(supply_found−1,0,100). Later loads never derive it again | Keep | Clear |
+| supply_uses | Per-type successful uses, default `{}`, retained to cap ×5 | Clamp 0..500; no collection-derived uses | Clear | Clear |
+| supply_mastery_credit | Legacy mastery, default `{}` | Once, if absent: clamp(supply_found−1,0,100). Later loads never derive it again | Clear | Clear |
 | reward_stage | Highest reward stage, default 1 | Max prior unlocked/visited-stage evidence; getter maxes with current unlocked_stage | Keep | 1 |
 | upgrades.skill_auto_slots | Capacity 0..3 | Fold old skill_auto_0/1/2 ranks once; erase retired saved ranks | Keep | 0 |
 | skill_auto | Existing three booleans now represent chosen equipped positions | Sanitize/cap to owned slots and capacity; empty selections dormant | Keep | All false |
 | mission.base_gems | Unscaled per-kind Gem amount | Reconstruct missing legacy base from kind, never from scaled totals | Mission resets | Clear |
 
 Critical upgrades and use_speed use existing upgrades serialization and Gem retention. Actor attack_slow/attack_rate are saved with actors; active combat status time remains pausable, with inactive actor statuses frozen as before. Boss offline countdown settlement does not simulate or grant combat kills. Current UI must poll APIs in the Claude handoff; it must not mutate these stores directly.
+
+## Change 19 eligibility and probability contracts
+
+No new saved fields or migrations. Save schema 8 and all Prestige rules remain unchanged. `skill_cast_block_reason(slot)` is pure and combines action locks, slot ownership, living player, family cooldown, missing HP for Heal, and nearby eligible enemy for every other skill. Focus also retains its combat gate. `skill_activation_target()` prefers a valid in-range locked target, otherwise the nearest eligible enemy matching farming filters; it never acquires or clears the basic-attack target. Boundaries are inclusive. The activation distance is catalog configuration, independent of AoE radius. Availability must be polled while actors move. Successful casts alone write cooldowns and emit spell effects.
+
+`boss_gem_chance(extra)` owns the shared boss probability and upgrade preview; `gem_chance(group)` adds the specific type's achievements and clamps to 100%. The 5% base remains solely in `gem_base_chance`. No UI-owned probability formula is needed.
+
+## Change 20 saved state and UI contracts
+
+- `tutorial.flow`: ordered `done` outcomes, action timestamps in `playtime_total`, one-time `gem_grant` / `supply_grant`, additional-farming kill baseline and `final_seconds`. Invalid optional values normalize without changing schema. It survives saves/Prestige. Hard Reset clears it. Actions already completed are recognized; entering Winter II on an older Guided save leads to the final explanation. Basic/None never consult the new Prestige gate.
+- `settings.inventory_zoom`: 0 Small, 1 Medium, 2 Large (default); clamped on load, retained across Prestige/Hard Reset with other settings. Grid and contents resize together; the dock viewport height remains fixed. Scrolling and pinned controls retain their existing ownership.
+- `items[id].auto_merge_excluded`: optional boolean default false, owned by the inventory identity/stack. Automatic merge and automatic evolution skip it. Manual merge is allowed; manual evolution transfers the exclusion to the successor. Zero-quantity records retain it, so discard/pickup cannot silently re-enable automation. Run inventory reset clears item records normally.
+- Boss discoveries permanently reveal the same footprint radius as camps. Existing discovered bosses backfill that footprint on their stage. The countdown UI reads `boss_respawn_countdowns(stage)` at saved home coordinates, without adding a new clock or simulation.
+- Travel picker reads the destination stage without switching the active simulation. Both direct travel and map selection use `travel_reason`; combat remains a hard block. The map uses green vs gray rings plus brightness and numbered camps.
+- Player map marker is explicitly one layer above the map drawing. Management panels are layer 10; guide/banner 15, confirmations 20, Toast 25. This keeps the marker above all map markers and below opened management surfaces.
+- `playtime_total` measures active unpaused simulation time. Tutorial 120/60-second waits do not elapse while closed/suspended; save/reload preserves elapsed progress. Final delay is visible, unpaused UI time, not accelerated gameplay time.

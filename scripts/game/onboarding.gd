@@ -1,5 +1,6 @@
 extends RefCounted
-## Change 15 first-profile progression (Playbook 18.10), the same in every onboarding mode:
+## Basic/None retain Change 15 reveals and the shared early loot guarantee (Playbook 18.10).
+## Change 20 Guided mode delegates ordered action/timing gates to guided_progress.gd:
 ## - One reveal table: the features listed in FEATURES appear one after another, each when its
 ##   demonstrated action has happened (or a player-level backstop is reached), never on a timer.
 ##   Defeating the Snowman reveals everything left. Reveals are latched in state.onboarding.reveal
@@ -38,6 +39,7 @@ func initial_seen() -> Array:
     return seen
 
 func revealed(feature: String) -> bool:
+    if sim.state.tutorial.mode=="guided":return sim.campaign.guided.feature_allowed(feature)
     return sim.state.get("onboarding",{}).get("reveal",[]).has(feature)
 
 func all_revealed() -> bool:
@@ -53,6 +55,9 @@ func evaluate() -> void:
     var o: Dictionary=sim.state.onboarding
     if int(o.loot_phase)<LOOT_DONE and loot_state()==LOOT_DONE:
         o.loot_phase=LOOT_DONE;o.loot_kills=0;sim.touch()
+    if sim.state.tutorial.mode=="guided":
+        sim.campaign.guided.next_step()
+        return
     if all_revealed():return
     # The Snowman (a lifetime kill, so a Prestige never relocks it) opens everything at once.
     if sim.campaign.prestige_unlocked():
@@ -93,7 +98,7 @@ func reveal_all(silent: bool) -> void:
     if all_revealed():return
     var had_prestige:=revealed("prestige")
     for feature in FEATURES:
-        if not revealed(feature):sim.state.onboarding.reveal.append(feature)
+        if not sim.state.onboarding.reveal.has(feature):sim.state.onboarding.reveal.append(feature)
     sim.touch()
     SaveService.mark_dirty()
     if silent or had_prestige:return

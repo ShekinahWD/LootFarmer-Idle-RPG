@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WALK stage=1.0 solids=93 targets=57 stalls=0 homes_inside=0 worst_detour=1.06
+WALK stage=2.0 solids=329 targets=118 stalls=0 homes_inside=0 worst_detour=1.08
+WALK stage=3.0 solids=138 targets=76 stalls=0 homes_inside=0 worst_detour=1.11
+WALK stage=4.0 solids=351 targets=125 stalls=0 homes_inside=0 worst_detour=1.07
+WALK stage=5.0 solids=175 targets=71 stalls=0 homes_inside=0 worst_detour=1.05
+WALK stage=6.0 solids=281 targets=89 stalls=0 homes_inside=0 worst_detour=1.1
+WALK stage=7.0 solids=226 targets=71 stalls=0 homes_inside=0 worst_detour=1.09
+WALK stage=8.0 solids=657 targets=138 stalls=0 homes_inside=0 worst_detour=1.1
+CHANGE_8_WALK checks=2178 failures=0

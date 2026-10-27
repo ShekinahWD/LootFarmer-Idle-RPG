@@ -1,0 +1,65 @@
+extends Control
+## Visual destination picker: real stage coordinates and remembered exploration, no state switching.
+signal chosen(camp: int)
+var sim
+var stage_id: int=1
+const CAMP=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-249.png")
+
+func _init() -> void:
+    set_meta("own_children",true)
+
+func map_rect() -> Rect2:
+    var d: Dictionary=sim.catalog.stages[stage_id-1]
+    var bounds:=Vector2(d.size[0],d.size[1])
+    var factor:=minf((size.x-48)/bounds.x,(size.y-48)/bounds.y)
+    return Rect2((size-bounds*factor)*.5,bounds*factor)
+
+func _draw() -> void:
+    if sim==null:return
+    var d: Dictionary=sim.catalog.stages[stage_id-1]
+    var rect:=map_rect()
+    var factor:=rect.size.x/float(d.size[0])
+    draw_rect(rect,Color(.06,.08,.1))
+    var cell: float=sim.campaign.fog_rules.cell_size
+    for key in sim.state.explored.get(str(stage_id),{}):
+        var bits=key.split(",")
+        draw_rect(Rect2(rect.position+Vector2(int(bits[0]),int(bits[1]))*cell*factor,Vector2.ONE*cell*factor),Color(.28,.4,.32))
+    for i in range(d.spawns.size()):
+        var at:=rect.position+Vector2(d.spawns[i][0],d.spawns[i][1])*factor
+        var owned: bool=sim.state.camps.get(str(stage_id),[0]).has(i)
+        draw_circle(at,25,Color(.12,.18,.2))
+        draw_texture_rect(CAMP,Rect2(at-Vector2.ONE*20,Vector2.ONE*40),false,Color.WHITE if owned else Color(.35,.35,.35))
+        draw_arc(at,25,0,TAU,32,Color(.5,1,.7) if owned else Color(.5,.5,.5),2)
+        draw_string(get_theme_default_font(),at+Vector2(-4,37),str(i+1),HORIZONTAL_ALIGNMENT_LEFT,-1,16)
+
+var press_at:=Vector2.INF
+var press_finger:=-2
+var dragged:=false
+
+func _gui_input(event: InputEvent) -> void:
+    # Release-only activation lets a drag beginning on a camp scroll the enclosing sheet.
+    if event is InputEventScreenDrag and event.index==press_finger:
+        dragged=dragged or event.position.distance_to(press_at)>12;return
+    if event is InputEventMouseMotion and press_finger==-1:
+        dragged=dragged or event.position.distance_to(press_at)>12;return
+    var finger:=-2
+    if event is InputEventScreenTouch:finger=event.index
+    elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
+        if press_finger>=0:return # touch may also generate mouse events
+        finger=-1
+    else:return
+    if event.pressed:
+        press_at=event.position;press_finger=finger;dragged=false;return
+    if press_finger!=finger or press_at==Vector2.INF:return
+    var tap: bool=not dragged and event.position.distance_to(press_at)<=12
+    press_at=Vector2.INF;press_finger=-2
+    if tap:_choose_at(event.position)
+
+func _choose_at(point: Vector2) -> void:
+    var d: Dictionary=sim.catalog.stages[stage_id-1]
+    var rect:=map_rect()
+    for i in sim.state.camps.get(str(stage_id),[0]):
+        var at:=rect.position+Vector2(d.spawns[int(i)][0],d.spawns[int(i)][1])*(rect.size.x/float(d.size[0]))
+        if at.distance_to(point)<=32:
+            if sim.campaign.travel_reason(stage_id,int(i)).is_empty():chosen.emit(int(i))
+            accept_event();return

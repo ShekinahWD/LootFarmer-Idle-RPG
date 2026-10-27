@@ -37,7 +37,7 @@ func run() -> void:
 ## 1. The Equip lesson follows the real inventory in every mode.
 func tutorial_checks() -> void:
     fresh();var guide=game.guide
-    sim.state.tutorial.mode="guided";sim.state.tutorial.done=["move","kill","collect"]
+    sim.state.tutorial.mode="guided";sim.campaign.guided.data().done=["move","kill","collect"]
     sim.add_item("potion",1);guide.evaluate()
     check(guide.pending=="equip" and guide.step=="equip_find","Guided: a consumable first drop asks to find gear, not to equip")
     check(guide.target==null or guide.target.get_parent().name=="Gear","Guided: no Equip control is targeted without gear")

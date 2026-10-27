@@ -9,8 +9,10 @@ var offline_receipt: Dictionary={}
 ## Change 15: first-profile progression (menu reveals, early equipment guarantee) and Map Mastery.
 var onboarding
 var mastery
+var guided
 func _init(owner) -> void:
     sim=owner
+    guided=preload("res://scripts/game/guided_progress.gd").new(owner)
     onboarding=preload("res://scripts/game/onboarding.gd").new(owner)
     mastery=preload("res://scripts/game/mastery.gd").new(owner)
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
@@ -309,6 +311,7 @@ func sight_bosses() -> void:
         var at: Vector2=sim.position_of(e)
         if at.distance_to(p)>fog_rules.boss_sight_radius or not can_see(at):continue
         sim.state.bosses_found.append(str(d.id))
+        reveal_circle(at,fog_rules.camp_footprint_radius)
         SaveService.mark_dirty()
         sim.notice.emit("boss_found",str(d.id))
         sim.milestone.emit("boss_found",str(d.id))
@@ -323,6 +326,9 @@ func reveal() -> void:
     for camp in sim.state.spawns:
         var a: Array=stage().spawns[int(camp)]
         reveal_circle(Vector2(a[0],a[1]),fog_rules.camp_radius*(1+.25*sim.level("camp_radius",int(sim.state.stage)*10+int(camp))+bonus("camp_reveal")))
+    for g in stage().groups:
+        if sim.catalog.groups[g].boss and boss_found(str(sim.catalog.groups[g].id)):
+            reveal_circle(spot(g,2),fog_rules.camp_footprint_radius)
     identify_sites()
 func target_allowed(e: Dictionary) -> bool:
     var d: Dictionary=sim.catalog.groups[int(e.group)]
@@ -390,14 +396,51 @@ func equip_skill(id: String,slot: int=-1) -> bool:
     if family_slot>=0:list[family_slot]=""
     list[slot]=id;progress("equip",id,1);sim.touch();return true
 func cast(slot: int) -> bool:
-    if not sim.action_lock_reason().is_empty() or slot<0 or slot>=1+sim.level("skill_slots"):return false
+    if not skill_cast_block_reason(slot).is_empty():return false
     var id: String=sim.state.skills[slot]
-    if id=="" or sim.quantity(id)<1 or sim.state.player.hp<=0:return false
     var key: String=sim.catalog.items[id].skill
-    if float(sim.state.skill_cooldowns.get(key,0))>0:return false
     if not apply_skill(sim.state.player,key,sim.skill_power(id)):return false
     sim.state.skill_cooldowns[key]=sim.player_upgrade_value("cooldown_"+key)
     progress("cast",key,1);sim.touch();return true
+## Read-only availability for manual buttons and automation. Poll while actors move: movement does
+## not emit sim.changed every frame. Empty means available; querying never acquires a target.
+func skill_cast_block_reason(slot: int) -> String:
+    var lock: String=sim.action_lock_reason()
+    if not lock.is_empty():return lock
+    if slot<0 or slot>=mini(sim.state.skills.size(),1+sim.level("skill_slots")):return "SKILL_SLOT_UNAVAILABLE"
+    var id: String=sim.state.skills[slot]
+    if id.is_empty() or sim.quantity(id)<1:return "SKILL_EMPTY"
+    if sim.state.player.hp<=0:return "PLAYER_DEAD"
+    var key: String=sim.catalog.items[id].skill
+    if float(sim.state.skill_cooldowns.get(key,0))>0:return "SKILL_COOLDOWN"
+    return player_skill_block_reason(key)
+
+func skill_activation_distance() -> float:
+    return maxf(0,float(sim.catalog.progression.change17.skill_activation_distance))
+
+## Preserve locked-target priority and farming filters, but only select eligible nearby actors.
+## This activation radius does not change Frost/Fire damage areas or enemy skill reach.
+func skill_activation_target() -> Dictionary:
+    var origin: Vector2=sim.position_of(sim.state.player)
+    var radius_sq:=pow(skill_activation_distance(),2)
+    var locked: Dictionary=sim._find_actor(sim.locked_target)
+    if not locked.is_empty() and locked.id!="player" and locked.hp>0 and target_allowed(locked) and origin.distance_squared_to(sim.position_of(locked))<=radius_sq:return locked
+    var result: Dictionary={}
+    for enemy in sim.state.enemies:
+        if enemy.hp<=0 or not target_allowed(enemy):continue
+        if int(sim.state.focus)>=0 and (int(enemy.group)!=int(sim.state.focus) or int(enemy.get("variant",2))!=int(sim.state.focus_variant)):continue
+        var distance:=origin.distance_squared_to(sim.position_of(enemy))
+        if distance<=radius_sq and (result.is_empty() or distance<radius_sq):
+            radius_sq=distance;result=enemy
+    return result
+
+func player_skill_block_reason(key: String) -> String:
+    if not sim.catalog.skills.has(key):return "SKILL_UNKNOWN"
+    if sim.state.player.hp<=0:return "PLAYER_DEAD"
+    if key=="heal":return "" if sim.state.player.hp<actor_max_hp(sim.state.player) else "HEALTH_FULL"
+    if skill_activation_target().is_empty():return "SKILL_TARGET_OUT_OF_RANGE"
+    if not in_combat():return "NOT_IN_COMBAT"
+    return ""
 ## Enemy Heal is cast below this share of maximum HP (player Heal needs any missing HP), except the final
 ## boss, which keeps Heal for its second half and then puts it first (Change 13, heal_threshold).
 const HEAL_BELOW_HP:=.8
@@ -419,13 +462,15 @@ func actor_max_hp(a: Dictionary) -> float:
 ## Whether a self-cast skill can do anything now (Change 12). A boss checks this before telegraphing,
 ## so its Heal effect, sound and number only ever accompany HP actually restored.
 func skill_ready(a: Dictionary,key: String) -> bool:
+    if a.id=="player":return player_skill_block_reason(key).is_empty()
     if a.hp<=0:return false
     if key=="heal":return a.hp<actor_max_hp(a)*heal_threshold(a)
     if key=="focus":return in_combat()
     return true
 func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF) -> bool:
     var player: bool=a.id=="player"
-    var target: Dictionary=sim._combat_target() if player else sim.state.player
+    if player and not player_skill_block_reason(key).is_empty():return false
+    var target: Dictionary=(skill_activation_target() if key not in SELF_SKILLS else {}) if player else sim.state.player
     var pos: Vector2=sim.position_of(a)
     sim.cast_target=""
     if key=="heal":
@@ -595,7 +640,7 @@ func auto_evolve() -> void:
     evolve_clock=0
     var ids: Array=sim.state.items.keys();ids.sort()
     for id in ids:
-        if sim.evolve_group(id)>=0 and sim.evolve_block_reason(id)=="":sim.evolve(id)
+        if not sim.auto_merge_excluded(id) and sim.evolve_group(id)>=0 and sim.evolve_block_reason(id)=="":sim.evolve(id)
 
 func automate(dt: float) -> void:
     for g in stage().groups:
@@ -631,7 +676,7 @@ func merge_cycle(key: String,interval: float,dt: float,g: int) -> void:
     var start=int(sim.state.merge_cursors.get(key,0))
     for offset in range(ids.size()):
         var i: int=(start+offset)%ids.size();var id: String=ids[i]
-        var eligible: bool=sim.gear_group(id)==g and sim.catalog.items[id].kind!="consumable"
+        var eligible: bool=sim.gear_group(id)==g and sim.can_auto_merge(id)
         if eligible and sim.quantity(id)>1 and sim.record(id).merge<sim.merge_cap(id):
             sim.merge(id);sim.state.merge_cursors[key]=(i+1)%ids.size();break
 func begin_encounter(a: Dictionary) -> void:
@@ -670,6 +715,7 @@ func killed(a: Dictionary) -> void:
     a.erase("encounter_uses")
     if d.boss:SaveService.save_now()
 func progress(kind: String,id: String,amount: float) -> void:
+    guided.action(kind,id)
     var prior: Array=sim.state.opportunities.keys()
     sim.state.counters[kind]=float(sim.state.counters.get(kind,0))+amount
     sim.state.counters[kind+":"+id]=float(sim.state.counters.get(kind+":"+id,0))+amount
@@ -1064,6 +1110,7 @@ func first_boss_defeated() -> bool:
     var g:=prestige_unlock_group()
     return g>=0 and int(sim.state.group_kills[g])>0
 func prestige_gate_reason() -> String:
+    if guided.active():return "PRESTIGE_TUTORIAL_LOCKED"
     if not prestige_unlocked():return "PRESTIGE_LOCKED_FIRST_BOSS"
     return ""
 ## Ready opportunities that can still award a card, in batch order: each path offers its cards that
@@ -1114,7 +1161,7 @@ func choose_card(id: String) -> bool:
         # Change 16: Prestige also keeps the Gem balance, every explored map area (fog cells, sighted
         # camps and found encounter spots) and the bosses found. Map upgrades, camps owned, coins and
         # the run's online Gem credit (Offering opportunities) still reset.
-        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found","supply_uses","supply_mastery_credit","reward_stage","onboarding","mastery","gems","explored","camps_known","discovered","discovered_spots","bosses_found"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found","player_level","xp","reward_stage","onboarding","mastery","gems","explored","camps_known","discovered","discovered_spots","bosses_found"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1227,6 +1274,7 @@ func claim_offline() -> bool:
 func normalize_snapshot(data: Dictionary) -> Dictionary:
     var out: Dictionary=data.duplicate(true)
     normalize_change17(out)
+    guided.normalize(out)
     # Change 8 fields are derived for older current-schema saves, never copied from the live state.
     var change8: Array=[]
     for key in ["skills_seen","discovered_spots","camps_known"]:

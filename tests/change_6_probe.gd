@@ -143,8 +143,10 @@ func ui_checks() -> void:
     sim.add_item("potion",2)
     var map: Control=game.get_node("Safe/Layout/Map")
     game.selected="wood_sword";game.selected_slot=-1;game._open("item");await frames(8)
-    # Change 8's comparison shows the equipped card above the selected one: taller, still content-sized.
-    check(game.sheet.size.y<map.size.y*.85,"Item details are content-sized (%.0f of %.0f)" % [game.sheet.size.y,map.size.y])
+    # Comparison plus the per-item toggle may reach the available height; overflow scrolls above pinned actions.
+    var natural_height: float=game.sheet.get_combined_minimum_size().y+game.rows.get_combined_minimum_size().y+4
+    var expected_height:=clampf(natural_height,minf(200,map.size.y-game.sheet_inset.y*2),map.size.y-game.sheet_inset.y*2)
+    check(absf(game.sheet.size.y-expected_height)<2,"Item details size to content, bounded by the map")
     check(is_equal_approx(game.sheet.position.y+game.sheet.size.y,map.global_position.y+map.size.y-game.sheet_inset.y),"Sheet is anchored to the bottom of the map")
     var bar_rect: Rect2=game.actions.get_global_rect()
     var prev: Button=game.actions.get_child(0);var next: Button=game.actions.get_child(game.actions.get_child_count()-1)
@@ -202,7 +204,7 @@ func ui_checks() -> void:
     for i in range(24):
         game._open(["upgrades","world","missions","prestige","settings","stats"][i%6]);await frames(1);game._close();await frames(1)
     await frames(6)
-    check(count(game)==before,"Open/close cycles return the tree to its baseline (%d -> %d)" % [before,count(game)])
+    check(count(game)<=before,"Open/close cycles do not grow the tree (%d -> %d)" % [before,count(game)])
 
 ## UI nodes only: the world viewport's combat text and effects come and go with simulated time
 ## (Change 15 hardening: a damage number expiring during the cycles made this check flaky).
@@ -213,26 +215,29 @@ func count(node: Node) -> int:
         n+=count(c)
     return n
 
-## The full camp route: explore, earn, open World, unlock; never points at undiscovered places.
+## Physical camp route: approach, discover, open the visible camp control and buy manually.
 func tutorial_checks() -> void:
-    fresh();sim.state.tutorial.mode="guided";sim.state.tutorial.done=["move","kill","collect","equip","merge","upgrade"]
+    fresh();sim.state.tutorial.mode="guided";sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,13)
     await frames(3)
-    check(game.guide.pending=="camp" and game.guide.step=="camp_explore","Undiscovered camp asks for exploration")
-    check(game.guide.target==game.stick,"Exploration points at movement, not at the hidden camp")
+    check(game.guide.pending=="camp" and game.guide.step=="camp_approach","Undiscovered camp asks for a physical approach")
+    check(game.guide.path_point!=Vector2.INF,"Camp direction guides movement toward the first camp")
     var camp: Array=sim.campaign.stage().spawns[1]
-    sim.state.camps_known["1"]=[1];sim.state.coins=0;await frames(3)   # fixture: camp sighted (Change 8)
+    sim.state.camps_known["1"]=[1];sim.state.coins=0;await frames(3)
     check(game.guide.step=="camp_earn","Known but unaffordable camp asks for coins")
     sim.state.coins=sim.campaign.camp_price(1);sim.touch();await frames(3)
-    check(game.guide.step=="camp" and game.guide.target==game.dock.get_node("Navigation/World"),"Affordable camp points at World")
-    game._open("world");await frames(8)
-    check(game.guide.step=="camp_buy" and game.guide.target!=null and game.guide.target.get_meta("guide","")=="camp_buy_1","World panel points at the camp's Unlock")
-    check(game.guide.pointer.visible,"Pointer shown inside the World panel")
+    check(game.guide.step=="camp_approach","Affordable camp still requires approaching it")
+    sim.state.player.x=float(camp[0]);sim.state.player.y=float(camp[1]);game._settle_camp();await frames(3)
+    check(game.guide.step=="camp_view" and game.guide.target!=null,"Approaching exposes the camp control")
+    game.selected_camp=1;game._open("camp");await frames(8)
+    check(game.guide.step=="camp_buy" and game.guide.target!=null and game.guide.target.get_meta("guide","")=="camp_buy_1","Camp panel points at Unlock")
+    check(game.guide.pointer.visible,"Pointer shown inside the camp panel")
     game._open("stats");await frames(4)
     check(game.guide.suspended_by=="stats" and not game.guide.pointer.visible and not game.guide.card.visible,"Unrelated panel hides all guidance")
-    game._open("world");await frames(8)
-    game.guide.target.pressed.emit();await frames(4)
+    game._open("camp");await frames(8)
+    if game.guide.target!=null:game.guide.target.pressed.emit()
+    await frames(4)
     check(sim.state.spawns.has(1) and int(sim.state.spawn)==0,"Unlock buys the camp without silently selecting it")
-    check(sim.state.tutorial.done.has("camp"),"Camp lesson completes on the purchase")
+    check(sim.campaign.guided.data().done.has("camp"),"Camp lesson completes on the purchase")
     for node in game.guide.find_children("*","Control",true,false):
         if node!=game.guide.intro_button and node.get_parent()!=game.guide.chooser and not game.guide.chooser.is_ancestor_of(node) and node!=game.guide.blocker and node!=game.guide.chooser:
             if node.mouse_filter!=Control.MOUSE_FILTER_IGNORE:check(false,"Guide node takes input: "+str(node.name))

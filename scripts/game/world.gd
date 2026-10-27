@@ -21,6 +21,8 @@ var sim: LootSimulation
 var views: Dictionary={}
 var pickups: Dictionary={}
 var textures: Dictionary={}
+var boss_labels: Dictionary={}
+var countdown_clock:=0.0
 var weather: Node2D
 ## Change 13 summoning: the existing cast effect, tinted like the helpers, on the summoner (warning)
 ## and where each helper appears ("summon" and "summon_appear" styles; the sheet is the cast one).
@@ -49,6 +51,10 @@ func setup(value: LootSimulation) -> void:
 func _process(_delta: float) -> void:
     if sim==null:
         return
+    countdown_clock+=_delta
+    if countdown_clock>=.2:
+        countdown_clock=0
+        _boss_countdowns()
     if active_stage!=int(sim.state.stage):
         active_stage=int(sim.state.stage)
         for effect in get_children():
@@ -327,3 +333,25 @@ func _effect(key: String,pos: Vector2,on_actor: String,tint: Color) -> AnimatedS
     sprite.animation_finished.connect(sprite.queue_free)
     sprite.play()
     return sprite
+
+## Countdown views are keyed by the authoritative saved boss actor, and hidden outside discovered areas.
+func _boss_countdowns() -> void:
+    var live: Array=[]
+    for entry in sim.boss_respawn_countdowns(int(sim.state.stage)):
+        if float(entry.remaining)<=0 or not sim.campaign.boss_found(str(sim.catalog.groups[int(entry.group)].id)):continue
+        if not sim.campaign.can_see(entry.position):continue
+        var key: String=entry.actor_id
+        live.append(key)
+        if not boss_labels.has(key):
+            var label:=Label.new()
+            label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+            label.add_theme_font_size_override("font_size",12)
+            label.add_theme_constant_override("outline_size",4)
+            label.add_theme_color_override("font_outline_color",Color.BLACK)
+            label.z_index=52
+            add_child(label);boss_labels[key]=label
+        var label: Label=boss_labels[key]
+        label.text=tr("BOSS_RESPAWN_TIME") % ceili(entry.remaining)
+        label.position=entry.position-Vector2(label.get_combined_minimum_size().x*.5,30)
+    for key in boss_labels.keys():
+        if not live.has(key):boss_labels[key].queue_free();boss_labels.erase(key)

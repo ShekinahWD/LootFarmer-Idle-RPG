@@ -1,4 +1,17 @@
+> **Superseded by Change 20:** all remaining UI and tutorial work is implemented in this project. This file is retained as the historical API inventory, not a list of work reserved for Claude. Supply Mastery now resets on Prestige; player level and XP persist. See `LootFarmer_Change_20_Report.md`.
+
 # Change 17 — Claude integration contract
+
+## Change 19 follow-up API (latest project baseline)
+
+Apply the Change 19 patch to `lootFarmer(20261027-171448).zip`. The original 17 systems below are already present in that project; do not reapply their older patch. UI remains assigned to Claude under the chat instructions.
+
+- Read `campaign.skill_cast_block_reason(slot)` each HUD update. Empty means enabled; otherwise set the existing Button.disabled state exactly as for cooldown. Reasons include `SKILL_TARGET_OUT_OF_RANGE`, `SKILL_COOLDOWN`, `HEALTH_FULL`, `NOT_IN_COMBAT`, `PLAYER_DEAD`, `SKILL_EMPTY`, `SKILL_SLOT_UNAVAILABLE`, plus existing action-lock reasons. These are API codes; localize any explanatory text in the UI pass. Requery while actors move, not only on `sim.changed`: movement does not emit that signal every frame. There is deliberately no new per-frame signal.
+- `campaign.skill_activation_distance()` returns the catalog's 64-world-unit activation limit. `skill_activation_target()` is a read-only live actor reference for internal targeting; consumers must not mutate it. Both manual `cast(slot)` and automation use the same eligibility. The direct player `apply_skill` resolver also refuses out-of-range effects. Heal ignores enemy proximity; Focus still requires combat. A blocked attempt starts no animation and consumes no cooldown.
+- `sim.boss_gem_chance(extra=0)` returns the common effective boss probability. `player_upgrade_value("boss_gem_chance", extra)` now delegates to it, so the existing upgrade-row renderer receives 5% → 10% without a UI code change. Include global Gem Chance/Card/Mastery bonuses. For a named boss, use `gem_chance(group)` to include its achievement bonus. Never add another base in UI code.
+- Pending interaction: disable/re-enable skill buttons from this API while moving into/out of range; preserve cooldown text and existing disabled appearance. No UI code or temporary controls were added.
+
+The following original handoff remains applicable.
 
 Gameplay is implemented against `lootFarmer(20261027-123702).zip`. No UI or tutorial work is included. Merge shared simulation/catalog files deliberately if another patch has changed them.
 

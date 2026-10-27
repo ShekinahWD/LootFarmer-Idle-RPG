@@ -21880,6 +21880,7 @@
     "map_reward_growth": 1.5,
     "map_cost_growth": 1.55,
     "change17": {
+      "skill_activation_distance": 64.0,
       "skill_curve": {
         "heal": [
           0.1,
@@ -21926,6 +21927,12 @@
         18,
         25
       ]
+    },
+    "change20": {
+      "mission_delay": 120.0,
+      "upgrade_delay": 60.0,
+      "post_boss_kills": 10,
+      "final_delay": 5.0
     }
   },
   "skills": {

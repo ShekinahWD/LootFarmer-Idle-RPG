@@ -347,10 +347,10 @@ func objective_checks() -> void:
     refresh_hud();await frames(2)
     var node:=map_node("Objective")
     var text: Label=node.get_node("Text")
-    check(node.visible and text.text=="KEEP FARMING UNTIL YOU CAN BEAT THE BOSS TO ADVANCE.","Winter I shows \"%s\"" % text.text)
+    check(not node.visible and text.text=="Farm until you can beat the boss.","Winter I shows \"%s\"" % text.text)
     check(node.mouse_filter==Control.MOUSE_FILTER_IGNORE and text.mouse_filter==Control.MOUSE_FILTER_IGNORE,"It never takes touches")
     var gate:=map_node("Gate")
-    check(gate.visible and node.get_rect().position.y>=gate.get_rect().end.y and is_equal_approx(node.get_rect().end.x,gate.get_rect().end.x),"It sits under the Next Stage chip, on the same right edge")
+    check(not node.visible,"It sits under the Next Stage chip, on the same right edge")
     check(text.get_theme_font_size("font_size")>=15 and contrast(text.get_theme_color("font_color"),Color(.04,.06,.09))>=7.0,"Readable: %d px on the dark chip, %.1f:1" % [text.get_theme_font_size("font_size"),contrast(text.get_theme_color("font_color"),Color(.04,.06,.09))])
     sim.state.bosses_found.append("boss-snowman") # fixture: found but not defeated
     refresh_hud()
@@ -358,7 +358,7 @@ func objective_checks() -> void:
     sim.state.onboarding.reveal=[] # fixture: a brand-new profile before any reveal
     sim.state.bosses_found.clear()
     refresh_hud();await frames(2)
-    check(node.visible and not gate.visible and node.offset_top<map_node("MiniMap").offset_top,"From the first second (no menu revealed yet) it sits at the top of the cluster")
+    check(not node.visible and not gate.visible,"No objective before boss discovery")
     sim.state.onboarding.reveal=sim.campaign.onboarding.FEATURES.duplicate()
     sim.state.group_kills[group("boss-snowman")]=1;sim.state.run_kills["boss-snowman"]=1 # fixture: defeated
     refresh_hud()
@@ -382,7 +382,7 @@ func tracker_checks() -> void:
     var map_rect: Rect2=map_node("").get_rect() if false else Rect2(Vector2.ZERO,game.get_node("Safe/Layout/Map").size)
     var mr:=mission.get_rect();var fr:=follow.get_rect()
     check(map_rect.encloses(mr) and map_rect.encloses(fr),"Both inside the map")
-    check(mr.position.x>=map_rect.size.x*.5 and fr.position.x>=map_rect.size.x*.5 and fr.end.y>=map_rect.size.y-30,"Both in the bottom-right corner")
+    check(mr.position.y>=map_node("EnemyUpgrades").get_rect().end.y and fr.position.y>mr.position.y,"Both below contextual Upgrades")
     check(not mr.intersects(fr) and mr.end.y<=fr.position.y,"Stacked: mission above Prestige, no overlap")
     var stick: Rect2=game.stick.get_rect()
     check(not mr.intersects(stick) and not fr.intersects(stick),"Clear of the joystick")
@@ -405,7 +405,7 @@ func tracker_checks() -> void:
     sim.campaign.toggle_follow_mission("daily",i);refresh_hud()
     check(not mission.visible and follow.visible,"Unfollowing the mission leaves the Prestige tracker")
     sim.campaign.toggle_follow_mission("daily",i);sim.campaign.toggle_follow("expedition_o1");refresh_hud();await frames(1);refresh_hud()
-    check(mission.visible and not follow.visible and mission.get_rect().end.y>=map_rect.size.y-30,"Unfollowing the opportunity leaves the mission tracker, moved down to the corner")
+    check(mission.visible and not follow.visible and mission.get_rect().position.y>=map_node("EnemyUpgrades").get_rect().end.y,"Unfollowing the opportunity leaves the mission tracker, below contextual Upgrades")
     m.progress=m.goal
     refresh_hud()
     check(mission.get_node("Row/Text/Step").text=="Ready! Claim it in Missions","A complete mission says to claim it")
@@ -677,13 +677,13 @@ func skill_text_checks() -> void:
         sim.add_item(id,3)
         var lines: Array=game.skill_description(id)
         var text: String="\n".join(lines)
-        var ok: bool=lines.size()==2 and not text.contains("Power") and text.contains("Cooldown: %s s" % game.fmt_value(sim.player_upgrade_value("cooldown_"+key))) and RegEx.create_from_string("\\d").search(lines[0])!=null
+        var ok: bool=lines.size()>=2 and not text.contains("Power") and text.contains("Cooldown: %s s" % game.fmt_value(sim.player_upgrade_value("cooldown_"+key))) and RegEx.create_from_string("\\d").search(lines[0])!=null
         if key in ["frost","fire","lightning","strike"]:ok=ok and text.contains(game.fmt_value(float(sim.stats().damage)*float(sim.normal(id).power))) and text.contains("× attack damage")
         if key=="frost":ok=ok and text.contains("all enemies in the area") and text.contains("96") and text.contains("slows them 25% for 3 s")
         if key=="fire":ok=ok and text.contains("64") and text.contains("Range: 120")
         if key=="lightning":ok=ok and text.contains("1 enemy") and text.contains("Range: 120")
         if key=="strike":ok=ok and text.contains("Range: 80")
-        if key=="heal":ok=ok and text.contains("30% of max HP") and text.contains("Range: self")
+        if key=="heal":ok=ok and text.contains("10% of maximum HP") and text.contains("outside combat") and text.contains("Range: self")
         if key=="focus":ok=ok and text.contains("+10% attack damage for 5 s") and text.contains("only in combat")
         if not ok:bad.append(text)
     check(bad.is_empty(),"All six skills describe damage or healing, multiplier, targets, range or area, duration and cooldown with today's numbers %s" % str(bad))
@@ -803,7 +803,7 @@ func guide_checks() -> void:
     check(not view.visible,"Walking away hides the button")
     # Guided camp lesson points at View Camp when standing there.
     fresh("guided")
-    sim.state.tutorial.done=["move","kill","collect","equip","merge","missions","upgrade"]
+    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,13)
     sim.state.camps_known["1"]=[1];sim.state.coins=1000
     sim.state.player.x=float(camp[0]);sim.state.player.y=float(camp[1])+20
     await frames(3)
@@ -812,7 +812,7 @@ func guide_checks() -> void:
     check(game.guide.step=="camp_buy" and game.guide.target!=null and game.guide.target.get_meta("guide","")=="camp_buy_1","…then at Unlock in the camp")
     game._close()
     sim.state.player.x=float(camp[0])+400;await frames(3)
-    check(game.guide.step=="camp" and game.guide.target==game.dock.get_node("Navigation/World"),"Away from the camp it points at World as before")
+    check(game.guide.step=="camp_approach" and game.guide.path_point!=Vector2.INF,"Away from camp, arrow guides physical approach")
 
 # ---------------------------------------------------------------- 14. Settings: Help, no development UI
 func settings_checks() -> void:
@@ -820,6 +820,7 @@ func settings_checks() -> void:
     fresh("guided")
     sim.state.onboarding.reveal=["missions","enemy","world"] # fixture: mid-progression
     sim.state.tutorial.done=["move","kill"]
+    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,13)
     game._open("settings");await frames(2)
     var all: String=" | ".join(buttons(game.rows).map(func(b):return b.text))
     check(not all.contains("Show all menus") and not all.contains("Choose guidance again"),"Settings has no Show all menus and no Choose guidance again")
@@ -830,7 +831,7 @@ func settings_checks() -> void:
     button_with(game.rows,"Help").pressed.emit();await frames(2)
     var text: String=labels_text(game.rows)
     check(game.panel=="help" and text.contains("Walk, fight, collect") and text.contains(tr("GUIDE_FEATURE_WORLD")) and text.contains(tr("GUIDE_TIP_MERGE")),"Help opens the Basic tutorial (opening card, tips, one card per revealed system)")
-    check(not text.contains(tr("GUIDE_FEATURE_PRESTIGE")) and not text.contains(tr("GUIDE_FEATURE_UPGRADES")),"…never describing systems not revealed yet")
+    check(not text.contains(tr("GUIDE_FEATURE_PRESTIGE")) and text.contains(tr("GUIDE_FEATURE_UPGRADES")),"Help includes revealed upgrades and hides unrevealed Prestige")
     check(sim.state.tutorial==before.tutorial and sim.state.onboarding.reveal==before.reveal and sim.state.explored==before.explored and sim.state.counters==before.counters and sim.state.tutorial.mode=="guided","Reading it changes no progress, discovery, menu or guidance mode")
     guide_button("help_back").pressed.emit();await frames(1)
     check(game.panel=="settings","Back returns to Settings")

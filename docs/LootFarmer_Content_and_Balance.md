@@ -15,7 +15,7 @@ All exact assignments and newly authored values in this document are delegated s
 | 1 | Winter I | 3 | 1 | Clear | snowman | None |
 | 2 | Winter II | 6 | 1 | Blue falling leaves | cyan-robot | Heal (late stage) |
 | 3 | Summer I | 3 | 1 | Clear | gray-cat | Frost Burst; Fire Burst; Lightning Strike |
-| 4 | Summer II | 6 | 2 | Rain | elephant, teal-dinosaur | Arcane Focus; Arcane Strike |
+| 4 | Summer II | 6 | 2 | Rain | Dinosaur (`boss-elephant`), teal-dinosaur | Arcane Focus; Arcane Strike |
 | 5 | Autumn I | 3 | 2 | Clear | red-fox | Existing combinations |
 | 6 | Autumn II | 4 | 2 | Falling leaves | black-cat, grim-reaper | Existing combinations |
 | 7 | Spring I | 3 | 2 | Clear | bee, orange-tabby-cat | Existing combinations |

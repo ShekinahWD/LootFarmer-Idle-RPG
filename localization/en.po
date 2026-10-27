@@ -2146,25 +2146,25 @@ msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
 msgstr "Straw Hat Swimmer Sword"
 
 msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
-msgstr "Elephant Outfit"
+msgstr "Dinosaur Outfit"
 
 msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
-msgstr "Elephant Outfit"
+msgstr "Dinosaur Outfit"
 
 msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
-msgstr "Elephant Outfit"
+msgstr "Dinosaur Outfit"
 
 msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
-msgstr "Elephant Outfit"
+msgstr "Dinosaur Outfit"
 
 msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
-msgstr "Elephant Outfit"
+msgstr "Dinosaur Outfit"
 
 msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
-msgstr "Elephant Outfit"
+msgstr "Dinosaur Outfit"
 
 msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
-msgstr "Elephant Outfit"
+msgstr "Dinosaur Outfit"
 
 msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
 msgstr "Teal Dinosaur Outfit"
@@ -3130,7 +3130,7 @@ msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
 msgstr "Straw Hat Swimmer"
 
 msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
-msgstr "Elephant"
+msgstr "Dinosaur"
 
 msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
 msgstr "Teal Dinosaur"
@@ -3406,7 +3406,7 @@ msgid "CONTENT_TROPHY_O2_NAME"
 msgstr "Summer trophies"
 
 msgid "CONTENT_TROPHY_O2_DESCRIPTION"
-msgstr "After finding this, defeat the Gray Cat (Summer I), the Elephant and the Teal Dinosaur (Summer II) once each"
+msgstr "After finding this, defeat the Gray Cat (Summer I), the Dinosaur and the Teal Dinosaur (Summer II) once each"
 
 msgid "CONTENT_TROPHY_O3_NAME"
 msgstr "Autumn trophies"
@@ -3903,13 +3903,13 @@ msgid "PRESTIGE_KEEP_TITLE"
 msgstr "You keep"
 
 msgid "PRESTIGE_KEEP"
-msgstr "Cards and sets, your Gems, explored map areas, every upgrade bought with gems (all categories), automation, inventory space, boss keys, enemy achievements, supply mastery, Map Mastery and settings."
+msgstr "Cards and sets, your Gems, explored map areas, every upgrade bought with gems (all categories), automation, inventory space, boss keys, enemy achievements, player level and XP, Map Mastery and settings."
 
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "This run resets"
 
 msgid "PRESTIGE_RESET"
-msgstr "Coins, items (supply stock included) and merges, level, map access and owned camps, map and coin upgrades and unfinished challenges."
+msgstr "Coins, items (supply stock included) and merges, Supply Mastery, map access and owned camps, map and coin upgrades and unfinished challenges."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Keep %s"
@@ -4065,7 +4065,7 @@ msgid "GUIDE_PRESTIGE"
 msgstr "Prestige opportunity found"
 
 msgid "GUIDE_PRESTIGE_DETAIL"
-msgstr "Complete it for a permanent card. Prestige opens once you clear Winter."
+msgstr "Complete it for a permanent card. Find the Snowman first; Guided mode also requires completing the tutorial."
 
 msgid "GUIDE_REST"
 msgstr "Low on health?"
@@ -4665,7 +4665,7 @@ msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Supply slots: one per supply type (%d types). Filters sit next to the gear count."
 
 msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Supplies are spent when used, but their mastery is permanent: every copy you find (drops and offline earnings) adds ^1, up to ^%d, and using one never lowers it. Prestige keeps mastery; Hard Reset clears it. Copies bought with coins add stock only."
+msgstr "Every 5 actual uses of this supply grants one mastery level, up to ^%d. Purchases and drops add stock only. Prestige resets mastery and use progress."
 
 msgid "BUY_SUPPLY"
 msgstr "Buy %s · %s coins"
@@ -4728,7 +4728,7 @@ msgid "SUPPLY_AMOUNT_REGEN"
 msgstr "%s%% max HP per second"
 
 msgid "SUPPLY_EFFECT_HEAL"
-msgstr "Heals %s%% of max HP (%s HP now) · cooldown %s s · usable at %s%% HP or below"
+msgstr "Heals %s%% of max HP (%s HP now) · cooldown %s s · usable below %s%% HP"
 
 msgid "SUPPLY_EFFECT_COINS"
 msgstr "+%s%% coins from defeated enemies for %s s"
@@ -4758,7 +4758,7 @@ msgid "SUPPLY_ACTIVE"
 msgstr "Already active. Use it again when it runs out."
 
 msgid "SUPPLY_NO_MERGE"
-msgstr "Supplies grow by themselves: every copy found raises mastery."
+msgstr "Every five uses raise Supply Mastery. Prestige resets mastery and use progress."
 
 msgid "SOURCE_SUPPLY"
 msgstr "Active supplies"
@@ -5064,7 +5064,7 @@ msgid "SHOW_ALL_MENUS"
 msgstr "Show all menus now"
 
 msgid "SHOW_ALL_MENUS_CONFIRM"
-msgstr "Show every menu now? New menus normally appear as you learn the game. Prestige still needs the Snowman's defeat."
+msgstr "Show every menu now? New menus normally appear as you learn the game. Prestige still needs the Snowman's discovery; Guided mode also requires tutorial completion."
 
 msgid "ALL_MENUS_SHOWN"
 msgstr "All menus are now available"
@@ -5370,7 +5370,7 @@ msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Map Mastery of this map: percent and completed categories. Tap for details."
 
 msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "KEEP FARMING UNTIL YOU CAN BEAT THE BOSS TO ADVANCE."
+msgstr "Farm until you can beat the boss."
 
 msgid "OBJECTIVE_WINTER_TOOLTIP"
 msgstr "The Snowman guards the way to Winter II."
@@ -5442,7 +5442,7 @@ msgid "SKILL_AMOUNT_MULTIPLIER"
 msgstr "%s× attack damage"
 
 msgid "HEAL_ROLE_SHORT"
-msgstr "Free sustain between potions. Damage numbers above are before enemy Defense; skill cards and merges raise them."
+msgstr "Heal can be used whenever HP is missing, including outside combat."
 
 msgid "PRESTIGE_CONFIRM_TITLE"
 msgstr "Prestige"
@@ -5481,7 +5481,7 @@ msgid "KEEP_LINE_UPGRADES"
 msgstr "Every Gem upgrade, automation and inventory space"
 
 msgid "KEEP_LINE_PROGRESS"
-msgstr "Boss keys, enemy achievements, supply mastery and Map Mastery"
+msgstr "Boss keys, enemy achievements and Map Mastery"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Settings and tutorial progress"
@@ -5536,3 +5536,168 @@ msgstr "Automatic Skill Slots"
 
 msgid "SOURCE_UPGRADES"
 msgstr "Upgrades"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "Automatic skills: %d / %d assigned"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "Equip a skill and buy an available automatic slot first."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "Auto-merge: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "Inventory slot size"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "Restore up to %s HP (%s%% of maximum HP). Available whenever HP is missing, including outside combat."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "Activation requires combat and an enemy within %s units."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "Single target. Reduces attack speed by %s%% for %s seconds (bosses: %s seconds). Movement is unchanged."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "Bosses resist half of timed-effect duration; strength and damage remain unchanged."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "Next mastery level: %d / %d uses · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "Auto-use: whenever HP is missing and the cooldown is ready, including outside combat."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "Tap a green camp to travel. Dim camps are locked. Travel is unavailable during combat."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "Respawn: %ds"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "Complete Guided onboarding in Winter II before using Prestige."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "Player level %d, earned XP and level bonuses"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "Supply Mastery and progress toward its next level"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "Choose a camp"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "Close this panel to continue."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "Tap the close button. Your progress has been saved."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "Buy a Player Upgrade."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "Choose a global upgrade to help your next battles."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "Expand your equipment inventory."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "Use Gems to buy another slot. A one-time tutorial grant covers any shortage."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "Follow the arrow to the camp."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "Approach, discover it, then tap View Camp and buy its unlock."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "Find the first boss."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "Follow the arrow toward the Snowman. Discovery does not require defeating it."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "Prepare before fighting the boss."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "Bosses can be too strong. Level up for global stats; farm equipment, merge copies, and buy upgrades."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "Farm a few more enemies."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "Build strength and gather Coins before learning inventory expansion and potions."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "Buy a Health Potion."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "Open Player Upgrades, then Supplies. Existing potion stock already counts."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "Make room for a Health Potion."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "Buy a supply slot, or use an existing supply to free a slot."
+
+msgid "GUIDE_POTION_USE"
+msgstr "Use your Health Potion."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "Tap its inventory slot when HP is missing. Using a supply advances its mastery."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "Use a potion when you need healing."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "Fight nearby enemies first. Full HP never wastes a potion."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "Prestige grants permanent benefits."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "Complete opportunities for cards. Guided mode unlocks the reset after this tutorial; continuing without Prestige is allowed."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "You already qualify for a Prestige reward."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "Your opportunity is ready. Finish Guided onboarding in Winter II before choosing whether to reset."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "The next map is open."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "Open World to see unlocked stages and their camps."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "Travel between unlocked camps."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "World travels directly when one camp is unlocked, or offers a map when several are available. Combat blocks teleporting."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "Milestones offer optional goals."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "Explore Map Mastery and achievements when you want extra rewards. Continue through World to Winter II."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "Travel to Winter II."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "Open World and select Winter II to continue the adventure."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "Your adventure continues."
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "Defeat the final boss. Milestones are optional. Prestige grants permanent benefits, but you may continue without it."
+
+msgid "SLOT_SMALL"
+msgstr "Small"
+
+msgid "SLOT_MEDIUM"
+msgstr "Medium"
+
+msgid "SLOT_LARGE"
+msgstr "Large"

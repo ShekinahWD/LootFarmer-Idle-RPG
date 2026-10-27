@@ -14,6 +14,7 @@ var mute_gameplay: bool = false
 ## Milestones and notifications (Prestige discovered/ready, followed step done, mission ready).
 var mute_special: bool = false
 var camera_zoom: float = 2.0
+var inventory_zoom: int = 2
 
 ## Optional but useful for incremental/idle projects. If the game has no speed
 ## control, simply leave this at 1.0 and do not expose a UI for it.
@@ -30,6 +31,7 @@ func reset_to_defaults() -> void:
     mute_special = false
     selected_game_speed = 1.0
     camera_zoom = 2.0
+    inventory_zoom = 2
     Engine.time_scale = 1.0
     settings_changed.emit()
     game_speed_changed.emit(selected_game_speed)
@@ -77,10 +79,17 @@ func set_camera_zoom(value: float) -> void:
     settings_changed.emit()
 
 
+func set_inventory_zoom(value: int) -> void:
+    inventory_zoom = clampi(value,0,2)
+    settings_changed.emit()
+    SaveService.mark_dirty()
+
+
 func to_save_dict() -> Dictionary:
     return {
         "selected_language": selected_language,
         "camera_zoom": camera_zoom,
+        "inventory_zoom": inventory_zoom,
         "sfx_volume": sfx_volume,
         "music_volume": music_volume,
         "mute_gameplay": mute_gameplay,
@@ -97,6 +106,7 @@ func from_save_dict(data: Dictionary) -> void:
     music_volume = clampf(float(data.get("music_volume", 1.0)), 0.0, 1.0)
     mute_gameplay = bool(data.get("mute_gameplay", false))
     mute_special = bool(data.get("mute_special", false))
+    inventory_zoom = clampi(int(data.get("inventory_zoom",2)),0,2)
     set_camera_zoom(float(data.get("camera_zoom", 2.0)))
     set_game_speed(float(data.get("selected_game_speed", 1.0)))
     settings_changed.emit()

@@ -651,6 +651,7 @@ func evolve(id: String) -> bool:
     # Every validation precedes both mutations; output is committed with its cost.
     _remove(id,int(catalog.progression.evolution.spare_cost))
     add_item(target,1,false)
+    if auto_merge_excluded(id):record(target).auto_merge_excluded=true
     touch()
     campaign.progress("evolve",id,1)
     event.emit("EVOLVED")
@@ -1013,8 +1014,8 @@ func gear_chance(group: int) -> float:
 ## kill achievements, plus Boss Gem Chance on bosses. Only the probability range clamps it; there is
 ## no game-specific ceiling, so every earned bonus counts.
 func gem_chance(group: int) -> float:
-    var boss_bonus:=float(catalog.upgrades.boss_gem_chance.effect)*level("boss_gem_chance") if catalog.groups[group].boss else 0.0
-    return clampf(gem_base_chance()+achievement_gems(group)+boss_bonus,0.0,1.0)
+    var base:=boss_gem_chance() if catalog.groups[group].boss else gem_base_chance()
+    return clampf(base+achievement_gems(group),0.0,1.0)
 
 func coin_reward(group: int) -> float:
     return group_upgrade_value("coin_amount",group)
@@ -1277,7 +1278,16 @@ func gear_group(id: String) -> int:
     return -1
 
 func can_auto_merge(id: String) -> bool:
-    return gear_group(id)>=0
+    return gear_group(id)>=0 and not auto_merge_excluded(id)
+
+func auto_merge_excluded(id: String) -> bool:
+    return bool(state.items.get(id,{}).get("auto_merge_excluded",false))
+
+func set_auto_merge_excluded(id: String,excluded: bool) -> bool:
+    if not action_lock_reason().is_empty() or not catalog.items.has(id) or catalog.items[id].kind=="consumable" or quantity(id)<1:return false
+    record(id).auto_merge_excluded=excluded
+    touch()
+    return true
 
 ## Change 13 Auto Evolution: the type whose unlock evolves this weapon (the first type that drops this
 ## exact weapon with Auto Evolution bought), or -1. Outfits, skills, supplies and the last tier never.
@@ -1435,6 +1445,7 @@ func player_upgrade_value(id: String,extra: int=0) -> float:
     var effect:=float(catalog.upgrades[id].effect)
     match id:
         "gem_chance":return gem_base_chance(extra)
+        "boss_gem_chance":return boss_gem_chance(extra)
         "gem_amount":return gem_amount(extra)
         "boss_gem_amount":return boss_gem_amount(extra)
         "skill_slots":return 1+n
@@ -1457,6 +1468,11 @@ func farming_position() -> Vector2:
 ## Base 5% + Gem Chance upgrade levels (+0.5 points each) + Gem Wisdom, before per-type bonuses.
 func gem_base_chance(extra: int=0) -> float:
     return clampf(float(catalog.progression.gem_limits.base_chance)+campaign.bonus("gem_chance")+float(catalog.upgrades.gem_chance.effect)*(level("gem_chance")+extra),0.0,1.0)
+
+## Total shared boss probability, including the existing base exactly once. Upgrade previews use
+## extra=1. For a specific boss, gem_chance(group) additionally includes that type's achievements.
+func boss_gem_chance(extra: int=0) -> float:
+    return clampf(gem_base_chance()+float(catalog.upgrades.boss_gem_chance.effect)*(level("boss_gem_chance")+extra),0.0,1.0)
 
 ## Gems paid by one successful Gem roll; the chance is gem_chance(). The single authoritative payout:
 ## _reward() grants it and every display reads it. Change 10: a boss pays boss_amount_multiplier (3)

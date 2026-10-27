@@ -8621,3 +8621,23 @@ For per-encounter countdowns, specify active time, pause, inactive maps, backgro
 ## 146.4 Measure ambient work without asserting an Android bottleneck
 
 Compare the original and optimized implementation using the same camera rectangles and timestamps. Reuse repeated-grid particle calculations and frame buffers before reducing density or changing appearance. Capture invariant visibility inputs once per draw. Include weather-to-dry transitions so redraw throttling cannot leave stale commands visible. Measure simulation costs separately: later wet maps often also contain more actors. Headless CPU results cannot establish mobile GPU overdraw or device FPS; report that boundary and leave device profiling explicit.
+
+## 146.5 Activation distance is separate from effect geometry
+
+Put a configurable proximity gate in the action owner and route manual, automatic and direct resolution through it. Keep healing exceptions explicit. A shorter activation distance need not shrink an area effect or change enemy reach. Expose a pure availability query for button disabling: it must not acquire targets, create records or consume RNG. Poll moving-target availability even when inventory/state-change signals do not fire. Test both sides of the boundary, leaving and re-entering range, locked-target fallback, dead targets, cooldown/effect suppression and healing outside combat.
+
+## 146.6 Upgrade previews include existing base values
+
+Before fixing a displayed probability, inspect the reward resolver. Reuse its effective getter for current/next upgrade values; do not repair a visual omission by adding another gameplay base. Distinguish a shared global total from target-specific achievement bonuses. Test preview totals and actual rolls' probability inputs together.
+
+### Complete authorized batches and superseded scopes
+
+When the latest explicit brief expands an earlier backend-only change to include UI, reconcile the current GDD, reset matrix and handoff before delivery. A working API is not a completed feature until the player can reach and operate its real control. Trace every requested feature to the saved state/action, visible entry point and an interaction assertion; do not leave a historical division of responsibility in the current status document. Compare changed-file packages against the exact last delivered baseline, preserving relative paths and excluding engine caches. Re-run the maintained suite with obsolete assertions changed to the newly approved behavior, retaining their underlying interaction coverage.
+
+### Saved teaching outcomes and visible time
+
+Persist action outcomes separately from instructional acknowledgements and panel-close events. Use one named clock for delayed lessons, document whether it advances while suspended/offline, and test its boundary across reloads. A final acknowledgement delay should accumulate only while its message is visible; an unrelated panel or app pause must not spend that delay. Mode-specific tutorial gates must remain distinct from ordinary gameplay eligibility. For controlled lesson grants, save a one-time receipt and grant only the shortfall, including capacity prerequisites.
+
+### Density controls and marker layers
+
+Inventory density controls should resize slot contents with the slots while retaining the enclosing panel, fixed actions and scroll ownership. Check large/medium/small states on a phone-shaped render and preserve the setting through save/reload. Explicitly place a player map marker above all map markers but below unrelated management panels; increasing its z-index without considering surrounding UI can make it bleed through open panels. Reinspect the rendered result after layer changes.

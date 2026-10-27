@@ -1,0 +1,3 @@
+validate_campaign_source PASS           {"checks": 1567, "failures": 0}
+change_20_probe          PASS        4s  CHANGE_20_CHECKS 81 FAILURES 0
+SUITE 2/2 passed

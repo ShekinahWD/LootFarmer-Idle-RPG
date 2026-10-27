@@ -1,0 +1,182 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+  ok  The probe runs the real first-profile progression (no fixture flag)
+-- early equipment guarantee
+  ok  Fresh profile: no equipment, guarantee at the start
+  ok  Rules: first item within 5, a matching copy within 5 more (onboarding_rules.tres)
+  ok  36 runs (3 modes × 3 Winter I types × 4 seeds): first item by kill 5 (≤5), a mergeable pair by kill 10 (≤10)
+  ok  Type 0 variant 0: item on kill 5, matching copy on kill 10, mergeable (["unit-blue-cap_outfit"])
+  ok  Type 0 variant 1: item on kill 5, matching copy on kill 10, mergeable (["wood_sword"])
+  ok  Type 0 variant 2: item on kill 5, matching copy on kill 10, mergeable (["wood_sword"])
+  ok  Type 1 variant 0: item on kill 5, matching copy on kill 10, mergeable (["unit-red-scarf_outfit"])
+  ok  Type 1 variant 1: item on kill 5, matching copy on kill 10, mergeable (["wood_sword"])
+  ok  Type 1 variant 2: item on kill 5, matching copy on kill 10, mergeable (["wood_sword"])
+  ok  Type 2 variant 0: item on kill 5, matching copy on kill 10, mergeable (["unit-chef-hat_outfit"])
+  ok  Type 2 variant 1: item on kill 5, matching copy on kill 10, mergeable (["wood_axe"])
+  ok  Type 2 variant 2: item on kill 5, matching copy on kill 10, mergeable (["wood_axe"])
+  ok  The guaranteed item equips
+  ok  …and merges with its guaranteed copy
+  ok  Chef Hat outfit first, then only weapon-only Blue Caps: two Wood Swords make the pair on kill 10
+  ok  A natural drop on kill 1: no extra drop, phase advanced, count restarted
+  ok  A natural matching copy on kill 2: pair waiting on the ground, nothing forced
+  ok  Picking the pair up ends the guarantee for good
+  ok  Owning supplies does not count as the first item
+  ok  …the first item still comes on kill 5
+  ok  A different item is not a match: still waiting
+  ok  …the matching copy still comes on the 5th kill
+  ok  Kill 5: the item waits on the ground (not collected)
+  ok  Expired: the next eligible kill drops it again
+  ok  The copy count restarted at the pickup's replacement
+  ok  …and the copy lands 5 kills later
+  ok  An expired copy lowers the phase again
+  ok  …and is replaced on the next eligible kill
+  ok  A boss kill is not an eligible kill
+  ok  Full equipment row: the copy stacks on an owned item
+  ok  Normal equipment chance unchanged (5%)
+  ok  After the pair, the guarantee never adds a drop
+  ok  Prestige keeps it spent
+  ok  …so the next run has no guaranteed drops
+  ok  Hard Reset restores it (a new profile)
+-- menu reveal
+  ok  Fresh profile: nothing revealed
+  ok  World, Missions, Prestige and Upgrades buttons hidden and untouchable
+  ok  Settings always available
+  ok  Minimap, Map Explored and Next Stage hidden
+  ok  Filters hidden
+  ok  Joystick, equipment dock and Pause available
+  ok  Every hidden panel refuses to open
+  ok  Character tap, enemy tap and minimap open nothing yet
+  ok  Settings opens
+  ok  Stats opens
+  ok  First merge: Missions revealed (one notice)
+  ok  First claim: enemy information and upgrades
+  ok  First upgrade: World
+  ok  First camp: Player Upgrades
+  ok  First Player Upgrade purchase: the Snowman objective
+  ok  Prestige stays hidden before the Snowman
+  ok  Next Stage chip shows; Prestige button still hidden
+  ok  Settings never moves while menus appear
+  ok  Missions in place with its badge
+  ok  Snowman: everything revealed with one Prestige banner
+  ok  Prestige opens
+  ok  …but the reset still needs a ready opportunity
+  ok  Level backstops 3/4/5/6/7 reveal one system each: [1, 2, 3, 4, 5]
+  ok  A full equipment row reveals up to Player Upgrades at once
+  ok  Snowman first: every menu revealed regardless of earlier progress
+  ok  Killing the Snowman: "Winter II" banner, then "Prestige unlocked" (["discovered", "discovered", "stage", "discovered", "prestige_unlocked"])
+  ok  An opportunity found before the Snowman: tracked, no banner, no badge
+  ok  The reveal announces Prestige once ("Prestige unlocked")
+  ok  Reveals survive a JSON save/load (schema 8)
+  ok  Prestige keeps every revealed menu
+  ok  Hard Reset hides them again
+  ok  Validation rejects a duplicated reveal
+  ok  Settings → Tutorial and help offers Help, no Show all menus (Change 16)
+  ok  reveal_all(silent) still reveals every menu, silently (probe use)
+  ok  …the Prestige reset still needs the Snowman found
+-- Guided (Change 20 sequence)
+  ok  Guided starts with movement
+  ok  Missions hidden during timed farming interval
+  ok  Missions introduced after 120 seconds
+  ok  Mission guide points at real claim
+  ok  Claim asks to close panel
+  ok  Player Upgrades introduced after close and delay
+  ok  Player Upgrade has a real purchase target
+  ok  Upgrade requires close
+  ok  Camp lesson directs physical approach
+  ok  Unrelated panel suspends presentation
+  ok  Closing unrelated panel restores live direction
+  ok  Boss preparation waits for acknowledgement
+  ok  Acknowledged boss lesson advances to additional farming
+  ok  Guided Prestige remains blocked until final acknowledgement
+-- Basic
+  ok  Basic: a concrete opening card, no pointer
+  ok  The opening says how to walk, fight and collect; the mode is named Basic
+  ok  Got it: nothing more until something new happens
+  ok  First gear: a short equip tip (text only)
+  ok  Equipped: the tip is gone
+  ok  A copy: the merge tip
+  ok  Missions revealed: one short card
+  ok  The card retires on its own after 20 s on screen
+  ok  No pointer on feature_enemy
+  ok  No pointer on feature_world
+  ok  No pointer on feature_upgrades
+  ok  No pointer on feature_objective
+  ok  No pointer on feature_prestige
+  ok  One card per revealed system, in reveal order: ["feature_enemy", "feature_world", "feature_upgrades", "feature_objective", "feature_prestige"]
+-- None
+  ok  None: no card, pointer or tip at any step
+  ok  …while the menus still appear through play
+  ok  A newly revealed menu carries ✦ (status, not instruction)
+  ok  Opening it clears the ✦
+  ok  The Next Stage objective chip shows in None
+-- notification sounds
+  ok  mission_ready plays assets/sounds/mission_ready.wav
+  ok  Main objective, Prestige discovered/step/ready, feature, Mastery objective and map use it: ["main_ready", "prestige_discovered", "prestige_step", "prestige_ready", "feature_unlocked", "mastery_objective", "mastery_map"]
+  ok  A new map and 100% completion keep stage_clear
+  ok  Performing a Prestige keeps the Prestige sound
+  ok  A mission ready while Missions is hidden stays silent
+  ok  A feature revealed plays the notification
+  ok  A main objective ready to claim plays it
+  ok  …once (not again while still waiting)
+  ok  A mission ready to claim by hand plays it
+  ok  A second notification inside the shared cooldown is skipped (no double sound)
+  ok  Same frame as a new map: one sound, the map's
+  ok  Prestige discovered (after the reveal) plays the notification sound
+  ok  Opportunity ready plays it
+  ok  Followed step plays it
+  ok  Mastery category complete plays it
+  ok  A mastered map plays it
+  ok  100% completion plays stage_clear
+  ok  Mute special sounds silences them
+  ok  …independently of Mute gameplay
+  ok  Both mutes and the volume still saved
+-- Map Mastery
+    category totals per map [[3, 4, 8, 7, 5], [4, 7, 14, 11, 8], [4, 4, 8, 10, 5], [4, 8, 16, 14, 9], [4, 5, 10, 12, 6], [4, 6, 12, 13, 7], [4, 5, 10, 13, 6], [4, 9, 18, 18, 10]]
+  ok  Winter I: Explore 3 (100% + 2 camps), Hunt 4, Research 8, Collect 7, Forge 5 (4 outfits + 1 evolution)
+  ok  Hunt = second kill achievement: 100 normal, 3 boss
+  ok  Forge: normal outfits ^25, boss outfits ^5
+  ok  Fresh: 0%
+  ok  Obtained items and best merge levels are recorded
+  ok  Wood Sword evolves
+  ok  Its evolution counts for Winter I and Winter II Forge; the Stone Sword counts as found
+  ok  A shared item counts in Collect on every map that drops it: [2, 3, 4]
+  ok  Winter I: all five categories → 100%
+  ok  Game completion 13%: one map mastered of eight (shared items add a little to Winter II)
+  ok  Five category notices, one map notice and one banner
+  ok  Evaluating again announces nothing twice
+  ok  Winter I reward: +10% coins, applied once (×1.10)
+  ok  A partial map reads between 0 and 99 (16%)
+  ok  All eight maps → 100% game completion
+  ok  100% is announced once (banner and sound)
+  ok  Reward totals: HP/damage/coins/XP +35%, Loot +1 pt, Gem +2 pts: { "coins": 0.35, "xp": 0.35, "hp": 0.35, "damage": 0.35, "gear_chance": 0.01, "gem_chance": 0.02 }
+  ok  Max HP and damage ×1.35 exactly (no double application)
+  ok  XP and coins ×1.35
+  ok  Loot Chance +1 point, Gem Chance +2 points
+  ok  Stats breakdown shows the same multiplier the combat getter uses
+  ok  Prestige
+  ok  After Prestige: run exploration reset (7%), Mastery still 100% (latched)
+  ok  Rewards kept by Prestige
+  ok  Save/load keeps Mastery and its rewards
+  ok  Validation rejects an unknown item in the records
+  ok  Hard Reset clears Mastery and its rewards
+  ok  Campaign progress needs no Mastery (Winter II opens at 0%)
+-- reachable exploration
+  ok  Stored unreachable cells match a fresh flood fill on all eight maps
+  ok  Only Summer II has unreachable cells (4, inside solid scenery)
+  ok  Walking every reachable point reaches Map Explored 100% on all eight maps (1:100%, 2:100%, 3:100%, 4:100%, 5:100%, 6:100%, 7:100%, 8:100%)
+  ok  Summer II's area excludes its 4 unreachable cells
+-- panels
+  ok  Before the Snowman, World has no Map Mastery entry
+  ok  World map keeps its player dot through in-place panel refreshes
+  ok  World → "Map Mastery · Game 0%"
+  ok  Map Mastery shows game completion
+  ok  Eight maps with percent and reward; maps not reached say so
+  ok  Details only on reached maps
+  ok  Winter I page: Explore, Hunt, Research, Collect, Forge
+  ok  Unmet enemies stay unnamed ("Undiscovered enemy")
+  ok  A discovered type is named in what remains
+  ok  Compact: one card per category within the sheet
+  ok  Back returns to all maps
+  ok  Stats shows Game completion
+  ok  Stats lists the Mastery bonuses
+CHANGE_15_CHECKS 169 FAILURES 0

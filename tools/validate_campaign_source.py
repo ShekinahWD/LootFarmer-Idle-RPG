@@ -111,7 +111,7 @@ for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/s
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}
-output=ROOT/'docs/Change_17_Evidence/static_checks.json'
+output=ROOT/'docs/Change_20_Evidence/static_checks.json'
 output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({k:report[k] for k in ['checks','failures']}))
 for item in checks:

@@ -94,9 +94,9 @@ func follower_checks() -> void:
     sim.campaign.toggle_follow(id);game._refresh_follow_tracker()
     check(not tracker.visible,"Unfollow hides the tracker")
     var map: Control=game.get_node("Safe/Layout/Map")
-    sim.campaign.toggle_follow(id);game._refresh_follow_tracker();await frames(2)
+    sim.campaign.toggle_follow(id);game._refresh_follow_tracker();game._layout_trackers();await frames(2)
     # Change 16: the trackers share the bottom-right corner.
-    check(tracker.get_global_rect().position.x>map.get_global_rect().get_center().x and tracker.get_global_rect().end.y<=map.get_global_rect().end.y+.5,"Tracker sits bottom-right inside the map (Change 16)")
+    check(tracker.get_global_rect().position.y>=game.get_node("Safe/Layout/Map/EnemyUpgrades").get_global_rect().end.y and tracker.get_global_rect().end.y<=map.get_global_rect().end.y+.5,"Tracker sits under contextual Upgrades inside the map")
 
 # ---------------------------------------------------------------- §2 minimap
 func minimap_checks() -> void:
@@ -480,7 +480,7 @@ func prestige_upgrade_checks() -> void:
     sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1
     sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     sim.campaign.begin_prestige();sim.prestige(sim.campaign.offered_cards()[0])
-    check(sim.supply_mastery("potion")==20 and sim.quantity("potion")==0,"Prestige keeps supply mastery and clears supply stock")
+    check(sim.supply_mastery("potion")==0 and sim.quantity("potion")==0,"Prestige clears supply mastery and stock")
     sim.state.upgrades["gem_chance"]=2
     check(SaveService.hard_reset() and sim.state.upgrades.is_empty() and sim.state.supply_found.is_empty(),"Hard Reset clears every upgrade and mastery")
     sim.state.tutorial.mode="none";sim.suspended=false

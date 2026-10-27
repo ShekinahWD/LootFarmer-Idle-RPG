@@ -98,3 +98,7 @@ Rendered evidence: Change_5_Evidence contains onboarding, first lesson, missions
 - **Skill effects**: the same magic-spells-vfx-lite sheets, now placed per skill by `resources/game/skill_effects.tres` (contact rows: zap ring 53, heal/cast self rings 52, bursts 32). The boss wind-up marker is the `cast` sheet at 0.6×, tinted (1, 0.5, 0.32, 0.8).
 - **Rain**: `PixelPlains/Rain full anim sheet 52x216.png`; frames 0–8 are the fall and 9–14 the ground splash (`weather_rain.tres splash_frame = 9`).
 - **Focused Farming hint**: the guide's existing PixelPlains arrow (Item-273), Kenney frame and caption card, with Item-147 as the card picture.
+
+## Dinosaur identity correction (Change 20)
+
+The character at `Special 1 v1.png`, saved as `boss-elephant`, is a dinosaur. Keep that identifier, sprite association and combat definition. English boss/outfit descriptions now say Dinosaur. No artwork was replaced.
