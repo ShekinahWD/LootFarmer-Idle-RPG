@@ -28,15 +28,17 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'marketing'))
 sys.path.insert(0, str(ROOT / 'marketing' / 'brand'))
+sys.path.insert(0, str(ROOT / 'marketing' / 'screenshots'))
 import make_manifest  # noqa: E402
 import compose_brand  # noqa: E402
+import make_screenshot_manifest  # noqa: E402
 
 STORE = ROOT / 'store_assets'
 EVIDENCE = ROOT / 'docs' / 'Change_27_Evidence'
 TRAILER = STORE / 'video' / 'LootFarmer_Play_Trailer_en-US.mp4'
 MAX_BYTES = 8 * 1024 * 1024
 
-# Alt-text drafts (<= 140 characters) per concept, for review at listing time; never drawn on images.
+# Alt-text drafts of the replaced Change 27 set (kept as record); Change 34 drafts: marketing/screenshots/.
 ALT_TEXT = {
     '01': 'A Sunflower boss calls two Sprout helpers while the hero fights back with skills in Spring II.',
     '02': 'A defeated Bee boss leaves a Diamond Axe, a Recovery Salve and a Heal skill on the ground.',
@@ -104,16 +106,15 @@ def main() -> int:
     write = '--check' not in sys.argv
     problems: list[str] = []
     shots = []
-    for device, w, h in make_manifest.DEVICES:
-        for number, scenario, options, frame in make_manifest.SCREENSHOTS:
+    # Change 34: the delivered screenshots are marketing/screenshots/ (copied, validated and recorded by
+    # its finalize_screenshots.py); this script only re-checks them here and never copies them.
+    for device, w, h in make_screenshot_manifest.DEVICES:
+        for number, scenario, options, frame, _notes in make_screenshot_manifest.SCENES:
             raw = STORE / 'raw' / 'screenshots' / device / f'{device}_{number}.png'
             final = STORE / 'screenshots' / device / f'{device}_{number}.png'
             if not raw.exists():
                 problems.append(f'missing raw master {raw}'); continue
             problems += check_png(raw, (w, h))
-            if write:
-                final.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(raw, final)
             if not final.exists():
                 problems.append(f'missing {final}'); continue
             if sha(final) != sha(raw): problems.append(f'{final.name}: differs from its raw master')
@@ -129,7 +130,8 @@ def main() -> int:
         record = {
             'change': 27, 'toolkit': 'Godot Marketing Capture Toolkit 1.0.2', 'manifest': 'marketing/manifest.json',
             'adapter': 'marketing/game_scenarios.gd', 'capture_profile': '--profile=capture-store --no-autosave --first-run-complete',
-            'screenshots': shots, 'alt_text_drafts': ALT_TEXT,
+            'screenshots': shots, 'alt_text_drafts': make_screenshot_manifest.ALT_TEXT,
+            'screenshots_record': 'store_assets/screenshots/screenshots_manifest.json (Change 34)',
             'trailer': trailer | {'raw_clips': [f'store_assets/raw/video/{c[0]}.avi' for c in make_manifest.CLIPS],
                                   'clips': [{'id': c[0], 'scenario': c[1], 'options': c[2], 'seconds': c[3]} for c in make_manifest.CLIPS],
                                   'review': 'store_assets/video/LootFarmer_Play_Trailer_en-US_review.png'},
@@ -137,14 +139,14 @@ def main() -> int:
             'publication': 'NOT approved or uploaded. Pixel Plains art and assets/sounds audio lack retained licence records (REL-02).',
         }
         (STORE / 'store_assets_manifest.json').write_bytes((json.dumps(record, indent=2) + '\n').encode('utf-8'))
-        contact_sheet(STORE / 'review' / 'screenshots_contact_sheet.png')
+        # Change 34: no screenshot contact sheet here (marketing/screenshots/ builds the review sheets);
+        # docs/Change_27_Evidence/screenshots_contact_sheet.png stays the replaced Change 27 set.
         EVIDENCE.mkdir(parents=True, exist_ok=True)
         # Change 28: the feature graphic's evidence lives in docs/Change_28_Evidence/ (make_review.py);
         # docs/Change_27_Evidence/feature_graphic_1024x500.png stays the rejected original.
         # Change 30: likewise the icon (docs/Change_30_Evidence/, compose_icon.py); the Change 27 icon
         # evidence (play_icon_512, play_icon_sizes, adaptive_icon_masks) stays the rejected original.
-        for src, dst in [(STORE / 'review' / 'screenshots_contact_sheet.png', 'screenshots_contact_sheet.png'),
-                         (STORE / 'video' / 'LootFarmer_Play_Trailer_en-US_review.json', 'trailer_review.json'),
+        for src, dst in [(STORE / 'video' / 'LootFarmer_Play_Trailer_en-US_review.json', 'trailer_review.json'),
                          (STORE / 'store_assets_manifest.json', 'store_assets_manifest.json')]:
             shutil.copyfile(src, EVIDENCE / dst)
         with Image.open(STORE / 'video' / 'LootFarmer_Play_Trailer_en-US_review.png') as im:

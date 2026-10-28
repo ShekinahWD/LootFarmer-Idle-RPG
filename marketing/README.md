@@ -1,4 +1,4 @@
-# LootFarmer marketing (Google Play listing assets, Change 27; trailer Changes 32 and 33)
+# LootFarmer marketing (Google Play listing assets, Change 27; trailer Changes 32 and 33; screenshots Change 34)
 
 Game-owned glue for the **Godot Marketing Capture Toolkit 1.0.2** (`Godot-Marketing-Toolkit/`, installed
 addons pinned by `marketing_capture_toolkit.lock.json`). Nothing here ships: `marketing/`, `store_assets/`,
@@ -10,15 +10,17 @@ the toolkit and both capture addons are outside the Release allowlist (`tools/ex
 | Path | Tracked | What |
 |---|---|---|
 | `marketing/game_scenarios.gd` | yes | The one `prepare_scenario(id, options)` adapter for screenshots **and** trailer clips. Builds a late-game profile through the simulation's own calls, then lets the real game play. `is_capture_safe()` requires a `capture-*` profile and `--no-autosave`. |
-| `marketing/make_manifest.py` → `marketing/manifest.json` | yes | Device classes, the six screenshot concepts and the seven Change 27 clips (no video since Change 32). Edit the tables in the `.py`, re-run it. |
+| `marketing/make_manifest.py` → `marketing/manifest.json` | yes | The seven Change 27 clips (no video since Change 32, no screenshot jobs since Change 34; the Change 27 screenshot table stays as a record). |
+| `marketing/screenshots/` | yes | **Store screenshots (Change 34):** manifest generator (six scenes x four device classes), finalizer/validator/review sheets and README. |
 | `marketing/trailer/` | yes | **Store trailer (Change 32, revised in Change 33):** its own manifest generator, end-card animation, review script and README (takes, timeline, music in-point, reuse). |
-| `marketing/finalize_store_assets.py` | yes | Byte-identical store copies, Play-rule validation, ffprobe check, provenance manifest, contact sheet, review copies in `docs/Change_27_Evidence/`. |
+| `marketing/finalize_store_assets.py` | yes | Whole-listing check: re-validates the Change 34 screenshots (no copying), ffprobe trailer check, branding check, `store_assets_manifest.json`. |
 | `marketing/brand/compose_brand.py`, `brand_config.json` | yes | Record of the rejected Change 27 icon and feature graphic. Since Change 30 it renders nothing unless given `--legacy-change-27`; `--check` still validates the branding files for `finalize_store_assets.py`. |
 | `marketing/brand/icon/` | yes | **App icon (Change 30):** layered JSON on a 32-unit grid (`final.json`, three concepts), composer writing the Play icon and all four launcher layers, review sheets and `docs/Change_30_Evidence/`. See its `README.md`. |
 | `marketing/brand/feature_graphic/` | yes | **Feature graphic (Change 28):** layered JSON compositions (`final.json`, three concepts, portrait end-card study), `components.json`, composer, review-sheet builder, Lilita One OFL notice. See its `README.md`. |
 | `assets/branding/*.png` | yes | Runtime launcher icons (Release preset `launcher_icons/*`, `config/icon`). |
-| `store_assets/raw/screenshots/<Device>/<Device>_NN.png` | no (ignored) | Untouched Godot captures (masters) + `.log` per capture. |
-| `store_assets/screenshots/<Device>/<Device>_NN.png` | no | Upload files (byte copies of the masters). |
+| `store_assets/raw/screenshots/<Device>/<Device>_NN.png` | no (ignored) | Untouched Godot captures (masters) + `.log` per capture (Change 34 set). |
+| `store_assets/screenshots/<Device>/<Device>_NN.png` | no | Upload files (byte copies of the masters) and `screenshots_manifest.json`. |
+| `store_assets/screenshots_change_27/` | no | The replaced Change 27 screenshots (raw + final + manifest). |
 | `store_assets/raw/video/clip_*.avi` (+ `.log`) | no | Change 27 Movie Maker recordings (the rejected cut's footage; kept for social reuse). |
 | `store_assets/raw/video/trailer_c32/` | no | Trailer masters: `c32_*.avi` (Change 32) and `c33_*.avi` (Change 33 clean takes) + logs, `end_card.mkv`, layers, drafts. |
 | `store_assets/video/LootFarmer_Play_Trailer_en-US.mp4` | no | The Change 32 trailer; `_review.png` / `_review.json` beside it, sheets in `review_c32/`, the first Change 32 cut in `change_32/`, the rejected Change 27 cut in `rejected_change_27/`. |
@@ -28,7 +30,8 @@ the toolkit and both capture addons are outside the Release allowlist (`tools/ex
 Device classes (all genuine 9:16 portrait renders of the game's own 720x1280 reference layout):
 Phone 1080x1920, Tablet_7 1440x2560, Tablet_10 1800x3200, Desktop 1620x2880 (Chromebook/desktop slot).
 
-Scenario ids: `boss_sunflower` (01; trailer boss take), `loot_collection` (02), `equipment_merge` (03),
+Screenshot scenarios (Change 34): `boss_sunflower` (01), `shot_gear` (02), `shot_merge` (03), `trailer_farm` (04),
+`shot_explore` (05), `shot_prestige` (06); see `marketing/screenshots/README.md`. Other scenario ids: `boss_sunflower` (trailer boss take), `loot_collection` (02), `equipment_merge` (03),
 `late_farming` (04), `world_progress` (05), `prestige_cards` (06), `boss_victory` (Change 27 clip),
 `trailer_gear`, `trailer_merge`, `trailer_farm` (trailer; option `clean` hides the HUD for a clean, closer shot), `explore` (development aid only).
 
@@ -38,7 +41,8 @@ Scenario ids: `boss_sunflower` (01; trailer boss take), `loot_collection` (02), 
 $G = "D:/Programs/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe"
 python Godot-Marketing-Toolkit/tools/marketing.py status --project .          # installed == lock == toolkit
 python marketing/make_manifest.py                                             # manifest.json from the tables
-# every capture job (24 screenshots + 7 clips); one job:  --job Phone_01
+# the store screenshots: see marketing/screenshots/README.md
+# the seven Change 27 clips; one job:  --job clip_boss
 python Godot-Marketing-Toolkit/tools/marketing.py pipeline --project . --manifest marketing/manifest.json --godot $G --locales en-US --overwrite
 # the store trailer: see marketing/trailer/README.md
 python marketing/brand/icon/compose_icon.py                                   # Play icon + launcher layers, concepts, review sheets

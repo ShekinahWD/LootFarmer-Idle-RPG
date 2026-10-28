@@ -1,6 +1,6 @@
-"""Writes marketing/manifest.json (Godot Marketing Capture Toolkit 1.0.2) for the Change 27 Google Play
-set: 6 screenshot concepts x 4 portrait device classes and the 7 Change 27 clips (the store trailer is
-marketing/trailer/, Change 32).
+"""Writes marketing/manifest.json (Godot Marketing Capture Toolkit 1.0.2): the 7 Change 27 clips (the
+store trailer is marketing/trailer/, Change 32; the store screenshots marketing/screenshots/, Change 34;
+the Change 27 screenshot table below is kept as the record of the replaced set).
 Edit the tables below (scenario options, capture frames, cuts), run this script, then the commands in
 marketing/README.md. Every capture runs the game's own scene through marketing/game_scenarios.gd.
 """
@@ -47,7 +47,9 @@ RAW = '../store_assets/raw'
 
 def manifest() -> dict:
     jobs = []
-    for device, w, h in DEVICES:
+    # Change 34: the store screenshots are produced by marketing/screenshots/ (their own manifest); the
+    # Change 27 table above stays as the record of the replaced set and no longer emits capture jobs.
+    for device, w, h in []:
         for number, scenario, options, frame in SCREENSHOTS:
             jobs.append({'id': f'{device}_{number}', 'kind': 'screenshot', 'scenario': scenario, 'options': options,
                          'width': w, 'height': h, 'fps': 30, 'capture_frame': frame, 'settle_frames': 4,

@@ -1,4 +1,11 @@
-# LootFarmer — Test Suite (current, 2026-10-28, Change 27)
+# LootFarmer — Test Suite (current, 2026-10-28, Change 34)
+
+## Change 34 — Google Play screenshot redesign (28 October 2026)
+
+Command: `python tools/run_probes.py`. **37 entries (validator + export_manifest + 35 Godot scenes): 37/37 pass on the single final run of Change 34, no script errors, no timeouts.** Details: [Change 34 report](LootFarmer_Change_34_Report.md).
+
+- **Registered** `change_34_probe` (138 static checks): `marketing/screenshots/manifest.json` has 24 portrait jobs (Phone 1080x1920, Tablet_7 1440x2560, Tablet_10 1800x3200, Desktop 1620x2880, all 9:16), expected raw outputs, the same scene/options/frame on every class, no toolkit overlay, isolated capture profile without autosave; every scenario has an adapter branch and a pinned seed; every worn or merged item is a real enemy drop; four seasons and rain/leaves/snow maps shown; never the final boss; the Change 27 manifest no longer captures screenshots; the adapter refuses a probe profile.
+- **Store media check (outside the suite, needs captures):** `python marketing/screenshots/finalize_screenshots.py --check` (Play format, 9:16, raster, log postconditions, cross-device consistency, scene distinctness, alt text). `python marketing/finalize_store_assets.py --check` now re-checks the Change 34 screenshots.
 
 ## Change 27 — Google Play assets and first Snowman weapon (28 October 2026)
 

@@ -62,6 +62,10 @@ func prepare_scenario(scenario_id: String,options_: Dictionary,game_root: Node,c
         "trailer_gear":ok=_trailer_gear()
         "trailer_merge":ok=_trailer_merge()
         "trailer_farm":ok=_trailer_farm()
+        "shot_gear":ok=_shot_gear()
+        "shot_merge":ok=_shot_merge()
+        "shot_explore":ok=_shot_explore()
+        "shot_prestige":ok=_shot_prestige()
         _:push_error(LOG+"unknown scenario "+scenario_id)
     # Change 32: every banner raised during a take is logged, so a review can refuse one it should not show.
     if ok:sim.milestone.connect(func(kind,id):print(LOG,"MILESTONE ",kind," ",id," t=",clock))
@@ -199,6 +203,10 @@ func _late_profile(seed_value: int) -> bool:
         if not _give(pair[0],pair[1]):return false
     if not sim.equip(LOADOUT.weapon[0]) or not sim.equip(LOADOUT.outfit[0]):
         push_error(LOG+"equip failed");return false
+    # Change 34: options.wear swaps in stored LOADOUT gear (another real drop the profile owns).
+    for id in options.get("wear",[]):
+        if not sim.equip(str(id)):
+            push_error(LOG+"cannot wear "+str(id));return false
     sim.state.upgrades["skill_slots"]=2
     # Player upgrades bought over the profile (gem upgrades are kept by Prestige; coin ones re-bought).
     for pair in [["critical_chance",14],["critical_damage",12],["movement",6],["respawn",5],["cooldown_lightning",4],["cooldown_fire",4],["cooldown_strike",4],["skill_auto_slots",3],["supply_slots",2]]:
@@ -511,7 +519,9 @@ func _explore() -> bool:
     var panel_name:=str(options.get("panel",""))
     if panel_name!="":
         if options.has("selected"):game.selected=str(options.selected)
+        if options.has("travel_stage"):game.travel_stage=int(options.travel_stage)
         game._open(panel_name)
+        if options.has("scroll"):timeline.append([0.3,func():game.get_node("Sheet/Margin/Content/Scroll").scroll_vertical=int(options.scroll)])
     return true
 
 # ---------------------------------------------------------------- Change 32 store trailer
@@ -684,7 +694,7 @@ func _trailer_farm() -> bool:
     var stage_id:=int(options.get("stage",6))
     if not _stage_profile(stage_id,int(options.get("level",150)),options.get("items",[]),options.get("wear",[]),int(options.get("seed",3203))):return false
     var normals: Array=sim.campaign.stage().groups.filter(func(x):return not sim.catalog.groups[x].boss)
-    _farm_upgrades(normals,true)
+    _farm_upgrades(normals,bool(options.get("auto_collect",true))) # Change 34: false keeps loot on the ground
     var best:=Vector2.ZERO;var most:=-1
     for e in sim.state.enemies:
         if sim.catalog.groups[int(e.group)].boss or sim.is_helper(e):continue
@@ -703,5 +713,155 @@ func _trailer_farm() -> bool:
         if best.distance_to(sim.position_of(e))<=260.0 and not types.has(sim.catalog.groups[int(e.group)].id):types.append(sim.catalog.groups[int(e.group)].id)
     print(LOG,"farm spot ",best," enemies near=",most," types=",types)
     _advance(float(options.get("advance",1.0)))
+    # Change 34 staging: skills used shortly before (real cooldowns still running), as boss_sunflower.
+    var skill_at: Dictionary=options.get("skill_at",{})
+    for key in skill_at:sim.state.skill_cooldowns[key]=float(skill_at[key])
+    if not skill_at.is_empty():sim.spell_cast.connect(func(id,key,_p):if id=="player":print(LOG,"PLAYER_SKILL ",key," t=",clock))
+    var pickups: Array=_pickups_near(200.0).map(func(d):return d.item)
+    print(LOG,"farm drops near=",pickups)
     _hud_clean()
     return most>0
+
+# ---------------------------------------------------------------- Change 34 store screenshots
+
+## 02 (Summer II, rain): the gear an enemy carries is the gear it drops. A player in the plain body with
+## a Wood Sword defeats the Teal Dinosaur in the real simulation; the kill rolls its two loot items (the
+## seed is chosen so this kill drops both, never forced: a missing drop fails the scenario). The player
+## taps both drops (sim.collect) and wears them (sim.equip, what the item panel's Equip calls). Then the
+## boss's own 60 s respawn runs in the simulation and the player, now dressed as it, fights it again:
+## the frame shows the boss and the same outfit and Iron Sword on the player.
+## options.seed_search > 1 is a development aid: the seeds seed .. seed+n-1 are played in turn and
+## the first whose kill drops both items is kept (logged; the manifest then pins that seed).
+func _shot_gear() -> bool:
+    var first:=int(options.get("seed",3401))
+    for s in range(first,first+maxi(1,int(options.get("seed_search",1)))):
+        var r:=_shot_gear_seed(s)
+        if r!=0:
+            print(LOG,"GEAR seed ",s," ok=",r>0)
+            return r>0
+    return false
+
+## 1: staged; -1: failed; 0: this seed's kill did not drop both items.
+func _shot_gear_seed(seed_value: int) -> int:
+    var weapon:=str(options.get("weapon","wood_sword"))
+    if not _stage_profile(4,int(options.get("level",200)),[[weapon,int(options.get("weapon_merge",100))]],[weapon],seed_value):return -1
+    var boss:=_actor_of("boss-teal-dinosaur")
+    if boss.is_empty():
+        push_error(LOG+"no teal dinosaur");return -1
+    _farm_upgrades([int(boss.group)],false)
+    var home:=Vector2(boss.home_x,boss.home_y)
+    sim.campaign.reveal_circle(home,float(options.get("explored",320.0))) # fixture: walked here
+    _place_player(sim.position_of(boss)+Vector2(30,10))
+    boss.aggro=true
+    var def: Dictionary=sim.enemy_definition(int(boss.group))
+    var t:=0.0
+    while t<240.0 and float(boss.hp)>0 and sim.state.player.hp>0:
+        sim.step(.05);t+=.05
+    var drops: Array=sim.state.pickups.filter(func(d):return int(d.group)==int(boss.group))
+    print(LOG,"GEAR first kill ",t,"s defeated=",float(boss.hp)<=0," loot=",def.loot," drops=",drops.map(func(d):return d.item))
+    var dropped: Array=drops.map(func(d):return str(d.item))
+    for id in def.loot:
+        if not dropped.has(id):
+            print(LOG,"GEAR drop missing ",id);return 0
+    for id in def.loot:
+        for d in drops:
+            if str(d.item)==id:
+                print(LOG,"GEAR collect ",id," ok=",sim.collect(int(d.uid)));break
+        if not sim.equip(id):
+            push_error(LOG+"cannot wear "+id);return -1
+    print(LOG,"GEAR worn weapon=",sim.state.weapon," outfit=",sim.state.outfit," boss_body=",def.body," boss_weapon=",def.weapon)
+    # The boss's real respawn: time passes in the simulation while the player waits nearby.
+    _place_player(home+Vector2(0,float(options.get("wait_dy",140))))
+    t=0.0
+    while t<90.0 and float(boss.hp)<=0:
+        sim.step(.05);t+=.05
+    sim.state.player.hp=sim.stats().hp # fixture: rested back to full before the rematch
+    print(LOG,"GEAR respawn after ",t,"s alive=",float(boss.hp)>0)
+    if float(boss.hp)<=0:return -1
+    _place_player(sim.position_of(boss)+Vector2(float(options.get("dx",0)),float(options.get("dy",34))))
+    boss.aggro=true
+    _advance(float(options.get("fight",1.0)))
+    print(LOG,"GEAR rematch boss=",float(boss.hp)/float(def.hp)," player=",sim.state.player.hp/sim.stats().hp)
+    _hud_clean()
+    return 1 if float(boss.hp)>0 and sim.state.player.hp>0 else -1
+
+## 03 (options.stage, default Winter II): `copies` spare copies of a worn item (fixture: picked up
+## from earlier kills of its owner), the player at a pack of that map. The shot taps the item's tile
+## and then the item panel's own "Merge N spare copies" button, so its ^level and stat rise for real.
+func _shot_merge() -> bool:
+    var item:=str(options.get("item","boss-cyan-robot_outfit"))
+    if not _stage_profile(int(options.get("stage",2)),int(options.get("level",60)),options.get("items",[]),options.get("wear",[]),int(options.get("seed",3403))):return false
+    if not sim.add_item(item,int(options.get("copies",30)),true,false):return false
+    if options.has("near"):
+        var spot:=_spot_of(str(options.near))
+        sim.campaign.reveal_circle(spot,float(options.get("explored",320.0)))
+        _place_player(spot+Vector2(float(options.get("dx",0)),float(options.get("dy",40))))
+    _advance(float(options.get("advance",0.0)))
+    _hud_clean()
+    timeline.append([float(options.get("open_at",0.2)),func():_tap_gear(item)])
+    if options.has("merge_at"):timeline.append([float(options.merge_at),func():_press_merge_all(item)])
+    print(LOG,"merge item ",item," level=",sim.record(item).merge," qty=",sim.quantity(item))
+    return true
+
+## 05: exploring a map in this run. The earlier maps are cleared; this one is explored only along
+## options.route (world points the player walked, each step revealed with options.reveal radius, the
+## same circles the player's own vision reveals), the player at the route's end, at the fog's edge.
+## options.camps lists the camps of this map the player owns.
+func _shot_explore() -> bool:
+    var stage_id:=int(options.get("stage",3))
+    if not _stage_profile(stage_id,int(options.get("level",80)),options.get("items",[]),options.get("wear",[]),int(options.get("seed",3405))):return false
+    var route: Array=options.get("route",[])
+    var prev:=Vector2.ZERO
+    for i in range(route.size()):
+        var p:=Vector2(route[i][0],route[i][1])
+        var steps:=1 if i==0 else maxi(1,ceili(prev.distance_to(p)/20.0))
+        for k in range(1,steps+1):sim.campaign.reveal_circle(prev.lerp(p,float(k)/steps) if i>0 else p,float(options.get("reveal",110.0)))
+        prev=p
+    sim.state.camps[str(stage_id)]=options.get("camps",[0])
+    if not route.is_empty():_place_player(prev)
+    sim.campaign.identify_sites()
+    _advance(float(options.get("advance",0.5)))
+    _hud_clean()
+    if options.has("panel"):timeline.append([float(options.get("open_at",0.2)),func():game._open(str(options.panel))])
+    print(LOG,"explore stage ",stage_id," explored=",sim.campaign.explored_percent(stage_id),"% camps=",sim.state.camps[str(stage_id)])
+    return true
+
+## 06: the Prestige card choice. The late-game profile (one Prestige already redeemed) at
+## options.stage; its ready opportunities are redeemed through the game's own begin_prestige (what the
+## confirm dialog's button runs) and the panel offers the first batch card; options.pick taps one
+## offered card (selected, not yet kept).
+func _shot_prestige() -> bool:
+    if not _late_profile(int(options.get("seed",3406))):return false
+    if options.has("near"):
+        if not _farm_at(str(options.near),Vector2(float(options.get("dx",0)),float(options.get("dy",40))),false):return false
+    _advance(float(options.get("advance",0.0)))
+    # options.boss_history: bosses defeated before (how a challenge opportunity is discovered);
+    # options.challenges: of those, the ones this run defeated with no supply used (the counter
+    # campaign.killed writes).
+    for boss_id in options.get("boss_history",[]):_history_kills(str(boss_id),1)
+    sim.campaign.evaluate()
+    for boss_id in options.get("challenges",[]):sim.campaign.progress("restricted",str(boss_id),1)
+    for i in range(2):sim.campaign.evaluate()
+    _hud_clean()
+    var why: String=sim.campaign.prestige_block_reason()
+    if not why.is_empty():
+        print(LOG,"prestige blocked: ",why);return false
+    if not sim.campaign.begin_prestige():return false
+    # options.path: the earlier choices of the batch are kept (their first card, as the Keep button
+    # does through sim.prestige) until the batch reaches that path's opportunity.
+    var target:=str(options.get("path",""))
+    while target!="":
+        var batch: Dictionary=sim.state.prestige_batch
+        var index: int=batch.choices.size()
+        if index>=batch.ids.size()-1 or str(game._opportunity(batch.ids[index]).path)==target:break
+        var kept: String=sim.campaign.offered_cards()[0]
+        print(LOG,"PRESTIGE keep ",kept," for ",batch.ids[index]," ok=",sim.prestige(kept))
+    var offered: Array=sim.campaign.offered_cards()
+    print(LOG,"PRESTIGE batch=",sim.state.prestige_batch.ids," offered=",offered," owned=",sim.state.owned_cards)
+    game._open("prestige")
+    var pick:=int(options.get("pick",-1))
+    if pick>=0 and pick<offered.size():
+        timeline.append([float(options.get("pick_at",0.3)),func():
+            game.selected_card=offered[pick];game._refresh_panel(true)
+            print(LOG,"PRESTIGE card selected ",offered[pick])])
+    return true
