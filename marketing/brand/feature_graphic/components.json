@@ -6,6 +6,7 @@
   "spark": {"sheet": "res://assets/PixelPlains/Sparks 25x27.png", "w": 25, "h": 27},
   "slot": {"texture": "res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-014.png", "margin": 12, "pixel": 3, "size": 132},
   "wordmark": {"text": "LootFarmer", "font": "assets/GUIPackCartoon/Demo/Fonts/LilitaOne - Regular.ttf", "size": 132, "fill": "#ffd65c", "fill_bottom": "#f2a93b", "fill_split": 0.6, "shine": ["#fff3c0", 5], "outline": 10, "outline_color": "#1c1b2e", "depth": 10, "pixel": 1},
+  "subtitle": {"text": "IDLE RPG", "size": 46, "tracking": 7, "fill": "#fff3c0", "fill_bottom": "#ffd65c", "fill_split": 0.55, "shine": ["#ffffff", 2], "outline": 7, "depth": 5},
   "actors": {
     "player_plain": {"weapon": "wood_sword", "frame": [0, 0], "swing": 0, "facing": 1},
     "fox_boss": {"outfit": "boss-red-fox_outfit", "weapon": "gold_sword", "from_group": "boss-red-fox", "frame": [0, 0], "swing": 0, "facing": -1},

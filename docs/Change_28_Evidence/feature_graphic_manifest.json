@@ -36,8 +36,8 @@
       1024,
       500
     ],
-    "bytes": 84995,
-    "sha256": "2b57077a7d2e9088f263f74515a79a3f860e15229da691745ea5bc90b5a27560"
+    "bytes": 88895,
+    "sha256": "2510ca436aec94e3515520a365b3a61059e991afa342d45fd8d5ce19ae50775f"
   },
   "marketing/brand/feature_graphic/compositions/portrait_endcard_preview.json": {
     "composition": "marketing/brand/feature_graphic/compositions/portrait_endcard_preview.json",
@@ -46,7 +46,7 @@
       1080,
       1920
     ],
-    "bytes": 173086,
-    "sha256": "06f7743db0b547180fd35c302d4bf38b39fb1cf74bd1ffe21902e99ee324d610"
+    "bytes": 181215,
+    "sha256": "be41d0c5deb0b67088107450f8f3538cc05b65ae778660c7d9a3a474434ba814"
   }
 }

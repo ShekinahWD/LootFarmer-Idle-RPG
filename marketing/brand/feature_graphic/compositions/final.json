@@ -18,6 +18,7 @@
     {"name": "player_before", "type": "actor", "actor": "player_plain", "scale": 8, "at": [212, 470], "rim": [24, 22, 36]},
     {"name": "hero_glow", "type": "glow", "size": [440, 380], "at": [806, 350], "color": [120, 240, 230], "strength": 0.5},
     {"name": "player_after", "type": "actor", "actor": "player_dino", "override": {"facing": -1, "frame": [0, 0], "swing": 0}, "scale": 11, "at": [808, 472], "rim": [24, 22, 36]},
-    {"name": "wordmark", "type": "wordmark", "at": [512, 84], "size": 128, "max_width": 860}
+    {"name": "wordmark", "type": "wordmark", "at": [512, 84], "size": 128, "max_width": 860},
+    {"name": "subtitle", "type": "wordmark", "style": "subtitle", "at": [512, 160]}
   ]
 }

@@ -15,11 +15,11 @@ python marketing/brand/feature_graphic/compose_feature_graphic.py --check   # 10
 ```
 
 Requirements: Python 3 with Pillow (the same as `marketing/brand/compose_brand.py`). Output is
-deterministic: the same JSON gives the same bytes (final SHA-256 `2b57077a7d2e9088f263f74515a79a3f860e15229da691745ea5bc90b5a27560`).
+deterministic: the same JSON gives the same bytes (final SHA-256 `2510ca436aec94e3515520a365b3a61059e991afa342d45fd8d5ce19ae50775f`).
 
 | File | What |
 |---|---|
-| `compositions/final.json` | **The store graphic.** 15 named layers, back to front, canvas-pixel coordinates. |
+| `compositions/final.json` | **The store graphic.** 16 named layers, back to front, canvas-pixel coordinates. |
 | `compositions/concept_a_loot_bridge.json`, `concept_b_wardrobe.json`, `concept_c_boss_drop.json` | The three explored concepts (A was selected). |
 | `compositions/portrait_endcard_preview.json` | Static 1080x1920 framing study for a *future* trailer end card. |
 | `components.json` | Shared pieces: actors (catalog outfit + weapon + frame), wordmark style, slot panel, spark sheet, tree boxes. |
@@ -44,8 +44,10 @@ Open `compositions/final.json`; each line is one layer. Common edits:
 - **Pose:** `"frame": [row, col]` on the 24x24 sheet (row 0 idle, row 3 the effort face) and `"swing": n`, the
   64x32 attack frame drawn over the body exactly as `scenes/game/actor.tscn` places it. Frame 0 + normal face is the
   game's attack wind-up; frame 2 + row 3 is the contact frame (big crescent, hides the face at this size).
-- **Wordmark:** `components.json > wordmark` (text, font, size, two-tone fill, outline, stepped depth). The title text
-  is the approved name only; the composer adds no other copy.
+- **Wordmark:** `components.json > wordmark` (text, font, size, two-tone fill, outline, stepped depth) and
+  `components.json > subtitle` ("IDLE RPG": same font, outline colour and stepped depth, smaller, letter-spaced,
+  cream-to-gold). Together they spell the approved title **LootFarmer: Idle RPG**; the composer adds no other copy.
+  A `wordmark` layer picks a style with `"style": "subtitle"`; `tracking` is letter spacing in pixels.
 - **Colour treatments:** `tint` + `tint_amount` (multiply), `darken`, `opacity`, `rim` (1 source-pixel outline),
   `glow` (soft light), `band` (gradient shade), `vignette`.
 
@@ -76,6 +78,7 @@ when moving layers.
 | 12 | hero_glow | colour treatment |
 | 13 | player_after | the same player wearing `boss-teal-dinosaur_outfit_t2` with `iron_sword` (wind-up frame), x11 |
 | 14 | wordmark | "LootFarmer", Lilita One (OFL), gold two-tone fill, dark outline, 10 px stepped depth |
+| 15 | subtitle | "IDLE RPG", Lilita One 46 px, 7 px tracking, cream-to-gold fill, the same dark outline and 5 px depth; drawn in front, tucked into the title's extrusion (ink y 135..187), clear of the boss's eyes and the simulated play button |
 
 ## Future portrait trailer end card (plan only; no video was made or changed)
 
@@ -83,7 +86,8 @@ The landscape graphic must **not** be stretched or cropped into 9:16. Recompose 
 (`source_layers/final/` or, better, re-render `portrait_endcard_preview.json`, which already restages them):
 
 - **Canvas 1080x1920.** Safe margins: 90 px left/right, 220 px top, 300 px bottom (platform UI and captions).
-- **Title:** wordmark at 168 px Lilita (about 840 px wide), centred at y = 640 (upper third), on the dark top shade.
+- **Title:** wordmark at 168 px Lilita (about 840 px wide), centred at y = 640 (upper third), on the dark top shade;
+  "IDLE RPG" subtitle at 62 px (9 px outline, 7 px depth, 10 px tracking) centred at y = 758, tucked under it.
 - **Story, top to bottom:** boss (x17) centred at feet y = 1260; the two slots (156 px) just in front at y = 1336;
   plain player (x11) bottom-left and outfitted player (x14) bottom-right, feet at y = 1640.
 - **Background:** the same Summer sand, tiled at x5 to fill the height (tile, never stretch); trees across the top
@@ -91,6 +95,6 @@ The landscape graphic must **not** be stretched or cropped into 9:16. Recompose 
 - **Suggested motion (future task):** 1) background + boss fade in from black over the trailer's last gameplay
   shot; 2) the two slots drop in with the spark frames played as the in-game 16-frame animation; 3) the plain player
   is shown, then the outfitted player appears (a hard swap reads as "equipped", like the game); 4) the wordmark
-  fades/scales in last and holds at least 1.5 s. Keep the music under it per Playbook 133.2/133.3.
+  fades/scales in last, the subtitle a beat after it, and both hold at least 1.5 s. Keep the music under it per Playbook 133.2/133.3.
 - Static framing preview: `store_assets/branding/review/feature_graphic_portrait_endcard_preview.png`
   (copy in `docs/Change_28_Evidence/`). It is **not** the Play feature graphic and **not** a trailer frame.

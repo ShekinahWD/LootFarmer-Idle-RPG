@@ -329,13 +329,27 @@ def layer_item(canvas, spec):
     place(canvas, treat(im, spec), spec['at'])
 
 
+def draw_text(d: ImageDraw.ImageDraw, xy, text: str, font, tracking: int = 0, **kw) -> None:
+    """ImageDraw.text with optional letter spacing; tracking 0 is the plain single call."""
+    if not tracking:
+        d.text(xy, text, font=font, **kw)
+        return
+    x, y = xy
+    for ch in text:
+        d.text((x, y), ch, font=font, **kw)
+        x += font.getlength(ch) + tracking
+
+
 def wordmark_image(spec: dict) -> Image.Image:
-    w = {**COMPONENTS['wordmark'], **spec}
+    # A layer may name a style (e.g. "subtitle") that overrides the wordmark defaults.
+    w = {**COMPONENTS['wordmark'], **COMPONENTS.get(spec.get('style', 'wordmark'), {}), **spec}
     font = ImageFont.truetype(str(ROOT / w['font']), w['size'])
     text = w['text']
     stroke = w['outline']
+    track = w.get('tracking', 0)
     probe = ImageDraw.Draw(Image.new('RGBA', (1, 1)))
-    box = probe.textbbox((0, 0), text, font=font, stroke_width=stroke)
+    box = list(probe.textbbox((0, 0), text, font=font, stroke_width=stroke))
+    box[2] += track * (len(text) - 1)
     depth = w.get('depth', 0)
     pad = stroke + depth + 4
     tw, th = box[2] - box[0] + 2 * pad, box[3] - box[1] + 2 * pad
@@ -344,12 +358,12 @@ def wordmark_image(spec: dict) -> Image.Image:
     org = (pad - box[0], pad - box[1] - depth // 2)
     dark = rgb(w['outline_color'])
     for i in range(depth, 0, -1):  # stepped extrusion, one pixel per step
-        d.text((org[0], org[1] + i), text, font=font, fill=dark, stroke_width=stroke, stroke_fill=dark)
-    d.text(org, text, font=font, fill=rgb(w['fill']), stroke_width=stroke, stroke_fill=dark)
+        draw_text(d, (org[0], org[1] + i), text, font, track, fill=dark, stroke_width=stroke, stroke_fill=dark)
+    draw_text(d, org, text, font, track, fill=rgb(w['fill']), stroke_width=stroke, stroke_fill=dark)
     if w.get('fill_bottom'):
         # Two-tone fill: the lower part of the letters in a deeper gold (a flat band, no blur).
         glyphs = Image.new('L', out.size, 0)
-        ImageDraw.Draw(glyphs).text(org, text, font=font, fill=255)
+        draw_text(ImageDraw.Draw(glyphs), org, text, font, track, fill=255)
         band = Image.new('L', out.size, 0)
         cut = org[1] + int((box[3] - box[1]) * w.get('fill_split', 0.62)) + box[1]
         ImageDraw.Draw(band).rectangle((0, cut, out.width, out.height), fill=255)
@@ -358,7 +372,7 @@ def wordmark_image(spec: dict) -> Image.Image:
         out.alpha_composite(low)
     if w.get('shine'):
         glyphs = Image.new('L', out.size, 0)
-        ImageDraw.Draw(glyphs).text(org, text, font=font, fill=255)
+        draw_text(ImageDraw.Draw(glyphs), org, text, font, track, fill=255)
         shifted = Image.new('L', out.size, 0)
         shifted.paste(glyphs, (0, w['shine'][1]))
         edge = ImageChops.subtract(glyphs, shifted)

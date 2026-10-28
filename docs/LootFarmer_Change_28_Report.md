@@ -9,14 +9,16 @@ graphic only. Icons, screenshots, trailer, gameplay, listing text and the reusab
 
 **Store file:** `store_assets/branding/feature_graphic_1024x500.png` (ignored folder; tracked copy
 `docs/Change_28_Evidence/feature_graphic_1024x500.png`). 1024 x 500, PNG, mode RGB (24-bit, no alpha channel),
-untagged sRGB, 84,995 bytes, SHA-256 `2b57077a7d2e9088f263f74515a79a3f860e15229da691745ea5bc90b5a27560`.
+untagged sRGB, 88,895 bytes, SHA-256 `2510ca436aec94e3515520a365b3a61059e991afa342d45fd8d5ce19ae50775f`
+(after the title correction below; the first approved version was `2b57077a…b5a27560`).
 
 **Direction: "enemy loot becomes your look."** Read left to right: the plain player; the Teal Dinosaur boss
 holding its Iron Sword; the two items that boss really drops, in the game's own inventory slots (tier colours,
 loot sparkle); the same player now wearing the Dinosaur outfit and holding the Iron Sword. The setting is the
 Dinosaur's own Summer map, on warm sand at sunset, so the teal characters stand out against complementary orange
 instead of the old green field. The wordmark "LootFarmer" (Lilita One, gold two-tone, dark outline and stepped
-depth) is the only text.
+depth) with the subtitle **IDLE RPG** beneath it, spelling the approved title *LootFarmer: Idle RPG*; that is
+the only text.
 
 Why this pairing: the outfit system makes the player look exactly like the enemy whose outfit they wear
 (`world.gd::_visual_look` uses the outfit's sheet as the body), so showing the boss and the outfitted player side by
@@ -84,7 +86,7 @@ was refused). The graphic is promotional art built from game layers and is not p
 ## Editable source and reproduction
 
 `marketing/brand/feature_graphic/` (inside `marketing/brand/.gdignore`; `marketing/*` excluded from the Release
-export). `compositions/final.json` holds 15 named layers, one per line. `components.json` holds the actors (catalog
+export). `compositions/final.json` holds 16 named layers, one per line. `components.json` holds the actors (catalog
 ids), wordmark style, slot and tree boxes. Full guide: `marketing/brand/feature_graphic/README.md`.
 
 ```powershell
@@ -142,6 +144,34 @@ which the game never loads. No AAB was exported and no version bump was made: no
 - `marketing/finalize_store_assets.py` no longer copies the feature graphic over
   `docs/Change_27_Evidence/feature_graphic_1024x500.png`, which stays the rejected original. Its screenshot, trailer
   and manifest logic is untouched.
+
+## Title correction: "IDLE RPG" subtitle (developer-approved design, follow-up)
+
+The developer approved the design and asked for the full approved name, **LootFarmer: Idle RPG**. This was a
+branding fix only, not a redesign.
+
+- **Main title unchanged:** same layer, typography, colours, outline and position. To support letter spacing,
+  the composer's text drawing went through one helper. With tracking 0 it makes the same call as before, and
+  re-rendering before adding the subtitle reproduced the previous hashes exactly (landscape `2b57077a…`,
+  portrait `06f7743d…`).
+- **Subtitle:** a new `subtitle` layer (`components.json > subtitle`): "IDLE RPG" in the same Lilita One, the
+  same dark outline colour and stepped depth, 46 px with 7 px letter spacing, and a cream-to-gold fill a step
+  lighter than the title so it ranks below it. It is drawn in front, tucked into the title's 10 px extrusion,
+  like a logo lockup. There is no free band between the title (ink to y 145) and the boss's head (y 154), and
+  moving the boss would put the simulated play button back on its face. So the subtitle covers only the top of
+  the boss's head, and the eyes stay visible.
+- **Portrait end-card preview:** the same subtitle at 62 px (9 px outline, 7 px depth, 10 px tracking), centred
+  at y = 758 under the 168 px title.
+- **Nothing else changed:** a pixel diff against the previous files is confined to the subtitle's own ink box,
+  (392,135)-(631,187) landscape and (376,723)-(702,794) portrait. Characters, equipment, background, lighting
+  and composition are identical.
+- **Readability:** at 512 and 360 px "IDLE RPG" is clearly legible. At **240 px** it is about 7 px tall and reads
+  cleanly (checked enlarged and in `feature_graphic_small_sizes.png`). At 160 px it is very small, while
+  "LootFarmer" still carries the brand. In the simulated overlays the subtitle is inside the assumed safe area
+  and clear of the play button.
+- **Rechecked:** feature graphic `--check` PASS; icons 5/5 byte-identical; screenshots 24/24 and trailer
+  identical to the Change 27 hashes; `finalize_store_assets.py --check` PASS; export manifest PASS (232 files);
+  regression suite rerun (result in the commit message).
 
 ## Limitations and open items
 
