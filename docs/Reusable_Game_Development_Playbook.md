@@ -1322,7 +1322,7 @@ The main purpose of this section is that **this one reusable file is enough to i
 | 14 | Gameplay Balancing & Full Playthrough Testing | No remaining progression/softlock blockers. |
 | 15 | Performance Optimization & Stability Testing | Profile and verify target devices. |
 | 16 | Demo Generation, Content Stripping & Validation | Optional per game: a separate free demo project generated from the approved full source after the balance and performance gates; section 0.9.1. |
-| 17 | Google Play Store Preparation & Marketing Assets | ASO, policy-reviewed English store copy, gameplay screenshots (every device class), video, feature graphic, localizations, a set of 10 short-form social videos (5 focused + 5 full-landscape) from approved footage, per-video posting copy, and localized Play release notes when applicable; see 87, 133 and 134. |
+| 17 | Google Play Store Preparation & Marketing Assets | ASO, policy-reviewed English store copy, gameplay screenshots (every device class), video, feature graphic (its own focused batch, 101.1), localizations, a set of 10 short-form social videos (5 focused + 5 full-landscape) from approved footage, per-video posting copy, and localized Play release notes when applicable; see 87, 133 and 134. |
 | 18 | Release Candidate & Final Android Validation | Test exact release artifact; section 88. |
 | 19 | Google Play Publishing | Configure one-time price, store compliance and submit. |
 | 20 | Post-Launch Support, Updates & Improvements | Fix issues using the developer's chosen support process; no player/crash telemetry. |
@@ -3490,7 +3490,7 @@ Before Play Store submission:
 
 - authentic, correctly sized, language-neutral gameplay screenshots for every applicable device class, each a real render at its size, with no added promotional text unless the developer approved an exception (raw masters retained; section 87);
 - genuine gameplay video exports, when selected for the store, validated as MP4 with proper transitions/audio handling (section 133);
-- feature graphic prepared consistently with actual in-game presentation;
+- feature graphic prepared consistently with actual in-game presentation: built from the game's own licensed art in its own batch, carrying the full approved title, inspected at full size and at real preview sizes, with an editable reproducible source (section 101.1);
 - short-form social videos (TikTok/Reels/Shorts): 10 masters, 9:16 1080×1920, about 15 s, derived from the approved trailer footage and music: 5 focused reframes and 5 full-landscape cuts with their text in the black bands; distinct feature-based hooks, real gameplay only, configurable copy inside platform-safe margins (section 133.5); never uploaded by Claude;
 - one approved social posting-copy entry per master video: video-specific caption/description plus a concise set of relevant hashtags, with claims matching the footage and no automatic posting (133.6);
 - researched and human-approved English title, short description and full description after a current Google Play metadata-policy check; localize only after that English source is locked (section 134);
@@ -4791,7 +4791,7 @@ Always retain the **untouched raw PNG** with its scenario settings and provenanc
 
 **Exception (explicit developer request for a specific game/campaign only):** the reusable toolkit keeps an optional post-capture text composition (headline band, framing) for such campaigns. It is never the default production workflow. When approved, it is a derived image beside the raw master (never altering the gameplay depicted), its copy is localized for every requested locale from the approved 20-language set (132), it must not cover important gameplay or invent visual mechanics, and its legibility and clipping are checked per target.
 
-**Other raster assets are not screenshots:** a feature graphic, logo or wordmark may carry the **game's brand name**; a descriptive tagline/subtitle on a feature graphic needs explicit approval for that game, because it creates localization work. **Video** title cards and on-screen text remain allowed when they are part of the approved storyboard, and are localized when required (133).
+**Other raster assets are not screenshots:** a feature graphic, logo or wordmark may carry the **game's brand name**; a descriptive tagline/subtitle on a feature graphic needs explicit approval for that game, because it creates localization work. The brand name is the **whole approved store title**: a genre descriptor that is part of it (for example the "Idle RPG" of "LootFarmer: Idle RPG", set as a smaller line under the name) is branding, not a tagline, and leaving it out is an error. If the localized titles translate that descriptor, ask the developer whether the graphic stays in one language or gets per-locale versions. Production of the feature graphic itself: 101.1. **Video** title cards and on-screen text remain allowed when they are part of the approved storyboard, and are localized when required (133).
 
 Reusable rule:
 
@@ -5178,6 +5178,50 @@ For future games:
 Reusable rule:
 
 > The store art should look like the game first and the genre second.
+
+## 101.1 Google Play feature graphic: research, concepts, real art, verified pixels
+
+The feature graphic is the listing's banner and, when a preview video exists, the video's cover. It is designed promotional art, not a screenshot (87.9), so it needs its own research and refinement. LootFarmer's first graphic was produced inside the combined store-asset batch and was rejected as generic; the workflow below, run as its own batch, produced the approved version. It has been validated on that one game, so treat the composition techniques as proven options, not a house style.
+
+**Run it as its own focused batch** (one brief, one conversation): not combined with the icon, screenshots, trailer or social videos (45). The time goes into research, concepts and looking at the actual pixels. The batch still protects the other media: hash-compare the icon, screenshots and trailer before and after, and check that shared marketing scripts cannot overwrite the new graphic or its evidence. LootFarmer's icon script still wrote the old feature graphic, and its store finalizer would have copied whatever graphic existed over the previous change's evidence copy; both were fixed before the new graphic was committed.
+
+**1. Research real listings first.** Study at least six relevant games (same genre, art style or mechanic) and capture their **actual feature graphics**, not icons or screenshots. On a Google Play web listing the graphic appears in the page data as a 1024 x 500 image entry, but the first such entry can belong to a related app (LootFarmer's Grow Castle lookup returned another game's banner), so verify each capture against its title and record exclusions rather than mislabel them. For each game, note title, link, what carries the focal point, how large the characters are, contrast, typography, whether the mechanic is visible, and how it reads small; then write the lesson that applies. Captures stay in a scratch folder: never committed, never in the export. Use them for principles only; never copy art, layout, logo, effects or slogans, and do not claim rankings or conversion effects.
+
+**2. Find authentic art that proves the hook.** Name the one distinctive mechanic the graphic must show, then find the game's own art that demonstrates it truthfully. Read the game's data and render code rather than guessing: which enemy actually carries or drops which item, which sprite sheet and frame the game draws, where it places weapon and body relative to each other. Choose subjects by how they read at thumbnail size, not by preference: LootFarmer's first choice of boss turned into a brown blob when small and was replaced by a brighter, more distinctive one. Confirm licences for every source, including the wordmark font (keep an OFL notice beside the source when the font file came without one). No AI-generated imagery, stock art or new unlicensed drawing.
+
+**3. Explore three genuinely different concepts, then select.** The concepts must differ in **how the mechanic and brand are communicated** (for example a left-to-right before/after story, a lineup of looks, a dramatic boss moment), not only in colour. Render each as a quick full-size preview from the same tooling and score them with a weighted rubric written down before choosing (LootFarmer's brief: mechanic 30%, readability and focal hierarchy 25%, polish 20%, fidelity to game art 15%, reuse for a portrait end card 10%). These are internal creative criteria, not conversion claims. When the developer has granted creative authority, the agent selects and refines without asking; record the scores and reasons. Refining may borrow a losing concept's strength (LootFarmer's winner took the lighting of the moodiest concept).
+
+**4. Compose from layers of real art.** Techniques that worked for pixel art:
+
+- whole-number nearest-neighbour scaling only; main characters large (about 40 to 60 percent of the canvas height in LootFarmer), never scattered small sprites;
+- one readable story with a clear focal order, and a larger secondary subject further back;
+- ground and background chosen for contrast with the subjects (complementary colour, darker edges), using the game's own tiles in a single coherent location;
+- colour treatments instead of painting: tint, darken, soft glow, vignette, a dark shade behind the title, a one-source-pixel outline to separate sprites;
+- real UI pieces only where they explain the mechanic (two large inventory slots holding the dropped items), not as clutter;
+- a display wordmark with outline, stepped depth and two-tone fill, on a dark field.
+
+**5. Verify the actual image, not its metadata.** Correct dimensions and format are only the entry check (Google: 1024 x 500, JPEG or 24-bit PNG without alpha; confirm the current help page). Then:
+
+- view the rendered file at full resolution and iterate on what you see (LootFarmer's v1 still had a green field, a swing frame that hid the hero's face, and faint sparkles);
+- downscale it with a smooth filter (Lanczos, an approximation of store display) to about 512, 360, 240 and 160 px wide, on light and dark backgrounds, beside the previous version; the title, any genre descriptor, the characters and the key items must stay distinct at 240 px;
+- check placement. Google asks for the focal point toward the centre, key elements out of "cutoff zones", and shows a play button over the graphic when a video exists, but publishes no measurements. A **simulated** centred button with assumed edge bands is a useful conservative check (keep faces and the title out from under the button), labelled as a simulation; confirm in the Play Console preview before publishing.
+
+**6. Keep it reproducible and editable.** One structured composition per output (named layers, positions, scales, sources, treatments), shared components (characters, wordmark style), one render command and one review command. Requirements that held up:
+
+- deterministic output (a rebuild gives the same hash), and every layer also exported alone as a full-canvas transparent PNG for later editing or video use;
+- a truth guard: rendering fails when a layer pairs an item with a character that does not carry or drop it in the game data;
+- sources in an import-ignored marketing folder, outputs in the ignored store-asset folder, small tracked evidence copies (final, concepts, before/after, size sheet), all outside the export allowlist (22.2, 87.5);
+- the tool form follows 63.1: a Godot scene or a data file plus script are both acceptable when they are editable and reproducible. LootFarmer used JSON layers and a Pillow script because its brand tooling already worked that way. Keep it in the game repository; promote it to the toolkit only after it is validated on another game (135.2).
+
+**7. Prepare a portrait end card without making it.** If the graphic may close a 9:16 trailer, keep its title, characters, items and background as separate layers and add a portrait composition that **restages** them (title in the upper third, story stacked below, background tiled to the new height, platform-safe margins). Never stretch or crop the landscape file (133.1). Render a static framing preview only; the trailer change belongs to a video batch. In LootFarmer this is a plan, not yet validated in a finished video.
+
+**8. Corrections stay confined.** A branding fix after approval (LootFarmer: adding the approved descriptor "Idle RPG" under the title, 87.9) changes only what was asked. Re-render first to prove the untouched layers are byte-identical, then add the new layer and confirm with a pixel diff that only its area changed. When there is no free space, a lockup that tucks the smaller line into the main title's outline and depth reads as one logo.
+
+**LootFarmer example.** Rejected: a flat green field, a small player, a large flower boss, two near-identical tinted helpers and tiny loot icons scattered around a large wordmark. It looked like ordinary scenery, the mechanic (take an enemy's weapon and outfit and wear them) was not visible, and it turned into green noise at thumbnail size. Approved: the plain player, then a boss holding its weapon, then that boss's two real drops in the game's inventory slots, then the player wearing that outfit with that weapon. Large sprites, a warm sand ground against teal characters, sunset light, a dark shade behind the title, and the full title "LootFarmer" with "IDLE RPG" beneath it.
+
+Reusable rule:
+
+> Produce the feature graphic in its own batch: research real competitor graphics, find the game's own art that proves its distinctive feature, render three different concepts and select one against a written rubric, compose from licensed layers with an editable reproducible source, and approve only after inspecting the actual pixels at full size and at real store preview sizes.
 
 
 ---
@@ -8224,7 +8268,7 @@ A **single reusable video workflow** must produce a Play Store trailer **or any 
 
 - User-specified storyboard, music, durations, text, camera and transitions **override** defaults; otherwise Claude follows a ChatGPT-approved creative brief or proposes composition for human approval.
 - Support landscape **16:9**, portrait **9:16**, square **1:1**, and configurable profiles for resolution, frame rate, orientation and length. Example targets: Play Store 16:9, TikTok/Shorts 9:16. Render/capture gameplay with an appropriate game camera and responsive UI for the target; **do not just rotate or crop landscape footage** and call it portrait support. The one exception is a short-form social cut derived from already-approved footage (133.5): an explicit, reviewed reframe of real landscape gameplay (a focused window, or the whole frame letterboxed in black), never a claim that the game itself has a portrait layout.
-- Shot types: staged real-gameplay clip, marketing text on black or branded background, title/end card, and reusable already-recorded footage. Marketing text may overlay gameplay **or** appear on cards, independently enabled per shot.
+- Shot types: staged real-gameplay clip, marketing text on black or branded background, title/end card (which may restage the feature graphic's layers for the target aspect, 101.1), and reusable already-recorded footage. Marketing text may overlay gameplay **or** appear on cards, independently enabled per shot.
 - Animate cameras where feasible (zoom, pan, follow, fixed), control gameplay staging and framing, and support explicit transitions, sequence order, overlays and optional sound effects.
 - Output can be silent/game-audio-only by default; when the developer supplies an MP3/WAV (or another supported source), arrange scenes against the track and include it in the final render. **Do not require Claude to source or create music.**
 - Maintain all written video headlines/title-card copy in the approved 20-language marketing localization set. Allow export of selected locales using the same source composition and footage.
