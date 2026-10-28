@@ -155,7 +155,7 @@ The new project must deliberately replace or regenerate:
 - application/store name;
 - Android package ID, generated from the fixed `com.shekinahwelefuldesigns.<normalized_game_name>` convention;
 - integer change version and store version code;
-- launcher/adaptive/store icons;
+- launcher/adaptive/store icons (produced in their own batch from the new game's art, section 101.2);
 - Android upload keystore/alias;
 - no AdMob, Firebase Analytics, Crashlytics, Google Play Billing, tracking or telemetry configuration (these integrations are excluded by section 0.10);
 - privacy/support/community URLs;
@@ -1322,7 +1322,7 @@ The main purpose of this section is that **this one reusable file is enough to i
 | 14 | Gameplay Balancing & Full Playthrough Testing | No remaining progression/softlock blockers. |
 | 15 | Performance Optimization & Stability Testing | Profile and verify target devices. |
 | 16 | Demo Generation, Content Stripping & Validation | Optional per game: a separate free demo project generated from the approved full source after the balance and performance gates; section 0.9.1. |
-| 17 | Google Play Store Preparation & Marketing Assets | ASO, policy-reviewed English store copy, gameplay screenshots (every device class), video, feature graphic (its own focused batch, 101.1), localizations, a set of 10 short-form social videos (5 focused + 5 full-landscape) from approved footage, per-video posting copy, and localized Play release notes when applicable; see 87, 133 and 134. |
+| 17 | Google Play Store Preparation & Marketing Assets | ASO, policy-reviewed English store copy, gameplay screenshots (every device class), video, feature graphic (its own focused batch, 101.1), app icon (its own focused batch, 101.2), localizations, a set of 10 short-form social videos (5 focused + 5 full-landscape) from approved footage, per-video posting copy, and localized Play release notes when applicable; see 87, 133 and 134. |
 | 18 | Release Candidate & Final Android Validation | Test exact release artifact; section 88. |
 | 19 | Google Play Publishing | Configure one-time price, store compliance and submit. |
 | 20 | Post-Launch Support, Updates & Improvements | Fix issues using the developer's chosen support process; no player/crash telemetry. |
@@ -3476,7 +3476,7 @@ Before Play Store submission:
 - version code;
 - version name;
 - signed AAB;
-- icon/adaptive icon;
+- icon/adaptive icon: legacy and adaptive foreground/background/monochrome layers set in the release preset, checked under launcher masks and as a themed icon, and viewed inside the exported artifact (section 101.2);
 - orientation;
 - target SDK;
 - permissions;
@@ -3490,6 +3490,7 @@ Before Play Store submission:
 
 - authentic, correctly sized, language-neutral gameplay screenshots for every applicable device class, each a real render at its size, with no added promotional text unless the developer approved an exception (raw masters retained; section 87);
 - genuine gameplay video exports, when selected for the store, validated as MP4 with proper transitions/audio handling (section 133);
+- Play app icon (512 x 512 full square, no baked corners or outer shadow) built from the game's own licensed art in its own batch, judged at 48 to 96 px on light and dark and among researched competitor icons, with an editable reproducible source shared with the launcher icons (section 101.2);
 - feature graphic prepared consistently with actual in-game presentation: built from the game's own licensed art in its own batch, carrying the full approved title, inspected at full size and at real preview sizes, with an editable reproducible source (section 101.1);
 - short-form social videos (TikTok/Reels/Shorts): 10 masters, 9:16 1080×1920, about 15 s, derived from the approved trailer footage and music: 5 focused reframes and 5 full-landscape cuts with their text in the black bands; distinct feature-based hooks, real gameplay only, configurable copy inside platform-safe margins (section 133.5); never uploaded by Claude;
 - one approved social posting-copy entry per master video: video-specific caption/description plus a concise set of relevant hashtags, with claims matching the footage and no automatic posting (133.6);
@@ -5179,6 +5180,8 @@ Reusable rule:
 
 > The store art should look like the game first and the genre second.
 
+Production workflows: the feature graphic in 101.1, the app icon in 101.2.
+
 ## 101.1 Google Play feature graphic: research, concepts, real art, verified pixels
 
 The feature graphic is the listing's banner and, when a preview video exists, the video's cover. It is designed promotional art, not a screenshot (87.9), so it needs its own research and refinement. LootFarmer's first graphic was produced inside the combined store-asset batch and was rejected as generic; the workflow below, run as its own batch, produced the approved version. It has been validated on that one game, so treat the composition techniques as proven options, not a house style.
@@ -5222,6 +5225,63 @@ The feature graphic is the listing's banner and, when a preview video exists, th
 Reusable rule:
 
 > Produce the feature graphic in its own batch: research real competitor graphics, find the game's own art that proves its distinctive feature, render three different concepts and select one against a written rubric, compose from licensed layers with an editable reproducible source, and approve only after inspecting the actual pixels at full size and at real store preview sizes.
+
+## 101.2 Google Play and Android app icon: research, concepts, real art, launcher-size verification
+
+The icon is the one asset seen everywhere: search results, the listing header, the install prompt, the home screen, settings and notifications, mostly at 48 to 96 px and inside shapes the developer does not control. It follows the same method as the feature graphic (101.1); this section records only what differs for icons. LootFarmer's first icon was made inside the combined store-asset batch and rejected as ordinary; the workflow below, run as its own batch (LootFarmer Change 30), produced the approved icon. It has been validated on that one pixel-art game, so treat the techniques as proven options and the LootFarmer details as that game's choices, not a template.
+
+**Run it as its own focused batch** (101.1, 45): not combined with the feature graphic, screenshots, trailer or social videos. Before starting, hash every approved store medium (feature graphic and its layers, screenshots, raw captures, videos, earlier evidence folders) and compare after the batch; LootFarmer confirmed 140 files byte-identical.
+
+**1. Research real icons first.** Study at least six relevant games (same genre, art style or mechanic; LootFarmer used 15) and capture their **actual app icons**. On a Google Play web listing the icon is the `og:image` / `itemprop="image"` entry (append `=s512` to the image URL for a 512 px copy); unlike the feature graphic lookup (101.1), it was reliable for all 15 LootFarmer captures, but still check each against its title. Place them on one contact sheet **at 512, 96 and 48 px**, because most of what decides an icon is visible only small. Record title, developer, link, date and what carries the icon (subject, scale, field colour, face, light, text), then write the lesson. Captures stay in a scratch folder, never committed or exported; principles only, never copied art, symbols or layouts; no ranking or conversion claims.
+
+Patterns observed across LootFarmer's 15 idle/pixel/loot RPG icons (observations in one genre, useful as hypotheses to test on the next game, not laws):
+
+- the clearest at 48 px showed **one subject** filling roughly 70 to 90 percent of the tile; scenes with two subjects lost one when small;
+- **contrast between subject and field** (a cool subject on a warm field or the reverse) held up; dark on dark and same-hue subject on field faded;
+- a **face** (eyes, expression) was usually the first thing that read;
+- **light behind the subject** (radial glow, burst) separated it from the edges without scenery;
+- pixel art built from **few, large pixels** stayed crisp where fine illustration turned to texture;
+- **generic genre symbols** (a chest, a lone sword) read as "RPG" but not as a particular game;
+- 14 of 15 carried **no text**; the exception was a temporary event overlay.
+
+**2. Find the game's own subject.** As in 101.1, name what makes the game distinctive and find its own art that shows it truthfully, reading the data and render code (which item belongs to which enemy, which sheet, frame and layout the game draws). For an icon, choose the subject by how it reads **at 48 px** among the game's candidates: render every candidate (each character, outfit, item) at icon scale on one sheet and compare. Prefer the game's own distinctive asset over a genre symbol, and favour continuity with the approved feature graphic's subject when it also wins on readability, without copying the graphic's layout.
+
+**3. Three genuinely different concepts, a written rubric, independent selection.** Vary **what the icon is about**, not its colour: for example a full-figure character, the loot or object itself, a cropped close-up portrait. Render them with the same tooling and judge each on one card: Play-masked icon at 512, 96 and 48 px on light and dark, circle and other launcher masks, and the themed (monochrome) version. Write the rubric before scoring (LootFarmer: small-size legibility 30%, game identity/mechanic 25%, distinctiveness beside the researched icons 20%, polish 15%, adaptive/themed robustness 10%; internal quality criteria, not conversion claims). With creative authority granted, select and refine without asking; record marks and reasons, including measured failures (LootFarmer's loot concept put its key art outside the safe zone; its close-up crop removed the silhouette that made the character recognisable).
+
+**4. Compose for every target from one source.** Techniques validated in LootFarmer:
+
+- **One composition renders all outputs** (Play 512, legacy launcher, adaptive foreground, background and monochrome), so they cannot drift apart.
+- **A shared grid for pixel art.** The Play icon corresponds to the adaptive icon's visible 72 dp viewport, so define the composition on a grid that divides both: LootFarmer's 32 x 32 grid (one unit = one source pixel) renders at 16 px per unit for Play 512, 6 for a 192 px legacy icon and 9 for the 432 px adaptive layers (the 288 px viewport plus 8 units of bleed per side). Every target is a whole-number scale; nothing is resampled by a fraction. Non-pixel art does not need this constraint.
+- **Back and front planes.** Background treatments form the adaptive background; characters, items and effects form the foreground. Require every back layer to precede every front layer, so the adaptive split composites to exactly the Play icon.
+- **Key layers.** Mark what must never be clipped (the face, the main silhouette) and measure it automatically against the safe zone; decorative pieces may reach further but must stay inside the viewport.
+- **Treatments, not painting:** gradient field, soft radial light, faint rays, vignette, a one-source-pixel dark outline. Render smooth treatments at output resolution; LootFarmer's first glow and rays, quantised to the art's pixel grid, read as blocky noise rather than light.
+
+**5. Platform requirements (verify the official pages at execution time).** As checked on 2026-10-28:
+
+- **Google Play icon:** 512 x 512, 32-bit PNG (with alpha), sRGB, at most 1024 KB. Supply a **full square**: Play applies the corner radius (30 percent of the icon size) and the drop shadow itself, so do not round corners or add an outer shadow (shadows and light *inside* the art are fine). Avoid transparency (it shows the store's background). No text or graphics suggesting ranking, price, deals or Play programmes. Full-bleed illustration is allowed.
+- **Android adaptive icon:** foreground and background layers of 108 x 108 dp; the outer 18 dp per side is reserved for masks and motion (a 72 dp visible viewport); the inner **66 dp safe zone** is never clipped by an OEM mask. A **monochrome** layer enables Android 13+ themed icons; the platform documentation notes that Android 16 QPR2 auto-themes apps without one. No masks or outline shadows baked into the layers.
+- **Godot 4.x Android export (observed on 4.7.2):** `launcher_icons/main_192x192` is the legacy icon (needed while min SDK is below 26; Godot's default is 24) and `launcher_icons/adaptive_foreground/background/monochrome_432x432` are the adaptive layers (432 px = 108 dp at xxxhdpi); `application/config/icon` is the project/window icon. With an empty `splash_screen/icon`, the exported package also contained a `splash_icon` derived from the launcher icon, so the icon can appear at launch.
+
+**6. Verify the actual pixels at launcher size.** Correct format is only the entry check. Then, iterating on what is seen:
+
+- **Sizes:** the Play-masked icon (30 percent radius) at 512, 192, 96, 64, 48 and 32 px on light and dark surfaces, beside the previous icon. The subject, its face and its key object must remain distinct at 48 px.
+- **Masks:** the adaptive viewport under circle, squircle, rounded square and teardrop, plus the legacy square, at large and 48 px on light and dark. Measure key-layer distance from the centre against the safe radius and fail the check if exceeded.
+- **Themed icon:** preview the monochrome layer tinted with several light and dark wallpaper palettes. Deriving it is a visual judgement: the plain foreground silhouette read as a blob, cutting every dark pixel broke the figure into fragments, and what worked was keeping a thin outer outline (one source pixel) filled while carving out interior dark pixels (eyes, part lines) as detail.
+- **In context:** place the candidate among the researched icons at store-grid size (about 72 px) on white and dark backgrounds (scratch only; it contains other games' art). LootFarmer's first refinement was distinctive but the darkest tile in the row and receded on dark surfaces; brightening the field fixed it.
+- **Look for icon-specific failures:** elements that change meaning when small (a 2x pixel sparkle cross read as a medical "+"), shadows with no ground (read as a smudge), detail that merges into noise, a subject that loses its silhouette when cropped.
+
+**7. Integrate, then verify the exported package.** Prefer keeping the runtime icon paths stable: LootFarmer rewrote the same files, so the project setting, export preset and export allowlist (22.2) needed no change and their checks stayed green. Export a **local test** package with the release preset (never an upload), run the artifact check, then **extract and view** the packaged launcher resources (`base/res/mipmap-*/icon*.webp`, `mipmap-anydpi-v26/icon.xml` and `themed_icon.xml` in a Godot AAB) at every density. Small file sizes there can be normal (flat pixel art compresses well), so view them rather than infer from bytes. Compare the export preset and `project.godot` before and after the export, because editor or export runs can rewrite them. Do not bump the app version for art alone unless a release or tool contract requires it.
+
+**8. Keep it reproducible, and retire obsolete generators.** Everything in 101.1 step 6 applies (structured layers, one render command, deterministic output, each layer exported alone, truth guard, sources import-ignored, outputs in the ignored store folder, small tracked evidence copies). Additionally:
+
+- the check command **re-renders the final composition and compares bytes** with the written files, so a hand edit or a stale render is caught, alongside format, opacity, size limit and safe-zone checks;
+- **search every script that writes the icon paths or copies icon evidence before declaring done.** In LootFarmer the previous composer still rendered the rejected icon into the runtime and store paths, and the store finalizer would have copied the new icon over the previous change's evidence of the old one. The old composer now refuses to render unless given an explicit legacy flag (its check mode stays, because another tool calls it), and the finalizer no longer copies icon files.
+
+**LootFarmer example (game-specific choices, not a template).** Rejected: a white, low-saturation character filling about half the tile on noisy dark-green tiles, holding a green sword that disappeared into the green at 48 px, with nothing showing the game's loot-and-outfit mechanic. Selected and approved: the player wearing a boss's dropped outfit and holding that boss's weapon (the game's real attack wind-up frame), the same character as the approved feature graphic, lit from behind by a warm sunset field that contrasts with the teal character, with small loot sparkles. Refinements after viewing the pixels: smooth light instead of stepped, no floating shadow, small twinkles instead of a large cross, a brighter field after the in-context check, and the carved themed icon. That character, palette, sword and sparkle are LootFarmer's answers to the method; another game should reach its own through the same research, concepts and verification.
+
+Reusable rule:
+
+> Produce the app icon in its own batch: research real competitor icons at 48 to 96 px, choose the game's own distinctive subject by how it reads small, render three different concepts and select one against a written rubric, compose every Play and Android output from one editable layered source, and approve only after inspecting the actual pixels at launcher sizes, under masks, as a themed icon, among competitors, and inside the exported package.
 
 
 ---
