@@ -1,4 +1,8 @@
-# Current entry point — Change 24 (2026-10-28)
+# Current entry point — Change 25 (2026-10-28)
+
+Commit "Change 25: correct onboarding modes and finalize mobile UI"; application/Android Release version **25**; save schema 8, save file version 3 (no reset). Read first `LootFarmer_Change_25_Report.md` (Guided/Basic/None behaviour, Android Back, UI findings, verification, phone checklist), then the Change 25 sections of `LootFarmer_GDD.md`, `LootFarmer_State_Contracts.md` and `LootFarmer_Test_Suite.md`. Basic and None now open every ordinary menu at once (Guided keeps its staged reveal); this supersedes the Change 15 universal menu reveal.
+
+# Previous entry point — Change 24 (2026-10-28)
 
 Commit "Change 24: optimize performance and restore regression coverage"; application/Android version **24**; save schema 8, save file version 3 (older development profiles start fresh). Read first `LootFarmer_Change_24_Performance_Report.md` (what changed for performance, the restored regression suite, desktop before/after numbers and what still needs the phone), then the audit material below. Benchmark: `python tools/run_benchmark.py` (non-gating); suite: `python tools/run_probes.py`.
 

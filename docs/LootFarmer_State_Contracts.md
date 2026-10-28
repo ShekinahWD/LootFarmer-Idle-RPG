@@ -1,4 +1,16 @@
-# LootFarmer — State and Reset Contracts — current (2026-10-28, Change 24)
+# LootFarmer — State and Reset Contracts — current (2026-10-28, Change 25)
+
+## Change 25 — onboarding mode authority (28 October 2026)
+
+No new saved field, schema change (8) or save-file version change (3); current saves load unchanged. These supersede the Change 15 "Reveal evaluation" rule and the `campaign.focus_hint` note below.
+
+- **One authority:** `campaign.onboarding.revealed(feature)` answers for the HUD, the badges, the notification sounds, the panel opener (`game_ui.panel_allowed`, the only way into a panel) and Help. `tutorial.mode` `guided` → `guided_progress.feature_allowed(feature)` (staged; all true once Guided is complete); `basic` / `none` → always true; `pending` (the chooser) → `onboarding.reveal.has(feature)` (empty on a real profile, all six in `--first-run-complete` probe fixtures). The simulation never refuses an action because of it.
+- **Mode choice** (`tutorial_guide.choose` → `onboarding.choose_mode(mode)`): sets `tutorial.mode`; for Basic/None also records all six features in `onboarding.reveal`, appends every `"opened:<feature>"` to `tutorial.seen` (no ✦) and calls `SettingsState.set_inventory_zoom(2)`; then `save_now()`. Never called on load or Prestige. Hard Reset clears the profile (mode `pending`, reveal `[]`) but keeps settings, so `inventory_zoom` survives until the next Basic/None choice.
+- **`onboarding.evaluate`** (same call sites as Change 15): ends the loot guarantee when a pair exists; Guided advances `guided.next_step()`; Basic/None latch `tutorial.seen` `"announced:prestige"` the first time `prestige_unlocked()` holds and emit `notice("feature_unlocked","prestige")` + `milestone("prestige_unlocked", n)` once. The Change 15 level backstops and progressive reveal table are removed (`OnboardingRules` keeps `first_item_kills`, `copy_kills`, `card_seconds`, `path_target`, `path_reach`).
+- **`tutorial.seen` keys added:** `overview`, `basic_gear`, `basic_growth`, `basic_world`, `basic_prestige` (Basic overview cards, `TutorialGuide.BASIC_DECK`; Skip appends all five) and `announced:prestige`. Old `tip_*` / `feature_*` keys in development saves are ignored.
+- **`campaign.focus_hint`:** set only in Guided (Basic and None show the confirmation only).
+- **Back:** `game_ui.back()` from `NOTIFICATION_WM_GO_BACK_REQUEST` and `ui_cancel`; at most once per process frame; priority PrestigeConfirm → Confirm → sheet → exit confirmation (`save_now()` before showing it, again before `quit()`); no-op while `tutorial.mode == "pending"`. Saving on background/close is unchanged (`SaveService._notification`).
+
 
 ## Change 24 — persistence and presentation contracts (28 October 2026)
 
@@ -189,7 +201,7 @@ A supply's effect is `base + gain × mastery` (gain = 1% of base, so ^100 double
 | Field | Meaning | Default | Save | Prestige | Hard Reset |
 |---|---|---|---|---|---|
 | `tutorial.seen` gains `"focus_unlocked"` | Written at the profile's first Focused Farming purchase (`campaign.upgrade_bought`), so the confirmation and the guidance never show twice. | absent | saved with tutorial | keep (tutorial is kept) | clear |
-| `campaign.focus_hint` | The type whose Farm button the guide points at after that purchase (-1 none). Session only; set only outside onboarding "None". | -1 | **never saved** | — | — |
+| `campaign.focus_hint` | The type whose Farm button the guide points at after that purchase (-1 none). Session only; set only in Guided (Change 25; before: outside "None"). | -1 | **never saved** | — | — |
 | `sim.cast_target` | The actor a single-target skill hit, set just before `spell_cast`; presentation reads it. | "" | never saved | — | — |
 
 - **Missions badge** (`campaign.has_claimable`): any `mission_claimable(i)` (kind not "waiting", unclaimed, `progress ≥ goal`, and not `missions_auto_claimed()`), or any `main_claimable(i)` among `main_shown()`. `main_claimable(i)` = `main_ready[str(i)]`, not in `main_claimed`, and (i ≠ 15 or `final_discovered`). `main_shown()` = up to three unclaimed listed objectives, ready ones first in index order, then unfinished ones. The panel lists exactly `main_shown()`, so a lit badge always has a Claim button behind it. Pure state: no stored flag, recomputed every HUD tick.
@@ -215,7 +227,7 @@ Save schema **8** (`simulation.new_profile`, `restore`, `campaign.valid_snapshot
 | `mastery.evolved` | Weapons ever evolved (source ids, set). | `{}` | saved | keep | clear |
 | `mastery.done` | Latched completions: `"<stage>:<category>"`, `"map:<stage>"`, `"game"`. | `[]` | saved | keep | clear |
 
-- **Reveal evaluation** (`onboarding.evaluate`): on the campaign's one-second tick, after `progress()` of merge, upgrade, camp, mission and supply_buy, after `claim_main` and at the end of `killed()`. The Snowman's lifetime kill (`prestige_unlocked()`) reveals everything and emits `notice("feature_unlocked","prestige")` and `milestone("prestige_unlocked", n opportunities)`. A full equipment row reveals every feature up to `upgrades`. `reveal_all(true)` (Settings) is silent. Presentation (`game_ui.panel_allowed`, `_refresh_reveal`, the badges, `_milestone`, `_notice`) reads `revealed()`; the simulation never refuses an action because of it.
+- **Reveal evaluation** (`onboarding.evaluate`) *(superseded by Change 25 above; kept as history)*: on the campaign's one-second tick, after `progress()` of merge, upgrade, camp, mission and supply_buy, after `claim_main` and at the end of `killed()`. The Snowman's lifetime kill (`prestige_unlocked()`) reveals everything and emits `notice("feature_unlocked","prestige")` and `milestone("prestige_unlocked", n opportunities)`. A full equipment row reveals every feature up to `upgrades`. `reveal_all(true)` (Settings) is silent. Presentation (`game_ui.panel_allowed`, `_refresh_reveal`, the badges, `_milestone`, `_notice`) reads `revealed()`; the simulation never refuses an action because of it.
 - **Guarantee** (`onboarding.loot_kill`, from `simulation._reward` after the natural rolls, before the loot line): the phase is recomputed from owned stock and ground pickups (`loot_state`), so an expired drop lowers it and the next eligible kill replaces it. `loot_state` never creates item records (no RNG use).
 - **Mastery** (`campaign.mastery`): `refresh_records()` copies run values upward; `evaluate(announce)` latches completions and emits `notice("mastery_objective")`, `notice/milestone("mastery_map")`, `notice("game_complete")` and `milestone("mastery_game")` once each. `restore` calls `evaluate(false)`. `mastery.bonus(key)` is added inside `campaign.bonus(key)`, so HP, damage, coins (`card`), XP (`group_xp` adds `bonus("xp")`), Loot Chance (`gear_chance`) and Gem Chance (`gem_chance`) each apply it exactly once.
 - **Explored percent** (`campaign.explored_fraction`) excludes `fog_rules.unreachable_cells[stage]` from both the explored count and the area.

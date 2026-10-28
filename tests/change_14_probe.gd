@@ -413,8 +413,11 @@ func joystick_checks() -> void:
     check(stick.direction==Vector2.ZERO and knob.position.is_equal_approx(stick.size*.5-knob.size*.5),"Release recentres the knob")
 
 # ---------------------------------------------------------------- §8 Focused Farming guidance
+## Change 25: the Focused Farming pointer is Guided only (finished Guided here); Basic and None get
+## the confirmation alone.
 func focus_setup(mode: String) -> int:
     fresh(mode)
+    if mode=="guided":sim.campaign.guided.data().done=sim.campaign.guided.STEPS.duplicate() # fixture: Guided finished
     var g: int=sim.campaign.stage().groups[0]
     sim.campaign.discover_spot(g,2)
     sim.state.gems=500.0;sim.state.coins=1000.0 # fixture
@@ -428,7 +431,7 @@ func open_upgrades(g: int) -> void:
     game.group=g;game.enemy_variant=2;game.enemy_tab=1;game._open("enemy")
     await frames(10)
 func focus_checks() -> void:
-    var g:=await focus_setup("basic")
+    var g:=await focus_setup("guided")
     var guide=game.guide
     await open_upgrades(g)
     check(research_buttons("focus").size()==1 and guide._panel_control("focus_toggle")==null,"Before the purchase: the Focused Farming card, no Farm button")
@@ -439,7 +442,7 @@ func focus_checks() -> void:
     check(toggle!=null and toggle.text.begins_with(tr("FOCUS_GROUP").split(" ")[0]),"The Farm button appears in the same panel")
     check(labels_text(game.rows).contains(tr("FOCUS_HINT_PANEL")),"One line under it says how to use it")
     check(guide.pending=="focus" and guide.step=="focus_tap" and guide.target==toggle,"The guide's step is to tap Farm, on the live button")
-    check(guide.pointer.visible and guide.suspended_by=="","The pointer shows (basic mode too)")
+    check(guide.pointer.visible and guide.suspended_by=="","The pointer shows (Guided)")
     var tip_rect: Rect2=guide.pointer.get_global_rect()
     check(tip_rect.grow(40).intersects(toggle.get_global_rect()),"…next to the Farm button")
     check(guide.pointer.mouse_filter==Control.MOUSE_FILTER_IGNORE and guide.highlight.mouse_filter==Control.MOUSE_FILTER_IGNORE,"Guidance takes no input")
@@ -488,7 +491,7 @@ func focus_checks() -> void:
     guide.intro_button.pressed.emit();await frames(4)
     check(sim.campaign.focus_hint==-1 and not guide.pointer.visible and not guide.card.visible,"Got it dismisses it for good")
     # It retires after its time on screen.
-    g=await focus_setup("basic")
+    g=await focus_setup("guided")
     await open_upgrades(g)
     await buy_focus()
     guide.focus_shown=guide.FOCUS_HINT_SECONDS # fixture: time on screen spent
@@ -496,7 +499,7 @@ func focus_checks() -> void:
     check(sim.campaign.focus_hint==-1 and not guide.pointer.visible,"After %.0f s on screen it retires (no permanent HUD text)" % guide.FOCUS_HINT_SECONDS)
     game._close()
     # An undiscovered spot: no pointer at a disabled button.
-    g=await focus_setup("basic")
+    g=await focus_setup("guided")
     sim.campaign.discover_spot(g,2)
     var variant:=-1
     for v in sim.campaign.variants(g):
@@ -507,7 +510,12 @@ func focus_checks() -> void:
         game.enemy_variant=variant;game._refresh_panel();await frames(4)
         check(guide.step=="focus_spot" and not guide.pointer.visible,"An undiscovered spot: \"find it first\", no pointer at the disabled button")
         game._close()
-    # None: the confirmation only.
+    # Basic and None: the confirmation only.
+    g=await focus_setup("basic")
+    await open_upgrades(g)
+    await buy_focus()
+    check(game.notice.text==tr("FOCUS_UNLOCKED") and sim.campaign.focus_hint==-1 and not guide.pointer.visible,"Onboarding Basic: the confirmation, no pointer (Change 25)")
+    game._close()
     g=await focus_setup("none")
     await open_upgrades(g)
     await buy_focus()

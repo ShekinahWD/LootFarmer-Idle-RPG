@@ -6,18 +6,20 @@ extends Control
 ##   frame. Nothing here takes input except the "Got it" button of an introduction card.
 ## An unrelated panel, a confirmation, pause or a prestige choice suspends (hides) all guidance; the
 ## step stays pending and returns when that surface closes.
-## Change 15: what exists is the first-profile reveal table (campaign.onboarding), the same in every
-## mode; the mode decides how much is explained. Guided teaches each revealed system with the pointer,
-## one lesson at a time, ending with Prestige after the Snowman. Basic shows one short card (or tip)
-## when something new appears, retired by Got it or after OnboardingRules.card_seconds on screen.
-## None has no instructional guide. All modes share one optional-game-goals announcement:
-## Guided after Winter II, Basic after its last feature card, None after mode selection.
+## Change 25: the three modes differ in what is open and how much is explained (campaign.onboarding).
+## Guided keeps its staged reveal and pointer lessons (guided_progress.gd). Basic opens every menu and
+## shows only BASIC_DECK, a short up-front overview (the same cards Help shows), each card retired by
+## Got it or after OnboardingRules.card_seconds on screen, the whole deck by Skip; no later cards,
+## tips or pointers. None opens every menu and explains nothing. All modes share one game-goals
+## announcement, The Road Ahead: Guided at its end, Basic after the overview, None at once.
 const FRAME=preload("res://assets/KenneyFantasyUI/PNG/Default/Transparent center/panel-transparent-center-000.png")
 const ARROW=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-273.png")
 const ITEM_ROOT="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png"
 const LESSONS=["move","kill","collect","equip","merge","missions","upgrade","camp","slots","snowman","prestige"]
-## A lesson waits (and shows nothing) until the feature it teaches is revealed.
-const LESSON_FEATURE:={"missions":"missions","upgrade":"enemy","camp":"world","slots":"upgrades","snowman":"objective","prestige":"prestige"}
+## Change 25 Basic overview, in order (texts GUIDE_<ID>/_DETAIL). Help shows the same deck; in Guided,
+## a card about a system the staged reveal has not opened yet is left out of Help (no spoilers).
+const BASIC_DECK:=["overview","basic_gear","basic_growth","basic_world","basic_prestige"]
+const DECK_FEATURE:={"basic_growth":"upgrades","basic_world":"world","basic_prestige":"prestige"}
 ## Guided introduction cards that also point (the Next Stage chip, the Follow button).
 const POINTING_INTROS:=["snowman","prestige_follow","prestige_info"]
 ## The cropped arrow art points up-left; its tip sits about 0.45 of the pointer size from the center.
@@ -36,6 +38,7 @@ var highlight: NinePatchRect
 var shade: NinePatchRect
 var pointer: TextureRect
 var intro_button: Button
+var skip_button: Button
 var pending: String=""
 var step: String=""
 var surfaces: Array=[]
@@ -75,7 +78,10 @@ func setup(owner_ui) -> void:
     picture=TextureRect.new();picture.custom_minimum_size=Vector2(44,44);picture.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;picture.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;picture.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;picture.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(picture)
     title=Label.new();title.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;title.size_flags_horizontal=Control.SIZE_EXPAND_FILL;title.add_theme_font_size_override("font_size",24);title.add_theme_color_override("font_color",Color(1,.88,.5));title.add_theme_constant_override("outline_size",4);title.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(title)
     support=Label.new();support.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;support.add_theme_font_size_override("font_size",20);support.mouse_filter=Control.MOUSE_FILTER_IGNORE;content.add_child(support)
-    intro_button=Button.new();intro_button.text=tr("GUIDE_GOT_IT");intro_button.custom_minimum_size=Vector2(180,64);intro_button.size_flags_horizontal=Control.SIZE_SHRINK_END;content.add_child(intro_button)
+    var buttons:=HBoxContainer.new();buttons.alignment=BoxContainer.ALIGNMENT_END;buttons.add_theme_constant_override("separation",12);buttons.mouse_filter=Control.MOUSE_FILTER_IGNORE;content.add_child(buttons)
+    skip_button=Button.new();skip_button.text=tr("GUIDE_SKIP");skip_button.custom_minimum_size=Vector2(180,64);buttons.add_child(skip_button)
+    skip_button.pressed.connect(skip_overview)
+    intro_button=Button.new();intro_button.text=tr("GUIDE_GOT_IT");intro_button.custom_minimum_size=Vector2(180,64);buttons.add_child(intro_button)
     intro_button.pressed.connect(func()->void:
         if intro_id.begins_with("flow:"):
             sim.campaign.guided.acknowledge(intro_id.trim_prefix("flow:"));return
@@ -98,7 +104,14 @@ func _frame(color: Color) -> NinePatchRect:
     return f
 
 func choose(mode: String) -> void:
-    sim.state.tutorial.mode=mode;sim.suspended=false;sim.touch();SaveService.save_now()
+    sim.campaign.onboarding.choose_mode(mode);sim.suspended=false;SaveService.save_now()
+
+## Basic: Skip retires the rest of the overview at once; The Road Ahead follows.
+func skip_overview() -> void:
+    var seen: Array=sim.state.tutorial.seen
+    for id in BASIC_DECK:
+        if not seen.has(id):seen.append(id)
+    sim.touch();SaveService.mark_committed()
 
 func _process(dt: float) -> void:
     if sim==null:return
@@ -131,8 +144,8 @@ func _process(dt: float) -> void:
                 data["road_ahead_seconds"]=minf(delay,elapsed+dt)
                 SaveService.mark_dirty()
     if pending=="focus" and (card.visible or pointer.visible):focus_shown+=dt
-    # Basic cards retire on their own after a readable time on screen (no permanent instructions).
-    if data.mode=="basic" and intro_id!="" and intro_id!=ROAD_AHEAD_ID and pending!="focus" and card.visible:
+    # Basic overview cards retire on their own after a readable time on screen.
+    if data.mode=="basic" and BASIC_DECK.has(intro_id) and card.visible:
         if card_for!=intro_id:card_for=intro_id;card_shown=0
         card_shown+=dt
         if card_shown>=sim.campaign.onboarding.rules.card_seconds and not data.seen.has(intro_id):
@@ -177,46 +190,25 @@ func evaluate() -> void:
             if not _mission_auto_hint():_focus_hint()
         else:_guided_lesson()
         return
-    # A newly purchased Auto Claim is taught immediately in the Missions panel, even if a Basic
-    # feature card is still pending. Closing Missions resumes the ordinary Basic introduction.
-    if data.mode=="basic" and ui.sheet.visible and ui.panel=="missions" and _mission_auto_hint():return
-    if data.mode=="basic" and _road_ahead_if_ready(data):return
-    if _mission_auto_hint():return
-    if _focus_hint():return
-    if data.mode=="guided":
-        for lesson in LESSONS:
-            if not data.done.has(lesson):pending=lesson;break
-        # A lesson whose system is not revealed yet waits; the contextual cards below may show meanwhile.
-        if pending!="" and (not LESSON_FEATURE.has(pending) or sim.campaign.onboarding.revealed(LESSON_FEATURE[pending])):
-            _lesson(pending);return
-        pending=""
-    elif _basic_card():return
-    # Contextual introductions in every mode except None: shown once, on the HUD only. (Change 15:
-    # Prestige is introduced by its reveal, after the Snowman, not by the first opportunity found.)
-    for pair in [["camp_done",sim.campaign.counter("camp")>0 and data.mode=="guided"],["aggression",sim.state.stage>=2],["skills",sim.campaign.skill_count()>0],["groups",sim.state.stage>=3],["rest",sim.state.player.hp>0 and sim.state.player.hp<sim.stats().hp*.4 and not sim.campaign.in_combat()]]:
-        if pair[1] and not data.seen.has(pair[0]):pending=pair[0];intro_id=pair[0];step=pair[0];return
+    # Basic: the overview deck, then The Road Ahead; nothing after that (no tips or pointers).
+    if data.mode=="basic" and not _basic_card():_road_ahead_if_ready(data)
 
 ## This is the same one-time game-goals announcement in modes without the Guided final step.
-## Basic finishes its short system introductions first; None receives goals immediately.
+## Basic finishes its overview deck first (or skips it); None receives goals immediately.
 func _road_ahead_if_ready(data: Dictionary) -> bool:
     if data.seen.has(ROAD_AHEAD_ID):return false
-    if data.mode=="none" or (data.mode=="basic" and data.seen.has("feature_prestige")):
+    if data.mode=="none" or (data.mode=="basic" and BASIC_DECK.all(func(id):return data.seen.has(id))):
         pending=ROAD_AHEAD_ID;step="tutorial_final";intro_id=ROAD_AHEAD_ID
         return true
     return false
 
-## Basic (Change 15): a concrete opening card, two short tips for the first equip and merge while they
-## apply, then one card per system as it is revealed, in reveal order. Text only, never a pointer.
+## Basic (Change 25): the next overview card not seen yet, whatever the player has done meanwhile.
 func _basic_card() -> bool:
     var data: Dictionary=sim.state.tutorial
     if data.seen.has(ROAD_AHEAD_ID):return false
-    var order: Array=[["overview",true],
-        ["tip_equip",not data.done.has("equip") and _first_item(func(i):return sim.catalog.items[i].kind in ["weapon","outfit"])!=""],
-        ["tip_merge",not data.done.has("merge") and _first_item(func(i):return sim.can_merge(i) and sim.catalog.items[i].kind in ["weapon","outfit"])!=""]]
-    for feature in sim.campaign.onboarding.FEATURES:order.append(["feature_"+feature,sim.campaign.onboarding.revealed(feature)])
-    for pair in order:
-        if pair[1] and not data.seen.has(pair[0]):
-            pending=pair[0];intro_id=pair[0];step=pair[0]
+    for id in BASIC_DECK:
+        if not data.seen.has(id):
+            pending=id;intro_id=id;step=id
             return true
     return false
 
@@ -500,6 +492,10 @@ func _present() -> void:
     if pending=="" or suspended_by!="" or (ui.sheet.visible and ui.sheet.modulate.a<1.0):
         _hide_all();return
     title.text=tr("GUIDE_"+step.to_upper())
+    var deck_index:=BASIC_DECK.find(intro_id) if data.mode=="basic" else -1
+    if deck_index>=0:title.text+="  %d/%d" % [deck_index+1,BASIC_DECK.size()]
+    var skippable:=deck_index>=0 and deck_index<BASIC_DECK.size()-1
+    if skip_button.visible!=skippable:skip_button.visible=skippable
     support.text=tr("GUIDE_"+step.to_upper()+"_DETAIL")
     # Coins still needed, in the shared currency format rounded up (Change 13).
     if "%s" in support.text:support.text=support.text % NumberFormat.currency(support_value,true)
@@ -517,14 +513,15 @@ func _present() -> void:
     intro_button.size_flags_horizontal=Control.SIZE_SHRINK_CENTER if is_final else Control.SIZE_SHRINK_END
     card.mouse_filter=Control.MOUSE_FILTER_IGNORE
     _place_card()
-    # Introductions are text only, except the Focused Farming hint (every mode but None) and the
-    # Guided Snowman objective and Prestige cards, which point at their control.
-    if pending not in ["focus","mission_auto_hint","mission_auto_open"] and (data.mode!="guided" or (intro_id!="" and not step in POINTING_INTROS)):
+    # Introductions are text only, except in Guided: the Focused Farming and Auto Claim hints and
+    # the Snowman objective and Prestige cards point at their control. Basic and None never point.
+    if data.mode!="guided" or (pending not in ["focus","mission_auto_hint","mission_auto_open"] and intro_id!="" and not step in POINTING_INTROS):
         highlight.hide();shade.hide();pointer.hide();return
     _point()
 
 func _picture() -> Texture2D:
     if step in ["snowman","feature_objective"]:return ui.icon_cache.get("boss-snowman_outfit")
+    if BASIC_DECK.has(step):return ui._art(int(ui.HELP_ART.get(step,60)))
     if step.begins_with("focus") or step.begins_with("slots") or step=="feature_upgrades":return ui._art(147)
     if step in ["skills","rest"]:return ui._art(212)
     if step.begins_with("camp") or step=="feature_world":return ui._art(249)

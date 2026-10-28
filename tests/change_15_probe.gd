@@ -1,6 +1,6 @@
 extends Node
-## Change 15 probe: the early equipment guarantee, the first-profile menu reveal (Guided, Basic, None,
-## unexpected orders, persistence, Show all menus now), the notification sounds and Map Mastery
+## Change 15 probe: the early equipment guarantee, menu access per mode (Change 25: Basic/None open
+## every menu, Guided keeps its staged reveal; persistence), the notification sounds and Map Mastery
 ## (records, latches, percentages, rewards applied once, Prestige and Hard Reset, panels, reachable
 ## exploration). Runs WITHOUT --first-run-complete: fresh profiles start the real progression.
 ## Real main scene and simulation; state set directly is labelled "fixture".
@@ -204,96 +204,52 @@ func guarantee_checks() -> void:
     check(SaveService.hard_reset() and sim.state.onboarding.loot_phase==0,"Hard Reset restores it (a new profile)")
     natural(.05)
 
-# ---------------------------------------------------------------- 2. menu reveal
+# ---------------------------------------------------------------- 2. menu access
+## Change 25 supersedes the Change 15 reveal table for Basic and None: those modes open every menu
+## when chosen (change_25_probe covers it in depth); Guided keeps its own staged reveal (section 3).
 func reveal_checks() -> void:
-    print("-- menu reveal")
-    fresh();await frames(4)
+    print("-- menu access (Change 25)")
+    fresh("pending");await frames(4)
+    check(sim.state.onboarding.reveal.is_empty() and not sim.campaign.onboarding.revealed("missions"),"Before a mode is chosen nothing is revealed")
     var settings_x: float=nav("Settings").get_global_rect().position.x
-    check(sim.state.onboarding.reveal.is_empty(),"Fresh profile: nothing revealed")
+    fresh("guided");await frames(4)
     var hidden_nav: bool=true
     for n in ["World","Missions","Prestige","Upgrades"]:
         if not (nav(n).disabled and nav(n).modulate.a==0.0 and nav(n).mouse_filter==Control.MOUSE_FILTER_IGNORE):hidden_nav=false
-    check(hidden_nav,"World, Missions, Prestige and Upgrades buttons hidden and untouchable")
-    check(nav("Settings").visible and not nav("Settings").disabled,"Settings always available")
-    check(not map_node("MiniMap").visible and not map_node("Explored").visible and not map_node("Gate").visible,"Minimap, Map Explored and Next Stage hidden")
-    check(not game.dock.get_node("Inventory/GearColumn/Head/Filters").visible,"Filters hidden")
-    check(game.stick.visible and game.dock.get_node("Inventory/GearColumn/GearScroll/Gear").visible and game.top.get_node("Bar/Pause").visible,"Joystick, equipment dock and Pause available")
+    check(hidden_nav,"Guided: World, Missions, Prestige and Upgrades start hidden and untouchable")
     for p in ["missions","world","upgrades","prestige","enemy","filters","camp","teleport","farming","mastery"]:
         game._open(p)
-    check(game.panel=="" and not game.sheet.visible,"Every hidden panel refuses to open")
-    game.world.actor_selected.emit(-1,2);game.world.actor_selected.emit(0,2);map_node("MiniMap").open_map.emit()
-    check(game.panel=="","Character tap, enemy tap and minimap open nothing yet")
-    game._open("settings");check(game.panel=="settings","Settings opens");game._open("stats");check(game.panel=="stats","Stats opens");game._close()
-    # The chain, step by step, from demonstrated actions.
-    sim.state.counters["merge"]=1;sim.campaign.onboarding.evaluate() # fixture: first merge
-    check(sim.state.onboarding.reveal==["missions"] and notices.has(["feature_unlocked","missions"]),"First merge: Missions revealed (one notice)")
-    sim.state.main_claimed.append(0);sim.campaign.onboarding.evaluate() # fixture: first claim
-    check(sim.state.onboarding.reveal==["missions","enemy"],"First claim: enemy information and upgrades")
-    sim.state.counters["upgrade"]=1;sim.campaign.onboarding.evaluate()
-    check(sim.state.onboarding.reveal==["missions","enemy","world"],"First upgrade: World")
-    sim.state.counters["camp"]=1;sim.campaign.onboarding.evaluate()
-    check(sim.state.onboarding.reveal==["missions","enemy","world","upgrades"],"First camp: Player Upgrades")
-    sim.state.gems=50;check(sim.buy_upgrade("gear_slots") and sim.state.onboarding.reveal.has("objective"),"First Player Upgrade purchase: the Snowman objective")
-    check(not sim.campaign.onboarding.revealed("prestige"),"Prestige stays hidden before the Snowman")
-    await frames(2);game._process(.2);await frames(2)
-    check(map_node("Gate").visible and not nav("Prestige").visible==false and nav("Prestige").disabled,"Next Stage chip shows; Prestige button still hidden")
-    check(is_equal_approx(nav("Settings").get_global_rect().position.x,settings_x),"Settings never moves while menus appear")
-    check(not nav("Missions").disabled and nav("Missions").modulate.a==1.0 and nav("Missions/Badge").visible and nav("Missions/Badge").text in ["✦","!"],"Missions in place with its badge")
-    snowman_defeated()
-    check(sim.campaign.onboarding.all_revealed() and milestones.filter(func(m):return m[0]=="prestige_unlocked").size()==1,"Snowman: everything revealed with one Prestige banner")
-    game._open("prestige")
-    check(game.panel=="prestige","Prestige opens")
-    check(sim.campaign.prestige_block_reason()=="NO_READY_PRESTIGE","…but the reset still needs a ready opportunity")
-    game._close()
-    # The same steps by player level only (a player who ignores every new menu).
-    fresh()
-    var by_level: Array=[]
-    for level in [3,4,5,6,7]:
-        sim.state.player_level=level;sim.campaign.onboarding.evaluate() # fixture: level
-        by_level.append(sim.state.onboarding.reveal.size())
-    check(by_level==[1,2,3,4,5],"Level backstops 3/4/5/6/7 reveal one system each: %s" % str(by_level))
-    # Unexpected order: a full equipment row reveals everything up to Player Upgrades.
-    fresh()
-    for id in ["wood_sword","wood_axe","unit-blue-cap_outfit"]:sim.add_item(id) # fixture
-    sim.campaign.onboarding.evaluate()
-    check(sim.state.onboarding.reveal==["missions","enemy","world","upgrades"],"A full equipment row reveals up to Player Upgrades at once")
-    # Unexpected order: the Snowman before anything else.
-    fresh()
-    snowman_defeated()
-    check(sim.campaign.onboarding.all_revealed(),"Snowman first: every menu revealed regardless of earlier progress")
-    # A real Snowman kill: the new map's banner first, then Prestige.
+    check(game.panel=="" and not game.sheet.visible,"Guided: every hidden panel refuses to open")
+    game._open("settings");check(game.panel=="settings","Settings opens");game._close()
+    for mode in ["basic","none"]:
+        fresh("pending");await frames(2);game.guide.choose(mode);await frames(4);game._process(.2)
+        var open_nav:=true
+        for n in ["World","Missions","Prestige","Upgrades","Settings"]:
+            if nav(n).disabled or nav(n).modulate.a<1.0 or nav(n).mouse_filter!=Control.MOUSE_FILTER_STOP:open_nav=false
+        check(open_nav and is_equal_approx(nav("Settings").get_global_rect().position.x,settings_x),"%s: every navigation button usable at once; Settings keeps its place" % mode)
+        check(sim.campaign.onboarding.all_revealed() and sim.state.onboarding.reveal.size()==sim.campaign.onboarding.FEATURES.size(),"%s: every menu recorded as revealed" % mode)
+        check(not notices.any(func(n):return n[0]=="feature_unlocked") and not nav("World/Badge").visible and not nav("Upgrades/Badge").visible,"%s: opened silently (no unlock sound, no ✦ cascade)" % mode)
+        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS" and int(sim.state.unlocked_stage)==1,"%s: the Prestige reset and Winter II keep their game rules" % mode)
+    # Basic/None: finding the Snowman announces the Prestige reset once (the menu was already open).
     fresh();milestones.clear()
     var boss: Dictionary=enemy(group("boss-snowman"))
     boss.hp=0;sim._kill(boss)
     var kinds: Array=milestones.map(func(m):return m[0])
     check(kinds.find("stage")>=0 and kinds.find("stage")<kinds.find("prestige_unlocked"),"Killing the Snowman: \"Winter II\" banner, then \"Prestige unlocked\" (%s)" % str(kinds))
-    # Opportunities found before the reveal: tracked silently, announced by the reveal.
-    fresh();milestones.clear();game.banner.queue.clear()
-    sim.state.counters["kill:unit-blue-cap"]=10;sim.campaign.evaluate() # fixture: Expedition discovered
-    await frames(2)
-    check(sim.state.opportunities.has("expedition_o1") and game.banner.pending()==0 and not nav("Prestige/Badge").visible,"An opportunity found before the Snowman: tracked, no banner, no badge")
-    snowman_defeated();await frames(2)
-    var titles: Array=game.banner.queue.map(func(e):return e.title)+[game.banner.current.get("title","")]
-    check(titles.count(tr("MILESTONE_PRESTIGE_UNLOCKED"))==1,"The reveal announces Prestige once (\"%s\")" % tr("MILESTONE_PRESTIGE_UNLOCKED"))
-    # Persistence: save/load, Prestige, Hard Reset.
-    fresh()
-    sim.state.counters["merge"]=1;sim.campaign.onboarding.evaluate()
-    var snap: Dictionary=JSON.parse_string(JSON.stringify(sim.snapshot()))
-    sim.new_profile();sim.restore(snap)
-    check(sim.state.onboarding.reveal==["missions"] and sim.state.schema==8,"Reveals survive a JSON save/load (schema 8)")
-    snowman_defeated()
-    check(do_prestige() and sim.campaign.onboarding.all_revealed(),"Prestige keeps every revealed menu")
-    check(SaveService.hard_reset() and sim.state.onboarding.reveal.is_empty(),"Hard Reset hides them again")
+    sim.campaign.onboarding.evaluate();sim.campaign.onboarding.evaluate()
+    check(milestones.filter(func(m):return m[0]=="prestige_unlocked").size()==1,"…announced once")
+    check(do_prestige() and sim.campaign.onboarding.all_revealed(),"Prestige keeps every menu")
+    sim.campaign.onboarding.evaluate()
+    check(milestones.filter(func(m):return m[0]=="prestige_unlocked").size()==1,"…and never announces Prestige again")
+    check(SaveService.hard_reset() and sim.state.onboarding.reveal.is_empty() and sim.state.tutorial.mode=="pending","Hard Reset returns to the chooser with nothing revealed")
     var bad: Dictionary=sim.snapshot();bad.onboarding.reveal=["missions","missions"]
     check(not sim.campaign.valid_snapshot(bad),"Validation rejects a duplicated reveal")
-    # Change 16 removes "Show all menus now" (and "Choose guidance again") from the player's Settings;
-    # Help takes their place (change_16_probe). reveal_all stays for probes and is checked directly.
     fresh();notices.clear()
     game._open("settings");await frames(2)
     check(labels_text(game.rows).contains(tr("SECTION_TUTORIAL")) and game.guide._panel_control("show_all_menus")==null and buttons_text(game.rows).contains(tr("HELP")),"Settings → Tutorial and help offers Help, no Show all menus (Change 16)")
     game._close()
-    sim.campaign.onboarding.reveal_all(true)
-    check(sim.campaign.onboarding.all_revealed() and not notices.any(func(n):return n[0]=="feature_unlocked"),"reveal_all(silent) still reveals every menu, silently (probe use)")
+    fresh("pending");sim.campaign.onboarding.reveal_all(true)
+    check(sim.campaign.onboarding.all_revealed() and not notices.any(func(n):return n[0]=="feature_unlocked"),"reveal_all(silent) records every menu, silently (probe use)")
     check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS","…the Prestige reset still needs the Snowman found")
 
 # ---------------------------------------------------------------- 3. Guided
@@ -340,36 +296,24 @@ func guided_checks() -> void:
     check(sim.campaign.prestige_gate_reason()=="PRESTIGE_TUTORIAL_LOCKED","Guided Prestige remains blocked until final acknowledgement")
 
 # ---------------------------------------------------------------- 4. Basic
+## Change 25: a short up-front overview deck, then The Road Ahead; nothing after (change_25_probe).
 func basic_checks() -> void:
     print("-- Basic")
     fresh("basic");await frames(4)
     var guide=game.guide
     check(guide.pending=="overview" and guide.card.visible and not guide.pointer.visible,"Basic: a concrete opening card, no pointer")
     check(tr("GUIDE_OVERVIEW_DETAIL").contains("joystick") and tr("GUIDE_MODE_BASIC").begins_with("Basic"),"The opening says how to walk, fight and collect; the mode is named Basic")
-    guide.intro_button.pressed.emit();await frames(4)
-    check(guide.pending=="","Got it: nothing more until something new happens")
-    sim.add_item("wood_sword");await frames(4)
-    check(guide.pending=="tip_equip" and guide.card.visible and not guide.pointer.visible,"First gear: a short equip tip (text only)")
-    sim.equip("wood_sword");await frames(4)
-    check(guide.pending!="tip_equip","Equipped: the tip is gone")
-    sim.add_item("wood_sword");await frames(4)
-    check(guide.pending=="tip_merge","A copy: the merge tip")
-    sim.merge("wood_sword");sim.campaign.onboarding.evaluate();await frames(4)
-    check(guide.pending=="feature_missions" and guide.title.text==tr("GUIDE_FEATURE_MISSIONS") and not guide.pointer.visible,"Missions revealed: one short card")
     guide._process(sim.campaign.onboarding.rules.card_seconds+1.0);await frames(2)
-    check(sim.state.tutorial.seen.has("feature_missions"),"The card retires on its own after %d s on screen" % int(sim.campaign.onboarding.rules.card_seconds))
-    snowman_defeated();await frames(4)
+    check(sim.state.tutorial.seen.has("overview") and guide.pending==guide.BASIC_DECK[1],"A card retires on its own after %d s on screen; the next one follows" % int(sim.campaign.onboarding.rules.card_seconds))
     var titles: Array=[]
-    for i in range(8):
+    for i in range(10):
         if guide.pending=="":break
         titles.append(guide.pending)
         check(not guide.pointer.visible,"No pointer on %s" % guide.pending)
-        # Change 22: The Road Ahead closes Basic; its Got it works after the final delay on screen.
-        # (A queued milestone banner suspends the card, so it is cleared first: fixture, not behaviour.)
         if guide.pending==guide.ROAD_AHEAD_ID:
             game.banner.queue.clear();game.banner.current={};guide._process(float(sim.campaign.guided.rules().final_delay)+.1)
         guide.intro_button.pressed.emit();await frames(3)
-    check(titles==["feature_enemy","feature_world","feature_upgrades","feature_objective","feature_prestige","road_ahead"],"One card per revealed system, in reveal order, then The Road Ahead once: %s" % str(titles))
+    check(titles==guide.BASIC_DECK.slice(1)+[guide.ROAD_AHEAD_ID],"The rest of the overview, then The Road Ahead once: %s" % str(titles))
 
 # ---------------------------------------------------------------- 5. None
 func none_checks() -> void:
@@ -387,11 +331,7 @@ func none_checks() -> void:
         s.call();sim.campaign.onboarding.evaluate();await frames(4)
         if guide.card.visible or guide.pointer.visible:shown=true
     check(not shown,"None: no card, pointer or tip at any step after it (Auto Claim bought included)")
-    check(sim.campaign.onboarding.all_revealed(),"…while the menus still appear through play")
-    game._process(.2)
-    check(nav("World/Badge").visible and nav("World/Badge").text=="✦","A newly revealed menu carries ✦ (status, not instruction)")
-    game._open("world");game._close();game._process(.2)
-    check(not nav("World/Badge").visible,"Opening it clears the ✦")
+    check(sim.campaign.onboarding.all_revealed(),"…with every menu open throughout")
     check(map_node("Gate").visible or sim.campaign.gate_status().is_empty(),"The Next Stage objective chip shows in None")
 
 # ---------------------------------------------------------------- 6. notification sounds
@@ -413,11 +353,11 @@ func audio_checks() -> void:
     check(stream_of.call("stage_unlocked").resource_path.ends_with("stage_clear.wav") and stream_of.call("game_complete").resource_path.ends_with("stage_clear.wav"),"A new map and 100% completion keep stage_clear")
     check(stream_of.call("prestiged").resource_path.ends_with("prestige.wav"),"Performing a Prestige keeps the Prestige sound")
     # Triggers through the real notice routing.
-    AudioService.reset_history()
+    sim.state.tutorial.mode="guided";AudioService.reset_history()
     sim.notice.emit("mission_ready","kill")
-    check(AudioService.flush()=="","A mission ready while Missions is hidden stays silent")
-    sim.state.counters["merge"]=1;sim.campaign.onboarding.evaluate()
-    check(AudioService.flush()=="feature_unlocked","A feature revealed plays the notification")
+    check(AudioService.flush()=="","A mission ready while Missions is hidden (Guided) stays silent")
+    sim.state.tutorial.mode="none";AudioService.reset_history();snowman_defeated()
+    check(AudioService.flush()=="feature_unlocked","The Prestige reset becoming available (Snowman found) plays the notification")
     AudioService.reset_history()
     sim.state.counters["kill"]=5;sim.campaign.evaluate_main()
     check(AudioService.flush()=="main_ready","A main objective ready to claim plays it")
@@ -588,9 +528,8 @@ func reach_checks() -> void:
 func ui_checks() -> void:
     print("-- panels")
     fresh();await frames(2)
-    sim.state.counters["merge"]=1;sim.state.main_claimed.append(0);sim.state.counters["upgrade"]=1;sim.campaign.onboarding.evaluate() # fixture: World revealed
     game._open("world");await frames(4)
-    check(game.panel=="world" and button_with(game.rows,tr("MASTERY_OPEN").split("·")[0].strip_edges())==null,"Before the Snowman, World has no Map Mastery entry")
+    check(game.panel=="world" and game.guide._panel_control("mastery")!=null,"None: World offers Map Mastery before the Snowman (Change 25: menus open, rewards by the rules)")
     game._close()
     snowman_defeated()
     game._open("world");await frames(4)

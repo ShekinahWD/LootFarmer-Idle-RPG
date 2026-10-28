@@ -3732,10 +3732,10 @@ msgid "GUIDE_MODE_GUIDED"
 msgstr "Guided · Learn one action at a time"
 
 msgid "GUIDE_MODE_BASIC"
-msgstr "Basic · Short tips as new things open"
+msgstr "Basic · All menus open, a short overview"
 
 msgid "GUIDE_MODE_NONE"
-msgstr "None · Discover things yourself"
+msgstr "None · All menus open, no tips"
 
 msgid "GUIDE_REVIEW"
 msgstr "Choose guidance again"
@@ -5087,6 +5087,42 @@ msgstr "Prestige unlocked"
 msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
 msgstr "Complete an opportunity, then Prestige to restart with a permanent card."
 
+msgid "GUIDE_SKIP"
+msgstr "Skip"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "Equip and merge gear"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "Tap gear in your inventory, then Equip for its full stats; stored gear still adds a share. Two of the same item merge into one that is permanently stronger."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "Upgrades and Missions"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "Tap an enemy (or Upgrades above the map) to raise its loot, coins and XP. Player Upgrades sells equipment slots, supplies and permanent Gem upgrades. Claim Missions for coins and gems."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "Explore, camps and stages"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "Walking clears the fog; the minimap and World show where you have been. Unlock camps in World to respawn and rest there. Defeat a map's bosses to open the next stage."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "Prestige and Map Mastery"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "Finding the Winter I Snowman unlocks the Prestige reset: complete an opportunity, then Prestige to restart with a permanent card. Map Mastery tracks each map's long-term goals."
+
+msgid "EXIT_TITLE"
+msgstr "Leave LootFarmer?"
+
+msgid "EXIT_CONFIRM"
+msgstr "Your progress is saved. You can come back at any time."
+
+msgid "EXIT_ACTION"
+msgstr "Exit"
+
 msgid "SECTION_TUTORIAL"
 msgstr "Tutorial and help"
 
@@ -5547,7 +5583,7 @@ msgid "PANEL_HELP"
 msgstr "Help"
 
 msgid "HELP_INTRO"
-msgstr "The tutorial cards for everything you have unlocked so far. Reading them changes nothing in your game."
+msgstr "A short overview of how LootFarmer plays. Reading it changes nothing in your game."
 
 msgid "HELP_BACK"
 msgstr "Back to Settings"

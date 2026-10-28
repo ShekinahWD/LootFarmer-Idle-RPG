@@ -212,6 +212,10 @@ func _ready() -> void:
     sim.event.connect(_event)
     SaveService.save_failed.connect(func(_reason: String)->void:_event("SAVE_ERROR"))
     get_viewport().size_changed.connect(_safe_area)
+    # Change 25: a tracker first measured before its text wrapped reported a several-hundred-pixel
+    # height for one HUD tick (covering the map); it is laid out again as soon as the wrap settles.
+    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker]:
+        tracker.minimum_size_changed.connect(_layout_trackers,CONNECT_DEFERRED)
     $Safe/Layout/Map.resized.connect(func()->void:if sheet.visible:_layout_sheet())
     _safe_area()
     dock.get_node("Inventory").resized.connect(_layout_inventory)
@@ -405,9 +409,10 @@ func _layout_trackers() -> void:
     for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker]:
         if not tracker.visible:continue
         tracker.set_anchors_preset(Control.PRESET_TOP_LEFT)
-        tracker.size=Vector2(width,tracker.get_combined_minimum_size().y)
+        var wanted:=Vector2(width,tracker.get_combined_minimum_size().y)
+        if not tracker.size.is_equal_approx(wanted):tracker.size=wanted
         y-=tracker.size.y
-        tracker.position=Vector2(16,y)
+        if not tracker.position.is_equal_approx(Vector2(16,y)):tracker.position=Vector2(16,y)
         y-=10
 
 ## Change 16: a compact Map Mastery summary for the current map above Map Explored ("Mastery 34% ·
@@ -1080,11 +1085,39 @@ func _layout_confirm() -> void:
 func centered_x(width: float,insets: Vector4) -> float:
     return insets.x+(size.x-insets.x-insets.z-width)*.5
 
+## Change 25 (REL-03): Android system Back (NOTIFICATION_WM_GO_BACK_REQUEST; project setting
+## application/config/quit_on_go_back is off, so Back never quits silently) and Escape (ui_cancel)
+## share one handler, in priority: the Prestige confirmation, the confirmation, the open panel, then
+## on the bare HUD an exit confirmation (progress is saved first; Exit saves again and quits). The
+## guide chooser is a decision and swallows Back. Each press is handled once, even when the key
+## event and the notification arrive in the same frame.
+var back_frame:=-1
+func back() -> void:
+    var frame:=Engine.get_process_frames()
+    if frame==back_frame:return
+    back_frame=frame
+    if sim.state.tutorial.mode=="pending":return
+    $Safe/Layout/Map/GestureSurface.cancel_gesture()
+    stick.release()
+    if $PrestigeConfirm.visible:$PrestigeConfirm.close()
+    elif $Confirm.visible:_cancel_confirm()
+    elif sheet.visible:_close()
+    else:
+        SaveService.save_now()
+        _confirm(tr("EXIT_CONFIRM"),_quit,tr("EXIT_ACTION"),false,tr("EXIT_TITLE"))
+        return
+    AudioService.play("ui_click")
+
+func _quit() -> void:
+    SaveService.save_now()
+    get_tree().quit()
+
+func _notification(what: int) -> void:
+    if what==NOTIFICATION_WM_GO_BACK_REQUEST:back()
+
 func _unhandled_key_input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):
-        if $Confirm.visible:_cancel_confirm()
-        elif sheet.visible:_close()
-        else:return
+        back()
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
@@ -2355,21 +2388,16 @@ func _volume_row(key: String,value: float,setter: Callable) -> void:
         setter.call(v/100.0))
     line.add_child(slider)
 
-## Change 16 Help (Settings → Tutorial and help): the Basic tutorial as one page to read, in the
-## order Basic shows it: the opening card, the two tips, one card per revealed system and the
-## situational cards already met. Reading it changes nothing: no progress, discovery or menu reveal,
-## and the guidance mode stays as chosen. Systems not revealed yet are not described (no spoilers).
-const HELP_ART:={"overview":60,"tip_equip":60,"tip_merge":60,"feature_missions":211,"feature_enemy":1,"feature_world":249,"feature_upgrades":147,"feature_prestige":211,"aggression":1,"groups":1,"skills":212,"rest":212,"camp_done":249}
+## Help (Settings → Tutorial and help): the Basic overview deck (tutorial_guide.BASIC_DECK) as one
+## page to read, so Basic and Help never describe the game differently (Change 25). Reading it changes
+## nothing: no progress, discovery or menu reveal, and the guidance mode stays as chosen. In Guided, a
+## card about a system its staged reveal has not opened yet is left out (no spoilers).
+const HELP_ART:={"overview":60,"basic_gear":211,"basic_growth":147,"basic_world":249,"basic_prestige":212}
 func _help_panel() -> void:
     _text(tr("HELP_INTRO"),17,Color(.8,.84,.9))
-    var cards: Array=["overview","tip_equip","tip_merge"]
-    for feature in sim.campaign.onboarding.FEATURES:
-        if revealed(feature):cards.append("feature_"+feature)
-    for card in ["aggression","groups","skills","rest","camp_done"]:
-        if sim.state.tutorial.seen.has(card):cards.append(card)
-    for card in cards:
-        var art: Texture2D=icon_cache.get("boss-snowman_outfit") if card=="feature_objective" else _art(int(HELP_ART.get(card,60)))
-        _info_card(tr("GUIDE_"+card.to_upper()),tr("GUIDE_"+card.to_upper()+"_DETAIL"),art)
+    for card in guide.BASIC_DECK:
+        if guide.DECK_FEATURE.has(card) and not revealed(guide.DECK_FEATURE[card]):continue
+        _info_card(tr("GUIDE_"+card.to_upper()),tr("GUIDE_"+card.to_upper()+"_DETAIL"),_art(int(HELP_ART.get(card,60))))
     _pinned(tr("HELP_BACK"),func()->void:_open("settings"),true,"",false,"help_back",false)
 
 func _history_panel() -> void:

@@ -244,7 +244,7 @@ func tutorial_checks() -> void:
     check(sim.state.spawns.has(1) and int(sim.state.spawn)==0,"Unlock buys the camp without silently selecting it")
     check(sim.campaign.guided.data().done.has("camp"),"Camp lesson completes on the purchase")
     for node in game.guide.find_children("*","Control",true,false):
-        if node!=game.guide.intro_button and node.get_parent()!=game.guide.chooser and not game.guide.chooser.is_ancestor_of(node) and node!=game.guide.blocker and node!=game.guide.chooser:
+        if node!=game.guide.intro_button and node!=game.guide.skip_button and node.get_parent()!=game.guide.chooser and not game.guide.chooser.is_ancestor_of(node) and node!=game.guide.blocker and node!=game.guide.chooser:
             if node.mouse_filter!=Control.MOUSE_FILTER_IGNORE:check(false,"Guide node takes input: "+str(node.name))
     check(true,"Guide presentation ignores input")
     # Doing a lesson ahead of time completes it.

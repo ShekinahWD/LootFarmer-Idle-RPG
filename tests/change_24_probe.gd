@@ -214,6 +214,8 @@ func panel_checks() -> void:
     game._close()
 
 func version_checks() -> void:
-    check(str(ProjectSettings.get_setting("application/config/version"))=="24","Project version is 24 (Change 24)")
+    # Later changes raise the version (change_25_probe checks the current one).
+    check(int(str(ProjectSettings.get_setting("application/config/version")))>=24,"Project version is at least 24 (Change 24)")
     var presets:=FileAccess.get_file_as_string("res://export_presets.cfg")
-    check(presets.contains("name=\"Android Release\"") and presets.contains("version/code=24"),"Android Release version code is 24")
+    var code:=presets.substr(presets.find("version/code=")+13,4).to_int()
+    check(presets.contains("name=\"Android Release\"") and code>=24,"Android Release version code is at least 24")

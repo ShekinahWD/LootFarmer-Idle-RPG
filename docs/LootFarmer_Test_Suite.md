@@ -1,4 +1,13 @@
-# LootFarmer — Test Suite (current, 2026-10-28, Change 24)
+# LootFarmer — Test Suite (current, 2026-10-28, Change 25)
+
+## Change 25 — onboarding modes and mobile UI (28 October 2026)
+
+Command: `python tools/run_probes.py`. **33 entries (validator + 32 Godot scenes): 33/33 pass, no script errors, no timeouts.** Validator 1,574 checks; Godot probes 5,783 checks plus two smoke runs. Details: [Change 25 report](LootFarmer_Change_25_Report.md).
+
+- **Registered** `change_25_probe` (113 checks): Basic/None menu access through every navigation button, 11 panels and the direct paths; opening grants nothing (snapshot comparison, locked Prestige reset, no travel to unopened maps, enemy chips by discovery); silent opening; one Prestige announcement; slot-size first choice vs reload/Prestige/Hard Reset; Basic deck (3–5 cards, Skip, auto-advance, non-blocking, no later cards, Help, reload, Prestige); None (nothing after The Road Ahead); Guided (28 steps, 15 s waits, partial progress saved); Back priority, de-duplication, notification and Escape; HUD/sheet/confirmation layout at 540×960, 432×960 and 360×640; versions 25.
+- **Updated stale contracts to the approved modes** (no assertion weakened): change_15, change_16, change_14, change_21, change_22 (Basic has no pointer; Guided keeps them), change_24 (version ≥ 24), change_6 (the Skip button is the second intended input on the guide card).
+- **Not gating:** `change_25_capture` (windowed, `docs/Change_25_Evidence/ui/`), `change_16_audio` (11/11), `tools/run_benchmark.py`.
+
 
 ## Change 24 — restored maintained suite (28 October 2026)
 
@@ -78,6 +87,7 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 | Probe | Covers |
 |---|---|
 | validate_campaign_source.py | Catalog and source contracts, translations (code, scene keys and dynamic keys), every catalog tool's `--check` including change16_catalog (1,554 checks) |
+| change_25_probe | Onboarding mode authority (Basic/None menus open at once, Guided staged), menus never grant content, Basic overview deck, None silence, slot-size first choice, Android Back / Escape, portrait HUD layout (Change 25) |
 | change_16_probe | Map economy on all 8 maps (income ×1.5, every map-tied Coin purchase ×1.55, global and Gem prices unchanged, rising cost/income), Gem Auto-Collect / Collect Batch (prices, Prestige, older Coin levels), save migration of the new records, boss discovery (once, sound, banner order, Prestige on discovery without a kill, Prestige, Hard Reset), boss names and skill icons (stacking, contrast), the Winter I objective, mission + Prestige trackers together, followers of all 33 opportunities, Prestige keeping Gems and exploration, the Health Potion 10% → 20% and external HP bonuses, Drop All (slot, pile, Auto-Collect, exploit loops, credit, equipped, save, expiry, red UI), Map Mastery reward swap and chip, Cyan Robot Heal interval, skill descriptions, the Prestige confirmation screen, music hold rules, the Guided path opening, View Camp, Help and no development UI (197 checks) |
 | change_15_probe | Early equipment guarantee (3 modes × 3 Winter I types × 4 seeds with natural drops; exact kills 5 and 10 per type and loadout; type switch; natural drops first; supplies and non-matching gear; expiry; bosses; full row; once per profile), menu reveal (hidden HUD and refused panels from every path, the chain, level backstops, full row, Snowman first and banner order, silent opportunities before the reveal, save/load, Prestige, Hard Reset, validation, Show all menus now), Guided sequence to Prestige, Basic cards, None without guidance, notification sounds (streams, triggers, hidden systems silent, shared cooldown, same frame, mutes), Map Mastery (content, records, shared items, latches and notices, percentages, rewards exactly once, Prestige, save/load, Hard Reset, optional), reachable exploration on all eight maps, panels (World entry, list, map page, unnamed unmet enemies, Stats), World map dot through panel refreshes (177 checks) |
 | change_14_probe | Top-right map cluster (order, chips, contrast, insets, gate count, explored percent), Missions badge against the Claim rules (ready objectives listed first, auto-claim, waiting slots, Hard Reset), rain splashes frozen at impact, the six skill effects for player and enemy casts (placement, layer, scale, real effect, cooldowns, one effect per boss attack), Reveal Stats / Reveal Drops on both enemy tabs, joystick contrast layers and unchanged input, one-time Focused Farming guidance (modes, exits, suspension) |

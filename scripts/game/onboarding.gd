@@ -1,20 +1,24 @@
 extends RefCounted
-## Basic/None retain Change 15 reveals and the shared early loot guarantee (Playbook 18.10).
-## Change 20 Guided mode delegates ordered action/timing gates to guided_progress.gd:
-## - One reveal table: the features listed in FEATURES appear one after another, each when its
-##   demonstrated action has happened (or a player-level backstop is reached), never on a timer.
-##   Defeating the Snowman reveals everything left. Reveals are latched in state.onboarding.reveal
-##   (saved, kept by Prestige, cleared by Hard Reset). The HUD and the panel opener ask revealed();
-##   the simulation never refuses an action because of it.
-## - The early equipment guarantee: the first weapon or outfit within OnboardingRules.first_item_kills
-##   eligible kills, then a copy that can be merged with it within copy_kills more. Natural drops count
-##   first; the guarantee only adds a drop when nothing suitable came, and never changes drop chances.
+## Change 25: one authority for what the HUD and the panel opener may show (revealed()):
+## - Guided: the action-based staged reveal of guided_progress.gd (feature_allowed), unchanged.
+## - Basic and None: every ordinary menu is open from the moment the mode is chosen (choose_mode).
+##   Opening a menu never grants content: stages, camps, purchases, undiscovered enemies, Prestige
+##   resets and Map Mastery rewards keep their normal game rules, and each panel shows its locked state.
+## - Before a mode is chosen (the chooser) nothing is shown, except in probe fixtures
+##   (--first-run-complete), whose fresh profiles start with every menu recorded as revealed.
+## state.onboarding.reveal records the menus opened for the profile (saved, kept by Prestige, cleared
+## by Hard Reset); the simulation never refuses an action because of it.
+## The early equipment guarantee (Change 15, every mode): the first weapon or outfit within
+## OnboardingRules.first_item_kills eligible kills, then a copy that can be merged with it within
+## copy_kills more. Natural drops count first; it only adds a drop when nothing suitable came.
 ## The guide (tutorial_guide.gd) decides how much each mode explains; this file decides what exists.
 var sim
 var rules: OnboardingRules=preload("res://resources/game/onboarding_rules.tres")
-## Reveal order. "objective" is the Defeat the Snowman objective (the Next Stage chip); "prestige"
-## is Prestige, its tracker and banners, Map Mastery and anything still hidden.
+## The menu systems. "objective" is the Defeat the Snowman objective (the Next Stage chip); "prestige"
+## is Prestige, its tracker and banners, and Map Mastery.
 const FEATURES:=["missions","enemy","world","upgrades","objective","prestige"]
+## tutorial.seen key latched when finding the Snowman has announced the Prestige reset (Basic/None).
+const PRESTIGE_ANNOUNCED:="announced:prestige"
 ## Loot guarantee states (state.onboarding.loot_phase): no equipment yet, one item without a match,
 ## a matching pair dropped and waiting on the ground, done (a pair owned or merged; never again).
 const LOOT_NONE:=0
@@ -24,8 +28,8 @@ const LOOT_DONE:=3
 
 func _init(owner) -> void:sim=owner
 
-## Fresh profile defaults. Probes of ordinary play start with the progression complete
-## (--first-run-complete, Playbook 18.10); the onboarding probes run without it.
+## Fresh profile defaults. Probes of ordinary play start with every menu recorded as revealed
+## (--first-run-complete); the onboarding probes run without it.
 func initial() -> Dictionary:
     if BootContext.first_run_complete:
         return {"reveal":FEATURES.duplicate(),"loot_phase":LOOT_DONE,"loot_kills":0}
@@ -39,46 +43,53 @@ func initial_seen() -> Array:
     return seen
 
 func revealed(feature: String) -> bool:
-    if sim.state.tutorial.mode=="guided":return sim.campaign.guided.feature_allowed(feature)
+    match str(sim.state.tutorial.mode):
+        "guided":return sim.campaign.guided.feature_allowed(feature)
+        "basic","none":return true
     return sim.state.get("onboarding",{}).get("reveal",[]).has(feature)
 
 func all_revealed() -> bool:
-    return sim.state.onboarding.reveal.size()==FEATURES.size()
+    for feature in FEATURES:
+        if not revealed(feature):return false
+    return true
 
-# ---------------------------------------------------------------- reveal table
+## The chooser's answer (tutorial_guide.choose). Basic and None open every menu at once, silently
+## (no ✦, no unlock sound) and start with Large inventory slots; Guided keeps its staged reveal and
+## the player's current slot size. Called only on the first choice of a profile (also after Hard
+## Reset, which presents the chooser again), never on load or Prestige, so a later size change stays.
+func choose_mode(mode: String) -> void:
+    sim.state.tutorial.mode=mode
+    if mode in ["basic","none"]:
+        reveal_all(true)
+        for feature in FEATURES:
+            if not sim.state.tutorial.seen.has("opened:"+feature):sim.state.tutorial.seen.append("opened:"+feature)
+        SettingsState.set_inventory_zoom(2)
+    sim.touch()
 
-## Latch every feature whose turn has come. Called on the campaign's one-second tick, after each kill
-## and after purchases; cheap when everything is revealed.
+## Called on the campaign's one-second tick, after each kill and after purchases.
 func evaluate() -> void:
     if sim.state.is_empty():return
     # The guarantee ends the moment a pair is owned (picked up or merged), not at the next kill.
     var o: Dictionary=sim.state.onboarding
     if int(o.loot_phase)<LOOT_DONE and loot_state()==LOOT_DONE:
         o.loot_phase=LOOT_DONE;o.loot_kills=0;sim.touch()
-    if sim.state.tutorial.mode=="guided":
-        sim.campaign.guided.next_step()
-        return
-    if all_revealed():return
-    # The Snowman (a lifetime kill, so a Prestige never relocks it) opens everything at once.
-    if sim.campaign.prestige_unlocked():
-        reveal_all(false)
-        return
-    # A full equipment row needs Player Upgrades (more slots) at once, whatever came before.
-    var full: bool=not sim.state.gear.has("")
-    for feature in FEATURES:
-        if feature=="prestige" or revealed(feature):continue
-        if not (_trigger(feature) or (full and FEATURES.find(feature)<=FEATURES.find("upgrades"))):break
-        _reveal(feature,true)
+    match str(sim.state.tutorial.mode):
+        "guided":sim.campaign.guided.next_step()
+        "basic","none":_announce_prestige()
 
-func _trigger(feature: String) -> bool:
-    var level:=int(sim.state.player_level)
-    match feature:
-        "missions":return sim.campaign.counter("merge")>=1 or level>=rules.missions_level
-        "enemy":return not sim.state.main_claimed.is_empty() or sim.campaign.counter("mission")>=1 or level>=rules.enemy_level
-        "world":return sim.campaign.counter("upgrade")>=1 or level>=rules.world_level
-        "upgrades":return sim.campaign.counter("camp")>=1 or level>=rules.upgrades_level
-        "objective":return player_purchase() or level>=rules.objective_level
-    return false
+## Basic/None: the Prestige menu was open all along; finding the Snowman (a lifetime record, so a
+## Prestige never repeats it) is what makes the reset possible, announced once with one banner.
+func _announce_prestige() -> void:
+    var seen: Array=sim.state.tutorial.seen
+    if seen.has(PRESTIGE_ANNOUNCED) or not sim.campaign.prestige_unlocked():return
+    seen.append(PRESTIGE_ANNOUNCED)
+    sim.touch()
+    SaveService.mark_committed()
+    sim.notice.emit("feature_unlocked","prestige")
+    var found:=0
+    for id in sim.state.opportunities:
+        if not sim.state.consumed.has(id):found+=1
+    sim.milestone.emit("prestige_unlocked",str(found))
 
 ## Something bought from Player Upgrades: a global upgrade or a supply from the shop.
 func player_purchase() -> bool:
@@ -87,26 +98,14 @@ func player_purchase() -> bool:
         if not ":" in str(key) and int(sim.state.upgrades[key])>0:return true
     return false
 
-func _reveal(feature: String,announce: bool) -> void:
-    sim.state.onboarding.reveal.append(feature)
-    sim.touch()
-    if announce:sim.notice.emit("feature_unlocked",feature)
-
-## Everything at once: the Snowman's defeat (announced with one Prestige banner) or Settings → Show
-## all menus now (silent: the player asked for it).
-func reveal_all(silent: bool) -> void:
-    if all_revealed():return
-    var had_prestige:=revealed("prestige")
+## Records every menu as revealed, silently: the end of Guided, a Basic/None choice, probe fixtures.
+func reveal_all(_silent:=true) -> void:
+    var reveal: Array=sim.state.onboarding.reveal
+    if reveal.size()==FEATURES.size():return
     for feature in FEATURES:
-        if not sim.state.onboarding.reveal.has(feature):sim.state.onboarding.reveal.append(feature)
+        if not reveal.has(feature):reveal.append(feature)
     sim.touch()
     SaveService.mark_dirty()
-    if silent or had_prestige:return
-    sim.notice.emit("feature_unlocked","prestige")
-    var found:=0
-    for id in sim.state.opportunities:
-        if not sim.state.consumed.has(id):found+=1
-    sim.milestone.emit("prestige_unlocked",str(found))
 
 # ---------------------------------------------------------------- early equipment guarantee
 

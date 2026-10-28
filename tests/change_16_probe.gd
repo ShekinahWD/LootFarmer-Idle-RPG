@@ -364,10 +364,9 @@ func objective_checks() -> void:
     sim.state.bosses_found.append("boss-snowman") # fixture: found but not defeated
     refresh_hud()
     check(node.visible,"Finding the Snowman keeps it (it stays until the Snowman is defeated)")
-    sim.state.onboarding.reveal=[] # fixture: a brand-new profile before any reveal
     sim.state.bosses_found.clear()
     refresh_hud();await frames(2)
-    check(not node.visible and not gate.visible,"No objective before boss discovery")
+    check(not node.visible,"No objective before boss discovery")
     sim.state.onboarding.reveal=sim.campaign.onboarding.FEATURES.duplicate()
     sim.state.group_kills[group("boss-snowman")]=1;sim.state.run_kills["boss-snowman"]=1 # fixture: defeated
     refresh_hud()
@@ -644,9 +643,12 @@ func mastery_checks() -> void:
     chip.pressed.emit();await frames(2)
     check(game.sheet.visible and game.panel=="mastery" and game.mastery_stage==st and game.get_node("Sheet/Margin/Content/Header/Title").text==tr("MASTERY_MAP_TITLE") % sim.catalog.stages[st-1].name,"Tapping it opens this map's Mastery page directly")
     game._close()
-    sim.state.onboarding.reveal=["missions","enemy","world","upgrades","objective"] # fixture: before Prestige
+    # Change 25: Basic/None open Map Mastery at once; Guided shows it with its Prestige lesson.
+    sim.state.tutorial.mode="guided";sim.campaign.guided.data().done=[] # fixture: Guided, lessons ahead
     refresh_hud()
-    check(not chip.visible,"Hidden until Map Mastery is revealed")
+    check(not chip.visible,"Guided: hidden until Map Mastery is revealed")
+    sim.state.tutorial.mode="none";refresh_hud()
+    check(chip.visible,"None: shown from the start")
 
 # ---------------------------------------------------------------- 9. Cyan Robot Heal
 func robot_checks() -> void:
@@ -840,8 +842,8 @@ func settings_checks() -> void:
     var before: Dictionary={"tutorial":sim.state.tutorial.duplicate(true),"reveal":sim.state.onboarding.reveal.duplicate(),"explored":sim.state.explored.duplicate(true),"counters":sim.state.counters.duplicate(true)}
     button_with(game.rows,"Help").pressed.emit();await frames(2)
     var text: String=labels_text(game.rows)
-    check(game.panel=="help" and text.contains("Walk, fight, collect") and text.contains(tr("GUIDE_FEATURE_WORLD")) and text.contains(tr("GUIDE_TIP_MERGE")),"Help opens the Basic tutorial (opening card, tips, one card per revealed system)")
-    check(not text.contains(tr("GUIDE_FEATURE_PRESTIGE")) and text.contains(tr("GUIDE_FEATURE_UPGRADES")),"Help includes revealed upgrades and hides unrevealed Prestige")
+    check(game.panel=="help" and text.contains("Walk, fight, collect") and text.contains(tr("GUIDE_BASIC_WORLD")) and text.contains(tr("GUIDE_BASIC_GEAR")),"Help opens the Basic overview deck (Change 25: the same cards Basic shows)")
+    check(not text.contains(tr("GUIDE_BASIC_PRESTIGE")) and text.contains(tr("GUIDE_BASIC_GROWTH")),"Guided: Help includes revealed upgrades and hides unrevealed Prestige")
     check(sim.state.tutorial==before.tutorial and sim.state.onboarding.reveal==before.reveal and sim.state.explored==before.explored and sim.state.counters==before.counters and sim.state.tutorial.mode=="guided","Reading it changes no progress, discovery, menu or guidance mode")
     guide_button("help_back").pressed.emit();await frames(1)
     check(game.panel=="settings","Back returns to Settings")

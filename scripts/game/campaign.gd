@@ -477,8 +477,8 @@ func upgrade_bought(id: String,g: int) -> void:
     if id=="mission_slots":refresh_missions()
     if id=="focus" and not sim.state.tutorial.seen.has("focus_unlocked"):
         sim.state.tutorial.seen.append("focus_unlocked")
-        # The confirmation shows in every mode; the pointer and its line respect "None".
-        if str(sim.state.tutorial.mode)!="none":focus_hint=g
+        # The confirmation shows in every mode; the pointer is Guided only (Change 25).
+        if str(sim.state.tutorial.mode)=="guided":focus_hint=g
         sim.notice.emit("focus_unlocked",str(g))
     progress("upgrade",id,1)
 func equip_skill(id: String,slot: int=-1) -> bool:
