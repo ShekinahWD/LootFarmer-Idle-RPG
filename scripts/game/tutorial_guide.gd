@@ -117,6 +117,8 @@ func _process(dt: float) -> void:
         var at:=Vector2(ui.centered_x(chooser.size.x,insets),(ui.size.y-chooser.size.y)*.5)
         if not chooser.position.is_equal_approx(at):chooser.position=at
         _hide_all();return
+    if not get_tree().paused and not sim.suspended and sim.state.prestige_batch.is_empty():
+        sim.campaign.guided.advance_waits(dt)
     _complete_lessons()
     evaluate()
     _present()
@@ -166,14 +168,18 @@ func evaluate() -> void:
     pending="";step="";surfaces=[""];target=null;world_target=Vector2.INF;intro_id="";path_point=Vector2.INF
     var data: Dictionary=sim.state.tutorial
     if data.mode=="none":
-        _road_ahead_if_ready(data)
+        if not _road_ahead_if_ready(data):_mission_auto_hint()
         return
     if data.mode=="guided":
         if sim.campaign.guided.complete():
-            _focus_hint()
+            if not _mission_auto_hint():_focus_hint()
         else:_guided_lesson()
         return
+    # A newly purchased Auto Claim is taught immediately in the Missions panel, even if a Basic
+    # feature card is still pending. Closing Missions resumes the ordinary Basic introduction.
+    if data.mode=="basic" and ui.sheet.visible and ui.panel=="missions" and _mission_auto_hint():return
     if data.mode=="basic" and _road_ahead_if_ready(data):return
+    if _mission_auto_hint():return
     if _focus_hint():return
     if data.mode=="guided":
         for lesson in LESSONS:
@@ -412,6 +418,18 @@ var support_value:=0.0
 ## else the HUD Upgrades button when it opens that type, else the minimap (map, then the enemy). It
 ## ends when Focus is turned on, on "Got it", after FOCUS_HINT_SECONDS on screen, or when it no longer
 ## applies (another map, the upgrade gone). Another enemy's panel suspends it like any other panel.
+## A newly bought automation is OFF until explicitly enabled. Use the same live-control
+## highlight/arrow as Focused Farming, never an unsolicited modal or auto-enable on purchase.
+func _mission_auto_hint() -> bool:
+    if sim.level("mission_claim")<=0 or sim.state.mission_auto or sim.state.tutorial.seen.has("mission_auto_enabled"):
+        return false
+    pending="mission_auto_hint";step="mission_auto_open";surfaces=["","missions"]
+    if ui.sheet.visible and ui.panel=="missions":
+        step="mission_auto_hint";target=_panel_control("mission_auto_toggle")
+    elif not ui.sheet.visible:
+        target=ui.dock.get_node("Navigation/Missions")
+    return true
+
 func _focus_hint() -> bool:
     var g: int=sim.campaign.focus_hint
     if g<0:
@@ -498,7 +516,7 @@ func _present() -> void:
     _place_card()
     # Introductions are text only, except the Focused Farming hint (every mode but None) and the
     # Guided Snowman objective and Prestige cards, which point at their control.
-    if pending!="focus" and (data.mode!="guided" or (intro_id!="" and not step in POINTING_INTROS)):
+    if pending not in ["focus","mission_auto_hint","mission_auto_open"] and (data.mode!="guided" or (intro_id!="" and not step in POINTING_INTROS)):
         highlight.hide();shade.hide();pointer.hide();return
     _point()
 

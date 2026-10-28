@@ -67,6 +67,8 @@ var last_revision: int=-1
 var toast_time:=0.0
 var toast_queue: Array=[]
 var confirm_action: Callable
+## Only the active confirmation may finish its deferred layout. Never resize it per frame.
+var confirm_generation:=0
 var icon_cache: Dictionary={}
 var art_cache: Dictionary={}
 var stick_input:=Vector2.ZERO
@@ -238,9 +240,9 @@ func _safe_area() -> void:
     $Safe.add_theme_constant_override("margin_top",int(i.y))
     $Safe.add_theme_constant_override("margin_right",int(i.z))
     $Safe.add_theme_constant_override("margin_bottom",int(i.w))
+    if $Confirm.visible:_layout_confirm()
 
 func _process(dt: float) -> void:
-    if $Confirm.visible:_layout_confirm()
     gem_pickup_time=maxf(0,gem_pickup_time-dt)
     $Safe/Layout/Map/GemPickup.visible=gem_pickup_time>0
     world.update_camera()
@@ -995,28 +997,53 @@ func _confirm(text: String,callback: Callable,action_text:="",danger:=false,titl
     $Confirm/Panel/Margin/Content/Actions/Confirm.theme_type_variation=&"Danger" if danger else &""
     $Confirm/Panel/Margin/Content/Actions/Cancel.text=tr("CANCEL")
     $Confirm/Panel/Margin/Content/Scroll.scroll_vertical=0
-    _layout_confirm()
+    confirm_generation+=1
+    var generation:=confirm_generation
+    # Measure after entering the tree and again after Godot resolves wrapping. Keep the modal
+    # invisible for these two frames so its first visible frame has a settled, stable size.
+    $Confirm.modulate.a=0.0
     $Confirm.show()
+    _layout_confirm()
+    _settle_confirm(generation)
     $Confirm/Panel/Margin/Content/Actions/Cancel.grab_focus()
 
+func _settle_confirm(generation: int) -> void:
+    await get_tree().process_frame
+    if generation!=confirm_generation or not $Confirm.visible:return
+    _layout_confirm()
+    await get_tree().process_frame
+    if generation!=confirm_generation or not $Confirm.visible:return
+    _layout_confirm()
+    $Confirm.modulate.a=1.0
+
 func _cancel_confirm() -> void:
+    confirm_generation+=1
     $Confirm.hide()
     confirm_action=Callable()
 
-## Content-sized confirmation (Hard Reset, rerolls, prestige): width first, then the wrapped text
-## decides the height. Change 10: centred on the X axis of the safe area from the box's real size
-## (a control never shrinks below its minimum), so long text cannot push it off centre.
+## Fit once on open (after text wraps) and on actual safe-area changes, never in _process.
+## Measure the title, actions and message only once; the previous implementation added the
+## message height to the panel minimum, which could count it twice and cause oscillation.
 func _layout_confirm() -> void:
     var insets:=LayoutService.get_safe_area_insets_canvas()
     var available:=size-Vector2(insets.x+insets.z,insets.y+insets.w)-Vector2(40,40)
+    if available.x<=0 or available.y<=0:return
     var box: Control=$Confirm/Panel
-    var width:=minf(600,available.x)
+    var width:=minf(600.0,available.x)
     var text: Label=$Confirm/Panel/Margin/Content/Scroll/Text
-    text.custom_minimum_size.x=width-60
-    var wanted:=box.get_combined_minimum_size().y+text.get_combined_minimum_size().y
-    var target:=Vector2(width,clampf(wanted,220,available.y))
+    # Both the MarginContainer and the message require space at the final width.
+    var text_width:=maxf(0.0,width-72.0)
+    if not is_equal_approx(text.custom_minimum_size.x,text_width):text.custom_minimum_size.x=text_width
+    var heading: Control=$Confirm/Panel/Margin/Content/Title
+    var actions_row: Control=$Confirm/Panel/Margin/Content/Actions
+    var style: StyleBox=box.get_theme_stylebox("panel")
+    var chrome:=36.0+24.0+heading.get_combined_minimum_size().y+actions_row.get_combined_minimum_size().y+style.get_margin(SIDE_TOP)+style.get_margin(SIDE_BOTTOM)
+    var message_height:=maxf(text.get_combined_minimum_size().y,float(text.get_line_count())*text.get_line_height())
+    var wanted:=maxf(220.0,chrome+message_height)
+    var height:=minf(available.y,wanted)
+    var target:=Vector2(width,height)
     if not box.size.is_equal_approx(target):box.size=target
-    var at:=Vector2(centered_x(box.size.x,insets),insets.y+20+(available.y-box.size.y)*.5)
+    var at:=Vector2(centered_x(box.size.x,insets),insets.y+20.0+(available.y-box.size.y)*0.5)
     if not box.position.is_equal_approx(at):box.position=at
 
 ## Left edge that centres a box of this width on the usable (safe-area) width of the screen.
@@ -2726,8 +2753,17 @@ func _missions_panel() -> void:
             if d.boss and not d.final:_card_icon(keys,icon_cache.get(d.body),Color.WHITE if sim.state.keys.has(d.id) else Color(.3,.3,.35))
     _group_upgrade_card("mission_slots",-1)
     _group_upgrade_card("mission_claim",-1)
-    if sim.level("mission_claim")>0:
-        _game_action(tr("MISSION_AUTO") % tr("ON" if sim.state.mission_auto else "OFF"),func()->void:sim.state.mission_auto=not sim.state.mission_auto;sim.touch())
+    if sim.level("mission_claim")<=0:
+        _text(tr("MISSION_AUTO_PURCHASE_HINT"),17,Color(.8,.84,.9))
+    else:
+        if not sim.state.mission_auto and not sim.state.tutorial.seen.has("mission_auto_enabled"):
+            _text(tr("MISSION_AUTO_TOGGLE_HINT"),18,Color(1,.86,.5))
+        var toggle:=_game_action(tr("MISSION_AUTO") % tr("ON" if sim.state.mission_auto else "OFF"),func()->void:
+            sim.state.mission_auto=not sim.state.mission_auto
+            if sim.state.mission_auto and not sim.state.tutorial.seen.has("mission_auto_enabled"):
+                sim.state.tutorial.seen.append("mission_auto_enabled")
+            sim.touch())
+        toggle.set_meta("guide","mission_auto_toggle")
 
 ## Compact objective card: icon, title, progress bar with value, rewards and a claim button.
 ## States read at a glance: In progress (muted chip), Ready to claim (primary Claim button) and
@@ -2857,7 +2893,7 @@ func _prestige_panel() -> void:
         _text("%s  %d/3  ·  %s" % [tr("COMBO_"+str(c.id).to_upper()),owned,c.description],17,Color(.6,1,.75) if owned==3 else Color(.8,.84,.9))
 
 ## Objectives spanning several maps appear under each relevant unlocked map.
-## Counters describe discovered opportunities, not the shared reward-card pool.
+## Counters describe consumed / authored opportunities, not the shared reward-card pool.
 func prestige_stages(op: Dictionary) -> Array:
     var n:=int(str(op.id).right(1))-1
     match str(op.path):
@@ -2871,16 +2907,31 @@ func prestige_stages(op: Dictionary) -> Array:
         "trophy":return [[1,2],[3,4,5],[6,7,8]][n]
     return [0]
 
+## Stage headings are touch-sized controls. Unchanged stages default open while a stage whose
+## every objective has been consumed defaults closed; a manual choice overrides that default.
+## Save the override rather than the computed default, so finishing a stage collapses it once.
 func _prestige_stage_section(st: int,order: Array) -> void:
     var total:=0
-    var discovered:=0
+    var completed:=0
     for op in sim.catalog.campaign.opportunities:
         if not prestige_stages(op).has(st):continue
         total+=1
-        if sim.state.opportunities.has(op.id):discovered+=1
+        if sim.state.consumed.has(op.id):completed+=1
     if total==0:return
+    var key:=str(st)
+    var choices: Dictionary=sim.state.prestige_collapsed
+    var collapsed: bool=bool(choices.get(key,completed==total))
     var title: String=tr("PRESTIGE_GENERAL") if st==0 else sim.catalog.stages[st-1].name
-    _section("%s  %d/%d" % [title,discovered,total])
+    var arrow: String="▶" if collapsed else "▼"
+    var caption: String="%s  %s  %d/%d" % [arrow,title,completed,total]
+    if completed==total:caption+="  ✓"
+    var header:=_action(caption,func()->void:
+        sim.state.prestige_collapsed[key]=not collapsed
+        sim.touch())
+    header.theme_type_variation=&"Primary" if collapsed and completed<total else &""
+    header.tooltip_text=tr("PRESTIGE_STAGE_EXPAND" if collapsed else "PRESTIGE_STAGE_COLLAPSE")
+    header.set_meta("prestige_stage",st)
+    if collapsed:return
     for op in order:
         if prestige_stages(op).has(st):_opportunity_card(op)
 

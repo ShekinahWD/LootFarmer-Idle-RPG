@@ -9,7 +9,7 @@ func _init(owner) -> void:sim=owner
 func data() -> Dictionary:
     var t: Dictionary=sim.state.tutorial
     if not t.get("flow") is Dictionary:
-        t.flow={"done":[],"times":{},"gem_grant":false,"supply_grant":false,"boss_kills":-1,"final_seconds":0.0}
+        t.flow={"done":[],"times":{},"wait_seconds":{},"gem_grant":false,"supply_grant":false,"boss_kills":-1,"final_seconds":0.0}
         # Existing players beyond the introductory map receive just its final explanation.
         if int(sim.state.stage)>=2:t.flow.done=STEPS.slice(0,STEPS.size()-1)
     return t.flow
@@ -18,6 +18,21 @@ func active() -> bool:return sim.state.tutorial.mode=="guided" and not complete(
 func complete() -> bool:return data().done.has("tutorial_final")
 func rules() -> Dictionary:return sim.catalog.progression.change20
 func now() -> float:return float(sim.state.playtime_total)
+
+## Use real, unscaled frame seconds while the game is active. Physics _step() caps dt to 0.1,
+## so under Android frame drops its playtime clock can advance much slower than wall time.
+## The accumulated seconds are saved; pauses/background time never count.
+func advance_waits(seconds: float) -> void:
+    if not active() or seconds<=0.0:return
+    var f:=data()
+    if not f.get("wait_seconds") is Dictionary:f.wait_seconds={}
+    for pair in [["merge","mission_wait","mission_delay"],["close_missions","upgrade_wait","upgrade_delay"]]:
+        if not f.done.has(pair[0]) or f.done.has(pair[1]):continue
+        var limit: float=float(rules()[pair[2]])
+        var previous: float=float(f.wait_seconds.get(pair[1],0.0))
+        if previous>=limit:continue
+        f.wait_seconds[pair[1]]=minf(limit,previous+seconds)
+        SaveService.mark_dirty()
 func mark(id: String) -> void:
     var f:=data()
     if f.done.has(id):return
@@ -67,9 +82,9 @@ func next_step() -> String:
             "collect":satisfied=not sim.state.items.is_empty()
             "equip":satisfied=sim.state.weapon!="" or sim.state.outfit!=""
             "merge":satisfied=sim.state.items.values().any(func(r):return int(r.merge)>0)
-            "mission_wait":satisfied=now()-float(f.times.get("merge",now()))>=float(rules().mission_delay)
+            "mission_wait":satisfied=float(f.wait_seconds.get("mission_wait",0.0))>=float(rules().mission_delay)
             "missions":satisfied=sim.campaign.counter("mission")>0 or not sim.state.main_claimed.is_empty()
-            "upgrade_wait":satisfied=now()-float(f.times.get("close_missions",now()))>=float(rules().upgrade_delay)
+            "upgrade_wait":satisfied=float(f.wait_seconds.get("upgrade_wait",0.0))>=float(rules().upgrade_delay)
             "player_upgrade":satisfied=sim.campaign.onboarding.player_purchase()
             "camp":satisfied=sim.campaign.counter("camp")>0
             "boss_find":satisfied=sim.campaign.prestige_unlocked()
@@ -128,6 +143,18 @@ func normalize(out: Dictionary) -> void:
         else:f.times[id]=clampf(float(f.times[id]),0,float(out.get("playtime_total",0)))
     for id in done:
         if not f.times.has(id):f.times[id]=float(out.get("playtime_total",0))
+    if not f.get("wait_seconds") is Dictionary:
+        # Preserve a partially elapsed wait on existing profiles when switching clock sources.
+        f.wait_seconds={}
+        for pair in [["merge","mission_wait","mission_delay"],["close_missions","upgrade_wait","upgrade_delay"]]:
+            if done.has(pair[0]):
+                var elapsed: float=float(out.get("playtime_total",0.0))-float(f.times.get(pair[0],out.get("playtime_total",0.0)))
+                f.wait_seconds[pair[1]]=clampf(elapsed,0.0,float(rules()[pair[2]]))
+    for id in f.wait_seconds.keys():
+        if id not in ["mission_wait","upgrade_wait"] or not sim.campaign.number(f.wait_seconds[id]):
+            f.wait_seconds.erase(id)
+        else:
+            f.wait_seconds[id]=clampf(float(f.wait_seconds[id]),0.0,float(rules().mission_delay if id=="mission_wait" else rules().upgrade_delay))
     f.supply_grant=f.get("supply_grant",false)==true
     f.gem_grant=f.get("gem_grant",false)==true
     f.boss_kills=maxi(-1,int(f.get("boss_kills",-1))) if sim.campaign.number(f.get("boss_kills",-1)) else -1

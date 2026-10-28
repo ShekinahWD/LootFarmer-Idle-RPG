@@ -943,6 +943,30 @@ msgstr "Claim · %s coins · %s gems"
 msgid "MISSION_AUTO"
 msgstr "Automatic claiming: %s"
 
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "Claims completed regular missions (including purchased slots), NOT Main Objectives. After purchase, turn Automatic Claiming ON in Missions."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "Auto Claim is unlocked but OFF. Tap the toggle below to start claiming regular missions. Main Objectives stay manual."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "Auto Claim is ready to enable"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "Open Missions, then turn Automatic Claiming ON. It starts OFF after purchase."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "Turn on Auto Claim"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "You unlocked auto-claiming. Tap Automatic Claiming: OFF here to enable it. Main Objectives are always manual."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "Expand stage cards"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "Collapse stage cards"
+
 msgid "MISSION_GOAL"
 msgstr "%s %s · %s / %s"
 
