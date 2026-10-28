@@ -1,0 +1,12 @@
+{
+  "_comment": "Concept C: portrait-led. The same outfitted player at x2, cropped to a bust that bleeds off the bottom and left edges, eye contact toward the viewer side, Iron Sword wind-up crossing the frame. Warm field, cool subject.",
+  "title": "C. Close-up",
+  "note": "The outfitted player at x2, cropped bust bleeding off the edges, sword crossing the frame",
+  "layers": [
+    {"name": "sky", "type": "gradient", "top": [255, 170, 70], "bottom": [214, 84, 52], "rows": [0, 32]},
+    {"name": "sun", "type": "glow", "at": [20, 12], "radius": 16, "color": [255, 236, 160], "strength": 0.8, "falloff": 1.2},
+    {"name": "vignette", "type": "vignette", "start": 14, "end": 24, "strength": 0.35, "color": [90, 20, 30]},
+    {"name": "hero", "type": "actor", "actor": "player_dino", "override": {"frame": [0, 0], "swing": 0, "facing": 1}, "scale": 2, "at": [10, 38], "rim": [24, 22, 36], "shadow": false},
+    {"name": "sparkles", "type": "sparkle", "frame": 0, "box": [3, 6, 3, 5], "rim": [24, 22, 36], "items": [[27, 26, 2]]}
+  ]
+}

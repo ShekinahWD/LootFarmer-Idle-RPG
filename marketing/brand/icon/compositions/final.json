@@ -1,0 +1,14 @@
+{
+  "_comment": "FINAL Google Play icon and Android launcher layers (Change 30), refined from Concept A. The player wearing the Teal Dinosaur outfit (t2, the boss's real drop) holding the boss's Iron Sword in the game's attack wind-up frame (actor.tscn layout), lit from behind by the feature graphic's sunset. Units: 32x32 grid = the Play icon and the launcher viewport, 1 unit = 1 source pixel; 'at' of an actor is its feet. Back-plane layers become the adaptive background, front-plane layers the foreground; 'key' marks what must stay inside the 66 dp safe zone.",
+  "title": "FINAL: Costume hero",
+  "note": "Concept A refined: brighter sunset field, no floating shadow, small loot twinkles, carved themed icon",
+  "monochrome": {"cut": 70, "edge": 1},
+  "layers": [
+    {"name": "sky", "type": "gradient", "top": [112, 44, 96], "bottom": [222, 98, 62], "rows": [0, 32]},
+    {"name": "rays", "type": "rays", "at": [16, 15], "count": 12, "width": 0.5, "radius": 24, "strength": 0.14, "falloff": 1.5, "color": [255, 210, 130]},
+    {"name": "sun", "type": "glow", "at": [16, 15], "radius": 19, "color": [255, 196, 104], "strength": 1.0, "falloff": 1.1},
+    {"name": "vignette", "type": "vignette", "start": 14, "end": 24, "strength": 0.3},
+    {"name": "hero", "type": "actor", "actor": "player_dino", "override": {"frame": [0, 0], "swing": 0, "facing": 1}, "scale": 1, "at": [20, 23], "rim": [24, 22, 36], "shadow": false, "key": true},
+    {"name": "sparkles", "type": "sparkle", "frame": 0, "box": [3, 6, 3, 5], "items": [[5, 14, 1], [10, 9, 1], [27, 21, 1]]}
+  ]
+}

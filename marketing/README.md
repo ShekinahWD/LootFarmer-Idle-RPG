@@ -12,14 +12,15 @@ the toolkit and both capture addons are outside the Release allowlist (`tools/ex
 | `marketing/game_scenarios.gd` | yes | The one `prepare_scenario(id, options)` adapter for screenshots **and** trailer clips. Builds a late-game profile through the simulation's own calls, then lets the real game play. `is_capture_safe()` requires a `capture-*` profile and `--no-autosave`. |
 | `marketing/make_manifest.py` → `marketing/manifest.json` | yes | Device classes, the six screenshot concepts, seven clips and the 30 s trailer cut. Edit the tables in the `.py`, re-run it. |
 | `marketing/finalize_store_assets.py` | yes | Byte-identical store copies, Play-rule validation, ffprobe check, provenance manifest, contact sheet, review copies in `docs/Change_27_Evidence/`. |
-| `marketing/brand/compose_brand.py`, `brand_config.json` | yes | Play icon and Android launcher/adaptive/monochrome icons from existing Pixel Plains sprites. Positions/scales in the JSON. (Wrote the Change 27 feature graphic; since Change 28 it no longer does.) |
+| `marketing/brand/compose_brand.py`, `brand_config.json` | yes | Record of the rejected Change 27 icon and feature graphic. Since Change 30 it renders nothing unless given `--legacy-change-27`; `--check` still validates the branding files for `finalize_store_assets.py`. |
+| `marketing/brand/icon/` | yes | **App icon (Change 30):** layered JSON on a 32-unit grid (`final.json`, three concepts), composer writing the Play icon and all four launcher layers, review sheets and `docs/Change_30_Evidence/`. See its `README.md`. |
 | `marketing/brand/feature_graphic/` | yes | **Feature graphic (Change 28):** layered JSON compositions (`final.json`, three concepts, portrait end-card study), `components.json`, composer, review-sheet builder, Lilita One OFL notice. See its `README.md`. |
 | `assets/branding/*.png` | yes | Runtime launcher icons (Release preset `launcher_icons/*`, `config/icon`). |
 | `store_assets/raw/screenshots/<Device>/<Device>_NN.png` | no (ignored) | Untouched Godot captures (masters) + `.log` per capture. |
 | `store_assets/screenshots/<Device>/<Device>_NN.png` | no | Upload files (byte copies of the masters). |
 | `store_assets/raw/video/clip_*.avi` (+ `.log`) | no | Original Movie Maker recordings. **Keep until the trailer is approved.** |
 | `store_assets/video/LootFarmer_Play_Trailer_en-US.mp4` | no | The trailer; `_review.png` / `_review.json` beside it. |
-| `store_assets/branding/` | no | `play_icon_512.png`, `feature_graphic_1024x500.png`, `feature_graphic_manifest.json`, `source_layers/` (each feature-graphic layer alone), `review/` previews and concepts. |
+| `store_assets/branding/` | no | `play_icon_512.png`, `icon_manifest.json`, `feature_graphic_1024x500.png`, `feature_graphic_manifest.json`, `source_layers/` (each feature-graphic layer alone; `icon_final/` each icon layer alone), `review/` previews and concepts (`review/icon/` for the icon). |
 | `store_assets/store_assets_manifest.json` | no (copy in docs) | Paths, sizes, SHA-256, scenario/options/device per file, alt-text drafts. |
 
 Device classes (all genuine 9:16 portrait renders of the game's own 720x1280 reference layout):
@@ -38,7 +39,7 @@ python marketing/make_manifest.py                                             # 
 # every capture job (24 screenshots + 7 clips); one job:  --job Phone_01
 python Godot-Marketing-Toolkit/tools/marketing.py pipeline --project . --manifest marketing/manifest.json --godot $G --locales en-US --overwrite
 python Godot-Marketing-Toolkit/tools/marketing.py video --manifest marketing/manifest.json --locales en-US --godot $G --overwrite   # recompose only
-python marketing/brand/compose_brand.py                                       # icons
+python marketing/brand/icon/compose_icon.py                                   # Play icon + launcher layers, concepts, review sheets
 python marketing/brand/feature_graphic/compose_feature_graphic.py             # feature graphic, concepts, portrait study
 python marketing/brand/feature_graphic/make_review.py                         # its review sheets + docs/Change_28_Evidence
 python marketing/finalize_store_assets.py                                     # copy, validate, manifest, review sheets

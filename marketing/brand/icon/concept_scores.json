@@ -1,0 +1,18 @@
+{
+  "_comment": "Internal creative selection only (brief section 4.5); judged on the rendered concept cards (Play mask at 512/96/48 px on light and dark, circle/squircle/teardrop launcher masks, themed icon). Weights: small-size legibility 30, game identity and mechanic 25, distinctiveness beside the researched icons 20, polish 15, adaptive/themed robustness 10. Not a claim about store conversion.",
+  "weights": {"legibility": 0.30, "identity": 0.25, "distinctiveness": 0.20, "polish": 0.15, "adaptive": 0.10},
+  "concepts": [
+    {"title": "A. Costume hero", "file": "docs/Change_30_Evidence/concept_a_costume_hero.png", "selected": true,
+     "marks": {"legibility": 8, "identity": 8, "distinctiveness": 7, "polish": 6, "adaptive": 8}, "score": 7.5,
+     "thesis": "The player wearing the Teal Dinosaur outfit with its Iron Sword, full figure: silhouette, face and blade all survive 48 px; teal against warm light. Weak points: a 2x sparkle that reads as a medical plus, a floating shadow, a dark field that recedes on dark surfaces."},
+    {"title": "B. Loot drop", "file": "docs/Change_30_Evidence/concept_b_loot_drop.png",
+     "marks": {"legibility": 5, "identity": 7, "distinctiveness": 6, "polish": 6, "adaptive": 4}, "score": 5.75,
+     "thesis": "The boss's two real drops (Iron Sword icon x2, outfit portrait x1): says loot, but the doubled sword dominates and the dinosaur shrinks to a detail; the portrait leaves the 66 dp safe zone (16.3 of 14.67 units) and the sword is clipped by every mask."},
+    {"title": "C. Close-up", "file": "docs/Change_30_Evidence/concept_c_close_up.png",
+     "marks": {"legibility": 4, "identity": 4, "distinctiveness": 6, "polish": 6, "adaptive": 7}, "score": 5.0,
+     "thesis": "The outfitted player at x2, cropped bust: bold, but the crop removes the T-rex silhouette, the sword and the costume reading; at 48 px it is a teal block with two eyes."},
+    {"title": "FINAL (A refined)", "file": "docs/Change_30_Evidence/play_icon_512.png",
+     "marks": {"legibility": 9, "identity": 8, "distinctiveness": 8, "polish": 8, "adaptive": 9}, "score": 8.4,
+     "thesis": "A with a brighter amber sunset (holds on dark surfaces beside the researched icons), no floating shadow, three 1x loot twinkles at the blade, and a themed icon that keeps the outer outline and carves only the interior details."}
+  ]
+}

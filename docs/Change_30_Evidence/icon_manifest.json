@@ -1,0 +1,155 @@
+{
+  "marketing/brand/icon/compositions/concept_a_costume_hero.json": {
+    "composition": "marketing/brand/icon/compositions/concept_a_costume_hero.json",
+    "files": {
+      "play": {
+        "path": "store_assets/branding/review/icon/concepts/concept_a_costume_hero/play.png",
+        "bytes": 56549,
+        "sha256": "e66b61349c004c742dec1f67034960d364fdc983767125ef3b650b98e438d64a"
+      },
+      "background": {
+        "path": "store_assets/branding/review/icon/concepts/concept_a_costume_hero/background.png",
+        "bytes": 63542,
+        "sha256": "b3e7d30de2d2d83b865f1e60adad772f2007fe927bf010ff76e4927b2173f15e"
+      },
+      "foreground": {
+        "path": "store_assets/branding/review/icon/concepts/concept_a_costume_hero/foreground.png",
+        "bytes": 1875,
+        "sha256": "bcecb141f4c4665290d5f462f5468ace6f530d4c88ca5693893d452c8bd2b4a5"
+      },
+      "monochrome": {
+        "path": "store_assets/branding/review/icon/concepts/concept_a_costume_hero/monochrome.png",
+        "bytes": 1573,
+        "sha256": "dab318c801dd8b9197650eb5a62c76420beab6f7dd2f1d88c06ca9d6e564ceb2"
+      }
+    },
+    "safe_zone": {
+      "key_max_radius_units": 13.82,
+      "safe_radius_units": 14.67,
+      "key_inside_safe_zone": true,
+      "front_bbox_px": [
+        104,
+        72,
+        351,
+        320
+      ],
+      "front_inside_viewport": true
+    }
+  },
+  "marketing/brand/icon/compositions/concept_b_loot_drop.json": {
+    "composition": "marketing/brand/icon/compositions/concept_b_loot_drop.json",
+    "files": {
+      "play": {
+        "path": "store_assets/branding/review/icon/concepts/concept_b_loot_drop/play.png",
+        "bytes": 27156,
+        "sha256": "ddb20706459267d935fcd03eed3e9f128295d5ebf8fde0c6a30a9e29049b6aea"
+      },
+      "background": {
+        "path": "store_assets/branding/review/icon/concepts/concept_b_loot_drop/background.png",
+        "bytes": 69386,
+        "sha256": "6bfdba97c4050104ecce3f68ca3dffc995f562953df215685c062fbad564455f"
+      },
+      "foreground": {
+        "path": "store_assets/branding/review/icon/concepts/concept_b_loot_drop/foreground.png",
+        "bytes": 2028,
+        "sha256": "29f8488e5647888a7e41c61aecb2d73e9a96dba57c954582f2a32a3eeafc76b7"
+      },
+      "monochrome": {
+        "path": "store_assets/branding/review/icon/concepts/concept_b_loot_drop/monochrome.png",
+        "bytes": 1597,
+        "sha256": "49327f5f89b5c0ef9048edec506a1c5875f38e8b505afcb6c4e959c98f6de4d5"
+      }
+    },
+    "safe_zone": {
+      "key_max_radius_units": 16.32,
+      "safe_radius_units": 14.67,
+      "key_inside_safe_zone": false,
+      "front_bbox_px": [
+        72,
+        27,
+        396,
+        351
+      ],
+      "front_inside_viewport": false
+    }
+  },
+  "marketing/brand/icon/compositions/concept_c_close_up.json": {
+    "composition": "marketing/brand/icon/compositions/concept_c_close_up.json",
+    "files": {
+      "play": {
+        "path": "store_assets/branding/review/icon/concepts/concept_c_close_up/play.png",
+        "bytes": 32833,
+        "sha256": "36b8629cc379f0cecb688be928392085a83103d85fdffbfdf856a85ab99c74b5"
+      },
+      "background": {
+        "path": "store_assets/branding/review/icon/concepts/concept_c_close_up/background.png",
+        "bytes": 49150,
+        "sha256": "3a362161fc06581596aea9a7efe09ca9d308e5771b9033875d84ead6ef42b7b8"
+      },
+      "foreground": {
+        "path": "store_assets/branding/review/icon/concepts/concept_c_close_up/foreground.png",
+        "bytes": 1782,
+        "sha256": "aaa85ed4cb67ef80dc49c8fc6068d044cf473b4009e6951add1dba8f8c491691"
+      },
+      "monochrome": {
+        "path": "store_assets/branding/review/icon/concepts/concept_c_close_up/monochrome.png",
+        "bytes": 1557,
+        "sha256": "83499271d5b87a56c260b71fcee898c969f1cc522d65da2c99310dbcf5ea4863"
+      }
+    },
+    "safe_zone": {
+      "key_max_radius_units": 0.0,
+      "safe_radius_units": 14.67,
+      "key_inside_safe_zone": true,
+      "front_bbox_px": [
+        0,
+        144,
+        360,
+        432
+      ],
+      "front_inside_viewport": false
+    }
+  },
+  "marketing/brand/icon/compositions/final.json": {
+    "composition": "marketing/brand/icon/compositions/final.json",
+    "files": {
+      "play": {
+        "path": "store_assets/branding/play_icon_512.png",
+        "bytes": 74120,
+        "sha256": "6176493867e220104a72938f9df38d50d2506336ebc4c7712f5e04d61cf8e82c"
+      },
+      "launcher": {
+        "path": "assets/branding/launcher_192.png",
+        "bytes": 21122,
+        "sha256": "a45caae40e52abade0d74203c51e40aef1af54cb573a31b9ce5b07e9d3dbf3d2"
+      },
+      "background": {
+        "path": "assets/branding/adaptive_background_432.png",
+        "bytes": 69656,
+        "sha256": "d6b74dd26216870c1609b6296c4cb5a1ef8168fa1dc040877a85188550fcf629"
+      },
+      "foreground": {
+        "path": "assets/branding/adaptive_foreground_432.png",
+        "bytes": 1761,
+        "sha256": "059ff4f798a8b9b6b6c60fdda37038ba32dea322cd6418a9e5c4872f9e6cad8e"
+      },
+      "monochrome": {
+        "path": "assets/branding/adaptive_monochrome_432.png",
+        "bytes": 1631,
+        "sha256": "6790049cd3539e5f10b24989165f366210b26e95009649a8a6a2f191007ab6f9"
+      }
+    },
+    "safe_zone": {
+      "key_max_radius_units": 13.82,
+      "safe_radius_units": 14.67,
+      "key_inside_safe_zone": true,
+      "front_bbox_px": [
+        104,
+        131,
+        329,
+        306
+      ],
+      "front_inside_viewport": true
+    }
+  }
+}

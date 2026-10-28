@@ -141,10 +141,9 @@ def main() -> int:
         EVIDENCE.mkdir(parents=True, exist_ok=True)
         # Change 28: the feature graphic's evidence lives in docs/Change_28_Evidence/ (make_review.py);
         # docs/Change_27_Evidence/feature_graphic_1024x500.png stays the rejected original.
+        # Change 30: likewise the icon (docs/Change_30_Evidence/, compose_icon.py); the Change 27 icon
+        # evidence (play_icon_512, play_icon_sizes, adaptive_icon_masks) stays the rejected original.
         for src, dst in [(STORE / 'review' / 'screenshots_contact_sheet.png', 'screenshots_contact_sheet.png'),
-                         (STORE / 'branding' / 'play_icon_512.png', 'play_icon_512.png'),
-                         (STORE / 'branding' / 'review' / 'play_icon_sizes.png', 'play_icon_sizes.png'),
-                         (STORE / 'branding' / 'review' / 'adaptive_masks.png', 'adaptive_icon_masks.png'),
                          (STORE / 'video' / 'LootFarmer_Play_Trailer_en-US_review.json', 'trailer_review.json'),
                          (STORE / 'store_assets_manifest.json', 'store_assets_manifest.json')]:
             shutil.copyfile(src, EVIDENCE / dst)

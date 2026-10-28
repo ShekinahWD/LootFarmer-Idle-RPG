@@ -19,6 +19,10 @@ Edit marketing/brand/brand_config.json to move or rescale elements.
 Change 28: the feature graphic moved to marketing/brand/feature_graphic/ (layered compositions). This
 script no longer writes it, so re-running it for the icons cannot restore the rejected Change 27 graphic;
 `feature()` and the `feature` config block stay as the record of that version.
+
+Change 30: the icons moved to marketing/brand/icon/ (compose_icon.py). Without --legacy-change-27 this
+script now only checks (`--check`, used by finalize_store_assets.py) and refuses to render, so it cannot
+restore the rejected Change 27 icon either; `icon_layer()` and the icon config blocks stay as its record.
 """
 from __future__ import annotations
 
@@ -244,6 +248,12 @@ def main() -> int:
         problems = check()
         print('BRAND CHECK', 'PASS' if not problems else 'FAIL', *problems, sep='\n  ')
         return 1 if problems else 0
+    if '--legacy-change-27' not in sys.argv:
+        # Change 30: the icons come from marketing/brand/icon/compose_icon.py. Rendering here would put
+        # the rejected Change 27 icon back into assets/branding/ and store_assets/branding/.
+        print('compose_brand.py no longer writes icons; run python marketing/brand/icon/compose_icon.py\n'
+              '(--check still validates the written files; --legacy-change-27 re-renders the rejected icon)')
+        return 2
     hashes = {}
     play_icon = icon_layer(CONFIG['icon'])
     hashes['store_assets/branding/play_icon_512.png'] = save(play_icon, STORE / 'play_icon_512.png')

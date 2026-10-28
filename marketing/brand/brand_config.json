@@ -1,5 +1,5 @@
 {
-  "_comment": "LootFarmer brand composition (Change 27). Every picture element is an existing game sprite or tile, scaled by whole numbers with nearest-neighbour sampling. Edit positions/scales here, then run: python marketing/brand/compose_brand.py",
+  "_comment": "RECORD ONLY since Change 30 (icons: marketing/brand/icon/; feature graphic: marketing/brand/feature_graphic/). LootFarmer brand composition (Change 27). Every picture element is an existing game sprite or tile, scaled by whole numbers with nearest-neighbour sampling. Edit positions/scales here, then run: python marketing/brand/compose_brand.py",
   "sources": {
     "tiles": "assets/PixelPlains/Basic Tiles 1.png",
     "trees": "assets/PixelPlains/Basic Tiles 4 (Trees & Bushes).png",

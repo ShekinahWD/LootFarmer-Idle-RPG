@@ -1,0 +1,13 @@
+{
+  "_comment": "Concept A: character-led. The player wearing the Teal Dinosaur outfit (t2, the boss's real drop) with the boss's Iron Sword in the game's attack wind-up frame, full figure, on sunset light. Units: 32x32 grid, 1 unit = 1 source pixel; actor 'at' is the feet.",
+  "title": "A. Costume hero",
+  "note": "The player in the Teal Dinosaur outfit with its Iron Sword, full figure, sunset light",
+  "layers": [
+    {"name": "sky", "type": "gradient", "top": [58, 24, 70], "bottom": [168, 66, 60], "rows": [0, 32]},
+    {"name": "rays", "type": "rays", "at": [16, 16], "count": 12, "width": 0.5, "radius": 22, "strength": 0.12, "color": [255, 210, 130], "falloff": 1.5},
+    {"name": "sun", "type": "glow", "at": [16, 16], "radius": 15, "color": [255, 182, 86], "strength": 0.95, "falloff": 1.2},
+    {"name": "vignette", "type": "vignette", "start": 13, "end": 23, "strength": 0.5},
+    {"name": "hero", "type": "actor", "actor": "player_dino", "override": {"frame": [0, 0], "swing": 0, "facing": 1}, "scale": 1, "at": [20, 23], "rim": [24, 22, 36], "shadow_opacity": 0.4, "key": true, "shadow": false},
+    {"name": "sparkles", "type": "sparkle", "frame": 0, "box": [3, 6, 3, 5], "rim": [24, 22, 36], "items": [[26, 7, 2], [6, 24, 1]]}
+  ]
+}

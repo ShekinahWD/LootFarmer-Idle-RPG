@@ -1,0 +1,14 @@
+{
+  "_comment": "Concept B: loot-led. The Teal Dinosaur boss's two real drops as the inventory shows them: the Iron Sword icon (x2, diagonal, behind) and the outfit portrait (x1, front), on a tier-blue burst with gold light and the game's loot sparkle.",
+  "title": "B. Loot drop",
+  "note": "The boss's two real drops: Iron Sword icon x2 behind the Teal Dinosaur outfit portrait, sparkle burst",
+  "layers": [
+    {"name": "sky", "type": "gradient", "top": [22, 30, 74], "bottom": [70, 104, 160], "rows": [0, 32]},
+    {"name": "rays", "type": "rays", "at": [16, 17], "count": 16, "width": 0.45, "radius": 26, "strength": 0.2, "color": [255, 222, 140], "rotation": 6, "falloff": 1.5},
+    {"name": "burst", "type": "glow", "at": [16, 17], "radius": 13, "color": [255, 214, 110], "strength": 0.95, "falloff": 1.4},
+    {"name": "vignette", "type": "vignette", "start": 13, "end": 23, "strength": 0.45},
+    {"name": "sword", "type": "item", "item": "iron_sword", "from_group": "boss-teal-dinosaur", "scale": 2, "at": [18, 13], "rim": [24, 22, 36]},
+    {"name": "outfit", "type": "item", "item": "boss-teal-dinosaur_outfit_t2", "from_group": "boss-teal-dinosaur", "scale": 1, "at": [12, 20], "rim": [24, 22, 36], "key": true},
+    {"name": "sparkles", "type": "sparkle", "frame": 0, "box": [3, 6, 3, 5], "rim": [24, 22, 36], "items": [[26, 24, 2], [6, 8, 1]]}
+  ]
+}
