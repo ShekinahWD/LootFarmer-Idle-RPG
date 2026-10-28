@@ -1,0 +1,455 @@
+extends "res://addons/marketing_capture/scenario_adapter.gd"
+## LootFarmer marketing adapter (Change 27, Godot Marketing Capture Toolkit 1.0.2). One
+## prepare_scenario(id, options) for the Google Play screenshots and the store trailer clips.
+##
+## Every scenario is real game state built through the game's own simulation (new_profile, add_item,
+## equip, equip_skill, merge, begin_prestige, travel/stage setup, fog reveal) and then PLAYED by the
+## real simulation: combat, summons, skills, drops and pickups all come from simulation.gd/campaign.gd.
+## Fixtures only stand in for time: a plausible late-game profile (items that enemies really drop,
+## merge levels the Change 9 balance fixture validated, Prestige cards actually chosen through
+## begin_prestige/prestige) and timers moved forward to just before a real event (a summon cooldown).
+## Nothing here changes damage, HP, drop rates, helpers or UI, and nothing ships: marketing/ is
+## outside the Release export allowlist (tools/export_rules.json, exclude_filter).
+##
+## Safety: is_capture_safe() requires a capture-* profile namespace (BootContext, resolved before any
+## save is read) and --no-autosave. The adapter starts every scenario from sim.new_profile(), so
+## whatever the capture profile held before is never shown and the player's profile is never opened.
+
+const LOG:="LOOTFARMER_MARKETING "
+## Spring II late-game loadout: the Change 9 balance fixture's FINAL-tier set (every item dropped by a
+## real enemy, weapons no higher than the best dropped tier), with the outfit at the ^500 level the
+## fixture found a Spring II boss needs (Red Panda: beatable at ^500).
+const LOADOUT:={"level":238,"weapon":["emerald_sword",90],
+    "stored":[["diamond_sword",100],["diamond_axe",100],["gold_sword",100],["gold_axe",100]],
+    "outfit":["unit-sprout_outfit_t5",500],"stored_outfits":[["boss-bee_outfit_t4",100],["boss-red-panda_outfit_t5",120],["unit-plain_outfit_t5",200]],
+    "skills":[["skill_lightning",50],["skill_fire",50],["skill_strike",50]]}
+
+var game
+var sim
+var job: Dictionary={}
+var scenario:=""
+var options: Dictionary={}
+## Scripted taps during a clip: [[seconds, Callable], ...], run once each from _process.
+var timeline: Array=[]
+var clock:=0.0
+var fps:=30.0
+
+func is_capture_safe() -> bool:
+    var boot: Node=Engine.get_main_loop().root.get_node_or_null("BootContext")
+    if boot==null:return false
+    return str(boot.profile_name).begins_with("capture-") and not bool(boot.autosave_enabled) and bool(boot.is_probe)
+
+func prepare_scenario(scenario_id: String,options_: Dictionary,game_root: Node,capture: Dictionary) -> bool:
+    game=game_root;sim=game.sim;job=capture;scenario=scenario_id;options=options_
+    fps=float(capture.get("fps",30))
+    # The game's root Control processes ALWAYS (its pause button and dialogs work while paused). A
+    # screenshot freezes the tree after capture_frame frames; left ALWAYS, the HUD would keep updating
+    # and show its own paused state ("Resume"), which the player never sees in play. PAUSABLE freezes
+    # the HUD on the same frame as the world. Videos never pause.
+    if str(capture.get("kind",""))=="screenshot":game.process_mode=Node.PROCESS_MODE_PAUSABLE
+    var settings: Node=get_tree().root.get_node("SettingsState")
+    settings.set_music_volume(0.0) # the trailer's music is one continuous track added at composition
+    var ok:=false
+    match scenario_id:
+        "boss_sunflower":ok=_boss_sunflower()
+        "loot_collection":ok=_loot_collection()
+        "equipment_merge":ok=_equipment_merge()
+        "late_farming":ok=_late_farming()
+        "world_progress":ok=_world_progress()
+        "prestige_cards":ok=_prestige_cards()
+        "boss_victory":ok=_boss_victory()
+        "explore":ok=_explore()
+        _:push_error(LOG+"unknown scenario "+scenario_id)
+    print(LOG,"prepared ",scenario_id," ok=",ok," size=",capture.get("width"),"x",capture.get("height"))
+    return ok
+
+func _process(delta: float) -> void:
+    clock+=delta
+    while not timeline.is_empty() and clock>=float(timeline[0][0]):
+        var entry: Array=timeline.pop_front()
+        (entry[1] as Callable).call()
+
+# ---------------------------------------------------------------- shared late-game profile
+
+func _settings() -> Node:return get_tree().root.get_node("SettingsState")
+
+func _group(id: String) -> int:
+    for i in range(sim.catalog.groups.size()):
+        if str(sim.catalog.groups[i].id)==id:return i
+    return -1
+
+func _actor_of(group_id: String) -> Dictionary:
+    var g:=_group(group_id)
+    for e in sim.state.enemies:
+        if int(e.group)==g and not sim.is_helper(e):return e
+    return {}
+
+func _give(id: String,merge_level: int) -> bool:
+    if not sim.add_item(id,1,true,false):
+        push_error(LOG+"cannot add "+id);return false
+    var r: Dictionary=sim.record(id)
+    r.merge=merge_level;r.extras={} # fixture: the merge level a late-game player reaches
+    return true
+
+## A Spring II player who has cleared Winter I to Spring I in this run, prestiged before, and wears a
+## real late-game loadout. Built with the simulation's own calls; fixtures stand in for play time.
+func _late_profile(seed_value: int) -> bool:
+    sim.new_profile()
+    sim.rng.seed=seed_value
+    sim.suspended=false
+    sim.state.tutorial.mode="none"
+    sim.campaign.onboarding.reveal_all(true)
+    # A returning player has long since read the one-time Road Ahead announcement.
+    if not sim.state.tutorial.seen.has("road_ahead"):sim.state.tutorial.seen.append("road_ahead")
+    game._close();_hud_clean()
+    sim.state.gear.resize(18);sim.state.gear.fill("") # fixture: equipment slots bought earlier (kept by Prestige)
+    sim.state.upgrades["gear_slots"]=15
+    sim.state.player_level=int(LOADOUT.level)
+    # 1. Lifetime history: Winter I .. Spring I cleared before (gate bosses defeated, maps explored).
+    for st in range(1,8):
+        for boss_id in sim.catalog.stages[st-1].gates:
+            var g:=_group(str(boss_id))
+            sim.state.group_kills[g]=maxi(int(sim.state.group_kills[g]),3+st)
+            if not sim.state.bosses_found.has(str(boss_id)):sim.state.bosses_found.append(str(boss_id))
+            sim.state.discovered[str(g)]=true
+        for g in sim.catalog.stages[st-1].groups:
+            sim.state.discovered[str(g)]=true
+            if not sim.catalog.groups[g].boss:sim.state.group_kills[g]=maxi(int(sim.state.group_kills[g]),400+40*st)
+        sim.campaign.explore_cells(st,[],true)
+        var camps: Array=[]
+        for i in range(sim.catalog.stages[st-1].spawns.size()):camps.append(i)
+        sim.state.camps_known[str(st)]=camps
+    # 2. Earlier Prestiges, through the game's own reset: every opportunity the game marks ready is
+    # redeemed with begin_prestige/prestige, so each owned card was genuinely awarded.
+    # The previous run reached Spring II too (gates defeated, coins earned): the game itself decides
+    # which opportunities that history makes ready.
+    sim.state.unlocked_stage=8
+    sim.campaign.progress("coins","",2_500_000.0)
+    # Boss Hunter history: each target boss found, then farmed (the counters campaign.killed writes).
+    for boss_id in ["boss-snowman","boss-gray-cat","boss-grim-reaper"]:_history_kills(boss_id,1)
+    sim.campaign.mastery.evaluate(false);sim.campaign.evaluate()
+    for boss_id in ["boss-snowman","boss-gray-cat","boss-grim-reaper"]:_history_kills(boss_id,30)
+    for round in range(int(options.get("prestiges",1))):
+        for i in range(2):
+            sim.campaign.mastery.evaluate(false);sim.campaign.evaluate()
+        var why: String=sim.campaign.prestige_block_reason()
+        if not why.is_empty():
+            print(LOG,"prestige blocked: ",why);break
+        if not sim.campaign.begin_prestige():break
+        while not sim.state.prestige_batch.is_empty() and not sim.campaign.offered_cards().is_empty():
+            if not sim.prestige(sim.campaign.offered_cards()[0]):break
+        sim.suspended=false
+    print(LOG,"profile prestiges=",sim.state.prestiges," cards=",sim.state.owned_cards.size())
+    # 3. This run: Winter I .. Spring I cleared again, Spring II reached, gear re-farmed.
+    _run_cleared()
+    for pair in [LOADOUT.weapon,LOADOUT.outfit]+LOADOUT.stored+LOADOUT.stored_outfits+LOADOUT.skills:
+        if not _give(pair[0],pair[1]):return false
+    if not sim.equip(LOADOUT.weapon[0]) or not sim.equip(LOADOUT.outfit[0]):
+        push_error(LOG+"equip failed");return false
+    sim.state.upgrades["skill_slots"]=2
+    # Player upgrades bought over the profile (gem upgrades are kept by Prestige; coin ones re-bought).
+    for pair in [["critical_chance",14],["critical_damage",12],["movement",6],["respawn",5],["cooldown_lightning",4],["cooldown_fire",4],["cooldown_strike",4],["skill_auto_slots",3],["supply_slots",2]]:
+        sim.state.upgrades[pair[0]]=pair[1]
+    sim.state.supplies.resize(1+2);sim.state.supplies.fill("")
+    for i in range(LOADOUT.skills.size()):
+        sim.state.upgrades["skill_auto_%d" % i]=1;sim.state.skill_auto[i]=true
+        if not sim.campaign.equip_skill(LOADOUT.skills[i][0],i):
+            push_error(LOG+"skill equip failed");return false
+    sim.state.coins=float(options.get("coins",48_600_000.0));sim.state.gems=float(options.get("gems",18_450.0))
+    sim.state.unlocked_stage=8
+    sim.state.camps["8"]=[0,1];sim.state.camps_known["8"]=[0,1,2]
+    var stage_id:=int(options.get("stage",8))
+    if not _travel(stage_id,int(options.get("camp",1))):return false
+    # Spring II explored along the routes a player takes between its first camps and bosses.
+    if stage_id==8:
+        for spot in _spring_routes():sim.campaign.reveal_circle(spot,190.0)
+    _settle()
+    sim.state.player.hp=sim.stats().hp
+    _settings().set_camera_zoom(float(options.get("zoom",2.0)))
+    return true
+
+func _spring_routes() -> Array:
+    var points: Array=[]
+    var st: Dictionary=sim.catalog.stages[7]
+    for i in [0,1]:points.append(Vector2(st.spawns[i][0],st.spawns[i][1]))
+    for id in ["boss-sunflower","boss-red-panda"]:
+        var a:=_actor_of(id)
+        if not a.is_empty():points.append(Vector2(a.home_x,a.home_y))
+    var routed: Array=points.duplicate()
+    for i in range(points.size()-1):
+        for k in range(1,6):routed.append(points[i].lerp(points[i+1],k/6.0))
+    return routed
+
+## The built profile goes through the game's own save/load path once, which records Map Mastery and
+## other milestones silently (as a load does), then the tick that announces Prestige opportunities runs
+## before the first frame; whatever it queued is cleared, so the HUD starts as a returning player sees it.
+func _settle() -> void:
+    sim.restore(JSON.parse_string(JSON.stringify(sim.snapshot())))
+    sim.suspended=false
+    for i in range(2):
+        sim.campaign.evaluate();sim.campaign.onboarding.evaluate();sim.campaign.mastery.evaluate(false)
+    _hud_clean()
+
+## Every boss of Winter I .. Spring I defeated in the current run and every camp there owned.
+func _run_cleared() -> void:
+    for st in range(1,8):
+        for g in sim.catalog.stages[st-1].groups:
+            if sim.catalog.groups[g].boss:sim.state.run_kills[str(sim.catalog.groups[g].id)]=1
+        var owned: Array=[]
+        for i in range(sim.catalog.stages[st-1].spawns.size()):owned.append(i)
+        sim.state.camps[str(st)]=owned
+
+## Earlier boss defeats as campaign.killed records them (boss_kill and boss counters).
+func _history_kills(boss_id: String,n: int) -> void:
+    for i in range(n):
+        sim.campaign.progress("boss_kill",boss_id,1);sim.campaign.progress("boss",boss_id,1)
+
+func _travel(st: int,camp: int) -> bool:
+    sim.state.stage=st;sim.state.spawn=camp
+    sim._reset_world()
+    sim.campaign.reveal()
+    game.world.follow_player()
+    return int(sim.state.stage)==st
+
+func _place_player(at: Vector2) -> void:
+    sim.state.player.x=at.x;sim.state.player.y=at.y
+    sim.campaign.reveal()
+    game.world.follow_player()
+
+## Runs the real simulation forward (combat, skills, summons, drops) before the first frame.
+func _advance(seconds: float) -> void:
+    var t:=0.0
+    while t<seconds:
+        sim.step(.05);t+=.05
+
+func _hud_clean() -> void:
+    game.banner.queue.clear();game.banner._finish()
+    game.toast_queue.clear();game.get_node("Toast").hide()
+
+# ---------------------------------------------------------------- scenarios
+
+func _boss_sunflower() -> bool:
+    if not _late_profile(int(options.get("seed",2701))):return false
+    var boss:=_actor_of("boss-sunflower")
+    if boss.is_empty():push_error(LOG+"no sunflower");return false
+    _place_player(sim.position_of(boss)+Vector2(float(options.get("dx",34)),float(options.get("dy",12))))
+    boss.aggro=true
+    # Staging: the summon timer moved forward to just before the boss's real call (the game then
+    # telegraphs and spawns its Sprouts itself).
+    boss.summon_cd=float(options.get("summon_in",0.6))
+    # Staging: skills used shortly before (their real cooldowns still running), so the casts land
+    # during the shot instead of all on its first frame.
+    var skill_at: Dictionary=options.get("skill_at",{})
+    for key in skill_at:sim.state.skill_cooldowns[key]=float(skill_at[key])
+    sim.summoned.connect(func(id,ids):print(LOG,"SUMMON ",id," helpers=",ids.size()," t=",clock))
+    sim.spell_cast.connect(func(id,key,_p):if id=="player":print(LOG,"PLAYER_SKILL ",key," t=",clock))
+    _advance(float(options.get("advance",0.0)))
+    _hud_clean()
+    return true
+
+## Late-game farming upgrades a player has bought for the types it farms (real upgrade
+## levels within each upgrade's cap; Auto-Collect only when the scenario asks for it).
+func _farm_upgrades(groups: Array,auto_collect: bool) -> void:
+    for g in groups:
+        for pair in [["loot",15],["spawn_amount",3],["spawn_cooldown",5],["coin_amount",12],["supply_drop",10],["skill_drop",8],["reveal_stats",1],["reveal_drops",1]]:
+            sim.state.upgrades["%s:%d" % [pair[0],g]]=pair[1]
+        if auto_collect:
+            for pair in [["collect",1],["collect_range",4],["collect_speed",5],["collect_batch",3]]:sim.state.upgrades["%s:%d" % [pair[0],g]]=pair[1]
+    sim._sync_spawn_counts()
+    sim.state.player.hp=sim.stats().hp
+
+func _spot_of(group_id: String) -> Vector2:
+    var e:=_actor_of(group_id)
+    return Vector2(e.home_x,e.home_y)
+
+## Player beside a normal pack of the current stage; everything after this is the simulation fighting.
+func _farm_at(group_id: String,offset: Vector2,auto_collect: bool) -> bool:
+    var g:=_group(group_id)
+    _farm_upgrades(sim.campaign.stage().groups.filter(func(x):return not sim.catalog.groups[x].boss),auto_collect)
+    var spot:=_spot_of(group_id)
+    for e in sim.state.enemies:
+        if int(e.group)==g:sim.campaign.discover_spot(g,int(e.get("variant",2)))
+    _place_player(spot+offset)
+    return g>=0
+
+func _pickups_near(radius: float) -> Array:
+    var at: Vector2=sim.position_of(sim.state.player)
+    return sim.state.pickups.filter(func(d):return at.distance_to(Vector2(d.x,d.y))<=radius)
+
+## Advances real farming until at least `want` drops lie near the player (bounded).
+func _farm_until_drops(want: int,limit: float) -> int:
+    var t:=0.0
+    while t<limit and _pickups_near(150.0).size()<want:
+        sim.step(.05);t+=.05
+        if sim.state.player.hp<sim.stats().hp*.2:break
+    print(LOG,"farmed ",t,"s drops=",_pickups_near(150.0).size()," kills=",sim.campaign.counter("kill"))
+    return _pickups_near(150.0).size()
+
+## 02: a Spring I boss (the Bee) defeated by the real simulation; its genuine drops lie on the ground.
+## In a clip the player then taps them in one by one (sim.collect, the action a tap on a pickup runs).
+func _loot_collection() -> bool:
+    if not _late_profile(int(options.get("seed",2702))):return false
+    var boss_id:=str(options.get("boss","boss-bee"))
+    var boss:=_actor_of(boss_id)
+    if boss.is_empty():push_error(LOG+"no "+boss_id);return false
+    _farm_upgrades([int(boss.group)],false)
+    _place_player(sim.position_of(boss)+Vector2(float(options.get("dx",30)),float(options.get("dy",10))))
+    boss.aggro=true
+    # A clip stops the fight just before the last blows so the defeat and its drops are recorded.
+    var finish:=float(options.get("finish_hp",0.0))
+    var max_hp: float=float(sim.enemy_definition(int(boss.group)).hp)
+    var t:=0.0
+    while t<90.0 and float(boss.hp)>max_hp*finish and sim.state.player.hp>0:
+        sim.step(.05);t+=.05
+    _watch(boss)
+    if finish<=0.0:
+        _advance(float(options.get("after",0.4)))
+        var near:=_pickups_near(150.0)
+        print(LOG,"boss fight ",t,"s defeated=",float(boss.hp)<=0," drops=",near.map(func(d):return d.item))
+        if float(boss.hp)>0 or near.is_empty():return false
+    else:
+        print(LOG,"boss fight staged ",t,"s boss=",float(boss.hp)/max_hp)
+    _hud_clean()
+    if str(job.get("kind",""))=="video":
+        var at:=float(options.get("collect_from",1.2))
+        for i in range(int(options.get("collect_count",3))):
+            timeline.append([at,func():_collect_next()])
+            at+=float(options.get("collect_every",0.35))
+    return true
+
+## Taps the nearest pickup (sim.collect is what tapping a pickup in the world runs).
+func _collect_next() -> void:
+    var near:=_pickups_near(150.0)
+    if near.is_empty():print(LOG,"COLLECT nothing near");return
+    var at: Vector2=sim.position_of(sim.state.player)
+    near.sort_custom(func(a,b):return at.distance_to(Vector2(a.x,a.y))<at.distance_to(Vector2(b.x,b.y)))
+    print(LOG,"COLLECT ",near[0].item," ok=",sim.collect(int(near[0].uid))," t=",clock)
+
+## Logs the defeat of a staged enemy during a clip (scenario postcondition for the review).
+var watched: Dictionary={}
+var watched_done:=false
+func _watch(a: Dictionary) -> void:
+    watched=a;watched_done=false
+
+func _physics_process(_delta: float) -> void:
+    if not watched.is_empty() and not watched_done and float(watched.hp)<=0:
+        watched_done=true
+        var drops: Array=sim.state.pickups.filter(func(d):return int(d.group)==int(watched.group)).map(func(d):return d.item)
+        print(LOG,"DEFEATED ",watched.id," t=",clock," player_hp=",sim.state.player.hp," drops=",drops)
+
+## 03: copies of the equipped Emerald Sword collected from real drops (fixture: owned copies), the
+## item panel open, and Merge pressed through its own button: the merge level and Damage rise.
+func _equipment_merge() -> bool:
+    if not _late_profile(int(options.get("seed",2703))):return false
+    var id:=str(options.get("item","emerald_sword"))
+    var copies:=int(options.get("copies",3))
+    if not sim.add_item(id,copies,true,false):return false # fixture: copies picked up from Spring II bosses
+    _hud_clean()
+    game.selected=id
+    game._open("item")
+    var merges:=int(options.get("merges_before",0))
+    for i in range(merges):
+        if not sim.merge(id):return false
+    var times: Array=options.get("press_at",[])
+    for at in times:
+        timeline.append([float(at),func():_press_merge(id)])
+    print(LOG,"merge item ",id," level=",sim.record(id).merge," qty=",sim.quantity(id))
+    return true
+
+func _merge_button() -> Button:
+    for b in game.pinned_rows.find_children("*","Button",true,false)+game.actions.find_children("*","Button",true,false)+game.rows.find_children("*","Button",true,false):
+        if str(b.text)==tr("ITEM_MERGE_ACTION") and b.visible:return b
+    return null
+
+func _press_merge(id: String) -> void:
+    var b:=_merge_button()
+    var before:=int(sim.record(id).merge)
+    if b!=null and not b.disabled:b.pressed.emit()
+    print(LOG,"MERGE pressed=",b!=null," ",before," -> ",int(sim.record(id).merge))
+
+## 04: a dense late-game fight: the player at the pack spot with the most live enemies around it,
+## auto-attacks and auto-cast skills running, Auto-Collect on.
+func _late_farming() -> bool:
+    if not _late_profile(int(options.get("seed",2704))):return false
+    var normals: Array=sim.campaign.stage().groups.filter(func(x):return not sim.catalog.groups[x].boss)
+    _farm_upgrades(normals,true)
+    var best:=Vector2.ZERO;var most:=-1
+    for e in sim.state.enemies:
+        if sim.catalog.groups[int(e.group)].boss or sim.is_helper(e):continue
+        var at:=Vector2(e.home_x,e.home_y)
+        var n:=0
+        for o in sim.state.enemies:
+            if not sim.catalog.groups[int(o.group)].boss and at.distance_to(Vector2(o.home_x,o.home_y))<=float(options.get("radius",150.0)):n+=1
+        if n>most:most=n;best=at
+    for e in sim.state.enemies:
+        if best.distance_to(Vector2(e.home_x,e.home_y))<=260.0:sim.campaign.discover_spot(int(e.group),int(e.get("variant",2)))
+    sim.campaign.reveal_circle(best,float(options.get("explored",420.0))) # fixture: the player has farmed here before
+    _place_player(best+Vector2(float(options.get("dx",0)),float(options.get("dy",24))))
+    print(LOG,"farm spot ",best," enemies near=",most)
+    _advance(float(options.get("advance",1.0)))
+    _hud_clean()
+    return most>0
+
+## 05: the World panel for Spring II (real camps, travel state and explored map).
+func _world_progress() -> bool:
+    if not _late_profile(int(options.get("seed",2705))):return false
+    _farm_at("unit-green-cap",Vector2(-60,40),false)
+    _advance(float(options.get("advance",0.0)))
+    _hud_clean()
+    var at:=float(options.get("open_at",-1.0))
+    if at<0:game._open("world")
+    else:timeline.append([at,func():game._open("world")])
+    return true
+
+## 06: the Prestige panel: cards this profile genuinely earned and the opportunities ready now.
+func _prestige_cards() -> bool:
+    if not _late_profile(int(options.get("seed",2706))):return false
+    _farm_at("unit-green-cap",Vector2(-60,40),false)
+    _advance(float(options.get("advance",0.0)))
+    sim.campaign.evaluate()
+    _hud_clean()
+    var at:=float(options.get("open_at",-1.0))
+    if at<0:game._open("prestige")
+    else:timeline.append([at,func():game._open("prestige")])
+    if bool(options.get("choose",false)):
+        # The real Prestige button: begin_prestige saves the batch and the card choice opens.
+        var begin_at:=float(options.get("begin_at",0.0))
+        timeline.append([begin_at,func():_begin_prestige()])
+    var scroll:=float(options.get("scroll",0.0))
+    if scroll>0:timeline.append([maxf(at,0.0)+float(options.get("scroll_at",1.0)),func():game.get_node("Sheet/Margin/Content/Scroll").scroll_vertical=int(scroll)])
+    return true
+
+func _begin_prestige() -> void:
+    for b in game.actions.find_children("*","Button",true,false)+game.rows.find_children("*","Button",true,false)+game.pinned_rows.find_children("*","Button",true,false):
+        if b.visible and not b.disabled and str(b.text).begins_with(tr("PRESTIGE_BATCH").split("%")[0].strip_edges()):
+            b.pressed.emit();print(LOG,"PRESTIGE pressed ",b.text," batch=",not sim.state.prestige_batch.is_empty());return
+    print(LOG,"PRESTIGE button not found")
+
+## Trailer closing beat: a Spring II boss (default the Red Panda, also non-final) fought in the real
+## simulation until it is nearly beaten; the clip records the finishing blows and its drops.
+func _boss_victory() -> bool:
+    if not _late_profile(int(options.get("seed",2707))):return false
+    var boss_id:=str(options.get("boss","boss-red-panda"))
+    var boss:=_actor_of(boss_id)
+    if boss.is_empty():push_error(LOG+"no "+boss_id);return false
+    _farm_upgrades([int(boss.group)],false)
+    _place_player(sim.position_of(boss)+Vector2(float(options.get("dx",34)),float(options.get("dy",12))))
+    boss.aggro=true
+    var max_hp: float=float(sim.enemy_definition(int(boss.group)).hp)
+    var t:=0.0
+    while t<240.0 and float(boss.hp)>max_hp*float(options.get("until",0.06)):
+        sim.step(.05);t+=.05
+        if sim.state.player.hp<=0:break
+    print(LOG,"victory fight ",boss_id," ",t,"s boss=",float(boss.hp)/max_hp," player=",sim.state.player.hp/sim.stats().hp)
+    _watch(boss)
+    _hud_clean()
+    return sim.state.player.hp>0 and float(boss.hp)>0
+
+## Development aid: the late-game profile with one panel open (options.panel), for choosing shots.
+func _explore() -> bool:
+    if not _late_profile(int(options.get("seed",2799))):return false
+    var panel_name:=str(options.get("panel",""))
+    if panel_name!="":
+        if options.has("selected"):game.selected=str(options.selected)
+        game._open(panel_name)
+    return true

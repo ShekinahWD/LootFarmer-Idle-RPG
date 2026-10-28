@@ -6,6 +6,7 @@
 script = ExtResource("rules")
 first_item_kills = 5
 copy_kills = 5
+first_kill_weapon_bosses = PackedStringArray("boss-snowman")
 card_seconds = 20.0
 path_target = Vector2(300, 810)
 path_reach = 110.0

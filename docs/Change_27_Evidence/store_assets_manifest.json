@@ -1,0 +1,599 @@
+{
+  "change": 27,
+  "toolkit": "Godot Marketing Capture Toolkit 1.0.2",
+  "manifest": "marketing/manifest.json",
+  "adapter": "marketing/game_scenarios.gd",
+  "capture_profile": "--profile=capture-store --no-autosave --first-run-complete",
+  "screenshots": [
+    {
+      "file": "store_assets/screenshots/Phone/Phone_01.png",
+      "raw_master": "store_assets/raw/screenshots/Phone/Phone_01.png",
+      "device": "Phone",
+      "size": [
+        1080,
+        1920
+      ],
+      "concept": "01",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "summon_in": 0.6
+      },
+      "capture_frame": 45,
+      "fps": 30,
+      "bytes": 178916,
+      "sha256": "5a412a27210e414c33e2b7fe01e47a478199be6904598d70d3c4ab899f947ad2",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Phone/Phone_02.png",
+      "raw_master": "store_assets/raw/screenshots/Phone/Phone_02.png",
+      "device": "Phone",
+      "size": [
+        1080,
+        1920
+      ],
+      "concept": "02",
+      "scenario": "loot_collection",
+      "options": {
+        "stage": 7,
+        "seed": 2712,
+        "zoom": 3.0,
+        "after": 1.6
+      },
+      "capture_frame": 20,
+      "fps": 30,
+      "bytes": 154005,
+      "sha256": "78f394c83808995c744bd8d4f9551c261e4b85a579ba59206305488e21b1f908",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Phone/Phone_03.png",
+      "raw_master": "store_assets/raw/screenshots/Phone/Phone_03.png",
+      "device": "Phone",
+      "size": [
+        1080,
+        1920
+      ],
+      "concept": "03",
+      "scenario": "equipment_merge",
+      "options": {
+        "merges_before": 1
+      },
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 180826,
+      "sha256": "24e103b3fd939120cd16bc17b847fe4bec17a22784b19bc4a305265895c61b9c",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Phone/Phone_04.png",
+      "raw_master": "store_assets/raw/screenshots/Phone/Phone_04.png",
+      "device": "Phone",
+      "size": [
+        1080,
+        1920
+      ],
+      "concept": "04",
+      "scenario": "late_farming",
+      "options": {
+        "zoom": 1.75,
+        "advance": 2.5,
+        "radius": 220
+      },
+      "capture_frame": 30,
+      "fps": 30,
+      "bytes": 165241,
+      "sha256": "265ec20befc430ca00b130aeea6fd653d2488dda47f794c52cf77b47c36479a1",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Phone/Phone_05.png",
+      "raw_master": "store_assets/raw/screenshots/Phone/Phone_05.png",
+      "device": "Phone",
+      "size": [
+        1080,
+        1920
+      ],
+      "concept": "05",
+      "scenario": "world_progress",
+      "options": {},
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 136364,
+      "sha256": "dbdd00e2eb0685aa4dc80c7e842f67f5a2e1a51ae814c736752815280d223247",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Phone/Phone_06.png",
+      "raw_master": "store_assets/raw/screenshots/Phone/Phone_06.png",
+      "device": "Phone",
+      "size": [
+        1080,
+        1920
+      ],
+      "concept": "06",
+      "scenario": "prestige_cards",
+      "options": {},
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 234002,
+      "sha256": "06aacc652bc50e6d10c24141291743bd45ff624444b46187974c7f0aeeb6a478",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_7/Tablet_7_01.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_7/Tablet_7_01.png",
+      "device": "Tablet_7",
+      "size": [
+        1440,
+        2560
+      ],
+      "concept": "01",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "summon_in": 0.6
+      },
+      "capture_frame": 45,
+      "fps": 30,
+      "bytes": 221657,
+      "sha256": "0a15c70de716f6813ab1a9a023cc90c4f19d2abe89a54bd86548fff33dfb4dde",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_7/Tablet_7_02.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_7/Tablet_7_02.png",
+      "device": "Tablet_7",
+      "size": [
+        1440,
+        2560
+      ],
+      "concept": "02",
+      "scenario": "loot_collection",
+      "options": {
+        "stage": 7,
+        "seed": 2712,
+        "zoom": 3.0,
+        "after": 1.6
+      },
+      "capture_frame": 20,
+      "fps": 30,
+      "bytes": 190767,
+      "sha256": "af05037702ea37409085cc291ea5583e2a73b3d5c6cd72d3b5563f1023d1ed42",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_7/Tablet_7_03.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_7/Tablet_7_03.png",
+      "device": "Tablet_7",
+      "size": [
+        1440,
+        2560
+      ],
+      "concept": "03",
+      "scenario": "equipment_merge",
+      "options": {
+        "merges_before": 1
+      },
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 231199,
+      "sha256": "7798a5f00422767d5b384a683cd8c280f662e0bde41184441e2344975e6c4b53",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_7/Tablet_7_04.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_7/Tablet_7_04.png",
+      "device": "Tablet_7",
+      "size": [
+        1440,
+        2560
+      ],
+      "concept": "04",
+      "scenario": "late_farming",
+      "options": {
+        "zoom": 1.75,
+        "advance": 2.5,
+        "radius": 220
+      },
+      "capture_frame": 30,
+      "fps": 30,
+      "bytes": 206048,
+      "sha256": "6552acc852b61fbc5f376f4cd8061898b11b6242956737610c3fbaca5dfd8a12",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_7/Tablet_7_05.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_7/Tablet_7_05.png",
+      "device": "Tablet_7",
+      "size": [
+        1440,
+        2560
+      ],
+      "concept": "05",
+      "scenario": "world_progress",
+      "options": {},
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 174038,
+      "sha256": "35f4de5f6e89b74230ac22e055da661e32970951bc5a984a1cb106b271ffc7ee",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_7/Tablet_7_06.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_7/Tablet_7_06.png",
+      "device": "Tablet_7",
+      "size": [
+        1440,
+        2560
+      ],
+      "concept": "06",
+      "scenario": "prestige_cards",
+      "options": {},
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 299056,
+      "sha256": "8d90e2229c006dad2d059770c0d5a67e9b6c3cc92a28137025268c87e91830d2",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_10/Tablet_10_01.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_10/Tablet_10_01.png",
+      "device": "Tablet_10",
+      "size": [
+        1800,
+        3200
+      ],
+      "concept": "01",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "summon_in": 0.6
+      },
+      "capture_frame": 45,
+      "fps": 30,
+      "bytes": 264958,
+      "sha256": "0d8ee0e51fcbe9f2bc7fb86238d1a6da860bab5454e70f54eab5850563370db9",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_10/Tablet_10_02.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_10/Tablet_10_02.png",
+      "device": "Tablet_10",
+      "size": [
+        1800,
+        3200
+      ],
+      "concept": "02",
+      "scenario": "loot_collection",
+      "options": {
+        "stage": 7,
+        "seed": 2712,
+        "zoom": 3.0,
+        "after": 1.6
+      },
+      "capture_frame": 20,
+      "fps": 30,
+      "bytes": 229093,
+      "sha256": "10d8115f19638a4f436bb8db5909d5feb29cdc80b308c29186cab126c30ca426",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_10/Tablet_10_03.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_10/Tablet_10_03.png",
+      "device": "Tablet_10",
+      "size": [
+        1800,
+        3200
+      ],
+      "concept": "03",
+      "scenario": "equipment_merge",
+      "options": {
+        "merges_before": 1
+      },
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 280125,
+      "sha256": "625987cc6c104d4cce40e7778fed48a604dce919ad959aaa468bc6174e8aea44",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_10/Tablet_10_04.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_10/Tablet_10_04.png",
+      "device": "Tablet_10",
+      "size": [
+        1800,
+        3200
+      ],
+      "concept": "04",
+      "scenario": "late_farming",
+      "options": {
+        "zoom": 1.75,
+        "advance": 2.5,
+        "radius": 220
+      },
+      "capture_frame": 30,
+      "fps": 30,
+      "bytes": 248279,
+      "sha256": "d02c60e4866b11e6e903a69b6c326e944abfcaed4d28ec77ca61e11c5250c4c4",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_10/Tablet_10_05.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_10/Tablet_10_05.png",
+      "device": "Tablet_10",
+      "size": [
+        1800,
+        3200
+      ],
+      "concept": "05",
+      "scenario": "world_progress",
+      "options": {},
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 212053,
+      "sha256": "a8a0c47c8d97b2e7b60ab6fe81307680489fbbbd15a4419271041184174e5fe8",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Tablet_10/Tablet_10_06.png",
+      "raw_master": "store_assets/raw/screenshots/Tablet_10/Tablet_10_06.png",
+      "device": "Tablet_10",
+      "size": [
+        1800,
+        3200
+      ],
+      "concept": "06",
+      "scenario": "prestige_cards",
+      "options": {},
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 359739,
+      "sha256": "357f03d4fd1d8729c8cfb13a8fbff624a4a82a114252edec095698ea6ec46d50",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Desktop/Desktop_01.png",
+      "raw_master": "store_assets/raw/screenshots/Desktop/Desktop_01.png",
+      "device": "Desktop",
+      "size": [
+        1620,
+        2880
+      ],
+      "concept": "01",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "summon_in": 0.6
+      },
+      "capture_frame": 45,
+      "fps": 30,
+      "bytes": 243018,
+      "sha256": "4bd2ad9a66f7709c70a26926f1a80cff53cd12c139d8799fe960203399352bc5",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Desktop/Desktop_02.png",
+      "raw_master": "store_assets/raw/screenshots/Desktop/Desktop_02.png",
+      "device": "Desktop",
+      "size": [
+        1620,
+        2880
+      ],
+      "concept": "02",
+      "scenario": "loot_collection",
+      "options": {
+        "stage": 7,
+        "seed": 2712,
+        "zoom": 3.0,
+        "after": 1.6
+      },
+      "capture_frame": 20,
+      "fps": 30,
+      "bytes": 210867,
+      "sha256": "41aa963628135856ff24646e53e86a48db50a330b730b3de5e9b6ffa6a244079",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Desktop/Desktop_03.png",
+      "raw_master": "store_assets/raw/screenshots/Desktop/Desktop_03.png",
+      "device": "Desktop",
+      "size": [
+        1620,
+        2880
+      ],
+      "concept": "03",
+      "scenario": "equipment_merge",
+      "options": {
+        "merges_before": 1
+      },
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 258589,
+      "sha256": "9492073681fe123288a890efaafe3f1a5eb50139c44b14ff213f6412df49a33e",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Desktop/Desktop_04.png",
+      "raw_master": "store_assets/raw/screenshots/Desktop/Desktop_04.png",
+      "device": "Desktop",
+      "size": [
+        1620,
+        2880
+      ],
+      "concept": "04",
+      "scenario": "late_farming",
+      "options": {
+        "zoom": 1.75,
+        "advance": 2.5,
+        "radius": 220
+      },
+      "capture_frame": 30,
+      "fps": 30,
+      "bytes": 229104,
+      "sha256": "dfc801b4cacbe3342785f88af628b942e7480a519164ebcfdd9fcea67bb2e10d",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Desktop/Desktop_05.png",
+      "raw_master": "store_assets/raw/screenshots/Desktop/Desktop_05.png",
+      "device": "Desktop",
+      "size": [
+        1620,
+        2880
+      ],
+      "concept": "05",
+      "scenario": "world_progress",
+      "options": {},
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 192187,
+      "sha256": "0c57f3a39ff725fa47fafffe580ef8bdad463807238a1839c7a866578891bc36",
+      "identical_to_raw": true
+    },
+    {
+      "file": "store_assets/screenshots/Desktop/Desktop_06.png",
+      "raw_master": "store_assets/raw/screenshots/Desktop/Desktop_06.png",
+      "device": "Desktop",
+      "size": [
+        1620,
+        2880
+      ],
+      "concept": "06",
+      "scenario": "prestige_cards",
+      "options": {},
+      "capture_frame": 15,
+      "fps": 30,
+      "bytes": 332055,
+      "sha256": "5378382182bdf2be02a3fdb708f5b7e64769c965444c8cfeccc445ae2b991ceb",
+      "identical_to_raw": true
+    }
+  ],
+  "alt_text_drafts": {
+    "01": "A Sunflower boss calls two Sprout helpers while the hero fights back with skills in Spring II.",
+    "02": "A defeated Bee boss leaves a Diamond Axe, a Recovery Salve and a Heal skill on the ground.",
+    "03": "Item details for the equipped Emerald Sword, with Merge ready to combine a duplicate copy.",
+    "04": "The hero fights a crowded pack of Spring II enemies with auto-attacks and skills.",
+    "05": "The Spring II world panel lists camps to travel to or unlock above the explored map.",
+    "06": "The Prestige panel shows two ready opportunities that will award permanent cards."
+  },
+  "trailer": {
+    "path": "store_assets/video/LootFarmer_Play_Trailer_en-US.mp4",
+    "bytes": 7753410,
+    "sha256": "0511d051c75b0c98e36ca592c78e11a397a9c03d2a40bce420d29afc9760a0ce",
+    "duration_s": 30.0,
+    "video": "h264 yuv420p 1080x1920 30/1 900 frames",
+    "audio": "aac 48000 Hz 2 ch",
+    "raw_clips": [
+      "store_assets/raw/video/clip_boss.avi",
+      "store_assets/raw/video/clip_loot.avi",
+      "store_assets/raw/video/clip_merge.avi",
+      "store_assets/raw/video/clip_farm.avi",
+      "store_assets/raw/video/clip_world.avi",
+      "store_assets/raw/video/clip_prestige.avi",
+      "store_assets/raw/video/clip_victory.avi"
+    ],
+    "clips": [
+      {
+        "id": "clip_boss",
+        "scenario": "boss_sunflower",
+        "options": {
+          "zoom": 2.5,
+          "summon_in": 1.3,
+          "skill_at": {
+            "lightning": 0.9,
+            "fire": 1.6,
+            "strike": 3.0
+          }
+        },
+        "seconds": 8.0
+      },
+      {
+        "id": "clip_loot",
+        "scenario": "loot_collection",
+        "options": {
+          "stage": 7,
+          "seed": 2712,
+          "zoom": 3.0,
+          "finish_hp": 0.1,
+          "collect_from": 2.2,
+          "collect_every": 0.45
+        },
+        "seconds": 5.0
+      },
+      {
+        "id": "clip_merge",
+        "scenario": "equipment_merge",
+        "options": {
+          "press_at": [
+            1.3,
+            2.3
+          ]
+        },
+        "seconds": 4.2
+      },
+      {
+        "id": "clip_farm",
+        "scenario": "late_farming",
+        "options": {
+          "zoom": 1.75,
+          "advance": 0.3,
+          "radius": 220
+        },
+        "seconds": 10.0
+      },
+      {
+        "id": "clip_world",
+        "scenario": "world_progress",
+        "options": {
+          "open_at": 1.0
+        },
+        "seconds": 3.6
+      },
+      {
+        "id": "clip_prestige",
+        "scenario": "prestige_cards",
+        "options": {
+          "open_at": 0.9,
+          "choose": true,
+          "begin_at": 2.2
+        },
+        "seconds": 4.0
+      },
+      {
+        "id": "clip_victory",
+        "scenario": "boss_victory",
+        "options": {
+          "zoom": 2.5,
+          "until": 0.03,
+          "seed": 2737
+        },
+        "seconds": 4.5
+      }
+    ],
+    "review": "store_assets/video/LootFarmer_Play_Trailer_en-US_review.png"
+  },
+  "branding": {
+    "sources": {
+      "tiles": "assets/PixelPlains/Basic Tiles 1.png",
+      "trees": "assets/PixelPlains/Basic Tiles 4 (Trees & Bushes).png",
+      "items": "assets/PixelPlains/Items/16x16 All Items v1.png",
+      "player": "assets/PixelPlains/Characters 24x24/Character 1 v1.png",
+      "sunflower": "assets/PixelPlains/Characters 24x24/Spring 2 v1.png",
+      "helper": "assets/PixelPlains/Characters 24x24/Character 1 v1.png",
+      "shadow": "assets/PixelPlains/Characters 24x24/Shadow.png",
+      "font": "Godot-Marketing-Toolkit/assets/fonts/NotoSans[wdth,wght].ttf"
+    },
+    "outputs": {
+      "store_assets/branding/play_icon_512.png": "3a5d9155fcbbf263c69e94d9a3417ca23a3b0b2f90394d0c957e275af5b9e36e",
+      "store_assets/branding/feature_graphic_1024x500.png": "907f94f42baab270975ca05072428a857acf8654f39c62e696a087b159e6e92b",
+      "assets/branding/launcher_192.png": "b999959e288f27bc94f0f2c1401f6026d89ef3bd3645d3e025838acbe5150a25",
+      "assets/branding/adaptive_foreground_432.png": "d8b4ff26093e35a43f645cb30337fcd127eaa9eb26f0a692de0283e378eabf7b",
+      "assets/branding/adaptive_background_432.png": "91aec35e98712485f29fdfe21ae6ee9bb5e94efdab1470c9a7d48bfc229df789",
+      "assets/branding/adaptive_monochrome_432.png": "10f010812109f41a8dad8d91c3b5bb13c349b5bf46d0606b29937d40917d4ac1"
+    },
+    "note": "Composed from existing Pixel Plains sprites/tiles (licence record REL-02 pending) and Noto Sans (SIL OFL 1.1)."
+  },
+  "publication": "NOT approved or uploaded. Pixel Plains art and assets/sounds audio lack retained licence records (REL-02)."
+}

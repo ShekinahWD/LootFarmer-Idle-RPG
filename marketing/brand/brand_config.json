@@ -1,0 +1,72 @@
+{
+  "_comment": "LootFarmer brand composition (Change 27). Every picture element is an existing game sprite or tile, scaled by whole numbers with nearest-neighbour sampling. Edit positions/scales here, then run: python marketing/brand/compose_brand.py",
+  "sources": {
+    "tiles": "assets/PixelPlains/Basic Tiles 1.png",
+    "trees": "assets/PixelPlains/Basic Tiles 4 (Trees & Bushes).png",
+    "items": "assets/PixelPlains/Items/16x16 All Items v1.png",
+    "player": "assets/PixelPlains/Characters 24x24/Character 1 v1.png",
+    "sunflower": "assets/PixelPlains/Characters 24x24/Spring 2 v1.png",
+    "helper": "assets/PixelPlains/Characters 24x24/Character 1 v1.png",
+    "shadow": "assets/PixelPlains/Characters 24x24/Shadow.png",
+    "font": "Godot-Marketing-Toolkit/assets/fonts/NotoSans[wdth,wght].ttf"
+  },
+  "regions": {
+    "idle": [0, 0, 24, 24],
+    "emerald_sword": [192, 0, 32, 32],
+    "diamond_axe": "catalog",
+    "diamond_sword": "catalog",
+    "coin": [104, 264, 16, 16],
+    "gem": [137, 362, 14, 12],
+    "grass_dark": [[336, 80], [352, 80], [368, 80], [384, 80], [400, 80]],
+    "grass_light": [[336, 48], [352, 48], [368, 48], [384, 48]],
+    "path": [[288, 48], [304, 48], [320, 48]],
+    "tree_green": [145, 240, 46, 76],
+    "tree_pink": [17, 240, 46, 75],
+    "tree_light": [209, 240, 47, 76]
+  },
+  "helper_tint": [0.78, 0.66, 1.0],
+  "icon": {
+    "size": 512,
+    "tile_scale": 8,
+    "player_scale": 15,
+    "player_at": [0.43, 0.56],
+    "sword_scale": 9,
+    "sword_at": [0.70, 0.40],
+    "background_darken": 0.82
+  },
+  "adaptive": {
+    "size": 432,
+    "tile_scale": 6,
+    "player_scale": 9,
+    "player_at": [0.45, 0.53],
+    "sword_scale": 6,
+    "sword_at": [0.63, 0.43]
+  },
+  "launcher": {
+    "size": 192,
+    "tile_scale": 3,
+    "player_scale": 6,
+    "player_at": [0.44, 0.56],
+    "sword_scale": 4,
+    "sword_at": [0.70, 0.40]
+  },
+  "feature": {
+    "width": 1024,
+    "height": 500,
+    "tile_scale": 4,
+    "seed": 27,
+    "wordmark": "LootFarmer",
+    "wordmark_size": 112,
+    "wordmark_weight": 800,
+    "wordmark_y": 34,
+    "player_scale": 8,
+    "player_at": [0.40, 0.66],
+    "sword_scale": 5,
+    "sword_at": [0.47, 0.60],
+    "boss_scale": 11,
+    "boss_at": [0.66, 0.62],
+    "helpers": [[0.82, 0.76, 6], [0.56, 0.84, 6]],
+    "loot": [["diamond_axe", 0.27, 0.82, 4], ["coin", 0.33, 0.90, 4], ["gem", 0.22, 0.90, 4], ["coin", 0.75, 0.92, 4], ["diamond_sword", 0.88, 0.90, 4]],
+    "trees": [["tree_green", 0.03, 0.30, 4], ["tree_pink", 0.10, 0.62, 4], ["tree_green", 0.93, 0.34, 4], ["tree_pink", 0.98, 0.70, 4]]
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "file": "LootFarmer_Play_Trailer_en-US.mp4",
+  "frames": 900,
+  "seconds": 30.0,
+  "transitions": [
+    {
+      "at": "boss -> loot",
+      "type": "crossfade",
+      "start_s": 6.7,
+      "duration_s": 0.3,
+      "range": 12.3,
+      "max_step": 2.4,
+      "intermediate": 7,
+      "ok": true
+    },
+    {
+      "at": "loot -> merge",
+      "type": "crossfade",
+      "start_s": 9.8,
+      "duration_s": 0.3,
+      "range": 13.9,
+      "max_step": 2.1,
+      "intermediate": 7,
+      "ok": true
+    },
+    {
+      "at": "merge -> farm",
+      "type": "fade",
+      "start_s": 12.6,
+      "duration_s": 0.4,
+      "range": 93.2,
+      "max_step": 17.8,
+      "intermediate": 12,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "farm -> world",
+      "type": "crossfade",
+      "start_s": 20.9,
+      "duration_s": 0.3,
+      "range": 23.5,
+      "max_step": 3.5,
+      "intermediate": 8,
+      "ok": true
+    },
+    {
+      "at": "world -> prestige",
+      "type": "crossfade",
+      "start_s": 23.2,
+      "duration_s": 0.3,
+      "range": 5.1,
+      "max_step": 1.4,
+      "intermediate": 5,
+      "ok": true
+    },
+    {
+      "at": "prestige -> victory",
+      "type": "fade",
+      "start_s": 25.8,
+      "duration_s": 0.4,
+      "range": 81.7,
+      "max_step": 15.1,
+      "intermediate": 11,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "victory -> brand",
+      "type": "fade",
+      "start_s": 28.4,
+      "duration_s": 0.4,
+      "range": 81.4,
+      "max_step": 7.8,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    }
+  ],
+  "transitions_ok": 7,
+  "text_holds": [
+    {
+      "shot": "brand",
+      "kind": "card",
+      "required_s": 1.0,
+      "planned_s": 1.0,
+      "units": 10.0,
+      "reading_cps": 15.0,
+      "text_min_hold": 1.0,
+      "ok": true,
+      "measured_s": 1.0
+    }
+  ],
+  "text_holds_ok": 1,
+  "black_edges": [
+    {
+      "frame": 384,
+      "edge": "into black",
+      "abrupt": false,
+      "neighbour_level": 12.8,
+      "scene_level": 82.4
+    },
+    {
+      "frame": 385,
+      "edge": "out of black",
+      "abrupt": false,
+      "neighbour_level": 14.6,
+      "scene_level": 94.2
+    },
+    {
+      "frame": 780,
+      "edge": "into black",
+      "abrupt": false,
+      "neighbour_level": 5.6,
+      "scene_level": 41.3
+    },
+    {
+      "frame": 781,
+      "edge": "out of black",
+      "abrupt": false,
+      "neighbour_level": 13.9,
+      "scene_level": 82.8
+    },
+    {
+      "frame": 863,
+      "edge": "into black",
+      "abrupt": false,
+      "neighbour_level": 14.2,
+      "scene_level": 82.3
+    }
+  ],
+  "abrupt_changes": [
+    {
+      "frame": 744,
+      "from": 75.0,
+      "to": 57.1,
+      "dark": false
+    }
+  ],
+  "quality": {
+    "name": "high",
+    "crf": 18,
+    "x264_preset": "slow"
+  },
+  "text_renderer": "pillow",
+  "audio": {
+    "max_volume": -3.6,
+    "mean_volume": -23.5,
+    "quietest_window_db": -65.1,
+    "quiet_windows_s": [
+      0.9,
+      3.6,
+      4.2,
+      5.2,
+      5.9
+    ],
+    "windows": 301
+  },
+  "sheet": "D:\\Godot\\lootFarmer\\store_assets\\video\\LootFarmer_Play_Trailer_en-US_review.png"
+}

@@ -7,9 +7,9 @@
   "armeabi-v7a"
  ],
  "counts": {
-  "files": 229,
+  "files": 232,
   "stages": 8,
-  "imported": 151
+  "imported": 154
  },
  "families": {
   "stage_scenes": {
@@ -427,6 +427,10 @@
   "res://assets/PixelPlainsAnimationPack/Ruby set/Sword 6 64x32.png": "dependency of res://data/game/catalog.json",
   "res://assets/PixelPlainsAnimationPack/Wood set/Axe 1 64x32.png": "dependency of res://data/game/catalog.json",
   "res://assets/PixelPlainsAnimationPack/Wood set/Sword 1 64x32.png": "dependency of res://data/game/catalog.json",
+  "res://assets/branding/adaptive_background_432.png": "root: Change 27 adaptive launcher icon layer named by the Release preset (launcher_icons/*)",
+  "res://assets/branding/adaptive_foreground_432.png": "root: Change 27 adaptive launcher icon layer named by the Release preset (launcher_icons/*), from marketing/brand/compose_brand.py",
+  "res://assets/branding/adaptive_monochrome_432.png": "root: Change 27 themed (monochrome) launcher icon layer named by the Release preset (launcher_icons/*)",
+  "res://assets/branding/launcher_192.png": "project.godot setting",
   "res://assets/magic-spells-sfx-lite/ogg/cast_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-sfx-lite/ogg/fire_impact_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-sfx-lite/ogg/heal_01.ogg": "dependency of res://resources/game/audio_cues.tres",
@@ -445,7 +449,6 @@
   "res://assets/sounds/stage_clear.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/sounds/ui_confirm.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://data/game/catalog.json": "root: campaign data, read with FileAccess by catalog.gd (not a resource dependency)",
-  "res://icon.svg": "project.godot setting",
   "res://localization/en.po": "project.godot setting",
   "res://resources/game/audio_cues.tres": "literal in res://scripts/game/game_ui.gd",
   "res://resources/game/coin.tres": "dependency of res://scenes/game/main.tscn",

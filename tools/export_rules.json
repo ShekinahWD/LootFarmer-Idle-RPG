@@ -12,7 +12,10 @@
   "abis": ["arm64-v8a", "armeabi-v7a"],
   "catalog": "res://data/game/catalog.json",
   "roots": [
-    {"path": "res://data/game/catalog.json", "why": "campaign data, read with FileAccess by catalog.gd (not a resource dependency)"}
+    {"path": "res://data/game/catalog.json", "why": "campaign data, read with FileAccess by catalog.gd (not a resource dependency)"},
+    {"path": "res://assets/branding/adaptive_foreground_432.png", "why": "Change 27 adaptive launcher icon layer named by the Release preset (launcher_icons/*), from marketing/brand/compose_brand.py"},
+    {"path": "res://assets/branding/adaptive_background_432.png", "why": "Change 27 adaptive launcher icon layer named by the Release preset (launcher_icons/*)"},
+    {"path": "res://assets/branding/adaptive_monochrome_432.png", "why": "Change 27 themed (monochrome) launcher icon layer named by the Release preset (launcher_icons/*)"}
   ],
   "forbidden_prefixes": [
     "res://tests/", "res://tools/", "res://docs/", "res://addons/", "res://Godot-Marketing-Toolkit/",

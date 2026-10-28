@@ -150,3 +150,7 @@ The per-kill supply roll is unchanged (5% normal, 15% boss, + Supply Drop upgrad
 - **Health Potion:** heal share 0.10 + 0.001 per mastery level (10% at ^0, 20% at ^100); cooldown and floor unchanged. The shared supply rule (^100 doubles the base) still holds for all five supplies.
 - **Cyan Robot Heal:** 12 s between casts (`resources/game/enemy_abilities.tres` `skill_cooldowns`); measured 12.8 s in the probe including the 0.6 s wind-up (18.8 s before). Every other caster keeps the catalog's 18 s.
 - **Map Mastery rewards:** Autumn II +2 pts Gem Chance, Spring II +15% max HP (swapped in `resources/game/mastery_rules.tres`).
+
+## Change 27 (2026-10-28): first Snowman weapon
+
+The first lifetime Snowman defeat always drops its carried weapon (catalog `boss-snowman.weapon`, the Stone Axe; natural drop counts, no duplicate). Every probability, price and stat is unchanged; later Snowman defeats use the ordinary 30% boss gear chance (+ Loot Chance). No other balance change in this batch.

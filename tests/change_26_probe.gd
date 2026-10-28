@@ -5,7 +5,7 @@ extends "res://tests/change_20_probe.gd"
 ## - Runtime recorder: the art the real game resolves (catalog icons, actor bodies and swing sheets
 ##   for every enemy group and item, skill effect sheets, UI/guide/Prestige item art cached while
 ##   every panel opens) is inside the manifest, so a packaged build cannot miss a dynamic path.
-## - The Release preset exports exactly the manifest (selected resources), ARM ABIs only, version 26.
+## - The Release preset exports exactly the manifest (selected resources), ARM ABIs only, version >= 26 (Change 27 holds the exact check).
 ## The packaged artifact itself is checked by tools/verify_export.py (needs an export, outside the suite).
 const MANIFEST="res://tools/export_manifest.json"
 var shipped: Dictionary={}
@@ -43,7 +43,7 @@ func source_checks() -> void:
         check(not shipped.keys().any(func(p):return p.begins_with(retired)),"excluded group absent: %s" % retired)
     var variants: Array=shipped.keys().filter(func(p):return p.begins_with("res://assets/PixelPlains/Items/") and p.get_base_dir().get_file().begins_with("All") and not p.contains("All v3 (Separated Files, Black Outline)"))
     check(variants.is_empty(),"only the Black Outline item variant ships")
-    for path in ["res://scenes/game/main.tscn","res://localization/en.po","res://data/game/catalog.json","res://icon.svg","res://resources/game/theme.tres","res://assets/Fonts/DejaVuSans.ttf","res://resources/game/fog_veil.gdshader","res://assets/sounds/background_music.wav"]:
+    for path in ["res://scenes/game/main.tscn","res://localization/en.po","res://data/game/catalog.json",str(ProjectSettings.get_setting("application/config/icon")),"res://resources/game/theme.tres","res://assets/Fonts/DejaVuSans.ttf","res://resources/game/fog_veil.gdshader","res://assets/sounds/background_music.wav"]:
         check(ships(path),"core file ships: "+path)
 
 func stage_checks() -> void:
@@ -96,11 +96,12 @@ func recorder_checks() -> void:
     check(missing.is_empty(),"every runtime-resolved texture ships (missing: %s)" % [missing.slice(0,8)])
 
 func preset_checks() -> void:
-    check(str(ProjectSettings.get_setting("application/config/version"))=="26","Project version is 26 (Change 26)")
+    var version:=int(str(ProjectSettings.get_setting("application/config/version")))
+    check(version>=26,"Project version is at least 26 (Change 26)")
     var presets:=FileAccess.get_file_as_string("res://export_presets.cfg")
     var release:=presets.substr(presets.find("name=\"Android Release\""))
     release=release.substr(0,release.find("[preset.1]"))
-    check(release.contains("version/code=26") and release.contains("version/name=\"\""),"Android Release version code is 26, name inherited")
+    check(release.contains("version/code=%d" % version) and release.contains("version/name=\"\""),"Android Release version code equals the project version, name inherited")
     check(release.contains("export_filter=\"resources\""),"Release exports selected resources (the manifest)")
     for abi in ["arm64-v8a","armeabi-v7a"]:check(release.contains("architectures/%s=true" % abi),"Release ABI %s selected" % abi)
     for abi in ["x86","x86_64"]:check(release.contains("architectures/%s=false" % abi),"Release ABI %s not selected" % abi)

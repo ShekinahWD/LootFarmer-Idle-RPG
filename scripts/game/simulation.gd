@@ -1055,6 +1055,8 @@ func _reward(a: Dictionary) -> void:
         dropped.append(_drop("skill_"+str(def.skills[rng.randi_range(0,def.skills.size()-1)]),a))
     # Change 15: the profile's first weapon or outfit and a matching copy, if no natural drop came.
     campaign.onboarding.loot_kill(a,def,dropped)
+    # Change 27: a listed boss's first lifetime defeat always drops its own weapon (hidden).
+    campaign.onboarding.boss_first_kill(a,def,dropped)
     _loot_speech(a,dropped)
 
 ## Change 11: a defeated enemy's loot line follows what it actually dropped, after every roll: one

@@ -1,4 +1,11 @@
-# Current entry point — Change 26 (2026-10-28)
+# Current entry point — Change 27 (2026-10-28)
+
+Commit "Change 27: produce Google Play assets and guarantee first Snowman weapon"; application/Android Release version **27**; save schema 8, save file version 3 (no reset, no new saved field). Read first `LootFarmer_Change_27_Report.md`.
+
+- **Gameplay:** the first lifetime Snowman defeat always drops the weapon it carries (catalog weapon, Stone Axe), hidden, once per profile (GDD "First Snowman weapon", State Contracts).
+- **Store listing (local, not uploaded):** 24 portrait screenshots (Phone, Tablet_7, Tablet_10, Desktop × 6 concepts), Play icon, adaptive launcher icons (now in the build), feature graphic and one 30 s portrait trailer, all from the real game through `marketing/` and Toolkit 1.0.2. Workflow and file map: `marketing/README.md`; review copies: `docs/Change_27_Evidence/`. Publication waits for human approval and the REL-02 licence records.
+
+# Previous entry point — Change 26 (2026-10-28)
 
 Commit "Change 26: optimize Android exports and clean unused assets"; application/Android Release version **26**; save schema 8, save file version 3 (no reset; packaging only). Read first `LootFarmer_Change_26_Report.md` (export allowlist, ARM-only ABIs, import hygiene, the real AAB inspection 117.6 MB to 58.9 MB). Export flow: `tools/export_rules.json` -> `python tools/export_manifest.py` (allowlist and preset) -> export -> `python tools/verify_export.py <aab>`. Asset source-vs-export policy: `LootFarmer_Asset_Registry.md`. `docs/` is `.gdignore`d. Gameplay authority remains the Change 25 entry below.
 

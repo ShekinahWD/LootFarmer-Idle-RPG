@@ -4766,6 +4766,7 @@ Three traps validated in Growing Kingdom (Godot 4.7.2, Windows, 1920×1080 scree
 - **The OS clamps the window to the screen.** A 2560×1440 tablet or a 1080×1920 portrait target came out 1084 px tall. Raising the window's maximum size first (`DisplayServer.window_set_max_size()`, then `window_set_size()`) lets the window exceed the screen; restore the previous maximum afterwards.
 - **Compare the rendered size, never the canvas size.** Under `canvas_items` + `expand` a 1080×1920 window lays out a 1920×3413 virtual canvas: check the window or the read-back image, not `get_visible_rect()`.
 - **A freeze must reach the game.** A capture scene with `PROCESS_MODE_ALWAYS` (so its own coroutine survives the pause) passes ALWAYS to every child it adds: set the game and the scenario adapter to `PAUSABLE` explicitly, or pausing the tree freezes nothing.
+- **A game root that is itself `ALWAYS` keeps drawing its paused state.** Many games run their UI root `ALWAYS` so the pause button and dialogs work while paused; the capture runner only converts `INHERIT` roots, so after the freeze such a HUD keeps refreshing and shows what the player would see while paused (a "Resume" label, a pause dim). For a screenshot job the game adapter sets that root to `PAUSABLE` before the freeze (videos never pause, so they need nothing). Check every still for paused-state UI.
 
 A command-line run with the **editor binary** reports `editor_runtime` too: an editor-only overlay gated on it appears in automated captures unless the capture tool hides it.
 

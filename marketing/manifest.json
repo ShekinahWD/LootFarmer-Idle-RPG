@@ -1,0 +1,629 @@
+{
+  "game_scene": "res://scenes/game/main.tscn",
+  "adapter_script": "res://marketing/game_scenarios.gd",
+  "ui_group": "store_screenshot_ui",
+  "godot_user_args": [
+    "--profile=capture-store",
+    "--no-autosave",
+    "--first-run-complete"
+  ],
+  "log_show": [
+    "LOOTFARMER_MARKETING"
+  ],
+  "output_root": "../store_assets",
+  "capture_jobs": [
+    {
+      "id": "Phone_01",
+      "kind": "screenshot",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "summon_in": 0.6
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "capture_frame": 45,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Phone/Phone_01.png"
+    },
+    {
+      "id": "Phone_02",
+      "kind": "screenshot",
+      "scenario": "loot_collection",
+      "options": {
+        "stage": 7,
+        "seed": 2712,
+        "zoom": 3.0,
+        "after": 1.6
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "capture_frame": 20,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Phone/Phone_02.png"
+    },
+    {
+      "id": "Phone_03",
+      "kind": "screenshot",
+      "scenario": "equipment_merge",
+      "options": {
+        "merges_before": 1
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Phone/Phone_03.png"
+    },
+    {
+      "id": "Phone_04",
+      "kind": "screenshot",
+      "scenario": "late_farming",
+      "options": {
+        "zoom": 1.75,
+        "advance": 2.5,
+        "radius": 220
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "capture_frame": 30,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Phone/Phone_04.png"
+    },
+    {
+      "id": "Phone_05",
+      "kind": "screenshot",
+      "scenario": "world_progress",
+      "options": {},
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Phone/Phone_05.png"
+    },
+    {
+      "id": "Phone_06",
+      "kind": "screenshot",
+      "scenario": "prestige_cards",
+      "options": {},
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Phone/Phone_06.png"
+    },
+    {
+      "id": "Tablet_7_01",
+      "kind": "screenshot",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "summon_in": 0.6
+      },
+      "width": 1440,
+      "height": 2560,
+      "fps": 30,
+      "capture_frame": 45,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_7/Tablet_7_01.png"
+    },
+    {
+      "id": "Tablet_7_02",
+      "kind": "screenshot",
+      "scenario": "loot_collection",
+      "options": {
+        "stage": 7,
+        "seed": 2712,
+        "zoom": 3.0,
+        "after": 1.6
+      },
+      "width": 1440,
+      "height": 2560,
+      "fps": 30,
+      "capture_frame": 20,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_7/Tablet_7_02.png"
+    },
+    {
+      "id": "Tablet_7_03",
+      "kind": "screenshot",
+      "scenario": "equipment_merge",
+      "options": {
+        "merges_before": 1
+      },
+      "width": 1440,
+      "height": 2560,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_7/Tablet_7_03.png"
+    },
+    {
+      "id": "Tablet_7_04",
+      "kind": "screenshot",
+      "scenario": "late_farming",
+      "options": {
+        "zoom": 1.75,
+        "advance": 2.5,
+        "radius": 220
+      },
+      "width": 1440,
+      "height": 2560,
+      "fps": 30,
+      "capture_frame": 30,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_7/Tablet_7_04.png"
+    },
+    {
+      "id": "Tablet_7_05",
+      "kind": "screenshot",
+      "scenario": "world_progress",
+      "options": {},
+      "width": 1440,
+      "height": 2560,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_7/Tablet_7_05.png"
+    },
+    {
+      "id": "Tablet_7_06",
+      "kind": "screenshot",
+      "scenario": "prestige_cards",
+      "options": {},
+      "width": 1440,
+      "height": 2560,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_7/Tablet_7_06.png"
+    },
+    {
+      "id": "Tablet_10_01",
+      "kind": "screenshot",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "summon_in": 0.6
+      },
+      "width": 1800,
+      "height": 3200,
+      "fps": 30,
+      "capture_frame": 45,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_10/Tablet_10_01.png"
+    },
+    {
+      "id": "Tablet_10_02",
+      "kind": "screenshot",
+      "scenario": "loot_collection",
+      "options": {
+        "stage": 7,
+        "seed": 2712,
+        "zoom": 3.0,
+        "after": 1.6
+      },
+      "width": 1800,
+      "height": 3200,
+      "fps": 30,
+      "capture_frame": 20,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_10/Tablet_10_02.png"
+    },
+    {
+      "id": "Tablet_10_03",
+      "kind": "screenshot",
+      "scenario": "equipment_merge",
+      "options": {
+        "merges_before": 1
+      },
+      "width": 1800,
+      "height": 3200,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_10/Tablet_10_03.png"
+    },
+    {
+      "id": "Tablet_10_04",
+      "kind": "screenshot",
+      "scenario": "late_farming",
+      "options": {
+        "zoom": 1.75,
+        "advance": 2.5,
+        "radius": 220
+      },
+      "width": 1800,
+      "height": 3200,
+      "fps": 30,
+      "capture_frame": 30,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_10/Tablet_10_04.png"
+    },
+    {
+      "id": "Tablet_10_05",
+      "kind": "screenshot",
+      "scenario": "world_progress",
+      "options": {},
+      "width": 1800,
+      "height": 3200,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_10/Tablet_10_05.png"
+    },
+    {
+      "id": "Tablet_10_06",
+      "kind": "screenshot",
+      "scenario": "prestige_cards",
+      "options": {},
+      "width": 1800,
+      "height": 3200,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Tablet_10/Tablet_10_06.png"
+    },
+    {
+      "id": "Desktop_01",
+      "kind": "screenshot",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "summon_in": 0.6
+      },
+      "width": 1620,
+      "height": 2880,
+      "fps": 30,
+      "capture_frame": 45,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Desktop/Desktop_01.png"
+    },
+    {
+      "id": "Desktop_02",
+      "kind": "screenshot",
+      "scenario": "loot_collection",
+      "options": {
+        "stage": 7,
+        "seed": 2712,
+        "zoom": 3.0,
+        "after": 1.6
+      },
+      "width": 1620,
+      "height": 2880,
+      "fps": 30,
+      "capture_frame": 20,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Desktop/Desktop_02.png"
+    },
+    {
+      "id": "Desktop_03",
+      "kind": "screenshot",
+      "scenario": "equipment_merge",
+      "options": {
+        "merges_before": 1
+      },
+      "width": 1620,
+      "height": 2880,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Desktop/Desktop_03.png"
+    },
+    {
+      "id": "Desktop_04",
+      "kind": "screenshot",
+      "scenario": "late_farming",
+      "options": {
+        "zoom": 1.75,
+        "advance": 2.5,
+        "radius": 220
+      },
+      "width": 1620,
+      "height": 2880,
+      "fps": 30,
+      "capture_frame": 30,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Desktop/Desktop_04.png"
+    },
+    {
+      "id": "Desktop_05",
+      "kind": "screenshot",
+      "scenario": "world_progress",
+      "options": {},
+      "width": 1620,
+      "height": 2880,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Desktop/Desktop_05.png"
+    },
+    {
+      "id": "Desktop_06",
+      "kind": "screenshot",
+      "scenario": "prestige_cards",
+      "options": {},
+      "width": 1620,
+      "height": 2880,
+      "fps": 30,
+      "capture_frame": 15,
+      "settle_frames": 4,
+      "capture_ui": true,
+      "output": "../store_assets/raw/screenshots/Desktop/Desktop_06.png"
+    },
+    {
+      "id": "clip_boss",
+      "kind": "video",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "summon_in": 1.3,
+        "skill_at": {
+          "lightning": 0.9,
+          "fire": 1.6,
+          "strike": 3.0
+        }
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 8.0,
+      "capture_ui": true,
+      "output": "../store_assets/raw/video/clip_boss.avi"
+    },
+    {
+      "id": "clip_loot",
+      "kind": "video",
+      "scenario": "loot_collection",
+      "options": {
+        "stage": 7,
+        "seed": 2712,
+        "zoom": 3.0,
+        "finish_hp": 0.1,
+        "collect_from": 2.2,
+        "collect_every": 0.45
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 5.0,
+      "capture_ui": true,
+      "output": "../store_assets/raw/video/clip_loot.avi"
+    },
+    {
+      "id": "clip_merge",
+      "kind": "video",
+      "scenario": "equipment_merge",
+      "options": {
+        "press_at": [
+          1.3,
+          2.3
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 4.2,
+      "capture_ui": true,
+      "output": "../store_assets/raw/video/clip_merge.avi"
+    },
+    {
+      "id": "clip_farm",
+      "kind": "video",
+      "scenario": "late_farming",
+      "options": {
+        "zoom": 1.75,
+        "advance": 0.3,
+        "radius": 220
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 10.0,
+      "capture_ui": true,
+      "output": "../store_assets/raw/video/clip_farm.avi"
+    },
+    {
+      "id": "clip_world",
+      "kind": "video",
+      "scenario": "world_progress",
+      "options": {
+        "open_at": 1.0
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 3.6,
+      "capture_ui": true,
+      "output": "../store_assets/raw/video/clip_world.avi"
+    },
+    {
+      "id": "clip_prestige",
+      "kind": "video",
+      "scenario": "prestige_cards",
+      "options": {
+        "open_at": 0.9,
+        "choose": true,
+        "begin_at": 2.2
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 4.0,
+      "capture_ui": true,
+      "output": "../store_assets/raw/video/clip_prestige.avi"
+    },
+    {
+      "id": "clip_victory",
+      "kind": "video",
+      "scenario": "boss_victory",
+      "options": {
+        "zoom": 2.5,
+        "until": 0.03,
+        "seed": 2737
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 4.5,
+      "capture_ui": true,
+      "output": "../store_assets/raw/video/clip_victory.avi"
+    }
+  ],
+  "text_renderer": "auto",
+  "quality": "high",
+  "fonts": {
+    "default": {
+      "file": "toolkit:NotoSans[wdth,wght].ttf",
+      "weight": 800
+    }
+  },
+  "strings": {
+    "en-US": {
+      "BRAND.NAME": "LootFarmer"
+    }
+  },
+  "style": {
+    "text_color": "#FFD65C",
+    "accent_color": "#FFD65C",
+    "text_fade": 0.2
+  },
+  "screenshots": [],
+  "videos": [
+    {
+      "id": "play_trailer",
+      "profile": "play_store",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "target_duration": 30.0,
+      "output": "../store_assets/video/LootFarmer_Play_Trailer.mp4",
+      "fade_in": 0.0,
+      "fade_out": 0.0,
+      "music": "../assets/sounds/background_music.wav",
+      "music_volume": 0.5,
+      "music_start": 0.0,
+      "music_fade_in": 0.0,
+      "music_fade_out": 1.2,
+      "game_audio": true,
+      "game_volume": 0.9,
+      "shots": [
+        {
+          "id": "boss",
+          "kind": "clip",
+          "source": "../store_assets/raw/video/clip_boss.avi",
+          "start": 0.6,
+          "duration": 7.0
+        },
+        {
+          "id": "loot",
+          "kind": "clip",
+          "source": "../store_assets/raw/video/clip_loot.avi",
+          "start": 0.6,
+          "duration": 3.4,
+          "transition_in": {
+            "type": "crossfade",
+            "duration": 0.3
+          }
+        },
+        {
+          "id": "merge",
+          "kind": "clip",
+          "source": "../store_assets/raw/video/clip_merge.avi",
+          "start": 0.6,
+          "duration": 3.2,
+          "transition_in": {
+            "type": "crossfade",
+            "duration": 0.3
+          }
+        },
+        {
+          "id": "farm",
+          "kind": "clip",
+          "source": "../store_assets/raw/video/clip_farm.avi",
+          "start": 0.6,
+          "duration": "fill",
+          "min_duration": 7.0,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "world",
+          "kind": "clip",
+          "source": "../store_assets/raw/video/clip_world.avi",
+          "start": 0.6,
+          "duration": 2.6,
+          "transition_in": {
+            "type": "crossfade",
+            "duration": 0.3
+          }
+        },
+        {
+          "id": "prestige",
+          "kind": "clip",
+          "source": "../store_assets/raw/video/clip_prestige.avi",
+          "start": 0.6,
+          "duration": 3.0,
+          "transition_in": {
+            "type": "crossfade",
+            "duration": 0.3
+          }
+        },
+        {
+          "id": "victory",
+          "kind": "clip",
+          "source": "../store_assets/raw/video/clip_victory.avi",
+          "start": 0.6,
+          "duration": 3.0,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "brand",
+          "kind": "card",
+          "duration": "auto",
+          "headline_key": "BRAND.NAME",
+          "image": "../store_assets/branding/play_icon_512.png",
+          "text_min_hold": 1.0,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        }
+      ]
+    }
+  ]
+}

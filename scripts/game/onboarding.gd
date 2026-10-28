@@ -11,6 +11,8 @@ extends RefCounted
 ## The early equipment guarantee (Change 15, every mode): the first weapon or outfit within
 ## OnboardingRules.first_item_kills eligible kills, then a copy that can be merged with it within
 ## copy_kills more. Natural drops count first; it only adds a drop when nothing suitable came.
+## Change 27: the first lifetime defeat of a listed boss (the Snowman) drops the weapon it carries
+## (boss_first_kill). Hidden: no copy, banner or effect beyond the ordinary ground drop.
 ## The guide (tutorial_guide.gd) decides how much each mode explains; this file decides what exists.
 var sim
 var rules: OnboardingRules=preload("res://resources/game/onboarding_rules.tres")
@@ -153,6 +155,18 @@ func loot_kill(a: Dictionary,def: Dictionary,dropped: Array) -> Array:
     o.loot_phase=loot_state()
     sim.touch()
     return forced
+
+## Change 27: called for every rewarded kill after its natural rolls. The lifetime kill count
+## (state.group_kills: only real defeats raise it, Prestige keeps it, Hard Reset zeroes it) is already
+## 1 for the first defeat, so no extra saved marker is needed and a reload can never grant it again.
+## The weapon is the boss's own catalog weapon; a natural drop of it on this kill satisfies the rule.
+func boss_first_kill(a: Dictionary,def: Dictionary,dropped: Array) -> Array:
+    if not def.boss or not rules.first_kill_weapon_bosses.has(str(def.id)):return []
+    if int(sim.state.group_kills[int(a.group)])!=1:return []
+    var weapon:=str(def.get("weapon",""))
+    if weapon=="" or not sim.catalog.items.has(weapon) or dropped.has(weapon):return []
+    dropped.append(sim._drop(weapon,a))
+    return [weapon]
 
 func _needed(phase: int) -> int:
     return rules.first_item_kills if phase==LOOT_NONE else rules.copy_kills

@@ -1,4 +1,11 @@
-# LootFarmer — Test Suite (current, 2026-10-28, Change 26)
+# LootFarmer — Test Suite (current, 2026-10-28, Change 27)
+
+## Change 27 — Google Play assets and first Snowman weapon (28 October 2026)
+
+Command: `python tools/run_probes.py`. **36 entries (validator + export_manifest + 34 Godot scenes): 36/36 pass on the single final run of Change 27, no script errors, no timeouts.** Validator 1,574 checks; Godot probes 5,883 checks plus two smoke runs. Details: [Change 27 report](LootFarmer_Change_27_Report.md).
+
+- **Registered** `change_27_probe` (51 checks, Change 27): first lifetime Snowman defeat drops its catalog weapon once (gear chance 0 fixture, ground pickup, no second grant, natural drop not duplicated, same-seed equivalence of every other reward and signal, disk reload, snapshot round trip, real Prestige, Hard Reset, Guided/Basic/None, fixture catalog weapon, unlisted boss, Change 15 guarantee untouched, no player-facing copy); version 27 exact; launcher icons set, loading and shipping; nothing from marketing/, store_assets/, addons/, the toolkit or docs ships; the marketing adapter refuses non-capture profiles. `change_26_probe` now checks version ≥ 26 and the configured project icon.
+- **Store media checks (outside the suite, need captures):** `python marketing/brand/compose_brand.py --check`, `python marketing/finalize_store_assets.py --check` (24 screenshots, trailer ffprobe, icon/feature rules) and `python Godot-Marketing-Toolkit/tools/marketing.py status --project .`.
 
 ## Change 26 — Android export allowlist and ABIs (28 October 2026)
 
@@ -96,6 +103,7 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 
 | Probe | Covers |
 |---|---|
+| change_27_probe | First Snowman weapon (once per lifetime profile), Release version 27, launcher icons shipped, marketing excluded (Change 27) |
 | export_manifest (Change 26) | Export allowlist and Release preset current; ARM ABIs; version code = project version |
 | change_26_probe | Manifest files load, eight stages, runtime-resolved art inside the manifest, Release preset (Change 26) |
 | validate_campaign_source.py | Catalog and source contracts, translations (code, scene keys and dynamic keys), every catalog tool's `--check` including change16_catalog (1,554 checks) |
