@@ -65,6 +65,7 @@ func prepare_scenario(scenario_id: String,options_: Dictionary,game_root: Node,c
         _:push_error(LOG+"unknown scenario "+scenario_id)
     # Change 32: every banner raised during a take is logged, so a review can refuse one it should not show.
     if ok:sim.milestone.connect(func(kind,id):print(LOG,"MILESTONE ",kind," ",id," t=",clock))
+    if ok and bool(options.get("clean",false)):_clean_view()
     print(LOG,"prepared ",scenario_id," ok=",ok," size=",capture.get("width"),"x",capture.get("height"))
     return ok
 
@@ -73,6 +74,53 @@ func _process(delta: float) -> void:
     while not timeline.is_empty() and clock>=float(timeline[0][0]):
         var entry: Array=timeline.pop_front()
         (entry[1] as Callable).call()
+    if not hidden_ui.is_empty():
+        for node in hidden_ui:node.visible=false # game code may re-show a HUD part
+    if zoom_move.size()==4:
+        var x:=clampf((clock-float(zoom_move[2]))/maxf(.001,float(zoom_move[3])),0.0,1.0)
+        x=x*x*(3.0-2.0*x)
+        _set_zoom(lerpf(float(zoom_move[0]),float(zoom_move[1]),x))
+        if x>=1.0:zoom_move=[]
+
+# ---------------------------------------------------------------- Change 32: clean, closer shots
+
+## HUD parts hidden in a clean take (the toolkit's ui_group; Playbook 87.2 intentional clean shot).
+var hidden_ui: Array=[]
+## Camera push-in: [from, to, start clock, seconds].
+var zoom_move: Array=[]
+
+## A clean take shows the world alone: the HUD rows below the map are hidden (the map then fills the
+## screen) and so is everything drawn over the map (minimap, side buttons, labels, joystick). The world,
+## its actors, health bars, numbers, loot, speech and weather are untouched. Marketing capture only.
+func _clean_view() -> void:
+    var group:=str(job.get("ui_group","store_screenshot_ui"))
+    var layout: Node=game.get_node("Safe/Layout")
+    var parts: Array=[]
+    for child in layout.get_children():
+        if child.name!="Map":parts.append(child)
+    for child in layout.get_node("Map").get_children():
+        if child.name!="ViewportContainer":parts.append(child)
+    parts.append(game.get_node("Toast"))
+    for node in parts:
+        if node is CanvasItem:
+            node.add_to_group(group);node.visible=false;hidden_ui.append(node)
+    print(LOG,"clean view: ",hidden_ui.size()," HUD parts hidden")
+
+## The camera's zoom for a clean take. The Settings slider stops at 3x; a clean take has no slider on
+## screen, so the camera may come closer (the same camera, the same follow; only the framing changes).
+func _set_zoom(value: float) -> void:
+    if bool(options.get("clean",false)):_settings().camera_zoom=value
+    else:_settings().set_camera_zoom(value)
+
+func _push_in(to: float,seconds: float) -> void:
+    zoom_move=[float(_settings().camera_zoom),to,clock,seconds]
+    print(LOG,"ZOOM ",zoom_move[0]," -> ",to," t=",clock)
+
+## Equips through the simulation's own equip() (what the item panel's Equip button calls), with no
+## panel on screen, so the shot stays on the player whose look changes.
+func _equip_direct(id: String) -> void:
+    var ok: bool=sim.equip(id)
+    print(LOG,"EQUIP_DIRECT ",id," ok=",ok," t=",clock," weapon=",sim.state.weapon," outfit=",sim.state.outfit)
 
 # ---------------------------------------------------------------- shared late-game profile
 
@@ -532,7 +580,7 @@ func _stage_profile(stage_id: int,player_level: int,items: Array,wear: Array,see
     if not _travel(stage_id,int(options.get("camp",0))):return false
     _settle()
     sim.state.player.hp=sim.stats().hp
-    _settings().set_camera_zoom(float(options.get("zoom",2.0)))
+    _set_zoom(float(options.get("zoom",2.0)))
     print(LOG,"stage profile ",stage_id," level=",player_level," weapon=",sim.state.weapon," outfit=",sim.state.outfit)
     return true
 
@@ -567,7 +615,12 @@ func _trailer_gear() -> bool:
         after_defeat.append([float(steps.get("collect_"+kind,1.0)),func():_collect_item(id)])
         if steps.has("open_"+kind):after_defeat.append([float(steps["open_"+kind]),func():_tap_gear(id)])
         if steps.has("equip_"+kind):after_defeat.append([float(steps["equip_"+kind]),func():_press_pinned("EQUIP",id)])
+        if steps.has("wear_"+kind):after_defeat.append([float(steps["wear_"+kind]),func():_equip_direct(id)])
     if steps.has("close"):after_defeat.append([float(steps.close),func():_close_panel()])
+    # Change 32 revision: [seconds after the defeat, zoom, push-in seconds]
+    if steps.has("push_in"):
+        var p: Array=steps.push_in
+        after_defeat.append([float(p[0]),func():_push_in(float(p[1]),float(p[2]))])
     return true
 
 ## Taps one specific drop on the ground (sim.collect is what tapping a pickup runs).

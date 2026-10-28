@@ -46,6 +46,46 @@ TAKES = [
         'stage': 2, 'zoom': 3.0, 'seed': 3202, 'level': 45, 'advance': 0.6, 'near': 'unit-reindeer-antlers', 'dx': 0, 'dy': -50,
         'items': [['stone_axe', 100], ['boss-snowman_outfit', 40]], 'wear': ['stone_axe', 'boss-snowman_outfit'],
         'skills': [['skill_strike', 10]]}, 6.0),
+
+    # ---- Change 33 revision: clean takes (HUD hidden, the world fills the frame) and a closer camera.
+    # The same Teal Dinosaur fight (seed 3209, identical simulation), but no item panel: after both
+    # pickups the camera pushes in and the drops are equipped through sim.equip() one after the other.
+    ('c33_gear', 'trailer_gear', {
+        'clean': True, 'zoom': 4.2, 'seed': 3209, 'level': 200, 'until': 0.1, 'dx': 0, 'dy': 30,
+        'boss_history': ['boss-teal-dinosaur'], 'challenges': ['boss-teal-dinosaur'],
+        'known_opportunities': ['masterwork_o3', 'arsenal_o1'],
+        'steps': {'collect_outfit': 0.8, 'collect_weapon': 1.1, 'push_in': [1.4, 6.0, 0.9],
+                  'wear_outfit': 2.6, 'wear_weapon': 3.6}}, 10.0),
+    # Summer II: the transformed player (Teal Dinosaur outfit + Iron Sword) attacking, close.
+    ('c33_closeup', 'trailer_farm', {
+        'clean': True, 'stage': 4, 'zoom': 5.5, 'seed': 3331, 'level': 200, 'advance': 0.4,
+        'near': 'unit-cowboy-bandana', 'dx': 0, 'dy': 16,
+        'items': [['iron_sword', 0], ['boss-teal-dinosaur_outfit_t2', 0], ['wood_sword', 100]],
+        'wear': ['iron_sword', 'boss-teal-dinosaur_outfit_t2'],
+        'known_opportunities': ['masterwork_o3', 'arsenal_o1']}, 4.0),
+    # Four seasons, four looks, four weapons (each outfit and weapon a real drop of its season's map
+    # or an earlier one). Clean takes at a closer zoom than the HUD allows; each spot is a pack the
+    # fixed weather pattern crosses during the shot.
+    ('c33_winter', 'trailer_farm', {
+        'clean': True, 'stage': 2, 'zoom': 3.8, 'seed': 3341, 'level': 45, 'advance': 0.5,
+        'near': 'unit-reindeer-antlers', 'dx': 20, 'dy': 25,
+        'items': [['stone_axe', 100], ['boss-snowman_outfit', 40]], 'wear': ['stone_axe', 'boss-snowman_outfit'],
+        'skills': [['skill_strike', 10]]}, 5.0),
+    ('c33_summer', 'trailer_farm', {
+        'clean': True, 'stage': 4, 'zoom': 3.8, 'seed': 3342, 'level': 120, 'advance': 0.5,
+        'near': 'unit-duck-swim-ring', 'dx': 0, 'dy': 18,
+        'items': [['iron_sword', 100], ['unit-snorkeler_outfit', 60]], 'wear': ['iron_sword', 'unit-snorkeler_outfit'],
+        'known_opportunities': ['masterwork_o3', 'arsenal_o1']}, 5.0),
+    ('c33_autumn', 'trailer_farm', {
+        'clean': True, 'stage': 6, 'zoom': 3.8, 'seed': 3343, 'level': 700, 'advance': 0.5,
+        'near': 'unit-television-head', 'dx': 0, 'dy': 18,
+        'items': [['gold_sword', 100], ['boss-grim-reaper_outfit', 60]], 'wear': ['gold_sword', 'boss-grim-reaper_outfit'],
+        'skills': [['skill_fire', 60]]}, 5.0),
+    ('c33_spring', 'trailer_farm', {
+        'clean': True, 'stage': 7, 'zoom': 3.8, 'seed': 3344, 'level': 900, 'advance': 0.5,
+        'near': 'unit-bunny-ears', 'dx': 0, 'dy': 18,
+        'items': [['diamond_axe', 100], ['boss-bee_outfit', 60]], 'wear': ['diamond_axe', 'boss-bee_outfit'],
+        'skills': [['skill_lightning', 60]]}, 5.0),
 ]
 
 
@@ -53,27 +93,30 @@ TAKES = [
 STRINGS = {
     'CARD.BOSS': 'This boss calls for backup.',
     'CARD.GEAR': 'Defeat an enemy and wear its gear.',
-    'CARD.SEASONS': 'Every season has new gear to farm.',
+    'CARD.SEASONS': 'Each season has its own gear.',
 }
 
 # The cut, in order. Clip 'start' is seconds into its take; the log of each take (<take>.avi.log)
 # gives the event times these in-points were chosen around (see README.md, "Timeline").
 fade = {'type': 'fade', 'duration': 0.4}        # through black (a card's edge, or the end card's dip)
-cross = {'type': 'crossfade', 'duration': 0.4}  # picture to picture
+cross = {'type': 'crossfade', 'duration': 0.3}  # picture to picture (between seasons: no black)
 SHOTS = [
     {'id': 'card_boss', 'kind': 'card', 'duration': 'auto', 'headline_key': 'CARD.BOSS'},
     # Lightning 0.89 s, summon telegraph then two Sprouts 2.23 s, Fire 3.29 s, Arcane Strike 4.39 s.
     {'id': 'boss', 'kind': 'clip', 'source': f'{RAW}/c32_boss.avi', 'start': 0.6, 'duration': 4.2, 'transition_in': fade},
     {'id': 'card_gear', 'kind': 'card', 'duration': 'auto', 'headline_key': 'CARD.GEAR', 'transition_in': fade},
-    # Defeat 2.96 s, both drops collected 3.79/4.09 s, outfit opened 4.59 and equipped 5.99 s,
-    # Iron Sword opened 6.69 and equipped 7.79 s, panel closed 8.29 s, new look held to the end.
-    {'id': 'gear', 'kind': 'clip', 'source': f'{RAW}/c32_gear.avi', 'start': 1.3, 'duration': 'fill', 'min_duration': 8.6,
+    # Clean take: defeat 2.96 s, both drops collected 3.79/4.09 s, camera pushes in 4.39-5.29 s,
+    # Teal Dinosaur outfit on 5.59 s, Iron Sword on 6.59 s, the new look held to the end.
+    {'id': 'gear', 'kind': 'clip', 'source': f'{RAW}/c33_gear.avi', 'start': 1.2, 'duration': 'fill', 'min_duration': 7.5,
      'transition_in': fade},
-    # Tile tapped 0.83 s, "Merge 40 spare copies" 2.33 s: ^0 -> ^40, Maximum health 61.20 -> 110.16.
-    {'id': 'merge', 'kind': 'clip', 'source': f'{RAW}/c32_merge.avi', 'start': 0.4, 'duration': 3.4, 'transition_in': cross},
+    # The transformed player attacking, close (1.8 s).
+    {'id': 'closeup', 'kind': 'clip', 'source': f'{RAW}/c33_closeup.avi', 'start': 1.2, 'duration': 1.8, 'transition_in': cross},
     {'id': 'card_seasons', 'kind': 'card', 'duration': 'auto', 'headline_key': 'CARD.SEASONS', 'transition_in': fade},
-    {'id': 'autumn', 'kind': 'clip', 'source': f'{RAW}/c32_autumn.avi', 'start': 3.1, 'duration': 2.3, 'transition_in': fade},
-    {'id': 'winter', 'kind': 'clip', 'source': f'{RAW}/c32_winter.avi', 'start': 2.0, 'duration': 2.3, 'transition_in': cross},
+    # Four seasons, four looks; in-points where each map's weather crosses the frame.
+    {'id': 'winter', 'kind': 'clip', 'source': f'{RAW}/c33_winter.avi', 'start': 0.9, 'duration': 1.8, 'transition_in': fade},
+    {'id': 'summer', 'kind': 'clip', 'source': f'{RAW}/c33_summer.avi', 'start': 1.0, 'duration': 1.8, 'transition_in': cross},
+    {'id': 'autumn', 'kind': 'clip', 'source': f'{RAW}/c33_autumn.avi', 'start': 1.6, 'duration': 1.8, 'transition_in': cross},
+    {'id': 'spring', 'kind': 'clip', 'source': f'{RAW}/c33_spring.avi', 'start': 1.4, 'duration': 1.8, 'transition_in': cross},
     # The approved feature graphic's portrait restaging in motion (compose_end_card.py).
     {'id': 'end_card', 'kind': 'clip', 'source': f'{RAW}/end_card.mkv', 'start': 0.0, 'duration': 3.8, 'transition_in': fade},
 ]

@@ -1,4 +1,4 @@
-"""Change 32 trailer review: evidence sheets and validation for the finished MP4.
+"""Store trailer review (Change 32, revised in Change 33): evidence sheets and validation for the finished MP4.
 
 Reads the rendered store_assets/video/LootFarmer_Play_Trailer_en-US.mp4 (never the plan alone), the
 take logs (store_assets/raw/video/trailer_c32/<take>.avi.log) and the toolkit's own timing plan, and writes:
@@ -8,14 +8,15 @@ take logs (store_assets/raw/video/trailer_c32/<take>.avi.log) and the toolkit's 
     card_holds.png         each black card at the middle of its fully readable hold, full size
     phone_strip.png        every 0.5 s at Play-preview phone size (180x320)
     transitions.png        every transition frame by frame
-    gear_sequence.png      the Teal Dinosaur story: carried gear, defeat, drops, pickup, equip, new look
+    gear_sequence.png      the Teal Dinosaur story: carried gear, defeat, drops, pickup, equip, new look, close-up
     summon.png             the Sunflower's summon as it happens
-    variety.png            each chapter's setting, player outfit/weapon and enemies
-    old_vs_new.png         the rejected Change 27 trailer and this one at the same moments
+    variety.png            each gameplay shot's setting and player outfit/weapon (four seasons, four looks)
+    weather.png            each season's weather in consecutive frames
+    old_vs_new.png         Change 27 (rejected), Change 32 and this cut at the same moments
     end_card.png           the last 3.5 s
     audio.png              waveform of the final mix against the source WAV section
     validation.json        ffprobe, black levels, holds, transitions, audio isolation, asset hashes, timeline
-  docs/Change_32_Evidence/ reduced copies of the sheets + validation.json
+  docs/Change_33_Evidence/ reduced copies of the sheets + validation.json
 
 Usage (project root): python marketing/trailer/review_trailer.py
 Exits non-zero when a contract fails (dimensions, duration, streams, music-only audio, protected hashes,
@@ -40,9 +41,10 @@ ROOT = HERE.parents[1]
 MANIFEST = HERE / 'manifest.json'
 VIDEO = ROOT / 'store_assets/video/LootFarmer_Play_Trailer_en-US.mp4'
 OLD = ROOT / 'store_assets/video/rejected_change_27/LootFarmer_Play_Trailer_en-US.mp4'
+PREVIOUS = ROOT / 'store_assets/video/change_32/LootFarmer_Play_Trailer_en-US.mp4'
 RAW = ROOT / 'store_assets/raw/video/trailer_c32'
 OUT = ROOT / 'store_assets/video/review_c32'
-DOCS = ROOT / 'docs/Change_32_Evidence'
+DOCS = ROOT / 'docs/Change_33_Evidence'
 MUSIC = ROOT / 'assets/sounds/background_music.wav'
 MUSIC_SHA = 'b3664d04791bb86f220b790823dab34ec6912ba93a1a60cf035e82b557b45778'
 FPS = 30
@@ -252,44 +254,57 @@ def main() -> int:
     fig.save(OUT / 'audio.png')
 
     # ------------------------------------------------------------ gameplay contracts from the take logs
-    ev = {take: take_events(take) for take in ('c32_boss', 'c32_gear', 'c32_merge', 'c32_autumn', 'c32_winter')}
+    take_of = {sh['id']: Path(sh['source']).stem for sh in shots if sh['kind'] == 'clip' and sh['source'].endswith('.avi')}
+    ev = {take: take_events(take) for take in set(take_of.values())}
 
     def find(take: str, pattern: str) -> float | None:
         return next((t for line, t in ev[take] if re.search(pattern, line)), None)
 
-    gear_log = (RAW / 'c32_gear.avi.log').read_text(encoding='utf-8', errors='replace')
+    gear = take_of['gear']
+    gear_log = (RAW / f'{gear}.avi.log').read_text(encoding='utf-8', errors='replace')
     timeline = {
-        'boss_lightning': out_time('boss', find('c32_boss', r'PLAYER_SKILL lightning')),
-        'boss_summon_two_sprouts': out_time('boss', find('c32_boss', r'SUMMON .* helpers=2')),
-        'boss_fire': out_time('boss', find('c32_boss', r'PLAYER_SKILL fire')),
-        'boss_arcane_strike': out_time('boss', find('c32_boss', r'PLAYER_SKILL strike')),
-        'teal_dinosaur_defeated_drops_both': out_time('gear', find('c32_gear', r'DEFEATED .*iron_sword.*boss-teal-dinosaur_outfit_t2')),
-        'pickup_outfit': out_time('gear', find('c32_gear', r'COLLECT boss-teal-dinosaur_outfit_t2 ok=true')),
-        'pickup_iron_sword': out_time('gear', find('c32_gear', r'COLLECT iron_sword ok=true')),
-        'outfit_panel_open': out_time('gear', find('c32_gear', r'OPEN boss-teal-dinosaur_outfit_t2')),
-        'outfit_equipped': out_time('gear', find('c32_gear', r'PRESS EQUIP boss-teal-dinosaur_outfit_t2')),
-        'iron_sword_panel_open': out_time('gear', find('c32_gear', r'OPEN iron_sword')),
-        'iron_sword_equipped': out_time('gear', find('c32_gear', r'PRESS EQUIP iron_sword')),
-        'panel_closed_new_look': out_time('gear', find('c32_gear', r'CLOSE .*weapon=iron_sword outfit=boss-teal-dinosaur_outfit_t2')),
-        'merge_panel_open': out_time('merge', find('c32_merge', r'OPEN boss-teal-dinosaur_outfit_t2')),
-        'merge_40_copies': out_time('merge', find('c32_merge', r"MERGE_ALL 'Merge 40 spare copies' .* \^0 -> \^40")),
+        'boss_lightning': out_time('boss', find(take_of['boss'], r'PLAYER_SKILL lightning')),
+        'boss_summon_two_sprouts': out_time('boss', find(take_of['boss'], r'SUMMON .* helpers=2')),
+        'boss_fire': out_time('boss', find(take_of['boss'], r'PLAYER_SKILL fire')),
+        'boss_arcane_strike': out_time('boss', find(take_of['boss'], r'PLAYER_SKILL strike')),
+        'teal_dinosaur_defeated_drops_both': out_time('gear', find(gear, r'DEFEATED .*iron_sword.*boss-teal-dinosaur_outfit_t2')),
+        'pickup_outfit': out_time('gear', find(gear, r'COLLECT boss-teal-dinosaur_outfit_t2 ok=true')),
+        'pickup_iron_sword': out_time('gear', find(gear, r'COLLECT iron_sword ok=true')),
+        'camera_push_in': out_time('gear', find(gear, r'ZOOM ')),
+        'outfit_equipped': out_time('gear', find(gear, r'EQUIP_DIRECT boss-teal-dinosaur_outfit_t2 ok=true')),
+        'iron_sword_equipped': out_time('gear', find(gear, r'EQUIP_DIRECT iron_sword ok=true .*outfit=boss-teal-dinosaur_outfit_t2')),
     }
     for key, value in timeline.items():
         if value is None:
             problems.append(f'required event missing from its take log: {key}')
-    for take in ev:
+    for shot_id, take in take_of.items():
+        i = by_id[shot_id]
         for line, t in ev[take]:
             if line.startswith('MILESTONE'):
-                i = by_id[{'c32_boss': 'boss', 'c32_gear': 'gear', 'c32_merge': 'merge', 'c32_autumn': 'autumn', 'c32_winter': 'winter'}[take]]
-                ot = out_time(shots[i]['id'], t)
+                ot = out_time(shot_id, t)
                 if starts[i] <= ot <= starts[i] + lengths[i]:
                     problems.append(f'banner raised on screen in {take}: {line} at {ot}s')
+    # The look each take starts in, from its log's profile line (the gear take changes it on screen).
+    looks = {}
+    for shot_id, take in take_of.items():
+        text = (RAW / f'{take}.avi.log').read_text(encoding='utf-8', errors='replace')
+        m = re.search(r'stage profile \d+ level=\d+ weapon=(\S*) outfit=(\S*)', text)
+        if shot_id == 'boss':
+            looks[shot_id] = {'take': take, 'weapon': 'emerald_sword', 'outfit': 'boss-red-panda_outfit_t5'}
+        else:
+            looks[shot_id] = {'take': take, 'weapon': m.group(1) if m else None, 'outfit': m.group(2) if m else None}
+    seasons = ['winter', 'summer', 'autumn', 'spring']
+    season_looks = [(looks[x]['outfit'], looks[x]['weapon']) for x in seasons]
+    if len(set(o for o, _ in season_looks)) != 4 or len(set(w for _, w in season_looks)) != 4:
+        problems.append(f'season looks not all different: {season_looks}')
     gear_ids = {'enemy': 'boss-teal-dinosaur (Summer II, stage 4)', 'enemy_body': 'boss-teal-dinosaur_outfit', 'enemy_weapon': 'iron_sword',
                 'catalog_loot': ['iron_sword', 'boss-teal-dinosaur_outfit'], 'dropped': ['iron_sword', 'boss-teal-dinosaur_outfit_t2'],
                 'player_before': {'weapon': 'wood_sword', 'outfit': '(none: the plain body)'},
                 'player_after': {'weapon': 'iron_sword', 'outfit': 'boss-teal-dinosaur_outfit_t2'},
-                'seed': 3209, 'log': 'store_assets/raw/video/trailer_c32/c32_gear.avi.log',
-                'log_confirms_before_and_after': 'stage profile 4 level=200 weapon=wood_sword outfit=' in gear_log and 'CLOSE' in gear_log}
+                'equipped_through': "simulation.equip() (the call behind the item panel's Equip button); no panel on screen",
+                'seed': 3209, 'log': f'store_assets/raw/video/trailer_c32/{gear}.avi.log',
+                'log_confirms_before_and_after': 'stage profile 4 level=200 weapon=wood_sword outfit=' in gear_log
+                and 'EQUIP_DIRECT iron_sword ok=true' in gear_log}
 
     # ------------------------------------------------------------ protected assets unchanged
     hashes = {}
@@ -316,7 +331,7 @@ def main() -> int:
         t0, t1 = starts[i], starts[i] + lengths[i] - 1 / FPS
         rows.append((f"{s['id']} ({lengths[i]:.2f}s{', ' + s['source'].split('/')[-1] + ' from ' + str(s['start']) + 's' if s['kind'] == 'clip' else ''})",
                      [(round(t0, 3), 'first'), (round((t0 + t1) / 2, 3), 'middle'), (round(t1, 3), 'last')]))
-    sheet(rows, OUT / 'contact_sheet.png', 240, title='Change 32 trailer: every shot, first / middle / last frame (output time)')
+    sheet(rows, OUT / 'contact_sheet.png', 240, title='Store trailer: every shot, first / middle / last frame (output time)')
     sheet([('black cards at the middle of their fully readable hold', [(round((c['text_full_from_s'] + c['text_full_to_s']) / 2, 3),
             f"{c['text']}\nreadable {c['readable_s']}s ({c['text_full_from_s']}-{c['text_full_to_s']}s)") for c in cards])],
           OUT / 'card_holds.png', 540)
@@ -337,13 +352,13 @@ def main() -> int:
               (round(g['teal_dinosaur_defeated_drops_both'] - 0.5, 3), 'last blows'),
               (round(g['teal_dinosaur_defeated_drops_both'] + 0.3, 3), 'defeated: "Hey! My outfit!"\ndrops: iron_sword + outfit_t2'),
               (round(g['pickup_outfit'] - 0.1, 3), 'both drops on the ground'),
-              (round(g['pickup_iron_sword'] + 0.2, 3), 'collected: both in Gear')]),
-           ('equip from the gear grid, then the new look', [
-              (round(g['outfit_equipped'] - 0.3, 3), 'Teal Dinosaur Outfit\nUpgrade, Equip'),
-              (round(g['outfit_equipped'] + 0.3, 3), 'outfit equipped'),
-              (round(g['iron_sword_equipped'] - 0.3, 3), 'Iron Sword vs Wood Sword\nEquip'),
-              (round(g['panel_closed_new_look'] + 0.5, 3), 'the player now wears the\nTeal Dinosaur look + Iron Sword'),
-              (round(starts[by_id['merge']] - 0.1, 3), 'held before the merge')])],
+              (round(g['pickup_iron_sword'] + 0.2, 3), 'both collected')]),
+           ('the camera comes close; the drops are equipped (no panel): the look changes on screen', [
+              (round(g['camera_push_in'] + 1.0, 3), 'close: plain body + Wood Sword'),
+              (round(g['outfit_equipped'] + 0.2, 3), 'Teal Dinosaur outfit on'),
+              (round(g['iron_sword_equipped'] + 0.2, 3), 'Iron Sword in hand'),
+              (round(starts[by_id['closeup']] - 0.2, 3), 'the new look held'),
+              (round(starts[by_id['closeup']] + 0.9, 3), 'close-up: attacking in it')])],
           OUT / 'gear_sequence.png', 300, title='Priority sequence: same-enemy gear -> drop -> pickup -> equip -> visible new look')
     sm = g['boss_summon_two_sprouts']
     sheet([('Spring II, rain: the Sunflower summons two Sprouts during the shot; the player casts skills', [
@@ -351,33 +366,39 @@ def main() -> int:
               (round(sm - 0.9, 3), 'summon telegraph'), (round(sm - 0.3, 3), 'portal'), (round(sm + 0.2, 3), 'two Sprouts arrive'),
               (round(g['boss_fire'] + 0.15, 3), 'Fire Burst (player)'), (round(g['boss_arcane_strike'] - 0.1, 3), 'Arcane Strike')])],
           OUT / 'summon.png', 260)
+    labels = {'boss': 'Spring II boss, rain', 'closeup': 'Summer II, transformed', 'winter': 'Winter II: snow, blue leaves',
+              'summer': 'Summer II: rain', 'autumn': 'Autumn II: falling leaves', 'spring': 'Spring I'}
+
+    def short(look: dict, shot_id: str) -> str:
+        outfit = 'boss-teal-dinosaur_outfit_t2' if shot_id == 'closeup' else look['outfit']
+        return f"{outfit.replace('_outfit', '').replace('boss-', '').replace('unit-', '')} + {look['weapon']}"
     sheet([('settings, player looks and enemies (gameplay shots)', [
-              (round(starts[by_id['boss']] + 2.5, 3), 'Spring II, rain\nRed Panda outfit + Emerald Sword'),
-              (round(starts[by_id['gear']] + 0.6, 3), 'Summer II, rain\nplain body + Wood Sword'),
-              (round(g['panel_closed_new_look'] + 0.6, 3), 'Summer II\nTeal Dinosaur + Iron Sword'),
-              (round(starts[by_id['autumn']] + 1.2, 3), 'Autumn II, falling leaves\nRed Fox outfit + Gold Sword'),
-              (round(starts[by_id['winter']] + 1.3, 3), 'Winter II, blue leaves, snow\nSnowman outfit + Stone Axe')])],
-          OUT / 'variety.png', 260)
+              (round(starts[by_id[x]] + lengths[by_id[x]] / 2, 3), f"{labels[x]}\n{short(looks[x], x)}")
+              for x in ['boss', 'closeup'] + seasons])], OUT / 'variety.png', 240)
+    # Weather in motion: four frames 0.13 s apart of each season's ground, full detail at half size.
+    sheet([(labels[x], [(round(starts[by_id[x]] + 0.45 + k * 0.133, 3), '') for k in range(4)]) for x in seasons],
+          OUT / 'weather.png', 540, title='Seasonal weather in motion (consecutive frames, half size)')
     sheet([('last 3.5 s: the approved feature graphic restaged for 9:16', [(round(26.5 + k * 0.5, 2), '') for k in range(7)] + [(29.97, 'final frame')])],
           OUT / 'end_card.png', 220)
-    if OLD.exists():
-        times = [1.0, 4.0, 9.0, 13.0, 18.0, 23.0, 27.0, 29.5]
-        a_ = frames_at(OLD, times, 160)
-        b_ = frames_at(VIDEO, times, 160)
-        th = next(iter(a_.values())).height
-        im = Image.new('RGB', (8 + len(times) * 168, 40 + 2 * (th + 30)), (22, 22, 28))
+    versions = [v for v in (OLD, PREVIOUS) if v.exists()] + [VIDEO]
+    if len(versions) > 1:
+        times = [1.0, 4.0, 9.0, 13.0, 15.5, 17.0, 21.0, 22.5, 24.0, 25.5, 28.0]
+        frames = [frames_at(v, times, 140) for v in versions]
+        th = next(iter(frames[0].values())).height
+        im = Image.new('RGB', (8 + len(times) * 148, 40 + len(versions) * (th + 30)), (22, 22, 28))
         d = ImageDraw.Draw(im)
-        d.text((8, 8), 'old (rejected Change 27) above, Change 32 below, same output times', fill=(255, 214, 92), font=FONT)
+        names = ['Change 27 (rejected)' if v == OLD else 'Change 32' if v == PREVIOUS else 'this version' for v in versions]
+        d.text((8, 8), 'rows: ' + ' / '.join(names) + '; same output times', fill=(255, 214, 92), font=FONT)
         for k, t in enumerate(times):
-            x = 8 + k * 168
-            for row, src in enumerate((a_, b_)):
+            x = 8 + k * 148
+            for row, src in enumerate(frames):
                 y = 40 + row * (th + 30)
                 im.paste(src[t], (x, y))
                 d.text((x + 3, y + 3), f'{t:.1f}s', fill=(255, 220, 90), font=SMALL, stroke_width=2, stroke_fill=(0, 0, 0))
         im.save(OUT / 'old_vs_new.png')
 
     # ------------------------------------------------------------ report
-    report = {'change': 32, 'video': facts, 'plan': [{'shot': s['id'], 'kind': s['kind'], 'source': s.get('source'), 'source_in_s': s.get('start'),
+    report = {'change': 33, 'video': facts, 'plan': [{'shot': s['id'], 'kind': s['kind'], 'source': s.get('source'), 'source_in_s': s.get('start'),
                                                       'out_start_s': round(starts[i], 3), 'out_end_s': round(starts[i] + lengths[i], 3),
                                                       'transition_in': s.get('transition_in', {}).get('type', 'cut' if i else 'start')}
                                                      for i, s in enumerate(shots)],
@@ -386,7 +407,7 @@ def main() -> int:
               'gear_story_ids': gear_ids, 'protected_hashes_unchanged': not changed, 'protected_files_checked': len(hashes),
               'problems': problems}
     (OUT / 'validation.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
-    for name in ('contact_sheet', 'card_holds', 'phone_strip', 'transitions', 'gear_sequence', 'summon', 'variety', 'old_vs_new',
+    for name in ('contact_sheet', 'card_holds', 'phone_strip', 'transitions', 'gear_sequence', 'summon', 'variety', 'weather', 'old_vs_new',
                  'end_card', 'audio'):
         src = OUT / f'{name}.png'
         if src.exists():

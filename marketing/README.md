@@ -1,4 +1,4 @@
-# LootFarmer marketing (Google Play listing assets, Change 27; trailer Change 32)
+# LootFarmer marketing (Google Play listing assets, Change 27; trailer Changes 32 and 33)
 
 Game-owned glue for the **Godot Marketing Capture Toolkit 1.0.2** (`Godot-Marketing-Toolkit/`, installed
 addons pinned by `marketing_capture_toolkit.lock.json`). Nothing here ships: `marketing/`, `store_assets/`,
@@ -11,7 +11,7 @@ the toolkit and both capture addons are outside the Release allowlist (`tools/ex
 |---|---|---|
 | `marketing/game_scenarios.gd` | yes | The one `prepare_scenario(id, options)` adapter for screenshots **and** trailer clips. Builds a late-game profile through the simulation's own calls, then lets the real game play. `is_capture_safe()` requires a `capture-*` profile and `--no-autosave`. |
 | `marketing/make_manifest.py` → `marketing/manifest.json` | yes | Device classes, the six screenshot concepts and the seven Change 27 clips (no video since Change 32). Edit the tables in the `.py`, re-run it. |
-| `marketing/trailer/` | yes | **Store trailer (Change 32):** its own manifest generator, end-card animation, review script and README (takes, timeline, music in-point, reuse). |
+| `marketing/trailer/` | yes | **Store trailer (Change 32, revised in Change 33):** its own manifest generator, end-card animation, review script and README (takes, timeline, music in-point, reuse). |
 | `marketing/finalize_store_assets.py` | yes | Byte-identical store copies, Play-rule validation, ffprobe check, provenance manifest, contact sheet, review copies in `docs/Change_27_Evidence/`. |
 | `marketing/brand/compose_brand.py`, `brand_config.json` | yes | Record of the rejected Change 27 icon and feature graphic. Since Change 30 it renders nothing unless given `--legacy-change-27`; `--check` still validates the branding files for `finalize_store_assets.py`. |
 | `marketing/brand/icon/` | yes | **App icon (Change 30):** layered JSON on a 32-unit grid (`final.json`, three concepts), composer writing the Play icon and all four launcher layers, review sheets and `docs/Change_30_Evidence/`. See its `README.md`. |
@@ -20,8 +20,8 @@ the toolkit and both capture addons are outside the Release allowlist (`tools/ex
 | `store_assets/raw/screenshots/<Device>/<Device>_NN.png` | no (ignored) | Untouched Godot captures (masters) + `.log` per capture. |
 | `store_assets/screenshots/<Device>/<Device>_NN.png` | no | Upload files (byte copies of the masters). |
 | `store_assets/raw/video/clip_*.avi` (+ `.log`) | no | Change 27 Movie Maker recordings (the rejected cut's footage; kept for social reuse). |
-| `store_assets/raw/video/trailer_c32/` | no | Change 32 trailer masters (`c32_*.avi` + logs, `end_card.mkv`, layers, drafts). |
-| `store_assets/video/LootFarmer_Play_Trailer_en-US.mp4` | no | The Change 32 trailer; `_review.png` / `_review.json` beside it, sheets in `review_c32/`, the rejected Change 27 cut in `rejected_change_27/`. |
+| `store_assets/raw/video/trailer_c32/` | no | Trailer masters: `c32_*.avi` (Change 32) and `c33_*.avi` (Change 33 clean takes) + logs, `end_card.mkv`, layers, drafts. |
+| `store_assets/video/LootFarmer_Play_Trailer_en-US.mp4` | no | The Change 32 trailer; `_review.png` / `_review.json` beside it, sheets in `review_c32/`, the first Change 32 cut in `change_32/`, the rejected Change 27 cut in `rejected_change_27/`. |
 | `store_assets/branding/` | no | `play_icon_512.png`, `icon_manifest.json`, `feature_graphic_1024x500.png`, `feature_graphic_manifest.json`, `source_layers/` (each feature-graphic layer alone; `icon_final/` each icon layer alone), `review/` previews and concepts (`review/icon/` for the icon). |
 | `store_assets/store_assets_manifest.json` | no (copy in docs) | Paths, sizes, SHA-256, scenario/options/device per file, alt-text drafts. |
 
@@ -30,7 +30,7 @@ Phone 1080x1920, Tablet_7 1440x2560, Tablet_10 1800x3200, Desktop 1620x2880 (Chr
 
 Scenario ids: `boss_sunflower` (01; trailer boss take), `loot_collection` (02), `equipment_merge` (03),
 `late_farming` (04), `world_progress` (05), `prestige_cards` (06), `boss_victory` (Change 27 clip),
-`trailer_gear`, `trailer_merge`, `trailer_farm` (Change 32 trailer), `explore` (development aid only).
+`trailer_gear`, `trailer_merge`, `trailer_farm` (trailer; option `clean` hides the HUD for a clean, closer shot), `explore` (development aid only).
 
 ## Commands (project root, Windows)
 

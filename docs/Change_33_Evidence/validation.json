@@ -1,0 +1,471 @@
+{
+  "change": 33,
+  "video": {
+    "file": "store_assets/video/LootFarmer_Play_Trailer_en-US.mp4",
+    "bytes": 8565052,
+    "sha256": "f39f8232641c0c9eded1861e5ac677a2dc23dd7a2a36a88a29bec023f03d6094",
+    "video_streams": 1,
+    "audio_streams": 1,
+    "video": {
+      "codec_name": "h264",
+      "profile": "High",
+      "pix_fmt": "yuv420p",
+      "width": 1080,
+      "height": 1920,
+      "avg_frame_rate": "30/1",
+      "nb_frames": "900",
+      "color_range": null,
+      "sample_aspect_ratio": "1:1",
+      "duration": "30.000000"
+    },
+    "rotation": 0,
+    "audio": {
+      "codec_name": "aac",
+      "sample_rate": "48000",
+      "channels": 2,
+      "duration": "30.000000"
+    },
+    "format_duration": 30.0,
+    "faststart_moov_before_mdat": true
+  },
+  "plan": [
+    {
+      "shot": "card_boss",
+      "kind": "card",
+      "source": null,
+      "source_in_s": null,
+      "out_start_s": 0.0,
+      "out_end_s": 2.3,
+      "transition_in": "start"
+    },
+    {
+      "shot": "boss",
+      "kind": "clip",
+      "source": "../../store_assets/raw/video/trailer_c32/c32_boss.avi",
+      "source_in_s": 0.6,
+      "out_start_s": 1.9,
+      "out_end_s": 6.1,
+      "transition_in": "fade"
+    },
+    {
+      "shot": "card_gear",
+      "kind": "card",
+      "source": null,
+      "source_in_s": null,
+      "out_start_s": 5.7,
+      "out_end_s": 8.8,
+      "transition_in": "fade"
+    },
+    {
+      "shot": "gear",
+      "kind": "clip",
+      "source": "../../store_assets/raw/video/trailer_c32/c33_gear.avi",
+      "source_in_s": 1.2,
+      "out_start_s": 8.4,
+      "out_end_s": 16.767,
+      "transition_in": "fade"
+    },
+    {
+      "shot": "closeup",
+      "kind": "clip",
+      "source": "../../store_assets/raw/video/trailer_c32/c33_closeup.avi",
+      "source_in_s": 1.2,
+      "out_start_s": 16.467,
+      "out_end_s": 18.267,
+      "transition_in": "crossfade"
+    },
+    {
+      "shot": "card_seasons",
+      "kind": "card",
+      "source": null,
+      "source_in_s": null,
+      "out_start_s": 17.867,
+      "out_end_s": 20.7,
+      "transition_in": "fade"
+    },
+    {
+      "shot": "winter",
+      "kind": "clip",
+      "source": "../../store_assets/raw/video/trailer_c32/c33_winter.avi",
+      "source_in_s": 0.9,
+      "out_start_s": 20.3,
+      "out_end_s": 22.1,
+      "transition_in": "fade"
+    },
+    {
+      "shot": "summer",
+      "kind": "clip",
+      "source": "../../store_assets/raw/video/trailer_c32/c33_summer.avi",
+      "source_in_s": 1.0,
+      "out_start_s": 21.8,
+      "out_end_s": 23.6,
+      "transition_in": "crossfade"
+    },
+    {
+      "shot": "autumn",
+      "kind": "clip",
+      "source": "../../store_assets/raw/video/trailer_c32/c33_autumn.avi",
+      "source_in_s": 1.6,
+      "out_start_s": 23.3,
+      "out_end_s": 25.1,
+      "transition_in": "crossfade"
+    },
+    {
+      "shot": "spring",
+      "kind": "clip",
+      "source": "../../store_assets/raw/video/trailer_c32/c33_spring.avi",
+      "source_in_s": 1.4,
+      "out_start_s": 24.8,
+      "out_end_s": 26.6,
+      "transition_in": "crossfade"
+    },
+    {
+      "shot": "end_card",
+      "kind": "clip",
+      "source": "../../store_assets/raw/video/trailer_c32/end_card.mkv",
+      "source_in_s": 0.0,
+      "out_start_s": 26.2,
+      "out_end_s": 30.0,
+      "transition_in": "fade"
+    }
+  ],
+  "cards": [
+    {
+      "shot": "card_boss",
+      "text": "This boss calls for backup.",
+      "text_full_from_s": 0.2,
+      "text_full_to_s": 1.7,
+      "readable_s": 1.5,
+      "black_before_text_max_luma": 1
+    },
+    {
+      "shot": "card_gear",
+      "text": "Defeat an enemy and wear its gear.",
+      "text_full_from_s": 6.3,
+      "text_full_to_s": 8.2,
+      "readable_s": 1.9,
+      "black_before_text_max_luma": 1
+    },
+    {
+      "shot": "card_seasons",
+      "text": "Each season has its own gear.",
+      "text_full_from_s": 18.467,
+      "text_full_to_s": 20.1,
+      "readable_s": 1.633,
+      "black_before_text_max_luma": 1
+    }
+  ],
+  "toolkit_transitions": [
+    {
+      "at": "card_boss -> boss",
+      "type": "fade",
+      "start_s": 1.9,
+      "duration_s": 0.4,
+      "range": 83.7,
+      "max_step": 8.1,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "boss -> card_gear",
+      "type": "fade",
+      "start_s": 5.7,
+      "duration_s": 0.4,
+      "range": 83.9,
+      "max_step": 8.8,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "card_gear -> gear",
+      "type": "fade",
+      "start_s": 8.4,
+      "duration_s": 0.4,
+      "range": 104.5,
+      "max_step": 10.1,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "gear -> closeup",
+      "type": "crossfade",
+      "start_s": 16.467,
+      "duration_s": 0.3,
+      "range": 18.0,
+      "max_step": 4.5,
+      "intermediate": 6,
+      "ok": true
+    },
+    {
+      "at": "closeup -> card_seasons",
+      "type": "fade",
+      "start_s": 17.867,
+      "duration_s": 0.4,
+      "range": 114.4,
+      "max_step": 12.3,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "card_seasons -> winter",
+      "type": "fade",
+      "start_s": 20.3,
+      "duration_s": 0.4,
+      "range": 193.9,
+      "max_step": 18.6,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "winter -> summer",
+      "type": "crossfade",
+      "start_s": 21.8,
+      "duration_s": 0.3,
+      "range": 67.2,
+      "max_step": 9.3,
+      "intermediate": 7,
+      "ok": true
+    },
+    {
+      "at": "summer -> autumn",
+      "type": "crossfade",
+      "start_s": 23.3,
+      "duration_s": 0.3,
+      "range": 25.4,
+      "max_step": 5.2,
+      "intermediate": 7,
+      "ok": true
+    },
+    {
+      "at": "autumn -> spring",
+      "type": "crossfade",
+      "start_s": 24.8,
+      "duration_s": 0.3,
+      "range": 16.9,
+      "max_step": 4.2,
+      "intermediate": 7,
+      "ok": true
+    },
+    {
+      "at": "spring -> end_card",
+      "type": "fade",
+      "start_s": 26.2,
+      "duration_s": 0.4,
+      "range": 133.6,
+      "max_step": 22.9,
+      "intermediate": 10,
+      "black_level": 1,
+      "ok": true
+    }
+  ],
+  "toolkit_text_holds": [
+    {
+      "shot": "card_boss",
+      "kind": "card",
+      "required_s": 1.5,
+      "planned_s": 1.5,
+      "units": 27.0,
+      "reading_cps": 18.0,
+      "text_min_hold": 1.5,
+      "ok": true,
+      "measured_s": 1.533
+    },
+    {
+      "shot": "card_gear",
+      "kind": "card",
+      "required_s": 1.9,
+      "planned_s": 1.9,
+      "units": 34.0,
+      "reading_cps": 18.0,
+      "text_min_hold": 1.5,
+      "ok": true,
+      "measured_s": 1.933
+    },
+    {
+      "shot": "card_seasons",
+      "kind": "card",
+      "required_s": 1.633,
+      "planned_s": 1.633,
+      "units": 29.0,
+      "reading_cps": 18.0,
+      "text_min_hold": 1.5,
+      "ok": true,
+      "measured_s": 1.667
+    }
+  ],
+  "toolkit_abrupt_changes": [],
+  "edge_samples": [
+    {
+      "t": 4.0,
+      "top_row": 82.9,
+      "bottom_row": 74.4,
+      "left_col": 80.5,
+      "right_col": 78.8
+    },
+    {
+      "t": 12.58,
+      "top_row": 118.1,
+      "bottom_row": 122.7,
+      "left_col": 94.1,
+      "right_col": 95.0
+    },
+    {
+      "t": 17.37,
+      "top_row": 107.6,
+      "bottom_row": 122.0,
+      "left_col": 114.3,
+      "right_col": 110.4
+    },
+    {
+      "t": 21.2,
+      "top_row": 214.8,
+      "bottom_row": 207.2,
+      "left_col": 193.1,
+      "right_col": 199.9
+    },
+    {
+      "t": 22.7,
+      "top_row": 120.4,
+      "bottom_row": 123.0,
+      "left_col": 121.1,
+      "right_col": 121.7
+    },
+    {
+      "t": 24.2,
+      "top_row": 172.8,
+      "bottom_row": 143.9,
+      "left_col": 154.4,
+      "right_col": 155.4
+    },
+    {
+      "t": 25.7,
+      "top_row": 110.7,
+      "bottom_row": 181.8,
+      "left_col": 136.6,
+      "right_col": 134.2
+    },
+    {
+      "t": 28.1,
+      "top_row": 18.0,
+      "bottom_row": 32.2,
+      "left_col": 47.8,
+      "right_col": 46.3
+    }
+  ],
+  "audio": {
+    "source": "assets/sounds/background_music.wav",
+    "source_sha256": "b3664d04791bb86f220b790823dab34ec6912ba93a1a60cf035e82b557b45778",
+    "source_sha_matches_handoff": true,
+    "music_start_s": 60.0,
+    "music_volume": 0.85,
+    "game_audio_in_manifest": false,
+    "alignment_lag_samples": 239,
+    "residual_vs_wav_db": {
+      "median": -25.7,
+      "max": -16.9
+    },
+    "residual_by_shot": {
+      "card_boss": {
+        "max_residual_db": -11.5,
+        "median_residual_db": -24.4
+      },
+      "boss": {
+        "max_residual_db": -17.6,
+        "median_residual_db": -26.4
+      },
+      "card_gear": {
+        "max_residual_db": -16.9,
+        "median_residual_db": -25.5
+      },
+      "gear": {
+        "max_residual_db": -18.6,
+        "median_residual_db": -25.4
+      },
+      "closeup": {
+        "max_residual_db": -19.3,
+        "median_residual_db": -25.4
+      },
+      "card_seasons": {
+        "max_residual_db": -18.0,
+        "median_residual_db": -24.6
+      },
+      "winter": {
+        "max_residual_db": -21.5,
+        "median_residual_db": -25.6
+      },
+      "summer": {
+        "max_residual_db": -22.4,
+        "median_residual_db": -27.1
+      },
+      "autumn": {
+        "max_residual_db": -21.4,
+        "median_residual_db": -27.5
+      },
+      "spring": {
+        "max_residual_db": -21.4,
+        "median_residual_db": -26.2
+      },
+      "end_card": {
+        "max_residual_db": -23.7,
+        "median_residual_db": -28.5
+      }
+    },
+    "level_db_100ms": {
+      "min": -27.0,
+      "max": -11.5
+    },
+    "toolkit_audio_stats": {
+      "max_volume": -2.2,
+      "mean_volume": -18.2,
+      "quietest_window_db": -30.0,
+      "quiet_windows_s": [],
+      "windows": 301
+    },
+    "how_game_audio_is_excluded": "game_audio false: every gameplay segment is encoded with -an from the AVI and the final graph maps only [aout], built from the WAV input alone (stream_loop/ss 60.0 -> volume -> fades -> limiter)."
+  },
+  "timeline_s": {
+    "boss_lightning": 2.192,
+    "boss_summon_two_sprouts": 3.525,
+    "boss_fire": 4.592,
+    "boss_arcane_strike": 5.692,
+    "teal_dinosaur_defeated_drops_both": 10.158,
+    "pickup_outfit": 10.992,
+    "pickup_iron_sword": 11.292,
+    "camera_push_in": 11.592,
+    "outfit_equipped": 12.792,
+    "iron_sword_equipped": 13.792
+  },
+  "gear_story_ids": {
+    "enemy": "boss-teal-dinosaur (Summer II, stage 4)",
+    "enemy_body": "boss-teal-dinosaur_outfit",
+    "enemy_weapon": "iron_sword",
+    "catalog_loot": [
+      "iron_sword",
+      "boss-teal-dinosaur_outfit"
+    ],
+    "dropped": [
+      "iron_sword",
+      "boss-teal-dinosaur_outfit_t2"
+    ],
+    "player_before": {
+      "weapon": "wood_sword",
+      "outfit": "(none: the plain body)"
+    },
+    "player_after": {
+      "weapon": "iron_sword",
+      "outfit": "boss-teal-dinosaur_outfit_t2"
+    },
+    "equipped_through": "simulation.equip() (the call behind the item panel's Equip button); no panel on screen",
+    "seed": 3209,
+    "log": "store_assets/raw/video/trailer_c32/c33_gear.avi.log",
+    "log_confirms_before_and_after": true
+  },
+  "protected_hashes_unchanged": true,
+  "protected_files_checked": 25,
+  "problems": []
+}
