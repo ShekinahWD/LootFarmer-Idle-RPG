@@ -77,6 +77,7 @@ func save_migration_checks() -> void:
     var snap: Dictionary=JSON.parse_string(JSON.stringify(sim.snapshot()))
     for key in ["skills_seen","discovered_spots","camps_known"]:snap.erase(key) # labelled: Change 7 save
     sim.state.skills_seen=["heal"] # live state that must not leak into the load
+    SaveService.last_load_result="" # fixture: judge this restore, not the boot-time load of the probe profile
     sim.restore(snap)
     await frames(2)
     check(SaveService.last_load_result not in ["development_reset","invalid_profile_reset"],"Change 7 save loads without a reset")
@@ -168,9 +169,11 @@ func hp_text_checks() -> void:
     check(LootActorView.hp_text(12.3,25)=="13/25" and LootActorView.hp_text(1234,5678)=="1.2K/5.7K","HP text: rounded up, abbreviated from 1,000")
     var e: Dictionary=sim.state.enemies[0]
     e.hp=float(sim.enemy_definition(int(e.group),int(e.variant)).hp)*.5
+    game.world.following_player=false;game.world.camera_position=sim.position_of(e) # Change 24 fixture: views animate only on screen
     await frames(3)
     var view=game.world.views[e.id]
     check(view.get_node("HP/Text").text==LootActorView.hp_text(e.hp,view.max_hp),"Enemy bar shows its remaining/maximum HP")
+    game.world.follow_player()
 
 ## 3.1-3.3, 3.7 Skills merge their own copies; the first copy unlocks its upgrades once.
 var notices:=0

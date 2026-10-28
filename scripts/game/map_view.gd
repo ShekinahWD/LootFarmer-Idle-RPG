@@ -132,10 +132,7 @@ func _draw() -> void:
     var rect=transform_rect()
     var scale_factor=rect.size.x/float(sim.catalog.world.size[0])
     draw_rect(rect,Color(.06,.08,.1))
-    var cell: float=sim.campaign.fog_rules.cell_size
-    for key in sim.state.explored.get(str(sim.state.stage),{}):
-        var bits=key.split(",");var pos=Vector2(int(bits[0]),int(bits[1]))*cell
-        draw_rect(Rect2(rect.position+pos*scale_factor,Vector2.ONE*cell*scale_factor),Color(.28,.4,.32))
+    draw_explored(self,sim,int(sim.state.stage),rect.position,scale_factor)
     for i in range(sim.campaign.stage().spawns.size()):
         var point=sim.campaign.stage().spawns[i];var pos=Vector2(point[0],point[1])
         if sim.campaign.camp_known(i) or sim.state.spawns.has(i):
@@ -146,6 +143,22 @@ func _draw() -> void:
         var side:=marker_side(scale_factor)
         for entry in spots(rect,scale_factor):
             _marker(entry[0],entry[1],entry[2],side,rank)
+## Change 24: explored cells as one rectangle per horizontal run of explored cells (from the stage's
+## byte mask), the same covered area and colour as one rectangle per cell. Shared with camp_picker.
+const EXPLORED_COLOR:=Color(.28,.4,.32)
+static func draw_explored(canvas: CanvasItem,sim_ref,st: int,origin: Vector2,scale_factor: float) -> void:
+    var mask: PackedByteArray=sim_ref.campaign.explored_mask(st)
+    var columns: int=sim_ref.campaign.fog_columns(st)
+    var side: float=sim_ref.campaign.fog_rules.cell_size*scale_factor
+    for y in range(sim_ref.campaign.fog_rows(st)):
+        var row:=y*columns
+        var start:=-1
+        for x in range(columns+1):
+            var known: bool=x<columns and mask[row+x]!=0
+            if known and start<0:start=x
+            elif not known and start>=0:
+                canvas.draw_rect(Rect2(origin+Vector2(start,y)*side,Vector2(x-start,1)*side),EXPLORED_COLOR)
+                start=-1
 func _marker(g: int,v: int,pos: Vector2,side: float,rank: int) -> void:
     var boss: bool=sim.catalog.groups[g].boss
     if boss:side*=1.25

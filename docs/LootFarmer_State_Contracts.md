@@ -1,6 +1,27 @@
-# LootFarmer — State and Reset Contracts — Change 21
+# LootFarmer — State and Reset Contracts — current (2026-10-28, Change 24)
 
-## Change 21 — current corrections (27 October 2026)
+## Change 24 — persistence and presentation contracts (28 October 2026)
+
+These supersede the audit's "Save cadence (current)" note below and the "Fog keys must lie within authored map bounds" sentence of the Change 5 contract.
+
+- **Save file version 3** (`SaveService.SAVE_VERSION`); game schema still 8. A version-2 development profile (and its backup) starts fresh (`last_load_result = "development_reset"`). No migration (Playbook 61.1).
+- **`state.explored` in memory:** `{"<stage>": PackedByteArray}`, one byte per fog cell, row-major (`index = y × columns + x`, `columns = ceil(width / cell_size)`), 1 = explored. API: `campaign.explored_mask/explored_count/cell_explored/explore_cells/fog_columns/fog_rows/fog_cell_count`. Prestige keeps it (Change 16 keep list unchanged); Hard Reset clears it; a fog layout revision change empties it.
+- **`explored` on disk:** each mask deflated and Base64-encoded (`campaign.encode_explored`). `normalize_snapshot` decodes; `valid_snapshot` accepts a stored string or an in-memory mask only when it decodes to exactly one 0/1 byte per cell of that map, otherwise the profile is invalid (fresh profile, as before).
+- **Snapshots:** the save provider is `sim.save_snapshot()` (a shallow view of the live state, serialized at once and never kept). `sim.snapshot()` is its independent deep copy for probes and tools; both encode `explored`.
+- **Write verification:** the temporary file must have the serialized byte length and MD5; it is not parsed back. The primary becomes `.bak` only while it is known valid (loaded from it or written by this session) and unchanged in size on disk; after a backup recovery the backup is never overwritten by the bad primary. Atomic temp-file, backup copy and rename order unchanged.
+- **Cadence:** `mark_dirty()` (ordinary progress) writes within `ORDINARY_SAVE_DELAY` = 30 s of the first unsaved change (repeated marks never postpone it); `mark_committed()` (purchases through `sim.pay`, panel action buttons, a supply used from the dock, settings changes) writes after `COMMITTED_SAVE_DELAY` = 1 s; `save_now()` stays immediate for travel, claims, Prestige, Hard Reset, guidance choice, pause, background and quit; the 120 s periodic save remains. **Accepted rollback window after a crash or force-stop without a pause notice: up to 30 s of ordinary progress.**
+- **Sight:** `campaign.sight()` returns the inputs of `can_see()` for one moment (`Sight.sees(pos)` is the identical predicate). Hot loops (targeting, skill areas, world views, pickups, rain) take one Sight per pass instead of re-deriving the reveal bonuses per position. Never saved.
+- **Presentation-only state (never saved):** off-screen actor views pause their own processing and stay hidden while the world keeps their actor, position, look and disclosure current; actor views are pooled across map changes; the last closed panel's controls are retained hidden (processing paused) until that panel reopens (reconciled) or another opens (replaced).
+
+## Production audit notes (28 October 2026)
+
+No contract changed in the audit. The current Change 22/23 records (`tutorial.flow.wait_seconds`, `mission_auto_enabled`, `prestige_collapsed`) are specified near the end of this document. Facts recorded for the coming performance and release work (see [audit report](LootFarmer_Full_Production_Audit_Report.md) PERF-01, SAVE-01..03):
+
+- **Save cadence (current):** active play marks the save dirty every 2 s and the save service flushes dirty state every 5 s, plus a 120 s periodic save, plus immediate saves on background/close and committed transitions. Each save writes the whole profile to a temporary file, re-parses it, re-parses the previous primary, copies the primary to `.bak` and renames. A fully explored late-game profile measured 466 KB and about 125 ms per save on the desktop audit machine. Any change to this cadence must keep the atomic temp-file, rename and backup sequence and state the accepted force-close rollback window explicitly.
+- **Development reset policy is still active:** an unreadable or wrong-version profile without a valid backup starts fresh. Before the first public build the developer declares the release phase (Playbook 61.2); from then on schema changes need migrations and an unreadable profile must be preserved aside, not replaced.
+- **Offline clock:** the snapshot keeps the later of the stored and current time; turning the clock back earns nothing until real time catches up; each absence is capped by the offline duration upgrade. No network time is used (offline game). Accepted behavior.
+
+## Change 21 — previous corrections (27 October 2026)
 
 Built on the exact delivered Change 20 project; application/Android version is 21 and save schema remains 8. See [Change 21 report](LootFarmer_Change_21_Report.md) for the complete correction checklist and validation.
 

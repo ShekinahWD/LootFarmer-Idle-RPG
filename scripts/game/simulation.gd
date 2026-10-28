@@ -43,13 +43,15 @@ var movement := Vector2.ZERO
 var suspended := false
 var revision: int = 0
 var _save_clock := 0.0
+## Change 24: actors erased from state.enemies in place (see step's roster loop).
+var _roster_removals := 0
 var _stats: Dictionary = {}
 var _stats_revision := -1
 
 func _ready() -> void:
     rng.randomize()
     new_profile()
-    SaveService.register_section("lootfarmer", snapshot, restore, new_profile)
+    SaveService.register_section("lootfarmer", save_snapshot, restore, new_profile)
 
 func touch() -> void:
     revision += 1
@@ -121,13 +123,24 @@ func _sync_spawn_counts() -> void:
                 a.hp=enemy_definition(tier,kind).hp
                 state.enemies.append(a)
 
+## An independent copy of what a save would write (probes and tools).
 func snapshot() -> Dictionary:
-    var result := state.duplicate(true)
+    return save_snapshot().duplicate(true)
+
+## Change 24: the save provider's snapshot is a shallow view of the live state, serialized at once and
+## never kept or mutated, so a save no longer deep-copies the whole profile first. Explored fog masks
+## are encoded compactly (campaign.encode_explored).
+func save_snapshot() -> Dictionary:
+    var result := state.duplicate()
     # Summoned helpers are encounter-transient (Change 13): never saved, so a load starts clean.
-    result.enemies=result.enemies.filter(func(e):return not is_helper(e))
-    for key in result.get("stage_worlds",{}):
-        var saved: Dictionary=result.stage_worlds[key]
+    result.enemies=state.enemies.filter(func(e):return not is_helper(e))
+    var worlds: Dictionary={}
+    for key in state.get("stage_worlds",{}):
+        var saved: Dictionary=state.stage_worlds[key].duplicate()
         saved["enemies"]=saved.get("enemies",[]).filter(func(e):return not is_helper(e))
+        worlds[key]=saved
+    result.stage_worlds=worlds
+    result.explored=campaign.encode_explored(state.explored)
     result["boss_saved_at"] = float(state.boss_saved_at) if suspended else Time.get_unix_time_from_system()
     result["reward_stage"] = campaign.reward_stage()
     result["rng_state"] = str(rng.state)
@@ -791,6 +804,8 @@ func pay(currency: String, cost: int) -> bool:
         return fail("NOT_ENOUGH_"+currency.to_upper())
     state[currency] -= cost
     state["online_"+currency]=maxf(0,float(state.get("online_"+currency,0))-cost)
+    # Change 24: a purchase is a committed action, saved within SaveService.COMMITTED_SAVE_DELAY.
+    SaveService.mark_committed()
     return true
 
 func select_spawn(index: int) -> bool:
@@ -1088,7 +1103,7 @@ func step(dt: float) -> void:
             touch()
     var p: Dictionary=state.player
     _actor_timers(p,dt)
-    for e in state.enemies.duplicate():
+    for e in state.enemies:
         _actor_timers(e,dt)
     if p.hp<=0:
         if p.respawn<=0:
@@ -1127,14 +1142,18 @@ func step(dt: float) -> void:
                         _start_attack(p,target,1.0/(1.0+stats().speed))
                 elif int(state.focus)>=0:
                     _move(p,farming_position(),campaign.move_speed(),dt)
-    for e in state.enemies.duplicate():
-        if not state.enemies.has(e):
+    # Iterate a stable copy. Change 24: membership is re-checked (a linear scan per actor) only once
+    # the roster really lost an actor or was replaced during this loop, never on ordinary ticks.
+    var roster: Array=state.enemies
+    var removals:=_roster_removals
+    for e in roster.duplicate():
+        if (removals!=_roster_removals or not is_same(roster,state.enemies)) and not state.enemies.has(e):
             continue
         var group:=int(e.group)
         var maxhp:=float(enemy_definition(group,int(e.get("variant",2))).hp)
         if is_helper(e):
             if e.hp<=0:
-                if float(e.dead_age)>=1.0:state.enemies.erase(e)
+                if float(e.dead_age)>=1.0:state.enemies.erase(e);_roster_removals+=1
                 continue
             if not helper_bound(e):
                 dissolve_helper(e)
@@ -1176,7 +1195,8 @@ func step(dt: float) -> void:
                     _start_attack(e,p,float(catalog.groups[group].interval))
         elif position_of(e).distance_to(home)>1:
             _move(e,home,60,dt)
-    for a in [p]+state.enemies:
+    p.attack_slow=maxf(0,float(p.get("attack_slow",0))-dt)
+    for a in state.enemies:
         a.attack_slow=maxf(0,float(a.get("attack_slow",0))-dt)
     if p.hp>0:
         _automate(dt)
@@ -1213,8 +1233,9 @@ func _combat_target() -> Dictionary:
     clear_target()
     target={}
     var distance: float=catalog.world.acquisition
+    var view=campaign.sight()
     for enemy in state.enemies:
-        if enemy.hp<=0 or not campaign.target_allowed(enemy) or (int(state.focus)>=0 and (int(enemy.group)!=int(state.focus) or int(enemy.get("variant",2))!=int(state.focus_variant))):
+        if enemy.hp<=0 or not campaign.target_allowed(enemy,view) or (int(state.focus)>=0 and (int(enemy.group)!=int(state.focus) or int(enemy.get("variant",2))!=int(state.focus_variant))):
             continue
         var d:=position_of(state.player).distance_to(position_of(enemy))
         if d<distance:

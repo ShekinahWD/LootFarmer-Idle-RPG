@@ -84,6 +84,7 @@ func inventory_checks() -> void:
     snap.upgrades.gear_slots=120
     for i in range(10):snap.gear.append("")
     snap.gear[72]="wood_sword";snap.items["wood_sword"]={"qty":1,"merge":0,"extras":{}}
+    SaveService.last_load_result="" # fixture: judge this restore, not the boot-time load of the probe profile
     sim.restore(snap)
     check(SaveService.last_load_result not in ["invalid_profile_reset","development_reset"] and sim.level("gear_slots")==67 and sim.state.gear.size()==70,"Load clamps the level to 67 and the row to 70")
     check(sim.quantity("wood_sword")==1 and sim.state.gear.has("wood_sword"),"Surplus empty slots go first: an item past slot 70 among empties is kept")

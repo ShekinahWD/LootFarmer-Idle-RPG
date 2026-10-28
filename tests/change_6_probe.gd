@@ -124,7 +124,7 @@ func save_checks() -> void:
     check(int(expected.fog_layout_revision)==int(sim.campaign.fog_rules.layout_revision),"New profiles carry the current fog layout revision")
     check(SaveService.save_now(),"Current profile writes")
     sim.state.items={};SaveService.load_and_apply()
-    check(sim.quantity("wood_sword")==3 and sim.state.explored==expected.explored and not SaveService.write_blocked,"Current save reloads with items and exploration")
+    check(sim.quantity("wood_sword")==3 and sim.snapshot().explored==expected.explored and not SaveService.write_blocked,"Current save reloads with items and exploration")
     # A current-schema save written before the layout moved: actors re-home, discovery resets once.
     var old=sim.snapshot();old.fog_layout_revision=1
     for a in old.enemies:a.home_x+=300;a.x=a.home_x
@@ -199,7 +199,12 @@ func ui_checks() -> void:
     check(not keep.disabled and game.selected_card!="","Selecting a card enables Keep")
     sim.state.prestige_batch={};sim.touch();game._close()
     # Repeated open/close does not grow the tree.
+    # Change 24: the last closed panel's controls are retained (bounded: one panel), so the baseline is
+    # taken after one warm-up round; further rounds must not grow the tree.
     await frames(4)
+    for i in range(6):
+        game._open(["upgrades","world","missions","prestige","settings","stats"][i%6]);await frames(1);game._close();await frames(1)
+    await frames(6)
     var before:=count(game)
     for i in range(24):
         game._open(["upgrades","world","missions","prestige","settings","stats"][i%6]);await frames(1);game._close();await frames(1)

@@ -167,8 +167,10 @@ func _path_followed() -> bool:
 func evaluate() -> void:
     pending="";step="";surfaces=[""];target=null;world_target=Vector2.INF;intro_id="";path_point=Vector2.INF
     var data: Dictionary=sim.state.tutorial
+    # Change 24 (UI-05): None shows no guide at all; The Road Ahead is its only exception. Auto Claim
+    # is explained by the Missions panel's own text there, without a pointer.
     if data.mode=="none":
-        if not _road_ahead_if_ready(data):_mission_auto_hint()
+        _road_ahead_if_ready(data)
         return
     if data.mode=="guided":
         if sim.campaign.guided.complete():
@@ -452,8 +454,9 @@ func _focus_hint() -> bool:
 
 func _nearest_enemy() -> Vector2:
     var best:=Vector2.INF
+    var view=sim.campaign.sight()
     for e in sim.state.enemies:
-        if e.hp<=0 or not sim.campaign.can_see(sim.position_of(e)) or sim.catalog.groups[int(e.group)].boss:continue
+        if e.hp<=0 or not view.sees(sim.position_of(e)) or sim.catalog.groups[int(e.group)].boss:continue
         if best==Vector2.INF or sim.position_of(e).distance_to(sim.position_of(sim.state.player))<best.distance_to(sim.position_of(sim.state.player)):best=sim.position_of(e)
     return best
 

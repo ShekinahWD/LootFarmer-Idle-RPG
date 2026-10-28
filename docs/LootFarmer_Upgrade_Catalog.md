@@ -1,6 +1,8 @@
 # LootFarmer — Upgrade Catalog — Change 21
 
-## Change 21 — current corrections (27 October 2026)
+> **Correction (production audit, 2026-10-28):** the Guided wait values below are superseded. Since the Change 22 notes (commit "Change 23") Missions unlock **15 active real seconds** after the first merge and Player Upgrades 15 seconds after closing Missions (`tutorial.flow.wait_seconds`; GDD "Current status"). Auto Claim (`mission_claim`) stays OFF after purchase until the player enables it. Prices in this catalog are unchanged.
+
+## Change 21 — corrections (27 October 2026)
 
 Built on the exact delivered Change 20 project; application/Android version is 21 and save schema remains 8. See [Change 21 report](LootFarmer_Change_21_Report.md) for the complete correction checklist and validation.
 

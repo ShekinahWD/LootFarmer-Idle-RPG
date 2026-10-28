@@ -1,4 +1,8 @@
-"""Deterministic source contract checks. Does not read or write player saves."""
+"""Deterministic source contract checks. Does not read or write player saves.
+
+Usage: python tools/validate_campaign_source.py [--output PATH]
+The JSON report goes to tests/tmp/static_checks.json (ignored by Git) unless --output names another
+file (Change 24: a test run never rewrites archived evidence such as docs/Change_21_Evidence)."""
 from pathlib import Path
 import json, re, sys
 ROOT=Path(__file__).resolve().parents[1]
@@ -111,8 +115,9 @@ for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/s
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}
-output=ROOT/'docs/Change_21_Evidence/static_checks.json'
-output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(report,indent=2)+'\n')
+output=ROOT/'tests/tmp/static_checks.json'
+if '--output' in sys.argv and sys.argv.index('--output')+1<len(sys.argv):output=Path(sys.argv[sys.argv.index('--output')+1]).resolve()
+output.parent.mkdir(parents=True,exist_ok=True);output.write_bytes((json.dumps(report,indent=2)+'\n').encode('utf-8'))
 print(json.dumps({k:report[k] for k in ['checks','failures']}))
 for item in checks:
     if not item['pass']:print('FAIL:',item['check'])

@@ -48,9 +48,34 @@ func setup(value: LootSimulation) -> void:
     for id in sim.catalog.items:
         textures[id]=sim.catalog.icon(id)
 
+## Change 24 (Playbook 44): presentation work scales with what is on screen, not with the map.
+## - Views whose actor is outside the camera (plus CULL_MARGIN world units) are hidden and skip their
+##   per-frame animation; the world still keeps their data current (actor, position, look, fog
+##   disclosure), so a view is right the moment it returns. The simulation never reads views.
+## - Each enemy loadout's look (textures, tint, scale, name, skill icons) and each player outfit and
+##   weapon pair is resolved once and applied only when it changes.
+## - Views of actors that leave (a map change, a dissolved helper) are reset and pooled for the next
+##   new actor instead of freed and instantiated again.
+## - The previous stage scenery is hidden at once and freed over the next frames; stage scenes come
+##   from the shared StageScenes cache, likely destinations parsed in the background beforehand.
+const STAGE_SCENES=preload("res://scripts/game/stage_scenes.gd")
+const MARKER_ART=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-211.png")
+const CULL_MARGIN:=96.0
+const VIEW_POOL_LIMIT:=192
+const RETIRE_BUDGET:=400
+var _view_pool: Array=[]
+var _enemy_looks: Dictionary={}
+var _player_looks: Dictionary={}
+var _look_serial:=0
+var _gates: Dictionary={}
+var _retired: Array=[]
+
 func _process(_delta: float) -> void:
     if sim==null:
         return
+    STAGE_SCENES.poll()
+    _dispose_retired()
+    _prepare_cached_obstacles()
     countdown_clock+=_delta
     if countdown_clock>=.2:
         countdown_clock=0
@@ -59,8 +84,8 @@ func _process(_delta: float) -> void:
         active_stage=int(sim.state.stage)
         for effect in get_children():
             if effect is AnimatedSprite2D:effect.queue_free()
-        if scenery:remove_child(scenery);scenery.queue_free()
-        scenery=load("res://scenes/game/stages/stage_%d.tscn" % active_stage).instantiate()
+        if scenery:_retire(scenery)
+        scenery=STAGE_SCENES.scene(active_stage).instantiate()
         scenery.z_index=-2
         add_child(scenery)
         for camp in scenery.get_node("Camps").get_children():
@@ -71,69 +96,19 @@ func _process(_delta: float) -> void:
         _apply_ambient()
         camp_revision=-1
         follow_player()
-    var actors: Array=[sim.state.player]+sim.state.enemies
-    var seen: Dictionary={}
-    for actor in actors:
-        var id: String=actor.id
-        seen[id]=true
-        if not views.has(id):
-            var view=ACTOR.instantiate()
-            $Actors.add_child(view)
-            views[id]=view
-        var v: LootActorView=views[id]
-        v.actor=actor
-        v.get_node("Marker").visible=(id=="player" or id==sim.manual_target) and actor.hp>0
-        v.get_node("Marker").texture=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-211.png")
-        v.get_node("Marker").modulate=Color(1,.75,.2) if id==sim.manual_target else Color(.45,.8,1)
-        v.position=sim.position_of(actor)
-        var body: String=""
-        var weapon: String=""
-        if id=="player":
-            body=sim.state.outfit
-            weapon=sim.state.weapon
-            v.max_hp=sim.stats().hp
-            v.visual_scale=1.0
-        else:
-            var group:=int(actor.group)
-            var g: Dictionary=sim.enemy_definition(group,int(actor.get("variant",2)))
-            body=g.body
-            weapon=g.weapon
-            v.max_hp=g.hp
-            v.visual_scale=float(g.visual_scale)
-            # Change 13: summoned helpers wear a tint; a discovered boss the next map still needs
-            # carries the World banner (never before its type is discovered).
-            v.body_tint=sim.abilities.helper_tint if sim.is_helper(actor) else Color.WHITE
-            v.gate=bool(g.boss) and sim.campaign.gate_required(group)
-            # Change 16: bosses show their name in red above the HP bar; any enemy with skills shows
-            # one small icon per skill above its head (helpers carry none).
-            v.display_name=str(g.name) if bool(g.boss) else ""
-            v.skill_icons=_skill_icons(group,int(actor.get("variant",2)),g)
-        v.disclosed=id=="player" or sim.campaign.can_see(sim.position_of(actor))
-        body=sim.catalog.art_id(body)
-        weapon=sim.catalog.art_id(weapon)
-        var path: String="res://assets/PixelPlains/Characters 24x24/Basic character v2.png"
-        if sim.catalog.items.has(body) and sim.catalog.items[body].kind=="outfit":
-            path=sim.catalog.items[body].texture
-        elif body=="death":
-            path="res://assets/PixelPlains/Characters 24x24/Autumn 4 v2.png"
-        elif body=="cat":
-            path="res://assets/PixelPlains/Characters 24x24/Gato 4 v2.png"
-        if not textures.has(path):
-            textures[path]=load(path)
-        if v.body_texture!=textures[path]:
-            v.body_texture=textures[path]
-        v.attack_texture=load(sim.catalog.items[weapon].attack) if sim.catalog.items.has(weapon) and sim.catalog.items[weapon].has("attack") else ATTACKS.get(weapon)
-        v.attack_tint=attack_tint(weapon)
-        v.weapon_texture=textures.get(weapon)
-        if body=="death":
-            v.attack_tint=Color.WHITE
-            v.weapon_texture=preload("res://resources/game/death_weapon.tres")
-            v.attack_texture=preload("res://assets/PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png")
+        _preload_destinations()
+    var seen: Dictionary={"player":true}
+    for actor in sim.state.enemies:seen[actor.id]=true
     for id in views.keys():
         if not seen.has(id):
-            views[id].queue_free()
+            _release_view(views[id])
             views.erase(id)
     seen.clear()
+    _gates.clear()
+    var view_rect:=_cull_rect()
+    var sight=sim.campaign.sight()
+    _update_view(sim.state.player,view_rect,sight)
+    for actor in sim.state.enemies:_update_view(actor,view_rect,sight)
     for drop in sim.state.pickups:
         var id:=int(drop.uid)
         seen[id]=true
@@ -145,7 +120,7 @@ func _process(_delta: float) -> void:
             $Pickups.add_child(node)
             pickups[id]=node
         pickups[id].position=Vector2(drop.x,drop.y)
-        pickups[id].visible=sim.campaign.can_see(Vector2(drop.x,drop.y))
+        pickups[id].visible=sight.sees(Vector2(drop.x,drop.y))
         pickups[id].modulate.a=.55 if drop.ttl<30 else 1.0
         # Change 16: a dropped stack is one pile on the ground and says how many copies it holds.
         var count: Label=pickups[id].get_node("Count")
@@ -157,6 +132,159 @@ func _process(_delta: float) -> void:
             pickups[id].queue_free()
             pickups.erase(id)
     update_camera()
+
+## The camera's visible world rectangle this frame, grown by CULL_MARGIN (bosses, overhead stacks).
+func _cull_rect() -> Rect2:
+    var zoom_factor: float=get_viewport_rect().size.x/360.0*SettingsState.camera_zoom
+    var center: Vector2=sim.position_of(sim.state.player) if following_player else camera_position
+    var half: Vector2=get_viewport_rect().size/maxf(zoom_factor,.01)*.5
+    return Rect2(center-half,half*2).grow(CULL_MARGIN)
+
+func _update_view(actor: Dictionary,view_rect: Rect2,sight) -> void:
+    var id: String=actor.id
+    var v: LootActorView=views.get(id)
+    if v==null:
+        v=_take_view()
+        views[id]=v
+    v.actor=actor
+    var pos: Vector2=sim.position_of(actor)
+    v.position=pos
+    var marker: Control=v._marker
+    marker.visible=(id=="player" or id==sim.manual_target) and actor.hp>0
+    marker.modulate=Color(1,.75,.2) if id==sim.manual_target else Color(.45,.8,1)
+    if id=="player":
+        var key: String=str(sim.state.outfit)+"|"+str(sim.state.weapon)
+        if not _player_looks.has(key):_player_looks[key]=_visual_look(sim.state.outfit,sim.state.weapon)
+        var look: Dictionary=_player_looks[key]
+        if v.look_id!=look.id:
+            v.look_id=look.id
+            _apply_look(v,look)
+            v.visual_scale=1.0
+        v.max_hp=sim.stats().hp
+        v.disclosed=true
+    else:
+        var group:=int(actor.group)
+        var variant:=int(actor.get("variant",2))
+        var key:=group*8+variant
+        if not _enemy_looks.has(key):_enemy_looks[key]=_enemy_look(group,variant)
+        var look: Dictionary=_enemy_looks[key]
+        if v.look_id!=look.id:
+            v.look_id=look.id
+            _apply_look(v,look)
+            v.max_hp=look.max_hp
+            v.visual_scale=look.visual_scale
+            # Change 13: summoned helpers wear a tint. Change 16: bosses show their name in red above
+            # the HP bar; any enemy with skills shows one small icon per skill (helpers carry none).
+            v.body_tint=look.tint
+            v.display_name=look.name
+            v.skill_icons=look.icons
+        # Change 13: a discovered boss the next map still needs carries the World banner (never before
+        # its type is discovered).
+        if look.boss:
+            if not _gates.has(group):_gates[group]=sim.campaign.gate_required(group)
+            v.gate=_gates[group]
+        else:v.gate=false
+        v.disclosed=sight.sees(pos)
+    var onscreen: bool=view_rect.has_point(pos)
+    if v.is_processing()!=onscreen:v.set_process(onscreen)
+    if not onscreen and v.visible:v.visible=false
+
+func _take_view() -> LootActorView:
+    var v: LootActorView
+    if not _view_pool.is_empty():
+        v=_view_pool.pop_back()
+        # Same draw order as a newly added view (y-sort ties fall back to child order).
+        $Actors.move_child(v,-1)
+    else:
+        v=ACTOR.instantiate()
+        $Actors.add_child(v)
+        v.get_node("Marker").texture=MARKER_ART
+    v.look_id=-1
+    v.set_process(true)
+    return v
+
+func _release_view(v: LootActorView) -> void:
+    if _view_pool.size()>=VIEW_POOL_LIMIT:
+        v.queue_free()
+        return
+    v.recycle()
+    v.set_process(false)
+    _view_pool.append(v)
+
+## Textures of one body and weapon pair (catalog ids before art_id), resolved once.
+func _visual_look(body_id: String,weapon_id: String) -> Dictionary:
+    var body: String=sim.catalog.art_id(body_id)
+    var weapon: String=sim.catalog.art_id(weapon_id)
+    var path: String="res://assets/PixelPlains/Characters 24x24/Basic character v2.png"
+    if sim.catalog.items.has(body) and sim.catalog.items[body].kind=="outfit":
+        path=sim.catalog.items[body].texture
+    elif body=="death":
+        path="res://assets/PixelPlains/Characters 24x24/Autumn 4 v2.png"
+    elif body=="cat":
+        path="res://assets/PixelPlains/Characters 24x24/Gato 4 v2.png"
+    if not textures.has(path):
+        textures[path]=load(path)
+    var look: Dictionary={"body":textures[path],
+        "attack":load(sim.catalog.items[weapon].attack) if sim.catalog.items.has(weapon) and sim.catalog.items[weapon].has("attack") else ATTACKS.get(weapon),
+        "attack_tint":attack_tint(weapon),"weapon":textures.get(weapon)}
+    if body=="death":
+        look.attack_tint=Color.WHITE
+        look.weapon=preload("res://resources/game/death_weapon.tres")
+        look.attack=preload("res://assets/PixelPlainsAnimationPack/Onix set/Scythe 7 64x32.png")
+    _look_serial+=1
+    look["id"]=_look_serial
+    return look
+
+func _enemy_look(group: int,variant: int) -> Dictionary:
+    var g: Dictionary=sim.enemy_definition(group,variant)
+    var look:=_visual_look(g.body,g.weapon)
+    look.merge({"max_hp":g.hp,"visual_scale":float(g.visual_scale),"boss":bool(g.boss),
+        "tint":sim.abilities.helper_tint if variant==sim.HELPER_VARIANT else Color.WHITE,
+        "name":str(g.name) if bool(g.boss) else "","icons":_skill_icons(group,variant,g)})
+    return look
+
+func _apply_look(v: LootActorView,look: Dictionary) -> void:
+    if v.body_texture!=look.body:v.body_texture=look.body
+    v.attack_texture=look.attack
+    v.attack_tint=look.attack_tint
+    v.weapon_texture=look.weapon
+
+## Likely next destinations, parsed in the background: the next map once it is open, and Winter I
+## (where every Prestige starts). The World panel's camp picker requests the map it shows.
+func _preload_destinations() -> void:
+    if active_stage+1<=int(sim.state.unlocked_stage):STAGE_SCENES.request(active_stage+1)
+    if active_stage!=1:STAGE_SCENES.request(1)
+
+## A stage scene that finished loading in the background gets its solid-scenery grid now, one stage
+## per frame, so arriving there does not build it in the travel frame.
+func _prepare_cached_obstacles() -> void:
+    for id in range(1,9):
+        if STAGE_SCENES.cached(id) and sim.campaign.prepare_obstacles(id):return
+
+## The previous stage scenery: hidden and frozen now, freed RETIRE_BUDGET nodes per frame from the
+## end of its tree (removing last children keeps each free cheap).
+func _retire(node: Node) -> void:
+    node.visible=false
+    node.process_mode=Node.PROCESS_MODE_DISABLED
+    _retired.append(node)
+
+func _dispose_retired() -> void:
+    var budget:=RETIRE_BUDGET
+    while budget>0 and not _retired.is_empty():
+        var root: Node=_retired[0]
+        if root.get_child_count()==0:
+            root.free()
+            _retired.pop_front()
+            budget-=1
+            continue
+        var group: Node=root.get_child(root.get_child_count()-1)
+        if group.get_child_count()==0:
+            group.free()
+            budget-=1
+            continue
+        var item: Node=group.get_child(group.get_child_count()-1)
+        budget-=1+item.get_child_count()
+        item.free()
 
 ## The skill icons of one enemy loadout (cached per type and variant: definitions never change).
 var _icon_rows: Dictionary={}

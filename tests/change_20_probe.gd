@@ -178,15 +178,25 @@ func run() -> void:
     flow.panel_closed("missions");check(flow.next_step()=="close_equip","Wrong panel cannot finish close step")
     flow.panel_closed("item");sim.merge(id);flow.next_step()
     check(flow.next_step()=="close_merge","Merge requires panel close")
-    flow.panel_closed("item");sim.state.playtime_total=14
-    check(flow.next_step()=="mission_wait","Missions wait full 15 gameplay seconds")
+    # Change 22/23 (Change 24 fixture): the Guided waits accumulate real active seconds in
+    # TutorialGuide._process (saved in tutorial.flow.wait_seconds); the simulation's playtime no
+    # longer decides them. The probe drives that clock with fixed amounts (no wall time involved).
+    flow.panel_closed("item");flow.advance_waits(14.0)
+    check(flow.next_step()=="mission_wait","Missions wait the full 15 real active seconds")
     sim.restore(JSON.parse_string(JSON.stringify(sim.snapshot())))
-    check(flow.next_step()=="mission_wait","Delay survives JSON restore")
-    sim.state.playtime_total=15
-    check(flow.next_step()=="missions" and flow.feature_allowed("missions"),"Missions appear at delay boundary")
-    flow.mark("missions");flow.panel_closed("missions");sim.state.playtime_total=29
+    check(flow.next_step()=="mission_wait" and is_equal_approx(float(flow.data().wait_seconds.get("mission_wait",0.0)),14.0),"The accumulated wait survives a JSON restore")
+    sim.state.playtime_total=1000.0
+    check(flow.next_step()=="mission_wait","Gameplay playtime alone never satisfies the wait")
+    # Paused, suspended (background, chooser) and Prestige-choice time never counts.
+    get_tree().paused=true;game.guide._process(5.0);get_tree().paused=false
+    sim.suspended=true;game.guide._process(5.0);sim.suspended=false
+    sim.state.prestige_batch={"choices":[]};game.guide._process(5.0);sim.state.prestige_batch={}
+    check(is_equal_approx(float(flow.data().wait_seconds.get("mission_wait",0.0)),14.0),"Paused, suspended and Prestige-choice time leave the wait at 14 s")
+    game.guide._process(1.0)
+    check(flow.next_step()=="missions" and flow.feature_allowed("missions"),"Missions appear at the 15 s boundary (one active guide second)")
+    flow.mark("missions");flow.panel_closed("missions");flow.advance_waits(14.0)
     check(flow.next_step()=="upgrade_wait","Player Upgrades wait 15 seconds after closing Missions")
-    sim.state.playtime_total=30
+    flow.advance_waits(1.0)
     check(flow.next_step()=="player_upgrade","Player Upgrades timing boundary")
     sim.state.coins=100000;sim.buy_upgrade("respawn")
     check(flow.next_step()=="close_upgrade","Player Upgrade waits for actual close")
@@ -220,6 +230,8 @@ func run() -> void:
     check(game.guide.intro_button.visible,"Final confirmation becomes visible at five seconds")
     flow.acknowledge("tutorial_final")
     check(flow.complete() and sim.campaign.prestige_gate_reason()=="","Final acknowledgement removes Guided restrictions")
+    var missing: Array=flow.STEPS.filter(func(s):return not flow.data().done.has(s))
+    check(missing.is_empty(),"Every Guided step from move to tutorial_final was completed in order (missing %s)" % str(missing))
     check(SaveService.save_now(),"Completed tutorial saved")
     SaveService.load_and_apply();check(flow.complete(),"Completed tutorial persists")
     SaveService.hard_reset()

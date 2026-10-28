@@ -57,12 +57,16 @@ func run() -> void:
     sim.state.coins=0;sim.state.items={};SaveService.load_and_apply()
     check(not SaveService.write_blocked and sim.quantity("potion")==4 and sim.quantity("wood_sword")==2,"Disk reload preserves inventory")
     check(is_equal_approx(sim.state.coins,expected.coins) and sim.state.weapon==expected.weapon,"Disk reload preserves currency and equipment")
-    check(sim.state.tutorial.done==expected.tutorial.done and sim.state.explored==expected.explored,"Disk reload preserves guidance and exploration")
+    check(sim.state.tutorial.done==expected.tutorial.done and sim.snapshot().explored==expected.explored,"Disk reload preserves guidance and exploration")
     check(sim.state.spawns.has(0) and sim.state.camps["1"].has(0) and sim.state.main_claimed.has(0) and sim.state.auto_slots.has(0),"JSON round trip preserves integer membership")
     var old=sim.snapshot();old.schema=6;sim.restore(old)
     check(sim.state.schema==8 and sim.state.coins==0 and not SaveService.write_blocked and SaveService.save_now(),"Obsolete profile resets to writable state")
-    var bad=sim.snapshot();bad.explored['1']['999999,0']=true
-    check(not sim._valid_snapshot(bad),"Out-of-bounds fog cells rejected")
+    # Change 24: a saved fog mask must hold exactly one 0/1 byte per cell of its map.
+    var bad=sim.snapshot();bad.explored['1']=Marshalls.raw_to_base64(PackedByteArray([1,1,1]).compress(FileAccess.COMPRESSION_DEFLATE))
+    check(not sim._valid_snapshot(bad),"A fog mask of the wrong size is rejected")
+    var wrong:=PackedByteArray();wrong.resize(sim.campaign.fog_cell_count(1));wrong[3]=7
+    var bad_value=sim.snapshot();bad_value.explored['1']=Marshalls.raw_to_base64(wrong.compress(FileAccess.COMPRESSION_DEFLATE))
+    check(not sim._valid_snapshot(bad_value),"A fog mask with a value other than 0 or 1 is rejected")
     sim.restore(bad);check(not SaveService.write_blocked and SaveService.save_now(),"Invalid development profile recovers to writable state")
     # One opponent at a time, even with nearby actors in the first two types.
     for group in [0,1]:
@@ -98,7 +102,11 @@ func run() -> void:
     game._close();game.guide.choose("guided");await frames();check(game.guide.pending=="move","Fresh guided lesson")
     game._open("stats");await frames();check(not game.guide.card.visible and game.guide.suspended_by=="stats","Unrelated panel suspends guidance")
     game._close();await frames();check(game.guide.card.visible,"Closing panel restores guidance")
-    game.guide.choose("none");await frames();check(not game.guide.card.visible,"None mode has no instruction")
+    # Change 22: None shows The Road Ahead once (its only guidance, no pointer); then nothing.
+    game.guide.choose("none");await frames()
+    check(game.guide.pending==game.guide.ROAD_AHEAD_ID and not game.guide.pointer.visible,"None mode shows only The Road Ahead")
+    game.guide._process(float(sim.campaign.guided.rules().final_delay)+.1);game.guide.intro_button.pressed.emit();await frames()
+    check(not game.guide.card.visible and not game.guide.pointer.visible,"None mode has no instruction after it")
     check(SaveService.hard_reset() and sim.state.tutorial.mode=="pending","Hard Reset returns onboarding chooser")
     print("CHANGE_5_CHECKS ",checks," FAILURES ",failures)
     game.queue_free();await get_tree().process_frame

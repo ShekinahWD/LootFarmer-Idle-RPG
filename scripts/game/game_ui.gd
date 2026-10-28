@@ -303,6 +303,9 @@ func _process(dt: float) -> void:
     if last_revision!=sim.revision or previous_pause!=get_tree().paused:
         last_revision=sim.revision
         _refresh_slots()
+    else:
+        # Cheap when nothing changed; follows a resized dock without waiting for a state change.
+        _layout_inventory()
     previous_pause=get_tree().paused
 
 ## Prestige discovery banner: horizontally centred at the top of the safe area (Change 8).
@@ -593,6 +596,10 @@ func _refresh_slots() -> void:
     for kind in ["weapon","outfit"]:
         var button: Button=dock.get_node("Inventory/GearColumn/Head/Equipped/"+kind.capitalize())
         var id: String=sim.state[kind]
+        # Change 24: rewritten only when what it shows changes (not on every kill).
+        var shown:="%s|%s|%d|%s" % [id,panel=="item" and selected==id and id!="",_milestone_rank(id),TranslationServer.get_locale()]
+        if button.get_meta("slot_signature","")==shown:continue
+        button.set_meta("slot_signature",shown)
         button.icon=icon_cache.get(id) if id!="" else null
         button.text="" if id!="" else "—"
         button.tooltip_text=(tr("EQUIPPED_WEAPON" if kind=="weapon" else "EQUIPPED_OUTFIT")+": "+(sim.catalog.display_name(id) if id!="" else tr("NOTHING_EQUIPPED_SHORT")))
@@ -658,14 +665,21 @@ func _inventory_zoom_controls() -> void:
         button.theme_type_variation=&"Primary" if i==SettingsState.inventory_zoom else &""
         button.set_meta("guide","inventory_zoom_%d" % i)
 
+## Change 24 (PERF-04): the slot sizes, offsets and font overrides depend only on the column widths,
+## the zoom, the slot counts, the heading height and the grid gap. They are rewritten when one of
+## those changes, not on every inventory refresh (each override write re-themes a slot).
+var inventory_layout_key:=""
 func _layout_inventory() -> void:
     var inventory: Control=dock.get_node("Inventory")
     var gear_width: float=inventory.get_node("GearColumn/GearScroll").size.x
     var supply_width: float=inventory.get_node("SupplyColumn/SupplyScroll").size.x
     if gear_width<48 or supply_width<48:return # wait for the containers to receive their first layout
     var head: Control=inventory.get_node("GearColumn/Head")
-    inventory.get_node("SupplyColumn/SupplyHeading").custom_minimum_size.y=head.get_combined_minimum_size().y
     var gap: int=inventory.get_node("GearColumn/GearScroll/Gear").get_theme_constant("h_separation")
+    var key:="%s|%s|%d|%d|%d|%s|%d" % [gear_width,supply_width,SettingsState.inventory_zoom,inventory.get_node("GearColumn/GearScroll/Gear").get_child_count(),inventory.get_node("SupplyColumn/SupplyScroll/Supplies").get_child_count(),head.get_combined_minimum_size().y,gap]
+    if key==inventory_layout_key:return
+    inventory_layout_key=key
+    inventory.get_node("SupplyColumn/SupplyHeading").custom_minimum_size.y=head.get_combined_minimum_size().y
     var large:=maxf(48,floorf((gear_width-12-2*gap)/3.0))
     var desired: int=[6,4,3][SettingsState.inventory_zoom]
     var gear_side:=maxf(48,floorf((gear_width-18-(desired-1)*gap)/desired))
@@ -715,7 +729,7 @@ func _activate_slot(type: int,index: int) -> void:
         return
     if get_tree().paused or sim.suspended:
         return
-    sim.use_item(sim.state.supplies[index])
+    if sim.use_item(sim.state.supplies[index]):SaveService.mark_committed()
     _refresh_slots()
 
 func _select_slot(type: int,index: int) -> void:
@@ -759,21 +773,34 @@ func _open(which: String) -> void:
     stick.release()
     if not reopening:
         $Sheet/Margin/Content/Scroll.scroll_vertical=0
+        # Change 24: reopening the panel closed last reconciles its retained controls (same context:
+        # only changed values are written) instead of building, adding and laying out every row.
+        if not sheet.visible and which==retained_panel:panel_context=retained_context
         sheet.modulate.a=0.0 if not sheet.visible else 1.0
+    retained_panel=""
+    _set_panel_processing(true)
     sheet.show()
     _refresh_panel(true)
     _sync_filter_button()
     AudioService.play("ui_click")
 
+## Change 24 (PERF-05): the last closed panel's controls stay hidden inside the sheet, with their
+## processing paused, until the same panel reopens (reconciled) or another opens (replaced, as
+## before). At most one panel is retained, so the node count stays bounded.
+var retained_panel:=""
+var retained_context:=""
+func _set_panel_processing(on: bool) -> void:
+    for root in [rows,actions,pinned_rows]:
+        root.process_mode=Node.PROCESS_MODE_INHERIT if on else Node.PROCESS_MODE_DISABLED
+
 func _close() -> void:
     sim.campaign.guided.panel_closed(panel)
     sheet.hide()
     _clear_filters()
-    # Free the hidden panel's rows so the tree returns to its baseline; reopening rebuilds anyway.
-    for root in [rows,actions,pinned_rows]:
-        for child in root.get_children():
-            root.remove_child(child)
-            child.queue_free()
+    if panel!="":
+        retained_panel=panel
+        retained_context=panel_context
+    _set_panel_processing(false)
     panel=""
     panel_context=""
     selected_card=""
@@ -931,6 +958,8 @@ func _action(text: String,callback: Callable,enabled: bool=true,reason: String="
     (rows if parent==null else parent).add_child(button)
     button.pressed.connect(func()->void:
         callback.call()
+        # Change 24: a panel action is a committed player action (coalesced save within 1 s).
+        SaveService.mark_committed()
         AudioService.play("ui_click")
         if sheet.visible:
             _refresh_panel())
@@ -958,6 +987,7 @@ func _pinned(text: String,callback: Callable,enabled: bool=true,reason: String="
     actions.add_child(button)
     button.pressed.connect(func()->void:
         callback.call()
+        SaveService.mark_committed()
         AudioService.play("ui_click")
         if sheet.visible:_refresh_panel())
     return button
@@ -1142,6 +1172,13 @@ func _sync_panel_children(live: Node,draft: Node,mapping: Dictionary,replace_all
     # Build descriptions off-tree; reconcile them into live controls of the same shape. Only
     # values that differ are written, so an unchanged panel does no layout work at all.
     var changed:=false
+    # A full replacement clears the old controls first, so incoming ones keep their names (a sibling
+    # still present with the same name would make Godot rename the newcomer).
+    if replace_all and live.get_child_count()>0:
+        for old in live.get_children():
+            live.remove_child(old)
+            old.queue_free()
+        changed=true
     var desired:=draft.get_children()
     for i in range(desired.size()):
         var incoming: Node=desired[i]
@@ -2085,6 +2122,7 @@ func _inline_button(text: String,callback: Callable,enabled: bool,reason: String
     parent.add_child(button)
     button.pressed.connect(func()->void:
         callback.call()
+        SaveService.mark_committed()
         AudioService.play("ui_click")
         if sheet.visible:_refresh_panel())
     return button
@@ -2758,7 +2796,8 @@ func _missions_panel() -> void:
     else:
         if not sim.state.mission_auto and not sim.state.tutorial.seen.has("mission_auto_enabled"):
             _text(tr("MISSION_AUTO_TOGGLE_HINT"),18,Color(1,.86,.5))
-        var toggle:=_game_action(tr("MISSION_AUTO") % tr("ON" if sim.state.mission_auto else "OFF"),func()->void:
+        # Change 24 (UI-04): the approved copy shows the state in capitals: "Automatic Claiming: OFF".
+        var toggle:=_game_action(tr("MISSION_AUTO") % tr("STATE_ON_CAPS" if sim.state.mission_auto else "STATE_OFF_CAPS"),func()->void:
             sim.state.mission_auto=not sim.state.mission_auto
             if sim.state.mission_auto and not sim.state.tutorial.seen.has("mission_auto_enabled"):
                 sim.state.tutorial.seen.append("mission_auto_enabled")

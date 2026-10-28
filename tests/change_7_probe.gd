@@ -230,7 +230,7 @@ func fog_checks() -> void:
     fresh()
     var rules=sim.campaign.fog_rules
     check(rules.camp_radius<192 and rules.player_radius<=144,"Arrival camp reveal is lower; walking reveal not raised")
-    var cells: int=sim.state.explored.get("1",{}).size()
+    var cells: int=sim.campaign.explored_count(1)
     check(cells<170,"Arrival reveals fewer cells (%d)" % cells)
     # As in Change 6, the first type sits just beyond the arrival reveal; a short walk toward it
     # (under three seconds at base speed) must find it.

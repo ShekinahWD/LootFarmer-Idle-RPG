@@ -1,5 +1,7 @@
 # LootFarmer — Runtime status — Change 21
 
+> **Superseded status (production audit, 2026-10-28):** current readiness is in `LootFarmer_Full_Production_Audit_Report.md`. The Guided waits are now 15 active real seconds (not 60), and the maintained suite currently passes 27/30 because three tutorial probes still assert the older clock (see the Test Suite).
+
 ## Change 21 — current corrections (27 October 2026)
 
 Built on the exact delivered Change 20 project; application/Android version is 21 and save schema remains 8. See [Change 21 report](LootFarmer_Change_21_Report.md) for the complete correction checklist and validation.

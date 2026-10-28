@@ -1,5 +1,14 @@
 # LootFarmer — Current Asset Registry — Change 6
 
+## Production audit status (2026-10-28)
+
+Facts checked against the repository and the newest exported artifact (`builds/LootFarmerIdleRPG.22.aab`). Finding ids refer to `LootFarmer_Full_Production_Audit_Report.md`.
+
+- **Referenced by game code and data:** Pixel Plains (characters, items "All v3 Black Outline", weather sheets), Pixel Plains Animation Pack (weapon swings), Kenney Fantasy UI (theme, panels, frames), Willosuna magic VFX lite (six effects plus warning and summon) and SFX lite (OGG only), `assets/sounds` (background music plus four cues), `assets/Audio` (click, Prestige; original tones), DejaVu Sans.
+- **Exported but unreferenced** (`export_filter="all_resources"`, REL-06): `Zombies Free ver`, `PP Pumpkins Set Free`, `LootFarmer-seasonal-animation-sheets`, the seven unused Pixel Plains item outline variants, most of the Kenney and animation-pack files, and the SFX WAV duplicates. `GUIPackCartoon` has `.gdignore` and is not exported. Some item art paths are constructed at runtime (`Item-%d.png`), so an export allowlist must include catalog icons and the UI art indices, not only literal paths. This allowlist is also the base of the Stage 16 demo build.
+- **Release gates (REL-01, REL-02):** the project icon is a placeholder "LF" monogram and the Android adaptive/launcher icon fields are empty. Licence or purchase records are still missing for Pixel Plains (only `ReadMe.txt`) and for `assets/sounds` (five files in use, including `background_music.wav`, a 23 MB WAV source).
+- **Not validated on device:** effect alignment on 2× and 2.5× bosses, rain and HUD readability, the audio mix (AST-02, AST-03). All recent visual evidence is desktop 540×960 captures.
+
 Source: supplied ZIP 7, corrected 2026-10-21. Supplied does not mean integrated. Historical mappings are archived under history/pre_change_2 and must not override this status.
 
 ## Existing visual baseline
@@ -102,3 +111,8 @@ Rendered evidence: Change_5_Evidence contains onboarding, first lesson, missions
 ## Dinosaur identity correction (Change 20)
 
 The character at `Special 1 v1.png`, saved as `boss-elephant`, is a dinosaur. Keep that identifier, sprite association and combat definition. English boss/outfit descriptions now say Dinosaur. No artwork was replaced.
+
+## Change 24 asset review (no asset changed)
+
+- **Background music** (`assets/sounds/background_music.wav`, 23 MB source): imported as QOA (`compress/mode=2`, loop mode forward), 4.7 MB in the build and in memory while playing. Evaluated for PERF-07 and left unchanged: an OGG would save a few megabytes but needs a lossy re-encode and a listening check, which is not a clear benefit. Repository size alone is not a reason to convert.
+- **Fog veil** (`resources/game/fog_veil.gdshader`, new code resource, not art): draws the existing `fog_rules.tres` cover and vision colours from the explored mask; no texture asset.

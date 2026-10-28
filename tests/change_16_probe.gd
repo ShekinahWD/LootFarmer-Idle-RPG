@@ -222,6 +222,7 @@ func migration_checks() -> void:
     var snap: Dictionary=JSON.parse_string(JSON.stringify(sim.snapshot()))
     snap.erase("bosses_found");snap.erase("follow_mission")
     check(int(snap.schema)==8,"Save schema stays 8 (no reset of existing saves)")
+    SaveService.last_load_result="" # fixture: judge this restore, not the boot-time load of the probe profile
     sim.restore(snap)
     check(SaveService.last_load_result not in ["development_reset","invalid_profile_reset"] and sim.state.bosses_found.has("boss-snowman") and sim.state.bosses_found.has("boss-cyan-robot") and sim.state.bosses_found.size()==2,"A save without the new records loads: defeated bosses count as found %s" % str(sim.state.bosses_found))
     check(str(sim.state.follow_mission)=="" and sim.campaign.prestige_unlocked(),"…no followed mission, and its Prestige unlock is kept")
@@ -298,6 +299,8 @@ func overhead_checks() -> void:
     sim.campaign.discover_spot(group("boss-cyan-robot"),2)
     sim.campaign.reveal_circle(Vector2(robot.x,robot.y),120.0)
     robot.hp=float(sim.enemy_definition(int(robot.group),2).hp)*.5
+    await frames(1) # the stage switch recentres the camera on its first frame
+    game.world.following_player=false;game.world.camera_position=sim.position_of(robot) # Change 24 fixture: views animate only on screen
     await frames(3)
     var v: LootActorView=game.world.views[str(robot.id)]
     var label: Label=v.get_node("Name")
@@ -318,6 +321,7 @@ func overhead_checks() -> void:
     for e in sim.state.enemies:
         if sim.catalog.groups[int(e.group)].id=="unit-space-helmet" and int(e.get("variant",2))==3:elite=e
     sim.campaign.reveal_circle(Vector2(elite.x,elite.y),60.0)
+    game.world.following_player=false;game.world.camera_position=sim.position_of(elite) # Change 24 fixture: views animate only on screen
     await frames(2)
     var ev: LootActorView=game.world.views[str(elite.id)]
     check(not ev.get_node("Name").visible and ev.get_node("Skills").visible and ev.get_node("Skills").get_child_count()==1,"A Space Helmet elite shows its skill icon and no name")
@@ -325,20 +329,25 @@ func overhead_checks() -> void:
     for e in sim.state.enemies:
         if sim.catalog.groups[int(e.group)].id=="unit-space-helmet" and int(e.get("variant",2))==2:plain=e
     sim.campaign.reveal_circle(Vector2(plain.x,plain.y),60.0)
+    game.world.following_player=false;game.world.camera_position=sim.position_of(plain) # Change 24 fixture: views animate only on screen
     await frames(2)
     var pv: LootActorView=game.world.views[str(plain.id)]
     check(not pv.get_node("Skills").visible and not pv.get_node("Name").visible,"Enemies without skills show neither")
     robot.hp=0;sim._kill(robot)
+    game.world.following_player=false;game.world.camera_position=sim.position_of(robot) # Change 24 fixture: views animate only on screen
     await frames(2)
     check(not label.visible and not icons.visible,"A defeated boss hides its name and icons")
     # Three skills (the final boss) stay in one row centred over the head.
     stage(8)
     var alien:=actor_of("boss-green-alien")
     sim.campaign.reveal_circle(Vector2(alien.x,alien.y),140.0)
+    await frames(1) # the stage switch recentres the camera on its first frame
+    game.world.following_player=false;game.world.camera_position=sim.position_of(alien) # Change 24 fixture: views animate only on screen
     await frames(3)
     var av: LootActorView=game.world.views[str(alien.id)]
     var row: Rect2=rect_of_icons(av)
     check(av.get_node("Skills").get_child_count()==3 and absf(row.get_center().x)<.5 and not row.intersects(rect_of_name(av)),"The final boss: three skill icons in one centred row, clear of its name")
+    game.world.follow_player()
 
 # ---------------------------------------------------------------- 5. persistent Winter I objective
 func objective_checks() -> void:
@@ -478,7 +487,7 @@ func prestige_keep_checks() -> void:
     fresh()
     sim.state.gems=345;sim.state.coins=999
     sim.campaign.reveal_circle(Vector2(480,700),260.0)
-    sim.state.explored["2"]={"10,10":true,"11,10":true} # fixture: Winter II cells
+    sim.state.explored.erase("2");sim.campaign.explore_cells(2,[Vector2i(10,10),Vector2i(11,10)]) # fixture: Winter II cells
     sim.state.camps_known["1"]=[1];sim.state.camps["1"]=[0,1];sim.state.spawns=sim.state.camps["1"]
     sim.state.upgrades["map_detail:1"]=2;sim.state.upgrades["reveal_radius:1"]=1
     sim.campaign.identify_sites()
@@ -487,7 +496,7 @@ func prestige_keep_checks() -> void:
     var pct: int=sim.campaign.explored_percent(1)
     check(do_prestige(),"Prestige")
     check(int(sim.state.gems)==345,"Gems kept: %s" % str(sim.state.gems))
-    check(sim.state.explored.get("1",{}).size()>=explored["1"].size() and sim.state.explored.get("2",{}).size()==2 and sim.campaign.explored_percent(1)>=pct,"Explored cells kept on both maps (Winter I %d%%)" % sim.campaign.explored_percent(1))
+    check(sim.campaign.explored_count(1)>=explored["1"].count(1) and sim.campaign.explored_count(2)==2 and sim.campaign.explored_percent(1)>=pct,"Explored cells kept on both maps (Winter I %d%%)" % sim.campaign.explored_percent(1))
     check(sim.state.camps_known.get("1",[]).has(1) and sim.state.discovered_spots.size()>=spots.size(),"Sighted camps and found spots kept")
     check(int(sim.state.coins)==0 and sim.state.camps.get("1",[])==[0] and sim.level("map_detail",1)==0 and sim.level("reveal_radius",1)==0 and float(sim.state.online_gems)==0.0,"Coins, owned camps, map upgrades and the run's online Gem credit still reset")
     check(sim.state.prestiges==1 and sim.state.owned_cards.size()==1 and int(sim.state.unlocked_stage)==1,"Other Prestige rules unchanged (card granted, back to Winter I)")
@@ -578,6 +587,7 @@ func drop_checks() -> void:
     check(sim.can_add("unit-red-scarf_outfit") and sim.add_item("unit-red-scarf_outfit"),"Dropping one stack makes room for a new item")
     check(not sim.collect(int(sim.state.pickups.back().uid)) and sim.state.pickups.size()==1,"With the row full again the pile waits on the ground (Inventory full)")
     var data=JSON.parse_string(JSON.stringify(sim.snapshot()))
+    SaveService.last_load_result="" # fixture: judge this restore, not the boot-time load of the probe profile
     sim.restore(data)
     check(SaveService.last_load_result not in ["invalid_profile_reset"] and sim.state.pickups.size()==1 and sim.state.pickups[0].has("dropped"),"A dropped pile saves and loads")
     sim.state.pickups[0].ttl=.05

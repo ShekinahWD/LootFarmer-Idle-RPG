@@ -941,7 +941,13 @@ msgid "CLAIM_REWARD"
 msgstr "Claim · %s coins · %s gems"
 
 msgid "MISSION_AUTO"
-msgstr "Automatic claiming: %s"
+msgstr "Automatic Claiming: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "ON"
+
+msgid "STATE_OFF_CAPS"
+msgstr "OFF"
 
 msgid "MISSION_AUTO_PURCHASE_HINT"
 msgstr "Claims completed regular missions (including purchased slots), NOT Main Objectives. After purchase, turn Automatic Claiming ON in Missions."

@@ -6,7 +6,7 @@
 >
 > **How to read it.** Each rule is written as a **reusable principle**. Examples name the game that validated them ("Growing Kingdom: ..."); their numbers, names and tables belong to that game and are evidence, not defaults. A game's own design decisions live in that game's GDD and decision log, never here (section 107).
 >
-> **Approved cross-game production baseline (2026-10-15):** 19-stage lifecycle (section 0.9), paid-once/no-tracking policy (0.10), English-first localization infrastructure from the first feature, with all 20 languages validated before release (132), authentic language-neutral screenshot capture (87), universal trailer + 10-master social-video production and posting-copy workflow (133), ChatGPT-owned ASO with policy-reviewed English source copy, Play-locale mapping, localized listing/release-note handoff (134), and the separately versioned **Godot Marketing Capture Toolkit 1.0.2 stable** (135). These decisions supersede older optional-service/marketing assumptions. The toolkit is an implementation artifact, **not** a second process document; pin/install it rather than recreating solved infrastructure.
+> **Approved cross-game production baseline (2026-10-15, lifecycle amended 2026-10-28):** 20-stage lifecycle (section 0.9; Stage 16 Demo Generation, Content Stripping & Validation inserted after Performance, marketing now Stage 17), paid-once/no-tracking policy (0.10), English-first localization infrastructure from the first feature, with all 20 languages validated before release (132), authentic language-neutral screenshot capture (87), universal trailer + 10-master social-video production and posting-copy workflow (133), ChatGPT-owned ASO with policy-reviewed English source copy, Play-locale mapping, localized listing/release-note handoff (134), and the separately versioned **Godot Marketing Capture Toolkit 1.0.2 stable** (135). These decisions supersede older optional-service/marketing assumptions. The toolkit is an implementation artifact, **not** a second process document; pin/install it rather than recreating solved infrastructure.
 >
 > **Last consolidated:** 2026-10-15 (Everfort publishing + reusable workflow finalization). Everfort established the 20-locale runtime reference architecture; the shared workflow now separates English-first implementation from the later 19-language translation handoff, probe-save isolation, old-save compatibility checks, release-export localization verification, language-neutral store screenshots, the 30-second store trailer workflow, the standard ten-video social package (5 focused + 5 full-landscape), per-video social posting copy, policy-first English store-copy approval, and explicit separation between runtime locale IDs and Google Play locale tags. Godot Marketing Capture Toolkit 1.0.2 is the approved stable Windows/Godot baseline. Earlier consolidation history follows. Sections 128 to 133, which had grown as one section per Growing Kingdom pass, were reorganized by topic and merged into the sections that own each subject; contradictions between sections were resolved (what a workforce counter counts, where a block reason goes, how a reassignment treats a carried load, when old saves must be migrated); and new canonical sections cover the iteration loop (44), save compatibility by development phase (61), progression-layer roles (3), management surfaces (16), teaching (18), text hierarchy (128), controls (129), army management (130) and soft counters (131). Earlier synchronization notes are in git history. Strengthened 2026-10-02 from Growing Kingdom's Android corrections, merged into the owning sections: centralized tutorial arbitration (18.8), automation modes above manual configuration (8.2), bulk mode changes (129.6), support anti-stacking (130.7), the Defend coverage pass (130.4), HUD ownership surfaces (16.4), adding to an established HUD (19.1), authored price tables (92), current-schema correctness before release (61.1) and targeted correction batches during device testing (44.2). Strengthened again 2026-10-02 from Growing Kingdom's Villager corrections: a blocked carried load falls through instead of blocking the list (115.4, 120.4), and automatic workers share one coordinated allocation instead of each taking the same best task (8.2, 115.1).
 
@@ -14,12 +14,15 @@
 
 > **Change 3 documentation merge — 2026-10-20:** Incorporated supplied fog sections 117.9, 124.12 and 127.6 without replacing the existing LootFarmer asset registry or section 136. Added reusable contracts for camp reveal, copy-count bonuses, evolution baselines and batched rewards. These are specifications, not implementation evidence.
 
+> **Production-audit consolidation — 2026-10-28 (LootFarmer full production audit):** The lifecycle grows from 19 to 20 stages: **Stage 16 — Demo Generation, Content Stripping & Validation** (0.9, 0.9.1); former Stages 16–19 are now 17–20 and their cross-references (87.8, 133, 134.4) were renumbered. Practices verified while auditing LootFarmer were merged into their owning sections rather than appended as a new change section: confirmation layout settled once instead of per frame (16.3), tutorial waits on an active real-time clock (18.5), export allowlists for unused pack content (22.2), desktop frame-time and save-cost measurement method with explicit device boundaries (48), and suite hygiene for unregistered probes, evidence-writing validators and clock-source changes (60.1). Each is marked with what was measured on desktop and what still needs a phone. Sections 138–146 remain project-labelled lesson batches from earlier changes; fold them into their owning sections at the next consolidation pass rather than adding a section 147.
+
 ## Topic map
 
 | Topic | Sections |
 |---|---|
 | Starting a new game (GDD, bootstrap, signing) | 0, 105 to 107 |
 | Universal production lifecycle and business model | 0.9, 0.10, 2, 44, 95 |
+| Free limited-content demo (Stage 16) | 0.9.1, 88, 135.4 |
 | Scope, checkpoints and the iteration loop | 1, 2, 44, 45, 60.1, 95, 108 |
 | Progression layers (run, Permanent, Prestige, Ascension) | 3, 32 to 37, 53, 92, 110 |
 | Automation | 8, 9, 55 |
@@ -1297,7 +1300,7 @@ if __name__ == "__main__":
 The main purpose of this section is that **this one reusable file is enough to instruct an agent to build the starter project**. Do not maintain a second reusable bootstrap guide that can drift from this Playbook.
 <!-- EMBEDDED_STARTER_TEMPLATE_END -->
 
-## 0.9 Universal production lifecycle — 19 approved stages
+## 0.9 Universal production lifecycle — 20 approved stages
 
 **This is the canonical game-independent production roadmap.** Keep the existing engineering checkpoints (section 2) as intermediate delivery gates. The GDD determines which optional mechanics exist; neither campaign/Prestige nor offline income, automation, armies, workers or any other genre mechanic is a universal requirement. The stages are production milestones, **not** an instruction to delay UI, localization, testing or asset work until their named stage.
 
@@ -1318,10 +1321,11 @@ The main purpose of this section is that **this one reusable file is enough to i
 | 13 | UI/UX Refinement & Android Device Validation | Physical device readability and interaction acceptance before long balance QA. |
 | 14 | Gameplay Balancing & Full Playthrough Testing | No remaining progression/softlock blockers. |
 | 15 | Performance Optimization & Stability Testing | Profile and verify target devices. |
-| 16 | Google Play Store Preparation & Marketing Assets | ASO, policy-reviewed English store copy, gameplay screenshots (every device class), video, feature graphic, localizations, a set of 10 short-form social videos (5 focused + 5 full-landscape) from approved footage, per-video posting copy, and localized Play release notes when applicable; see 87, 133 and 134. |
-| 17 | Release Candidate & Final Android Validation | Test exact release artifact; section 88. |
-| 18 | Google Play Publishing | Configure one-time price, store compliance and submit. |
-| 19 | Post-Launch Support, Updates & Improvements | Fix issues using the developer's chosen support process; no player/crash telemetry. |
+| 16 | Demo Generation, Content Stripping & Validation | Optional per game: a separate free demo project generated from the approved full source after the balance and performance gates; section 0.9.1. |
+| 17 | Google Play Store Preparation & Marketing Assets | ASO, policy-reviewed English store copy, gameplay screenshots (every device class), video, feature graphic, localizations, a set of 10 short-form social videos (5 focused + 5 full-landscape) from approved footage, per-video posting copy, and localized Play release notes when applicable; see 87, 133 and 134. |
+| 18 | Release Candidate & Final Android Validation | Test exact release artifact; section 88. |
+| 19 | Google Play Publishing | Configure one-time price, store compliance and submit. |
+| 20 | Post-Launch Support, Updates & Improvements | Fix issues using the developer's chosen support process; no player/crash telemetry. |
 
 **Continuous during all stages:** native localization infrastructure and an up-to-date English reference catalog (other 19 translations deliberately deferred until localization freeze; section 132), focused tests/Android checks, save/reset correctness, GDD/decision-log maintenance, version control and validated reusable lessons (44, 108). Claude may commit approved, validated implementation batches. Final creative, storefront and release decisions require human approval. A phase may overlap another when practical; never use the roadmap to postpone cross-cutting quality requirements.
 
@@ -1338,6 +1342,32 @@ At publishing time, set the paid price and required Play Console declarations (i
 At the **localization freeze** (after the intended UI and English strings are stable), ChatGPT generates and structurally checks the 19 non-English catalogs from the final English catalog; the human developer copies them into the Godot project. Claude then imports, tests, fixes and enables them **in strict batches of four or five languages** (normally 5 + 5 + 5 + 4); Claude may fix **any** issue it finds, including translation wording, without sending changes back to ChatGPT. A batch must be checked and reported before the next batch. After all 19 pass, enable their Settings entries and device-language detection for Automatic. Launch still requires **all 20 complete and verified**. Section 132 is the authoritative detailed process.
 
 Use a lightweight English-key completeness/integrity check during development; do not require a costly bespoke validator when a small existing test suffices. Allow targeted pseudolocalization for text-expansion testing. Never assume a translation is reviewed merely because a catalog parses.
+
+## 0.9.1 Stage 16 — Demo Generation, Content Stripping & Validation
+
+Approved 2026-10-28 as a lifecycle stage. It applies only when the developer decides a game gets a free demo; the stage is then mandatory before store preparation, because the demo's own screenshots, listing and package belong to Stage 17. **Document and plan the demo early if useful; generate it only after the full game's balance (Stage 14) and performance (Stage 15) gates have passed**, so the demo ships the tuned, profiled build rather than a snapshot that must be regenerated.
+
+**What the demo is.** A **separate, free Godot project** generated from the approved full-game source, never a branch that is hand-edited afterwards and never a mode flag inside the paid build. The game's GDD names the demo's content scope (for example "the first two stages"); everything outside that scope must be **physically absent from the delivered demo build**, not merely locked, hidden or gated by a flag a modified client could flip. Absent means: later maps/scenes, enemy and boss identities, gear, skills, progression tables and data rows, scripts and assets that demo gameplay does not need are not in the demo project and not in its APK/AAB/PCK.
+
+**Rules.**
+
+- **Positive allowlist, dependency-verified.** Build the demo from an allowlist of entry scenes, data rows and resources, then close it over real dependencies (scene `ext_resource` paths, `preload`/`load` literals, resource UIDs, data-driven paths in JSON/catalogs, theme and font references, autoloads). Fail the build on any dependency that resolves outside the allowlist or to a missing file. Never build by deleting a blocklist from a copy of the full game: whatever the blocklist forgets ships.
+- **Shared mechanics stay identical.** Do not fork gameplay rules for the demo. Data tables are filtered (rows outside scope removed), code paths that reference removed content are made data-driven or guarded by content presence, and the demo's balance for the included content is the full game's balance. A demo-specific change is a design decision recorded in the GDD.
+- **Separate identity and save.** Its own Android package id, app name, icon variant, version line and signing configuration (its own upload key, created with the section 0.3 procedure); an independent save location and schema marker. The demo never reads or writes the paid game's save.
+- **End-of-demo invitation.** When the demo's content is complete, one non-blocking announcement (and a permanent entry in Settings or the end screen) invites the player to buy the full game. No time lock is required; replaying the included content remains possible. Store links follow section 52 and the paid-once policy (0.10): no ads, no IAP, no tracking.
+- **Optional demo-to-paid save transfer is a separate, unapproved decision.** Do not assume it. If approved later, it needs its own design (what transfers, validation of an untrusted file, no unlock of content the player did not earn) and tests.
+- **Honest threat model.** A demo can be modified by its owner; it cannot expose source or resources that were never shipped. That is the reason for physical absence. Do not claim more protection than that (no "unhackable demo").
+
+**Validation (all required before Stage 17 uses the demo):**
+
+1. **Artifact inspection of the actual exported APK/AAB/PCK**, not the project folder: list every packed path (unzip the APK/AAB, whose Godot resources sit in the asset pack or `assets/`; for a separate or sparse PCK, use a PCK reader and record which tool and version was used) and fail on any forbidden resource, data row, scene, script or identity string from out-of-scope content (search for the authored ids and display names too). Record the file list and hashes as release evidence.
+2. **No dead dependencies:** a headless load of every packed scene and resource succeeds with zero missing-resource or script errors; a static scan finds no `res://` reference to a removed path.
+3. **No inaccessible assets:** every packed asset is reachable from demo gameplay (the allowlist closure equals the packed set, plus declared engine/theme files).
+4. **No bypassable unlock:** probes drive the demo's real end state and every travel/debug/save-edit path (a save naming a later stage, a forced unlock call, a debug flag) and assert that the game refuses it safely because the content is not there, without crashing.
+5. **Gameplay parity:** the full game's probes for the included content pass unchanged against the demo (same numbers, same contracts), plus a demo-specific probe for the end-of-demo invitation, the separate save and the package identity.
+6. **Physical Android check of the exact demo artifact** (section 88): install beside the paid build, confirm independent saves, play the included content to the invitation.
+
+Keep the generator, its allowlist and its validation report in the full game's repository (tools and docs, excluded from the paid export). Regenerate the demo from source after every full-game change it includes; never patch the generated demo by hand.
 
 ---
 
@@ -1380,7 +1410,7 @@ If the base interaction is not fun or clear, progression systems will only hide 
 
 # 2. Build in checkpoints
 
-Use explicit checkpoints with a playable result after each one. These are the **engineering gates inside the 19-stage production lifecycle** (section 0.9), not a second competing roadmap. A checkpoint is omitted or adapted when its example mechanic is absent from the game's GDD.
+Use explicit checkpoints with a playable result after each one. These are the **engineering gates inside the 20-stage production lifecycle** (section 0.9), not a second competing roadmap. A checkpoint is omitted or adapted when its example mechanic is absent from the game's GDD.
 
 A good generic order:
 
@@ -2085,7 +2115,13 @@ Reuse (Growing Kingdom): `PanelHost` (settle-then-reveal, `SETTLE_FRAMES`), `Gam
 
 **Confirmation bounds are part of the layout contract.** A desktop/native dialog with a fixed minimum width can escape a scaled mobile viewport even when the underlying settings panel fits. Use the existing UI theme, constrain the confirmation to the safe canvas rectangle, wrap/scroll its message and pin explicit Confirm/Cancel controls. Block input to underlying UI while it is open, clear stale callbacks on cancellation, and test long text, narrow/tall/wide layouts and destructive reset from pause. Check the dialog against the viewport and its buttons against the dialog, not just children against their own containers.
 
+**Lay a confirmation out once, then leave it still.** Re-fitting a confirmation from `_process` every frame makes it flicker on a phone: a wrapped message measures differently on alternate passes, and adding the label's minimum height to the dialog's own minimum counts it twice, so each pass moves the dialog for the next. Fit it when it is shown, keep it transparent through two deferred settle passes (section 16.3's settle-then-reveal), then reveal it, and re-fit only on a real viewport or safe-area change. Give each show a generation number so a deferred pass from a cancelled or replaced dialog does nothing. Probe that the dialog rectangle is identical across many frames after reveal and that a stale pass is ignored; the visual stillness itself is a phone check (LootFarmer Change 22's Drop All dialog: fixed in source and probe, device acceptance pending at the 2026-10-28 audit).
+
 Two measurement traps found in Godot 4.7 (LootFarmer Change 6): buttons inside a flow container must not autowrap, or each collapses to one word per line and the flow reports hundreds of pixels of height; and descriptions built off-tree cannot resolve theme defaults, so when reconciling them into live controls compare only explicit overrides, or every refresh replaces the controls it meant to keep.
+
+**Keep the last closed panel's controls (validated in LootFarmer Change 24).** With a reconciler that diffs off-tree descriptions into live controls, most of a panel's open cost is entering the tree and laying out every row for the first time (text shaping included), not building the description. Leave the closed panel's controls hidden inside the hidden sheet with their processing disabled (map views and similar controls have `_process`), remember its context key, and reconcile into them when the same panel reopens; another panel replaces them. One retained panel keeps the node count bounded; take a node-count leak baseline after one warm-up round. When replacing, **remove all old children before adding new ones**: a newcomer added while a same-named old sibling is still present is renamed by Godot (`Tabs` becomes `Tabs2`), and anything that finds controls by name breaks.
+
+**Gate grid layout on a layout key.** A slot grid refreshed on every state revision should rewrite sizes, offsets and theme overrides only when its layout inputs change (column widths, density, slot count, heading height, theme gap); compute the key on every refresh (cheap) and on the HUD tick so resizes still apply. Each override write re-themes the control even when the value is the same.
 
 ## 16.4 A HUD progress element as the entry to a read-only ownership surface
 
@@ -2249,6 +2285,8 @@ Persist the grace boundary and required-action state. Closing/reopening the app 
 **Follow the live rectangle, and drop it the moment it goes.** Keep a reference to the target control (or the world target) and read its global rectangle every frame, not once per logic tick: panels settle at their size a few frames after opening, lists scroll, a rotation or a safe-area change moves everything. When that control is freed or hidden (its panel closed or rebuilt), clear the frame at once instead of drawing it at the last known coordinates. Search for the control only in the HUD and the panel actually open, never in a panel queued for deletion, and point into a panel only once it shows at its final size.
 
 Reuse: `scripts/ui/help_guide.gd` in Feed the Dragon; `TutorialGuide.hand_layout()`, `HAND_TIP` and `TutorialGuide._process` (live rect) in Growing Kingdom, and its `_wait()` (progress caption and soft frame), `current_economy()` (one at a time) and `suggested_tile()` over `RunState.recommended_build_tile()` (the suggestion).
+
+**A lesson that waits "N seconds" needs a clock that means seconds to the player.** A simulation clock that clamps each step (a common guard, for example `min(delta, 0.1)`) runs slower than the wall clock whenever the device drops below that step rate, so a 15-second pause between lessons can stretch to 45 seconds on a loaded phone. Accumulate tutorial waits from the real frame delta while the game is active (not paused, not suspended, not in a blocking choice), save the accumulated seconds per wait, and never count background or offline time. When an existing wait changes clock, carry partial progress over once and **update every fixture that advanced the old clock**: probes that only step the simulation will no longer complete the wait, and every lesson after it silently loses coverage (LootFarmer's 2026-10-28 audit: 30 tutorial assertions failed for this reason after the clock change). Verify the duration with a stopwatch on a slow device; a headless probe proves the accounting, not the feel.
 
 ## 18.6 Contextual teaching after the tutorial
 
@@ -2533,6 +2571,8 @@ Code may arrange, slice, crop, tile, animate and apply approved tints to supplie
 Keep a mapping of each UI component and state to its source asset. If a necessary element is missing, report the gap and obtain a design decision before substituting new artwork. Placeholder permissions in section 125.10 do not override an asset-only instruction.
 
 Loopcremental example: Cartoon GUI Pack was designated for interface visuals; Pixel Plains for displayed characters, equipment and resources. These names describe that project's boundary, not mandatory packs for future games.
+
+**Ship what the game uses, not the whole pack.** Supplied packs arrive with many variants (outline styles, separated and combined sheets, demo scenes). With Godot's `all_resources` export filter, every imported file ships unless it is excluded, including unused variants and retired packs. LootFarmer's release AAB (2026-10-28 audit) carried about 1,860 Pixel Plains files and 280 Kenney files plus unused optional packs, while the game references a small subset. Keep source packs in the repository (licenses and provenance stay with them), but export from a reviewed list: either `export_filter="resources"` with the used scenes/resources as roots, or a generated allowlist from real dependencies, checked by listing the exported artifact. Put `.gdignore` on folders that are reference-only (pack demos, retired packs) so the editor does not import them at all. The same dependency-verified allowlist is the foundation of a demo build (0.9.1). Removing files from an export is a packaging change: re-run the headless load of every packed scene afterwards.
 
 ## 22.3 Compose a reusable base unit and reuse its renderer
 
@@ -2850,6 +2890,10 @@ Two more rules validated in Feed the Dragon's endgame:
 
 - **Save irreversible *progression boundaries* at once; decide whether to coalesce frequent irreversible events.** Complete an assault, claim, defeat, Prestige and Ascension with one immediate atomic save. Frequent casualties in large fights can make per-event synchronous serialization and file flushing the dominant frame-time cost: Growing Kingdom v0.25 explicitly accepts up to **5 real seconds** of rollback in an interrupted fight, marking each death dirty while the established 5-second timer coalesces them into one write. Document that trade-off and test it; never silently weaken durability, and do not conflate it with a committed progression boundary. The stricter save-on-each-death policy remains appropriate for games that require zero rollback and can afford it.
 - **Lock a currency between committing to a reset and completing it** when the reset erases that currency. Otherwise the player can convert about-to-be-erased currency into things that survive the reset. The lock should come with a reason string, and the confirmation should name the amount that will be lost and offer Cancel to spend it first.
+
+**Two save tiers instead of one timer (validated in LootFarmer Change 24):** ordinary progress (kills, loot, XP, exploration) marks the profile dirty and is written a fixed, documented delay after the *first* unsaved change (repeated marks never postpone it); a committed player action (any currency payment, a confirmed panel action, a settings change) is written about a second later, so a burst of taps costs one write; transactions that must never roll back keep their immediate save, and so do pause, backgrounding and quit. Hook the committed tier at the few funnels every such action passes through (the payment function, the shared action-button helper) rather than at each call site. State the resulting rollback window in the save contract and probe both tiers by moving their deadlines in a test (no wall-clock waiting).
+
+**Verify a written save without parsing it again.** Serialize once to a byte buffer, write it to the temporary file, and compare the file's length and digest (MD5 is enough to catch corruption) with the buffer; keep in memory whether the current primary is known valid (loaded successfully or written by this session) and its length, and copy it to the backup only then. This keeps the atomic temp, backup, rename order and the "never replace a good backup with a bad primary" rule while removing two full parses per save. Keep large, rarely-changing sets out of per-key JSON: a dense per-map byte mask, deflated and Base64-encoded, replaced one dictionary key per explored cell and cut both file size and serialization cost several-fold.
 
 ---
 
@@ -3336,6 +3380,40 @@ The fix pattern for any expensive validity preview (placement, targeting, area o
 
 > Expensive build-preview validation should be event and cell driven and spatially local, not a repeated full-world scan.
 
+## 48.1 Measure before optimizing: a desktop harness with honest boundaries
+
+A Godot game can be measured on the development machine before anyone holds a phone, as long as the report says what the numbers are. The method that worked (LootFarmer production audit, 2026-10-28, Godot 4.7.2, Compatibility renderer):
+
+- **A standalone `-s` SceneTree script outside the project** (in a scratch folder) instantiates the real main scene with an isolated test profile and autosave off, so no tracked file and no player save changes. Disable V-Sync and the FPS cap in the script, run it windowed at a phone-shaped size, and print the environment (engine version, renderer, GPU adapter, CPU, window size, physics rate) with every result.
+- **Scenarios, not averages of everything:** a quiet baseline, the heaviest content (the densest map, weather on, maximum spawn upgrades, a full inventory, every automation on), exploration (fog and minimap redraws), repeated panel open/close, map/stage switching, and a panel held open during combat. Report per scenario the frame interval mean, p50, p95, p99 and max, the draw calls, and the node/object counts before and after repeated actions (a leak check).
+- **Micro-benchmarks for suspected periodic spikes:** time a save end to end and its parts (serialize, parse, file replacement) with the late-game state, a forced HUD refresh, a pure simulation step. A periodic cost that is small on average is a visible hitch when it lands in one frame.
+- **Add a watchdog.** A script error stops a coroutine without quitting, leaving a frozen window (section 127.5). Quit with an error if the harness makes no progress for a few seconds.
+- **Do not read `Performance.TIME_PROCESS` as per-frame cost** in such a harness: in the LootFarmer run it reported values larger than the measured frame interval. Use your own timestamps around frames and functions.
+
+What the LootFarmer harness found on a desktop (GTX 1650, i5-10300H). These are **desktop numbers that rank suspects, not phone measurements**:
+
+- **Save cadence:** the game marked state dirty every 2 s of play and a 5 s timer wrote the whole profile; with a late-game profile (466 KB JSON, every map explored) one save took about 125 ms, of which serialization was about 24 ms and each full JSON re-parse about 33 ms. The writer parsed the temporary file and the previous primary file again to validate them. A whole-profile save every few seconds is a recurring frame hitch on weaker hardware. Prefer saving at committed boundaries plus a slower periodic timer, validate the written file cheaply (size and a hash or a lightweight header check) instead of parsing it twice, and keep large, rarely-changing sets (explored cells) in a compact form (a bitset or a packed string per map) rather than one dictionary key per cell. Section 30 (durability decisions) still owns how much rollback is acceptable.
+- **Stage switching:** instantiating a large authored stage scene in the frame the player teleports produced a 300–420 ms frame. Preload or load the next stage in the background (`ResourceLoader.load_threaded_request`) behind the travel transition, or cache recently visited stages.
+- **Per-event HUD relayout:** an inventory grid refreshed on every state revision (every kill) re-applied theme overrides and sizes to all 70 slots even when nothing changed (about 8 ms with unchanged contents, 25 ms forced). Theme override setters notify even when the value is the same; compare before writing, and lay out only when the slot count, density or column width changed.
+- **String-keyed spatial dictionaries in draw loops:** fog, minimap and weather code that formats `"%d,%d"` keys per cell or per particle every redraw scales with map area. Precompute per-cell visibility into a packed array or an image/texture once per discovery change.
+- **Whole-roster view updates every frame:** a world view that updates every actor on the map each frame, on screen or not, grows with spawn upgrades. Update off-screen actors at a lower rate or only on state change.
+
+Profile on the target phone before changing anything (section 0.9 Stage 15): Android GPU Inspector or Perfetto system traces for GPU/CPU frame time, Godot's remote debugger profiler and monitors over USB with the release-like build, and the same scenarios as the desktop harness so the numbers compare. Agree the frame-time targets with the developer from those measurements; a desktop harness never sets them. Before and after each optimization, run the same scenario and compare the same percentiles; preserving appearance, animation, pixel-art filtering and editor editability is part of the acceptance.
+
+## 48.2 Corrections that held up on the desktop harness
+
+LootFarmer Change 24 applied the remedies above in one batch, on the developer's instruction without a phone baseline, and re-ran the same harness (now kept in the repository as a non-gating benchmark with its scenario builders, so before and after use the same fixtures). Every heavy scenario's mean and p99 frame interval dropped by roughly 2 to 3 times, the late-game save by about 8 times and the per-event inventory refresh by about 20 times, with the full regression suite green. Desktop only; phone confirmation is still pending. The techniques, in order of effect:
+
+- **One sight context per pass.** A visibility predicate that re-derives bonuses (cards, upgrades, mastery) on every call is cheap alone and dominant inside per-actor, per-drop and per-particle loops. Return the inputs of one moment as a small object (mask, columns, cell size, player position, radius) with the identical predicate, take it once per loop, and probe that it agrees with the original predicate at thousands of points, with the player alive and dead.
+- **Dense byte masks instead of string-keyed cell dictionaries**, indexed `y * columns + x`, for exploration state; `count()` gives the explored total natively.
+- **A fog veil as one texture draw** (section 117.9 F).
+- **Presentation follows the camera; the simulation does not.** Hide views of actors outside the camera rectangle plus a margin and disable their processing, but keep their data (actor reference, position, look, disclosure) current every frame so they are correct when they return; resolve each loadout's look once; pool views across map changes. Probes that inspect an off-screen view's visuals must point the camera at it.
+- **Remove O(n^2) membership checks from the tick.** A "still in the list?" scan for every actor is only needed after a removal: count in-place removals and compare array identity, and scan only when either changed.
+- **Stage changes without the long frozen frame:** share one bounded PackedScene cache between every reader of a stage file, start `ResourceLoader.load_threaded_request` when the destination becomes likely (a camp picker opened for it, the next map unlocked), read authoring data such as collision shapes from `PackedScene.get_state()` (SceneState) instead of instantiating the scene, hide the previous scene at once and free it over the next frames under a node budget. Instantiating and entering a large scene still costs a visible frame; hiding that needs a transition or a larger cache.
+- **Save path and cadence** as in section 30.
+
+Keep each game's numbers in its own performance report; this section records only what worked and what it did not fix.
+
 ---
 
 # 49. Store-ready polish checklist
@@ -3722,6 +3800,15 @@ edit
 ```
 
 If the team is unsure whether sequential or parallel execution is faster, benchmark one representative batch both ways and keep the measured policy. The goal is **shortest trustworthy feedback**, not maximum CPU occupancy.
+
+**Keep the suite honest between batches.** Three gaps found by running a maintained suite during an audit (LootFarmer, 2026-10-28):
+
+- **A new probe must be registered in the suite runner the day it is written.** A correction batch delivered with its own probe but without registering it, and with a note that the engine was unavailable, so the probe had never run; the first run found a failure, and the suite still reported green on its own list.
+- **A validator must not write into a committed evidence folder.** A source validator that saves its JSON report into a historical change's evidence directory modifies a tracked file on every run, so an audit or a read-only check dirties the worktree. Write reports to an ignored scratch path or to the current batch's evidence only when asked.
+- **When a rule's clock, threshold or wording changes, update the assertions of every older probe that covered that rule in the same batch** (section 60) and record the result. A batch that changes a tutorial clock and leaves earlier probes on the old clock turns their later sections into a cascade of failures and removes the coverage those sections gave.
+- **Drive real-time clocks through their own API in probes.** When a wait counts real active frame seconds, a probe advances that clock with fixed amounts (the accumulator's `advance(seconds)`, or the owner's `_process(dt)` called directly) and asserts the gates: paused, suspended and modal time does not count, and the old gameplay clock alone never satisfies it. Awaiting frames in a headless run adds only milliseconds and proves nothing.
+- **A global "last load result" judges the last load, not your restore.** Probes that assert an in-memory restore did not reset should clear that value first; after a save-version bump their isolated profiles on disk legitimately reset at boot and leave it set.
+- **A long performance run is a separate, non-gating tool** with an isolated profile, a watchdog and a report written to an ignored path, run once per batch at the end; the gating suite stays fast.
 
 This policy is the verification half of the iteration loop in section 44.2: while it runs, the developer is already playing the batch on a device. When a heavy run is needed, prefer a deterministic prepared scenario (a fixed budget, a preset save, a single recorded cell) over a full natural playthrough, and stop a run that has stopped answering its question (Growing Kingdom replaced an hour-long binary search with a few fixed-budget trials per recorded cell).
 
@@ -4677,7 +4764,7 @@ A desktop monitor can clamp the capture window: 720×1280 on a 1080-pixel screen
 
 ## 87.8 Trigger and ownership: the UI-readiness gate
 
-Screenshots belong to **stage 16, Google Play Store Preparation & Marketing Assets** (0.9). Prepare the reusable capture infrastructure earlier during bootstrap/implementation if useful, but generate final store screenshots once **the UI is mostly ready**, core gameplay is representative and sufficient visual content exists. Final balance, full completion and perfect progression pacing are **not** required for screenshot staging. Regenerate affected marketing captures after significant UI/visual or feature changes.
+Screenshots belong to **stage 17, Google Play Store Preparation & Marketing Assets** (0.9). A game with a free demo (Stage 16, 0.9.1) captures the demo's own screenshots from the demo artifact, showing only content the demo contains. Prepare the reusable capture infrastructure earlier during bootstrap/implementation if useful, but generate final store screenshots once **the UI is mostly ready**, core gameplay is representative and sufficient visual content exists. Final balance, full completion and perfect progression pacing are **not** required for screenshot staging. Regenerate affected marketing captures after significant UI/visual or feature changes.
 
 - **ChatGPT** plans each game's marketing sequence, screenshot order and scenario purposes (what each screenshot shows, not text drawn onto it); the **human** approves what is being advertised and any exception to the no-added-text screenshot default (87.9).
 - **Claude** implements game-specific deterministic scenarios, uses the reusable capture tooling and checks the images actually produced. Each scenario can be overridden by the user (subject, action, camera, UI visibility, device classes).
@@ -6198,6 +6285,8 @@ Keep the cover above concealed content and below allowed UI/owned-unit indicator
 Update dirty regions/chunks or batch a mask upload when visibility changes; avoid rebuilding every cell node, full UI panel or all map textures every rendered frame. For multiple sources, use a fresh union or correct per-cell source counts so one source leaving does not erase another's sight. Keep discovery and masks bounded to map dimensions. Profile worst-case roster, reveal radius, high game speed, repeated map opening and large maps on a target Android device.
 
 Soft edges are presentation only: blur/fades must not reveal hidden labels or permit picking cells that the state still considers unknown. Full-screen fog should ignore pointer input; interactive map controls follow section 121's input arbitration.
+
+Validated option (LootFarmer Change 24, Godot 4.7 Compatibility renderer): store explored cells as one byte per cell, upload them as an `Image.FORMAT_L8` texture (`Image.create_from_data` straight from the byte array, `ImageTexture.update` when only the content changes), draw one `draw_texture_rect` over the map's cell extent with nearest filtering, and let a canvas shader choose transparent, vision veil or cover per cell from the mask, a cell-centred distance test and raw colour uniforms taken from the fog rule resource. Re-upload on discovery changes only; send player position and radius as uniforms when sight crosses a cell. While walking, the CPU cost drops from a whole-map rebuild to two uniform writes. Draw minimap cells as one rectangle per horizontal run. Visual identity on the phone (cells, colours, sight edge) is still a device check.
 
 This section is the reusable implementation specification. Keep actual source paths, measured costs, selected algorithm, exact radii and visual acceptance captures in the project's implementation registry and validation report once verified.
 
@@ -8117,7 +8206,7 @@ Automatic: device-language detection active; English fallback
 
 # 133. Universal video generator — trailers, social and custom formats
 
-A **single reusable video workflow** must produce a Play Store trailer **or any gameplay-based promotional video**, including TikTok, YouTube Shorts, regular YouTube and custom campaigns. It is not a Growing-Kingdom-only "trailer test." Do not force the user to assemble clips manually in an editor. Video production normally occurs in **stage 16** (0.9), with toolkit preparation and scenario development earlier if valuable.
+A **single reusable video workflow** must produce a Play Store trailer **or any gameplay-based promotional video**, including TikTok, YouTube Shorts, regular YouTube and custom campaigns. It is not a Growing-Kingdom-only "trailer test." Do not force the user to assemble clips manually in an editor. Video production normally occurs in **stage 17** (0.9), with toolkit preparation and scenario development earlier if valuable.
 
 ## 133.1 Authored composition, flexible output
 
@@ -8251,7 +8340,7 @@ Keep the approved English listing, the structured 20-locale handoff, the runtime
 
 ## 134.4 Publishing gate
 
-At **production stage 16**, plan and produce store screenshots and video, feature graphic and ASO, the set of 10 short-form social videos derived from the approved trailer footage (5 focused and 5 full-landscape, 133.5), and their posting copy (133.6), after the UI-readiness trigger for screenshots (87.8). Generate/validate the 20-locale Play listing handoff (134.3) only after the English source copy is policy-checked and approved. Stage 17 validates the exact Android release candidate and assets against the shipped features. Stage 18 completes Play Console configuration: listing, locales, policy declarations, ratings, countries, signed build, release notes where applicable, and **one-time paid** price. No advertising, IAP, subscriptions, analytics or crash-tracking integration is part of this sequence. Treat each final store/social deliverable as an approved artifact, not automatically published material.
+At **production stage 17**, plan and produce store screenshots and video, feature graphic and ASO, the set of 10 short-form social videos derived from the approved trailer footage (5 focused and 5 full-landscape, 133.5), and their posting copy (133.6), after the UI-readiness trigger for screenshots (87.8). Generate/validate the 20-locale Play listing handoff (134.3) only after the English source copy is policy-checked and approved. A free demo (Stage 16) is its own Play listing with its own copy, screenshots and package; its claims cover only the demo's content. Stage 18 validates the exact Android release candidate (and demo artifact, when present) and assets against the shipped features. Stage 19 completes Play Console configuration: listing, locales, policy declarations, ratings, countries, signed build, release notes where applicable, and **one-time paid** price. No advertising, IAP, subscriptions, analytics or crash-tracking integration is part of this sequence. Treat each final store/social deliverable as an approved artifact, not automatically published material.
 
 ## 134.5 Localized Google Play release notes
 

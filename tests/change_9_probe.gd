@@ -180,6 +180,7 @@ func save_checks() -> void:
     own("unit-sprout_outfit_t4",300);own("boss-green-alien_outfit_t7",150);own("skill_frost",200)
     sim.equip("unit-sprout_outfit_t4")
     var snap: Dictionary=JSON.parse_string(JSON.stringify(sim.snapshot()))
+    SaveService.last_load_result="" # fixture: judge this restore, not the boot-time load of the probe profile
     sim.restore(snap)
     await frames(2)
     check(SaveService.last_load_result not in ["development_reset","invalid_profile_reset"],"Change 8 save with a legacy Tier 4 Spring II outfit loads")

@@ -16,14 +16,14 @@ func map_rect() -> Rect2:
 
 func _draw() -> void:
     if sim==null:return
+    # Change 24: the player is choosing a camp on this map, so parse its scene in the background now
+    # (travel then only instantiates it). Idempotent; nothing happens for a cached or loading map.
+    if stage_id!=int(sim.state.stage):preload("res://scripts/game/stage_scenes.gd").request(stage_id)
     var d: Dictionary=sim.catalog.stages[stage_id-1]
     var rect:=map_rect()
     var factor:=rect.size.x/float(d.size[0])
     draw_rect(rect,Color(.06,.08,.1))
-    var cell: float=sim.campaign.fog_rules.cell_size
-    for key in sim.state.explored.get(str(stage_id),{}):
-        var bits=key.split(",")
-        draw_rect(Rect2(rect.position+Vector2(int(bits[0]),int(bits[1]))*cell*factor,Vector2.ONE*cell*factor),Color(.28,.4,.32))
+    preload("res://scripts/game/map_view.gd").draw_explored(self,sim,stage_id,rect.position,factor)
     for i in range(d.spawns.size()):
         var at:=rect.position+Vector2(d.spawns[i][0],d.spawns[i][1])*factor
         var owned: bool=sim.state.camps.get(str(stage_id),[0]).has(i)

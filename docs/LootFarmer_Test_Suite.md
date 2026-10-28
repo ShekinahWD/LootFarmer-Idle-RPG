@@ -1,4 +1,41 @@
-# LootFarmer — Test Suite (Change 20)
+# LootFarmer — Test Suite (current, 2026-10-28, Change 24)
+
+## Change 24 — restored maintained suite (28 October 2026)
+
+Command: `python tools/run_probes.py` (Godot 4.7.2-stable official, Windows console build, headless, sequential, isolated `probe-suite-*` profiles, `--no-autosave`). **32 entries: the source validator plus 31 Godot scenes.** Final result: **32/32 pass, no script errors, no timeouts** — 5,689 probe checks plus 1,570 validator checks, all passing (two smoke scenes and the bootstrap probe report pass/fail only).
+
+Changes to the suite in this batch:
+
+- **Registered** `change_22_probe` (40 checks) and the new `change_24_probe` (53 checks: Sight equals `can_see` over thousands of points on Winter I and Spring II, alive and dead; explored masks and their save encoding; the save path's size/digest check, backup rule, version-2 reset and both coalescing tiers; the SceneState obstacle reader equals instantiating all eight stages; the bounded stage scene cache; off-screen actor views paused but current; the view pool and flat node count across stage switches; the fog shader parameters; the inventory layout key; the retained panel; version 24).
+- **TEST-01 (stale clock and Road Ahead contracts):** `change_20_probe`, `change_15_probe` and `change_5_probe` drive the real-time Guided clock with `guided.advance_waits()` and `TutorialGuide._process(dt)` instead of `playtime_total`, check that paused, suspended and Prestige-choice time does not count and that playtime alone never opens Missions, walk every Guided step to `tutorial_final` (`change_20_probe` asserts all 28 steps completed), and expect The Road Ahead once in Basic and None. `change_20_probe` 84/0, `change_15_probe` 172/0, `change_5_probe` 161/0.
+- **UI-04/UI-05:** `change_22_probe` expects "Automatic Claiming: OFF" then "…: ON", no Auto-Claim pointer in None (with the Missions panel text present) and the pointer in Basic.
+- **Stale fixtures updated for the new representations (no behaviour assertion weakened):** explored-cell fixtures and counts use `campaign.explore_cells/explored_count` (campaign, change_5/6/7/12/15/16 probes); malformed-save checks feed a wrong-size and a non-0/1 mask; probes that inspect an enemy's overhead visuals point the camera at it first (off-screen views pause their animation by design; change_8/16); probes that judge an in-memory `restore()` clear the boot-time `last_load_result` first (change_8/9/10/16; the isolated probe profiles on disk were written at save version 2 and now reset at boot, as intended); `change_6_probe` takes its node-count baseline after one warm-up round because one closed panel stays retained (bounded).
+- **TEST-03:** `tools/validate_campaign_source.py` writes `tests/tmp/static_checks.json` (ignored) by default, `--output PATH` otherwise; `docs/Change_21_Evidence/static_checks.json` is no longer touched.
+- **TEST-04:** `python tools/run_benchmark.py` runs `tests/performance_benchmark.gd` windowed (non-gating; never in `run_probes.py`) and writes `tests/tmp/benchmark/report.txt`. Results: `LootFarmer_Change_24_Performance_Report.md`.
+
+The first full run of this batch gave 25/32: the seven failures were the fixture issues above plus one real defect introduced by the retained panel (replacing it added controls while same-named old siblings were still present, so Godot renamed them, e.g. "Tabs" → "Tabs2"; `_sync_panel_children` now clears first on a full replacement). After the fixes the seven entries passed on a targeted rerun and the **full suite was run again: 32/32**.
+
+## Production audit run — 28 October 2026 (revision b51a209)
+
+Command: `python tools/run_probes.py` (Godot 4.7.2-stable official, Windows console build, headless, sequential). Result: **27/30 entries pass**. No script errors or timeouts.
+
+| Entry | Result |
+|---|---|
+| validate_campaign_source | PASS 1,570 / 0 |
+| change_20_probe | **FAIL 81 checks / 17 failures** |
+| change_15_probe | **FAIL 172 / 13** |
+| change_5_probe | **FAIL 159 / 1** |
+| every other maintained entry | PASS (counts in the audit report, section 7) |
+
+**Classification (Playbook 60): stale contracts, not production regressions.** Change 22/23 moved the Guided waits to an active real-time clock (`tutorial.flow.wait_seconds`, 15 s) that only `TutorialGuide._process` advances. These probes still advance `playtime_total` through simulation steps and expect 60 s, so "Missions appear at delay boundary" fails and every later Guided assertion cascades. The Road Ahead (approved for Basic and None) makes the old "None has no instruction" and Basic card-list assertions fail. Consequence: **the Guided flow after the mission wait has no passing automated coverage until these probes are updated.**
+
+Also found:
+
+- `change_22_probe` is **not registered** in `tools/run_probes.py`. Run by hand it gives 38 checks / 1 failure: it expects the toggle text to contain "OFF", while the string renders "Automatic claiming: Off". `tests/change_22_static.py` passes 18 / 0.
+- `tools/validate_campaign_source.py` writes its report into the tracked `docs/Change_21_Evidence/static_checks.json`, so every run modifies the worktree. The audit restored the file.
+- There is no non-gating performance scenario in `tests/`; the audit used a scratch desktop harness (audit report section 5).
+
+Required before the next build: update the three probes, register `change_22_probe`, and move the validator output to an ignored path. Android device acceptance remains outstanding for everything since Change 20.
 
 ## Change 21 validation — 27 October 2026
 

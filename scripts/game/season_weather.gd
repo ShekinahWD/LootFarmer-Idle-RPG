@@ -58,19 +58,16 @@ func _draw() -> void:
     var last:=Vector2i(floori(rect.end.x/style.period.x),floori(rect.end.y/style.period.y))
     # Visibility inputs are invariant during this draw. Avoid re-deriving card/upgrade bonuses for
     # each drop in unexplored ground; exact same cell-centred predicate as campaign.can_see().
-    var mask: Dictionary=sim.state.explored.get(str(sim.state.stage),{})
-    var cell: float=sim.campaign.fog_rules.cell_size
-    var player: Vector2=sim.position_of(sim.state.player)
-    var radius: float=sim.campaign.vision_radius() if sim.state.player.hp>0 else -1.0
+    # Change 24: one campaign.Sight per draw (the stage's byte mask indexed per drop, no string key).
+    var view=sim.campaign.sight()
     var bounds:=Rect2(Vector2.ZERO,Vector2(sim.catalog.world.size[0],sim.catalog.world.size[1]))
+    var area:=rect.intersection(bounds)
     for cy in range(first.y,last.y+1):
         for cx in range(first.x,last.x+1):
             var origin:=Vector2(cx,cy)*style.period
             for i in range(_pattern.size()):
                 var pos:=origin+_pattern[i]
-                if not rect.has_point(pos) or not bounds.has_point(pos):continue
-                var grid:=Vector2(floorf(pos.x/cell),floorf(pos.y/cell))
-                if not mask.has("%d,%d" % [int(grid.x),int(grid.y)]) and (radius<0 or ((grid+Vector2.ONE*.5)*cell).distance_to(player)>radius):continue
+                if not area.has_point(pos) or not view.sees(pos):continue
                 draw_texture_rect_region(style.texture,Rect2(pos,style.draw_size),_regions[i],style.color)
 
 ## Diagnostic API retained for existing probes. Rendering uses the buffers directly.

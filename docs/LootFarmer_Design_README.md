@@ -1,4 +1,19 @@
-# Current entry point — Change 20
+# Current entry point — Change 24 (2026-10-28)
+
+Commit "Change 24: optimize performance and restore regression coverage"; application/Android version **24**; save schema 8, save file version 3 (older development profiles start fresh). Read first `LootFarmer_Change_24_Performance_Report.md` (what changed for performance, the restored regression suite, desktop before/after numbers and what still needs the phone), then the audit material below. Benchmark: `python tools/run_benchmark.py` (non-gating); suite: `python tools/run_probes.py`.
+
+# Previous entry point — 2026-10-28 production audit
+
+Revision `b51a209` ("Change 23" commit, which delivers `LootFarmer_Change_22_Notes.md`); application/Android version 22; save schema 8. Read in this order:
+
+1. `LootFarmer_Full_Production_Audit_Report.md`: current production readiness, prioritized findings, measured desktop performance baseline, Android profiling plan and the next approved-correction batches.
+2. `LootFarmer_GDD.md` → "Current status — production audit": what the shipped behavior is now, balance acceptance (Stages 1–5 developer-accepted on Android, 6–8 open), the approved free demo scope (Stage 16, not built) and open decisions.
+3. `LootFarmer_Change_22_Notes.md` and `Final_Tutorial_Announcement_Change.md`: the two latest correction batches (not yet in any exported build).
+4. `LootFarmer_State_Contracts.md`, `LootFarmer_Test_Suite.md`, catalogs and `LootFarmer_Asset_Registry.md` as before; `Reusable_Game_Development_Playbook.md` (20-stage lifecycle, section 0.9).
+
+The entries below are historical.
+
+# Historical entry point — Change 20
 
 Read `LootFarmer_Change_20_Report.md` for the complete scope and installation, then the GDD, State Contracts and Test Suite. The UI integration is implemented in this package. Earlier handoffs and scopes below are historical.
 

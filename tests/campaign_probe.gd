@@ -47,7 +47,7 @@ func run() -> void:
     check(sim.state.explored==before,"Camera panning does not reveal fog")
     sim.state.coins=1000000
     check(sim.buy_upgrade("camp_radius",10),"Camp reveal upgrade")
-    check(sim.state.explored['1'].size()>before['1'].size(),"Camp upgrade really reveals larger area")
+    check(sim.campaign.explored_count(1)>before['1'].count(1),"Camp upgrade really reveals larger area")
     fresh();sim.state.gear.resize(20);sim.state.gear.fill("")
     var id="wood_sword"
     sim.add_item(id,201);sim.merge(id,true)
@@ -104,7 +104,7 @@ func run() -> void:
     check(sim.state.keys.size()==13 and sim.state.final_complete and sim.state.main_claimed.has(15),"Keys and claimed final reward persist")
     # Change 16: Prestige keeps explored map areas; stages and gate kills still reset.
     var fog_kept:=true
-    for key in fog_before:fog_kept=fog_kept and sim.state.explored.get(key,{}).size()>=fog_before[key].size()
+    for key in fog_before:fog_kept=fog_kept and sim.campaign.explored_count(int(key))>=fog_before[key].count(1)
     check(sim.state.stage==1 and fog_kept and sim.state.run_kills.is_empty(),"Stages and gate kills reset; explored cells are kept (Change 16)")
     check(sim.campaign.combo_owned(sim.catalog.campaign.combos[0]),"Same-path set activated idempotently")
     fresh();sim.add_item("wood_sword");sim.state.upgrades.offline_weapon=1

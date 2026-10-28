@@ -305,17 +305,20 @@ func guided_checks() -> void:
     check(guide.pending=="move" and guide.pointer.visible,"Guided starts with movement")
     for step in ["move","kill","collect","equip","close_equip","merge","close_merge"]:flow.mark(step)
     sim.state.counters.kill=5;sim.campaign.evaluate_main()
-    sim.state.playtime_total=59;await frames(4)
-    check(guide.pending=="" and not sim.campaign.onboarding.revealed("missions"),"Missions hidden during timed farming interval")
-    sim.state.playtime_total=60;await frames(4)
-    check(guide.pending=="missions" and guide.target==nav("Missions"),"Missions introduced after 60 seconds")
+    # Change 22/23 (Change 24 fixture): Guided waits count real active seconds in TutorialGuide._process
+    # (tutorial.flow.wait_seconds), not the simulation's playtime. The probe drives that clock directly.
+    var delay: float=float(flow.rules().mission_delay)
+    flow.advance_waits(delay-1.0);sim.state.playtime_total=1000.0;await frames(4)
+    check(guide.pending=="" and not sim.campaign.onboarding.revealed("missions"),"Missions hidden during the timed farming interval (playtime alone never opens them)")
+    flow.advance_waits(1.0);await frames(4)
+    check(guide.pending=="missions" and guide.target==nav("Missions"),"Missions introduced after %d real active seconds" % int(delay))
     game._nav("missions");await frames(6)
     var claim: Button=guide._panel_control("claim",true)
     check(claim!=null and guide.step=="missions_claim","Mission guide points at real claim")
     if claim!=null:claim.pressed.emit()
     await frames(6)
     check(guide.step=="close_panel" and guide.target==game.get_node("Sheet/Margin/Content/Header/Close"),"Claim asks to close panel")
-    game._close();sim.state.playtime_total+=60;await frames(4)
+    game._close();flow.advance_waits(float(flow.rules().upgrade_delay));await frames(4)
     check(guide.pending=="player_upgrade" and sim.campaign.onboarding.revealed("upgrades"),"Player Upgrades introduced after close and delay")
     sim.state.coins=1000;game._open("upgrades");await frames(6)
     var buy: Button=guide._panel_control("buy_upgrade",true)
@@ -361,20 +364,29 @@ func basic_checks() -> void:
         if guide.pending=="":break
         titles.append(guide.pending)
         check(not guide.pointer.visible,"No pointer on %s" % guide.pending)
+        # Change 22: The Road Ahead closes Basic; its Got it works after the final delay on screen.
+        # (A queued milestone banner suspends the card, so it is cleared first: fixture, not behaviour.)
+        if guide.pending==guide.ROAD_AHEAD_ID:
+            game.banner.queue.clear();game.banner.current={};guide._process(float(sim.campaign.guided.rules().final_delay)+.1)
         guide.intro_button.pressed.emit();await frames(3)
-    check(titles==["feature_enemy","feature_world","feature_upgrades","feature_objective","feature_prestige"],"One card per revealed system, in reveal order: %s" % str(titles))
+    check(titles==["feature_enemy","feature_world","feature_upgrades","feature_objective","feature_prestige","road_ahead"],"One card per revealed system, in reveal order, then The Road Ahead once: %s" % str(titles))
 
 # ---------------------------------------------------------------- 5. None
 func none_checks() -> void:
     print("-- None")
     fresh("none");await frames(4)
     var guide=game.guide
+    # Change 22: The Road Ahead is None's only guidance (shown once, text only); Change 24 (UI-05)
+    # removed the Auto-Claim pointer there, so nothing else ever appears.
+    check(guide.pending==guide.ROAD_AHEAD_ID and guide.card.visible and not guide.pointer.visible,"None: The Road Ahead once, without a pointer")
+    guide._process(float(sim.campaign.guided.rules().final_delay)+.1);guide.intro_button.pressed.emit();await frames(4)
+    check(sim.state.tutorial.seen.has(guide.ROAD_AHEAD_ID) and not guide.card.visible,"…and it closes for good")
     var shown:=false
-    var steps: Array=[func():sim.add_item("wood_sword"),func():sim.add_item("wood_sword"),func():sim.state.counters["merge"]=1,func():sim.state.main_claimed.append(0),func():sim.state.counters["upgrade"]=1,func():sim.state.counters["camp"]=1,func():sim.state.counters["supply_buy"]=1,func():snowman_defeated()]
+    var steps: Array=[func():sim.add_item("wood_sword"),func():sim.add_item("wood_sword"),func():sim.state.counters["merge"]=1,func():sim.state.main_claimed.append(0),func():sim.state.counters["upgrade"]=1,func():sim.state.counters["camp"]=1,func():sim.state.counters["supply_buy"]=1,func():snowman_defeated(),func():sim.state.upgrades["mission_claim"]=1]
     for s in steps:
         s.call();sim.campaign.onboarding.evaluate();await frames(4)
         if guide.card.visible or guide.pointer.visible:shown=true
-    check(not shown,"None: no card, pointer or tip at any step")
+    check(not shown,"None: no card, pointer or tip at any step after it (Auto Claim bought included)")
     check(sim.campaign.onboarding.all_revealed(),"…while the menus still appear through play")
     game._process(.2)
     check(nav("World/Badge").visible and nav("World/Badge").text=="✦","A newly revealed menu carries ✦ (status, not instruction)")
@@ -521,7 +533,7 @@ func mastery_checks() -> void:
     var breakdown: Dictionary=sim.stat_breakdown("hp")
     check(near(float(breakdown.multiplier),1.35) and near(float(breakdown.total),sim.stats().hp),"Stats breakdown shows the same multiplier the combat getter uses")
     # Prestige keeps everything; the run resets underneath.
-    sim.state.explored["1"]={"1,1":true}
+    sim.state.explored.erase("1");sim.campaign.explore_cells(1,[Vector2i(1,1)])
     check(do_prestige(),"Prestige")
     check(m.game_complete() and m.map_complete(1) and m.objective(1,"explore").complete and sim.campaign.explored_percent(1)<100,"After Prestige: run exploration reset (%d%%), Mastery still 100%% (latched)" % sim.campaign.explored_percent(1))
     check(near(sim.campaign.bonus("hp"),.35) and near(sim.campaign.mastery.bonus("coins"),.35),"Rewards kept by Prestige")

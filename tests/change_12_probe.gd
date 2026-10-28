@@ -132,7 +132,7 @@ func explored_checks() -> void:
     var area: int=sim.campaign.explore_area(1)
     check(area==ceili(960/24.0)*ceili(960/24.0),"Winter I denominator is its fog grid (%d cells)" % area)
     game._refresh_explored()
-    var cells: int=sim.state.explored.get("1",{}).size()
+    var cells: int=sim.campaign.explored_count(1)
     check(label.text==tr("MAP_EXPLORED") % floori(100.0*cells/area) and label.text.begins_with("Map Explored: "),"Label reads \"%s\" from the saved explored cells" % label.text)
     var before: String=label.text
     # Momentary sight and camera panning never count.
@@ -141,7 +141,7 @@ func explored_checks() -> void:
     var far:=Vector2(700.0+sim.campaign.vision_radius()*.8,200.0)
     check(sim.campaign.cell_visible(far) and not sim.campaign.cell_known(far),"fixture: a cell in momentary sight is not explored")
     game.world.pan_camera(Vector2(-300,-300));game._refresh_explored()
-    check(label.text==before and sim.state.explored.get("1",{}).size()==cells,"Panning the camera and seeing farther leave the percent unchanged")
+    check(label.text==before and sim.campaign.explored_count(1)==cells,"Panning the camera and seeing farther leave the percent unchanged")
     sim.state.player.x=home.x;sim.state.player.y=home.y
     game.world.follow_player()
     # New permanent cells raise it.
@@ -149,17 +149,15 @@ func explored_checks() -> void:
     var now_pct: int=sim.campaign.explored_percent(1)
     check(now_pct>int(before.to_int()) and label.text==tr("MAP_EXPLORED") % now_pct,"Newly explored cells raise it (%s → %s)" % [before,label.text])
     check(sim.campaign._regional_progress(1).contains("%d%% + " % now_pct),"World / Regional progress reports the same percent")
-    var all: Dictionary={}
-    for y in range(40):
-        for x in range(40):all["%d,%d" % [x,y]]=true
-    sim.state.explored["1"]=all;game._refresh_explored()
+    # Change 24: explored cells are a byte mask per map (campaign.explore_cells for fixtures).
+    sim.state.explored.erase("1");sim.campaign.explore_cells(1,[],true);game._refresh_explored()
     check(label.text==tr("MAP_EXPLORED") % 100 and sim.campaign.explored_fraction(1)==1.0,"Fully explored reads 100%")
-    var almost: Dictionary=all.duplicate();almost.erase("0,0")
+    var almost: PackedByteArray=sim.state.explored["1"].duplicate();almost[0]=0
     sim.state.explored["1"]=almost;game._refresh_explored()
     check(label.text==tr("MAP_EXPLORED") % 99,"One cell short reads 99% (rounded down)")
     sim.state.explored["1"]={};game._refresh_explored()
     check(label.text==tr("MAP_EXPLORED") % 0,"Nothing explored reads 0%")
-    sim.state.explored["2"]={"0,0":true}
+    sim.state.explored.erase("2");sim.campaign.explore_cells(2,[Vector2i(0,0)])
     sim.state.stage=2;sim.state.unlocked_stage=2;sim._reset_world();game._refresh_explored()
     check(label.text==tr("MAP_EXPLORED") % sim.campaign.explored_percent(2) and sim.campaign.explore_area(2)>0,"Switching map shows that map's own percent")
     sim.state.stage=1;sim._reset_world()

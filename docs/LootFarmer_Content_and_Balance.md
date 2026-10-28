@@ -1,5 +1,7 @@
 # LootFarmer — Content and Balance v1 — Change 17
 
+> **Balance status (production audit, 2026-10-28):** the developer has playtested Android builds throughout development and reports that **Stages 1–5 feel well balanced**; they are accepted and must not be redesigned. **Stages 6–8, the final boss and late Prestige pacing are still awaiting acceptance play.** The last recorded late-game benchmark (`change_9_balance`, Change 17) was 33/35 and was not re-run in the audit. Later economy values (Change 16 per-map 1.5 / 1.55) remain in force.
+
 ## Change 17 — current gameplay authority (27 October 2026)
 
 Change 17 supersedes earlier descriptions of skill power/cooldowns, supply mastery/healing, automatic skill slots and mission rewards. It adds persistent boss countdown APIs and permanent critical upgrades, reuses the supply interval/shop systems, and optimizes rain calculations without changing authored appearance. Schema 8 saves remain compatible; existing mastery and automation purchases migrate. No UI/tutorial implementation is included.

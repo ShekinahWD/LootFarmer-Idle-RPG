@@ -45,19 +45,32 @@ func run() -> void:
     check(sim.campaign.guided.next_step()=="player_upgrade","Player Upgrades becomes available after accumulated 15 seconds")
 
     # Purchase leaves automation OFF and teaches the player to turn it ON, never Main Objectives.
+    # Change 24 (UI-05): None shows no pointer for it (The Road Ahead stays None's only guidance);
+    # the Missions panel's own text explains the toggle. Guided and Basic point at the toggle.
     fresh("none");sim.state.tutorial.seen.append("road_ahead")
     sim.state.gems=1000
     check(sim.buy_upgrade("mission_claim"),"Auto Claim upgrade can be purchased")
     check(not sim.state.mission_auto,"Buying Auto Claim never silently enables it")
     game._open("missions");await frames(8)
     var toggle: Button=button("mission_auto_toggle")
-    check(toggle!=null and toggle.text.contains("OFF"),"OFF toggle is clearly exposed in Missions")
+    check(toggle!=null and toggle.text==tr("MISSION_AUTO") % "OFF" and toggle.text.ends_with(": OFF"),"OFF toggle is clearly exposed in Missions (%s)" % (toggle.text if toggle else "missing"))
+    var hint_shown:=false
+    for label in game.rows.find_children("*","Label",true,false):
+        if label.text==tr("MISSION_AUTO_TOGGLE_HINT"):hint_shown=true
+    game.guide.evaluate();game.guide._present()
+    check(hint_shown and game.guide.target==null and not game.guide.pointer.visible,"None: no Auto Claim pointer; the Missions panel explains the toggle")
+    game._close()
+    fresh("basic");sim.state.tutorial.seen.append("road_ahead");sim.state.gems=1000;sim.buy_upgrade("mission_claim")
+    game._open("missions");await frames(8)
+    toggle=button("mission_auto_toggle")
     check(game.guide._mission_auto_hint(),"Guide discovers purchased but disabled automation")
     game.guide.evaluate()
-    check(game.guide.target==toggle,"Guidance targets actual ON/OFF toggle")
+    check(toggle!=null and game.guide.target==toggle,"Basic guidance targets actual ON/OFF toggle")
     if toggle!=null:toggle.pressed.emit()
     check(sim.state.mission_auto and sim.state.tutorial.seen.has("mission_auto_enabled"),"Enabling Auto Claim saves tutorial acknowledgement")
     check(not game.guide._mission_auto_hint(),"Guidance stops after enabling Auto Claim")
+    toggle=button("mission_auto_toggle")
+    check(toggle!=null and toggle.text==tr("MISSION_AUTO") % "ON","The toggle then reads ON")
     game._close()
 
     # Stage heading defaults open while incomplete; becomes collapsed after all its objectives

@@ -26,31 +26,52 @@ func initialize() -> void:
 ## Change 8 solid scenery: the stage scene's Decor carries editor-visible "Block" shapes at tree
 ## trunks, boulders, lamps, ponds and fenced fields. They are read once per stage per process.
 static var _obstacle_cache: Dictionary={}
+const STAGE_SCENES=preload("res://scripts/game/stage_scenes.gd")
 var obstacle_list: Array=[]
 var obstacle_grid: Dictionary={}
 const OBSTACLE_CELL:=64.0
 ## Actors are points with this clearance; tools/compose_stage_art.gd keeps solids far enough apart.
 const ACTOR_CLEARANCE:=6.0
+## Change 24: build a stage's obstacle grid ahead of travel. True when it was built by this call.
+func prepare_obstacles(id: int) -> bool:
+    if _obstacle_cache.has(id):return false
+    _obstacle_cache[id]=_read_obstacles(id)
+    return true
 func load_obstacles() -> void:
     var id:=int(sim.state.stage)
     if not _obstacle_cache.has(id):_obstacle_cache[id]=_read_obstacles(id)
     obstacle_list=_obstacle_cache[id].list;obstacle_grid=_obstacle_cache[id].grid
+## Change 24: read from the stage PackedScene's SceneState (the shared StageScenes cache) instead of
+## instantiating and freeing the whole stage: the same shapes, in the same order, at the same
+## positions (each shape's own position plus its Node2D ancestors', the scene root excluded, summed
+## from the shape upward as before).
 func _read_obstacles(id: int) -> Dictionary:
     var list: Array=[];var grid: Dictionary={}
-    var path:="res://scenes/game/stages/stage_%d.tscn" % id
-    if not ResourceLoader.exists(path):return {"list":list,"grid":grid}
-    var scene: Node=load(path).instantiate()
-    for node in scene.find_children("*","CollisionShape2D",true,false):
-        var shape: CollisionShape2D=node
-        var pos:=Vector2.ZERO;var n: Node=shape
-        while n!=null and n!=scene:
-            if n is Node2D:pos+=(n as Node2D).position
-            n=n.get_parent()
-        if shape.shape is CircleShape2D:list.append({"c":pos,"r":(shape.shape as CircleShape2D).radius})
-        elif shape.shape is RectangleShape2D:
-            var size: Vector2=(shape.shape as RectangleShape2D).size
+    var packed: PackedScene=STAGE_SCENES.scene(id)
+    if packed==null:return {"list":list,"grid":grid}
+    var state: SceneState=packed.get_state()
+    var nodes: Dictionary={}
+    var shapes: Array=[]
+    for i in range(state.get_node_count()):
+        var info: Dictionary={"pos":Vector2.ZERO,"node2d":ClassDB.is_parent_class(state.get_node_type(i),&"Node2D"),"shape":null,"parent":str(state.get_node_path(i,true))}
+        for j in range(state.get_node_property_count(i)):
+            match state.get_node_property_name(i,j):
+                &"position":info.pos=state.get_node_property_value(i,j)
+                &"shape":info.shape=state.get_node_property_value(i,j)
+        var key:=str(state.get_node_path(i))
+        nodes[key]=info
+        if state.get_node_type(i)==&"CollisionShape2D":shapes.append(info)
+    for info in shapes:
+        var pos:=Vector2.ZERO
+        var n: Dictionary=info
+        while true:
+            if n.node2d:pos+=n.pos
+            if n.parent=="." or not nodes.has(n.parent):break
+            n=nodes[n.parent]
+        if info.shape is CircleShape2D:list.append({"c":pos,"r":(info.shape as CircleShape2D).radius})
+        elif info.shape is RectangleShape2D:
+            var size: Vector2=(info.shape as RectangleShape2D).size
             list.append({"rect":Rect2(pos-size*.5,size)})
-    scene.free()
     for i in range(list.size()):
         var o: Dictionary=list[i]
         var box: Rect2=(Rect2(o.c-Vector2.ONE*o.r,Vector2.ONE*o.r*2) if o.has("c") else o.rect).grow(ACTOR_CLEARANCE+1)
@@ -229,7 +250,86 @@ func cell_key(pos: Vector2) -> String:
 func in_bounds(pos: Vector2) -> bool:
     return Rect2(Vector2.ZERO,Vector2(stage().size[0],stage().size[1])).has_point(pos)
 func cell_known(pos: Vector2) -> bool:
-    return in_bounds(pos) and sim.state.explored.get(str(sim.state.stage),{}).has(cell_key(pos))
+    if not in_bounds(pos):return false
+    var mask=sim.state.explored.get(str(sim.state.stage))
+    if not mask is PackedByteArray:return false
+    var i:=floori(pos.y/fog_rules.cell_size)*fog_columns(int(sim.state.stage))+floori(pos.x/fog_rules.cell_size)
+    return i<mask.size() and mask[i]!=0
+# ---------------------------------------------------------------- explored masks (Change 24)
+## Explored fog cells of a stage are one byte per cell, row-major (index y*columns+x, 1 = explored),
+## in state.explored[str(stage)]. The save stores each mask deflated and Base64-encoded
+## (encode_explored/decode_explored): a few kilobytes instead of one JSON key per cell.
+func fog_columns(st: int) -> int:
+    return ceili(float(sim.catalog.stages[st-1].size[0])/fog_rules.cell_size)
+func fog_rows(st: int) -> int:
+    return ceili(float(sim.catalog.stages[st-1].size[1])/fog_rules.cell_size)
+func fog_cell_count(st: int) -> int:
+    return fog_columns(st)*fog_rows(st)
+## The stage's explored mask (a copy-on-write value). A missing or malformed entry reads as an
+## unexplored map of the right size.
+func explored_mask(st: int) -> PackedByteArray:
+    var mask=sim.state.explored.get(str(st))
+    if mask is PackedByteArray and mask.size()==fog_cell_count(st):return mask
+    var empty:=PackedByteArray();empty.resize(fog_cell_count(st))
+    return empty
+func explored_count(st: int) -> int:
+    return explored_mask(st).count(1)
+func cell_explored(st: int,x: int,y: int) -> bool:
+    if x<0 or y<0 or x>=fog_columns(st) or y>=fog_rows(st):return false
+    return explored_mask(st)[y*fog_columns(st)+x]!=0
+## Fixtures and tools: mark the given cells (Vector2i) explored on a stage, or every cell with all.
+func explore_cells(st: int,cells: Array,all:=false) -> void:
+    var mask:=explored_mask(st)
+    if all:mask.fill(1)
+    for c in cells:
+        var cell: Vector2i=c
+        if cell.x>=0 and cell.y>=0 and cell.x<fog_columns(st) and cell.y<fog_rows(st):mask[cell.y*fog_columns(st)+cell.x]=1
+    sim.state.explored[str(st)]=mask
+    discovery_revision+=1
+func encode_explored(explored: Dictionary) -> Dictionary:
+    var out: Dictionary={}
+    for key in explored:
+        if explored[key] is PackedByteArray:out[key]=Marshalls.raw_to_base64(explored[key].compress(FileAccess.COMPRESSION_DEFLATE))
+        else:out[key]=explored[key]
+    return out
+## A saved (Base64 deflate) or in-memory mask of stage st, checked: exactly one 0/1 byte per fog
+## cell. Anything else decodes to an empty array, which valid_snapshot rejects.
+func decode_explored(st: int,value) -> PackedByteArray:
+    if st<1 or st>sim.catalog.stages.size():return PackedByteArray()
+    var n:=fog_cell_count(st)
+    var mask:=PackedByteArray()
+    if value is PackedByteArray:mask=value
+    elif value is String and not value.is_empty() and value.length()%4==0:
+        var raw:=Marshalls.base64_to_raw(value)
+        if not raw.is_empty():mask=raw.decompress(n,FileAccess.COMPRESSION_DEFLATE)
+    if mask.size()!=n or mask.count(0)+mask.count(1)!=n:return PackedByteArray()
+    return mask
+## Sight inputs of one moment, computed once for a loop over many positions (Change 24): the same
+## predicate as can_see() without re-deriving the reveal bonuses for every actor, drop or particle.
+class Sight extends RefCounted:
+    var mask: PackedByteArray
+    var columns: int
+    var cell: float
+    var size: Vector2
+    var player: Vector2
+    var radius: float
+    func known(pos: Vector2) -> bool:
+        if pos.x<0 or pos.y<0 or pos.x>=size.x or pos.y>=size.y:return false
+        return mask[floori(pos.y/cell)*columns+floori(pos.x/cell)]!=0
+    func visible(pos: Vector2) -> bool:
+        if radius<0 or pos.x<0 or pos.y<0 or pos.x>=size.x or pos.y>=size.y:return false
+        var center:=(Vector2(floorf(pos.x/cell),floorf(pos.y/cell))+Vector2.ONE*.5)*cell
+        return center.distance_to(player)<=radius
+    func sees(pos: Vector2) -> bool:
+        return known(pos) or visible(pos)
+func sight() -> Sight:
+    var s:=Sight.new()
+    var st:=int(sim.state.stage)
+    s.mask=explored_mask(st);s.columns=fog_columns(st);s.cell=fog_rules.cell_size
+    s.size=Vector2(stage().size[0],stage().size[1])
+    s.player=sim.position_of(sim.state.player)
+    s.radius=vision_radius() if sim.state.player.hp>0 else -1.0
+    return s
 func discovered(g: int) -> bool:return sim.state.discovered.has(str(g))
 ## One encounter spot (type + loadout variant). Only found spots get map markers or auto-farm.
 func spot_key(g: int,v: int) -> String:return "%d:%d" % [g,2 if sim.catalog.groups[g].boss else v]
@@ -271,15 +371,18 @@ func sight_camps() -> void:
             discovery_revision+=1;SaveService.mark_dirty()
             sim.event.emit("CAMP_SIGHTED")
 func reveal_circle(pos: Vector2,radius: float) -> bool:
-    var mask: Dictionary=sim.state.explored.get(str(sim.state.stage),{})
+    var st:=int(sim.state.stage)
+    var key:=str(st)
+    var mask:=explored_mask(st)
+    var columns:=fog_columns(st)
     var cell: float=fog_rules.cell_size
     var changed:=false
-    for y in range(maxi(0,floori((pos.y-radius)/cell)),mini(ceili(stage().size[1]/cell),ceili((pos.y+radius)/cell))):
-        for x in range(maxi(0,floori((pos.x-radius)/cell)),mini(ceili(stage().size[0]/cell),ceili((pos.x+radius)/cell))):
-            var key:="%d,%d" % [x,y]
-            if not mask.has(key) and (Vector2(x,y)*cell+Vector2.ONE*cell*.5).distance_to(pos)<=radius:
-                mask[key]=true;changed=true
-    sim.state.explored[str(sim.state.stage)]=mask
+    for y in range(maxi(0,floori((pos.y-radius)/cell)),mini(fog_rows(st),ceili((pos.y+radius)/cell))):
+        for x in range(maxi(0,floori((pos.x-radius)/cell)),mini(columns,ceili((pos.x+radius)/cell))):
+            var i:=y*columns+x
+            if mask[i]==0 and (Vector2(x,y)*cell+Vector2.ONE*cell*.5).distance_to(pos)<=radius:
+                mask[i]=1;changed=true
+    if changed or not sim.state.explored.get(key) is PackedByteArray:sim.state.explored[key]=mask
     if changed:discovery_revision+=1;SaveService.mark_dirty()
     return changed
 func reveal_segment(start: Vector2,finish: Vector2) -> void:
@@ -330,9 +433,10 @@ func reveal() -> void:
         if sim.catalog.groups[g].boss and boss_found(str(sim.catalog.groups[g].id)):
             reveal_circle(spot(g,2),fog_rules.camp_footprint_radius)
     identify_sites()
-func target_allowed(e: Dictionary) -> bool:
+func target_allowed(e: Dictionary,view: Sight=null) -> bool:
     var d: Dictionary=sim.catalog.groups[int(e.group)]
-    return can_see(sim.position_of(e)) and (not d.final or sim.state.keys.size()==13)
+    var seen: bool=view.sees(sim.position_of(e)) if view!=null else can_see(sim.position_of(e))
+    return seen and (not d.final or sim.state.keys.size()==13)
 func damage_multiplier(a: Dictionary,b: Dictionary) -> float:
     var n=1.0
     if a.id=="player":n+=bonus("boss_damage" if sim.catalog.groups[int(b.group)].boss else "normal_damage")
@@ -426,8 +530,9 @@ func skill_activation_target() -> Dictionary:
     var locked: Dictionary=sim._find_actor(sim.locked_target)
     if not locked.is_empty() and locked.id!="player" and locked.hp>0 and target_allowed(locked) and origin.distance_squared_to(sim.position_of(locked))<=radius_sq:return locked
     var result: Dictionary={}
+    var view:=sight()
     for enemy in sim.state.enemies:
-        if enemy.hp<=0 or not target_allowed(enemy):continue
+        if enemy.hp<=0 or not target_allowed(enemy,view):continue
         if int(sim.state.focus)>=0 and (int(enemy.group)!=int(sim.state.focus) or int(enemy.get("variant",2))!=int(sim.state.focus_variant)):continue
         var distance:=origin.distance_squared_to(sim.position_of(enemy))
         if distance<=radius_sq and (result.is_empty() or distance<radius_sq):
@@ -489,8 +594,9 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
         var center: Vector2=pos if key=="frost" else (sim.position_of(target) if aim==Vector2.INF else aim)
         var targets: Array=sim.state.enemies if player else [sim.state.player]
         var base: float=sim.stats().damage if player else sim.enemy_definition(a.group,a.variant).damage
+        var view:=sight() if player else null
         for b in targets:
-            if b.hp<=0 or (player and not target_allowed(b)):continue
+            if b.hp<=0 or (player and not target_allowed(b,view)):continue
             var hits: bool=b.id==target.id
             if key in ["fire","frost"]:hits=sim.position_of(b).distance_to(center)<=(FROST_RADIUS if key=="frost" else FIRE_RADIUS)
             if not hits:continue
@@ -1335,6 +1441,12 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
             if not out.items.has(out.get(field,"")):out[field]=""
     if int(out.get("fog_layout_revision",0))!=fog_rules.layout_revision:
         out.explored={};out.discovered={};out.fog_layout_revision=fog_rules.layout_revision
+    # Change 24: saved masks decode to their in-memory bytes; a malformed one stays as it is, so
+    # valid_snapshot rejects the profile.
+    if out.get("explored") is Dictionary:
+        for key in out.explored.keys():
+            var mask:=decode_explored(int(key) if str(key).is_valid_int() else -1,out.explored[key])
+            if not mask.is_empty():out.explored[key]=mask
     migrate_change8(out,change8)
     normalize_skill_assignments(out)
     return out
@@ -1402,20 +1514,25 @@ func migrate_change8(out: Dictionary,missing: Array) -> void:
                 var family: String=str(key).trim_prefix("cooldown_")
                 if str(key).begins_with("cooldown_") and int(out.upgrades[key])>0 and not out.skills_seen.has(family):out.skills_seen.append(family)
     var explored: Dictionary=out.get("explored",{}) if out.get("explored") is Dictionary else {}
+    var cell: float=fog_rules.cell_size
     if missing.has("discovered_spots") and out.get("discovered") is Dictionary:
         for key in out.discovered:
             var g:=int(key)
             if g<0 or g>=sim.catalog.groups.size():continue
-            var cells: Dictionary=explored.get(str(int(sim.catalog.groups[g].stage)),{})
+            var st:=int(sim.catalog.groups[g].stage)
+            var cells:=decode_explored(st,explored.get(str(st)))
+            if cells.is_empty():continue
             for v in variants(g):
-                if cells.has(cell_key(spot(g,v))):out.discovered_spots[spot_key(g,v)]=true
+                var at:=spot(g,v)
+                if cells[floori(at.y/cell)*fog_columns(st)+floori(at.x/cell)]!=0:out.discovered_spots[spot_key(g,v)]=true
     if missing.has("camps_known"):
         for st in range(1,9):
-            var cells: Dictionary=explored.get(str(st),{})
+            var cells:=decode_explored(st,explored.get(str(st)))
+            if cells.is_empty():continue
             var known: Array=[]
             for i in range(sim.catalog.stages[st-1].spawns.size()):
                 var a: Array=sim.catalog.stages[st-1].spawns[i]
-                if cells.has(cell_key(Vector2(a[0],a[1]))):known.append(i)
+                if cells[floori(float(a[1])/cell)*fog_columns(st)+floori(float(a[0])/cell)]!=0:known.append(i)
             if not known.is_empty():out.camps_known[str(st)]=known
 ## Change 7 replaced per-enemy weapons with shared families: a small deterministic map
 ## (catalog.legacy_items) moves current-schema saves onto the new ids. Stacks join (quantities add,
@@ -1547,12 +1664,7 @@ func valid_snapshot(data: Dictionary) -> bool:
     for id in data.skills:
         if id!="" and (not sim.catalog.items.has(id) or sim.catalog.items[id].kind!="skill" or data.items.get(id,{}).get("qty",0)<1):return false
     for key in data.explored:
-        if int(key) not in range(1,9) or not data.explored[key] is Dictionary:return false
-        for cell in data.explored[key]:
-            var bits=str(cell).split(",")
-            if bits.size()!=2 or not bits[0].is_valid_int() or not bits[1].is_valid_int():return false
-            var bounds: Array=sim.catalog.stages[int(key)-1].size
-            if int(bits[0])<0 or int(bits[1])<0 or int(bits[0])>=ceili(bounds[0]/fog_rules.cell_size) or int(bits[1])>=ceili(bounds[1]/fog_rules.cell_size):return false
+        if not str(key).is_valid_int() or int(key) not in range(1,9) or decode_explored(int(key),data.explored[key]).is_empty():return false
     for key in data.camps:
         if int(key) not in range(1,9) or not data.camps[key] is Array:return false
         for camp in data.camps[key]:
@@ -1849,11 +1961,21 @@ func unreachable_cells(st: int) -> Array:
 func explored_fraction(st: int) -> float:
     var area:=explore_area(st)
     if area<=0:return 0.0
-    var mask: Dictionary=sim.state.explored.get(str(st),{})
-    var count:=mask.size()
-    for key in unreachable_cells(st):
-        if mask.has(key):count-=1
+    var mask:=explored_mask(st)
+    var count:=mask.count(1)
+    for i in unreachable_indices(st):
+        if mask[i]!=0:count-=1
     return clampf(float(count)/area,0.0,1.0)
+## fog_rules.unreachable_cells of a stage as mask indices (parsed once per stage).
+var _unreachable_indices: Dictionary={}
+func unreachable_indices(st: int) -> PackedInt32Array:
+    if not _unreachable_indices.has(st):
+        var out:=PackedInt32Array()
+        for key in unreachable_cells(st):
+            var bits: PackedStringArray=str(key).split(",")
+            if bits.size()==2 and int(bits[0])<fog_columns(st) and int(bits[1])<fog_rows(st):out.append(int(bits[1])*fog_columns(st)+int(bits[0]))
+        _unreachable_indices[st]=out
+    return _unreachable_indices[st]
 ## Fog cells of a stage that no walking player can reveal: a flood fill of walkable points (8-unit
 ## lattice, the movement bounds and the solid scenery with the actor clearance) from the arrival camp,
 ## then every cell whose centre is farther than the base reveal radius from all of them. Slow (up to
