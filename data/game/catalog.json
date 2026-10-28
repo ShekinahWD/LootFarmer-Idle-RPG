@@ -21929,8 +21929,8 @@
       ]
     },
     "change20": {
-      "mission_delay": 60,
-      "upgrade_delay": 60.0,
+      "mission_delay": 15,
+      "upgrade_delay": 15.0,
       "post_boss_kills": 10,
       "final_delay": 5.0
     }

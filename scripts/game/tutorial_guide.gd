@@ -10,7 +10,8 @@ extends Control
 ## mode; the mode decides how much is explained. Guided teaches each revealed system with the pointer,
 ## one lesson at a time, ending with Prestige after the Snowman. Basic shows one short card (or tip)
 ## when something new appears, retired by Got it or after OnboardingRules.card_seconds on screen.
-## None shows no guide at all (badges, objectives and milestone banners are game feedback, not guide).
+## None has no instructional guide. All modes share one optional-game-goals announcement:
+## Guided after Winter II, Basic after its last feature card, None after mode selection.
 const FRAME=preload("res://assets/KenneyFantasyUI/PNG/Default/Transparent center/panel-transparent-center-000.png")
 const ARROW=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-273.png")
 const ITEM_ROOT="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png"
@@ -25,6 +26,7 @@ const POINTER_SIZE:=64.0
 var ui
 var sim
 var blocker: Control
+var final_backdrop: ColorRect
 var chooser: PanelContainer
 var card: PanelContainer
 var title: Label
@@ -46,6 +48,7 @@ var path_point:=Vector2.INF
 var scrolled_for: String=""
 var pulse: float=0
 ## Change 14: seconds the Focused Farming pointer has been on screen; it retires after FOCUS_HINT_SECONDS.
+const ROAD_AHEAD_ID:="road_ahead"
 const FOCUS_HINT_SECONDS:=45.0
 var focus_shown: float=0
 ## Change 15: seconds the current Basic card has been on screen, and which card that is.
@@ -65,6 +68,7 @@ func setup(owner_ui) -> void:
     for mode in ["guided","basic","none"]:
         var button:=Button.new();button.custom_minimum_size.y=76;button.text=tr("GUIDE_MODE_"+mode.to_upper());list.add_child(button)
         button.pressed.connect(func()->void:choose(mode))
+    final_backdrop=ColorRect.new();final_backdrop.color=Color(0,0,0,0.72);final_backdrop.mouse_filter=Control.MOUSE_FILTER_IGNORE;final_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(final_backdrop);final_backdrop.hide()
     card=PanelContainer.new();card.theme_type_variation=&"Backing";card.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(card)
     var content:=VBoxContainer.new();content.mouse_filter=Control.MOUSE_FILTER_IGNORE;content.add_theme_constant_override("separation",4);card.add_child(content)
     var row:=HBoxContainer.new();row.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_theme_constant_override("separation",12);content.add_child(row)
@@ -75,6 +79,11 @@ func setup(owner_ui) -> void:
     intro_button.pressed.connect(func()->void:
         if intro_id.begins_with("flow:"):
             sim.campaign.guided.acknowledge(intro_id.trim_prefix("flow:"));return
+        if intro_id==ROAD_AHEAD_ID:
+            if float(sim.state.tutorial.get("road_ahead_seconds",0.0))<float(sim.campaign.guided.rules().final_delay):return
+            if not sim.state.tutorial.seen.has(ROAD_AHEAD_ID):
+                sim.state.tutorial.seen.append(ROAD_AHEAD_ID);sim.touch();SaveService.mark_dirty()
+            return
         if intro_id=="focus":sim.campaign.focus_hint=-1;return
         if intro_id!="" and not sim.state.tutorial.seen.has(intro_id):sim.state.tutorial.seen.append(intro_id);sim.touch())
     shade=_frame(Color(0,0,0,.85));highlight=_frame(Color(1,.85,.4))
@@ -111,10 +120,17 @@ func _process(dt: float) -> void:
     _complete_lessons()
     evaluate()
     _present()
-    if card.visible and intro_id=="flow:tutorial_final" and not get_tree().paused:sim.campaign.guided.shown(dt)
+    if card.visible and not get_tree().paused:
+        if intro_id=="flow:tutorial_final":sim.campaign.guided.shown(dt)
+        elif intro_id==ROAD_AHEAD_ID:
+            var delay: float=float(sim.campaign.guided.rules().final_delay)
+            var elapsed: float=float(data.get("road_ahead_seconds",0.0))
+            if elapsed<delay:
+                data["road_ahead_seconds"]=minf(delay,elapsed+dt)
+                SaveService.mark_dirty()
     if pending=="focus" and (card.visible or pointer.visible):focus_shown+=dt
     # Basic cards retire on their own after a readable time on screen (no permanent instructions).
-    if data.mode=="basic" and intro_id!="" and pending!="focus" and card.visible:
+    if data.mode=="basic" and intro_id!="" and intro_id!=ROAD_AHEAD_ID and pending!="focus" and card.visible:
         if card_for!=intro_id:card_for=intro_id;card_shown=0
         card_shown+=dt
         if card_shown>=sim.campaign.onboarding.rules.card_seconds and not data.seen.has(intro_id):
@@ -149,12 +165,15 @@ func _path_followed() -> bool:
 func evaluate() -> void:
     pending="";step="";surfaces=[""];target=null;world_target=Vector2.INF;intro_id="";path_point=Vector2.INF
     var data: Dictionary=sim.state.tutorial
-    if data.mode=="none":return
+    if data.mode=="none":
+        _road_ahead_if_ready(data)
+        return
     if data.mode=="guided":
         if sim.campaign.guided.complete():
             _focus_hint()
         else:_guided_lesson()
         return
+    if data.mode=="basic" and _road_ahead_if_ready(data):return
     if _focus_hint():return
     if data.mode=="guided":
         for lesson in LESSONS:
@@ -169,10 +188,20 @@ func evaluate() -> void:
     for pair in [["camp_done",sim.campaign.counter("camp")>0 and data.mode=="guided"],["aggression",sim.state.stage>=2],["skills",sim.campaign.skill_count()>0],["groups",sim.state.stage>=3],["rest",sim.state.player.hp>0 and sim.state.player.hp<sim.stats().hp*.4 and not sim.campaign.in_combat()]]:
         if pair[1] and not data.seen.has(pair[0]):pending=pair[0];intro_id=pair[0];step=pair[0];return
 
+## This is the same one-time game-goals announcement in modes without the Guided final step.
+## Basic finishes its short system introductions first; None receives goals immediately.
+func _road_ahead_if_ready(data: Dictionary) -> bool:
+    if data.seen.has(ROAD_AHEAD_ID):return false
+    if data.mode=="none" or (data.mode=="basic" and data.seen.has("feature_prestige")):
+        pending=ROAD_AHEAD_ID;step="tutorial_final";intro_id=ROAD_AHEAD_ID
+        return true
+    return false
+
 ## Basic (Change 15): a concrete opening card, two short tips for the first equip and merge while they
 ## apply, then one card per system as it is revealed, in reveal order. Text only, never a pointer.
 func _basic_card() -> bool:
     var data: Dictionary=sim.state.tutorial
+    if data.seen.has(ROAD_AHEAD_ID):return false
     var order: Array=[["overview",true],
         ["tip_equip",not data.done.has("equip") and _first_item(func(i):return sim.catalog.items[i].kind in ["weapon","outfit"])!=""],
         ["tip_merge",not data.done.has("merge") and _first_item(func(i):return sim.can_merge(i) and sim.catalog.items[i].kind in ["weapon","outfit"])!=""]]
@@ -436,7 +465,7 @@ func _panel_control(key: String,enabled_only:=false) -> Control:
     return null
 
 func _hide_all() -> void:
-    card.hide();highlight.hide();shade.hide();pointer.hide()
+    card.hide();final_backdrop.hide();highlight.hide();shade.hide();pointer.hide()
 
 func _present() -> void:
     var data: Dictionary=sim.state.tutorial
@@ -454,7 +483,17 @@ func _present() -> void:
     # Coins still needed, in the shared currency format rounded up (Change 13).
     if "%s" in support.text:support.text=support.text % NumberFormat.currency(support_value,true)
     picture.texture=_picture()
-    intro_button.visible=intro_id!="" and (intro_id!="flow:tutorial_final" or float(sim.campaign.guided.data().final_seconds)>=float(sim.campaign.guided.rules().final_delay))
+    var is_final:=intro_id in ["flow:tutorial_final",ROAD_AHEAD_ID]
+    var final_ready:=true
+    if intro_id=="flow:tutorial_final":
+        final_ready=float(sim.campaign.guided.data().final_seconds)>=float(sim.campaign.guided.rules().final_delay)
+    elif intro_id==ROAD_AHEAD_ID:
+        final_ready=float(data.get("road_ahead_seconds",0.0))>=float(sim.campaign.guided.rules().final_delay)
+    intro_button.visible=intro_id!="" and final_ready
+    final_backdrop.visible=is_final
+    title.add_theme_font_size_override("font_size",32 if is_final else 24)
+    support.add_theme_font_size_override("font_size",23 if is_final else 20)
+    intro_button.size_flags_horizontal=Control.SIZE_SHRINK_CENTER if is_final else Control.SIZE_SHRINK_END
     card.mouse_filter=Control.MOUSE_FILTER_IGNORE
     _place_card()
     # Introductions are text only, except the Focused Farming hint (every mode but None) and the
@@ -476,10 +515,15 @@ func _picture() -> Texture2D:
 ## (the pointer alone continues the lesson). Without a panel it sits above the joystick.
 func _place_card() -> void:
     var map: Control=ui.get_node("Safe/Layout/Map")
-    var width:=minf(600,map.size.x-32)
+    var is_final:=intro_id in ["flow:tutorial_final",ROAD_AHEAD_ID]
+    var width:=minf(680 if is_final else 600,map.size.x-32)
     # Resize only on change: assigning a size every frame forces a relayout every frame.
     var height:=card.get_combined_minimum_size().y
     if not card.size.is_equal_approx(Vector2(width,height)):card.size=Vector2(width,height)
+    if is_final:
+        card.position=Vector2(map.global_position.x+(map.size.x-width)*.5,map.global_position.y+(map.size.y-height)*.5)
+        card.show()
+        return
     var y:=map.global_position.y+map.size.y-206-height
     if ui.sheet.visible:
         y=ui.sheet.position.y-12-height

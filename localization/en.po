@@ -5688,10 +5688,10 @@ msgid "GUIDE_WINTER_TWO_DETAIL"
 msgstr "Open World and select Winter II to continue the adventure."
 
 msgid "GUIDE_TUTORIAL_FINAL"
-msgstr "Your adventure continues."
+msgstr "THE ROAD AHEAD"
 
 msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Defeat the final boss. Milestones are optional. Prestige grants permanent benefits, but you may continue without it."
+msgstr "Your ultimate goal is to defeat the final boss in Stage 8 and conquer the game.\n\nWant an even greater challenge? Achieve 100% completion by finishing every milestone in Map Mastery.\n\nPlay at your own pace, enjoy the journey, and good luck!"
 
 msgid "SLOT_SMALL"
 msgstr "Small"
