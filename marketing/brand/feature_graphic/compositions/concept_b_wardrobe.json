@@ -1,0 +1,22 @@
+{
+  "_comment": "Concept B, 'Wardrobe parade': the plain player, then the same player wearing four bosses' outfits with their weapons, walking from Winter to Spring. Variety of looks and seasons; the wordmark rides above.",
+  "size": [1024, 500],
+  "output": "review/concepts/concept_b_wardrobe.png",
+  "layers": [
+    {"name": "ground_winter", "type": "tiles", "sheet": "res://assets/PixelPlains/Winter/Basic Tiles 1.png", "scale": 4, "seed": 1, "rect": [0, 0, 256, 500], "tiles": [[336, 80], [352, 80], [368, 80], [384, 80], [400, 80]], "darken": 0.7},
+    {"name": "ground_summer", "type": "tiles", "sheet": "res://assets/PixelPlains/Summer/Basic Tiles 1.png", "scale": 4, "seed": 2, "rect": [256, 0, 512, 500], "tiles": [[336, 80], [352, 80], [368, 80], [384, 80], [400, 80]], "darken": 0.7},
+    {"name": "ground_fall", "type": "tiles", "sheet": "res://assets/PixelPlains/Fall/Basic Tiles 1.png", "scale": 4, "seed": 3, "rect": [512, 0, 768, 500], "tiles": [[336, 80], [352, 80], [368, 80], [384, 80], [400, 80]], "darken": 0.7},
+    {"name": "ground_spring", "type": "tiles", "sheet": "res://assets/PixelPlains/Basic Tiles 1.png", "scale": 4, "seed": 4, "rect": [768, 0, 1024, 500], "tiles": [[336, 80], [352, 80], [368, 80], [384, 80], [400, 80]], "darken": 0.7},
+    {"name": "trees_winter", "type": "props", "sheet": "res://assets/PixelPlains/Winter/Basic Tiles 4 (Trees & Bushes).png", "scale": 3, "darken": 0.75, "items": [["tree_2", 60, 200], ["tree_4", 190, 215]]},
+    {"name": "trees_summer", "type": "props", "sheet": "res://assets/PixelPlains/Summer/Basic Tiles 4 (Trees & Bushes).png", "scale": 3, "darken": 0.75, "items": [["tree_1", 310, 205], ["tree_3", 450, 215]]},
+    {"name": "trees_fall", "type": "props", "sheet": "res://assets/PixelPlains/Fall/Basic Tiles 4 (Trees & Bushes).png", "scale": 3, "darken": 0.75, "items": [["tree_3", 570, 210], ["tree_2", 710, 200]]},
+    {"name": "trees_spring", "type": "props", "sheet": "res://assets/PixelPlains/Basic Tiles 4 (Trees & Bushes).png", "scale": 3, "darken": 0.75, "items": [["tree_1", 830, 215], ["tree_2", 965, 200]]},
+    {"name": "ground_shade", "type": "band", "rect": [0, 250, 1024, 500], "top": [12, 14, 24], "alpha": [0.0, 0.55]},
+    {"name": "plain", "type": "actor", "actor": "player_plain", "scale": 6, "at": [110, 470], "rim": [24, 22, 36]},
+    {"name": "snowman", "type": "actor", "actor": "player_snowman", "scale": 7, "at": [300, 470], "rim": [24, 22, 36]},
+    {"name": "dino", "type": "actor", "actor": "player_dino", "override": {"frame": [0, 0], "swing": 0}, "scale": 8, "at": [500, 470], "rim": [24, 22, 36]},
+    {"name": "fox", "type": "actor", "actor": "player_fox_idle", "scale": 9, "at": [710, 470], "rim": [24, 22, 36]},
+    {"name": "sunflower", "type": "actor", "actor": "player_sunflower", "override": {"facing": 1}, "scale": 10, "at": [915, 470], "rim": [24, 22, 36]},
+    {"name": "wordmark", "type": "wordmark", "at": [512, 92], "size": 120}
+  ]
+}

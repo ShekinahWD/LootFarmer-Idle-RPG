@@ -1,0 +1,17 @@
+{
+  "_comment": "Concept A, 'Before / Loot / After': the plain player (left) and the same player wearing the Teal Dinosaur's outfit and swinging its Iron Sword (right), the two dropped items between them in real inventory slots, the boss looming dark behind. Summer (the Dinosaur's map).",
+  "size": [1024, 500],
+  "output": "review/concepts/concept_a_loot_bridge.png",
+  "layers": [
+    {"name": "ground", "type": "tiles", "sheet": "res://assets/PixelPlains/Summer/Basic Tiles 1.png", "scale": 4, "seed": 4, "tiles": [[336, 80], [352, 80], [368, 80], [384, 80], [400, 80]], "darken": 0.62},
+    {"name": "back_trees", "type": "props", "sheet": "res://assets/PixelPlains/Summer/Basic Tiles 4 (Trees & Bushes).png", "scale": 4, "darken": 0.5, "items": [["tree_1", 40, 190], ["tree_2", 150, 170], ["tree_1", 880, 175], ["tree_2", 990, 195], ["tree_4", 260, 150, 3], ["tree_3", 770, 150, 3]]},
+    {"name": "boss_silhouette", "type": "actor", "actor": "dino_boss", "scale": 14, "at": [512, 395], "darken": 0.28, "shadow": false},
+    {"name": "loot_glow", "type": "glow", "size": [420, 300], "at": [512, 330], "color": [255, 214, 120], "strength": 0.55},
+    {"name": "player_before", "type": "actor", "actor": "player_plain", "scale": 9, "at": [200, 455], "rim": [24, 22, 36]},
+    {"name": "player_after", "type": "actor", "actor": "player_dino", "scale": 9, "at": [830, 455], "rim": [24, 22, 36]},
+    {"name": "slot_weapon", "type": "slot", "item": "iron_sword", "from_group": "boss-teal-dinosaur", "at": [440, 360], "size": 120, "rim": [24, 22, 36]},
+    {"name": "slot_outfit", "type": "slot", "item": "boss-teal-dinosaur_outfit_t2", "from_group": "boss-teal-dinosaur", "at": [584, 360], "size": 120, "rim": [24, 22, 36]},
+    {"name": "sparks", "type": "spark", "scale": 3, "items": [[372, 300, 6], [652, 300, 9], [512, 440, 4]]},
+    {"name": "wordmark", "type": "wordmark", "at": [512, 92], "size": 120}
+  ]
+}

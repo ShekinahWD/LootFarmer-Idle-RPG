@@ -1,0 +1,52 @@
+{
+  "marketing/brand/feature_graphic/compositions/concept_a_loot_bridge.json": {
+    "composition": "marketing/brand/feature_graphic/compositions/concept_a_loot_bridge.json",
+    "output": "store_assets/branding/review/concepts/concept_a_loot_bridge.png",
+    "size": [
+      1024,
+      500
+    ],
+    "bytes": 32310,
+    "sha256": "c8a47a2f4315c396d369dbc6e6deefe845484c83c12974dfb6e361f233268637"
+  },
+  "marketing/brand/feature_graphic/compositions/concept_b_wardrobe.json": {
+    "composition": "marketing/brand/feature_graphic/compositions/concept_b_wardrobe.json",
+    "output": "store_assets/branding/review/concepts/concept_b_wardrobe.png",
+    "size": [
+      1024,
+      500
+    ],
+    "bytes": 35059,
+    "sha256": "a3202337af5af7b567fdc625207854f3f3139c66ebc754a6db3eb40bd91efaa1"
+  },
+  "marketing/brand/feature_graphic/compositions/concept_c_boss_drop.json": {
+    "composition": "marketing/brand/feature_graphic/compositions/concept_c_boss_drop.json",
+    "output": "store_assets/branding/review/concepts/concept_c_boss_drop.png",
+    "size": [
+      1024,
+      500
+    ],
+    "bytes": 66582,
+    "sha256": "4d357f9e7cba1c3bffe05bafeec89e4eec2c378cd84ffd1d35a6c0c3ef59f760"
+  },
+  "marketing/brand/feature_graphic/compositions/final.json": {
+    "composition": "marketing/brand/feature_graphic/compositions/final.json",
+    "output": "store_assets/branding/feature_graphic_1024x500.png",
+    "size": [
+      1024,
+      500
+    ],
+    "bytes": 84995,
+    "sha256": "2b57077a7d2e9088f263f74515a79a3f860e15229da691745ea5bc90b5a27560"
+  },
+  "marketing/brand/feature_graphic/compositions/portrait_endcard_preview.json": {
+    "composition": "marketing/brand/feature_graphic/compositions/portrait_endcard_preview.json",
+    "output": "store_assets/branding/review/feature_graphic_portrait_endcard_preview.png",
+    "size": [
+      1080,
+      1920
+    ],
+    "bytes": 173086,
+    "sha256": "06f7743db0b547180fd35c302d4bf38b39fb1cf74bd1ffe21902e99ee324d610"
+  }
+}

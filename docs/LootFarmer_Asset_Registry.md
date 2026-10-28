@@ -1,4 +1,4 @@
-# LootFarmer — Current Asset Registry — Change 27
+# LootFarmer — Current Asset Registry — Change 28
 
 ## Store listing and launcher branding (Change 27, 2026-10-28)
 
@@ -6,9 +6,11 @@
 
 **Composition source (tracked, never ships):** `marketing/brand/compose_brand.py` + `brand_config.json`. Elements, all existing game art scaled by whole numbers with nearest-neighbour sampling: player in the Sprout outfit (`Characters 24x24/Character 1 v1.png`, idle frame), Sunflower (`Spring 2 v1.png`), helper Sprouts with the game's `helper_tint`, `Shadow.png`, item icons from `Items/16x16 All Items v1.png` (Emerald Sword, Diamond Axe/Sword, coin, gem at the catalog/resource regions), Spring grass/path tiles (`Basic Tiles 1.png`) and trees (`Basic Tiles 4 (Trees & Bushes).png`). Wordmark "LootFarmer" in Noto Sans weight 800 (toolkit copy, SIL OFL 1.1). No AI-generated or external imagery.
 
+**Feature graphic (Change 28, tracked source, never ships):** `marketing/brand/feature_graphic/` replaces the Change 27 composition (kept in `compose_brand.py`/`brand_config.json` as the record; the rejected file is `docs/Change_27_Evidence/feature_graphic_1024x500.png`). Elements: Teal Dinosaur outfit sheet `Characters 24x24/Special 3 v1.png` (boss and outfitted player), `Basic character v2.png` (plain player), Iron and Wood sword swings from `PixelPlainsAnimationPack` (frame 0), `iron_sword` icon from `Items/16x16 All Items v1.png`, Kenney `panel-014.png` slot (CC0) in catalog tier colours, `Sparks 25x27.png`, Summer sand tiles and trees, `Shadow.png`. Wordmark in Lilita One (`assets/GUIPackCartoon/Demo/Fonts/`, SIL OFL 1.1, notice in `marketing/brand/feature_graphic/licenses/`). The composer refuses loot an enemy does not carry or drop. Report: `docs/LootFarmer_Change_28_Report.md`; evidence `docs/Change_28_Evidence/`.
+
 **Store outputs (ignored `store_assets/`, `.gdignore`, never ship):** Play icon 512×512 RGBA, feature graphic 1024×500 RGB, 24 screenshots (raw masters + byte-identical upload copies), 7 raw AVI clips and the 30 s trailer MP4; provenance and SHA-256 in `store_assets/store_assets_manifest.json` (copy in `docs/Change_27_Evidence/`).
 
-**Rights used by the deliverables:** Pixel Plains characters/items/tiles (icon, feature graphic, every capture), Pixel Plains Animation Pack swings, Kenney Fantasy UI and DejaVu Sans (native HUD in captures), Willosuna magic VFX/SFX lite (skill effects and sounds in captures), `assets/sounds/background_music.wav` and cue WAVs (trailer music and UI sounds), `assets/Audio` (clicks), Noto Sans (wordmark, trailer card). **REL-02 remains open:** Pixel Plains and `assets/sounds` still have no retained licence/purchase record, so the store media are capture-ready but **not cleared for publication**.
+**Rights used by the deliverables:** Pixel Plains characters/items/tiles (icon, feature graphic, every capture), Pixel Plains Animation Pack swings, Kenney Fantasy UI and DejaVu Sans (native HUD in captures), Willosuna magic VFX/SFX lite (skill effects and sounds in captures), `assets/sounds/background_music.wav` and cue WAVs (trailer music and UI sounds), `assets/Audio` (clicks), Noto Sans (trailer card), Lilita One (feature graphic wordmark, Change 28). **REL-02 remains open:** Pixel Plains and `assets/sounds` still have no retained licence/purchase record, so the store media are capture-ready but **not cleared for publication**.
 
 
 ## Source vs export policy (Change 26, 2026-10-28)

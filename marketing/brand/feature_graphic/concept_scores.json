@@ -1,0 +1,18 @@
+{
+  "_comment": "Internal creative selection only (brief section 5.3); weights: mechanic 30, readability/focal hierarchy 25, polish/originality 20, fidelity to game art 15, portrait end-card reuse 10. Not a claim about store conversion.",
+  "weights": {"mechanic": 0.30, "readability": 0.25, "polish": 0.20, "fidelity": 0.15, "portrait": 0.10},
+  "concepts": [
+    {"title": "A. Before / Loot / After", "file": "review/concepts/concept_a_loot_bridge.png", "selected": true,
+     "marks": {"mechanic": 8, "readability": 7, "polish": 6, "fidelity": 9, "portrait": 9}, "score": 7.6,
+     "thesis": "Plain player, the boss's two real drops in slots, the same player wearing them: a left-to-right story."},
+    {"title": "B. Wardrobe parade", "file": "review/concepts/concept_b_wardrobe.png",
+     "marks": {"mechanic": 6, "readability": 7, "polish": 6, "fidelity": 9, "portrait": 6}, "score": 6.7,
+     "thesis": "Five looks across four seasons: variety, but not that looks come from enemies; bands read as quadrants."},
+    {"title": "C. Boss drop", "file": "review/concepts/concept_c_boss_drop.png",
+     "marks": {"mechanic": 6, "readability": 5, "polish": 7, "fidelity": 9, "portrait": 7}, "score": 6.5,
+     "thesis": "The Red Fox spills its sword and outfit: strong mood, but the cropped boss is unreadable, no look changes."},
+    {"title": "FINAL (A refined with C's lighting)", "file": "feature_graphic_1024x500.png",
+     "marks": {"mechanic": 9, "readability": 8, "polish": 8, "fidelity": 9, "portrait": 9}, "score": 8.55,
+     "thesis": "Teal Dinosaur on Summer sand at sunset: boss with its Iron Sword, its real drops, the player wearing both."}
+  ]
+}

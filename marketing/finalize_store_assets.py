@@ -139,8 +139,9 @@ def main() -> int:
         (STORE / 'store_assets_manifest.json').write_bytes((json.dumps(record, indent=2) + '\n').encode('utf-8'))
         contact_sheet(STORE / 'review' / 'screenshots_contact_sheet.png')
         EVIDENCE.mkdir(parents=True, exist_ok=True)
+        # Change 28: the feature graphic's evidence lives in docs/Change_28_Evidence/ (make_review.py);
+        # docs/Change_27_Evidence/feature_graphic_1024x500.png stays the rejected original.
         for src, dst in [(STORE / 'review' / 'screenshots_contact_sheet.png', 'screenshots_contact_sheet.png'),
-                         (STORE / 'branding' / 'feature_graphic_1024x500.png', 'feature_graphic_1024x500.png'),
                          (STORE / 'branding' / 'play_icon_512.png', 'play_icon_512.png'),
                          (STORE / 'branding' / 'review' / 'play_icon_sizes.png', 'play_icon_sizes.png'),
                          (STORE / 'branding' / 'review' / 'adaptive_masks.png', 'adaptive_icon_masks.png'),

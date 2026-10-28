@@ -1,0 +1,21 @@
+{
+  "_comment": "Reusable pieces shared by every composition (landscape feature graphic, concepts, portrait end card). Actors name catalog ids; from_group makes the composer fail unless that enemy really carries or drops the weapon/outfit. Boxes are [x, y, w, h] in the source sheet.",
+  "build_order": ["concept_a_loot_bridge", "concept_b_wardrobe", "concept_c_boss_drop", "final", "portrait_endcard_preview"],
+  "player_body": "res://assets/PixelPlains/Characters 24x24/Basic character v2.png",
+  "shadow": "res://assets/PixelPlains/Characters 24x24/Shadow.png",
+  "spark": {"sheet": "res://assets/PixelPlains/Sparks 25x27.png", "w": 25, "h": 27},
+  "slot": {"texture": "res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-014.png", "margin": 12, "pixel": 3, "size": 132},
+  "wordmark": {"text": "LootFarmer", "font": "assets/GUIPackCartoon/Demo/Fonts/LilitaOne - Regular.ttf", "size": 132, "fill": "#ffd65c", "fill_bottom": "#f2a93b", "fill_split": 0.6, "shine": ["#fff3c0", 5], "outline": 10, "outline_color": "#1c1b2e", "depth": 10, "pixel": 1},
+  "actors": {
+    "player_plain": {"weapon": "wood_sword", "frame": [0, 0], "swing": 0, "facing": 1},
+    "fox_boss": {"outfit": "boss-red-fox_outfit", "weapon": "gold_sword", "from_group": "boss-red-fox", "frame": [0, 0], "swing": 0, "facing": -1},
+    "player_fox": {"outfit": "boss-red-fox_outfit_t3", "weapon": "gold_sword", "from_group": "boss-red-fox", "frame": [3, 0], "swing": 2, "facing": 1},
+    "player_fox_idle": {"outfit": "boss-red-fox_outfit_t3", "weapon": "gold_sword", "from_group": "boss-red-fox", "frame": [0, 0], "swing": 0, "facing": 1},
+    "dino_boss": {"outfit": "boss-teal-dinosaur_outfit", "weapon": "iron_sword", "from_group": "boss-teal-dinosaur", "frame": [0, 0], "swing": 0, "facing": -1},
+    "player_dino": {"outfit": "boss-teal-dinosaur_outfit_t2", "weapon": "iron_sword", "from_group": "boss-teal-dinosaur", "frame": [3, 0], "swing": 2, "facing": 1},
+    "player_snowman": {"outfit": "boss-snowman_outfit", "weapon": "stone_axe", "from_group": "boss-snowman", "frame": [0, 0], "swing": 0, "facing": 1},
+    "player_sunflower": {"outfit": "boss-sunflower_outfit_t5", "weapon": "emerald_sword", "from_group": "boss-sunflower", "frame": [0, 0], "swing": 0, "facing": -1},
+    "player_bee": {"outfit": "boss-bee_outfit_t4", "weapon": "diamond_axe", "from_group": "boss-bee", "frame": [0, 0], "swing": 0, "facing": -1}
+  },
+  "boxes": {"tree_1": [17, 240, 46, 75], "tree_2": [81, 240, 46, 75], "tree_3": [145, 240, 46, 76], "tree_4": [209, 240, 47, 76], "bush_s": [32, 5, 16, 27], "bush_m": [56, 0, 31, 40], "bush_l": [98, 0, 44, 40], "bush_2s": [176, 5, 16, 27], "bush_2m": [200, 0, 31, 40], "bush_2l": [242, 0, 44, 40], "bush_3l": [386, 0, 44, 40], "bush_4l": [530, 0, 44, 40]}
+}

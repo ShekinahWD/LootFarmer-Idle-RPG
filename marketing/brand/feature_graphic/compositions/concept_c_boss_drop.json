@@ -1,0 +1,18 @@
+{
+  "_comment": "Concept C, 'Boss drop': the Red Fox boss towers on the right of a dusk-dark Autumn clearing; its Gold Sword and its outfit spill out as inventory slots toward the plain player mid-swing. Scale contrast and a single spotlight carry the drama.",
+  "size": [1024, 500],
+  "output": "review/concepts/concept_c_boss_drop.png",
+  "layers": [
+    {"name": "ground", "type": "tiles", "sheet": "res://assets/PixelPlains/Fall/Basic Tiles 1.png", "scale": 4, "seed": 9, "tiles": [[336, 80], [352, 80], [368, 80], [384, 80], [400, 80]], "tint": [70, 70, 130], "tint_amount": 0.75},
+    {"name": "trees", "type": "props", "sheet": "res://assets/PixelPlains/Fall/Basic Tiles 4 (Trees & Bushes).png", "scale": 4, "tint": [60, 60, 120], "tint_amount": 0.7, "items": [["tree_2", 560, 170], ["tree_1", 690, 150], ["tree_4", 990, 190], ["tree_3", 40, 470]]},
+    {"name": "boss_glow", "type": "glow", "size": [620, 520], "at": [790, 300], "color": [255, 140, 70], "strength": 0.6},
+    {"name": "boss", "type": "actor", "actor": "fox_boss", "scale": 17, "at": [800, 560], "rim": [255, 196, 120], "shadow": false},
+    {"name": "vignette", "type": "vignette", "start": 120, "strength": 1.4},
+    {"name": "player_glow", "type": "glow", "size": [300, 200], "at": [220, 430], "color": [255, 230, 170], "strength": 0.5},
+    {"name": "player", "type": "actor", "actor": "player_plain", "override": {"frame": [3, 0], "swing": 2}, "scale": 9, "at": [220, 470], "rim": [24, 22, 36]},
+    {"name": "slot_weapon", "type": "slot", "item": "gold_sword", "from_group": "boss-red-fox", "at": [470, 300], "size": 114, "rotate": 8, "rim": [24, 22, 36]},
+    {"name": "slot_outfit", "type": "slot", "item": "boss-red-fox_outfit_t3", "from_group": "boss-red-fox", "at": [560, 410], "size": 114, "rotate": -6, "rim": [24, 22, 36]},
+    {"name": "sparks", "type": "spark", "scale": 4, "items": [[400, 240, 6], [620, 360, 9], [500, 470, 4]]},
+    {"name": "wordmark", "type": "wordmark", "at": [40, 30], "anchor": "topleft", "size": 112}
+  ]
+}

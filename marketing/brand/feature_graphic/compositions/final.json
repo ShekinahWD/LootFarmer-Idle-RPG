@@ -1,0 +1,23 @@
+{
+  "_comment": "FINAL Google Play feature graphic (Change 28), refined from Concept A. Reading order left to right: the plain player, the Teal Dinosaur boss holding its Iron Sword, the two items it drops in real inventory slots, and the player wearing that outfit and holding that sword (the game's attack wind-up frame: swing frame 0 over the normal face, which keeps the face visible). Summer clearing (the Dinosaur's map) at sunset. Coordinates are canvas pixels; feet anchors for actors. Every layer is exported alone to store_assets/branding/source_layers/final/.",
+  "size": [1024, 500],
+  "output": "feature_graphic_1024x500.png",
+  "export_layers": true,
+  "layers": [
+    {"name": "ground", "type": "tiles", "sheet": "res://assets/PixelPlains/Summer/Basic Tiles 1.png", "scale": 4, "seed": 4, "tiles": [[336, 0], [352, 0], [368, 0], [384, 0], [400, 0], [416, 0]], "tint": [150, 110, 130], "tint_amount": 0.5},
+    {"name": "back_trees", "type": "props", "sheet": "res://assets/PixelPlains/Summer/Basic Tiles 4 (Trees & Bushes).png", "scale": 4, "tint": [70, 40, 80], "tint_amount": 0.7, "items": [["tree_1", 30, 215], ["tree_2", 140, 190], ["tree_3", 250, 170, 3], ["tree_4", 775, 170, 3], ["tree_1", 885, 190], ["tree_2", 995, 215]]},
+    {"name": "sunset_light", "type": "glow", "size": [900, 420], "at": [512, 250], "color": [255, 170, 90], "strength": 0.42},
+    {"name": "title_shade", "type": "band", "rect": [0, 0, 1024, 200], "top": [20, 10, 30], "alpha": [0.75, 0.0]},
+    {"name": "boss", "type": "actor", "actor": "dino_boss", "override": {"facing": -1}, "scale": 12, "at": [520, 334], "rim": [24, 22, 36], "darken": 0.9, "shadow_opacity": 0.45},
+    {"name": "ground_shade", "type": "band", "rect": [0, 330, 1024, 500], "top": [20, 14, 30], "alpha": [0.0, 0.5]},
+    {"name": "vignette", "type": "vignette", "start": 100, "strength": 1.5, "color": [18, 10, 28]},
+    {"name": "loot_glow", "type": "glow", "size": [360, 200], "at": [512, 418], "color": [255, 226, 140], "strength": 0.8},
+    {"name": "slot_weapon", "type": "slot", "item": "iron_sword", "from_group": "boss-teal-dinosaur", "at": [446, 414], "size": 114, "rotate": 6, "rim": [255, 236, 190]},
+    {"name": "slot_outfit", "type": "slot", "item": "boss-teal-dinosaur_outfit_t2", "from_group": "boss-teal-dinosaur", "at": [578, 414], "size": 114, "rotate": -6, "rim": [255, 236, 190]},
+    {"name": "sparks", "type": "spark", "scale": 6, "items": [[364, 340, 6], [660, 336, 9], [512, 478, 11]]},
+    {"name": "player_before", "type": "actor", "actor": "player_plain", "scale": 8, "at": [212, 470], "rim": [24, 22, 36]},
+    {"name": "hero_glow", "type": "glow", "size": [440, 380], "at": [806, 350], "color": [120, 240, 230], "strength": 0.5},
+    {"name": "player_after", "type": "actor", "actor": "player_dino", "override": {"facing": -1, "frame": [0, 0], "swing": 0}, "scale": 11, "at": [808, 472], "rim": [24, 22, 36]},
+    {"name": "wordmark", "type": "wordmark", "at": [512, 84], "size": 128, "max_width": 860}
+  ]
+}

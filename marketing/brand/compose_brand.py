@@ -13,9 +13,12 @@ Outputs
     assets/branding/adaptive_background_432.png    runtime (adaptive background, opaque)
     assets/branding/adaptive_monochrome_432.png    runtime (Android 13 themed icon, white on transparent)
     store_assets/branding/play_icon_512.png        Google Play icon, 32-bit RGBA, <= 1024 KB
-    store_assets/branding/feature_graphic_1024x500.png   Google Play feature graphic, 24-bit RGB
     store_assets/branding/review/*.png             small-size previews for the human review
 Edit marketing/brand/brand_config.json to move or rescale elements.
+
+Change 28: the feature graphic moved to marketing/brand/feature_graphic/ (layered compositions). This
+script no longer writes it, so re-running it for the icons cannot restore the rejected Change 27 graphic;
+`feature()` and the `feature` config block stay as the record of that version.
 """
 from __future__ import annotations
 
@@ -179,7 +182,7 @@ def save(im: Image.Image, path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def previews(play_icon: Image.Image, feature_img: Image.Image, fg: Image.Image, bg: Image.Image) -> None:
+def previews(play_icon: Image.Image, fg: Image.Image, bg: Image.Image) -> None:
     out = STORE / 'review'
     out.mkdir(parents=True, exist_ok=True)
     # Icon at the sizes it is seen (store grid, launcher, notification) on a light and a dark row.
@@ -207,7 +210,6 @@ def previews(play_icon: Image.Image, feature_img: Image.Image, fg: Image.Image, 
         else: d.rounded_rectangle((0, 0, 215, 215), radius=36, fill=255)
         masks.paste(crop.convert('RGB'), (20 + i * 252, 28), m)
     masks.save(out / 'adaptive_masks.png')
-    feature_img.resize((512, 250), Image.LANCZOS).save(out / 'feature_graphic_half.png')
 
 
 def check() -> list[str]:
@@ -245,8 +247,6 @@ def main() -> int:
     hashes = {}
     play_icon = icon_layer(CONFIG['icon'])
     hashes['store_assets/branding/play_icon_512.png'] = save(play_icon, STORE / 'play_icon_512.png')
-    feature_img = feature()
-    hashes['store_assets/branding/feature_graphic_1024x500.png'] = save(feature_img, STORE / 'feature_graphic_1024x500.png')
     hashes['assets/branding/launcher_192.png'] = save(icon_layer(CONFIG['launcher']), RUNTIME / 'launcher_192.png')
     a = CONFIG['adaptive']
     fg = icon_layer(a, background=False)
@@ -254,7 +254,7 @@ def main() -> int:
     hashes['assets/branding/adaptive_foreground_432.png'] = save(fg, RUNTIME / 'adaptive_foreground_432.png')
     hashes['assets/branding/adaptive_background_432.png'] = save(bg, RUNTIME / 'adaptive_background_432.png')
     hashes['assets/branding/adaptive_monochrome_432.png'] = save(monochrome(fg), RUNTIME / 'adaptive_monochrome_432.png')
-    previews(play_icon, feature_img, fg, bg)
+    previews(play_icon, fg, bg)
     record = {'sources': CONFIG['sources'], 'outputs': hashes,
               'note': 'Composed from existing Pixel Plains sprites/tiles (licence record REL-02 pending) and Noto Sans (SIL OFL 1.1).'}
     (STORE / 'branding_manifest.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8', newline='\n')
