@@ -306,8 +306,10 @@ func layout_checks() -> void:
     get_window().size=Vector2i(720,1280);await frames(4)
 
 func version_checks() -> void:
-    check(str(ProjectSettings.get_setting("application/config/version"))=="25","Project version is 25 (Change 25)")
+    # Change 26: later batches raise both numbers together (exact match lives in the newest probe).
+    var version:=int(str(ProjectSettings.get_setting("application/config/version")))
+    check(version>=25,"Project version is at least 25 (Change 25)")
     var presets:=FileAccess.get_file_as_string("res://export_presets.cfg")
     var release:=presets.substr(presets.find("name=\"Android Release\""))
     release=release.substr(0,release.find("[preset.1]"))
-    check(release.contains("version/code=25") and release.contains("version/name=\"\""),"Android Release version code is 25, name inherited")
+    check(release.contains("version/code=%d" % version) and release.contains("version/name=\"\""),"Android Release version code equals the project version, name inherited")

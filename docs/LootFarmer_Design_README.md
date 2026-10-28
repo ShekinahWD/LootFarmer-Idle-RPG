@@ -1,4 +1,8 @@
-# Current entry point — Change 25 (2026-10-28)
+# Current entry point — Change 26 (2026-10-28)
+
+Commit "Change 26: optimize Android exports and clean unused assets"; application/Android Release version **26**; save schema 8, save file version 3 (no reset; packaging only). Read first `LootFarmer_Change_26_Report.md` (export allowlist, ARM-only ABIs, import hygiene, the real AAB inspection 117.6 MB to 58.9 MB). Export flow: `tools/export_rules.json` -> `python tools/export_manifest.py` (allowlist and preset) -> export -> `python tools/verify_export.py <aab>`. Asset source-vs-export policy: `LootFarmer_Asset_Registry.md`. `docs/` is `.gdignore`d. Gameplay authority remains the Change 25 entry below.
+
+# Previous entry point — Change 25 (2026-10-28)
 
 Commit "Change 25: correct onboarding modes and finalize mobile UI"; application/Android Release version **25**; save schema 8, save file version 3 (no reset). Read first `LootFarmer_Change_25_Report.md` (Guided/Basic/None behaviour, Android Back, UI findings, verification, phone checklist), then the Change 25 sections of `LootFarmer_GDD.md`, `LootFarmer_State_Contracts.md` and `LootFarmer_Test_Suite.md`. Basic and None now open every ordinary menu at once (Guided keeps its staged reveal); this supersedes the Change 15 universal menu reveal.
 

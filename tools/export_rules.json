@@ -1,0 +1,83 @@
+{
+  "_doc": [
+    "Reviewed export rules for the paid full game (Change 26, audit REL-06). tools/export_manifest.py",
+    "closes these roots over real dependencies (scene/resource ext_resources, literal res:// paths in",
+    "scripts/resources/data, class_name references, the families below) and writes",
+    "tools/export_manifest.json plus the Android Release preset's export_files list.",
+    "Every load/preload/ResourceLoader call or _art() call whose argument is not a literal must be",
+    "listed in 'sites' with the family that enumerates its values; anything else fails the generator.",
+    "Change a rule only with a reason; the full game always ships all eight stages."
+  ],
+  "preset": "Android Release",
+  "abis": ["arm64-v8a", "armeabi-v7a"],
+  "catalog": "res://data/game/catalog.json",
+  "roots": [
+    {"path": "res://data/game/catalog.json", "why": "campaign data, read with FileAccess by catalog.gd (not a resource dependency)"}
+  ],
+  "forbidden_prefixes": [
+    "res://tests/", "res://tools/", "res://docs/", "res://addons/", "res://Godot-Marketing-Toolkit/",
+    "res://marketing/", "res://android/", "res://builds/", "res://store_assets/", "res://recordings/",
+    "res://scenes/main.tscn", "res://scripts/main.gd", "res://ui/bootstrap_theme.tres"
+  ],
+  "wrappers": {
+    "_art": {"family": "item_art", "why": "game_ui._art(index) loads ITEM_ART % index (UI and guide icons)"}
+  },
+  "families": {
+    "stage_scenes": {
+      "pattern": "res://scenes/game/stages/stage_%d.tscn",
+      "catalog": ["stages.*.id"],
+      "why": "stage_scenes.gd builds the scene path from the stage id; the paid game ships every stage"
+    },
+    "item_art": {
+      "pattern": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png",
+      "catalog": ["campaign.paths.*.icon"],
+      "why": "UI, guide, Mastery, Help and Prestige-path icons by Pixel Plains item index"
+    },
+    "skill_vfx": {
+      "pattern": "res://assets/magic-spells-vfx-lite/%s/%s_sheet.png",
+      "catalog": ["skills.*.effect"],
+      "why": "world._effect() loads the effect sheet named by each skill"
+    },
+    "catalog_paths": {
+      "catalog_res_strings": true,
+      "why": "item icon_path/texture/attack strings in the catalog (outfits, bodies, weapons, swings)"
+    },
+    "player_bodies": {
+      "concat": true,
+      "why": "game_ui builds the player body sheet path from a fixed prefix and three file names"
+    }
+  },
+  "sites": [
+    {"file": "res://scripts/game/stage_scenes.gd", "arg": "path(id)", "family": "stage_scenes"},
+    {"file": "res://scripts/game/stage_scenes.gd", "literal": "res://scenes/game/stages/stage_%d.tscn", "family": "stage_scenes"},
+    {"file": "res://scripts/game/catalog.gd", "arg": "entry.icon_path", "family": "catalog_paths"},
+    {"file": "res://scripts/game/catalog.gd", "arg": "entry.texture", "family": "catalog_paths"},
+    {"file": "res://scripts/game/world.gd", "arg": "path", "family": "catalog_paths", "why": "body sheet: catalog outfit texture or a literal in _visual_look"},
+    {"file": "res://scripts/game/world.gd", "arg": "sim.catalog.items[weapon].attack", "family": "catalog_paths"},
+    {"file": "res://scripts/game/world.gd", "arg": "\"res://assets/magic-spells-vfx-lite/%s/%s_sheet.png\" % [d.effect,d.effect]", "family": "skill_vfx"},
+    {"file": "res://scripts/game/world.gd", "literal": "res://assets/magic-spells-vfx-lite/%s/%s_sheet.png", "family": "skill_vfx"},
+    {"file": "res://scripts/game/game_ui.gd", "arg": "\"res://assets/PixelPlains/Characters 24x24/\"+(\"Autumn 4 v2.png\" if body==\"death\" else (\"Gato 4 v2.png\" if body==\"cat\" else \"Basic character v2.png\"))", "family": "player_bodies"},
+    {"file": "res://scripts/game/game_ui.gd", "literal": "res://assets/PixelPlains/Characters 24x24/", "family": "player_bodies"},
+    {"file": "res://scripts/game/game_ui.gd", "literal": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png", "family": "item_art"},
+    {"file": "res://scripts/game/game_ui.gd", "arg": "ITEM_ART % index", "family": "item_art"},
+    {"file": "res://scripts/game/game_ui.gd", "call": "_art", "arg": "index", "family": "item_art", "values": "line_ints", "why": "load-time prewarm list"},
+    {"file": "res://scripts/game/game_ui.gd", "call": "_art", "arg": "int(HELP_ART.get(card,60))", "family": "item_art", "values": "arg_ints", "consts": ["res://scripts/game/game_ui.gd:HELP_ART"]},
+    {"file": "res://scripts/game/game_ui.gd", "call": "_art", "arg": "MASTERY_ART[category]", "family": "item_art", "consts": ["res://scripts/game/game_ui.gd:MASTERY_ART"]},
+    {"file": "res://scripts/game/game_ui.gd", "call": "_art", "arg": "int(sim.catalog.campaign.paths.get(path,{}).get(\"icon\",211))", "family": "item_art", "values": "arg_ints"},
+    {"file": "res://scripts/game/tutorial_guide.gd", "literal": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png", "family": "item_art"},
+    {"file": "res://scripts/game/tutorial_guide.gd", "call": "_art", "arg": "int(ui.HELP_ART.get(step,60))", "family": "item_art", "values": "arg_ints", "consts": ["res://scripts/game/game_ui.gd:HELP_ART"]},
+    {"file": "res://scripts/game/prestige_card.gd", "literal": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png", "family": "item_art"},
+    {"file": "res://scripts/game/prestige_card.gd", "arg": "ITEM_ART % int(path_info.get(\"icon\",211))", "family": "item_art", "values": "arg_ints"}
+  ],
+  "excluded_groups": [
+    {"prefix": "res://assets/PixelPlains/Items/All items", "why": "unused outline variants (game uses All v3 Black Outline)"},
+    {"prefix": "res://assets/PixelPlains/Items/All v1", "why": "unused outline variant"},
+    {"prefix": "res://assets/PixelPlains/Items/All v2", "why": "unused outline variant"},
+    {"prefix": "res://assets/PixelPlains/Items/All v4", "why": "unused outline variant"},
+    {"prefix": "res://assets/magic-spells-sfx-lite/wav/", "why": "WAV duplicates of the OGG cues"},
+    {"prefix": "res://assets/Zombies Free ver/", "why": "retired pack, .gdignore"},
+    {"prefix": "res://assets/PP Pumpkins Set Free/", "why": "retired pack, .gdignore"},
+    {"prefix": "res://assets/LootFarmer-seasonal-animation-sheets/", "why": "reference preview sheets, .gdignore"},
+    {"prefix": "res://assets/GUIPackCartoon/", "why": "retired UI pack, .gdignore"}
+  ]
+}

@@ -1,4 +1,14 @@
-# LootFarmer — Test Suite (current, 2026-10-28, Change 25)
+# LootFarmer — Test Suite (current, 2026-10-28, Change 26)
+
+## Change 26 — Android export allowlist and ABIs (28 October 2026)
+
+Command: `python tools/run_probes.py`. **35 entries (validator + export_manifest + 33 Godot scenes): 35/35 pass on the first full run, no script errors, no timeouts.** Validator 1,574 checks; Godot probes 5,832 checks plus two smoke runs. Details: [Change 26 report](LootFarmer_Change_26_Report.md).
+
+- **Registered** `export_manifest` (static, runs after the validator): `python tools/export_manifest.py --check` regenerates the allowlist in memory and fails if `tools/export_manifest.json` or the Release preset's `export_files` is stale. It also fails on any unregistered dynamic load site, missing dependency, forbidden path, ABI selection other than arm64-v8a + armeabi-v7a, or Release `version/code` different from the project version. After changing code or data that loads assets, run `python tools/export_manifest.py` (writes both) and commit the result.
+- **Registered** `change_26_probe` (49 checks): every manifest file loads from source; eight stages ship and instantiate; runtime recorder (catalog icons, actor body/swing sheets for every group and item, effect sheets, the UI art cache after 16 panels, guide pictures and Prestige path icons) finds nothing outside the manifest; the Release preset is selected resources, 229 files, ARM only, version 26.
+- **Updated** change_25_probe version check: "at least 25 and Release code = project version" (the exact value is checked by the newest probe).
+- **Non-gating artifact check** (needs an export): `godot --headless --path . --export-release "Android Release" builds/LootFarmerIdleRPG.<N>.aab`, then `python tools/verify_export.py builds/LootFarmerIdleRPG.<N>.aab [--baseline <older.aab>]`. It reads the AAB/APK itself (sparse PCK directory with MD5, packed source paths against the manifest, import/remap targets, forbidden content, ABIs, manifest identity) and writes `tests/tmp/export/<artifact>.json`. Change 26: PASS, 58,948,378 bytes, arm64-v8a + armeabi-v7a, 229/229 sources, 0 missing, 0 unexpected.
+
 
 ## Change 25 — onboarding modes and mobile UI (28 October 2026)
 
@@ -86,6 +96,8 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 
 | Probe | Covers |
 |---|---|
+| export_manifest (Change 26) | Export allowlist and Release preset current; ARM ABIs; version code = project version |
+| change_26_probe | Manifest files load, eight stages, runtime-resolved art inside the manifest, Release preset (Change 26) |
 | validate_campaign_source.py | Catalog and source contracts, translations (code, scene keys and dynamic keys), every catalog tool's `--check` including change16_catalog (1,554 checks) |
 | change_25_probe | Onboarding mode authority (Basic/None menus open at once, Guided staged), menus never grant content, Basic overview deck, None silence, slot-size first choice, Android Back / Escape, portrait HUD layout (Change 25) |
 | change_16_probe | Map economy on all 8 maps (income ×1.5, every map-tied Coin purchase ×1.55, global and Gem prices unchanged, rising cost/income), Gem Auto-Collect / Collect Batch (prices, Prestige, older Coin levels), save migration of the new records, boss discovery (once, sound, banner order, Prestige on discovery without a kill, Prestige, Hard Reset), boss names and skill icons (stacking, contrast), the Winter I objective, mission + Prestige trackers together, followers of all 33 opportunities, Prestige keeping Gems and exploration, the Health Potion 10% → 20% and external HP bonuses, Drop All (slot, pile, Auto-Collect, exploit loops, credit, equipped, save, expiry, red UI), Map Mastery reward swap and chip, Cyan Robot Heal interval, skill descriptions, the Prestige confirmation screen, music hold rules, the Guided path opening, View Camp, Help and no development UI (197 checks) |
@@ -185,6 +197,7 @@ One full maintained-suite run after the implementation: 18 / 22 passed. The four
 |---|---|---|
 | change_9_balance | Passes | A balance fixture (deterministic duels); run it deliberately when combat numbers change. |
 | change_16_audio | Passes (11 / 11), windowed | Real music playback through volume 0, the game pause and a scene re-entry. The audio service never decodes music headless, so this runs with a window: `godot --path . res://tests/change_16_audio.tscn -- --probe --profile=probe-c16-audio --no-autosave --first-run-complete`. |
+| tools/verify_export.py | PASS on `LootFarmerIdleRPG.26.aab` | Inspects an exported AAB/APK against the allowlist; needs an export (Change 26). |
 | pacing_bot | Not run | Natural-pace benchmark (minutes per run); for pacing questions only. |
 | change_*_capture (change_16_capture added), change_6_before, change_8_stage_capture, stage_overview_capture | Not gating | Rendered evidence (screenshots); run with a window. |
 | change_7_smoke, change_10_smoke | Pass | Superseded for build readiness by change_11_smoke; kept as history. |

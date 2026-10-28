@@ -1,5 +1,6 @@
 """Maintained LootFarmer regression suite (Change 11; later changes added their probes, Change 24 the
-change_22 and change_24 probes, Change 25 the change_25 probe). Runs each probe headless, one at a time
+change_22 and change_24 probes, Change 25 the change_25 probe, Change 26 the change_26 probe and the
+export manifest check). Runs each probe headless, one at a time
 (playbook 60.1), with a hard timeout, and counts a run as failed when it exits non-zero, times out
 or prints any SCRIPT ERROR (a script error aborts a probe's coroutine before it can quit).
 
@@ -11,7 +12,8 @@ Not in this suite on purpose: rendered captures (change_*_capture, stage_overvie
 music playback check (change_16_audio: the audio service never decodes music headless), the
 natural-pace pacing_bot and the change_9_balance fixture (balance benchmarks, run deliberately), and
 the historical probes listed in docs/LootFarmer_Test_Suite.md, and the non-gating desktop performance
-benchmark (tools/run_benchmark.py, Change 24: timings are reported, never asserted).
+benchmark (tools/run_benchmark.py, Change 24: timings are reported, never asserted), and the packaged-artifact
+check (tools/verify_export.py, Change 26: needs an exported AAB/APK).
 """
 from pathlib import Path
 import os, re, subprocess, sys, time
@@ -20,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GODOT = os.environ.get('GODOT', 'D:/Programs/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe')
 # name -> timeout in seconds
 SUITE = {
+    'change_26_probe': 300,
     'change_25_probe': 300,
     'change_24_probe': 240,
     'change_22_probe': 240,
@@ -95,10 +98,14 @@ def main():
         raise SystemExit('not in the maintained suite: %s' % unknown)
     static = subprocess.run([sys.executable, str(ROOT / 'tools/validate_campaign_source.py')], capture_output=True, text=True)
     print('%-24s %-7s        %s' % ('validate_campaign_source', 'PASS' if static.returncode == 0 else 'FAIL', static.stdout.strip().splitlines()[0] if static.stdout else ''))
+    # Change 26: the export allowlist and the Release preset must match the current code and data.
+    export = subprocess.run([sys.executable, str(ROOT / 'tools/export_manifest.py'), '--check'], capture_output=True, text=True)
+    print('%-24s %-7s        %s' % ('export_manifest', 'PASS' if export.returncode == 0 else 'FAIL', (export.stdout.strip().splitlines() or [''])[0]))
+    statics = [static.returncode == 0, export.returncode == 0]
     results = [run(n, SUITE[n]) for n in names]
-    passed = sum(results) + (static.returncode == 0)
-    print('SUITE %d/%d passed' % (passed, len(results) + 1))
-    sys.exit(0 if all(results) and static.returncode == 0 else 1)
+    passed = sum(results) + sum(statics)
+    print('SUITE %d/%d passed' % (passed, len(results) + len(statics)))
+    sys.exit(0 if all(results) and all(statics) else 1)
 
 
 if __name__ == '__main__':

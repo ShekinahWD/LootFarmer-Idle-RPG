@@ -481,3 +481,17 @@ Ordered by impact and dependency. Each batch: the smallest relevant probe, then 
 - **GO** to Batch B (phone baseline) immediately after.
 - **STOP** before optimization code (C/D) until the phone numbers exist and targets are agreed. The desktop harness shows where to look, but an optimization without a device baseline cannot be accepted under the brief's evidence rule.
 - **STOP** for demo and marketing work until the final UI revision (E) and Stages 6–8 acceptance (F) are complete.
+
+---
+
+## Addendum — Change 26 status (2026-10-28)
+
+Appended after the audit; the body above is unchanged. Evidence: `LootFarmer_Change_26_Report.md`.
+
+| Finding | Status | Evidence |
+|---|---|---|
+| REL-05 x86/x86_64 shipped | **Fixed** (phone install pending) | Cause: all `architectures/*` false, so the Gradle template falls back to all four ABIs. Release now selects arm64-v8a + armeabi-v7a; `LootFarmerIdleRPG.26.aab` contains only `base/lib/arm64-v8a` and `base/lib/armeabi-v7a`. |
+| REL-06 unused packs exported | **Fixed** | Dependency-verified allowlist (`tools/export_rules.json` -> `tools/export_manifest.json`, `export_filter="resources"`); AAB packed sources = the 229-file manifest, 0 missing / 0 unexpected; 117.6 MB to 58.9 MB (v22 to v26); the asset share alone 65.1 MB to 58.9 MB (v23 to v26). |
+| AST-04 docs evidence imported | **Fixed** | `docs/.gdignore`; 225 tracked and 26 untracked generated `.import`/`.translation` files under docs removed; screenshots kept. |
+| AST-05 Enemy Roster CSV as translations | **Fixed** | Covered by `docs/.gdignore` (no rename); the same trap in `LootFarmer-seasonal-animation-sheets/index.csv` fixed by that pack's `.gdignore`. |
+| Batch G (Packaging) | **Done**, except installing the new AAB on the phone | Change 26 report |
