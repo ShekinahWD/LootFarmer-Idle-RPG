@@ -1,0 +1,323 @@
+{
+  "text_renderer": "pillow",
+  "quality": "high",
+  "fonts": {
+    "default": {
+      "file": "../../assets/GUIPackCartoon/Demo/Fonts/LilitaOne - Regular.ttf"
+    }
+  },
+  "strings": {
+    "en-US": {
+      "CARD.BOSS": "This boss calls for backup.",
+      "CARD.GEAR": "Defeat an enemy and wear its gear.",
+      "CARD.SEASONS": "Every season has new gear to farm."
+    }
+  },
+  "style": {
+    "text_color": "#FFD65C",
+    "text_fade": 0.2
+  },
+  "game_scene": "res://scenes/game/main.tscn",
+  "adapter_script": "res://marketing/game_scenarios.gd",
+  "ui_group": "store_screenshot_ui",
+  "godot_user_args": [
+    "--profile=capture-store",
+    "--no-autosave",
+    "--first-run-complete"
+  ],
+  "log_show": [
+    "LOOTFARMER_MARKETING"
+  ],
+  "output_root": "../../store_assets",
+  "capture_jobs": [
+    {
+      "id": "c32_boss",
+      "kind": "video",
+      "scenario": "boss_sunflower",
+      "options": {
+        "zoom": 2.5,
+        "seed": 3210,
+        "outfit": "boss-red-panda_outfit_t5",
+        "dx": 0,
+        "dy": 32,
+        "summon_in": 1.2,
+        "skill_at": {
+          "lightning": 0.9,
+          "fire": 3.3,
+          "strike": 4.4
+        }
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 7.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/trailer_c32/c32_boss.avi"
+    },
+    {
+      "id": "c32_gear",
+      "kind": "video",
+      "scenario": "trailer_gear",
+      "options": {
+        "zoom": 3.0,
+        "seed": 3209,
+        "level": 200,
+        "until": 0.1,
+        "dx": 0,
+        "dy": 30,
+        "boss_history": [
+          "boss-teal-dinosaur"
+        ],
+        "challenges": [
+          "boss-teal-dinosaur"
+        ],
+        "known_opportunities": [
+          "masterwork_o3",
+          "arsenal_o1"
+        ],
+        "steps": {
+          "collect_outfit": 0.8,
+          "collect_weapon": 1.1,
+          "open_outfit": 1.6,
+          "equip_outfit": 3.0,
+          "open_weapon": 3.7,
+          "equip_weapon": 4.8,
+          "close": 5.3
+        }
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 12.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/trailer_c32/c32_gear.avi"
+    },
+    {
+      "id": "c32_merge",
+      "kind": "video",
+      "scenario": "trailer_merge",
+      "options": {
+        "zoom": 3.0,
+        "copies": 40,
+        "open_at": 0.8,
+        "merge_at": 2.3,
+        "dx": -40,
+        "dy": 170,
+        "known_opportunities": [
+          "masterwork_o3",
+          "arsenal_o1"
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 5.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/trailer_c32/c32_merge.avi"
+    },
+    {
+      "id": "c32_autumn",
+      "kind": "video",
+      "scenario": "trailer_farm",
+      "options": {
+        "stage": 6,
+        "zoom": 3.0,
+        "seed": 3206,
+        "level": 700,
+        "advance": 0.6,
+        "near": "unit-television-head",
+        "dx": 55,
+        "dy": -5,
+        "items": [
+          [
+            "gold_sword",
+            100
+          ],
+          [
+            "boss-red-fox_outfit",
+            60
+          ]
+        ],
+        "wear": [
+          "gold_sword",
+          "boss-red-fox_outfit"
+        ],
+        "skills": [
+          [
+            "skill_fire",
+            60
+          ],
+          [
+            "skill_lightning",
+            60
+          ]
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 6.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/trailer_c32/c32_autumn.avi"
+    },
+    {
+      "id": "c32_winter",
+      "kind": "video",
+      "scenario": "trailer_farm",
+      "options": {
+        "stage": 2,
+        "zoom": 3.0,
+        "seed": 3202,
+        "level": 45,
+        "advance": 0.6,
+        "near": "unit-reindeer-antlers",
+        "dx": 0,
+        "dy": -50,
+        "items": [
+          [
+            "stone_axe",
+            100
+          ],
+          [
+            "boss-snowman_outfit",
+            40
+          ]
+        ],
+        "wear": [
+          "stone_axe",
+          "boss-snowman_outfit"
+        ],
+        "skills": [
+          [
+            "skill_strike",
+            10
+          ]
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 6.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/trailer_c32/c32_winter.avi"
+    }
+  ],
+  "videos": [
+    {
+      "id": "play_trailer",
+      "profile": "play_store",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "target_duration": 30.0,
+      "output": "../../store_assets/video/LootFarmer_Play_Trailer.mp4",
+      "fade_in": 0.0,
+      "fade_out": 0.0,
+      "music": "../../assets/sounds/background_music.wav",
+      "music_start": 60.0,
+      "music_volume": 0.85,
+      "music_fade_in": 0.03,
+      "music_fade_out": 1.8,
+      "game_audio": false,
+      "style": {
+        "text_min_hold": 1.5,
+        "reading_cps": 18.0
+      },
+      "shots": [
+        {
+          "id": "card_boss",
+          "kind": "card",
+          "duration": "auto",
+          "headline_key": "CARD.BOSS"
+        },
+        {
+          "id": "boss",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/trailer_c32/c32_boss.avi",
+          "start": 0.6,
+          "duration": 4.2,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "card_gear",
+          "kind": "card",
+          "duration": "auto",
+          "headline_key": "CARD.GEAR",
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "gear",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/trailer_c32/c32_gear.avi",
+          "start": 1.3,
+          "duration": "fill",
+          "min_duration": 8.6,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "merge",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/trailer_c32/c32_merge.avi",
+          "start": 0.4,
+          "duration": 3.4,
+          "transition_in": {
+            "type": "crossfade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "card_seasons",
+          "kind": "card",
+          "duration": "auto",
+          "headline_key": "CARD.SEASONS",
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "autumn",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/trailer_c32/c32_autumn.avi",
+          "start": 3.1,
+          "duration": 2.3,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "winter",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/trailer_c32/c32_winter.avi",
+          "start": 2.0,
+          "duration": 2.3,
+          "transition_in": {
+            "type": "crossfade",
+            "duration": 0.4
+          }
+        },
+        {
+          "id": "end_card",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/trailer_c32/end_card.mkv",
+          "start": 0.0,
+          "duration": 3.8,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 """Writes marketing/manifest.json (Godot Marketing Capture Toolkit 1.0.2) for the Change 27 Google Play
-set: 6 screenshot concepts x 4 portrait device classes, 7 trailer clips and the 30 s portrait trailer.
+set: 6 screenshot concepts x 4 portrait device classes and the 7 Change 27 clips (the store trailer is
+marketing/trailer/, Change 32).
 Edit the tables below (scenario options, capture frames, cuts), run this script, then the commands in
 marketing/README.md. Every capture runs the game's own scene through marketing/game_scenarios.gd.
 """
@@ -55,19 +56,6 @@ def manifest() -> dict:
         jobs.append({'id': clip_id, 'kind': 'video', 'scenario': scenario, 'options': options,
                      'width': 1080, 'height': 1920, 'fps': 30, 'duration': seconds, 'capture_ui': True,
                      'output': f'{RAW}/video/{clip_id}.avi'})
-    fade = lambda d: {'type': 'fade', 'duration': d}
-    cross = lambda d: {'type': 'crossfade', 'duration': d}
-    shots = [
-        {'id': 'boss', 'kind': 'clip', 'source': f'{RAW}/video/clip_boss.avi', 'start': HEAD, 'duration': 7.0},
-        {'id': 'loot', 'kind': 'clip', 'source': f'{RAW}/video/clip_loot.avi', 'start': HEAD, 'duration': 3.4, 'transition_in': cross(0.3)},
-        {'id': 'merge', 'kind': 'clip', 'source': f'{RAW}/video/clip_merge.avi', 'start': HEAD, 'duration': 3.2, 'transition_in': cross(0.3)},
-        {'id': 'farm', 'kind': 'clip', 'source': f'{RAW}/video/clip_farm.avi', 'start': HEAD, 'duration': 'fill', 'min_duration': 7.0, 'transition_in': fade(0.4)},
-        {'id': 'world', 'kind': 'clip', 'source': f'{RAW}/video/clip_world.avi', 'start': HEAD, 'duration': 2.6, 'transition_in': cross(0.3)},
-        {'id': 'prestige', 'kind': 'clip', 'source': f'{RAW}/video/clip_prestige.avi', 'start': HEAD, 'duration': 3.0, 'transition_in': cross(0.3)},
-        {'id': 'victory', 'kind': 'clip', 'source': f'{RAW}/video/clip_victory.avi', 'start': HEAD, 'duration': 3.0, 'transition_in': fade(0.4)},
-        {'id': 'brand', 'kind': 'card', 'duration': 'auto', 'headline_key': 'BRAND.NAME', 'image': '../store_assets/branding/play_icon_512.png',
-         'text_min_hold': 1.0, 'transition_in': fade(0.4)},
-    ]
     return {
         'game_scene': 'res://scenes/game/main.tscn',
         'adapter_script': 'res://marketing/game_scenarios.gd',
@@ -84,16 +72,9 @@ def manifest() -> dict:
         'strings': {'en-US': {'BRAND.NAME': 'LootFarmer'}},
         'style': {'text_color': '#FFD65C', 'accent_color': '#FFD65C', 'text_fade': 0.2},
         'screenshots': [],
-        'videos': [{
-            'id': 'play_trailer', 'profile': 'play_store', 'width': 1080, 'height': 1920, 'fps': 30,
-            'target_duration': 30.0, 'output': '../store_assets/video/LootFarmer_Play_Trailer.mp4',
-            'fade_in': 0.0, 'fade_out': 0.0,
-            # The game's own looping music under the whole cut (never restarted per clip) plus each
-            # clip's recorded game sound (the clips are captured with the music slider at zero).
-            'music': '../assets/sounds/background_music.wav', 'music_volume': 0.5, 'music_start': 0.0,
-            'music_fade_in': 0.0, 'music_fade_out': 1.2, 'game_audio': True, 'game_volume': 0.9,
-            'shots': shots,
-        }],
+        # Change 32 replaced the rejected Change 27 cut: the store trailer is built from
+        # marketing/trailer/manifest.json. The clips above stay as recorded masters for social reuse.
+        'videos': [],
     }
 
 

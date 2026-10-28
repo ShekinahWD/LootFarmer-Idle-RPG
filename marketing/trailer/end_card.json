@@ -1,0 +1,17 @@
+{
+  "_comment": "Change 32 trailer end card: the approved feature graphic's portrait restaging (marketing/brand/feature_graphic/compositions/portrait_endcard_preview.json, same layers, unchanged) put in motion. Times are seconds from the card's first frame; layers not listed are on from frame 0. 'fade' fades opacity in, 'drop' also slides down by 'dy' px (ease out), 'pop' switches on in one frame (the game's equip swap), 'grow' fades and scales from 'scale' to 1 about 'about'. 'twinkle' pulses opacity after it is on. The last frame equals the study pixel for pixel.",
+  "composition": "../brand/feature_graphic/compositions/portrait_endcard_preview.json",
+  "seconds": 4.5,
+  "fps": 30,
+  "motion": [
+    {"layer": "loot_glow", "kind": "fade", "at": 0.30, "dur": 0.45},
+    {"layer": "slot_weapon", "kind": "drop", "at": 0.30, "dur": 0.40, "dy": -150},
+    {"layer": "slot_outfit", "kind": "drop", "at": 0.42, "dur": 0.40, "dy": -150},
+    {"layer": "sparks", "kind": "fade", "at": 0.70, "dur": 0.20, "twinkle": 0.35},
+    {"layer": "player_before", "kind": "fade", "at": 0.55, "dur": 0.25},
+    {"layer": "hero_glow", "kind": "fade", "at": 1.00, "dur": 0.30},
+    {"layer": "player_after", "kind": "pop", "at": 1.00},
+    {"layer": "wordmark", "kind": "grow", "at": 1.20, "dur": 0.40, "scale": 0.88, "about": [540, 640]},
+    {"layer": "subtitle", "kind": "fade", "at": 1.50, "dur": 0.30}
+  ]
+}

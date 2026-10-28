@@ -59,7 +59,12 @@ func prepare_scenario(scenario_id: String,options_: Dictionary,game_root: Node,c
         "prestige_cards":ok=_prestige_cards()
         "boss_victory":ok=_boss_victory()
         "explore":ok=_explore()
+        "trailer_gear":ok=_trailer_gear()
+        "trailer_merge":ok=_trailer_merge()
+        "trailer_farm":ok=_trailer_farm()
         _:push_error(LOG+"unknown scenario "+scenario_id)
+    # Change 32: every banner raised during a take is logged, so a review can refuse one it should not show.
+    if ok:sim.milestone.connect(func(kind,id):print(LOG,"MILESTONE ",kind," ",id," t=",clock))
     print(LOG,"prepared ",scenario_id," ok=",ok," size=",capture.get("width"),"x",capture.get("height"))
     return ok
 
@@ -190,9 +195,9 @@ func _settle() -> void:
         sim.campaign.evaluate();sim.campaign.onboarding.evaluate();sim.campaign.mastery.evaluate(false)
     _hud_clean()
 
-## Every boss of Winter I .. Spring I defeated in the current run and every camp there owned.
-func _run_cleared() -> void:
-    for st in range(1,8):
+## Every boss of Winter I .. `last` (default Spring I) defeated in the current run and every camp there owned.
+func _run_cleared(last:=7) -> void:
+    for st in range(1,last+1):
         for g in sim.catalog.stages[st-1].groups:
             if sim.catalog.groups[g].boss:sim.state.run_kills[str(sim.catalog.groups[g].id)]=1
         var owned: Array=[]
@@ -232,6 +237,9 @@ func _boss_sunflower() -> bool:
     if not _late_profile(int(options.get("seed",2701))):return false
     var boss:=_actor_of("boss-sunflower")
     if boss.is_empty():push_error(LOG+"no sunflower");return false
+    # Change 32: the trailer dresses the player in a stored outfit that reads apart from the Sprouts.
+    if options.has("outfit") and str(sim.state.outfit)!=str(options.outfit) and not sim.equip(str(options.outfit)):
+        push_error(LOG+"cannot wear "+str(options.outfit));return false
     _place_player(sim.position_of(boss)+Vector2(float(options.get("dx",34)),float(options.get("dy",12))))
     boss.aggro=true
     # Staging: the summon timer moved forward to just before the boss's real call (the game then
@@ -328,6 +336,8 @@ func _collect_next() -> void:
 ## Logs the defeat of a staged enemy during a clip (scenario postcondition for the review).
 var watched: Dictionary={}
 var watched_done:=false
+## Taps timed from the watched enemy's defeat: [[seconds after it, Callable], ...] (Change 32).
+var after_defeat: Array=[]
 func _watch(a: Dictionary) -> void:
     watched=a;watched_done=false
 
@@ -336,6 +346,8 @@ func _physics_process(_delta: float) -> void:
         watched_done=true
         var drops: Array=sim.state.pickups.filter(func(d):return int(d.group)==int(watched.group)).map(func(d):return d.item)
         print(LOG,"DEFEATED ",watched.id," t=",clock," player_hp=",sim.state.player.hp," drops=",drops)
+        for entry in after_defeat:timeline.append([clock+float(entry[0]),entry[1]])
+        timeline.sort_custom(func(a,b):return float(a[0])<float(b[0]))
 
 ## 03: copies of the equipped Emerald Sword collected from real drops (fixture: owned copies), the
 ## item panel open, and Merge pressed through its own button: the merge level and Damage rise.
@@ -453,3 +465,190 @@ func _explore() -> bool:
         if options.has("selected"):game.selected=str(options.selected)
         game._open(panel_name)
     return true
+
+# ---------------------------------------------------------------- Change 32 store trailer
+
+## A first-run profile that has reached `stage_id`: every earlier map cleared (bosses defeated, camps
+## owned, maps explored), this map's non-final bosses already found (no first-sight banner during a
+## shot), `items` ([id, merge level]) owned and `wear` equipped. Built like _late_profile through the
+## simulation's own calls, without the Prestige history none of these shots shows.
+func _stage_profile(stage_id: int,player_level: int,items: Array,wear: Array,seed_value: int) -> bool:
+    sim.new_profile()
+    sim.rng.seed=seed_value
+    sim.suspended=false
+    sim.state.tutorial.mode="none"
+    sim.campaign.onboarding.reveal_all(true)
+    if not sim.state.tutorial.seen.has("road_ahead"):sim.state.tutorial.seen.append("road_ahead")
+    game._close();_hud_clean()
+    sim.state.gear.resize(18);sim.state.gear.fill("") # fixture: equipment slots bought earlier
+    sim.state.upgrades["gear_slots"]=15
+    sim.state.player_level=player_level
+    for st in range(1,stage_id):
+        for boss_id in sim.catalog.stages[st-1].gates:
+            var g:=_group(str(boss_id))
+            sim.state.group_kills[g]=maxi(int(sim.state.group_kills[g]),3+st)
+            if not sim.state.bosses_found.has(str(boss_id)):sim.state.bosses_found.append(str(boss_id))
+        for g in sim.catalog.stages[st-1].groups:
+            sim.state.discovered[str(g)]=true
+            if not sim.catalog.groups[g].boss:sim.state.group_kills[g]=maxi(int(sim.state.group_kills[g]),300+40*st)
+        sim.campaign.explore_cells(st,[],true)
+        var camps: Array=[]
+        for i in range(sim.catalog.stages[st-1].spawns.size()):camps.append(i)
+        sim.state.camps_known[str(st)]=camps
+    _run_cleared(stage_id-1)
+    for g in sim.catalog.stages[stage_id-1].groups:
+        var d: Dictionary=sim.catalog.groups[g]
+        if d.boss and not d.final and not sim.state.bosses_found.has(str(d.id)):sim.state.bosses_found.append(str(d.id))
+    sim.state.unlocked_stage=maxi(stage_id,int(options.get("unlocked",stage_id)))
+    for pair in items:
+        if not _give(pair[0],pair[1]):return false
+    for id in wear:
+        if not sim.equip(str(id)):
+            push_error(LOG+"equip failed "+str(id));return false
+    var skills: Array=options.get("skills",[])
+    sim.state.upgrades["skill_slots"]=maxi(0,skills.size()-1)
+    for i in range(skills.size()):
+        if not _give(skills[i][0],skills[i][1]):return false
+        sim.state.upgrades["skill_auto_%d" % i]=1;sim.state.skill_auto[i]=true
+        if not sim.campaign.equip_skill(skills[i][0],i):
+            push_error(LOG+"skill equip failed");return false
+    sim.state.coins=float(options.get("coins",0.0));sim.state.gems=float(options.get("gems",0.0))
+    # History behind the kills above (the counters campaign.killed writes), so the Prestige
+    # opportunities it uncovers were announced long before, never as a banner during a shot.
+    # options.boss_history: bosses of this map defeated before (without the drop this shot shows);
+    # options.challenges: of those, the ones a player beat with no supply used (its challenge done).
+    for st in range(1,stage_id+1):
+        for g in sim.catalog.stages[st-1].groups:
+            if not sim.catalog.groups[g].boss:sim.campaign.progress("kill",str(sim.catalog.groups[g].id),maxi(50,int(sim.state.group_kills[g])))
+    for boss_id in options.get("boss_history",[]):
+        _history_kills(str(boss_id),1)
+        sim.state.group_kills[_group(str(boss_id))]=maxi(1,int(sim.state.group_kills[_group(str(boss_id))]))
+    sim.campaign.evaluate()
+    for boss_id in options.get("challenges",[]):sim.campaign.progress("restricted",str(boss_id),1)
+    # options.known_opportunities: ones a player at this map met long ago with gear it no longer owns
+    # (first tier-3 item, first worn pair), recorded as campaign.evaluate() records a discovery.
+    for op_id in options.get("known_opportunities",[]):
+        if not sim.state.opportunities.has(op_id):sim.state.opportunities[op_id]={"ready":false,"baseline":sim.state.counters.duplicate(true),"step":0,"count":0}
+    if not _travel(stage_id,int(options.get("camp",0))):return false
+    _settle()
+    sim.state.player.hp=sim.stats().hp
+    _settings().set_camera_zoom(float(options.get("zoom",2.0)))
+    print(LOG,"stage profile ",stage_id," level=",player_level," weapon=",sim.state.weapon," outfit=",sim.state.outfit)
+    return true
+
+## The trailer's gear story (Summer II, rain): a player in the plain body with a Wood Sword finishes
+## the Teal Dinosaur, which wears its outfit and holds its Iron Sword (catalog groups[].body/weapon;
+## its loot is exactly those two). The real kill rolls the drops; the clip then taps each drop, opens
+## it from the gear grid and presses Equip, as a player does. The fight before the clip is the real
+## simulation fast-forwarded; the seed is chosen so this kill drops both items (checked, never forced:
+## a drop that did not happen logs COLLECT MISSING and the take is refused at review).
+func _trailer_gear() -> bool:
+    var weapon:=str(options.get("weapon","wood_sword"))
+    if not _stage_profile(4,int(options.get("level",150)),[[weapon,int(options.get("weapon_merge",100))]],[weapon],int(options.get("seed",3201))):return false
+    var boss:=_actor_of("boss-teal-dinosaur")
+    if boss.is_empty():push_error(LOG+"no teal dinosaur");return false
+    _farm_upgrades([int(boss.group)],false)
+    sim.campaign.reveal_circle(Vector2(boss.home_x,boss.home_y),float(options.get("explored",320.0))) # fixture: walked here
+    _place_player(sim.position_of(boss)+Vector2(float(options.get("dx",30)),float(options.get("dy",10))))
+    boss.aggro=true
+    var def: Dictionary=sim.enemy_definition(int(boss.group))
+    var max_hp: float=float(def.hp)
+    var t:=0.0
+    while t<240.0 and float(boss.hp)>max_hp*float(options.get("until",0.1)):
+        sim.step(.05);t+=.05
+        if sim.state.player.hp<=0:break
+    print(LOG,"gear fight ",t,"s boss=",float(boss.hp)/max_hp," player=",sim.state.player.hp/sim.stats().hp," boss_body=",def.body," boss_weapon=",def.weapon," loot=",def.loot)
+    if sim.state.player.hp<=0 or float(boss.hp)<=0:return false
+    _watch(boss)
+    _hud_clean()
+    var steps: Dictionary=options.get("steps",{})
+    for id in def.loot:
+        var kind: String=sim.catalog.items[id].kind
+        after_defeat.append([float(steps.get("collect_"+kind,1.0)),func():_collect_item(id)])
+        if steps.has("open_"+kind):after_defeat.append([float(steps["open_"+kind]),func():_tap_gear(id)])
+        if steps.has("equip_"+kind):after_defeat.append([float(steps["equip_"+kind]),func():_press_pinned("EQUIP",id)])
+    if steps.has("close"):after_defeat.append([float(steps.close),func():_close_panel()])
+    return true
+
+## Taps one specific drop on the ground (sim.collect is what tapping a pickup runs).
+func _collect_item(id: String) -> void:
+    for d in sim.state.pickups:
+        if str(d.item)==id:
+            print(LOG,"COLLECT ",id," ok=",sim.collect(int(d.uid))," t=",clock," qty=",sim.quantity(id));return
+    print(LOG,"COLLECT MISSING ",id," t=",clock)
+
+## Taps an item's tile in the gear grid (the slot's own handler opens the item panel).
+func _tap_gear(id: String) -> void:
+    var index: int=sim.state.gear.find(id)
+    if index<0:print(LOG,"TAP MISSING ",id," t=",clock);return
+    game._select_slot(0,index)
+    print(LOG,"OPEN ",id," t=",clock)
+
+## Presses a pinned item-panel button by its label (Equip), as a tap does.
+func _press_pinned(key: String,id: String) -> void:
+    for b in game.actions.find_children("*","Button",true,false):
+        if str(b.text)==tr(key) and b.visible and not b.disabled:
+            b.pressed.emit()
+            print(LOG,"PRESS ",key," ",id," t=",clock," weapon=",sim.state.weapon," outfit=",sim.state.outfit)
+            return
+    print(LOG,"PRESS MISSING ",key," ",id," t=",clock)
+
+func _close_panel() -> void:
+    game._close()
+    print(LOG,"CLOSE t=",clock," weapon=",sim.state.weapon," outfit=",sim.state.outfit)
+
+## The trailer's merge (Summer II): the Teal Dinosaur outfit worn, with `copies` spare copies farmed
+## from it (fixture: copies picked up earlier, merge level 0). The clip taps its tile, then the item
+## panel's own "Merge N spare copies" button: one real merge raises its ^level, HP and the HUD's max HP.
+func _trailer_merge() -> bool:
+    var outfit:=str(options.get("item","boss-teal-dinosaur_outfit_t2"))
+    if not _stage_profile(4,int(options.get("level",200)),[["iron_sword",int(options.get("weapon_merge",0))],[outfit,0],["wood_sword",100]],["iron_sword",outfit],int(options.get("seed",3202))):return false
+    if not sim.add_item(outfit,int(options.get("copies",40)),true,false):return false
+    var spot:=_spot_of("boss-teal-dinosaur")
+    sim.campaign.reveal_circle(spot,float(options.get("explored",320.0)))
+    _place_player(spot+Vector2(float(options.get("dx",40)),float(options.get("dy",30))))
+    _advance(float(options.get("advance",0.0)))
+    _hud_clean()
+    timeline.append([float(options.get("open_at",0.6)),func():_tap_gear(outfit)])
+    timeline.append([float(options.get("merge_at",1.8)),func():_press_merge_all(outfit)])
+    print(LOG,"merge item ",outfit," level=",sim.record(outfit).merge," qty=",sim.quantity(outfit)," hp=",sim.stats().hp)
+    return true
+
+func _press_merge_all(id: String) -> void:
+    var before:=int(sim.record(id).merge)
+    var label:=tr("MERGE_ALL") % mini(sim.quantity(id)-1,sim.merge_cap(id)-before)
+    var hp_before: float=sim.stats().hp
+    for b in game.rows.find_children("*","Button",true,false):
+        if str(b.text)==label and b.visible and not b.disabled:
+            b.pressed.emit()
+            print(LOG,"MERGE_ALL '",label,"' ",id," ^",before," -> ^",int(sim.record(id).merge)," hp ",hp_before," -> ",sim.stats().hp," t=",clock)
+            return
+    print(LOG,"MERGE_ALL MISSING t=",clock)
+
+## Seasonal farming (options.stage): the player at the densest normal pack of that map (or beside
+## options.near), auto-attacks, auto-cast skills and Auto-Collect running, wearing options.wear.
+func _trailer_farm() -> bool:
+    var stage_id:=int(options.get("stage",6))
+    if not _stage_profile(stage_id,int(options.get("level",150)),options.get("items",[]),options.get("wear",[]),int(options.get("seed",3203))):return false
+    var normals: Array=sim.campaign.stage().groups.filter(func(x):return not sim.catalog.groups[x].boss)
+    _farm_upgrades(normals,true)
+    var best:=Vector2.ZERO;var most:=-1
+    for e in sim.state.enemies:
+        if sim.catalog.groups[int(e.group)].boss or sim.is_helper(e):continue
+        var at:=Vector2(e.home_x,e.home_y)
+        var n:=0
+        for o in sim.state.enemies:
+            if not sim.catalog.groups[int(o.group)].boss and at.distance_to(Vector2(o.home_x,o.home_y))<=float(options.get("radius",150.0)):n+=1
+        if n>most:most=n;best=at
+    if options.has("near"):best=_spot_of(str(options.near))
+    for e in sim.state.enemies:
+        if best.distance_to(Vector2(e.home_x,e.home_y))<=260.0:sim.campaign.discover_spot(int(e.group),int(e.get("variant",2)))
+    sim.campaign.reveal_circle(best,float(options.get("explored",420.0))) # fixture: the player has farmed here before
+    _place_player(best+Vector2(float(options.get("dx",0)),float(options.get("dy",24))))
+    var types: Array=[]
+    for e in sim.state.enemies:
+        if best.distance_to(sim.position_of(e))<=260.0 and not types.has(sim.catalog.groups[int(e.group)].id):types.append(sim.catalog.groups[int(e.group)].id)
+    print(LOG,"farm spot ",best," enemies near=",most," types=",types)
+    _advance(float(options.get("advance",1.0)))
+    _hud_clean()
+    return most>0

@@ -1,0 +1,127 @@
+"""Writes marketing/trailer/manifest.json (Godot Marketing Capture Toolkit 1.0.2) for the Change 32
+Google Play trailer: five gameplay takes and the 30 s portrait cut (three black title cards, the
+animated portrait end card from the approved feature graphic, the developer's background music only).
+
+Edit the tables below, run this script, then the commands in marketing/trailer/README.md.
+`--draft` writes manifest_draft.json instead: the same takes at 360x640 into raw/video/trailer_c32/draft/,
+for fast staging checks (never used by the cut).
+"""
+import argparse
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+RAW = '../../store_assets/raw/video/trailer_c32'
+MUSIC = '../../assets/sounds/background_music.wav'
+
+# Every take is genuine play of res://scenes/game/main.tscn staged by marketing/game_scenarios.gd.
+# (id, scenario, options, seconds)
+TAKES = [
+    # Spring II, rain: the Sunflower's real summon (two Sprouts) and the player's auto-cast skills.
+    ('c32_boss', 'boss_sunflower', {
+        'zoom': 2.5, 'seed': 3210, 'outfit': 'boss-red-panda_outfit_t5', 'dx': 0, 'dy': 32,
+        'summon_in': 1.2, 'skill_at': {'lightning': 0.9, 'fire': 3.3, 'strike': 4.4}}, 7.0),
+    # Summer II, rain: plain body + Wood Sword finishes the Teal Dinosaur, collects and equips its gear.
+    # Seed 3209: this kill rolls both of its loot items (found by search; the drop is never forced).
+    ('c32_gear', 'trailer_gear', {
+        'zoom': 3.0, 'seed': 3209, 'level': 200, 'until': 0.1, 'dx': 0, 'dy': 30,
+        'boss_history': ['boss-teal-dinosaur'], 'challenges': ['boss-teal-dinosaur'],
+        'known_opportunities': ['masterwork_o3', 'arsenal_o1'],
+        'steps': {'collect_outfit': 0.8, 'collect_weapon': 1.1, 'open_outfit': 1.6, 'equip_outfit': 3.0,
+                  'open_weapon': 3.7, 'equip_weapon': 4.8, 'close': 5.3}}, 12.0),
+    # Summer II: one Merge of the same outfit's spare copies.
+    # Away from the (respawned) Teal Dinosaur, so nothing fights behind the panel.
+    ('c32_merge', 'trailer_merge', {'zoom': 3.0, 'copies': 40, 'open_at': 0.8, 'merge_at': 2.3, 'dx': -40, 'dy': 170,
+                                    'known_opportunities': ['masterwork_o3', 'arsenal_o1']}, 5.0),
+    # Autumn II, falling leaves: Red Fox outfit + Gold Sword farming TV Heads with Fire and Lightning.
+    # The game's leaves are sparse (12 per 440x500 world px): the spot is the pack whose open ground
+    # (left of and below the player, clear of the minimap) the fixed leaf pattern crosses most often
+    # during the shot, and the player stands just above it so the pack comes up from that ground.
+    ('c32_autumn', 'trailer_farm', {
+        'stage': 6, 'zoom': 3.0, 'seed': 3206, 'level': 700, 'advance': 0.6, 'near': 'unit-television-head', 'dx': 55, 'dy': -5,
+        'items': [['gold_sword', 100], ['boss-red-fox_outfit', 60]], 'wear': ['gold_sword', 'boss-red-fox_outfit'],
+        'skills': [['skill_fire', 60], ['skill_lightning', 60]]}, 6.0),
+    # Winter II, blue leaves: Snowman outfit + Stone Axe farming the Reindeer Antlers pack (same rule).
+    ('c32_winter', 'trailer_farm', {
+        'stage': 2, 'zoom': 3.0, 'seed': 3202, 'level': 45, 'advance': 0.6, 'near': 'unit-reindeer-antlers', 'dx': 0, 'dy': -50,
+        'items': [['stone_axe', 100], ['boss-snowman_outfit', 40]], 'wear': ['stone_axe', 'boss-snowman_outfit'],
+        'skills': [['skill_strike', 10]]}, 6.0),
+]
+
+
+# Title-card copy (en-US): one plain statement each, set on black in the wordmark's font.
+STRINGS = {
+    'CARD.BOSS': 'This boss calls for backup.',
+    'CARD.GEAR': 'Defeat an enemy and wear its gear.',
+    'CARD.SEASONS': 'Every season has new gear to farm.',
+}
+
+# The cut, in order. Clip 'start' is seconds into its take; the log of each take (<take>.avi.log)
+# gives the event times these in-points were chosen around (see README.md, "Timeline").
+fade = {'type': 'fade', 'duration': 0.4}        # through black (a card's edge, or the end card's dip)
+cross = {'type': 'crossfade', 'duration': 0.4}  # picture to picture
+SHOTS = [
+    {'id': 'card_boss', 'kind': 'card', 'duration': 'auto', 'headline_key': 'CARD.BOSS'},
+    # Lightning 0.89 s, summon telegraph then two Sprouts 2.23 s, Fire 3.29 s, Arcane Strike 4.39 s.
+    {'id': 'boss', 'kind': 'clip', 'source': f'{RAW}/c32_boss.avi', 'start': 0.6, 'duration': 4.2, 'transition_in': fade},
+    {'id': 'card_gear', 'kind': 'card', 'duration': 'auto', 'headline_key': 'CARD.GEAR', 'transition_in': fade},
+    # Defeat 2.96 s, both drops collected 3.79/4.09 s, outfit opened 4.59 and equipped 5.99 s,
+    # Iron Sword opened 6.69 and equipped 7.79 s, panel closed 8.29 s, new look held to the end.
+    {'id': 'gear', 'kind': 'clip', 'source': f'{RAW}/c32_gear.avi', 'start': 1.3, 'duration': 'fill', 'min_duration': 8.6,
+     'transition_in': fade},
+    # Tile tapped 0.83 s, "Merge 40 spare copies" 2.33 s: ^0 -> ^40, Maximum health 61.20 -> 110.16.
+    {'id': 'merge', 'kind': 'clip', 'source': f'{RAW}/c32_merge.avi', 'start': 0.4, 'duration': 3.4, 'transition_in': cross},
+    {'id': 'card_seasons', 'kind': 'card', 'duration': 'auto', 'headline_key': 'CARD.SEASONS', 'transition_in': fade},
+    {'id': 'autumn', 'kind': 'clip', 'source': f'{RAW}/c32_autumn.avi', 'start': 3.1, 'duration': 2.3, 'transition_in': fade},
+    {'id': 'winter', 'kind': 'clip', 'source': f'{RAW}/c32_winter.avi', 'start': 2.0, 'duration': 2.3, 'transition_in': cross},
+    # The approved feature graphic's portrait restaging in motion (compose_end_card.py).
+    {'id': 'end_card', 'kind': 'clip', 'source': f'{RAW}/end_card.mkv', 'start': 0.0, 'duration': 3.8, 'transition_in': fade},
+]
+
+VIDEO = {
+    'id': 'play_trailer', 'profile': 'play_store', 'width': 1080, 'height': 1920, 'fps': 30, 'target_duration': 30.0,
+    'output': '../../store_assets/video/LootFarmer_Play_Trailer.mp4',
+    'fade_in': 0.0, 'fade_out': 0.0,
+    # Music only: the developer's track from a strong onset at 60.00 s (past the intro's rests), so its
+    # louder section (86.07 s in the track) arrives at 26.07 s, as the end card fades in. No game audio.
+    'music': MUSIC, 'music_start': 60.0, 'music_volume': 0.85, 'music_fade_in': 0.03, 'music_fade_out': 1.8,
+    'game_audio': False,
+    'style': {'text_min_hold': 1.5, 'reading_cps': 18.0},
+    'shots': SHOTS,
+}
+
+
+def manifest(draft: bool) -> dict:
+    w, h = (360, 640) if draft else (1080, 1920)
+    folder = f'{RAW}/draft' if draft else RAW
+    jobs = [{'id': take_id, 'kind': 'video', 'scenario': scenario, 'options': options, 'width': w, 'height': h,
+             'fps': 30, 'duration': seconds, 'capture_ui': True, 'output': f'{folder}/{take_id}.avi'}
+            for take_id, scenario, options, seconds in TAKES]
+    return {
+        'text_renderer': 'pillow',
+        'quality': 'high',
+        'fonts': {'default': {'file': '../../assets/GUIPackCartoon/Demo/Fonts/LilitaOne - Regular.ttf'}},
+        'strings': {'en-US': STRINGS},
+        'style': {'text_color': '#FFD65C', 'text_fade': 0.2},
+        'game_scene': 'res://scenes/game/main.tscn',
+        'adapter_script': 'res://marketing/game_scenarios.gd',
+        'ui_group': 'store_screenshot_ui',
+        'godot_user_args': ['--profile=capture-store', '--no-autosave', '--first-run-complete'],
+        'log_show': ['LOOTFARMER_MARKETING'],
+        'output_root': '../../store_assets',
+        'capture_jobs': jobs,
+        'videos': [] if draft else [VIDEO],
+    }
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--draft', action='store_true')
+    args = ap.parse_args()
+    out = HERE / ('manifest_draft.json' if args.draft else 'manifest.json')
+    out.write_bytes((json.dumps(manifest(args.draft), indent=2) + '\n').encode('utf-8'))
+    print('wrote', out)
+
+
+if __name__ == '__main__':
+    main()

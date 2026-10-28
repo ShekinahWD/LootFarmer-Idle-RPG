@@ -1,4 +1,4 @@
-# LootFarmer marketing (Google Play listing assets, Change 27)
+# LootFarmer marketing (Google Play listing assets, Change 27; trailer Change 32)
 
 Game-owned glue for the **Godot Marketing Capture Toolkit 1.0.2** (`Godot-Marketing-Toolkit/`, installed
 addons pinned by `marketing_capture_toolkit.lock.json`). Nothing here ships: `marketing/`, `store_assets/`,
@@ -10,7 +10,8 @@ the toolkit and both capture addons are outside the Release allowlist (`tools/ex
 | Path | Tracked | What |
 |---|---|---|
 | `marketing/game_scenarios.gd` | yes | The one `prepare_scenario(id, options)` adapter for screenshots **and** trailer clips. Builds a late-game profile through the simulation's own calls, then lets the real game play. `is_capture_safe()` requires a `capture-*` profile and `--no-autosave`. |
-| `marketing/make_manifest.py` → `marketing/manifest.json` | yes | Device classes, the six screenshot concepts, seven clips and the 30 s trailer cut. Edit the tables in the `.py`, re-run it. |
+| `marketing/make_manifest.py` → `marketing/manifest.json` | yes | Device classes, the six screenshot concepts and the seven Change 27 clips (no video since Change 32). Edit the tables in the `.py`, re-run it. |
+| `marketing/trailer/` | yes | **Store trailer (Change 32):** its own manifest generator, end-card animation, review script and README (takes, timeline, music in-point, reuse). |
 | `marketing/finalize_store_assets.py` | yes | Byte-identical store copies, Play-rule validation, ffprobe check, provenance manifest, contact sheet, review copies in `docs/Change_27_Evidence/`. |
 | `marketing/brand/compose_brand.py`, `brand_config.json` | yes | Record of the rejected Change 27 icon and feature graphic. Since Change 30 it renders nothing unless given `--legacy-change-27`; `--check` still validates the branding files for `finalize_store_assets.py`. |
 | `marketing/brand/icon/` | yes | **App icon (Change 30):** layered JSON on a 32-unit grid (`final.json`, three concepts), composer writing the Play icon and all four launcher layers, review sheets and `docs/Change_30_Evidence/`. See its `README.md`. |
@@ -18,17 +19,18 @@ the toolkit and both capture addons are outside the Release allowlist (`tools/ex
 | `assets/branding/*.png` | yes | Runtime launcher icons (Release preset `launcher_icons/*`, `config/icon`). |
 | `store_assets/raw/screenshots/<Device>/<Device>_NN.png` | no (ignored) | Untouched Godot captures (masters) + `.log` per capture. |
 | `store_assets/screenshots/<Device>/<Device>_NN.png` | no | Upload files (byte copies of the masters). |
-| `store_assets/raw/video/clip_*.avi` (+ `.log`) | no | Original Movie Maker recordings. **Keep until the trailer is approved.** |
-| `store_assets/video/LootFarmer_Play_Trailer_en-US.mp4` | no | The trailer; `_review.png` / `_review.json` beside it. |
+| `store_assets/raw/video/clip_*.avi` (+ `.log`) | no | Change 27 Movie Maker recordings (the rejected cut's footage; kept for social reuse). |
+| `store_assets/raw/video/trailer_c32/` | no | Change 32 trailer masters (`c32_*.avi` + logs, `end_card.mkv`, layers, drafts). |
+| `store_assets/video/LootFarmer_Play_Trailer_en-US.mp4` | no | The Change 32 trailer; `_review.png` / `_review.json` beside it, sheets in `review_c32/`, the rejected Change 27 cut in `rejected_change_27/`. |
 | `store_assets/branding/` | no | `play_icon_512.png`, `icon_manifest.json`, `feature_graphic_1024x500.png`, `feature_graphic_manifest.json`, `source_layers/` (each feature-graphic layer alone; `icon_final/` each icon layer alone), `review/` previews and concepts (`review/icon/` for the icon). |
 | `store_assets/store_assets_manifest.json` | no (copy in docs) | Paths, sizes, SHA-256, scenario/options/device per file, alt-text drafts. |
 
 Device classes (all genuine 9:16 portrait renders of the game's own 720x1280 reference layout):
 Phone 1080x1920, Tablet_7 1440x2560, Tablet_10 1800x3200, Desktop 1620x2880 (Chromebook/desktop slot).
 
-Scenario ids: `boss_sunflower` (01, trailer 0–7 s), `loot_collection` (02), `equipment_merge` (03),
-`late_farming` (04), `world_progress` (05), `prestige_cards` (06), `boss_victory` (trailer closing beat),
-`explore` (development aid only).
+Scenario ids: `boss_sunflower` (01; trailer boss take), `loot_collection` (02), `equipment_merge` (03),
+`late_farming` (04), `world_progress` (05), `prestige_cards` (06), `boss_victory` (Change 27 clip),
+`trailer_gear`, `trailer_merge`, `trailer_farm` (Change 32 trailer), `explore` (development aid only).
 
 ## Commands (project root, Windows)
 
@@ -38,7 +40,7 @@ python Godot-Marketing-Toolkit/tools/marketing.py status --project .          # 
 python marketing/make_manifest.py                                             # manifest.json from the tables
 # every capture job (24 screenshots + 7 clips); one job:  --job Phone_01
 python Godot-Marketing-Toolkit/tools/marketing.py pipeline --project . --manifest marketing/manifest.json --godot $G --locales en-US --overwrite
-python Godot-Marketing-Toolkit/tools/marketing.py video --manifest marketing/manifest.json --locales en-US --godot $G --overwrite   # recompose only
+# the store trailer: see marketing/trailer/README.md
 python marketing/brand/icon/compose_icon.py                                   # Play icon + launcher layers, concepts, review sheets
 python marketing/brand/feature_graphic/compose_feature_graphic.py             # feature graphic, concepts, portrait study
 python marketing/brand/feature_graphic/make_review.py                         # its review sheets + docs/Change_28_Evidence
@@ -55,8 +57,8 @@ postconditions (summon happened, skills cast, drops, collect, merge level, Prest
   stand in for play time only (late-game profile, earlier Prestige via the real begin_prestige/prestige,
   a summon/skill cooldown moved to just before the real event, the fight fast-forwarded in the real
   simulation). Never the final Green Alien boss.
-- Screenshots carry no added text; the only added text anywhere is the **LootFarmer** name (trailer end
-  card, feature graphic).
+- Screenshots carry no added text. Added text elsewhere: the **LootFarmer: Idle RPG** title (feature graphic,
+  trailer end card) and the trailer's three black title cards (Change 32).
 - Publication is a human decision: nothing is uploaded. Pixel Plains art and `assets/sounds` audio
   (music in the trailer) still need retained licence records (REL-02).
-- Social videos/copy are Change 28, not here.
+- Social videos/copy are a separate task; they reuse the Change 32 trailer masters.

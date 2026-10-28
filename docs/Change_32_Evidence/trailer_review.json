@@ -1,0 +1,209 @@
+{
+  "file": "LootFarmer_Play_Trailer_en-US.mp4",
+  "frames": 900,
+  "seconds": 30.0,
+  "transitions": [
+    {
+      "at": "card_boss -> boss",
+      "type": "fade",
+      "start_s": 1.9,
+      "duration_s": 0.4,
+      "range": 83.7,
+      "max_step": 8.1,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "boss -> card_gear",
+      "type": "fade",
+      "start_s": 5.7,
+      "duration_s": 0.4,
+      "range": 83.9,
+      "max_step": 8.8,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "card_gear -> gear",
+      "type": "fade",
+      "start_s": 8.4,
+      "duration_s": 0.4,
+      "range": 85.6,
+      "max_step": 7.8,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "gear -> merge",
+      "type": "crossfade",
+      "start_s": 16.7,
+      "duration_s": 0.4,
+      "range": 2.9,
+      "max_step": 0.6,
+      "intermediate": 12,
+      "ok": true
+    },
+    {
+      "at": "merge -> card_seasons",
+      "type": "fade",
+      "start_s": 19.7,
+      "duration_s": 0.4,
+      "range": 77.4,
+      "max_step": 8.1,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "card_seasons -> autumn",
+      "type": "fade",
+      "start_s": 22.4,
+      "duration_s": 0.4,
+      "range": 110.9,
+      "max_step": 10.4,
+      "intermediate": 9,
+      "black_level": 1,
+      "ok": true
+    },
+    {
+      "at": "autumn -> winter",
+      "type": "crossfade",
+      "start_s": 24.3,
+      "duration_s": 0.4,
+      "range": 19.4,
+      "max_step": 2.8,
+      "intermediate": 10,
+      "ok": true
+    },
+    {
+      "at": "winter -> end_card",
+      "type": "fade",
+      "start_s": 26.2,
+      "duration_s": 0.4,
+      "range": 132.1,
+      "max_step": 23.2,
+      "intermediate": 10,
+      "black_level": 1,
+      "ok": true
+    }
+  ],
+  "transitions_ok": 8,
+  "text_holds": [
+    {
+      "shot": "card_boss",
+      "kind": "card",
+      "required_s": 1.5,
+      "planned_s": 1.5,
+      "units": 27.0,
+      "reading_cps": 18.0,
+      "text_min_hold": 1.5,
+      "ok": true,
+      "measured_s": 1.533
+    },
+    {
+      "shot": "card_gear",
+      "kind": "card",
+      "required_s": 1.9,
+      "planned_s": 1.9,
+      "units": 34.0,
+      "reading_cps": 18.0,
+      "text_min_hold": 1.5,
+      "ok": true,
+      "measured_s": 1.933
+    },
+    {
+      "shot": "card_seasons",
+      "kind": "card",
+      "required_s": 1.9,
+      "planned_s": 1.9,
+      "units": 34.0,
+      "reading_cps": 18.0,
+      "text_min_hold": 1.5,
+      "ok": true,
+      "measured_s": 1.933
+    }
+  ],
+  "text_holds_ok": 3,
+  "black_edges": [
+    {
+      "frame": 59,
+      "edge": "out of black",
+      "abrupt": false,
+      "neighbour_level": 14.0,
+      "scene_level": 84.7
+    },
+    {
+      "frame": 182,
+      "edge": "into black",
+      "abrupt": false,
+      "neighbour_level": 13.9,
+      "scene_level": 84.9
+    },
+    {
+      "frame": 253,
+      "edge": "out of black",
+      "abrupt": false,
+      "neighbour_level": 6.5,
+      "scene_level": 86.6
+    },
+    {
+      "frame": 602,
+      "edge": "into black",
+      "abrupt": false,
+      "neighbour_level": 12.5,
+      "scene_level": 78.3
+    },
+    {
+      "frame": 674,
+      "edge": "out of black",
+      "abrupt": false,
+      "neighbour_level": 17.2,
+      "scene_level": 112.1
+    },
+    {
+      "frame": 792,
+      "edge": "into black",
+      "abrupt": false,
+      "neighbour_level": 22.7,
+      "scene_level": 133.1
+    },
+    {
+      "frame": 793,
+      "edge": "out of black",
+      "abrupt": false,
+      "neighbour_level": 11.4,
+      "scene_level": 77.2
+    }
+  ],
+  "abrupt_changes": [
+    {
+      "frame": 352,
+      "from": 88.2,
+      "to": 74.2,
+      "dark": false
+    },
+    {
+      "frame": 515,
+      "from": 90.3,
+      "to": 77.4,
+      "dark": false
+    }
+  ],
+  "quality": {
+    "name": "high",
+    "crf": 18,
+    "x264_preset": "slow"
+  },
+  "text_renderer": "pillow",
+  "audio": {
+    "max_volume": -2.2,
+    "mean_volume": -18.2,
+    "quietest_window_db": -30.0,
+    "quiet_windows_s": [],
+    "windows": 301
+  },
+  "sheet": "D:\\Godot\\lootFarmer\\store_assets\\video\\LootFarmer_Play_Trailer_en-US_review.png"
+}
