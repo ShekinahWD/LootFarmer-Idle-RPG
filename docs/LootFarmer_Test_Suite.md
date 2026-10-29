@@ -1,4 +1,21 @@
-# LootFarmer — Test Suite (current, 2026-10-29, Change 38)
+# LootFarmer — Test Suite (current, 2026-10-29, Change 39)
+
+## Change 39 — Localization Batch 02 (29 October 2026)
+
+Command: `python tools/run_probes.py`. **43 entries:** `validate_campaign_source`, `export_manifest`, the new `validate_localization` static check and 40 Godot scenes. Details: [Batch 02 report](LootFarmer_Localization_Batch_02_Report.md).
+
+**Final run in the working tree: 40/43.** The 3 failures are `export_manifest`, `change_27_probe` and `change_26_probe`. All three come from uncommitted local edits to `project.godot` and `export_presets.cfg` that predate this change (version 27 → 26, launcher icon path → uid). Those edits are not part of the commit. On a clean worktree of the final commit the three pass (5/5 static + those probes).
+
+- **Registered** `localization_batch02_probe` (101 checks). Covers:
+  - the gate, and refusal outside probes;
+  - it/nl/pl/ru/uk routing and device matches;
+  - the Godot loader returning every key, and glyph coverage including Ukrainian і ї є ґ;
+  - Russian and Ukrainian being written independently;
+  - both batches registered together;
+  - every placeholder string formatting, durations, count-neutral lines;
+  - live switching, persistence, old settings.
+- **Registered** `validate_localization` as a static suite step. It adds a pl/ru/uk count-agreement rule.
+- **Extended** `localization_sweep`: defaults are now pseudo + English + Batch 01 + Batch 02 at three shapes, 2,114 screen checks, 0 findings, about 3 minutes.
 
 ## Change 38 — Localization Batch 01 (29 October 2026)
 

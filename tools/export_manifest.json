@@ -303,7 +303,7 @@
   },
   "test_language_catalogs": {
    "pattern": "res://localization/%s.po",
-   "why": "Localization Batch 01 (Change 38): LocalizationService.enable_test_batch() loads validated catalogs for probes and captures only. No values are enumerated, so release exports ship none of them; the global 20-language gate registers them in project.godot instead",
+   "why": "Localization Batches 01 and 02 (Changes 38, 39): LocalizationService.enable_test_batch() loads validated catalogs for probes and captures only. No values are enumerated, so release exports ship none of them; the global 20-language gate registers them in project.godot instead",
    "values": [],
    "sites": [
     "res://scripts/autoload/localization_service.gd: CATALOG_PATH % language"

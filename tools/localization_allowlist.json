@@ -1,6 +1,6 @@
 {
  "_doc": [
-  "Localization Batch 01 (Change 38): translations that are deliberately identical to the English source.",
+  "Localization Batches 01 (Change 38) and 02 (Change 39): translations that are deliberately identical to the English source.",
   "A targeted allowlist (Playbook 132.5): one entry per locale and key, with the reason. tools/validate_localization.py",
   "fails on any other msgstr equal to its English text. Reasons: brand (store title kept as the product name),",
   "abbreviation (unit or game abbreviation used unchanged by players of that language), cognate (the correct word",
@@ -79,5 +79,79 @@
   "PANEL_TELEPORT": "cognate: Teleport",
   "TELEPORT_TITLE": "cognate: Teleport",
   "SECTION_FEEDBACK": "loanword: Feedback"
+ },
+ "it_IT": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "LANG_HI_IN": "cognate: Hindi",
+  "AUTO": "abbreviation: Auto",
+  "AUTO_SHORT": "abbreviation: Auto",
+  "UPGRADE_MAX": "abbreviation: MAX",
+  "VALUE_MAX": "abbreviation: MAX",
+  "TAB_OFFLINE": "loanword: Offline",
+  "BOSS_LABEL": "loanword: Boss",
+  "STATS_SHORT_CRIT": "abbreviation: crit (critico)",
+  "FARMING_MAP_TITLE": "loanword: Farming (Italian players say farmare / il farming)",
+  "SECTION_FEEDBACK": "loanword: Feedback"
+ },
+ "nl_NL": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "LANG_TH_TH": "cognate: Thai (the Dutch name of the language)",
+  "LANG_HI_IN": "cognate: Hindi",
+  "AUTO": "abbreviation: Auto",
+  "AUTO_SHORT": "abbreviation: Auto",
+  "UPGRADE_MAX": "abbreviation: MAX",
+  "VALUE_MAX": "abbreviation: MAX",
+  "PLAYER_STATUS": "abbreviation: HP",
+  "HUD_HP": "abbreviation: HP",
+  "HP_PER_SECOND": "abbreviation: HP/s",
+  "STATS_SHORT_HP": "abbreviation: HP",
+  "STATS_SHORT_REGEN": "abbreviation: HP/s",
+  "MILESTONE_HP_ACTIVE": "abbreviation: HP",
+  "SKILL_AMOUNT_HP": "abbreviation: HP",
+  "XP_PROGRESS": "abbreviation: XP",
+  "SUPPLY_AMOUNT_XP": "abbreviation: XP",
+  "MASTERY_REWARD_XP": "abbreviation: XP",
+  "UPGRADES": "loanword: Upgrades",
+  "TAB_UPGRADES": "loanword: Upgrades",
+  "NAV_UPGRADES": "loanword: Upgrades",
+  "SOURCE_UPGRADES": "loanword: Upgrades",
+  "VARIANT_OUTFIT": "loanword: Outfit",
+  "EQUIPPED_OUTFIT": "loanword: Outfit",
+  "OUTFITS": "loanword: Outfits",
+  "VARIANT_SKILL": "cognate: Elite",
+  "CONTENT_STAGES_1": "cognate: Winter I",
+  "CONTENT_STAGES_2": "cognate: Winter II",
+  "NAV_PRESTIGE": "cognate: Prestige",
+  "PRESTIGE_CONFIRM_TITLE": "cognate: Prestige",
+  "TAB_OFFLINE": "loanword: Offline",
+  "STATS_SECTION_BOOSTS": "loanword: Boosts",
+  "FARMING_DETAILS": "cognate: Details",
+  "MASTERY_DETAILS": "cognate: Details",
+  "FILTERS": "cognate: Filters",
+  "FILTERS_ACTIVE": "cognate: Filters",
+  "PANEL_FILTERS": "cognate: Filters",
+  "SECTION_FEEDBACK": "loanword: Feedback"
+ },
+ "pl_PL": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "LANG_HI_IN": "cognate: Hindi",
+  "AUTO": "abbreviation: Auto",
+  "AUTO_SHORT": "abbreviation: Auto",
+  "TAB_OFFLINE": "loanword: Offline",
+  "BOSS_LABEL": "loanword: Boss",
+  "CAMP_TELEPORT": "cognate: Teleport",
+  "PANEL_TELEPORT": "cognate: Teleport",
+  "TELEPORT_TITLE": "cognate: Teleport"
+ },
+ "ru_RU": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand"
+ },
+ "uk_UA": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand"
  }
 }

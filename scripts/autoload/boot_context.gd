@@ -11,7 +11,7 @@ var first_run_complete: bool = false
 ## Change 35: a storefront named for a probe or capture (--store-channel=google_play|itch_io|none).
 ## Accepted only together with a test profile, so a release build always reads its export tag.
 var store_channel_override: String = ""
-## Localization Batch 01: a translation batch unlocked for a probe or capture (--test-languages=batch01).
+## Localization batches unlocked for a probe or capture (--test-languages=batch01 or batch01,batch02).
 ## Accepted only together with a test profile; normal players keep the English-only gate (Playbook 132.5).
 var test_languages: String = ""
 

@@ -1,5 +1,5 @@
 extends Node
-## Localization Batch 01: renders the game's player-visible surfaces in one or more languages and
+## Localization Batches 01 and 02: renders the game's player-visible surfaces in one or more languages and
 ## checks what is actually on screen (Playbook 132.4, 132.6).
 ## - pseudo: every catalog string is wrapped in ⟦ ⟧; any visible text outside the markers did not come
 ##   from the catalog (hardcoded English, a key built from data, a name derived from an id).
@@ -12,8 +12,8 @@ extends Node
 ## Windowed screenshots: --resolution 540x960 ... --langs=de_DE --shots=res://docs/.../screens/ --shape=540
 var game
 var sim
-## Defaults (the maintained-suite run): pseudo-locale, English and Batch 01 at the three portrait shapes.
-var langs: Array=["pseudo","en","es_419","es_ES","pt_BR","fr_FR","de_DE"]
+## Defaults (the maintained-suite run): pseudo-locale, English, Batch 01 and Batch 02 at the three portrait shapes.
+var langs: Array=["pseudo","en","es_419","es_ES","pt_BR","fr_FR","de_DE","it_IT","nl_NL","pl_PL","ru_RU","uk_UA"]
 var sizes: Array=[]
 var shots:=""
 var shape:=""
@@ -63,6 +63,7 @@ func run() -> void:
         var value: String=english[key]
         if value.split(" ").size()>=3 and not "%" in value:english_values[value]=key
     LocalizationService.enable_test_batch("batch01")
+    LocalizationService.enable_test_batch("batch02")
     TranslationServer.add_translation(pseudo_translation())
     for lang in langs:
         if lang!="pseudo":translations[lang]=read_po("res://localization/%s.po" % lang)

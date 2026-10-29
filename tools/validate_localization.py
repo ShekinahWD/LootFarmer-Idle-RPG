@@ -1,5 +1,5 @@
 """Structural check of LootFarmer's translation catalogs against the canonical English source
-(Localization Batch 01, Change 38; Playbook 132.5 mechanical checks).
+(Localization Batches 01 and 02, Changes 38 and 39; Playbook 132.5 mechanical checks).
 
 For every catalog of the validated batches named in scripts/autoload/localization_service.gd (TEST_BATCHES):
   - the exact English key set, in the English order, each key once;
@@ -8,6 +8,8 @@ For every catalog of the validated batches named in scripts/autoload/localizatio
     arguments), the same number of \\n and the same fixed symbols (^ × → ✓ • ‹);
   - no raw semantic key and no msgstr equal to its English text unless tools/localization_allowlist.json names it;
   - no common English function words left in the text (a copy-through heuristic);
+  - Polish, Russian, Ukrainian (Batch 02): no number placeholder directly followed by a noun whose form depends
+    on the count (the source has no plural forms, so those catalogs use count-neutral wording);
   - a Language header naming the catalog's locale.
 It also checks the English catalog itself (unique keys, every scene-text key present) and that project.godot
 still registers only en.po (the other catalogs ship only after the global 20-language gate).
@@ -24,7 +26,17 @@ PLACEHOLDER = re.compile(r'%(?:[-+0#]*\d*(?:\.\d+)?[sdif]|%)')
 SYMBOLS = ['^', '×', '→', '✓', '•', '‹', '\\n']
 ENGLISH_WORDS = re.compile(r"\b(?:the|and|your|you|with|from|this|that|when|then|every|each|until|before|after|while|will|have|can't|couldn't)\b", re.I)
 BRANDS = re.compile(r'LootFarmer|Google Play|itch\.io|Pixel Plains|SnowHex|Kenney Fantasy UI Borders|CC0')
-GODOT_LOCALE = {'es_419': 'es', 'es_ES': 'es_ES', 'pt_BR': 'pt_BR', 'fr_FR': 'fr_FR', 'de_DE': 'de_DE'}
+# Batch 02: the English source has no gettext plurals, so Polish, Russian and Ukrainian use count-neutral
+# wording ("Монеты: %s", "Połączone kopie: %d"). A number placeholder may only be followed directly by a
+# unit, an abbreviation, a preposition or a mass noun whose form does not change with the number.
+COUNT_FOLLOWERS = {
+    'pl_PL': {'s', 'min', 'godz', 'pkt', 'jedn', 'PŻ', 'PD', 'obrony', 'do', 'z', 'na', 'od', 'lub', 'więcej', 'jeszcze'},
+    'ru_RU': {'с', 'мин', 'ч', 'п', 'ед', 'ОЗ', 'опыта', 'урона', 'к', 'из', 'на', 'до', 'от', 'ещё'},
+    'uk_UA': {'с', 'хв', 'год', 'в', 'од', 'ОЗ', 'досвіду', 'шкоди', 'до', 'з', 'на', 'від', 'ще'},
+}
+COUNT_WORD = re.compile(r'%(?:\.\d)?[ds](?: | )([^\s\d%·•()/:,.;!?×\-−→+^—]+)')
+GODOT_LOCALE = {'es_419': 'es', 'es_ES': 'es_ES', 'pt_BR': 'pt_BR', 'fr_FR': 'fr_FR', 'de_DE': 'de_DE',
+               'it_IT': 'it_IT', 'nl_NL': 'nl_NL', 'pl_PL': 'pl_PL', 'ru_RU': 'ru_RU', 'uk_UA': 'uk_UA'}
 
 
 def read_po(path):
@@ -114,6 +126,10 @@ def check_catalog(lang, english, allow, problems):
             else:
                 report['english_copies'] += 1
                 problems.append(f'{lang} {key}: identical to English and not allowlisted')
+        for word in COUNT_WORD.findall(value) if lang in COUNT_FOLLOWERS else []:
+            if word not in COUNT_FOLLOWERS[lang]:
+                report['count_agreement'] = report.get('count_agreement', 0) + 1
+                problems.append(f'{lang} {key}: "{word}" after a number changes form with the count; use count-neutral wording')
         if ENGLISH_WORDS.search(BRANDS.sub('', value)):
             report['english_words'] += 1
             problems.append(f'{lang} {key}: English word in "{value[:60]}"')

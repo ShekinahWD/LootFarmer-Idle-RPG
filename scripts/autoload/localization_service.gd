@@ -1,6 +1,6 @@
 extends Node
 ## English-first gate. Device language is deliberately ignored until release gate.
-## Localization Batch 01: completed catalogs can be unlocked for probes and captures only
+## Localization Batches 01 and 02: completed catalogs can be unlocked for probes and captures only
 ## (BootContext.test_languages, or enable_test_batch() from a probe); normal players keep English.
 
 signal language_applied(godot_locale: String)
@@ -14,11 +14,13 @@ const TRANSLATIONS_RELEASE_READY: bool = false
 ## Validated batches (Playbook 132.5), in order. A batch is test-only until the global 20-language gate.
 const TEST_BATCHES: Dictionary = {
     "batch01": ["es_419", "es_ES", "pt_BR", "fr_FR", "de_DE"],
+    "batch02": ["it_IT", "nl_NL", "pl_PL", "ru_RU", "uk_UA"],
 }
 ## Settings language id -> the locale Godot 4.7 resolves. Godot folds es_419 into generic "es", so "es"
 ## serves Latin America (and es_MX, es_AR, ...) while es_ES stays Spain (Playbook 132.6).
 const GODOT_LOCALES: Dictionary = {
     "en_US": "en", "es_419": "es", "es_ES": "es_ES", "pt_BR": "pt_BR", "fr_FR": "fr_FR", "de_DE": "de_DE",
+    "it_IT": "it_IT", "nl_NL": "nl_NL", "pl_PL": "pl_PL", "ru_RU": "ru_RU", "uk_UA": "uk_UA",
 }
 const CATALOG_PATH := "res://localization/%s.po"
 
@@ -29,8 +31,9 @@ var _test_locale := ""
 
 func _ready() -> void:
     TranslationServer.set_locale("en")
-    if BootContext.test_languages != "":
-        enable_test_batch(BootContext.test_languages)
+    # --test-languages=batch01,batch02 unlocks several validated batches at once.
+    for batch in BootContext.test_languages.split(",", false):
+        enable_test_batch(batch.strip_edges())
     # Saves load before this autoload is ready; later loads and resets announce settings_changed.
     SettingsState.settings_changed.connect(apply_language)
     apply_language()

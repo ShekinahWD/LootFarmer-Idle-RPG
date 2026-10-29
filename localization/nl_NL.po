@@ -1,0 +1,5834 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: nl_NL\n"
+"Language-Team: Dutch (Netherlands)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 02 (Change 39)\n"
+"X-LootFarmer-Source: localization/en.po 4440b694b8661a34e54e02ae9a1eeee4c517284cfa753272082ab321f26ffaf4\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Android-opstart"
+
+msgid "BOOT_DETAIL"
+msgstr "Controlepunt 0 • Gameplay is nog niet geïmplementeerd."
+
+msgid "BOOT_VERSION"
+msgstr "Versie %s"
+
+msgid "BOOT_TAPS"
+msgstr "Opgeslagen aanrakingen: %d"
+
+msgid "BOOT_TAP"
+msgstr "Aanraking testen en opslaan"
+
+msgid "BOOT_SAVED"
+msgstr "Opslaan voltooid"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "Opslaan niet beschikbaar. Bekijk het validatielogboek."
+
+msgid "BOOT_PAUSE"
+msgstr "Pauze"
+
+msgid "BOOT_RESUME"
+msgstr "Hervatten"
+
+msgid "BOOT_RESET"
+msgstr "Volledige reset"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "Voortgang resetten?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "Hiermee wis je alle voortgang in dit profiel. Je instellingen blijven bewaard."
+
+msgid "UI_CONFIRM"
+msgstr "Resetten"
+
+msgid "UI_CANCEL"
+msgstr "Annuleren"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "Taal"
+
+msgid "LANG_AUTOMATIC"
+msgstr "Automatisch"
+
+msgid "LANG_DISABLED"
+msgstr "Beschikbaar na validatie van de vertaling"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "Engels is ingeschakeld. Andere talen komen na validatie beschikbaar."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "Een onleesbare of nieuwere opslag is bewaard. Zet een compatibele back-up terug of reset dit profiel bewust."
+
+msgid "LANG_EN_US"
+msgstr "Engels"
+
+msgid "LANG_ES_419"
+msgstr "Spaans (Latijns-Amerika)"
+
+msgid "LANG_ES_ES"
+msgstr "Spaans (Spanje)"
+
+msgid "LANG_PT_BR"
+msgstr "Portugees (Brazilië)"
+
+msgid "LANG_FR_FR"
+msgstr "Frans"
+
+msgid "LANG_DE_DE"
+msgstr "Duits"
+
+msgid "LANG_IT_IT"
+msgstr "Italiaans"
+
+msgid "LANG_NL_NL"
+msgstr "Nederlands"
+
+msgid "LANG_PL_PL"
+msgstr "Pools"
+
+msgid "LANG_RU_RU"
+msgstr "Russisch"
+
+msgid "LANG_UK_UA"
+msgstr "Oekraïens"
+
+msgid "LANG_TR_TR"
+msgstr "Turks"
+
+msgid "LANG_ID_ID"
+msgstr "Indonesisch"
+
+msgid "LANG_VI_VN"
+msgstr "Vietnamees"
+
+msgid "LANG_TH_TH"
+msgstr "Thai"
+
+msgid "LANG_HI_IN"
+msgstr "Hindi"
+
+msgid "LANG_JA_JP"
+msgstr "Japans"
+
+msgid "LANG_KO_KR"
+msgstr "Koreaans"
+
+msgid "LANG_ZH_CN"
+msgstr "Chinees (vereenvoudigd)"
+
+msgid "LANG_ZH_TW"
+msgstr "Chinees (traditioneel)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "Munten %s     Edelstenen %s"
+
+msgid "PAUSE"
+msgstr "Pauze"
+
+msgid "RESUME"
+msgstr "Hervatten"
+
+msgid "PLAYER_STATUS"
+msgstr "HP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "Terug naar het kamp over %.1f s"
+
+msgid "BOOST_ACTIVE"
+msgstr "Muntboost %d s"
+
+msgid "GROUP_0"
+msgstr "Spruitenweide"
+
+msgid "GROUP_1"
+msgstr "Robotkruising"
+
+msgid "GROUP_2"
+msgstr "Dinosaurusbos"
+
+msgid "GROUP_3"
+msgstr "Open plek van de Dood"
+
+msgid "CLOSE"
+msgstr "Sluiten"
+
+msgid "CONFIRM"
+msgstr "Bevestigen"
+
+msgid "CANCEL"
+msgstr "Annuleren"
+
+msgid "LEVEL"
+msgstr "NIVEAU"
+
+msgid "INVENTORY_HEADING"
+msgstr "Uitrusting"
+
+msgid "SUPPLY_HEADING"
+msgstr "Voorraad"
+
+msgid "GEAR_CAPACITY"
+msgstr "UITRUSTING  %d / %d  ·  tik om te bekijken"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "VOORRAAD  %d / %d  ·  tik om te gebruiken of te automatiseren"
+
+msgid "EMPTY_SLOT"
+msgstr "Leeg"
+
+msgid "EQUIPPED"
+msgstr "Uitgerust"
+
+msgid "AUTO"
+msgstr "Auto"
+
+msgid "UPGRADES"
+msgstr "Upgrades"
+
+msgid "WORLD"
+msgstr "Wereld"
+
+msgid "STATS"
+msgstr "Statistieken"
+
+msgid "SETTINGS"
+msgstr "Instellingen"
+
+msgid "PANEL_ITEM"
+msgstr "Voorwerp"
+
+msgid "PANEL_UPGRADES"
+msgstr "Speler-upgrades"
+
+msgid "PANEL_TRAVEL"
+msgstr "Kampen en farmen"
+
+msgid "PANEL_STATS"
+msgstr "Jouw build"
+
+msgid "PANEL_SETTINGS"
+msgstr "Instellingen"
+
+msgid "PANEL_HISTORY"
+msgstr "Recente aanwinsten"
+
+msgid "PANEL_PRESTIGE"
+msgstr "Een nieuw begin"
+
+msgid "HELP_0"
+msgstr "Gebruik de joystick om naar het noorden te verkennen. Laat los om vijanden in de buurt automatisch te bevechten."
+
+msgid "HELP_1"
+msgstr "Spruiten vechten alleen. Blijf in de buurt om te farmen; tik op gevallen uitrusting om die op te rapen."
+
+msgid "HELP_2"
+msgstr "Tik op een voorwerp op de grond. Munten en edelstenen gaan meteen naar je portemonnee."
+
+msgid "HELP_3"
+msgstr "Tik hieronder op je nieuwe uitrusting en rust die uit. Je kunt één outfit en één wapen dragen."
+
+msgid "HELP_4"
+msgstr "Voeg een dubbel exemplaar samen om dat voorwerptype sterker te maken. De voortgang blijft, ook als de voorraad op nul komt."
+
+msgid "HELP_5"
+msgstr "Open een vijandtype en koop automatisch verzamelen om zijn buit te verzamelen terwijl je farmt."
+
+msgid "HELP_6"
+msgstr "Bouw je build uit, verken het noorden en versla de Dood. De wereld is vanaf het begin open."
+
+msgid "HELP_7"
+msgstr "Je permanente bonussen blijven. Bouw een sterkere run en daag de Dood opnieuw uit."
+
+msgid "HELP_VICTORY"
+msgstr "De Dood is verslagen! Farm verder of kies een prestigekaart onder Wereld."
+
+msgid "HELP_PAUSED"
+msgstr "Gepauzeerd · je kunt je inventaris beheren. Hervat om verder te farmen."
+
+msgid "HISTORY_EMPTY"
+msgstr "Je nieuwste vondsten verschijnen hier.\nTik om de laatste tien te zien."
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s edelstenen"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "%s %s verkocht"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "Houten zwaard"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "Stenen zwaard"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "IJzeren zwaard"
+
+msgid "ITEM_SPROUT"
+msgstr "Spruit-outfit"
+
+msgid "ITEM_ROBOT"
+msgstr "Robot-outfit"
+
+msgid "ITEM_DINOSAUR"
+msgstr "Dinosaurus-outfit"
+
+msgid "ITEM_POTION"
+msgstr "Gezondheidsdrankje"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "Munttonicum"
+
+msgid "ITEM_QUANTITY"
+msgstr "In bezit: %s"
+
+msgid "NORMAL_STATS"
+msgstr "Normale statistieken · verbeterd door samenvoegen"
+
+msgid "EXTRA_STATS"
+msgstr "Extra statistieken · gedeeld door dit voorwerptype"
+
+msgid "EQUIP"
+msgstr "Uitrusten"
+
+msgid "UNEQUIP"
+msgstr "Afleggen"
+
+msgid "REROLL"
+msgstr "Beide extra's opnieuw rollen · %s edelstenen"
+
+msgid "REROLL_CONFIRM"
+msgstr "%s edelstenen uitgeven om beide extra statistieken te vervangen? De nieuwe rol vervangt de oude, ook als die zwakker is."
+
+msgid "USE"
+msgstr "Eén gebruiken"
+
+msgid "MERGE_ONE"
+msgstr "Eén extra exemplaar samenvoegen"
+
+msgid "MERGE_ALL"
+msgstr "%d extra exemplaren samenvoegen"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "Op ^100 besteed je 100 extra exemplaren aan één voorwerp van de volgende rang. Je houdt het bronvoorwerp en zijn samenvoegniveau. Je hebt een doelstapel of leeg vak van dezelfde categorie nodig."
+
+msgid "EVOLVE"
+msgstr "Evolueren → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "Automatisering van dit vak aan/uit"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "Dit vak automatisch gebruiken: %s"
+
+msgid "ON"
+msgstr "Aan"
+
+msgid "OFF"
+msgstr "Uit"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "Dit vak is leeg. Nieuwe voorwerptypen hebben een leeg vak nodig; bestaande typen stapelen."
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "Groepsupgrades gelden voor elk lid. Elke vijand rolt zijn eigen buit. Munten en edelstenen worden meteen bijgeschreven."
+
+msgid "GROUP_SELECT"
+msgstr "Vijandgroep: %s · tik om te wisselen"
+
+msgid "AUTOMATION_HEADING"
+msgstr "Inventaris en automatisering · blijven bij prestige"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "munten"
+
+msgid "GEMS"
+msgstr "edelstenen"
+
+msgid "TRAVEL_HELP"
+msgstr "Tik op een kamp op de kaart om je respawnpunt te kiezen. Ontgrendelen via een kamppaneel kiest het ook. Geen teleportatie."
+
+msgid "SPAWN_SELECT"
+msgstr "Kamp %d kiezen"
+
+msgid "SPAWN_BUY"
+msgstr "Kamp %d ontgrendelen · %s munten"
+
+msgid "SELECTED"
+msgstr "Gekozen"
+
+msgid "FOCUS_HELP"
+msgstr "Ontgrendel farmen per vijandtype en kies dan alleen outfit, alleen wapen of beide. Na je dood keer je terug naar dat kamp. Zelf bewegen stopt het farmen."
+
+msgid "FOCUS_GROUP"
+msgstr "%s farmen · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "Kies een prestigekaart"
+
+msgid "PRESTIGE_COUNT"
+msgstr "Voltooide prestiges: %d"
+
+msgid "NO_OFFLINE"
+msgstr "Voortgang opgeslagen. Offline beloningen komen in de volledige game; deze build simuleert niets als de game gesloten is of op de achtergrond draait."
+
+msgid "SAVE_NOW"
+msgstr "Nu opslaan"
+
+msgid "HARD_RESET"
+msgstr "Volledige reset"
+
+msgid "RESET_CONFIRM"
+msgstr "Alle voortgang, inventaris, automatisering en prestigekaarten wissen? Instellingen blijven bewaard. Dit kan niet ongedaan worden gemaakt."
+
+msgid "LANGUAGE_NOTE"
+msgstr "Tijdens de ontwikkeling is Engels beschikbaar. De andere 19 talen komen beschikbaar na validatie van de vertaling."
+
+msgid "CREDITS"
+msgstr "Personages en wereld: Pixel Plains van SnowHex. Interface: Kenney Fantasy UI Borders (CC0)."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "Kies één permanente kaart van +5%. Bonussen stapelen over runs heen. Je mag dit paneel sluiten en verder farmen."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "Een nieuwe run beginnen met deze permanente kaart? Valuta, inventaris, samenvoegingen en extra's van voorwerpen, farm-upgrades voor vijanden en kampen worden gereset. Onthulde vijandinformatie, automatiseringsniveaus, inventariscapaciteit en alle prestigekaarten blijven."
+
+msgid "CARD_DAMAGE"
+msgstr "+5% schade · permanent"
+
+msgid "CARD_HP"
+msgstr "+5% maximale gezondheid · permanent"
+
+msgid "CARD_COINS"
+msgstr "+5% muntopbrengst · permanent"
+
+msgid "CARD_GEMS"
+msgstr "+5% kans op edelstenen (relatief) · permanent"
+
+msgid "CARD_LOOT"
+msgstr "+5% dropkans op uitrusting (relatief) · permanent"
+
+msgid "CARD_MERGE"
+msgstr "+5% winst normale statistieken bij samenvoegen · permanent"
+
+msgid "STAT_HP"
+msgstr "Maximale gezondheid"
+
+msgid "STAT_DAMAGE"
+msgstr "Schade"
+
+msgid "STAT_DEFENSE"
+msgstr "Verdediging"
+
+msgid "STAT_CRIT"
+msgstr "Kritieke kans"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "Kritieke vermenigvuldiger"
+
+msgid "STAT_LIFESTEAL"
+msgstr "Levensroof"
+
+msgid "STAT_REGEN"
+msgstr "Gezondheid per seconde"
+
+msgid "STAT_SPEED"
+msgstr "Bonus aanvalssnelheid"
+
+msgid "STAT_HEAL"
+msgstr "Genezing"
+
+msgid "STAT_COIN_BONUS"
+msgstr "Bonus muntopbrengst"
+
+msgid "NEED_DUPLICATES"
+msgstr "Je hebt een extra exemplaar nodig om samen te voegen."
+
+msgid "MERGE_MAX"
+msgstr "Dit voorwerp staat op ^100."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "Evolutie vereist ^100 en 101 bronexemplaren."
+
+msgid "INVENTORY_FULL"
+msgstr "Geen leeg vak. Maak ruimte of breid deze inventaris uit."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "Ontgrendel deze automatisering onder Upgrades."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "Ontgrendel nog een vak voor automatisch gebruik onder Upgrades."
+
+msgid "CANNOT_USE"
+msgstr "Geen bruikbare voorraad, of je personage is dood."
+
+msgid "UPGRADE_MAX"
+msgstr "MAX"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "Niet genoeg munten."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "Niet genoeg edelstenen."
+
+msgid "SPAWN_BOUGHT"
+msgstr "Kamp ontgrendeld. Kies het om er te respawnen."
+
+msgid "EVOLVED"
+msgstr "Voorwerp van de volgende rang verkregen. De voortgang van je bronvoorwerp blijft."
+
+msgid "PLAYER_DIED"
+msgstr "Terug naar je gekozen kamp. Je verliest niets."
+
+msgid "BOSS_DEFEATED"
+msgstr "De Dood is verslagen! Er wacht een permanente prestigekaart."
+
+msgid "PRESTIGED"
+msgstr "Een nieuwe run begint. Je permanente bonussen blijven."
+
+msgid "SAVED"
+msgstr "Voortgang opgeslagen."
+
+msgid "SAVE_ERROR"
+msgstr "Opslaan mislukt. Je voortgang staat nog in het geheugen; probeer het opnieuw."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "De opslag kon niet veilig worden geladen. Opslaan is uitgeschakeld tot een bewuste volledige reset."
+
+msgid "ACTION_PREVIEW"
+msgstr "Actie · kosten en effect"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "Uitrustingsvakken +1 (max. 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "Voorraadvakken +1 (één per voorraadtype)"
+
+msgid "UP_COLLECT"
+msgstr "Automatisch verzamelen ontgrendelen"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "Verzamelbereik +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "Voorwerpen per verzamelbeurt +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "Verzameltussentijd −1 s"
+
+msgid "UP_MERGE_GEAR"
+msgstr "Automatisch samenvoegen van uitrusting ontgrendelen"
+
+msgid "UP_AUTO_USE"
+msgstr "Automatische voorraadvakken +1"
+
+msgid "UP_USE_SPEED"
+msgstr "Tussentijd automatisch gebruik −1 s"
+
+msgid "UP_FOCUS"
+msgstr "Gericht farmen ontgrendelen"
+
+msgid "UP_RESPAWN"
+msgstr "Respawntijd −1 s"
+
+msgid "UP_LOOT"
+msgstr "Dropkans op uitrusting +0,5 procentpunt (per voorwerp)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "Dropkans op munten"
+
+msgid "UP_GEM_CHANCE"
+msgstr "Algemene dropkans op edelstenen"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "Munten per vijand +50%"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "Edelstenen per drop (bazen geven ×3)"
+
+msgid "CHAT_SURPRISE"
+msgstr "Hé! Kijk uit!"
+
+msgid "RECENT_HEADER"
+msgstr "Recente vondsten · tik voor de geschiedenis"
+
+msgid "ZOOM_IN"
+msgstr "Inzoomen"
+
+msgid "ZOOM_OUT"
+msgstr "Uitzoomen"
+
+msgid "CAMERA_ZOOM"
+msgstr "Camerazoom"
+
+msgid "PANEL_ENEMY"
+msgstr "Vijand"
+
+msgid "PANEL_CAMP"
+msgstr "Respawnkamp"
+
+msgid "TAB_AUTOMATION"
+msgstr "Automatisering"
+
+msgid "TAB_INVENTORY"
+msgstr "Inventaris"
+
+msgid "TAB_SUPPLIES"
+msgstr "Voorraad"
+
+msgid "TAB_OVERVIEW"
+msgstr "Overzicht"
+
+msgid "TAB_UPGRADES"
+msgstr "Upgrades"
+
+msgid "UP_REVEAL_STATS"
+msgstr "Statistieken onthullen · permanent"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "Drops onthullen · permanent"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "VIJANDSTATISTIEKEN"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "MOGELIJKE DROPS"
+
+msgid "UNKNOWN_STATS"
+msgstr "HP ???   •   Schade ???\nAanvalstussentijd ???   •   Verdediging ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "HP %s   •   Schade %s\nAanval elke %s s   •   Verdediging %s"
+
+msgid "DROP_COINS"
+msgstr "Munten ×%s · gegarandeerd"
+
+msgid "DROP_GEMS"
+msgstr "Edelstenen · %s%% kans · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "Eén uitrustingsrol kiest een van de twee voorwerpen. Edelstenen en voorraad worden apart gerold. Kansen zijn inclusief je huidige upgrades."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 procentpunt / niveau · max. +15"
+
+msgid "ENEMY_CAT"
+msgstr "Opgeroepen kat"
+
+msgid "CAT_DETAILS"
+msgstr "Opgeroepen dienaar van de Dood.\nGeen drops of groepsupgrades."
+
+msgid "CAMP_NAME"
+msgstr "Kamp %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "Tik om te kiezen"
+
+msgid "CAMP_LOCKED"
+msgstr "Vergrendeld · tik om te ontgrendelen"
+
+msgid "CAMP_HELP"
+msgstr "Kampen zijn respawnpunten. Rust bij een ontgrendeld kamp om snel te herstellen. Ontgrendelen, kiezen als respawnpunt en reizen zijn aparte acties. Sta je bij een kamp, dan verschijnt de knop Kamp bekijken."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "Respawnkamp gekozen."
+
+msgid "OPEN_PLAYER"
+msgstr "Speler-upgrades"
+
+msgid "OPEN_GROUP"
+msgstr "%s bekijken"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "Onyxzeis"
+
+msgid "ITEM_REAPER"
+msgstr "Maaier-outfit"
+
+msgid "VARIANT_OUTFIT"
+msgstr "Outfit"
+
+msgid "VARIANT_WEAPON"
+msgstr "Wapen"
+
+msgid "VARIANT_BOTH"
+msgstr "Beide"
+
+msgid "ITEM_DETAILS"
+msgstr "Voorwerpdetails"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "Niveau omhoog!"
+
+msgid "GEAR"
+msgstr "Uitrusting"
+
+msgid "CONSUMABLES"
+msgstr "Voorraad"
+
+msgid "HUD_HP"
+msgstr "HP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "Herleven over %.1f s"
+
+msgid "HUD_LEVEL"
+msgstr "NIVEAU %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "Uitrusting %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "Voorraad %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "SAMENVOEGING %d"
+
+msgid "ITEM_OWNED"
+msgstr "In bezit: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "Uitgerust · 100% bijdrage"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "Opgeslagen · 30% bijdrage (één keer per wapentype)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "Samenvoegen"
+
+msgid "LESS_OPTIONS"
+msgstr "Minder opties"
+
+msgid "MORE_OPTIONS"
+msgstr "Meer opties"
+
+msgid "LOOT_HISTORY"
+msgstr "Buitgeschiedenis"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "NIVEAU %d / 1.000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "NIVEAU %d · gezondheid en schade verhoogd"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "Tik op voorraad om te gebruiken · houd vast voor details"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "Volgende samenvoeging: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "Prestaties"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "Gedeeld door alle kampen van dit vijandtype. Verzamelupgrades blijven; andere typeupgrades worden bij prestige gereset."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 procentpunt / niveau · max. +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "+10% XP / niveau · max. +200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "Dropkans op voorraad +1 punt"
+
+msgid "UP_GROUP_XP"
+msgstr "Ervaring +10%"
+
+msgid "GROUP_XP_VALUE"
+msgstr "XP per verslagen vijand: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "Permanente killmijlpalen, gedeeld door de kampen van dit vijandtype. Beloningen gelden automatisch en overleven prestige."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "Tegen dit type: +%.0f%% schade · +%.1f procentpunt kans op edelstenen"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · %d kills\nBeloning: +%.0f%% schade en +%.1f procentpunt kans op edelstenen tegen dit type"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "Voltooid"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "Killprestaties"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%.0f%% schade · +%.1f punt kans op edelstenen"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "Voegt de wapens en outfits van dit vijandtype automatisch samen."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "+%s munten per kill / niveau"
+
+msgid "ACTION_PAUSED"
+msgstr "Niet beschikbaar tijdens pauze"
+
+msgid "ACTION_SUSPENDED"
+msgstr "Niet beschikbaar terwijl de app inactief is"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "Niet aan de voorwaarden voldaan"
+
+msgid "VALUE_MAX"
+msgstr "MAX"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s XP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s s"
+
+msgid "HP_PER_SECOND"
+msgstr "HP/s"
+
+msgid "STAT_SOURCES"
+msgstr "Waar je statistieken vandaan komen"
+
+msgid "SOURCE_BASE"
+msgstr "Basisstatistieken"
+
+msgid "SOURCE_LEVEL"
+msgstr "Spelerniveaus"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "Uitgeruste uitrusting"
+
+msgid "SOURCE_STORED"
+msgstr "Opgeslagen uitrusting"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "Permanente bonussen: HP ×%s · Schade ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "Bovenstaande totalen zijn inclusief limieten: kritieke kans 75%, kritieke schade ×4, levensroof 15%, bonus aanvalssnelheid 200%."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "Voorraadrol: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "Tonicum: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · Rang %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "Rang %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · R%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "Edelstenen"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "Geldt voor elke vijand. Wordt bij prestige gereset. Prestatiebonussen van vijanden blijven per type gelden."
+
+msgid "FARM_VARIANT"
+msgstr "%s farmen · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "Farmkeuze: %s. Na het respawnen keer je hier terug."
+
+msgid "MAX_ITEM_TIER"
+msgstr "Hoogste rang bereikt. Samenvoegen kan nog tot ^100."
+
+msgid "TAB_PLAYER"
+msgstr "Speler"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "Vijanden per plek"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "Respawntijd van vijanden"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "Kans op edelstenen van bazen"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "Bonusedelstenen van bazen per drop"
+
+msgid "TRAVEL_COMBAT"
+msgstr "Rond het gevecht af voordat je reist."
+
+msgid "TRAVEL_CAMP"
+msgstr "Reizen · %s · Kamp %d"
+
+msgid "STAGE_LOCKED"
+msgstr "Versla eerst de poortbazen van dit gebied."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "Verken dit kamp eerst."
+
+msgid "STAGE_UNLOCKED"
+msgstr "Volgend gebied ontgrendeld!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "De laatste bewaker is verzegeld. Versla de andere 13 bazen om hun sleutels te verzamelen. Verzamelde sleutels blijven bij prestige."
+
+msgid "WORLD_COMPLETE"
+msgstr "Alle vijanden van Lente II verslagen — laatste missie voltooid!"
+
+msgid "UNDISCOVERED"
+msgstr "Onverkend"
+
+msgid "ENEMY_LEVEL"
+msgstr "Niveau %d"
+
+msgid "ALL_ITEMS"
+msgstr "Alles"
+
+msgid "WEAPONS"
+msgstr "Wapens"
+
+msgid "OUTFITS"
+msgstr "Outfits"
+
+msgid "SKILLS"
+msgstr "Vaardigheden"
+
+msgid "VARIANT_SKILL"
+msgstr "Elite"
+
+msgid "SKILL_EMPTY"
+msgstr "Vaardigheidsvak %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "Deze vaardigheidsfamilie is al uitgerust."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "Leg een vaardigheid af of ontgrendel nog een vak."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "Uitrusten in vak %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "Automatisch gebruiken vak %d: %s"
+
+msgid "STOCK_BONUS"
+msgstr "Bonus extra exemplaren: +%s%% intrinsieke kracht. Exemplaren blijven in je bezit."
+
+msgid "CLAIM"
+msgstr "Ophalen"
+
+msgid "CLAIM_REWARD"
+msgstr "Ophalen · %s munten · %s edelstenen"
+
+msgid "MISSION_AUTO"
+msgstr "Automatisch ophalen: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "AAN"
+
+msgid "STATE_OFF_CAPS"
+msgstr "UIT"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "Haalt voltooide gewone missies op (ook in gekochte vakken), NIET de hoofddoelen. Zet na aankoop Automatisch ophalen AAN in Missies."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "Automatisch ophalen is ontgrendeld maar staat UIT. Tik op de schakelaar hieronder om gewone missies op te halen. Hoofddoelen blijven handmatig."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "Automatisch ophalen kan aan"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "Open Missies en zet Automatisch ophalen AAN. Na aankoop staat het UIT."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "Zet automatisch ophalen aan"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "Je hebt automatisch ophalen ontgrendeld. Tik hier op Automatisch ophalen: UIT om het in te schakelen. Hoofddoelen haal je altijd zelf op."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "Gebiedskaarten uitklappen"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "Gebiedskaarten inklappen"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "Voltooi eerst dit doel."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "Om middernacht (lokale tijd) komt er een nieuwe taak."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "Hoofddoelen"
+
+msgid "KEY_PROGRESS"
+msgstr "Baassleutels: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "Poortbazen verslagen: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "%s munten/u · %s edelstenen/u · beloningslimiet %s u"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "Welkom terug! Beloonde uren: %s · %s munten · %s edelstenen"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "Kies eerst je prestigebeloningen."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "Nieuwe prestigekans ontdekt."
+
+msgid "PRESTIGE_BATCH"
+msgstr "Prestige · kaarten: %d"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "Kies één unieke kaart voor elke kans die klaar is en reset dan de run één keer. Voorwerpen, munten, kampen, mist en muntupgrades worden gereset. Sleutels, prestaties, kaarten en edelsteenupgrades blijven."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "%s permanent houden? Deze keuze wordt meteen opgeslagen en kan niet worden gewijzigd."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "Kies kaart %d van %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "Unieke kaarten: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "Voltooi eerst een ontdekte prestigekans."
+
+msgid "IN_PROGRESS"
+msgstr "Bezig"
+
+msgid "FOLLOW"
+msgstr "Volgen"
+
+msgid "UNFOLLOW"
+msgstr "Ontvolgen"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "Vereiste voorwerpen of valuta inleveren"
+
+msgid "CONTRACT_NEEDS"
+msgstr "Verzamel de vereiste exemplaren online en houd er van elk één."
+
+msgid "OFFERING_NEEDS"
+msgstr "Je hebt het vereiste saldo en online verdiende, niet-uitgegeven valuta nodig."
+
+msgid "OWNED_CARDS"
+msgstr "Kaarten in bezit"
+
+msgid "COMBOS"
+msgstr "Kaartsets"
+
+msgid "PANEL_INVENTORY"
+msgstr "Inventaris"
+
+msgid "PANEL_MAP"
+msgstr "Kaart"
+
+msgid "PANEL_MISSIONS"
+msgstr "Missies"
+
+msgid "PANEL_OFFLINE"
+msgstr "Offline beloningen"
+
+msgid "GOAL_KILL"
+msgstr "Jacht"
+
+msgid "GOAL_BOSS"
+msgstr "Bazenjacht"
+
+msgid "GOAL_GEAR"
+msgstr "Uitrusting verzamelen"
+
+msgid "GOAL_MERGE"
+msgstr "Samenvoegen"
+
+msgid "GOAL_COINS"
+msgstr "Munten verdienen"
+
+msgid "GOAL_CAST"
+msgstr "Vaardigheden gebruiken"
+
+msgid "GOAL_WAITING"
+msgstr "Verken om een nieuw doel te vinden"
+
+msgid "STAT_POWER"
+msgstr "Kracht"
+
+msgid "INTRINSIC_POWER"
+msgstr "Intrinsiek %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "De volgende rang begint op 85% van de intrinsieke ^100-kracht van deze rang, vóór voorraad- en externe bonussen."
+
+msgid "MAP_FARMING"
+msgstr "%s · plekken: %d · %d per plek · respawn %s s"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "Verslagen typen in het laatste gebied: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "Onthullingsradius van kampen"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "Onthullingsradius van speler"
+
+msgid "UP_MAP_DETAIL"
+msgstr "Kaartdetails"
+
+msgid "UP_MOVEMENT"
+msgstr "Bewegingssnelheid +10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "Tussentijd automatisch samenvoegen −1 s"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "Automatisch missies ophalen ontgrendelen"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "Missievakken"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "Vaardigheidsvakken"
+
+msgid "UP_SKILL_DROP"
+msgstr "Dropkans op vaardigheden"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "Duur van offline beloningen"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "Offline munten per uur"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "Offline edelstenen per uur"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "Offline wapendrops ontgrendelen"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "Offline outfitdrops ontgrendelen"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "Offline voorraad ontgrendelen"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "Offline wapens per uur"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "Offline outfits per uur"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "Offline voorraad per uur"
+
+msgid "MAP_LEGEND"
+msgstr "Verkend terrein blijft zichtbaar; terrein in de buurt zie je alleen zolang je er bent. Kampen zie je van verder weg."
+
+msgid "MINIMAP"
+msgstr "Kaart"
+
+msgid "SKILL_TUTORIAL"
+msgstr "Elitevijanden dragen een wapen, outfit en vaardigheid. Elke drop heeft een eigen rol. Rust een vaardigheid uit vanuit je inventaris en tik op de knop om hem te gebruiken."
+
+msgid "MAIN_0"
+msgstr "Versla 5 gewone vijanden"
+
+msgid "MAIN_1"
+msgstr "Rust je eerste voorwerp uit"
+
+msgid "MAIN_2"
+msgstr "Voeg een dubbel exemplaar samen"
+
+msgid "MAIN_3"
+msgstr "Ontgrendel een extra kamp"
+
+msgid "MAIN_4"
+msgstr "Versla de Sneeuwpop · ontgrendelt Winter II"
+
+msgid "MAIN_5"
+msgstr "Rust Genezen uit"
+
+msgid "MAIN_6"
+msgstr "Upgrade de kaartdetails"
+
+msgid "MAIN_7"
+msgstr "Verkrijg IJsstoot"
+
+msgid "MAIN_8"
+msgstr "Ontgrendel Zomer I"
+
+msgid "MAIN_9"
+msgstr "Laat een voorwerp evolueren"
+
+msgid "MAIN_10"
+msgstr "Verkrijg 4 vaardigheidsfamilies"
+
+msgid "MAIN_11"
+msgstr "Ontgrendel Herfst I"
+
+msgid "MAIN_12"
+msgstr "Verkrijg alle 6 vaardigheidsfamilies"
+
+msgid "MAIN_13"
+msgstr "Ontgrendel Lente I"
+
+msgid "MAIN_14"
+msgstr "Voltooi een prestige"
+
+msgid "MAIN_15"
+msgstr "Verzamel alle baassleutels en ruim Lente II op"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "Afkoeltijd Genezen"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "Afkoeltijd IJs"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "Afkoeltijd Vuur"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "Afkoeltijd Bliksem"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "Afkoeltijd Focus"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "Afkoeltijd Slag"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "Automatisch gebruik ontgrendelen · vak 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "Automatisch gebruik ontgrendelen · vak 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "Automatisch gebruik ontgrendelen · vak 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "Genezen"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "Genezen"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "Genezen"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "Genezen"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "Genezen"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "Genezen"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "Genezen"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "IJsstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "IJsstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "IJsstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "IJsstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "IJsstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "IJsstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "IJsstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "Vuurstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "Vuurstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "Vuurstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "Vuurstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "Vuurstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "Vuurstoot"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "Vuurstoot"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "Blikseminslag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "Blikseminslag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "Blikseminslag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "Blikseminslag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "Blikseminslag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "Blikseminslag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "Blikseminslag"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "Mystieke focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "Mystieke focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "Mystieke focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "Mystieke focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "Mystieke focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "Mystieke focus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "Mystieke focus"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "Mystieke slag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "Mystieke slag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "Mystieke slag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "Mystieke slag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "Mystieke slag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "Mystieke slag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "Mystieke slag"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "Blauwe Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "Blauwe Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "Blauwe Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "Blauwe Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "Blauwe Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "Blauwe Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "Blauwe Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "Blauwe Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "Blauwe Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "Blauwe Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "Blauwe Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "Blauwe Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "Blauwe Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "Blauwe Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "Rode Sjaal-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "Rode Sjaal-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "Rode Sjaal-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "Rode Sjaal-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "Rode Sjaal-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "Rode Sjaal-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "Rode Sjaal-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "Rode Sjaal-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "Rode Sjaal-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "Rode Sjaal-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "Rode Sjaal-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "Rode Sjaal-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "Rode Sjaal-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "Rode Sjaal-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "Koksmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "Koksmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "Koksmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "Koksmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "Koksmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "Koksmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "Koksmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "Koksmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "Koksmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "Koksmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "Koksmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "Koksmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "Koksmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "Koksmuts-zwaard"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "Sneeuwpop-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "Sneeuwpop-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "Sneeuwpop-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "Sneeuwpop-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "Sneeuwpop-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "Sneeuwpop-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "Sneeuwpop-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "Wolvencapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "Wolvencapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "Wolvencapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "Wolvencapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "Wolvencapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "Wolvencapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "Wolvencapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "Wolvencapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "Wolvencapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "Wolvencapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "Wolvencapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "Wolvencapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "Wolvencapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "Wolvencapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "Lapjeskatcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "Lapjeskatcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "Lapjeskatcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "Lapjeskatcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "Lapjeskatcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "Lapjeskatcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "Lapjeskatcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "Lapjeskatcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "Lapjeskatcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "Lapjeskatcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "Lapjeskatcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "Lapjeskatcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "Lapjeskatcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "Lapjeskatcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "Gouden Kroon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "Gouden Kroon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "Gouden Kroon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "Gouden Kroon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "Gouden Kroon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "Gouden Kroon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "Gouden Kroon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "Gouden Kroon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "Gouden Kroon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "Gouden Kroon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "Gouden Kroon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "Gouden Kroon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "Gouden Kroon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "Gouden Kroon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "Rendiergewei-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "Rendiergewei-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "Rendiergewei-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "Rendiergewei-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "Rendiergewei-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "Rendiergewei-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "Rendiergewei-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "Rendiergewei-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "Rendiergewei-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "Rendiergewei-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "Rendiergewei-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "Rendiergewei-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "Rendiergewei-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "Rendiergewei-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "Kerstmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "Kerstmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "Kerstmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "Kerstmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "Kerstmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "Kerstmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "Kerstmuts-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "Kerstmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "Kerstmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "Kerstmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "Kerstmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "Kerstmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "Kerstmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "Kerstmuts-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "Ruimtehelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "Ruimtehelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "Ruimtehelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "Ruimtehelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "Ruimtehelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "Ruimtehelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "Ruimtehelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "Ruimtehelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "Ruimtehelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "Ruimtehelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "Ruimtehelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "Ruimtehelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "Ruimtehelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "Ruimtehelm-zwaard"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "Cyaanrobot-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "Cyaanrobot-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "Cyaanrobot-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "Cyaanrobot-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "Cyaanrobot-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "Cyaanrobot-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "Cyaanrobot-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "Strohoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "Strohoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "Strohoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "Strohoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "Strohoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "Strohoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "Strohoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "Strohoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "Strohoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "Strohoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "Strohoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "Strohoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "Strohoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "Strohoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "Zonnebril-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "Zonnebril-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "Zonnebril-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "Zonnebril-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "Zonnebril-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "Zonnebril-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "Zonnebril-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "Zonnebril-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "Zonnebril-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "Zonnebril-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "Zonnebril-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "Zonnebril-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "Zonnebril-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "Zonnebril-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "Gele Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "Gele Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "Gele Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "Gele Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "Gele Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "Gele Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "Gele Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "Gele Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "Gele Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "Gele Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "Gele Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "Gele Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "Gele Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "Gele Pet-zwaard"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "Grijze Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "Grijze Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "Grijze Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "Grijze Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "Grijze Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "Grijze Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "Grijze Kat-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "Cowboybandana-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "Cowboybandana-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "Cowboybandana-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "Cowboybandana-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "Cowboybandana-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "Cowboybandana-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "Cowboybandana-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "Cowboybandana-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "Cowboybandana-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "Cowboybandana-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "Cowboybandana-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "Cowboybandana-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "Cowboybandana-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "Cowboybandana-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "Eendenzwemband-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "Eendenzwemband-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "Eendenzwemband-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "Eendenzwemband-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "Eendenzwemband-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "Eendenzwemband-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "Eendenzwemband-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "Eendenzwemband-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "Eendenzwemband-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "Eendenzwemband-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "Eendenzwemband-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "Eendenzwemband-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "Eendenzwemband-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "Eendenzwemband-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "Regenboogclown-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "Regenboogclown-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "Regenboogclown-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "Regenboogclown-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "Regenboogclown-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "Regenboogclown-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "Regenboogclown-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "Regenboogclown-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "Regenboogclown-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "Regenboogclown-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "Regenboogclown-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "Regenboogclown-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "Regenboogclown-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "Regenboogclown-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "Badmutszwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "Badmutszwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "Badmutszwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "Badmutszwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "Badmutszwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "Badmutszwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "Badmutszwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "Badmutszwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "Badmutszwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "Badmutszwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "Badmutszwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "Badmutszwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "Badmutszwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "Badmutszwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "Snorkelaar-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "Snorkelaar-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "Snorkelaar-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "Snorkelaar-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "Snorkelaar-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "Snorkelaar-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "Snorkelaar-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "Snorkelaar-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "Snorkelaar-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "Snorkelaar-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "Snorkelaar-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "Snorkelaar-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "Snorkelaar-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "Snorkelaar-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "Strohoedzwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "Strohoedzwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "Strohoedzwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "Strohoedzwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "Strohoedzwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "Strohoedzwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "Strohoedzwemmer-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "Strohoedzwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "Strohoedzwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "Strohoedzwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "Strohoedzwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "Strohoedzwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "Strohoedzwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "Strohoedzwemmer-zwaard"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "Blauwgroene Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "Blauwgroene Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "Blauwgroene Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "Blauwgroene Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "Blauwgroene Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "Blauwgroene Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "Blauwgroene Dinosaurus-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "Zwarte Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "Zwarte Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "Zwarte Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "Zwarte Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "Zwarte Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "Zwarte Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "Zwarte Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "Zwarte Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "Zwarte Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "Zwarte Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "Zwarte Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "Zwarte Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "Zwarte Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "Zwarte Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "Paddenstoelhoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "Paddenstoelhoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "Paddenstoelhoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "Paddenstoelhoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "Paddenstoelhoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "Paddenstoelhoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "Paddenstoelhoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "Paddenstoelhoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "Paddenstoelhoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "Paddenstoelhoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "Paddenstoelhoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "Paddenstoelhoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "Paddenstoelhoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "Paddenstoelhoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "Pompoenhoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "Pompoenhoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "Pompoenhoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "Pompoenhoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "Pompoenhoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "Pompoenhoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "Pompoenhoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "Pompoenhoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "Pompoenhoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "Pompoenhoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "Pompoenhoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "Pompoenhoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "Pompoenhoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "Pompoenhoofd-zwaard"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "Eekhoorn-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "Eekhoorn-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "Eekhoorn-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "Eekhoorn-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "Eekhoorn-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "Eekhoorn-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "Eekhoorn-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "Rode Vos-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "Rode Vos-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "Rode Vos-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "Rode Vos-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "Rode Vos-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "Rode Vos-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "Rode Vos-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "Hoorncapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "Hoorncapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "Hoorncapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "Hoorncapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "Hoorncapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "Hoorncapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "Hoorncapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "Hoorncapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "Hoorncapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "Hoorncapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "Hoorncapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "Hoorncapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "Hoorncapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "Hoorncapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "Oranjeschermhelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "Oranjeschermhelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "Oranjeschermhelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "Oranjeschermhelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "Oranjeschermhelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "Oranjeschermhelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "Oranjeschermhelm-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "Oranjeschermhelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "Oranjeschermhelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "Oranjeschermhelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "Oranjeschermhelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "Oranjeschermhelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "Oranjeschermhelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "Oranjeschermhelm-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "Televisiehoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "Televisiehoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "Televisiehoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "Televisiehoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "Televisiehoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "Televisiehoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "Televisiehoofd-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "Televisiehoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "Televisiehoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "Televisiehoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "Televisiehoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "Televisiehoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "Televisiehoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "Televisiehoofd-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "Hoge Hoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "Hoge Hoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "Hoge Hoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "Hoge Hoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "Hoge Hoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "Hoge Hoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "Hoge Hoed-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "Hoge Hoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "Hoge Hoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "Hoge Hoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "Hoge Hoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "Hoge Hoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "Hoge Hoed-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "Hoge Hoed-zwaard"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "Zwarte Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "Zwarte Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "Zwarte Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "Zwarte Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "Zwarte Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "Zwarte Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "Zwarte Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "Magere Hein-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "Magere Hein-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "Magere Hein-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "Magere Hein-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "Magere Hein-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "Magere Hein-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "Magere Hein-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "Konijnenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "Konijnenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "Konijnenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "Konijnenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "Konijnenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "Konijnenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "Konijnenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "Konijnenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "Konijnenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "Konijnenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "Konijnenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "Konijnenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "Konijnenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "Konijnenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "Kattenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "Kattenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "Kattenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "Kattenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "Kattenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "Kattenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "Kattenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "Kattenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "Kattenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "Kattenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "Kattenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "Kattenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "Kattenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "Kattenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "Elfenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "Elfenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "Elfenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "Elfenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "Elfenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "Elfenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "Elfenoren-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "Elfenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "Elfenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "Elfenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "Elfenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "Elfenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "Elfenoren-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "Elfenoren-zwaard"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "Bijen-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "Bijen-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "Bijen-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "Bijen-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "Bijen-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "Bijen-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "Bijen-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "Rode Cyperse Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "Rode Cyperse Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "Rode Cyperse Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "Rode Cyperse Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "Rode Cyperse Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "Rode Cyperse Kat-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "Rode Cyperse Kat-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "Bloemenkrans-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "Bloemenkrans-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "Bloemenkrans-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "Bloemenkrans-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "Bloemenkrans-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "Bloemenkrans-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "Bloemenkrans-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "Bloemenkrans-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "Bloemenkrans-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "Bloemenkrans-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "Bloemenkrans-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "Bloemenkrans-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "Bloemenkrans-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "Bloemenkrans-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "Groene Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "Groene Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "Groene Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "Groene Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "Groene Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "Groene Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "Groene Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "Groene Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "Groene Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "Groene Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "Groene Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "Groene Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "Groene Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "Groene Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "Roze Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "Roze Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "Roze Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "Roze Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "Roze Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "Roze Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "Roze Pet-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "Roze Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "Roze Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "Roze Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "Roze Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "Roze Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "Roze Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "Roze Pet-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "Bloemcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "Bloemcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "Bloemcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "Bloemcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "Bloemcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "Bloemcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "Bloemcapuchon-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "Bloemcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "Bloemcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "Bloemcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "Bloemcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "Bloemcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "Bloemcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "Bloemcapuchon-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "Gewone outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "Gewone outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "Gewone outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "Gewone outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "Gewone outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "Gewone outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "Gewone outfit"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "Gewoon zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "Gewoon zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "Gewoon zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "Gewoon zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "Gewoon zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "Gewoon zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "Gewoon zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "Spruit-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "Spruit-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "Spruit-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "Spruit-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "Spruit-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "Spruit-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "Spruit-outfit"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "Spruit-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "Spruit-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "Spruit-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "Spruit-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "Spruit-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "Spruit-zwaard"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "Spruit-zwaard"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "Rode Panda-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "Rode Panda-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "Rode Panda-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "Rode Panda-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "Rode Panda-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "Rode Panda-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "Rode Panda-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "Zonnebloem-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "Zonnebloem-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "Zonnebloem-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "Zonnebloem-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "Zonnebloem-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "Zonnebloem-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "Zonnebloem-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "Groene Alien-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "Groene Alien-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "Groene Alien-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "Groene Alien-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "Groene Alien-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "Groene Alien-outfit"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "Groene Alien-outfit"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "Genezen"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "IJsstoot"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "Vuurstoot"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "Blikseminslag"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "Mystieke focus"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "Mystieke slag"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "Blauwe Pet"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "Rode Sjaal"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "Koksmuts"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "Sneeuwpop"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "Wolvencapuchon"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "Lapjeskatcapuchon"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "Gouden Kroon"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "Rendiergewei"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "Kerstmuts"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "Ruimtehelm"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "Cyaanrobot"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "Strohoed"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "Zonnebril"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "Gele Pet"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "Grijze Kat"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "Cowboybandana"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "Eendenzwemband"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "Regenboogclown"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "Badmutszwemmer"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "Snorkelaar"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "Strohoedzwemmer"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "Dinosaurus"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "Blauwgroene Dinosaurus"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "Zwarte Pet"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "Paddenstoelhoed"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "Pompoenhoofd"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "Eekhoorn"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "Rode Vos"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "Hoorncapuchon"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "Oranjeschermhelm"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "Televisiehoofd"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "Hoge Hoed"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "Zwarte Kat"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "Magere Hein"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "Konijnenoren"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "Kattenoren"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "Elfenoren"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "Bij"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "Rode Cyperse Kat"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "Bloemenkrans"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "Groene Pet"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "Roze Pet"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "Bloemcapuchon"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "Gewoontje"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "Spruit"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "Rode Panda"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "Zonnebloem"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "Groene Alien"
+
+msgid "CONTENT_STAGES_1"
+msgstr "Winter I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "Winter II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "Zomer I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "Zomer II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "Herfst I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "Herfst II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "Lente I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "Lente II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "Eerste premie"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "Versla de Sneeuwpop (baas van Winter I) 10 keer"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "Zomerpremie"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "Versla de Grijze Kat (baas van Zomer I) 20 keer"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "Herfstpremie"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "Versla Magere Hein (baas van Herfst II) 30 keer"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "Winterroute"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "In Winter I, op volgorde: versla 100 Blauwe Petten, dan 100 Rode Sjaals, dan 100 Koksmutsen"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "Zomerroute"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "In Zomer I, op volgorde: versla 150 Strohoeden, dan 150 Zonnebrillen, dan 150 Gele Petten"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "Lenteroute"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "In Lente I, op volgorde: versla 200 Konijnenoren, dan 200 Kattenoren, dan 200 Elfenoren"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "Wintercollectie"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "Raap van elk 20 Blauwe Pet-, Rode Sjaal- en Koksmuts-outfits op (drops van Winter I) en lever ze dan in met Inleveren"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "Zomercollectie"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "Raap van elk 30 Strohoed-, Zonnebril- en Gele Pet-outfits op (drops van Zomer I) en lever ze dan in met Inleveren"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "Lentecollectie"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "Raap van elk 40 Konijnenoren-, Kattenoren- en Elfenoren-outfits op (drops van Lente I) en lever ze dan in met Inleveren"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "Eerste meesterwerk"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "Voeg een willekeurig wapen, outfit of vaardigheid samen tot ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "Tweede rang"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "Voeg een voorwerp van rang 2 of hoger samen tot ^100 (rang 2 valt vanaf Zomer I, of laat een wapen evolueren)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "Derde rang"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "Voeg een voorwerp van rang 3 of hoger samen tot ^100 (rang 3 valt vanaf Herfst I, of laat een wapen twee keer evolueren)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "Uitrusting als paar"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "Voeg één wapen en één outfit samen tot ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "Breed arsenaal"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "Voeg 3 verschillende wapens en 3 verschillende outfits samen tot ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "Geëvolueerd arsenaal"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "Voeg 3 verschillende wapens en 3 verschillende outfits van rang 2+ samen tot ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "Winter bedwongen"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "In Winter I en Winter II: verken 90% van elke kaart, versla beide bazen en ontgrendel elk kamp"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "Zomer bedwongen"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "In Zomer I en Zomer II: verken 90% van elke kaart, versla alle drie de bazen en ontgrendel elk kamp"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "Lente bedwongen"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "In Lente I en Lente II: verken 90% van elke kaart, versla alle vijf de bazen en ontgrendel elk kamp"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "Winter zonder hulp"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "Versla de Cyaanrobot (baas van Winter II) zonder tijdens het gevecht voorraad te gebruiken"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "Zomer zonder hulp"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "Versla de Blauwgroene Dinosaurus (baas van Zomer II) zonder tijdens het gevecht voorraad te gebruiken"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "Herfst zonder hulp"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "Versla Magere Hein (baas van Herfst II) zonder tijdens het gevecht voorraad te gebruiken"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "Klein offer"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "Verdien in deze run 2K munten en 30 edelstenen van vijanden en lever ze dan in met Inleveren"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "Groeiend offer"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "Verdien in deze run 20K munten en 100 edelstenen van vijanden en lever ze dan in met Inleveren"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "Groot offer"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "Verdien in deze run 100K munten en 300 edelstenen van vijanden en lever ze dan in met Inleveren"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "Korte keten"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "Op volgorde: versla 100 vijanden, raap 10 wapen- of outfitdrops op en voeg dan 10 keer samen"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "Lange keten"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "Op volgorde: versla 250 vijanden, versla 3 bazen, voeg 25 keer samen en gebruik dan 30 vaardigheden"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "Meesterketen"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "Op volgorde: versla 500 vijanden, versla 10 bazen, voeg 50 keer samen en haal dan 3 gewone missies op"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "Wintertrofeeën"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "Versla na het ontdekken de Sneeuwpop (Winter I) en de Cyaanrobot (Winter II) elk één keer"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "Zomertrofeeën"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "Versla na het ontdekken de Grijze Kat (Zomer I), de Dinosaurus en de Blauwgroene Dinosaurus (Zomer II) elk één keer"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "Herfsttrofeeën"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "Versla na het ontdekken de Eekhoorn en de Rode Vos (Herfst I), de Zwarte Kat en Magere Hein (Herfst II) elk één keer"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "Tijd weg"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "Wees in totaal 72 uur weg uit de game"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "Lange rust"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "Blijf 24 uur aan één stuk weg uit de game"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "Offline inkomsten"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "Verdien 10K munten terwijl je weg bent (haal de Welkom terug-beloningen op)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "+20% XP van bazen"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+10% bewegingssnelheid"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+50% bereik automatisch verzamelen"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "+10% basisstatistieken van uitgeruste uitrusting"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+10% maximale HP"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "+25% verkenningsradius om je heen"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "+10% schade tegen bazen"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "+10% munten van elke vijand"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "+25% munten uit missies"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "+25% edelstenen van bazen"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "+25% offline munten per uur"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "2 seconden sneller respawnen (minimaal 2 s)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "+15% munten van gewone vijanden"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "+10% statistieken uit elke samenvoeging"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "+10% schade tegen bazen"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "+25% offline voorwerptempo"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+10% maximale HP"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "Reuzendoder"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "+25% schade tegen bazen"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "Bazenwacht"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "Je krijgt 20% minder schade van bazen"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "Premie"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "+100% munten van bazen"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "Spoorzoeker"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "+20% schade tegen gewone vijanden"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "Munten onderweg"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "+30% munten van gewone vijanden"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "Lessen onderweg"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "+30% XP van gewone vijanden"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "Zorgvuldige verzamelaar"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+100% bereik automatisch verzamelen"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "Uitrustingsgeluk"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "+3 punten dropkans op uitrusting"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "Voorraadgeluk"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "+5 punten dropkans op voorraad"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "Fijn vakwerk"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "+25% statistieken uit elke samenvoeging"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "Herrolkunst"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "Opnieuw rollen kost 50% minder edelstenen"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "Sterke basis"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "+20% basisstatistieken van je uitgeruste wapen en outfit"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "Pantserreserve"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+20% maximale HP"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "Wapentraining"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "+15% schade van aanvallen en vaardigheden"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "Gebalanceerde uitrusting"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "Je krijgt 10% minder schade van elke vijand"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "Ontdekkingsreiziger"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+15% bewegingssnelheid"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "Verre blik"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "+50% verkenningsradius om je heen"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "Kampverkenning"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "Kampen kosten 50% minder munten"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "Precisie"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "+15 punten kans op kritieke treffer"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "Vastberadenheid"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "Genees 5% van de schade die je toebrengt"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "Harde klap"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "Kritieke treffers doen nog eens +75% schade"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "Muntwijsheid"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "+25% munten van elke vijand"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "Edelsteenwijsheid"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "+5 punten dropkans op edelstenen"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "Wijs besteden"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "Muntupgrades kosten 15% minder"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "Missiemunten"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "+50% munten uit missies"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "Missie-edelstenen"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "+50% edelstenen uit missies"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "Gerichte oefening"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "+25% vaardigheidsschade, genezing en Focus"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "Trofeeënjager"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "+50% XP van bazen"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "Trofeeënkracht"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "+20% schade tegen bazen"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "Trofeeënedelstenen"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "+50% edelstenen van bazen"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "Stille munten"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "+50% offline munten per uur"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "Stille edelstenen"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "+50% offline edelstenen per uur"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "Stille vondsten"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "+50% offline voorwerptempo"
+
+msgid "CHAIN_PROGRESS"
+msgstr "Stap %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "Ontwikkelingsopslag gereset voor deze update. Nieuwe voortgang kan worden opgeslagen."
+
+msgid "HEAL_ROLE"
+msgstr "Ondersteuning: nu %s HP, elke %s s. Gratis te gebruiken; maximaal 12%% van max. HP. Drankjes geven sterkere noodgenezing."
+
+msgid "REGULAR_MISSIONS"
+msgstr "Jachtopdrachten"
+
+msgid "GUIDE_CHOOSE"
+msgstr "Hoeveel begeleiding wil je?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "Begeleid · leer één actie tegelijk"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "Basis · alle menu's open, kort overzicht"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "Geen · alle menu's open, geen tips"
+
+msgid "GUIDE_REVIEW"
+msgstr "Begeleiding opnieuw kiezen"
+
+msgid "GUIDE_GOT_IT"
+msgstr "Begrepen"
+
+msgid "GUIDE_MOVE"
+msgstr "Volg het pad aan je linkerkant."
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "Sleep de joystick naar de pijl. De eerste vijanden wachten langs het pad."
+
+msgid "GUIDE_KILL"
+msgstr "Stop naast een vijand om aan te vallen"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "Sta even stil en je valt automatisch aan. Wintervijanden vechten alleen terug."
+
+msgid "GUIDE_COLLECT"
+msgstr "Tik op het gevallen voorwerp"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "Buit blijft een tijdje op de grond liggen. Munten en edelstenen worden automatisch toegevoegd."
+
+msgid "GUIDE_EQUIP"
+msgstr "Tik op je nieuwe voorwerp"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "Voorwerpdetails vergelijken het met wat je nu draagt."
+
+msgid "GUIDE_MERGE"
+msgstr "Open het voorwerp dat je dubbel hebt"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "Een exemplaar samenvoegen maakt het voorwerp permanent sterker."
+
+msgid "GUIDE_UPGRADE"
+msgstr "Tik op Upgrades voor deze vijand"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "Elk vijandtype heeft eigen upgrades voor buit, munten en ervaring."
+
+msgid "GUIDE_CAMP"
+msgstr "Open Wereld om een kamp te ontgrendelen"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "Je hebt een kamp gevonden en kunt het betalen. Open Wereld, of loop naar het kamp en tik op Kamp bekijken."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "Lopen, vechten, verzamelen"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "Sleep de joystick om te lopen. Sta stil bij een vijand om aan te vallen. Tik op gevallen buit om die op te rapen."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "Deze vijanden merken je van dichtbij op"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "Vijanden in Winter II vallen aan als je dichtbij komt. Benader ze één voor één."
+
+msgid "GUIDE_SKILLS"
+msgstr "Vaardigheden ondersteunen je uitrusting"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "Tik op een uitgeruste vaardigheid om die te gebruiken. Genezen werkt gestaag; drankjes herstellen meer in één keer."
+
+msgid "GUIDE_GROUPS"
+msgstr "Sommige vijanden roepen nu hulp in"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "Zomervijanden helpen bondgenoten van hun soort in de buurt. Let op je gezondheid."
+
+msgid "PRESTIGE_GATE"
+msgstr "Voltooi eerst de winter: versla de Cyaanrobot om Zomer I te bereiken."
+
+msgid "NAV_PRESTIGE"
+msgstr "Prestige"
+
+msgid "PANEL_WORLD"
+msgstr "Wereld"
+
+msgid "TAB_OFFLINE"
+msgstr "Offline"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "Open deze upgrades met de knop Upgrades of door op je personage te tikken."
+
+msgid "HUD_RESTING"
+msgstr "· Rust"
+
+msgid "ITEM_PREVIOUS"
+msgstr "Vorig voorwerp"
+
+msgid "ITEM_NEXT"
+msgstr "Volgend voorwerp"
+
+msgid "ITEM_POSITION"
+msgstr "%d van %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "Indien uitgerust: %s"
+
+msgid "NO_CHANGE"
+msgstr "geen verandering"
+
+msgid "EQUIPPED_NOW"
+msgstr "Nu uitgerust: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "Nog niets uitgerust in dit vak."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "Uitgerust: volledige statistieken"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "Opgeslagen: 30% van de statistieken"
+
+msgid "UPGRADE_LEVEL"
+msgstr "Niveau %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "Baas"
+
+msgid "ENEMY_KILLS"
+msgstr "Verslagen: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "Respawnkamp"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "Ontgrendeld"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "Vergrendeld · %s munten"
+
+msgid "SECTION_CAMPS"
+msgstr "Kampen"
+
+msgid "CAMPS_HIDDEN"
+msgstr "Nog te ontdekken kampen: %d. Verken om ze te vinden."
+
+msgid "SECTION_TRAVEL"
+msgstr "Reis naar een ander gebied"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "Kaartupgrades"
+
+msgid "SECTION_DANGER"
+msgstr "Gevarenzone"
+
+msgid "CAMP_UNLOCK"
+msgstr "Ontgrendelen"
+
+msgid "CAMP_SELECT"
+msgstr "Hier respawnen"
+
+msgid "CAMP_TRAVEL"
+msgstr "Reizen"
+
+msgid "CARD_OWNED"
+msgstr "In bezit"
+
+msgid "CARD_SELECTED"
+msgstr "Gekozen"
+
+msgid "CARD_LOCKED"
+msgstr "Nog niet verdiend"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "Klaar"
+
+msgid "PRESTIGE_INTRO"
+msgstr "Voltooi kansen om permanente kaarten te verdienen. Prestige verzilvert alle kansen die klaar zijn in één keer en start een nieuwe run."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "Klaar: %d  ·  Kaarten: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "Nog geen kansen ontdekt. Versla bazen, voeg samen en verken om ze te vinden."
+
+msgid "NO_CARDS_YET"
+msgstr "Nog geen kaarten."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "Kansen om te verzilveren: %d (%s).\n\nVoor elke kans kies je één permanente kaart, daarna start de run één keer opnieuw.\n\nBlijft: kaarten, baassleutels, prestaties, edelsteenupgrades, automatisering, instellingen.\nGereset: munten, voorwerpen, niveau, kampen, kaartverkenning, muntupgrades en onvoltooide uitdagingen."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "Kies een beloning · %d van %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "Al gekozen: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "Je houdt"
+
+msgid "PRESTIGE_KEEP"
+msgstr "Kaarten en sets, je edelstenen, verkende kaartgebieden, elke upgrade gekocht met edelstenen (alle categorieën), automatisering, inventarisruimte, baassleutels, vijandprestaties, spelerniveau en XP, Kaartmeesterschap en instellingen."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "Deze run reset"
+
+msgid "PRESTIGE_RESET"
+msgstr "Munten, voorwerpen (inclusief voorraad) en samenvoegingen, Voorraadmeesterschap, toegang tot kaarten en eigen kampen, kaart- en muntupgrades en onvoltooide uitdagingen."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "%s houden"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "Tik op een kaart om die te kiezen"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "%s permanent houden? Dit is de laatste keuze: de nieuwe run start meteen daarna."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "Prestigekans gevonden!"
+
+msgid "MILESTONE_READY"
+msgstr "Kans voltooid!"
+
+msgid "MILESTONE_CARD"
+msgstr "Kaart verdiend: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "Een nieuwe run begint"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "Permanente kaarten toegevoegd aan je collectie: %d."
+
+msgid "MILESTONE_STAGE"
+msgstr "Nieuw gebied ontgrendeld"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "Set Bazenjager"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "Set Expeditie"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "Set Collectie"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "Set Meesterwerk"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "Set Arsenaal"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "Set Regio's"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "Set Uitdaging"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "Set Offer"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "Set Specialist"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "Set Trofeeën"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "Set Offline"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "Voorbereide ontdekker"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "Toegewijde farmer"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "Ambachtelijke reis"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "Bazenspecialist"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "Geduldige verzamelaar"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "Evenwichtige groei"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "Blijf vijanden verslaan"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "Je eerste wapen of outfit valt binnen een paar overwinningen."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "Tik op Uitrusten"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "Uitgeruste uitrusting geeft volledige statistieken. Opgeslagen uitrusting geeft nog steeds 30%."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "Tik op Samenvoegen"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "Elke samenvoeging kost één extra exemplaar en verhoogt het niveau van het voorwerp."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "Verzamel een tweede exemplaar"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "Een passend exemplaar valt binnen een paar overwinningen."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "Vind eerst een vijand"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "Loop dicht naar vijanden zodat hun upgrades beschikbaar worden."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "Verdien munten voor een upgrade"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "Nog %s munten nodig. Elke verslagen vijand laat munten vallen."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "Open het tabblad Upgrades"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "Daar staan de upgrades voor dit vijandtype."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "Koop een upgrade"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "Een betere buitkans is een goede eerste keuze."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "Verken om nog een kamp te vinden"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "Loop de mist in. Kampen verschijnen zodra je ze onthult."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "Verdien munten voor het kamp"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "Nog %s munten nodig. Blijf vijanden verslaan."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "Tik op Ontgrendelen"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "Het kamp wordt een respawnpunt en onthult het land eromheen."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "Kamp ontgrendeld"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "Gebruik Hier respawnen om hier na een nederlaag terug te keren. Rusten bij een kamp geneest snel."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "Prestigekans gevonden"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "Voltooi hem voor een permanente kaart. Vind eerst de Sneeuwpop; in de begeleide modus moet je ook de tutorial afronden."
+
+msgid "GUIDE_REST"
+msgstr "Weinig gezondheid?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "Stap weg van gevechten. Rusten bij een ontgrendeld kamp geneest je snel."
+
+msgid "SECTION_REWARDS"
+msgstr "Beloningen"
+
+msgid "SECTION_AUTOMATION"
+msgstr "Automatisering"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "Vergrendeld"
+
+msgid "PROGRESS_MERGE"
+msgstr "Beste tot nu toe: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "Wapens op ^50: %d/%d · Outfits op ^50: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "Trofeeën: %d / %d (elke baas laat er een vallen bij de volgende nederlaag)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "Gevonden deze run: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "Win het gevecht zonder drankjes of tonica te gebruiken."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "Verkend %s · bazen %d/%d · kampen %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "Gouden zwaard"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "Diamanten zwaard"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "Smaragden zwaard"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "Obsidiaan zwaard"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "Houten bijl"
+
+msgid "ITEM_STONE_AXE"
+msgstr "Stenen bijl"
+
+msgid "ITEM_IRON_AXE"
+msgstr "IJzeren bijl"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "Gouden bijl"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "Diamanten bijl"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "Smaragden bijl"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "Obsidiaan bijl"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "Vind een wapen of outfit"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "Die vondst was voorraad. Blijf vijanden verslaan: soms laten ze het wapen of de outfit vallen die ze dragen, en dat vult een leeg uitrustingsvak."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "Raap de uitrusting op"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "Er is een wapen of outfit gevallen. Tik erop om het in een uitrustingsvak te leggen."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "Je kunt alleen een kans volgen die bezig is."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "Voltooi %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "Klaar om op te halen"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ Opgehaald"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "Voltooide doelen (%d) · %s"
+
+msgid "SHOW"
+msgstr "Tonen"
+
+msgid "HIDE"
+msgstr "Verbergen"
+
+msgid "PLAYTIME_LINE"
+msgstr "Speeltijd: %s · Deze run: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "Welkom terug!"
+
+msgid "OFFLINE_AWAY"
+msgstr "Weg: %s · beloonde uren: %s"
+
+msgid "OFFLINE_CLAIM"
+msgstr "Offline opbrengst ophalen"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "Offline opbrengst opgehaald"
+
+msgid "OFFLINE_NOTHING"
+msgstr "Er wacht geen offline opbrengst."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "Er wacht offline opbrengst om opgehaald te worden."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "Laatst opgehaald: beloonde uren: %s · %s munten · %s edelstenen"
+
+msgid "NAV_UPGRADES"
+msgstr "Upgrades"
+
+msgid "STATS_OPEN"
+msgstr "Statistieken"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "Nieuwe upgrades ontgrendeld: %s (Speler-upgrades)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "Vind de Sneeuwpop in Winter I (de eerste baas) om de prestigereset te ontgrendelen."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "Vind de Sneeuwpop"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "Je hebt al elke kaart die deze kansen kunnen opleveren."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "Vind deze plek eerst op de kaart."
+
+msgid "EQUIPPED_PINNED"
+msgstr "Uitgerust"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "Wapen"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "Outfit"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "Leeg vak"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "UITGERUST"
+
+msgid "COMPARE_SELECTED"
+msgstr "GEKOZEN"
+
+msgid "COMPARE_ITEM"
+msgstr "VOORWERP"
+
+msgid "COMPARE_UPGRADE"
+msgstr "Beter"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "Slechter"
+
+msgid "COMPARE_MIXED"
+msgstr "Afweging"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "Rang %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "Groeit door exemplaren van zichzelf samen te voegen, tot ^%d. Wordt nooit een ander voorwerp; na ^100 levert elke samenvoeging iets minder op."
+
+msgid "FOLLOW_READY"
+msgstr "Klaar! Open Prestige om een kaart te kiezen"
+
+msgid "FOLLOW_STEP"
+msgstr "Stap %d/%d · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "Versla %s: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "Versla %s zonder tijdens het gevecht voorraad te gebruiken: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "Missies ophalen"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "Personage"
+
+msgid "STATS_LEVEL"
+msgstr "Niveau"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "Gebied"
+
+msgid "STATS_PRESTIGES"
+msgstr "Voltooide prestiges"
+
+msgid "STATS_CARDS"
+msgstr "Prestigekaarten"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "Aanval"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "Aanvalssnelheid"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/s (+%s%%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "Verdediging en herstel"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%s%% schade)"
+
+msgid "STATS_RESPAWN"
+msgstr "Respawntijd"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "Boosts"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "Prestigevermenigvuldigers"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "HP ×%s · Schade ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "Bewegingssnelheid"
+
+msgid "STATS_STORED_SHARE"
+msgstr "Aandeel opgeslagen uitrusting"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "Bonus uitgeruste uitrusting"
+
+msgid "STATS_SECTION_TIME"
+msgstr "Speeltijd"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "Alle runs"
+
+msgid "STATS_TIME_RUN"
+msgstr "Deze run"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "schade"
+
+msgid "STATS_SHORT_HP"
+msgstr "HP"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "verd."
+
+msgid "STATS_SHORT_CRIT"
+msgstr "krit."
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "krit. schade"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "aanvalssn."
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "levensroof"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "HP/s"
+
+msgid "CAMP_SIGHTED"
+msgstr "Kamp gezien! Het staat nu op je kaart en in het Wereld-paneel."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "HP-bonus van kaarten en meesterschap"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "Schadebonus van kaarten en meesterschap"
+
+msgid "STAT_REGEN_PCT"
+msgstr "Herstel"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "max. HP/s"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "max. HP/s"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s%% max. HP/s (%s HP/s)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "Outfitmijlpalen (gedragen)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "Wapens %s%% · Outfits %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "Bescherming +%s verdediging"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s HP"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%s%% outfit-HP"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "Herstel %s%% max. HP/s"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "Mijlpalen (zolang gedragen): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "Mijlpalen: nog geen. De eerste komt vrij op ^100."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "Alle mijlpalen bereikt (meesterschap)."
+
+msgid "MILESTONE_NEXT"
+msgstr "Volgende op ^%d: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "Groeit door exemplaren van zichzelf samen te voegen, tot ^%d: +2%% van de basis-HP per exemplaar tot ^100, daarna +1%% per exemplaar. Wordt nooit een ander voorwerp. Mijlpalen werken alleen zolang je de outfit draagt; opgeslagen telt %s%% van zijn HP."
+
+msgid "PANEL_LEVEL"
+msgstr "Spelerniveau en groei"
+
+msgid "PANEL_FARMING"
+msgstr "Farmgids"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "Tik voor niveaugroei en bronnen van statistieken"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "Vakken %d → %d van %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "Vakken %d / %d · maximaal"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · maximaal"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "Baas geeft %s edelstenen per drop"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "Farmgids"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "Prestige vergrendeld · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "Prestigereset vereist"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "De Sneeuwpop in Winter I vinden (eerste baas)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "Minstens één kans die klaar is en een kaart kan opleveren"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "vind de Sneeuwpop"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "geen kans klaar"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "geen kaart meer te verdienen"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "Andere bronnen van statistieken"
+
+msgid "BREAKDOWN_HP"
+msgstr "Waar je HP vandaan komt"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "Waar je schade vandaan komt"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "Vóór prestige"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "Kaarten en meesterschap"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "Totaal (gebruikt in gevechten)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "Per treffer, niet in het totaal"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "Schade die je oploopt"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "Spelerniveaus (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "Opgeslagen uitrusting (outfits %s%%, wapens %s%%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "Uitgeruste uitrusting (incl. +%s%% kaart)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "Killmijlpalen tegen %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "Prestige tegen gewone vijanden"
+
+msgid "PER_HIT_BOSS"
+msgstr "Prestige tegen bazen"
+
+msgid "PER_HIT_FOCUS"
+msgstr "Focus (nog %d s)"
+
+msgid "TAKEN_GUARD"
+msgstr "Prestigebescherming"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "Prestigebescherming tegen bazen"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "Niveau %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "Maximaal niveau bereikt. Niveaus voegen niets meer toe."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s XP · nog %s tot niveau %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "Niveaugroei"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "Elk niveau (basis)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s HP · +%s schade"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "Behaalde niveaus tot nu toe: %d"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "HP op niveau %d"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "Schade op niveau %d"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "Prestigekaarten vermenigvuldigen elke bron: HP ×%s, schade ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "Waar je elke vijand farmt en wat die laat vallen. De vermelding van een kaart gaat open zodra de Kaartdetails maximaal zijn en van elk vijandtype daar Statistieken en Drops zijn onthuld. Alleen ontdekte plekken tonen hun locatie."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "je bent hier"
+
+msgid "FARMING_READY"
+msgstr "Vermelding ontgrendeld"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "Openen"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "Kaartdetails %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "Statistieken en drops: %d/%d typen"
+
+msgid "FARMING_LOCKED"
+msgstr "Vereist: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "Nog niet bereikte kaarten: %d."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "Farmen · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "Kansen zijn inclusief je huidige upgrades. Richtingen gaan uit van het dichtstbijzijnde bekende kamp op deze kaart."
+
+msgid "FARMING_BACK"
+msgstr "Alle kaarten"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "Onontdekte vijand · verken deze kaart om hem te vinden"
+
+msgid "FARMING_REWARDS"
+msgstr "Munten ×%s · Edelstenen %s%% ×%s · XP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "Voorraad: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "Onontdekte plek"
+
+msgid "FARMING_DETAILS"
+msgstr "Details"
+
+msgid "FARMING_AT_CAMP"
+msgstr "Bij kamp %d"
+
+msgid "FARMING_LOCATION"
+msgstr "%s van kamp %d · %s"
+
+msgid "COMPASS_N"
+msgstr "Ten noorden"
+
+msgid "COMPASS_NE"
+msgstr "Ten noordoosten"
+
+msgid "COMPASS_E"
+msgstr "Ten oosten"
+
+msgid "COMPASS_SE"
+msgstr "Ten zuidoosten"
+
+msgid "COMPASS_S"
+msgstr "Ten zuiden"
+
+msgid "COMPASS_SW"
+msgstr "Ten zuidwesten"
+
+msgid "COMPASS_W"
+msgstr "Ten westen"
+
+msgid "COMPASS_NW"
+msgstr "Ten noordwesten"
+
+msgid "DISTANCE_NEAR"
+msgstr "dichtbij"
+
+msgid "DISTANCE_MID"
+msgstr "een stukje lopen"
+
+msgid "DISTANCE_FAR"
+msgstr "ver weg"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "Hé! Mijn outfit!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "Mijn wapen!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "Mijn spreukenboek!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "Mijn voorraad!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "Beschermingstonicum"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "Herstelzalf"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "Wijsheidstonicum"
+
+msgid "FOLLOW_COLLECT"
+msgstr "Stap %d/%d · Verzamel %s van %s: %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "Alles gevonden! Lever ze in: Prestige, dan Inleveren"
+
+msgid "FILTERS"
+msgstr "Filters"
+
+msgid "FILTERS_ACTIVE"
+msgstr "Filters · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "Filter het uitrustingsraster. Als je Filters sluit, zie je weer alle voorwerpen."
+
+msgid "PANEL_FILTERS"
+msgstr "Filters"
+
+msgid "FILTERS_HINT"
+msgstr "Zolang Filters open is, toont het uitrustingsraster alleen deze categorie. Sluit je het, dan zie je weer alle voorwerpen."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "Voorraadvakken: één per voorraadtype (%d typen). Filters staan naast de uitrustingsteller."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "Elke 3 echte keren gebruik van deze voorraad geven één meesterschapsniveau, tot ^%d. Aankopen en drops vullen alleen de voorraad aan. Prestige reset het meesterschap en de gebruiksvoortgang."
+
+msgid "BUY_SUPPLY"
+msgstr "%s kopen · %s munten"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · nog %d s"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "Actief: %s · nog %d s"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "Koelt af · %s s"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "Klaar voor gebruik"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "Automatisch gebruik: bij %s%% HP of minder, na de afkoeltijd"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "Automatisch gebruik: altijd als het niet actief is"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "Automatisch gebruik: tijdens gevechten, als het niet actief is"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "Automatisch gebruik: bij %s%% HP of minder, als het niet actief is"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "Automatisch gebruik: altijd als het niet actief is"
+
+msgid "SUPPLY_STOCK"
+msgstr "Voorraad: %s · elk gebruik kost er één"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "Volgend gevonden exemplaar: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "Meesterschapsbonus: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "duur %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "afkoeltijd %s s"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%s%% max. HP"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%s%% munten"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%s%% XP"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s verdediging"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "%s%% max. HP per seconde"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "Geneest %s%% van max. HP (nu %s HP) · afkoeltijd %s s · bruikbaar onder %s%% HP"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "+%s%% munten van verslagen vijanden gedurende %s s"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s verdediging (%s%% minder schade) gedurende %s s"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "Geneest %s%% van max. HP per seconde gedurende %s s (%s%% in totaal) · bruikbaar onder %s%% HP"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "+%s%% XP van verslagen vijanden gedurende %s s"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "Meesterschap ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "Auto: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "Je HP is te hoog voor deze voorraad."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "Het drankje koelt nog af."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "Al actief. Gebruik het opnieuw als het is uitgewerkt."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "Elke drie keer gebruik verhoogt het Voorraadmeesterschap. Prestige reset het meesterschap en de gebruiksvoortgang."
+
+msgid "SOURCE_SUPPLY"
+msgstr "Actieve voorraad"
+
+msgid "CAMP_TELEPORT"
+msgstr "Teleporteren"
+
+msgid "PANEL_TELEPORT"
+msgstr "Teleporteren"
+
+msgid "TELEPORT_TITLE"
+msgstr "Teleporteren"
+
+msgid "TELEPORT_HELP"
+msgstr "Kies een ander kamp dat je bezit, op deze kaart of op een kaart die je hebt bereikt. Teleporteren kan niet tijdens gevechten."
+
+msgid "TELEPORT_HERE"
+msgstr "Je bent hier"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "Gekozen bestemming"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "Deze kaart"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "Andere kaart"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "Kiezen"
+
+msgid "TELEPORT_BACK"
+msgstr "Terug"
+
+msgid "TELEPORT_GO"
+msgstr "Teleporteren · %s · Kamp %d"
+
+msgid "TELEPORT_PICK"
+msgstr "Kies een bestemming"
+
+msgid "TELEPORT_NONE"
+msgstr "Nog geen ander kamp. Ontgrendel nog een kamp om ernaartoe te teleporteren."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · Kamp %d"
+
+msgid "MAP_EXPLORED"
+msgstr "Kaart verkend: %d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "Hoeveel van deze kaart je definitief hebt verkend. Kort zicht en het bewegen van de camera tellen niet mee."
+
+msgid "SECTION_AUDIO"
+msgstr "Geluid en muziek"
+
+msgid "MUSIC_VOLUME"
+msgstr "Muziek %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "Geluidseffecten %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "Gameplaygeluiden dempen: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "Speciale geluiden dempen: %s"
+
+msgid "AUDIO_HINT"
+msgstr "Gameplaygeluiden: tikken, aankopen, samenvoegingen en gevechten. Speciale geluiden: meldingen (een missie of doel klaar om op te halen, prestigenieuws, een nieuw menu, voortgang in Kaartmeesterschap, een gevonden baas) en mijlpalen (een nieuwe kaart, een prestige). Het volume van geluidseffecten regelt beide."
+
+msgid "UP_MERGE_ALL"
+msgstr "Alles samenvoegen"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "Eenmalige ontgrendeling: een knop Alles samenvoegen in Filters voegt alle extra exemplaren met één tik samen · gratis te gebruiken · blijft bij prestige"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "Ontgrendeld · gebruik Alles samenvoegen in Filters"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "Alles samenvoegen is nog niet ontgrendeld"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "Alles samenvoegen: ontgrendel het eenmalig voor 5K edelstenen in Upgrades → Inventaris."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "Alles samenvoegen · %d extra exemplaren"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "Alles samenvoegen"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "Niets om samen te voegen"
+
+msgid "MERGE_ALL_DONE"
+msgstr "Samengevoegde exemplaren: %d · voorwerpen: %d"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "Automatisch evolueren ontgrendelen"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "Voegt extra exemplaren samen van: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "Aan · voegt samen: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Evolueert op ^100 met 101 exemplaren: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "Aan · evolueert: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "Afkoeltijd: %s s"
+
+msgid "GATE_HUD"
+msgstr "Verder: bazen %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "Wereld vrij · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "Bazen die je op deze kaart moet verslaan om de volgende te openen. Gevonden bazen die nog meetellen hebben de gouden banier."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "Volgend gebied al open"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "Onontdekte baas"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · verslagen"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · nog nodig"
+
+msgid "OFFERING_PROGRESS"
+msgstr "%s / %s munten · %s / %s edelstenen"
+
+msgid "SECTION_RESEARCH"
+msgstr "Onderzoek"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "Gericht farmen ontgrendeld"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "Tik hieronder op Farmen: je held loopt naar deze plek en vecht hier zelf. Tik nog eens of beweeg om te stoppen."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "Tik op Farmen om te beginnen"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "Je held loopt naar deze plek en vecht hier zelf. Bewegen stopt het."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "Gericht farmen ontgrendeld"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "Open de Upgrades van deze vijand en tik bovenaan op Farmen."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "Gericht farmen ontgrendeld"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "Tik op die vijand in de wereld of op de kaart en tik dan op Farmen."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "Vind eerst deze plek"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "Farmen gaat alleen naar plekken die je hebt gevonden. Kies hierboven een gevonden plek."
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "Nieuwe uitrusting: tik erop en dan op Uitrusten"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "Uitgeruste uitrusting geeft volledige statistieken. Opgeslagen uitrusting voegt nog een deel toe."
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "Twee dezelfde: open het en kies Samenvoegen"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "Een extra exemplaar samenvoegen maakt het voorwerp permanent sterker."
+
+msgid "GUIDE_MISSIONS"
+msgstr "Missies ontgrendeld: open Missies"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "Doelen en dagelijkse missies leveren munten en edelstenen op."
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "Tik op Ophalen"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "Voltooide doelen wachten hier tot je hun beloning ophaalt."
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "Nog niets om op te halen"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "De knop Missies toont ! als er een beloning klaarstaat."
+
+msgid "GUIDE_SLOTS"
+msgstr "Upgrades ontgrendeld: open Upgrades"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "Speler-upgrades gelden voor deze run; edelsteenupgrades houd je voorgoed."
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "Open het tabblad Inventaris"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "Met meer uitrustingsvakken kun je meer soorten uitrusting houden."
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "Koop een uitrustingsvak"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "Elke soort voorwerp heeft een eigen vak nodig; exemplaren stapelen."
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "Open het tabblad Voorraad"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "Voorraad helpt in zware gevechten."
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "Koop een Gezondheidsdrankje"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "Tik op een drankje in je voorraad om tijdens een gevecht te genezen."
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "Verdien munten voor een Gezondheidsdrankje"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "Nog %s munten nodig. Elke verslagen vijand laat munten vallen."
+
+msgid "GUIDE_SNOWMAN"
+msgstr "Hoofddoel: versla de Sneeuwpop"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "Hem verslaan opent Winter II; hem vinden opent Prestige. Voeg eerst uitrusting samen, stijg in niveau en neem drankjes mee."
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "Prestige ontgrendeld: open Prestige"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "Kansen daar leveren permanente kaarten op."
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "Tik op Volgen bij een kans"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "De volgende stap verschijnt op de kaart. Is een kans klaar, dan start Prestige de wereld opnieuw en houd je de kaart."
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "Voltooi een kans"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "Nieuwe kansen verschijnen tijdens het spelen. Is een kans klaar, dan start Prestige de wereld opnieuw en houd je de kaart."
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "Missies ontgrendeld"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "Doelen en dagelijkse missies leveren munten en edelstenen op. Haal ze op in Missies."
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "Vijandupgrades ontgrendeld"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "Tik op Upgrades boven de kaart (of op een vijand) om zijn buit, munten en XP te verhogen."
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "Wereldkaart ontgrendeld"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "De minikaart en Wereld tonen waar je bent geweest. Ontgrendel kampen om daar te respawnen en uit te rusten."
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "Speler-upgrades ontgrendeld"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "Koop uitrustingsvakken, voorraad en permanente edelsteenupgrades in Upgrades."
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "Hoofddoel: versla de Sneeuwpop"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "Hem verslaan opent Winter II; hem vinden opent Prestige. Voeg eerst uitrusting samen, stijg in niveau en neem drankjes mee."
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "Prestige ontgrendeld"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "Voltooi een kans en gebruik dan Prestige om opnieuw te beginnen met een permanente kaart."
+
+msgid "GUIDE_SKIP"
+msgstr "Overslaan"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "Uitrusting dragen en samenvoegen"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "Tik op uitrusting in je inventaris en dan op Uitrusten voor de volledige statistieken; opgeslagen uitrusting voegt nog een deel toe. Twee dezelfde voorwerpen worden samen één voorwerp dat permanent sterker is."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "Upgrades en missies"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "Tik op een vijand (of op Upgrades boven de kaart) om zijn buit, munten en XP te verhogen. Speler-upgrades verkoopt uitrustingsvakken, voorraad en permanente edelsteenupgrades. Haal missies op voor munten en edelstenen."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "Verkennen, kampen en gebieden"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "Lopen verdrijft de mist; de minikaart en Wereld tonen waar je bent geweest. Ontgrendel kampen in Wereld om daar te respawnen en uit te rusten. Versla de bazen van een kaart om het volgende gebied te openen."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "Prestige en Kaartmeesterschap"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "De Sneeuwpop in Winter I vinden ontgrendelt de prestigereset: voltooi een kans en gebruik dan Prestige om opnieuw te beginnen met een permanente kaart. Kaartmeesterschap volgt de langetermijndoelen van elke kaart."
+
+msgid "EXIT_TITLE"
+msgstr "LootFarmer verlaten?"
+
+msgid "EXIT_CONFIRM"
+msgstr "Je voortgang is opgeslagen. Je kunt altijd terugkomen."
+
+msgid "EXIT_ACTION"
+msgstr "Afsluiten"
+
+msgid "SECTION_TUTORIAL"
+msgstr "Tutorial en hulp"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "Nu alle menu's tonen"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "Nu elk menu tonen? Normaal verschijnen nieuwe menu's terwijl je het spel leert. Prestige vereist nog steeds dat je de Sneeuwpop ontdekt; de begeleide modus vereist ook dat je de tutorial afrondt."
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "Alle menu's zijn nu beschikbaar"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "Elk menu is al beschikbaar"
+
+msgid "PANEL_MASTERY"
+msgstr "Kaartmeesterschap"
+
+msgid "MASTERY_OPEN"
+msgstr "Kaartmeesterschap · Spel %d%%"
+
+msgid "MASTERY_INTRO"
+msgstr "Optionele doelen voor 100% voltooiing. Voortgang is permanent en blijft bij prestige."
+
+msgid "MASTERY_GAME"
+msgstr "Spelvoltooiing %d%%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "Alle acht kaarten: titel %s · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ Verdiend: titel %s · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "Beloning: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ Beloning verdiend: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "Details"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "Bereik deze kaart om te beginnen"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "Meesterschap · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ Alle kaarten"
+
+msgid "MASTERY_EXPLORE"
+msgstr "Verkennen"
+
+msgid "MASTERY_HUNT"
+msgstr "Jagen"
+
+msgid "MASTERY_RESEARCH"
+msgstr "Onderzoek"
+
+msgid "MASTERY_COLLECT"
+msgstr "Verzamelen"
+
+msgid "MASTERY_FORGE"
+msgstr "Smeden"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "Verken de hele kaart en ontgrendel elk kamp."
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "Versla %s van elk vijandtype en %s van elke baas."
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "Onthul Statistieken en Drops van elke vijand hier."
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "Verkrijg elk wapen, elke outfit en elke vaardigheid die hier valt."
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "Outfits van hier tot ^%s (baasoutfits ^%s) en één wapen van hier geëvolueerd."
+
+msgid "MASTERY_MORE"
+msgstr "+%d meer"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "Kaart %d%% van 100%% verkend"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "Kamp %d nog niet ontgrendeld"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · Statistieken onthullen"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · Drops onthullen"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "Laat er één evolueren: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "Onontdekte vijand"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "Onontdekt voorwerp"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "+%s%% max. HP"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "+%s%% schade"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "+%s%% munten"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "+%s%% XP"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "+%s pt buitkans"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "+%s pt kans op edelstenen"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "Meesterschap · %s · %s voltooid"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "Prestige ontgrendeld"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "Gevonden kansen: %d · tik om te openen"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "Voltooi een kans en gebruik dan Prestige voor een permanente kaart"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "Kaart beheerst · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "100% voltooid"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "Meesterfarmer"
+
+msgid "STATS_COMPLETION"
+msgstr "Spelvoltooiing"
+
+msgid "STATS_TITLE"
+msgstr "Titel"
+
+msgid "STATS_MASTERY"
+msgstr "Kaartmeesterschap"
+
+msgid "MAIN_HINT_0"
+msgstr "Versla vijanden"
+
+msgid "MAIN_HINT_1"
+msgstr "Tik op een wapen of outfit in je inventaris en dan op Uitrusten"
+
+msgid "MAIN_HINT_2"
+msgstr "Open een voorwerp dat je dubbel hebt en tik dan op Samenvoegen"
+
+msgid "MAIN_HINT_3"
+msgstr "Loop naar een kamp, tik op Kamp bekijken en dan op Ontgrendelen"
+
+msgid "MAIN_HINT_4"
+msgstr "Versla de Sneeuwpop, de baas van Winter I"
+
+msgid "MAIN_HINT_5"
+msgstr "Rust de vaardigheid Genezen uit (Winter II: Ruimtehelm-elites en de Cyaanrobot laten die vallen)"
+
+msgid "MAIN_HINT_6"
+msgstr "Koop een rang Kaartdetails in Wereld"
+
+msgid "MAIN_HINT_7"
+msgstr "Vind de vaardigheid IJsstoot (Zomer I: Strohoed-elites laten die vallen)"
+
+msgid "MAIN_HINT_8"
+msgstr "Versla de Cyaanrobot, de baas van Winter II, om Zomer I te bereiken"
+
+msgid "MAIN_HINT_9"
+msgstr "Laat een wapen op ^100 met 101 exemplaren evolueren (voorwerpdetails, Evolueren)"
+
+msgid "MAIN_HINT_10"
+msgstr "Verzamel verschillende vaardigheden"
+
+msgid "MAIN_HINT_11"
+msgstr "Versla beide bazen van Zomer II om Herfst I te bereiken"
+
+msgid "MAIN_HINT_12"
+msgstr "Verzamel verschillende vaardigheden"
+
+msgid "MAIN_HINT_13"
+msgstr "Versla beide bazen van Herfst II om Lente I te bereiken"
+
+msgid "MAIN_HINT_14"
+msgstr "Voltooi een prestige"
+
+msgid "MAIN_HINT_15"
+msgstr "Versla elk vijandtype en elke baas van Lente II"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "Klaar! Haal het op in Missies"
+
+msgid "MISSION_DO_KILL"
+msgstr "Versla %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "Versla %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "Raap wapen- of outfitdrops op"
+
+msgid "MISSION_DO_MERGE"
+msgstr "Voeg voorwerpen samen"
+
+msgid "MISSION_DO_COINS"
+msgstr "Verdien munten van vijanden"
+
+msgid "MISSION_DO_CAST"
+msgstr "Gebruik uitgeruste vaardigheden"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "Volgende: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "Versla %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "Versla willekeurige vijanden"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "Raap wapen- of outfitdrops op"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "Voeg voorwerpen samen"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "Versla willekeurige bazen"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "Gebruik vaardigheden"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "Haal gewone missies op"
+
+msgid "FOLLOW_TROPHY"
+msgstr "Versla %s voor zijn trofee · trofeeën %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "Voeg een willekeurig wapen, outfit of vaardigheid samen tot ^100: beste ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "Voeg een voorwerp van rang %d of hoger samen tot ^100: beste ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "Voeg samen tot ^50: wapens %d/%d · outfits %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "Voeg uitrusting van rang 2+ samen tot ^50: wapens %d/%d · outfits %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "Verdien deze run van vijanden: munten %s/%s · edelstenen %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "Genoeg! Lever het in: Prestige, dan Inleveren"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "Totale tijd weg: %.1f/72 u"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "Langste afwezigheid: %.1f/24 u"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "Munten verdiend terwijl je weg was: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "Verken %s: %d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "Versla %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "Ontgrendel elk kamp in %s: %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "Daarna: %s (nog %d)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!WAARSCHUWING: BAAS GEVONDEN!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · baas van %s"
+
+msgid "MASTERY_CHIP"
+msgstr "Meesterschap %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "Kaartmeesterschap van deze kaart: percentage en voltooide categorieën. Tik voor details."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "Farm tot je de baas aankunt."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "De Sneeuwpop bewaakt de weg naar Winter II."
+
+msgid "VIEW_CAMP"
+msgstr "Kamp bekijken"
+
+msgid "DROP_ALL"
+msgstr "Alles laten vallen"
+
+msgid "DROP_ALL_TITLE"
+msgstr "De hele stapel laten vallen?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nElk exemplaar verlaat je inventaris en het vak is meteen vrij. De stapel blijft 5 minuten op de grond liggen: tik erop om hem weer op te rapen (automatisch verzamelen pakt hem nooit terug). Opnieuw oprapen levert geen voortgang op voor missies, Prestige of Meesterschap."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "meesterschap ^%d (blijft)"
+
+msgid "DROPPED_NOTICE"
+msgstr "%s × %s laten vallen"
+
+msgid "DROP_EQUIPPED"
+msgstr "Leg het eerst af"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "Geneest je nu %s HP (%s HP, hoogstens %s%% van max. HP) als je onder %s%% HP zit"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "+%s%% aanvalsschade gedurende 5 s (nu +%s schade per treffer) · alleen in gevechten"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× aanvalsschade (nu %s) aan elke vijand binnen %s van je, en vertraagt ze 3 s met 25%%"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× aanvalsschade (nu %s) aan je doelwit en elke vijand binnen %s ervan"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "%s× aanvalsschade (nu %s) aan je huidige doelwit"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "%s× aanvalsschade (nu %s) aan je huidige doelwit, een zware klap van dichtbij"
+
+msgid "SKILL_DESC_STATS"
+msgstr "Doelwitten: %s · Bereik: %s · Afkoeltijd: %s s"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "jij"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "alle vijanden in het gebied"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 vijand"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "zelf"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s HP"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s%% schade"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× aanvalsschade"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "Genezen kan altijd als je HP mist, ook buiten gevechten."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "Prestige"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "Kansen verzilveren (%d) en een nieuwe run beginnen"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "Je kiest voor elke kans één permanente kaart:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 kaart"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "PERMANENT · JE HOUDT"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "DEZE RUN RESET"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "Kaarten kies je één voor één en worden meteen opgeslagen. Na de laatste kaart begint de run opnieuw in Winter I."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "Prestige starten"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "Prestigekaarten en -sets (%d in bezit) plus de nieuwe"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "Je edelstenen: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "Verkende kaartgebieden, geziene kampen en gevonden bazen"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "Elke edelsteenupgrade, automatisering en inventarisruimte"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "Baassleutels, vijandprestaties en Kaartmeesterschap"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "Instellingen en tutorialvoortgang"
+
+msgid "RESET_LINE_COINS"
+msgstr "Munten: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "Spelerniveau %d (terug naar 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "Voorwerpen, samenvoegingen en voorraad"
+
+msgid "RESET_LINE_MAPS"
+msgstr "Toegang tot kaarten (terug naar Winter I) en eigen kampen"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "Muntupgrades en kaartupgrades"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "Onvoltooide kansen en missies"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "Tik op Kamp bekijken"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "Het opent dit kamp, waar je het kunt ontgrendelen."
+
+msgid "HELP"
+msgstr "Hulp"
+
+msgid "PANEL_HELP"
+msgstr "Hulp"
+
+msgid "HELP_INTRO"
+msgstr "Een kort overzicht van hoe LootFarmer werkt. Lezen verandert niets aan je spel."
+
+msgid "HELP_BACK"
+msgstr "Terug naar Instellingen"
+
+msgid "SECTION_LANGUAGE"
+msgstr "Taal"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "Kritieke kans"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "Kritieke schade"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "Automatische vaardigheidsvakken"
+
+msgid "SOURCE_UPGRADES"
+msgstr "Upgrades"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "Automatische vaardigheden: %d / %d toegewezen"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "Rust eerst een vaardigheid uit en koop een beschikbaar automatisch vak."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "Automatisch samenvoegen: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "Grootte inventarisvakken"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "Herstelt tot %s HP (%s%% van maximale HP). Altijd beschikbaar als je HP mist, ook buiten gevechten."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "Activeren vereist een gevecht en een vijand binnen %s eenheden."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "Eén doelwit. Verlaagt de aanvalssnelheid met %s%% gedurende %s seconden (bazen: %s seconden). Beweging verandert niet."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "Bazen weerstaan de helft van de duur van tijdelijke effecten; sterkte en schade blijven gelijk."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "Volgend meesterschapsniveau: %d / %d keer gebruikt · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "Automatisch gebruik: altijd als je HP mist en de afkoeltijd voorbij is, ook buiten gevechten."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "Tik op een groen kamp om te reizen. Gedimde kampen zijn vergrendeld. Reizen kan niet tijdens gevechten."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d s"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "Rond de begeleide introductie in Winter II af voordat je Prestige gebruikt."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "Spelerniveau %d, verdiende XP en niveaubonussen"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "Voorraadmeesterschap en voortgang naar het volgende niveau"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "Kies een kamp"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "Sluit dit paneel om verder te gaan."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "Tik op de sluitknop. Je voortgang is opgeslagen."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "Koop een speler-upgrade."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "Kies een algemene upgrade die je helpt in je volgende gevechten."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "Breid je uitrustingsinventaris uit."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "Koop met edelstenen nog een vak. Een eenmalige tutorialbonus vult een tekort aan."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "Volg de pijl naar het kamp."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "Ga erheen, ontdek het, tik dan op Kamp bekijken en koop de ontgrendeling."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "Vind de eerste baas."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "Volg de pijl naar de Sneeuwpop. Om hem te ontdekken hoef je hem niet te verslaan."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "Bereid je voor op het gevecht met de baas."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "Bazen kunnen te sterk zijn. Stijg in niveau voor algemene statistieken; farm uitrusting, voeg exemplaren samen en koop upgrades."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "Farm nog een paar vijanden."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "Word sterker en verzamel munten voordat je verdergaat."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "Koop een Gezondheidsdrankje."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "Open Speler-upgrades en dan Voorraad. Drankjes die je al hebt tellen mee."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "Maak ruimte voor een Gezondheidsdrankje."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "Koop een voorraadvak, of gebruik bestaande voorraad om een vak vrij te maken."
+
+msgid "GUIDE_POTION_USE"
+msgstr "Gebruik je Gezondheidsdrankje."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "Tik op het vak als je HP mist. Voorraad gebruiken verhoogt het meesterschap ervan."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "Gebruik een drankje als je genezing nodig hebt."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "Vecht eerst tegen vijanden in de buurt. Met volle HP verspil je nooit een drankje."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "Prestige geeft permanente voordelen."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "Voltooi kansen voor kaarten. De begeleide modus ontgrendelt de reset na deze tutorial; doorspelen zonder Prestige mag ook."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "Je komt al in aanmerking voor een prestigebeloning."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "Je kans is klaar. Rond de begeleide introductie in Winter II af voordat je beslist of je reset."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "De volgende kaart is open."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "Open Wereld om ontgrendelde gebieden en hun kampen te zien."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "Reis tussen ontgrendelde kampen."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "Wereld reist meteen als er één kamp ontgrendeld is, of toont een kaart als er meer zijn. Gevechten blokkeren teleporteren."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "Mijlpalen bieden optionele doelen."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "Bekijk Kaartmeesterschap en prestaties als je extra beloningen wilt. Ga via Wereld verder naar Winter II."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "Reis naar Winter II."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "Open Wereld en kies Winter II om het avontuur voort te zetten."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "DE WEG VOORUIT"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "Je uiteindelijke doel is de eindbaas in gebied 8 te verslaan en het spel te veroveren.\n\nNog meer uitdaging? Haal 100% voltooiing door elke mijlpaal in Kaartmeesterschap te halen.\n\nSpeel in je eigen tempo, geniet van de reis en veel succes!"
+
+msgid "SLOT_SMALL"
+msgstr "Klein"
+
+msgid "SLOT_MEDIUM"
+msgstr "Middel"
+
+msgid "SLOT_LARGE"
+msgstr "Groot"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "Algemeen"
+
+msgid "REVIEW_TITLE"
+msgstr "Vind je LootFarmer leuk?"
+
+msgid "REVIEW_LEAD"
+msgstr "Je avontuur is nog maar net begonnen!"
+
+msgid "REVIEW_BODY"
+msgstr "Mooie buit gevonden? We horen graag wat je ervan vindt. Een eerlijke review helpt ons LootFarmer te verbeteren en helpt andere spelers het spel te ontdekken."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Beoordelen op Google Play"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "Beoordelen op itch.io"
+
+msgid "REVIEW_LATER"
+msgstr "Misschien later"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "De winkelpagina kon niet worden geopend. Controleer je verbinding en probeer het opnieuw."
+
+msgid "SECTION_FEEDBACK"
+msgstr "Feedback"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "Kies een vijand als doelwit"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "Sleep van je held naar een vijand en laat los om die als doelwit te kiezen. Je richt je aanvallen dan op de gekozen vijand."
+
+msgid "GUIDE_TARGET"
+msgstr "Kies een vijand als doelwit"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "Sleep van je held naar een vijand en laat los om die als doelwit te kiezen. Je richt je aanvallen dan op de gekozen vijand."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "Zoek een vijand om aan te vallen"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "Loop tot je een vijand ziet, sleep dan van je held naar die vijand en laat los."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "Jaag op %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d pt"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s s"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d u %02d min"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d min %02d s"
+
+msgid "DURATION_SECONDS"
+msgstr "%d s"

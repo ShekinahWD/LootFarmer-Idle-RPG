@@ -1,0 +1,5834 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: uk_UA\n"
+"Language-Team: Ukrainian (Ukraine)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 02 (Change 39)\n"
+"X-LootFarmer-Source: localization/en.po 4440b694b8661a34e54e02ae9a1eeee4c517284cfa753272082ab321f26ffaf4\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Запуск Android"
+
+msgid "BOOT_DETAIL"
+msgstr "Контрольна точка 0 • Ігролад ще не реалізовано."
+
+msgid "BOOT_VERSION"
+msgstr "Версія %s"
+
+msgid "BOOT_TAPS"
+msgstr "Збережено дотиків: %d"
+
+msgid "BOOT_TAP"
+msgstr "Перевірити дотик і зберегти"
+
+msgid "BOOT_SAVED"
+msgstr "Збережено"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "Збереження недоступне. Перевір журнал перевірки."
+
+msgid "BOOT_PAUSE"
+msgstr "Пауза"
+
+msgid "BOOT_RESUME"
+msgstr "Продовжити"
+
+msgid "BOOT_RESET"
+msgstr "Повне скидання"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "Скинути прогрес?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "Увесь прогрес цього профілю буде стерто. Налаштування залишаться."
+
+msgid "UI_CONFIRM"
+msgstr "Скинути"
+
+msgid "UI_CANCEL"
+msgstr "Скасувати"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "Мова"
+
+msgid "LANG_AUTOMATIC"
+msgstr "Автоматично"
+
+msgid "LANG_DISABLED"
+msgstr "Стане доступною після перевірки перекладу"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "Увімкнено англійську. Інші мови відкриються після перевірки."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "Нечитабельне або новіше збереження залишено без змін. Віднови сумісну копію або свідомо скинь цей профіль."
+
+msgid "LANG_EN_US"
+msgstr "Англійська"
+
+msgid "LANG_ES_419"
+msgstr "Іспанська (Латинська Америка)"
+
+msgid "LANG_ES_ES"
+msgstr "Іспанська (Іспанія)"
+
+msgid "LANG_PT_BR"
+msgstr "Португальська (Бразилія)"
+
+msgid "LANG_FR_FR"
+msgstr "Французька"
+
+msgid "LANG_DE_DE"
+msgstr "Німецька"
+
+msgid "LANG_IT_IT"
+msgstr "Італійська"
+
+msgid "LANG_NL_NL"
+msgstr "Нідерландська"
+
+msgid "LANG_PL_PL"
+msgstr "Польська"
+
+msgid "LANG_RU_RU"
+msgstr "Російська"
+
+msgid "LANG_UK_UA"
+msgstr "Українська"
+
+msgid "LANG_TR_TR"
+msgstr "Турецька"
+
+msgid "LANG_ID_ID"
+msgstr "Індонезійська"
+
+msgid "LANG_VI_VN"
+msgstr "В’єтнамська"
+
+msgid "LANG_TH_TH"
+msgstr "Тайська"
+
+msgid "LANG_HI_IN"
+msgstr "Гінді"
+
+msgid "LANG_JA_JP"
+msgstr "Японська"
+
+msgid "LANG_KO_KR"
+msgstr "Корейська"
+
+msgid "LANG_ZH_CN"
+msgstr "Китайська (спрощена)"
+
+msgid "LANG_ZH_TW"
+msgstr "Китайська (традиційна)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "Монети %s     Самоцвіти %s"
+
+msgid "PAUSE"
+msgstr "Пауза"
+
+msgid "RESUME"
+msgstr "Продовжити"
+
+msgid "PLAYER_STATUS"
+msgstr "ОЗ %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "Повернення до табору через %.1f с"
+
+msgid "BOOST_ACTIVE"
+msgstr "Бонус монет: %d с"
+
+msgid "GROUP_0"
+msgstr "Лука паростків"
+
+msgid "GROUP_1"
+msgstr "Роздоріжжя роботів"
+
+msgid "GROUP_2"
+msgstr "Гай динозаврів"
+
+msgid "GROUP_3"
+msgstr "Галявина Смерті"
+
+msgid "CLOSE"
+msgstr "Закрити"
+
+msgid "CONFIRM"
+msgstr "Підтвердити"
+
+msgid "CANCEL"
+msgstr "Скасувати"
+
+msgid "LEVEL"
+msgstr "РІВЕНЬ"
+
+msgid "INVENTORY_HEADING"
+msgstr "Спорядження"
+
+msgid "SUPPLY_HEADING"
+msgstr "Припаси"
+
+msgid "GEAR_CAPACITY"
+msgstr "СПОРЯДЖЕННЯ  %d / %d  ·  торкнись, щоб оглянути"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "ПРИПАСИ  %d / %d  ·  торкнись, щоб використати чи автоматизувати"
+
+msgid "EMPTY_SLOT"
+msgstr "Порожньо"
+
+msgid "EQUIPPED"
+msgstr "Вдягнено"
+
+msgid "AUTO"
+msgstr "Авто"
+
+msgid "UPGRADES"
+msgstr "Покращення"
+
+msgid "WORLD"
+msgstr "Світ"
+
+msgid "STATS"
+msgstr "Статистика"
+
+msgid "SETTINGS"
+msgstr "Налаштування"
+
+msgid "PANEL_ITEM"
+msgstr "Предмет"
+
+msgid "PANEL_UPGRADES"
+msgstr "Покращення героя"
+
+msgid "PANEL_TRAVEL"
+msgstr "Табори та фарм"
+
+msgid "PANEL_STATS"
+msgstr "Твій білд"
+
+msgid "PANEL_SETTINGS"
+msgstr "Налаштування"
+
+msgid "PANEL_HISTORY"
+msgstr "Останні знахідки"
+
+msgid "PANEL_PRESTIGE"
+msgstr "Новий початок"
+
+msgid "HELP_0"
+msgstr "Рухайся на північ за допомогою джойстика. Відпусти його — і герой сам атакуватиме ворогів поруч."
+
+msgid "HELP_1"
+msgstr "Паростки б’ються поодинці. Тримайся поруч, щоб фармити, і торкайся спорядження, що випало, щоб підібрати його."
+
+msgid "HELP_2"
+msgstr "Торкнись предмета на землі. Монети й самоцвіти одразу потрапляють до гаманця."
+
+msgid "HELP_3"
+msgstr "Торкнись нового спорядження внизу, а потім удягни його. Можна носити одне вбрання й одну зброю."
+
+msgid "HELP_4"
+msgstr "Поєднай дублікат, щоб посилити цей тип предмета. Прогрес лишається, навіть коли запас вичерпано."
+
+msgid "HELP_5"
+msgstr "Відкрий тип ворога й купи автозбір, щоб збирати його здобич під час фарму."
+
+msgid "HELP_6"
+msgstr "Розвивай білд, досліджуй північ і переможи Смерть. Світ відкритий від самого початку."
+
+msgid "HELP_7"
+msgstr "Постійні бонуси лишаються. Збери сильніший забіг і знову кинь виклик Смерті."
+
+msgid "HELP_VICTORY"
+msgstr "Смерть переможено! Фарми далі або вибери картку престижу в розділі «Світ»."
+
+msgid "HELP_PAUSED"
+msgstr "Пауза · можна впорядкувати інвентар. Продовж гру, щоб фармити далі."
+
+msgid "HISTORY_EMPTY"
+msgstr "Тут з’являтимуться останні знахідки.\nТоркнись, щоб переглянути останні десять."
+
+msgid "HISTORY_CURRENCY"
+msgstr "Самоцвіти +%s"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "Продано: %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "Дерев’яний меч"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "Кам’яний меч"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "Залізний меч"
+
+msgid "ITEM_SPROUT"
+msgstr "Вбрання паростка"
+
+msgid "ITEM_ROBOT"
+msgstr "Вбрання робота"
+
+msgid "ITEM_DINOSAUR"
+msgstr "Вбрання динозавра"
+
+msgid "ITEM_POTION"
+msgstr "Зілля здоров’я"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "Монетний тонік"
+
+msgid "ITEM_QUANTITY"
+msgstr "Маєш: %s"
+
+msgid "NORMAL_STATS"
+msgstr "Звичайні характеристики · ростуть від поєднання"
+
+msgid "EXTRA_STATS"
+msgstr "Додаткові характеристики · спільні для цього типу предмета"
+
+msgid "EQUIP"
+msgstr "Вдягнути"
+
+msgid "UNEQUIP"
+msgstr "Зняти"
+
+msgid "REROLL"
+msgstr "Перекинути обидва бонуси · самоцвіти: %s"
+
+msgid "REROLL_CONFIRM"
+msgstr "Витратити самоцвіти (%s), щоб замінити обидві додаткові характеристики? Новий результат замінить старий, навіть якщо він гірший."
+
+msgid "USE"
+msgstr "Використати один"
+
+msgid "MERGE_ONE"
+msgstr "Поєднати одну зайву копію"
+
+msgid "MERGE_ALL"
+msgstr "Поєднати зайві копії: %d"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "На ^100 витрать 100 зайвих копій, щоб отримати один предмет наступного рангу. Вихідний предмет і його рівень поєднання залишаються. Потрібен стос цільового предмета або порожня комірка тієї ж категорії."
+
+msgid "EVOLVE"
+msgstr "Еволюція → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "Перемкнути автоматизацію цієї комірки"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "Автовикористання з цієї комірки: %s"
+
+msgid "ON"
+msgstr "Увімк."
+
+msgid "OFF"
+msgstr "Вимк."
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "Ця комірка порожня. Новим типам предметів потрібна порожня комірка; предмети одного типу складаються в стос."
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "Покращення групи діють на всіх її ворогів. Кожен ворог кидає власну здобич. Монети й самоцвіти зараховуються одразу."
+
+msgid "GROUP_SELECT"
+msgstr "Група ворогів: %s · торкнись, щоб змінити"
+
+msgid "AUTOMATION_HEADING"
+msgstr "Інвентар і автоматизація · зберігаються під час престижу"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "монет"
+
+msgid "GEMS"
+msgstr "самоцвітів"
+
+msgid "TRAVEL_HELP"
+msgstr "Торкнись табору на мапі, щоб вибрати точку відродження. Відкриття через панель табору теж вибирає його. Без телепортації."
+
+msgid "SPAWN_SELECT"
+msgstr "Вибрати табір %d"
+
+msgid "SPAWN_BUY"
+msgstr "Відкрити табір %d · монети: %s"
+
+msgid "SELECTED"
+msgstr "Вибрано"
+
+msgid "FOCUS_HELP"
+msgstr "Відкрий фарм для типу ворога, потім вибери: лише вбрання, лише зброю або обидва. Після смерті повертаєшся до того табору. Рух уручну скасовує фарм."
+
+msgid "FOCUS_GROUP"
+msgstr "Фармити: %s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "Вибери картку престижу"
+
+msgid "PRESTIGE_COUNT"
+msgstr "Пройдено престижів: %d"
+
+msgid "NO_OFFLINE"
+msgstr "Прогрес збережено. Офлайн-нагороди заплановано для повної гри; ця збірка не симулює гру, коли вона закрита чи у фоні."
+
+msgid "SAVE_NOW"
+msgstr "Зберегти зараз"
+
+msgid "HARD_RESET"
+msgstr "Повне скидання"
+
+msgid "RESET_CONFIRM"
+msgstr "Стерти весь прогрес, інвентар, автоматизацію та картки престижу? Налаштування залишаться. Цю дію не можна скасувати."
+
+msgid "LANGUAGE_NOTE"
+msgstr "Під час розробки доступна англійська. Решта 19 мов відкриються після перевірки перекладу."
+
+msgid "CREDITS"
+msgstr "Персонажі та світ: Pixel Plains від SnowHex. Інтерфейс: Kenney Fantasy UI Borders (CC0)."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "Вибери одну постійну картку +5%. Бонуси накопичуються між забігами. Можна закрити панель і фармити далі."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "Почати новий забіг із цією постійною карткою? Скидаються валюти, інвентар, поєднання й додаткові характеристики предметів, покращення фарму ворогів і табори. Залишаються відкриті відомості про ворогів, рівні автоматизації, місткість інвентарю й усі картки престижу."
+
+msgid "CARD_DAMAGE"
+msgstr "+5% шкоди · назавжди"
+
+msgid "CARD_HP"
+msgstr "+5% макс. здоров’я · назавжди"
+
+msgid "CARD_COINS"
+msgstr "+5% до кількості монет · назавжди"
+
+msgid "CARD_GEMS"
+msgstr "+5% до шансу самоцвітів (відносно) · назавжди"
+
+msgid "CARD_LOOT"
+msgstr "+5% до шансу випадіння спорядження (відносно) · назавжди"
+
+msgid "CARD_MERGE"
+msgstr "+5% до приросту звичайних характеристик від поєднання · назавжди"
+
+msgid "STAT_HP"
+msgstr "Макс. здоров’я"
+
+msgid "STAT_DAMAGE"
+msgstr "Шкода"
+
+msgid "STAT_DEFENSE"
+msgstr "Захист"
+
+msgid "STAT_CRIT"
+msgstr "Шанс критичного удару"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "Множник критичного удару"
+
+msgid "STAT_LIFESTEAL"
+msgstr "Крадіжка життя"
+
+msgid "STAT_REGEN"
+msgstr "Здоров’я за секунду"
+
+msgid "STAT_SPEED"
+msgstr "Бонус швидкості атаки"
+
+msgid "STAT_HEAL"
+msgstr "Лікування"
+
+msgid "STAT_COIN_BONUS"
+msgstr "Бонус до кількості монет"
+
+msgid "NEED_DUPLICATES"
+msgstr "Для поєднання потрібна зайва копія."
+
+msgid "MERGE_MAX"
+msgstr "Цей предмет уже на ^100."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "Для еволюції потрібні ^100 і 101 копія вихідного предмета."
+
+msgid "INVENTORY_FULL"
+msgstr "Немає порожньої комірки. Звільни місце або розшир інвентар."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "Відкрий цю автоматизацію в розділі «Покращення»."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "Відкрий ще одну комірку автовикористання в розділі «Покращення»."
+
+msgid "CANNOT_USE"
+msgstr "Немає придатних припасів, або твій герой загинув."
+
+msgid "UPGRADE_MAX"
+msgstr "МАКС."
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "Бракує монет."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "Бракує самоцвітів."
+
+msgid "SPAWN_BOUGHT"
+msgstr "Табір відкрито. Вибери його, щоб відроджуватися там."
+
+msgid "EVOLVED"
+msgstr "Отримано предмет наступного рангу. Прогрес вихідного предмета збережено."
+
+msgid "PLAYER_DIED"
+msgstr "Повернення до вибраного табору. Нічого не втрачено."
+
+msgid "BOSS_DEFEATED"
+msgstr "Смерть переможено! На тебе чекає постійна картка престижу."
+
+msgid "PRESTIGED"
+msgstr "Починається новий забіг. Постійні бонуси збережено."
+
+msgid "SAVED"
+msgstr "Прогрес збережено."
+
+msgid "SAVE_ERROR"
+msgstr "Не вдалося зберегти. Прогрес лишається в пам’яті; спробуй ще раз."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "Збереження не вдалося безпечно завантажити. Зберігання вимкнено до свідомого повного скидання."
+
+msgid "ACTION_PREVIEW"
+msgstr "Дія · ціна й ефект"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "Комірки спорядження +1 (макс. 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "Комірки припасів +1 (по одній на тип)"
+
+msgid "UP_COLLECT"
+msgstr "Відкрити автозбір"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "Радіус збору +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "Предметів за один збір +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "Інтервал збору −1 с"
+
+msgid "UP_MERGE_GEAR"
+msgstr "Відкрити автопоєднання спорядження"
+
+msgid "UP_AUTO_USE"
+msgstr "Комірки автовикористання +1"
+
+msgid "UP_USE_SPEED"
+msgstr "Інтервал автовикористання −1 с"
+
+msgid "UP_FOCUS"
+msgstr "Відкрити цільовий фарм"
+
+msgid "UP_RESPAWN"
+msgstr "Затримка відродження −1 с"
+
+msgid "UP_LOOT"
+msgstr "Шанс випадіння спорядження +0,5 в.п. (за предмет)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "Шанс випадіння монет"
+
+msgid "UP_GEM_CHANCE"
+msgstr "Загальний шанс випадіння самоцвітів"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "Монет за ворога +50%"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "Самоцвітів за випадіння (боси дають ×3)"
+
+msgid "CHAT_SURPRISE"
+msgstr "Гей! Обережніше!"
+
+msgid "RECENT_HEADER"
+msgstr "Останні знахідки · торкнись для історії"
+
+msgid "ZOOM_IN"
+msgstr "Наблизити"
+
+msgid "ZOOM_OUT"
+msgstr "Віддалити"
+
+msgid "CAMERA_ZOOM"
+msgstr "Масштаб камери"
+
+msgid "PANEL_ENEMY"
+msgstr "Ворог"
+
+msgid "PANEL_CAMP"
+msgstr "Табір відродження"
+
+msgid "TAB_AUTOMATION"
+msgstr "Автоматизація"
+
+msgid "TAB_INVENTORY"
+msgstr "Інвентар"
+
+msgid "TAB_SUPPLIES"
+msgstr "Припаси"
+
+msgid "TAB_OVERVIEW"
+msgstr "Огляд"
+
+msgid "TAB_UPGRADES"
+msgstr "Покращення"
+
+msgid "UP_REVEAL_STATS"
+msgstr "Розкрити характеристики · назавжди"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "Розкрити здобич · назавжди"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "ХАРАКТЕРИСТИКИ ВОРОГА"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "МОЖЛИВА ЗДОБИЧ"
+
+msgid "UNKNOWN_STATS"
+msgstr "ОЗ ???   •   Шкода ???\nІнтервал атаки ???   •   Захист ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "ОЗ %s   •   Шкода %s\nАтака кожні %s с   •   Захист %s"
+
+msgid "DROP_COINS"
+msgstr "Монети ×%s · гарантовано"
+
+msgid "DROP_GEMS"
+msgstr "Самоцвіти · шанс %s%% · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "Один кидок спорядження вибирає один із двох предметів. Самоцвіти й припаси кидаються окремо. Шанси враховують твої поточні покращення."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 в.п. за рівень · макс. +15"
+
+msgid "ENEMY_CAT"
+msgstr "Викликаний кіт"
+
+msgid "CAT_DETAILS"
+msgstr "Прислужник, викликаний Смертю.\nБез здобичі й покращень групи."
+
+msgid "CAMP_NAME"
+msgstr "Табір %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "Торкнись, щоб вибрати"
+
+msgid "CAMP_LOCKED"
+msgstr "Закрито · торкнись, щоб відкрити"
+
+msgid "CAMP_HELP"
+msgstr "Табори — це точки відродження. Відпочинь біля відкритого табору, щоб швидко відновитися. Відкриття, вибір для відродження й переміщення — окремі дії. Коли стоїш біля табору, з’являється кнопка «Переглянути табір»."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "Табір відродження вибрано."
+
+msgid "OPEN_PLAYER"
+msgstr "Покращення героя"
+
+msgid "OPEN_GROUP"
+msgstr "Оглянути: %s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "Оніксова коса"
+
+msgid "ITEM_REAPER"
+msgstr "Вбрання Жнеця"
+
+msgid "VARIANT_OUTFIT"
+msgstr "Вбрання"
+
+msgid "VARIANT_WEAPON"
+msgstr "Зброя"
+
+msgid "VARIANT_BOTH"
+msgstr "Обидва"
+
+msgid "ITEM_DETAILS"
+msgstr "Відомості про предмет"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "Новий рівень!"
+
+msgid "GEAR"
+msgstr "Спорядження"
+
+msgid "CONSUMABLES"
+msgstr "Припаси"
+
+msgid "HUD_HP"
+msgstr "ОЗ %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "Відродження через %.1f с"
+
+msgid "HUD_LEVEL"
+msgstr "РІВЕНЬ %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "Спорядження %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "Припаси %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "ПОЄДНАННЯ %d"
+
+msgid "ITEM_OWNED"
+msgstr "Маєш: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "Вдягнено · внесок 100%"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "На зберіганні · внесок 30% (один раз на тип зброї)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "Поєднати"
+
+msgid "LESS_OPTIONS"
+msgstr "Менше дій"
+
+msgid "MORE_OPTIONS"
+msgstr "Більше дій"
+
+msgid "LOOT_HISTORY"
+msgstr "Історія здобичі"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "РІВЕНЬ %d / 1000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "РІВЕНЬ %d · здоров’я і шкода зросли"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "Торкнись, щоб використати · утримуй для подробиць"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "Наступне поєднання: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "Досягнення"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "Спільні для всіх таборів цього типу ворога. Покращення збору лишаються; інші покращення типу скидаються під час престижу."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 в.п. за рівень · макс. +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "+10% досвіду за рівень · макс. +200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "Шанс випадіння припасів +1 в.п."
+
+msgid "UP_GROUP_XP"
+msgstr "Досвід +10%"
+
+msgid "GROUP_XP_VALUE"
+msgstr "Досвід за вбивство: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "Постійні рубежі вбивств, спільні для всіх таборів цього типу ворога. Нагороди діють автоматично й зберігаються під час престижу."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "Проти цього типу: +%.0f%% шкоди · +%.1f в.п. до шансу самоцвітів"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · вбивств: %d\nНагорода: +%.0f%% шкоди та +%.1f в.п. до шансу самоцвітів проти цього типу"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "Виконано"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "Досягнення за вбивства"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%.0f%% шкоди · +%.1f в.п. шансу самоцвітів"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "Автоматично поєднує зброю та вбрання цього типу ворога."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "+%s до монет за вбивство / рівень"
+
+msgid "ACTION_PAUSED"
+msgstr "Недоступно на паузі"
+
+msgid "ACTION_SUSPENDED"
+msgstr "Недоступно, поки застосунок неактивний"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "Умови не виконано"
+
+msgid "VALUE_MAX"
+msgstr "МАКС."
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s досвіду"
+
+msgid "SECONDS_VALUE"
+msgstr "%s с"
+
+msgid "HP_PER_SECOND"
+msgstr "ОЗ/с"
+
+msgid "STAT_SOURCES"
+msgstr "Звідки беруться характеристики"
+
+msgid "SOURCE_BASE"
+msgstr "Базові характеристики"
+
+msgid "SOURCE_LEVEL"
+msgstr "Рівні героя"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "Вдягнене спорядження"
+
+msgid "SOURCE_STORED"
+msgstr "Спорядження на зберіганні"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "Постійні бонуси: ОЗ ×%s · Шкода ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "Підсумки вище враховують обмеження: шанс критичного удару 75%, критична шкода ×4, крадіжка життя 15%, бонус швидкості атаки 200%."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "Кидок припасів: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "Тонік: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · Ранг %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "Ранг %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · Р%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "Самоцвіти"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "Діє на всіх ворогів. Скидається під час престижу. Бонуси досягнень лишаються в кожного типу ворога окремо."
+
+msgid "FARM_VARIANT"
+msgstr "Фармити: %s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "Вибір фарму: %s. Після відродження герой повернеться сюди."
+
+msgid "MAX_ITEM_TIER"
+msgstr "Досягнуто останнього рангу. Поєднувати можна до ^100."
+
+msgid "TAB_PLAYER"
+msgstr "Герой"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "Ворогів на точці"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "Затримка появи ворогів"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "Шанс самоцвітів із босів"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "Додаткові самоцвіти з босів за випадіння"
+
+msgid "TRAVEL_COMBAT"
+msgstr "Спершу заверши бій."
+
+msgid "TRAVEL_CAMP"
+msgstr "Переміститися · %s · Табір %d"
+
+msgid "STAGE_LOCKED"
+msgstr "Спершу переможи босів-вартових етапу."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "Спершу досліди цей табір."
+
+msgid "STAGE_UNLOCKED"
+msgstr "Наступний етап відкрито!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "Останнього вартового запечатано. Переможи решту 13 босів, щоб зібрати їхні ключі. Зібрані ключі зберігаються під час престижу."
+
+msgid "WORLD_COMPLETE"
+msgstr "Усіх ворогів Весни II переможено — останню місію виконано!"
+
+msgid "UNDISCOVERED"
+msgstr "Не досліджено"
+
+msgid "ENEMY_LEVEL"
+msgstr "Рівень %d"
+
+msgid "ALL_ITEMS"
+msgstr "Усі"
+
+msgid "WEAPONS"
+msgstr "Зброя"
+
+msgid "OUTFITS"
+msgstr "Вбрання"
+
+msgid "SKILLS"
+msgstr "Навички"
+
+msgid "VARIANT_SKILL"
+msgstr "Еліта"
+
+msgid "SKILL_EMPTY"
+msgstr "Комірка навички %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "Навичку цієї родини вже вдягнено."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "Зніми навичку або відкрий ще одну комірку."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "Вдягнути в комірку %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "Автозастосування комірки %d: %s"
+
+msgid "STOCK_BONUS"
+msgstr "Бонус зайвих копій: +%s%% до власної сили. Копії лишаються в тебе."
+
+msgid "CLAIM"
+msgstr "Отримати"
+
+msgid "CLAIM_REWARD"
+msgstr "Отримати · монети: %s · самоцвіти: %s"
+
+msgid "MISSION_AUTO"
+msgstr "Автоотримання: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "УВІМК."
+
+msgid "STATE_OFF_CAPS"
+msgstr "ВИМК."
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "Отримує нагороди за виконані звичайні місії (зокрема в придбаних комірках), але НЕ за головні цілі. Після купівлі увімкни автоотримання в «Місіях»."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "Автоотримання відкрито, але ВИМКНЕНО. Торкнись перемикача нижче, щоб отримувати звичайні місії. Головні цілі лишаються ручними."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "Автоотримання можна увімкнути"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "Відкрий «Місії» й увімкни автоотримання. Після купівлі воно вимкнене."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "Увімкни автоотримання"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "Ти відкрив автоотримання. Торкнись тут «Автоотримання: ВИМК.», щоб увімкнути його. Головні цілі завжди отримуються вручну."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "Розгорнути картки етапів"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "Згорнути картки етапів"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "Спершу виконай цю ціль."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "Нове завдання з’явиться опівночі за місцевим часом."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "Головні цілі"
+
+msgid "KEY_PROGRESS"
+msgstr "Ключі босів: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "Переможено босів-вартових: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "монети: %s/год · самоцвіти: %s/год · ліміт нагороди: %s год"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "З поверненням! Оплачено годин: %s · монети: %s · самоцвіти: %s"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "Спершу заверши вибір нагород престижу."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "Знайдено нову нагоду престижу."
+
+msgid "PRESTIGE_BATCH"
+msgstr "Престиж · карток: %d"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "Вибери по одній унікальній картці за кожну готову нагоду, потім забіг скинеться один раз. Скидаються предмети, монети, табори, туман і покращення за монети. Ключі, досягнення, картки й покращення за самоцвіти лишаються."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "Залишити «%s» назавжди? Вибір зберігається одразу, і його не можна змінити."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "Вибери картку %d з %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "Унікальні картки: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "Спершу заверши знайдену нагоду престижу."
+
+msgid "IN_PROGRESS"
+msgstr "Триває"
+
+msgid "FOLLOW"
+msgstr "Стежити"
+
+msgid "UNFOLLOW"
+msgstr "Не стежити"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "Здати потрібні предмети чи валюту"
+
+msgid "CONTRACT_NEEDS"
+msgstr "Збери потрібні копії онлайн і залиш по одній кожної."
+
+msgid "OFFERING_NEEDS"
+msgstr "Потрібен необхідний баланс і невитрачена валюта, зароблена онлайн."
+
+msgid "OWNED_CARDS"
+msgstr "Твої картки"
+
+msgid "COMBOS"
+msgstr "Набори карток"
+
+msgid "PANEL_INVENTORY"
+msgstr "Інвентар"
+
+msgid "PANEL_MAP"
+msgstr "Мапа"
+
+msgid "PANEL_MISSIONS"
+msgstr "Місії"
+
+msgid "PANEL_OFFLINE"
+msgstr "Офлайн-нагороди"
+
+msgid "GOAL_KILL"
+msgstr "Полювання"
+
+msgid "GOAL_BOSS"
+msgstr "Полювання на босів"
+
+msgid "GOAL_GEAR"
+msgstr "Збір спорядження"
+
+msgid "GOAL_MERGE"
+msgstr "Поєднання"
+
+msgid "GOAL_COINS"
+msgstr "Заробіток монет"
+
+msgid "GOAL_CAST"
+msgstr "Застосування навичок"
+
+msgid "GOAL_WAITING"
+msgstr "Досліджуй світ, щоб знайти нову ціль"
+
+msgid "STAT_POWER"
+msgstr "Сила"
+
+msgid "INTRINSIC_POWER"
+msgstr "Власна сила %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "Наступний ранг починається з 85% власної сили цього рангу на ^100, без урахування запасу й зовнішніх бонусів."
+
+msgid "MAP_FARMING"
+msgstr "%s · точок: %d · по %d на точку · відродження %s с"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "Переможено типів останнього етапу: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "Радіус огляду табору"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "Радіус огляду героя"
+
+msgid "UP_MAP_DETAIL"
+msgstr "Деталі мапи"
+
+msgid "UP_MOVEMENT"
+msgstr "Швидкість руху +10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "Інтервал автопоєднання −1 с"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "Відкрити автоотримання місій"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "Комірки місій"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "Комірки навичок"
+
+msgid "UP_SKILL_DROP"
+msgstr "Шанс випадіння навичок"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "Тривалість офлайн-нагород"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "Офлайн-монети за годину"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "Офлайн-самоцвіти за годину"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "Відкрити офлайн-випадіння зброї"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "Відкрити офлайн-випадіння вбрання"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "Відкрити офлайн-припаси"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "Офлайн-зброя за годину"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "Офлайн-вбрання за годину"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "Офлайн-припаси за годину"
+
+msgid "MAP_LEGEND"
+msgstr "Досліджена земля лишається відкритою; сусідню видно, лише поки ти поруч. Табори помітно здалеку."
+
+msgid "MINIMAP"
+msgstr "Мапа"
+
+msgid "SKILL_TUTORIAL"
+msgstr "Елітні вороги носять зброю, вбрання й навичку. Кожна здобич має власний кидок. Вдягни навичку з інвентарю й торкнись її кнопки, щоб застосувати."
+
+msgid "MAIN_0"
+msgstr "Переможи 5 звичайних ворогів"
+
+msgid "MAIN_1"
+msgstr "Вдягни перший предмет"
+
+msgid "MAIN_2"
+msgstr "Поєднай дублікат"
+
+msgid "MAIN_3"
+msgstr "Відкрий ще один табір"
+
+msgid "MAIN_4"
+msgstr "Переможи Сніговика · відкриває Зиму II"
+
+msgid "MAIN_5"
+msgstr "Вдягни «Зцілення»"
+
+msgid "MAIN_6"
+msgstr "Покращ деталі мапи"
+
+msgid "MAIN_7"
+msgstr "Здобудь «Крижаний вибух»"
+
+msgid "MAIN_8"
+msgstr "Відкрий Літо I"
+
+msgid "MAIN_9"
+msgstr "Проведи еволюцію предмета"
+
+msgid "MAIN_10"
+msgstr "Здобудь 4 родини навичок"
+
+msgid "MAIN_11"
+msgstr "Відкрий Осінь I"
+
+msgid "MAIN_12"
+msgstr "Здобудь усі 6 родин навичок"
+
+msgid "MAIN_13"
+msgstr "Відкрий Весну I"
+
+msgid "MAIN_14"
+msgstr "Пройди престиж"
+
+msgid "MAIN_15"
+msgstr "Збери всі ключі босів і зачисть Весну II"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "Перезарядка зцілення"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "Перезарядка криги"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "Перезарядка вогню"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "Перезарядка блискавки"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "Перезарядка зосередження"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "Перезарядка удару"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "Відкрити автозастосування · комірка 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "Відкрити автозастосування · комірка 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "Відкрити автозастосування · комірка 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "Зцілення"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "Зцілення"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "Зцілення"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "Зцілення"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "Зцілення"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "Зцілення"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "Зцілення"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "Крижаний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "Крижаний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "Крижаний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "Крижаний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "Крижаний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "Крижаний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "Крижаний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "Вогняний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "Вогняний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "Вогняний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "Вогняний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "Вогняний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "Вогняний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "Вогняний вибух"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "Удар блискавки"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "Удар блискавки"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "Удар блискавки"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "Удар блискавки"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "Удар блискавки"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "Удар блискавки"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "Удар блискавки"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "Магічне зосередження"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "Магічне зосередження"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "Магічне зосередження"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "Магічне зосередження"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "Магічне зосередження"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "Магічне зосередження"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "Магічне зосередження"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "Магічний удар"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "Магічний удар"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "Магічний удар"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "Магічний удар"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "Магічний удар"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "Магічний удар"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "Магічний удар"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "Вбрання синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "Вбрання синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "Вбрання синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "Вбрання синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "Вбрання синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "Вбрання синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "Вбрання синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "Меч синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "Меч синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "Меч синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "Меч синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "Меч синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "Меч синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "Меч синього кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "Вбрання червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "Вбрання червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "Вбрання червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "Вбрання червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "Вбрання червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "Вбрання червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "Вбрання червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "Меч червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "Меч червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "Меч червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "Меч червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "Меч червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "Меч червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "Меч червоного шарфа"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "Вбрання кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "Вбрання кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "Вбрання кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "Вбрання кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "Вбрання кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "Вбрання кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "Вбрання кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "Меч кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "Меч кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "Меч кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "Меч кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "Меч кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "Меч кухарського ковпака"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "Меч кухарського ковпака"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "Вбрання сніговика"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "Вбрання сніговика"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "Вбрання сніговика"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "Вбрання сніговика"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "Вбрання сніговика"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "Вбрання сніговика"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "Вбрання сніговика"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "Вбрання вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "Вбрання вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "Вбрання вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "Вбрання вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "Вбрання вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "Вбрання вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "Вбрання вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "Меч вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "Меч вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "Меч вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "Меч вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "Меч вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "Меч вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "Меч вовчого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "Вбрання каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "Вбрання каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "Вбрання каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "Вбрання каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "Вбрання каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "Вбрання каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "Вбрання каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "Меч каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "Меч каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "Меч каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "Меч каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "Меч каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "Меч каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "Меч каптура-киці"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "Вбрання золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "Вбрання золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "Вбрання золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "Вбрання золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "Вбрання золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "Вбрання золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "Вбрання золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "Меч золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "Меч золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "Меч золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "Меч золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "Меч золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "Меч золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "Меч золотої корони"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "Вбрання оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "Вбрання оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "Вбрання оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "Вбрання оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "Вбрання оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "Вбрання оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "Вбрання оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "Меч оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "Меч оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "Меч оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "Меч оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "Меч оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "Меч оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "Меч оленячих рогів"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "Вбрання шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "Вбрання шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "Вбрання шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "Вбрання шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "Вбрання шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "Вбрання шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "Вбрання шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "Меч шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "Меч шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "Меч шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "Меч шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "Меч шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "Меч шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "Меч шапки Санти"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "Вбрання космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "Вбрання космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "Вбрання космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "Вбрання космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "Вбрання космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "Вбрання космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "Вбрання космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "Меч космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "Меч космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "Меч космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "Меч космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "Меч космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "Меч космічного шолома"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "Меч космічного шолома"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "Вбрання блакитного робота"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "Вбрання блакитного робота"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "Вбрання блакитного робота"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "Вбрання блакитного робота"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "Вбрання блакитного робота"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "Вбрання блакитного робота"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "Вбрання блакитного робота"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "Вбрання солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "Вбрання солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "Вбрання солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "Вбрання солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "Вбрання солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "Вбрання солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "Вбрання солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "Меч солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "Меч солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "Меч солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "Меч солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "Меч солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "Меч солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "Меч солом’яного капелюха"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "Вбрання темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "Вбрання темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "Вбрання темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "Вбрання темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "Вбрання темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "Вбрання темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "Вбрання темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "Меч темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "Меч темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "Меч темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "Меч темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "Меч темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "Меч темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "Меч темних окулярів"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "Вбрання жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "Вбрання жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "Вбрання жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "Вбрання жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "Вбрання жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "Вбрання жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "Вбрання жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "Меч жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "Меч жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "Меч жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "Меч жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "Меч жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "Меч жовтого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "Меч жовтого кашкета"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "Вбрання сірого кота"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "Вбрання сірого кота"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "Вбрання сірого кота"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "Вбрання сірого кота"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "Вбрання сірого кота"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "Вбрання сірого кота"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "Вбрання сірого кота"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "Вбрання ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "Вбрання ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "Вбрання ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "Вбрання ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "Вбрання ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "Вбрання ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "Вбрання ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "Меч ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "Меч ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "Меч ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "Меч ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "Меч ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "Меч ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "Меч ковбойської бандани"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "Вбрання круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "Вбрання круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "Вбрання круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "Вбрання круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "Вбрання круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "Вбрання круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "Вбрання круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "Меч круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "Меч круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "Меч круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "Меч круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "Меч круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "Меч круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "Меч круга-качечки"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "Вбрання райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "Вбрання райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "Вбрання райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "Вбрання райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "Вбрання райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "Вбрання райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "Вбрання райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "Меч райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "Меч райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "Меч райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "Меч райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "Меч райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "Меч райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "Меч райдужного клоуна"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "Вбрання плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "Вбрання плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "Вбрання плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "Вбрання плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "Вбрання плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "Вбрання плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "Вбрання плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "Меч плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "Меч плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "Меч плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "Меч плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "Меч плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "Меч плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "Меч плавця у червоній шапочці"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "Вбрання пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "Вбрання пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "Вбрання пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "Вбрання пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "Вбрання пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "Вбрання пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "Вбрання пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "Меч пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "Меч пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "Меч пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "Меч пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "Меч пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "Меч пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "Меч пірнальника"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "Вбрання плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "Вбрання плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "Вбрання плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "Вбрання плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "Вбрання плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "Вбрання плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "Вбрання плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "Меч плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "Меч плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "Меч плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "Меч плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "Меч плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "Меч плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "Меч плавця у солом’яному капелюсі"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "Вбрання динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "Вбрання динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "Вбрання динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "Вбрання динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "Вбрання динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "Вбрання динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "Вбрання динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "Вбрання бірюзового динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "Вбрання бірюзового динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "Вбрання бірюзового динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "Вбрання бірюзового динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "Вбрання бірюзового динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "Вбрання бірюзового динозавра"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "Вбрання бірюзового динозавра"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "Вбрання чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "Вбрання чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "Вбрання чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "Вбрання чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "Вбрання чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "Вбрання чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "Вбрання чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "Меч чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "Меч чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "Меч чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "Меч чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "Меч чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "Меч чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "Меч чорного кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "Вбрання грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "Вбрання грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "Вбрання грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "Вбрання грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "Вбрання грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "Вбрання грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "Вбрання грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "Меч грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "Меч грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "Меч грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "Меч грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "Меч грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "Меч грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "Меч грибного капелюшка"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "Вбрання гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "Вбрання гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "Вбрання гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "Вбрання гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "Вбрання гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "Вбрання гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "Вбрання гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "Меч гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "Меч гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "Меч гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "Меч гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "Меч гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "Меч гарбузової голови"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "Меч гарбузової голови"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "Вбрання білки"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "Вбрання білки"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "Вбрання білки"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "Вбрання білки"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "Вбрання білки"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "Вбрання білки"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "Вбрання білки"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "Вбрання рудої лисиці"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "Вбрання рудої лисиці"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "Вбрання рудої лисиці"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "Вбрання рудої лисиці"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "Вбрання рудої лисиці"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "Вбрання рудої лисиці"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "Вбрання рудої лисиці"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "Вбрання рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "Вбрання рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "Вбрання рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "Вбрання рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "Вбрання рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "Вбрання рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "Вбрання рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "Меч рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "Меч рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "Меч рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "Меч рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "Меч рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "Меч рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "Меч рогатого каптура"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "Вбрання шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "Вбрання шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "Вбрання шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "Вбрання шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "Вбрання шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "Вбрання шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "Вбрання шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "Меч шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "Меч шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "Меч шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "Меч шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "Меч шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "Меч шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "Меч шолома з помаранчевим екраном"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "Вбрання голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "Вбрання голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "Вбрання голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "Вбрання голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "Вбрання голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "Вбрання голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "Вбрання голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "Меч голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "Меч голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "Меч голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "Меч голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "Меч голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "Меч голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "Меч голови-телевізора"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "Вбрання циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "Вбрання циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "Вбрання циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "Вбрання циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "Вбрання циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "Вбрання циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "Вбрання циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "Меч циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "Меч циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "Меч циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "Меч циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "Меч циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "Меч циліндра"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "Меч циліндра"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "Вбрання чорного кота"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "Вбрання чорного кота"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "Вбрання чорного кота"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "Вбрання чорного кота"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "Вбрання чорного кота"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "Вбрання чорного кота"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "Вбрання чорного кота"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "Вбрання Похмурого Жнеця"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "Вбрання Похмурого Жнеця"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "Вбрання Похмурого Жнеця"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "Вбрання Похмурого Жнеця"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "Вбрання Похмурого Жнеця"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "Вбрання Похмурого Жнеця"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "Вбрання Похмурого Жнеця"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "Вбрання заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "Вбрання заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "Вбрання заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "Вбрання заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "Вбрання заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "Вбрання заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "Вбрання заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "Меч заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "Меч заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "Меч заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "Меч заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "Меч заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "Меч заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "Меч заячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "Вбрання котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "Вбрання котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "Вбрання котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "Вбрання котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "Вбрання котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "Вбрання котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "Вбрання котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "Меч котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "Меч котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "Меч котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "Меч котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "Меч котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "Меч котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "Меч котячих вушок"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "Вбрання ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "Вбрання ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "Вбрання ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "Вбрання ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "Вбрання ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "Вбрання ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "Вбрання ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "Меч ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "Меч ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "Меч ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "Меч ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "Меч ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "Меч ельфійських вух"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "Меч ельфійських вух"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "Вбрання бджоли"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "Вбрання бджоли"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "Вбрання бджоли"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "Вбрання бджоли"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "Вбрання бджоли"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "Вбрання бджоли"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "Вбрання бджоли"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "Вбрання рудого смугастого кота"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "Вбрання рудого смугастого кота"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "Вбрання рудого смугастого кота"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "Вбрання рудого смугастого кота"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "Вбрання рудого смугастого кота"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "Вбрання рудого смугастого кота"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "Вбрання рудого смугастого кота"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "Вбрання квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "Вбрання квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "Вбрання квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "Вбрання квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "Вбрання квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "Вбрання квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "Вбрання квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "Меч квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "Меч квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "Меч квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "Меч квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "Меч квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "Меч квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "Меч квіткового вінка"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "Вбрання зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "Вбрання зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "Вбрання зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "Вбрання зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "Вбрання зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "Вбрання зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "Вбрання зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "Меч зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "Меч зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "Меч зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "Меч зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "Меч зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "Меч зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "Меч зеленого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "Вбрання рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "Вбрання рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "Вбрання рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "Вбрання рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "Вбрання рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "Вбрання рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "Вбрання рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "Меч рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "Меч рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "Меч рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "Меч рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "Меч рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "Меч рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "Меч рожевого кашкета"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "Вбрання каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "Вбрання каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "Вбрання каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "Вбрання каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "Вбрання каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "Вбрання каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "Вбрання каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "Меч каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "Меч каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "Меч каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "Меч каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "Меч каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "Меч каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "Меч каптура з рожевою квіткою"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "Просте вбрання"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "Просте вбрання"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "Просте вбрання"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "Просте вбрання"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "Просте вбрання"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "Просте вбрання"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "Просте вбрання"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "Простий меч"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "Простий меч"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "Простий меч"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "Простий меч"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "Простий меч"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "Простий меч"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "Простий меч"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "Вбрання паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "Вбрання паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "Вбрання паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "Вбрання паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "Вбрання паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "Вбрання паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "Вбрання паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "Меч паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "Меч паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "Меч паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "Меч паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "Меч паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "Меч паростка"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "Меч паростка"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "Вбрання червоної панди"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "Вбрання червоної панди"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "Вбрання червоної панди"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "Вбрання червоної панди"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "Вбрання червоної панди"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "Вбрання червоної панди"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "Вбрання червоної панди"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "Вбрання соняшника"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "Вбрання соняшника"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "Вбрання соняшника"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "Вбрання соняшника"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "Вбрання соняшника"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "Вбрання соняшника"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "Вбрання соняшника"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "Вбрання зеленого прибульця"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "Вбрання зеленого прибульця"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "Вбрання зеленого прибульця"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "Вбрання зеленого прибульця"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "Вбрання зеленого прибульця"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "Вбрання зеленого прибульця"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "Вбрання зеленого прибульця"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "Зцілення"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "Крижаний вибух"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "Вогняний вибух"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "Удар блискавки"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "Магічне зосередження"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "Магічний удар"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "Синій кашкет"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "Червоний шарф"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "Кухарський ковпак"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "Сніговик"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "Вовчий каптур"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "Каптур-киця"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "Золота корона"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "Оленячі роги"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "Шапка Санти"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "Космічний шолом"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "Блакитний робот"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "Солом’яний капелюх"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "Темні окуляри"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "Жовтий кашкет"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "Сірий кіт"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "Ковбойська бандана"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "Круг-качечка"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "Райдужний клоун"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "Плавець у червоній шапочці"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "Пірнальник"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "Плавець у солом’яному капелюсі"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "Динозавр"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "Бірюзовий динозавр"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "Чорний кашкет"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "Грибний капелюшок"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "Гарбузова голова"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "Білка"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "Руда лисиця"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "Рогатий каптур"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "Шолом із помаранчевим екраном"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "Голова-телевізор"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "Циліндр"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "Чорний кіт"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "Похмурий Жнець"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "Заячі вушка"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "Котячі вушка"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "Ельфійські вуха"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "Бджола"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "Рудий смугастий кіт"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "Квітковий вінок"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "Зелений кашкет"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "Рожевий кашкет"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "Каптур із рожевою квіткою"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "Простак"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "Паросток"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "Червона панда"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "Соняшник"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "Зелений прибулець"
+
+msgid "CONTENT_STAGES_1"
+msgstr "Зима I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "Зима II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "Літо I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "Літо II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "Осінь I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "Осінь II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "Весна I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "Весна II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "Перша нагорода за голову"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "Переможи Сніговика (бос Зими I) 10 разів"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "Літня нагорода за голову"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "Переможи Сірого кота (бос Літа I) 20 разів"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "Осіння нагорода за голову"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "Переможи Похмурого Жнеця (бос Осені II) 30 разів"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "Зимовий маршрут"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "На мапі «Зима I» по черзі: переможи 100 синіх кашкетів, потім 100 червоних шарфів, потім 100 кухарських ковпаків"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "Літній маршрут"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "На мапі «Літо I» по черзі: переможи 150 солом’яних капелюхів, потім 150 темних окулярів, потім 150 жовтих кашкетів"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "Весняний маршрут"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "На мапі «Весна I» по черзі: переможи 200 заячих вушок, потім 200 котячих вушок, потім 200 ельфійських вух"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "Зимова колекція"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "Підбери по 20 вбрань синього кашкета, червоного шарфа й кухарського ковпака (здобич Зими I), а потім здай їх кнопкою «Здати»"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "Літня колекція"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "Підбери по 30 вбрань солом’яного капелюха, темних окулярів і жовтого кашкета (здобич Літа I), а потім здай їх кнопкою «Здати»"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "Весняна колекція"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "Підбери по 40 вбрань заячих вушок, котячих вушок та ельфійських вух (здобич Весни I), а потім здай їх кнопкою «Здати»"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "Перший шедевр"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "Поєднай будь-яку зброю, вбрання чи навичку до ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "Другий ранг"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "Поєднай предмет 2-го рангу або вище до ^100 (2-й ранг випадає від Літа I, або проведи еволюцію зброї)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "Третій ранг"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "Поєднай предмет 3-го рангу або вище до ^100 (3-й ранг випадає від Осені I, або проведи еволюцію зброї двічі)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "Парне спорядження"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "Поєднай одну зброю та одне вбрання до ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "Широкий арсенал"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "Поєднай 3 різні види зброї та 3 різні вбрання до ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "Розвинений арсенал"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "Поєднай 3 різні види зброї та 3 різні вбрання 2-го рангу або вище до ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "Підкорення зими"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "На мапах «Зима I» і «Зима II»: досліди 90% кожної мапи, переможи обох босів і відкрий усі табори"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "Підкорення літа"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "На мапах «Літо I» і «Літо II»: досліди 90% кожної мапи, переможи всіх трьох босів і відкрий усі табори"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "Підкорення весни"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "На мапах «Весна I» і «Весна II»: досліди 90% кожної мапи, переможи всіх п’ятьох босів і відкрий усі табори"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "Зима без допомоги"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "Переможи Блакитного робота (бос Зими II), не використовуючи припасів під час бою"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "Літо без допомоги"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "Переможи Бірюзового динозавра (бос Літа II), не використовуючи припасів під час бою"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "Осінь без допомоги"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "Переможи Похмурого Жнеця (бос Осені II), не використовуючи припасів під час бою"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "Мала пожертва"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "Зароби на ворогах 2K монет і 30 самоцвітів за цей забіг, а потім здай їх кнопкою «Здати»"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "Зростаюча пожертва"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "Зароби на ворогах 20K монет і 100 самоцвітів за цей забіг, а потім здай їх кнопкою «Здати»"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "Велика пожертва"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "Зароби на ворогах 100K монет і 300 самоцвітів за цей забіг, а потім здай їх кнопкою «Здати»"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "Короткий ланцюжок"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "По черзі: переможи 100 ворогів, підбери 10 предметів, що випали (зброя чи вбрання), потім поєднай 10 разів"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "Довгий ланцюжок"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "По черзі: переможи 250 ворогів, переможи 3 босів, поєднай 25 разів, потім застосуй навички 30 разів"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "Ланцюжок майстра"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "По черзі: переможи 500 ворогів, переможи 10 босів, поєднай 50 разів, потім отримай 3 звичайні місії"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "Зимові трофеї"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "Після знахідки переможи по одному разу Сніговика (Зима I) і Блакитного робота (Зима II)"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "Літні трофеї"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "Після знахідки переможи по одному разу Сірого кота (Літо I), Динозавра й Бірюзового динозавра (Літо II)"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "Осінні трофеї"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "Після знахідки переможи по одному разу Білку й Руду лисицю (Осінь I), Чорного кота й Похмурого Жнеця (Осінь II)"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "Час на відстані"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "Проведи поза грою 72 години загалом"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "Довгий відпочинок"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "Не заходь у гру 24 години поспіль"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "Офлайн-дохід"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "Зароби 10K монет, поки тебе немає (отримай нагороди «З поверненням»)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "+20% досвіду з босів"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+10% до швидкості руху"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+50% до радіуса автозбору"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "+10% до базових характеристик вдягненого спорядження"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+10% макс. ОЗ"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "+25% до радіуса дослідження навколо тебе"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "+10% шкоди босам"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "+10% монет з усіх ворогів"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "+25% монет за місії"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "+25% самоцвітів із босів"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "+25% офлайн-монет за годину"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "Відродження на 2 секунди раніше (мінімум 2 с)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "+15% монет зі звичайних ворогів"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "+10% до характеристик від кожного поєднання"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "+10% шкоди босам"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "+25% до офлайн-випадіння предметів"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+10% макс. ОЗ"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "Убивця велетнів"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "+25% шкоди босам"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "Захист від босів"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "Отримуєш на 20% менше шкоди від босів"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "Нагорода за голову"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "+100% монет із босів"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "Слідопит"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "+20% шкоди звичайним ворогам"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "Монети в дорозі"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "+30% монет зі звичайних ворогів"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "Досвід у дорозі"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "+30% досвіду зі звичайних ворогів"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "Дбайливий збирач"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+100% до радіуса автозбору"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "Фортуна спорядження"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "+3 в.п. до шансу випадіння спорядження"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "Фортуна припасів"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "+5 в.п. до шансу випадіння припасів"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "Тонка робота"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "+25% до характеристик від кожного поєднання"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "Майстер перекидань"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "Перекидання коштують на 50% менше самоцвітів"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "Міцна основа"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "+20% до базових характеристик вдягненої зброї та вбрання"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "Запас міцності"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+20% макс. ОЗ"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "Володіння зброєю"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "+15% шкоди від атак і навичок"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "Збалансоване спорядження"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "Отримуєш на 10% менше шкоди від усіх ворогів"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "Дослідник"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+15% до швидкості руху"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "Далекий погляд"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "+50% до радіуса дослідження навколо тебе"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "Розвідка таборів"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "Табори коштують на 50% менше монет"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "Влучність"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "+15 в.п. до шансу критичного удару"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "Рішучість"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "Зцілює на 5% від завданої шкоди"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "Важкий удар"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "Критичні удари завдають ще +75% шкоди"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "Монетна мудрість"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "+25% монет з усіх ворогів"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "Мудрість самоцвітів"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "+5 в.п. до шансу випадіння самоцвітів"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "Розумні витрати"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "Покращення за монети дешевші на 15%"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "Монети за місії"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "+50% монет за місії"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "Самоцвіти за місії"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "+50% самоцвітів за місії"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "Цільова практика"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "+25% до шкоди навичок, зцілення та зосередження"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "Мисливець за трофеями"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "+50% досвіду з босів"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "Сила трофеїв"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "+20% шкоди босам"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "Самоцвіти трофеїв"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "+50% самоцвітів із босів"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "Тихі монети"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "+50% офлайн-монет за годину"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "Тихі самоцвіти"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "+50% офлайн-самоцвітів за годину"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "Тихі знахідки"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "+50% до офлайн-випадіння предметів"
+
+msgid "CHAIN_PROGRESS"
+msgstr "Крок %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "Збереження розробки скинуто для цього оновлення. Новий прогрес можна зберігати."
+
+msgid "HEAL_ROLE"
+msgstr "Підтримка: %s ОЗ зараз, кожні %s с. Безкоштовно; не більше 12%% макс. ОЗ. Зілля дають сильніше екстрене зцілення."
+
+msgid "REGULAR_MISSIONS"
+msgstr "Мисливські завдання"
+
+msgid "GUIDE_CHOOSE"
+msgstr "Скільки підказок тобі потрібно?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "З навчанням · одна дія за раз"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "Базовий · усі меню відкриті, короткий огляд"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "Без підказок · усі меню відкриті"
+
+msgid "GUIDE_REVIEW"
+msgstr "Вибрати режим підказок знову"
+
+msgid "GUIDE_GOT_IT"
+msgstr "Зрозуміло"
+
+msgid "GUIDE_MOVE"
+msgstr "Іди стежкою ліворуч."
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "Тягни джойстик у бік стрілки. Перші вороги чекають уздовж стежки."
+
+msgid "GUIDE_KILL"
+msgstr "Зупинись біля ворога, щоб атакувати"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "Постій на місці — і герой атакує сам. Зимові вороги лише відбиваються."
+
+msgid "GUIDE_COLLECT"
+msgstr "Торкнись предмета, що випав"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "Здобич якийсь час лежить на землі. Монети й самоцвіти додаються автоматично."
+
+msgid "GUIDE_EQUIP"
+msgstr "Торкнись нового предмета"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "У відомостях про предмет його порівняно з тим, що ти носиш зараз."
+
+msgid "GUIDE_MERGE"
+msgstr "Відкрий предмет, який маєш двічі"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "Поєднання копії назавжди посилює предмет."
+
+msgid "GUIDE_UPGRADE"
+msgstr "Торкнись «Покращення» для цього ворога"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "Кожен тип ворога має власні покращення здобичі, монет і досвіду."
+
+msgid "GUIDE_CAMP"
+msgstr "Відкрий «Світ», щоб відкрити табір"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "Ти знайшов табір, і тобі вистачає монет. Відкрий «Світ» або підійди до табору й торкнись «Переглянути табір»."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "Ходи, бийся, збирай"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "Тягни джойстик, щоб іти. Стань біля ворога, щоб атакувати. Торкнись здобичі, що випала, щоб підібрати її."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "Ці вороги помічають тебе поблизу"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "Вороги Зими II нападають, коли ти підходиш близько. Підходь до них по одному."
+
+msgid "GUIDE_SKILLS"
+msgstr "Навички підсилюють спорядження"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "Торкнись вдягненої навички, щоб застосувати її. Зцілення діє рівномірно; зілля відновлюють більше за раз."
+
+msgid "GUIDE_GROUPS"
+msgstr "Тепер деякі вороги кличуть союзників"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "Літні вороги допомагають союзникам свого виду поблизу. Стеж за здоров’ям."
+
+msgid "PRESTIGE_GATE"
+msgstr "Спершу пройди зиму: переможи Блакитного робота, щоб потрапити в Літо I."
+
+msgid "NAV_PRESTIGE"
+msgstr "Престиж"
+
+msgid "PANEL_WORLD"
+msgstr "Світ"
+
+msgid "TAB_OFFLINE"
+msgstr "Офлайн"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "Ці покращення відкриваються кнопкою «Покращення» або дотиком до героя."
+
+msgid "HUD_RESTING"
+msgstr "· Відпочинок"
+
+msgid "ITEM_PREVIOUS"
+msgstr "Попередній предмет"
+
+msgid "ITEM_NEXT"
+msgstr "Наступний предмет"
+
+msgid "ITEM_POSITION"
+msgstr "%d з %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "Якщо вдягнути: %s"
+
+msgid "NO_CHANGE"
+msgstr "без змін"
+
+msgid "EQUIPPED_NOW"
+msgstr "Зараз вдягнено: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "У цій комірці ще нічого не вдягнено."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "Вдягнено: повні характеристики"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "На зберіганні: 30% характеристик"
+
+msgid "UPGRADE_LEVEL"
+msgstr "Рівень %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "Бос"
+
+msgid "ENEMY_KILLS"
+msgstr "Переможено: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "Табір відродження"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "Відкрито"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "Закрито · монети: %s"
+
+msgid "SECTION_CAMPS"
+msgstr "Табори"
+
+msgid "CAMPS_HIDDEN"
+msgstr "Ще не знайдено таборів: %d. Досліджуй мапу, щоб знайти їх."
+
+msgid "SECTION_TRAVEL"
+msgstr "Перейти на інший етап"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "Покращення мапи"
+
+msgid "SECTION_DANGER"
+msgstr "Небезпечна зона"
+
+msgid "CAMP_UNLOCK"
+msgstr "Відкрити"
+
+msgid "CAMP_SELECT"
+msgstr "Відроджуватися тут"
+
+msgid "CAMP_TRAVEL"
+msgstr "Переміститися"
+
+msgid "CARD_OWNED"
+msgstr "Є"
+
+msgid "CARD_SELECTED"
+msgstr "Вибрано"
+
+msgid "CARD_LOCKED"
+msgstr "Ще не здобуто"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "Готово"
+
+msgid "PRESTIGE_INTRO"
+msgstr "Виконуй нагоди, щоб здобувати постійні картки. Престиж обмінює всі готові одразу й починає новий забіг."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "Готово: %d  ·  Карток: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "Нагод ще не знайдено. Перемагай босів, поєднуй предмети й досліджуй світ, щоб знайти їх."
+
+msgid "NO_CARDS_YET"
+msgstr "Карток ще немає."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "Готових нагод для обміну: %d (%s).\n\nЗа кожну ти вибереш одну постійну картку, а потім забіг перезапуститься один раз.\n\nЛишаються: картки, ключі босів, досягнення, покращення за самоцвіти, автоматизація, налаштування.\nСкидаються: монети, предмети, рівень, табори, дослідження мап, покращення за монети та незавершені випробування."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "Вибери нагороду · %d з %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "Уже вибрано: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "Лишається"
+
+msgid "PRESTIGE_KEEP"
+msgstr "Картки й набори, твої самоцвіти, досліджені ділянки мап, усі покращення за самоцвіти (усі категорії), автоматизація, місце в інвентарі, ключі босів, досягнення за ворогів, рівень героя й досвід, майстерність мап і налаштування."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "Цей забіг скидає"
+
+msgid "PRESTIGE_RESET"
+msgstr "Монети, предмети (разом із запасом припасів) і поєднання, майстерність припасів, доступ до мап і відкриті табори, покращення мап і за монети, а також незавершені випробування."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "Залишити «%s»"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "Торкнись картки, щоб вибрати її"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "Залишити «%s» назавжди? Це останній вибір: новий забіг почнеться одразу після нього."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "Знайдено нагоду престижу!"
+
+msgid "MILESTONE_READY"
+msgstr "Нагоду виконано!"
+
+msgid "MILESTONE_CARD"
+msgstr "Здобуто картку: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "Починається новий забіг"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "До колекції додано постійних карток: %d."
+
+msgid "MILESTONE_STAGE"
+msgstr "Відкрито новий етап"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "Набір «Мисливець на босів»"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "Набір «Експедиція»"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "Набір «Колекція»"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "Набір «Шедевр»"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "Набір «Арсенал»"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "Набір «Краї»"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "Набір «Випробування»"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "Набір «Пожертва»"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "Набір «Фахівець»"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "Набір «Трофеї»"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "Набір «Офлайн»"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "Підготовлений дослідник"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "Відданий фармер"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "Шлях ремісника"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "Фахівець із босів"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "Терплячий збирач"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "Гармонійне зростання"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "Перемагай ворогів далі"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "Перша зброя чи вбрання випаде за кілька перемог."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "Торкнись «Вдягнути»"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "Вдягнене спорядження дає повні характеристики. Спорядження на зберіганні все одно дає 30%."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "Торкнись «Поєднати»"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "Кожне поєднання витрачає одну зайву копію й підвищує рівень предмета."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "Збери другу копію"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "Така сама копія випаде ще за кілька перемог."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "Спершу знайди ворога"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "Підійди до ворогів, щоб їхні покращення стали доступні."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "Зароби монети на покращення"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "Бракує монет: %s. З кожного переможеного ворога випадають монети."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "Відкрий вкладку «Покращення»"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "Там зібрано покращення для цього типу ворога."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "Купи покращення"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "Кращий шанс здобичі — добрий перший вибір."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "Досліджуй світ, щоб знайти ще один табір"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "Іди в туман. Табори з’являються, щойно ти їх відкриєш."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "Зароби монети на табір"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "Бракує монет: %s. Перемагай ворогів далі."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "Торкнись «Відкрити»"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "Табір стане точкою відродження й відкриє землю навколо."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "Табір відкрито"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "Торкнись «Відроджуватися тут», щоб повертатися сюди після поразки. Відпочинок біля табору швидко зцілює."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "Знайдено нагоду престижу"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "Виконай її, щоб здобути постійну картку. Спершу знайди Сніговика; у режимі з навчанням треба ще завершити навчання."
+
+msgid "GUIDE_REST"
+msgstr "Мало здоров’я?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "Відійди від бою. Відпочинок біля відкритого табору швидко тебе зцілить."
+
+msgid "SECTION_REWARDS"
+msgstr "Нагороди"
+
+msgid "SECTION_AUTOMATION"
+msgstr "Автоматизація"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "Закрито"
+
+msgid "PROGRESS_MERGE"
+msgstr "Найкращий результат: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "Зброя на ^50: %d/%d · Вбрання на ^50: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "Трофеї: %d / %d (кожен бос залишить трофей після наступної перемоги)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "Знайдено за забіг: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "Виграй бій, не використовуючи зілля й тоніків."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "Досліджено %s · боси %d/%d · табори %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "Золотий меч"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "Діамантовий меч"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "Смарагдовий меч"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "Обсидіановий меч"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "Дерев’яна сокира"
+
+msgid "ITEM_STONE_AXE"
+msgstr "Кам’яна сокира"
+
+msgid "ITEM_IRON_AXE"
+msgstr "Залізна сокира"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "Золота сокира"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "Діамантова сокира"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "Смарагдова сокира"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "Обсидіанова сокира"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "Знайди зброю чи вбрання"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "Це був припас. Перемагай ворогів далі: іноді з них випадає зброя чи вбрання, які вони носять, і займає порожню комірку спорядження."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "Підбери спорядження"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "Випала зброя чи вбрання. Торкнись, щоб покласти в комірку спорядження."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "Стежити можна лише за нагодою, що триває."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "Пройди %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "Можна отримати"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ Отримано"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "Виконані цілі (%d) · %s"
+
+msgid "SHOW"
+msgstr "Показати"
+
+msgid "HIDE"
+msgstr "Сховати"
+
+msgid "PLAYTIME_LINE"
+msgstr "Час у грі: %s · Цей забіг: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "З поверненням!"
+
+msgid "OFFLINE_AWAY"
+msgstr "Відсутність: %s · оплачено годин: %s"
+
+msgid "OFFLINE_CLAIM"
+msgstr "Отримати офлайн-дохід"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "Офлайн-дохід отримано"
+
+msgid "OFFLINE_NOTHING"
+msgstr "Офлайн-доходу поки немає."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "Офлайн-дохід чекає на отримання."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "Останнє отримання: оплачено годин: %s · монети: %s · самоцвіти: %s"
+
+msgid "NAV_UPGRADES"
+msgstr "Покращення"
+
+msgid "STATS_OPEN"
+msgstr "Статистика"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "Відкрито нові покращення: %s (Покращення героя)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "Знайди Сніговика на мапі «Зима I» (першого боса), щоб відкрити скидання престижу."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "Знайди Сніговика"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "У тебе вже є всі картки, які можуть дати ці готові нагоди."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "Спершу знайди цю точку на мапі."
+
+msgid "EQUIPPED_PINNED"
+msgstr "Вдягнено"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "Зброя"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "Вбрання"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "Порожня комірка"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "ВДЯГНЕНО"
+
+msgid "COMPARE_SELECTED"
+msgstr "ВИБРАНО"
+
+msgid "COMPARE_ITEM"
+msgstr "ПРЕДМЕТ"
+
+msgid "COMPARE_UPGRADE"
+msgstr "Краще"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "Гірше"
+
+msgid "COMPARE_MIXED"
+msgstr "Є плюси й мінуси"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "Ранг %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "Зростає завдяки поєднанню власних копій до ^%d. Ніколи не стає іншим предметом; після ^100 кожне поєднання дає трохи менше."
+
+msgid "FOLLOW_READY"
+msgstr "Готово! Відкрий «Престиж», щоб вибрати картку"
+
+msgid "FOLLOW_STEP"
+msgstr "Крок %d/%d · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "Переможи: %s — %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "Переможи: %s — без припасів під час бою: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "Отримання місій"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "Персонаж"
+
+msgid "STATS_LEVEL"
+msgstr "Рівень"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "Етап"
+
+msgid "STATS_PRESTIGES"
+msgstr "Пройдено престижів"
+
+msgid "STATS_CARDS"
+msgstr "Картки престижу"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "Напад"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "Швидкість атаки"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/с (+%s%%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "Захист і відновлення"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%s%% шкоди)"
+
+msgid "STATS_RESPAWN"
+msgstr "Час відродження"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "Підсилення"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "Множники престижу"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "ОЗ ×%s · Шкода ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "Швидкість руху"
+
+msgid "STATS_STORED_SHARE"
+msgstr "Внесок спорядження на зберіганні"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "Бонус вдягненого спорядження"
+
+msgid "STATS_SECTION_TIME"
+msgstr "Час у грі"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "Усі забіги"
+
+msgid "STATS_TIME_RUN"
+msgstr "Цей забіг"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "шкоди"
+
+msgid "STATS_SHORT_HP"
+msgstr "ОЗ"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "зах."
+
+msgid "STATS_SHORT_CRIT"
+msgstr "крит."
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "крит. шкоди"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "шв. атаки"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "крадіжки життя"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "ОЗ/с"
+
+msgid "CAMP_SIGHTED"
+msgstr "Табір помічено! Тепер він на мапі й у панелі «Світ»."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "Бонус ОЗ від карток і майстерності"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "Бонус шкоди від карток і майстерності"
+
+msgid "STAT_REGEN_PCT"
+msgstr "Відновлення"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "макс. ОЗ/с"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "макс. ОЗ/с"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s%% макс. ОЗ/с (%s ОЗ/с)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "Рубежі вбрання (вдягненого)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "Зброя %s%% · Вбрання %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "Захист +%s"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s ОЗ"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%s%% ОЗ вбрання"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "Відновлення %s%% макс. ОЗ/с"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "Рубежі (поки вдягнено): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "Рубежів ще немає. Перший відкривається на ^100."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "Усіх рубежів досягнуто (майстерність)."
+
+msgid "MILESTONE_NEXT"
+msgstr "Наступний на ^%d: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "Зростає завдяки поєднанню власних копій до ^%d: +2%% базових ОЗ за копію до ^100, далі +1%% за копію. Ніколи не стає іншим предметом. Рубежі діють, лише поки вбрання вдягнене; на зберіганні воно дає %s%% своїх ОЗ."
+
+msgid "PANEL_LEVEL"
+msgstr "Рівень і зростання героя"
+
+msgid "PANEL_FARMING"
+msgstr "Довідник фарму"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "Торкнись, щоб побачити зростання рівня й джерела характеристик"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "Комірки %d → %d з %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "Комірки %d / %d · максимум"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · максимум"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "Самоцвітів із боса за випадіння: %s"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "Довідник фарму"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "Престиж закрито · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "Для скидання престижу потрібно"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "Знайти Сніговика на мапі «Зима I» (перший бос)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "Хоча б одна готова нагода, яка може дати картку"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "знайди Сніговика"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "немає готових нагод"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "не лишилося карток для нагороди"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "Інші джерела характеристик"
+
+msgid "BREAKDOWN_HP"
+msgstr "Звідки беруться ОЗ"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "Звідки береться шкода"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "До престижу"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "Картки й майстерність"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "Разом (у бою)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "За удар, не входить у підсумок"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "Отримувана шкода"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "Рівні героя (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "Спорядження на зберіганні (вбрання %s%%, зброя %s%%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "Вдягнене спорядження (з +%s%% від картки)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "Рубежі вбивств проти: %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "Престиж проти звичайних ворогів"
+
+msgid "PER_HIT_BOSS"
+msgstr "Престиж проти босів"
+
+msgid "PER_HIT_FOCUS"
+msgstr "Зосередження (лишилося %d с)"
+
+msgid "TAKEN_GUARD"
+msgstr "Захист престижу"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "Захист престижу від босів"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "Рівень %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "Досягнуто максимального рівня. Нові рівні більше нічого не дають."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s досвіду · ще %s до рівня %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "Зростання за рівні"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "За кожен рівень (база)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s ОЗ · +%s шкоди"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "Уже здобуто рівнів: %d"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "ОЗ на рівні %d"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "Шкода на рівні %d"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "Картки престижу множать кожне джерело: ОЗ ×%s, шкода ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "Де фармити кожного ворога і що з нього випадає. Запис про мапу відкривається, коли її деталі мапи покращено до максимуму, а кожному типу ворога там розкрито характеристики й здобич. Розташування показано лише для знайдених точок."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "ти тут"
+
+msgid "FARMING_READY"
+msgstr "Запис відкрито"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "Відкрити"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "Деталі мапи %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "Характеристики й здобич: типів %d/%d"
+
+msgid "FARMING_LOCKED"
+msgstr "Потрібно: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "Ще не досягнуто мап: %d."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "Фарм · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "Шанси враховують твої поточні покращення. Напрямки вказано від найближчого відомого табору на цій мапі."
+
+msgid "FARMING_BACK"
+msgstr "Усі мапи"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "Невідомий ворог · досліджуй цю мапу, щоб знайти його"
+
+msgid "FARMING_REWARDS"
+msgstr "Монети ×%s · Самоцвіти %s%% ×%s · Досвід %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "Припаси: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "Незнайдена точка"
+
+msgid "FARMING_DETAILS"
+msgstr "Докладніше"
+
+msgid "FARMING_AT_CAMP"
+msgstr "Біля табору %d"
+
+msgid "FARMING_LOCATION"
+msgstr "%s від табору %d · %s"
+
+msgid "COMPASS_N"
+msgstr "На північ"
+
+msgid "COMPASS_NE"
+msgstr "На північний схід"
+
+msgid "COMPASS_E"
+msgstr "На схід"
+
+msgid "COMPASS_SE"
+msgstr "На південний схід"
+
+msgid "COMPASS_S"
+msgstr "На південь"
+
+msgid "COMPASS_SW"
+msgstr "На південний захід"
+
+msgid "COMPASS_W"
+msgstr "На захід"
+
+msgid "COMPASS_NW"
+msgstr "На північний захід"
+
+msgid "DISTANCE_NEAR"
+msgstr "поруч"
+
+msgid "DISTANCE_MID"
+msgstr "недалеко"
+
+msgid "DISTANCE_FAR"
+msgstr "далеко"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "Гей! Моє вбрання!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "Моя зброя!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "Моя книга заклять!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "Мої припаси!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "Тонік захисту"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "Відновлювальна мазь"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "Тонік мудрості"
+
+msgid "FOLLOW_COLLECT"
+msgstr "Крок %d/%d · Збери: %s — ворог: %s · %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "Усе знайдено! Здай: «Престиж», потім «Здати»"
+
+msgid "FILTERS"
+msgstr "Фільтри"
+
+msgid "FILTERS_ACTIVE"
+msgstr "Фільтри · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "Фільтр сітки спорядження. Після закриття фільтрів знову видно всі предмети."
+
+msgid "PANEL_FILTERS"
+msgstr "Фільтри"
+
+msgid "FILTERS_HINT"
+msgstr "Поки фільтри відкриті, сітка спорядження показує лише цю категорію. Після закриття знову видно всі предмети."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "Комірки припасів: по одній на тип (типів: %d). Фільтри — поруч із лічильником спорядження."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "Кожні 3 справжні використання цього припасу дають один рівень майстерності, до ^%d. Купівлі та випадіння лише поповнюють запас. Престиж скидає майстерність і прогрес використань."
+
+msgid "BUY_SUPPLY"
+msgstr "Купити: %s · монети: %s"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · лишилося %d с"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "Діє: %s · лишилося %d с"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "Перезарядка · %s с"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "Готово до використання"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "Автовикористання: при %s%% ОЗ або менше, після перезарядки"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "Автовикористання: щоразу, коли не діє"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "Автовикористання: у бою, коли не діє"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "Автовикористання: при %s%% ОЗ або менше, коли не діє"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "Автовикористання: щоразу, коли не діє"
+
+msgid "SUPPLY_STOCK"
+msgstr "Запас: %s · кожне використання витрачає один"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "Наступна знайдена копія: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "Бонус майстерності: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "тривалість %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "перезарядка %s с"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%s%% макс. ОЗ"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%s%% монет"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%s%% досвіду"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s до захисту"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "%s%% макс. ОЗ за секунду"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "Зцілює на %s%% макс. ОЗ (зараз %s ОЗ) · перезарядка %s с · можна використати нижче %s%% ОЗ"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "+%s%% монет із переможених ворогів на %s с"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s до захисту (на %s%% менше отримуваної шкоди) на %s с"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "Зцілює на %s%% макс. ОЗ за секунду протягом %s с (разом %s%%) · можна використати нижче %s%% ОЗ"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "+%s%% досвіду з переможених ворогів на %s с"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "Майстерність ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "Авто: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "Для цього припасу в тебе забагато ОЗ."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "Зілля ще перезаряджається."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "Уже діє. Використай знову, коли ефект скінчиться."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "Кожні три використання підвищують майстерність припасів. Престиж скидає майстерність і прогрес використань."
+
+msgid "SOURCE_SUPPLY"
+msgstr "Активні припаси"
+
+msgid "CAMP_TELEPORT"
+msgstr "Телепорт"
+
+msgid "PANEL_TELEPORT"
+msgstr "Телепорт"
+
+msgid "TELEPORT_TITLE"
+msgstr "Телепорт"
+
+msgid "TELEPORT_HELP"
+msgstr "Вибери інший свій табір — на цій мапі або на вже досягнутій. Під час бою телепортуватися не можна."
+
+msgid "TELEPORT_HERE"
+msgstr "Ти тут"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "Вибраний пункт"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "Ця мапа"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "Інша мапа"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "Вибрати"
+
+msgid "TELEPORT_BACK"
+msgstr "Назад"
+
+msgid "TELEPORT_GO"
+msgstr "Телепорт · %s · Табір %d"
+
+msgid "TELEPORT_PICK"
+msgstr "Вибери пункт призначення"
+
+msgid "TELEPORT_NONE"
+msgstr "Інших таборів ще немає. Відкрий ще один табір, щоб телепортуватися туди."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · Табір %d"
+
+msgid "MAP_EXPLORED"
+msgstr "Мапу досліджено: %d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "Яку частину цієї мапи ти дослідив назавжди. Миттєвий огляд і рух камери не враховуються."
+
+msgid "SECTION_AUDIO"
+msgstr "Звук і музика"
+
+msgid "MUSIC_VOLUME"
+msgstr "Музика %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "Звукові ефекти %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "Вимкнути ігрові звуки: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "Вимкнути особливі звуки: %s"
+
+msgid "AUDIO_HINT"
+msgstr "Ігрові звуки: дотики, покупки, поєднання й бій. Особливі звуки: сповіщення (місію чи ціль можна отримати, новини престижу, нове меню, прогрес майстерності мап, знайдено боса) і рубежі (нова мапа, престиж). Гучність звукових ефектів керує обома."
+
+msgid "UP_MERGE_ALL"
+msgstr "Поєднати все"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "Відкривається один раз: кнопка «Поєднати все» у фільтрах поєднує всі зайві копії одним дотиком · безкоштовно · зберігається під час престижу"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "Відкрито · використовуй «Поєднати все» у фільтрах"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "«Поєднати все» ще не відкрито"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "«Поєднати все» відкривається один раз за 5K самоцвітів: Покращення → Інвентар."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "Поєднати все · зайвих копій: %d"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "Поєднати все"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "Нічого поєднувати"
+
+msgid "MERGE_ALL_DONE"
+msgstr "Поєднано копій: %d · предметів: %d"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "Відкрити автоеволюцію"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "Поєднує зайві копії: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "Увімк. · поєднує: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Еволюція на ^100 зі 101 копією: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "Увімк. · еволюція: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "Перезарядка: %s с"
+
+msgid "GATE_HUD"
+msgstr "Далі: боси %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "Світ зачищено · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "Боси, яких треба перемогти на цій мапі, щоб відкрити наступну. Знайдені боси, які ще зараховуються, позначено золотим прапором."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "Наступний етап уже відкрито"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "Невідомий бос"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · переможено"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · ще потрібно"
+
+msgid "OFFERING_PROGRESS"
+msgstr "монети %s / %s · самоцвіти %s / %s"
+
+msgid "SECTION_RESEARCH"
+msgstr "Вивчення"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "Цільовий фарм відкрито"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "Торкнись «Фармити» нижче: герой сам дійде до цієї точки й битиметься тут. Торкнись ще раз або рушай, щоб зупинити."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "Торкнись «Фармити», щоб почати"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "Герой сам дійде до цієї точки й битиметься тут. Рух зупиняє фарм."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "Цільовий фарм відкрито"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "Відкрий покращення цього ворога, потім торкнись «Фармити» вгорі."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "Цільовий фарм відкрито"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "Торкнись цього ворога у світі чи на мапі, потім торкнись «Фармити»."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "Спершу знайди цю точку"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "Фарм веде лише до знайдених точок. Вибери знайдену вище."
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "Нове спорядження: торкнись його, потім «Вдягнути»"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "Вдягнене спорядження дає повні характеристики. Спорядження на зберіганні все одно додає частку."
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "Два однакові: відкрий предмет, потім «Поєднати»"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "Поєднання зайвої копії назавжди посилює предмет."
+
+msgid "GUIDE_MISSIONS"
+msgstr "Місії відкрито: відкрий «Місії»"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "Цілі й щоденні місії дають монети та самоцвіти."
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "Торкнись «Отримати»"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "Виконані цілі чекають тут, доки ти не отримаєш нагороду."
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "Поки нічого отримувати"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "Коли нагорода готова, на кнопці «Місії» з’являється !."
+
+msgid "GUIDE_SLOTS"
+msgstr "Покращення відкрито: відкрий «Покращення»"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "Покращення героя діють у цьому забігу; покращення за самоцвіти лишаються назавжди."
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "Відкрий вкладку «Інвентар»"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "Більше комірок спорядження — більше видів спорядження можна тримати."
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "Купи комірку спорядження"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "Кожен вид предмета потребує власної комірки; копії складаються в стос."
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "Відкрий вкладку «Припаси»"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "Припаси допомагають у важких боях."
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "Купи зілля здоров’я"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "Торкнись зілля в припасах, щоб зцілитися під час бою."
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "Зароби монети на зілля здоров’я"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "Бракує монет: %s. З кожного переможеного ворога випадають монети."
+
+msgid "GUIDE_SNOWMAN"
+msgstr "Головна ціль: переможи Сніговика"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "Перемога над ним відкриває Зиму II, а його знахідка — престиж. Спершу поєднай спорядження, підвищ рівень і візьми зілля."
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "Престиж відкрито: відкрий «Престиж»"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "Нагоди там приносять постійні картки."
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "Торкнись «Стежити» біля нагоди"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "Її наступний крок з’явиться на мапі. Коли нагода готова, престиж перезапускає світ, а картка лишається в тебе."
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "Виконай нагоду"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "Нові нагоди з’являються під час гри. Коли нагода готова, престиж перезапускає світ, а картка лишається в тебе."
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "Місії відкрито"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "Цілі й щоденні місії дають монети та самоцвіти. Отримуй їх у «Місіях»."
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "Покращення ворогів відкрито"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "Торкнись «Покращення» над мапою (або ворога), щоб збільшити його здобич, монети й досвід."
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "Мапу світу відкрито"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "Мінімапа й «Світ» показують, де ти вже був. Відкривай табори, щоб відроджуватися й відпочивати там."
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "Покращення героя відкрито"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "Купуй комірки спорядження, припаси й постійні покращення за самоцвіти в «Покращеннях»."
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "Головна ціль: переможи Сніговика"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "Перемога над ним відкриває Зиму II, а його знахідка — престиж. Спершу поєднай спорядження, підвищ рівень і візьми зілля."
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "Престиж відкрито"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "Виконай нагоду, потім пройди престиж, щоб почати знову з постійною карткою."
+
+msgid "GUIDE_SKIP"
+msgstr "Пропустити"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "Вдягай і поєднуй спорядження"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "Торкнись спорядження в інвентарі, потім «Вдягнути», щоб отримати повні характеристики; спорядження на зберіганні все одно додає частку. Два однакові предмети поєднуються в один, назавжди сильніший."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "Покращення й місії"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "Торкнись ворога (або «Покращення» над мапою), щоб збільшити його здобич, монети й досвід. У покращеннях героя продаються комірки спорядження, припаси й постійні покращення за самоцвіти. Отримуй місії заради монет і самоцвітів."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "Дослідження, табори й етапи"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "Ходьба розсіює туман; мінімапа й «Світ» показують, де ти вже був. Відкривай табори у «Світі», щоб відроджуватися й відпочивати там. Переможи босів мапи, щоб відкрити наступний етап."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "Престиж і майстерність мап"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "Знахідка Сніговика на мапі «Зима I» відкриває скидання престижу: виконай нагоду, потім пройди престиж, щоб почати знову з постійною карткою. Майстерність мап відстежує довгострокові цілі кожної мапи."
+
+msgid "EXIT_TITLE"
+msgstr "Вийти з LootFarmer?"
+
+msgid "EXIT_CONFIRM"
+msgstr "Твій прогрес збережено. Повертайся будь-коли."
+
+msgid "EXIT_ACTION"
+msgstr "Вийти"
+
+msgid "SECTION_TUTORIAL"
+msgstr "Навчання й довідка"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "Показати всі меню зараз"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "Показати всі меню зараз? Зазвичай нові меню з’являються, коли ти знайомишся з грою. Для престижу однаково треба знайти Сніговика; у режимі з навчанням треба ще завершити навчання."
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "Усі меню тепер доступні"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "Усі меню вже доступні"
+
+msgid "PANEL_MASTERY"
+msgstr "Майстерність мап"
+
+msgid "MASTERY_OPEN"
+msgstr "Майстерність мап · Гра %d%%"
+
+msgid "MASTERY_INTRO"
+msgstr "Необов’язкові цілі для 100% проходження. Прогрес постійний і зберігається під час престижу."
+
+msgid "MASTERY_GAME"
+msgstr "Проходження гри %d%%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "Усі вісім мап: титул «%s» · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ Здобуто: титул «%s» · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "Нагорода: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ Нагороду здобуто: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "Докладніше"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "Дістанься цієї мапи, щоб почати"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "Майстерність · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ Усі мапи"
+
+msgid "MASTERY_EXPLORE"
+msgstr "Дослідження"
+
+msgid "MASTERY_HUNT"
+msgstr "Полювання"
+
+msgid "MASTERY_RESEARCH"
+msgstr "Вивчення"
+
+msgid "MASTERY_COLLECT"
+msgstr "Збирання"
+
+msgid "MASTERY_FORGE"
+msgstr "Кування"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "Досліди всю мапу й відкрий усі табори."
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "Перемог над кожним типом ворогів: %s; над кожним босом: %s."
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "Розкрий характеристики й здобич усіх ворогів тут."
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "Здобудь усю зброю, усі вбрання й навички, що тут випадають."
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "Вбрання звідси до ^%s (вбрання босів до ^%s) та еволюція однієї зброї звідси."
+
+msgid "MASTERY_MORE"
+msgstr "+ще %d"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "Мапу досліджено на %d%% зі 100%%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "Табір %d ще не відкрито"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · розкрити характеристики"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · розкрити здобич"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "Еволюція одного з: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "Невідомий ворог"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "Невідомий предмет"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "+%s%% макс. ОЗ"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "+%s%% шкоди"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "+%s%% монет"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "+%s%% досвіду"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "+%s в.п. до шансу здобичі"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "+%s в.п. до шансу самоцвітів"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "Майстерність · %s · %s: виконано"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "Престиж відкрито"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "Знайдено нагод: %d · торкнись, щоб відкрити"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "Виконай нагоду, потім пройди престиж заради постійної картки"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "Мапу опановано · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "Пройдено на 100%"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "Майстер фарму"
+
+msgid "STATS_COMPLETION"
+msgstr "Проходження гри"
+
+msgid "STATS_TITLE"
+msgstr "Титул"
+
+msgid "STATS_MASTERY"
+msgstr "Майстерність мап"
+
+msgid "MAIN_HINT_0"
+msgstr "Перемагай ворогів"
+
+msgid "MAIN_HINT_1"
+msgstr "Торкнись зброї чи вбрання в інвентарі, потім «Вдягнути»"
+
+msgid "MAIN_HINT_2"
+msgstr "Відкрий предмет, який маєш двічі, потім «Поєднати»"
+
+msgid "MAIN_HINT_3"
+msgstr "Підійди до табору й торкнись «Переглянути табір», потім «Відкрити»"
+
+msgid "MAIN_HINT_4"
+msgstr "Переможи Сніговика, боса Зими I"
+
+msgid "MAIN_HINT_5"
+msgstr "Вдягни навичку «Зцілення» (Зима II: її кидають еліти Космічного шолома й Блакитний робот)"
+
+msgid "MAIN_HINT_6"
+msgstr "Купи рівень деталей мапи у «Світі»"
+
+msgid "MAIN_HINT_7"
+msgstr "Знайди навичку «Крижаний вибух» (Літо I: її кидають еліти Солом’яного капелюха)"
+
+msgid "MAIN_HINT_8"
+msgstr "Переможи Блакитного робота, боса Зими II, щоб потрапити в Літо I"
+
+msgid "MAIN_HINT_9"
+msgstr "Проведи еволюцію зброї на ^100, яка має 101 копію (відомості про предмет, «Еволюція»)"
+
+msgid "MAIN_HINT_10"
+msgstr "Збери різні навички"
+
+msgid "MAIN_HINT_11"
+msgstr "Переможи обох босів Літа II, щоб потрапити в Осінь I"
+
+msgid "MAIN_HINT_12"
+msgstr "Збери різні навички"
+
+msgid "MAIN_HINT_13"
+msgstr "Переможи обох босів Осені II, щоб потрапити у Весну I"
+
+msgid "MAIN_HINT_14"
+msgstr "Пройди престиж"
+
+msgid "MAIN_HINT_15"
+msgstr "Переможи всі типи ворогів і босів Весни II"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "Готово! Отримай у «Місіях»"
+
+msgid "MISSION_DO_KILL"
+msgstr "Переможи: %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "Переможи: %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "Підбирай зброю чи вбрання, що випали"
+
+msgid "MISSION_DO_MERGE"
+msgstr "Поєднуй предмети"
+
+msgid "MISSION_DO_COINS"
+msgstr "Заробляй монети на ворогах"
+
+msgid "MISSION_DO_CAST"
+msgstr "Застосовуй вдягнені навички"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "Далі — %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "Переможи: %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "Перемагай будь-яких ворогів"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "Підбирай зброю чи вбрання, що випали"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "Поєднуй предмети"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "Перемагай будь-яких босів"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "Застосовуй навички"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "Отримуй звичайні місії"
+
+msgid "FOLLOW_TROPHY"
+msgstr "Переможи: %s — заради трофея · трофеї %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "Поєднай будь-яку зброю, вбрання чи навичку до ^100: найкраще ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "Поєднай предмет %d-го рангу або вище до ^100: найкраще ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "Поєднай до ^50: зброя %d/%d · вбрання %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "Поєднай спорядження 2-го рангу й вище до ^50: зброя %d/%d · вбрання %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "Зароби на ворогах за цей забіг: монети %s/%s · самоцвіти %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "Досить! Здай: «Престиж», потім «Здати»"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "Загалом поза грою: %.1f/72 год"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "Найдовша відсутність: %.1f/24 год"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "Монети, зароблені поза грою: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "Досліди %s: %d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "Переможи: %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "Відкрий усі табори на мапі %s: %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "Потім — %s (лишилося: %d)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!УВАГА: ЗНАЙДЕНО БОСА!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · бос етапу %s"
+
+msgid "MASTERY_CHIP"
+msgstr "Майстерність %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "Майстерність цієї мапи: відсоток і виконані категорії. Торкнись для подробиць."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "Фарми, доки не зможеш перемогти боса."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "Сніговик стереже шлях до Зими II."
+
+msgid "VIEW_CAMP"
+msgstr "Переглянути табір"
+
+msgid "DROP_ALL"
+msgstr "Викинути все"
+
+msgid "DROP_ALL_TITLE"
+msgstr "Викинути весь стос?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nУсі копії покинуть інвентар, а комірка одразу звільниться. Стос лежатиме на землі 5 хвилин: торкнись його, щоб підібрати знову (автозбір його не забирає). Повторний підбір не дає прогресу місій, престижу чи майстерності."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "майстерність ^%d (зберігається)"
+
+msgid "DROPPED_NOTICE"
+msgstr "Викинуто: %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "Спершу зніми предмет"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "Зцілює тебе на %s ОЗ зараз (%s ОЗ, не більше %s%% макс. ОЗ), коли в тебе менше %s%% ОЗ"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "+%s%% до шкоди атаки на 5 с (зараз +%s шкоди за удар) · лише в бою"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× шкоди атаки (зараз %s) усім ворогам у радіусі %s від тебе й сповільнює їх на 25%% на 3 с"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× шкоди атаки (зараз %s) по цілі й усіх ворогах у радіусі %s від неї"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "%s× шкоди атаки (зараз %s) по поточній цілі"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "%s× шкоди атаки (зараз %s) по поточній цілі — потужний удар зблизька"
+
+msgid "SKILL_DESC_STATS"
+msgstr "Цілі: %s · Дальність: %s · Перезарядка: %s с"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "ти"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "усі вороги в зоні"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 ворог"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "на себе"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s ОЗ"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s%% шкоди"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× шкоди атаки"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "«Зцілення» можна застосовувати щоразу, коли ОЗ не повні, зокрема поза боєм."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "Престиж"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "Обміняти нагоди (%d) і почати новий забіг"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "За кожну ти вибереш одну постійну картку:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 картка"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "НАЗАВЖДИ · ЛИШАЄТЬСЯ"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "ЦЕЙ ЗАБІГ СКИДАЄ"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "Картки вибираються по одній і зберігаються одразу. Після останньої картки забіг почнеться знову із Зими I."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "Почати престиж"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "Картки й набори престижу (маєш: %d) і нові картки"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "Твої самоцвіти: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "Досліджені ділянки мап, помічені табори й знайдені боси"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "Усі покращення за самоцвіти, автоматизація й місце в інвентарі"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "Ключі босів, досягнення за ворогів і майстерність мап"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "Налаштування й прогрес навчання"
+
+msgid "RESET_LINE_COINS"
+msgstr "Монети: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "Рівень героя %d (знову 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "Предмети, поєднання й запас припасів"
+
+msgid "RESET_LINE_MAPS"
+msgstr "Доступ до мап (знову Зима I) і відкриті табори"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "Покращення за монети й покращення мап"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "Незавершені нагоди й місії"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "Торкнись «Переглянути табір»"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "Відкриється цей табір, де його можна відкрити для відродження."
+
+msgid "HELP"
+msgstr "Довідка"
+
+msgid "PANEL_HELP"
+msgstr "Довідка"
+
+msgid "HELP_INTRO"
+msgstr "Короткий огляд того, як грати в LootFarmer. Читання нічого не змінює у твоїй грі."
+
+msgid "HELP_BACK"
+msgstr "Назад до налаштувань"
+
+msgid "SECTION_LANGUAGE"
+msgstr "Мова"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "Шанс критичного удару"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "Критична шкода"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "Комірки автонавичок"
+
+msgid "SOURCE_UPGRADES"
+msgstr "Покращення"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "Автонавички: призначено %d / %d"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "Спершу вдягни навичку й купи доступну комірку автозастосування."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "Автопоєднання: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "Розмір комірок інвентарю"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "Відновлює до %s ОЗ (%s%% макс. ОЗ). Доступно щоразу, коли ОЗ не повні, зокрема поза боєм."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "Потрібен бій і ворог у межах %s од."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "Одна ціль. Знижує швидкість атаки на %s%% на %s с (у босів — на %s с). Швидкість руху не змінюється."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "Боси скорочують тривалість тимчасових ефектів удвічі; сила й шкода ефектів не змінюються."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "Наступний рівень майстерності: використань %d / %d · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "Автовикористання: щоразу, коли ОЗ не повні й перезарядка готова, зокрема поза боєм."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "Торкнись зеленого табору, щоб переміститися. Тьмяні табори закриті. Під час бою переміщення недоступне."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d с"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "Заверши навчання в режимі з підказками на мапі «Зима II», перш ніж використовувати престиж."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "Рівень героя %d, здобутий досвід і бонуси рівнів"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "Майстерність припасів і прогрес до наступного рівня"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "Вибери табір"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "Закрий цю панель, щоб продовжити."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "Торкнись кнопки закриття. Твій прогрес збережено."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "Купи покращення героя."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "Вибери загальне покращення, яке допоможе в наступних боях."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "Розшир інвентар спорядження."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "Купи ще одну комірку за самоцвіти. Одноразова допомога навчання покриє нестачу."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "Іди за стрілкою до табору."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "Підійди, знайди його, потім торкнись «Переглянути табір» і купи відкриття."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "Знайди першого боса."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "Іди за стрілкою до Сніговика. Перемагати його для знахідки не потрібно."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "Підготуйся до бою з босом."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "Боси можуть бути надто сильними. Підвищуй рівень заради загальних характеристик; фарми спорядження, поєднуй копії й купуй покращення."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "Пофарми ще кількох ворогів."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "Набери сили й монет, перш ніж іти далі."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "Купи зілля здоров’я."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "Відкрий «Покращення героя», потім «Припаси». Наявний запас зілля теж зараховується."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "Звільни місце для зілля здоров’я."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "Купи комірку припасів або використай наявний припас, щоб звільнити комірку."
+
+msgid "GUIDE_POTION_USE"
+msgstr "Використай зілля здоров’я."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "Торкнись його комірки, коли ОЗ не повні. Використання припасу просуває його майстерність."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "Використай зілля, коли знадобиться зцілення."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "Спершу побийся з ворогами поблизу. За повних ОЗ зілля не витрачається."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "Престиж дає постійні переваги."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "Виконуй нагоди заради карток. У режимі з навчанням скидання відкриється після цього навчання; грати без престижу теж можна."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "Ти вже маєш право на нагороду престижу."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "Твоя нагода готова. Заверши навчання на мапі «Зима II», перш ніж вирішувати, чи робити скидання."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "Наступна мапа відкрита."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "Відкрий «Світ», щоб побачити відкриті етапи та їхні табори."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "Переміщуйся між відкритими таборами."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "«Світ» переміщує одразу, якщо відкрито один табір, або показує мапу, якщо їх кілька. Бій блокує телепортацію."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "Рубежі — це додаткові цілі."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "Зазирни в майстерність мап і досягнення, якщо хочеш додаткових нагород. Продовжуй шлях через «Світ» до Зими II."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "Вирушай до Зими II."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "Відкрий «Світ» і вибери Зиму II, щоб продовжити пригоду."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "ШЛЯХ ПОПЕРЕДУ"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "Твоя головна мета — перемогти останнього боса на етапі 8 і пройти гру.\n\nХочеш ще більшого виклику? Пройди гру на 100%, виконавши всі рубежі майстерності мап.\n\nГрай у власному темпі, насолоджуйся мандрівкою — і хай щастить!"
+
+msgid "SLOT_SMALL"
+msgstr "Малий"
+
+msgid "SLOT_MEDIUM"
+msgstr "Середній"
+
+msgid "SLOT_LARGE"
+msgstr "Великий"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "Загальне"
+
+msgid "REVIEW_TITLE"
+msgstr "Подобається LootFarmer?"
+
+msgid "REVIEW_LEAD"
+msgstr "Твоя пригода лише починається!"
+
+msgid "REVIEW_BODY"
+msgstr "Знайшов класну здобич? Нам дуже цікава твоя думка. Чесний відгук допомагає нам покращувати LootFarmer, а іншим гравцям — відкрити для себе гру."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Оцінити в Google Play"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "Оцінити на itch.io"
+
+msgid "REVIEW_LATER"
+msgstr "Можливо, пізніше"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "Не вдалося відкрити сторінку магазину. Перевір з’єднання й спробуй ще раз."
+
+msgid "SECTION_FEEDBACK"
+msgstr "Відгуки"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "Обери ворога ціллю"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "Проведи пальцем від героя до ворога й відпусти, щоб обрати його ціллю. Ти атакуватимеш вибраного ворога."
+
+msgid "GUIDE_TARGET"
+msgstr "Обери ворога ціллю"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "Проведи пальцем від героя до ворога й відпусти, щоб обрати його ціллю. Ти атакуватимеш вибраного ворога."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "Знайди ворога, щоб узяти його на ціль"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "Іди, доки не побачиш ворога, потім проведи пальцем від героя до нього й відпусти."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "Полювання: %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d в.п."
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s с"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d год %02d хв"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d хв %02d с"
+
+msgid "DURATION_SECONDS"
+msgstr "%d с"

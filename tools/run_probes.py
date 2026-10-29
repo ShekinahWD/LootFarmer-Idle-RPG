@@ -25,6 +25,7 @@ GODOT = os.environ.get('GODOT', 'D:/Programs/Godot_v4.7.2-stable_win64.exe/Godot
 # name -> timeout in seconds
 SUITE = {
     'localization_batch01_probe': 300,
+    'localization_batch02_probe': 300,
     'localization_sweep': 600,
     'change_36_probe': 180,
     'change_35_probe': 240,
@@ -109,7 +110,10 @@ def main():
     # Change 26: the export allowlist and the Release preset must match the current code and data.
     export = subprocess.run([sys.executable, str(ROOT / 'tools/export_manifest.py'), '--check'], capture_output=True, text=True)
     print('%-24s %-7s        %s' % ('export_manifest', 'PASS' if export.returncode == 0 else 'FAIL', (export.stdout.strip().splitlines() or [''])[0]))
-    statics = [static.returncode == 0, export.returncode == 0]
+    # Change 39: every validated translation catalog against the English source (Playbook 132.5 mechanical checks).
+    l10n = subprocess.run([sys.executable, str(ROOT / 'tools/validate_localization.py')], capture_output=True, text=True, encoding='utf-8')
+    print('%-24s %-7s        %s' % ('validate_localization', 'PASS' if l10n.returncode == 0 else 'FAIL', (l10n.stdout.strip().splitlines() or [''])[-1]))
+    statics = [static.returncode == 0, export.returncode == 0, l10n.returncode == 0]
     results = [run(n, SUITE[n]) for n in names]
     passed = sum(results) + sum(statics)
     print('SUITE %d/%d passed' % (passed, len(results) + len(statics)))
