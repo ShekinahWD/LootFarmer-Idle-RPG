@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/distribution_channels.gd" id="channels"]
+
+[resource]
+script = ExtResource("channels")
+channels = {
+"google_play": {
+"cta": "REVIEW_CTA_GOOGLE_PLAY",
+"feature": "store_google_play",
+"url": "https://play.google.com/store/apps/details?id=com.shekinahwelefuldesigns.lootfarmeridlerpg"
+},
+"itch_io": {
+"cta": "REVIEW_CTA_ITCH_IO",
+"feature": "store_itch_io",
+"url": "https://shekinawd.itch.io/lootfarmer-idlerpg"
+}
+}

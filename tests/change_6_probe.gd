@@ -222,7 +222,7 @@ func count(node: Node) -> int:
 
 ## Physical camp route: approach, discover, open the visible camp control and buy manually.
 func tutorial_checks() -> void:
-    fresh();sim.state.tutorial.mode="guided";sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,13)
+    fresh();sim.state.tutorial.mode="guided";sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("close_upgrade")+1)
     await frames(3)
     check(game.guide.pending=="camp" and game.guide.step=="camp_approach","Undiscovered camp asks for a physical approach")
     check(game.guide.path_point!=Vector2.INF,"Camp direction guides movement toward the first camp")

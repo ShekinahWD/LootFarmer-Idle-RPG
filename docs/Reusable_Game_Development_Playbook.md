@@ -10,6 +10,8 @@
 >
 > **Last consolidated:** 2026-10-15 (Everfort publishing + reusable workflow finalization). Everfort established the 20-locale runtime reference architecture; the shared workflow now separates English-first implementation from the later 19-language translation handoff, probe-save isolation, old-save compatibility checks, release-export localization verification, language-neutral store screenshots, the 30-second store trailer workflow, the standard ten-video social package (5 focused + 5 full-landscape), per-video social posting copy, policy-first English store-copy approval, and explicit separation between runtime locale IDs and Google Play locale tags. Godot Marketing Capture Toolkit 1.0.2 is the approved stable Windows/Godot baseline. Earlier consolidation history follows. Sections 128 to 133, which had grown as one section per Growing Kingdom pass, were reorganized by topic and merged into the sections that own each subject; contradictions between sections were resolved (what a workforce counter counts, where a block reason goes, how a reassignment treats a carried load, when old saves must be migrated); and new canonical sections cover the iteration loop (44), save compatibility by development phase (61), progression-layer roles (3), management surfaces (16), teaching (18), text hierarchy (128), controls (129), army management (130) and soft counters (131). Earlier synchronization notes are in git history. Strengthened 2026-10-02 from Growing Kingdom's Android corrections, merged into the owning sections: centralized tutorial arbitration (18.8), automation modes above manual configuration (8.2), bulk mode changes (129.6), support anti-stacking (130.7), the Defend coverage pass (130.4), HUD ownership surfaces (16.4), adding to an established HUD (19.1), authored price tables (92), current-schema correctness before release (61.1) and targeted correction batches during device testing (44.2). Strengthened again 2026-10-02 from Growing Kingdom's Villager corrections: a blocked carried load falls through instead of blocking the list (115.4, 120.4), and automatic workers share one coordinated allocation instead of each taking the same best task (8.2, 115.1).
 
+> **Store-review and gesture-teaching update — 2026-10-28:** Added lessons validated in LootFarmer Change 35: teaching a gesture by demonstrating the real gesture and completing on its real success (18.3), inserting a step into a saved ordered tutorial (18.3), first-frame sizing of rarely shown modals (20), decision modals that hold the world (26.2), storefront identity from the release artifact rather than the OS (52.1) and honest, arbitrated review invitations (52.2). Device and store-policy behaviour is not certified by these notes; see each section.
+>
 > **Asset-workflow update — 2026-10-18:** Added lessons from Loopcremental's supplied-asset prototype review: verified animation inventories and base-unit composition (22.1–22.3), action/contact/death presentation contracts (13.1–13.4), asset-only UI boundaries (22.2, 125.10), practical editor-editability checks (63.1), and evidence-based visual audits (56.1). These additions document reusable requirements and approved examples; they do not certify the prototype or its previous test reports. The 2026-10-15 production baseline and unrelated guidance remain unchanged.
 
 > **Change 3 documentation merge — 2026-10-20:** Incorporated supplied fog sections 117.9, 124.12 and 127.6 without replacing the existing LootFarmer asset registry or section 136. Added reusable contracts for camp reveal, copy-count bonuses, evolution baselines and batched rewards. These are specifications, not implementation evidence.
@@ -2255,6 +2257,10 @@ Teach one concept at a time:
 
 Use event completion, not arbitrary timers, for mandatory actions.
 
+**Teach a gesture by showing the real gesture, and complete it on the real success.** A lesson about a drag (for example "drag from your hero to an enemy and release on it") needs more than a pointer at a control: draw the gesture itself over the world, from its real start point to a real target the player can use now (a ring on the start, a dashed path, the pointer travelling along it, a ring where to release), recomputed every frame, input-transparent, and stepping aside while the player is mid-gesture so the game's own feedback (an aim line) takes over. Name the exact start: "drag from your hero" and "drag the joystick" are different interactions. Complete the step from the one place the action actually succeeds (the selection function the gesture calls, after its own validity checks), through a tightly scoped signal such as `progress.action("target")`, never from a tap, a timer, a failed attempt or an automatic equivalent (auto-acquisition of a target is not a manual target). If the action can be genuinely impossible (no valid target in sight), count only that unavailable time toward a documented escape, so ordinary play still has to make the gesture and an empty map cannot strand the tutorial. Basic-style reference cards teach the same gesture in one short card next to the opening card; they never point or gate. (LootFarmer Change 35.)
+
+**Inserting a step into a saved, ordered tutorial.** Put the new step where the beginner meets it and reconcile old saves by order, not by guesses: if a step that comes *after* the new one is already complete, the profile predates the new step, so treat it as done (both live in the step evaluation and in load normalization). Because the new step is ordered before that later step, a new profile can never satisfy the rule without doing the lesson. Existing players beyond the opening map, finished tutorials and profiles in other modes never receive it. Update index-based test fixtures (`STEPS.slice(0, 13)`) to name the step they mean (`STEPS.slice(0, STEPS.find("close_upgrade") + 1)`), or every insertion silently shifts them.
+
 For optional/informational messages, use a readable finite duration (Everfort settled around 15 seconds for important non-blocking messages; Growing Kingdom's enemy introductions stay 7 to 14 seconds and dismiss on a tap).
 
 **Prefer a tutorial that never reshapes the simulation.** Open the chooser before the first tick (it pauses), but let the choice change only the guidance; the first-profile progression (section 18.10) gives every mode the same state. If a design truly needs a reshaped opening, apply it only to a pristine state behind the paused chooser and gate it on a strict "fresh start" predicate: Feed the Dragon's Guided reshapes a city nothing has touched yet, and the reshaping accepts only a state that passes `is_fresh_start()` (first run, nothing built, bought, queued or survived), so an old save, a test save or a mid-game mode change can never receive the tutorial's protection. Growing Kingdom had such a Guided opening (no free Barracks, wave 1 held) until v0.12, and retired it for the shared progression.
@@ -2488,6 +2494,8 @@ If a modal is important and shown rarely:
 Do not design rare informational modals as tiny desktop popups.
 
 A good landscape-phone modal can use 40–60% of the visible area.
+
+**A rarely shown modal must have its final size on its first visible frame.** Godot containers sort at the end of the frame, and a word-wrapped Label that has never been drawn can report its zero-width line breaks on the first resize, so a dialog measured on open can come out several times too tall for one frame (LootFarmer's review panel: 1,220 px instead of 494 on its first ever open; later opens were correct). Three measures held up: give wrapped labels their width (`custom_minimum_size.x`, minus a scroll container's vertical bar) before measuring; sort the containers synchronously at the final width (`notification(NOTIFICATION_SORT_CHILDREN)` on each) and measure again; and lay the hidden dialog out and draw it once at startup, invisible and input-transparent (and not counted as an open modal). Prefer this to keeping the panel invisible for a few frames when the design says it must appear immediately. Probe it: open, inspect before any frame passes, then compare with the size a few frames later, at phone, small phone, tablet and landscape sizes and with roughly 40% longer pseudo-localized text (buttons stay on screen; the message scrolls).
 
 ---
 
@@ -2789,6 +2797,10 @@ every block-reason function and every mutating action checks it first
 - **Probe it without buttons:** pause in state, call every mutating function, assert each returns the reason and that the run and profile save data are byte-identical afterwards; assert reading works and nothing is locked between runs; then drive the real UI once.
 
 Reuse (Growing Kingdom): `RunState.action_lock_reason()`, `Main.acquire_pause/release_pause`, `GamePanel` (Paused tag); `core_probe` "Pause locks every gameplay action".
+
+## 26.2 A decision modal that appears during play holds the world, not the player's Pause
+
+A modal the game opens on its own during live play (a review invitation, a one-time offer) must not let combat, timers or play-time clocks run behind it. Do not reuse the player's Pause for this: the Pause has player-facing meaning (its button text, music held, an action lock the player owns). Give the simulation a separate session-only hold flag, derived every frame from the modal's visibility (one writer, self-healing), checked where the step and the player's actions already check pause and background suspension, and by the guide's real-time waits. Count the modal as a modal in the UI arbitration so guidance, banners, movement and deferred offers (an offline claim) wait; route system Back/Escape to its dismiss answer first. If the app goes to the background while it is open, the existing suspension covers that time and the modal is still there on return. Probe: open it, step the simulation with an enemy mid-attack and assert no damage, no clock and no play-time; close and assert play-time runs again. (LootFarmer Change 35, `sim.held`.)
 
 ---
 
@@ -3619,6 +3631,34 @@ Benefits:
 - easier QA before release.
 
 Community links fit naturally in Settings and major completion/end-of-content screens, but should remain optional and never block progression.
+
+## 52.1 The storefront is a property of the release artifact, never of the device
+
+The same OS can be distributed through several stores (an Android APK from Google Play or from itch.io; a desktop build from itch.io or Steam), so `OS.has_feature("Android")`, the package name or the build type cannot say where the player got the game or where a review link should go. Make the distribution channel explicit per release artifact:
+
+```text
+export preset custom_features: exactly one store tag (store_google_play, store_itch_io, ...)
+channel table (one resource): channel id -> {feature tag, CTA text key, exact URL}
+current() = the single channel whose tag OS.has_feature reports; none, unknown or two tags -> ""
+"" -> no store action anywhere (no prompt, no Settings button, no fallback link)
+```
+
+- **One preset per channel and OS,** sharing the release allowlist; adding a store variant must never edit the official store's preset. A checker that runs with the suite fails when a release preset's store tag differs from a reviewed table, or when a non-release preset (test, bootstrap) carries one.
+- **Verify the artifact, not only the table:** export each preset's pack and confirm its packed project settings carry exactly that tag (Godot writes custom features into the exported `project.binary`; LootFarmer Change 35 checked the Play AAB pack, the itch.io APK and Windows packs and the untagged test APK).
+- **A test override exists only in test profiles** (a command-line flag accepted only together with a probe or capture profile), so a release build always reads its own tag.
+- **Adding a storefront** is one table entry, one CTA string and one export preset; the feature that uses the link does not change. Keep URLs exact and in one place (section 52).
+
+## 52.2 Honest, arbitrated review invitations
+
+A review request is an interruption the game chooses, so treat it like the tutorial treats its cards (section 18.8): eligibility is not permission.
+
+- **Eligibility on the saved active-play clock** (the simulation's own play-time: no pause, background, offline settlement, choice screens or the invitation itself). Store it per profile as a small state machine: not offered -> pending -> dismissed or opened. Pending survives reloads and sessions.
+- **Show it only at a quiet moment,** decided in two layers: world state (opening finished, alive and at least half health, out of combat including the post-combat cool-down, no boss nearby or engaging, no pending choice, offline claim or Prestige) and screen state (no panel, confirmation, banner, guide card, or the player's own touch on the joystick or map). Require the whole set continuously for a short window (LootFarmer: 2 s) so a gap between attacks never opens it.
+- **No configured storefront = no prompt, and nothing is consumed:** a later correctly configured build still offers it.
+- **One automatic invitation per profile, not per store.** Maybe Later, Back and opening the store page are final; moving the save to another store or device never re-prompts. Hard Reset follows the profile's ordinary reset semantics (a new profile can earn it after a new hour). A permanent, unprompted review button in Settings, routed to the active channel, is fine and also settles the invitation.
+- **Honest wording and behaviour:** ask for an honest review; never only positive ones, stars, rewards, gating, a preselected rating, a fake rating or count, or a claim that a review was written (opening the page is all the game knows). Both buttons usable from the first visible frame, no timer or animated entrance; Back equals Maybe Later.
+- **Launch failures are retryable:** `OS.shell_open` returning an error keeps the invitation pending, shows a short localized message and keeps both buttons; count failures for diagnosis. Inject the opener in probes to test routing and failure without leaving the game.
+- **Verified here:** URL selection, routing, persistence and arbitration by probes, panel rendering at portrait sizes on desktop. **Not verified by these notes:** how each store app reacts to the link on a real device, and store review-policy compliance; check both on hardware and against current store policies before release.
 
 ---
 
@@ -8254,6 +8294,8 @@ Claude must implement the following before or alongside the first player-facing 
 - Maintain a **lightweight English-key consistency check** (IDs referenced by released content exist in English, no duplicate IDs or invalid placeholders) using existing appropriate tooling. Optional pseudolocalization can stress-test overflow while actual translations are deferred. Do not consume feature-development cycles on 19-language translation testing.
 
 ## 132.3 Phase 2 — Claude maintains English only during development
+
+Keys chosen at run time (a store-specific button label from a channel table, `GUIDE_<STEP>` built from a step id) are invisible to a static `tr("KEY")` scan; keep them in the batch's English string file and check every one in a probe (present in the catalog, no unintended placeholders), and check scene-authored keys of every new scene in the source validator.
 
 For every new feature or UI change, Claude adds/updates the corresponding semantic English keys, removes obsolete keys deliberately, tests affected English UI, and keeps localization-ready layouts. **Do not generate or maintain any other language catalogs in these iterations.** Changes in text semantics and placeholders must be reflected in the source catalog. Document intentionally untranslated proper names/brands in game-specific localization notes.
 

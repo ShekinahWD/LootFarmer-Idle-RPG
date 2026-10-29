@@ -1,4 +1,18 @@
-# LootFarmer — State and Reset Contracts — current (2026-10-28, Change 25)
+# LootFarmer — State and Reset Contracts — current (2026-10-28, Change 35)
+
+## Change 35 — review invitation and targeting step (28 October 2026)
+
+| Record | Meaning | Default | Save | Prestige | Hard Reset |
+|---|---|---|---|---|---|
+| `state.review` = `{status, eligible_at, answered_at, channel, open_failures}` | `status`: `none` (not offered) → `pending` (playtime_total ≥ `ReviewRules.eligible_seconds`) → `dismissed` (Maybe Later / Back) or `opened` (store page opened). Dismissed/opened are final for the profile, whatever the storefront. `channel` = storefront at the answer; `open_failures` counts failed launches (status unchanged). | `none`, -1, -1, "", 0 | saved (schema 8; `review_invitation.normalize` fills/repairs older or malformed records) | keep | clear (new profile) |
+| `tutorial.flow.done` gains `"target"` | Guided step after `move`. Marked only by `guided.action("target")` from a successful `sim.select_target` (the map gesture's release on an enemy), or by the escape below. Satisfied without action only when `"kill"` is already done (profiles saved before the step existed; `normalize` also appends it). | absent | with tutorial | keep | clear |
+| `tutorial.flow.target_unavailable`, `target_skipped` | Active seconds the guide spent in `target_find` (no targetable enemy in sight); at `OnboardingRules.target_escape_seconds` (60) the step is marked and `target_skipped` = true. | 0.0, false | with tutorial | keep | clear |
+| `tutorial.seen` gains `"basic_target"` | Basic overview card 2/6 (`TutorialGuide.BASIC_DECK`); Skip appends it with the rest. | absent | with tutorial | keep | clear |
+
+- **Hold:** `sim.held` (session only) is true exactly while the review panel is open (`game_ui` sets it every frame from `ReviewInvitation.is_open()`). `sim.step` and `sim.select_target` refuse while held; the guide's real-time waits do not advance. `game_ui.modal_open()` includes the panel, so the guide, banners, movement and the offline claim wait.
+- **Back priority:** ReviewInvitation (= Maybe Later) → PrestigeConfirm → Confirm → sheet → exit confirmation.
+- **Storefront:** `resources/game/distribution_channels.tres` (`scripts/game/distribution_channels.gd`): `current()` = the single channel whose `feature` tag `OS.has_feature` reports, else "". `--store-channel=<id|none>` overrides it only in test profiles (`BootContext.store_channel_override`). A missing channel suppresses the panel and the Settings action and never changes `state.review`.
+- **Export presets:** `Android Release` (Play AAB) `custom_features="store_google_play"`; `Android itch.io APK` and `Windows itch.io` `custom_features="store_itch_io"` (same allowlist, mirrored by `tools/export_manifest.py`); `Android Bootstrap APK` none. `export_manifest.py --check` fails on any release preset whose store tag differs from `tools/export_rules.json` `store_tags`, or any other preset carrying one.
 
 ## Change 25 — onboarding mode authority (28 October 2026)
 

@@ -1,4 +1,13 @@
-# LootFarmer — Test Suite (current, 2026-10-28, Change 34)
+# LootFarmer — Test Suite (current, 2026-10-28, Change 35)
+
+## Change 35 — review invitation and targeting lesson (28 October 2026)
+
+Command: `python tools/run_probes.py`. **38 entries (validator + export_manifest + 36 Godot scenes): 38/38 pass on the final run of Change 35, no script errors, no timeouts.** Details: [Change 35 report](LootFarmer_Change_35_Report.md).
+
+- **Registered** `change_35_probe` (144 checks): storefront matrix (Play/itch.io Android/itch.io desktop, untagged, ambiguous, unknown, the real `export_presets.cfg` presets, same Android package with two channels, no OS-based store logic); eligibility at 3,599/3,600 s; 20 never-interrupt cases (boss near/engaging, HP 49%, enemy and player wind-ups, death, Guided, Basic, chooser, panel, confirmation, Prestige confirmation and choice, offline claim, pause, background, banner, joystick, moving, map touch) and attack gaps; missing channel keeps pending; first-frame completeness and size at six screen sizes plus 40% longer text; world held while open; Back/Escape = Maybe Later; persistence across JSON and disk reload, Prestige and storefront change; exact URLs; launch failure and retry; Settings action; Hard Reset; old and malformed saves; the play-time clock; Basic card 2/6, Help, None; Guided real gesture vs pan, empty release, tap, joystick, auto-acquisition, refused selection, automatic kill; once only; Basic records no step; recovery (target dies, none in sight, reload, pause, panel, three screen sizes, old saves, finished tutorial); English catalog.
+- **Updated stale contracts:** `change_25_probe` deck size 3–6 and 29 Guided steps; `change_16_probe` expects `target` after the path; index-based `STEPS.slice(0,N)` fixtures in `change_16_probe`, `change_6_probe` and the Change 20/21 captures now name their step.
+- **export_manifest** now also mirrors the allowlist to `Android itch.io APK` and `Windows itch.io` and fails on any wrong or extra store tag.
+- **Evidence (outside the suite):** `tests/change_35_capture.tscn` windowed at 540x960, 432x960, 768x1024 → `docs/Change_35_Evidence/`. Export-pack inspection of all four presets (see the report).
 
 ## Change 34 — Google Play screenshot redesign (28 October 2026)
 
@@ -110,6 +119,7 @@ Run: `python tools/run_probes.py` (all) or `python tools/run_probes.py <name> �
 
 | Probe | Covers |
 |---|---|
+| change_35_probe | Review invitation (eligibility, quiet-moment arbitration, hold, persistence, storefront routing from the real export presets) and the Basic/Guided targeting lesson (Change 35) |
 | change_27_probe | First Snowman weapon (once per lifetime profile), Release version 27, launcher icons shipped, marketing excluded (Change 27) |
 | export_manifest (Change 26) | Export allowlist and Release preset current; ARM ABIs; version code = project version |
 | change_26_probe | Manifest files load, eight stages, runtime-resolved art inside the manifest, Release preset (Change 26) |

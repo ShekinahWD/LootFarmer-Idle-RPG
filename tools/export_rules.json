@@ -9,6 +9,14 @@
     "Change a rule only with a reason; the full game always ships all eight stages."
   ],
   "preset": "Android Release",
+  "_store_doc": [
+    "Change 35: every release preset ships the same allowlist and names its storefront with exactly one",
+    "export feature tag (scripts/game/distribution_channels.gd reads it at runtime). 'mirror_presets'",
+    "receive the primary preset's export_files; 'store_tags' is the reviewed tag of each release preset.",
+    "Presets not listed (the Android Bootstrap APK test build) must carry no store tag."
+  ],
+  "mirror_presets": ["Android itch.io APK", "Windows itch.io"],
+  "store_tags": {"Android Release": "store_google_play", "Android itch.io APK": "store_itch_io", "Windows itch.io": "store_itch_io"},
   "abis": ["arm64-v8a", "armeabi-v7a"],
   "catalog": "res://data/game/catalog.json",
   "roots": [

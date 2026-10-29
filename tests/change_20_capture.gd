@@ -48,9 +48,9 @@ func run() -> void:
     game._process(.2);await shot("trackers_and_objective")
     print("OBJECTIVE_RECT ",game.get_node("Safe/Layout/Map/Objective").get_rect()," GATE_RECT ",game.get_node("Safe/Layout/Map/Gate").get_rect()," visible ",game.get_node("Safe/Layout/Map/Gate").visible)
     sim.state.tutorial.mode="guided"
-    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,14)
+    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("camp")+1)
     game.guide.evaluate();await shot("boss_preparation")
-    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,26)
+    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("milestones_intro")+1)
     sim.state.stage=2
     await shot("tutorial_final")
     sim.campaign.guided.shown(5);await shot("tutorial_final_confirm")

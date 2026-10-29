@@ -22,3 +22,7 @@ extends Resource
 ## player who walks elsewhere is never stuck).
 @export var path_target: Vector2=Vector2(300,810)
 @export var path_reach: float=110.0
+## Change 35 Guided targeting lesson: active seconds with no targetable enemy in sight after which the
+## step is passed instead of waiting (guided_progress.target_unavailable). Never counts while an enemy
+## can be targeted.
+@export_range(10.0,300.0,5.0) var target_escape_seconds: float=60.0

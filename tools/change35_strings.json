@@ -1,0 +1,16 @@
+{
+ "REVIEW_TITLE": "Enjoying LootFarmer?",
+ "REVIEW_LEAD": "Your adventure is just getting started!",
+ "REVIEW_BODY": "Found some great loot? We'd love to hear what you think. An honest review helps us improve LootFarmer and helps other players discover the game.",
+ "REVIEW_CTA_GOOGLE_PLAY": "Review on Google Play",
+ "REVIEW_CTA_ITCH_IO": "Review on itch.io",
+ "REVIEW_LATER": "Maybe Later",
+ "REVIEW_OPEN_FAILED": "The store page couldn't be opened. Check your connection and try again.",
+ "SECTION_FEEDBACK": "Feedback",
+ "GUIDE_BASIC_TARGET": "Target an enemy",
+ "GUIDE_BASIC_TARGET_DETAIL": "Drag from your hero to an enemy, then release to target it. You'll focus your attacks on the selected enemy.",
+ "GUIDE_TARGET": "Target an enemy",
+ "GUIDE_TARGET_DETAIL": "Drag from your hero to an enemy, then release to target it. You'll focus your attacks on the selected enemy.",
+ "GUIDE_TARGET_FIND": "Find an enemy to target",
+ "GUIDE_TARGET_FIND_DETAIL": "Walk until an enemy is in sight, then drag from your hero to it and release."
+}

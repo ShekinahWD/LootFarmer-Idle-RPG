@@ -106,7 +106,7 @@ check('Cyan Robot Heal every 12 s (catalog Heal 20 s for everyone else)','"boss-
 mr=(ROOT/'resources/game/mastery_rules.tres').read_text(encoding='utf-8')
 check('Mastery rewards: Autumn II +2 pts Gem Chance, Spring II +15% HP','{"gear_chance": 0.01}, {"gem_chance": 0.02}, {"damage": 0.15}, {"hp": 0.15}]' in mr)
 check('boss warning cue uses the mission-ready sound','id = "boss_found"\nstream = ExtResource("s8")' in (ROOT/'resources/game/audio_cues.tres').read_text(encoding='utf-8'))
-for scene in ['scenes/game/main.tscn','scenes/game/prestige_confirm.tscn']:
+for scene in ['scenes/game/main.tscn','scenes/game/prestige_confirm.tscn','scenes/game/review_invitation.tscn']:
     for key in re.findall(r'^text="([A-Z][A-Z0-9]*_[A-Z0-9_]+)"$',(ROOT/scene).read_text(encoding='utf-8'),re.M):check('scene translation '+key,key in strings)
 for key in ['MAIN_HINT_%d' % i for i in range(16)]+['MISSION_DO_'+k.upper() for k in ['kill','boss','gear','merge','coins','cast']]+['FOLLOW_GOAL_'+k.upper() for k in ['kill','gear','merge','boss','cast','mission']]+['SKILL_DESC_'+k.upper() for k in c['skills']]:check('Change 16 translation '+key,key in strings)
 check('no double dashes in the English strings (Playbook 74)','--' not in ''.join(re.findall(r'^msgstr "(.*)"$',(ROOT/'localization/en.po').read_text(encoding='utf-8'),re.M)))

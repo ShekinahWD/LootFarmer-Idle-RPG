@@ -113,6 +113,7 @@ func _ready() -> void:
     sheet.z_index=10
     $Confirm.z_index=20
     $PrestigeConfirm.z_index=20
+    $ReviewInvitation.z_index=20
     $Toast.z_index=25
     banner.z_index=15
     world.setup(sim)
@@ -189,6 +190,8 @@ func _ready() -> void:
             selected_camp=view_camp
             _open("camp"))
     $PrestigeConfirm.confirmed.connect(func()->void:_confirmed(sim.campaign.begin_prestige()))
+    $ReviewInvitation.review_pressed.connect(_review_open_store)
+    $ReviewInvitation.later_pressed.connect(_review_later)
     $Safe/Layout/Map/ViewCamp.text=tr("VIEW_CAMP")
     $Safe/Layout/Map/Objective/Text.text=tr("OBJECTIVE_WINTER_BOSS")
     var objective_style: StyleBox=$Safe/Layout/Map/Objective.get_theme_stylebox("panel").duplicate()
@@ -247,6 +250,9 @@ func _safe_area() -> void:
     if $Confirm.visible:_layout_confirm()
 
 func _process(dt: float) -> void:
+    # Change 35: the review invitation holds the world while it is open (and only then).
+    sim.held=$ReviewInvitation.is_open()
+    _offer_review(dt)
     gem_pickup_time=maxf(0,gem_pickup_time-dt)
     $Safe/Layout/Map/GemPickup.visible=gem_pickup_time>0
     world.update_camera()
@@ -340,9 +346,74 @@ func _settle_camp() -> void:
     camp_inside=_camp_at_player()
     camp_pending=false
 
-## A confirmation is in front of the game (the ordinary one or the Prestige confirmation).
+## A confirmation is in front of the game (the ordinary one, the Prestige confirmation or, since
+## Change 35, the review invitation).
 func modal_open() -> bool:
-    return $Confirm.visible or $PrestigeConfirm.visible
+    return $Confirm.visible or $PrestigeConfirm.visible or $ReviewInvitation.is_open()
+
+## Change 35: the review invitation (review_invitation.gd owns its state and the world-side rules).
+## Once pending on a build with a configured storefront, it waits for a quiet moment: the world safe
+## (review.world_block_reason) and nothing on screen asking for attention (_review_ui_block), both
+## continuously for ReviewRules.safe_seconds. Any interruption restarts that count; nothing is shown
+## or spent while waiting. review_block names the current reason for probes.
+var review_safe:=0.0
+var review_block:=""
+func _offer_review(dt: float) -> void:
+    var review=sim.campaign.review
+    if $ReviewInvitation.is_open() or not review.wanted():
+        review_safe=0.0;review_block="" if $ReviewInvitation.is_open() else ("resolved" if review.resolved() else ("channel" if review.status()=="pending" else "time"))
+        return
+    review_block=review.world_block_reason()
+    if review_block=="":review_block=_review_ui_block()
+    if review_block!="":
+        review_safe=0.0;return
+    review_safe+=dt
+    if review_safe>=float(review.rules.safe_seconds):
+        review_safe=0.0
+        open_review()
+
+## Surfaces that must never be covered by the invitation: any panel or confirmation, a banner on
+## screen or queued, the guide's cards and chooser, and the player's own touch on the joystick or map.
+func _review_ui_block() -> String:
+    if sheet.visible:return "panel"
+    if modal_open():return "modal"
+    if banner.visible or not banner.current.is_empty() or not banner.queue.is_empty():return "announcement"
+    if guide.card.visible or guide.chooser.visible:return "guide"
+    if stick_input.length()>.1 or not $Safe/Layout/Map/GestureSurface.pointers.is_empty():return "input"
+    return ""
+
+func open_review() -> void:
+    var review=sim.campaign.review
+    var store: String=review.channel()
+    if store=="":return
+    $Safe/Layout/Map/GestureSurface.cancel_gesture()
+    stick.release();stick_input=Vector2.ZERO
+    sim.movement=Vector2.ZERO;sim.held=true
+    $ReviewInvitation.open(tr(review.channels.cta(store)),_review_loot())
+
+## The accent row: the player's own equipped weapon and outfit (else the first ones in the catalog)
+## around a Coin and a Gem.
+func _review_loot() -> Array:
+    var gear: Array=[]
+    for kind in ["weapon","outfit"]:
+        var id: String=str(sim.state[kind])
+        if id=="":
+            for item in sim.catalog.items:
+                if sim.catalog.items[item].kind==kind:id=item;break
+        gear.append(icon_cache.get(id))
+    return [gear[0],COIN,GEM,gear[1]].filter(func(t):return t!=null)
+
+func _review_open_store() -> void:
+    if sim.campaign.review.open_store():
+        $ReviewInvitation.close();sim.held=false
+        AudioService.play("ui_confirm")
+    else:
+        $ReviewInvitation.show_error(tr("REVIEW_OPEN_FAILED"))
+
+func _review_later() -> void:
+    sim.campaign.review.dismiss()
+    $ReviewInvitation.close();sim.held=false
+    AudioService.play("ui_click")
 
 ## Change 16: walking up to a camp no longer opens its panel. While the living player stands within
 ## camp_open_radius of a sighted camp (World revealed), a View Camp button sits just under the camp's
@@ -515,7 +586,7 @@ func _refresh_gate() -> void:
 ## (a panel, a confirmation, the guide chooser or a prestige choice) is in front of the player.
 func _offer_offline_claim() -> void:
     var pending_id: String=str(sim.state.offline_pending.get("id",""))
-    if pending_id=="" or pending_id==offline_prompted or sheet.visible or $Confirm.visible:return
+    if pending_id=="" or pending_id==offline_prompted or sheet.visible or $Confirm.visible or $ReviewInvitation.is_open():return
     if not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending" or sim.suspended:return
     offline_prompted=pending_id
     _open("offline")
@@ -1089,7 +1160,8 @@ func centered_x(width: float,insets: Vector4) -> float:
 ## application/config/quit_on_go_back is off, so Back never quits silently) and Escape (ui_cancel)
 ## share one handler, in priority: the Prestige confirmation, the confirmation, the open panel, then
 ## on the bare HUD an exit confirmation (progress is saved first; Exit saves again and quits). The
-## guide chooser is a decision and swallows Back. Each press is handled once, even when the key
+## guide chooser is a decision and swallows Back. Change 35: Back on the review invitation is Maybe
+## Later (dismissed, never shown automatically again). Each press is handled once, even when the key
 ## event and the notification arrive in the same frame.
 var back_frame:=-1
 func back() -> void:
@@ -1099,6 +1171,8 @@ func back() -> void:
     if sim.state.tutorial.mode=="pending":return
     $Safe/Layout/Map/GestureSurface.cancel_gesture()
     stick.release()
+    if $ReviewInvitation.is_open():
+        _review_later();return
     if $PrestigeConfirm.visible:$PrestigeConfirm.close()
     elif $Confirm.visible:_cancel_confirm()
     elif sheet.visible:_close()
@@ -2341,6 +2415,13 @@ func _settings_panel() -> void:
     # Settings; onboarding.reveal_all stays for probes.
     _section(tr("SECTION_TUTORIAL"))
     _action(tr("HELP"),func()->void:_open("help"),true,"").set_meta("guide","help")
+    # Change 35: a permanent, unprompted review action for the build's storefront (absent when the
+    # build declares none). Opening it also settles the automatic invitation.
+    var store: String=sim.campaign.review.channel()
+    if store!="":
+        _section(tr("SECTION_FEEDBACK"))
+        _action(tr(sim.campaign.review.channels.cta(store)),func()->void:
+            if not sim.campaign.review.open_store():_say(tr("REVIEW_OPEN_FAILED")),true,"").set_meta("guide","review_store")
     # Change 12: music and sound-effect volumes (0 = silent) and two independent mutes.
     _section(tr("SECTION_AUDIO"))
     _volume_row("MUSIC_VOLUME",SettingsState.music_volume,SettingsState.set_music_volume)
@@ -2392,7 +2473,7 @@ func _volume_row(key: String,value: float,setter: Callable) -> void:
 ## page to read, so Basic and Help never describe the game differently (Change 25). Reading it changes
 ## nothing: no progress, discovery or menu reveal, and the guidance mode stays as chosen. In Guided, a
 ## card about a system its staged reveal has not opened yet is left out (no spoilers).
-const HELP_ART:={"overview":60,"basic_gear":211,"basic_growth":147,"basic_world":249,"basic_prestige":212}
+const HELP_ART:={"overview":60,"basic_target":1,"basic_gear":211,"basic_growth":147,"basic_world":249,"basic_prestige":212}
 func _help_panel() -> void:
     _text(tr("HELP_INTRO"),17,Color(.8,.84,.9))
     for card in guide.BASIC_DECK:

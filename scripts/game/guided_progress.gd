@@ -2,7 +2,10 @@ extends RefCounted
 ## Saved, ordered tutorial outcomes. Gameplay time pauses with the simulation and survives reloads.
 ## Presentation asks next_step(); only successful actions and explicit acknowledgements finish steps.
 var sim
-const STEPS:=["move","kill","collect","equip","close_equip","merge","close_merge","mission_wait","missions","close_missions","upgrade_wait","player_upgrade","close_upgrade","camp","boss_find","boss_preparation","boss_farm","expand_inventory","close_inventory","potion_buy","potion_use","prestige_intro","boss_win","world_intro","travel_intro","milestones_intro","winter_two","tutorial_final"]
+## Change 35: "target" (drag from the hero to an enemy and release) follows the path walk and comes
+## before the first kill. Only a successful manual selection completes it (action "target", from
+## sim.select_target); see target_unavailable() for the one escape.
+const STEPS:=["move","target","kill","collect","equip","close_equip","merge","close_merge","mission_wait","missions","close_missions","upgrade_wait","player_upgrade","close_upgrade","camp","boss_find","boss_preparation","boss_farm","expand_inventory","close_inventory","potion_buy","potion_use","prestige_intro","boss_win","world_intro","travel_intro","milestones_intro","winter_two","tutorial_final"]
 
 func _init(owner) -> void:sim=owner
 
@@ -50,6 +53,7 @@ func action(kind: String,id: String) -> void:
             if sim.catalog.upgrades.has(id) and sim.catalog.upgrades[id].scope=="global":mark("player_upgrade")
         "supply_buy":
             if id=="potion":mark("potion_buy")
+        "target":mark("target")
 
 func panel_closed(panel: String) -> void:
     if not active():return
@@ -65,6 +69,19 @@ func acknowledge(id: String) -> void:
     if id=="boss_preparation" and not sim.state.tutorial.seen.has(id):sim.state.tutorial.seen.append(id)
     if id=="tutorial_final":sim.campaign.onboarding.reveal_all(true)
 
+## Change 35 escape: the targeting lesson needs a living enemy in sight. The guide reports active
+## seconds in which none is (target_find); after OnboardingRules.target_escape_seconds of them the step
+## is recorded as passed (target_skipped) so the tutorial never waits on an empty map. Time with a
+## targetable enemy in sight never counts, so ordinary play still has to make the real gesture.
+func target_unavailable(seconds: float) -> void:
+    if not active() or seconds<=0.0 or next_step()!="target":return
+    var f:=data()
+    var limit: float=sim.campaign.onboarding.rules.target_escape_seconds
+    f.target_unavailable=minf(limit,float(f.get("target_unavailable",0.0))+seconds)
+    SaveService.mark_dirty()
+    if f.target_unavailable>=limit:
+        f.target_skipped=true;mark("target")
+
 func shown(seconds: float) -> void:
     if active() and next_step()=="tutorial_final":
         data().final_seconds=minf(float(rules().final_delay),float(data().final_seconds)+seconds)
@@ -78,6 +95,9 @@ func next_step() -> String:
         var satisfied:=false
         match id:
             "move":satisfied=sim.campaign.counter("kill")>0 or sim.position_of(sim.state.player).distance_to(sim.campaign.onboarding.rules.path_target)<=sim.campaign.onboarding.rules.path_reach
+            # Change 35: never by a kill or automatic attack. Only a profile from before this step existed
+            # can have "kill" done without it (kill is ordered after target), and it keeps its place.
+            "target":satisfied=f.done.has("kill")
             "kill":satisfied=sim.campaign.counter("kill")>0
             "collect":satisfied=not sim.state.items.is_empty()
             "equip":satisfied=sim.state.weapon!="" or sim.state.outfit!=""
@@ -136,6 +156,9 @@ func normalize(out: Dictionary) -> void:
         for id in f.done:
             if id is String and STEPS.has(id) and not done.has(id):done.append(id)
     if done.has("potion_buy") and not done.has("close_inventory"):done.append("close_inventory")
+    # Change 35: profiles saved before the targeting step existed and already past the first kill keep
+    # their place (the step is ordered before "kill", so a newer profile cannot have kill without it).
+    if done.has("kill") and not done.has("target"):done.append("target")
     f.done=done
     if not f.get("times") is Dictionary:f.times={}
     for id in f.times.keys():
@@ -155,6 +178,8 @@ func normalize(out: Dictionary) -> void:
             f.wait_seconds.erase(id)
         else:
             f.wait_seconds[id]=clampf(float(f.wait_seconds[id]),0.0,float(rules().mission_delay if id=="mission_wait" else rules().upgrade_delay))
+    f.target_unavailable=clampf(float(f.get("target_unavailable",0)),0,float(sim.campaign.onboarding.rules.target_escape_seconds)) if sim.campaign.number(f.get("target_unavailable",0)) else 0.0
+    f.target_skipped=f.get("target_skipped",false)==true
     f.supply_grant=f.get("supply_grant",false)==true
     f.gem_grant=f.get("gem_grant",false)==true
     f.boss_kills=maxi(-1,int(f.get("boss_kills",-1))) if sim.campaign.number(f.get("boss_kills",-1)) else -1

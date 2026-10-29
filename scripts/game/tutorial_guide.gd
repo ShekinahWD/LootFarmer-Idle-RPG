@@ -18,7 +18,8 @@ const ITEM_ROOT="res://assets/PixelPlains/Items/All v3 (Separated Files, Black O
 const LESSONS=["move","kill","collect","equip","merge","missions","upgrade","camp","slots","snowman","prestige"]
 ## Change 25 Basic overview, in order (texts GUIDE_<ID>/_DETAIL). Help shows the same deck; in Guided,
 ## a card about a system the staged reveal has not opened yet is left out of Help (no spoilers).
-const BASIC_DECK:=["overview","basic_gear","basic_growth","basic_world","basic_prestige"]
+## Change 35: basic_target (drag from the hero to an enemy, release to target it) follows the overview.
+const BASIC_DECK:=["overview","basic_target","basic_gear","basic_growth","basic_world","basic_prestige"]
 const DECK_FEATURE:={"basic_growth":"upgrades","basic_world":"world","basic_prestige":"prestige"}
 ## Guided introduction cards that also point (the Next Stage chip, the Follow button).
 const POINTING_INTROS:=["snowman","prestige_follow","prestige_info"]
@@ -57,6 +58,16 @@ var focus_shown: float=0
 ## Change 15: seconds the current Basic card has been on screen, and which card that is.
 var card_shown: float=0
 var card_for:=""
+## Change 35: the Guided targeting demonstration, drawn over the map from the player to the enemy it
+## suggests: a dashed path, a ring on the hero (start here) and on the enemy (release here), and the
+## pointer travelling along it. Drawn only; it never takes input, so the real drag reaches the map.
+var aim: Control
+var aim_from:=Vector2.ZERO
+var aim_to:=Vector2.ZERO
+var aim_progress:=0.0
+const AIM_TRAVEL_SECONDS:=1.3
+const AIM_HOLD_SECONDS:=0.6
+const AIM_COLOR:=Color(1,.75,.2)
 
 func setup(owner_ui) -> void:
     ui=owner_ui;sim=ui.sim
@@ -71,6 +82,8 @@ func setup(owner_ui) -> void:
     for mode in ["guided","basic","none"]:
         var button:=Button.new();button.custom_minimum_size.y=76;button.text=tr("GUIDE_MODE_"+mode.to_upper());list.add_child(button)
         button.pressed.connect(func()->void:choose(mode))
+    aim=Control.new();aim.mouse_filter=Control.MOUSE_FILTER_IGNORE;aim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(aim);aim.hide()
+    aim.draw.connect(_draw_aim)
     final_backdrop=ColorRect.new();final_backdrop.color=Color(0,0,0,0.72);final_backdrop.mouse_filter=Control.MOUSE_FILTER_IGNORE;final_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(final_backdrop);final_backdrop.hide()
     card=PanelContainer.new();card.theme_type_variation=&"Backing";card.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(card)
     var content:=VBoxContainer.new();content.mouse_filter=Control.MOUSE_FILTER_IGNORE;content.add_theme_constant_override("separation",4);card.add_child(content)
@@ -130,11 +143,14 @@ func _process(dt: float) -> void:
         var at:=Vector2(ui.centered_x(chooser.size.x,insets),(ui.size.y-chooser.size.y)*.5)
         if not chooser.position.is_equal_approx(at):chooser.position=at
         _hide_all();return
-    if not get_tree().paused and not sim.suspended and sim.state.prestige_batch.is_empty():
+    var running: bool=not get_tree().paused and not sim.suspended and not sim.held and sim.state.prestige_batch.is_empty()
+    if running:
         sim.campaign.guided.advance_waits(dt)
     _complete_lessons()
     evaluate()
     _present()
+    # Change 35: the targeting lesson's escape counts only active time with no enemy to target.
+    if running and step=="target_find":sim.campaign.guided.target_unavailable(dt)
     if card.visible and not get_tree().paused:
         if intro_id=="flow:tutorial_final":sim.campaign.guided.shown(dt)
         elif intro_id==ROAD_AHEAD_ID:
@@ -328,6 +344,13 @@ func _guided_lesson() -> void:
         return
     if current in ["move","kill","collect","equip","merge","missions"]:
         _lesson(current);return
+    if current=="target":
+        # Change 35: demonstrate the real gesture toward the nearest enemy that can be targeted; with
+        # none in sight, ask the player to walk until one is (the escape timer runs only then).
+        world_target=_nearest_enemy(true)
+        if world_target==Vector2.INF:world_target=_nearest_enemy()
+        if world_target==Vector2.INF:step="target_find";target=ui.stick
+        return
     if current in ["boss_preparation","prestige_intro","world_intro","travel_intro","milestones_intro","tutorial_final"]:
         intro_id="flow:"+current
         if current=="prestige_intro" and not sim.campaign.ready_ids().is_empty():step="prestige_eligible"
@@ -444,11 +467,15 @@ func _focus_hint() -> bool:
         step="focus_find";target=ui.get_node("Safe/Layout/Map/MiniMap")
     return true
 
-func _nearest_enemy() -> Vector2:
+## on_map (Change 35, the targeting demo): only enemies drawn inside the visible map.
+func _nearest_enemy(on_map:=false) -> Vector2:
     var best:=Vector2.INF
     var view=sim.campaign.sight()
+    var map: Control=ui.get_node("Safe/Layout/Map")
+    var scale: Vector2=map.size/Vector2(ui.world.get_viewport_rect().size)
     for e in sim.state.enemies:
         if e.hp<=0 or not view.sees(sim.position_of(e)) or sim.catalog.groups[int(e.group)].boss:continue
+        if on_map and not map.get_global_rect().grow(-32).has_point(map.global_position+(ui.world.get_canvas_transform()*sim.position_of(e))*scale):continue
         if best==Vector2.INF or sim.position_of(e).distance_to(sim.position_of(sim.state.player))<best.distance_to(sim.position_of(sim.state.player)):best=sim.position_of(e)
     return best
 
@@ -478,7 +505,7 @@ func _panel_control(key: String,enabled_only:=false) -> Control:
     return null
 
 func _hide_all() -> void:
-    card.hide();final_backdrop.hide();highlight.hide();shade.hide();pointer.hide()
+    card.hide();final_backdrop.hide();highlight.hide();shade.hide();pointer.hide();aim.hide()
 
 func _present() -> void:
     var data: Dictionary=sim.state.tutorial
@@ -516,7 +543,7 @@ func _present() -> void:
     # Introductions are text only, except in Guided: the Focused Farming and Auto Claim hints and
     # the Snowman objective and Prestige cards point at their control. Basic and None never point.
     if data.mode!="guided" or (pending not in ["focus","mission_auto_hint","mission_auto_open"] and intro_id!="" and not step in POINTING_INTROS):
-        highlight.hide();shade.hide();pointer.hide();return
+        highlight.hide();shade.hide();pointer.hide();aim.hide();return
     _point()
 
 func _picture() -> Texture2D:
@@ -526,7 +553,7 @@ func _picture() -> Texture2D:
     if step in ["skills","rest"]:return ui._art(212)
     if step.begins_with("camp") or step=="feature_world":return ui._art(249)
     if step.begins_with("prestige") or step.begins_with("missions") or step in ["feature_prestige","feature_missions"]:return ui._art(211)
-    if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect","feature_enemy"]:return ui._art(1)
+    if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect","feature_enemy","target","target_find"]:return ui._art(1)
     return ui._art(60)
 
 ## The caption never covers the open panel: above it when there is room, otherwise hidden
@@ -568,6 +595,10 @@ func _point_path() -> void:
     pointer.show()
 
 func _point() -> void:
+    if step=="target":
+        _point_aim()
+        return
+    aim.hide()
     if path_point!=Vector2.INF:
         _point_path()
         return
@@ -609,3 +640,42 @@ func _point() -> void:
     pointer.position=tip-direction*(POINTER_SIZE*.45+6+bob)-pointer.size*.5
     pointer.position.x=clampf(pointer.position.x,4,ui.size.x-POINTER_SIZE-4)
     pointer.show()
+
+## Change 35: the targeting demonstration, from the player's screen position to the suggested enemy
+## (world_target), in map coordinates like _point_path. Hidden while the player is already aiming
+## (the real aim line takes over) and when either end leaves the visible map.
+func _point_aim() -> void:
+    highlight.hide();shade.hide()
+    var map: Control=ui.get_node("Safe/Layout/Map")
+    var scale: Vector2=map.size/Vector2(ui.world.get_viewport_rect().size)
+    aim_from=map.global_position+ui.world.player_screen_position()*scale
+    aim_to=map.global_position+(ui.world.get_canvas_transform()*(world_target+Vector2(0,-10)))*scale
+    var inside: Rect2=map.get_global_rect().grow(-16)
+    var gesture=ui.get_node("Safe/Layout/Map/GestureSurface")
+    if not inside.has_point(aim_from) or not inside.has_point(aim_to) or aim_from.distance_to(aim_to)<24 or (gesture.aiming and gesture.dragging):
+        pointer.hide();aim.hide();return
+    var cycle: float=fmod(pulse,AIM_TRAVEL_SECONDS+AIM_HOLD_SECONDS)
+    aim_progress=minf(1.0,cycle/AIM_TRAVEL_SECONDS)
+    var eased:=aim_progress*aim_progress*(3.0-2.0*aim_progress)
+    var finger:=aim_from.lerp(aim_to,eased)
+    # The arrow's tip sits on the moving touch point, pointing the way the finger travels.
+    var direction:=(aim_to-aim_from).normalized()
+    pointer.rotation=direction.angle()-ARROW_BASE_ANGLE
+    pointer.position=finger-direction*POINTER_SIZE*.45-pointer.size*.5
+    pointer.show();aim.show();aim.queue_redraw()
+
+func _draw_aim() -> void:
+    var finger:=aim_from.lerp(aim_to,aim_progress*aim_progress*(3.0-2.0*aim_progress))
+    var length:=aim_from.distance_to(aim_to)
+    var direction:=(aim_to-aim_from)/maxf(1.0,length)
+    # Dashed guide for the whole path, the travelled part drawn like the real aim line.
+    var d:=0.0
+    while d<length:
+        aim.draw_line(aim_from+direction*d,aim_from+direction*minf(length,d+12),Color(AIM_COLOR,.45),3,true)
+        d+=22
+    aim.draw_line(aim_from,finger,Color(0,0,0,.6),6,true)
+    aim.draw_line(aim_from,finger,AIM_COLOR,3,true)
+    var glow:=.6+.4*sin(pulse*6)
+    aim.draw_arc(aim_from,22,0,TAU,40,Color(1,1,1,.9),3,true)
+    aim.draw_arc(aim_to,20+4*glow,0,TAU,40,Color(AIM_COLOR,.55+.45*glow),3,true)
+    if aim_progress>=1.0:aim.draw_circle(aim_to,8,Color(AIM_COLOR,.8))

@@ -147,7 +147,8 @@ func basic_checks() -> void:
     await choose("basic")
     var guide=game.guide
     var deck: Array=guide.BASIC_DECK
-    check(deck.size()>=3 and deck.size()<=5,"Basic: an overview of %d cards (3-5)" % deck.size())
+    # Change 35 adds the targeting card (basic_target): six cards.
+    check(deck.size()>=3 and deck.size()<=6,"Basic: an overview of %d cards (3-6)" % deck.size())
     var texts_ok:=true
     for id in deck:
         var t: String=tr("GUIDE_"+id.to_upper());var d: String=tr("GUIDE_"+id.to_upper()+"_DETAIL")
@@ -225,7 +226,8 @@ func guided_checks() -> void:
     var flow=sim.campaign.guided
     check(not usable(nav("World")) and not usable(nav("Missions")) and not usable(nav("Prestige")) and not usable(nav("Upgrades")),"Guided: menus still appear one at a time")
     check(guide.pending=="move" and guide.pointer.visible,"Guided: the first lesson points")
-    check(flow.STEPS.size()==28 and is_equal_approx(float(flow.rules().mission_delay),15.0) and is_equal_approx(float(flow.rules().upgrade_delay),15.0),"Guided: 28 steps and two 15 s active waits")
+    # Change 35 adds the targeting step ("target", after "move"): 29 steps.
+    check(flow.STEPS.size()==29 and is_equal_approx(float(flow.rules().mission_delay),15.0) and is_equal_approx(float(flow.rules().upgrade_delay),15.0),"Guided: 29 steps and two 15 s active waits")
     for step in ["move","kill","collect","equip","close_equip","merge","close_merge"]:flow.mark(step)
     flow.advance_waits(14.9)
     check(flow.next_step()=="mission_wait" and not sim.campaign.onboarding.revealed("missions"),"Missions wait the full 15 s")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/review_rules.gd" id="rules"]
+
+[resource]
+script = ExtResource("rules")
+eligible_seconds = 3600.0
+safe_seconds = 2.0
+min_health_fraction = 0.5
+boss_clearance = 280.0

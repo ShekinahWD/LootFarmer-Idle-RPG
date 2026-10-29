@@ -10,3 +10,4 @@ first_kill_weapon_bosses = PackedStringArray("boss-snowman")
 card_seconds = 20.0
 path_target = Vector2(300, 810)
 path_reach = 110.0
+target_escape_seconds = 60.0

@@ -1,0 +1,154 @@
+[gd_scene load_steps=8 format=3]
+[ext_resource type="Theme" path="res://resources/game/theme.tres" id="theme"]
+[ext_resource type="Script" path="res://scripts/game/review_dialog.gd" id="script"]
+[ext_resource type="Script" path="res://scripts/game/touch_scroll.gd" id="touch_scroll"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-212.png" id="heart"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-011.png" id="border"]
+[ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Divider/divider-003.png" id="divider"]
+[ext_resource type="Texture2D" path="res://assets/PixelPlains/Sparks 25x27.png" id="sparks"]
+[node name="ReviewInvitation" type="Control"]
+process_mode=3
+visible=false
+layout_mode=3
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+mouse_filter=0
+theme=ExtResource("theme")
+script=ExtResource("script")
+spark_sheet=ExtResource("sparks")
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+mouse_filter=0
+color=Color(0.02,0.02,0.05,0.72)
+[node name="Plate" type="PanelContainer" parent="."]
+layout_mode=0
+offset_right=600.0
+offset_bottom=640.0
+theme_type_variation=&"Backing"
+[node name="Margin" type="MarginContainer" parent="Plate"]
+layout_mode=2
+theme_override_constants/margin_left=22
+theme_override_constants/margin_top=22
+theme_override_constants/margin_right=22
+theme_override_constants/margin_bottom=20
+[node name="Content" type="VBoxContainer" parent="Plate/Margin"]
+layout_mode=2
+theme_override_constants/separation=12
+[node name="Header" type="HBoxContainer" parent="Plate/Margin/Content"]
+layout_mode=2
+theme_override_constants/separation=16
+[node name="Art" type="TextureRect" parent="Plate/Margin/Content/Header"]
+layout_mode=2
+custom_minimum_size=Vector2(80,80)
+texture=ExtResource("heart")
+expand_mode=1
+stretch_mode=5
+texture_filter=1
+[node name="Text" type="VBoxContainer" parent="Plate/Margin/Content/Header"]
+layout_mode=2
+size_flags_horizontal=3
+alignment=1
+theme_override_constants/separation=2
+[node name="Title" type="Label" parent="Plate/Margin/Content/Header/Text"]
+layout_mode=2
+autowrap_mode=2
+text="REVIEW_TITLE"
+theme_override_font_sizes/font_size=34
+theme_override_colors/font_color=Color(1,0.84,0.34,1)
+theme_override_colors/font_outline_color=Color(0.12,0.07,0.0,1)
+theme_override_constants/outline_size=7
+[node name="Lead" type="Label" parent="Plate/Margin/Content/Header/Text"]
+layout_mode=2
+autowrap_mode=2
+text="REVIEW_LEAD"
+theme_override_font_sizes/font_size=20
+theme_override_colors/font_color=Color(0.6,0.95,0.86,1)
+theme_override_constants/outline_size=4
+[node name="Divider" type="TextureRect" parent="Plate/Margin/Content"]
+layout_mode=2
+custom_minimum_size=Vector2(0,10)
+texture=ExtResource("divider")
+expand_mode=1
+stretch_mode=1
+modulate=Color(1,0.84,0.34,0.8)
+[node name="Scroll" type="ScrollContainer" parent="Plate/Margin/Content"]
+layout_mode=2
+size_flags_vertical=3
+horizontal_scroll_mode=0
+script=ExtResource("touch_scroll")
+[node name="Body" type="VBoxContainer" parent="Plate/Margin/Content/Scroll"]
+layout_mode=2
+size_flags_horizontal=3
+theme_override_constants/separation=12
+[node name="Loot" type="HBoxContainer" parent="Plate/Margin/Content/Scroll/Body"]
+layout_mode=2
+alignment=1
+theme_override_constants/separation=18
+[node name="Text" type="Label" parent="Plate/Margin/Content/Scroll/Body"]
+layout_mode=2
+autowrap_mode=2
+text="REVIEW_BODY"
+theme_override_font_sizes/font_size=20
+theme_override_colors/font_color=Color(0.94,0.95,0.97,1)
+[node name="Error" type="Label" parent="Plate/Margin/Content/Scroll/Body"]
+visible=false
+layout_mode=2
+autowrap_mode=2
+text="REVIEW_OPEN_FAILED"
+theme_override_font_sizes/font_size=18
+theme_override_colors/font_color=Color(1,0.62,0.5,1)
+[node name="Actions" type="VBoxContainer" parent="Plate/Margin/Content"]
+layout_mode=2
+theme_override_constants/separation=10
+[node name="Review" type="Button" parent="Plate/Margin/Content/Actions"]
+layout_mode=2
+custom_minimum_size=Vector2(0,84)
+theme_type_variation=&"Primary"
+theme_override_font_sizes/font_size=24
+text="REVIEW_CTA_GOOGLE_PLAY"
+autowrap_mode=2
+[node name="Later" type="Button" parent="Plate/Margin/Content/Actions"]
+layout_mode=2
+custom_minimum_size=Vector2(0,64)
+theme_override_font_sizes/font_size=20
+text="REVIEW_LATER"
+[node name="Frame" type="NinePatchRect" parent="Plate"]
+layout_mode=2
+modulate=Color(1,0.82,0.3,1)
+mouse_filter=2
+texture=ExtResource("border")
+patch_margin_left=16
+patch_margin_top=16
+patch_margin_right=16
+patch_margin_bottom=16
+[node name="Sparks" type="Control" parent="Plate"]
+layout_mode=2
+mouse_filter=2
+[node name="Spark0" type="TextureRect" parent="Plate/Sparks"]
+layout_mode=0
+offset_left=-16.0
+offset_top=-20.0
+offset_right=34.0
+offset_bottom=34.0
+mouse_filter=2
+texture_filter=1
+expand_mode=1
+stretch_mode=5
+[node name="Spark1" type="TextureRect" parent="Plate/Sparks"]
+layout_mode=1
+anchor_left=1.0
+anchor_right=1.0
+offset_left=-34.0
+offset_top=-20.0
+offset_right=16.0
+offset_bottom=34.0
+mouse_filter=2
+texture_filter=1
+expand_mode=1
+stretch_mode=5

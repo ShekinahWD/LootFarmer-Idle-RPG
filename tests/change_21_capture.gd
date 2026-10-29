@@ -53,7 +53,7 @@ func run() -> void:
     game._close();game.mastery_stage=1;game._open("mastery");await shot("mastery_scroll")
     game._close()
     sim.state.tutorial.mode="guided"
-    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,14)
+    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("camp")+1)
     game.guide.evaluate();await shot("boss_preparation")
     sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.size()-1)
     sim.state.stage=2

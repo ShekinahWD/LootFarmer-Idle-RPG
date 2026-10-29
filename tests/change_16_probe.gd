@@ -788,7 +788,8 @@ func guide_checks() -> void:
     fresh("guided");sim.state.tutorial.done.clear()
     sim.state.player.x=rules.path_target.x+40;sim.state.player.y=rules.path_target.y
     await frames(2)
-    check(sim.state.tutorial.done.has("move") and game.guide.pending=="kill","Reaching the path completes it and the normal sequence continues (%s)" % game.guide.pending)
+    # Change 35: the targeting lesson now follows the path walk, before the first kill.
+    check(sim.state.tutorial.done.has("move") and game.guide.pending=="target","Reaching the path completes it and the normal sequence continues (%s)" % game.guide.pending)
     # Camps: no pop-up on approach; a View Camp button under the camp's name instead.
     fresh("none")
     var camp: Array=sim.campaign.stage().spawns[1]
@@ -815,7 +816,7 @@ func guide_checks() -> void:
     check(not view.visible,"Walking away hides the button")
     # Guided camp lesson points at View Camp when standing there.
     fresh("guided")
-    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,13)
+    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("close_upgrade")+1)
     sim.state.camps_known["1"]=[1];sim.state.coins=1000
     sim.state.player.x=float(camp[0]);sim.state.player.y=float(camp[1])+20
     await frames(3)
@@ -832,7 +833,7 @@ func settings_checks() -> void:
     fresh("guided")
     sim.state.onboarding.reveal=["missions","enemy","world"] # fixture: mid-progression
     sim.state.tutorial.done=["move","kill"]
-    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,13)
+    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("close_upgrade")+1)
     game._open("settings");await frames(2)
     var all: String=" | ".join(buttons(game.rows).map(func(b):return b.text))
     check(not all.contains("Show all menus") and not all.contains("Choose guidance again"),"Settings has no Show all menus and no Choose guidance again")

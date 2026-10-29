@@ -10,15 +10,18 @@ var offline_receipt: Dictionary={}
 var onboarding
 var mastery
 var guided
+## Change 35: the one automatic review invitation (state.review) and its storefront routing.
+var review
 func _init(owner) -> void:
     sim=owner
     guided=preload("res://scripts/game/guided_progress.gd").new(owner)
+    review=preload("res://scripts/game/review_invitation.gd").new(owner)
     onboarding=preload("res://scripts/game/onboarding.gd").new(owner)
     mastery=preload("res://scripts/game/mastery.gd").new(owner)
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={}
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"bosses_found":[],"follow_mission":""},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"bosses_found":[],"follow_mission":"","review":review.initial()},true)
     mastery.reset_cache()
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
@@ -1267,7 +1270,8 @@ func choose_card(id: String) -> bool:
         # Change 16: Prestige also keeps the Gem balance, every explored map area (fog cells, sighted
         # camps and found encounter spots) and the bosses found. Map upgrades, camps owned, coins and
         # the run's online Gem credit (Offering opportunities) still reset.
-        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found","player_level","xp","reward_stage","onboarding","mastery","gems","explored","camps_known","discovered","discovered_spots","bosses_found"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        # Change 35: the review invitation record is per profile, so Prestige keeps it too.
+        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found","player_level","xp","reward_stage","onboarding","mastery","gems","explored","camps_known","discovered","discovered_spots","bosses_found","review"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1381,6 +1385,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     var out: Dictionary=data.duplicate(true)
     normalize_change17(out)
     guided.normalize(out)
+    review.normalize(out)
     # Change 8 fields are derived for older current-schema saves, never copied from the live state.
     var change8: Array=[]
     for key in ["skills_seen","discovered_spots","camps_known"]:
@@ -1615,6 +1620,7 @@ func valid_snapshot(data: Dictionary) -> bool:
         elif a!=b:return false
     if not data.tutorial.has_all(["mode","done","seen"]) or data.tutorial.mode not in ["pending","guided","basic","none"] or not data.tutorial.done is Array or not data.tutorial.seen is Array:return false
     if not onboarding_valid(data.onboarding) or not mastery_valid(data.mastery):return false
+    if not str(data.review.get("status","")) in review.STATUSES:return false
     for id in data.bosses_found:
         var g=group_id(str(id))
         if g<0 or not sim.catalog.groups[g].boss or data.bosses_found.count(id)!=1:return false

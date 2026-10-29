@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=14 format=3]
 [ext_resource type="Script" path="res://scripts/game/game_ui.gd" id="ui"]
 [ext_resource type="Script" path="res://scripts/game/simulation.gd" id="sim"]
 [ext_resource type="PackedScene" path="res://scenes/game/world.tscn" id="world"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" path="res://assets/KenneyFantasyUI/PNG/Default/Divider/divider-003.png" id="divider"]
 [ext_resource type="PackedScene" path="res://scenes/game/milestone_banner.tscn" id="banner"]
 [ext_resource type="PackedScene" path="res://scenes/game/prestige_confirm.tscn" id="prestige_confirm"]
+[ext_resource type="PackedScene" path="res://scenes/game/review_invitation.tscn" id="review_invitation"]
 [ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-249.png" id="nav_world"]
 [ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-60.png" id="nav_missions"]
 [ext_resource type="Texture2D" path="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-211.png" id="nav_prestige"]
@@ -806,3 +807,4 @@ size_flags_horizontal=3
 custom_minimum_size=Vector2(0,60)
 text="CONFIRM"
 [node name="PrestigeConfirm" parent="." instance=ExtResource("prestige_confirm")]
+[node name="ReviewInvitation" parent="." instance=ExtResource("review_invitation")]

@@ -5770,3 +5770,45 @@ msgstr "Large"
 
 msgid "PRESTIGE_GENERAL"
 msgstr "General"
+
+msgid "REVIEW_TITLE"
+msgstr "Enjoying LootFarmer?"
+
+msgid "REVIEW_LEAD"
+msgstr "Your adventure is just getting started!"
+
+msgid "REVIEW_BODY"
+msgstr "Found some great loot? We'd love to hear what you think. An honest review helps us improve LootFarmer and helps other players discover the game."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Review on Google Play"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "Review on itch.io"
+
+msgid "REVIEW_LATER"
+msgstr "Maybe Later"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "The store page couldn't be opened. Check your connection and try again."
+
+msgid "SECTION_FEEDBACK"
+msgstr "Feedback"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "Target an enemy"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "Drag from your hero to an enemy, then release to target it. You'll focus your attacks on the selected enemy."
+
+msgid "GUIDE_TARGET"
+msgstr "Target an enemy"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "Drag from your hero to an enemy, then release to target it. You'll focus your attacks on the selected enemy."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "Find an enemy to target"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "Walk until an enemy is in sight, then drag from your hero to it and release."

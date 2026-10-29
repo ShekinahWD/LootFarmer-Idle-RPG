@@ -286,6 +286,8 @@ class Manifest:
             'preset': self.rules['preset'],
             'catalog': self.catalog_path,
             'abis': self.rules['abis'],
+            'mirror_presets': self.rules.get('mirror_presets', []),
+            'store_tags': self.rules.get('store_tags', {}),
             'counts': {'files': len(self.why), 'stages': len(stages),
                        'imported': sum(1 for p in self.why if p + '.import' in self.files)},
             'families': families,
@@ -304,7 +306,14 @@ def preset_block(text, name):
 
 
 def preset_text(text, manifest):
-    idx, start, end = preset_block(text, manifest['preset'])
+    # Change 35: the itch.io presets (mirror_presets) ship exactly the same allowlist.
+    for name in [manifest['preset']] + manifest.get('mirror_presets', []):
+        text = one_preset_text(text, name, manifest)
+    return text
+
+
+def one_preset_text(text, name, manifest):
+    idx, start, end = preset_block(text, name)
     block = text[start:end]
     files = 'PackedStringArray(%s)' % ', '.join('"%s"' % p for p in manifest['files'])
     block = re.sub(r'^export_filter=.*$', 'export_filter="resources"', block, flags=re.M)
@@ -315,7 +324,30 @@ def preset_text(text, manifest):
 
 
 def static_preset_checks(text, manifest):
-    idx, start, end = preset_block(text, manifest['preset'])
+    for name in [manifest['preset']] + manifest.get('mirror_presets', []):
+        idx, start, end = preset_block(text, name)
+        if re.search(r'^platform="Android"$', text[start:end], re.M):
+            android_preset_checks(text, name, manifest)
+    store_checks(text, manifest)
+
+
+def store_checks(text, manifest):
+    """Change 35: each release preset declares exactly its reviewed store tag; other presets none."""
+    tags = manifest.get('store_tags', {})
+    for name, features in re.findall(r'^name="([^"]*)"\n(?:(?!^\[).*\n)*?custom_features="([^"]*)"', text, re.M):
+        store = [f for f in features.replace(' ', '').split(',') if f.startswith('store_')]
+        if name in tags:
+            if store != [tags[name]]:
+                fail('preset %s store tags %s != reviewed [%s]' % (name, store, tags[name]))
+        elif store:
+            fail('preset %s is not a reviewed release preset but declares store tags %s' % (name, store))
+    for name in tags:
+        if not re.search(r'^name="%s"$' % re.escape(name), text, re.M):
+            fail('reviewed store preset %s missing from export_presets.cfg' % name)
+
+
+def android_preset_checks(text, name, manifest):
+    idx, start, end = preset_block(text, name)
     options = text[end:].split('\n[preset.', 1)[0]
     abis = {a for a, on in re.findall(r'^architectures/([\w-]+)=(\w+)$', options, re.M) if on == 'true'}
     if abis != set(manifest['abis']):
@@ -323,7 +355,7 @@ def static_preset_checks(text, manifest):
     code = re.search(r'^version/code=(\d+)$', options, re.M).group(1)
     version = re.search(r'^config/version="([^"]*)"', (ROOT / 'project.godot').read_text(encoding='utf-8'), re.M).group(1)
     if code != version:
-        fail('Release version/code %s != project config/version %s' % (code, version))
+        fail('%s version/code %s != project config/version %s' % (name, code, version))
 
 
 def main():

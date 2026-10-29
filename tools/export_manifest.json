@@ -6,8 +6,17 @@
   "arm64-v8a",
   "armeabi-v7a"
  ],
+ "mirror_presets": [
+  "Android itch.io APK",
+  "Windows itch.io"
+ ],
+ "store_tags": {
+  "Android Release": "store_google_play",
+  "Android itch.io APK": "store_itch_io",
+  "Windows itch.io": "store_itch_io"
+ },
  "counts": {
-  "files": 232,
+  "files": 239,
   "stages": 8,
   "imported": 154
  },
@@ -453,6 +462,7 @@
   "res://resources/game/audio_cues.tres": "literal in res://scripts/game/game_ui.gd",
   "res://resources/game/coin.tres": "dependency of res://scenes/game/main.tscn",
   "res://resources/game/death_weapon.tres": "literal in res://scripts/game/world.gd",
+  "res://resources/game/distribution_channels.tres": "literal in res://scripts/game/review_invitation.gd",
   "res://resources/game/enemy_abilities.tres": "literal in res://scripts/game/simulation.gd",
   "res://resources/game/fog_rules.tres": "literal in res://scripts/game/campaign.gd",
   "res://resources/game/fog_veil.gdshader": "literal in res://scripts/game/fog_layer.gd",
@@ -460,6 +470,7 @@
   "res://resources/game/mastery_rules.tres": "literal in res://scripts/game/mastery.gd",
   "res://resources/game/onboarding_rules.tres": "literal in res://scripts/game/onboarding.gd",
   "res://resources/game/outfit_slot_styles.tres": "literal in res://scripts/game/game_ui.gd",
+  "res://resources/game/review_rules.tres": "literal in res://scripts/game/review_invitation.gd",
   "res://resources/game/skill_effects.tres": "literal in res://scripts/game/world.gd",
   "res://resources/game/theme.tres": "dependency of res://scenes/game/main.tscn",
   "res://resources/game/weather_blue_leaves.tres": "literal in res://scripts/game/season_weather.gd",
@@ -474,6 +485,7 @@
   "res://scenes/game/pickup.tscn": "literal in res://scripts/game/world.gd",
   "res://scenes/game/prestige_card.tscn": "literal in res://scripts/game/game_ui.gd",
   "res://scenes/game/prestige_confirm.tscn": "dependency of res://scenes/game/main.tscn",
+  "res://scenes/game/review_invitation.tscn": "dependency of res://scenes/game/main.tscn",
   "res://scenes/game/slot.tscn": "literal in res://scripts/game/game_ui.gd",
   "res://scenes/game/stages/stage_1.tscn": "family stage_scenes",
   "res://scenes/game/stages/stage_2.tscn": "family stage_scenes",
@@ -497,6 +509,7 @@
   "res://scripts/game/camp_picker.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/campaign.gd": "literal in res://scripts/game/simulation.gd",
   "res://scripts/game/catalog.gd": "class_name LootCatalog used by res://scripts/game/simulation.gd",
+  "res://scripts/game/distribution_channels.gd": "dependency of res://resources/game/distribution_channels.tres",
   "res://scripts/game/enemy_ability_rules.gd": "class_name EnemyAbilityRules used by res://scripts/game/simulation.gd",
   "res://scripts/game/fog_layer.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/fog_rules.gd": "dependency of res://resources/game/fog_rules.tres",
@@ -515,6 +528,9 @@
   "res://scripts/game/pickup_spark.gd": "dependency of res://scenes/game/pickup.tscn",
   "res://scripts/game/prestige_card.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/prestige_confirm.gd": "dependency of res://scenes/game/prestige_confirm.tscn",
+  "res://scripts/game/review_dialog.gd": "dependency of res://scenes/game/review_invitation.tscn",
+  "res://scripts/game/review_invitation.gd": "literal in res://scripts/game/campaign.gd",
+  "res://scripts/game/review_rules.gd": "dependency of res://resources/game/review_rules.tres",
   "res://scripts/game/season_weather.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/simulation.gd": "dependency of res://scenes/game/main.tscn",
   "res://scripts/game/skill_effect_set.gd": "class_name SkillEffectSet used by res://scripts/game/world.gd",

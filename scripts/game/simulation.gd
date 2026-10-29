@@ -41,6 +41,9 @@ var locked_target: String=""
 var manual_target: String=""
 var movement := Vector2.ZERO
 var suspended := false
+## Change 35: a decision panel in front of the game (the review invitation) holds the world: no step,
+## so no combat, movement, timers or playtime while it is open. Session-only, never saved.
+var held := false
 var revision: int = 0
 var _save_clock := 0.0
 ## Change 24: actors erased from state.enemies in place (see step's roster loop).
@@ -1076,12 +1079,12 @@ func _drop(id: String,a: Dictionary) -> String:
     return id
 
 func step(dt: float) -> void:
-    if state.is_empty() or get_tree().paused or suspended or not state.get("prestige_batch",{}).is_empty():
+    if state.is_empty() or get_tree().paused or suspended or held or not state.get("prestige_batch",{}).is_empty():
         return
     dt=minf(maxf(dt,0),.1)
     state.clock+=dt
-    # Active play only: step never runs while paused, suspended (background, guide chooser) or
-    # during a prestige choice, and offline settlement never advances these clocks.
+    # Active play only: step never runs while paused, suspended (background, guide chooser), held
+    # (the review invitation, Change 35) or during a prestige choice, and offline settlement never advances these clocks.
     state.playtime_total=float(state.get("playtime_total",0.0))+dt
     state.playtime_run=float(state.get("playtime_run",0.0))+dt
     tick_boss_respawns(dt)
@@ -1216,7 +1219,7 @@ func clear_target() -> void:
 
 func select_target(id: String) -> bool:
     var enemy:=_find_actor(id)
-    if suspended or get_tree().paused or state.player.hp<=0 or enemy.is_empty() or enemy.hp<=0 or id=="player" or not campaign.target_allowed(enemy):
+    if suspended or held or get_tree().paused or state.player.hp<=0 or enemy.is_empty() or enemy.hp<=0 or id=="player" or not campaign.target_allowed(enemy):
         return false
     locked_target=id
     manual_target=id
@@ -1225,6 +1228,9 @@ func select_target(id: String) -> bool:
     state.player.target=""
     state.player.attack_age=9.0
     state.player.idle=1.0
+    # Change 35: the Guided targeting lesson completes on this successful manual selection only (the
+    # map gesture's release on an enemy is its one caller); automatic acquisition never comes here.
+    campaign.guided.action("target",id)
     touch()
     return true
 

@@ -8,6 +8,9 @@ var is_probe: bool = false
 ## progression complete (every menu revealed, the early equipment guarantee spent). Only accepted
 ## together with a probe or capture profile; the onboarding probes run without it.
 var first_run_complete: bool = false
+## Change 35: a storefront named for a probe or capture (--store-channel=google_play|itch_io|none).
+## Accepted only together with a test profile, so a release build always reads its export tag.
+var store_channel_override: String = ""
 
 
 func _init() -> void:
@@ -23,6 +26,8 @@ func _init() -> void:
             autosave_enabled = false
         elif argument == "--first-run-complete":
             first_run_complete = true
+        elif argument.begins_with("--store-channel="):
+            store_channel_override = argument.trim_prefix("--store-channel=")
         elif argument.begins_with("--profile="):
             var requested := argument.trim_prefix("--profile=")
             if _valid_test_profile(requested):
@@ -34,6 +39,7 @@ func _init() -> void:
                 is_probe = true
     if not is_probe:
         first_run_complete = false
+        store_channel_override = ""
 
 
 func _valid_test_profile(value: String) -> bool:
