@@ -1,4 +1,25 @@
-# LootFarmer — Test Suite (current, 2026-10-29, Change 39)
+# LootFarmer — Test Suite (current, 2026-10-29, Change 40)
+
+## Change 40 — Progressive localization activation and language dropdown (29 October 2026)
+
+Command: `python tools/run_probes.py`. **44 entries:** `validate_campaign_source`, `export_manifest`, `validate_localization` and 41 Godot scenes. Details: [Change 40 report](LootFarmer_Change_40_Localization_Activation_Report.md).
+
+- **Registered** `change_40_probe` (86 checks):
+  - readiness and the Automatic device-locale matcher (no draft language is ever reached);
+  - dropdown content and native names;
+  - placement at 432x960, 540x960 and 768x1024 with Settings scrolled to the top and the bottom;
+  - keyboard/controller, Escape, Android Back, outside tap, panel refreshes, resize, and closing Settings.
+- **Rewritten for progressive activation** (they no longer assert "English only" or "19 disabled"):
+  - `localization_batch01_probe` (87) and `localization_batch02_probe` (107): availability, the real dropdown path, Automatic per device locale, a stored draft choice shown as English and kept, restart without a test switch. Both reset the probe profile's stored language first.
+  - `ui_probe`: the dropdown offers Automatic + 11.
+  - `bootstrap_probe`: a draft locale is blocked; device locale pinned.
+  - `change_35_probe`: the manifest ships exactly en + 10 catalogs; drafts are neither packaged nor selectable.
+  - `change_16_probe`: message only.
+- `localization_sweep`: the pseudo-locale check ignores native language names.
+- `validate_localization` now checks every enabled catalog and the readiness table.
+- `export_manifest`: family `language_catalogs` (10 catalogs, from `ENABLED_LANGUAGES`).
+- `tools/verify_export.py` reads `.pck` files.
+- **Outside the suite:** `change_40_capture` (windowed, `docs/Change_40_Evidence/`).
 
 ## Change 39 — Localization Batch 02 (29 October 2026)
 

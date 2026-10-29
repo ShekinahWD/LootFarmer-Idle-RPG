@@ -75,13 +75,13 @@ func run() -> void:
     stick._input(stop)
     check(stick.direction==Vector2.ZERO,"Release outside joystick clears movement")
     game._open("settings")
-    # Localization Batch 01 (Change 38, Playbook 132.2): the 19 unreleased languages are listed but disabled,
-    # and the localization service refuses them.
-    var listed: Dictionary={}
-    for row in game.rows.find_children("*","Button",true,false):
-        if row.has_meta("language"):listed[row.get_meta("language")]=row
-    var unreleased:=LocalizationService.RELEASE_LANGUAGES.filter(func(l):return l!="en_US")
-    check(unreleased.size()==19 and unreleased.all(func(l):return listed.has(l) and listed[l].disabled) and not unreleased.any(func(l):return LocalizationService.select_language(l)),"All nineteen unreleased languages stay unavailable (listed disabled, refused)")
+    # Change 40 (Playbook 132.5): Settings offers the enabled languages in one dropdown; the languages not enabled
+    # yet are not listed at all, and the localization service refuses them.
+    var offered: Array=[]
+    for row in game.rows.find_children("*","OptionButton",true,false):
+        if row.get_script()==game.LANGUAGE_DROPDOWN:offered=range(row.item_count).map(func(i):return row.get_item_metadata(i))
+    var drafts:=LocalizationService.RELEASE_LANGUAGES.filter(func(l):return not l in LocalizationService.ENABLED_LANGUAGES)
+    check(offered==["automatic"]+LocalizationService.ENABLED_LANGUAGES and drafts.size()==9 and not drafts.any(func(l):return l in offered or LocalizationService.select_language(l)),"The dropdown offers Automatic and the 11 enabled languages; the 9 drafts are absent and refused")
     for panel in ["item","upgrades","travel","stats","history","prestige"]:
         game._open(panel)
     var actor=load("res://scenes/game/actor.tscn").instantiate()

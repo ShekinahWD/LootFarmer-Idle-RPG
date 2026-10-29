@@ -1,7 +1,8 @@
 """Structural check of LootFarmer's translation catalogs against the canonical English source
-(Localization Batches 01 and 02, Changes 38 and 39; Playbook 132.5 mechanical checks).
+(Localization Batches 01 and 02, Changes 38 and 39; progressive activation, Change 40; Playbook 132.5).
 
-For every catalog of the validated batches named in scripts/autoload/localization_service.gd (TEST_BATCHES):
+For every catalog a player build enables (ENABLED_LANGUAGES in scripts/autoload/localization_service.gd) and every
+validated test batch (TEST_BATCHES):
   - the exact English key set, in the English order, each key once;
   - a nonempty msgstr, no fuzzy flag, no msgctxt/plural forms the source does not have;
   - the same placeholder sequence (%s %d %.1f %02d %% ... in the same order: GDScript's % has no positional
@@ -11,8 +12,10 @@ For every catalog of the validated batches named in scripts/autoload/localizatio
   - Polish, Russian, Ukrainian (Batch 02): no number placeholder directly followed by a noun whose form depends
     on the count (the source has no plural forms, so those catalogs use count-neutral wording);
   - a Language header naming the catalog's locale.
-It also checks the English catalog itself (unique keys, every scene-text key present) and that project.godot
-still registers only en.po (the other catalogs ship only after the global 20-language gate).
+It also checks the English catalog itself (unique keys, every scene-text key present), that project.godot
+registers only en.po (LocalizationService loads the enabled catalogs on first use), and the readiness table:
+every enabled locale is a target locale with a Godot locale and a native name, and the 20-language certification
+flag stays false while any target locale is not enabled. Draft catalogs are not checked (they are not shipped).
 
 This proves structure only. It cannot judge wording; the batch report records the linguistic review separately.
 Usage: python tools/validate_localization.py [--json report.json]
@@ -35,8 +38,6 @@ COUNT_FOLLOWERS = {
     'uk_UA': {'с', 'хв', 'год', 'в', 'од', 'ОЗ', 'досвіду', 'шкоди', 'до', 'з', 'на', 'від', 'ще'},
 }
 COUNT_WORD = re.compile(r'%(?:\.\d)?[ds](?: | )([^\s\d%·•()/:,.;!?×\-−→+^—]+)')
-GODOT_LOCALE = {'es_419': 'es', 'es_ES': 'es_ES', 'pt_BR': 'pt_BR', 'fr_FR': 'fr_FR', 'de_DE': 'de_DE',
-               'it_IT': 'it_IT', 'nl_NL': 'nl_NL', 'pl_PL': 'pl_PL', 'ru_RU': 'ru_RU', 'uk_UA': 'uk_UA'}
 
 
 def read_po(path):
@@ -65,10 +66,28 @@ def read_po(path):
     return entries, header
 
 
+SERVICE = ROOT / 'scripts/autoload/localization_service.gd'
+
+
 def batches():
-    source = (ROOT / 'scripts/autoload/localization_service.gd').read_text(encoding='utf-8')
+    source = SERVICE.read_text(encoding='utf-8')
     block = re.search(r'const TEST_BATCHES: Dictionary = \{(.*?)\n\}', source, re.S).group(1)
     return {name: re.findall(r'"([a-z]{2}_\w+)"', langs) for name, langs in re.findall(r'"(\w+)": \[(.*?)\]', block)}
+
+
+def readiness():
+    """The service's readiness table: target list, enabled list, certification flag, Godot locales, native names."""
+    source = SERVICE.read_text(encoding='utf-8')
+    def const_block(name):
+        return re.search(r'^const ' + name + r'\b.*?=\s*([\[{].*?[\]}])\s*$', source, re.S | re.M).group(1)
+    pairs = lambda block: dict(re.findall(r'"(\w+)": "([^"]*)"', block))
+    return {
+        'target': re.findall(r'"(\w+)"', const_block('RELEASE_LANGUAGES')),
+        'enabled': re.findall(r'"(\w+)"', re.search(r'^const ENABLED_LANGUAGES\b[^\n]*', source, re.M).group(0).split('=', 1)[1]),
+        'certified': re.search(r'^const ALL_LANGUAGES_CERTIFIED: bool = (\w+)', source, re.M).group(1) == 'true',
+        'godot': pairs(const_block('GODOT_LOCALES')),
+        'native': pairs(const_block('NATIVE_NAMES')),
+    }
 
 
 def check_english(problems):
@@ -143,15 +162,27 @@ def main():
     problems = []
     english = check_english(problems)
     allow = {k: v for k, v in json.loads((ROOT / 'tools/localization_allowlist.json').read_text(encoding='utf-8')).items() if not k.startswith('_')}
-    validated = [lang for langs in batches().values() for lang in langs]
+    ready = readiness()
+    validated = [lang for lang in ready['enabled'] if lang != 'en_US']
+    validated += [lang for langs in batches().values() for lang in langs if lang not in validated]
     reports = {lang: check_catalog(lang, english, allow, problems) for lang in validated}
     registered = re.findall(r'res://localization/(\w+)\.po', (ROOT / 'project.godot').read_text(encoding='utf-8'))
     if registered != ['en']:
-        problems.append(f'project.godot registers {registered}; only en.po ships until the global 20-language gate')
-    for lang in validated:
-        if lang not in GODOT_LOCALE:
+        problems.append(f'project.godot registers {registered}; only en.po (LocalizationService loads the enabled catalogs)')
+    if not ready['enabled'] or ready['enabled'][0] != 'en_US':
+        problems.append('ENABLED_LANGUAGES must start with the en_US fallback')
+    if ready['enabled'] != [lang for lang in ready['target'] if lang in ready['enabled']]:
+        problems.append(f'ENABLED_LANGUAGES {ready["enabled"]} is not a subset of the target list in its order')
+    for lang in validated + ['en_US']:
+        if lang not in ready['godot']:
             problems.append(f'{lang}: no Godot locale mapping')
-    summary = {'english_keys': len(english), 'catalogs': reports, 'problems': problems}
+        if lang in ready['enabled'] and not ready['native'].get(lang):
+            problems.append(f'{lang}: enabled without a native name')
+    if ready['certified'] and ready['enabled'] != ready['target']:
+        problems.append('ALL_LANGUAGES_CERTIFIED is true while target languages are not enabled')
+    drafts = [lang for lang in ready['target'] if lang not in ready['enabled']]
+    summary = {'english_keys': len(english), 'enabled': ready['enabled'], 'drafts_hidden': drafts,
+               'certified': ready['certified'], 'catalogs': reports, 'problems': problems}
     if '--json' in sys.argv:
         out = Path(sys.argv[sys.argv.index('--json') + 1])
         out.write_bytes((json.dumps(summary, ensure_ascii=False, indent=1) + '\n').encode('utf-8'))
@@ -159,7 +190,8 @@ def main():
         print(lang, json.dumps(r))
     for p in problems:
         print('PROBLEM', p)
-    print('LOCALIZATION_VALIDATION english_keys=%d catalogs=%d problems=%d' % (len(english), len(reports), len(problems)))
+    print('LOCALIZATION_VALIDATION english_keys=%d enabled=%d catalogs=%d drafts_hidden=%d problems=%d' % (
+        len(english), len(ready['enabled']), len(reports), len(drafts), len(problems)))
     sys.exit(1 if problems else 0)
 
 

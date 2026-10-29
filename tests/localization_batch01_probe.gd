@@ -1,14 +1,15 @@
 extends Node
-## Localization Batch 01 (Change 38): es_419, es_ES, pt_BR, fr_FR and de_DE are complete but test-only.
-## 1. Production gate: Settings lists Automatic, English and the 19 other release languages, 19 of them
-##    disabled; nothing but English can be selected or restored; Automatic is English (Playbook 132.2).
-## 2. Test override: the batch registers through Godot's own PO loader; each locale routes to its own
-##    catalog (Latin America and Spain stay apart); every key resolves to the catalog text; every glyph
-##    exists in the theme font.
-## 3. Live switching from the real Settings button and with other panels open: panels, HUD, catalog names,
-##    the guide's fixed texts and the View Camp button redraw; no English is left behind.
-## 4. Persistence: the choice survives save and reload; older settings and saves load as Automatic
-##    (English) without touching progression.
+## Localization Batch 01 (Change 38): es_419, es_ES, pt_BR, fr_FR and de_DE. Enabled for players in Change 40.
+## 1. Availability (Playbook 132.5 progressive activation): the Settings dropdown offers Automatic, English and
+##    the ten enabled languages, nothing else; the nine draft languages are absent and refused; a stored draft
+##    choice shows English and stays stored; the probe-only switches are refused outside probes.
+## 2. Routing: each locale reads its own catalog through Godot's own PO loader, loaded on first use (Latin America
+##    and Spain stay apart); every key resolves to the catalog text; every glyph exists in the theme font;
+##    Automatic picks the closest enabled language for Spanish, Portuguese, French and German device locales.
+## 3. Live switching from the real dropdown and with other panels open: panels, HUD, catalog names, the guide's
+##    fixed texts and the View Camp button redraw; no English is left behind.
+## 4. Persistence: the choice survives save and reload (also after a restart without any test switch); older
+##    settings load as Automatic without touching progression.
 var checks:=0
 var failures:=0
 var game
@@ -17,6 +18,8 @@ const BATCH:=["es_419","es_ES","pt_BR","fr_FR","de_DE"]
 const LOCALES:={"en_US":"en","es_419":"es","es_ES":"es_ES","pt_BR":"pt_BR","fr_FR":"fr_FR","de_DE":"de_DE"}
 var catalogs: Dictionary={}
 var english: Dictionary={}
+## The locale the probe profile's stored preference applied at startup (an earlier run may have chosen one).
+var startup_locale:=""
 
 func check(value: bool,message: String) -> void:
     checks+=1
@@ -29,62 +32,91 @@ func frames(n:=4) -> void:
     for i in range(n):await get_tree().process_frame
 
 func run() -> void:
+    startup_locale=TranslationServer.get_locale()
     SettingsState.mute_all_sfx()
     english=preload("res://tests/localization_sweep.gd").read_po("res://localization/en.po")
     for lang in BATCH:catalogs[lang]=preload("res://tests/localization_sweep.gd").read_po("res://localization/%s.po" % lang)
     game=load("res://scenes/game/main.tscn").instantiate();add_child(game);sim=game.sim
     sim.set_physics_process(false)
+    # The developer laptop's own language must not decide what Automatic shows.
+    LocalizationService.set_test_device_locale("en_US")
+    # The probe profile may hold a language an earlier run chose; every run starts from Automatic.
+    LocalizationService.select_language("automatic")
     await frames(10)
-    await production_gate()
+    await availability()
     await routing_and_coverage()
     await live_switching()
     await persistence()
     LocalizationService.select_language("automatic")
+    LocalizationService.set_test_device_locale("")
     print("LOCALIZATION_BATCH01_PROBE checks=%d failures=%d" % [checks,failures])
     game.queue_free();await get_tree().process_frame
     AudioService.stop_all_sfx()
     get_tree().quit(1 if failures>0 else 0)
 
-func language_buttons() -> Array:
-    var out: Array=[]
-    for b in game.rows.find_children("*","Button",true,false):
-        if b.has_meta("language"):out.append(b)
-    return out
+## The Settings language dropdown (Change 40) and the choice id behind each of its items.
+func dropdown() -> OptionButton:
+    for b in game.rows.find_children("*","OptionButton",true,false):
+        if b.get_script()==game.LANGUAGE_DROPDOWN:return b
+    return null
 
-# ---------------------------------------------------------------- 1. production gate
-func production_gate() -> void:
-    check(LocalizationService.available_languages()==(["en_US"] as Array[String]),"Before the test override only English is available")
-    check(TranslationServer.get_locale()=="en" and LocalizationService.godot_locale("automatic")=="en","Automatic resolves to English")
-    check(not TranslationServer.get_loaded_locales().has("de_DE") and not TranslationServer.get_loaded_locales().has("es"),"No batch catalog is loaded without the override")
+func dropdown_choices() -> Array:
+    var d:=dropdown()
+    if d==null:return []
+    return range(d.item_count).map(func(i):return d.get_item_metadata(i))
+
+## The player's path: open the menu, tap the item.
+func choose(lang: String) -> bool:
+    var d:=dropdown()
+    if d==null:return false
+    var index:=dropdown_choices().find(lang)
+    if index<0:return false
+    d.show_popup();await frames(2)
+    d.get_popup().set_focused_item(index)
+    var accept:=InputEventAction.new();accept.action=&"ui_accept";accept.pressed=true
+    get_tree().root.push_input(accept);await frames(2)
+    return true
+
+const DRAFTS:=["tr_TR","id_ID","vi_VN","th_TH","hi_IN","ja_JP","ko_KR","zh_CN","zh_TW"]
+const ENABLED:=["en_US","es_419","es_ES","pt_BR","fr_FR","de_DE","it_IT","nl_NL","pl_PL","ru_RU","uk_UA"]
+
+# ---------------------------------------------------------------- 1. availability
+func availability() -> void:
+    check(LocalizationService.available_languages()==(ENABLED as Array[String]),"English, Batch 01 and Batch 02 are available, in release order (%s)" % str(LocalizationService.available_languages()))
+    check(LocalizationService.ENABLED_LANGUAGES==(ENABLED as Array[String]) and not LocalizationService.ALL_LANGUAGES_CERTIFIED,"One readiness list enables the eleven; the 20-language certification is still separate and open")
+    check(TranslationServer.get_locale()=="en" and LocalizationService.godot_locale("automatic")=="en","Automatic on an English device resolves to English")
+    var early: Array=Array(TranslationServer.get_loaded_locales()).filter(func(l):return l!="en" and l!=startup_locale)
+    check(early.is_empty(),"A catalog loads on first use, not at startup (loaded %s; the profile restored %s)" % [str(TranslationServer.get_loaded_locales()),startup_locale])
     var registered: PackedStringArray=ProjectSettings.get_setting("internationalization/locale/translations")
-    check(registered==PackedStringArray(["res://localization/en.po"]),"project.godot ships only en.po until the global gate")
-    check(not LocalizationService.TRANSLATIONS_RELEASE_READY,"The 20-language release gate is still closed")
-    for lang in BATCH+["it_IT","ja_JP","zh_TW"]:
-        check(not LocalizationService.select_language(lang) and SettingsState.selected_language=="automatic","%s cannot be selected by a player" % lang)
+    check(registered==PackedStringArray(["res://localization/en.po"]),"project.godot registers only en.po (the enabled catalogs load through LocalizationService)")
+    for lang in DRAFTS:
+        check(not LocalizationService.select_language(lang) and SettingsState.selected_language=="automatic","%s (draft) cannot be selected by a player" % lang)
     game._open("settings");await frames(4)
-    var buttons:=language_buttons()
-    var disabled:=buttons.filter(func(b):return b.disabled)
-    check(buttons.size()==21 and disabled.size()==19,"Settings lists Automatic, English and the 19 other languages, 19 disabled (%d/%d)" % [buttons.size(),disabled.size()])
-    check(buttons.filter(func(b):return not b.disabled).map(func(b):return b.get_meta("language"))==["automatic","en_US"],"Only Automatic and English are enabled")
-    check(buttons.any(func(b):return b.get_meta("language")=="automatic" and b.theme_type_variation==&"Primary"),"The current choice (Automatic) is highlighted")
+    check(game.rows.find_children("*","Button",true,false).filter(func(b):return b.has_meta("language")).is_empty(),"The language button grid is gone")
+    var d:=dropdown()
+    check(d!=null and dropdown_choices()==["automatic"]+ENABLED,"Settings has one dropdown: Automatic, English, Batch 01, Batch 02 (%s)" % str(dropdown_choices()))
+    var names: Array=range(d.item_count).map(func(i):return d.get_item_text(i))
+    check(names==["Automatic (English)","English","Español (Latinoamérica)","Español (España)","Português (Brasil)","Français","Deutsch","Italiano","Nederlands","Polski","Русский","Українська"],"Each language is listed in its own name and script: %s" % str(names))
+    check(range(d.item_count).all(func(i):return not d.is_item_disabled(i)),"No item is a disabled placeholder")
+    check(d.text=="Automatic (English)" and d.selected==0,"The closed dropdown shows the current choice: %s" % d.text)
     var notice:=false
     for l in game.rows.find_children("*","Label",true,false):
         if l.text==tr("LANG_DISABLED") or l.text==tr("LANGUAGE_NOTE"):notice=true
-    check(not notice,"No development notice accompanies the disabled languages (Change 16)")
-    # A forged or test-era save asking for German loads as Automatic in a normal build.
-    SettingsState.from_save_dict({"selected_language":"de_DE"})
-    check(SettingsState.selected_language=="automatic" and TranslationServer.get_locale()=="en","A saved non-English choice falls back to Automatic (English) while the gate is closed")
+    check(not notice,"No development notice (Change 16)")
+    # A test-era save asking for a draft language shows English and keeps the stored choice for later.
+    SettingsState.from_save_dict({"selected_language":"tr_TR"});await frames(2)
+    check(SettingsState.selected_language=="tr_TR" and TranslationServer.get_locale()=="en" and d.text=="English","A stored draft choice displays English and stays stored (%s, %s)" % [SettingsState.selected_language,d.text])
+    SettingsState.from_save_dict({"selected_language":"automatic"});await frames(1)
     var was_probe: bool=BootContext.is_probe
     BootContext.is_probe=false
-    check(not LocalizationService.enable_test_batch("batch01") and not LocalizationService.set_test_locale("de_DE"),"The test override is refused outside probes and captures")
+    check(not LocalizationService.enable_test_batch("batch01") and not LocalizationService.set_test_locale("de_DE") and not LocalizationService.set_test_device_locale("de_DE"),"The test switches are refused outside probes and captures")
     BootContext.is_probe=was_probe
-    check(LocalizationService.available_languages()==(["en_US"] as Array[String]),"…and nothing was registered by the refused call")
+    check(LocalizationService.available_languages()==(ENABLED as Array[String]) and TranslationServer.get_locale()=="en","…and changed nothing")
     game._close()
 
 # ---------------------------------------------------------------- 2. routing, coverage, glyphs
 func routing_and_coverage() -> void:
-    check(LocalizationService.enable_test_batch("batch01"),"The test override registers Batch 01")
-    check(LocalizationService.available_languages()==(["en_US","es_419","es_ES","pt_BR","fr_FR","de_DE"] as Array[String]),"Batch 01 becomes selectable in a probe")
+    check(LocalizationService.enable_test_batch("batch01") and LocalizationService.available_languages()==(ENABLED as Array[String]),"The batch01 test switch still answers and adds nothing (the batch is enabled)")
     var font: Font=game.get_theme_default_font()
     for lang in BATCH:
         check(LocalizationService.select_language(lang),"%s selectable" % lang)
@@ -107,13 +139,14 @@ func routing_and_coverage() -> void:
     var latam:=tr("SETTINGS")
     LocalizationService.select_language("es_ES");await frames(1)
     check(latam=="Configuración" and tr("SETTINGS")=="Ajustes" and tr("CONTENT_GROUPS_UNIT-SUNGLASSES")=="Gafas de Sol","Latin America and Spain read their own catalogs (Configuración / Ajustes, Lentes / Gafas de Sol)")
-    # Device locales Godot would match once Automatic is enabled (informational: Automatic stays English now).
-    for pair in [["es_MX","Configuración"],["es_AR","Configuración"],["fr_CA",catalogs.fr_FR.SETTINGS],["de_AT",catalogs.de_DE.SETTINGS]]:
-        LocalizationService.set_test_locale(pair[0]);await frames(1)
-        check(tr("SETTINGS")==pair[1],"Device locale %s would read %s" % pair)
-    LocalizationService.set_test_locale("")
-    LocalizationService.select_language("automatic");await frames(1)
-    check(TranslationServer.get_locale()=="en","Automatic is still English with the batch registered")
+    # Automatic (Change 40): the device language picks the closest enabled catalog; Spain stays Spain.
+    LocalizationService.select_language("automatic")
+    for pair in [["es_ES","es_ES","Ajustes"],["es-419","es_419","Configuración"],["es_MX","es_419","Configuración"],["es_AR","es_419","Configuración"],["es_US","es_419","Configuración"],["es","es_419","Configuración"],["pt_BR","pt_BR",catalogs.pt_BR.SETTINGS],["pt_PT","pt_BR",catalogs.pt_BR.SETTINGS],["fr_CA","fr_FR",catalogs.fr_FR.SETTINGS],["de_AT","de_DE",catalogs.de_DE.SETTINGS],["de_CH","de_DE",catalogs.de_DE.SETTINGS]]:
+        LocalizationService.set_test_device_locale(pair[0]);await frames(1)
+        check(LocalizationService.resolved_language("automatic")==pair[1] and TranslationServer.get_locale()==LOCALES[pair[1]] and tr("SETTINGS")==pair[2],"Automatic on a %s device reads %s (%s)" % [pair[0],pair[1],tr("SETTINGS")])
+    check(SettingsState.selected_language=="automatic","Automatic stays the stored preference while it follows the device")
+    LocalizationService.set_test_device_locale("en_US");await frames(1)
+    check(TranslationServer.get_locale()=="en","Automatic on an English device is English again")
 
 # ---------------------------------------------------------------- 3. live switching
 func visible_texts(root: Node) -> Array:
@@ -140,17 +173,13 @@ func live_switching() -> void:
     sim.state.unlocked_stage=3;sim.state.coins=50000.0
     for id in ["wood_sword","potion"]:sim.add_item(id,3,true,false)
     sim.campaign.discover_spot(0,2);sim.touch();await frames(8)
-    # The player's path: Settings, then the German button.
+    # The player's path: Settings, open the language dropdown, tap Deutsch.
     game._open("settings");await frames(4)
-    var german: Button
-    for b in language_buttons():
-        if b.get_meta("language")=="de_DE":german=b
-    check(german!=null and not german.disabled,"With the batch registered the German button is enabled")
-    german.pressed.emit();await frames(6)
-    check(SettingsState.selected_language=="de_DE" and TranslationServer.get_locale()=="de_DE","Tapping Deutsch switches at once (no restart)")
+    check(await choose("de_DE"),"The dropdown offers Deutsch")
+    await frames(4)
+    check(SettingsState.selected_language=="de_DE" and TranslationServer.get_locale()=="de_DE","Choosing Deutsch switches at once (no restart)")
     check(game.get_node("Sheet/Margin/Content/Header/Title").text==catalogs.de_DE.PANEL_SETTINGS,"The open Settings panel redraws its title in German")
-    var highlighted: Array=language_buttons().filter(func(b):return b.theme_type_variation==&"Primary").map(func(b):return b.get_meta("language"))
-    check(highlighted==["de_DE"],"…and highlights Deutsch as the current choice")
+    check(dropdown().text=="Deutsch" and dropdown().get_item_text(0)=="Automatisch (English)" and not dropdown().get_popup().visible,"…the closed dropdown shows Deutsch, Automatic reads Automatisch (English), and the menu closed")
     await get_tree().create_timer(.3).timeout
     var nav: Button=game.get_node("Safe/Layout/Dock/Content/Navigation/World")
     check(nav.atr(nav.text)==catalogs.de_DE.WORLD,"Scene-authored navigation reads German")
@@ -199,11 +228,10 @@ func persistence() -> void:
         SettingsState.from_save_dict(data);await frames(1)
         var expected: String="en_US" if str(data.get("selected_language",""))=="en_US" else "automatic"
         check(SettingsState.selected_language==expected and TranslationServer.get_locale()=="en","Old/foreign settings %s load as %s (English)" % [str(data),expected])
-    # A restart without the test override (a player build) keeps English even if the save says French.
+    # A player build has no test switch: the same save still opens in French (Batch 01 is enabled).
     LocalizationService.select_language("fr_FR");await frames(1)
     SaveService.save_now()
     LocalizationService._test_languages.clear()
     SaveService.load_and_apply();await frames(3)
-    check(SettingsState.selected_language=="automatic" and TranslationServer.get_locale()=="en","Without the override the same save opens in English (gate closed)")
+    check(SettingsState.selected_language=="fr_FR" and TranslationServer.get_locale()=="fr_FR","Without any test switch the same save opens in French")
     check(int(sim.state.player_level)==42,"…and its progression loads intact")
-    LocalizationService.enable_test_batch("batch01")

@@ -16,7 +16,7 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 239,
+  "files": 250,
   "stages": 8,
   "imported": 154
  },
@@ -301,14 +301,36 @@
     "res://assets/PixelPlains/Characters 24x24/Gato 4 v2.png"
    ]
   },
-  "test_language_catalogs": {
+  "language_catalogs": {
    "pattern": "res://localization/%s.po",
-   "why": "Localization Batches 01 and 02 (Changes 38, 39): LocalizationService.enable_test_batch() loads validated catalogs for probes and captures only. No values are enumerated, so release exports ship none of them; the global 20-language gate registers them in project.godot instead",
-   "values": [],
+   "why": "Change 40 progressive activation: LocalizationService loads an enabled language's catalog on first use. Only LocalizationService.ENABLED_LANGUAGES is enumerated, so draft catalogs in localization/ never ship; English (en.po) ships as the project.godot translation",
+   "values": [
+    "de_DE",
+    "es_419",
+    "es_ES",
+    "fr_FR",
+    "it_IT",
+    "nl_NL",
+    "pl_PL",
+    "pt_BR",
+    "ru_RU",
+    "uk_UA"
+   ],
    "sites": [
     "res://scripts/autoload/localization_service.gd: CATALOG_PATH % language"
    ],
-   "paths": []
+   "paths": [
+    "res://localization/de_DE.po",
+    "res://localization/es_419.po",
+    "res://localization/es_ES.po",
+    "res://localization/fr_FR.po",
+    "res://localization/it_IT.po",
+    "res://localization/nl_NL.po",
+    "res://localization/pl_PL.po",
+    "res://localization/pt_BR.po",
+    "res://localization/ru_RU.po",
+    "res://localization/uk_UA.po"
+   ]
   }
  },
  "files": {
@@ -467,7 +489,17 @@
   "res://assets/sounds/stage_clear.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/sounds/ui_confirm.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://data/game/catalog.json": "root: campaign data, read with FileAccess by catalog.gd (not a resource dependency)",
+  "res://localization/de_DE.po": "family language_catalogs",
   "res://localization/en.po": "project.godot setting",
+  "res://localization/es_419.po": "family language_catalogs",
+  "res://localization/es_ES.po": "family language_catalogs",
+  "res://localization/fr_FR.po": "family language_catalogs",
+  "res://localization/it_IT.po": "family language_catalogs",
+  "res://localization/nl_NL.po": "family language_catalogs",
+  "res://localization/pl_PL.po": "family language_catalogs",
+  "res://localization/pt_BR.po": "family language_catalogs",
+  "res://localization/ru_RU.po": "family language_catalogs",
+  "res://localization/uk_UA.po": "family language_catalogs",
   "res://resources/game/audio_cues.tres": "literal in res://scripts/game/game_ui.gd",
   "res://resources/game/coin.tres": "dependency of res://scenes/game/main.tscn",
   "res://resources/game/death_weapon.tres": "literal in res://scripts/game/world.gd",
@@ -526,6 +558,7 @@
   "res://scripts/game/guided_progress.gd": "literal in res://scripts/game/campaign.gd",
   "res://scripts/game/inventory_slot.gd": "dependency of res://scenes/game/slot.tscn",
   "res://scripts/game/joystick.gd": "dependency of res://scenes/game/joystick.tscn",
+  "res://scripts/game/language_dropdown.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/map_gestures.gd": "dependency of res://scenes/game/main.tscn",
   "res://scripts/game/map_view.gd": "dependency of res://scenes/game/main.tscn",
   "res://scripts/game/mastery.gd": "literal in res://scripts/game/campaign.gd",

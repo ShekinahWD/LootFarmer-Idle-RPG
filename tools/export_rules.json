@@ -57,14 +57,14 @@
       "concat": true,
       "why": "game_ui builds the player body sheet path from a fixed prefix and three file names"
     },
-    "test_language_catalogs": {
+    "language_catalogs": {
       "pattern": "res://localization/%s.po",
-      "why": "Localization Batches 01 and 02 (Changes 38, 39): LocalizationService.enable_test_batch() loads validated catalogs for probes and captures only. No values are enumerated, so release exports ship none of them; the global 20-language gate registers them in project.godot instead"
+      "why": "Change 40 progressive activation: LocalizationService loads an enabled language's catalog on first use. Only LocalizationService.ENABLED_LANGUAGES is enumerated, so draft catalogs in localization/ never ship; English (en.po) ships as the project.godot translation"
     }
   },
   "sites": [
-    {"file": "res://scripts/autoload/localization_service.gd", "literal": "res://localization/%s.po", "family": "test_language_catalogs"},
-    {"file": "res://scripts/autoload/localization_service.gd", "arg": "CATALOG_PATH % language", "family": "test_language_catalogs", "why": "test-only batch catalogs, never enumerated for release exports"},
+    {"file": "res://scripts/autoload/localization_service.gd", "literal": "res://localization/%s.po", "family": "language_catalogs"},
+    {"file": "res://scripts/autoload/localization_service.gd", "arg": "CATALOG_PATH % language", "family": "language_catalogs", "values": "const_strings", "consts": ["res://scripts/autoload/localization_service.gd:ENABLED_LANGUAGES"], "skip": ["en_US"], "why": "the per-locale readiness list; en_US is en.po from project.godot"},
     {"file": "res://scripts/game/stage_scenes.gd", "arg": "path(id)", "family": "stage_scenes"},
     {"file": "res://scripts/game/stage_scenes.gd", "literal": "res://scenes/game/stages/stage_%d.tscn", "family": "stage_scenes"},
     {"file": "res://scripts/game/catalog.gd", "arg": "entry.icon_path", "family": "catalog_paths"},

@@ -277,6 +277,14 @@ HScrollBar/styles/grabber=SubResource("normal")
 HScrollBar/styles/grabber_highlight=SubResource("hover")
 HScrollBar/styles/grabber_pressed=SubResource("pressed")
 PopupMenu/styles/panel=SubResource("panel")
+PopupMenu/styles/hover=SubResource("primary")
+PopupMenu/colors/font_color=Color(0.96,0.96,0.98,1)
+PopupMenu/colors/font_hover_color=Color(1,0.98,0.92,1)
+PopupMenu/font_sizes/font_size=24
+PopupMenu/constants/v_separation=30
+PopupMenu/constants/h_separation=12
+PopupMenu/constants/item_start_padding=14
+PopupMenu/constants/item_end_padding=14
 Window/styles/embedded_border=SubResource("panel")
 
 Card/base_type=&"PanelContainer"

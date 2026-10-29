@@ -190,7 +190,9 @@ func inspect(screen: String) -> void:
             for line in t.split("\n"):
                 if raw.search(line.strip_edges())!=null:add(screen,"raw_key",line,c)
             if current_lang=="pseudo":
+                # Language names in the language dropdown are proper names, never catalog text (Change 40).
                 var rest: String=strip_marked(t)
+                for native in LocalizationService.NATIVE_NAMES.values():rest=rest.replace(native,"")
                 if latin.search(rest)!=null:add(screen,"not_from_catalog",t,c)
             elif current_lang!="en" and translations.has(current_lang):
                 for line in t.split("\n"):

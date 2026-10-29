@@ -839,7 +839,7 @@ func settings_checks() -> void:
     check(not all.contains("Show all menus") and not all.contains("Choose guidance again"),"Settings has no Show all menus and no Choose guidance again")
     check(button_with(game.rows,"Help")!=null,"…and offers Help")
     var labels: String=labels_text(game.rows)
-    check(not labels.contains("during development") and not all.contains("during development") and not labels.contains("translation validation") and not all.contains("Available after"),"No development notices (Change 38: the 19 other languages are listed disabled, without a notice)")
+    check(not labels.contains("during development") and not all.contains("during development") and not labels.contains("translation validation") and not all.contains("Available after"),"No development notices (Change 40: languages not enabled yet are not listed, and nothing says why)")
     var before: Dictionary={"tutorial":sim.state.tutorial.duplicate(true),"reveal":sim.state.onboarding.reveal.duplicate(),"explored":sim.state.explored.duplicate(true),"counters":sim.state.counters.duplicate(true)}
     button_with(game.rows,"Help").pressed.emit();await frames(2)
     var text: String=labels_text(game.rows)

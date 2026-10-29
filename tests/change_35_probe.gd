@@ -461,11 +461,17 @@ func catalog_checks() -> void:
     for key in keys:
         if tr(key)!=keys[key] or not po.contains("msgid \"%s\"" % key) or "%" in keys[key] or "--" in keys[key]:ok=false
     check(ok and keys.size()==14,"All 14 new English strings in en.po, no placeholders, no double dashes")
-    # Localization Batch 01 (Change 38): translation catalogs may sit in localization/ (complete test-only
-    # batches and the developer's drafts); what matters is what a player can reach: only en.po is registered
-    # in project.godot and only English is selectable without the probe-only override.
+    # Change 40 (progressive activation): localization/ also holds the developer's drafts; what matters is what a
+    # player can reach. English is registered in project.godot, the ten enabled catalogs ship through the export
+    # manifest and are selectable, and no draft is packaged or selectable.
     var registered: PackedStringArray=ProjectSettings.get_setting("internationalization/locale/translations")
-    check(registered==PackedStringArray(["res://localization/en.po"]) and LocalizationService.available_languages()==(["en_US"] as Array[String]) and not LocalizationService.select_language("de_DE"),"Only English is shipped and selectable (the other 19 languages stay behind the release gate)")
+    var manifest: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tools/export_manifest.json"))
+    var shipped: Array=manifest.files.keys().filter(func(f):return f.begins_with("res://localization/"))
+    var expected: Array=LocalizationService.ENABLED_LANGUAGES.map(func(l):return "res://localization/%s.po" % ("en" if l=="en_US" else l))
+    shipped.sort();expected.sort()
+    var drafts:=LocalizationService.RELEASE_LANGUAGES.filter(func(l):return not l in LocalizationService.ENABLED_LANGUAGES)
+    check(registered==PackedStringArray(["res://localization/en.po"]) and shipped==expected and expected.size()==11,"Exactly English and the ten enabled catalogs ship (%d localization files in the manifest)" % shipped.size())
+    check(LocalizationService.available_languages()==LocalizationService.ENABLED_LANGUAGES and drafts.size()==9 and not drafts.any(func(l):return LocalizationService.select_language(l)),"The nine drafts are neither packaged nor selectable")
     var text: String=tr("REVIEW_BODY")+" "+tr("REVIEW_TITLE")+" "+tr("REVIEW_LEAD")
     var lower:=text.to_lower()
     check(lower.contains("honest") and not lower.contains("5 star") and not lower.contains("five star") and not lower.contains("reward") and not lower.contains("gem"),"The request is for an honest review: no stars, rewards or pressure")

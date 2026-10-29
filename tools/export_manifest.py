@@ -202,6 +202,16 @@ class Manifest:
             self.family_values[family].update(ints(line))
         elif s.get('values') == 'arg_ints':
             self.family_values[family].update(ints(arg))
+        elif s.get('values') == 'const_strings':
+            # Change 40: a one-line const list of names (the enabled language catalogs), minus 'skip'.
+            for ref in s['consts']:
+                file, name = ref.rsplit(':', 1)
+                m = re.search(r'^const\s+' + name + r'\b[^\n]*', fs(file).read_text(encoding='utf-8'), re.M)
+                if m is None:
+                    fail('%s: const %s not found' % (file, name))
+                else:
+                    self.family_values[family].update(v for v in STRING.findall(m.group(0).split('=', 1)[1]) if v not in s.get('skip', []))
+            return
         for ref in s.get('consts', []):
             file, name = ref.rsplit(':', 1)
             m = re.search(r'^const\s+' + name + r'\b[^\n]*', fs(file).read_text(encoding='utf-8'), re.M)

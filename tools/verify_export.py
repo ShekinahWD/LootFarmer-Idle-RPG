@@ -10,8 +10,11 @@ libraries per ABI and the package size. Each packed Godot file is mapped back to
   forbidden   tests, tools, docs, marketing, addons, keys, credentials, saves, Git data, excluded packs
   abis        lib/<abi> directories differ from the reviewed ABIs
 Any of these fails the check (exit 1). Non-gating in the suite: it needs an exported artifact.
+Change 40: a Godot .pck (godot --export-pack "<preset>" out.pck, e.g. the Windows itch.io preset) is read
+directly from its file directory; it has no native libraries or Android manifest, so ABIs and identity are skipped.
 
 Usage: python tools/verify_export.py builds/LootFarmerIdleRPG.26.aab [--baseline OLD.aab] [--report OUT.json]
+       python tools/verify_export.py tests/tmp/export/windows.pck
 The JSON report defaults to tests/tmp/export/<artifact>.json (ignored by Git).
 """
 from pathlib import Path
@@ -25,7 +28,7 @@ FORBIDDEN = re.compile(r'(^|/)(tests|tools|docs|marketing|addons|Godot-Marketing
 
 
 def godot_root(names):
-    for prefix in PREFIXES:
+    for prefix in PREFIXES + ['']:
         if prefix + 'project.binary' in names:
             return prefix
     raise SystemExit('no Godot project.binary in the archive (not a Godot Android export?)')
@@ -73,8 +76,44 @@ def group_of(path):
     return parts[0] if len(parts) > 1 else path
 
 
+class PckInfo:
+    def __init__(self, filename, offset, size):
+        self.filename, self.offset, self.file_size, self.compress_size = filename, offset, size, size
+
+    def is_dir(self):
+        return False
+
+
+class PckArchive:
+    """The zipfile calls inspect() and main() use, over a plain (non-encrypted) Godot 4 PCK."""
+    def __init__(self, path):
+        self.data = Path(path).read_bytes()
+        if self.data[:4] != b'GDPC':
+            raise SystemExit('%s is not a Godot PCK' % path)
+        fmt = struct.unpack_from('<I', self.data, 4)[0]
+        base = struct.unpack_from('<Q', self.data, 24)[0] if fmt >= 2 else 0
+        pos = struct.unpack_from('<Q', self.data, 32)[0] if fmt >= 3 else 4 + 20 + 16 * 4
+        count = struct.unpack_from('<I', self.data, pos)[0]
+        pos += 4
+        self.infos = []
+        for _ in range(count):
+            length = struct.unpack_from('<I', self.data, pos)[0]
+            pos += 4
+            name = self.data[pos:pos + length].rstrip(b'\0').decode('utf-8').removeprefix('res://')
+            pos += length
+            offset, size = struct.unpack_from('<QQ', self.data, pos)
+            pos += 16 + 16 + 4
+            self.infos.append(PckInfo(name, base + offset, size))
+
+    def infolist(self):
+        return self.infos
+
+    def read(self, info):
+        return self.data[info.offset:info.offset + info.file_size]
+
+
 def inspect(artifact):
-    z = zipfile.ZipFile(artifact)
+    z = PckArchive(artifact) if Path(artifact).suffix.lower() == '.pck' else zipfile.ZipFile(artifact)
     infos = {i.filename: i for i in z.infolist() if not i.is_dir()}
     root = godot_root(infos)
     packed = {n[len(root):]: i for n, i in infos.items() if n.startswith(root)}
@@ -145,7 +184,7 @@ def main():
     stages = sorted(s for s in sources if re.fullmatch(r'scenes/game/stages/stage_\d+\.tscn', s))
     if len(stages) != manifest['counts']['stages']:
         problems['stages'].append('%d stage scenes packed, manifest has %d' % (len(stages), manifest['counts']['stages']))
-    if set(abis) != set(manifest['abis']):
+    if not isinstance(z, PckArchive) and set(abis) != set(manifest['abis']):
         problems['abis'].append('packed %s, reviewed %s' % (sorted(abis), manifest['abis']))
 
     by_group = collections.Counter()

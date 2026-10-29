@@ -27,6 +27,7 @@ const SLOT=preload("res://scenes/game/slot.tscn")
 const ROW=preload("res://scenes/game/action_row.tscn")
 ## Change 10: outfit slot look per ^100 merge milestone (inspector-editable resource).
 const OUTFIT_SLOT_STYLES: OutfitSlotStyles=preload("res://resources/game/outfit_slot_styles.tres")
+const LANGUAGE_DROPDOWN:=preload("res://scripts/game/language_dropdown.gd")
 ## Values copied from a freshly built description into the live control of the same shape.
 const SYNC_PROPERTIES:=["text","disabled","tooltip_text","value","max_value","texture","icon","modulate","self_modulate","visible","theme_type_variation"]
 const PANEL_ALIASES:={"travel":"world","map":"world","inventory":"filters"}
@@ -1174,6 +1175,11 @@ func back() -> void:
     if sim.state.tutorial.mode=="pending":return
     $Safe/Layout/Map/GestureSurface.cancel_gesture()
     stick.release()
+    # Change 40: an open dropdown menu closes first; the Escape that just closed one does nothing more.
+    for dropdown in get_tree().get_nodes_in_group(LANGUAGE_DROPDOWN.GROUP):
+        if dropdown.is_menu_open():
+            dropdown.close_menu();return
+        if dropdown.closed_frame>=frame-1:return
     if $ReviewInvitation.is_open():
         _review_later();return
     if $PrestigeConfirm.visible:$PrestigeConfirm.close()
@@ -2462,23 +2468,10 @@ func _settings_panel() -> void:
     for button in mutes.get_children():
         button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
     _text(tr("AUDIO_HINT"),16,Color(.7,.75,.82))
-    # Localization Batch 01 (Playbook 132.2, audit LOC-02): Automatic, English and the other 19 release
-    # languages are all listed; a language that has not passed the global gate is shown disabled, without a
-    # development notice (Change 16). The current choice is highlighted. Probes and captures can unlock a
-    # validated batch (LocalizationService).
+    # Change 40 (Playbook 129.1, 132.2): one dropdown of the languages this build offers (Automatic first, then
+    # each language in its own name); languages not enabled yet are not listed. It keeps its own items.
     _section(tr("SECTION_LANGUAGE"))
-    var languages:=HFlowContainer.new()
-    languages.add_theme_constant_override("h_separation",8)
-    languages.add_theme_constant_override("v_separation",8)
-    rows.add_child(languages)
-    var open_languages:=LocalizationService.available_languages()
-    for choice in ["automatic"]+LocalizationService.RELEASE_LANGUAGES:
-        var language: String=choice
-        var button:=_action(tr("LANG_"+language.to_upper()),func()->void:LocalizationService.select_language(language),true,"",languages)
-        button.disabled=language!="automatic" and not language in open_languages
-        button.theme_type_variation=&"Primary" if language==SettingsState.selected_language else &""
-        button.set_meta("language",language)
-        button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(150,64)
+    rows.add_child(LANGUAGE_DROPDOWN.new())
     _section(tr("SECTION_DANGER"))
     _action(tr("HARD_RESET"),func()->void:_confirm(tr("RESET_CONFIRM"),func()->void:SaveService.hard_reset();_close()))
     _text(tr("CREDITS"),17,Color(.7,.75,.82))

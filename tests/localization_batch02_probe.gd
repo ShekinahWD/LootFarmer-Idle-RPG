@@ -1,14 +1,14 @@
 extends "res://tests/localization_batch01_probe.gd"
-## Localization Batch 02 (Change 39): it_IT, nl_NL, pl_PL, ru_RU and uk_UA are complete but test-only.
-## Reuses the Batch 01 probe's helpers (check, frames, language_buttons, english_left).
-## 1. Production gate: without the override none of the five is loaded or selectable; the override is refused
-##    outside probes; Settings still lists all 19 other languages disabled; Automatic is English.
-## 2. Test override: batch02 alone, then both batches; each locale routes to its own catalog through Godot's PO
-##    loader; every key resolves; every glyph (Cyrillic incl. Ukrainian і ї є ґ, Polish diacritics, typographic
-##    quotes) exists in the theme font; Russian and Ukrainian are separate catalogs, not one copied twice.
+## Localization Batch 02 (Change 39): it_IT, nl_NL, pl_PL, ru_RU and uk_UA. Enabled for players in Change 40.
+## Reuses the Batch 01 probe's helpers (check, frames, dropdown, choose, english_left).
+## 1. Availability: the five are selectable without any test switch and load on first use; the nine drafts and an
+##    unvalidated batch name are refused; a stored Russian choice is restored.
+## 2. Routing: each locale routes to its own catalog through Godot's PO loader; every key resolves; every glyph
+##    (Cyrillic incl. Ukrainian і ї є ґ, Polish diacritics, typographic quotes) exists in the theme font; Russian
+##    and Ukrainian are separate catalogs; Automatic keeps Russian and Ukrainian devices apart.
 ## 3. Dynamic text: every placeholder string formats with sample values in each language, durations use the
 ##    locale's units, Polish/Russian/Ukrainian count lines stay count-neutral.
-## 4. Live switching from the Settings button and with panels open; persistence and old-save compatibility.
+## 4. Live switching from the Settings dropdown and with panels open; persistence and old-save compatibility.
 const BATCH2:=["it_IT","nl_NL","pl_PL","ru_RU","uk_UA"]
 const LOCALES2:={"en_US":"en","it_IT":"it_IT","nl_NL":"nl_NL","pl_PL":"pl_PL","ru_RU":"ru_RU","uk_UA":"uk_UA"}
 const SCRIPT_LETTERS:={
@@ -20,11 +20,14 @@ const SCRIPT_LETTERS:={
 }
 
 func run() -> void:
+    startup_locale=TranslationServer.get_locale()
     SettingsState.mute_all_sfx()
     english=preload("res://tests/localization_sweep.gd").read_po("res://localization/en.po")
     for lang in BATCH2:catalogs[lang]=preload("res://tests/localization_sweep.gd").read_po("res://localization/%s.po" % lang)
     game=load("res://scenes/game/main.tscn").instantiate();add_child(game);sim=game.sim
     sim.set_physics_process(false)
+    LocalizationService.set_test_device_locale("en_US")
+    LocalizationService.select_language("automatic")
     await frames(10)
     await gate_batch02()
     await routing_batch02()
@@ -32,37 +35,37 @@ func run() -> void:
     await live_switching_batch02()
     await persistence_batch02()
     LocalizationService.select_language("automatic")
+    LocalizationService.set_test_device_locale("")
     print("LOCALIZATION_BATCH02_PROBE checks=%d failures=%d" % [checks,failures])
     game.queue_free();await get_tree().process_frame
     AudioService.stop_all_sfx()
     get_tree().quit(1 if failures>0 else 0)
 
-# ---------------------------------------------------------------- 1. production gate
+# ---------------------------------------------------------------- 1. availability
 func gate_batch02() -> void:
-    check(LocalizationService.available_languages()==(["en_US"] as Array[String]),"Before the override only English is available")
+    check(LocalizationService.available_languages()==(ENABLED as Array[String]),"Batch 02 is available without any test switch")
     var loaded: PackedStringArray=TranslationServer.get_loaded_locales()
-    check(BATCH2.all(func(l):return not loaded.has(LOCALES2[l])),"No Batch 02 catalog is loaded without the override (%s)" % str(loaded))
-    check(not LocalizationService.TRANSLATIONS_RELEASE_READY and LocalizationService.godot_locale("automatic")=="en","The release gate is closed and Automatic is English")
-    check(ProjectSettings.get_setting("internationalization/locale/translations")==PackedStringArray(["res://localization/en.po"]),"project.godot still ships only en.po")
-    for lang in BATCH2:
-        check(not LocalizationService.select_language(lang) and SettingsState.selected_language=="automatic","%s cannot be selected by a player" % lang)
-    SettingsState.from_save_dict({"selected_language":"ru_RU"})
-    check(SettingsState.selected_language=="automatic" and TranslationServer.get_locale()=="en","A saved Russian choice loads as Automatic (English) while the gate is closed")
+    check(BATCH2.all(func(l):return not loaded.has(LOCALES2[l]) or LOCALES2[l]==startup_locale),"No Batch 02 catalog is loaded before it is used, except the one the profile restored (%s; restored %s)" % [str(loaded),startup_locale])
+    check(LocalizationService.godot_locale("automatic")=="en","Automatic on an English device is English")
+    for lang in DRAFTS:
+        check(not LocalizationService.select_language(lang) and SettingsState.selected_language=="automatic","%s (draft) cannot be selected by a player" % lang)
+    SettingsState.from_save_dict({"selected_language":"ru_RU"});await frames(1)
+    check(SettingsState.selected_language=="ru_RU" and TranslationServer.get_locale()=="ru_RU","A saved Russian choice is restored")
+    LocalizationService.select_language("automatic");await frames(1)
     var was_probe: bool=BootContext.is_probe
     BootContext.is_probe=false
-    check(not LocalizationService.enable_test_batch("batch02") and not LocalizationService.set_test_locale("uk_UA"),"The Batch 02 override is refused outside probes and captures")
+    check(not LocalizationService.enable_test_batch("batch02") and not LocalizationService.set_test_locale("uk_UA"),"The test switches are refused outside probes and captures")
     BootContext.is_probe=was_probe
     check(not LocalizationService.enable_test_batch("batch03"),"An unvalidated batch name is refused")
-    check(LocalizationService.available_languages()==(["en_US"] as Array[String]),"…and nothing was registered by the refused calls")
+    check(LocalizationService.available_languages()==(ENABLED as Array[String]),"…and nothing was added by the refused calls")
     game._open("settings");await frames(4)
-    var buttons:=language_buttons()
-    check(buttons.size()==21 and buttons.filter(func(b):return b.disabled).size()==19,"Settings lists 21 choices with 19 disabled before the override")
+    var choices:=dropdown_choices()
+    check(choices.size()==12 and DRAFTS.all(func(l):return not l in choices),"The dropdown lists 12 choices and none of the nine drafts")
     game._close()
 
 # ---------------------------------------------------------------- 2. routing, coverage, glyphs
 func routing_batch02() -> void:
-    check(LocalizationService.enable_test_batch("batch02"),"The test override registers Batch 02")
-    check(LocalizationService.available_languages()==(["en_US","it_IT","nl_NL","pl_PL","ru_RU","uk_UA"] as Array[String]),"Batch 02 alone becomes selectable in a probe")
+    check(LocalizationService.enable_test_batch("batch02") and LocalizationService.available_languages()==(ENABLED as Array[String]),"The batch02 test switch still answers and adds nothing (the batch is enabled)")
     var font: Font=game.get_theme_default_font()
     for lang in BATCH2:
         check(LocalizationService.GODOT_LOCALES.get(lang,"")==LOCALES2[lang],"%s maps to Godot locale %s" % [lang,LOCALES2[lang]])
@@ -92,24 +95,20 @@ func routing_batch02() -> void:
     for pair in [["ru_RU","SETTINGS","Настройки"],["uk_UA","SETTINGS","Налаштування"],["uk_UA","PANEL_MAP","Мапа"],["pl_PL","SETTINGS","Ustawienia"]]:
         LocalizationService.select_language(pair[0]);await frames(1)
         check(tr(pair[1])==pair[2],"%s reads %s as %s" % pair)
-    # Device locales Godot would match once Automatic is enabled (informational: Automatic stays English now).
-    for pair in [["ru","ru_RU"],["uk","uk_UA"],["pl","pl_PL"],["it_CH","it_IT"],["nl_BE","nl_NL"]]:
-        LocalizationService.set_test_locale(pair[0]);await frames(1)
-        check(tr("SETTINGS")==catalogs[pair[1]].SETTINGS,"Device locale %s would read the %s catalog" % pair)
-    LocalizationService.set_test_locale("")
-    # Both batches together (a capture build may pass --test-languages=batch01,batch02).
-    check(LocalizationService.enable_test_batch("batch01"),"Batch 01 registers next to Batch 02")
-    check(LocalizationService.available_languages()==(["en_US","es_419","es_ES","pt_BR","fr_FR","de_DE","it_IT","nl_NL","pl_PL","ru_RU","uk_UA"] as Array[String]),"Both batches are selectable in release order")
+    # Automatic (Change 40): Russian and Ukrainian devices keep their own language wherever they are; a
+    # language without a catalog (Belarusian, Kazakh) is English, never a neighbouring language.
+    LocalizationService.select_language("automatic")
+    for pair in [["ru","ru_RU"],["ru_RU","ru_RU"],["ru_UA","ru_RU"],["ru_KZ","ru_RU"],["uk","uk_UA"],["uk_UA","uk_UA"],["pl_PL","pl_PL"],["it_CH","it_IT"],["nl_BE","nl_NL"],["ru_RU.UTF-8","ru_RU"],["be_BY","en_US"],["kk_KZ","en_US"]]:
+        LocalizationService.set_test_device_locale(pair[0]);await frames(1)
+        var expected: String=catalogs[pair[1]].SETTINGS if pair[1]!="en_US" else english.SETTINGS
+        check(LocalizationService.resolved_language("automatic")==pair[1] and tr("SETTINGS")==expected,"Automatic on a %s device reads %s (%s)" % [pair[0],pair[1],tr("SETTINGS")])
+    LocalizationService.set_test_device_locale("en_US");await frames(1)
     LocalizationService.select_language("de_DE");await frames(1)
     var german:=tr("SETTINGS")
     LocalizationService.select_language("nl_NL");await frames(1)
     check(german!=tr("SETTINGS") and tr("SETTINGS")==catalogs.nl_NL.SETTINGS,"Batch 01 and 02 catalogs do not shadow each other (de %s, nl %s)" % [german,tr("SETTINGS")])
-    game._open("settings");await frames(4)
-    var buttons:=language_buttons()
-    check(buttons.filter(func(b):return b.disabled).size()==9,"With both batches registered only the 9 unvalidated languages stay disabled")
-    game._close()
     LocalizationService.select_language("automatic");await frames(1)
-    check(TranslationServer.get_locale()=="en","Automatic is still English with both batches registered")
+    check(TranslationServer.get_locale()=="en","Automatic on an English device is English with every catalog loaded")
 
 # ---------------------------------------------------------------- 3. dynamic text
 func sample_args(text: String) -> Array:
@@ -154,15 +153,11 @@ func live_switching_batch02() -> void:
     for id in ["wood_sword","potion"]:sim.add_item(id,3,true,false)
     sim.campaign.discover_spot(0,2);sim.touch();await frames(8)
     game._open("settings");await frames(4)
-    var russian: Button
-    for b in language_buttons():
-        if b.get_meta("language")=="ru_RU":russian=b
-    check(russian!=null and not russian.disabled,"With the batch registered the Russian button is enabled")
-    russian.pressed.emit();await frames(6)
-    check(SettingsState.selected_language=="ru_RU" and TranslationServer.get_locale()=="ru_RU","Tapping Russian switches at once (no restart)")
+    check(await choose("ru_RU"),"The dropdown offers Русский")
+    await frames(4)
+    check(SettingsState.selected_language=="ru_RU" and TranslationServer.get_locale()=="ru_RU","Choosing Русский switches at once (no restart)")
     check(game.get_node("Sheet/Margin/Content/Header/Title").text==catalogs.ru_RU.PANEL_SETTINGS,"The open Settings panel redraws its title in Russian")
-    var highlighted: Array=language_buttons().filter(func(b):return b.theme_type_variation==&"Primary").map(func(b):return b.get_meta("language"))
-    check(highlighted==["ru_RU"],"…and highlights Russian as the current choice")
+    check(dropdown().text=="Русский" and dropdown().get_item_text(0)==catalogs.ru_RU.LANG_AUTOMATIC+" (English)","…the closed dropdown shows Русский; Automatic reads %s" % dropdown().get_item_text(0))
     await get_tree().create_timer(.3).timeout
     var nav: Button=game.get_node("Safe/Layout/Dock/Content/Navigation/World")
     check(nav.atr(nav.text)==catalogs.ru_RU.WORLD,"Scene-authored navigation reads Russian")
@@ -211,6 +206,5 @@ func persistence_batch02() -> void:
     SaveService.save_now()
     LocalizationService._test_languages.clear()
     SaveService.load_and_apply();await frames(3)
-    check(SettingsState.selected_language=="automatic" and TranslationServer.get_locale()=="en","Without the override the same save opens in English (gate closed)")
+    check(SettingsState.selected_language=="pl_PL" and TranslationServer.get_locale()=="pl_PL","Without any test switch the same save opens in Polish")
     check(int(sim.state.player_level)==37,"…and its progression loads intact")
-    LocalizationService.enable_test_batch("batch02")
