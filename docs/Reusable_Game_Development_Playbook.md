@@ -12,6 +12,8 @@
 
 > **Store-review and gesture-teaching update — 2026-10-28:** Added lessons validated in LootFarmer Change 35: teaching a gesture by demonstrating the real gesture and completing on its real success (18.3), inserting a step into a saved ordered tutorial (18.3), first-frame sizing of rarely shown modals (20), decision modals that hold the world (26.2), storefront identity from the release artifact rather than the OS (52.1) and honest, arbitrated review invitations (52.2). Device and store-policy behaviour is not certified by these notes; see each section.
 >
+> **Changes 27–36 reconciliation — 2026-10-28 (LootFarmer documentation Change 37):** Lessons from LootFarmer's store media, review invitation and late-game balance work were merged into their owning sections instead of a new change section: natural marketing copy (74.1), screenshot sets planned as a portfolio with per-frame provenance and contact-sheet review (87.10, plus the Chromebook slot in 87.1 and the window-limit wording in 87.7), the store trailer's observable gameplay chain, clean takes and music-only audio (133.7, 133.1, 133.3), the feature graphic's portrait end card now validated in a finished video (101.1), social-video composition decided per game for portrait-first titles (133.5, 0.9, 49, 134.4), the runtime English source audit and translation-quality gates (132.4, 132.5, 134.3), configurable review-invitation values and presentation (52.2), boss-readiness audits (112.2) and changing uses-per-level for consumable mastery (141.1), licence records as a publication gate (49) and exact test reporting with environment contamination (60.1). Match cuts are recorded as a future option only (133.7). The four-season variety in LootFarmer's media is that game's content, not a requirement. Sections 138–146 are still project-labelled batches; folding them was deliberately left for a separate pass.
+>
 > **Asset-workflow update — 2026-10-18:** Added lessons from Loopcremental's supplied-asset prototype review: verified animation inventories and base-unit composition (22.1–22.3), action/contact/death presentation contracts (13.1–13.4), asset-only UI boundaries (22.2, 125.10), practical editor-editability checks (63.1), and evidence-based visual audits (56.1). These additions document reusable requirements and approved examples; they do not certify the prototype or its previous test reports. The 2026-10-15 production baseline and unrelated guidance remain unchanged.
 
 > **Change 3 documentation merge — 2026-10-20:** Incorporated supplied fog sections 117.9, 124.12 and 127.6 without replacing the existing LootFarmer asset registry or section 136. Added reusable contracts for camp reveal, copy-count bonuses, evolution baselines and batched rewards. These are specifications, not implementation evidence.
@@ -33,9 +35,10 @@
 | Mobile UI: surfaces, text, controls | 14 to 17, 19 to 21, 70, 78, 123 to 125, 128, 129, 143 |
 | Teaching, onboarding and first-profile progression | 18 |
 | Pause, save, reset and offline | 26 to 31, 57, 58, 61, 110, 111, 145 |
-| Validation, probes, bots and audits | 41 to 43, 59, 60, 100, 112, 113, 127, 145 |
+| Validation, probes, bots and audits (incl. boss-readiness audits) | 41 to 43, 59, 60, 100, 112, 113, 127, 140, 145 |
 | Assets, terrain and visuals | 22 to 25, 54, 63 to 67, 71, 73, 101, 103, 104 |
-| Android, release and store | 47 to 49, 64, 68, 84, 87 to 89, 95, 96, 134 |
+| Android, release and store (incl. store links and review invitations) | 47 to 49, 52, 64, 68, 84, 87 to 89, 95, 96, 134 |
+| Writing conventions (prose, store and marketing copy) | 74, 134.1 |
 | Localization across 20 languages | 0.11, 132 |
 | Screenshots and universal video | 87, 133 |
 | Reusable source toolkit and AI responsibilities | 0.2, 44, 135 |
@@ -1324,7 +1327,7 @@ The main purpose of this section is that **this one reusable file is enough to i
 | 14 | Gameplay Balancing & Full Playthrough Testing | No remaining progression/softlock blockers. |
 | 15 | Performance Optimization & Stability Testing | Profile and verify target devices. |
 | 16 | Demo Generation, Content Stripping & Validation | Optional per game: a separate free demo project generated from the approved full source after the balance and performance gates; section 0.9.1. |
-| 17 | Google Play Store Preparation & Marketing Assets | ASO, policy-reviewed English store copy, gameplay screenshots (every device class), video, feature graphic (its own focused batch, 101.1), app icon (its own focused batch, 101.2), localizations, a set of 10 short-form social videos (5 focused + 5 full-landscape) from approved footage, per-video posting copy, and localized Play release notes when applicable; see 87, 133 and 134. |
+| 17 | Google Play Store Preparation & Marketing Assets | ASO, policy-reviewed English store copy, gameplay screenshots (every device class), video, feature graphic (its own focused batch, 101.1), app icon (its own focused batch, 101.2), localizations, a set of 10 short-form social videos from approved footage (composition split per 133.5: 5 focused + 5 full-landscape for a landscape game; decided per game for a portrait one), per-video posting copy, and localized Play release notes when applicable; see 87, 133 and 134. |
 | 18 | Release Candidate & Final Android Validation | Test exact release artifact; section 88. |
 | 19 | Google Play Publishing | Configure one-time price, store compliance and submit. |
 | 20 | Post-Launch Support, Updates & Improvements | Fix issues using the developer's chosen support process; no player/crash telemetry. |
@@ -2257,7 +2260,7 @@ Teach one concept at a time:
 
 Use event completion, not arbitrary timers, for mandatory actions.
 
-**Teach a gesture by showing the real gesture, and complete it on the real success.** A lesson about a drag (for example "drag from your hero to an enemy and release on it") needs more than a pointer at a control: draw the gesture itself over the world, from its real start point to a real target the player can use now (a ring on the start, a dashed path, the pointer travelling along it, a ring where to release), recomputed every frame, input-transparent, and stepping aside while the player is mid-gesture so the game's own feedback (an aim line) takes over. Name the exact start: "drag from your hero" and "drag the joystick" are different interactions. Complete the step from the one place the action actually succeeds (the selection function the gesture calls, after its own validity checks), through a tightly scoped signal such as `progress.action("target")`, never from a tap, a timer, a failed attempt or an automatic equivalent (auto-acquisition of a target is not a manual target). If the action can be genuinely impossible (no valid target in sight), count only that unavailable time toward a documented escape, so ordinary play still has to make the gesture and an empty map cannot strand the tutorial. Basic-style reference cards teach the same gesture in one short card next to the opening card; they never point or gate. (LootFarmer Change 35.)
+**Teach a gesture by showing the real gesture, and complete it on the real success.** A lesson about a drag (for example "drag from your hero to an enemy and release on it") needs more than a pointer at a control: draw the gesture itself over the world, from its real start point to a real target the player can use now (a ring on the start, a dashed path, the pointer travelling along it, a ring where to release), recomputed every frame, input-transparent, and stepping aside while the player is mid-gesture so the game's own feedback (an aim line) takes over. Name the exact start: "drag from your hero" and "drag the joystick" are different interactions. Complete the step from the one place the action actually succeeds (the selection function the gesture calls, after its own validity checks), through a tightly scoped signal such as `progress.action("target")`, never from a tap, a timer, a failed attempt or an automatic equivalent (auto-acquisition of a target is not a manual target). If the action can be genuinely impossible (no valid target in sight), count only that unavailable time toward a documented escape, so ordinary play still has to make the gesture and an empty map cannot strand the tutorial. Basic-style reference cards teach the same gesture in one short card next to the opening card, and Help shows that same card (one deck, section 18.2); they never point or gate. The escape time and the target-selection rule for the demonstration are per-game tuning in data, not constants of the pattern. (LootFarmer Change 35.)
 
 **Inserting a step into a saved, ordered tutorial.** Put the new step where the beginner meets it and reconcile old saves by order, not by guesses: if a step that comes *after* the new one is already complete, the profile predates the new step, so treat it as done (both live in the step evaluation and in load normalization). Because the new step is ordered before that later step, a new profile can never satisfy the rule without doing the lesson. Existing players beyond the opening map, finished tutorials and profiles in other modes never receive it. Update index-based test fixtures (`STEPS.slice(0, 13)`) to name the step they mean (`STEPS.slice(0, STEPS.find("close_upgrade") + 1)`), or every insertion silently shifts them.
 
@@ -3471,7 +3474,8 @@ Before Play Store submission:
 - no whole spritesheets in portraits;
 - correct highlight animations;
 - consistent filtering;
-- icons readable.
+- icons readable;
+- a **retained licence or purchase record** for every third-party art pack, audio file and font used by the build **or by the store media** (section 136.3). A missing record blocks publishing the build and uploading the media even when every export and media check passes; a file's presence in the repository is not evidence of permission (LootFarmer: art and music records still open after its store media were produced).
 
 ## Persistence
 
@@ -3500,11 +3504,11 @@ Before Play Store submission:
 
 ## Store
 
-- authentic, correctly sized, language-neutral gameplay screenshots for every applicable device class, each a real render at its size, with no added promotional text unless the developer approved an exception (raw masters retained; section 87);
-- genuine gameplay video exports, when selected for the store, validated as MP4 with proper transitions/audio handling (section 133);
+- authentic, correctly sized, language-neutral gameplay screenshots for every applicable device class, each a real render at its size, with no added promotional text unless the developer approved an exception (raw masters retained; section 87), planned and reviewed as one varied set with per-frame provenance (87.10);
+- genuine gameplay video exports, when selected for the store, validated as MP4 with proper transitions/audio handling (section 133), telling the game's hook through real footage (133.7);
 - Play app icon (512 x 512 full square, no baked corners or outer shadow) built from the game's own licensed art in its own batch, judged at 48 to 96 px on light and dark and among researched competitor icons, with an editable reproducible source shared with the launcher icons (section 101.2);
 - feature graphic prepared consistently with actual in-game presentation: built from the game's own licensed art in its own batch, carrying the full approved title, inspected at full size and at real preview sizes, with an editable reproducible source (section 101.1);
-- short-form social videos (TikTok/Reels/Shorts): 10 masters, 9:16 1080×1920, about 15 s, derived from the approved trailer footage and music: 5 focused reframes and 5 full-landscape cuts with their text in the black bands; distinct feature-based hooks, real gameplay only, configurable copy inside platform-safe margins (section 133.5); never uploaded by Claude;
+- short-form social videos (TikTok/Reels/Shorts): 10 masters, 9:16 1080×1920, about 15 s, derived from the approved trailer footage and music: for a landscape game 5 focused reframes and 5 full-landscape cuts with their text in the black bands; for a portrait game a split approved for that game (133.5); distinct feature-based hooks, real gameplay only, configurable copy inside platform-safe margins (section 133.5); never uploaded by Claude;
 - one approved social posting-copy entry per master video: video-specific caption/description plus a concise set of relevant hashtags, with claims matching the footage and no automatic posting (133.6);
 - researched and human-approved English title, short description and full description after a current Google Play metadata-policy check; localize only after that English source is locked (section 134);
 - one validated UTF-8 Play AI-import localization package containing 20 logical locales (English source + 19 translations) using the locale tags accepted by the current Play Console surface; after import, compare the detected languages against the intended set rather than trusting the raw count (134.2 to 134.3);
@@ -3658,6 +3662,8 @@ A review request is an interruption the game chooses, so treat it like the tutor
 - **One automatic invitation per profile, not per store.** Maybe Later, Back and opening the store page are final; moving the save to another store or device never re-prompts. Hard Reset follows the profile's ordinary reset semantics (a new profile can earn it after a new hour). A permanent, unprompted review button in Settings, routed to the active channel, is fine and also settles the invitation.
 - **Honest wording and behaviour:** ask for an honest review; never only positive ones, stars, rewards, gating, a preselected rating, a fake rating or count, or a claim that a review was written (opening the page is all the game knows). Both buttons usable from the first visible frame, no timer or animated entrance; Back equals Maybe Later.
 - **Launch failures are retryable:** `OS.shell_open` returning an error keeps the invitation pending, shows a short localized message and keeps both buttons; count failures for diagnosis. Inject the opener in probes to test routing and failure without leaving the game.
+- **Present it in the game's existing panel language** (its plates, borders, fonts and button styles, perhaps with the player's own gear as decoration), with the store button as the dominant control and Maybe Later clearly legible; check it at portrait sizes like any rare modal (section 20). While it is open the world is held (26.2), not merely covered.
+- **Reuse the pattern, not one game's numbers.** The play-time threshold, health floor, boss radius and quiet window are game tuning kept in a data resource (LootFarmer: 60 active minutes, 50% HP, 280 px, 2 s); exact store URLs live in the game's channel table (52.1) and its own documents, never in this Playbook.
 - **Verified here:** URL selection, routing, persistence and arbitration by probes, panel rendering at portrait sizes on desktop. **Not verified by these notes:** how each store app reacts to the link on a real device, and store review-policy compliance; check both on hardware and against current store policies before release.
 
 ---
@@ -3861,6 +3867,8 @@ If the team is unsure whether sequential or parallel execution is faster, benchm
 - **Drive real-time clocks through their own API in probes.** When a wait counts real active frame seconds, a probe advances that clock with fixed amounts (the accumulator's `advance(seconds)`, or the owner's `_process(dt)` called directly) and asserts the gates: paused, suspended and modal time does not count, and the old gameplay clock alone never satisfies it. Awaiting frames in a headless run adds only milliseconds and proves nothing.
 - **A global "last load result" judges the last load, not your restore.** Probes that assert an in-memory restore did not reset should clear that value first; after a save-version bump their isolated profiles on disk legitimately reset at boot and leave it set.
 - **A long performance run is a separate, non-gating tool** with an isolated profile, a watchdog and a report written to an ignored path, run once per batch at the end; the gating suite stays fast.
+- **Report the exact result, never a rounded one.** Write the counts the runner printed ("38/39 passed, no script errors or timeouts") and name every failure with its cause. Never write "all tests pass" when one failed, even when the failure is unrelated to the batch. A failure caused by the environment (LootFarmer Change 36: a developer's translation archive placed in the folder a probe expected to hold exactly one catalog) is still a failure: report it, explain it, and recommend a non-destructive remedy (move the file after its owner agrees). Never delete or move someone's untracked work, and never loosen the assertion, to turn the run green.
+- **Recommended, not yet applied in LootFarmer:** a probe that guards a shipping property ("only English is selectable") should read what the game registers or exports, not count the files in a folder where people drop work in progress, so an unrelated archive cannot fail it.
 
 This policy is the verification half of the iteration loop in section 44.2: while it runs, the developer is already playing the batch on a device. When a heavy run is needed, prefer a deterministic prepared scenario (a fixed budget, a preset save, a single recorded cell) over a full natural playthrough, and stop a run that has stopped answering its question (Growing Kingdom replaced an hour-long binary search with a few fixed-budget trials per recorded cell).
 
@@ -4408,6 +4416,25 @@ Reusable rule:
 
 > **Never use `--` as punctuation in written text.**
 
+## 74.1 Prefer connected, natural copy over formulaic staccato fragments
+
+The developer's standing style preference for store copy, trailer cards, social hooks and in-game announcements: do not reach for the advertising formula of three clipped fragments ("Fight. Loot. Wear.", "Collect gear. Merge it. Get stronger."), whether as a slogan, a card or a paragraph built from such triplets. It sounds generic, says nothing about this particular game, and translates badly. Write one connected sentence that explains the specific playable fantasy and why it is fun:
+
+```text
+Formulaic:  Defeat. Loot. Transform.
+Preferred:  Defeat an enemy and wear its gear.
+            Each season has its own gear.
+```
+
+- **It is a preference, not a ban on short text.** Short headings, button labels and a single punchy line are fine; a sentence that lists real steps ("Defeat enemies, steal their gear, and wear their look in this idle RPG") is connected prose, not a staccato chain.
+- **One idea per card.** When a video uses several cards, each says one natural sentence about the chapter it introduces (LootFarmer's trailer: three cards, one sentence each), so the viewer reads it in the time the card holds (133.2).
+- **The copy must describe what the build and the footage really show** (134.1); a vivid sentence does not license a feature claim.
+- The double-dash rule above still applies.
+
+Reusable rule:
+
+> **Write marketing and announcement copy as connected, natural sentences about the game's specific fantasy; avoid repeated three-fragment slogans and lists of isolated imperatives.**
+
 ---
 
 # 75. Fractional currencies should be real values, not hidden remainder systems
@@ -4717,6 +4744,8 @@ Do not hard-wire the tool around one landscape game. A reusable capture addon sh
 
 Changing a project from landscape to portrait should be a simple preset/orientation switch, not a code modification. Portrait capture must resize the **game viewport** to portrait; do not rotate a landscape screenshot after capture.
 
+**Desktop/Chromebook slot for a portrait-only game.** A real portrait render at a desktop-class size (LootFarmer: 1620×2880) is an authentic capture, but it does not prove the game is eligible for the Chromebook listing slot. Produce the images, and keep using the slot pending until the game has its own large-screen or ChromeOS support evidence; never imply a desktop build that does not exist.
+
 ## 87.2 Capture UI by default, but support intentional clean shots
 
 Normal store screenshots generally need the actual player-facing HUD, so `Capture UI` should default to **ON**.
@@ -4728,6 +4757,8 @@ store_screenshot_ui
 ```
 
 provides a game-independent contract.
+
+The same group serves clean **video** takes (133.7). Hiding it changes only presentation: actors, health bars, damage numbers, loot, speech and weather stay, and every action in the shot still goes through the game's own calls.
 
 ## 87.3 Preserve one gameplay moment across all selected outputs
 
@@ -4813,7 +4844,7 @@ A command-line run with the **editor binary** reports `editor_runtime` too: an e
 
 Godot's fixed embedded-game viewport can otherwise produce a screenshot with the wrong dimensions even when the surrounding editor window changed. Fail loudly instead of writing a mislabeled file.
 
-A desktop monitor can clamp the capture window: 720×1280 on a 1080-pixel screen became 720×1084, and `canvas_items` + `expand` widened the canvas, so the "phone" capture was a different aspect. Choose capture sizes that fit the monitor at the exact target aspect (540×960 for 9:16, 432×960 for about 20:9) and check the saved image's size.
+A desktop monitor can clamp the capture window: 720×1280 on a 1080-pixel screen became 720×1084, and `canvas_items` + `expand` widened the canvas, so the "phone" capture was a different aspect. This applies to ad-hoc evidence captures (probe screenshots, review images) that do not raise the window's maximum size as in the first trap above: for those, choose capture sizes that fit the monitor at the exact target aspect (540×960 for 9:16, 432×960 for about 20:9) and check the saved image's size. Store captures go through the toolkit, which lifts the limit (LootFarmer rendered 1800×3200 tablet images on a 1080-pixel monitor and verified the read-back size).
 
 ## 87.8 Trigger and ownership: the UI-readiness gate
 
@@ -4837,6 +4868,46 @@ Always retain the **untouched raw PNG** with its scenario settings and provenanc
 Reusable rule:
 
 > **Play Store screenshots are language-neutral by default and contain no added promotional text.** Use authentic gameplay and native in-game UI only. Do not add marketing headlines, captions, slogans, feature descriptions, or other localized overlays unless the human developer explicitly requests an exception for a specific game/campaign. This avoids maintaining separate screenshot image sets for every store language. Preserve untouched raw captures. The reusable toolkit may retain optional text-composition capability for exceptional campaigns, but it must not be the default production workflow. Store screenshot tooling should validate responsive behavior, preserve one deterministic authentic gameplay moment, capture every device class as a real render at its own size, organize every output by destination, and remain development-only.
+
+## 87.10 Plan the set as a portfolio and prove every frame
+
+Correct sizes and an authentic pipeline do not make a good set. LootFarmer's first set (Change 27) passed every technical check and was rejected: all six images used the same map and weather, the player wore the same outfit and weapon in all six, so the gear row (40% of each image) was identical, similar enemies repeated, a large damage number covered the boss, and three were text-heavy panels showing a small stat change or a requirements page. Nothing showed the game's hook. The redesign (Change 34) used the method below; its evidence is in that game's report.
+
+**1. Critique the current set first.** Write down concretely why each existing image is weak (repetition, covered subjects, panels with no visible payoff, missing hook) before choosing new shots, and keep the old set for a side-by-side comparison.
+
+**2. Plan the set as one portfolio.** List the images in their store order with, for each: the mechanic it proves, the environment, the player's look, the enemies on screen. Then remove overlap:
+
+- each image communicates a **distinct real mechanic or payoff** (boss combat, the game's hook, improvement, farming, exploration, long-term progression);
+- vary **environment, worn look, weapon and enemy family** across the set where the game has that variety; repeated backgrounds and identical equipment rows make six images read as one;
+- show the **distinctive feature** directly in at least one frame (LootFarmer: the player wearing the outfit and holding the sword of the boss it is fighting, so the link between enemy and gear is visible in a still), and make the **first two or three images**, often all a viewer sees in the listing, already convey the genre and the hook;
+- a panel shot earns its place only with a **visible payoff** (a milestone, a large readable change), not a small stat delta;
+- represent a game's zones, seasons or biomes when it has them, from real maps with their real weather (never a tint that turns one map into another). LootFarmer has four seasonal maps, so its set and trailer show all four; that is that game's content, not a rule for games without seasons;
+- do not show content the developer wants kept for the player (LootFarmer: the final boss never appears).
+
+**3. Every frame is a real, logged gameplay event.** The adapter reaches the state through the game's own calls (a staged profile stands in for play time only) and the action happens in the simulation: a real summon, a real kill, a real pickup and equip, a real merge through the panel's own button, a real reward choice. Each capture writes an event log, and the finalizer refuses a set whose logs lack the expected events. Additionally:
+
+- **drops are never forced:** search seeds for one whose real kill drops the wanted items and record it (LootFarmer found a seed by scanning upward from a starting value);
+- **every worn, merged or shown item must be obtainable in normal play:** a probe checks each against the enemies' loot tables and rejects legacy ids (this caught a tier of an outfit that no enemy drops, which an earlier video had used);
+- record per image the scenario, options, seed, map and weather, worn gear and its source, and the frame chosen, in a provenance manifest beside the upload files.
+
+**4. Explore cheaply, then select by looking.** Render many candidates at a small draft size (LootFarmer: about 60 at 540×960) varying framing, timing, pack, zoom and skill timing, and record why each rejected one failed. Typical rejections: a skill effect covering the subject it should show, a panel with combat or a damage number behind it, a season or look already used elsewhere in the set. Choose the frame between effects when effects hide the fight; do not paint anything in.
+
+**5. Review the set as a set.**
+
+- a **contact sheet of the whole set** (every image, every device class);
+- one **small-preview sheet per device class** at store-card size (about 360 px wide), because that is how most viewers first see them;
+- **before/after pairs** for every position plus an overview;
+- inspect the actual images at native size and at the small size; numeric checks cannot judge composition.
+
+**6. Automate what can be measured.** Beside the format rules (87.7, 87.9): same moment across device classes (a small mean pixel difference), clearly different scenes within the set (a large minimum difference between any two), no flat frame or border band, alt-text drafts within the store limit (kept as listing metadata, never drawn on the image). Re-render the set to check determinism, and explain any difference: LootFarmer's boss image re-rendered identical except the stacking order of floating damage numbers, a presentation-timing difference rather than a different scene. A difference in content is a defect.
+
+**7. Protect what is already approved.** Hash every other approved medium (icon, feature graphic, trailer, music, earlier evidence) before the batch and compare after. Retire or disable any older pipeline job that would regenerate or overwrite the new set or the previous change's evidence (the same trap as 101.1 and 101.2). Generated images stay outside the runtime export (87.5).
+
+**8. State the limits honestly.** A single frame cannot show a before-and-after action; let matching gear on boss and player carry the link instead of adding a collage or caption. Report what the developer still has to judge (the pixels themselves), and what is not verified (listing-slot eligibility, licence records).
+
+Reusable rule:
+
+> **Plan store screenshots as one portfolio of distinct real mechanics, places, looks and enemies; prove each frame with a logged real event and obtainable items; select from many drafts by looking at full size and at store-card size; and protect every other approved asset while doing it.**
 
 
 
@@ -5256,7 +5327,7 @@ The feature graphic is the listing's banner and, when a preview video exists, th
 - sources in an import-ignored marketing folder, outputs in the ignored store-asset folder, small tracked evidence copies (final, concepts, before/after, size sheet), all outside the export allowlist (22.2, 87.5);
 - the tool form follows 63.1: a Godot scene or a data file plus script are both acceptable when they are editable and reproducible. LootFarmer used JSON layers and a Pillow script because its brand tooling already worked that way. Keep it in the game repository; promote it to the toolkit only after it is validated on another game (135.2).
 
-**7. Prepare a portrait end card without making it.** If the graphic may close a 9:16 trailer, keep its title, characters, items and background as separate layers and add a portrait composition that **restages** them (title in the upper third, story stacked below, background tiled to the new height, platform-safe margins). Never stretch or crop the landscape file (133.1). Render a static framing preview only; the trailer change belongs to a video batch. In LootFarmer this is a plan, not yet validated in a finished video.
+**7. Prepare a portrait end card without making it.** If the graphic may close a 9:16 trailer, keep its title, characters, items and background as separate layers and add a portrait composition that **restages** them (title in the upper third, story stacked below, background tiled to the new height, platform-safe margins). Never stretch or crop the landscape file (133.1). Render a static framing preview only; the trailer change belongs to a video batch. LootFarmer then validated it in a finished video (Changes 32 and 33): the trailer's end card animates this portrait composition with the feature-graphic composer's own layer painters (the boss, its two loot slots, the plain player, then the outfitted player, with the wordmark and subtitle arriving last and held to the end), and the stacked layers and the last frame were verified pixel-identical to the static study (133.7).
 
 **8. Corrections stay confined.** A branding fix after approval (LootFarmer: adding the approved descriptor "Idle RPG" under the title, 87.9) changes only what was asked. Re-render first to prove the untouched layers are byte-identical, then add the new layer and confirm with a pixel diff that only its area changed. When there is no free space, a lockup that tucks the smaller line into the main title's outline and depth reads as one logo.
 
@@ -5828,6 +5899,41 @@ Reuse (Growing Kingdom): `tests/balance_audit.tscn` (`--hold`, `--budget`, `--se
 Reusable rule:
 
 > Every economy, AI, wave or map change runs through a bot that plays the whole game, not only through rule checks; army questions get a controlled hold test with the economy held constant. Bots measure; people judge whether it feels right.
+
+## 112.2 Boss-readiness audits: legitimate builds, ladders and cliffs
+
+"Can a player beat the final boss, and with what?" is a different question from "how long is the game?". A pacing bot answers the second slowly; a readiness audit answers the first with a few hundred short duels in the real simulation. LootFarmer's final-boss audit (Change 36) established the method below; its numbers belong to that game.
+
+**Keep the audit separate from changes.** A batch may carry one authorized balance change and an audit beside it, but the audit itself changes nothing: it does not retune the boss or any other value because it found a problem. Its proposals go to the developer, and each is measured with the same ladder before anyone adopts it (92, 45).
+
+**Use the real fight.** Run the unmodified combat simulation at its normal step, with the boss's whole kit (skills and their eligibility, heals, summons and helpers, out-of-combat regeneration, attack gaps) and the player's real automation (auto-cast skills, automatic supply use, target choice). Read the encounter's properties from live data and print them with the results. Hand estimates of basic hits miss most of what decides the fight (140.2).
+
+**Make every build legitimate, and label what is seeded.** The ceiling-fixture rules of 140.1 apply to every build: every item exists, is a non-legacy id an enemy actually drops (or its real evolution), is within its caps, is actually added and actually equipped (assert the slot). Additionally:
+
+- reach meta progression through **its real transactions**: run the game's own Prestige or reset call over the opportunities a named earlier run would really have made ready, and buy upgrades through the purchase function with recorded currency, so the run reset clears what play would clear;
+- **seed only what stands in for time**, and label it in the output: player level (with the experience it needs), merge levels (with the copies they need), consumable uses and stock, currencies granted, keys and stage access;
+- verify prerequisites the route really demands (LootFarmer: the final boss needs every other boss's key, so the minimum build was also run against the late key holders the route cannot skip);
+- fail the run (non-zero exit) on any legitimacy failure, under a watchdog, with no script error allowed (141.5).
+
+**Name the evidence class.** Three different claims, never merged:
+
+1. a **constructed fixture** that is legal (every part obtainable) but seeded;
+2. a build **demonstrated through real progression actions** from an earlier state;
+3. a **full playthrough** that reached the build naturally.
+
+A readiness audit normally delivers the first; say so in the verdict.
+
+**Report a ladder, not one win.** At least a **minimum credible winning build** and a **recommended resilient build**, plus the neighbours of the minimum (one variable lower each: a weaker weapon, a lower mastery, fewer levels, less stock, one supply removed, no meta progression) and counterfactuals one variable at a time. For each: seeds and trials, result, duration, HP left, deaths, consumables used, boss casts and heals. Keep per-duel rows (CSV) and the build definitions (JSON) as evidence. Note how deterministic the fight is: LootFarmer's seeds moved durations by only a few seconds, so "5/5" meant a reliable outcome under auto-play, **not a win rate** across real players with different builds and habits.
+
+**Look for cliffs.** Survival can be a threshold rather than a slope: in LootFarmer, once sustain held the player never died, and when it did not the player died within about a minute whatever the gear; one missing consumable type, or a few mastery levels short of a milestone, flipped 5/5 wins to 0/5. Identify such cliffs and anything that turns out to be mandatory (there, one Prestige's cards) and report them as design findings: a cliff makes preparation feel arbitrary even when the boss is beatable.
+
+**Separate measured from projected time.** Farming rates measured in the simulation (kills, drops and currency per hour at a named spot and build, with sample sizes, compared with the drop odds) are measurements. Hours to reach a build computed from those rates are **arithmetic estimates**; say which inputs were not measured (meta-currency income, mission and offline income, the campaign climb, the earlier run a Prestige needs), and claim no total playthrough time without a whole-journey measurement (112) or a human playthrough.
+
+**Scope the verdict.** "The final boss is beatable with build X" says nothing about whether earlier bosses are enjoyable or whether a farm loop is survivable; list such observations as separate, untested findings. Mark older audits that the new method supersedes as historical, with the reason (LootFarmer: an earlier balance probe seeded fake keys and skipped consumables and meta progression, so its final-boss losses no longer describe play), rather than deleting them.
+
+Reusable rule:
+
+> **Audit a boss with the real simulation and legitimately obtained, actually equipped builds; label every seeded value; report a minimum and a recommended build with their neighbours and one-variable counterfactuals; find survival cliffs; keep measured rates apart from projected hours; and propose, never apply, the tuning.**
 
 ---
 
@@ -8313,6 +8419,8 @@ Automatic locale: English (device detection gated)
 
 **Freeze gate:** Before requesting non-English catalogs, Claude confirms intended UI/screens and English wording are stable, there is no unexpected player-visible hardcoded text, all referenced English keys exist, placeholders/plural intent are finalized, and the English layout works on the targeted screen sizes. Record this checkpoint (catalog version/hash and any intentional exceptions) in the project's GDD/release notes.
 
+**Audit the shipping game, not only the catalog, before the freeze.** Key parity with an old catalog proves nothing about text the catalog never had. Search the current code and content for player-visible text: scene text, scripts, reusable UI components, resources and content tables, tutorial and Help cards, prompts and their error paths, Settings, store-specific labels chosen at run time (132.3), notifications, confirmations, and number, plural and date formatting. Look for (a) hardcoded English that is not an intentional brand or proper noun, (b) references to absent keys, (c) obsolete keys, (d) sentences assembled from fragments that need one whole translatable message, and (e) missing placeholder or plural intent. Merge any per-batch English string files (for example a change's string manifest) into the canonical catalog without duplicating keys, record the final key count and hash, and list intentional exceptions in a glossary. **The current repository's English catalog is the source of truth**: an older catalog or a partial draft identifies keys, it never overwrites the current file, and no historical key count is a target. (Approved procedure for LootFarmer's first translation batch, 2026-10-28; not yet carried out there, so treat it as the required method rather than validated evidence.)
+
 The developer supplies ChatGPT the **actual final English catalog**, plus any necessary terminology/character-limit context. **ChatGPT**, not Claude, generates the **remaining 19 complete translation files**, preserving keys, placeholders and format, using a consistent glossary where applicable. ChatGPT performs structural checks (completeness, unique IDs, valid catalog syntax, placeholder parity) and returns a **single ZIP** ready for the developer to copy into the designated localization folder. A machine check cannot certify native wording, glyph rendering or UI fit; those remain separate QA obligations. Translation files are not to be regenerated automatically during normal English feature changes after the freeze; apply targeted changed-key updates instead.
 
 ## 132.5 Phase 4 — Developer copies files; Claude integrates in mandatory small batches
@@ -8326,6 +8434,14 @@ The developer supplies ChatGPT the **actual final English catalog**, plus any ne
 3. Claude fixes **anything necessary**, including incorrect/awkward translations, text length, UI layout, import registration, resource paths, script fallback and placeholders. For material rewrites, preserve meaning and update the terminology glossary. Recheck every corrected catalog before passing the batch.
 4. Save a **short handoff report**: 4–5 locale IDs, imported key totals, missing/placeholder/glyph/layout test results, exact fixes, tests actually run, unresolved issues and artifact paths. Stop on blocking issues; complete each batch before proceeding. A new Claude chat can start the next batch using the report and files rather than replaying earlier translation output.
 5. After all 19 catalogs pass, run a **global 20-language release gate**: confirm catalog/locale completeness, translation fallbacks, live Settings switches, available device-locale detection, export contents and the representative Android script/layout matrix. **Only then** enable all 19 Settings buttons and activate device-based Automatic. Recheck that the production build cannot revert to its English-only gate or expose disabled languages by mistake.
+
+**Translation quality gates (every batch).** A catalog that parses, or whose every `msgstr` is filled, is not thereby translated:
+
+- **Natural and gameplay-aware, not literal.** Translate what the player must do and understand, with the genre vocabulary players of that language use. Keep the game's semantic distinctions intact in every language (for example merge versus evolve versus upgrade, supplies versus equipment, mastery versus level, each named currency and progression layer) through a per-locale glossary, and never shorten away a cost, warning, consequence or eligibility rule to make text fit; fix the layout instead.
+- **Genuine regional variants.** Two catalogs for one language (Latin American and European Spanish, Simplified and Traditional Chinese) are written for their regions and routed to distinct locales with a tested mapping (132.6); never one catalog copied under two names.
+- **Mechanical checks per catalog:** exact key set against the current English catalog, no fuzzy flags, no untranslated English copy-through except glossary-listed names (a targeted allowlist, not a blanket exemption), placeholder tokens, types and counts, plurals, escapes and markup preserved. Then a human-quality review: the automated checks cannot judge wording.
+- **Partial drafts are not release candidates.** An earlier draft with English fallbacks or fuzzy entries is reference material; re-review even its translated entries. No partially translated language becomes selectable for normal players; test builds use an explicit test-only override.
+- **Keep handoff archives out of the folders the game and its probes read.** Unpack the catalogs a batch needs; leave the archive elsewhere. If one is found inside the localization folder, report it as an integration and test hazard (60.1) and leave moving it to its owner.
 
 Suggested batch assignment (adjust order for the specific project's risks without changing the 4–5-language limit):
 
@@ -8369,10 +8485,10 @@ A **single reusable video workflow** must produce a Play Store trailer **or any 
 ## 133.1 Authored composition, flexible output
 
 - User-specified storyboard, music, durations, text, camera and transitions **override** defaults; otherwise Claude follows a ChatGPT-approved creative brief or proposes composition for human approval.
-- Support landscape **16:9**, portrait **9:16**, square **1:1**, and configurable profiles for resolution, frame rate, orientation and length. Example targets: Play Store 16:9, TikTok/Shorts 9:16. Render/capture gameplay with an appropriate game camera and responsive UI for the target; **do not just rotate or crop landscape footage** and call it portrait support. The one exception is a short-form social cut derived from already-approved footage (133.5): an explicit, reviewed reframe of real landscape gameplay (a focused window, or the whole frame letterboxed in black), never a claim that the game itself has a portrait layout.
+- Support landscape **16:9**, portrait **9:16**, square **1:1**, and configurable profiles for resolution, frame rate, orientation and length. Example targets: a Play Store trailer in the game's native orientation (Everfort 16:9; LootFarmer 9:16 from a real portrait window), TikTok/Shorts 9:16. Render/capture gameplay with an appropriate game camera and responsive UI for the target; **do not just rotate or crop landscape footage** and call it portrait support. The one exception is a short-form social cut derived from already-approved footage (133.5): an explicit, reviewed reframe of real landscape gameplay (a focused window, or the whole frame letterboxed in black), never a claim that the game itself has a portrait layout.
 - Shot types: staged real-gameplay clip, marketing text on black or branded background, title/end card (which may restage the feature graphic's layers for the target aspect, 101.1), and reusable already-recorded footage. Marketing text may overlay gameplay **or** appear on cards, independently enabled per shot.
 - Animate cameras where feasible (zoom, pan, follow, fixed), control gameplay staging and framing, and support explicit transitions, sequence order, overlays and optional sound effects.
-- Output can be silent/game-audio-only by default; when the developer supplies an MP3/WAV (or another supported source), arrange scenes against the track and include it in the final render. **Do not require Claude to source or create music.**
+- Output can be silent/game-audio-only by default; when the developer supplies an MP3/WAV (or another supported source), arrange scenes against the track and include it in the final render. **Do not require Claude to source or create music.** When the developer asks for **music only**, exclude game audio at the source rather than turning it down (133.3).
 - Maintain all written video headlines/title-card copy in the approved 20-language marketing localization set. Allow export of selected locales using the same source composition and footage.
 
 ## 133.2 Transitions must be rendered, never simulated by instantaneous swaps
@@ -8399,6 +8515,7 @@ Validated details (Godot 4.7.2):
 - **Movie Maker's MJPEG is full range** (`yuvj420p`): convert to limited (TV) range for the H.264 delivery, or players and stores may show crushed or washed-out levels.
 - Encode segments losslessly, join them in one filter graph, and encode the delivery once. Give every joined input the same frame rate and timebase (`xfade` refuses mismatched links).
 - Record each clip's game sound with the picture (Movie Maker writes PCM); compose music afterwards, under the whole video, so cuts and fades never restart it. Silence under cards, crossfade the clips' sound with the same overlaps as the pictures, limit the mix (about −1 dBFS), and measure peaks and quiet moments; a rest in the supplied music is the composer's, not a dropout.
+- **Music-only variant (validated in LootFarmer Changes 32 and 33).** Set the manifest's game audio off so every gameplay segment is encoded without audio and the final filter graph maps only the music input; the recorded PCM is never read. Take one continuous section of the supplied track (start past an intro whose rests would sound like dropouts under a card; let a louder passage land on the end card), fade in briefly, fade out over the last second or two, and limit. Verify on the delivered MP4: exactly one audio stream, peak level, no quiet window that is a dropout, and the decoded audio minus the source section leaving only a small coding residual in every shot. That is a signal check; a listen on a phone remains a human task.
 
 FFmpeg handles joins, text and fades, optional sourced audio, scaling/framing if genuinely required, H.264 encoding, `yuv420p`, and web-friendly MP4 metadata (`+faststart` when appropriate). A run should check codec, dimensions, frame rate, duration, audio presence when required, black frames/transition timing and readable final composition. Do not claim an MP4 was verified without actually inspecting its output/metadata.
 
@@ -8419,9 +8536,10 @@ Defaults (Everfort, 2026-10-14: ten 15 s TikTok masters from the Play trailer's 
 - **10 master videos**, 9:16, 1080×1920, 30 fps, about 15 s; H.264 + AAC like the trailer. The masters serve TikTok, Reels and Shorts alike; make a platform-specific version only when a platform genuinely needs one.
 - **One set, not one per locale.** The default deliverable is 10 masters in the reference language. Localized social variants are produced only when explicitly requested; their copy comes from the same manifest keys.
 - **Ten different angles, not near-duplicates.** Each video sells a different real feature or promise (e.g. survival intensity, the progression loop, prestige and visual evolution, damage/crit escalation, horde pressure, the campaign length, upgrades, permanent skills, idle defense, early-vs-late comparison). Reuse the same raw clips with different in-points, framing and order rather than repeating the same edit with new text.
-- **Mandatory 5/5 composition split:**
+- **5/5 composition split (mandatory for a landscape game; validated on Everfort):**
   - **5 focused reframes.** Centre a window on each shot's action. For a landscape game, a full-height 9:16 crop usually cuts off the enemies at both sides; a window about 0.45–0.5 of the source width keeps the action large (about 70% of the height). The bands above and below get a blurred, darkened copy of the same moment, where the hook (top) and the platform's caption (bottom) sit. Panels and buttons must stay readable at phone size: crop onto the button being tapped, not the whole panel.
   - **5 full-landscape videos.** The complete landscape frame, centred in the 9:16 output, with black space above and below (the toolkit's `reframe` with full source width and `fill: "black"`, not a separate render path). The hook goes in the top black band, feature lines in either band, so marketing text never covers the gameplay; the toolkit refuses copy that does not fit its band.
+  - **A native portrait game is different.** Its approved footage is already 9:16, so there is no landscape frame to letterbox, and letterboxing portrait footage into a smaller window wastes the screen. Do not impose the landscape split by default: decide that game's composition variants (for example full-frame portrait cuts and tighter close-up reframes, with text on cards or in platform-safe areas that do not cover the action) with the developer, and test them as real formats before calling them standard. No portrait game has completed this social package yet (LootFarmer's social videos are still to be produced), so nothing beyond the general rules of this section is validated for portrait.
 - **Gameplay first; a strong hook in the first 1–2 seconds.** Open on an authentic moment that fits the angle, with the hook headline visible within a quarter second. Keep shots short (1.5–3.5 s) and cut on the music's accents.
 - **Short marketing text is allowed** on social videos (unlike store screenshots, 87.9): a hook, optional short feature lines, a brand card. Every string lives in the manifest's `strings`, so each game (and each variant) sets its own copy; nothing is hard-coded in the tool. Every claim must match what the clip shows (a stage number, a feature that exists in the build).
 - **Real gameplay only.** No fake or misleading footage, mechanics or results; cards hold only the brand (name, icon, approved subtitle).
@@ -8434,7 +8552,7 @@ Defaults (Everfort, 2026-10-14: ten 15 s TikTok masters from the Play trailer's 
 
 Reusable rule:
 
-> **Short-form social videos are a set of 10 vertical (9:16, 1080×1920, ~15 s) gameplay-first masters derived from already-approved footage and music: 5 focused reframes (blurred fill) and 5 full-landscape cuts (the whole frame, text in the black bands, never over the gameplay).** Each has its own feature-based hook in the first 1–2 seconds, real gameplay only, short configurable copy inside platform-safe margins, ending on the brand. One master set, reused across TikTok/Reels/Shorts; localized variants only on request; recapture only when the footage genuinely cannot support a variant.
+> **Short-form social videos are a set of 10 vertical (9:16, 1080×1920, ~15 s) gameplay-first masters derived from already-approved footage and music: for a landscape game, 5 focused reframes (blurred fill) and 5 full-landscape cuts (the whole frame, text in the black bands, never over the gameplay); for a portrait game, composition variants approved for that game.** Each has its own feature-based hook in the first 1–2 seconds, real gameplay only, short configurable copy inside platform-safe margins, ending on the brand. One master set, reused across TikTok/Reels/Shorts; localized variants only on request; recapture only when the footage genuinely cannot support a variant.
 
 
 ## 133.6 Social posting copy after the 10 masters are approved
@@ -8453,6 +8571,47 @@ Default rules:
 Reusable rule:
 
 > **Every approved ten-video social set receives ten matching posting-copy entries. Present them one video at a time for human review: video number outside the copyable area, then caption + relevant hashtags together inside it. Claims must match the footage; localized social copy is optional and publishing remains a human action.**
+
+## 133.7 Store trailer storytelling: show the hook as an observable chain
+
+A trailer can pass every technical check (smooth fades, readable cards, correct format) and still fail as marketing. LootFarmer's first trailer (Change 27) was rejected as seven similar shots on one map, menus, small characters and an icon card; the redesign (Change 32) and its revision (Change 33) established the practices below. They are validated for that one portrait game; treat its timings, seasons and items as its own choices.
+
+**1. Tell the differentiator as a chain the viewer can watch.** Name the one thing that makes the game different and show it as cause and effect in moving footage, not as a claim on a card or a stat in a panel. For a game whose players wear their enemies' gear, the chain is: the enemy visibly carrying the item, the fight, the real drop, the pickup, the real equip, and the player's changed appearance held on screen. Give that chain the longest coherent sequence in the film, and keep a shortened edit chronologically truthful (same enemy, same items, same take).
+
+**2. Hiding menus is presentation, never a fake.** When panels obscure the key moment, an approved marketing capture may hide the HUD (the clean-shot group of 87.2) while every action still runs through the game's own functions: LootFarmer's clean take equips through the same call the item panel's Equip button makes, logs it, and shows the result on the character. Do not invent an action the game cannot perform, fake an inventory result, or change ordinary-game behaviour for the capture. If a viewer could ask "where did that come from?", the edit or a card must make it understandable; the trailer shows a real equip, not a claim that the player can equip without the panel.
+
+**3. Frame for reading on a phone.**
+
+- Prefer **tight gameplay close-ups** when the point is a visual change (a costume, a weapon); push the camera in after the pickup and hold the new look long enough to register, then show it in action.
+- Do not zoom so far that the setting becomes unrecognizable; wider shots carry place and variety.
+- A camera closer than the player's own zoom limit is acceptable only in a clean shot where no zoom control is on screen, and only as a non-saved capture setting.
+- Stage the action where the HUD does not cover it (LootFarmer's upper corners hold buttons and a minimap, so bosses stand straight above the player).
+- Keep effects, damage numbers and panels from hiding the subject; drop redundant menus.
+
+**4. Variety from the game's own content.** Show distinct worlds, enemies, outfits and weapons rather than repeating one look, and check variety on a small-scale contact sheet. Use real environmental effects: choose spots and times where sparse effects (falling leaves, rain) actually cross the frame, and verify them in consecutive frames. LootFarmer's four seasons are its content; a game without zones shows its own variety instead. Every item shown must be obtainable in normal play (87.10 step 3).
+
+**5. Authentic events, found rather than forced.**
+
+- Find drops by **seed search** and record the seed; never force a drop.
+- Give a staged profile the history a real player at that point would have, so the game does not raise unrelated banners mid-take, and log every banner the take raises.
+- Start each clip with a short head of live play before its first action (133.2).
+- Every timeline event (summon, skill, defeat, drops, pickups, equips) is found in the take's log and listed with its output time in the report.
+
+**6. Cards, end card and audio.**
+
+- Title cards follow 133.2 (text only on black) and 74.1: one natural sentence each, timed for reading (LootFarmer: about 18 characters per second, at least 1.5 s fully visible).
+- Close on the approved brand: an end card restaged from the feature graphic's layers for the video's aspect (101.1 step 7), not an icon pasted on black.
+- Use the developer's chosen music; music-only cuts exclude game audio at the source (133.3).
+
+**7. Reuse first, recapture only what the story needs.** Keep every take's raw master, log and manifest entry, and every earlier cut reproducible: LootFarmer's revision re-rendered the previous cut byte-identical from its committed manifest and kept all earlier takes. A revision recaptures only the shots its new story requires; copy, timing, transitions and music in-point are recomposed from saved footage.
+
+**8. Evidence and protection.** Produce the review set: a shot contact sheet (first, middle and last frame of each shot), card holds, a phone-size strip of the whole film, transition frames, the key sequence frame by frame, a variety sheet, old versus new at the same times, the last seconds of the end card, the audio waveform, and a validation file with every number. Hash every other approved medium before and after. Keep the trailer local until rights are recorded (49) and the developer has watched and listened on a phone.
+
+**Future option, not a requirement: match cuts.** Cutting between shots on a matching action (the same attack across different gear, the same pose across seasons) could make a later trailer or social edit more rhythmic. No LootFarmer video uses them and none was validated; do not retrofit approved videos, and treat a first use as an experiment for developer review.
+
+Reusable rule:
+
+> **Show the game's hook as a chain the viewer can watch in real footage, give it the longest coherent sequence, hide menus only as presentation over real game calls, frame tight enough to read on a phone, vary content from the game itself, find events by seed rather than forcing them, close on the approved brand, and recapture only what the new story needs.**
 
 ---
 
@@ -8496,9 +8655,11 @@ Reusable validation before handoff:
 
 Keep the approved English listing, the structured 20-locale handoff, the runtime-to-Play locale map and the validation report as source/release evidence. Do not require 20 copies of language-neutral screenshots.
 
+**Store listing text and runtime catalogs never substitute for each other.** They differ in source (approved listing fields versus the game's English catalog), purpose (market positioning within character limits versus exact instructions), locale identifiers (134.2 versus 132.6) and approval path. Do not paste listing translations into `.po` files or derive listing copy from runtime strings; share only the glossary of game terms so both say the same thing about the same mechanic.
+
 ## 134.4 Publishing gate
 
-At **production stage 17**, plan and produce store screenshots and video, feature graphic and ASO, the set of 10 short-form social videos derived from the approved trailer footage (5 focused and 5 full-landscape, 133.5), and their posting copy (133.6), after the UI-readiness trigger for screenshots (87.8). Generate/validate the 20-locale Play listing handoff (134.3) only after the English source copy is policy-checked and approved. A free demo (Stage 16) is its own Play listing with its own copy, screenshots and package; its claims cover only the demo's content. Stage 18 validates the exact Android release candidate (and demo artifact, when present) and assets against the shipped features. Stage 19 completes Play Console configuration: listing, locales, policy declarations, ratings, countries, signed build, release notes where applicable, and **one-time paid** price. No advertising, IAP, subscriptions, analytics or crash-tracking integration is part of this sequence. Treat each final store/social deliverable as an approved artifact, not automatically published material.
+At **production stage 17**, plan and produce store screenshots and video, feature graphic and ASO, the set of 10 short-form social videos derived from the approved trailer footage (composition split per 133.5), and their posting copy (133.6), after the UI-readiness trigger for screenshots (87.8). Generate/validate the 20-locale Play listing handoff (134.3) only after the English source copy is policy-checked and approved. A free demo (Stage 16) is its own Play listing with its own copy, screenshots and package; its claims cover only the demo's content. Stage 18 validates the exact Android release candidate (and demo artifact, when present) and assets against the shipped features. Stage 19 completes Play Console configuration: listing, locales, policy declarations, ratings, countries, signed build, release notes where applicable, and **one-time paid** price. No advertising, IAP, subscriptions, analytics or crash-tracking integration is part of this sequence. Treat each final store/social deliverable as an approved artifact, not automatically published material.
 
 ## 134.5 Localized Google Play release notes
 
@@ -8539,6 +8700,8 @@ The approved target structure is one **Marketing Capture Toolkit** with reusable
 ## 135.2 New-game bootstrap and changes
 
 A new project starts with (a) this Playbook, (b) the approved game GDD, and (c) an identifiable **validated toolkit version/repository or package**. Bootstrap pins and installs the toolkit automatically from that version; no hand-copying files and no invented downloads/paths if the toolkit is absent. A new feature first checks whether a reusable implementation already exists; write game-specific adapter code only where needed. Toolkit improvements are tested in the actual Godot project, reviewed, then promoted to a new **validated** toolkit version for the next game; keep version/changelog so updates are deliberate, not silent.
+
+**A version a game used is evidence, not a ceiling.** Each game's reports name the toolkit version it pinned and its `status` result (LootFarmer used 1.0.2 unchanged for its screenshots and trailers, Changes 27 to 34). That proves 1.0.2 for that work; it does not oblige later games to stay on 1.0.2 once a newer version is validated, and it does not make that game's adapter code part of the toolkit. Fix gaps in the game adapter first and record them as candidate toolkit changes (LootFarmer: the runner converts only `INHERIT` roots to pausable, so a game whose UI root is `ALWAYS` needs an adapter fix, 87.7); promote them only through a new validated version.
 
 Validated integration pattern (Toolkit **1.0.2**): the toolkit carries its own `addons/`; `install` copies them into the project and writes a lock file (version and every managed file's SHA-256); `status` fails when the project's copies, the lock or the toolkit source disagree, so local edits cannot drift silently (change code in the toolkit, reinstall). Reinstalling keeps Godot's authored/generated `.uid` references. If the toolkit sits inside a game's repository during development, give its source folder a `.gdignore` so Godot never imports it alongside the installed addon. Version the game adapter, manifest, toolkit lock and required installed addon files. Keep **marketing-only** Noto fonts/OFL licenses inside the toolkit's `.gdignore`-protected asset directory, not in the Android export. Godot's text engine handles complex-script marketing text; do not require Pillow/Raqm for Thai/Devanagari rendering. The MP4 composer supports Preview/Standard/High H.264 CRF presets (26/21/18); High is the default final output. The toolkit is validated on the approved Windows toolchain; macOS/Linux support is not implied until separately tested.
 
@@ -8727,7 +8890,7 @@ A "maximum loadout" check is only as good as its fixture. LootFarmer's ceiling e
 
 ## 140.2 Measure fights with the real simulation
 
-Hand estimates of time-to-kill against survival count basic hits only. Boss skills, boss healing and the player's auto-cast skills changed the outcome by about 2×. A few short deterministic duels in the real simulation (one seed, at most a few hundred simulated seconds each, a watchdog timer so a script error cannot hang a headless run) are cheap and much more trustworthy than a long multi-seed campaign.
+Hand estimates of time-to-kill against survival count basic hits only. Boss skills, boss healing and the player's auto-cast skills changed the outcome by about 2×. A few short deterministic duels in the real simulation (one seed, at most a few hundred simulated seconds each, a watchdog timer so a script error cannot hang a headless run) are cheap and much more trustworthy than a long multi-seed campaign. The full method for answering "what does it take to beat this boss" (legitimate meta progression, labelled seeding, minimum and recommended builds, cliffs, measured versus projected time) is section 112.2.
 
 ## 140.3 Worn bonuses versus collection passives
 
@@ -8738,6 +8901,8 @@ When many identities each contribute a passive share, the collection outweighs t
 ## 141.1 Consumables: charges and mastery are separate state
 
 When a consumable can improve, keep **stock** (charges spent by use) and **mastery** (permanent growth) in different fields. If mastery is derived from stock, or growth consumes copies the way gear merges do, using an item destroys progress and players hoard instead of using it. Choose the authoritative mastery event explicitly: acquisition or successful use, never both by accident. For usage-based mastery, increment a per-type counter only after a successful consumption, retain its remainder, and derive capped levels from uses-per-level. Purchases, drops, offline receipts and re-pickups grant stock only. When replacing acquisition-based mastery in compatible saves, preserve earned levels as one-time legacy credit and add future use-based levels; never rederive that credit on subsequent loads. Decide explicitly whether bought copies count: if acquisition grants mastery, coins buy permanent power. Keep one inventory identity per consumable, so improvement never creates tier ids. Supply capacity can then equal the number of identities exactly.
+
+**Changing uses-per-level later** (LootFarmer Change 36: 5 to 3) is cheap only if the divisor has one source. Before changing it, confirm that every consumer reads the shared data value (the mastery getter, the use counter, the load clamp, the panel's "x / N uses" line) and that no copy of the number is hard-coded, including in test fixtures that write `uses = level × N`. Because the counter stores actual successful uses, an existing count keeps its meaning: re-derive levels with the new divisor and keep the remainder (11 uses becomes level 3 with 2 of 3 toward the next). Recompute the load clamp as cap × new divisor, so a save holding more uses than the new ceiling loads at the cap without losing visible levels; never re-credit one-time legacy credit and never spend copies to compensate. Update the English copy that states the number, keep placeholder signatures unchanged so pending translations stay valid, and probe the boundaries (the new level-up use, the old one no longer leveling, milestone thresholds, the cap, automatic uses, blocked uses, older saves with a remainder, reset behavior). If the value sits near a combat threshold, measure its effect with the readiness ladder (112.2): there the same 75 uses gave mastery 15 under the old rule and lost, and mastery 25 under the new rule and won.
 
 ## 141.2 Flavour that describes an outcome must read the final outcome
 
