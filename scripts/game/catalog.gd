@@ -27,17 +27,22 @@ func _init() -> void:
     skills = data.skills
     campaign = data.campaign
     legacy_items = data.get("legacy_items",{})
-    for entry in groups+stages+skills.values():
-        entry.name=tr(entry.name)
+    relocalize()
     # JSON numbers are floats and Array.has() is type-strict: stage group ids must be ints, or
     # stage().groups.has(group) fails for every int group (it silently disabled Focus before Change 8).
     for entry in stages:
         var ids: Array=[]
         for g in entry.groups:ids.append(int(g))
         entry.groups=ids
-    for entry in campaign.cards.values()+campaign.opportunities+campaign.combos:
-        if entry.has("name"):entry.name=tr(entry.name)
-        if entry.has("description"):entry.description=tr(entry.description)
+
+## Display names and descriptions are translated from the authored keys, which stay in name_key and
+## description_key; the UI calls this again when the language changes (Localization Batch 01).
+func relocalize() -> void:
+    for entry in groups+stages+skills.values()+campaign.cards.values()+campaign.opportunities+campaign.combos:
+        for field in ["name","description"]:
+            if entry.has(field):
+                if not entry.has(field+"_key"):entry[field+"_key"]=entry[field]
+                entry[field]=tr(entry[field+"_key"])
 
 func name_of(id: String) -> String:
     return "ITEM_" + id.to_upper()

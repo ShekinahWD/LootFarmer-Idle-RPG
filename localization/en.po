@@ -3713,7 +3713,7 @@ msgstr "+50% offline item rates"
 
 
 msgid "CHAIN_PROGRESS"
-msgstr "Step %d/%d · %s %s · %d/%d"
+msgstr "Step %d/%d · %s · %d/%d"
 
 
 msgid "DEVELOPMENT_SAVE_RESET"
@@ -5812,3 +5812,21 @@ msgstr "Find an enemy to target"
 
 msgid "GUIDE_TARGET_FIND_DETAIL"
 msgstr "Walk until an enemy is in sight, then drag from your hero to it and release."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "Hunt %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d pts"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%ss"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%dh %02dm"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%dm %02ds"
+
+msgid "DURATION_SECONDS"
+msgstr "%ds"

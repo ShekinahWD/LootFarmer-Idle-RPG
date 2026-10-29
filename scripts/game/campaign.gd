@@ -1770,7 +1770,11 @@ func opportunity_progress(id: String) -> String:
         var chain=chain_for(id);var index=int(o.get("step",0))
         if index<chain.size():
             var q: Array=chain[index]
-            return sim.tr("CHAIN_PROGRESS") % [index+1,chain.size(),sim.tr("GOAL_"+str(q[0]).to_upper()),str(q[1]).trim_prefix("unit-").capitalize(),int(o.get("count",0)),int(q[2])]
+            # Localization Batch 01: one whole goal phrase with the translated enemy name (it was the
+            # goal word plus a name made from the id, which no other language can reorder).
+            var g:=group_id(str(q[1]))
+            var goal: String=sim.tr("CHAIN_GOAL_KILL_TARGET") % str(sim.catalog.groups[g].name) if g>=0 else sim.tr("GOAL_"+str(q[0]).to_upper())
+            return sim.tr("CHAIN_PROGRESS") % [index+1,chain.size(),goal,int(o.get("count",0)),int(q[2])]
     if path=="hunter":
         var k="boss:"+boss_goal(path,n)
         return "%d / %d" % [counter(k)-float(o.baseline.get(k,0)),hunter_goal(n)]

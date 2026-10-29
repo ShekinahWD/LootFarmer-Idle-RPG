@@ -2,6 +2,8 @@ extends Node
 ## Minimal cross-game player settings. Add game-specific preferences only when needed.
 
 signal settings_changed()
+
+const LOCALIZATION_SERVICE := preload("res://scripts/autoload/localization_service.gd")
 signal game_speed_changed(new_speed: float)
 
 var selected_language: String = "automatic"
@@ -99,8 +101,10 @@ func to_save_dict() -> Dictionary:
 
 
 func from_save_dict(data: Dictionary) -> void:
-    selected_language = String(data.get("selected_language", "automatic"))
-    if selected_language not in ["automatic", "en_US"]:
+    selected_language = str(data.get("selected_language", "automatic"))
+    # Localization Batch 01: a release language survives the load; LocalizationService applies it on
+    # settings_changed only if it is selectable now (otherwise Automatic: English while the gate is closed).
+    if selected_language != "automatic" and selected_language not in LOCALIZATION_SERVICE.RELEASE_LANGUAGES:
         selected_language = "automatic"
     sfx_volume = clampf(float(data.get("sfx_volume", 1.0)), 0.0, 1.0)
     music_volume = clampf(float(data.get("music_volume", 1.0)), 0.0, 1.0)

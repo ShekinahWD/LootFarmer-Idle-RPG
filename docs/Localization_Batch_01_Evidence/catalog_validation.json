@@ -1,0 +1,61 @@
+{
+ "english_keys": 1941,
+ "catalogs": {
+  "es_419": {
+   "keys": 1941,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 6,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "es_ES": {
+   "keys": 1941,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 6,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "pt_BR": {
+   "keys": 1941,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 10,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "fr_FR": {
+   "keys": 1941,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 16,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "de_DE": {
+   "keys": 1941,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 26,
+   "english_words": 0,
+   "raw_keys": 0
+  }
+ },
+ "problems": []
+}

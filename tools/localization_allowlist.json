@@ -1,0 +1,83 @@
+{
+ "_doc": [
+  "Localization Batch 01 (Change 38): translations that are deliberately identical to the English source.",
+  "A targeted allowlist (Playbook 132.5): one entry per locale and key, with the reason. tools/validate_localization.py",
+  "fails on any other msgstr equal to its English text. Reasons: brand (store title kept as the product name),",
+  "abbreviation (unit or game abbreviation used unchanged by players of that language), cognate (the correct word",
+  "in that language happens to be spelled like the English one), loanword (established gaming term in that language)."
+ ],
+ "es_419": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "LANG_HI_IN": "cognate: Hindi",
+  "AUTO": "abbreviation: Auto",
+  "AUTO_SHORT": "abbreviation: Auto",
+  "PRESTIGE_GENERAL": "cognate: General"
+ },
+ "es_ES": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "LANG_HI_IN": "cognate: Hindi",
+  "AUTO": "abbreviation: Auto",
+  "AUTO_SHORT": "abbreviation: Auto",
+  "PRESTIGE_GENERAL": "cognate: General"
+ },
+ "pt_BR": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "LANG_HI_IN": "cognate: Hindi",
+  "AUTO": "abbreviation: Auto",
+  "AUTO_SHORT": "abbreviation: Auto",
+  "PANEL_ITEM": "cognate: Item",
+  "COMPARE_ITEM": "cognate: ITEM",
+  "VARIANT_SKILL": "cognate: Elite",
+  "TAB_OFFLINE": "loanword: Offline",
+  "FOLLOW_REGIONAL_EXPLORE": "cognate: Explore (imperative of explorar)"
+ },
+ "fr_FR": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "LANG_HI_IN": "cognate: Hindi",
+  "AUTO": "abbreviation: Auto",
+  "BOOT_VERSION": "cognate: Version",
+  "BOOT_PAUSE": "cognate: Pause",
+  "PAUSE": "cognate: Pause",
+  "UPGRADE_MAX": "abbreviation: MAX",
+  "VALUE_MAX": "abbreviation: MAX",
+  "CAMP_NAME": "cognate: Camp",
+  "PANEL_MISSIONS": "cognate: Missions",
+  "NAV_PRESTIGE": "cognate: Prestige",
+  "PRESTIGE_CONFIRM_TITLE": "cognate: Prestige",
+  "BOSS_LABEL": "loanword: Boss",
+  "SECTION_CAMPS": "cognate: Camps",
+  "TELEPORT_DESTINATION": "cognate: Camp"
+ },
+ "de_DE": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "LANG_HI_IN": "cognate: Hindi",
+  "AUTO": "abbreviation: Auto",
+  "AUTO_SHORT": "abbreviation: Auto",
+  "BOOT_VERSION": "cognate: Version",
+  "BOOT_PAUSE": "cognate: Pause",
+  "PAUSE": "cognate: Pause",
+  "UPGRADES": "loanword: Upgrades",
+  "TAB_UPGRADES": "loanword: Upgrades",
+  "NAV_UPGRADES": "loanword: Upgrades",
+  "SOURCE_UPGRADES": "loanword: Upgrades",
+  "UPGRADE_MAX": "abbreviation: MAX",
+  "VALUE_MAX": "abbreviation: MAX",
+  "VARIANT_SKILL": "cognate: Elite",
+  "CONTENT_STAGES_1": "cognate: Winter I",
+  "CONTENT_STAGES_2": "cognate: Winter II",
+  "NAV_PRESTIGE": "loanword: Prestige",
+  "PRESTIGE_CONFIRM_TITLE": "loanword: Prestige",
+  "TAB_OFFLINE": "loanword: Offline",
+  "BOSS_LABEL": "loanword: Boss",
+  "FARMING_DETAILS": "cognate: Details",
+  "MASTERY_DETAILS": "cognate: Details",
+  "PANEL_TELEPORT": "cognate: Teleport",
+  "TELEPORT_TITLE": "cognate: Teleport",
+  "SECTION_FEEDBACK": "loanword: Feedback"
+ }
+}

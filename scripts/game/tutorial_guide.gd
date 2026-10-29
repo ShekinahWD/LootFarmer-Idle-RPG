@@ -31,6 +31,7 @@ var sim
 var blocker: Control
 var final_backdrop: ColorRect
 var chooser: PanelContainer
+var chooser_heading: Label
 var card: PanelContainer
 var title: Label
 var support: Label
@@ -78,9 +79,9 @@ func setup(owner_ui) -> void:
     blocker=Control.new();blocker.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);blocker.mouse_filter=Control.MOUSE_FILTER_STOP;add_child(blocker)
     chooser=PanelContainer.new();add_child(chooser)
     var list:=VBoxContainer.new();list.add_theme_constant_override("separation",12);chooser.add_child(list)
-    var heading:=Label.new();heading.text=tr("GUIDE_CHOOSE");heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;list.add_child(heading)
+    chooser_heading=Label.new();chooser_heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;list.add_child(chooser_heading)
     for mode in ["guided","basic","none"]:
-        var button:=Button.new();button.custom_minimum_size.y=76;button.text=tr("GUIDE_MODE_"+mode.to_upper());list.add_child(button)
+        var button:=Button.new();button.custom_minimum_size.y=76;button.set_meta("mode",mode);list.add_child(button)
         button.pressed.connect(func()->void:choose(mode))
     aim=Control.new();aim.mouse_filter=Control.MOUSE_FILTER_IGNORE;aim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(aim);aim.hide()
     aim.draw.connect(_draw_aim)
@@ -92,9 +93,9 @@ func setup(owner_ui) -> void:
     title=Label.new();title.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;title.size_flags_horizontal=Control.SIZE_EXPAND_FILL;title.add_theme_font_size_override("font_size",24);title.add_theme_color_override("font_color",Color(1,.88,.5));title.add_theme_constant_override("outline_size",4);title.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(title)
     support=Label.new();support.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;support.add_theme_font_size_override("font_size",20);support.mouse_filter=Control.MOUSE_FILTER_IGNORE;content.add_child(support)
     var buttons:=HBoxContainer.new();buttons.alignment=BoxContainer.ALIGNMENT_END;buttons.add_theme_constant_override("separation",12);buttons.mouse_filter=Control.MOUSE_FILTER_IGNORE;content.add_child(buttons)
-    skip_button=Button.new();skip_button.text=tr("GUIDE_SKIP");skip_button.custom_minimum_size=Vector2(180,64);buttons.add_child(skip_button)
+    skip_button=Button.new();skip_button.custom_minimum_size=Vector2(180,64);buttons.add_child(skip_button)
     skip_button.pressed.connect(skip_overview)
-    intro_button=Button.new();intro_button.text=tr("GUIDE_GOT_IT");intro_button.custom_minimum_size=Vector2(180,64);buttons.add_child(intro_button)
+    intro_button=Button.new();intro_button.custom_minimum_size=Vector2(180,64);buttons.add_child(intro_button)
     intro_button.pressed.connect(func()->void:
         if intro_id.begins_with("flow:"):
             sim.campaign.guided.acknowledge(intro_id.trim_prefix("flow:"));return
@@ -109,6 +110,19 @@ func setup(owner_ui) -> void:
     pointer=TextureRect.new();pointer.texture=ui.cropped(ARROW);pointer.custom_minimum_size=Vector2.ONE*POINTER_SIZE;pointer.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;pointer.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
     pointer.size=Vector2.ONE*POINTER_SIZE;pointer.pivot_offset=pointer.size*.5;pointer.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(pointer)
     sim.suspended=sim.state.tutorial.mode=="pending"
+    _localize()
+
+## Fixed texts built in code; the card's title and detail are re-read every frame (_present).
+## Localization Batch 01: redrawn when the language changes.
+func _localize() -> void:
+    chooser_heading.text=tr("GUIDE_CHOOSE")
+    for button in chooser_heading.get_parent().get_children():
+        if button is Button:button.text=tr("GUIDE_MODE_"+str(button.get_meta("mode")).to_upper())
+    skip_button.text=tr("GUIDE_SKIP")
+    intro_button.text=tr("GUIDE_GOT_IT")
+
+func _notification(what: int) -> void:
+    if what==NOTIFICATION_TRANSLATION_CHANGED and chooser_heading!=null:_localize()
 
 func _frame(color: Color) -> NinePatchRect:
     var f:=NinePatchRect.new();f.texture=FRAME

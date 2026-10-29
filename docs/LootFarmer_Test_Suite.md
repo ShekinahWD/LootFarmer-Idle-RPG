@@ -1,4 +1,14 @@
-# LootFarmer — Test Suite (current, 2026-10-28, Change 36)
+# LootFarmer — Test Suite (current, 2026-10-29, Change 38)
+
+## Change 38 — Localization Batch 01 (29 October 2026)
+
+Command: `python tools/run_probes.py`. **41 entries (validator + export_manifest + 39 Godot scenes): 41/41 pass on the final run, no script errors, no timeouts.** Details: [Batch 01 report](LootFarmer_Localization_Batch_01_Report.md).
+
+- **Registered** `localization_batch01_probe` (77 checks): production language gate, test-only override refused outside probes, es-419/es-ES/pt-BR/fr-FR/de-DE routing, Godot loader returns every key, glyph coverage, live switch from Settings and with panels open, save/reload persistence, old and foreign settings.
+- **Registered** `localization_sweep` (1,231 screen checks): pseudo-locale plus English plus Batch 01 at 432x960, 540x960 and 768x1024. It looks for raw keys, English leaks, text that did not come from the catalog, clipped single-line text, horizontal overflow and small buttons. Windowed with `--shots=` it writes the evidence screenshots.
+- **Outside the suite:** `python tools/validate_localization.py` (catalog structure, placeholder order, copy-through allowlist `tools/localization_allowlist.json`). Run it whenever a catalog or `en.po` changes.
+- **Updated contracts:** `change_35_probe` checks selectable languages and `project.godot` registration instead of the file count in `localization/`, which fixes the Change 36 failure. `ui_probe` checks that the 19 languages are listed disabled. `change_16_probe` message only.
+- `export_manifest`: new empty family `test_language_catalogs`, so the test catalogs never ship.
 
 ## Change 36 — supply mastery every 3 uses; final-boss audit (28 October 2026)
 

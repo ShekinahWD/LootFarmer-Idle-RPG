@@ -56,9 +56,15 @@
     "player_bodies": {
       "concat": true,
       "why": "game_ui builds the player body sheet path from a fixed prefix and three file names"
+    },
+    "test_language_catalogs": {
+      "pattern": "res://localization/%s.po",
+      "why": "Localization Batch 01 (Change 38): LocalizationService.enable_test_batch() loads validated catalogs for probes and captures only. No values are enumerated, so release exports ship none of them; the global 20-language gate registers them in project.godot instead"
     }
   },
   "sites": [
+    {"file": "res://scripts/autoload/localization_service.gd", "literal": "res://localization/%s.po", "family": "test_language_catalogs"},
+    {"file": "res://scripts/autoload/localization_service.gd", "arg": "CATALOG_PATH % language", "family": "test_language_catalogs", "why": "test-only batch catalogs, never enumerated for release exports"},
     {"file": "res://scripts/game/stage_scenes.gd", "arg": "path(id)", "family": "stage_scenes"},
     {"file": "res://scripts/game/stage_scenes.gd", "literal": "res://scenes/game/stages/stage_%d.tscn", "family": "stage_scenes"},
     {"file": "res://scripts/game/catalog.gd", "arg": "entry.icon_path", "family": "catalog_paths"},

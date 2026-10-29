@@ -69,7 +69,7 @@ This section states what the repository implements at revision `b51a209` and the
 - device performance profiling and hitch removal (Stage 15): late-game saves, stage switching, per-kill inventory relayout and rainy-map frame time were measured as the main desktop suspects;
 - the demo (Stage 16);
 - store icon, screenshots, feature graphic, trailer, 10 social videos with posting copy, English ASO and 19 localized listings, localized release notes (Stage 17);
-- 19 translations, with Settings still listing only Automatic and English, which is a conflict with the 20-language Playbook rule awaiting confirmation (audit LOC-02);
+- 19 translations: Batch 01 (es-419, es-ES, pt-BR, fr-FR, de-DE) is complete and validated but test-only (Change 38, [Batch 01 report](LootFarmer_Localization_Batch_01_Report.md)); Batches 02–04 remain. Settings now lists Automatic, English and the other 19 languages, the 19 disabled until the global 20-language gate (audit LOC-02 resolved); Automatic stays English;
 - licence records for `assets/sounds` and Pixel Plains;
 - the release-phase save declaration;
 - exact-artifact play (Stages 18–19).

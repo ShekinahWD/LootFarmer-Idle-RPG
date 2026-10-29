@@ -1,0 +1,5834 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: es_419\n"
+"Language-Team: Spanish (Latin America)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 01 (Change 38)\n"
+"X-LootFarmer-Source: localization/en.po 4440b694b8661a34e54e02ae9a1eeee4c517284cfa753272082ab321f26ffaf4\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Arranque de Android"
+
+msgid "BOOT_DETAIL"
+msgstr "Punto de control 0 • La jugabilidad aún no está implementada."
+
+msgid "BOOT_VERSION"
+msgstr "Versión %s"
+
+msgid "BOOT_TAPS"
+msgstr "Toques guardados: %d"
+
+msgid "BOOT_TAP"
+msgstr "Probar toque y guardar"
+
+msgid "BOOT_SAVED"
+msgstr "Guardado completado"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "No se puede guardar. Revisa el registro de validación."
+
+msgid "BOOT_PAUSE"
+msgstr "Pausa"
+
+msgid "BOOT_RESUME"
+msgstr "Reanudar"
+
+msgid "BOOT_RESET"
+msgstr "Reinicio total"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "¿Reiniciar el progreso?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "Esto borra todo el progreso de este perfil. Tu configuración se conserva."
+
+msgid "UI_CONFIRM"
+msgstr "Reiniciar"
+
+msgid "UI_CANCEL"
+msgstr "Cancelar"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "Idioma"
+
+msgid "LANG_AUTOMATIC"
+msgstr "Automático"
+
+msgid "LANG_DISABLED"
+msgstr "Disponible tras validar la traducción"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "El inglés está activado. Los demás idiomas se desbloquean tras la validación."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "Se conservó una partida guardada ilegible o más reciente. Restaura una copia compatible o reinicia este perfil a propósito."
+
+msgid "LANG_EN_US"
+msgstr "Inglés"
+
+msgid "LANG_ES_419"
+msgstr "Español (Latinoamérica)"
+
+msgid "LANG_ES_ES"
+msgstr "Español (España)"
+
+msgid "LANG_PT_BR"
+msgstr "Portugués (Brasil)"
+
+msgid "LANG_FR_FR"
+msgstr "Francés"
+
+msgid "LANG_DE_DE"
+msgstr "Alemán"
+
+msgid "LANG_IT_IT"
+msgstr "Italiano"
+
+msgid "LANG_NL_NL"
+msgstr "Neerlandés"
+
+msgid "LANG_PL_PL"
+msgstr "Polaco"
+
+msgid "LANG_RU_RU"
+msgstr "Ruso"
+
+msgid "LANG_UK_UA"
+msgstr "Ucraniano"
+
+msgid "LANG_TR_TR"
+msgstr "Turco"
+
+msgid "LANG_ID_ID"
+msgstr "Indonesio"
+
+msgid "LANG_VI_VN"
+msgstr "Vietnamita"
+
+msgid "LANG_TH_TH"
+msgstr "Tailandés"
+
+msgid "LANG_HI_IN"
+msgstr "Hindi"
+
+msgid "LANG_JA_JP"
+msgstr "Japonés"
+
+msgid "LANG_KO_KR"
+msgstr "Coreano"
+
+msgid "LANG_ZH_CN"
+msgstr "Chino (simplificado)"
+
+msgid "LANG_ZH_TW"
+msgstr "Chino (tradicional)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "Monedas %s     Gemas %s"
+
+msgid "PAUSE"
+msgstr "Pausa"
+
+msgid "RESUME"
+msgstr "Reanudar"
+
+msgid "PLAYER_STATUS"
+msgstr "PV %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "Volviendo al campamento en %.1f s"
+
+msgid "BOOST_ACTIVE"
+msgstr "Impulso de monedas %d s"
+
+msgid "GROUP_0"
+msgstr "Pradera de Brotes"
+
+msgid "GROUP_1"
+msgstr "Cruce de Robots"
+
+msgid "GROUP_2"
+msgstr "Arboleda de Dinosaurios"
+
+msgid "GROUP_3"
+msgstr "Claro de la Muerte"
+
+msgid "CLOSE"
+msgstr "Cerrar"
+
+msgid "CONFIRM"
+msgstr "Confirmar"
+
+msgid "CANCEL"
+msgstr "Cancelar"
+
+msgid "LEVEL"
+msgstr "NIVEL"
+
+msgid "INVENTORY_HEADING"
+msgstr "Equipo"
+
+msgid "SUPPLY_HEADING"
+msgstr "Suministros"
+
+msgid "GEAR_CAPACITY"
+msgstr "EQUIPO  %d / %d  ·  toca para ver"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "SUMINISTROS  %d / %d  ·  toca para usar o automatizar"
+
+msgid "EMPTY_SLOT"
+msgstr "Vacío"
+
+msgid "EQUIPPED"
+msgstr "Equipado"
+
+msgid "AUTO"
+msgstr "Auto"
+
+msgid "UPGRADES"
+msgstr "Mejoras"
+
+msgid "WORLD"
+msgstr "Mundo"
+
+msgid "STATS"
+msgstr "Estadísticas"
+
+msgid "SETTINGS"
+msgstr "Configuración"
+
+msgid "PANEL_ITEM"
+msgstr "Objeto"
+
+msgid "PANEL_UPGRADES"
+msgstr "Mejoras del jugador"
+
+msgid "PANEL_TRAVEL"
+msgstr "Campamentos y farmeo"
+
+msgid "PANEL_STATS"
+msgstr "Tu build"
+
+msgid "PANEL_SETTINGS"
+msgstr "Configuración"
+
+msgid "PANEL_HISTORY"
+msgstr "Adquisiciones recientes"
+
+msgid "PANEL_PRESTIGE"
+msgstr "Un nuevo comienzo"
+
+msgid "HELP_0"
+msgstr "Usa el joystick para explorar hacia el norte. Suéltalo para pelear solo contra los enemigos cercanos."
+
+msgid "HELP_1"
+msgstr "Los Brotes pelean solos. Quédate cerca para farmearlos; toca el equipo que suelten para recolectarlo."
+
+msgid "HELP_2"
+msgstr "Toca un objeto en el suelo. Las monedas y las gemas van directo a tu cartera."
+
+msgid "HELP_3"
+msgstr "Toca tu equipo nuevo abajo y luego equípalo. Puedes llevar un atuendo y un arma."
+
+msgid "HELP_4"
+msgstr "Fusiona un duplicado para fortalecer ese tipo de objeto. Su progreso se mantiene aunque te quedes sin copias."
+
+msgid "HELP_5"
+msgstr "Abre un tipo de enemigo y compra la recolección automática para juntar su botín mientras farmeas."
+
+msgid "HELP_6"
+msgstr "Mejora tu build, explora hacia el norte y derrota a la Muerte. El mundo está abierto desde el inicio."
+
+msgid "HELP_7"
+msgstr "Tus bonificaciones permanentes se mantienen. Arma una partida más fuerte y vuelve a desafiar a la Muerte."
+
+msgid "HELP_VICTORY"
+msgstr "¡Derrotaste a la Muerte! Sigue farmeando o elige una carta de prestigio en Mundo."
+
+msgid "HELP_PAUSED"
+msgstr "En pausa · puedes administrar el inventario. Reanuda para seguir farmeando."
+
+msgid "HISTORY_EMPTY"
+msgstr "Aquí aparecen tus hallazgos más recientes.\nToca para ver los últimos diez."
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s gemas"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "Vendiste %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "Espada de madera"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "Espada de piedra"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "Espada de hierro"
+
+msgid "ITEM_SPROUT"
+msgstr "Atuendo de Brote"
+
+msgid "ITEM_ROBOT"
+msgstr "Atuendo de Robot"
+
+msgid "ITEM_DINOSAUR"
+msgstr "Atuendo de Dinosaurio"
+
+msgid "ITEM_POTION"
+msgstr "Poción de salud"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "Tónico de monedas"
+
+msgid "ITEM_QUANTITY"
+msgstr "En posesión: %s"
+
+msgid "NORMAL_STATS"
+msgstr "Estadísticas normales · mejoran al fusionar"
+
+msgid "EXTRA_STATS"
+msgstr "Estadísticas extra · compartidas por este tipo de objeto"
+
+msgid "EQUIP"
+msgstr "Equipar"
+
+msgid "UNEQUIP"
+msgstr "Desequipar"
+
+msgid "REROLL"
+msgstr "Volver a tirar ambos extras · %s gemas"
+
+msgid "REROLL_CONFIRM"
+msgstr "¿Gastar %s gemas para reemplazar ambas estadísticas extra? La nueva tirada reemplaza a la anterior, aunque sea más débil."
+
+msgid "USE"
+msgstr "Usar uno"
+
+msgid "MERGE_ONE"
+msgstr "Fusionar una copia de sobra"
+
+msgid "MERGE_ALL"
+msgstr "Fusionar %d copias de sobra"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "En ^100, gasta 100 copias de sobra para obtener un objeto del siguiente nivel. Conservas el objeto de origen y su nivel de fusión. Necesitas una pila del objeto destino o un espacio vacío de la misma categoría."
+
+msgid "EVOLVE"
+msgstr "Evolucionar → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "Activar o desactivar la automatización de este espacio"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "Usar este espacio automáticamente: %s"
+
+msgid "ON"
+msgstr "Sí"
+
+msgid "OFF"
+msgstr "No"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "Este espacio está vacío. Los tipos de objeto nuevos necesitan un espacio vacío; los tipos que ya tienes se apilan."
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "Las mejoras de grupo afectan a todos sus miembros. Cada enemigo tira su propio botín. Las monedas y las gemas se acreditan al instante."
+
+msgid "GROUP_SELECT"
+msgstr "Grupo de enemigos: %s · toca para cambiar"
+
+msgid "AUTOMATION_HEADING"
+msgstr "Inventario y automatización · se conservan con el prestigio"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "monedas"
+
+msgid "GEMS"
+msgstr "gemas"
+
+msgid "TRAVEL_HELP"
+msgstr "Toca un campamento en el mapa para elegir tu punto de reaparición. Desbloquearlo desde el panel de un campamento también lo selecciona. No hay teletransporte."
+
+msgid "SPAWN_SELECT"
+msgstr "Elegir campamento %d"
+
+msgid "SPAWN_BUY"
+msgstr "Desbloquear campamento %d · %s monedas"
+
+msgid "SELECTED"
+msgstr "Seleccionado"
+
+msgid "FOCUS_HELP"
+msgstr "Desbloquea el farmeo por tipo de enemigo y elige solo atuendo, solo arma o ambos. Al morir vuelves a ese campamento. Moverte manualmente cancela el farmeo."
+
+msgid "FOCUS_GROUP"
+msgstr "Farmear %s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "Elige una carta de prestigio"
+
+msgid "PRESTIGE_COUNT"
+msgstr "Prestigios completados: %d"
+
+msgid "NO_OFFLINE"
+msgstr "El progreso está guardado. Las recompensas sin conexión están previstas para el juego completo; esta versión no simula mientras está cerrada o en segundo plano."
+
+msgid "SAVE_NOW"
+msgstr "Guardar ahora"
+
+msgid "HARD_RESET"
+msgstr "Reinicio total"
+
+msgid "RESET_CONFIRM"
+msgstr "¿Borrar todo el progreso, el inventario, la automatización y las cartas de prestigio? Tu configuración se conservará. Esto no se puede deshacer."
+
+msgid "LANGUAGE_NOTE"
+msgstr "El inglés está disponible durante el desarrollo. Los otros 19 idiomas se desbloquearán tras validar la traducción."
+
+msgid "CREDITS"
+msgstr "Arte de personajes y mundo: Pixel Plains de SnowHex. Interfaz: Kenney Fantasy UI Borders (CC0)."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "Elige una carta permanente de +5 %. Las bonificaciones se acumulan entre partidas. Puedes cerrar este panel y seguir farmeando."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "¿Empezar una nueva partida con esta carta permanente? Se reinician las divisas, el inventario, las fusiones y extras de objetos, las mejoras de farmeo de enemigos y los campamentos. Se conservan la información revelada de enemigos, los niveles de automatización, las capacidades de inventario y todas las cartas de prestigio."
+
+msgid "CARD_DAMAGE"
+msgstr "+5 % de daño · permanente"
+
+msgid "CARD_HP"
+msgstr "+5 % de salud máxima · permanente"
+
+msgid "CARD_COINS"
+msgstr "+5 % de monedas · permanente"
+
+msgid "CARD_GEMS"
+msgstr "+5 % de probabilidad de gemas (relativa) · permanente"
+
+msgid "CARD_LOOT"
+msgstr "+5 % de probabilidad de botín de equipo (relativa) · permanente"
+
+msgid "CARD_MERGE"
+msgstr "+5 % a las ganancias de estadísticas normales por fusión · permanente"
+
+msgid "STAT_HP"
+msgstr "Salud máxima"
+
+msgid "STAT_DAMAGE"
+msgstr "Daño"
+
+msgid "STAT_DEFENSE"
+msgstr "Defensa"
+
+msgid "STAT_CRIT"
+msgstr "Probabilidad de crítico"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "Multiplicador crítico"
+
+msgid "STAT_LIFESTEAL"
+msgstr "Robo de vida"
+
+msgid "STAT_REGEN"
+msgstr "Salud por segundo"
+
+msgid "STAT_SPEED"
+msgstr "Bonificación de velocidad de ataque"
+
+msgid "STAT_HEAL"
+msgstr "Curación"
+
+msgid "STAT_COIN_BONUS"
+msgstr "Bonificación de monedas"
+
+msgid "NEED_DUPLICATES"
+msgstr "Necesitas una copia de sobra para fusionar."
+
+msgid "MERGE_MAX"
+msgstr "Este objeto está en ^100."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "La evolución requiere ^100 y 101 copias de origen."
+
+msgid "INVENTORY_FULL"
+msgstr "No hay espacios vacíos. Libera espacio o amplía este inventario."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "Desbloquea esta automatización en Mejoras."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "Desbloquea otro espacio de uso automático en Mejoras."
+
+msgid "CANNOT_USE"
+msgstr "No hay suministros utilizables o tu personaje está muerto."
+
+msgid "UPGRADE_MAX"
+msgstr "MÁX."
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "No tienes suficientes monedas."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "No tienes suficientes gemas."
+
+msgid "SPAWN_BOUGHT"
+msgstr "Campamento desbloqueado. Selecciónalo para reaparecer ahí."
+
+msgid "EVOLVED"
+msgstr "Obtuviste un objeto del siguiente nivel. Tu progreso de origen se mantiene."
+
+msgid "PLAYER_DIED"
+msgstr "Volviendo a tu campamento seleccionado. No pierdes nada."
+
+msgid "BOSS_DEFEATED"
+msgstr "¡Derrotaste a la Muerte! Te espera una carta de prestigio permanente."
+
+msgid "PRESTIGED"
+msgstr "Comienza una nueva partida. Tus bonificaciones permanentes se mantienen."
+
+msgid "SAVED"
+msgstr "Progreso guardado."
+
+msgid "SAVE_ERROR"
+msgstr "No se pudo guardar. Tu progreso sigue en memoria; vuelve a intentarlo."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "La partida guardada no se pudo cargar de forma segura. El guardado está desactivado hasta que hagas un reinicio total a propósito."
+
+msgid "ACTION_PREVIEW"
+msgstr "Acción · costo y efecto"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "Espacios de equipo +1 (máx. 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "Espacios de suministros +1 (uno por tipo de suministro)"
+
+msgid "UP_COLLECT"
+msgstr "Desbloquear recolección automática"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "Alcance de recolección +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "Lote de recolección +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "Intervalo de recolección −1 s"
+
+msgid "UP_MERGE_GEAR"
+msgstr "Desbloquear fusión automática de equipo"
+
+msgid "UP_AUTO_USE"
+msgstr "Espacios de suministros automáticos +1"
+
+msgid "UP_USE_SPEED"
+msgstr "Intervalo de uso automático −1 s"
+
+msgid "UP_FOCUS"
+msgstr "Desbloquear farmeo enfocado"
+
+msgid "UP_RESPAWN"
+msgstr "Tiempo de reaparición −1 s"
+
+msgid "UP_LOOT"
+msgstr "Probabilidad de botín de equipo +0.5 puntos (por objeto)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "Probabilidad de monedas"
+
+msgid "UP_GEM_CHANCE"
+msgstr "Probabilidad global de gemas"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "Monedas por enemigo +50 %"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "Gemas por botín (los jefes dan ×3)"
+
+msgid "CHAT_SURPRISE"
+msgstr "¡Oye! ¡Cuidado!"
+
+msgid "RECENT_HEADER"
+msgstr "Hallazgos recientes · toca para ver el historial"
+
+msgid "ZOOM_IN"
+msgstr "Acercar"
+
+msgid "ZOOM_OUT"
+msgstr "Alejar"
+
+msgid "CAMERA_ZOOM"
+msgstr "Zoom de cámara"
+
+msgid "PANEL_ENEMY"
+msgstr "Enemigo"
+
+msgid "PANEL_CAMP"
+msgstr "Campamento de reaparición"
+
+msgid "TAB_AUTOMATION"
+msgstr "Automatización"
+
+msgid "TAB_INVENTORY"
+msgstr "Inventario"
+
+msgid "TAB_SUPPLIES"
+msgstr "Suministros"
+
+msgid "TAB_OVERVIEW"
+msgstr "Resumen"
+
+msgid "TAB_UPGRADES"
+msgstr "Mejoras"
+
+msgid "UP_REVEAL_STATS"
+msgstr "Revelar estadísticas · permanente"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "Revelar botín · permanente"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "ESTADÍSTICAS DEL ENEMIGO"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "BOTÍN POSIBLE"
+
+msgid "UNKNOWN_STATS"
+msgstr "PV ???   •   Daño ???\nIntervalo de ataque ???   •   Defensa ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "PV %s   •   Daño %s\nAtaca cada %s s   •   Defensa %s"
+
+msgid "DROP_COINS"
+msgstr "Monedas ×%s · garantizadas"
+
+msgid "DROP_GEMS"
+msgstr "Gemas · %s %% de probabilidad · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s %%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "Una tirada de equipo elige uno de los dos objetos de equipo. Las gemas y los suministros se tiran aparte. Las probabilidades incluyen tus mejoras actuales."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 punto porcentual / nivel · máx. +15"
+
+msgid "ENEMY_CAT"
+msgstr "Gato invocado"
+
+msgid "CAT_DETAILS"
+msgstr "Esbirro invocado por la Muerte.\nNo suelta botín ni tiene mejoras de grupo."
+
+msgid "CAMP_NAME"
+msgstr "Campamento %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "Toca para elegir"
+
+msgid "CAMP_LOCKED"
+msgstr "Bloqueado · toca para desbloquear"
+
+msgid "CAMP_HELP"
+msgstr "Los campamentos son puntos de reaparición. Descansa junto a un campamento desbloqueado para recuperarte rápido. Desbloquearlo, elegirlo para reaparecer y viajar son acciones distintas. Al estar en un campamento aparece el botón Ver campamento."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "Campamento de reaparición elegido."
+
+msgid "OPEN_PLAYER"
+msgstr "Mejoras del jugador"
+
+msgid "OPEN_GROUP"
+msgstr "Ver %s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "Guadaña de ónix"
+
+msgid "ITEM_REAPER"
+msgstr "Atuendo de la Parca"
+
+msgid "VARIANT_OUTFIT"
+msgstr "Atuendo"
+
+msgid "VARIANT_WEAPON"
+msgstr "Arma"
+
+msgid "VARIANT_BOTH"
+msgstr "Ambos"
+
+msgid "ITEM_DETAILS"
+msgstr "Detalles del objeto"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "¡Subiste de nivel!"
+
+msgid "GEAR"
+msgstr "Equipo"
+
+msgid "CONSUMABLES"
+msgstr "Suministros"
+
+msgid "HUD_HP"
+msgstr "PV %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "Reviviendo en %.1f s"
+
+msgid "HUD_LEVEL"
+msgstr "NIVEL %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "Equipo %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "Suministros %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "FUSIÓN %d"
+
+msgid "ITEM_OWNED"
+msgstr "En posesión: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "Equipado · aporta 100 %"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "Guardado · aporta 30 % (una vez por tipo de arma)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "Fusionar"
+
+msgid "LESS_OPTIONS"
+msgstr "Menos opciones"
+
+msgid "MORE_OPTIONS"
+msgstr "Más opciones"
+
+msgid "LOOT_HISTORY"
+msgstr "Historial de botín"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "NIVEL %d / 1,000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "NIVEL %d · Aumentaron tu salud y tu daño"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "Toca un suministro para usarlo · Mantén presionado para ver detalles"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "Próxima fusión: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "Logros"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "Compartidas por todos los campamentos de este tipo de enemigo. Las mejoras de recolección se conservan; las demás mejoras del tipo se reinician con el prestigio."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 punto porcentual / nivel · máx. +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "+10 % de EXP / nivel · máx. +200 %"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "Probabilidad de botín de suministros +1 punto"
+
+msgid "UP_GROUP_XP"
+msgstr "Experiencia +10 %"
+
+msgid "GROUP_XP_VALUE"
+msgstr "EXP por baja: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "Hitos de bajas permanentes, compartidos entre los campamentos de este tipo de enemigo. Las recompensas se aplican solas y se conservan con el prestigio."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "Contra este tipo: +%.0f %% de daño · +%.1f puntos porcentuales de probabilidad de gemas"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · %d bajas\nRecompensa: +%.0f %% de daño y +%.1f puntos porcentuales de probabilidad de gemas contra este tipo"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "Completado"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "Logros de bajas"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%.0f %% de daño · +%.1f puntos de prob. de gemas"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "Fusiona automáticamente las armas y los atuendos de este tipo de enemigo."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "+%s monedas por baja / nivel"
+
+msgid "ACTION_PAUSED"
+msgstr "No disponible en pausa"
+
+msgid "ACTION_SUSPENDED"
+msgstr "No disponible con la app inactiva"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "No cumples los requisitos"
+
+msgid "VALUE_MAX"
+msgstr "MÁX."
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s EXP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s s"
+
+msgid "HP_PER_SECOND"
+msgstr "PV/s"
+
+msgid "STAT_SOURCES"
+msgstr "De dónde vienen tus estadísticas"
+
+msgid "SOURCE_BASE"
+msgstr "Estadísticas base"
+
+msgid "SOURCE_LEVEL"
+msgstr "Niveles del jugador"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "Equipo equipado"
+
+msgid "SOURCE_STORED"
+msgstr "Equipo guardado"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "Bonificaciones permanentes: PV ×%s · Daño ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "Los totales de arriba incluyen límites: probabilidad de crítico 75 %, daño crítico ×4, robo de vida 15 %, bonificación de velocidad de ataque 200 %."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "Tirada de suministros: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "Tónico: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · Nivel %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "Nivel %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · N%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "Gemas"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "Se aplica a todos los enemigos. Se reinicia con el prestigio. Las bonificaciones por logros siguen siendo específicas de cada tipo."
+
+msgid "FARM_VARIANT"
+msgstr "Farmear %s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "Farmeo elegido: %s. Vuelves aquí al reaparecer."
+
+msgid "MAX_ITEM_TIER"
+msgstr "Alcanzaste el nivel final. Aún puedes fusionar hasta ^100."
+
+msgid "TAB_PLAYER"
+msgstr "Jugador"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "Enemigos por punto"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "Tiempo de reaparición de enemigos"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "Probabilidad de gemas de jefe"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "Gemas extra de jefe por botín"
+
+msgid "TRAVEL_COMBAT"
+msgstr "Termina el combate antes de viajar."
+
+msgid "TRAVEL_CAMP"
+msgstr "Viajar · %s · Campamento %d"
+
+msgid "STAGE_LOCKED"
+msgstr "Primero derrota a los jefes guardianes de la etapa."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "Primero explora este campamento."
+
+msgid "STAGE_UNLOCKED"
+msgstr "¡Siguiente etapa desbloqueada!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "El guardián final está sellado. Derrota a los otros 13 jefes para conseguir sus llaves. Las llaves obtenidas se conservan con el prestigio."
+
+msgid "WORLD_COMPLETE"
+msgstr "¡Derrotaste a todos los enemigos de Primavera II: misión final completada!"
+
+msgid "UNDISCOVERED"
+msgstr "Sin explorar"
+
+msgid "ENEMY_LEVEL"
+msgstr "Nivel %d"
+
+msgid "ALL_ITEMS"
+msgstr "Todo"
+
+msgid "WEAPONS"
+msgstr "Armas"
+
+msgid "OUTFITS"
+msgstr "Atuendos"
+
+msgid "SKILLS"
+msgstr "Habilidades"
+
+msgid "VARIANT_SKILL"
+msgstr "Élite"
+
+msgid "SKILL_EMPTY"
+msgstr "Espacio de habilidad %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "Ya tienes equipada una habilidad de esta familia."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "Desequipa una habilidad o desbloquea otro espacio."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "Equipar en el espacio %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "Lanzamiento automático del espacio %d: %s"
+
+msgid "STOCK_BONUS"
+msgstr "Bono por copias de sobra: +%s %% de poder intrínseco. Conservas las copias."
+
+msgid "CLAIM"
+msgstr "Reclamar"
+
+msgid "CLAIM_REWARD"
+msgstr "Reclamar · %s monedas · %s gemas"
+
+msgid "MISSION_AUTO"
+msgstr "Reclamo automático: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "SÍ"
+
+msgid "STATE_OFF_CAPS"
+msgstr "NO"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "Reclama las misiones normales completadas (incluidos los espacios comprados), NO los objetivos principales. Tras comprarlo, activa el Reclamo automático en Misiones."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "El Reclamo automático está desbloqueado pero DESACTIVADO. Toca el interruptor de abajo para empezar a reclamar misiones normales. Los objetivos principales siguen siendo manuales."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "Ya puedes activar el Reclamo automático"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "Abre Misiones y activa el Reclamo automático. Empieza desactivado tras la compra."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "Activa el Reclamo automático"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "Desbloqueaste el reclamo automático. Toca aquí «Reclamo automático: NO» para activarlo. Los objetivos principales siempre son manuales."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "Expandir cartas de la etapa"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "Contraer cartas de la etapa"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "Primero completa este objetivo."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "Llega una tarea nueva a la medianoche local."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "Objetivos principales"
+
+msgid "KEY_PROGRESS"
+msgstr "Llaves de jefe: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "Jefes guardianes derrotados: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "%s monedas/h · %s gemas/h · límite de recompensa de %s h"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "¡Hola de nuevo! %s horas recompensadas · %s monedas · %s gemas"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "Primero termina de elegir tus recompensas de prestigio."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "Descubriste una nueva oportunidad de prestigio."
+
+msgid "PRESTIGE_BATCH"
+msgstr "Prestigio · %d carta(s)"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "Elige una carta única por cada oportunidad lista y luego reinicia la partida una sola vez. Se reinician los objetos, las monedas, los campamentos, la niebla y las mejoras de monedas. Se conservan las llaves, los logros, las cartas y las mejoras de gemas."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "¿Quedarte con %s para siempre? Esta elección se guarda ahora y no se puede cambiar."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "Elige la carta %d de %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "Cartas únicas: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "Primero completa una oportunidad de prestigio descubierta."
+
+msgid "IN_PROGRESS"
+msgstr "En curso"
+
+msgid "FOLLOW"
+msgstr "Seguir"
+
+msgid "UNFOLLOW"
+msgstr "Dejar de seguir"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "Entregar los objetos o la divisa requeridos"
+
+msgid "CONTRACT_NEEDS"
+msgstr "Consigue las copias requeridas en línea y quédate con una de cada una."
+
+msgid "OFFERING_NEEDS"
+msgstr "Necesitas el saldo requerido y divisas ganadas en línea sin gastar."
+
+msgid "OWNED_CARDS"
+msgstr "Cartas obtenidas"
+
+msgid "COMBOS"
+msgstr "Conjuntos de cartas"
+
+msgid "PANEL_INVENTORY"
+msgstr "Inventario"
+
+msgid "PANEL_MAP"
+msgstr "Mapa"
+
+msgid "PANEL_MISSIONS"
+msgstr "Misiones"
+
+msgid "PANEL_OFFLINE"
+msgstr "Recompensas sin conexión"
+
+msgid "GOAL_KILL"
+msgstr "Caza"
+
+msgid "GOAL_BOSS"
+msgstr "Caza de jefes"
+
+msgid "GOAL_GEAR"
+msgstr "Juntar equipo"
+
+msgid "GOAL_MERGE"
+msgstr "Fusionar"
+
+msgid "GOAL_COINS"
+msgstr "Ganar monedas"
+
+msgid "GOAL_CAST"
+msgstr "Lanzar habilidades"
+
+msgid "GOAL_WAITING"
+msgstr "Explora para encontrar otro objetivo"
+
+msgid "STAT_POWER"
+msgstr "Poder"
+
+msgid "INTRINSIC_POWER"
+msgstr "Intrínseco %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "El siguiente nivel empieza con el 85 % del poder intrínseco ^100 de este nivel, antes de las bonificaciones por copias y externas."
+
+msgid "MAP_FARMING"
+msgstr "%s · %d puntos · %d por punto · reaparición en %s s"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "Tipos de la etapa final derrotados: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "Radio de revelado del campamento"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "Radio de revelado del jugador"
+
+msgid "UP_MAP_DETAIL"
+msgstr "Detalle del mapa"
+
+msgid "UP_MOVEMENT"
+msgstr "Velocidad de movimiento +10 %"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "Intervalo de fusión automática −1 s"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "Desbloquear reclamo automático de misiones"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "Espacios de misión"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "Espacios de habilidad equipada"
+
+msgid "UP_SKILL_DROP"
+msgstr "Probabilidad de botín de habilidades"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "Duración de la recompensa sin conexión"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "Monedas sin conexión por hora"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "Gemas sin conexión por hora"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "Desbloquear armas sin conexión"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "Desbloquear atuendos sin conexión"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "Desbloquear suministros sin conexión"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "Armas sin conexión por hora"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "Atuendos sin conexión por hora"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "Suministros sin conexión por hora"
+
+msgid "MAP_LEGEND"
+msgstr "El terreno que exploraste queda despejado; el terreno cercano solo se ve mientras estás ahí. Los campamentos se distinguen desde más lejos."
+
+msgid "MINIMAP"
+msgstr "Mapa"
+
+msgid "SKILL_TUTORIAL"
+msgstr "Los enemigos élite llevan un arma, un atuendo y una habilidad. Cada botín tiene su propia tirada. Equipa una habilidad desde tu inventario y toca su botón para lanzarla."
+
+msgid "MAIN_0"
+msgstr "Derrota a 5 enemigos normales"
+
+msgid "MAIN_1"
+msgstr "Equipa tu primer objeto"
+
+msgid "MAIN_2"
+msgstr "Fusiona un duplicado"
+
+msgid "MAIN_3"
+msgstr "Desbloquea un campamento extra"
+
+msgid "MAIN_4"
+msgstr "Derrota al Muñeco de Nieve · desbloquea Invierno II"
+
+msgid "MAIN_5"
+msgstr "Equipa Curación"
+
+msgid "MAIN_6"
+msgstr "Mejora el detalle del mapa"
+
+msgid "MAIN_7"
+msgstr "Consigue Estallido de Escarcha"
+
+msgid "MAIN_8"
+msgstr "Desbloquea Verano I"
+
+msgid "MAIN_9"
+msgstr "Evoluciona un objeto"
+
+msgid "MAIN_10"
+msgstr "Consigue 4 familias de habilidades"
+
+msgid "MAIN_11"
+msgstr "Desbloquea Otoño I"
+
+msgid "MAIN_12"
+msgstr "Consigue las 6 familias de habilidades"
+
+msgid "MAIN_13"
+msgstr "Desbloquea Primavera I"
+
+msgid "MAIN_14"
+msgstr "Completa un prestigio"
+
+msgid "MAIN_15"
+msgstr "Consigue todas las llaves de jefe y completa Primavera II"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "Enfriamiento de Curación"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "Enfriamiento de Escarcha"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "Enfriamiento de Fuego"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "Enfriamiento de Rayo"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "Enfriamiento de Concentración"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "Enfriamiento de Golpe"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "Desbloquear lanzamiento automático · espacio 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "Desbloquear lanzamiento automático · espacio 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "Desbloquear lanzamiento automático · espacio 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "Curación"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "Curación"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "Curación"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "Curación"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "Curación"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "Curación"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "Curación"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "Estallido de Escarcha"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "Estallido de Escarcha"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "Estallido de Escarcha"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "Estallido de Escarcha"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "Estallido de Escarcha"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "Estallido de Escarcha"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "Estallido de Escarcha"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "Estallido de Fuego"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "Estallido de Fuego"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "Estallido de Fuego"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "Estallido de Fuego"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "Estallido de Fuego"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "Estallido de Fuego"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "Estallido de Fuego"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "Rayo"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "Rayo"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "Rayo"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "Rayo"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "Rayo"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "Rayo"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "Rayo"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "Concentración Arcana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "Concentración Arcana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "Concentración Arcana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "Concentración Arcana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "Concentración Arcana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "Concentración Arcana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "Concentración Arcana"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "Golpe Arcano"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "Golpe Arcano"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "Golpe Arcano"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "Golpe Arcano"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "Golpe Arcano"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "Golpe Arcano"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "Golpe Arcano"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "Atuendo de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "Atuendo de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "Atuendo de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "Atuendo de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "Atuendo de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "Atuendo de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "Atuendo de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "Espada de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "Espada de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "Espada de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "Espada de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "Espada de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "Espada de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "Espada de Gorra Azul"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "Atuendo de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "Atuendo de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "Atuendo de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "Atuendo de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "Atuendo de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "Atuendo de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "Atuendo de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "Espada de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "Espada de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "Espada de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "Espada de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "Espada de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "Espada de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "Espada de Bufanda Roja"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "Atuendo de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "Atuendo de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "Atuendo de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "Atuendo de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "Atuendo de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "Atuendo de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "Atuendo de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "Espada de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "Espada de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "Espada de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "Espada de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "Espada de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "Espada de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "Espada de Gorro de Chef"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "Atuendo de Muñeco de Nieve"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "Atuendo de Muñeco de Nieve"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "Atuendo de Muñeco de Nieve"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "Atuendo de Muñeco de Nieve"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "Atuendo de Muñeco de Nieve"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "Atuendo de Muñeco de Nieve"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "Atuendo de Muñeco de Nieve"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "Atuendo de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "Atuendo de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "Atuendo de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "Atuendo de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "Atuendo de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "Atuendo de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "Atuendo de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "Espada de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "Espada de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "Espada de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "Espada de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "Espada de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "Espada de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "Espada de Capucha de Lobo"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "Atuendo de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "Atuendo de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "Atuendo de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "Atuendo de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "Atuendo de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "Atuendo de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "Atuendo de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "Espada de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "Espada de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "Espada de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "Espada de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "Espada de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "Espada de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "Espada de Capucha de Gato Calicó"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "Atuendo de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "Atuendo de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "Atuendo de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "Atuendo de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "Atuendo de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "Atuendo de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "Atuendo de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "Espada de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "Espada de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "Espada de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "Espada de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "Espada de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "Espada de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "Espada de Corona Dorada"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "Atuendo de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "Atuendo de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "Atuendo de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "Atuendo de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "Atuendo de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "Atuendo de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "Atuendo de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "Espada de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "Espada de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "Espada de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "Espada de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "Espada de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "Espada de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "Espada de Astas de Reno"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "Atuendo de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "Atuendo de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "Atuendo de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "Atuendo de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "Atuendo de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "Atuendo de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "Atuendo de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "Espada de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "Espada de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "Espada de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "Espada de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "Espada de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "Espada de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "Espada de Gorro de Santa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "Atuendo de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "Atuendo de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "Atuendo de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "Atuendo de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "Atuendo de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "Atuendo de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "Atuendo de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "Espada de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "Espada de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "Espada de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "Espada de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "Espada de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "Espada de Casco Espacial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "Espada de Casco Espacial"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "Atuendo de Robot Cian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "Atuendo de Robot Cian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "Atuendo de Robot Cian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "Atuendo de Robot Cian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "Atuendo de Robot Cian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "Atuendo de Robot Cian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "Atuendo de Robot Cian"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "Atuendo de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "Atuendo de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "Atuendo de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "Atuendo de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "Atuendo de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "Atuendo de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "Atuendo de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "Espada de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "Espada de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "Espada de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "Espada de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "Espada de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "Espada de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "Espada de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "Atuendo de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "Atuendo de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "Atuendo de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "Atuendo de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "Atuendo de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "Atuendo de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "Atuendo de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "Espada de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "Espada de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "Espada de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "Espada de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "Espada de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "Espada de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "Espada de Lentes de Sol"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "Atuendo de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "Atuendo de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "Atuendo de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "Atuendo de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "Atuendo de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "Atuendo de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "Atuendo de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "Espada de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "Espada de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "Espada de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "Espada de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "Espada de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "Espada de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "Espada de Gorra Amarilla"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "Atuendo de Gato Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "Atuendo de Gato Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "Atuendo de Gato Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "Atuendo de Gato Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "Atuendo de Gato Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "Atuendo de Gato Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "Atuendo de Gato Gris"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "Atuendo de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "Atuendo de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "Atuendo de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "Atuendo de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "Atuendo de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "Atuendo de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "Atuendo de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "Espada de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "Espada de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "Espada de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "Espada de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "Espada de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "Espada de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "Espada de Pañuelo Vaquero"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "Atuendo de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "Atuendo de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "Atuendo de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "Atuendo de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "Atuendo de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "Atuendo de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "Atuendo de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "Espada de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "Espada de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "Espada de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "Espada de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "Espada de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "Espada de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "Espada de Flotador de Pato"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "Atuendo de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "Atuendo de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "Atuendo de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "Atuendo de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "Atuendo de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "Atuendo de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "Atuendo de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "Espada de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "Espada de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "Espada de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "Espada de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "Espada de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "Espada de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "Espada de Payaso Arcoíris"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "Atuendo de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "Atuendo de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "Atuendo de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "Atuendo de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "Atuendo de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "Atuendo de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "Atuendo de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "Espada de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "Espada de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "Espada de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "Espada de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "Espada de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "Espada de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "Espada de Nadador de Gorra Roja"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "Atuendo de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "Atuendo de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "Atuendo de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "Atuendo de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "Atuendo de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "Atuendo de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "Atuendo de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "Espada de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "Espada de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "Espada de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "Espada de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "Espada de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "Espada de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "Espada de Buceador"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "Atuendo de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "Atuendo de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "Atuendo de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "Atuendo de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "Atuendo de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "Atuendo de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "Atuendo de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "Espada de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "Espada de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "Espada de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "Espada de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "Espada de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "Espada de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "Espada de Nadador de Sombrero de Paja"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "Atuendo de Dinosaurio"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "Atuendo de Dinosaurio"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "Atuendo de Dinosaurio"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "Atuendo de Dinosaurio"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "Atuendo de Dinosaurio"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "Atuendo de Dinosaurio"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "Atuendo de Dinosaurio"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "Atuendo de Dinosaurio Turquesa"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "Atuendo de Dinosaurio Turquesa"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "Atuendo de Dinosaurio Turquesa"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "Atuendo de Dinosaurio Turquesa"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "Atuendo de Dinosaurio Turquesa"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "Atuendo de Dinosaurio Turquesa"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "Atuendo de Dinosaurio Turquesa"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "Atuendo de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "Atuendo de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "Atuendo de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "Atuendo de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "Atuendo de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "Atuendo de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "Atuendo de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "Espada de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "Espada de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "Espada de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "Espada de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "Espada de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "Espada de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "Espada de Gorra Negra"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "Atuendo de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "Atuendo de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "Atuendo de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "Atuendo de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "Atuendo de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "Atuendo de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "Atuendo de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "Espada de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "Espada de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "Espada de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "Espada de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "Espada de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "Espada de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "Espada de Gorro de Hongo"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "Atuendo de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "Atuendo de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "Atuendo de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "Atuendo de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "Atuendo de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "Atuendo de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "Atuendo de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "Espada de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "Espada de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "Espada de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "Espada de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "Espada de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "Espada de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "Espada de Cabeza de Calabaza"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "Atuendo de Ardilla"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "Atuendo de Ardilla"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "Atuendo de Ardilla"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "Atuendo de Ardilla"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "Atuendo de Ardilla"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "Atuendo de Ardilla"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "Atuendo de Ardilla"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "Atuendo de Zorro Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "Atuendo de Zorro Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "Atuendo de Zorro Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "Atuendo de Zorro Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "Atuendo de Zorro Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "Atuendo de Zorro Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "Atuendo de Zorro Rojo"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "Atuendo de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "Atuendo de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "Atuendo de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "Atuendo de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "Atuendo de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "Atuendo de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "Atuendo de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "Espada de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "Espada de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "Espada de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "Espada de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "Espada de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "Espada de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "Espada de Capucha con Cuernos"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "Atuendo de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "Atuendo de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "Atuendo de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "Atuendo de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "Atuendo de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "Atuendo de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "Atuendo de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "Espada de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "Espada de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "Espada de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "Espada de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "Espada de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "Espada de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "Espada de Casco de Pantalla Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "Atuendo de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "Atuendo de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "Atuendo de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "Atuendo de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "Atuendo de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "Atuendo de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "Atuendo de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "Espada de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "Espada de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "Espada de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "Espada de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "Espada de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "Espada de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "Espada de Cabeza de Tele"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "Atuendo de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "Atuendo de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "Atuendo de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "Atuendo de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "Atuendo de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "Atuendo de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "Atuendo de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "Espada de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "Espada de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "Espada de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "Espada de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "Espada de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "Espada de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "Espada de Sombrero de Copa"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "Atuendo de Gato Negro"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "Atuendo de Gato Negro"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "Atuendo de Gato Negro"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "Atuendo de Gato Negro"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "Atuendo de Gato Negro"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "Atuendo de Gato Negro"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "Atuendo de Gato Negro"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "Atuendo de la Parca"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "Atuendo de la Parca"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "Atuendo de la Parca"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "Atuendo de la Parca"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "Atuendo de la Parca"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "Atuendo de la Parca"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "Atuendo de la Parca"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "Atuendo de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "Atuendo de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "Atuendo de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "Atuendo de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "Atuendo de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "Atuendo de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "Atuendo de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "Espada de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "Espada de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "Espada de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "Espada de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "Espada de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "Espada de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "Espada de Orejas de Conejo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "Atuendo de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "Atuendo de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "Atuendo de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "Atuendo de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "Atuendo de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "Atuendo de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "Atuendo de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "Espada de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "Espada de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "Espada de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "Espada de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "Espada de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "Espada de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "Espada de Orejas de Gato"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "Atuendo de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "Atuendo de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "Atuendo de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "Atuendo de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "Atuendo de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "Atuendo de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "Atuendo de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "Espada de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "Espada de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "Espada de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "Espada de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "Espada de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "Espada de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "Espada de Orejas de Elfo"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "Atuendo de Abeja"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "Atuendo de Abeja"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "Atuendo de Abeja"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "Atuendo de Abeja"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "Atuendo de Abeja"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "Atuendo de Abeja"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "Atuendo de Abeja"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "Atuendo de Gato Atigrado Naranja"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "Atuendo de Gato Atigrado Naranja"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "Atuendo de Gato Atigrado Naranja"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "Atuendo de Gato Atigrado Naranja"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "Atuendo de Gato Atigrado Naranja"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "Atuendo de Gato Atigrado Naranja"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "Atuendo de Gato Atigrado Naranja"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "Atuendo de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "Atuendo de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "Atuendo de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "Atuendo de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "Atuendo de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "Atuendo de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "Atuendo de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "Espada de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "Espada de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "Espada de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "Espada de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "Espada de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "Espada de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "Espada de Corona de Flores"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "Atuendo de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "Atuendo de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "Atuendo de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "Atuendo de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "Atuendo de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "Atuendo de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "Atuendo de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "Espada de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "Espada de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "Espada de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "Espada de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "Espada de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "Espada de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "Espada de Gorra Verde"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "Atuendo de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "Atuendo de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "Atuendo de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "Atuendo de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "Atuendo de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "Atuendo de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "Atuendo de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "Espada de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "Espada de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "Espada de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "Espada de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "Espada de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "Espada de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "Espada de Gorra Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "Atuendo de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "Atuendo de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "Atuendo de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "Atuendo de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "Atuendo de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "Atuendo de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "Atuendo de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "Espada de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "Espada de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "Espada de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "Espada de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "Espada de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "Espada de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "Espada de Capucha de Flor Rosa"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "Atuendo sencillo"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "Atuendo sencillo"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "Atuendo sencillo"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "Atuendo sencillo"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "Atuendo sencillo"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "Atuendo sencillo"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "Atuendo sencillo"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "Espada sencilla"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "Espada sencilla"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "Espada sencilla"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "Espada sencilla"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "Espada sencilla"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "Espada sencilla"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "Espada sencilla"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "Atuendo de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "Atuendo de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "Atuendo de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "Atuendo de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "Atuendo de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "Atuendo de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "Atuendo de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "Espada de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "Espada de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "Espada de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "Espada de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "Espada de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "Espada de Brote"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "Espada de Brote"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "Atuendo de Panda Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "Atuendo de Panda Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "Atuendo de Panda Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "Atuendo de Panda Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "Atuendo de Panda Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "Atuendo de Panda Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "Atuendo de Panda Rojo"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "Atuendo de Girasol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "Atuendo de Girasol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "Atuendo de Girasol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "Atuendo de Girasol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "Atuendo de Girasol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "Atuendo de Girasol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "Atuendo de Girasol"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "Atuendo de Alienígena Verde"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "Atuendo de Alienígena Verde"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "Atuendo de Alienígena Verde"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "Atuendo de Alienígena Verde"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "Atuendo de Alienígena Verde"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "Atuendo de Alienígena Verde"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "Atuendo de Alienígena Verde"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "Curación"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "Estallido de Escarcha"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "Estallido de Fuego"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "Rayo"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "Concentración Arcana"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "Golpe Arcano"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "Gorra Azul"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "Bufanda Roja"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "Gorro de Chef"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "Muñeco de Nieve"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "Capucha de Lobo"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "Capucha de Gato Calicó"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "Corona Dorada"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "Astas de Reno"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "Gorro de Santa"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "Casco Espacial"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "Robot Cian"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "Sombrero de Paja"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "Lentes de Sol"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "Gorra Amarilla"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "Gato Gris"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "Pañuelo Vaquero"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "Flotador de Pato"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "Payaso Arcoíris"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "Nadador de Gorra Roja"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "Buceador"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "Nadador de Sombrero de Paja"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "Dinosaurio"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "Dinosaurio Turquesa"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "Gorra Negra"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "Gorro de Hongo"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "Cabeza de Calabaza"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "Ardilla"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "Zorro Rojo"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "Capucha con Cuernos"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "Casco de Pantalla Naranja"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "Cabeza de Tele"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "Sombrero de Copa"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "Gato Negro"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "La Parca"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "Orejas de Conejo"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "Orejas de Gato"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "Orejas de Elfo"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "Abeja"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "Gato Atigrado Naranja"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "Corona de Flores"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "Gorra Verde"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "Gorra Rosa"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "Capucha de Flor Rosa"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "Sencillo"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "Brote"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "Panda Rojo"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "Girasol"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "Alienígena Verde"
+
+msgid "CONTENT_STAGES_1"
+msgstr "Invierno I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "Invierno II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "Verano I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "Verano II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "Otoño I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "Otoño II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "Primavera I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "Primavera II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "Primera recompensa"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "Derrota al Muñeco de Nieve (jefe de Invierno I) 10 veces"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "Recompensa de verano"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "Derrota al Gato Gris (jefe de Verano I) 20 veces"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "Recompensa de otoño"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "Derrota a La Parca (jefa de Otoño II) 30 veces"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "Ruta de invierno"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "En Invierno I, en orden: derrota a 100 Gorras Azules, luego a 100 Bufandas Rojas y luego a 100 Gorros de Chef"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "Ruta de verano"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "En Verano I, en orden: derrota a 150 Sombreros de Paja, luego a 150 Lentes de Sol y luego a 150 Gorras Amarillas"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "Ruta de primavera"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "En Primavera I, en orden: derrota a 200 Orejas de Conejo, luego a 200 Orejas de Gato y luego a 200 Orejas de Elfo"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "Colección de invierno"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "Recolecta 20 atuendos de cada uno: Gorra Azul, Bufanda Roja y Gorro de Chef (botín de Invierno I) y luego entrégalos con Entregar"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "Colección de verano"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "Recolecta 30 atuendos de cada uno: Sombrero de Paja, Lentes de Sol y Gorra Amarilla (botín de Verano I) y luego entrégalos con Entregar"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "Colección de primavera"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "Recolecta 40 atuendos de cada uno: Orejas de Conejo, Orejas de Gato y Orejas de Elfo (botín de Primavera I) y luego entrégalos con Entregar"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "Primera obra maestra"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "Fusiona cualquier arma, atuendo o habilidad hasta ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "Segundo nivel"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "Fusiona un objeto de nivel 2 o superior hasta ^100 (el nivel 2 aparece desde Verano I, o evoluciona un arma)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "Tercer nivel"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "Fusiona un objeto de nivel 3 o superior hasta ^100 (el nivel 3 aparece desde Otoño I, o evoluciona un arma dos veces)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "Equipo en pareja"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "Fusiona un arma y un atuendo hasta ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "Arsenal amplio"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "Fusiona 3 armas distintas y 3 atuendos distintos hasta ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "Arsenal evolucionado"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "Fusiona 3 armas distintas de nivel 2+ y 3 atuendos distintos de nivel 2+ hasta ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "Dominio del invierno"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "En Invierno I e Invierno II: explora el 90 % de cada mapa, derrota a ambos jefes y desbloquea todos los campamentos"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "Dominio del verano"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "En Verano I y Verano II: explora el 90 % de cada mapa, derrota a los tres jefes y desbloquea todos los campamentos"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "Dominio de la primavera"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "En Primavera I y Primavera II: explora el 90 % de cada mapa, derrota a los cinco jefes y desbloquea todos los campamentos"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "Invierno sin ayuda"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "Derrota al Robot Cian (jefe de Invierno II) sin usar ningún suministro durante la pelea"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "Verano sin ayuda"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "Derrota al Dinosaurio Turquesa (jefe de Verano II) sin usar ningún suministro durante la pelea"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "Otoño sin ayuda"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "Derrota a La Parca (jefa de Otoño II) sin usar ningún suministro durante la pelea"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "Ofrenda pequeña"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "Gana 2K monedas y 30 gemas de enemigos en esta partida y luego entrégalas con Entregar"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "Ofrenda creciente"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "Gana 20K monedas y 100 gemas de enemigos en esta partida y luego entrégalas con Entregar"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "Gran ofrenda"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "Gana 100K monedas y 300 gemas de enemigos en esta partida y luego entrégalas con Entregar"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "Cadena corta"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "En orden: derrota a 100 enemigos, recoge 10 armas o atuendos que suelten y luego fusiona 10 veces"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "Cadena larga"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "En orden: derrota a 250 enemigos, derrota a 3 jefes, fusiona 25 veces y luego lanza 30 habilidades"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "Cadena maestra"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "En orden: derrota a 500 enemigos, derrota a 10 jefes, fusiona 50 veces y luego reclama 3 misiones normales"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "Trofeos de invierno"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "Después de descubrir esto, derrota una vez al Muñeco de Nieve (Invierno I) y al Robot Cian (Invierno II)"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "Trofeos de verano"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "Después de descubrir esto, derrota una vez al Gato Gris (Verano I), al Dinosaurio y al Dinosaurio Turquesa (Verano II)"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "Trofeos de otoño"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "Después de descubrir esto, derrota una vez a la Ardilla y al Zorro Rojo (Otoño I), y al Gato Negro y a La Parca (Otoño II)"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "Tiempo fuera"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "Pasa 72 horas en total fuera del juego"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "Descanso largo"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "Quédate fuera del juego 24 horas seguidas"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "Ingresos sin conexión"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "Gana 10K monedas mientras estás fuera (reclama las recompensas de regreso)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "+20 % de EXP de jefes"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+10 % de velocidad de movimiento"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+50 % de alcance de recolección automática"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "+10 % a las estadísticas base del equipo equipado"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+10 % de PV máximos"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "+25 % de radio de exploración a tu alrededor"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "+10 % de daño contra jefes"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "+10 % de monedas de cada enemigo"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "+25 % de monedas de misiones"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "+25 % de gemas de jefes"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "+25 % de monedas sin conexión por hora"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "Reapareces 2 segundos antes (mínimo 2 s)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "+15 % de monedas de enemigos normales"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "+10 % a las estadísticas obtenidas en cada fusión"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "+10 % de daño contra jefes"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "+25 % a las tasas de objetos sin conexión"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+10 % de PV máximos"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "Matagigantes"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "+25 % de daño contra jefes"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "Guardia antijefes"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "Recibes un 20 % menos de daño de los jefes"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "Botín de caza"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "+100 % de monedas de jefes"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "Rastreador"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "+20 % de daño contra enemigos normales"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "Monedas del camino"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "+30 % de monedas de enemigos normales"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "Lecciones del camino"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "+30 % de EXP de enemigos normales"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "Recolector cuidadoso"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+100 % de alcance de recolección automática"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "Fortuna de equipo"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "+3 puntos de probabilidad de botín de equipo"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "Fortuna de suministros"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "+5 puntos de probabilidad de botín de suministros"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "Artesanía fina"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "+25 % a las estadísticas obtenidas en cada fusión"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "Arte de la tirada"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "Volver a tirar cuesta un 50 % menos de gemas"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "Base sólida"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "+20 % a las estadísticas base de tu arma y atuendo equipados"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "Reserva de armadura"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+20 % de PV máximos"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "Entrenamiento con armas"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "+15 % de daño de ataques y habilidades"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "Equipamiento equilibrado"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "Recibes un 10 % menos de daño de todos los enemigos"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "Explorador"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+15 % de velocidad de movimiento"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "Vista lejana"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "+50 % de radio de exploración a tu alrededor"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "Reconocimiento de campamentos"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "Los campamentos cuestan un 50 % menos de monedas"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "Precisión"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "+15 puntos de probabilidad de golpe crítico"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "Determinación"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "Te curas el 5 % del daño que infliges"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "Golpe duro"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "Los golpes críticos infligen un +75 % más de daño"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "Sabiduría de monedas"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "+25 % de monedas de cada enemigo"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "Sabiduría de gemas"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "+5 puntos de probabilidad de botín de gemas"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "Gasto sabio"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "Las mejoras de monedas cuestan un 15 % menos"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "Monedas de misión"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "+50 % de monedas de misiones"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "Gemas de misión"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "+50 % de gemas de misiones"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "Práctica enfocada"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "+25 % de daño, curación y Concentración de habilidades"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "Cazador de trofeos"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "+50 % de EXP de jefes"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "Poder de trofeo"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "+20 % de daño contra jefes"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "Gemas de trofeo"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "+50 % de gemas de jefes"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "Monedas tranquilas"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "+50 % de monedas sin conexión por hora"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "Gemas tranquilas"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "+50 % de gemas sin conexión por hora"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "Hallazgos tranquilos"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "+50 % a las tasas de objetos sin conexión"
+
+msgid "CHAIN_PROGRESS"
+msgstr "Paso %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "La partida de desarrollo se reinició con esta actualización. Ya puedes guardar progreso nuevo."
+
+msgid "HEAL_ROLE"
+msgstr "Sostén: %s PV al instante, cada %s s. Lanzarla es gratis; máximo 12 %% de los PV máximos. Las pociones dan una curación de emergencia más fuerte."
+
+msgid "REGULAR_MISSIONS"
+msgstr "Tareas de caza"
+
+msgid "GUIDE_CHOOSE"
+msgstr "¿Cuánta ayuda quieres?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "Guiada · Aprende una acción a la vez"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "Básica · Todos los menús abiertos y un resumen breve"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "Ninguna · Todos los menús abiertos, sin consejos"
+
+msgid "GUIDE_REVIEW"
+msgstr "Volver a elegir la ayuda"
+
+msgid "GUIDE_GOT_IT"
+msgstr "Entendido"
+
+msgid "GUIDE_MOVE"
+msgstr "Sigue el camino a tu izquierda."
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "Arrastra el joystick hacia la flecha. Los primeros enemigos esperan a lo largo del camino."
+
+msgid "GUIDE_KILL"
+msgstr "Detente junto a un enemigo para atacar"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "Quédate quieto un momento y atacarás automáticamente. Los enemigos de invierno solo se defienden."
+
+msgid "GUIDE_COLLECT"
+msgstr "Toca el objeto que soltó"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "El botín se queda un rato en el suelo. Las monedas y las gemas se suman solas."
+
+msgid "GUIDE_EQUIP"
+msgstr "Toca tu objeto nuevo"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "Los detalles del objeto lo comparan con lo que llevas puesto."
+
+msgid "GUIDE_MERGE"
+msgstr "Abre el objeto que tienes repetido"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "Fusionar una copia hace que el objeto sea más fuerte para siempre."
+
+msgid "GUIDE_UPGRADE"
+msgstr "Toca Mejoras para este enemigo"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "Cada tipo de enemigo tiene sus propias mejoras de botín, monedas y experiencia."
+
+msgid "GUIDE_CAMP"
+msgstr "Abre Mundo para desbloquear un campamento"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "Encontraste un campamento y te alcanza para pagarlo. Abre Mundo, o camina hasta el campamento y toca Ver campamento."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "Camina, pelea, recolecta"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "Arrastra el joystick para caminar. Quédate quieto cerca de un enemigo para atacar. Toca el botín en el suelo para recogerlo."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "Estos enemigos te notan cuando estás cerca"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "Los enemigos de Invierno II atacan cuando te acercas. Acércate de uno en uno."
+
+msgid "GUIDE_SKILLS"
+msgstr "Las habilidades apoyan a tu equipo"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "Toca una habilidad equipada para lanzarla. Curación es constante; las pociones curan más de golpe."
+
+msgid "GUIDE_GROUPS"
+msgstr "Algunos enemigos ahora piden refuerzos"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "Los enemigos de verano ayudan a sus aliados cercanos del mismo tipo. Vigila tu salud."
+
+msgid "PRESTIGE_GATE"
+msgstr "Primero supera el invierno: derrota al Robot Cian para llegar a Verano I."
+
+msgid "NAV_PRESTIGE"
+msgstr "Prestigio"
+
+msgid "PANEL_WORLD"
+msgstr "Mundo"
+
+msgid "TAB_OFFLINE"
+msgstr "Sin conexión"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "Abre estas mejoras con el botón Mejoras o tocando a tu personaje."
+
+msgid "HUD_RESTING"
+msgstr "· Descansando"
+
+msgid "ITEM_PREVIOUS"
+msgstr "Objeto anterior"
+
+msgid "ITEM_NEXT"
+msgstr "Objeto siguiente"
+
+msgid "ITEM_POSITION"
+msgstr "%d de %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "Si lo equipas: %s"
+
+msgid "NO_CHANGE"
+msgstr "sin cambios"
+
+msgid "EQUIPPED_NOW"
+msgstr "Equipado ahora: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "Todavía no hay nada equipado en este espacio."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "Equipado: estadísticas completas"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "Guardado: 30 % de sus estadísticas"
+
+msgid "UPGRADE_LEVEL"
+msgstr "Nivel %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "Jefe"
+
+msgid "ENEMY_KILLS"
+msgstr "Derrotados: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "Campamento de reaparición"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "Desbloqueado"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "Bloqueado · %s monedas"
+
+msgid "SECTION_CAMPS"
+msgstr "Campamentos"
+
+msgid "CAMPS_HIDDEN"
+msgstr "Quedan %d campamento(s) por descubrir explorando."
+
+msgid "SECTION_TRAVEL"
+msgstr "Viajar a otra etapa"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "Mejoras del mapa"
+
+msgid "SECTION_DANGER"
+msgstr "Zona de peligro"
+
+msgid "CAMP_UNLOCK"
+msgstr "Desbloquear"
+
+msgid "CAMP_SELECT"
+msgstr "Reaparecer aquí"
+
+msgid "CAMP_TRAVEL"
+msgstr "Viajar"
+
+msgid "CARD_OWNED"
+msgstr "Obtenida"
+
+msgid "CARD_SELECTED"
+msgstr "Seleccionada"
+
+msgid "CARD_LOCKED"
+msgstr "Aún no obtenida"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "Lista"
+
+msgid "PRESTIGE_INTRO"
+msgstr "Completa oportunidades para ganar cartas permanentes. El prestigio canjea todas las que estén listas a la vez y empieza una nueva partida."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "Listas: %d  ·  Cartas obtenidas: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "Aún no descubriste oportunidades. Derrota jefes, fusiona y explora para encontrarlas."
+
+msgid "NO_CARDS_YET"
+msgstr "Aún no tienes cartas."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "Canjear %d oportunidad(es) lista(s): %s.\n\nEliges una carta permanente por cada una y luego la partida se reinicia una sola vez.\n\nSe conservan: cartas, llaves de jefe, logros, mejoras de gemas, automatización y configuración.\nSe reinician: monedas, objetos, nivel, campamentos, exploración del mapa, mejoras de monedas y desafíos sin terminar."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "Elige una recompensa · %d de %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "Ya elegidas: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "Conservas"
+
+msgid "PRESTIGE_KEEP"
+msgstr "Cartas y conjuntos, tus gemas, las zonas exploradas del mapa, todas las mejoras compradas con gemas (de todas las categorías), la automatización, el espacio de inventario, las llaves de jefe, los logros de enemigos, el nivel y la EXP del jugador, la Maestría del mapa y la configuración."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "Se reinicia en esta partida"
+
+msgid "PRESTIGE_RESET"
+msgstr "Monedas, objetos (incluidas las existencias de suministros) y fusiones, Maestría de suministros, acceso a mapas y campamentos obtenidos, mejoras de mapa y de monedas, y desafíos sin terminar."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "Quedarse con %s"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "Toca una carta para elegirla"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "¿Quedarte con %s para siempre? Es la última elección: la nueva partida empieza enseguida."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "¡Encontraste una oportunidad de prestigio!"
+
+msgid "MILESTONE_READY"
+msgstr "¡Oportunidad completada!"
+
+msgid "MILESTONE_CARD"
+msgstr "Carta obtenida: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "Comienza una nueva partida"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "Se agregaron %d carta(s) permanente(s) a tu colección."
+
+msgid "MILESTONE_STAGE"
+msgstr "Nueva etapa desbloqueada"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "Conjunto Cazajefes"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "Conjunto Expedición"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "Conjunto Colección"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "Conjunto Obra maestra"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "Conjunto Arsenal"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "Conjunto Regional"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "Conjunto Desafío"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "Conjunto Ofrenda"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "Conjunto Especialista"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "Conjunto Trofeo"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "Conjunto Sin conexión"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "Explorador preparado"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "Farmeador dedicado"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "Camino del artesano"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "Especialista en jefes"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "Coleccionista paciente"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "Crecimiento equilibrado"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "Sigue derrotando enemigos"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "Tu primera arma o atuendo cae en pocas bajas."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "Toca Equipar"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "El equipo equipado da todas sus estadísticas. El guardado igual da un 30 %."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "Toca Fusionar"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "Cada fusión usa una copia de sobra y sube el nivel del objeto."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "Consigue una segunda copia"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "Una copia igual caerá en unas pocas bajas más."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "Primero encuentra un enemigo"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "Acércate a los enemigos para que sus mejoras estén disponibles."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "Gana monedas para una mejora"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "Te faltan %s monedas. Cada enemigo derrotado suelta monedas."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "Abre la pestaña Mejoras"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "Ahí aparecen las mejoras de este tipo de enemigo."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "Compra una mejora"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "Mejorar la probabilidad de botín es una buena primera opción."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "Explora para encontrar otro campamento"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "Camina hacia la niebla. Los campamentos aparecen cuando los revelas."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "Gana monedas para el campamento"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "Te faltan %s monedas. Sigue derrotando enemigos."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "Toca Desbloquear"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "El campamento se vuelve un punto de reaparición y revela el terreno a su alrededor."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "Campamento desbloqueado"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "Usa Reaparecer aquí para volver ahí después de una derrota. Descansar junto a un campamento cura rápido."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "Encontraste una oportunidad de prestigio"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "Complétala para ganar una carta permanente. Primero encuentra al Muñeco de Nieve; el modo Guiado además exige terminar el tutorial."
+
+msgid "GUIDE_REST"
+msgstr "¿Poca salud?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "Aléjate de las peleas. Descansar junto a un campamento desbloqueado te cura rápido."
+
+msgid "SECTION_REWARDS"
+msgstr "Recompensas"
+
+msgid "SECTION_AUTOMATION"
+msgstr "Automatización"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "Bloqueado"
+
+msgid "PROGRESS_MERGE"
+msgstr "Mejor hasta ahora: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "Armas en ^50: %d/%d · Atuendos en ^50: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "Trofeos: %d / %d (cada jefe suelta uno en su próxima derrota)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "Encontrado en esta partida: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "Gana la pelea sin usar pociones ni tónicos."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "Explorado %s · jefes %d/%d · campamentos %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "Espada de oro"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "Espada de diamante"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "Espada de esmeralda"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "Espada de obsidiana"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "Hacha de madera"
+
+msgid "ITEM_STONE_AXE"
+msgstr "Hacha de piedra"
+
+msgid "ITEM_IRON_AXE"
+msgstr "Hacha de hierro"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "Hacha de oro"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "Hacha de diamante"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "Hacha de esmeralda"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "Hacha de obsidiana"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "Encuentra un arma o un atuendo"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "Ese hallazgo era un suministro. Sigue derrotando enemigos: a veces sueltan el arma o el atuendo que llevan, y eso ocupa un espacio de equipo vacío."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "Recoge el equipo"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "Cayó un arma o un atuendo. Tócalo para ponerlo en un espacio de equipo."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "Solo puedes seguir una oportunidad en curso."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "Supera %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "Lista para reclamar"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ Reclamada"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "Objetivos completados (%d) · %s"
+
+msgid "SHOW"
+msgstr "Mostrar"
+
+msgid "HIDE"
+msgstr "Ocultar"
+
+msgid "PLAYTIME_LINE"
+msgstr "Tiempo jugado: %s · Esta partida: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "¡Hola de nuevo!"
+
+msgid "OFFLINE_AWAY"
+msgstr "Ausente %s · %s horas recompensadas"
+
+msgid "OFFLINE_CLAIM"
+msgstr "Reclamar ganancias sin conexión"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "Ganancias sin conexión reclamadas"
+
+msgid "OFFLINE_NOTHING"
+msgstr "No hay ganancias sin conexión pendientes."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "Tienes ganancias sin conexión por reclamar."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "Último reclamo: %s horas recompensadas · %s monedas · %s gemas"
+
+msgid "NAV_UPGRADES"
+msgstr "Mejoras"
+
+msgid "STATS_OPEN"
+msgstr "Estadísticas"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "Nuevas mejoras desbloqueadas: %s (Mejoras del jugador)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "Encuentra al Muñeco de Nieve de Invierno I (el primer jefe) para desbloquear el reinicio de prestigio."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "Encuentra al Muñeco de Nieve"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "Ya tienes todas las cartas que podrían dar estas oportunidades listas."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "Primero encuentra este punto en el mapa."
+
+msgid "EQUIPPED_PINNED"
+msgstr "Equipado"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "Arma"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "Atuendo"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "Espacio vacío"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "EQUIPADO"
+
+msgid "COMPARE_SELECTED"
+msgstr "SELECCIONADO"
+
+msgid "COMPARE_ITEM"
+msgstr "OBJETO"
+
+msgid "COMPARE_UPGRADE"
+msgstr "Mejora"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "Empeora"
+
+msgid "COMPARE_MIXED"
+msgstr "Compensación"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "Nivel %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "Crece al fusionar copias de sí mismo, hasta ^%d. Nunca se convierte en otro objeto; después de ^100 cada fusión suma un poco menos."
+
+msgid "FOLLOW_READY"
+msgstr "¡Lista! Abre Prestigio para elegir una carta"
+
+msgid "FOLLOW_STEP"
+msgstr "Paso %d/%d · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "Derrota a %s: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "Derrota a %s sin usar ningún suministro durante la pelea: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "Reclamar misiones"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "Personaje"
+
+msgid "STATS_LEVEL"
+msgstr "Nivel"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "Etapa"
+
+msgid "STATS_PRESTIGES"
+msgstr "Prestigios completados"
+
+msgid "STATS_CARDS"
+msgstr "Cartas de prestigio"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "Ataque"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "Velocidad de ataque"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/s (+%s %%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "Defensa y recuperación"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%s %% de daño)"
+
+msgid "STATS_RESPAWN"
+msgstr "Tiempo de reaparición"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "Impulsos"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "Multiplicadores de prestigio"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "PV ×%s · Daño ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "Velocidad de movimiento"
+
+msgid "STATS_STORED_SHARE"
+msgstr "Aporte del equipo guardado"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "Bonificación del equipo equipado"
+
+msgid "STATS_SECTION_TIME"
+msgstr "Tiempo jugado"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "Todas las partidas"
+
+msgid "STATS_TIME_RUN"
+msgstr "Esta partida"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "daño"
+
+msgid "STATS_SHORT_HP"
+msgstr "PV"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "def."
+
+msgid "STATS_SHORT_CRIT"
+msgstr "crít."
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "daño crít."
+
+msgid "STATS_SHORT_SPEED"
+msgstr "vel. de ataque"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "robo de vida"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "PV/s"
+
+msgid "CAMP_SIGHTED"
+msgstr "¡Campamento a la vista! Ya aparece en tu mapa y en el panel Mundo."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "Bonificación de PV por cartas y maestría"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "Bonificación de daño por cartas y maestría"
+
+msgid "STAT_REGEN_PCT"
+msgstr "Recuperación"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "PV máx./s"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "PV máx./s"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s %% de PV máx./s (%s PV/s)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "Hitos de atuendo (puesto)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "Armas %s %% · Atuendos %s %%"
+
+msgid "MILESTONE_GUARD"
+msgstr "Guardia +%s de defensa"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s PV"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%s %% de PV del atuendo"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "Recuperación %s %% de PV máx./s"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "Hitos (mientras lo llevas puesto): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "Hitos: ninguno todavía. El primero se desbloquea en ^100."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "Todos los hitos alcanzados (Maestría)."
+
+msgid "MILESTONE_NEXT"
+msgstr "Siguiente en ^%d: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "Crece al fusionar copias de sí mismo, hasta ^%d: +2 %% de PV base por copia hasta ^100 y luego +1 %% por copia. Nunca se convierte en otro objeto. Los hitos solo funcionan mientras lo llevas puesto; guardado, aporta el %s %% de sus PV."
+
+msgid "PANEL_LEVEL"
+msgstr "Nivel y crecimiento del jugador"
+
+msgid "PANEL_FARMING"
+msgstr "Guía de farmeo"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "Toca para ver el crecimiento por nivel y el origen de tus estadísticas"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "Espacios %d → %d de %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "Espacios %d / %d · al máximo"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · al máximo"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "El jefe da %s gemas por botín"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "Guía de farmeo"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "Prestigio bloqueado · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "El reinicio de prestigio requiere"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "Encontrar al Muñeco de Nieve de Invierno I (el primer jefe)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "Al menos una oportunidad lista que pueda dar una carta"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "encuentra al Muñeco de Nieve"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "no hay oportunidades listas"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "no quedan cartas por dar"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "Otros orígenes de estadísticas"
+
+msgid "BREAKDOWN_HP"
+msgstr "De dónde vienen tus PV"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "De dónde viene tu daño"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "Antes del prestigio"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "Cartas y Maestría"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "Total (usado en combate)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "Por golpe, fuera del total"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "Daño que recibes"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "Niveles del jugador (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "Equipo guardado (atuendos %s %%, armas %s %%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "Equipo equipado (incl. carta de +%s %%)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "Hitos de bajas contra %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "Prestigio contra enemigos normales"
+
+msgid "PER_HIT_BOSS"
+msgstr "Prestigio contra jefes"
+
+msgid "PER_HIT_FOCUS"
+msgstr "Concentración (quedan %d s)"
+
+msgid "TAKEN_GUARD"
+msgstr "Guardia de prestigio"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "Guardia de prestigio contra jefes"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "Nivel %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "Alcanzaste el nivel máximo. Los niveles ya no suman nada."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s EXP · faltan %s para el nivel %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "Crecimiento por nivel"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "Cada nivel (base)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s PV · +%s de daño"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "De %d niveles hasta ahora"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "PV en el nivel %d"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "Daño en el nivel %d"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "Las cartas de prestigio multiplican todos los orígenes: PV ×%s, daño ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "Dónde farmear a cada enemigo y qué suelta. La entrada de un mapa se abre cuando su Detalle del mapa está al máximo y todos sus tipos de enemigo tienen reveladas las estadísticas y el botín. Solo los puntos que descubriste muestran su ubicación."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "estás aquí"
+
+msgid "FARMING_READY"
+msgstr "Entrada desbloqueada"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "Abrir"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "Detalle del mapa %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "Estadísticas y botín: %d/%d tipos"
+
+msgid "FARMING_LOCKED"
+msgstr "Requiere: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "%d mapas más sin alcanzar."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "Farmeo · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "Las probabilidades incluyen tus mejoras actuales. Las direcciones parten del campamento conocido más cercano en este mapa."
+
+msgid "FARMING_BACK"
+msgstr "Todos los mapas"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "Enemigo sin descubrir · explora este mapa para encontrarlo"
+
+msgid "FARMING_REWARDS"
+msgstr "Monedas ×%s · Gemas %s %% ×%s · EXP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "Suministros: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "Punto sin descubrir"
+
+msgid "FARMING_DETAILS"
+msgstr "Detalles"
+
+msgid "FARMING_AT_CAMP"
+msgstr "En el campamento %d"
+
+msgid "FARMING_LOCATION"
+msgstr "Al %s del campamento %d · %s"
+
+msgid "COMPASS_N"
+msgstr "norte"
+
+msgid "COMPASS_NE"
+msgstr "noreste"
+
+msgid "COMPASS_E"
+msgstr "este"
+
+msgid "COMPASS_SE"
+msgstr "sureste"
+
+msgid "COMPASS_S"
+msgstr "sur"
+
+msgid "COMPASS_SW"
+msgstr "suroeste"
+
+msgid "COMPASS_W"
+msgstr "oeste"
+
+msgid "COMPASS_NW"
+msgstr "noroeste"
+
+msgid "DISTANCE_NEAR"
+msgstr "cerca"
+
+msgid "DISTANCE_MID"
+msgstr "a poca distancia"
+
+msgid "DISTANCE_FAR"
+msgstr "lejos"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "¡Oye! ¡Mi atuendo!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "¡Mi arma!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "¡Mi libro de hechizos!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "¡Mis suministros!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "Tónico de guardia"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "Ungüento de recuperación"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "Tónico de sabiduría"
+
+msgid "FOLLOW_COLLECT"
+msgstr "Paso %d/%d · Recolecta %s de %s: %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "¡Ya tienes todo! Entrégalos: Prestigio y luego Entregar"
+
+msgid "FILTERS"
+msgstr "Filtros"
+
+msgid "FILTERS_ACTIVE"
+msgstr "Filtros · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "Filtra la cuadrícula de equipo. Al cerrar Filtros se vuelven a mostrar todos los objetos."
+
+msgid "PANEL_FILTERS"
+msgstr "Filtros"
+
+msgid "FILTERS_HINT"
+msgstr "La cuadrícula de equipo muestra solo esta categoría mientras Filtros está abierto. Al cerrarlo se vuelven a mostrar todos los objetos."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "Espacios de suministros: uno por tipo de suministro (%d tipos). Filtros está junto al contador de equipo."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "Cada 3 usos reales de este suministro dan un nivel de maestría, hasta ^%d. Las compras y el botín solo suman existencias. El prestigio reinicia la maestría y el progreso de uso."
+
+msgid "BUY_SUPPLY"
+msgstr "Comprar %s · %s monedas"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · quedan %d s"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "Activo: %s · quedan %d s"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "En enfriamiento · %s s"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "Listo para usar"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "Uso automático: con %s %% de PV o menos, tras el enfriamiento"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "Uso automático: siempre que no esté activo"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "Uso automático: en combate, cuando no esté activo"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "Uso automático: con %s %% de PV o menos, cuando no esté activo"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "Uso automático: siempre que no esté activo"
+
+msgid "SUPPLY_STOCK"
+msgstr "Existencias: %s · cada uso gasta uno"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "Próxima copia encontrada: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "Bono de maestría: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "duración %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "enfriamiento %s s"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%s %% de PV máx."
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%s %% de monedas"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%s %% de EXP"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s de defensa"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "%s %% de PV máx. por segundo"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "Cura el %s %% de los PV máx. (%s PV ahora) · enfriamiento %s s · se puede usar por debajo del %s %% de PV"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "+%s %% de monedas de enemigos derrotados durante %s s"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s de defensa (%s %% menos de daño recibido) durante %s s"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "Cura el %s %% de los PV máx. por segundo durante %s s (%s %% en total) · se puede usar por debajo del %s %% de PV"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "+%s %% de EXP de enemigos derrotados durante %s s"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "Maestría ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "Auto: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "Tienes demasiados PV para este suministro."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "La poción todavía se está enfriando."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "Ya está activo. Vuelve a usarlo cuando se agote."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "Cada tres usos suben la Maestría de suministros. El prestigio reinicia la maestría y el progreso de uso."
+
+msgid "SOURCE_SUPPLY"
+msgstr "Suministros activos"
+
+msgid "CAMP_TELEPORT"
+msgstr "Teletransportarse"
+
+msgid "PANEL_TELEPORT"
+msgstr "Teletransporte"
+
+msgid "TELEPORT_TITLE"
+msgstr "Teletransporte"
+
+msgid "TELEPORT_HELP"
+msgstr "Elige otro campamento tuyo, en este mapa o en un mapa al que ya llegaste. No puedes teletransportarte durante un combate."
+
+msgid "TELEPORT_HERE"
+msgstr "Estás aquí"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "Destino elegido"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "Este mapa"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "Otro mapa"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "Elegir"
+
+msgid "TELEPORT_BACK"
+msgstr "Atrás"
+
+msgid "TELEPORT_GO"
+msgstr "Teletransportarse · %s · Campamento %d"
+
+msgid "TELEPORT_PICK"
+msgstr "Elige un destino"
+
+msgid "TELEPORT_NONE"
+msgstr "Aún no tienes otro campamento. Desbloquea otro para teletransportarte ahí."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · Campamento %d"
+
+msgid "MAP_EXPLORED"
+msgstr "Mapa explorado: %d %%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "Cuánto de este mapa exploraste de forma permanente. La vista momentánea y mover la cámara no cuentan."
+
+msgid "SECTION_AUDIO"
+msgstr "Sonido y música"
+
+msgid "MUSIC_VOLUME"
+msgstr "Música %d %%"
+
+msgid "SFX_VOLUME"
+msgstr "Efectos de sonido %d %%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "Silenciar sonidos de juego: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "Silenciar sonidos especiales: %s"
+
+msgid "AUDIO_HINT"
+msgstr "Sonidos de juego: toques, compras, fusiones y combate. Sonidos especiales: notificaciones (una misión u objetivo listo para reclamar, novedades de Prestigio, un menú nuevo, progreso de la Maestría del mapa, un jefe encontrado) e hitos (un mapa nuevo, un prestigio). El volumen de efectos controla ambos."
+
+msgid "UP_MERGE_ALL"
+msgstr "Fusionar todo"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "Desbloqueo único: un botón Fusionar todo en Filtros fusiona todas las copias de sobra con un toque · uso gratis · se conserva con el prestigio"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "Desbloqueado · usa Fusionar todo en Filtros"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "Fusionar todo aún no está desbloqueado"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "Fusionar todo: desbloquéalo una vez por 5K gemas en Mejoras → Inventario."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "Fusionar todo · %d copias de sobra"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "Fusionar todo"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "Nada que fusionar"
+
+msgid "MERGE_ALL_DONE"
+msgstr "Fusionaste %d copias en %d objetos"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "Desbloquear evolución automática"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "Fusiona las copias de sobra de: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "Sí · fusiona: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Evoluciona en ^100 con 101 copias: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "Sí · evoluciona: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "Enfriamiento: %s s"
+
+msgid "GATE_HUD"
+msgstr "Siguiente etapa · Jefes %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "Mundo superado · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "Jefes que debes derrotar en este mapa para abrir el siguiente. Los jefes encontrados que aún cuentan llevan el estandarte dorado."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "La siguiente etapa ya está abierta"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "Jefe sin descubrir"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · derrotado"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · pendiente"
+
+msgid "OFFERING_PROGRESS"
+msgstr "%s / %s monedas · %s / %s gemas"
+
+msgid "SECTION_RESEARCH"
+msgstr "Investigación"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "Farmeo enfocado desbloqueado"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "Toca Farmear abajo: tu héroe camina hasta este punto y pelea aquí solo. Vuelve a tocar o muévete para detenerlo."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "Toca Farmear para empezar"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "Tu héroe camina hasta este punto y pelea solo. Moverte lo detiene."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "Farmeo enfocado desbloqueado"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "Abre las Mejoras de este enemigo y toca Farmear arriba."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "Farmeo enfocado desbloqueado"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "Toca ese enemigo en el mundo o en el mapa y luego toca Farmear."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "Primero encuentra este punto"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "El farmeo solo camina a puntos que ya encontraste. Elige uno encontrado arriba."
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "Equipo nuevo: tócalo y luego Equipar"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "El equipo equipado da todas sus estadísticas. El guardado igual suma una parte."
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "Dos iguales: ábrelo y luego Fusionar"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "Fusionar una copia de sobra hace que el objeto sea más fuerte para siempre."
+
+msgid "GUIDE_MISSIONS"
+msgstr "Misiones desbloqueadas: abre Misiones"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "Los objetivos y las misiones diarias dan monedas y gemas."
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "Toca Reclamar"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "Los objetivos terminados esperan aquí hasta que reclames su recompensa."
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "Aún no hay nada que reclamar"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "El botón Misiones muestra ! cuando hay una recompensa lista."
+
+msgid "GUIDE_SLOTS"
+msgstr "Mejoras desbloqueadas: abre Mejoras"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "Las mejoras del jugador duran esta partida; las mejoras de gemas se conservan para siempre."
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "Abre la pestaña Inventario"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "Más espacios de equipo te permiten guardar más tipos de equipo."
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "Compra un espacio de equipo"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "Cada tipo de objeto necesita su propio espacio; las copias se apilan."
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "Abre la pestaña Suministros"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "Los suministros ayudan en las peleas difíciles."
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "Compra una Poción de salud"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "Toca una poción en tus suministros para curarte durante una pelea."
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "Gana monedas para una Poción de salud"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "Te faltan %s monedas. Cada enemigo derrotado suelta monedas."
+
+msgid "GUIDE_SNOWMAN"
+msgstr "Objetivo principal: derrota al Muñeco de Nieve"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "Derrotarlo abre Invierno II; encontrarlo abre Prestigio. Antes fusiona equipo, sube de nivel y lleva pociones."
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "Prestigio desbloqueado: abre Prestigio"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "Ahí, las oportunidades dan cartas permanentes."
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "Toca Seguir en una oportunidad"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "Su siguiente paso aparece en el mapa. Cuando una esté Lista, el prestigio reinicia el mundo y te quedas con la carta."
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "Completa una oportunidad"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "Aparecen nuevas oportunidades mientras juegas. Cuando una esté Lista, el prestigio reinicia el mundo y te quedas con la carta."
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "Misiones desbloqueadas"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "Los objetivos y las misiones diarias dan monedas y gemas. Reclámalas en Misiones."
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "Mejoras de enemigos desbloqueadas"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "Toca Mejoras sobre el mapa (o un enemigo) para aumentar su botín, sus monedas y su EXP."
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "Mapa del mundo desbloqueado"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "El minimapa y Mundo muestran por dónde pasaste. Desbloquea campamentos para reaparecer y descansar ahí."
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "Mejoras del jugador desbloqueadas"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "Compra espacios de equipo, suministros y mejoras permanentes de gemas en Mejoras."
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "Objetivo principal: derrota al Muñeco de Nieve"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "Derrotarlo abre Invierno II; encontrarlo abre Prestigio. Antes fusiona equipo, sube de nivel y lleva pociones."
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "Prestigio desbloqueado"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "Completa una oportunidad y luego haz Prestigio para reiniciar con una carta permanente."
+
+msgid "GUIDE_SKIP"
+msgstr "Omitir"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "Equipa y fusiona equipo"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "Toca un equipo en tu inventario y luego Equipar para obtener todas sus estadísticas; el equipo guardado igual suma una parte. Dos objetos iguales se fusionan en uno más fuerte para siempre."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "Mejoras y misiones"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "Toca un enemigo (o Mejoras sobre el mapa) para aumentar su botín, sus monedas y su EXP. En Mejoras del jugador hay espacios de equipo, suministros y mejoras permanentes de gemas. Reclama misiones para ganar monedas y gemas."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "Exploración, campamentos y etapas"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "Caminar despeja la niebla; el minimapa y Mundo muestran por dónde pasaste. Desbloquea campamentos en Mundo para reaparecer y descansar ahí. Derrota a los jefes de un mapa para abrir la siguiente etapa."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "Prestigio y Maestría del mapa"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "Encontrar al Muñeco de Nieve de Invierno I desbloquea el reinicio de prestigio: completa una oportunidad y luego haz Prestigio para reiniciar con una carta permanente. La Maestría del mapa sigue los objetivos a largo plazo de cada mapa."
+
+msgid "EXIT_TITLE"
+msgstr "¿Salir de LootFarmer?"
+
+msgid "EXIT_CONFIRM"
+msgstr "Tu progreso está guardado. Puedes volver cuando quieras."
+
+msgid "EXIT_ACTION"
+msgstr "Salir"
+
+msgid "SECTION_TUTORIAL"
+msgstr "Tutorial y ayuda"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "Mostrar todos los menús ahora"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "¿Mostrar todos los menús ahora? Normalmente los menús nuevos aparecen a medida que aprendes el juego. Prestigio sigue requiriendo descubrir al Muñeco de Nieve; el modo Guiado además exige terminar el tutorial."
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "Todos los menús están disponibles"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "Todos los menús ya están disponibles"
+
+msgid "PANEL_MASTERY"
+msgstr "Maestría del mapa"
+
+msgid "MASTERY_OPEN"
+msgstr "Maestría del mapa · Juego %d %%"
+
+msgid "MASTERY_INTRO"
+msgstr "Objetivos opcionales para completar el 100 %. El progreso es permanente y se conserva con el prestigio."
+
+msgid "MASTERY_GAME"
+msgstr "Juego completado al %d %%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "Los ocho mapas: título %s · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ Obtenido: título %s · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "Recompensa: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ Recompensa obtenida: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "Detalles"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "Llega a este mapa para empezar"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "Maestría · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ Todos los mapas"
+
+msgid "MASTERY_EXPLORE"
+msgstr "Explorar"
+
+msgid "MASTERY_HUNT"
+msgstr "Cazar"
+
+msgid "MASTERY_RESEARCH"
+msgstr "Investigar"
+
+msgid "MASTERY_COLLECT"
+msgstr "Coleccionar"
+
+msgid "MASTERY_FORGE"
+msgstr "Forjar"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "Explora todo el mapa y desbloquea todos los campamentos."
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "Derrota a %s de cada tipo de enemigo y a %s de cada jefe."
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "Revela las estadísticas y el botín de todos los enemigos de aquí."
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "Consigue todas las armas, atuendos y habilidades que caen aquí."
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "Atuendos de aquí hasta ^%s (atuendos de jefe ^%s) y un arma de aquí evolucionada."
+
+msgid "MASTERY_MORE"
+msgstr "+%d más"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "Mapa explorado al %d %% de 100 %%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "Campamento %d aún sin desbloquear"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · Revelar estadísticas"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · Revelar botín"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "Evoluciona uno de estos: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "Enemigo sin descubrir"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "Objeto sin descubrir"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "+%s %% de PV máx."
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "+%s %% de daño"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "+%s %% de monedas"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "+%s %% de EXP"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "+%s pt de prob. de botín"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "+%s pts de prob. de gemas"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "Maestría · %s · %s completado"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "Prestigio desbloqueado"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "%d oportunidades encontradas · toca para abrir"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "Completa una oportunidad y luego haz Prestigio para ganar una carta permanente"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "Mapa dominado · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "100 % completado"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "Maestro Farmeador"
+
+msgid "STATS_COMPLETION"
+msgstr "Juego completado"
+
+msgid "STATS_TITLE"
+msgstr "Título"
+
+msgid "STATS_MASTERY"
+msgstr "Maestría del mapa"
+
+msgid "MAIN_HINT_0"
+msgstr "Derrota enemigos"
+
+msgid "MAIN_HINT_1"
+msgstr "Toca un arma o un atuendo en tu inventario y luego Equipar"
+
+msgid "MAIN_HINT_2"
+msgstr "Abre un objeto que tengas repetido y luego Fusionar"
+
+msgid "MAIN_HINT_3"
+msgstr "Camina hasta un campamento, toca Ver campamento y luego Desbloquear"
+
+msgid "MAIN_HINT_4"
+msgstr "Derrota al Muñeco de Nieve, el jefe de Invierno I"
+
+msgid "MAIN_HINT_5"
+msgstr "Equipa la habilidad Curación (en Invierno II la sueltan los élite Casco Espacial y el Robot Cian)"
+
+msgid "MAIN_HINT_6"
+msgstr "Compra un rango de Detalle del mapa en Mundo"
+
+msgid "MAIN_HINT_7"
+msgstr "Encuentra la habilidad Estallido de Escarcha (en Verano I la sueltan los élite Sombrero de Paja)"
+
+msgid "MAIN_HINT_8"
+msgstr "Derrota al Robot Cian, el jefe de Invierno II, para llegar a Verano I"
+
+msgid "MAIN_HINT_9"
+msgstr "Evoluciona un arma en ^100 que tenga 101 copias (detalles del objeto, Evolucionar)"
+
+msgid "MAIN_HINT_10"
+msgstr "Consigue habilidades distintas"
+
+msgid "MAIN_HINT_11"
+msgstr "Derrota a los dos jefes de Verano II para llegar a Otoño I"
+
+msgid "MAIN_HINT_12"
+msgstr "Consigue habilidades distintas"
+
+msgid "MAIN_HINT_13"
+msgstr "Derrota a los dos jefes de Otoño II para llegar a Primavera I"
+
+msgid "MAIN_HINT_14"
+msgstr "Completa un prestigio"
+
+msgid "MAIN_HINT_15"
+msgstr "Derrota a todos los tipos de enemigo y jefes de Primavera II"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "¡Lista! Reclámala en Misiones"
+
+msgid "MISSION_DO_KILL"
+msgstr "Derrota a %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "Derrota a %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "Recolecta armas o atuendos que suelten"
+
+msgid "MISSION_DO_MERGE"
+msgstr "Fusiona objetos"
+
+msgid "MISSION_DO_COINS"
+msgstr "Gana monedas de enemigos"
+
+msgid "MISSION_DO_CAST"
+msgstr "Lanza habilidades equipadas"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "Siguiente: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "Derrota a %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "Derrota a cualquier enemigo"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "Recolecta armas o atuendos que suelten"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "Fusiona objetos"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "Derrota a cualquier jefe"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "Lanza habilidades"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "Reclama misiones normales"
+
+msgid "FOLLOW_TROPHY"
+msgstr "Derrota a %s para obtener su trofeo · trofeos %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "Fusiona cualquier arma, atuendo o habilidad hasta ^100: mejor ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "Fusiona un objeto de nivel %d o superior hasta ^100: mejor ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "Fusiona hasta ^50: armas %d/%d · atuendos %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "Fusiona equipo de nivel 2+ hasta ^50: armas %d/%d · atuendos %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "Gana de enemigos en esta partida: monedas %s/%s · gemas %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "¡Suficiente! Entrégalo: Prestigio y luego Entregar"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "Tiempo fuera en total: %.1f/72 h"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "Ausencia más larga: %.1f/24 h"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "Monedas ganadas mientras estabas fuera: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "Explora %s: %d %%/90 %%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "Derrota a %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "Desbloquea todos los campamentos de %s: %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "Luego: %s (quedan %d)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "¡ALERTA: JEFE ENCONTRADO!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · jefe de %s"
+
+msgid "MASTERY_CHIP"
+msgstr "Maestría %d %% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "Maestría de este mapa: porcentaje y categorías completadas. Toca para ver detalles."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "Farmea hasta que puedas vencer al jefe."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "El Muñeco de Nieve custodia el camino a Invierno II."
+
+msgid "VIEW_CAMP"
+msgstr "Ver campamento"
+
+msgid "DROP_ALL"
+msgstr "Soltar todo"
+
+msgid "DROP_ALL_TITLE"
+msgstr "¿Soltar toda la pila?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nTodas las copias salen de tu inventario y el espacio se libera de inmediato. La pila espera en el suelo 5 minutos: tócala para recogerla de nuevo (la Recolección automática nunca la recupera). Volver a recogerla no da progreso de misiones, Prestigio ni Maestría."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "maestría ^%d (se conserva)"
+
+msgid "DROPPED_NOTICE"
+msgstr "Soltaste %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "Primero desequípalo"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "Te cura %s PV ahora (%s PV, como máximo el %s %% de los PV máx.) cuando estás por debajo del %s %% de PV"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "+%s %% de daño de ataque durante 5 s (+%s de daño por golpe ahora) · solo en combate"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× daño de ataque (%s ahora) a todos los enemigos a %s de ti, y los ralentiza un 25 %% durante 3 s"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× daño de ataque (%s ahora) a tu objetivo y a todos los enemigos a %s de él"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "%s× daño de ataque (%s ahora) a tu objetivo actual"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "%s× daño de ataque (%s ahora) a tu objetivo actual: un golpe fuerte a corta distancia"
+
+msgid "SKILL_DESC_STATS"
+msgstr "Objetivos: %s · Alcance: %s · Enfriamiento: %s s"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "tú"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "todos los enemigos del área"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 enemigo"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "propio"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s PV"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s %% de daño"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× daño de ataque"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "Curación se puede usar siempre que te falten PV, incluso fuera de combate."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "Prestigio"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "Canjea %d oportunidad(es) y empieza una nueva partida"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "Eliges una carta permanente por cada una:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 carta"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "PERMANENTE · CONSERVAS"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "SE REINICIA EN ESTA PARTIDA"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "Las cartas se eligen de una en una y se guardan al instante. La partida se reinicia en Invierno I después de la última carta."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "Empezar Prestigio"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "Cartas y conjuntos de prestigio (%d obtenidas) más las nuevas"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "Tus gemas: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "Zonas exploradas del mapa, campamentos avistados y jefes encontrados"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "Todas las mejoras de gemas, la automatización y el espacio de inventario"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "Llaves de jefe, logros de enemigos y Maestría del mapa"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "Configuración y progreso del tutorial"
+
+msgid "RESET_LINE_COINS"
+msgstr "Monedas: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "Nivel del jugador %d (vuelve a 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "Objetos, fusiones y existencias de suministros"
+
+msgid "RESET_LINE_MAPS"
+msgstr "Acceso a mapas (vuelve a Invierno I) y campamentos obtenidos"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "Mejoras de monedas y mejoras de mapa"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "Oportunidades y misiones sin terminar"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "Toca Ver campamento"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "Abre este campamento, donde puedes desbloquearlo."
+
+msgid "HELP"
+msgstr "Ayuda"
+
+msgid "PANEL_HELP"
+msgstr "Ayuda"
+
+msgid "HELP_INTRO"
+msgstr "Un resumen breve de cómo se juega LootFarmer. Leerlo no cambia nada en tu partida."
+
+msgid "HELP_BACK"
+msgstr "Volver a Configuración"
+
+msgid "SECTION_LANGUAGE"
+msgstr "Idioma"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "Probabilidad de crítico"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "Daño crítico"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "Espacios de habilidades automáticas"
+
+msgid "SOURCE_UPGRADES"
+msgstr "Mejoras"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "Habilidades automáticas: %d / %d asignadas"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "Primero equipa una habilidad y compra un espacio automático disponible."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "Fusión automática: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "Tamaño de los espacios del inventario"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "Restaura hasta %s PV (%s %% de los PV máximos). Disponible siempre que te falten PV, incluso fuera de combate."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "Se activa solo en combate y con un enemigo a menos de %s unidades."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "Un solo objetivo. Reduce la velocidad de ataque un %s %% durante %s segundos (jefes: %s segundos). El movimiento no cambia."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "Los jefes resisten la mitad de la duración de los efectos temporales; su fuerza y su daño no cambian."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "Siguiente nivel de maestría: %d / %d usos · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "Uso automático: siempre que te falten PV y el enfriamiento esté listo, incluso fuera de combate."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "Toca un campamento verde para viajar. Los atenuados están bloqueados. No puedes viajar durante un combate."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d s"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "Termina la introducción Guiada en Invierno II antes de usar Prestigio."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "Nivel del jugador %d, la EXP obtenida y las bonificaciones de nivel"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "Maestría de suministros y el progreso hacia su siguiente nivel"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "Elige un campamento"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "Cierra este panel para continuar."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "Toca el botón de cerrar. Tu progreso se guardó."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "Compra una mejora del jugador."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "Elige una mejora global que te ayude en tus próximas batallas."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "Amplía tu inventario de equipo."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "Usa gemas para comprar otro espacio. Un regalo único del tutorial cubre lo que te falte."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "Sigue la flecha hasta el campamento."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "Acércate, descúbrelo y luego toca Ver campamento y compra su desbloqueo."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "Encuentra al primer jefe."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "Sigue la flecha hacia el Muñeco de Nieve. Para descubrirlo no hace falta derrotarlo."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "Prepárate antes de pelear contra el jefe."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "Los jefes pueden ser demasiado fuertes. Sube de nivel para mejorar tus estadísticas globales; farmea equipo, fusiona copias y compra mejoras."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "Farmea algunos enemigos más."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "Gana fuerza y junta monedas antes de seguir."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "Compra una Poción de salud."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "Abre Mejoras del jugador y luego Suministros. Las pociones que ya tienes también cuentan."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "Haz espacio para una Poción de salud."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "Compra un espacio de suministros o usa un suministro que ya tengas para liberar uno."
+
+msgid "GUIDE_POTION_USE"
+msgstr "Usa tu Poción de salud."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "Toca su espacio del inventario cuando te falten PV. Usar un suministro hace avanzar su maestría."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "Usa una poción cuando necesites curarte."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "Primero pelea contra los enemigos cercanos. Con los PV al máximo nunca se desperdicia una poción."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "El prestigio da beneficios permanentes."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "Completa oportunidades para ganar cartas. El modo Guiado desbloquea el reinicio después de este tutorial; puedes seguir jugando sin hacer Prestigio."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "Ya puedes recibir una recompensa de prestigio."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "Tu oportunidad está lista. Termina la introducción Guiada en Invierno II antes de decidir si reinicias."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "El siguiente mapa está abierto."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "Abre Mundo para ver las etapas desbloqueadas y sus campamentos."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "Viaja entre campamentos desbloqueados."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "Mundo te lleva directo cuando hay un solo campamento desbloqueado, o te muestra un mapa cuando hay varios. No puedes teletransportarte en combate."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "Los hitos ofrecen objetivos opcionales."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "Explora la Maestría del mapa y los logros cuando quieras recompensas extra. Sigue por Mundo hasta Invierno II."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "Viaja a Invierno II."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "Abre Mundo y elige Invierno II para seguir la aventura."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "EL CAMINO POR DELANTE"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "Tu meta final es derrotar al jefe final en la etapa 8 y conquistar el juego.\n\n¿Quieres un desafío todavía mayor? Completa el 100 % superando todos los hitos de la Maestría del mapa.\n\nJuega a tu ritmo, disfruta el viaje y ¡mucha suerte!"
+
+msgid "SLOT_SMALL"
+msgstr "Pequeño"
+
+msgid "SLOT_MEDIUM"
+msgstr "Mediano"
+
+msgid "SLOT_LARGE"
+msgstr "Grande"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "General"
+
+msgid "REVIEW_TITLE"
+msgstr "¿Te gusta LootFarmer?"
+
+msgid "REVIEW_LEAD"
+msgstr "¡Tu aventura apenas comienza!"
+
+msgid "REVIEW_BODY"
+msgstr "¿Encontraste buen botín? Nos encantaría saber qué opinas. Una reseña honesta nos ayuda a mejorar LootFarmer y ayuda a otros jugadores a descubrir el juego."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Reseñar en Google Play"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "Reseñar en itch.io"
+
+msgid "REVIEW_LATER"
+msgstr "Quizás más tarde"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "No se pudo abrir la página de la tienda. Revisa tu conexión y vuelve a intentarlo."
+
+msgid "SECTION_FEEDBACK"
+msgstr "Comentarios"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "Apunta a un enemigo"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "Arrastra desde tu héroe hasta un enemigo y suelta para fijarlo como objetivo. Concentrarás tus ataques en el enemigo seleccionado."
+
+msgid "GUIDE_TARGET"
+msgstr "Apunta a un enemigo"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "Arrastra desde tu héroe hasta un enemigo y suelta para fijarlo como objetivo. Concentrarás tus ataques en el enemigo seleccionado."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "Busca un enemigo al que apuntar"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "Camina hasta tener un enemigo a la vista; luego arrastra desde tu héroe hasta él y suelta."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "Caza: %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d pts"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s s"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d h %02d min"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d min %02d s"
+
+msgid "DURATION_SECONDS"
+msgstr "%d s"

@@ -502,6 +502,9 @@ func _refresh_mastery_chip() -> void:
     if text!=mastery_text:
         mastery_text=text
         chip.text=text
+        # Localization Batch 01: "Meisterschaft 34 % · 2/5" steps its font down rather than losing the count.
+        var room: float=chip.size.x-chip.get_theme_stylebox("normal").get_minimum_size().x-chip.get_theme_constant("icon_max_width")-chip.get_theme_constant("h_separation")-4
+        chip.add_theme_font_size_override("font_size",_fitting_font_size(text,room,17,13))
 
 ## Change 16: on Winter I, until the Snowman has been defeated once, a persistent objective sits in
 ## the map cluster: "KEEP FARMING UNTIL YOU CAN BEAT THE BOSS TO ADVANCE." Under the Next Stage chip
@@ -1188,6 +1191,19 @@ func _quit() -> void:
 
 func _notification(what: int) -> void:
     if what==NOTIFICATION_WM_GO_BACK_REQUEST:back()
+    elif what==NOTIFICATION_TRANSLATION_CHANGED and is_node_ready() and sim!=null:_language_changed()
+
+## Localization Batch 01: a language switch redraws everything built in code. Catalog names are
+## re-translated from their keys, the open panel is rebuilt in place, the retained panel is dropped
+## (its rows hold the old language) and the HUD redraws on the next tick.
+func _language_changed() -> void:
+    sim.catalog.relocalize()
+    retained_panel=""
+    elapsed=1.0
+    slot_signatures.clear()
+    $Safe/Layout/Map/ViewCamp.text=tr("VIEW_CAMP")
+    if sheet.visible:_refresh_panel(true)
+    _refresh_slots()
 
 func _unhandled_key_input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):
@@ -1727,13 +1743,16 @@ func _tabs(keys: Array,active: int,callback: Callable) -> void:
     bar.name="Tabs"
     bar.add_theme_constant_override("separation",6)
     rows.add_child(bar)
+    # Localization Batch 01: a label longer than its equal share of the row ("Consommables", "Sin conexión")
+    # steps its font down instead of being cut; the ellipsis remains only as a last resort.
+    var room: float=(maxf(320.0,$Sheet/Margin/Content/Scroll.size.x-24)-6.0*(keys.size()-1))/keys.size()-get_theme_stylebox("normal","Button").get_minimum_size().x-4
     for i in range(keys.size()):
         var button:=Button.new()
         button.text=tr(keys[i])
         button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
         button.custom_minimum_size.y=56
         button.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
-        button.add_theme_font_size_override("font_size",18)
+        button.add_theme_font_size_override("font_size",_fitting_font_size(button.text,room,18,13))
         if i==active:button.theme_type_variation=&"Primary"
         button.set_meta("guide","tab_"+str(keys[i]).to_lower())
         bar.add_child(button)
@@ -1741,6 +1760,13 @@ func _tabs(keys: Array,active: int,callback: Callable) -> void:
             callback.call(i)
             $Sheet/Margin/Content/Scroll.scroll_vertical=0
             _refresh_panel(true))
+
+## Localization Batch 01: the largest font size from max_size down to min_size at which text fits room.
+func _fitting_font_size(text: String,room: float,max_size: int,min_size: int) -> int:
+    var font: Font=get_theme_default_font()
+    var font_size:=max_size
+    while font_size>min_size and font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x>room:font_size-=1
+    return font_size
 
 func _portrait_texture(body: String) -> Texture2D:
     if body in sim.catalog.items:return icon_cache[body]
@@ -1806,8 +1832,9 @@ func _buy_supply_actions(row: Node) -> void:
         var price:=int(sim.supply(id).get("price",0))
         if price>0:_game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),fmt_cost(price)],func()->void:_confirmed(sim.purchase_consumable(id)),true,"",row).set_meta("guide","buy_supply_"+id)
 
-## Compact upgrade card: icon, name, computed benefit, a fixed status line and the buy button.
-## The status line is always present, so a reason never changes the card's height.
+## Compact upgrade card: icon, name, computed benefit, a status line and the buy button.
+## The status line is always present; it wraps rather than cutting off the reason (Localization Batch 01:
+## a longer language would otherwise hide why the upgrade cannot be bought).
 func _group_upgrade_card(id: String,g: int) -> void:
     var def: Dictionary=sim.catalog.upgrades[id]
     var current:=sim.level(id,g)
@@ -1830,7 +1857,7 @@ func _group_upgrade_card(id: String,g: int) -> void:
     status.name="BlockReason"
     status.text=(tr("UPGRADE_LEVEL") % [current,def.cap])+("" if reason.is_empty() or reason=="UPGRADE_MAX" else "  ·  "+tr(reason))
     status.tooltip_text=tr(reason) if not reason.is_empty() else ""
-    status.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+    status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
     status.add_theme_font_size_override("font_size",17)
     status.add_theme_color_override("font_color",Color(1,.72,.45) if not reason.is_empty() and reason!="UPGRADE_MAX" else Color(.7,.75,.82))
     text.add_child(status)
@@ -2386,9 +2413,9 @@ func _short_stat(key: String,value: float) -> String:
 static func fmt_duration(seconds: float) -> String:
     var total:=int(floorf(maxf(0,seconds)))
     var h:=total/3600;var m:=(total%3600)/60;var sec:=total%60
-    if h>0:return "%dh %02dm" % [h,m]
-    if m>0:return "%dm %02ds" % [m,sec]
-    return "%ds" % sec
+    if h>0:return TranslationServer.translate("DURATION_HOURS_MINUTES") % [h,m]
+    if m>0:return TranslationServer.translate("DURATION_MINUTES_SECONDS") % [m,sec]
+    return TranslationServer.translate("DURATION_SECONDS") % sec
 
 func _stat_text(key: String,value: float,bonus: bool=false) -> String:
     if key=="regen_pct":return "%s  %s%% %s" % [tr("STAT_REGEN_PCT"),fmt_value(value*100),tr("MAX_HP_PER_SECOND")]
@@ -2435,12 +2462,23 @@ func _settings_panel() -> void:
     for button in mutes.get_children():
         button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
     _text(tr("AUDIO_HINT"),16,Color(.7,.75,.82))
-    # Change 16: only the languages that can be chosen today are listed (no development notice).
+    # Localization Batch 01 (Playbook 132.2, audit LOC-02): Automatic, English and the other 19 release
+    # languages are all listed; a language that has not passed the global gate is shown disabled, without a
+    # development notice (Change 16). The current choice is highlighted. Probes and captures can unlock a
+    # validated batch (LocalizationService).
     _section(tr("SECTION_LANGUAGE"))
-    _action(tr("LANG_AUTOMATIC"),func()->void:LocalizationService.select_language("automatic"))
-    for locale in LocalizationService.RELEASE_LANGUAGES:
-        if locale in LocalizationService.available_languages():
-            _action(tr("LANG_"+locale.to_upper()),func()->void:LocalizationService.select_language(locale))
+    var languages:=HFlowContainer.new()
+    languages.add_theme_constant_override("h_separation",8)
+    languages.add_theme_constant_override("v_separation",8)
+    rows.add_child(languages)
+    var open_languages:=LocalizationService.available_languages()
+    for choice in ["automatic"]+LocalizationService.RELEASE_LANGUAGES:
+        var language: String=choice
+        var button:=_action(tr("LANG_"+language.to_upper()),func()->void:LocalizationService.select_language(language),true,"",languages)
+        button.disabled=language!="automatic" and not language in open_languages
+        button.theme_type_variation=&"Primary" if language==SettingsState.selected_language else &""
+        button.set_meta("language",language)
+        button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(150,64)
     _section(tr("SECTION_DANGER"))
     _action(tr("HARD_RESET"),func()->void:_confirm(tr("RESET_CONFIRM"),func()->void:SaveService.hard_reset();_close()))
     _text(tr("CREDITS"),17,Color(.7,.75,.82))

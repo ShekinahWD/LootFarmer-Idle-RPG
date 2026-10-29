@@ -1,0 +1,9 @@
+{
+ "CHAIN_PROGRESS": "Step %d/%d · %s · %d/%d",
+ "CHAIN_GOAL_KILL_TARGET": "Hunt %s",
+ "CARD_VALUE_POINTS": "+%d pts",
+ "CARD_VALUE_SECONDS": "−%ss",
+ "DURATION_HOURS_MINUTES": "%dh %02dm",
+ "DURATION_MINUTES_SECONDS": "%dm %02ds",
+ "DURATION_SECONDS": "%ds"
+}

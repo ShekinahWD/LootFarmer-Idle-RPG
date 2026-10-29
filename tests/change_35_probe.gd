@@ -461,7 +461,11 @@ func catalog_checks() -> void:
     for key in keys:
         if tr(key)!=keys[key] or not po.contains("msgid \"%s\"" % key) or "%" in keys[key] or "--" in keys[key]:ok=false
     check(ok and keys.size()==14,"All 14 new English strings in en.po, no placeholders, no double dashes")
-    check(DirAccess.get_files_at("res://localization").size()==1 and LocalizationService.available_languages()==(["en_US"] as Array[String]),"Only English is shipped and selectable (the 19 languages are not imported)")
+    # Localization Batch 01 (Change 38): translation catalogs may sit in localization/ (complete test-only
+    # batches and the developer's drafts); what matters is what a player can reach: only en.po is registered
+    # in project.godot and only English is selectable without the probe-only override.
+    var registered: PackedStringArray=ProjectSettings.get_setting("internationalization/locale/translations")
+    check(registered==PackedStringArray(["res://localization/en.po"]) and LocalizationService.available_languages()==(["en_US"] as Array[String]) and not LocalizationService.select_language("de_DE"),"Only English is shipped and selectable (the other 19 languages stay behind the release gate)")
     var text: String=tr("REVIEW_BODY")+" "+tr("REVIEW_TITLE")+" "+tr("REVIEW_LEAD")
     var lower:=text.to_lower()
     check(lower.contains("honest") and not lower.contains("5 star") and not lower.contains("five star") and not lower.contains("reward") and not lower.contains("gem"),"The request is for an honest review: no stars, rewards or pressure")

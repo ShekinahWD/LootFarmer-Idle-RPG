@@ -28,7 +28,7 @@ func setup(id: String,definition: Dictionary,path_info: Dictionary,state: String
 static func headline(definition: Dictionary) -> String:
     var value: float=float(definition.value)
     match str(definition.effect):
-        "crit","gear_chance","supply_chance","gem_chance":return "+%d pts" % roundi(value*100)
+        "crit","gear_chance","supply_chance","gem_chance":return TranslationServer.translate("CARD_VALUE_POINTS") % roundi(value*100)
         "boss_guard","guard","coin_discount","reroll_discount","camp_discount":return "−%d%%" % roundi(value*100)
-        "respawn":return "−%ss" % str(snappedf(value,.1)).trim_suffix(".0")
+        "respawn":return TranslationServer.translate("CARD_VALUE_SECONDS") % str(snappedf(value,.1)).trim_suffix(".0")
     return "+%d%%" % roundi(value*100)

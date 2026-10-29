@@ -11,6 +11,9 @@ var first_run_complete: bool = false
 ## Change 35: a storefront named for a probe or capture (--store-channel=google_play|itch_io|none).
 ## Accepted only together with a test profile, so a release build always reads its export tag.
 var store_channel_override: String = ""
+## Localization Batch 01: a translation batch unlocked for a probe or capture (--test-languages=batch01).
+## Accepted only together with a test profile; normal players keep the English-only gate (Playbook 132.5).
+var test_languages: String = ""
 
 
 func _init() -> void:
@@ -28,6 +31,8 @@ func _init() -> void:
             first_run_complete = true
         elif argument.begins_with("--store-channel="):
             store_channel_override = argument.trim_prefix("--store-channel=")
+        elif argument.begins_with("--test-languages="):
+            test_languages = argument.trim_prefix("--test-languages=")
         elif argument.begins_with("--profile="):
             var requested := argument.trim_prefix("--profile=")
             if _valid_test_profile(requested):
@@ -40,6 +45,7 @@ func _init() -> void:
     if not is_probe:
         first_run_complete = false
         store_channel_override = ""
+        test_languages = ""
 
 
 func _valid_test_profile(value: String) -> bool:

@@ -1,0 +1,5834 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: fr_FR\n"
+"Language-Team: French (France)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 01 (Change 38)\n"
+"X-LootFarmer-Source: localization/en.po 4440b694b8661a34e54e02ae9a1eeee4c517284cfa753272082ab321f26ffaf4\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Démarrage Android"
+
+msgid "BOOT_DETAIL"
+msgstr "Point de contrôle 0 • Le gameplay n’est pas encore implémenté."
+
+msgid "BOOT_VERSION"
+msgstr "Version %s"
+
+msgid "BOOT_TAPS"
+msgstr "Touchers enregistrés : %d"
+
+msgid "BOOT_TAP"
+msgstr "Tester un toucher et sauvegarder"
+
+msgid "BOOT_SAVED"
+msgstr "Sauvegarde terminée"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "Sauvegarde impossible. Consultez le journal de validation."
+
+msgid "BOOT_PAUSE"
+msgstr "Pause"
+
+msgid "BOOT_RESUME"
+msgstr "Reprendre"
+
+msgid "BOOT_RESET"
+msgstr "Réinitialisation totale"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "Réinitialiser la progression ?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "Toute la progression de ce profil sera effacée. Vos paramètres sont conservés."
+
+msgid "UI_CONFIRM"
+msgstr "Réinitialiser"
+
+msgid "UI_CANCEL"
+msgstr "Annuler"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "Langue"
+
+msgid "LANG_AUTOMATIC"
+msgstr "Automatique"
+
+msgid "LANG_DISABLED"
+msgstr "Disponible après validation de la traduction"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "L’anglais est activé. Les autres langues seront débloquées après validation."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "Une sauvegarde illisible ou plus récente a été préservée. Restaurez une copie compatible ou réinitialisez volontairement ce profil."
+
+msgid "LANG_EN_US"
+msgstr "Anglais"
+
+msgid "LANG_ES_419"
+msgstr "Espagnol (Amérique latine)"
+
+msgid "LANG_ES_ES"
+msgstr "Espagnol (Espagne)"
+
+msgid "LANG_PT_BR"
+msgstr "Portugais (Brésil)"
+
+msgid "LANG_FR_FR"
+msgstr "Français"
+
+msgid "LANG_DE_DE"
+msgstr "Allemand"
+
+msgid "LANG_IT_IT"
+msgstr "Italien"
+
+msgid "LANG_NL_NL"
+msgstr "Néerlandais"
+
+msgid "LANG_PL_PL"
+msgstr "Polonais"
+
+msgid "LANG_RU_RU"
+msgstr "Russe"
+
+msgid "LANG_UK_UA"
+msgstr "Ukrainien"
+
+msgid "LANG_TR_TR"
+msgstr "Turc"
+
+msgid "LANG_ID_ID"
+msgstr "Indonésien"
+
+msgid "LANG_VI_VN"
+msgstr "Vietnamien"
+
+msgid "LANG_TH_TH"
+msgstr "Thaï"
+
+msgid "LANG_HI_IN"
+msgstr "Hindi"
+
+msgid "LANG_JA_JP"
+msgstr "Japonais"
+
+msgid "LANG_KO_KR"
+msgstr "Coréen"
+
+msgid "LANG_ZH_CN"
+msgstr "Chinois (simplifié)"
+
+msgid "LANG_ZH_TW"
+msgstr "Chinois (traditionnel)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "Pièces %s     Gemmes %s"
+
+msgid "PAUSE"
+msgstr "Pause"
+
+msgid "RESUME"
+msgstr "Reprendre"
+
+msgid "PLAYER_STATUS"
+msgstr "PV %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "Retour au camp dans %.1f s"
+
+msgid "BOOST_ACTIVE"
+msgstr "Bonus de pièces %d s"
+
+msgid "GROUP_0"
+msgstr "Prairie des Pousses"
+
+msgid "GROUP_1"
+msgstr "Carrefour des Robots"
+
+msgid "GROUP_2"
+msgstr "Bosquet des Dinosaures"
+
+msgid "GROUP_3"
+msgstr "Clairière de la Mort"
+
+msgid "CLOSE"
+msgstr "Fermer"
+
+msgid "CONFIRM"
+msgstr "Confirmer"
+
+msgid "CANCEL"
+msgstr "Annuler"
+
+msgid "LEVEL"
+msgstr "NIVEAU"
+
+msgid "INVENTORY_HEADING"
+msgstr "Équipement"
+
+msgid "SUPPLY_HEADING"
+msgstr "Consommables"
+
+msgid "GEAR_CAPACITY"
+msgstr "ÉQUIPEMENT  %d / %d  ·  touchez pour examiner"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "CONSOMMABLES  %d / %d  ·  touchez pour utiliser ou automatiser"
+
+msgid "EMPTY_SLOT"
+msgstr "Vide"
+
+msgid "EQUIPPED"
+msgstr "Équipé"
+
+msgid "AUTO"
+msgstr "Auto"
+
+msgid "UPGRADES"
+msgstr "Améliorations"
+
+msgid "WORLD"
+msgstr "Monde"
+
+msgid "STATS"
+msgstr "Statistiques"
+
+msgid "SETTINGS"
+msgstr "Paramètres"
+
+msgid "PANEL_ITEM"
+msgstr "Objet"
+
+msgid "PANEL_UPGRADES"
+msgstr "Améliorations du joueur"
+
+msgid "PANEL_TRAVEL"
+msgstr "Camps et farm"
+
+msgid "PANEL_STATS"
+msgstr "Votre build"
+
+msgid "PANEL_SETTINGS"
+msgstr "Paramètres"
+
+msgid "PANEL_HISTORY"
+msgstr "Acquisitions récentes"
+
+msgid "PANEL_PRESTIGE"
+msgstr "Un nouveau départ"
+
+msgid "HELP_0"
+msgstr "Utilisez le joystick pour explorer vers le nord. Relâchez-le pour combattre automatiquement les ennemis proches."
+
+msgid "HELP_1"
+msgstr "Les Pousses combattent seules. Restez près d’elles pour farmer ; touchez l’équipement lâché pour le ramasser."
+
+msgid "HELP_2"
+msgstr "Touchez un objet au sol. Les pièces et les gemmes vont directement dans votre bourse."
+
+msgid "HELP_3"
+msgstr "Touchez votre nouvel équipement en bas, puis équipez-le. Vous pouvez porter une tenue et une arme."
+
+msgid "HELP_4"
+msgstr "Fusionnez un doublon pour renforcer ce type d’objet. Sa progression est conservée même si votre stock tombe à zéro."
+
+msgid "HELP_5"
+msgstr "Ouvrez un type d’ennemi et achetez le ramassage auto pour récupérer son butin pendant que vous farmez."
+
+msgid "HELP_6"
+msgstr "Développez votre build, explorez vers le nord et vainquez la Mort. Le monde est ouvert dès le départ."
+
+msgid "HELP_7"
+msgstr "Vos bonus permanents restent acquis. Préparez une partie plus forte et défiez à nouveau la Mort."
+
+msgid "HELP_VICTORY"
+msgstr "La Mort est vaincue ! Continuez à farmer ou choisissez une carte de prestige dans Monde."
+
+msgid "HELP_PAUSED"
+msgstr "En pause · la gestion de l’inventaire reste possible. Reprenez pour continuer à farmer."
+
+msgid "HISTORY_EMPTY"
+msgstr "Vos dernières trouvailles apparaissent ici.\nTouchez pour voir les dix dernières."
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s gemmes"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "Vendu : %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "Épée en bois"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "Épée en pierre"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "Épée en fer"
+
+msgid "ITEM_SPROUT"
+msgstr "Tenue de Pousse"
+
+msgid "ITEM_ROBOT"
+msgstr "Tenue de Robot"
+
+msgid "ITEM_DINOSAUR"
+msgstr "Tenue de Dinosaure"
+
+msgid "ITEM_POTION"
+msgstr "Potion de soin"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "Tonique de pièces"
+
+msgid "ITEM_QUANTITY"
+msgstr "Possédés : %s"
+
+msgid "NORMAL_STATS"
+msgstr "Statistiques normales · améliorées par fusion"
+
+msgid "EXTRA_STATS"
+msgstr "Statistiques bonus · partagées par ce type d’objet"
+
+msgid "EQUIP"
+msgstr "Équiper"
+
+msgid "UNEQUIP"
+msgstr "Retirer"
+
+msgid "REROLL"
+msgstr "Relancer les deux bonus · %s gemmes"
+
+msgid "REROLL_CONFIRM"
+msgstr "Dépenser %s gemmes pour remplacer les deux statistiques bonus ? Le nouveau tirage remplace l’ancien, même s’il est plus faible."
+
+msgid "USE"
+msgstr "En utiliser un"
+
+msgid "MERGE_ONE"
+msgstr "Fusionner une copie en trop"
+
+msgid "MERGE_ALL"
+msgstr "Fusionner %d copies en trop"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "À ^100, dépensez 100 copies en trop pour obtenir un objet du rang suivant. Vous gardez l’objet d’origine et son niveau de fusion. Il faut une pile de l’objet obtenu ou un emplacement vide de la même catégorie."
+
+msgid "EVOLVE"
+msgstr "Faire évoluer → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "Activer ou désactiver l’automatisation de cet emplacement"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "Utiliser cet emplacement automatiquement : %s"
+
+msgid "ON"
+msgstr "Oui"
+
+msgid "OFF"
+msgstr "Non"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "Cet emplacement est vide. Un nouveau type d’objet demande un emplacement vide ; les types déjà possédés s’empilent."
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "Les améliorations de groupe s’appliquent à tous ses membres. Chaque ennemi tire son propre butin. Pièces et gemmes sont créditées immédiatement."
+
+msgid "GROUP_SELECT"
+msgstr "Groupe d’ennemis : %s · touchez pour changer"
+
+msgid "AUTOMATION_HEADING"
+msgstr "Inventaire et automatisation · conservés au prestige"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "pièces"
+
+msgid "GEMS"
+msgstr "gemmes"
+
+msgid "TRAVEL_HELP"
+msgstr "Touchez un camp sur la carte pour choisir votre point de réapparition. Le débloquer depuis le panneau d’un camp le sélectionne aussi. Pas de téléportation."
+
+msgid "SPAWN_SELECT"
+msgstr "Choisir le camp %d"
+
+msgid "SPAWN_BUY"
+msgstr "Débloquer le camp %d · %s pièces"
+
+msgid "SELECTED"
+msgstr "Sélectionné"
+
+msgid "FOCUS_HELP"
+msgstr "Débloquez le farm par type d’ennemi, puis choisissez tenue seule, arme seule ou les deux. Après une mort, vous revenez à ce camp. Se déplacer manuellement annule le farm."
+
+msgid "FOCUS_GROUP"
+msgstr "Farmer %s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "Choisissez une carte de prestige"
+
+msgid "PRESTIGE_COUNT"
+msgstr "Prestiges effectués : %d"
+
+msgid "NO_OFFLINE"
+msgstr "La progression est sauvegardée. Les récompenses hors ligne sont prévues pour le jeu complet ; cette version ne simule rien quand elle est fermée ou en arrière-plan."
+
+msgid "SAVE_NOW"
+msgstr "Sauvegarder"
+
+msgid "HARD_RESET"
+msgstr "Réinitialisation totale"
+
+msgid "RESET_CONFIRM"
+msgstr "Effacer toute la progression, l’inventaire, l’automatisation et les cartes de prestige ? Les paramètres seront conservés. Action irréversible."
+
+msgid "LANGUAGE_NOTE"
+msgstr "L’anglais est disponible pendant le développement. Les 19 autres langues seront débloquées après validation des traductions."
+
+msgid "CREDITS"
+msgstr "Personnages et décors : Pixel Plains par SnowHex. Interface : Kenney Fantasy UI Borders (CC0)."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "Choisissez une carte permanente de +5 %. Les bonus se cumulent d’une partie à l’autre. Vous pouvez fermer ce panneau et continuer à farmer."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "Commencer une nouvelle partie avec cette carte permanente ? Sont réinitialisés : monnaies, inventaire, fusions et bonus des objets, améliorations de farm des ennemis et camps. Sont conservés : les infos révélées sur les ennemis, les niveaux d’automatisation, les capacités d’inventaire et toutes les cartes de prestige."
+
+msgid "CARD_DAMAGE"
+msgstr "+5 % de dégâts · permanent"
+
+msgid "CARD_HP"
+msgstr "+5 % de santé maximale · permanent"
+
+msgid "CARD_COINS"
+msgstr "+5 % de pièces · permanent"
+
+msgid "CARD_GEMS"
+msgstr "+5 % de chance de gemmes (relative) · permanent"
+
+msgid "CARD_LOOT"
+msgstr "+5 % de chance de butin d’équipement (relative) · permanent"
+
+msgid "CARD_MERGE"
+msgstr "+5 % aux gains de statistiques normales par fusion · permanent"
+
+msgid "STAT_HP"
+msgstr "Santé maximale"
+
+msgid "STAT_DAMAGE"
+msgstr "Dégâts"
+
+msgid "STAT_DEFENSE"
+msgstr "Défense"
+
+msgid "STAT_CRIT"
+msgstr "Chance de critique"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "Multiplicateur critique"
+
+msgid "STAT_LIFESTEAL"
+msgstr "Vol de vie"
+
+msgid "STAT_REGEN"
+msgstr "Santé par seconde"
+
+msgid "STAT_SPEED"
+msgstr "Bonus de vitesse d’attaque"
+
+msgid "STAT_HEAL"
+msgstr "Soin"
+
+msgid "STAT_COIN_BONUS"
+msgstr "Bonus de pièces"
+
+msgid "NEED_DUPLICATES"
+msgstr "Il vous faut une copie en trop pour fusionner."
+
+msgid "MERGE_MAX"
+msgstr "Cet objet est à ^100."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "L’évolution exige ^100 et 101 copies d’origine."
+
+msgid "INVENTORY_FULL"
+msgstr "Aucun emplacement vide. Libérez de la place ou agrandissez cet inventaire."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "Débloquez cette automatisation dans Améliorations."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "Débloquez un autre emplacement d’utilisation auto dans Améliorations."
+
+msgid "CANNOT_USE"
+msgstr "Aucun consommable utilisable, ou votre personnage est mort."
+
+msgid "UPGRADE_MAX"
+msgstr "MAX"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "Pas assez de pièces."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "Pas assez de gemmes."
+
+msgid "SPAWN_BOUGHT"
+msgstr "Camp débloqué. Sélectionnez-le pour y réapparaître."
+
+msgid "EVOLVED"
+msgstr "Objet du rang suivant obtenu. Votre progression d’origine est conservée."
+
+msgid "PLAYER_DIED"
+msgstr "Retour à votre camp sélectionné. Rien n’est perdu."
+
+msgid "BOSS_DEFEATED"
+msgstr "La Mort est vaincue ! Une carte de prestige permanente vous attend."
+
+msgid "PRESTIGED"
+msgstr "Une nouvelle partie commence. Vos bonus permanents restent acquis."
+
+msgid "SAVED"
+msgstr "Progression sauvegardée."
+
+msgid "SAVE_ERROR"
+msgstr "Sauvegarde impossible. Votre progression reste en mémoire ; réessayez."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "La sauvegarde n’a pas pu être chargée sans risque. La sauvegarde est désactivée jusqu’à une réinitialisation totale volontaire."
+
+msgid "ACTION_PREVIEW"
+msgstr "Action · coût et effet"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "Emplacements d’équipement +1 (max. 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "Emplacements de consommables +1 (un par type)"
+
+msgid "UP_COLLECT"
+msgstr "Débloquer le ramassage auto"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "Portée de ramassage +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "Lot de ramassage +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "Intervalle de ramassage −1 s"
+
+msgid "UP_MERGE_GEAR"
+msgstr "Débloquer la fusion auto de l’équipement"
+
+msgid "UP_AUTO_USE"
+msgstr "Emplacements de consommables auto +1"
+
+msgid "UP_USE_SPEED"
+msgstr "Intervalle d’utilisation auto −1 s"
+
+msgid "UP_FOCUS"
+msgstr "Débloquer le farm ciblé"
+
+msgid "UP_RESPAWN"
+msgstr "Délai de réapparition −1 s"
+
+msgid "UP_LOOT"
+msgstr "Chance de butin d’équipement +0,5 point (par objet)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "Chance de pièces"
+
+msgid "UP_GEM_CHANCE"
+msgstr "Chance globale de gemmes"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "Pièces par ennemi +50 %"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "Gemmes par butin (les boss donnent ×3)"
+
+msgid "CHAT_SURPRISE"
+msgstr "Hé ! Attention !"
+
+msgid "RECENT_HEADER"
+msgstr "Trouvailles récentes · touchez pour l’historique"
+
+msgid "ZOOM_IN"
+msgstr "Zoom avant"
+
+msgid "ZOOM_OUT"
+msgstr "Zoom arrière"
+
+msgid "CAMERA_ZOOM"
+msgstr "Zoom de la caméra"
+
+msgid "PANEL_ENEMY"
+msgstr "Ennemi"
+
+msgid "PANEL_CAMP"
+msgstr "Camp de réapparition"
+
+msgid "TAB_AUTOMATION"
+msgstr "Automatisation"
+
+msgid "TAB_INVENTORY"
+msgstr "Inventaire"
+
+msgid "TAB_SUPPLIES"
+msgstr "Consommables"
+
+msgid "TAB_OVERVIEW"
+msgstr "Aperçu"
+
+msgid "TAB_UPGRADES"
+msgstr "Améliorations"
+
+msgid "UP_REVEAL_STATS"
+msgstr "Révéler les statistiques · permanent"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "Révéler le butin · permanent"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "STATISTIQUES DE L’ENNEMI"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "BUTIN POSSIBLE"
+
+msgid "UNKNOWN_STATS"
+msgstr "PV ???   •   Dégâts ???\nIntervalle d’attaque ???   •   Défense ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "PV %s   •   Dégâts %s\nAttaque toutes les %s s   •   Défense %s"
+
+msgid "DROP_COINS"
+msgstr "Pièces ×%s · garanties"
+
+msgid "DROP_GEMS"
+msgstr "Gemmes · %s %% de chance · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s %%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "Un tirage d’équipement choisit l’un des deux objets d’équipement. Les gemmes et les consommables sont tirés séparément. Les chances incluent vos améliorations actuelles."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 point de pourcentage / niveau · max. +15"
+
+msgid "ENEMY_CAT"
+msgstr "Chat invoqué"
+
+msgid "CAT_DETAILS"
+msgstr "Sbire invoqué par la Mort.\nNe lâche rien et n’a pas d’amélioration de groupe."
+
+msgid "CAMP_NAME"
+msgstr "Camp %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "Touchez pour choisir"
+
+msgid "CAMP_LOCKED"
+msgstr "Verrouillé · touchez pour débloquer"
+
+msgid "CAMP_HELP"
+msgstr "Les camps sont des points de réapparition. Reposez-vous près d’un camp débloqué pour récupérer vite. Débloquer, choisir pour réapparaître et voyager sont des actions distinctes. Près d’un camp, un bouton Voir le camp apparaît."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "Camp de réapparition sélectionné."
+
+msgid "OPEN_PLAYER"
+msgstr "Améliorations du joueur"
+
+msgid "OPEN_GROUP"
+msgstr "Examiner : %s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "Faux d’onyx"
+
+msgid "ITEM_REAPER"
+msgstr "Tenue de la Faucheuse"
+
+msgid "VARIANT_OUTFIT"
+msgstr "Tenue"
+
+msgid "VARIANT_WEAPON"
+msgstr "Arme"
+
+msgid "VARIANT_BOTH"
+msgstr "Les deux"
+
+msgid "ITEM_DETAILS"
+msgstr "Détails de l’objet"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "Niveau supérieur !"
+
+msgid "GEAR"
+msgstr "Équipement"
+
+msgid "CONSUMABLES"
+msgstr "Consommables"
+
+msgid "HUD_HP"
+msgstr "PV %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "Réanimation dans %.1f s"
+
+msgid "HUD_LEVEL"
+msgstr "NIVEAU %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "Équipement %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "Consommables %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "FUSION %d"
+
+msgid "ITEM_OWNED"
+msgstr "Possédés : %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "Équipé · contribution 100 %"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "Stocké · contribution 30 % (une fois par type d’arme)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "Fusionner"
+
+msgid "LESS_OPTIONS"
+msgstr "Moins d’options"
+
+msgid "MORE_OPTIONS"
+msgstr "Plus d’options"
+
+msgid "LOOT_HISTORY"
+msgstr "Historique du butin"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "NIVEAU %d / 1 000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "NIVEAU %d · Santé et dégâts augmentés"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "Touchez un consommable pour l’utiliser · Maintenez pour les détails"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "Prochaine fusion : +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "Succès"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "Partagées par tous les camps de ce type d’ennemi. Les améliorations de ramassage sont conservées ; les autres améliorations du type sont réinitialisées au prestige."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 point de pourcentage / niveau · max. +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "+10 % d’XP / niveau · max. +200 %"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "Chance de butin de consommables +1 point"
+
+msgid "UP_GROUP_XP"
+msgstr "Expérience +10 %"
+
+msgid "GROUP_XP_VALUE"
+msgstr "XP par élimination : %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "Paliers d’éliminations permanents, partagés entre les camps de ce type d’ennemi. Les récompenses s’appliquent automatiquement et survivent au prestige."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "Contre ce type : +%.0f %% de dégâts · +%.1f points de pourcentage de chance de gemmes"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · %d éliminations\nRécompense : +%.0f %% de dégâts et +%.1f points de pourcentage de chance de gemmes contre ce type"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "Terminé"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "Succès d’éliminations"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%.0f %% de dégâts · +%.1f pts de chance de gemmes"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "Fusionne automatiquement les armes et les tenues de ce type d’ennemi."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "+%s pièces par élimination / niveau"
+
+msgid "ACTION_PAUSED"
+msgstr "Indisponible en pause"
+
+msgid "ACTION_SUSPENDED"
+msgstr "Indisponible quand l’appli est inactive"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "Conditions non remplies"
+
+msgid "VALUE_MAX"
+msgstr "MAX"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s XP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s s"
+
+msgid "HP_PER_SECOND"
+msgstr "PV/s"
+
+msgid "STAT_SOURCES"
+msgstr "D’où viennent vos statistiques"
+
+msgid "SOURCE_BASE"
+msgstr "Statistiques de base"
+
+msgid "SOURCE_LEVEL"
+msgstr "Niveaux du joueur"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "Équipement porté"
+
+msgid "SOURCE_STORED"
+msgstr "Équipement stocké"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "Bonus permanents : PV ×%s · Dégâts ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "Les totaux ci-dessus tiennent compte des plafonds : chance de critique 75 %, dégâts critiques ×4, vol de vie 15 %, bonus de vitesse d’attaque 200 %."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "Tirage de consommable : %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "Tonique : %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · Rang %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "Rang %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · R%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "Gemmes"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "S’applique à tous les ennemis. Réinitialisé au prestige. Les bonus de succès restent propres à chaque type."
+
+msgid "FARM_VARIANT"
+msgstr "Farmer %s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "Farm sélectionné : %s. Vous revenez ici après une réapparition."
+
+msgid "MAX_ITEM_TIER"
+msgstr "Rang final atteint. La fusion reste possible jusqu’à ^100."
+
+msgid "TAB_PLAYER"
+msgstr "Joueur"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "Ennemis par zone"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "Délai de réapparition des ennemis"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "Chance de gemmes des boss"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "Gemmes bonus des boss par butin"
+
+msgid "TRAVEL_COMBAT"
+msgstr "Terminez le combat avant de voyager."
+
+msgid "TRAVEL_CAMP"
+msgstr "Voyager · %s · Camp %d"
+
+msgid "STAGE_LOCKED"
+msgstr "Vainquez d’abord les boss gardiens de la zone."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "Explorez d’abord ce camp."
+
+msgid "STAGE_UNLOCKED"
+msgstr "Zone suivante débloquée !"
+
+msgid "FINAL_DISCOVERED"
+msgstr "Le gardien final est scellé. Vainquez les 13 autres boss pour obtenir leurs clés. Les clés obtenues sont conservées au prestige."
+
+msgid "WORLD_COMPLETE"
+msgstr "Tous les ennemis de Printemps II sont vaincus : mission finale accomplie !"
+
+msgid "UNDISCOVERED"
+msgstr "Inexploré"
+
+msgid "ENEMY_LEVEL"
+msgstr "Niveau %d"
+
+msgid "ALL_ITEMS"
+msgstr "Tout"
+
+msgid "WEAPONS"
+msgstr "Armes"
+
+msgid "OUTFITS"
+msgstr "Tenues"
+
+msgid "SKILLS"
+msgstr "Compétences"
+
+msgid "VARIANT_SKILL"
+msgstr "Élite"
+
+msgid "SKILL_EMPTY"
+msgstr "Emplacement de compétence %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "Une compétence de cette famille est déjà équipée."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "Retirez une compétence ou débloquez un autre emplacement."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "Équiper dans l’emplacement %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "Lancement auto de l’emplacement %d : %s"
+
+msgid "STOCK_BONUS"
+msgstr "Bonus de copies en trop : +%s %% de puissance intrinsèque. Vous gardez les copies."
+
+msgid "CLAIM"
+msgstr "Récupérer"
+
+msgid "CLAIM_REWARD"
+msgstr "Récupérer · %s pièces · %s gemmes"
+
+msgid "MISSION_AUTO"
+msgstr "Récupération auto : %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "OUI"
+
+msgid "STATE_OFF_CAPS"
+msgstr "NON"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "Récupère les missions ordinaires terminées (y compris les emplacements achetés), PAS les objectifs principaux. Après l’achat, activez la Récupération auto dans Missions."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "La Récupération auto est débloquée mais DÉSACTIVÉE. Touchez l’interrupteur ci-dessous pour récupérer les missions ordinaires. Les objectifs principaux restent manuels."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "La Récupération auto peut être activée"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "Ouvrez Missions, puis activez la Récupération auto. Elle est désactivée après l’achat."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "Activez la Récupération auto"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "Vous avez débloqué la récupération auto. Touchez « Récupération auto : NON » ici pour l’activer. Les objectifs principaux restent toujours manuels."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "Déplier les cartes de la zone"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "Replier les cartes de la zone"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "Terminez d’abord cet objectif."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "Une nouvelle tâche arrive à minuit (heure locale)."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "Objectifs principaux"
+
+msgid "KEY_PROGRESS"
+msgstr "Clés de boss : %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "Boss gardiens vaincus : %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "%s pièces/h · %s gemmes/h · récompense plafonnée à %s h"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "Bon retour ! %s heures récompensées · %s pièces · %s gemmes"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "Terminez d’abord de choisir vos récompenses de prestige."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "Nouvelle opportunité de prestige découverte."
+
+msgid "PRESTIGE_BATCH"
+msgstr "Prestige · %d carte(s)"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "Choisissez une carte unique pour chaque opportunité prête, puis réinitialisez la partie une seule fois. Objets, pièces, camps, brouillard et améliorations de pièces sont réinitialisés. Clés, succès, cartes et améliorations de gemmes sont conservés."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "Garder %s pour toujours ? Ce choix est enregistré maintenant et ne pourra pas être modifié."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "Choisissez la carte %d sur %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "Cartes uniques : %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "Terminez d’abord une opportunité de prestige découverte."
+
+msgid "IN_PROGRESS"
+msgstr "En cours"
+
+msgid "FOLLOW"
+msgstr "Suivre"
+
+msgid "UNFOLLOW"
+msgstr "Ne plus suivre"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "Remettre les objets ou la monnaie demandés"
+
+msgid "CONTRACT_NEEDS"
+msgstr "Obtenez les copies demandées en jeu et gardez-en une de chaque."
+
+msgid "OFFERING_NEEDS"
+msgstr "Il vous faut le solde demandé et de la monnaie gagnée en jeu non dépensée."
+
+msgid "OWNED_CARDS"
+msgstr "Cartes possédées"
+
+msgid "COMBOS"
+msgstr "Ensembles de cartes"
+
+msgid "PANEL_INVENTORY"
+msgstr "Inventaire"
+
+msgid "PANEL_MAP"
+msgstr "Carte"
+
+msgid "PANEL_MISSIONS"
+msgstr "Missions"
+
+msgid "PANEL_OFFLINE"
+msgstr "Récompenses hors ligne"
+
+msgid "GOAL_KILL"
+msgstr "Chasse"
+
+msgid "GOAL_BOSS"
+msgstr "Chasse aux boss"
+
+msgid "GOAL_GEAR"
+msgstr "Récolter de l’équipement"
+
+msgid "GOAL_MERGE"
+msgstr "Fusionner"
+
+msgid "GOAL_COINS"
+msgstr "Gagner des pièces"
+
+msgid "GOAL_CAST"
+msgstr "Lancer des compétences"
+
+msgid "GOAL_WAITING"
+msgstr "Explorez pour trouver un autre objectif"
+
+msgid "STAT_POWER"
+msgstr "Puissance"
+
+msgid "INTRINSIC_POWER"
+msgstr "Intrinsèque %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "Le rang suivant démarre à 85 % de la puissance intrinsèque ^100 de ce rang, avant les bonus de stock et externes."
+
+msgid "MAP_FARMING"
+msgstr "%s · %d zones · %d par zone · réapparition %s s"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "Types de la zone finale vaincus : %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "Rayon de révélation des camps"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "Rayon de révélation du joueur"
+
+msgid "UP_MAP_DETAIL"
+msgstr "Détail de la carte"
+
+msgid "UP_MOVEMENT"
+msgstr "Vitesse de déplacement +10 %"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "Intervalle de fusion auto −1 s"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "Débloquer la récupération auto des missions"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "Emplacements de mission"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "Emplacements de compétence équipée"
+
+msgid "UP_SKILL_DROP"
+msgstr "Chance de butin de compétence"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "Durée des récompenses hors ligne"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "Pièces hors ligne par heure"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "Gemmes hors ligne par heure"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "Débloquer les armes hors ligne"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "Débloquer les tenues hors ligne"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "Débloquer les consommables hors ligne"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "Armes hors ligne par heure"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "Tenues hors ligne par heure"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "Consommables hors ligne par heure"
+
+msgid "MAP_LEGEND"
+msgstr "Le terrain exploré reste dégagé ; le terrain proche n’est visible que lorsque vous y êtes. Les camps se repèrent de plus loin."
+
+msgid "MINIMAP"
+msgstr "Carte"
+
+msgid "SKILL_TUTORIAL"
+msgstr "Les ennemis d’élite portent une arme, une tenue et une compétence. Chaque butin a son propre tirage. Équipez une compétence depuis votre inventaire et touchez son bouton pour la lancer."
+
+msgid "MAIN_0"
+msgstr "Vaincre 5 ennemis normaux"
+
+msgid "MAIN_1"
+msgstr "Équiper votre premier objet"
+
+msgid "MAIN_2"
+msgstr "Fusionner un doublon"
+
+msgid "MAIN_3"
+msgstr "Débloquer un camp supplémentaire"
+
+msgid "MAIN_4"
+msgstr "Vaincre le Bonhomme de Neige · débloque Hiver II"
+
+msgid "MAIN_5"
+msgstr "Équiper Soin"
+
+msgid "MAIN_6"
+msgstr "Améliorer le détail de la carte"
+
+msgid "MAIN_7"
+msgstr "Obtenir Explosion de Givre"
+
+msgid "MAIN_8"
+msgstr "Débloquer Été I"
+
+msgid "MAIN_9"
+msgstr "Faire évoluer un objet"
+
+msgid "MAIN_10"
+msgstr "Obtenir 4 familles de compétences"
+
+msgid "MAIN_11"
+msgstr "Débloquer Automne I"
+
+msgid "MAIN_12"
+msgstr "Obtenir les 6 familles de compétences"
+
+msgid "MAIN_13"
+msgstr "Débloquer Printemps I"
+
+msgid "MAIN_14"
+msgstr "Accomplir un prestige"
+
+msgid "MAIN_15"
+msgstr "Réunir toutes les clés de boss et terminer Printemps II"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "Recharge de Soin"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "Recharge de Givre"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "Recharge de Feu"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "Recharge d’Éclair"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "Recharge de Concentration"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "Recharge de Frappe"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "Débloquer le lancement auto · emplacement 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "Débloquer le lancement auto · emplacement 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "Débloquer le lancement auto · emplacement 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "Soin"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "Soin"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "Soin"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "Soin"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "Soin"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "Soin"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "Soin"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "Explosion de Givre"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "Explosion de Givre"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "Explosion de Givre"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "Explosion de Givre"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "Explosion de Givre"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "Explosion de Givre"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "Explosion de Givre"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "Explosion de Feu"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "Explosion de Feu"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "Explosion de Feu"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "Explosion de Feu"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "Explosion de Feu"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "Explosion de Feu"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "Explosion de Feu"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "Éclair"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "Éclair"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "Éclair"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "Éclair"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "Éclair"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "Éclair"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "Éclair"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "Concentration Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "Concentration Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "Concentration Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "Concentration Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "Concentration Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "Concentration Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "Concentration Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "Frappe Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "Frappe Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "Frappe Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "Frappe Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "Frappe Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "Frappe Arcanique"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "Frappe Arcanique"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "Tenue de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "Tenue de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "Tenue de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "Tenue de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "Tenue de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "Tenue de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "Tenue de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "Épée de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "Épée de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "Épée de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "Épée de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "Épée de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "Épée de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "Épée de Casquette Bleue"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "Tenue d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "Tenue d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "Tenue d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "Tenue d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "Tenue d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "Tenue d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "Tenue d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "Épée d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "Épée d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "Épée d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "Épée d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "Épée d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "Épée d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "Épée d’Écharpe Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "Tenue de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "Tenue de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "Tenue de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "Tenue de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "Tenue de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "Tenue de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "Tenue de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "Épée de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "Épée de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "Épée de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "Épée de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "Épée de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "Épée de Toque de Chef"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "Épée de Toque de Chef"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "Tenue de Bonhomme de Neige"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "Tenue de Bonhomme de Neige"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "Tenue de Bonhomme de Neige"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "Tenue de Bonhomme de Neige"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "Tenue de Bonhomme de Neige"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "Tenue de Bonhomme de Neige"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "Tenue de Bonhomme de Neige"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "Tenue de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "Tenue de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "Tenue de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "Tenue de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "Tenue de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "Tenue de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "Tenue de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "Épée de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "Épée de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "Épée de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "Épée de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "Épée de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "Épée de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "Épée de Capuche de Loup"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "Tenue de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "Tenue de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "Tenue de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "Tenue de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "Tenue de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "Tenue de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "Tenue de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "Épée de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "Épée de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "Épée de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "Épée de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "Épée de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "Épée de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "Épée de Capuche de Chat Calico"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "Tenue de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "Tenue de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "Tenue de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "Tenue de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "Tenue de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "Tenue de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "Tenue de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "Épée de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "Épée de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "Épée de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "Épée de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "Épée de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "Épée de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "Épée de Couronne Dorée"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "Tenue de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "Tenue de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "Tenue de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "Tenue de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "Tenue de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "Tenue de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "Tenue de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "Épée de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "Épée de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "Épée de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "Épée de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "Épée de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "Épée de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "Épée de Bois de Renne"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "Tenue de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "Tenue de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "Tenue de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "Tenue de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "Tenue de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "Tenue de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "Tenue de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "Épée de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "Épée de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "Épée de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "Épée de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "Épée de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "Épée de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "Épée de Bonnet de Père Noël"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "Tenue de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "Tenue de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "Tenue de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "Tenue de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "Tenue de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "Tenue de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "Tenue de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "Épée de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "Épée de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "Épée de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "Épée de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "Épée de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "Épée de Casque Spatial"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "Épée de Casque Spatial"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "Tenue de Robot Cyan"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "Tenue de Robot Cyan"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "Tenue de Robot Cyan"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "Tenue de Robot Cyan"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "Tenue de Robot Cyan"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "Tenue de Robot Cyan"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "Tenue de Robot Cyan"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "Tenue de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "Tenue de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "Tenue de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "Tenue de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "Tenue de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "Tenue de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "Tenue de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "Épée de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "Épée de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "Épée de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "Épée de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "Épée de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "Épée de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "Épée de Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "Tenue de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "Tenue de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "Tenue de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "Tenue de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "Tenue de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "Tenue de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "Tenue de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "Épée de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "Épée de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "Épée de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "Épée de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "Épée de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "Épée de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "Épée de Lunettes de Soleil"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "Tenue de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "Tenue de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "Tenue de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "Tenue de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "Tenue de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "Tenue de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "Tenue de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "Épée de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "Épée de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "Épée de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "Épée de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "Épée de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "Épée de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "Épée de Casquette Jaune"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "Tenue de Chat Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "Tenue de Chat Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "Tenue de Chat Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "Tenue de Chat Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "Tenue de Chat Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "Tenue de Chat Gris"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "Tenue de Chat Gris"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "Tenue de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "Tenue de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "Tenue de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "Tenue de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "Tenue de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "Tenue de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "Tenue de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "Épée de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "Épée de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "Épée de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "Épée de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "Épée de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "Épée de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "Épée de Bandana de Cow-boy"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "Tenue de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "Tenue de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "Tenue de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "Tenue de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "Tenue de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "Tenue de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "Tenue de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "Épée de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "Épée de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "Épée de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "Épée de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "Épée de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "Épée de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "Épée de Bouée Canard"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "Tenue de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "Tenue de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "Tenue de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "Tenue de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "Tenue de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "Tenue de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "Tenue de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "Épée de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "Épée de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "Épée de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "Épée de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "Épée de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "Épée de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "Épée de Clown Arc-en-ciel"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "Tenue de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "Tenue de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "Tenue de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "Tenue de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "Tenue de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "Tenue de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "Tenue de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "Épée de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "Épée de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "Épée de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "Épée de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "Épée de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "Épée de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "Épée de Nageur au Bonnet Rouge"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "Tenue de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "Tenue de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "Tenue de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "Tenue de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "Tenue de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "Tenue de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "Tenue de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "Épée de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "Épée de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "Épée de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "Épée de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "Épée de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "Épée de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "Épée de Plongeur à Tuba"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "Tenue de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "Tenue de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "Tenue de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "Tenue de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "Tenue de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "Tenue de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "Tenue de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "Épée de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "Épée de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "Épée de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "Épée de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "Épée de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "Épée de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "Épée de Nageur au Chapeau de Paille"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "Tenue de Dinosaure"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "Tenue de Dinosaure"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "Tenue de Dinosaure"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "Tenue de Dinosaure"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "Tenue de Dinosaure"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "Tenue de Dinosaure"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "Tenue de Dinosaure"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "Tenue de Dinosaure Turquoise"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "Tenue de Dinosaure Turquoise"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "Tenue de Dinosaure Turquoise"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "Tenue de Dinosaure Turquoise"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "Tenue de Dinosaure Turquoise"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "Tenue de Dinosaure Turquoise"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "Tenue de Dinosaure Turquoise"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "Tenue de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "Tenue de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "Tenue de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "Tenue de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "Tenue de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "Tenue de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "Tenue de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "Épée de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "Épée de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "Épée de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "Épée de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "Épée de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "Épée de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "Épée de Casquette Noire"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "Tenue de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "Tenue de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "Tenue de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "Tenue de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "Tenue de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "Tenue de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "Tenue de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "Épée de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "Épée de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "Épée de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "Épée de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "Épée de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "Épée de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "Épée de Chapeau Champignon"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "Tenue de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "Tenue de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "Tenue de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "Tenue de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "Tenue de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "Tenue de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "Tenue de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "Épée de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "Épée de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "Épée de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "Épée de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "Épée de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "Épée de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "Épée de Tête de Citrouille"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "Tenue d’Écureuil"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "Tenue d’Écureuil"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "Tenue d’Écureuil"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "Tenue d’Écureuil"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "Tenue d’Écureuil"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "Tenue d’Écureuil"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "Tenue d’Écureuil"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "Tenue de Renard Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "Tenue de Renard Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "Tenue de Renard Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "Tenue de Renard Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "Tenue de Renard Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "Tenue de Renard Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "Tenue de Renard Roux"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "Tenue de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "Tenue de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "Tenue de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "Tenue de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "Tenue de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "Tenue de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "Tenue de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "Épée de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "Épée de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "Épée de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "Épée de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "Épée de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "Épée de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "Épée de Capuche à Cornes"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "Tenue de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "Tenue de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "Tenue de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "Tenue de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "Tenue de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "Tenue de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "Tenue de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "Épée de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "Épée de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "Épée de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "Épée de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "Épée de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "Épée de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "Épée de Casque à Écran Orange"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "Tenue de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "Tenue de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "Tenue de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "Tenue de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "Tenue de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "Tenue de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "Tenue de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "Épée de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "Épée de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "Épée de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "Épée de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "Épée de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "Épée de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "Épée de Tête de Télé"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "Tenue de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "Tenue de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "Tenue de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "Tenue de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "Tenue de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "Tenue de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "Tenue de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "Épée de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "Épée de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "Épée de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "Épée de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "Épée de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "Épée de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "Épée de Haut-de-Forme"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "Tenue de Chat Noir"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "Tenue de Chat Noir"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "Tenue de Chat Noir"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "Tenue de Chat Noir"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "Tenue de Chat Noir"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "Tenue de Chat Noir"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "Tenue de Chat Noir"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "Tenue de la Faucheuse"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "Tenue de la Faucheuse"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "Tenue de la Faucheuse"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "Tenue de la Faucheuse"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "Tenue de la Faucheuse"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "Tenue de la Faucheuse"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "Tenue de la Faucheuse"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "Tenue d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "Tenue d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "Tenue d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "Tenue d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "Tenue d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "Tenue d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "Tenue d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "Épée d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "Épée d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "Épée d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "Épée d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "Épée d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "Épée d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "Épée d’Oreilles de Lapin"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "Tenue d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "Tenue d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "Tenue d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "Tenue d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "Tenue d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "Tenue d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "Tenue d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "Épée d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "Épée d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "Épée d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "Épée d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "Épée d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "Épée d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "Épée d’Oreilles de Chat"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "Tenue d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "Tenue d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "Tenue d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "Tenue d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "Tenue d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "Tenue d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "Tenue d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "Épée d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "Épée d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "Épée d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "Épée d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "Épée d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "Épée d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "Épée d’Oreilles d’Elfe"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "Tenue d’Abeille"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "Tenue d’Abeille"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "Tenue d’Abeille"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "Tenue d’Abeille"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "Tenue d’Abeille"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "Tenue d’Abeille"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "Tenue d’Abeille"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "Tenue de Chat Tigré Roux"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "Tenue de Chat Tigré Roux"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "Tenue de Chat Tigré Roux"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "Tenue de Chat Tigré Roux"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "Tenue de Chat Tigré Roux"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "Tenue de Chat Tigré Roux"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "Tenue de Chat Tigré Roux"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "Tenue de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "Tenue de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "Tenue de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "Tenue de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "Tenue de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "Tenue de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "Tenue de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "Épée de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "Épée de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "Épée de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "Épée de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "Épée de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "Épée de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "Épée de Couronne de Fleurs"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "Tenue de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "Tenue de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "Tenue de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "Tenue de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "Tenue de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "Tenue de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "Tenue de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "Épée de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "Épée de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "Épée de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "Épée de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "Épée de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "Épée de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "Épée de Casquette Verte"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "Tenue de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "Tenue de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "Tenue de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "Tenue de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "Tenue de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "Tenue de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "Tenue de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "Épée de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "Épée de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "Épée de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "Épée de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "Épée de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "Épée de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "Épée de Casquette Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "Tenue de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "Tenue de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "Tenue de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "Tenue de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "Tenue de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "Tenue de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "Tenue de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "Épée de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "Épée de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "Épée de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "Épée de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "Épée de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "Épée de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "Épée de Capuche Fleur Rose"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "Tenue sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "Tenue sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "Tenue sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "Tenue sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "Tenue sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "Tenue sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "Tenue sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "Épée sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "Épée sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "Épée sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "Épée sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "Épée sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "Épée sobre"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "Épée sobre"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "Tenue de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "Tenue de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "Tenue de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "Tenue de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "Tenue de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "Tenue de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "Tenue de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "Épée de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "Épée de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "Épée de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "Épée de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "Épée de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "Épée de Pousse"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "Épée de Pousse"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "Tenue de Panda Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "Tenue de Panda Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "Tenue de Panda Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "Tenue de Panda Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "Tenue de Panda Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "Tenue de Panda Roux"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "Tenue de Panda Roux"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "Tenue de Tournesol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "Tenue de Tournesol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "Tenue de Tournesol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "Tenue de Tournesol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "Tenue de Tournesol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "Tenue de Tournesol"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "Tenue de Tournesol"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "Tenue d’Extraterrestre Vert"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "Tenue d’Extraterrestre Vert"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "Tenue d’Extraterrestre Vert"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "Tenue d’Extraterrestre Vert"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "Tenue d’Extraterrestre Vert"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "Tenue d’Extraterrestre Vert"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "Tenue d’Extraterrestre Vert"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "Soin"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "Explosion de Givre"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "Explosion de Feu"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "Éclair"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "Concentration Arcanique"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "Frappe Arcanique"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "Casquette Bleue"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "Écharpe Rouge"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "Toque de Chef"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "Bonhomme de Neige"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "Capuche de Loup"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "Capuche de Chat Calico"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "Couronne Dorée"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "Bois de Renne"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "Bonnet de Père Noël"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "Casque Spatial"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "Robot Cyan"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "Chapeau de Paille"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "Lunettes de Soleil"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "Casquette Jaune"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "Chat Gris"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "Bandana de Cow-boy"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "Bouée Canard"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "Clown Arc-en-ciel"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "Nageur au Bonnet Rouge"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "Plongeur à Tuba"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "Nageur au Chapeau de Paille"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "Dinosaure"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "Dinosaure Turquoise"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "Casquette Noire"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "Chapeau Champignon"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "Tête de Citrouille"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "Écureuil"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "Renard Roux"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "Capuche à Cornes"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "Casque à Écran Orange"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "Tête de Télé"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "Haut-de-Forme"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "Chat Noir"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "La Faucheuse"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "Oreilles de Lapin"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "Oreilles de Chat"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "Oreilles d’Elfe"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "Abeille"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "Chat Tigré Roux"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "Couronne de Fleurs"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "Casquette Verte"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "Casquette Rose"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "Capuche Fleur Rose"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "Sobre"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "Pousse"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "Panda Roux"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "Tournesol"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "Extraterrestre Vert"
+
+msgid "CONTENT_STAGES_1"
+msgstr "Hiver I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "Hiver II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "Été I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "Été II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "Automne I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "Automne II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "Printemps I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "Printemps II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "Première prime"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "Vaincre le Bonhomme de Neige (boss d’Hiver I) 10 fois"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "Prime d’été"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "Vaincre le Chat Gris (boss d’Été I) 20 fois"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "Prime d’automne"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "Vaincre la Faucheuse (boss d’Automne II) 30 fois"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "Route d’hiver"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "En Hiver I, dans l’ordre : vaincre 100 Casquettes Bleues, puis 100 Écharpes Rouges, puis 100 Toques de Chef"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "Route d’été"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "En Été I, dans l’ordre : vaincre 150 Chapeaux de Paille, puis 150 Lunettes de Soleil, puis 150 Casquettes Jaunes"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "Route du printemps"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "En Printemps I, dans l’ordre : vaincre 200 Oreilles de Lapin, puis 200 Oreilles de Chat, puis 200 Oreilles d’Elfe"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "Collection d’hiver"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "Ramasser 20 tenues de chaque type : Casquette Bleue, Écharpe Rouge et Toque de Chef (butin d’Hiver I), puis les remettre avec Remettre"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "Collection d’été"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "Ramasser 30 tenues de chaque type : Chapeau de Paille, Lunettes de Soleil et Casquette Jaune (butin d’Été I), puis les remettre avec Remettre"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "Collection du printemps"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "Ramasser 40 tenues de chaque type : Oreilles de Lapin, Oreilles de Chat et Oreilles d’Elfe (butin de Printemps I), puis les remettre avec Remettre"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "Premier chef-d’œuvre"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "Fusionner une arme, une tenue ou une compétence jusqu’à ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "Deuxième rang"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "Fusionner un objet de rang 2 ou plus jusqu’à ^100 (le rang 2 tombe dès Été I, ou faites évoluer une arme)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "Troisième rang"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "Fusionner un objet de rang 3 ou plus jusqu’à ^100 (le rang 3 tombe dès Automne I, ou faites évoluer une arme deux fois)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "Équipement assorti"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "Fusionner une arme et une tenue jusqu’à ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "Arsenal varié"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "Fusionner 3 armes différentes et 3 tenues différentes jusqu’à ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "Arsenal évolué"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "Fusionner 3 armes différentes de rang 2+ et 3 tenues différentes de rang 2+ jusqu’à ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "Maîtrise de l’hiver"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "En Hiver I et Hiver II : explorer 90 % de chaque carte, vaincre les deux boss et débloquer tous les camps"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "Maîtrise de l’été"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "En Été I et Été II : explorer 90 % de chaque carte, vaincre les trois boss et débloquer tous les camps"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "Maîtrise du printemps"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "En Printemps I et Printemps II : explorer 90 % de chaque carte, vaincre les cinq boss et débloquer tous les camps"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "Hiver sans aide"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "Vaincre le Robot Cyan (boss d’Hiver II) sans utiliser de consommable pendant le combat"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "Été sans aide"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "Vaincre le Dinosaure Turquoise (boss d’Été II) sans utiliser de consommable pendant le combat"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "Automne sans aide"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "Vaincre la Faucheuse (boss d’Automne II) sans utiliser de consommable pendant le combat"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "Petite offrande"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "Gagner 2K pièces et 30 gemmes sur les ennemis pendant cette partie, puis les remettre avec Remettre"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "Offrande croissante"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "Gagner 20K pièces et 100 gemmes sur les ennemis pendant cette partie, puis les remettre avec Remettre"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "Grande offrande"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "Gagner 100K pièces et 300 gemmes sur les ennemis pendant cette partie, puis les remettre avec Remettre"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "Chaîne courte"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "Dans l’ordre : vaincre 100 ennemis, ramasser 10 armes ou tenues lâchées, puis fusionner 10 fois"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "Chaîne longue"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "Dans l’ordre : vaincre 250 ennemis, vaincre 3 boss, fusionner 25 fois, puis lancer 30 compétences"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "Chaîne de maître"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "Dans l’ordre : vaincre 500 ennemis, vaincre 10 boss, fusionner 50 fois, puis récupérer 3 missions ordinaires"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "Trophées d’hiver"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "Après l’avoir découvert, vaincre une fois le Bonhomme de Neige (Hiver I) et le Robot Cyan (Hiver II)"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "Trophées d’été"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "Après l’avoir découvert, vaincre une fois le Chat Gris (Été I), le Dinosaure et le Dinosaure Turquoise (Été II)"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "Trophées d’automne"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "Après l’avoir découvert, vaincre une fois l’Écureuil et le Renard Roux (Automne I), le Chat Noir et la Faucheuse (Automne II)"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "Temps d’absence"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "Passer 72 heures au total hors du jeu"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "Long repos"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "Rester hors du jeu pendant 24 heures d’affilée"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "Revenus hors ligne"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "Gagner 10K pièces pendant votre absence (récupérez les récompenses de retour)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "+20 % d’XP des boss"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+10 % de vitesse de déplacement"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+50 % de portée du ramassage auto"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "+10 % aux statistiques de base de l’équipement porté"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+10 % de PV max."
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "+25 % de rayon d’exploration autour de vous"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "+10 % de dégâts contre les boss"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "+10 % de pièces sur chaque ennemi"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "+25 % de pièces des missions"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "+25 % de gemmes des boss"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "+25 % de pièces hors ligne par heure"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "Réapparition 2 secondes plus tôt (minimum 2 s)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "+15 % de pièces des ennemis normaux"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "+10 % aux statistiques gagnées à chaque fusion"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "+10 % de dégâts contre les boss"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "+25 % aux taux d’objets hors ligne"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+10 % de PV max."
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "Tueur de géants"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "+25 % de dégâts contre les boss"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "Garde anti-boss"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "Subissez 20 % de dégâts en moins des boss"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "Prime"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "+100 % de pièces des boss"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "Pisteur"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "+20 % de dégâts contre les ennemis normaux"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "Pièces du sentier"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "+30 % de pièces des ennemis normaux"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "Leçons du sentier"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "+30 % d’XP des ennemis normaux"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "Ramasseur soigneux"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+100 % de portée du ramassage auto"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "Fortune d’équipement"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "+3 points de chance de butin d’équipement"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "Fortune de consommables"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "+5 points de chance de butin de consommables"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "Artisanat raffiné"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "+25 % aux statistiques gagnées à chaque fusion"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "Art du relancer"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "Les relances coûtent 50 % de gemmes en moins"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "Base solide"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "+20 % aux statistiques de base de votre arme et de votre tenue équipées"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "Réserve d’armure"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+20 % de PV max."
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "Maniement des armes"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "+15 % de dégâts des attaques et des compétences"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "Équipement équilibré"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "Subissez 10 % de dégâts en moins de tous les ennemis"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "Explorateur"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+15 % de vitesse de déplacement"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "Vue lointaine"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "+50 % de rayon d’exploration autour de vous"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "Relevé des camps"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "Les camps coûtent 50 % de pièces en moins"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "Précision"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "+15 points de chance de coup critique"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "Détermination"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "Récupérez 5 % des dégâts infligés en santé"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "Coup puissant"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "Les coups critiques infligent +75 % de dégâts en plus"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "Sagesse des pièces"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "+25 % de pièces sur chaque ennemi"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "Sagesse des gemmes"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "+5 points de chance de butin de gemmes"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "Dépense avisée"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "Les améliorations en pièces coûtent 15 % de moins"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "Pièces de mission"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "+50 % de pièces des missions"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "Gemmes de mission"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "+50 % de gemmes des missions"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "Entraînement ciblé"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "+25 % aux dégâts, aux soins et à la Concentration des compétences"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "Chasseur de trophées"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "+50 % d’XP des boss"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "Puissance des trophées"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "+20 % de dégâts contre les boss"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "Gemmes des trophées"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "+50 % de gemmes des boss"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "Pièces tranquilles"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "+50 % de pièces hors ligne par heure"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "Gemmes tranquilles"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "+50 % de gemmes hors ligne par heure"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "Trouvailles tranquilles"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "+50 % aux taux d’objets hors ligne"
+
+msgid "CHAIN_PROGRESS"
+msgstr "Étape %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "La sauvegarde de développement a été réinitialisée pour cette mise à jour. La nouvelle progression peut être sauvegardée."
+
+msgid "HEAL_ROLE"
+msgstr "Maintien : %s PV immédiatement, toutes les %s s. Lancement gratuit ; plafonné à 12 %% des PV max. Les potions offrent un soin d’urgence plus puissant."
+
+msgid "REGULAR_MISSIONS"
+msgstr "Tâches de chasse"
+
+msgid "GUIDE_CHOOSE"
+msgstr "Quel niveau d’aide souhaitez-vous ?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "Guidé · Une action à la fois"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "Simple · Tous les menus ouverts, un bref aperçu"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "Aucun · Tous les menus ouverts, sans conseils"
+
+msgid "GUIDE_REVIEW"
+msgstr "Choisir à nouveau le niveau d’aide"
+
+msgid "GUIDE_GOT_IT"
+msgstr "Compris"
+
+msgid "GUIDE_MOVE"
+msgstr "Suivez le chemin sur votre gauche."
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "Faites glisser le joystick vers la flèche. Les premiers ennemis vous attendent le long du chemin."
+
+msgid "GUIDE_KILL"
+msgstr "Arrêtez-vous près d’un ennemi pour attaquer"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "Restez immobile un instant et vous attaquez automatiquement. Les ennemis de l’hiver ne font que riposter."
+
+msgid "GUIDE_COLLECT"
+msgstr "Touchez l’objet lâché"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "Le butin reste au sol un moment. Les pièces et les gemmes sont ajoutées automatiquement."
+
+msgid "GUIDE_EQUIP"
+msgstr "Touchez votre nouvel objet"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "Les détails de l’objet le comparent à ce que vous portez."
+
+msgid "GUIDE_MERGE"
+msgstr "Ouvrez l’objet que vous possédez en double"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "Fusionner une copie rend l’objet plus fort pour toujours."
+
+msgid "GUIDE_UPGRADE"
+msgstr "Touchez Améliorations pour cet ennemi"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "Chaque type d’ennemi a ses propres améliorations de butin, de pièces et d’expérience."
+
+msgid "GUIDE_CAMP"
+msgstr "Ouvrez Monde pour débloquer un camp"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "Vous avez trouvé un camp et pouvez le payer. Ouvrez Monde, ou marchez jusqu’au camp et touchez Voir le camp."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "Marcher, combattre, ramasser"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "Faites glisser le joystick pour marcher. Restez immobile près d’un ennemi pour attaquer. Touchez le butin au sol pour le ramasser."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "Ces ennemis vous remarquent quand vous êtes proche"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "Les ennemis d’Hiver II attaquent quand vous approchez. Approchez-les un par un."
+
+msgid "GUIDE_SKILLS"
+msgstr "Les compétences soutiennent votre équipement"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "Touchez une compétence équipée pour la lancer. Soin agit en continu ; les potions rendent plus d’un coup."
+
+msgid "GUIDE_GROUPS"
+msgstr "Certains ennemis appellent désormais des alliés"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "Les ennemis de l’été aident leurs alliés proches du même type. Surveillez votre santé."
+
+msgid "PRESTIGE_GATE"
+msgstr "Terminez d’abord l’hiver : vainquez le Robot Cyan pour atteindre Été I."
+
+msgid "NAV_PRESTIGE"
+msgstr "Prestige"
+
+msgid "PANEL_WORLD"
+msgstr "Monde"
+
+msgid "TAB_OFFLINE"
+msgstr "Hors ligne"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "Ouvrez ces améliorations avec le bouton Améliorations ou en touchant votre personnage."
+
+msgid "HUD_RESTING"
+msgstr "· Repos"
+
+msgid "ITEM_PREVIOUS"
+msgstr "Objet précédent"
+
+msgid "ITEM_NEXT"
+msgstr "Objet suivant"
+
+msgid "ITEM_POSITION"
+msgstr "%d sur %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "Si équipé : %s"
+
+msgid "NO_CHANGE"
+msgstr "aucun changement"
+
+msgid "EQUIPPED_NOW"
+msgstr "Équipé actuellement : %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "Rien n’est encore équipé dans cet emplacement."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "Équipé : statistiques complètes"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "Stocké : 30 % de ses statistiques"
+
+msgid "UPGRADE_LEVEL"
+msgstr "Niveau %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "Boss"
+
+msgid "ENEMY_KILLS"
+msgstr "Vaincus : %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "Camp de réapparition"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "Débloqué"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "Verrouillé · %s pièces"
+
+msgid "SECTION_CAMPS"
+msgstr "Camps"
+
+msgid "CAMPS_HIDDEN"
+msgstr "Encore %d camp(s) à découvrir en explorant."
+
+msgid "SECTION_TRAVEL"
+msgstr "Voyager vers une autre zone"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "Améliorations de la carte"
+
+msgid "SECTION_DANGER"
+msgstr "Zone de danger"
+
+msgid "CAMP_UNLOCK"
+msgstr "Débloquer"
+
+msgid "CAMP_SELECT"
+msgstr "Réapparaître ici"
+
+msgid "CAMP_TRAVEL"
+msgstr "Voyager"
+
+msgid "CARD_OWNED"
+msgstr "Possédée"
+
+msgid "CARD_SELECTED"
+msgstr "Sélectionnée"
+
+msgid "CARD_LOCKED"
+msgstr "Pas encore obtenue"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "Prête"
+
+msgid "PRESTIGE_INTRO"
+msgstr "Accomplissez des opportunités pour gagner des cartes permanentes. Le prestige échange toutes celles qui sont prêtes en une fois et lance une nouvelle partie."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "Prêtes : %d  ·  Cartes possédées : %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "Aucune opportunité découverte pour l’instant. Vainquez des boss, fusionnez et explorez pour en trouver."
+
+msgid "NO_CARDS_YET"
+msgstr "Aucune carte pour l’instant."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "Échanger %d opportunité(s) prête(s) : %s.\n\nVous choisissez une carte permanente pour chacune, puis la partie recommence une seule fois.\n\nConservé : cartes, clés de boss, succès, améliorations de gemmes, automatisation, paramètres.\nRéinitialisé : pièces, objets, niveau, camps, exploration de la carte, améliorations en pièces et défis non terminés."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "Choisissez une récompense · %d sur %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "Déjà choisies : %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "Vous conservez"
+
+msgid "PRESTIGE_KEEP"
+msgstr "Cartes et ensembles, vos gemmes, les zones explorées de la carte, toutes les améliorations achetées avec des gemmes (toutes catégories), l’automatisation, l’espace d’inventaire, les clés de boss, les succès d’ennemis, le niveau et l’XP du joueur, la Maîtrise des cartes et les paramètres."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "Réinitialisé pour cette partie"
+
+msgid "PRESTIGE_RESET"
+msgstr "Pièces, objets (stock de consommables compris) et fusions, Maîtrise des consommables, accès aux cartes et camps possédés, améliorations de carte et en pièces, et défis non terminés."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "Garder %s"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "Touchez une carte pour la choisir"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "Garder %s pour toujours ? C’est le dernier choix : la nouvelle partie commence juste après."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "Opportunité de prestige trouvée !"
+
+msgid "MILESTONE_READY"
+msgstr "Opportunité accomplie !"
+
+msgid "MILESTONE_CARD"
+msgstr "Carte obtenue : %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "Une nouvelle partie commence"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "%d carte(s) permanente(s) ajoutée(s) à votre collection."
+
+msgid "MILESTONE_STAGE"
+msgstr "Nouvelle zone débloquée"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "Ensemble Chasseur de boss"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "Ensemble Expédition"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "Ensemble Collection"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "Ensemble Chef-d’œuvre"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "Ensemble Arsenal"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "Ensemble Régional"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "Ensemble Défi"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "Ensemble Offrande"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "Ensemble Spécialiste"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "Ensemble Trophée"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "Ensemble Hors ligne"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "Explorateur préparé"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "Farmeur assidu"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "Voie de l’artisan"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "Spécialiste des boss"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "Collectionneur patient"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "Croissance équilibrée"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "Continuez à vaincre des ennemis"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "Votre première arme ou tenue tombe en quelques victoires."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "Touchez Équiper"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "L’équipement porté donne toutes ses statistiques. Celui en stock en donne quand même 30 %."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "Touchez Fusionner"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "Chaque fusion utilise une copie en trop et augmente le niveau de l’objet."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "Obtenez une deuxième copie"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "Une copie identique tombera en quelques victoires de plus."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "Trouvez d’abord un ennemi"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "Approchez-vous des ennemis pour rendre leurs améliorations disponibles."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "Gagnez des pièces pour une amélioration"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "Encore %s pièces nécessaires. Chaque ennemi vaincu lâche des pièces."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "Ouvrez l’onglet Améliorations"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "Les améliorations de ce type d’ennemi y sont listées."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "Achetez une amélioration"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "Augmenter la chance de butin est un bon premier choix."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "Explorez pour trouver un autre camp"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "Avancez dans le brouillard. Les camps apparaissent une fois révélés."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "Gagnez des pièces pour le camp"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "Encore %s pièces nécessaires. Continuez à vaincre des ennemis."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "Touchez Débloquer"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "Le camp devient un point de réapparition et révèle les terres alentour."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "Camp débloqué"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "Utilisez Réapparaître ici pour y revenir après une défaite. Se reposer près d’un camp soigne rapidement."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "Opportunité de prestige trouvée"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "Accomplissez-la pour une carte permanente. Trouvez d’abord le Bonhomme de Neige ; le mode Guidé exige aussi de terminer le tutoriel."
+
+msgid "GUIDE_REST"
+msgstr "Santé faible ?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "Éloignez-vous des combats. Se reposer près d’un camp débloqué vous soigne rapidement."
+
+msgid "SECTION_REWARDS"
+msgstr "Récompenses"
+
+msgid "SECTION_AUTOMATION"
+msgstr "Automatisation"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "Verrouillé"
+
+msgid "PROGRESS_MERGE"
+msgstr "Meilleur résultat : ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "Armes à ^50 : %d/%d · Tenues à ^50 : %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "Trophées : %d / %d (chaque boss en lâche un à sa prochaine défaite)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "Trouvé pendant cette partie : %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "Gagnez le combat sans utiliser de potions ni de toniques."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "Exploré %s · boss %d/%d · camps %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "Épée en or"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "Épée en diamant"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "Épée en émeraude"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "Épée en obsidienne"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "Hache en bois"
+
+msgid "ITEM_STONE_AXE"
+msgstr "Hache en pierre"
+
+msgid "ITEM_IRON_AXE"
+msgstr "Hache en fer"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "Hache en or"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "Hache en diamant"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "Hache en émeraude"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "Hache en obsidienne"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "Trouvez une arme ou une tenue"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "Cette trouvaille était un consommable. Continuez à vaincre des ennemis : ils lâchent parfois l’arme ou la tenue qu’ils portent, qui remplit un emplacement d’équipement vide."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "Ramassez l’équipement"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "Une arme ou une tenue est tombée. Touchez-la pour la placer dans un emplacement d’équipement."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "Seule une opportunité en cours peut être suivie."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "Terminez %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "Prête à récupérer"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ Récupérée"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "Objectifs terminés (%d) · %s"
+
+msgid "SHOW"
+msgstr "Afficher"
+
+msgid "HIDE"
+msgstr "Masquer"
+
+msgid "PLAYTIME_LINE"
+msgstr "Temps de jeu : %s · Cette partie : %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "Bon retour !"
+
+msgid "OFFLINE_AWAY"
+msgstr "Absent %s · %s heures récompensées"
+
+msgid "OFFLINE_CLAIM"
+msgstr "Récupérer les gains hors ligne"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "Gains hors ligne récupérés"
+
+msgid "OFFLINE_NOTHING"
+msgstr "Aucun gain hors ligne en attente."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "Des gains hors ligne attendent d’être récupérés."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "Dernière récupération : %s heures récompensées · %s pièces · %s gemmes"
+
+msgid "NAV_UPGRADES"
+msgstr "Améliorations"
+
+msgid "STATS_OPEN"
+msgstr "Statistiques"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "Nouvelles améliorations débloquées : %s (Améliorations du joueur)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "Trouvez le Bonhomme de Neige d’Hiver I (le premier boss) pour débloquer la réinitialisation de prestige."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "Trouvez le Bonhomme de Neige"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "Vous possédez déjà toutes les cartes que ces opportunités prêtes pourraient donner."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "Trouvez d’abord cette zone sur la carte."
+
+msgid "EQUIPPED_PINNED"
+msgstr "Équipé"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "Arme"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "Tenue"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "Emplacement vide"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "ÉQUIPÉ"
+
+msgid "COMPARE_SELECTED"
+msgstr "SÉLECTIONNÉ"
+
+msgid "COMPARE_ITEM"
+msgstr "OBJET"
+
+msgid "COMPARE_UPGRADE"
+msgstr "Meilleur"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "Moins bon"
+
+msgid "COMPARE_MIXED"
+msgstr "Compromis"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "Rang %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "Progresse en fusionnant des copies de lui-même, jusqu’à ^%d. Il ne se transforme jamais en un autre objet ; au-delà de ^100, chaque fusion rapporte un peu moins."
+
+msgid "FOLLOW_READY"
+msgstr "Prête ! Ouvrez Prestige pour choisir une carte"
+
+msgid "FOLLOW_STEP"
+msgstr "Étape %d/%d · %s : %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "Vaincre %s : %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "Vaincre %s sans utiliser de consommable pendant le combat : 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "Récupérer des missions"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "Personnage"
+
+msgid "STATS_LEVEL"
+msgstr "Niveau"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "Zone"
+
+msgid "STATS_PRESTIGES"
+msgstr "Prestiges effectués"
+
+msgid "STATS_CARDS"
+msgstr "Cartes de prestige"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "Attaque"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "Vitesse d’attaque"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/s (+%s %%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "Défense et récupération"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%s %% de dégâts)"
+
+msgid "STATS_RESPAWN"
+msgstr "Délai de réapparition"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "Bonus actifs"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "Multiplicateurs de prestige"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "PV ×%s · Dégâts ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "Vitesse de déplacement"
+
+msgid "STATS_STORED_SHARE"
+msgstr "Part de l’équipement stocké"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "Bonus de l’équipement porté"
+
+msgid "STATS_SECTION_TIME"
+msgstr "Temps de jeu"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "Toutes les parties"
+
+msgid "STATS_TIME_RUN"
+msgstr "Cette partie"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "dégâts"
+
+msgid "STATS_SHORT_HP"
+msgstr "PV"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "déf."
+
+msgid "STATS_SHORT_CRIT"
+msgstr "crit."
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "dégâts crit."
+
+msgid "STATS_SHORT_SPEED"
+msgstr "vit. d’attaque"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "vol de vie"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "PV/s"
+
+msgid "CAMP_SIGHTED"
+msgstr "Camp repéré ! Il apparaît maintenant sur votre carte et dans le panneau Monde."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "Bonus de PV des cartes et de la Maîtrise"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "Bonus de dégâts des cartes et de la Maîtrise"
+
+msgid "STAT_REGEN_PCT"
+msgstr "Récupération"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "PV max./s"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "PV max./s"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s %% des PV max./s (%s PV/s)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "Paliers de tenue (portée)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "Armes %s %% · Tenues %s %%"
+
+msgid "MILESTONE_GUARD"
+msgstr "Garde +%s de défense"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s PV"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%s %% de PV de la tenue"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "Récupération %s %% des PV max./s"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "Paliers (tenue portée) : %s"
+
+msgid "MILESTONES_NONE"
+msgstr "Paliers : aucun pour l’instant. Le premier se débloque à ^100."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "Tous les paliers atteints (Maîtrise)."
+
+msgid "MILESTONE_NEXT"
+msgstr "Suivant à ^%d : %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "Progresse en fusionnant des copies d’elle-même, jusqu’à ^%d : +2 %% des PV de base par copie jusqu’à ^100, puis +1 %% par copie. Elle ne se transforme jamais en un autre objet. Les paliers ne fonctionnent que si elle est portée ; stockée, elle compte pour %s %% de ses PV."
+
+msgid "PANEL_LEVEL"
+msgstr "Niveau et progression du joueur"
+
+msgid "PANEL_FARMING"
+msgstr "Guide de farm"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "Touchez pour voir la progression par niveau et l’origine des statistiques"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "Emplacements %d → %d sur %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "Emplacements %d / %d · au maximum"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · au maximum"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "Le boss donne %s gemmes par butin"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "Guide de farm"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "Prestige verrouillé · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "La réinitialisation de prestige demande"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "Trouver le Bonhomme de Neige d’Hiver I (premier boss)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "Au moins une opportunité prête pouvant donner une carte"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "trouvez le Bonhomme de Neige"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "aucune opportunité prête"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "plus aucune carte à obtenir"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "Autres sources de statistiques"
+
+msgid "BREAKDOWN_HP"
+msgstr "D’où viennent vos PV"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "D’où viennent vos dégâts"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "Avant le prestige"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "Cartes et Maîtrise"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "Total (utilisé en combat)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "Par coup, hors total"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "Dégâts subis"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "Niveaux du joueur (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "Équipement stocké (tenues %s %%, armes %s %%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "Équipement porté (dont carte +%s %%)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "Paliers d’éliminations contre %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "Prestige contre les ennemis normaux"
+
+msgid "PER_HIT_BOSS"
+msgstr "Prestige contre les boss"
+
+msgid "PER_HIT_FOCUS"
+msgstr "Concentration (%d s restantes)"
+
+msgid "TAKEN_GUARD"
+msgstr "Garde de prestige"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "Garde de prestige contre les boss"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "Niveau %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "Niveau maximum atteint. Les niveaux n’apportent plus rien."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s XP · encore %s pour atteindre le niveau %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "Progression par niveau"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "Chaque niveau (base)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s PV · +%s de dégâts"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "Grâce à %d niveaux jusqu’ici"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "PV au niveau %d"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "Dégâts au niveau %d"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "Les cartes de prestige multiplient toutes les sources : PV ×%s, dégâts ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "Où farmer chaque ennemi et ce qu’il lâche. L’entrée d’une carte s’ouvre quand son Détail de la carte est au maximum et que chaque type d’ennemi y a ses statistiques et son butin révélés. Seules les zones découvertes indiquent leur emplacement."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "vous êtes ici"
+
+msgid "FARMING_READY"
+msgstr "Entrée débloquée"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "Ouvrir"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "Détail de la carte %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "Statistiques et butin : %d/%d types"
+
+msgid "FARMING_LOCKED"
+msgstr "Nécessite : %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "Encore %d cartes non atteintes."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "Farm · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "Les chances incluent vos améliorations actuelles. Les directions partent du camp connu le plus proche sur cette carte."
+
+msgid "FARMING_BACK"
+msgstr "Toutes les cartes"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "Ennemi non découvert · explorez cette carte pour le trouver"
+
+msgid "FARMING_REWARDS"
+msgstr "Pièces ×%s · Gemmes %s %% ×%s · XP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "Consommables : %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "Zone non découverte"
+
+msgid "FARMING_DETAILS"
+msgstr "Détails"
+
+msgid "FARMING_AT_CAMP"
+msgstr "Au camp %d"
+
+msgid "FARMING_LOCATION"
+msgstr "%s du camp %d · %s"
+
+msgid "COMPASS_N"
+msgstr "Au nord"
+
+msgid "COMPASS_NE"
+msgstr "Au nord-est"
+
+msgid "COMPASS_E"
+msgstr "À l’est"
+
+msgid "COMPASS_SE"
+msgstr "Au sud-est"
+
+msgid "COMPASS_S"
+msgstr "Au sud"
+
+msgid "COMPASS_SW"
+msgstr "Au sud-ouest"
+
+msgid "COMPASS_W"
+msgstr "À l’ouest"
+
+msgid "COMPASS_NW"
+msgstr "Au nord-ouest"
+
+msgid "DISTANCE_NEAR"
+msgstr "tout près"
+
+msgid "DISTANCE_MID"
+msgstr "à quelques pas"
+
+msgid "DISTANCE_FAR"
+msgstr "loin"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "Hé ! Ma tenue !"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "Mon arme !"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "Mon grimoire !"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "Mes consommables !"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "Tonique de garde"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "Baume de récupération"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "Tonique de sagesse"
+
+msgid "FOLLOW_COLLECT"
+msgstr "Étape %d/%d · Ramasser %s de %s : %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "Tout est trouvé ! Remettez-les : Prestige, puis Remettre"
+
+msgid "FILTERS"
+msgstr "Filtres"
+
+msgid "FILTERS_ACTIVE"
+msgstr "Filtres · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "Filtre la grille d’équipement. Fermer Filtres réaffiche tous les objets."
+
+msgid "PANEL_FILTERS"
+msgstr "Filtres"
+
+msgid "FILTERS_HINT"
+msgstr "La grille d’équipement n’affiche que cette catégorie tant que Filtres est ouvert. Le fermer réaffiche tous les objets."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "Emplacements de consommables : un par type (%d types). Filtres se trouve à côté du compteur d’équipement."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "Toutes les 3 utilisations réelles de ce consommable, vous gagnez un niveau de maîtrise, jusqu’à ^%d. Les achats et le butin ne font qu’augmenter le stock. Le prestige réinitialise la maîtrise et la progression d’utilisation."
+
+msgid "BUY_SUPPLY"
+msgstr "Acheter %s · %s pièces"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · %d s restantes"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "Actif : %s · %d s restantes"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "En recharge · %s s"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "Prêt à l’emploi"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "Utilisation auto : à %s %% de PV ou moins, après la recharge"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "Utilisation auto : dès qu’il n’est pas actif"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "Utilisation auto : en combat, s’il n’est pas actif"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "Utilisation auto : à %s %% de PV ou moins, s’il n’est pas actif"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "Utilisation auto : dès qu’il n’est pas actif"
+
+msgid "SUPPLY_STOCK"
+msgstr "Stock : %s · chaque utilisation en consomme un"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "Prochaine copie trouvée : %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "Bonus de maîtrise : %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "durée %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "recharge %s s"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%s %% des PV max."
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%s %% de pièces"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%s %% d’XP"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s de défense"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "%s %% des PV max. par seconde"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "Rend %s %% des PV max. (%s PV actuellement) · recharge %s s · utilisable sous %s %% de PV"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "+%s %% de pièces des ennemis vaincus pendant %s s"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s de défense (%s %% de dégâts subis en moins) pendant %s s"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "Rend %s %% des PV max. par seconde pendant %s s (%s %% au total) · utilisable sous %s %% de PV"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "+%s %% d’XP des ennemis vaincus pendant %s s"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "Maîtrise ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "Auto : %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "Vos PV sont trop élevés pour ce consommable."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "La potion est encore en recharge."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "Déjà actif. Réutilisez-le quand il prend fin."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "Toutes les trois utilisations, la Maîtrise des consommables augmente. Le prestige réinitialise la maîtrise et la progression d’utilisation."
+
+msgid "SOURCE_SUPPLY"
+msgstr "Consommables actifs"
+
+msgid "CAMP_TELEPORT"
+msgstr "Se téléporter"
+
+msgid "PANEL_TELEPORT"
+msgstr "Téléportation"
+
+msgid "TELEPORT_TITLE"
+msgstr "Téléportation"
+
+msgid "TELEPORT_HELP"
+msgstr "Choisissez un autre de vos camps, sur cette carte ou sur une carte déjà atteinte. La téléportation est impossible en combat."
+
+msgid "TELEPORT_HERE"
+msgstr "Vous êtes ici"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "Destination choisie"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "Cette carte"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "Une autre carte"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "Choisir"
+
+msgid "TELEPORT_BACK"
+msgstr "Retour"
+
+msgid "TELEPORT_GO"
+msgstr "Se téléporter · %s · Camp %d"
+
+msgid "TELEPORT_PICK"
+msgstr "Choisissez une destination"
+
+msgid "TELEPORT_NONE"
+msgstr "Aucun autre camp pour l’instant. Débloquez-en un autre pour vous y téléporter."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · Camp %d"
+
+msgid "MAP_EXPLORED"
+msgstr "Carte explorée : %d %%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "La part de cette carte que vous avez explorée définitivement. La vue momentanée et les mouvements de caméra ne comptent pas."
+
+msgid "SECTION_AUDIO"
+msgstr "Son et musique"
+
+msgid "MUSIC_VOLUME"
+msgstr "Musique %d %%"
+
+msgid "SFX_VOLUME"
+msgstr "Effets sonores %d %%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "Couper les sons de jeu : %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "Couper les sons spéciaux : %s"
+
+msgid "AUDIO_HINT"
+msgstr "Sons de jeu : touches, achats, fusions et combats. Sons spéciaux : notifications (mission ou objectif à récupérer, nouvelles du Prestige, nouveau menu, progression de la Maîtrise des cartes, boss trouvé) et étapes clés (nouvelle carte, prestige). Le volume des effets règle les deux."
+
+msgid "UP_MERGE_ALL"
+msgstr "Tout fusionner"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "Déblocage unique : un bouton Tout fusionner dans Filtres fusionne toutes les copies en trop d’un seul geste · gratuit à l’usage · conservé au prestige"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "Débloqué · utilisez Tout fusionner dans Filtres"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "Tout fusionner n’est pas encore débloqué"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "Tout fusionner : à débloquer une fois pour 5K gemmes dans Améliorations → Inventaire."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "Tout fusionner · %d copies en trop"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "Tout fusionner"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "Rien à fusionner"
+
+msgid "MERGE_ALL_DONE"
+msgstr "%d copies fusionnées sur %d objets"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "Débloquer l’évolution auto"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "Fusionne les copies en trop de : %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "Oui · fusionne : %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Fait évoluer à ^100 avec 101 copies : %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "Oui · fait évoluer : %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "Recharge : %s s"
+
+msgid "GATE_HUD"
+msgstr "Zone suivante · Boss %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "Monde terminé · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "Boss à vaincre sur cette carte pour ouvrir la suivante. Les boss trouvés qui comptent encore portent la bannière dorée."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "Zone suivante déjà ouverte"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "Boss non découvert"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · vaincu"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · encore requis"
+
+msgid "OFFERING_PROGRESS"
+msgstr "%s / %s pièces · %s / %s gemmes"
+
+msgid "SECTION_RESEARCH"
+msgstr "Recherche"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "Farm ciblé débloqué"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "Touchez Farmer ci-dessous : votre héros se rend à cette zone et y combat seul. Touchez à nouveau ou déplacez-vous pour arrêter."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "Touchez Farmer pour commencer"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "Votre héros se rend à cette zone et y combat seul. Se déplacer l’arrête."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "Farm ciblé débloqué"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "Ouvrez les Améliorations de cet ennemi, puis touchez Farmer en haut."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "Farm ciblé débloqué"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "Touchez cet ennemi dans le monde ou sur la carte, puis touchez Farmer."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "Trouvez d’abord cette zone"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "Le farm ne mène qu’aux zones déjà trouvées. Choisissez-en une trouvée ci-dessus."
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "Nouvel équipement : touchez-le, puis Équiper"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "L’équipement porté donne toutes ses statistiques. Celui en stock en apporte quand même une part."
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "Deux identiques : ouvrez-le, puis Fusionner"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "Fusionner une copie en trop rend l’objet plus fort pour toujours."
+
+msgid "GUIDE_MISSIONS"
+msgstr "Missions débloquées : ouvrez Missions"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "Les objectifs et les missions quotidiennes rapportent des pièces et des gemmes."
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "Touchez Récupérer"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "Les objectifs terminés attendent ici que vous récupériez leur récompense."
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "Rien à récupérer pour l’instant"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "Le bouton Missions affiche ! quand une récompense est prête."
+
+msgid "GUIDE_SLOTS"
+msgstr "Améliorations débloquées : ouvrez Améliorations"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "Les améliorations du joueur durent le temps de cette partie ; celles en gemmes sont conservées pour toujours."
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "Ouvrez l’onglet Inventaire"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "Plus d’emplacements d’équipement vous permettent de garder plus de types d’équipement."
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "Achetez un emplacement d’équipement"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "Chaque type d’objet a besoin de son propre emplacement ; les copies s’empilent."
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "Ouvrez l’onglet Consommables"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "Les consommables aident dans les combats difficiles."
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "Achetez une Potion de soin"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "Touchez une potion dans vos consommables pour vous soigner en combat."
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "Gagnez des pièces pour une Potion de soin"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "Encore %s pièces nécessaires. Chaque ennemi vaincu lâche des pièces."
+
+msgid "GUIDE_SNOWMAN"
+msgstr "Objectif principal : vaincre le Bonhomme de Neige"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "Le vaincre ouvre Hiver II ; le trouver ouvre le Prestige. Avant, fusionnez votre équipement, montez de niveau et prenez des potions."
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "Prestige débloqué : ouvrez Prestige"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "Les opportunités y rapportent des cartes permanentes."
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "Touchez Suivre sur une opportunité"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "Sa prochaine étape s’affiche sur la carte. Quand une opportunité est Prête, le Prestige relance le monde et vous gardez la carte."
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "Accomplissez une opportunité"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "De nouvelles opportunités apparaissent au fil du jeu. Quand une opportunité est Prête, le Prestige relance le monde et vous gardez la carte."
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "Missions débloquées"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "Les objectifs et les missions quotidiennes rapportent des pièces et des gemmes. Récupérez-les dans Missions."
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "Améliorations d’ennemis débloquées"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "Touchez Améliorations au-dessus de la carte (ou un ennemi) pour augmenter son butin, ses pièces et son XP."
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "Carte du monde débloquée"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "La mini-carte et Monde montrent où vous êtes passé. Débloquez des camps pour y réapparaître et vous y reposer."
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "Améliorations du joueur débloquées"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "Achetez des emplacements d’équipement, des consommables et des améliorations permanentes en gemmes dans Améliorations."
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "Objectif principal : vaincre le Bonhomme de Neige"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "Le vaincre ouvre Hiver II ; le trouver ouvre le Prestige. Avant, fusionnez votre équipement, montez de niveau et prenez des potions."
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "Prestige débloqué"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "Accomplissez une opportunité, puis faites un Prestige pour recommencer avec une carte permanente."
+
+msgid "GUIDE_SKIP"
+msgstr "Passer"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "Équiper et fusionner"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "Touchez un équipement dans votre inventaire, puis Équiper pour obtenir toutes ses statistiques ; l’équipement stocké en apporte quand même une part. Deux objets identiques fusionnent en un seul, plus fort pour toujours."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "Améliorations et missions"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "Touchez un ennemi (ou Améliorations au-dessus de la carte) pour augmenter son butin, ses pièces et son XP. Les Améliorations du joueur proposent des emplacements d’équipement, des consommables et des améliorations permanentes en gemmes. Récupérez les missions pour gagner pièces et gemmes."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "Exploration, camps et zones"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "Marcher dissipe le brouillard ; la mini-carte et Monde montrent où vous êtes passé. Débloquez des camps dans Monde pour y réapparaître et vous y reposer. Vainquez les boss d’une carte pour ouvrir la zone suivante."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "Prestige et Maîtrise des cartes"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "Trouver le Bonhomme de Neige d’Hiver I débloque la réinitialisation de prestige : accomplissez une opportunité, puis faites un Prestige pour recommencer avec une carte permanente. La Maîtrise des cartes suit les objectifs à long terme de chaque carte."
+
+msgid "EXIT_TITLE"
+msgstr "Quitter LootFarmer ?"
+
+msgid "EXIT_CONFIRM"
+msgstr "Votre progression est sauvegardée. Vous pouvez revenir à tout moment."
+
+msgid "EXIT_ACTION"
+msgstr "Quitter"
+
+msgid "SECTION_TUTORIAL"
+msgstr "Tutoriel et aide"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "Afficher tous les menus maintenant"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "Afficher tous les menus maintenant ? Les nouveaux menus apparaissent normalement au fil de votre apprentissage. Le Prestige exige toujours de découvrir le Bonhomme de Neige ; le mode Guidé exige aussi de terminer le tutoriel."
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "Tous les menus sont désormais disponibles"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "Tous les menus sont déjà disponibles"
+
+msgid "PANEL_MASTERY"
+msgstr "Maîtrise des cartes"
+
+msgid "MASTERY_OPEN"
+msgstr "Maîtrise des cartes · Jeu %d %%"
+
+msgid "MASTERY_INTRO"
+msgstr "Objectifs facultatifs pour atteindre 100 %. La progression est permanente et conservée au Prestige."
+
+msgid "MASTERY_GAME"
+msgstr "Jeu terminé à %d %%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "Les huit cartes : titre %s · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ Obtenu : titre %s · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "Récompense : %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ Récompense obtenue : %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "Détails"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "Atteignez cette carte pour commencer"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "Maîtrise · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ Toutes les cartes"
+
+msgid "MASTERY_EXPLORE"
+msgstr "Explorer"
+
+msgid "MASTERY_HUNT"
+msgstr "Chasser"
+
+msgid "MASTERY_RESEARCH"
+msgstr "Étudier"
+
+msgid "MASTERY_COLLECT"
+msgstr "Collectionner"
+
+msgid "MASTERY_FORGE"
+msgstr "Forger"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "Explorez toute la carte et débloquez tous les camps."
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "Vainquez %s ennemis de chaque type et %s fois chaque boss."
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "Révélez les statistiques et le butin de chaque ennemi d’ici."
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "Obtenez chaque arme, tenue et compétence lâchée ici."
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "Les tenues d’ici jusqu’à ^%s (tenues de boss ^%s) et une arme d’ici évoluée."
+
+msgid "MASTERY_MORE"
+msgstr "+%d de plus"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "Carte explorée à %d %% sur 100 %%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "Camp %d pas encore débloqué"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · Révéler les statistiques"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · Révéler le butin"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "Faire évoluer l’un de ces objets : %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "Ennemi non découvert"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "Objet non découvert"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "+%s %% de PV max."
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "+%s %% de dégâts"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "+%s %% de pièces"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "+%s %% d’XP"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "+%s pt de chance de butin"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "+%s pts de chance de gemmes"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "Maîtrise · %s · %s accompli"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "Prestige débloqué"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "%d opportunités trouvées · touchez pour ouvrir"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "Accomplissez une opportunité, puis faites un Prestige pour obtenir une carte permanente"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "Carte maîtrisée · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "Terminé à 100 %"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "Maître Farmeur"
+
+msgid "STATS_COMPLETION"
+msgstr "Progression du jeu"
+
+msgid "STATS_TITLE"
+msgstr "Titre"
+
+msgid "STATS_MASTERY"
+msgstr "Maîtrise des cartes"
+
+msgid "MAIN_HINT_0"
+msgstr "Vainquez des ennemis"
+
+msgid "MAIN_HINT_1"
+msgstr "Touchez une arme ou une tenue dans votre inventaire, puis Équiper"
+
+msgid "MAIN_HINT_2"
+msgstr "Ouvrez un objet que vous possédez en double, puis Fusionner"
+
+msgid "MAIN_HINT_3"
+msgstr "Marchez jusqu’à un camp, touchez Voir le camp, puis Débloquer"
+
+msgid "MAIN_HINT_4"
+msgstr "Vainquez le Bonhomme de Neige, le boss d’Hiver I"
+
+msgid "MAIN_HINT_5"
+msgstr "Équipez la compétence Soin (en Hiver II, les élites Casque Spatial et le Robot Cyan la lâchent)"
+
+msgid "MAIN_HINT_6"
+msgstr "Achetez un rang de Détail de la carte dans Monde"
+
+msgid "MAIN_HINT_7"
+msgstr "Trouvez la compétence Explosion de Givre (en Été I, les élites Chapeau de Paille la lâchent)"
+
+msgid "MAIN_HINT_8"
+msgstr "Vainquez le Robot Cyan, le boss d’Hiver II, pour atteindre Été I"
+
+msgid "MAIN_HINT_9"
+msgstr "Faites évoluer une arme à ^100 qui a 101 copies (détails de l’objet, Faire évoluer)"
+
+msgid "MAIN_HINT_10"
+msgstr "Possédez des compétences différentes"
+
+msgid "MAIN_HINT_11"
+msgstr "Vainquez les deux boss d’Été II pour atteindre Automne I"
+
+msgid "MAIN_HINT_12"
+msgstr "Possédez des compétences différentes"
+
+msgid "MAIN_HINT_13"
+msgstr "Vainquez les deux boss d’Automne II pour atteindre Printemps I"
+
+msgid "MAIN_HINT_14"
+msgstr "Accomplissez un Prestige"
+
+msgid "MAIN_HINT_15"
+msgstr "Vainquez chaque type d’ennemi et chaque boss de Printemps II"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "Prête ! Récupérez-la dans Missions"
+
+msgid "MISSION_DO_KILL"
+msgstr "Vaincre %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "Vaincre %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "Ramasser des armes ou des tenues lâchées"
+
+msgid "MISSION_DO_MERGE"
+msgstr "Fusionner des objets"
+
+msgid "MISSION_DO_COINS"
+msgstr "Gagner des pièces sur les ennemis"
+
+msgid "MISSION_DO_CAST"
+msgstr "Lancer des compétences équipées"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "Ensuite : %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "Vaincre %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "Vaincre des ennemis"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "Ramasser des armes ou des tenues lâchées"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "Fusionner des objets"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "Vaincre des boss"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "Lancer des compétences"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "Récupérer des missions ordinaires"
+
+msgid "FOLLOW_TROPHY"
+msgstr "Vaincre %s pour son trophée · trophées %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "Fusionner une arme, une tenue ou une compétence jusqu’à ^100 : meilleur ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "Fusionner un objet de rang %d ou plus jusqu’à ^100 : meilleur ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "Fusionner jusqu’à ^50 : armes %d/%d · tenues %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "Fusionner de l’équipement de rang 2+ jusqu’à ^50 : armes %d/%d · tenues %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "Gagner sur les ennemis pendant cette partie : pièces %s/%s · gemmes %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "C’est assez ! Remettez-le : Prestige, puis Remettre"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "Temps d’absence au total : %.1f/72 h"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "Plus longue absence d’affilée : %.1f/24 h"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "Pièces gagnées pendant votre absence : %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "Explorer %s : %d %%/90 %%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "Vaincre %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "Débloquer tous les camps de %s : %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "Puis : %s (%d restants)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "ALERTE : BOSS REPÉRÉ !"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · boss de %s"
+
+msgid "MASTERY_CHIP"
+msgstr "Maîtrise %d %% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "Maîtrise de cette carte : pourcentage et catégories accomplies. Touchez pour les détails."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "Farmez jusqu’à pouvoir battre le boss."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "Le Bonhomme de Neige garde le passage vers Hiver II."
+
+msgid "VIEW_CAMP"
+msgstr "Voir le camp"
+
+msgid "DROP_ALL"
+msgstr "Tout lâcher"
+
+msgid "DROP_ALL_TITLE"
+msgstr "Lâcher toute la pile ?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nToutes les copies quittent votre inventaire et l’emplacement se libère aussitôt. La pile reste au sol pendant 5 minutes : touchez-la pour la reprendre (le ramassage auto ne la reprend jamais). La reprendre ne fait progresser ni les missions, ni le Prestige, ni la Maîtrise."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "maîtrise ^%d (conservée)"
+
+msgid "DROPPED_NOTICE"
+msgstr "Lâché : %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "Retirez-le d’abord"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "Vous rend %s PV maintenant (%s PV, au plus %s %% des PV max.) quand vous êtes sous %s %% de PV"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "+%s %% de dégâts d’attaque pendant 5 s (+%s dégâts par coup actuellement) · seulement en combat"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× les dégâts d’attaque (%s actuellement) à chaque ennemi dans un rayon de %s autour de vous, et les ralentit de 25 %% pendant 3 s"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× les dégâts d’attaque (%s actuellement) à votre cible et à chaque ennemi dans un rayon de %s autour d’elle"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "%s× les dégâts d’attaque (%s actuellement) à votre cible actuelle"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "%s× les dégâts d’attaque (%s actuellement) à votre cible actuelle : un coup lourd au corps à corps"
+
+msgid "SKILL_DESC_STATS"
+msgstr "Cibles : %s · Portée : %s · Recharge : %s s"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "vous"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "tous les ennemis de la zone"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 ennemi"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "soi"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s PV"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s %% de dégâts"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× les dégâts d’attaque"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "Soin peut être utilisé dès qu’il vous manque des PV, même hors combat."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "Prestige"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "Échanger %d opportunité(s) et commencer une nouvelle partie"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "Vous choisissez une carte permanente pour chacune :"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 carte"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "PERMANENT · VOUS CONSERVEZ"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "RÉINITIALISÉ POUR CETTE PARTIE"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "Les cartes se choisissent une par une et sont enregistrées aussitôt. La partie recommence en Hiver I après la dernière carte."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "Lancer le Prestige"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "Cartes et ensembles de prestige (%d possédées) plus les nouvelles"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "Vos gemmes : %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "Zones explorées, camps repérés et boss trouvés"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "Toutes les améliorations en gemmes, l’automatisation et l’espace d’inventaire"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "Clés de boss, succès d’ennemis et Maîtrise des cartes"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "Paramètres et progression du tutoriel"
+
+msgid "RESET_LINE_COINS"
+msgstr "Pièces : %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "Niveau du joueur %d (retour au niveau 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "Objets, fusions et stock de consommables"
+
+msgid "RESET_LINE_MAPS"
+msgstr "Accès aux cartes (retour à Hiver I) et camps possédés"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "Améliorations en pièces et améliorations de carte"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "Opportunités et missions non terminées"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "Touchez Voir le camp"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "Cela ouvre ce camp, où vous pouvez le débloquer."
+
+msgid "HELP"
+msgstr "Aide"
+
+msgid "PANEL_HELP"
+msgstr "Aide"
+
+msgid "HELP_INTRO"
+msgstr "Un bref aperçu du fonctionnement de LootFarmer. Le lire ne change rien à votre partie."
+
+msgid "HELP_BACK"
+msgstr "Retour aux Paramètres"
+
+msgid "SECTION_LANGUAGE"
+msgstr "Langue"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "Chance de critique"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "Dégâts critiques"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "Emplacements de compétences auto"
+
+msgid "SOURCE_UPGRADES"
+msgstr "Améliorations"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "Compétences auto : %d / %d attribuées"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "Équipez d’abord une compétence et achetez un emplacement auto disponible."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "Fusion auto : %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "Taille des emplacements d’inventaire"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "Rend jusqu’à %s PV (%s %% des PV max.). Disponible dès qu’il vous manque des PV, même hors combat."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "S’active uniquement en combat, avec un ennemi à moins de %s unités."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "Cible unique. Réduit la vitesse d’attaque de %s %% pendant %s secondes (boss : %s secondes). Le déplacement n’est pas affecté."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "Les boss résistent à la moitié de la durée des effets temporaires ; leur force et leurs dégâts restent inchangés."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "Prochain niveau de maîtrise : %d / %d utilisations · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "Utilisation auto : dès qu’il vous manque des PV et que la recharge est prête, même hors combat."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "Touchez un camp vert pour voyager. Les camps grisés sont verrouillés. Impossible de voyager en combat."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d s"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "Terminez l’initiation Guidée en Hiver II avant d’utiliser le Prestige."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "Niveau du joueur %d, XP gagnée et bonus de niveau"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "Maîtrise des consommables et progression vers son prochain niveau"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "Choisissez un camp"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "Fermez ce panneau pour continuer."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "Touchez le bouton Fermer. Votre progression a été sauvegardée."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "Achetez une amélioration du joueur."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "Choisissez une amélioration globale pour vos prochains combats."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "Agrandissez votre inventaire d’équipement."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "Utilisez des gemmes pour acheter un autre emplacement. Un don unique du tutoriel couvre ce qui manque."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "Suivez la flèche jusqu’au camp."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "Approchez-vous, découvrez-le, puis touchez Voir le camp et achetez son déblocage."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "Trouvez le premier boss."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "Suivez la flèche vers le Bonhomme de Neige. Le découvrir ne demande pas de le vaincre."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "Préparez-vous avant d’affronter le boss."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "Les boss peuvent être trop forts. Montez de niveau pour vos statistiques globales ; farmez de l’équipement, fusionnez les copies et achetez des améliorations."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "Farmez encore quelques ennemis."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "Gagnez en puissance et amassez des pièces avant de continuer."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "Achetez une Potion de soin."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "Ouvrez Améliorations du joueur, puis Consommables. Les potions déjà en stock comptent aussi."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "Faites de la place pour une Potion de soin."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "Achetez un emplacement de consommable, ou utilisez un consommable existant pour libérer un emplacement."
+
+msgid "GUIDE_POTION_USE"
+msgstr "Utilisez votre Potion de soin."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "Touchez son emplacement d’inventaire quand il vous manque des PV. Utiliser un consommable fait progresser sa maîtrise."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "Utilisez une potion quand vous avez besoin de soin."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "Combattez d’abord les ennemis proches. Avec tous vos PV, aucune potion n’est gaspillée."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "Le Prestige accorde des avantages permanents."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "Accomplissez des opportunités pour obtenir des cartes. Le mode Guidé débloque la réinitialisation après ce tutoriel ; vous pouvez continuer sans faire de Prestige."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "Vous pouvez déjà obtenir une récompense de Prestige."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "Votre opportunité est prête. Terminez l’initiation Guidée en Hiver II avant de décider de réinitialiser."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "La carte suivante est ouverte."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "Ouvrez Monde pour voir les zones débloquées et leurs camps."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "Voyagez entre les camps débloqués."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "Monde vous y emmène directement quand un seul camp est débloqué, ou propose une carte quand il y en a plusieurs. La téléportation est impossible en combat."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "Les paliers proposent des objectifs facultatifs."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "Explorez la Maîtrise des cartes et les succès quand vous voulez des récompenses en plus. Continuez via Monde jusqu’à Hiver II."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "Voyagez jusqu’à Hiver II."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "Ouvrez Monde et sélectionnez Hiver II pour poursuivre l’aventure."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "LA ROUTE À SUIVRE"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "Votre but ultime : vaincre le boss final de la zone 8 et conquérir le jeu.\n\nEnvie d’un défi encore plus grand ? Atteignez 100 % en accomplissant tous les paliers de la Maîtrise des cartes.\n\nJouez à votre rythme, profitez du voyage et bonne chance !"
+
+msgid "SLOT_SMALL"
+msgstr "Petite"
+
+msgid "SLOT_MEDIUM"
+msgstr "Moyenne"
+
+msgid "SLOT_LARGE"
+msgstr "Grande"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "Général"
+
+msgid "REVIEW_TITLE"
+msgstr "Vous aimez LootFarmer ?"
+
+msgid "REVIEW_LEAD"
+msgstr "Votre aventure ne fait que commencer !"
+
+msgid "REVIEW_BODY"
+msgstr "Vous avez trouvé du beau butin ? Nous aimerions connaître votre avis. Un avis sincère nous aide à améliorer LootFarmer et aide d’autres joueurs à découvrir le jeu."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Donner un avis sur Google Play"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "Donner un avis sur itch.io"
+
+msgid "REVIEW_LATER"
+msgstr "Plus tard"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "Impossible d’ouvrir la page de la boutique. Vérifiez votre connexion et réessayez."
+
+msgid "SECTION_FEEDBACK"
+msgstr "Votre avis"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "Ciblez un ennemi"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "Faites glisser votre doigt de votre héros vers un ennemi, puis relâchez pour le cibler. Vous concentrerez vos attaques sur l’ennemi sélectionné."
+
+msgid "GUIDE_TARGET"
+msgstr "Ciblez un ennemi"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "Faites glisser votre doigt de votre héros vers un ennemi, puis relâchez pour le cibler. Vous concentrerez vos attaques sur l’ennemi sélectionné."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "Trouvez un ennemi à cibler"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "Avancez jusqu’à voir un ennemi, puis faites glisser votre doigt de votre héros vers lui et relâchez."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "Chasser : %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d pts"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s s"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d h %02d min"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d min %02d s"
+
+msgid "DURATION_SECONDS"
+msgstr "%d s"

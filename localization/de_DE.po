@@ -1,0 +1,5834 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: de_DE\n"
+"Language-Team: German (Germany)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 01 (Change 38)\n"
+"X-LootFarmer-Source: localization/en.po 4440b694b8661a34e54e02ae9a1eeee4c517284cfa753272082ab321f26ffaf4\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Android-Start"
+
+msgid "BOOT_DETAIL"
+msgstr "Kontrollpunkt 0 • Das Gameplay ist noch nicht umgesetzt."
+
+msgid "BOOT_VERSION"
+msgstr "Version %s"
+
+msgid "BOOT_TAPS"
+msgstr "Gespeicherte Berührungen: %d"
+
+msgid "BOOT_TAP"
+msgstr "Berührung testen und speichern"
+
+msgid "BOOT_SAVED"
+msgstr "Speichern abgeschlossen"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "Speichern nicht möglich. Prüfe das Validierungsprotokoll."
+
+msgid "BOOT_PAUSE"
+msgstr "Pause"
+
+msgid "BOOT_RESUME"
+msgstr "Fortsetzen"
+
+msgid "BOOT_RESET"
+msgstr "Kompletter Reset"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "Fortschritt zurücksetzen?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "Dadurch wird der gesamte Fortschritt dieses Profils gelöscht. Deine Einstellungen bleiben erhalten."
+
+msgid "UI_CONFIRM"
+msgstr "Zurücksetzen"
+
+msgid "UI_CANCEL"
+msgstr "Abbrechen"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "Sprache"
+
+msgid "LANG_AUTOMATIC"
+msgstr "Automatisch"
+
+msgid "LANG_DISABLED"
+msgstr "Verfügbar nach Prüfung der Übersetzung"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "Englisch ist aktiv. Weitere Sprachen werden nach der Prüfung freigeschaltet."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "Ein unlesbarer oder neuerer Spielstand wurde aufbewahrt. Stelle ein kompatibles Backup wieder her oder setze dieses Profil bewusst zurück."
+
+msgid "LANG_EN_US"
+msgstr "Englisch"
+
+msgid "LANG_ES_419"
+msgstr "Spanisch (Lateinamerika)"
+
+msgid "LANG_ES_ES"
+msgstr "Spanisch (Spanien)"
+
+msgid "LANG_PT_BR"
+msgstr "Portugiesisch (Brasilien)"
+
+msgid "LANG_FR_FR"
+msgstr "Französisch"
+
+msgid "LANG_DE_DE"
+msgstr "Deutsch"
+
+msgid "LANG_IT_IT"
+msgstr "Italienisch"
+
+msgid "LANG_NL_NL"
+msgstr "Niederländisch"
+
+msgid "LANG_PL_PL"
+msgstr "Polnisch"
+
+msgid "LANG_RU_RU"
+msgstr "Russisch"
+
+msgid "LANG_UK_UA"
+msgstr "Ukrainisch"
+
+msgid "LANG_TR_TR"
+msgstr "Türkisch"
+
+msgid "LANG_ID_ID"
+msgstr "Indonesisch"
+
+msgid "LANG_VI_VN"
+msgstr "Vietnamesisch"
+
+msgid "LANG_TH_TH"
+msgstr "Thailändisch"
+
+msgid "LANG_HI_IN"
+msgstr "Hindi"
+
+msgid "LANG_JA_JP"
+msgstr "Japanisch"
+
+msgid "LANG_KO_KR"
+msgstr "Koreanisch"
+
+msgid "LANG_ZH_CN"
+msgstr "Chinesisch (vereinfacht)"
+
+msgid "LANG_ZH_TW"
+msgstr "Chinesisch (traditionell)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "Münzen %s     Edelsteine %s"
+
+msgid "PAUSE"
+msgstr "Pause"
+
+msgid "RESUME"
+msgstr "Weiter"
+
+msgid "PLAYER_STATUS"
+msgstr "LP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "Rückkehr zum Lager in %.1f s"
+
+msgid "BOOST_ACTIVE"
+msgstr "Münzbonus %d s"
+
+msgid "GROUP_0"
+msgstr "Sprosswiese"
+
+msgid "GROUP_1"
+msgstr "Roboterkreuzung"
+
+msgid "GROUP_2"
+msgstr "Dinosaurierhain"
+
+msgid "GROUP_3"
+msgstr "Lichtung des Todes"
+
+msgid "CLOSE"
+msgstr "Schließen"
+
+msgid "CONFIRM"
+msgstr "Bestätigen"
+
+msgid "CANCEL"
+msgstr "Abbrechen"
+
+msgid "LEVEL"
+msgstr "STUFE"
+
+msgid "INVENTORY_HEADING"
+msgstr "Ausrüstung"
+
+msgid "SUPPLY_HEADING"
+msgstr "Vorräte"
+
+msgid "GEAR_CAPACITY"
+msgstr "AUSRÜSTUNG  %d / %d  ·  zum Ansehen tippen"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "VORRÄTE  %d / %d  ·  zum Benutzen oder Automatisieren tippen"
+
+msgid "EMPTY_SLOT"
+msgstr "Leer"
+
+msgid "EQUIPPED"
+msgstr "Ausgerüstet"
+
+msgid "AUTO"
+msgstr "Auto"
+
+msgid "UPGRADES"
+msgstr "Upgrades"
+
+msgid "WORLD"
+msgstr "Welt"
+
+msgid "STATS"
+msgstr "Werte"
+
+msgid "SETTINGS"
+msgstr "Einstellungen"
+
+msgid "PANEL_ITEM"
+msgstr "Gegenstand"
+
+msgid "PANEL_UPGRADES"
+msgstr "Spieler-Upgrades"
+
+msgid "PANEL_TRAVEL"
+msgstr "Lager & Farmen"
+
+msgid "PANEL_STATS"
+msgstr "Dein Build"
+
+msgid "PANEL_SETTINGS"
+msgstr "Einstellungen"
+
+msgid "PANEL_HISTORY"
+msgstr "Neueste Funde"
+
+msgid "PANEL_PRESTIGE"
+msgstr "Ein Neubeginn"
+
+msgid "HELP_0"
+msgstr "Erkunde mit dem Joystick den Norden. Lass ihn los, um automatisch gegen Gegner in der Nähe zu kämpfen."
+
+msgid "HELP_1"
+msgstr "Sprosse kämpfen allein. Bleib in ihrer Nähe, um sie zu farmen; tippe fallengelassene Ausrüstung an, um sie aufzusammeln."
+
+msgid "HELP_2"
+msgstr "Tippe einen Gegenstand am Boden an. Münzen und Edelsteine wandern direkt in deine Geldbörse."
+
+msgid "HELP_3"
+msgstr "Tippe unten deine neue Ausrüstung an und rüste sie aus. Du kannst ein Kostüm und eine Waffe tragen."
+
+msgid "HELP_4"
+msgstr "Verschmelze ein Duplikat, um diesen Gegenstandstyp zu stärken. Sein Fortschritt bleibt erhalten, auch wenn der Bestand auf null fällt."
+
+msgid "HELP_5"
+msgstr "Öffne einen Gegnertyp und kaufe Auto-Sammeln, um seine Beute beim Farmen einzusammeln."
+
+msgid "HELP_6"
+msgstr "Verbessere deinen Build, erkunde den Norden und besiege den Tod. Die Welt ist von Anfang an offen."
+
+msgid "HELP_7"
+msgstr "Deine dauerhaften Boni bleiben erhalten. Starte einen stärkeren Durchlauf und fordere den Tod erneut heraus."
+
+msgid "HELP_VICTORY"
+msgstr "Der Tod ist besiegt! Farme weiter oder wähle unter Welt eine Prestige-Karte."
+
+msgid "HELP_PAUSED"
+msgstr "Pausiert · Inventarverwaltung ist möglich. Setze fort, um weiterzufarmen."
+
+msgid "HISTORY_EMPTY"
+msgstr "Hier erscheinen deine neuesten Funde.\nTippe, um die letzten zehn zu sehen."
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s Edelsteine"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "Verkauft: %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "Holzschwert"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "Steinschwert"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "Eisenschwert"
+
+msgid "ITEM_SPROUT"
+msgstr "Spross-Kostüm"
+
+msgid "ITEM_ROBOT"
+msgstr "Roboter-Kostüm"
+
+msgid "ITEM_DINOSAUR"
+msgstr "Dinosaurier-Kostüm"
+
+msgid "ITEM_POTION"
+msgstr "Heiltrank"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "Münztonikum"
+
+msgid "ITEM_QUANTITY"
+msgstr "Besitz: %s"
+
+msgid "NORMAL_STATS"
+msgstr "Normale Werte · steigen durch Verschmelzen"
+
+msgid "EXTRA_STATS"
+msgstr "Zusatzwerte · gelten für diesen Gegenstandstyp"
+
+msgid "EQUIP"
+msgstr "Ausrüsten"
+
+msgid "UNEQUIP"
+msgstr "Ablegen"
+
+msgid "REROLL"
+msgstr "Beide Zusatzwerte neu würfeln · %s Edelsteine"
+
+msgid "REROLL_CONFIRM"
+msgstr "%s Edelsteine ausgeben, um beide Zusatzwerte zu ersetzen? Der neue Wurf ersetzt den alten, auch wenn er schwächer ist."
+
+msgid "USE"
+msgstr "Einen benutzen"
+
+msgid "MERGE_ONE"
+msgstr "Eine übrige Kopie verschmelzen"
+
+msgid "MERGE_ALL"
+msgstr "%d übrige Kopien verschmelzen"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "Bei ^100 gibst du 100 übrige Kopien für einen Gegenstand der nächsten Stufe aus. Der Ausgangsgegenstand und seine Verschmelzungsstufe bleiben erhalten. Nötig ist ein Stapel des Zielgegenstands oder ein freier Platz derselben Kategorie."
+
+msgid "EVOLVE"
+msgstr "Weiterentwickeln → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "Automatik für diesen Platz umschalten"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "Diesen Platz automatisch nutzen: %s"
+
+msgid "ON"
+msgstr "An"
+
+msgid "OFF"
+msgstr "Aus"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "Dieser Platz ist leer. Neue Gegenstandstypen brauchen einen freien Platz; vorhandene Typen werden gestapelt."
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "Gruppen-Upgrades wirken auf jedes Mitglied. Jeder Gegner würfelt seine eigene Beute aus. Münzen und Edelsteine werden sofort gutgeschrieben."
+
+msgid "GROUP_SELECT"
+msgstr "Gegnergruppe: %s · zum Wechseln tippen"
+
+msgid "AUTOMATION_HEADING"
+msgstr "Inventar & Automatik · bleiben beim Prestige erhalten"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "Münzen"
+
+msgid "GEMS"
+msgstr "Edelsteine"
+
+msgid "TRAVEL_HELP"
+msgstr "Tippe auf der Karte auf ein Lager, um deinen Respawn-Punkt zu wählen. Beim Freischalten über das Lagerfenster wird es ebenfalls gewählt. Keine Teleportation."
+
+msgid "SPAWN_SELECT"
+msgstr "Lager %d wählen"
+
+msgid "SPAWN_BUY"
+msgstr "Lager %d freischalten · %s Münzen"
+
+msgid "SELECTED"
+msgstr "Ausgewählt"
+
+msgid "FOCUS_HELP"
+msgstr "Schalte das Farmen pro Gegnertyp frei und wähle nur Kostüm, nur Waffe oder beides. Nach dem Tod kehrst du zu diesem Lager zurück. Manuelle Bewegung bricht das Farmen ab."
+
+msgid "FOCUS_GROUP"
+msgstr "%s farmen · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "Wähle eine Prestige-Karte"
+
+msgid "PRESTIGE_COUNT"
+msgstr "Abgeschlossene Prestiges: %d"
+
+msgid "NO_OFFLINE"
+msgstr "Der Fortschritt ist gespeichert. Offline-Belohnungen sind für das Vollspiel geplant; diese Version simuliert nichts, solange sie geschlossen ist oder im Hintergrund läuft."
+
+msgid "SAVE_NOW"
+msgstr "Jetzt speichern"
+
+msgid "HARD_RESET"
+msgstr "Kompletter Reset"
+
+msgid "RESET_CONFIRM"
+msgstr "Gesamten Fortschritt, Inventar, Automatik und alle Prestige-Karten löschen? Die Einstellungen bleiben erhalten. Das kann nicht rückgängig gemacht werden."
+
+msgid "LANGUAGE_NOTE"
+msgstr "Während der Entwicklung ist Englisch verfügbar. Die anderen 19 Sprachen werden nach Prüfung der Übersetzungen freigeschaltet."
+
+msgid "CREDITS"
+msgstr "Figuren- und Weltgrafik: Pixel Plains von SnowHex. Oberfläche: Kenney Fantasy UI Borders (CC0)."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "Wähle eine dauerhafte +5-%-Karte. Die Boni addieren sich über alle Durchläufe. Du kannst dieses Fenster schließen und weiterfarmen."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "Mit dieser dauerhaften Karte einen neuen Durchlauf beginnen? Zurückgesetzt werden Währungen, Inventar, Verschmelzungen und Zusatzwerte der Gegenstände, Farm-Upgrades der Gegner und Lager. Erhalten bleiben aufgedeckte Gegnerinfos, Automatikstufen, Inventarkapazitäten und alle Prestige-Karten."
+
+msgid "CARD_DAMAGE"
+msgstr "+5 % Schaden · dauerhaft"
+
+msgid "CARD_HP"
+msgstr "+5 % maximale Lebenspunkte · dauerhaft"
+
+msgid "CARD_COINS"
+msgstr "+5 % Münzmenge · dauerhaft"
+
+msgid "CARD_GEMS"
+msgstr "+5 % Edelsteinchance (relativ) · dauerhaft"
+
+msgid "CARD_LOOT"
+msgstr "+5 % Ausrüstungs-Dropchance (relativ) · dauerhaft"
+
+msgid "CARD_MERGE"
+msgstr "+5 % Gewinn bei normalen Werten durch Verschmelzen · dauerhaft"
+
+msgid "STAT_HP"
+msgstr "Maximale Lebenspunkte"
+
+msgid "STAT_DAMAGE"
+msgstr "Schaden"
+
+msgid "STAT_DEFENSE"
+msgstr "Verteidigung"
+
+msgid "STAT_CRIT"
+msgstr "Kritische Chance"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "Kritischer Multiplikator"
+
+msgid "STAT_LIFESTEAL"
+msgstr "Lebensraub"
+
+msgid "STAT_REGEN"
+msgstr "Leben pro Sekunde"
+
+msgid "STAT_SPEED"
+msgstr "Angriffstempo-Bonus"
+
+msgid "STAT_HEAL"
+msgstr "Heilung"
+
+msgid "STAT_COIN_BONUS"
+msgstr "Münzbonus"
+
+msgid "NEED_DUPLICATES"
+msgstr "Zum Verschmelzen brauchst du eine übrige Kopie."
+
+msgid "MERGE_MAX"
+msgstr "Dieser Gegenstand ist auf ^100."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "Die Weiterentwicklung erfordert ^100 und 101 Ausgangskopien."
+
+msgid "INVENTORY_FULL"
+msgstr "Kein freier Platz. Schaffe Platz oder erweitere dieses Inventar."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "Schalte diese Automatik unter Upgrades frei."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "Schalte unter Upgrades einen weiteren Auto-Platz frei."
+
+msgid "CANNOT_USE"
+msgstr "Kein nutzbarer Vorrat, oder deine Figur ist tot."
+
+msgid "UPGRADE_MAX"
+msgstr "MAX"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "Nicht genug Münzen."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "Nicht genug Edelsteine."
+
+msgid "SPAWN_BOUGHT"
+msgstr "Lager freigeschaltet. Wähle es aus, um dort zu respawnen."
+
+msgid "EVOLVED"
+msgstr "Gegenstand der nächsten Stufe erhalten. Dein Ausgangsfortschritt bleibt erhalten."
+
+msgid "PLAYER_DIED"
+msgstr "Rückkehr zu deinem gewählten Lager. Nichts geht verloren."
+
+msgid "BOSS_DEFEATED"
+msgstr "Der Tod ist besiegt! Eine dauerhafte Prestige-Karte wartet auf dich."
+
+msgid "PRESTIGED"
+msgstr "Ein neuer Durchlauf beginnt. Deine dauerhaften Boni bleiben erhalten."
+
+msgid "SAVED"
+msgstr "Fortschritt gespeichert."
+
+msgid "SAVE_ERROR"
+msgstr "Speichern fehlgeschlagen. Dein Fortschritt ist noch im Speicher; versuch es erneut."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "Der Spielstand konnte nicht sicher geladen werden. Speichern ist bis zu einem bewussten kompletten Reset deaktiviert."
+
+msgid "ACTION_PREVIEW"
+msgstr "Aktion · Kosten und Wirkung"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "Ausrüstungsplätze +1 (max. 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "Vorratsplätze +1 (einer pro Vorratstyp)"
+
+msgid "UP_COLLECT"
+msgstr "Auto-Sammeln freischalten"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "Sammelreichweite +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "Sammelmenge +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "Sammelintervall −1 s"
+
+msgid "UP_MERGE_GEAR"
+msgstr "Auto-Verschmelzen von Ausrüstung freischalten"
+
+msgid "UP_AUTO_USE"
+msgstr "Automatische Vorratsplätze +1"
+
+msgid "UP_USE_SPEED"
+msgstr "Auto-Nutzungsintervall −1 s"
+
+msgid "UP_FOCUS"
+msgstr "Gezieltes Farmen freischalten"
+
+msgid "UP_RESPAWN"
+msgstr "Respawn-Zeit −1 s"
+
+msgid "UP_LOOT"
+msgstr "Ausrüstungs-Dropchance +0,5 Punkte (pro Gegenstand)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "Münzchance"
+
+msgid "UP_GEM_CHANCE"
+msgstr "Globale Edelsteinchance"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "Münzen pro Gegner +50 %"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "Edelsteine pro Drop (Bosse geben ×3)"
+
+msgid "CHAT_SURPRISE"
+msgstr "He! Pass auf!"
+
+msgid "RECENT_HEADER"
+msgstr "Neueste Funde · für Verlauf tippen"
+
+msgid "ZOOM_IN"
+msgstr "Heranzoomen"
+
+msgid "ZOOM_OUT"
+msgstr "Herauszoomen"
+
+msgid "CAMERA_ZOOM"
+msgstr "Kamerazoom"
+
+msgid "PANEL_ENEMY"
+msgstr "Gegner"
+
+msgid "PANEL_CAMP"
+msgstr "Respawn-Lager"
+
+msgid "TAB_AUTOMATION"
+msgstr "Automatik"
+
+msgid "TAB_INVENTORY"
+msgstr "Inventar"
+
+msgid "TAB_SUPPLIES"
+msgstr "Vorräte"
+
+msgid "TAB_OVERVIEW"
+msgstr "Übersicht"
+
+msgid "TAB_UPGRADES"
+msgstr "Upgrades"
+
+msgid "UP_REVEAL_STATS"
+msgstr "Werte aufdecken · dauerhaft"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "Drops aufdecken · dauerhaft"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "GEGNERWERTE"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "MÖGLICHE DROPS"
+
+msgid "UNKNOWN_STATS"
+msgstr "LP ???   •   Schaden ???\nAngriffsintervall ???   •   Verteidigung ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "LP %s   •   Schaden %s\nAngriff alle %s s   •   Verteidigung %s"
+
+msgid "DROP_COINS"
+msgstr "Münzen ×%s · garantiert"
+
+msgid "DROP_GEMS"
+msgstr "Edelsteine · %s %% Chance · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s %%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "Ein Ausrüstungswurf wählt einen der beiden Ausrüstungsgegenstände. Edelsteine und Vorräte werden getrennt ausgewürfelt. Die Chancen enthalten deine aktuellen Upgrades."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 Prozentpunkt / Stufe · max. +15"
+
+msgid "ENEMY_CAT"
+msgstr "Beschworene Katze"
+
+msgid "CAT_DETAILS"
+msgstr "Vom Tod beschworener Diener.\nKeine Drops, keine Gruppen-Upgrades."
+
+msgid "CAMP_NAME"
+msgstr "Lager %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "Zum Wählen tippen"
+
+msgid "CAMP_LOCKED"
+msgstr "Gesperrt · zum Freischalten tippen"
+
+msgid "CAMP_HELP"
+msgstr "Lager sind Respawn-Punkte. Ruh dich neben einem freigeschalteten Lager aus, um dich schnell zu erholen. Freischalten, als Respawn wählen und Reisen sind getrennte Aktionen. Stehst du an einem Lager, erscheint die Schaltfläche Lager ansehen."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "Respawn-Lager gewählt."
+
+msgid "OPEN_PLAYER"
+msgstr "Spieler-Upgrades"
+
+msgid "OPEN_GROUP"
+msgstr "%s ansehen"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "Onyxsense"
+
+msgid "ITEM_REAPER"
+msgstr "Sensenmann-Kostüm"
+
+msgid "VARIANT_OUTFIT"
+msgstr "Kostüm"
+
+msgid "VARIANT_WEAPON"
+msgstr "Waffe"
+
+msgid "VARIANT_BOTH"
+msgstr "Beides"
+
+msgid "ITEM_DETAILS"
+msgstr "Gegenstandsdetails"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "Stufenaufstieg!"
+
+msgid "GEAR"
+msgstr "Ausrüstung"
+
+msgid "CONSUMABLES"
+msgstr "Vorräte"
+
+msgid "HUD_HP"
+msgstr "LP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "Wiederbelebung in %.1f s"
+
+msgid "HUD_LEVEL"
+msgstr "STUFE %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "Ausrüstung %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "Vorräte %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "VERSCHMELZUNG %d"
+
+msgid "ITEM_OWNED"
+msgstr "Besitz: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "Ausgerüstet · 100 % Anteil"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "Gelagert · 30 % Anteil (einmal pro Waffentyp)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "Verschmelzen"
+
+msgid "LESS_OPTIONS"
+msgstr "Weniger Optionen"
+
+msgid "MORE_OPTIONS"
+msgstr "Mehr Optionen"
+
+msgid "LOOT_HISTORY"
+msgstr "Beuteverlauf"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "STUFE %d / 1.000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "STUFE %d · Leben und Schaden erhöht"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "Vorrat antippen zum Benutzen · Gedrückt halten für Details"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "Nächste Verschmelzung: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "Erfolge"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "Gilt für alle Lager dieses Gegnertyps. Sammel-Upgrades bleiben erhalten; andere Typ-Upgrades werden beim Prestige zurückgesetzt."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 Prozentpunkt / Stufe · max. +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "+10 % EP / Stufe · max. +200 %"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "Vorrats-Dropchance +1 Punkt"
+
+msgid "UP_GROUP_XP"
+msgstr "Erfahrung +10 %"
+
+msgid "GROUP_XP_VALUE"
+msgstr "EP pro Besiegtem: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "Dauerhafte Abschuss-Meilensteine, geteilt über alle Lager dieses Gegnertyps. Belohnungen wirken automatisch und überstehen das Prestige."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "Gegen diesen Typ: +%.0f %% Schaden · +%.1f Prozentpunkte Edelsteinchance"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · %d besiegt\nBelohnung: +%.0f %% Schaden und +%.1f Prozentpunkte Edelsteinchance gegen diesen Typ"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "Abgeschlossen"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "Abschuss-Erfolge"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%.0f %% Schaden · +%.1f Pkt. Edelsteinchance"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "Verschmilzt automatisch die Waffen und Kostüme dieses Gegnertyps."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "+%s Münzen pro Besiegtem / Stufe"
+
+msgid "ACTION_PAUSED"
+msgstr "Während der Pause nicht verfügbar"
+
+msgid "ACTION_SUSPENDED"
+msgstr "Nicht verfügbar, solange die App inaktiv ist"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "Voraussetzungen nicht erfüllt"
+
+msgid "VALUE_MAX"
+msgstr "MAX"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s EP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s s"
+
+msgid "HP_PER_SECOND"
+msgstr "LP/s"
+
+msgid "STAT_SOURCES"
+msgstr "Woher deine Werte stammen"
+
+msgid "SOURCE_BASE"
+msgstr "Grundwerte"
+
+msgid "SOURCE_LEVEL"
+msgstr "Spielerstufen"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "Angelegte Ausrüstung"
+
+msgid "SOURCE_STORED"
+msgstr "Gelagerte Ausrüstung"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "Dauerhafte Boni: LP ×%s · Schaden ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "Die Summen oben enthalten Obergrenzen: kritische Chance 75 %, kritischer Schaden ×4, Lebensraub 15 %, Angriffstempo-Bonus 200 %."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "Vorratswurf: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "Tonikum: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · Rang %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "Rang %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · R%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "Edelsteine"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "Gilt für alle Gegner. Wird beim Prestige zurückgesetzt. Erfolgsboni bleiben an den jeweiligen Gegnertyp gebunden."
+
+msgid "FARM_VARIANT"
+msgstr "%s farmen · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "Farm-Auswahl: %s. Nach dem Respawn kehrst du hierher zurück."
+
+msgid "MAX_ITEM_TIER"
+msgstr "Höchster Rang erreicht. Verschmelzen ist weiterhin bis ^100 möglich."
+
+msgid "TAB_PLAYER"
+msgstr "Spieler"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "Gegner pro Fundort"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "Respawn-Zeit der Gegner"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "Boss-Edelsteinchance"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "Boss-Bonusedelsteine pro Drop"
+
+msgid "TRAVEL_COMBAT"
+msgstr "Beende den Kampf, bevor du reist."
+
+msgid "TRAVEL_CAMP"
+msgstr "Reisen · %s · Lager %d"
+
+msgid "STAGE_LOCKED"
+msgstr "Besiege zuerst die Torwächter-Bosse dieses Gebiets."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "Erkunde zuerst dieses Lager."
+
+msgid "STAGE_UNLOCKED"
+msgstr "Nächstes Gebiet freigeschaltet!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "Der letzte Wächter ist versiegelt. Besiege die anderen 13 Bosse, um ihre Schlüssel zu sammeln. Gesammelte Schlüssel bleiben beim Prestige erhalten."
+
+msgid "WORLD_COMPLETE"
+msgstr "Alle Gegner in Frühling II besiegt – letzte Mission abgeschlossen!"
+
+msgid "UNDISCOVERED"
+msgstr "Unerforscht"
+
+msgid "ENEMY_LEVEL"
+msgstr "Stufe %d"
+
+msgid "ALL_ITEMS"
+msgstr "Alle"
+
+msgid "WEAPONS"
+msgstr "Waffen"
+
+msgid "OUTFITS"
+msgstr "Kostüme"
+
+msgid "SKILLS"
+msgstr "Fähigkeiten"
+
+msgid "VARIANT_SKILL"
+msgstr "Elite"
+
+msgid "SKILL_EMPTY"
+msgstr "Fähigkeitsplatz %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "Eine Fähigkeit dieser Familie ist bereits ausgerüstet."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "Lege eine Fähigkeit ab oder schalte einen weiteren Platz frei."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "In Platz %d ausrüsten"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "Platz %d automatisch wirken: %s"
+
+msgid "STOCK_BONUS"
+msgstr "Bonus für übrige Kopien: +%s %% Grundkraft. Die Kopien bleiben in deinem Besitz."
+
+msgid "CLAIM"
+msgstr "Abholen"
+
+msgid "CLAIM_REWARD"
+msgstr "Abholen · %s Münzen · %s Edelsteine"
+
+msgid "MISSION_AUTO"
+msgstr "Automatisches Abholen: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "AN"
+
+msgid "STATE_OFF_CAPS"
+msgstr "AUS"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "Holt abgeschlossene normale Missionen ab (auch gekaufte Plätze), NICHT die Hauptziele. Schalte nach dem Kauf in Missionen das automatische Abholen AN."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "Automatisches Abholen ist freigeschaltet, aber AUS. Tippe unten auf den Schalter, um normale Missionen automatisch abzuholen. Hauptziele bleiben manuell."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "Automatisches Abholen kann aktiviert werden"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "Öffne Missionen und schalte das automatische Abholen AN. Nach dem Kauf ist es zunächst AUS."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "Automatisches Abholen einschalten"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "Du hast automatisches Abholen freigeschaltet. Tippe hier auf „Automatisches Abholen: AUS“, um es zu aktivieren. Hauptziele sind immer manuell."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "Gebietskarten ausklappen"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "Gebietskarten einklappen"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "Schließe zuerst dieses Ziel ab."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "Um Mitternacht (Ortszeit) kommt eine neue Aufgabe."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "Hauptziele"
+
+msgid "KEY_PROGRESS"
+msgstr "Boss-Schlüssel: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "Besiegte Torwächter-Bosse: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "%s Münzen/h · %s Edelsteine/h · Belohnung bis max. %s h"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "Willkommen zurück! %s belohnte Stunden · %s Münzen · %s Edelsteine"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "Wähle zuerst deine Prestige-Belohnungen fertig aus."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "Neue Prestige-Gelegenheit entdeckt."
+
+msgid "PRESTIGE_BATCH"
+msgstr "Prestige · %d Karte(n)"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "Wähle für jede bereite Gelegenheit eine einzigartige Karte und setze den Durchlauf dann einmal zurück. Gegenstände, Münzen, Lager, Nebel und Münz-Upgrades werden zurückgesetzt. Schlüssel, Erfolge, Karten und Edelstein-Upgrades bleiben."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "%s dauerhaft behalten? Diese Wahl wird sofort gespeichert und kann nicht geändert werden."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "Wähle Karte %d von %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "Einzigartige Karten: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "Schließe zuerst eine entdeckte Prestige-Gelegenheit ab."
+
+msgid "IN_PROGRESS"
+msgstr "Läuft"
+
+msgid "FOLLOW"
+msgstr "Verfolgen"
+
+msgid "UNFOLLOW"
+msgstr "Nicht mehr verfolgen"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "Geforderte Gegenstände oder Währung abgeben"
+
+msgid "CONTRACT_NEEDS"
+msgstr "Sammle die geforderten Kopien im Spiel und behalte jeweils eine."
+
+msgid "OFFERING_NEEDS"
+msgstr "Du brauchst den geforderten Betrag und nicht ausgegebene, im Spiel verdiente Währung."
+
+msgid "OWNED_CARDS"
+msgstr "Eigene Karten"
+
+msgid "COMBOS"
+msgstr "Kartensets"
+
+msgid "PANEL_INVENTORY"
+msgstr "Inventar"
+
+msgid "PANEL_MAP"
+msgstr "Karte"
+
+msgid "PANEL_MISSIONS"
+msgstr "Missionen"
+
+msgid "PANEL_OFFLINE"
+msgstr "Offline-Belohnungen"
+
+msgid "GOAL_KILL"
+msgstr "Jagd"
+
+msgid "GOAL_BOSS"
+msgstr "Bossjagd"
+
+msgid "GOAL_GEAR"
+msgstr "Ausrüstung sammeln"
+
+msgid "GOAL_MERGE"
+msgstr "Verschmelzen"
+
+msgid "GOAL_COINS"
+msgstr "Münzen verdienen"
+
+msgid "GOAL_CAST"
+msgstr "Fähigkeiten wirken"
+
+msgid "GOAL_WAITING"
+msgstr "Erkunde weiter, um ein neues Ziel zu finden"
+
+msgid "STAT_POWER"
+msgstr "Kraft"
+
+msgid "INTRINSIC_POWER"
+msgstr "Grundkraft %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "Der nächste Rang beginnt mit 85 % der ^100-Grundkraft dieses Rangs, vor Bestands- und externen Boni."
+
+msgid "MAP_FARMING"
+msgstr "%s · %d Fundorte · %d pro Fundort · Respawn %s s"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "Besiegte Typen im letzten Gebiet: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "Aufdeckradius der Lager"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "Aufdeckradius des Spielers"
+
+msgid "UP_MAP_DETAIL"
+msgstr "Kartendetails"
+
+msgid "UP_MOVEMENT"
+msgstr "Bewegungstempo +10 %"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "Auto-Verschmelzungsintervall −1 s"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "Automatisches Abholen von Missionen freischalten"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "Missionsplätze"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "Ausgerüstete Fähigkeitsplätze"
+
+msgid "UP_SKILL_DROP"
+msgstr "Fähigkeits-Dropchance"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "Dauer der Offline-Belohnung"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "Offline-Münzen pro Stunde"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "Offline-Edelsteine pro Stunde"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "Offline-Waffendrops freischalten"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "Offline-Kostümdrops freischalten"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "Offline-Vorräte freischalten"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "Offline-Waffen pro Stunde"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "Offline-Kostüme pro Stunde"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "Offline-Vorräte pro Stunde"
+
+msgid "MAP_LEGEND"
+msgstr "Erkundetes Gelände bleibt sichtbar; Gelände in der Nähe ist nur zu sehen, solange du dort bist. Lager erkennst du schon aus größerer Entfernung."
+
+msgid "MINIMAP"
+msgstr "Karte"
+
+msgid "SKILL_TUTORIAL"
+msgstr "Elite-Gegner tragen eine Waffe, ein Kostüm und eine Fähigkeit. Jeder Drop wird einzeln ausgewürfelt. Rüste eine Fähigkeit aus dem Inventar aus und tippe auf ihre Schaltfläche, um sie zu wirken."
+
+msgid "MAIN_0"
+msgstr "Besiege 5 normale Gegner"
+
+msgid "MAIN_1"
+msgstr "Rüste deinen ersten Gegenstand aus"
+
+msgid "MAIN_2"
+msgstr "Verschmelze ein Duplikat"
+
+msgid "MAIN_3"
+msgstr "Schalte ein zusätzliches Lager frei"
+
+msgid "MAIN_4"
+msgstr "Besiege den Schneemann · schaltet Winter II frei"
+
+msgid "MAIN_5"
+msgstr "Rüste Heilung aus"
+
+msgid "MAIN_6"
+msgstr "Verbessere die Kartendetails"
+
+msgid "MAIN_7"
+msgstr "Erhalte Frostexplosion"
+
+msgid "MAIN_8"
+msgstr "Schalte Sommer I frei"
+
+msgid "MAIN_9"
+msgstr "Entwickle einen Gegenstand weiter"
+
+msgid "MAIN_10"
+msgstr "Erhalte 4 Fähigkeitsfamilien"
+
+msgid "MAIN_11"
+msgstr "Schalte Herbst I frei"
+
+msgid "MAIN_12"
+msgstr "Erhalte alle 6 Fähigkeitsfamilien"
+
+msgid "MAIN_13"
+msgstr "Schalte Frühling I frei"
+
+msgid "MAIN_14"
+msgstr "Schließe ein Prestige ab"
+
+msgid "MAIN_15"
+msgstr "Sammle alle Boss-Schlüssel und schließe Frühling II ab"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "Abklingzeit Heilung"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "Abklingzeit Frost"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "Abklingzeit Feuer"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "Abklingzeit Blitz"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "Abklingzeit Fokus"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "Abklingzeit Schlag"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "Automatisches Wirken freischalten · Platz 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "Automatisches Wirken freischalten · Platz 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "Automatisches Wirken freischalten · Platz 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "Heilung"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "Heilung"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "Heilung"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "Heilung"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "Heilung"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "Heilung"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "Heilung"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "Frostexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "Frostexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "Frostexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "Frostexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "Frostexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "Frostexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "Frostexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "Feuerexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "Feuerexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "Feuerexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "Feuerexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "Feuerexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "Feuerexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "Feuerexplosion"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "Blitzschlag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "Blitzschlag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "Blitzschlag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "Blitzschlag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "Blitzschlag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "Blitzschlag"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "Blitzschlag"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "Arkaner Fokus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "Arkaner Fokus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "Arkaner Fokus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "Arkaner Fokus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "Arkaner Fokus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "Arkaner Fokus"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "Arkaner Fokus"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "Arkaner Schlag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "Arkaner Schlag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "Arkaner Schlag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "Arkaner Schlag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "Arkaner Schlag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "Arkaner Schlag"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "Arkaner Schlag"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "Blaukappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "Blaukappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "Blaukappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "Blaukappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "Blaukappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "Blaukappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "Blaukappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "Blaukappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "Blaukappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "Blaukappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "Blaukappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "Blaukappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "Blaukappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "Blaukappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "Rotschal-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "Rotschal-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "Rotschal-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "Rotschal-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "Rotschal-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "Rotschal-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "Rotschal-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "Rotschal-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "Rotschal-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "Rotschal-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "Rotschal-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "Rotschal-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "Rotschal-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "Rotschal-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "Kochmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "Kochmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "Kochmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "Kochmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "Kochmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "Kochmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "Kochmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "Kochmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "Kochmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "Kochmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "Kochmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "Kochmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "Kochmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "Kochmützen-Schwert"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "Schneemann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "Schneemann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "Schneemann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "Schneemann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "Schneemann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "Schneemann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "Schneemann-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "Wolfskapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "Wolfskapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "Wolfskapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "Wolfskapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "Wolfskapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "Wolfskapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "Wolfskapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "Wolfskapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "Wolfskapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "Wolfskapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "Wolfskapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "Wolfskapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "Wolfskapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "Wolfskapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "Glückskatzenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "Glückskatzenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "Glückskatzenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "Glückskatzenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "Glückskatzenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "Glückskatzenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "Glückskatzenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "Glückskatzenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "Glückskatzenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "Glückskatzenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "Glückskatzenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "Glückskatzenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "Glückskatzenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "Glückskatzenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "Goldkronen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "Goldkronen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "Goldkronen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "Goldkronen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "Goldkronen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "Goldkronen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "Goldkronen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "Goldkronen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "Goldkronen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "Goldkronen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "Goldkronen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "Goldkronen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "Goldkronen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "Goldkronen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "Rentiergeweih-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "Rentiergeweih-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "Rentiergeweih-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "Rentiergeweih-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "Rentiergeweih-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "Rentiergeweih-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "Rentiergeweih-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "Rentiergeweih-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "Rentiergeweih-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "Rentiergeweih-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "Rentiergeweih-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "Rentiergeweih-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "Rentiergeweih-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "Rentiergeweih-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "Weihnachtsmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "Weihnachtsmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "Weihnachtsmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "Weihnachtsmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "Weihnachtsmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "Weihnachtsmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "Weihnachtsmützen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "Weihnachtsmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "Weihnachtsmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "Weihnachtsmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "Weihnachtsmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "Weihnachtsmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "Weihnachtsmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "Weihnachtsmützen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "Raumhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "Raumhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "Raumhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "Raumhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "Raumhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "Raumhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "Raumhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "Raumhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "Raumhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "Raumhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "Raumhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "Raumhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "Raumhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "Raumhelm-Schwert"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "Cyan-Roboter-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "Cyan-Roboter-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "Cyan-Roboter-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "Cyan-Roboter-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "Cyan-Roboter-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "Cyan-Roboter-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "Cyan-Roboter-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "Strohhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "Strohhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "Strohhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "Strohhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "Strohhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "Strohhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "Strohhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "Strohhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "Strohhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "Strohhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "Strohhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "Strohhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "Strohhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "Strohhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "Sonnenbrillen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "Sonnenbrillen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "Sonnenbrillen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "Sonnenbrillen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "Sonnenbrillen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "Sonnenbrillen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "Sonnenbrillen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "Sonnenbrillen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "Sonnenbrillen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "Sonnenbrillen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "Sonnenbrillen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "Sonnenbrillen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "Sonnenbrillen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "Sonnenbrillen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "Gelbkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "Gelbkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "Gelbkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "Gelbkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "Gelbkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "Gelbkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "Gelbkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "Gelbkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "Gelbkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "Gelbkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "Gelbkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "Gelbkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "Gelbkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "Gelbkappen-Schwert"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "Graue-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "Graue-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "Graue-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "Graue-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "Graue-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "Graue-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "Graue-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "Cowboy-Halstuch-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "Cowboy-Halstuch-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "Cowboy-Halstuch-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "Cowboy-Halstuch-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "Cowboy-Halstuch-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "Cowboy-Halstuch-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "Cowboy-Halstuch-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "Cowboy-Halstuch-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "Cowboy-Halstuch-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "Cowboy-Halstuch-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "Cowboy-Halstuch-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "Cowboy-Halstuch-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "Cowboy-Halstuch-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "Cowboy-Halstuch-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "Entenschwimmring-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "Entenschwimmring-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "Entenschwimmring-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "Entenschwimmring-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "Entenschwimmring-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "Entenschwimmring-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "Entenschwimmring-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "Entenschwimmring-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "Entenschwimmring-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "Entenschwimmring-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "Entenschwimmring-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "Entenschwimmring-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "Entenschwimmring-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "Entenschwimmring-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "Regenbogenclown-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "Regenbogenclown-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "Regenbogenclown-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "Regenbogenclown-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "Regenbogenclown-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "Regenbogenclown-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "Regenbogenclown-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "Regenbogenclown-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "Regenbogenclown-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "Regenbogenclown-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "Regenbogenclown-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "Regenbogenclown-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "Regenbogenclown-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "Regenbogenclown-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "Rotkappen-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "Rotkappen-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "Rotkappen-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "Rotkappen-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "Rotkappen-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "Rotkappen-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "Rotkappen-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "Rotkappen-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "Rotkappen-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "Rotkappen-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "Rotkappen-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "Rotkappen-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "Rotkappen-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "Rotkappen-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "Schnorchler-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "Schnorchler-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "Schnorchler-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "Schnorchler-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "Schnorchler-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "Schnorchler-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "Schnorchler-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "Schnorchler-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "Schnorchler-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "Schnorchler-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "Schnorchler-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "Schnorchler-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "Schnorchler-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "Schnorchler-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "Strohhut-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "Strohhut-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "Strohhut-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "Strohhut-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "Strohhut-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "Strohhut-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "Strohhut-Schwimmer-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "Strohhut-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "Strohhut-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "Strohhut-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "Strohhut-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "Strohhut-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "Strohhut-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "Strohhut-Schwimmer-Schwert"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "Petrol-Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "Petrol-Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "Petrol-Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "Petrol-Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "Petrol-Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "Petrol-Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "Petrol-Dinosaurier-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "Schwarzkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "Schwarzkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "Schwarzkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "Schwarzkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "Schwarzkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "Schwarzkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "Schwarzkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "Schwarzkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "Schwarzkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "Schwarzkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "Schwarzkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "Schwarzkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "Schwarzkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "Schwarzkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "Pilzhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "Pilzhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "Pilzhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "Pilzhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "Pilzhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "Pilzhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "Pilzhut-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "Pilzhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "Pilzhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "Pilzhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "Pilzhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "Pilzhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "Pilzhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "Pilzhut-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "Kürbiskopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "Kürbiskopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "Kürbiskopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "Kürbiskopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "Kürbiskopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "Kürbiskopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "Kürbiskopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "Kürbiskopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "Kürbiskopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "Kürbiskopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "Kürbiskopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "Kürbiskopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "Kürbiskopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "Kürbiskopf-Schwert"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "Eichhörnchen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "Eichhörnchen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "Eichhörnchen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "Eichhörnchen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "Eichhörnchen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "Eichhörnchen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "Eichhörnchen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "Rotfuchs-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "Rotfuchs-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "Rotfuchs-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "Rotfuchs-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "Rotfuchs-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "Rotfuchs-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "Rotfuchs-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "Hörnerkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "Hörnerkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "Hörnerkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "Hörnerkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "Hörnerkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "Hörnerkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "Hörnerkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "Hörnerkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "Hörnerkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "Hörnerkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "Hörnerkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "Hörnerkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "Hörnerkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "Hörnerkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "Bildschirmhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "Bildschirmhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "Bildschirmhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "Bildschirmhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "Bildschirmhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "Bildschirmhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "Bildschirmhelm-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "Bildschirmhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "Bildschirmhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "Bildschirmhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "Bildschirmhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "Bildschirmhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "Bildschirmhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "Bildschirmhelm-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "Fernsehkopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "Fernsehkopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "Fernsehkopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "Fernsehkopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "Fernsehkopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "Fernsehkopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "Fernsehkopf-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "Fernsehkopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "Fernsehkopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "Fernsehkopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "Fernsehkopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "Fernsehkopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "Fernsehkopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "Fernsehkopf-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "Zylinder-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "Zylinder-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "Zylinder-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "Zylinder-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "Zylinder-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "Zylinder-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "Zylinder-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "Zylinder-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "Zylinder-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "Zylinder-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "Zylinder-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "Zylinder-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "Zylinder-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "Zylinder-Schwert"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "Schwarze-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "Schwarze-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "Schwarze-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "Schwarze-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "Schwarze-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "Schwarze-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "Schwarze-Katze-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "Sensenmann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "Sensenmann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "Sensenmann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "Sensenmann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "Sensenmann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "Sensenmann-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "Sensenmann-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "Hasenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "Hasenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "Hasenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "Hasenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "Hasenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "Hasenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "Hasenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "Hasenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "Hasenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "Hasenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "Hasenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "Hasenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "Hasenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "Hasenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "Katzenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "Katzenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "Katzenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "Katzenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "Katzenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "Katzenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "Katzenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "Katzenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "Katzenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "Katzenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "Katzenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "Katzenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "Katzenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "Katzenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "Elfenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "Elfenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "Elfenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "Elfenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "Elfenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "Elfenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "Elfenohren-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "Elfenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "Elfenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "Elfenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "Elfenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "Elfenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "Elfenohren-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "Elfenohren-Schwert"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "Bienen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "Bienen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "Bienen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "Bienen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "Bienen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "Bienen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "Bienen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "Tigerkatzen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "Tigerkatzen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "Tigerkatzen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "Tigerkatzen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "Tigerkatzen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "Tigerkatzen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "Tigerkatzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "Blumenkranz-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "Blumenkranz-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "Blumenkranz-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "Blumenkranz-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "Blumenkranz-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "Blumenkranz-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "Blumenkranz-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "Blumenkranz-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "Blumenkranz-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "Blumenkranz-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "Blumenkranz-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "Blumenkranz-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "Blumenkranz-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "Blumenkranz-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "Grünkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "Grünkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "Grünkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "Grünkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "Grünkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "Grünkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "Grünkappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "Grünkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "Grünkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "Grünkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "Grünkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "Grünkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "Grünkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "Grünkappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "Rosakappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "Rosakappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "Rosakappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "Rosakappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "Rosakappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "Rosakappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "Rosakappen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "Rosakappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "Rosakappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "Rosakappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "Rosakappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "Rosakappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "Rosakappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "Rosakappen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "Rosablütenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "Rosablütenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "Rosablütenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "Rosablütenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "Rosablütenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "Rosablütenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "Rosablütenkapuzen-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "Rosablütenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "Rosablütenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "Rosablütenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "Rosablütenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "Rosablütenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "Rosablütenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "Rosablütenkapuzen-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "Schlichtes Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "Schlichtes Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "Schlichtes Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "Schlichtes Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "Schlichtes Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "Schlichtes Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "Schlichtes Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "Schlichtes Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "Schlichtes Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "Schlichtes Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "Schlichtes Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "Schlichtes Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "Schlichtes Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "Schlichtes Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "Spross-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "Spross-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "Spross-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "Spross-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "Spross-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "Spross-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "Spross-Kostüm"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "Spross-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "Spross-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "Spross-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "Spross-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "Spross-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "Spross-Schwert"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "Spross-Schwert"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "Roter-Panda-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "Roter-Panda-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "Roter-Panda-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "Roter-Panda-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "Roter-Panda-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "Roter-Panda-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "Roter-Panda-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "Sonnenblumen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "Sonnenblumen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "Sonnenblumen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "Sonnenblumen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "Sonnenblumen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "Sonnenblumen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "Sonnenblumen-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "Grüner-Alien-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "Grüner-Alien-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "Grüner-Alien-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "Grüner-Alien-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "Grüner-Alien-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "Grüner-Alien-Kostüm"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "Grüner-Alien-Kostüm"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "Heilung"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "Frostexplosion"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "Feuerexplosion"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "Blitzschlag"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "Arkaner Fokus"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "Arkaner Schlag"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "Blaukappe"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "Rotschal"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "Kochmütze"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "Schneemann"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "Wolfskapuze"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "Glückskatzenkapuze"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "Goldkrone"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "Rentiergeweih"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "Weihnachtsmütze"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "Raumhelm"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "Cyan-Roboter"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "Strohhut"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "Sonnenbrille"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "Gelbkappe"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "Graue Katze"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "Cowboy-Halstuch"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "Entenschwimmring"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "Regenbogenclown"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "Rotkappen-Schwimmer"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "Schnorchler"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "Strohhut-Schwimmer"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "Dinosaurier"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "Petrol-Dinosaurier"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "Schwarzkappe"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "Pilzhut"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "Kürbiskopf"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "Eichhörnchen"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "Rotfuchs"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "Hörnerkapuze"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "Oranger Bildschirmhelm"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "Fernsehkopf"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "Zylinder"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "Schwarze Katze"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "Sensenmann"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "Hasenohren"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "Katzenohren"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "Elfenohren"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "Biene"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "Rote Tigerkatze"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "Blumenkranz"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "Grünkappe"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "Rosakappe"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "Rosablütenkapuze"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "Schlichtling"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "Spross"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "Roter Panda"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "Sonnenblume"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "Grüner Alien"
+
+msgid "CONTENT_STAGES_1"
+msgstr "Winter I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "Winter II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "Sommer I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "Sommer II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "Herbst I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "Herbst II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "Frühling I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "Frühling II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "Erstes Kopfgeld"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "Besiege den Schneemann (Boss in Winter I) 10-mal"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "Sommerkopfgeld"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "Besiege die Graue Katze (Boss in Sommer I) 20-mal"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "Herbstkopfgeld"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "Besiege den Sensenmann (Boss in Herbst II) 30-mal"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "Winterroute"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "In Winter I der Reihe nach: Besiege 100 Blaukappen, dann 100 Rotschals, dann 100 Kochmützen"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "Sommerroute"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "In Sommer I der Reihe nach: Besiege 150 Strohhüte, dann 150 Sonnenbrillen, dann 150 Gelbkappen"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "Frühlingsroute"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "In Frühling I der Reihe nach: Besiege 200 Hasenohren, dann 200 Katzenohren, dann 200 Elfenohren"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "Wintersammlung"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "Sammle je 20 Kostüme Blaukappe, Rotschal und Kochmütze (Drops aus Winter I) und gib sie dann mit Abgeben ab"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "Sommersammlung"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "Sammle je 30 Kostüme Strohhut, Sonnenbrille und Gelbkappe (Drops aus Sommer I) und gib sie dann mit Abgeben ab"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "Frühlingssammlung"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "Sammle je 40 Kostüme Hasenohren, Katzenohren und Elfenohren (Drops aus Frühling I) und gib sie dann mit Abgeben ab"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "Erstes Meisterstück"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "Verschmelze eine beliebige Waffe, ein Kostüm oder eine Fähigkeit bis ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "Zweiter Rang"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "Verschmelze einen Gegenstand ab Rang 2 bis ^100 (Rang 2 droppt ab Sommer I, oder entwickle eine Waffe weiter)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "Dritter Rang"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "Verschmelze einen Gegenstand ab Rang 3 bis ^100 (Rang 3 droppt ab Herbst I, oder entwickle eine Waffe zweimal weiter)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "Passendes Paar"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "Verschmelze eine Waffe und ein Kostüm bis ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "Breites Arsenal"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "Verschmelze 3 verschiedene Waffen und 3 verschiedene Kostüme bis ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "Weiterentwickeltes Arsenal"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "Verschmelze 3 verschiedene Waffen ab Rang 2 und 3 verschiedene Kostüme ab Rang 2 bis ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "Wintermeisterschaft"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "In Winter I und Winter II: Erkunde 90 % jeder Karte, besiege beide Bosse und schalte alle Lager frei"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "Sommermeisterschaft"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "In Sommer I und Sommer II: Erkunde 90 % jeder Karte, besiege alle drei Bosse und schalte alle Lager frei"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "Frühlingsmeisterschaft"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "In Frühling I und Frühling II: Erkunde 90 % jeder Karte, besiege alle fünf Bosse und schalte alle Lager frei"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "Winter ohne Hilfe"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "Besiege den Cyan-Roboter (Boss in Winter II), ohne im Kampf Vorräte zu benutzen"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "Sommer ohne Hilfe"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "Besiege den Petrol-Dinosaurier (Boss in Sommer II), ohne im Kampf Vorräte zu benutzen"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "Herbst ohne Hilfe"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "Besiege den Sensenmann (Boss in Herbst II), ohne im Kampf Vorräte zu benutzen"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "Kleine Opfergabe"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "Verdiene in diesem Durchlauf 2K Münzen und 30 Edelsteine von Gegnern und gib sie dann mit Abgeben ab"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "Wachsende Opfergabe"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "Verdiene in diesem Durchlauf 20K Münzen und 100 Edelsteine von Gegnern und gib sie dann mit Abgeben ab"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "Große Opfergabe"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "Verdiene in diesem Durchlauf 100K Münzen und 300 Edelsteine von Gegnern und gib sie dann mit Abgeben ab"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "Kurze Kette"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "Der Reihe nach: Besiege 100 Gegner, sammle 10 Waffen- oder Kostümdrops ein und verschmelze dann 10-mal"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "Lange Kette"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "Der Reihe nach: Besiege 250 Gegner, besiege 3 Bosse, verschmelze 25-mal und wirke dann 30 Fähigkeiten"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "Meisterkette"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "Der Reihe nach: Besiege 500 Gegner, besiege 10 Bosse, verschmelze 50-mal und hole dann 3 normale Missionen ab"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "Wintertrophäen"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "Besiege nach der Entdeckung je einmal den Schneemann (Winter I) und den Cyan-Roboter (Winter II)"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "Sommertrophäen"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "Besiege nach der Entdeckung je einmal die Graue Katze (Sommer I), den Dinosaurier und den Petrol-Dinosaurier (Sommer II)"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "Herbsttrophäen"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "Besiege nach der Entdeckung je einmal das Eichhörnchen und den Rotfuchs (Herbst I), die Schwarze Katze und den Sensenmann (Herbst II)"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "Auszeit"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "Verbringe insgesamt 72 Stunden außerhalb des Spiels"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "Lange Pause"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "Bleib dem Spiel 24 Stunden am Stück fern"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "Offline-Einkommen"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "Verdiene 10K Münzen, während du weg bist (hol die Willkommen-zurück-Belohnungen ab)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "+20 % EP von Bossen"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+10 % Bewegungstempo"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+50 % Reichweite für Auto-Sammeln"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "+10 % Grundwerte angelegter Ausrüstung"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+10 % maximale LP"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "+25 % Erkundungsradius um dich herum"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "+10 % Schaden gegen Bosse"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "+10 % Münzen von jedem Gegner"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "+25 % Münzen aus Missionen"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "+25 % Edelsteine von Bossen"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "+25 % Offline-Münzen pro Stunde"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "2 Sekunden früher respawnen (mindestens 2 s)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "+15 % Münzen von normalen Gegnern"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "+10 % Werte aus jeder Verschmelzung"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "+10 % Schaden gegen Bosse"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "+25 % Offline-Gegenstandsraten"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+10 % maximale LP"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "Riesentöter"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "+25 % Schaden gegen Bosse"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "Bosswehr"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "20 % weniger Schaden durch Bosse"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "Kopfgeld"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "+100 % Münzen von Bossen"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "Fährtenleser"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "+20 % Schaden gegen normale Gegner"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "Pfadmünzen"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "+30 % Münzen von normalen Gegnern"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "Pfadwissen"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "+30 % EP von normalen Gegnern"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "Sorgfältiger Sammler"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+100 % Reichweite für Auto-Sammeln"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "Ausrüstungsglück"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "+3 Punkte Ausrüstungs-Dropchance"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "Vorratsglück"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "+5 Punkte Vorrats-Dropchance"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "Feine Arbeit"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "+25 % Werte aus jeder Verschmelzung"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "Würfelkunst"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "Neu würfeln kostet 50 % weniger Edelsteine"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "Starkes Fundament"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "+20 % Grundwerte deiner ausgerüsteten Waffe und deines Kostüms"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "Rüstungsreserve"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+20 % maximale LP"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "Waffentraining"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "+15 % Schaden durch Angriffe und Fähigkeiten"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "Ausgewogene Ausrüstung"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "10 % weniger Schaden durch alle Gegner"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "Entdecker"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+15 % Bewegungstempo"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "Weitblick"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "+50 % Erkundungsradius um dich herum"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "Lagervermessung"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "Lager kosten 50 % weniger Münzen"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "Präzision"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "+15 Punkte Chance auf kritische Treffer"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "Entschlossenheit"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "Heile dich um 5 % des verursachten Schadens"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "Harter Treffer"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "Kritische Treffer verursachen +75 % mehr Schaden"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "Münzweisheit"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "+25 % Münzen von jedem Gegner"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "Edelsteinweisheit"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "+5 Punkte Edelstein-Dropchance"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "Kluges Haushalten"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "Münz-Upgrades kosten 15 % weniger"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "Missionsmünzen"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "+50 % Münzen aus Missionen"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "Missionsedelsteine"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "+50 % Edelsteine aus Missionen"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "Gezieltes Training"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "+25 % Fähigkeitsschaden, Heilung und Fokus"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "Trophäenjäger"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "+50 % EP von Bossen"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "Trophäenkraft"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "+20 % Schaden gegen Bosse"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "Trophäenedelsteine"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "+50 % Edelsteine von Bossen"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "Stille Münzen"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "+50 % Offline-Münzen pro Stunde"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "Stille Edelsteine"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "+50 % Offline-Edelsteine pro Stunde"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "Stille Funde"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "+50 % Offline-Gegenstandsraten"
+
+msgid "CHAIN_PROGRESS"
+msgstr "Schritt %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "Der Entwicklungsspielstand wurde für dieses Update zurückgesetzt. Neuer Fortschritt kann gespeichert werden."
+
+msgid "HEAL_ROLE"
+msgstr "Ausdauer: sofort %s LP, alle %s s. Kostenlos wirkbar; höchstens 12 %% der max. LP. Tränke heilen im Notfall stärker."
+
+msgid "REGULAR_MISSIONS"
+msgstr "Jagdaufträge"
+
+msgid "GUIDE_CHOOSE"
+msgstr "Wie viel Anleitung möchtest du?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "Geführt · Lerne eine Aktion nach der anderen"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "Einfach · Alle Menüs offen, kurzer Überblick"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "Keine · Alle Menüs offen, keine Tipps"
+
+msgid "GUIDE_REVIEW"
+msgstr "Anleitung neu wählen"
+
+msgid "GUIDE_GOT_IT"
+msgstr "Verstanden"
+
+msgid "GUIDE_MOVE"
+msgstr "Folge dem Weg zu deiner Linken."
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "Zieh den Joystick in Richtung des Pfeils. Die ersten Gegner warten am Weg."
+
+msgid "GUIDE_KILL"
+msgstr "Bleib neben einem Gegner stehen, um anzugreifen"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "Steh kurz still, dann greifst du automatisch an. Gegner im Winter wehren sich nur."
+
+msgid "GUIDE_COLLECT"
+msgstr "Tippe auf den fallengelassenen Gegenstand"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "Beute bleibt eine Weile am Boden liegen. Münzen und Edelsteine werden automatisch gutgeschrieben."
+
+msgid "GUIDE_EQUIP"
+msgstr "Tippe auf deinen neuen Gegenstand"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "Die Gegenstandsdetails vergleichen ihn mit deiner aktuellen Ausrüstung."
+
+msgid "GUIDE_MERGE"
+msgstr "Öffne den Gegenstand, den du doppelt hast"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "Das Verschmelzen einer Kopie macht den Gegenstand dauerhaft stärker."
+
+msgid "GUIDE_UPGRADE"
+msgstr "Tippe bei diesem Gegner auf Upgrades"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "Jeder Gegnertyp hat eigene Upgrades für Beute, Münzen und Erfahrung."
+
+msgid "GUIDE_CAMP"
+msgstr "Öffne Welt, um ein Lager freizuschalten"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "Du hast ein Lager gefunden und kannst es dir leisten. Öffne Welt oder geh zum Lager und tippe auf Lager ansehen."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "Laufen, kämpfen, sammeln"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "Zieh den Joystick, um zu laufen. Steh neben einem Gegner still, um anzugreifen. Tippe auf liegende Beute, um sie aufzuheben."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "Diese Gegner bemerken dich in der Nähe"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "Gegner in Winter II greifen an, wenn du näher kommst. Nähere dich ihnen einzeln."
+
+msgid "GUIDE_SKILLS"
+msgstr "Fähigkeiten unterstützen deine Ausrüstung"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "Tippe auf eine ausgerüstete Fähigkeit, um sie zu wirken. Heilung wirkt stetig; Tränke heilen mehr auf einmal."
+
+msgid "GUIDE_GROUPS"
+msgstr "Manche Gegner rufen jetzt Verbündete"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "Gegner im Sommer helfen Verbündeten derselben Art in der Nähe. Achte auf deine Lebenspunkte."
+
+msgid "PRESTIGE_GATE"
+msgstr "Schließe zuerst den Winter ab: Besiege den Cyan-Roboter, um Sommer I zu erreichen."
+
+msgid "NAV_PRESTIGE"
+msgstr "Prestige"
+
+msgid "PANEL_WORLD"
+msgstr "Welt"
+
+msgid "TAB_OFFLINE"
+msgstr "Offline"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "Öffne diese Upgrades über die Schaltfläche Upgrades oder durch Antippen deiner Figur."
+
+msgid "HUD_RESTING"
+msgstr "· Rast"
+
+msgid "ITEM_PREVIOUS"
+msgstr "Vorheriger Gegenstand"
+
+msgid "ITEM_NEXT"
+msgstr "Nächster Gegenstand"
+
+msgid "ITEM_POSITION"
+msgstr "%d von %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "Wenn ausgerüstet: %s"
+
+msgid "NO_CHANGE"
+msgstr "keine Änderung"
+
+msgid "EQUIPPED_NOW"
+msgstr "Aktuell ausgerüstet: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "In diesem Platz ist noch nichts ausgerüstet."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "Ausgerüstet: volle Werte"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "Gelagert: 30 % der Werte"
+
+msgid "UPGRADE_LEVEL"
+msgstr "Stufe %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "Boss"
+
+msgid "ENEMY_KILLS"
+msgstr "Besiegt: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "Respawn-Lager"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "Freigeschaltet"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "Gesperrt · %s Münzen"
+
+msgid "SECTION_CAMPS"
+msgstr "Lager"
+
+msgid "CAMPS_HIDDEN"
+msgstr "Noch %d Lager durch Erkunden zu entdecken."
+
+msgid "SECTION_TRAVEL"
+msgstr "In ein anderes Gebiet reisen"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "Karten-Upgrades"
+
+msgid "SECTION_DANGER"
+msgstr "Gefahrenzone"
+
+msgid "CAMP_UNLOCK"
+msgstr "Freischalten"
+
+msgid "CAMP_SELECT"
+msgstr "Hier respawnen"
+
+msgid "CAMP_TRAVEL"
+msgstr "Reisen"
+
+msgid "CARD_OWNED"
+msgstr "Im Besitz"
+
+msgid "CARD_SELECTED"
+msgstr "Ausgewählt"
+
+msgid "CARD_LOCKED"
+msgstr "Noch nicht verdient"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "Bereit"
+
+msgid "PRESTIGE_INTRO"
+msgstr "Schließe Gelegenheiten ab, um dauerhafte Karten zu verdienen. Prestige löst alle bereiten Gelegenheiten auf einmal ein und startet einen neuen Durchlauf."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "Bereit: %d  ·  Karten im Besitz: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "Noch keine Gelegenheiten entdeckt. Besiege Bosse, verschmelze und erkunde, um welche zu finden."
+
+msgid "NO_CARDS_YET"
+msgstr "Noch keine Karten."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "%d bereite Gelegenheit(en) einlösen: %s.\n\nDu wählst für jede eine dauerhafte Karte, dann startet der Durchlauf einmal neu.\n\nBehalten: Karten, Boss-Schlüssel, Erfolge, Edelstein-Upgrades, Automatik, Einstellungen.\nZurückgesetzt: Münzen, Gegenstände, Stufe, Lager, Kartenerkundung, Münz-Upgrades und unvollendete Herausforderungen."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "Wähle eine Belohnung · %d von %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "Bereits gewählt: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "Das behältst du"
+
+msgid "PRESTIGE_KEEP"
+msgstr "Karten und Sets, deine Edelsteine, erkundete Kartenbereiche, alle mit Edelsteinen gekauften Upgrades (aller Kategorien), Automatik, Inventarplatz, Boss-Schlüssel, Gegnererfolge, Spielerstufe und EP, Kartenmeisterschaft und Einstellungen."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "In diesem Durchlauf zurückgesetzt"
+
+msgid "PRESTIGE_RESET"
+msgstr "Münzen, Gegenstände (inklusive Vorratsbestand) und Verschmelzungen, Vorratsmeisterschaft, Kartenzugang und eigene Lager, Karten- und Münz-Upgrades sowie unvollendete Herausforderungen."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "%s behalten"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "Tippe auf eine Karte, um sie zu wählen"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "%s dauerhaft behalten? Das ist die letzte Wahl: Der neue Durchlauf beginnt direkt danach."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "Prestige-Gelegenheit gefunden!"
+
+msgid "MILESTONE_READY"
+msgstr "Gelegenheit abgeschlossen!"
+
+msgid "MILESTONE_CARD"
+msgstr "Karte erhalten: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "Ein neuer Durchlauf beginnt"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "%d dauerhafte Karte(n) zu deiner Sammlung hinzugefügt."
+
+msgid "MILESTONE_STAGE"
+msgstr "Neues Gebiet freigeschaltet"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "Set Bossjäger"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "Set Expedition"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "Set Sammlung"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "Set Meisterstück"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "Set Arsenal"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "Set Region"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "Set Herausforderung"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "Set Opfergabe"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "Set Spezialist"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "Set Trophäe"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "Set Offline"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "Gut vorbereiteter Entdecker"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "Fleißiger Farmer"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "Handwerksreise"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "Boss-Spezialist"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "Geduldiger Sammler"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "Ausgewogenes Wachstum"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "Besiege weiter Gegner"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "Deine erste Waffe oder dein erstes Kostüm droppt nach wenigen Siegen."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "Tippe auf Ausrüsten"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "Angelegte Ausrüstung gibt volle Werte. Gelagerte gibt immerhin 30 %."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "Tippe auf Verschmelzen"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "Jede Verschmelzung verbraucht eine übrige Kopie und erhöht die Stufe des Gegenstands."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "Sammle eine zweite Kopie"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "Eine passende Kopie droppt nach ein paar weiteren Siegen."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "Finde zuerst einen Gegner"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "Geh nah an Gegner heran, damit ihre Upgrades verfügbar werden."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "Verdiene Münzen für ein Upgrade"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "Noch %s Münzen nötig. Jeder besiegte Gegner lässt Münzen fallen."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "Öffne den Tab Upgrades"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "Dort stehen die Upgrades für diesen Gegnertyp."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "Kaufe ein Upgrade"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "Eine bessere Beutechance ist eine gute erste Wahl."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "Erkunde, um ein weiteres Lager zu finden"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "Geh in den Nebel. Lager erscheinen, sobald du sie aufdeckst."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "Verdiene Münzen für das Lager"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "Noch %s Münzen nötig. Besiege weiter Gegner."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "Tippe auf Freischalten"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "Das Lager wird zum Respawn-Punkt und deckt die Umgebung auf."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "Lager freigeschaltet"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "Wähle Hier respawnen, um nach einer Niederlage dorthin zurückzukehren. Rast neben einem Lager heilt schnell."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "Prestige-Gelegenheit gefunden"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "Schließe sie ab, um eine dauerhafte Karte zu erhalten. Finde zuerst den Schneemann; im geführten Modus musst du außerdem das Tutorial beenden."
+
+msgid "GUIDE_REST"
+msgstr "Wenig Leben?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "Halte dich von Kämpfen fern. Rast neben einem freigeschalteten Lager heilt dich schnell."
+
+msgid "SECTION_REWARDS"
+msgstr "Belohnungen"
+
+msgid "SECTION_AUTOMATION"
+msgstr "Automatik"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "Gesperrt"
+
+msgid "PROGRESS_MERGE"
+msgstr "Bisher bestes: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "Waffen auf ^50: %d/%d · Kostüme auf ^50: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "Trophäen: %d / %d (jeder Boss lässt bei seiner nächsten Niederlage eine fallen)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "In diesem Durchlauf gefunden: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "Gewinne den Kampf ohne Tränke oder Tonika."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "Erkundet %s · Bosse %d/%d · Lager %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "Goldschwert"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "Diamantschwert"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "Smaragdschwert"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "Obsidianschwert"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "Holzaxt"
+
+msgid "ITEM_STONE_AXE"
+msgstr "Steinaxt"
+
+msgid "ITEM_IRON_AXE"
+msgstr "Eisenaxt"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "Goldaxt"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "Diamantaxt"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "Smaragdaxt"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "Obsidianaxt"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "Finde eine Waffe oder ein Kostüm"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "Das war ein Vorrat. Besiege weiter Gegner: Manchmal lassen sie die Waffe oder das Kostüm fallen, das sie tragen. Das füllt einen freien Ausrüstungsplatz."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "Heb die Ausrüstung auf"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "Eine Waffe oder ein Kostüm ist gedroppt. Tippe darauf, um es in einen Ausrüstungsplatz zu legen."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "Nur eine laufende Gelegenheit kann verfolgt werden."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "%s abschließen"
+
+msgid "MISSION_STATE_READY"
+msgstr "Bereit zum Abholen"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ Abgeholt"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "Erledigte Ziele (%d) · %s"
+
+msgid "SHOW"
+msgstr "Zeigen"
+
+msgid "HIDE"
+msgstr "Verbergen"
+
+msgid "PLAYTIME_LINE"
+msgstr "Spielzeit: %s · Dieser Durchlauf: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "Willkommen zurück!"
+
+msgid "OFFLINE_AWAY"
+msgstr "Abwesend %s · %s belohnte Stunden"
+
+msgid "OFFLINE_CLAIM"
+msgstr "Offline-Erträge abholen"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "Offline-Erträge abgeholt"
+
+msgid "OFFLINE_NOTHING"
+msgstr "Keine Offline-Erträge vorhanden."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "Offline-Erträge warten darauf, abgeholt zu werden."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "Letzte Abholung: %s belohnte Stunden · %s Münzen · %s Edelsteine"
+
+msgid "NAV_UPGRADES"
+msgstr "Upgrades"
+
+msgid "STATS_OPEN"
+msgstr "Werte"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "Neue Upgrades freigeschaltet: %s (Spieler-Upgrades)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "Finde den Schneemann in Winter I (den ersten Boss), um den Prestige-Reset freizuschalten."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "Finde den Schneemann"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "Du besitzt bereits alle Karten, die diese bereiten Gelegenheiten geben könnten."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "Finde diesen Fundort zuerst auf der Karte."
+
+msgid "EQUIPPED_PINNED"
+msgstr "Ausgerüstet"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "Waffe"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "Kostüm"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "Leerer Platz"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "AUSGERÜSTET"
+
+msgid "COMPARE_SELECTED"
+msgstr "AUSGEWÄHLT"
+
+msgid "COMPARE_ITEM"
+msgstr "GEGENSTAND"
+
+msgid "COMPARE_UPGRADE"
+msgstr "Besser"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "Schlechter"
+
+msgid "COMPARE_MIXED"
+msgstr "Abwägung"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "Rang %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "Wächst durch das Verschmelzen eigener Kopien, bis ^%d. Wird nie zu einem anderen Gegenstand; ab ^100 bringt jede Verschmelzung etwas weniger."
+
+msgid "FOLLOW_READY"
+msgstr "Bereit! Öffne Prestige, um eine Karte zu wählen"
+
+msgid "FOLLOW_STEP"
+msgstr "Schritt %d/%d · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "Besiege %s: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "Besiege %s, ohne im Kampf Vorräte zu benutzen: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "Missionen abholen"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "Figur"
+
+msgid "STATS_LEVEL"
+msgstr "Stufe"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "Gebiet"
+
+msgid "STATS_PRESTIGES"
+msgstr "Abgeschlossene Prestiges"
+
+msgid "STATS_CARDS"
+msgstr "Prestige-Karten"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "Angriff"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "Angriffstempo"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/s (+%s %%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "Verteidigung und Erholung"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%s %% Schaden)"
+
+msgid "STATS_RESPAWN"
+msgstr "Respawn-Zeit"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "Aktive Boni"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "Prestige-Multiplikatoren"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "LP ×%s · Schaden ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "Bewegungstempo"
+
+msgid "STATS_STORED_SHARE"
+msgstr "Anteil gelagerter Ausrüstung"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "Bonus angelegter Ausrüstung"
+
+msgid "STATS_SECTION_TIME"
+msgstr "Spielzeit"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "Alle Durchläufe"
+
+msgid "STATS_TIME_RUN"
+msgstr "Dieser Durchlauf"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "Schaden"
+
+msgid "STATS_SHORT_HP"
+msgstr "LP"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "Vert."
+
+msgid "STATS_SHORT_CRIT"
+msgstr "Krit."
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "Krit.-Schaden"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "Angriffstempo"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "Lebensraub"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "LP/s"
+
+msgid "CAMP_SIGHTED"
+msgstr "Lager entdeckt! Es ist jetzt auf deiner Karte und im Weltfenster."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "LP-Bonus aus Karten & Meisterschaft"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "Schadensbonus aus Karten & Meisterschaft"
+
+msgid "STAT_REGEN_PCT"
+msgstr "Erholung"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "max. LP/s"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "max. LP/s"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s %% max. LP/s (%s LP/s)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "Kostüm-Meilensteine (getragen)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "Waffen %s %% · Kostüme %s %%"
+
+msgid "MILESTONE_GUARD"
+msgstr "Schutz +%s Verteidigung"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s LP"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%s %% Kostüm-LP"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "Erholung %s %% max. LP/s"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "Meilensteine (beim Tragen): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "Meilensteine: noch keine. Der erste wird bei ^100 freigeschaltet."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "Alle Meilensteine erreicht (Meisterschaft)."
+
+msgid "MILESTONE_NEXT"
+msgstr "Nächster bei ^%d: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "Wächst durch das Verschmelzen eigener Kopien, bis ^%d: +2 %% der Grund-LP pro Kopie bis ^100, danach +1 %% pro Kopie. Wird nie zu einem anderen Gegenstand. Meilensteine wirken nur beim Tragen; gelagert zählt es mit %s %% seiner LP."
+
+msgid "PANEL_LEVEL"
+msgstr "Spielerstufe & Wachstum"
+
+msgid "PANEL_FARMING"
+msgstr "Farm-Guide"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "Tippe für Stufenwachstum und Herkunft der Werte"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "Plätze %d → %d von %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "Plätze %d / %d · maximal"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · maximal"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "Boss gibt %s Edelsteine pro Drop"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "Farm-Guide"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "Prestige gesperrt · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "Der Prestige-Reset erfordert"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "Den Schneemann in Winter I finden (erster Boss)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "Mindestens eine bereite Gelegenheit, die eine Karte vergeben kann"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "finde den Schneemann"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "keine bereite Gelegenheit"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "keine Karte mehr zu vergeben"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "Weitere Wertequellen"
+
+msgid "BREAKDOWN_HP"
+msgstr "Woher deine LP stammen"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "Woher dein Schaden stammt"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "Vor Prestige"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "Karten und Meisterschaft"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "Gesamt (im Kampf verwendet)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "Pro Treffer, nicht in der Summe"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "Erlittener Schaden"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "Spielerstufen (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "Gelagerte Ausrüstung (Kostüme %s %%, Waffen %s %%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "Angelegte Ausrüstung (inkl. +%s-%%-Karte)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "Abschuss-Meilensteine gegen %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "Prestige gegen normale Gegner"
+
+msgid "PER_HIT_BOSS"
+msgstr "Prestige gegen Bosse"
+
+msgid "PER_HIT_FOCUS"
+msgstr "Fokus (noch %d s)"
+
+msgid "TAKEN_GUARD"
+msgstr "Prestige-Schutz"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "Prestige-Schutz gegen Bosse"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "Stufe %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "Höchststufe erreicht. Weitere Stufen bringen nichts mehr."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s EP · noch %s bis Stufe %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "Stufenwachstum"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "Pro Stufe (Grundwert)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s LP · +%s Schaden"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "Aus bisher %d Stufen"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "LP auf Stufe %d"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "Schaden auf Stufe %d"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "Prestige-Karten multiplizieren jede Quelle: LP ×%s, Schaden ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "Wo du welchen Gegner farmst und was er droppt. Der Eintrag einer Karte öffnet sich, sobald ihre Kartendetails maximiert sind und für jeden Gegnertyp dort Werte und Drops aufgedeckt sind. Nur entdeckte Fundorte zeigen ihre Position."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "du bist hier"
+
+msgid "FARMING_READY"
+msgstr "Eintrag freigeschaltet"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "Öffnen"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "Kartendetails %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "Werte & Drops %d/%d Typen"
+
+msgid "FARMING_LOCKED"
+msgstr "Benötigt: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "Noch %d Karten nicht erreicht."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "Farmen · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "Die Chancen enthalten deine aktuellen Upgrades. Richtungsangaben gehen vom nächsten bekannten Lager auf dieser Karte aus."
+
+msgid "FARMING_BACK"
+msgstr "Alle Karten"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "Unentdeckter Gegner · erkunde diese Karte, um ihn zu finden"
+
+msgid "FARMING_REWARDS"
+msgstr "Münzen ×%s · Edelsteine %s %% ×%s · EP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "Vorräte: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "Unentdeckter Fundort"
+
+msgid "FARMING_DETAILS"
+msgstr "Details"
+
+msgid "FARMING_AT_CAMP"
+msgstr "Bei Lager %d"
+
+msgid "FARMING_LOCATION"
+msgstr "%s von Lager %d · %s"
+
+msgid "COMPASS_N"
+msgstr "Nördlich"
+
+msgid "COMPASS_NE"
+msgstr "Nordöstlich"
+
+msgid "COMPASS_E"
+msgstr "Östlich"
+
+msgid "COMPASS_SE"
+msgstr "Südöstlich"
+
+msgid "COMPASS_S"
+msgstr "Südlich"
+
+msgid "COMPASS_SW"
+msgstr "Südwestlich"
+
+msgid "COMPASS_W"
+msgstr "Westlich"
+
+msgid "COMPASS_NW"
+msgstr "Nordwestlich"
+
+msgid "DISTANCE_NEAR"
+msgstr "nah"
+
+msgid "DISTANCE_MID"
+msgstr "ein kurzer Weg"
+
+msgid "DISTANCE_FAR"
+msgstr "weit"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "He! Mein Kostüm!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "Meine Waffe!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "Mein Zauberbuch!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "Meine Vorräte!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "Schutztonikum"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "Erholungssalbe"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "Weisheitstonikum"
+
+msgid "FOLLOW_COLLECT"
+msgstr "Schritt %d/%d · Sammle %s von %s: %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "Alles gefunden! Gib sie ab: Prestige, dann Abgeben"
+
+msgid "FILTERS"
+msgstr "Filter"
+
+msgid "FILTERS_ACTIVE"
+msgstr "Filter · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "Filtert das Ausrüstungsraster. Beim Schließen der Filter werden wieder alle Gegenstände angezeigt."
+
+msgid "PANEL_FILTERS"
+msgstr "Filter"
+
+msgid "FILTERS_HINT"
+msgstr "Das Ausrüstungsraster zeigt nur diese Kategorie, solange Filter geöffnet ist. Beim Schließen werden wieder alle Gegenstände angezeigt."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "Vorratsplätze: einer pro Vorratstyp (%d Typen). Filter befindet sich neben der Ausrüstungsanzahl."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "Alle 3 tatsächlichen Benutzungen dieses Vorrats bringen eine Meisterschaftsstufe, bis ^%d. Käufe und Drops erhöhen nur den Bestand. Prestige setzt die Meisterschaft und den Nutzungsfortschritt zurück."
+
+msgid "BUY_SUPPLY"
+msgstr "%s kaufen · %s Münzen"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · noch %d s"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "Aktiv: %s · noch %d s"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "Abklingzeit · %s s"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "Einsatzbereit"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "Auto-Nutzung: ab %s %% LP oder weniger, nach der Abklingzeit"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "Auto-Nutzung: immer, wenn nicht aktiv"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "Auto-Nutzung: im Kampf, wenn nicht aktiv"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "Auto-Nutzung: ab %s %% LP oder weniger, wenn nicht aktiv"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "Auto-Nutzung: immer, wenn nicht aktiv"
+
+msgid "SUPPLY_STOCK"
+msgstr "Bestand: %s · jede Benutzung verbraucht einen"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "Nächste gefundene Kopie: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "Meisterschaftsbonus: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "Dauer %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "Abklingzeit %s s"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%s %% max. LP"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%s %% Münzen"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%s %% EP"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s Verteidigung"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "%s %% max. LP pro Sekunde"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "Heilt %s %% der max. LP (jetzt %s LP) · Abklingzeit %s s · nutzbar unter %s %% LP"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "+%s %% Münzen von besiegten Gegnern für %s s"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s Verteidigung (%s %% weniger erlittener Schaden) für %s s"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "Heilt %s %% der max. LP pro Sekunde für %s s (%s %% insgesamt) · nutzbar unter %s %% LP"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "+%s %% EP von besiegten Gegnern für %s s"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "Meisterschaft ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "Auto: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "Deine LP sind für diesen Vorrat zu hoch."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "Der Trank klingt noch ab."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "Bereits aktiv. Nutze ihn erneut, wenn er abläuft."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "Alle drei Benutzungen steigt die Vorratsmeisterschaft. Prestige setzt die Meisterschaft und den Nutzungsfortschritt zurück."
+
+msgid "SOURCE_SUPPLY"
+msgstr "Aktive Vorräte"
+
+msgid "CAMP_TELEPORT"
+msgstr "Teleportieren"
+
+msgid "PANEL_TELEPORT"
+msgstr "Teleport"
+
+msgid "TELEPORT_TITLE"
+msgstr "Teleport"
+
+msgid "TELEPORT_HELP"
+msgstr "Wähle ein anderes eigenes Lager auf dieser oder einer bereits erreichten Karte. Im Kampf ist Teleportieren nicht möglich."
+
+msgid "TELEPORT_HERE"
+msgstr "Du bist hier"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "Gewähltes Ziel"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "Diese Karte"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "Andere Karte"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "Wählen"
+
+msgid "TELEPORT_BACK"
+msgstr "Zurück"
+
+msgid "TELEPORT_GO"
+msgstr "Teleportieren · %s · Lager %d"
+
+msgid "TELEPORT_PICK"
+msgstr "Wähle ein Ziel"
+
+msgid "TELEPORT_NONE"
+msgstr "Noch kein anderes Lager. Schalte ein weiteres Lager frei, um dorthin zu teleportieren."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · Lager %d"
+
+msgid "MAP_EXPLORED"
+msgstr "Karte erkundet: %d %%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "Wie viel dieser Karte du dauerhaft erkundet hast. Kurzer Sichtkontakt und Kamerabewegungen zählen nicht."
+
+msgid "SECTION_AUDIO"
+msgstr "Ton & Musik"
+
+msgid "MUSIC_VOLUME"
+msgstr "Musik %d %%"
+
+msgid "SFX_VOLUME"
+msgstr "Soundeffekte %d %%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "Spielgeräusche stumm: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "Besondere Sounds stumm: %s"
+
+msgid "AUDIO_HINT"
+msgstr "Spielgeräusche: Antippen, Käufe, Verschmelzungen und Kampf. Besondere Sounds: Benachrichtigungen (eine Mission oder ein Ziel zum Abholen, Prestige-Neuigkeiten, ein neues Menü, Fortschritt der Kartenmeisterschaft, ein gefundener Boss) und Meilensteine (eine neue Karte, ein Prestige). Die Effektlautstärke regelt beides."
+
+msgid "UP_MERGE_ALL"
+msgstr "Alles verschmelzen"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "Einmalige Freischaltung: Eine Schaltfläche Alles verschmelzen in Filter verschmilzt alle übrigen Kopien mit einem Tipp · kostenlos nutzbar · bleibt beim Prestige erhalten"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "Freigeschaltet · nutze Alles verschmelzen in Filter"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "Alles verschmelzen ist noch nicht freigeschaltet"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "Alles verschmelzen: einmalig für 5K Edelsteine unter Upgrades → Inventar freischalten."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "Alles verschmelzen · %d übrige Kopien"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "Alles verschmelzen"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "Nichts zu verschmelzen"
+
+msgid "MERGE_ALL_DONE"
+msgstr "%d Kopien in %d Gegenständen verschmolzen"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "Auto-Weiterentwicklung freischalten"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "Verschmilzt übrige Kopien von: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "An · verschmilzt: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Entwickelt bei ^100 mit 101 Kopien weiter: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "An · entwickelt weiter: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "Abklingzeit: %s s"
+
+msgid "GATE_HUD"
+msgstr "Nächstes Gebiet · Bosse %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "Welt geschafft · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "Bosse, die du auf dieser Karte besiegen musst, um die nächste zu öffnen. Gefundene Bosse, die noch zählen, tragen das goldene Banner."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "Nächstes Gebiet bereits offen"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "Unentdeckter Boss"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · besiegt"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · noch nötig"
+
+msgid "OFFERING_PROGRESS"
+msgstr "%s / %s Münzen · %s / %s Edelsteine"
+
+msgid "SECTION_RESEARCH"
+msgstr "Forschung"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "Gezieltes Farmen freigeschaltet"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "Tippe unten auf Farmen: Dein Held geht zu diesem Fundort und kämpft dort von selbst. Tippe erneut oder bewege dich, um aufzuhören."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "Tippe auf Farmen, um zu starten"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "Dein Held geht zu diesem Fundort und kämpft von selbst. Bewegung beendet es."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "Gezieltes Farmen freigeschaltet"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "Öffne die Upgrades dieses Gegners und tippe oben auf Farmen."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "Gezieltes Farmen freigeschaltet"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "Tippe diesen Gegner in der Welt oder auf der Karte an und dann auf Farmen."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "Finde zuerst diesen Fundort"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "Beim Farmen läufst du nur zu gefundenen Fundorten. Wähle oben einen gefundenen aus."
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "Neue Ausrüstung: antippen, dann Ausrüsten"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "Angelegte Ausrüstung gibt volle Werte. Gelagerte trägt immerhin einen Anteil bei."
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "Zwei gleiche: öffnen, dann Verschmelzen"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "Das Verschmelzen einer übrigen Kopie macht den Gegenstand dauerhaft stärker."
+
+msgid "GUIDE_MISSIONS"
+msgstr "Missionen freigeschaltet: Öffne Missionen"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "Ziele und tägliche Missionen bringen Münzen und Edelsteine."
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "Tippe auf Abholen"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "Erledigte Ziele warten hier, bis du ihre Belohnung abholst."
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "Noch nichts abzuholen"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "Die Schaltfläche Missionen zeigt !, wenn eine Belohnung bereit ist."
+
+msgid "GUIDE_SLOTS"
+msgstr "Upgrades freigeschaltet: Öffne Upgrades"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "Spieler-Upgrades gelten für diesen Durchlauf; Edelstein-Upgrades bleiben für immer."
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "Öffne den Tab Inventar"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "Mit mehr Ausrüstungsplätzen kannst du mehr Arten von Ausrüstung behalten."
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "Kaufe einen Ausrüstungsplatz"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "Jede Gegenstandsart braucht einen eigenen Platz; Kopien werden gestapelt."
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "Öffne den Tab Vorräte"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "Vorräte helfen in schweren Kämpfen."
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "Kaufe einen Heiltrank"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "Tippe im Kampf auf einen Trank in deinen Vorräten, um dich zu heilen."
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "Verdiene Münzen für einen Heiltrank"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "Noch %s Münzen nötig. Jeder besiegte Gegner lässt Münzen fallen."
+
+msgid "GUIDE_SNOWMAN"
+msgstr "Hauptziel: Besiege den Schneemann"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "Ihn zu besiegen öffnet Winter II; ihn zu finden öffnet Prestige. Verschmelze vorher Ausrüstung, steig ein paar Stufen auf und nimm Tränke mit."
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "Prestige freigeschaltet: Öffne Prestige"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "Gelegenheiten dort bringen dauerhafte Karten."
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "Tippe bei einer Gelegenheit auf Verfolgen"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "Ihr nächster Schritt erscheint auf der Karte. Ist eine Gelegenheit Bereit, startet Prestige die Welt neu und du behältst die Karte."
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "Schließe eine Gelegenheit ab"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "Beim Spielen tauchen neue Gelegenheiten auf. Ist eine Gelegenheit Bereit, startet Prestige die Welt neu und du behältst die Karte."
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "Missionen freigeschaltet"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "Ziele und tägliche Missionen bringen Münzen und Edelsteine. Hol sie unter Missionen ab."
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "Gegner-Upgrades freigeschaltet"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "Tippe auf Upgrades über der Karte (oder auf einen Gegner), um seine Beute, Münzen und EP zu erhöhen."
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "Weltkarte freigeschaltet"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "Minikarte und Welt zeigen, wo du schon warst. Schalte Lager frei, um dort zu respawnen und zu rasten."
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "Spieler-Upgrades freigeschaltet"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "Kaufe unter Upgrades Ausrüstungsplätze, Vorräte und dauerhafte Edelstein-Upgrades."
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "Hauptziel: Besiege den Schneemann"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "Ihn zu besiegen öffnet Winter II; ihn zu finden öffnet Prestige. Verschmelze vorher Ausrüstung, steig ein paar Stufen auf und nimm Tränke mit."
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "Prestige freigeschaltet"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "Schließe eine Gelegenheit ab und starte dann mit Prestige neu, um eine dauerhafte Karte zu erhalten."
+
+msgid "GUIDE_SKIP"
+msgstr "Überspringen"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "Ausrüsten und verschmelzen"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "Tippe auf Ausrüstung im Inventar und dann auf Ausrüsten, um ihre vollen Werte zu nutzen; gelagerte Ausrüstung trägt immerhin einen Anteil bei. Zwei gleiche Gegenstände verschmelzen zu einem, der dauerhaft stärker ist."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "Upgrades und Missionen"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "Tippe auf einen Gegner (oder auf Upgrades über der Karte), um seine Beute, Münzen und EP zu erhöhen. Unter Spieler-Upgrades gibt es Ausrüstungsplätze, Vorräte und dauerhafte Edelstein-Upgrades. Hol Missionen ab, um Münzen und Edelsteine zu erhalten."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "Erkunden, Lager und Gebiete"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "Laufen lichtet den Nebel; Minikarte und Welt zeigen, wo du schon warst. Schalte unter Welt Lager frei, um dort zu respawnen und zu rasten. Besiege die Bosse einer Karte, um das nächste Gebiet zu öffnen."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "Prestige und Kartenmeisterschaft"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "Den Schneemann in Winter I zu finden schaltet den Prestige-Reset frei: Schließe eine Gelegenheit ab und starte dann mit Prestige neu, um eine dauerhafte Karte zu erhalten. Die Kartenmeisterschaft verfolgt die Langzeitziele jeder Karte."
+
+msgid "EXIT_TITLE"
+msgstr "LootFarmer verlassen?"
+
+msgid "EXIT_CONFIRM"
+msgstr "Dein Fortschritt ist gespeichert. Du kannst jederzeit zurückkommen."
+
+msgid "EXIT_ACTION"
+msgstr "Beenden"
+
+msgid "SECTION_TUTORIAL"
+msgstr "Tutorial und Hilfe"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "Jetzt alle Menüs zeigen"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "Jetzt alle Menüs zeigen? Normalerweise erscheinen neue Menüs, während du das Spiel lernst. Prestige erfordert weiterhin die Entdeckung des Schneemanns; im geführten Modus musst du außerdem das Tutorial abschließen."
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "Alle Menüs sind jetzt verfügbar"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "Alle Menüs sind bereits verfügbar"
+
+msgid "PANEL_MASTERY"
+msgstr "Kartenmeisterschaft"
+
+msgid "MASTERY_OPEN"
+msgstr "Kartenmeisterschaft · Spiel %d %%"
+
+msgid "MASTERY_INTRO"
+msgstr "Optionale Ziele für 100 % Abschluss. Der Fortschritt ist dauerhaft und bleibt beim Prestige erhalten."
+
+msgid "MASTERY_GAME"
+msgstr "Spielabschluss %d %%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "Alle acht Karten: Titel %s · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ Erhalten: Titel %s · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "Belohnung: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ Belohnung erhalten: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "Details"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "Erreiche diese Karte, um zu beginnen"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "Meisterschaft · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ Alle Karten"
+
+msgid "MASTERY_EXPLORE"
+msgstr "Erkunden"
+
+msgid "MASTERY_HUNT"
+msgstr "Jagen"
+
+msgid "MASTERY_RESEARCH"
+msgstr "Erforschen"
+
+msgid "MASTERY_COLLECT"
+msgstr "Sammeln"
+
+msgid "MASTERY_FORGE"
+msgstr "Schmieden"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "Erkunde die ganze Karte und schalte alle Lager frei."
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "Besiege %s Gegner jedes Typs und jeden Boss %s-mal."
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "Decke Werte und Drops aller Gegner hier auf."
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "Erhalte jede Waffe, jedes Kostüm und jede Fähigkeit, die hier droppen."
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "Kostüme von hier bis ^%s (Boss-Kostüme ^%s) und eine Waffe von hier weiterentwickelt."
+
+msgid "MASTERY_MORE"
+msgstr "+%d weitere"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "Karte zu %d %% von 100 %% erkundet"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "Lager %d noch nicht freigeschaltet"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · Werte aufdecken"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · Drops aufdecken"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "Entwickle einen davon weiter: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "Unentdeckter Gegner"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "Unentdeckter Gegenstand"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "+%s %% max. LP"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "+%s %% Schaden"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "+%s %% Münzen"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "+%s %% EP"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "+%s Pkt. Beutechance"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "+%s Pkt. Edelsteinchance"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "Meisterschaft · %s · %s abgeschlossen"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "Prestige freigeschaltet"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "%d Gelegenheiten gefunden · zum Öffnen tippen"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "Schließe eine Gelegenheit ab und nutze dann Prestige für eine dauerhafte Karte"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "Karte gemeistert · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "100 % abgeschlossen"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "Meisterfarmer"
+
+msgid "STATS_COMPLETION"
+msgstr "Spielabschluss"
+
+msgid "STATS_TITLE"
+msgstr "Titel"
+
+msgid "STATS_MASTERY"
+msgstr "Kartenmeisterschaft"
+
+msgid "MAIN_HINT_0"
+msgstr "Besiege Gegner"
+
+msgid "MAIN_HINT_1"
+msgstr "Tippe im Inventar auf eine Waffe oder ein Kostüm und dann auf Ausrüsten"
+
+msgid "MAIN_HINT_2"
+msgstr "Öffne einen Gegenstand, den du doppelt hast, und tippe auf Verschmelzen"
+
+msgid "MAIN_HINT_3"
+msgstr "Geh zu einem Lager, tippe auf Lager ansehen und dann auf Freischalten"
+
+msgid "MAIN_HINT_4"
+msgstr "Besiege den Schneemann, den Boss von Winter I"
+
+msgid "MAIN_HINT_5"
+msgstr "Rüste die Fähigkeit Heilung aus (in Winter II droppen sie Raumhelm-Eliten und der Cyan-Roboter)"
+
+msgid "MAIN_HINT_6"
+msgstr "Kaufe unter Welt einen Rang Kartendetails"
+
+msgid "MAIN_HINT_7"
+msgstr "Finde die Fähigkeit Frostexplosion (in Sommer I droppen sie Strohhut-Eliten)"
+
+msgid "MAIN_HINT_8"
+msgstr "Besiege den Cyan-Roboter, den Boss von Winter II, um Sommer I zu erreichen"
+
+msgid "MAIN_HINT_9"
+msgstr "Entwickle eine Waffe auf ^100 mit 101 Kopien weiter (Gegenstandsdetails, Weiterentwickeln)"
+
+msgid "MAIN_HINT_10"
+msgstr "Besitze verschiedene Fähigkeiten"
+
+msgid "MAIN_HINT_11"
+msgstr "Besiege beide Bosse von Sommer II, um Herbst I zu erreichen"
+
+msgid "MAIN_HINT_12"
+msgstr "Besitze verschiedene Fähigkeiten"
+
+msgid "MAIN_HINT_13"
+msgstr "Besiege beide Bosse von Herbst II, um Frühling I zu erreichen"
+
+msgid "MAIN_HINT_14"
+msgstr "Schließe ein Prestige ab"
+
+msgid "MAIN_HINT_15"
+msgstr "Besiege jeden Gegnertyp und Boss in Frühling II"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "Bereit! Hol sie unter Missionen ab"
+
+msgid "MISSION_DO_KILL"
+msgstr "Besiege %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "Besiege %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "Sammle Waffen- oder Kostümdrops ein"
+
+msgid "MISSION_DO_MERGE"
+msgstr "Verschmelze Gegenstände"
+
+msgid "MISSION_DO_COINS"
+msgstr "Verdiene Münzen von Gegnern"
+
+msgid "MISSION_DO_CAST"
+msgstr "Wirke ausgerüstete Fähigkeiten"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "Als Nächstes: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "Besiege %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "Besiege beliebige Gegner"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "Sammle Waffen- oder Kostümdrops ein"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "Verschmelze Gegenstände"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "Besiege beliebige Bosse"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "Wirke Fähigkeiten"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "Hole normale Missionen ab"
+
+msgid "FOLLOW_TROPHY"
+msgstr "Besiege %s für seine Trophäe · Trophäen %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "Verschmelze eine beliebige Waffe, ein Kostüm oder eine Fähigkeit bis ^100: bestes ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "Verschmelze einen Gegenstand ab Rang %d bis ^100: bestes ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "Verschmelze bis ^50: Waffen %d/%d · Kostüme %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "Verschmelze Ausrüstung ab Rang 2 bis ^50: Waffen %d/%d · Kostüme %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "Verdiene in diesem Durchlauf von Gegnern: Münzen %s/%s · Edelsteine %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "Genug! Gib es ab: Prestige, dann Abgeben"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "Abwesenheit insgesamt: %.1f/72 h"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "Längste einzelne Abwesenheit: %.1f/24 h"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "Während der Abwesenheit verdiente Münzen: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "Erkunde %s: %d %%/90 %%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "Besiege %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "Schalte alle Lager in %s frei: %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "Dann: %s (noch %d)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "ACHTUNG: BOSS GEFUNDEN!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · Boss in %s"
+
+msgid "MASTERY_CHIP"
+msgstr "Meisterschaft %d %% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "Kartenmeisterschaft dieser Karte: Prozent und abgeschlossene Kategorien. Für Details tippen."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "Farme, bis du den Boss besiegen kannst."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "Der Schneemann bewacht den Weg nach Winter II."
+
+msgid "VIEW_CAMP"
+msgstr "Lager ansehen"
+
+msgid "DROP_ALL"
+msgstr "Alles ablegen"
+
+msgid "DROP_ALL_TITLE"
+msgstr "Den ganzen Stapel ablegen?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nAlle Kopien verlassen dein Inventar und der Platz wird sofort frei. Der Stapel bleibt 5 Minuten am Boden liegen: Tippe ihn an, um ihn wieder aufzuheben (Auto-Sammeln nimmt ihn nie zurück). Erneutes Aufheben bringt keinen Fortschritt für Missionen, Prestige oder Meisterschaft."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "Meisterschaft ^%d (bleibt erhalten)"
+
+msgid "DROPPED_NOTICE"
+msgstr "Abgelegt: %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "Zuerst ablegen"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "Heilt dich jetzt um %s LP (%s LP, höchstens %s %% der max. LP), wenn du unter %s %% LP bist"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "+%s %% Angriffsschaden für 5 s (jetzt +%s Schaden pro Treffer) · nur im Kampf"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× Angriffsschaden (jetzt %s) an allen Gegnern im Umkreis von %s um dich, und verlangsamt sie 3 s lang um 25 %%"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× Angriffsschaden (jetzt %s) an deinem Ziel und allen Gegnern im Umkreis von %s um es"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "%s× Angriffsschaden (jetzt %s) an deinem aktuellen Ziel"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "%s× Angriffsschaden (jetzt %s) an deinem aktuellen Ziel – ein schwerer Treffer aus nächster Nähe"
+
+msgid "SKILL_DESC_STATS"
+msgstr "Ziele: %s · Reichweite: %s · Abklingzeit: %s s"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "du"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "alle Gegner im Bereich"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 Gegner"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "selbst"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s LP"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s %% Schaden"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× Angriffsschaden"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "Heilung ist nutzbar, sobald dir LP fehlen – auch außerhalb des Kampfs."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "Prestige"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "%d Gelegenheit(en) einlösen und einen neuen Durchlauf beginnen"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "Du wählst für jede eine dauerhafte Karte:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 Karte"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "DAUERHAFT · DAS BEHÄLTST DU"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "DIESER DURCHLAUF WIRD ZURÜCKGESETZT"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "Karten werden einzeln gewählt und sofort gespeichert. Nach der letzten Karte startet der Durchlauf in Winter I neu."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "Prestige starten"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "Prestige-Karten und -Sets (%d im Besitz) plus die neuen"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "Deine Edelsteine: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "Erkundete Kartenbereiche, entdeckte Lager und gefundene Bosse"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "Alle Edelstein-Upgrades, Automatik und Inventarplatz"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "Boss-Schlüssel, Gegnererfolge und Kartenmeisterschaft"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "Einstellungen und Tutorialfortschritt"
+
+msgid "RESET_LINE_COINS"
+msgstr "Münzen: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "Spielerstufe %d (zurück auf 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "Gegenstände, Verschmelzungen und Vorratsbestand"
+
+msgid "RESET_LINE_MAPS"
+msgstr "Kartenzugang (zurück nach Winter I) und eigene Lager"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "Münz-Upgrades und Karten-Upgrades"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "Unvollendete Gelegenheiten und Missionen"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "Tippe auf Lager ansehen"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "Das öffnet dieses Lager, wo du es freischalten kannst."
+
+msgid "HELP"
+msgstr "Hilfe"
+
+msgid "PANEL_HELP"
+msgstr "Hilfe"
+
+msgid "HELP_INTRO"
+msgstr "Ein kurzer Überblick, wie LootFarmer funktioniert. Das Lesen ändert nichts an deinem Spiel."
+
+msgid "HELP_BACK"
+msgstr "Zurück zu den Einstellungen"
+
+msgid "SECTION_LANGUAGE"
+msgstr "Sprache"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "Kritische Chance"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "Kritischer Schaden"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "Automatische Fähigkeitsplätze"
+
+msgid "SOURCE_UPGRADES"
+msgstr "Upgrades"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "Automatische Fähigkeiten: %d / %d zugewiesen"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "Rüste zuerst eine Fähigkeit aus und kaufe einen verfügbaren Auto-Platz."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "Auto-Verschmelzen: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "Größe der Inventarplätze"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "Stellt bis zu %s LP wieder her (%s %% der maximalen LP). Verfügbar, sobald dir LP fehlen – auch außerhalb des Kampfs."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "Aktivierung nur im Kampf und mit einem Gegner innerhalb von %s Einheiten."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "Einzelziel. Verringert das Angriffstempo um %s %% für %s Sekunden (Bosse: %s Sekunden). Die Bewegung bleibt unverändert."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "Bosse widerstehen der Hälfte der Dauer zeitlicher Effekte; Stärke und Schaden bleiben unverändert."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "Nächste Meisterschaftsstufe: %d / %d Benutzungen · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "Auto-Nutzung: sobald LP fehlen und die Abklingzeit vorbei ist – auch außerhalb des Kampfs."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "Tippe auf ein grünes Lager, um zu reisen. Abgedunkelte Lager sind gesperrt. Im Kampf ist Reisen nicht möglich."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d s"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "Schließe die geführte Einführung in Winter II ab, bevor du Prestige nutzt."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "Spielerstufe %d, gesammelte EP und Stufenboni"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "Vorratsmeisterschaft und Fortschritt zur nächsten Stufe"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "Wähle ein Lager"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "Schließe dieses Fenster, um fortzufahren."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "Tippe auf die Schließen-Schaltfläche. Dein Fortschritt wurde gespeichert."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "Kaufe ein Spieler-Upgrade."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "Wähle ein globales Upgrade, das dir in den nächsten Kämpfen hilft."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "Erweitere dein Ausrüstungsinventar."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "Kaufe mit Edelsteinen einen weiteren Platz. Ein einmaliges Tutorial-Geschenk deckt jeden Fehlbetrag."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "Folge dem Pfeil zum Lager."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "Geh hin, entdecke es, tippe dann auf Lager ansehen und kaufe die Freischaltung."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "Finde den ersten Boss."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "Folge dem Pfeil zum Schneemann. Um ihn zu entdecken, musst du ihn nicht besiegen."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "Bereite dich auf den Bosskampf vor."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "Bosse können zu stark sein. Steig Stufen auf für globale Werte; farme Ausrüstung, verschmelze Kopien und kaufe Upgrades."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "Farme noch ein paar Gegner."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "Werde stärker und sammle Münzen, bevor du weiterziehst."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "Kaufe einen Heiltrank."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "Öffne Spieler-Upgrades und dann Vorräte. Vorhandene Tränke zählen bereits mit."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "Schaffe Platz für einen Heiltrank."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "Kaufe einen Vorratsplatz oder benutze einen vorhandenen Vorrat, um einen Platz freizumachen."
+
+msgid "GUIDE_POTION_USE"
+msgstr "Benutze deinen Heiltrank."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "Tippe auf seinen Inventarplatz, wenn dir LP fehlen. Das Benutzen eines Vorrats steigert seine Meisterschaft."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "Benutze einen Trank, wenn du Heilung brauchst."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "Kämpfe zuerst gegen Gegner in der Nähe. Bei vollen LP wird nie ein Trank verschwendet."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "Prestige gewährt dauerhafte Vorteile."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "Schließe Gelegenheiten ab, um Karten zu erhalten. Im geführten Modus wird der Reset nach diesem Tutorial freigeschaltet; du kannst auch ohne Prestige weiterspielen."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "Du hast schon Anspruch auf eine Prestige-Belohnung."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "Deine Gelegenheit ist bereit. Schließe die geführte Einführung in Winter II ab, bevor du entscheidest, ob du zurücksetzt."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "Die nächste Karte ist offen."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "Öffne Welt, um freigeschaltete Gebiete und ihre Lager zu sehen."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "Reise zwischen freigeschalteten Lagern."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "Welt reist direkt, wenn ein Lager freigeschaltet ist, oder zeigt eine Karte, wenn mehrere verfügbar sind. Im Kampf ist Teleportieren blockiert."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "Meilensteine bieten optionale Ziele."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "Sieh dir Kartenmeisterschaft und Erfolge an, wenn du Zusatzbelohnungen willst. Reise über Welt weiter nach Winter II."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "Reise nach Winter II."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "Öffne Welt und wähle Winter II, um das Abenteuer fortzusetzen."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "DER WEG VOR DIR"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "Dein großes Ziel: Besiege den Endboss in Gebiet 8 und bezwinge das Spiel.\n\nLust auf eine noch größere Herausforderung? Erreiche 100 %, indem du alle Meilensteine der Kartenmeisterschaft schaffst.\n\nSpiel in deinem Tempo, genieß die Reise und viel Glück!"
+
+msgid "SLOT_SMALL"
+msgstr "Klein"
+
+msgid "SLOT_MEDIUM"
+msgstr "Mittel"
+
+msgid "SLOT_LARGE"
+msgstr "Groß"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "Allgemein"
+
+msgid "REVIEW_TITLE"
+msgstr "Gefällt dir LootFarmer?"
+
+msgid "REVIEW_LEAD"
+msgstr "Dein Abenteuer fängt gerade erst an!"
+
+msgid "REVIEW_BODY"
+msgstr "Schon tolle Beute gefunden? Wir würden gern wissen, was du denkst. Eine ehrliche Bewertung hilft uns, LootFarmer zu verbessern, und hilft anderen, das Spiel zu entdecken."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Auf Google Play bewerten"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "Auf itch.io bewerten"
+
+msgid "REVIEW_LATER"
+msgstr "Vielleicht später"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "Die Store-Seite konnte nicht geöffnet werden. Prüfe deine Verbindung und versuch es erneut."
+
+msgid "SECTION_FEEDBACK"
+msgstr "Feedback"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "Gegner anvisieren"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "Zieh von deinem Helden zu einem Gegner und lass los, um ihn anzuvisieren. Deine Angriffe konzentrieren sich dann auf den gewählten Gegner."
+
+msgid "GUIDE_TARGET"
+msgstr "Gegner anvisieren"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "Zieh von deinem Helden zu einem Gegner und lass los, um ihn anzuvisieren. Deine Angriffe konzentrieren sich dann auf den gewählten Gegner."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "Finde einen Gegner zum Anvisieren"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "Lauf, bis ein Gegner in Sicht ist, zieh dann von deinem Helden zu ihm und lass los."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "Jage %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d Pkt."
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s s"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d Std. %02d Min."
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d Min. %02d s"
+
+msgid "DURATION_SECONDS"
+msgstr "%d s"
