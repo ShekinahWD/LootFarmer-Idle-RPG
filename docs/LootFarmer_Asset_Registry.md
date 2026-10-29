@@ -152,3 +152,18 @@ The character at `Special 1 v1.png`, saved as `boss-elephant`, is a dinosaur. Ke
 
 - **Background music** (`assets/sounds/background_music.wav`, 23 MB source): imported as QOA (`compress/mode=2`, loop mode forward), 4.7 MB in the build and in memory while playing. Evaluated for PERF-07 and left unchanged: an OGG would save a few megabytes but needs a lossy re-encode and a listening check, which is not a clear benefit. Repository size alone is not a reason to convert.
 - **Fog veil** (`resources/game/fog_veil.gdshader`, new code resource, not art): draws the existing `fog_rules.tres` cover and vision colours from the explored mask; no texture asset.
+
+## Script fallback fonts (Change 42, Localization Batch 03)
+
+DejaVu Sans (the theme font) has no Thai or Devanagari. Two OFL fonts were added as runtime fallbacks; both are byte-identical copies of the files already vendored (and hash-recorded) in `Godot-Marketing-Toolkit/assets/fonts/font_manifest.json`, so nothing was downloaded.
+
+| Runtime file (ships) | Family / version | Upstream file and source | SHA-256 | Licence (kept beside the font; the OFL notice is also embedded in the font's name table, IDs 13/14) |
+|---|---|---|---|---|
+| `assets/Fonts/NotoSansThai.ttf` (218,652 B, variable wght/wdth, default 400/100) | Noto Sans Thai 2.002 | `NotoSansThai[wdth,wght].ttf`, google/fonts `ofl/notosansthai` | `5a1c559b…3096cc9ef8` | SIL OFL 1.1, `assets/Fonts/NotoSansThai-OFL.txt` (sha `2e98fd23…c374a0`), © 2022 The Noto Project Authors |
+| `assets/Fonts/NotoSansDevanagari.ttf` (641,944 B, variable wght/wdth, default 400/100) | Noto Sans Devanagari 2.007 | `NotoSansDevanagari[wdth,wght].ttf`, google/fonts `ofl/notosansdevanagari` | `14ec4af4…03229853e` | SIL OFL 1.1, `assets/Fonts/NotoSansDevanagari-OFL.txt` (sha `a216f6f8…31d0f331`), © 2022 The Noto Project Authors |
+
+- **Not subset:** both are small and subsetting can drop GSUB/GPOS lookups that Thai mark positioning and Devanagari conjuncts need. CJK fonts (Batch 04) will need subsetting.
+- **Import settings** copy DejaVu Sans's (MSDF, pixel range 8, size 48).
+- **Use:** `resources/game/ui_font_thai.tres` and `ui_font_devanagari.tres` (FontVariation: DejaVu Sans + one fallback) become the theme default font only while th_TH or hi_IN is active (`LocalizationService.SCRIPT_FONTS`); `ui_font_all_scripts.tres` (both fallbacks) is the language dropdown's own font, so ไทย and हिन्दी render in every locale. Other locales keep plain DejaVu Sans, because Godot sizes lines by the tallest font in a chain (Noto Thai 1.511 em vs DejaVu 1.164 em) and the chain would otherwise change every existing Latin/Cyrillic layout.
+- **Text-server data:** `internationalization/locale/include_text_server_data=true` packs Godot's ICU data (`icudt_godot.dat`, 4.8 MB) so Thai, which has no spaces, wraps at word boundaries in exported builds.
+- **Exports:** all three release presets and the signed AAB ship both fonts, the three chains and the ICU data (Change 42 report §8). The licence text files are not packed (the embedded OFL notice travels with the font data, as for DejaVu Sans).

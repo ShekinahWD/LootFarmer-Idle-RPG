@@ -71,10 +71,10 @@ func readiness() -> void:
         check(service.match_device_locale(pair[0],enabled)==pair[1],"Device %s -> %s (got %s)" % [pair[0],pair[1],service.match_device_locale(pair[0],enabled)])
     # Draft languages are never chosen, whatever the device reports (incl. legacy "in" and script tags).
     var reached: Array=[]
-    for device in ["tr_TR","id_ID","in_ID","vi_VN","th_TH","hi_IN","ja_JP","ko_KR","zh_CN","zh_TW","zh_Hant_HK","zh_Hans_CN","zh"]:
+    for device in ["ja_JP","ko_KR","zh_CN","zh_TW","zh_Hant_HK","zh_Hans_CN","zh"]:
         var got: String=service.match_device_locale(device,enabled)
         if got!="en_US":reached.append(device+"->"+got)
-    check(reached.is_empty(),"No device locale reaches a draft language; all nine fall back to English (%s)" % str(reached))
+    check(reached.is_empty(),"No device locale reaches a Batch 04 draft; all fall back to English (%s)" % str(reached))
     # The rules for future batches already route correctly once a locale is enabled (pure function, no catalogs).
     var future:=["en_US","id_ID","zh_CN","zh_TW"]
     check(service.match_device_locale("in_ID",future)=="id_ID" and service.match_device_locale("zh_Hant_HK",future)=="zh_TW" and service.match_device_locale("zh_HK",future)=="zh_TW" and service.match_device_locale("zh_SG",future)=="zh_CN" and service.match_device_locale("zh",future)=="zh_CN","Legacy Indonesian and Chinese script/region rules are ready for later batches")
@@ -85,7 +85,7 @@ func readiness() -> void:
 func content() -> void:
     game._open("settings");await frames(4)
     var d:=dropdown()
-    check(d!=null and d.item_count==12 and d.auto_translate_mode==Node.AUTO_TRANSLATE_MODE_DISABLED,"One dropdown with 12 choices, never auto-translated")
+    check(d!=null and d.item_count==LocalizationService.available_languages().size()+1 and d.auto_translate_mode==Node.AUTO_TRANSLATE_MODE_DISABLED,"One dropdown with Automatic plus every enabled language (%d choices), never auto-translated" % d.item_count)
     var natives: Array=range(1,d.item_count).map(func(i):return d.get_item_text(i))
     LocalizationService.select_language("uk_UA");await frames(6)
     d=dropdown()
@@ -147,7 +147,7 @@ func placement(size: Vector2i) -> void:
             check(bar!=null and bar.visible and bar.max_value>bar.page,"Taller than the room: the menu scrolls with a visible bar: "+label)
             print("info  scrolling menu at ",label)
         else:
-            check(rect.size.y>=menu.get_contents_minimum_size().y-1,"All 12 rows fit without scrolling: "+label)
+            check(rect.size.y>=menu.get_contents_minimum_size().y-1,"All %d rows fit without scrolling: %s" % [rows,label])
         check(d.selected>=0 and d.get_popup().is_item_checked(d.selected),"The current choice is marked in the menu: "+label)
         d.close_menu();await frames(2)
     game._close();await frames(2)
@@ -209,7 +209,7 @@ func input_paths() -> void:
     d.show_popup();await frames(2)
     for i in range(4):
         sim.state.coins+=1.0;sim.touch();await get_tree().create_timer(.3).timeout
-    check(d.is_menu_open() and dropdown()==d and d.item_count==12,"Panel refreshes keep the open menu and its items")
+    check(d.is_menu_open() and dropdown()==d and d.item_count==LocalizationService.available_languages().size()+1,"Panel refreshes keep the open menu and its items")
     # Resizing the window (rotation, split screen) closes it rather than leaving it misplaced.
     get_window().size=Vector2i(540,960);await frames(3)
     check(not d.is_menu_open(),"A window resize closes the menu")

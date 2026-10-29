@@ -1,0 +1,5864 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: vi_VN\n"
+"Language-Team: Vietnamese (Vietnam)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 03 (Change 42)\n"
+"X-LootFarmer-Source: localization/en.po d6102fccdbae9721e20d5baa922c9a50d88ec85324c09b9b179832d3d47fe7e3\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Kiểm tra khởi động Android"
+
+msgid "BOOT_DETAIL"
+msgstr "Mốc kiểm tra 0 • Lối chơi chưa được triển khai."
+
+msgid "BOOT_VERSION"
+msgstr "Phiên bản %s"
+
+msgid "BOOT_TAPS"
+msgstr "Số lần chạm đã lưu: %d"
+
+msgid "BOOT_TAP"
+msgstr "Thử chạm và lưu"
+
+msgid "BOOT_SAVED"
+msgstr "Đã lưu xong"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "Không thể lưu. Hãy kiểm tra nhật ký xác thực."
+
+msgid "BOOT_PAUSE"
+msgstr "Tạm dừng"
+
+msgid "BOOT_RESUME"
+msgstr "Tiếp tục"
+
+msgid "BOOT_RESET"
+msgstr "Đặt lại toàn bộ"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "Đặt lại tiến trình?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "Thao tác này xóa toàn bộ tiến trình của hồ sơ này. Cài đặt của bạn được giữ nguyên."
+
+msgid "UI_CONFIRM"
+msgstr "Đặt lại"
+
+msgid "UI_CANCEL"
+msgstr "Hủy"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "Ngôn ngữ"
+
+msgid "LANG_AUTOMATIC"
+msgstr "Tự động"
+
+msgid "LANG_DISABLED"
+msgstr "Có sau khi bản dịch được xác thực"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "Tiếng Anh đã bật. Các ngôn ngữ khác mở sau khi xác thực."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "Một bản lưu không đọc được hoặc mới hơn đã được giữ lại. Hãy khôi phục bản sao lưu tương thích hoặc chủ động đặt lại hồ sơ này."
+
+msgid "LANG_EN_US"
+msgstr "Tiếng Anh"
+
+msgid "LANG_ES_419"
+msgstr "Tiếng Tây Ban Nha (Mỹ Latinh)"
+
+msgid "LANG_ES_ES"
+msgstr "Tiếng Tây Ban Nha (Tây Ban Nha)"
+
+msgid "LANG_PT_BR"
+msgstr "Tiếng Bồ Đào Nha (Brazil)"
+
+msgid "LANG_FR_FR"
+msgstr "Tiếng Pháp"
+
+msgid "LANG_DE_DE"
+msgstr "Tiếng Đức"
+
+msgid "LANG_IT_IT"
+msgstr "Tiếng Ý"
+
+msgid "LANG_NL_NL"
+msgstr "Tiếng Hà Lan"
+
+msgid "LANG_PL_PL"
+msgstr "Tiếng Ba Lan"
+
+msgid "LANG_RU_RU"
+msgstr "Tiếng Nga"
+
+msgid "LANG_UK_UA"
+msgstr "Tiếng Ukraina"
+
+msgid "LANG_TR_TR"
+msgstr "Tiếng Thổ Nhĩ Kỳ"
+
+msgid "LANG_ID_ID"
+msgstr "Tiếng Indonesia"
+
+msgid "LANG_VI_VN"
+msgstr "Tiếng Việt"
+
+msgid "LANG_TH_TH"
+msgstr "Tiếng Thái"
+
+msgid "LANG_HI_IN"
+msgstr "Tiếng Hindi"
+
+msgid "LANG_JA_JP"
+msgstr "Tiếng Nhật"
+
+msgid "LANG_KO_KR"
+msgstr "Tiếng Hàn"
+
+msgid "LANG_ZH_CN"
+msgstr "Tiếng Trung (Giản thể)"
+
+msgid "LANG_ZH_TW"
+msgstr "Tiếng Trung (Phồn thể)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "Xu %s     Ngọc %s"
+
+msgid "PAUSE"
+msgstr "Tạm dừng"
+
+msgid "RESUME"
+msgstr "Tiếp tục"
+
+msgid "PLAYER_STATUS"
+msgstr "HP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "Quay về trại sau %.1f giây"
+
+msgid "BOOST_ACTIVE"
+msgstr "Tăng xu %d giây"
+
+msgid "GROUP_0"
+msgstr "Đồng Cỏ Chồi Non"
+
+msgid "GROUP_1"
+msgstr "Ngã Tư Robot"
+
+msgid "GROUP_2"
+msgstr "Lùm Cây Khủng Long"
+
+msgid "GROUP_3"
+msgstr "Khoảng Rừng Tử Thần"
+
+msgid "CLOSE"
+msgstr "Đóng"
+
+msgid "CONFIRM"
+msgstr "Xác nhận"
+
+msgid "CANCEL"
+msgstr "Hủy"
+
+msgid "LEVEL"
+msgstr "CẤP"
+
+msgid "INVENTORY_HEADING"
+msgstr "Trang bị"
+
+msgid "SUPPLY_HEADING"
+msgstr "Đồ tiêu hao"
+
+msgid "GEAR_CAPACITY"
+msgstr "TRANG BỊ  %d / %d  ·  chạm để xem"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "ĐỒ TIÊU HAO  %d / %d  ·  chạm để dùng hoặc tự động"
+
+msgid "EMPTY_SLOT"
+msgstr "Trống"
+
+msgid "EQUIPPED"
+msgstr "Đang mặc"
+
+msgid "AUTO"
+msgstr "Tự động"
+
+msgid "UPGRADES"
+msgstr "Nâng cấp"
+
+msgid "WORLD"
+msgstr "Thế giới"
+
+msgid "STATS"
+msgstr "Chỉ số"
+
+msgid "SETTINGS"
+msgstr "Cài đặt"
+
+msgid "PANEL_ITEM"
+msgstr "Vật phẩm"
+
+msgid "PANEL_UPGRADES"
+msgstr "Nâng cấp nhân vật"
+
+msgid "PANEL_TRAVEL"
+msgstr "Trại & cày"
+
+msgid "PANEL_STATS"
+msgstr "Lối xây dựng của bạn"
+
+msgid "PANEL_SETTINGS"
+msgstr "Cài đặt"
+
+msgid "PANEL_HISTORY"
+msgstr "Vật phẩm nhận gần đây"
+
+msgid "PANEL_PRESTIGE"
+msgstr "Một khởi đầu mới"
+
+msgid "HELP_0"
+msgstr "Dùng cần điều khiển để khám phá phía bắc. Thả ra để tự động đánh kẻ địch gần đó."
+
+msgid "HELP_1"
+msgstr "Chồi Non chiến đấu một mình. Ở gần chúng để cày; chạm vào trang bị rơi ra để nhặt."
+
+msgid "HELP_2"
+msgstr "Chạm vào một vật phẩm trên mặt đất. Xu và ngọc vào thẳng ví của bạn."
+
+msgid "HELP_3"
+msgstr "Chạm vào trang bị mới bên dưới, rồi mặc vào. Bạn có thể mặc một trang phục và một vũ khí."
+
+msgid "HELP_4"
+msgstr "Ghép một bản sao để cường hóa loại vật phẩm đó. Tiến trình vẫn còn dù số lượng về không."
+
+msgid "HELP_5"
+msgstr "Mở một loại kẻ địch và mua tự động nhặt để thu chiến lợi phẩm khi cày."
+
+msgid "HELP_6"
+msgstr "Phát triển nhân vật, khám phá phía bắc và đánh bại Tử Thần. Thế giới mở ngay từ đầu."
+
+msgid "HELP_7"
+msgstr "Phần thưởng vĩnh viễn vẫn còn. Xây dựng một lượt chơi mạnh hơn và thách đấu Tử Thần lần nữa."
+
+msgid "HELP_VICTORY"
+msgstr "Đã đánh bại Tử Thần! Tiếp tục cày hoặc chọn một thẻ chuyển sinh trong Thế giới."
+
+msgid "HELP_PAUSED"
+msgstr "Đã tạm dừng · có thể quản lý túi đồ. Tiếp tục để cày tiếp."
+
+msgid "HISTORY_EMPTY"
+msgstr "Vật phẩm mới tìm được hiện ở đây.\nChạm để xem mười món gần nhất."
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s ngọc"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "Đã bán %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "Kiếm Gỗ"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "Kiếm Đá"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "Kiếm Sắt"
+
+msgid "ITEM_SPROUT"
+msgstr "Trang phục Chồi Non"
+
+msgid "ITEM_ROBOT"
+msgstr "Trang phục Robot"
+
+msgid "ITEM_DINOSAUR"
+msgstr "Trang phục Khủng Long"
+
+msgid "ITEM_POTION"
+msgstr "Bình Máu"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "Thuốc Tăng Xu"
+
+msgid "ITEM_QUANTITY"
+msgstr "Đang có: %s"
+
+msgid "NORMAL_STATS"
+msgstr "Chỉ số thường · tăng khi ghép"
+
+msgid "EXTRA_STATS"
+msgstr "Chỉ số phụ · dùng chung cho loại vật phẩm này"
+
+msgid "EQUIP"
+msgstr "Trang bị"
+
+msgid "UNEQUIP"
+msgstr "Tháo"
+
+msgid "REROLL"
+msgstr "Đổi cả hai chỉ số phụ · %s ngọc"
+
+msgid "REROLL_CONFIRM"
+msgstr "Tiêu %s ngọc để thay cả hai chỉ số phụ? Kết quả mới sẽ thay kết quả cũ, kể cả khi yếu hơn."
+
+msgid "USE"
+msgstr "Dùng một cái"
+
+msgid "MERGE_ONE"
+msgstr "Ghép một bản sao dư"
+
+msgid "MERGE_ALL"
+msgstr "Ghép %d bản sao dư"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "Ở ^100, dùng 100 bản sao dư để đổi lấy một vật phẩm bậc kế tiếp. Vật phẩm gốc và cấp ghép được giữ lại. Cần một chồng đích hoặc một ô trống cùng loại."
+
+msgid "EVOLVE"
+msgstr "Tiến hóa → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "Bật/tắt tự động cho ô này"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "Tự động dùng ô này: %s"
+
+msgid "ON"
+msgstr "Bật"
+
+msgid "OFF"
+msgstr "Tắt"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "Ô này đang trống. Loại vật phẩm mới cần một ô trống; loại đã có sẽ được xếp chồng."
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "Nâng cấp nhóm áp dụng cho mọi thành viên. Mỗi kẻ địch tự gieo chiến lợi phẩm riêng. Xu và ngọc được cộng ngay."
+
+msgid "GROUP_SELECT"
+msgstr "Nhóm kẻ địch: %s · chạm để đổi"
+
+msgid "AUTOMATION_HEADING"
+msgstr "Túi đồ & tự động hóa · giữ lại khi chuyển sinh"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "xu"
+
+msgid "GEMS"
+msgstr "ngọc"
+
+msgid "TRAVEL_HELP"
+msgstr "Chạm vào một trại trên bản đồ để chọn điểm hồi sinh. Mở khóa từ bảng của trại cũng sẽ chọn trại đó. Không dịch chuyển."
+
+msgid "SPAWN_SELECT"
+msgstr "Chọn trại %d"
+
+msgid "SPAWN_BUY"
+msgstr "Mở khóa trại %d · %s xu"
+
+msgid "SELECTED"
+msgstr "Đã chọn"
+
+msgid "FOCUS_HELP"
+msgstr "Mở khóa cày theo từng loại kẻ địch, rồi chọn chỉ trang phục, chỉ vũ khí hoặc cả hai. Sau khi chết sẽ quay về trại đó. Tự di chuyển sẽ hủy cày."
+
+msgid "FOCUS_GROUP"
+msgstr "Cày %s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "Chọn một thẻ chuyển sinh"
+
+msgid "PRESTIGE_COUNT"
+msgstr "Số lần chuyển sinh: %d"
+
+msgid "NO_OFFLINE"
+msgstr "Tiến trình đã được lưu. Phần thưởng ngoại tuyến được lên kế hoạch cho bản đầy đủ; bản này không mô phỏng khi đóng hoặc chạy nền."
+
+msgid "SAVE_NOW"
+msgstr "Lưu ngay"
+
+msgid "HARD_RESET"
+msgstr "Đặt lại toàn bộ"
+
+msgid "RESET_CONFIRM"
+msgstr "Xóa toàn bộ tiến trình, túi đồ, tự động hóa và thẻ chuyển sinh? Cài đặt sẽ được giữ lại. Không thể hoàn tác."
+
+msgid "LANGUAGE_NOTE"
+msgstr "Trong quá trình phát triển chỉ có tiếng Anh. 19 ngôn ngữ còn lại sẽ mở sau khi bản dịch được xác thực."
+
+msgid "CREDITS"
+msgstr "Đồ họa nhân vật & thế giới: Pixel Plains của SnowHex. Giao diện: Kenney Fantasy UI Borders (CC0)."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "Chọn một thẻ +5% vĩnh viễn. Phần thưởng cộng dồn qua các lượt chơi. Bạn có thể đóng bảng này và tiếp tục cày."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "Bắt đầu lượt chơi mới với thẻ vĩnh viễn này? Đặt lại tiền tệ, túi đồ, ghép/chỉ số phụ của vật phẩm, nâng cấp cày kẻ địch và trại. Giữ lại thông tin kẻ địch đã mở, cấp tự động hóa, sức chứa túi đồ và mọi thẻ chuyển sinh."
+
+msgid "CARD_DAMAGE"
+msgstr "+5% sát thương · vĩnh viễn"
+
+msgid "CARD_HP"
+msgstr "+5% HP tối đa · vĩnh viễn"
+
+msgid "CARD_COINS"
+msgstr "+5% lượng xu · vĩnh viễn"
+
+msgid "CARD_GEMS"
+msgstr "+5% tỉ lệ ngọc (tương đối) · vĩnh viễn"
+
+msgid "CARD_LOOT"
+msgstr "+5% tỉ lệ rơi trang bị (tương đối) · vĩnh viễn"
+
+msgid "CARD_MERGE"
+msgstr "+5% lượng tăng chỉ số thường khi ghép · vĩnh viễn"
+
+msgid "STAT_HP"
+msgstr "HP tối đa"
+
+msgid "STAT_DAMAGE"
+msgstr "Sát thương"
+
+msgid "STAT_DEFENSE"
+msgstr "Phòng thủ"
+
+msgid "STAT_CRIT"
+msgstr "Tỉ lệ chí mạng"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "Hệ số chí mạng"
+
+msgid "STAT_LIFESTEAL"
+msgstr "Hút máu"
+
+msgid "STAT_REGEN"
+msgstr "HP mỗi giây"
+
+msgid "STAT_SPEED"
+msgstr "Thưởng tốc độ đánh"
+
+msgid "STAT_HEAL"
+msgstr "Hồi máu"
+
+msgid "STAT_COIN_BONUS"
+msgstr "Thưởng lượng xu"
+
+msgid "NEED_DUPLICATES"
+msgstr "Bạn cần một bản sao dư để ghép."
+
+msgid "MERGE_MAX"
+msgstr "Vật phẩm này đã ở ^100."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "Tiến hóa cần ^100 và 101 bản sao gốc."
+
+msgid "INVENTORY_FULL"
+msgstr "Không còn ô trống. Hãy dọn chỗ hoặc mở rộng túi đồ này."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "Mở khóa tự động hóa này trong Nâng cấp."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "Mở thêm một ô tự động dùng trong Nâng cấp."
+
+msgid "CANNOT_USE"
+msgstr "Không có đồ tiêu hao dùng được, hoặc nhân vật đã chết."
+
+msgid "UPGRADE_MAX"
+msgstr "TỐI ĐA"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "Không đủ xu."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "Không đủ ngọc."
+
+msgid "SPAWN_BOUGHT"
+msgstr "Đã mở khóa trại. Hãy chọn trại để dùng làm điểm hồi sinh."
+
+msgid "EVOLVED"
+msgstr "Đã nhận vật phẩm bậc kế tiếp. Tiến trình của vật phẩm gốc được giữ nguyên."
+
+msgid "PLAYER_DIED"
+msgstr "Đang quay về trại đã chọn. Không mất gì cả."
+
+msgid "BOSS_DEFEATED"
+msgstr "Đã đánh bại Tử Thần! Một thẻ chuyển sinh vĩnh viễn đang chờ bạn."
+
+msgid "PRESTIGED"
+msgstr "Lượt chơi mới bắt đầu. Phần thưởng vĩnh viễn vẫn còn."
+
+msgid "SAVED"
+msgstr "Đã lưu tiến trình."
+
+msgid "SAVE_ERROR"
+msgstr "Không lưu được. Tiến trình vẫn còn trong bộ nhớ; hãy thử lại."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "Không thể tải bản lưu một cách an toàn. Việc lưu bị tắt cho đến khi bạn chủ động Đặt lại toàn bộ."
+
+msgid "ACTION_PREVIEW"
+msgstr "Hành động · chi phí và hiệu quả"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "Ô trang bị +1 (tối đa 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "Ô đồ tiêu hao +1 (mỗi loại một ô)"
+
+msgid "UP_COLLECT"
+msgstr "Mở khóa tự động nhặt"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "Phạm vi nhặt +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "Số món mỗi lần nhặt +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "Khoảng nhặt −1 giây"
+
+msgid "UP_MERGE_GEAR"
+msgstr "Mở khóa tự động ghép trang bị"
+
+msgid "UP_AUTO_USE"
+msgstr "Ô đồ tiêu hao tự động +1"
+
+msgid "UP_USE_SPEED"
+msgstr "Khoảng tự động dùng −1 giây"
+
+msgid "UP_FOCUS"
+msgstr "Mở khóa cày tập trung"
+
+msgid "UP_RESPAWN"
+msgstr "Thời gian hồi sinh −1 giây"
+
+msgid "UP_LOOT"
+msgstr "Tỉ lệ rơi trang bị +0,5 điểm (mỗi vật phẩm)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "Tỉ lệ rơi xu"
+
+msgid "UP_GEM_CHANCE"
+msgstr "Tỉ lệ rơi ngọc toàn cục"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "Xu mỗi kẻ địch +50%"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "Ngọc mỗi lần rơi (Boss cho ×3)"
+
+msgid "CHAT_SURPRISE"
+msgstr "Này! Cẩn thận đấy!"
+
+msgid "RECENT_HEADER"
+msgstr "Vừa tìm được · chạm để xem lịch sử"
+
+msgid "ZOOM_IN"
+msgstr "Phóng to"
+
+msgid "ZOOM_OUT"
+msgstr "Thu nhỏ"
+
+msgid "CAMERA_ZOOM"
+msgstr "Thu phóng camera"
+
+msgid "PANEL_ENEMY"
+msgstr "Kẻ địch"
+
+msgid "PANEL_CAMP"
+msgstr "Trại hồi sinh"
+
+msgid "TAB_AUTOMATION"
+msgstr "Tự động hóa"
+
+msgid "TAB_INVENTORY"
+msgstr "Túi đồ"
+
+msgid "TAB_SUPPLIES"
+msgstr "Đồ tiêu hao"
+
+msgid "TAB_OVERVIEW"
+msgstr "Tổng quan"
+
+msgid "TAB_UPGRADES"
+msgstr "Nâng cấp"
+
+msgid "UP_REVEAL_STATS"
+msgstr "Hiện chỉ số · vĩnh viễn"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "Hiện vật phẩm rơi · vĩnh viễn"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "CHỈ SỐ KẺ ĐỊCH"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "VẬT PHẨM CÓ THỂ RƠI"
+
+msgid "UNKNOWN_STATS"
+msgstr "HP ???   •   Sát thương ???\nTốc độ đánh ???   •   Phòng thủ ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "HP %s   •   Sát thương %s\nĐánh mỗi %s giây   •   Phòng thủ %s"
+
+msgid "DROP_COINS"
+msgstr "Xu ×%s · chắc chắn"
+
+msgid "DROP_GEMS"
+msgstr "Ngọc · tỉ lệ %s%% · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "Một lần gieo trang bị chọn một trong hai món trang bị. Ngọc và đồ tiêu hao được gieo riêng. Tỉ lệ đã gồm các nâng cấp hiện có của bạn."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 điểm phần trăm / cấp · tối đa +15"
+
+msgid "ENEMY_CAT"
+msgstr "Mèo được triệu hồi"
+
+msgid "CAT_DETAILS"
+msgstr "Tay sai do Tử Thần triệu hồi.\nKhông rơi đồ, không có nâng cấp nhóm."
+
+msgid "CAMP_NAME"
+msgstr "Trại %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "Chạm để chọn"
+
+msgid "CAMP_LOCKED"
+msgstr "Đã khóa · chạm để mở khóa"
+
+msgid "CAMP_HELP"
+msgstr "Trại là điểm hồi sinh. Nghỉ cạnh một trại đã mở để hồi phục nhanh. Mở khóa, chọn làm điểm hồi sinh và di chuyển là các hành động riêng. Khi đứng ở trại sẽ hiện nút Xem trại."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "Đã chọn trại hồi sinh."
+
+msgid "OPEN_PLAYER"
+msgstr "Nâng cấp nhân vật"
+
+msgid "OPEN_GROUP"
+msgstr "Xem %s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "Lưỡi Hái Mã Não Đen"
+
+msgid "ITEM_REAPER"
+msgstr "Trang phục Thần Chết"
+
+msgid "VARIANT_OUTFIT"
+msgstr "Trang phục"
+
+msgid "VARIANT_WEAPON"
+msgstr "Vũ khí"
+
+msgid "VARIANT_BOTH"
+msgstr "Cả hai"
+
+msgid "ITEM_DETAILS"
+msgstr "Chi tiết vật phẩm"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "Lên cấp!"
+
+msgid "GEAR"
+msgstr "Trang bị"
+
+msgid "CONSUMABLES"
+msgstr "Đồ tiêu hao"
+
+msgid "HUD_HP"
+msgstr "HP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "Hồi sinh sau %.1f giây"
+
+msgid "HUD_LEVEL"
+msgstr "CẤP %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "Trang bị %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "Đồ tiêu hao %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "GHÉP %d"
+
+msgid "ITEM_OWNED"
+msgstr "Đang có: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "Đang mặc · đóng góp 100%"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "Trong túi · đóng góp 30% (một lần cho mỗi loại vũ khí)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "Ghép"
+
+msgid "LESS_OPTIONS"
+msgstr "Ít tùy chọn hơn"
+
+msgid "MORE_OPTIONS"
+msgstr "Thêm tùy chọn"
+
+msgid "LOOT_HISTORY"
+msgstr "Lịch sử chiến lợi phẩm"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "CẤP %d / 1.000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "CẤP %d · HP và sát thương tăng"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "Chạm đồ tiêu hao để dùng · Giữ để xem chi tiết"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "Lần ghép tới: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "Thành tựu"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "Dùng chung cho mọi trại của loại kẻ địch này. Nâng cấp nhặt đồ được giữ; các nâng cấp loại khác đặt lại khi chuyển sinh."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 điểm phần trăm / cấp · tối đa +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "+10% EXP / cấp · tối đa +200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "Tỉ lệ rơi đồ tiêu hao +1 điểm"
+
+msgid "UP_GROUP_XP"
+msgstr "Kinh nghiệm +10%"
+
+msgid "GROUP_XP_VALUE"
+msgstr "EXP mỗi lần hạ: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "Mốc hạ địch vĩnh viễn, dùng chung cho mọi trại của loại kẻ địch này. Phần thưởng tự áp dụng và còn sau khi chuyển sinh."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "Với loại này: +%.0f%% sát thương · +%.1f điểm phần trăm tỉ lệ ngọc"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · hạ %d\nPhần thưởng: +%.0f%% sát thương và +%.1f điểm phần trăm tỉ lệ ngọc với loại này"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "Hoàn thành"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "Thành tựu hạ địch"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%.0f%% sát thương · +%.1f điểm tỉ lệ ngọc"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "Tự động ghép vũ khí và trang phục của loại kẻ địch này."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "+%s xu mỗi lần hạ / cấp"
+
+msgid "ACTION_PAUSED"
+msgstr "Không khả dụng khi tạm dừng"
+
+msgid "ACTION_SUSPENDED"
+msgstr "Không khả dụng khi ứng dụng không hoạt động"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "Chưa đủ điều kiện"
+
+msgid "VALUE_MAX"
+msgstr "TỐI ĐA"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s EXP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s giây"
+
+msgid "HP_PER_SECOND"
+msgstr "HP/giây"
+
+msgid "STAT_SOURCES"
+msgstr "Chỉ số của bạn đến từ đâu"
+
+msgid "SOURCE_BASE"
+msgstr "Chỉ số cơ bản"
+
+msgid "SOURCE_LEVEL"
+msgstr "Cấp nhân vật"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "Trang bị đang mặc"
+
+msgid "SOURCE_STORED"
+msgstr "Trang bị trong túi"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "Phần thưởng vĩnh viễn: HP ×%s · Sát thương ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "Tổng ở trên đã tính giới hạn: tỉ lệ chí mạng 75%, sát thương chí mạng ×4, hút máu 15%, thưởng tốc độ đánh 200%."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "Lượt gieo đồ tiêu hao: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "Thuốc: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · Bậc %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "Bậc %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · B%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "Ngọc"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "Áp dụng cho mọi kẻ địch. Đặt lại khi chuyển sinh. Thưởng thành tựu kẻ địch vẫn riêng cho từng loại."
+
+msgid "FARM_VARIANT"
+msgstr "Cày %s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "Lựa chọn cày: %s. Quay lại đây sau khi hồi sinh."
+
+msgid "MAX_ITEM_TIER"
+msgstr "Đã đạt bậc cuối. Vẫn có thể ghép đến ^100."
+
+msgid "TAB_PLAYER"
+msgstr "Nhân vật"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "Kẻ địch mỗi điểm"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "Thời gian hồi sinh của kẻ địch"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "Tỉ lệ ngọc từ Boss"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "Ngọc thưởng của Boss mỗi lần rơi"
+
+msgid "TRAVEL_COMBAT"
+msgstr "Hãy kết thúc trận đấu trước khi di chuyển."
+
+msgid "TRAVEL_CAMP"
+msgstr "Di chuyển · %s · Trại %d"
+
+msgid "STAGE_LOCKED"
+msgstr "Hãy đánh bại các Boss chặn cửa màn trước."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "Hãy khám phá trại này trước."
+
+msgid "STAGE_UNLOCKED"
+msgstr "Đã mở màn tiếp theo!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "Hộ vệ cuối cùng đang bị phong ấn. Đánh bại 13 Boss còn lại để thu thập chìa khóa của chúng. Chìa khóa đã thu thập được giữ khi chuyển sinh."
+
+msgid "WORLD_COMPLETE"
+msgstr "Đã đánh bại mọi kẻ địch Mùa Xuân II — hoàn thành nhiệm vụ cuối!"
+
+msgid "UNDISCOVERED"
+msgstr "Chưa khám phá"
+
+msgid "ENEMY_LEVEL"
+msgstr "Cấp %d"
+
+msgid "ALL_ITEMS"
+msgstr "Tất cả"
+
+msgid "WEAPONS"
+msgstr "Vũ khí"
+
+msgid "OUTFITS"
+msgstr "Trang phục"
+
+msgid "SKILLS"
+msgstr "Kỹ năng"
+
+msgid "VARIANT_SKILL"
+msgstr "Tinh anh"
+
+msgid "SKILL_EMPTY"
+msgstr "Ô kỹ năng %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "Họ kỹ năng này đã được trang bị."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "Tháo một kỹ năng hoặc mở thêm ô."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "Trang bị vào ô %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "Ô %d tự thi triển: %s"
+
+msgid "STOCK_BONUS"
+msgstr "Thưởng bản sao dư: +%s%% sức mạnh nội tại. Bản sao vẫn thuộc về bạn."
+
+msgid "CLAIM"
+msgstr "Nhận"
+
+msgid "CLAIM_REWARD"
+msgstr "Nhận · %s xu · %s ngọc"
+
+msgid "MISSION_AUTO"
+msgstr "Tự động nhận: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "BẬT"
+
+msgid "STATE_OFF_CAPS"
+msgstr "TẮT"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "Nhận các nhiệm vụ thường đã hoàn thành (kể cả ô đã mua), KHÔNG gồm Mục tiêu chính. Sau khi mua, hãy BẬT Tự động nhận trong Nhiệm vụ."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "Tự động nhận đã mở nhưng đang TẮT. Chạm vào nút bên dưới để bắt đầu nhận nhiệm vụ thường. Mục tiêu chính vẫn nhận thủ công."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "Tự động nhận đã sẵn sàng để bật"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "Mở Nhiệm vụ, rồi BẬT Tự động nhận. Sau khi mua, nó bắt đầu ở trạng thái TẮT."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "Bật Tự động nhận"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "Bạn đã mở khóa tự động nhận. Chạm vào Tự động nhận: TẮT ở đây để bật. Mục tiêu chính luôn nhận thủ công."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "Mở rộng thẻ màn"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "Thu gọn thẻ màn"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "Hãy hoàn thành mục tiêu này trước."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "Nhiệm vụ mới sẽ đến lúc nửa đêm giờ địa phương."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "Mục tiêu chính"
+
+msgid "KEY_PROGRESS"
+msgstr "Chìa khóa Boss: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "Boss chặn cửa đã hạ: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "%s xu/giờ · %s ngọc/giờ · thưởng tối đa %s giờ"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "Chào mừng trở lại! %s giờ được thưởng · %s xu · %s ngọc"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "Hãy chọn xong phần thưởng chuyển sinh trước."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "Đã phát hiện cơ hội chuyển sinh mới."
+
+msgid "PRESTIGE_BATCH"
+msgstr "Chuyển sinh · %d thẻ"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "Chọn một thẻ riêng cho mỗi cơ hội đã sẵn sàng, rồi đặt lại lượt chơi một lần. Vật phẩm, xu, trại, sương mù và nâng cấp bằng xu bị đặt lại. Chìa khóa, thành tựu, thẻ và nâng cấp bằng ngọc được giữ."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "Giữ vĩnh viễn %s? Lựa chọn được lưu ngay và không thể thay đổi."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "Chọn thẻ %d / %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "Thẻ riêng: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "Hãy hoàn thành một cơ hội chuyển sinh đã phát hiện trước."
+
+msgid "IN_PROGRESS"
+msgstr "Đang thực hiện"
+
+msgid "FOLLOW"
+msgstr "Theo dõi"
+
+msgid "UNFOLLOW"
+msgstr "Bỏ theo dõi"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "Nộp vật phẩm hoặc tiền tệ cần thiết"
+
+msgid "CONTRACT_NEEDS"
+msgstr "Hãy thu đủ số lượng của từng trang phục trước."
+
+msgid "OFFERING_NEEDS"
+msgstr "Bạn cần đủ số dư yêu cầu và tiền tệ kiếm được khi trực tuyến chưa tiêu."
+
+msgid "OWNED_CARDS"
+msgstr "Thẻ đang có"
+
+msgid "COMBOS"
+msgstr "Bộ thẻ"
+
+msgid "PANEL_INVENTORY"
+msgstr "Túi đồ"
+
+msgid "PANEL_MAP"
+msgstr "Bản đồ"
+
+msgid "PANEL_MISSIONS"
+msgstr "Nhiệm vụ"
+
+msgid "PANEL_OFFLINE"
+msgstr "Thưởng ngoại tuyến"
+
+msgid "GOAL_KILL"
+msgstr "Săn"
+
+msgid "GOAL_BOSS"
+msgstr "Săn Boss"
+
+msgid "GOAL_GEAR"
+msgstr "Thu thập trang bị"
+
+msgid "GOAL_MERGE"
+msgstr "Ghép"
+
+msgid "GOAL_COINS"
+msgstr "Kiếm xu"
+
+msgid "GOAL_CAST"
+msgstr "Thi triển kỹ năng"
+
+msgid "GOAL_WAITING"
+msgstr "Khám phá để tìm mục tiêu khác"
+
+msgid "STAT_POWER"
+msgstr "Sức mạnh"
+
+msgid "INTRINSIC_POWER"
+msgstr "Nội tại %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "Bậc kế tiếp bắt đầu ở 85% sức mạnh nội tại ^100 của bậc này, trước thưởng số lượng và thưởng bên ngoài."
+
+msgid "MAP_FARMING"
+msgstr "%s · %d điểm · %d mỗi điểm · hồi sinh %s giây"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "Loại kẻ địch màn cuối đã hạ: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "Bán kính tầm nhìn trại"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "Bán kính tầm nhìn nhân vật"
+
+msgid "UP_MAP_DETAIL"
+msgstr "Chi tiết bản đồ"
+
+msgid "UP_MOVEMENT"
+msgstr "Tốc độ di chuyển +10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "Khoảng tự động ghép −1 giây"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "Mở khóa tự động nhận nhiệm vụ"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "Ô nhiệm vụ"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "Ô kỹ năng trang bị"
+
+msgid "UP_SKILL_DROP"
+msgstr "Tỉ lệ rơi kỹ năng"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "Thời lượng thưởng ngoại tuyến"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "Xu ngoại tuyến mỗi giờ"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "Ngọc ngoại tuyến mỗi giờ"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "Mở khóa vũ khí rơi khi ngoại tuyến"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "Mở khóa trang phục rơi khi ngoại tuyến"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "Mở khóa đồ tiêu hao khi ngoại tuyến"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "Vũ khí ngoại tuyến mỗi giờ"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "Trang phục ngoại tuyến mỗi giờ"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "Đồ tiêu hao ngoại tuyến mỗi giờ"
+
+msgid "MAP_LEGEND"
+msgstr "Vùng bạn đã khám phá luôn sáng; vùng lân cận chỉ hiện khi bạn ở đó. Trại có thể được nhìn thấy từ xa hơn."
+
+msgid "MINIMAP"
+msgstr "Bản đồ"
+
+msgid "SKILL_TUTORIAL"
+msgstr "Kẻ địch tinh anh mang vũ khí, trang phục và kỹ năng. Mỗi món rơi được gieo riêng. Trang bị một kỹ năng từ túi đồ và chạm vào nút của nó để thi triển."
+
+msgid "MAIN_0"
+msgstr "Đánh bại 5 kẻ địch thường"
+
+msgid "MAIN_1"
+msgstr "Trang bị vật phẩm đầu tiên"
+
+msgid "MAIN_2"
+msgstr "Ghép một bản sao"
+
+msgid "MAIN_3"
+msgstr "Mở khóa thêm một trại"
+
+msgid "MAIN_4"
+msgstr "Đánh bại Người Tuyết · mở Mùa Đông II"
+
+msgid "MAIN_5"
+msgstr "Trang bị Hồi Máu"
+
+msgid "MAIN_6"
+msgstr "Nâng cấp chi tiết bản đồ"
+
+msgid "MAIN_7"
+msgstr "Có được Nổ Băng"
+
+msgid "MAIN_8"
+msgstr "Mở khóa Mùa Hè I"
+
+msgid "MAIN_9"
+msgstr "Tiến hóa một vật phẩm"
+
+msgid "MAIN_10"
+msgstr "Sở hữu 4 họ kỹ năng"
+
+msgid "MAIN_11"
+msgstr "Mở khóa Mùa Thu I"
+
+msgid "MAIN_12"
+msgstr "Sở hữu đủ 6 họ kỹ năng"
+
+msgid "MAIN_13"
+msgstr "Mở khóa Mùa Xuân I"
+
+msgid "MAIN_14"
+msgstr "Hoàn thành một lần chuyển sinh"
+
+msgid "MAIN_15"
+msgstr "Thu thập mọi chìa khóa Boss và chinh phục Mùa Xuân II"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "Hồi chiêu Hồi Máu"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "Hồi chiêu Băng"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "Hồi chiêu Lửa"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "Hồi chiêu Sét"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "Hồi chiêu Tập Trung"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "Hồi chiêu Đòn Đánh"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "Mở khóa tự thi triển · ô 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "Mở khóa tự thi triển · ô 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "Mở khóa tự thi triển · ô 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "Hồi Máu"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "Hồi Máu"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "Hồi Máu"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "Hồi Máu"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "Hồi Máu"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "Hồi Máu"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "Hồi Máu"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "Nổ Băng"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "Nổ Băng"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "Nổ Băng"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "Nổ Băng"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "Nổ Băng"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "Nổ Băng"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "Nổ Băng"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "Nổ Lửa"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "Nổ Lửa"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "Nổ Lửa"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "Nổ Lửa"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "Nổ Lửa"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "Nổ Lửa"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "Nổ Lửa"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "Sét Đánh"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "Sét Đánh"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "Sét Đánh"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "Sét Đánh"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "Sét Đánh"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "Sét Đánh"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "Sét Đánh"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "Tập Trung Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "Tập Trung Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "Tập Trung Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "Tập Trung Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "Tập Trung Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "Tập Trung Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "Tập Trung Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "Đòn Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "Đòn Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "Đòn Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "Đòn Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "Đòn Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "Đòn Bí Thuật"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "Đòn Bí Thuật"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "Trang phục Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "Trang phục Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "Trang phục Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "Trang phục Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "Trang phục Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "Trang phục Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "Trang phục Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "Kiếm Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "Kiếm Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "Kiếm Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "Kiếm Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "Kiếm Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "Kiếm Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "Kiếm Mũ Xanh Dương"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "Trang phục Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "Trang phục Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "Trang phục Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "Trang phục Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "Trang phục Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "Trang phục Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "Trang phục Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "Kiếm Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "Kiếm Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "Kiếm Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "Kiếm Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "Kiếm Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "Kiếm Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "Kiếm Khăn Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "Trang phục Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "Trang phục Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "Trang phục Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "Trang phục Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "Trang phục Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "Trang phục Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "Trang phục Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "Kiếm Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "Kiếm Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "Kiếm Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "Kiếm Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "Kiếm Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "Kiếm Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "Kiếm Mũ Đầu Bếp"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "Trang phục Người Tuyết"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "Trang phục Người Tuyết"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "Trang phục Người Tuyết"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "Trang phục Người Tuyết"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "Trang phục Người Tuyết"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "Trang phục Người Tuyết"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "Trang phục Người Tuyết"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "Trang phục Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "Trang phục Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "Trang phục Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "Trang phục Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "Trang phục Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "Trang phục Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "Trang phục Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "Kiếm Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "Kiếm Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "Kiếm Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "Kiếm Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "Kiếm Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "Kiếm Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "Kiếm Mũ Trùm Sói"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "Trang phục Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "Trang phục Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "Trang phục Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "Trang phục Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "Trang phục Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "Trang phục Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "Trang phục Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "Kiếm Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "Kiếm Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "Kiếm Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "Kiếm Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "Kiếm Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "Kiếm Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "Kiếm Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "Trang phục Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "Trang phục Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "Trang phục Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "Trang phục Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "Trang phục Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "Trang phục Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "Trang phục Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "Kiếm Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "Kiếm Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "Kiếm Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "Kiếm Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "Kiếm Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "Kiếm Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "Kiếm Vương Miện Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "Trang phục Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "Trang phục Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "Trang phục Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "Trang phục Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "Trang phục Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "Trang phục Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "Trang phục Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "Kiếm Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "Kiếm Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "Kiếm Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "Kiếm Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "Kiếm Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "Kiếm Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "Kiếm Gạc Tuần Lộc"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "Trang phục Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "Trang phục Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "Trang phục Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "Trang phục Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "Trang phục Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "Trang phục Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "Trang phục Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "Kiếm Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "Kiếm Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "Kiếm Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "Kiếm Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "Kiếm Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "Kiếm Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "Kiếm Mũ Ông Già Noel"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "Trang phục Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "Trang phục Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "Trang phục Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "Trang phục Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "Trang phục Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "Trang phục Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "Trang phục Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "Kiếm Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "Kiếm Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "Kiếm Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "Kiếm Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "Kiếm Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "Kiếm Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "Kiếm Mũ Phi Hành Gia"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "Trang phục Robot Xanh Lơ"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "Trang phục Robot Xanh Lơ"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "Trang phục Robot Xanh Lơ"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "Trang phục Robot Xanh Lơ"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "Trang phục Robot Xanh Lơ"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "Trang phục Robot Xanh Lơ"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "Trang phục Robot Xanh Lơ"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "Trang phục Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "Trang phục Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "Trang phục Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "Trang phục Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "Trang phục Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "Trang phục Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "Trang phục Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "Kiếm Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "Kiếm Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "Kiếm Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "Kiếm Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "Kiếm Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "Kiếm Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "Kiếm Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "Trang phục Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "Trang phục Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "Trang phục Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "Trang phục Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "Trang phục Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "Trang phục Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "Trang phục Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "Kiếm Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "Kiếm Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "Kiếm Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "Kiếm Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "Kiếm Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "Kiếm Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "Kiếm Kính Râm"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "Trang phục Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "Trang phục Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "Trang phục Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "Trang phục Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "Trang phục Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "Trang phục Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "Trang phục Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "Kiếm Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "Kiếm Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "Kiếm Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "Kiếm Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "Kiếm Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "Kiếm Mũ Vàng"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "Kiếm Mũ Vàng"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "Trang phục Mèo Xám"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "Trang phục Mèo Xám"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "Trang phục Mèo Xám"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "Trang phục Mèo Xám"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "Trang phục Mèo Xám"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "Trang phục Mèo Xám"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "Trang phục Mèo Xám"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "Trang phục Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "Trang phục Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "Trang phục Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "Trang phục Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "Trang phục Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "Trang phục Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "Trang phục Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "Kiếm Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "Kiếm Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "Kiếm Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "Kiếm Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "Kiếm Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "Kiếm Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "Kiếm Khăn Cao Bồi"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "Trang phục Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "Trang phục Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "Trang phục Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "Trang phục Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "Trang phục Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "Trang phục Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "Trang phục Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "Kiếm Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "Kiếm Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "Kiếm Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "Kiếm Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "Kiếm Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "Kiếm Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "Kiếm Phao Vịt"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "Trang phục Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "Trang phục Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "Trang phục Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "Trang phục Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "Trang phục Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "Trang phục Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "Trang phục Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "Kiếm Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "Kiếm Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "Kiếm Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "Kiếm Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "Kiếm Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "Kiếm Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "Kiếm Chú Hề Cầu Vồng"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "Trang phục Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "Trang phục Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "Trang phục Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "Trang phục Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "Trang phục Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "Trang phục Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "Trang phục Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "Kiếm Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "Kiếm Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "Kiếm Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "Kiếm Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "Kiếm Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "Kiếm Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "Kiếm Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "Trang phục Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "Trang phục Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "Trang phục Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "Trang phục Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "Trang phục Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "Trang phục Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "Trang phục Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "Kiếm Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "Kiếm Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "Kiếm Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "Kiếm Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "Kiếm Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "Kiếm Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "Kiếm Thợ Lặn Ống Thở"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "Trang phục Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "Trang phục Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "Trang phục Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "Trang phục Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "Trang phục Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "Trang phục Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "Trang phục Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "Kiếm Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "Kiếm Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "Kiếm Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "Kiếm Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "Kiếm Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "Kiếm Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "Kiếm Người Bơi Mũ Rơm"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "Trang phục Khủng Long"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "Trang phục Khủng Long"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "Trang phục Khủng Long"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "Trang phục Khủng Long"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "Trang phục Khủng Long"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "Trang phục Khủng Long"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "Trang phục Khủng Long"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "Trang phục Khủng Long Xanh Mòng Két"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "Trang phục Khủng Long Xanh Mòng Két"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "Trang phục Khủng Long Xanh Mòng Két"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "Trang phục Khủng Long Xanh Mòng Két"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "Trang phục Khủng Long Xanh Mòng Két"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "Trang phục Khủng Long Xanh Mòng Két"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "Trang phục Khủng Long Xanh Mòng Két"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "Trang phục Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "Trang phục Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "Trang phục Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "Trang phục Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "Trang phục Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "Trang phục Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "Trang phục Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "Kiếm Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "Kiếm Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "Kiếm Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "Kiếm Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "Kiếm Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "Kiếm Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "Kiếm Mũ Đen"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "Trang phục Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "Trang phục Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "Trang phục Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "Trang phục Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "Trang phục Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "Trang phục Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "Trang phục Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "Kiếm Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "Kiếm Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "Kiếm Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "Kiếm Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "Kiếm Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "Kiếm Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "Kiếm Mũ Nấm"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "Trang phục Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "Trang phục Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "Trang phục Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "Trang phục Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "Trang phục Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "Trang phục Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "Trang phục Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "Kiếm Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "Kiếm Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "Kiếm Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "Kiếm Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "Kiếm Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "Kiếm Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "Kiếm Đầu Bí Ngô"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "Trang phục Sóc"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "Trang phục Sóc"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "Trang phục Sóc"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "Trang phục Sóc"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "Trang phục Sóc"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "Trang phục Sóc"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "Trang phục Sóc"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "Trang phục Cáo Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "Trang phục Cáo Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "Trang phục Cáo Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "Trang phục Cáo Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "Trang phục Cáo Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "Trang phục Cáo Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "Trang phục Cáo Đỏ"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "Trang phục Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "Trang phục Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "Trang phục Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "Trang phục Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "Trang phục Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "Trang phục Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "Trang phục Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "Kiếm Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "Kiếm Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "Kiếm Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "Kiếm Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "Kiếm Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "Kiếm Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "Kiếm Mũ Trùm Có Sừng"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "Trang phục Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "Trang phục Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "Trang phục Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "Trang phục Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "Trang phục Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "Trang phục Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "Trang phục Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "Kiếm Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "Kiếm Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "Kiếm Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "Kiếm Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "Kiếm Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "Kiếm Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "Kiếm Mũ Màn Hình Cam"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "Trang phục Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "Trang phục Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "Trang phục Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "Trang phục Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "Trang phục Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "Trang phục Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "Trang phục Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "Kiếm Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "Kiếm Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "Kiếm Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "Kiếm Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "Kiếm Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "Kiếm Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "Kiếm Đầu Tivi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "Trang phục Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "Trang phục Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "Trang phục Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "Trang phục Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "Trang phục Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "Trang phục Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "Trang phục Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "Kiếm Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "Kiếm Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "Kiếm Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "Kiếm Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "Kiếm Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "Kiếm Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "Kiếm Mũ Chóp Cao"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "Trang phục Mèo Đen"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "Trang phục Mèo Đen"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "Trang phục Mèo Đen"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "Trang phục Mèo Đen"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "Trang phục Mèo Đen"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "Trang phục Mèo Đen"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "Trang phục Mèo Đen"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "Trang phục Thần Chết"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "Trang phục Thần Chết"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "Trang phục Thần Chết"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "Trang phục Thần Chết"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "Trang phục Thần Chết"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "Trang phục Thần Chết"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "Trang phục Thần Chết"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "Trang phục Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "Trang phục Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "Trang phục Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "Trang phục Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "Trang phục Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "Trang phục Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "Trang phục Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "Kiếm Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "Kiếm Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "Kiếm Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "Kiếm Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "Kiếm Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "Kiếm Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "Kiếm Tai Thỏ"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "Trang phục Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "Trang phục Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "Trang phục Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "Trang phục Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "Trang phục Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "Trang phục Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "Trang phục Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "Kiếm Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "Kiếm Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "Kiếm Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "Kiếm Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "Kiếm Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "Kiếm Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "Kiếm Tai Mèo"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "Trang phục Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "Trang phục Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "Trang phục Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "Trang phục Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "Trang phục Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "Trang phục Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "Trang phục Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "Kiếm Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "Kiếm Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "Kiếm Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "Kiếm Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "Kiếm Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "Kiếm Tai Tiên"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "Kiếm Tai Tiên"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "Trang phục Ong"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "Trang phục Ong"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "Trang phục Ong"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "Trang phục Ong"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "Trang phục Ong"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "Trang phục Ong"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "Trang phục Ong"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "Trang phục Mèo Mướp Cam"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "Trang phục Mèo Mướp Cam"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "Trang phục Mèo Mướp Cam"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "Trang phục Mèo Mướp Cam"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "Trang phục Mèo Mướp Cam"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "Trang phục Mèo Mướp Cam"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "Trang phục Mèo Mướp Cam"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "Trang phục Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "Trang phục Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "Trang phục Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "Trang phục Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "Trang phục Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "Trang phục Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "Trang phục Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "Kiếm Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "Kiếm Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "Kiếm Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "Kiếm Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "Kiếm Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "Kiếm Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "Kiếm Vòng Hoa"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "Trang phục Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "Trang phục Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "Trang phục Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "Trang phục Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "Trang phục Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "Trang phục Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "Trang phục Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "Kiếm Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "Kiếm Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "Kiếm Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "Kiếm Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "Kiếm Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "Kiếm Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "Kiếm Mũ Xanh Lá"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "Trang phục Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "Trang phục Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "Trang phục Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "Trang phục Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "Trang phục Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "Trang phục Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "Trang phục Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "Kiếm Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "Kiếm Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "Kiếm Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "Kiếm Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "Kiếm Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "Kiếm Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "Kiếm Mũ Hồng"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "Trang phục Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "Trang phục Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "Trang phục Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "Trang phục Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "Trang phục Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "Trang phục Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "Trang phục Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "Kiếm Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "Kiếm Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "Kiếm Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "Kiếm Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "Kiếm Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "Kiếm Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "Kiếm Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "Trang phục Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "Trang phục Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "Trang phục Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "Trang phục Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "Trang phục Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "Trang phục Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "Trang phục Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "Kiếm Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "Kiếm Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "Kiếm Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "Kiếm Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "Kiếm Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "Kiếm Thường"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "Kiếm Thường"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "Trang phục Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "Trang phục Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "Trang phục Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "Trang phục Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "Trang phục Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "Trang phục Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "Trang phục Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "Kiếm Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "Kiếm Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "Kiếm Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "Kiếm Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "Kiếm Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "Kiếm Chồi Non"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "Kiếm Chồi Non"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "Trang phục Gấu Trúc Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "Trang phục Gấu Trúc Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "Trang phục Gấu Trúc Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "Trang phục Gấu Trúc Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "Trang phục Gấu Trúc Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "Trang phục Gấu Trúc Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "Trang phục Gấu Trúc Đỏ"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "Trang phục Hoa Hướng Dương"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "Trang phục Hoa Hướng Dương"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "Trang phục Hoa Hướng Dương"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "Trang phục Hoa Hướng Dương"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "Trang phục Hoa Hướng Dương"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "Trang phục Hoa Hướng Dương"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "Trang phục Hoa Hướng Dương"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "Trang phục Người Ngoài Hành Tinh Xanh"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "Trang phục Người Ngoài Hành Tinh Xanh"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "Trang phục Người Ngoài Hành Tinh Xanh"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "Trang phục Người Ngoài Hành Tinh Xanh"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "Trang phục Người Ngoài Hành Tinh Xanh"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "Trang phục Người Ngoài Hành Tinh Xanh"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "Trang phục Người Ngoài Hành Tinh Xanh"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "Hồi Máu"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "Nổ Băng"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "Nổ Lửa"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "Sét Đánh"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "Tập Trung Bí Thuật"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "Đòn Bí Thuật"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "Mũ Xanh Dương"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "Khăn Đỏ"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "Mũ Đầu Bếp"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "Người Tuyết"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "Mũ Trùm Sói"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "Mũ Trùm Mèo Tam Thể"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "Vương Miện Vàng"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "Gạc Tuần Lộc"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "Mũ Ông Già Noel"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "Mũ Phi Hành Gia"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "Robot Xanh Lơ"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "Mũ Rơm"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "Kính Râm"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "Mũ Vàng"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "Mèo Xám"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "Khăn Cao Bồi"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "Phao Vịt"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "Chú Hề Cầu Vồng"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "Người Bơi Mũ Đỏ"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "Thợ Lặn Ống Thở"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "Người Bơi Mũ Rơm"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "Khủng Long"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "Khủng Long Xanh Mòng Két"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "Mũ Đen"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "Mũ Nấm"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "Đầu Bí Ngô"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "Sóc"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "Cáo Đỏ"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "Mũ Trùm Có Sừng"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "Mũ Màn Hình Cam"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "Đầu Tivi"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "Mũ Chóp Cao"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "Mèo Đen"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "Thần Chết"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "Tai Thỏ"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "Tai Mèo"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "Tai Tiên"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "Ong"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "Mèo Mướp Cam"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "Vòng Hoa"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "Mũ Xanh Lá"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "Mũ Hồng"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "Mũ Trùm Hoa Hồng Phấn"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "Người Thường"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "Chồi Non"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "Gấu Trúc Đỏ"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "Hoa Hướng Dương"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "Người Ngoài Hành Tinh Xanh"
+
+msgid "CONTENT_STAGES_1"
+msgstr "Mùa Đông I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "Mùa Đông II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "Mùa Hè I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "Mùa Hè II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "Mùa Thu I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "Mùa Thu II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "Mùa Xuân I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "Mùa Xuân II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "Truy nã đầu tiên"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "Đánh bại Người Tuyết (Boss Mùa Đông I) 10 lần"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "Truy nã mùa hè"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "Đánh bại Mèo Xám (Boss Mùa Hè I) 20 lần"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "Truy nã mùa thu"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "Đánh bại Thần Chết (Boss Mùa Thu II) 30 lần"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "Hành trình mùa đông"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "Ở Mùa Đông I, theo thứ tự: đánh bại 100 Mũ Xanh Dương, rồi 100 Khăn Đỏ, rồi 100 Mũ Đầu Bếp"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "Hành trình mùa hè"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "Ở Mùa Hè I, theo thứ tự: đánh bại 150 Mũ Rơm, rồi 150 Kính Râm, rồi 150 Mũ Vàng"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "Hành trình mùa xuân"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "Ở Mùa Xuân I, theo thứ tự: đánh bại 200 Tai Thỏ, rồi 200 Tai Mèo, rồi 200 Tai Tiên"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "Bộ sưu tập mùa đông"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "Nhặt mỗi loại 21 trang phục Mũ Xanh Dương, Khăn Đỏ và Mũ Đầu Bếp (rơi ở Mùa Đông I). Nút Nộp sẽ nộp 20 cái mỗi loại và bạn giữ lại một cái"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "Bộ sưu tập mùa hè"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "Nhặt mỗi loại 31 trang phục Mũ Rơm, Kính Râm và Mũ Vàng (rơi ở Mùa Hè I). Nút Nộp sẽ nộp 30 cái mỗi loại và bạn giữ lại một cái"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "Bộ sưu tập mùa xuân"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "Nhặt mỗi loại 41 trang phục Tai Thỏ, Tai Mèo và Tai Tiên (rơi ở Mùa Xuân I). Nút Nộp sẽ nộp 40 cái mỗi loại và bạn giữ lại một cái"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "Kiệt tác đầu tiên"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "Ghép bất kỳ vũ khí, trang phục hoặc kỹ năng nào lên ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "Bậc hai"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "Ghép một vật phẩm bậc 2 trở lên lên ^100 (bậc 2 rơi từ Mùa Hè I, hoặc tiến hóa một vũ khí)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "Bậc ba"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "Ghép một vật phẩm bậc 3 trở lên lên ^100 (bậc 3 rơi từ Mùa Thu I, hoặc tiến hóa một vũ khí hai lần)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "Trang bị đôi"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "Ghép một vũ khí và một trang phục lên ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "Kho vũ khí rộng"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "Ghép 3 vũ khí khác nhau và 3 trang phục khác nhau lên ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "Kho vũ khí tiến hóa"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "Ghép 3 vũ khí bậc 2+ khác nhau và 3 trang phục bậc 2+ khác nhau lên ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "Chinh phục mùa đông"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "Ở Mùa Đông I và Mùa Đông II: khám phá 90% mỗi bản đồ, đánh bại cả hai Boss và mở khóa mọi trại"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "Chinh phục mùa hè"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "Ở Mùa Hè I và Mùa Hè II: khám phá 90% mỗi bản đồ, đánh bại cả ba Boss và mở khóa mọi trại"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "Chinh phục mùa xuân"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "Ở Mùa Xuân I và Mùa Xuân II: khám phá 90% mỗi bản đồ, đánh bại cả năm Boss và mở khóa mọi trại"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "Mùa đông không trợ giúp"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "Đánh bại Robot Xanh Lơ (Boss Mùa Đông II) mà không dùng đồ tiêu hao nào trong trận"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "Mùa hè không trợ giúp"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "Đánh bại Khủng Long Xanh Mòng Két (Boss Mùa Hè II) mà không dùng đồ tiêu hao nào trong trận"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "Mùa thu không trợ giúp"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "Đánh bại Thần Chết (Boss Mùa Thu II) mà không dùng đồ tiêu hao nào trong trận"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "Lễ vật nhỏ"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "Kiếm 2K xu và 30 ngọc từ kẻ địch trong lượt chơi này, rồi giao nộp bằng nút Nộp"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "Lễ vật lớn dần"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "Kiếm 20K xu và 100 ngọc từ kẻ địch trong lượt chơi này, rồi giao nộp bằng nút Nộp"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "Lễ vật lớn"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "Kiếm 100K xu và 300 ngọc từ kẻ địch trong lượt chơi này, rồi giao nộp bằng nút Nộp"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "Chuỗi ngắn"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "Theo thứ tự: đánh bại 100 kẻ địch, nhặt 10 vũ khí hoặc trang phục rơi ra, rồi ghép 10 lần"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "Chuỗi dài"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "Theo thứ tự: đánh bại 250 kẻ địch, đánh bại 3 Boss, ghép 25 lần, rồi thi triển 30 kỹ năng"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "Chuỗi bậc thầy"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "Theo thứ tự: đánh bại 500 kẻ địch, đánh bại 10 Boss, ghép 50 lần, rồi nhận 3 nhiệm vụ thường"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "Chiến tích mùa đông"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "Sau khi tìm thấy cơ hội này, đánh bại Người Tuyết (Mùa Đông I) và Robot Xanh Lơ (Mùa Đông II) mỗi con một lần"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "Chiến tích mùa hè"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "Sau khi tìm thấy cơ hội này, đánh bại Mèo Xám (Mùa Hè I), Khủng Long và Khủng Long Xanh Mòng Két (Mùa Hè II) mỗi con một lần"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "Chiến tích mùa thu"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "Sau khi tìm thấy cơ hội này, đánh bại Sóc và Cáo Đỏ (Mùa Thu I), Mèo Đen và Thần Chết (Mùa Thu II) mỗi con một lần"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "Thời gian vắng mặt"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "Rời khỏi trò chơi tổng cộng 72 giờ"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "Nghỉ dài"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "Rời khỏi trò chơi 24 giờ liên tục"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "Thu nhập ngoại tuyến"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "Kiếm 10K xu khi vắng mặt (nhận thưởng Chào mừng trở lại)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "+20% EXP từ Boss"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+10% tốc độ di chuyển"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+50% phạm vi tự động nhặt"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "+10% chỉ số gốc của trang bị đang mặc"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+10% HP tối đa"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "+25% bán kính khám phá quanh bạn"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "+10% sát thương lên Boss"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "+10% xu từ mọi kẻ địch"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "+25% xu từ nhiệm vụ"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "+25% ngọc từ Boss"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "+25% xu ngoại tuyến mỗi giờ"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "Hồi sinh sớm hơn 2 giây (tối thiểu 2 giây)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "+15% xu từ kẻ địch thường"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "+10% chỉ số nhận được từ mỗi lần ghép"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "+10% sát thương lên Boss"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "+25% tỉ lệ vật phẩm ngoại tuyến"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+10% HP tối đa"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "Diệt Khổng Lồ"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "+25% sát thương lên Boss"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "Khiên Chống Boss"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "Nhận ít hơn 20% sát thương từ Boss"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "Tiền Thưởng"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "+100% xu từ Boss"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "Kẻ Lần Dấu"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "+20% sát thương lên kẻ địch thường"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "Xu Dọc Đường"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "+30% xu từ kẻ địch thường"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "Bài Học Dọc Đường"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "+30% EXP từ kẻ địch thường"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "Nhà Sưu Tầm Cẩn Thận"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+100% phạm vi tự động nhặt"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "Vận May Trang Bị"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "+3 điểm tỉ lệ rơi trang bị"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "Vận May Tiêu Hao"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "+5 điểm tỉ lệ rơi đồ tiêu hao"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "Tay Nghề Tinh Xảo"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "+25% chỉ số nhận được từ mỗi lần ghép"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "Bậc Thầy Đổi Chỉ Số"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "Đổi chỉ số tốn ít hơn 50% ngọc"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "Nền Móng Vững"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "+20% chỉ số gốc của vũ khí và trang phục đang mặc"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "Giáp Dự Phòng"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+20% HP tối đa"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "Luyện Vũ Khí"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "+15% sát thương từ đòn đánh và kỹ năng"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "Trang Bị Cân Bằng"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "Nhận ít hơn 10% sát thương từ mọi kẻ địch"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "Nhà Thám Hiểm"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+15% tốc độ di chuyển"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "Tầm Nhìn Xa"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "+50% bán kính khám phá quanh bạn"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "Khảo Sát Trại"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "Trại tốn ít hơn 50% xu"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "Chính Xác"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "+15 điểm tỉ lệ đòn chí mạng"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "Ý Chí"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "Hồi máu bằng 5% sát thương bạn gây ra"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "Đòn Mạnh"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "Đòn chí mạng gây thêm +75% sát thương"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "Khôn Ngoan Về Xu"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "+25% xu từ mọi kẻ địch"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "Khôn Ngoan Về Ngọc"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "+5 điểm tỉ lệ rơi ngọc"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "Chi Tiêu Khéo"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "Nâng cấp bằng xu rẻ hơn 15%"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "Xu Nhiệm Vụ"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "+50% xu từ nhiệm vụ"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "Ngọc Nhiệm Vụ"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "+50% ngọc từ nhiệm vụ"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "Luyện Tập Tập Trung"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "+25% sát thương kỹ năng, hồi máu và Tập Trung"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "Thợ Săn Chiến Tích"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "+50% EXP từ Boss"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "Sức Mạnh Chiến Tích"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "+20% sát thương lên Boss"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "Ngọc Chiến Tích"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "+50% ngọc từ Boss"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "Xu Lặng Lẽ"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "+50% xu ngoại tuyến mỗi giờ"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "Ngọc Lặng Lẽ"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "+50% ngọc ngoại tuyến mỗi giờ"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "Chiến Lợi Lặng Lẽ"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "+50% tỉ lệ vật phẩm ngoại tuyến"
+
+msgid "CHAIN_PROGRESS"
+msgstr "Bước %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "Bản lưu phát triển đã được đặt lại cho bản cập nhật này. Tiến trình mới có thể được lưu."
+
+msgid "HEAL_ROLE"
+msgstr "Duy trì: hồi %s HP ngay, mỗi %s giây. Thi triển miễn phí; tối đa 12%% HP tối đa. Bình máu hồi khẩn cấp mạnh hơn."
+
+msgid "REGULAR_MISSIONS"
+msgstr "Nhiệm vụ săn"
+
+msgid "GUIDE_CHOOSE"
+msgstr "Bạn muốn được hướng dẫn đến mức nào?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "Có hướng dẫn"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "Cơ bản"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "Không"
+
+msgid "GUIDE_REVIEW"
+msgstr "Chọn lại mức hướng dẫn"
+
+msgid "GUIDE_GOT_IT"
+msgstr "Đã hiểu"
+
+msgid "GUIDE_MOVE"
+msgstr "Đi theo con đường bên trái."
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "Kéo cần điều khiển đang phát sáng về phía mũi tên. Những kẻ địch đầu tiên đang chờ dọc đường."
+
+msgid "GUIDE_KILL"
+msgstr "Dừng cạnh một kẻ địch để tấn công"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "Đứng yên một chút là bạn tự động tấn công. Kẻ địch mùa đông chỉ đánh trả."
+
+msgid "GUIDE_COLLECT"
+msgstr "Chạm vào vật phẩm rơi ra"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "Chiến lợi phẩm nằm trên mặt đất một lúc. Xu và ngọc được cộng tự động."
+
+msgid "GUIDE_EQUIP"
+msgstr "Chạm vào vật phẩm mới"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "Chi tiết vật phẩm so sánh nó với đồ bạn đang mặc."
+
+msgid "GUIDE_MERGE"
+msgstr "Mở vật phẩm bạn có hai cái"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "Ghép một bản sao giúp vật phẩm mạnh hơn vĩnh viễn."
+
+msgid "GUIDE_UPGRADE"
+msgstr "Chạm vào Nâng cấp của kẻ địch này"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "Mỗi loại kẻ địch có nâng cấp riêng cho chiến lợi phẩm, xu và kinh nghiệm."
+
+msgid "GUIDE_CAMP"
+msgstr "Mở Thế giới để mở khóa một trại"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "Bạn đã tìm thấy một trại và đủ tiền mua. Mở Thế giới, hoặc đi đến trại rồi chạm Xem trại."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "Đi, đánh, nhặt"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "Kéo cần điều khiển ở cuối bản đồ để đi. Thả ra là anh hùng của bạn đánh kẻ địch gần đó. Chạm vào chiến lợi phẩm để nhặt."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "Những kẻ địch này phát hiện bạn khi ở gần"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "Kẻ địch Mùa Đông II tấn công khi bạn đến gần. Hãy tiếp cận từng con một."
+
+msgid "GUIDE_SKILLS"
+msgstr "Kỹ năng hỗ trợ trang bị"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "Chạm vào kỹ năng đã trang bị để thi triển. Hồi Máu hồi đều đặn; bình máu hồi nhiều hơn trong một lần."
+
+msgid "GUIDE_GROUPS"
+msgstr "Một số kẻ địch giờ gọi đồng minh"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "Kẻ địch mùa hè hỗ trợ đồng minh cùng loại ở gần. Hãy để ý máu của bạn."
+
+msgid "PRESTIGE_GATE"
+msgstr "Hãy vượt qua mùa đông trước: đánh bại Robot Xanh Lơ để đến Mùa Hè I."
+
+msgid "NAV_PRESTIGE"
+msgstr "Chuyển sinh"
+
+msgid "PANEL_WORLD"
+msgstr "Thế giới"
+
+msgid "TAB_OFFLINE"
+msgstr "Ngoại tuyến"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "Mở các nâng cấp này bằng nút Nâng cấp hoặc chạm vào nhân vật của bạn."
+
+msgid "HUD_RESTING"
+msgstr "· Đang nghỉ"
+
+msgid "ITEM_PREVIOUS"
+msgstr "Vật phẩm trước"
+
+msgid "ITEM_NEXT"
+msgstr "Vật phẩm sau"
+
+msgid "ITEM_POSITION"
+msgstr "%d / %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "Nếu trang bị: %s"
+
+msgid "NO_CHANGE"
+msgstr "không đổi"
+
+msgid "EQUIPPED_NOW"
+msgstr "Đang mặc: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "Ô này chưa trang bị gì."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "Đang mặc: đủ chỉ số"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "Trong túi: 30% chỉ số"
+
+msgid "UPGRADE_LEVEL"
+msgstr "Cấp %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "Boss"
+
+msgid "ENEMY_KILLS"
+msgstr "Đã hạ: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "Trại hồi sinh"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "Đã mở khóa"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "Đã khóa · %s xu"
+
+msgid "SECTION_CAMPS"
+msgstr "Trại"
+
+msgid "CAMPS_HIDDEN"
+msgstr "Còn %d trại chờ bạn khám phá."
+
+msgid "SECTION_TRAVEL"
+msgstr "Đi đến màn khác"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "Nâng cấp bản đồ"
+
+msgid "SECTION_DANGER"
+msgstr "Vùng nguy hiểm"
+
+msgid "CAMP_UNLOCK"
+msgstr "Mở khóa"
+
+msgid "CAMP_SELECT"
+msgstr "Hồi sinh tại đây"
+
+msgid "CAMP_TRAVEL"
+msgstr "Di chuyển"
+
+msgid "CARD_OWNED"
+msgstr "Đã có"
+
+msgid "CARD_SELECTED"
+msgstr "Đã chọn"
+
+msgid "CARD_LOCKED"
+msgstr "Chưa đạt được"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "Sẵn sàng"
+
+msgid "PRESTIGE_INTRO"
+msgstr "Hoàn thành cơ hội để nhận thẻ vĩnh viễn. Chuyển sinh đổi tất cả cơ hội đã sẵn sàng cùng lúc và bắt đầu lượt chơi mới."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "Sẵn sàng: %d  ·  Thẻ đang có: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "Chưa phát hiện cơ hội nào. Hãy đánh bại Boss, ghép đồ và khám phá để tìm."
+
+msgid "NO_CARDS_YET"
+msgstr "Chưa có thẻ nào."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "Đổi %d cơ hội đã sẵn sàng: %s.\n\nBạn chọn một thẻ vĩnh viễn cho mỗi cơ hội, rồi lượt chơi bắt đầu lại một lần.\n\nGiữ: thẻ, chìa khóa Boss, thành tựu, nâng cấp bằng ngọc, tự động hóa, cài đặt.\nĐặt lại: xu, vật phẩm, cấp, trại, khám phá bản đồ, nâng cấp bằng xu và thử thách chưa hoàn thành."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "Chọn phần thưởng · %d / %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "Đã chọn: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "Bạn giữ lại"
+
+msgid "PRESTIGE_KEEP"
+msgstr "Thẻ và bộ thẻ, Ngọc của bạn, vùng bản đồ đã khám phá, mọi nâng cấp mua bằng ngọc (mọi loại), tự động hóa, sức chứa túi đồ, chìa khóa Boss, thành tựu kẻ địch, cấp nhân vật và EXP, Thành thạo bản đồ và cài đặt."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "Lượt này đặt lại"
+
+msgid "PRESTIGE_RESET"
+msgstr "Xu, vật phẩm (kể cả đồ tiêu hao) và các lần ghép, Thành thạo đồ tiêu hao, quyền vào bản đồ và trại đã sở hữu, nâng cấp bản đồ và nâng cấp bằng xu, cùng thử thách chưa hoàn thành."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "Giữ %s"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "Chạm vào một thẻ để chọn"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "Giữ vĩnh viễn %s? Đây là lựa chọn cuối: lượt chơi mới bắt đầu ngay sau đó."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "Đã tìm thấy cơ hội chuyển sinh!"
+
+msgid "MILESTONE_READY"
+msgstr "Đã hoàn thành cơ hội!"
+
+msgid "MILESTONE_CARD"
+msgstr "Nhận thẻ: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "Lượt chơi mới bắt đầu"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "Đã thêm %d thẻ vĩnh viễn vào bộ sưu tập."
+
+msgid "MILESTONE_STAGE"
+msgstr "Đã mở màn mới"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "Bộ Thợ Săn Boss"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "Bộ Viễn Chinh"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "Bộ Sưu Tập"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "Bộ Kiệt Tác"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "Bộ Kho Vũ Khí"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "Bộ Vùng Miền"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "Bộ Thử Thách"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "Bộ Lễ Vật"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "Bộ Chuyên Gia"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "Bộ Chiến Tích"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "Bộ Ngoại Tuyến"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "Nhà Thám Hiểm Chu Đáo"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "Thợ Cày Chăm Chỉ"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "Hành Trình Chế Tác"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "Chuyên Gia Diệt Boss"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "Nhà Sưu Tầm Kiên Nhẫn"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "Phát Triển Cân Bằng"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "Tiếp tục đánh bại kẻ địch"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "Vũ khí hoặc trang phục đầu tiên sẽ rơi sau vài trận thắng."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "Chạm Trang bị"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "Trang bị đang mặc cho đủ chỉ số. Trang bị trong túi vẫn cho 30%."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "Chạm Ghép"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "Mỗi lần ghép dùng một bản sao dư và tăng cấp vật phẩm."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "Thu thêm bản sao thứ hai"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "Một bản sao trùng khớp sẽ rơi sau vài trận thắng nữa."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "Tìm một kẻ địch trước"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "Đến gần kẻ địch để mở các nâng cấp của chúng."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "Kiếm xu để nâng cấp"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "Cần thêm %s xu. Mỗi kẻ địch bị hạ đều rơi xu."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "Mở thẻ Nâng cấp"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "Nâng cấp cho loại kẻ địch này nằm ở đó."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "Mua một nâng cấp"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "Tăng tỉ lệ chiến lợi phẩm là lựa chọn đầu tiên tốt."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "Khám phá để tìm trại khác"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "Đi vào sương mù. Trại sẽ hiện ra khi bạn khám phá tới."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "Kiếm xu để mua trại"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "Cần thêm %s xu. Tiếp tục đánh bại kẻ địch."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "Chạm Mở khóa"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "Trại trở thành điểm hồi sinh và làm lộ vùng đất xung quanh."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "Đã mở khóa trại"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "Dùng Hồi sinh tại đây để quay về đó sau khi thua. Nghỉ cạnh trại giúp hồi máu nhanh."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "Đã tìm thấy cơ hội chuyển sinh"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "Hoàn thành nó để nhận một thẻ vĩnh viễn. Hãy tìm Người Tuyết trước; chế độ Có hướng dẫn còn yêu cầu hoàn thành phần hướng dẫn."
+
+msgid "GUIDE_REST"
+msgstr "Sắp hết máu?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "Hãy rời xa trận đấu. Nghỉ cạnh một trại đã mở giúp bạn hồi máu nhanh."
+
+msgid "SECTION_REWARDS"
+msgstr "Phần thưởng"
+
+msgid "SECTION_AUTOMATION"
+msgstr "Tự động hóa"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "Đã khóa"
+
+msgid "PROGRESS_MERGE"
+msgstr "Tốt nhất đến nay: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "Vũ khí ở ^50: %d/%d · Trang phục ở ^50: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "Chiến tích: %d / %d (mỗi Boss rơi một cái ở lần bị hạ tiếp theo)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "Tiến độ: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "Thắng trận mà không dùng bình máu hay thuốc."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "Đã khám phá %s · Boss %d/%d · trại %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "Kiếm Vàng"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "Kiếm Kim Cương"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "Kiếm Ngọc Lục Bảo"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "Kiếm Hắc Diện Thạch"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "Rìu Gỗ"
+
+msgid "ITEM_STONE_AXE"
+msgstr "Rìu Đá"
+
+msgid "ITEM_IRON_AXE"
+msgstr "Rìu Sắt"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "Rìu Vàng"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "Rìu Kim Cương"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "Rìu Ngọc Lục Bảo"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "Rìu Hắc Diện Thạch"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "Tìm một vũ khí hoặc trang phục"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "Món vừa nhặt là đồ tiêu hao. Hãy tiếp tục đánh bại kẻ địch: đôi khi chúng làm rơi vũ khí hoặc trang phục đang mặc, lấp vào một ô trang bị trống."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "Nhặt trang bị"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "Một vũ khí hoặc trang phục đã rơi ra. Chạm vào để cho vào ô trang bị."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "Chỉ có thể theo dõi cơ hội đang thực hiện."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "Vượt qua %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "Sẵn sàng nhận"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ Đã nhận"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "Mục tiêu đã hoàn thành (%d) · %s"
+
+msgid "SHOW"
+msgstr "Hiện"
+
+msgid "HIDE"
+msgstr "Ẩn"
+
+msgid "PLAYTIME_LINE"
+msgstr "Thời gian chơi: %s · Lượt này: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "Chào mừng trở lại!"
+
+msgid "OFFLINE_AWAY"
+msgstr "Vắng mặt %s · %s giờ được thưởng"
+
+msgid "OFFLINE_CLAIM"
+msgstr "Nhận thu nhập ngoại tuyến"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "Đã nhận thu nhập ngoại tuyến"
+
+msgid "OFFLINE_NOTHING"
+msgstr "Không có thu nhập ngoại tuyến nào đang chờ."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "Có thu nhập ngoại tuyến đang chờ nhận."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "Lần nhận gần nhất: %s giờ được thưởng · %s xu · %s ngọc"
+
+msgid "NAV_UPGRADES"
+msgstr "Nâng cấp"
+
+msgid "STATS_OPEN"
+msgstr "Chỉ số"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "Mở khóa nâng cấp mới: %s (Nâng cấp nhân vật)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "Tìm Người Tuyết ở Mùa Đông I (Boss đầu tiên) để mở khóa Chuyển sinh."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "Tìm Người Tuyết"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "Bạn đã có mọi thẻ mà các cơ hội sẵn sàng này có thể trao."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "Hãy tìm điểm này trên bản đồ trước."
+
+msgid "EQUIPPED_PINNED"
+msgstr "Đang mặc"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "Vũ khí"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "Trang phục"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "Ô trống"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "ĐANG MẶC"
+
+msgid "COMPARE_SELECTED"
+msgstr "ĐÃ CHỌN"
+
+msgid "COMPARE_ITEM"
+msgstr "VẬT PHẨM"
+
+msgid "COMPARE_UPGRADE"
+msgstr "Tốt hơn"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "Kém hơn"
+
+msgid "COMPARE_MIXED"
+msgstr "Được và mất"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "Bậc %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "Mạnh lên khi ghép các bản sao của chính nó, tối đa ^%d. Nó không bao giờ biến thành vật phẩm khác; sau ^100 mỗi lần ghép tăng ít hơn một chút."
+
+msgid "FOLLOW_READY"
+msgstr "Sẵn sàng! Mở Chuyển sinh để chọn thẻ"
+
+msgid "FOLLOW_STEP"
+msgstr "Bước %d/%d · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "Đánh bại %s: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "Đánh bại %s mà không dùng đồ tiêu hao nào trong trận: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "Nhận nhiệm vụ"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "Nhân vật"
+
+msgid "STATS_LEVEL"
+msgstr "Cấp"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "Màn"
+
+msgid "STATS_PRESTIGES"
+msgstr "Số lần chuyển sinh"
+
+msgid "STATS_CARDS"
+msgstr "Thẻ chuyển sinh"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "Tấn công"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "Tốc độ đánh"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/giây (+%s%%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "Phòng thủ và hồi phục"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%s%% sát thương)"
+
+msgid "STATS_RESPAWN"
+msgstr "Thời gian hồi sinh"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "Tăng cường"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "Hệ số chuyển sinh"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "HP ×%s · Sát thương ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "Tốc độ di chuyển"
+
+msgid "STATS_STORED_SHARE"
+msgstr "Đóng góp của trang bị trong túi"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "Thưởng trang bị đang mặc"
+
+msgid "STATS_SECTION_TIME"
+msgstr "Thời gian chơi"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "Mọi lượt chơi"
+
+msgid "STATS_TIME_RUN"
+msgstr "Lượt này"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "ST"
+
+msgid "STATS_SHORT_HP"
+msgstr "HP"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "thủ"
+
+msgid "STATS_SHORT_CRIT"
+msgstr "chí mạng"
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "ST chí mạng"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "tốc đánh"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "hút máu"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "HP/giây"
+
+msgid "CAMP_SIGHTED"
+msgstr "Phát hiện trại! Trại đã hiện trên bản đồ và trong bảng Thế giới."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "Thưởng HP từ Thẻ & Thành thạo"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "Thưởng sát thương từ Thẻ & Thành thạo"
+
+msgid "STAT_REGEN_PCT"
+msgstr "Hồi phục"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "HP tối đa/giây"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "HP tối đa/giây"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s%% HP tối đa/giây (%s HP/giây)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "Mốc trang phục (khi mặc)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "Vũ khí %s%% · Trang phục %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "Hộ thân +%s Phòng thủ"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s HP"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%s%% HP trang phục"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "Hồi phục %s%% HP tối đa/giây"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "Mốc (khi mặc): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "Mốc: chưa có. Mốc đầu tiên mở ở ^100."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "Đã đạt mọi mốc (Thành thạo)."
+
+msgid "MILESTONE_NEXT"
+msgstr "Tiếp theo ở ^%d: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "Mạnh lên khi ghép các bản sao của chính nó, tối đa ^%d: +2%% HP gốc mỗi bản sao đến ^100, sau đó +1%% mỗi bản sao. Nó không bao giờ biến thành vật phẩm khác. Mốc chỉ có tác dụng khi mặc; khi để trong túi, nó tính %s%% HP của nó."
+
+msgid "PANEL_LEVEL"
+msgstr "Cấp nhân vật & phát triển"
+
+msgid "PANEL_FARMING"
+msgstr "Hướng dẫn cày"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "Chạm để xem phát triển theo cấp và nguồn chỉ số"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "Ô %d → %d / %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "Ô %d / %d · tối đa"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · tối đa"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "Boss cho %s ngọc mỗi lần rơi"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "Hướng dẫn cày"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "Chuyển sinh bị khóa · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "Điều kiện Chuyển sinh"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "Tìm Người Tuyết ở Mùa Đông I (Boss đầu tiên)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "Ít nhất một cơ hội sẵn sàng có thể trao thẻ"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "tìm Người Tuyết"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "chưa có cơ hội sẵn sàng"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "không còn thẻ để trao"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "Nguồn chỉ số khác"
+
+msgid "BREAKDOWN_HP"
+msgstr "HP của bạn đến từ đâu"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "Sát thương của bạn đến từ đâu"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "Trước chuyển sinh"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "Thẻ và Thành thạo"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "Tổng (dùng trong trận)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "Mỗi đòn, không tính vào tổng"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "Sát thương bạn nhận"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "Cấp nhân vật (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "Trang bị trong túi (trang phục %s%%, vũ khí %s%%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "Trang bị đang mặc (gồm thẻ +%s%%)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "Mốc hạ địch với %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "Chuyển sinh với kẻ địch thường"
+
+msgid "PER_HIT_BOSS"
+msgstr "Chuyển sinh với Boss"
+
+msgid "PER_HIT_FOCUS"
+msgstr "Tập Trung (còn %d giây)"
+
+msgid "TAKEN_GUARD"
+msgstr "Hộ thân chuyển sinh"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "Hộ thân chuyển sinh với Boss"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "Cấp %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "Đã đạt cấp tối đa. Lên cấp không còn tăng gì nữa."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s EXP · còn %s để đạt cấp %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "Phát triển theo cấp"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "Mỗi cấp (gốc)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s HP · +%s sát thương"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "Từ %d cấp đến nay"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "HP ở cấp %d"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "Sát thương ở cấp %d"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "Thẻ chuyển sinh nhân mọi nguồn: HP ×%s, sát thương ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "Nơi cày từng kẻ địch và chúng rơi gì. Mục của một bản đồ mở khi Chi tiết bản đồ đạt tối đa và mọi loại kẻ địch ở đó đã được hiện Chỉ số và Vật phẩm rơi. Chỉ những điểm bạn đã khám phá mới hiện vị trí."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "bạn ở đây"
+
+msgid "FARMING_READY"
+msgstr "Đã mở mục"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "Mở"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "Chi tiết bản đồ %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "Chỉ số & Vật phẩm rơi %d/%d loại"
+
+msgid "FARMING_LOCKED"
+msgstr "Cần: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "Còn %d bản đồ chưa đến."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "Cày · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "Tỉ lệ đã gồm các nâng cấp hiện có. Hướng đi tính từ trại gần nhất bạn biết trên bản đồ này."
+
+msgid "FARMING_BACK"
+msgstr "Mọi bản đồ"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "Kẻ địch chưa khám phá · hãy khám phá bản đồ này để tìm"
+
+msgid "FARMING_REWARDS"
+msgstr "Xu ×%s · Ngọc %s%% ×%s · EXP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "Đồ tiêu hao: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "Điểm chưa khám phá"
+
+msgid "FARMING_DETAILS"
+msgstr "Chi tiết"
+
+msgid "FARMING_AT_CAMP"
+msgstr "Tại trại %d"
+
+msgid "FARMING_LOCATION"
+msgstr "%s trại %d · %s"
+
+msgid "COMPASS_N"
+msgstr "Phía bắc"
+
+msgid "COMPASS_NE"
+msgstr "Phía đông bắc"
+
+msgid "COMPASS_E"
+msgstr "Phía đông"
+
+msgid "COMPASS_SE"
+msgstr "Phía đông nam"
+
+msgid "COMPASS_S"
+msgstr "Phía nam"
+
+msgid "COMPASS_SW"
+msgstr "Phía tây nam"
+
+msgid "COMPASS_W"
+msgstr "Phía tây"
+
+msgid "COMPASS_NW"
+msgstr "Phía tây bắc"
+
+msgid "DISTANCE_NEAR"
+msgstr "gần"
+
+msgid "DISTANCE_MID"
+msgstr "đi bộ một đoạn"
+
+msgid "DISTANCE_FAR"
+msgstr "xa"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "Này! Trang phục của tôi!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "Vũ khí của tôi!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "Sách phép của tôi!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "Đồ tiêu hao của tôi!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "Thuốc Hộ Thân"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "Thuốc Mỡ Hồi Phục"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "Thuốc Trí Tuệ"
+
+msgid "FOLLOW_COLLECT"
+msgstr "Bước %d/%d · Thu %s từ %s: %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "Đã tìm đủ! Hãy nộp: Chuyển sinh, rồi Nộp"
+
+msgid "FILTERS"
+msgstr "Bộ lọc"
+
+msgid "FILTERS_ACTIVE"
+msgstr "Bộ lọc · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "Lọc lưới trang bị. Đóng Bộ lọc sẽ hiện lại mọi vật phẩm."
+
+msgid "PANEL_FILTERS"
+msgstr "Bộ lọc"
+
+msgid "FILTERS_HINT"
+msgstr "Khi Bộ lọc đang mở, lưới trang bị chỉ hiện loại này. Đóng lại sẽ hiện mọi vật phẩm."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "Ô đồ tiêu hao: mỗi loại một ô (%d loại). Bộ lọc nằm cạnh số lượng trang bị."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "Cứ 3 lần thực sự dùng đồ tiêu hao này sẽ được một cấp thành thạo, tối đa ^%d. Mua và nhặt chỉ tăng số lượng. Chuyển sinh đặt lại thành thạo và tiến độ sử dụng."
+
+msgid "BUY_SUPPLY"
+msgstr "Mua %s · %s xu"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · còn %d giây"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "Đang hiệu lực: %s · còn %d giây"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "Đang hồi · %s giây"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "Sẵn sàng dùng"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "Tự động dùng: khi HP từ %s%% trở xuống, sau thời gian hồi"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "Tự động dùng: bất cứ khi nào chưa có hiệu lực"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "Tự động dùng: trong trận, khi chưa có hiệu lực"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "Tự động dùng: khi HP từ %s%% trở xuống, khi chưa có hiệu lực"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "Tự động dùng: bất cứ khi nào chưa có hiệu lực"
+
+msgid "SUPPLY_STOCK"
+msgstr "Số lượng: %s · mỗi lần dùng tốn một"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "Bản sao tiếp theo tìm được: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "Thưởng thành thạo: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "thời lượng %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "thời gian hồi %s giây"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%s%% HP tối đa"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%s%% xu"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%s%% EXP"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s Phòng thủ"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "%s%% HP tối đa mỗi giây"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "Hồi %s%% HP tối đa (hiện %s HP) · thời gian hồi %s giây · dùng được khi dưới %s%% HP"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "+%s%% xu từ kẻ địch bị hạ trong %s giây"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s Phòng thủ (nhận ít hơn %s%% sát thương) trong %s giây"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "Hồi %s%% HP tối đa mỗi giây trong %s giây (tổng %s%%) · dùng được khi dưới %s%% HP"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "+%s%% EXP từ kẻ địch bị hạ trong %s giây"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "Thành thạo ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "Tự động: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "HP của bạn quá cao để dùng đồ tiêu hao này."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "Bình thuốc vẫn đang hồi."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "Đang có hiệu lực. Dùng lại khi hết."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "Cứ ba lần dùng sẽ tăng Thành thạo đồ tiêu hao. Chuyển sinh đặt lại thành thạo và tiến độ sử dụng."
+
+msgid "SOURCE_SUPPLY"
+msgstr "Đồ tiêu hao đang hiệu lực"
+
+msgid "CAMP_TELEPORT"
+msgstr "Dịch chuyển"
+
+msgid "PANEL_TELEPORT"
+msgstr "Dịch chuyển"
+
+msgid "TELEPORT_TITLE"
+msgstr "Dịch chuyển"
+
+msgid "TELEPORT_HELP"
+msgstr "Chọn một trại khác bạn sở hữu, trên bản đồ này hoặc bản đồ bạn đã đến. Không thể dịch chuyển khi đang chiến đấu."
+
+msgid "TELEPORT_HERE"
+msgstr "Bạn ở đây"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "Điểm đến đã chọn"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "Bản đồ này"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "Bản đồ khác"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "Chọn"
+
+msgid "TELEPORT_BACK"
+msgstr "Quay lại"
+
+msgid "TELEPORT_GO"
+msgstr "Dịch chuyển · %s · Trại %d"
+
+msgid "TELEPORT_PICK"
+msgstr "Chọn điểm đến"
+
+msgid "TELEPORT_NONE"
+msgstr "Chưa có trại nào khác. Hãy mở khóa thêm trại để dịch chuyển đến đó."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · Trại %d"
+
+msgid "MAP_EXPLORED"
+msgstr "Đã khám phá bản đồ: %d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "Phần bản đồ này bạn đã khám phá vĩnh viễn. Tầm nhìn tạm thời và di chuyển camera không được tính."
+
+msgid "SECTION_AUDIO"
+msgstr "Âm thanh & nhạc"
+
+msgid "MUSIC_VOLUME"
+msgstr "Nhạc %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "Hiệu ứng âm thanh %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "Tắt âm lối chơi: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "Tắt âm đặc biệt: %s"
+
+msgid "AUDIO_HINT"
+msgstr "Âm lối chơi: chạm, mua, ghép và chiến đấu. Âm đặc biệt: thông báo (nhiệm vụ hoặc mục tiêu sẵn sàng nhận, tin Chuyển sinh, menu mới, tiến độ Thành thạo bản đồ, phát hiện Boss) và cột mốc (bản đồ mới, một lần Chuyển sinh). Âm lượng hiệu ứng điều chỉnh cả hai."
+
+msgid "UP_MERGE_ALL"
+msgstr "Ghép tất cả"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "Mở khóa một lần: nút Ghép tất cả trong Bộ lọc ghép mọi bản sao dư chỉ với một lần chạm · dùng miễn phí · giữ lại khi Chuyển sinh"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "Đã mở · dùng Ghép tất cả trong Bộ lọc"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "Chưa mở khóa Ghép tất cả"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "Ghép tất cả: mở khóa một lần với 5K ngọc ở Nâng cấp → Túi đồ."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "Ghép tất cả · %d bản sao dư"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "Ghép tất cả"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "Không có gì để ghép"
+
+msgid "MERGE_ALL_DONE"
+msgstr "Đã ghép %d bản sao vào %d vật phẩm"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "Mở khóa tự động tiến hóa"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "Ghép bản sao dư của: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "Bật · ghép: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Tiến hóa ở ^100 với 101 bản sao: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "Bật · tiến hóa: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "Hồi chiêu: %s giây"
+
+msgid "GATE_HUD"
+msgstr "Màn sau · Boss %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "Thế giới đã sạch · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "Các Boss cần đánh bại trên bản đồ này để mở bản đồ tiếp theo. Boss đã tìm thấy và vẫn được tính mang dải cờ vàng."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "Màn tiếp theo đã mở"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "Boss chưa khám phá"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · đã hạ"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · vẫn cần"
+
+msgid "OFFERING_PROGRESS"
+msgstr "%s / %s xu · %s / %s ngọc"
+
+msgid "SECTION_RESEARCH"
+msgstr "Nghiên cứu"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "Đã mở khóa Cày tập trung"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "Chạm Cày bên dưới: anh hùng của bạn đi đến điểm này và tự chiến đấu ở đây. Chạm lần nữa hoặc di chuyển để dừng."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "Chạm Cày để bắt đầu"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "Anh hùng của bạn đi đến điểm này và tự chiến đấu. Di chuyển sẽ dừng lại."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "Đã mở khóa Cày tập trung"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "Mở Nâng cấp của kẻ địch này, rồi chạm Cày ở phía trên."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "Đã mở khóa Cày tập trung"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "Chạm vào kẻ địch đó trong thế giới hoặc trên bản đồ, rồi chạm Cày."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "Hãy tìm điểm này trước"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "Cày chỉ đi đến những điểm bạn đã tìm thấy. Hãy chọn một điểm đã tìm thấy ở trên."
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "Trang bị mới: chạm vào, rồi Trang bị"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "Trang bị đang mặc cho đủ chỉ số. Trang bị trong túi vẫn cộng thêm một phần."
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "Hai món giống nhau: mở ra, rồi Ghép"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "Ghép một bản sao dư giúp vật phẩm mạnh hơn vĩnh viễn."
+
+msgid "GUIDE_MISSIONS"
+msgstr "Đã mở Nhiệm vụ: hãy mở Nhiệm vụ"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "Mục tiêu và nhiệm vụ hằng ngày thưởng xu và ngọc."
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "Chạm Nhận"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "Mục tiêu đã xong sẽ chờ ở đây đến khi bạn nhận thưởng."
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "Chưa có gì để nhận"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "Nút Nhiệm vụ hiện dấu ! khi có phần thưởng sẵn sàng."
+
+msgid "GUIDE_SLOTS"
+msgstr "Đã mở Nâng cấp: hãy mở Nâng cấp"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "Nâng cấp nhân vật kéo dài trong lượt chơi này; nâng cấp bằng Ngọc được giữ mãi mãi."
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "Mở thẻ Túi đồ"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "Thêm ô trang bị giúp bạn giữ được nhiều loại trang bị hơn."
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "Mua một ô trang bị"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "Mỗi loại vật phẩm cần một ô riêng; bản sao được xếp chồng."
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "Mở thẻ Đồ tiêu hao"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "Đồ tiêu hao giúp ích trong các trận khó."
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "Mua một Bình Máu"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "Chạm vào bình máu trong đồ tiêu hao để hồi máu khi chiến đấu."
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "Kiếm xu để mua Bình Máu"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "Cần thêm %s xu. Mỗi kẻ địch bị hạ đều rơi xu."
+
+msgid "GUIDE_SNOWMAN"
+msgstr "Mục tiêu chính: đánh bại Người Tuyết"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "Đánh bại nó sẽ mở Mùa Đông II; tìm thấy nó sẽ mở Chuyển sinh. Hãy ghép trang bị, lên cấp và mang theo bình máu trước."
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "Đã mở Chuyển sinh: hãy mở Chuyển sinh"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "Các cơ hội ở đó trao thẻ vĩnh viễn."
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "Chạm Theo dõi trên một cơ hội"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "Bước tiếp theo sẽ hiện trên bản đồ. Khi một cơ hội Sẵn sàng, Chuyển sinh sẽ khởi động lại thế giới và bạn giữ thẻ."
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "Hoàn thành một cơ hội"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "Cơ hội mới xuất hiện khi bạn chơi. Khi một cơ hội Sẵn sàng, Chuyển sinh sẽ khởi động lại thế giới và bạn giữ thẻ."
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "Đã mở Nhiệm vụ"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "Mục tiêu và nhiệm vụ hằng ngày thưởng xu và ngọc. Nhận thưởng trong Nhiệm vụ."
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "Đã mở nâng cấp kẻ địch"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "Chạm Nâng cấp phía trên bản đồ (hoặc một kẻ địch) để tăng chiến lợi phẩm, xu và EXP của nó."
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "Đã mở bản đồ thế giới"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "Bản đồ nhỏ và Thế giới cho thấy nơi bạn đã đi qua. Mở khóa trại để hồi sinh và nghỉ ngơi ở đó."
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "Đã mở Nâng cấp nhân vật"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "Mua ô trang bị, đồ tiêu hao và nâng cấp Ngọc vĩnh viễn trong Nâng cấp."
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "Mục tiêu chính: đánh bại Người Tuyết"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "Đánh bại nó sẽ mở Mùa Đông II; tìm thấy nó sẽ mở Chuyển sinh. Hãy ghép trang bị, lên cấp và mang theo bình máu trước."
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "Đã mở Chuyển sinh"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "Hoàn thành một cơ hội, rồi Chuyển sinh để bắt đầu lại với một thẻ vĩnh viễn."
+
+msgid "GUIDE_SKIP"
+msgstr "Bỏ qua"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "Trang bị và ghép đồ"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "Chạm vào trang bị trong túi đồ, rồi Trang bị để nhận đủ chỉ số; trang bị trong túi vẫn cộng thêm một phần. Hai món giống nhau ghép thành một món mạnh hơn vĩnh viễn."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "Nâng cấp và Nhiệm vụ"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "Chạm vào một kẻ địch (hoặc Nâng cấp phía trên bản đồ) để tăng chiến lợi phẩm, xu và EXP của nó. Nâng cấp nhân vật bán ô trang bị, đồ tiêu hao và nâng cấp Ngọc vĩnh viễn. Nhận thưởng Nhiệm vụ để có xu và ngọc."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "Khám phá, trại và màn chơi"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "Đi bộ sẽ xua tan sương mù; bản đồ nhỏ và Thế giới cho thấy nơi bạn đã đi qua. Mở khóa trại trong Thế giới để hồi sinh và nghỉ ngơi ở đó. Đánh bại các Boss của một bản đồ để mở màn tiếp theo."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "Chuyển sinh và Thành thạo bản đồ"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "Tìm thấy Người Tuyết ở Mùa Đông I sẽ mở khóa Chuyển sinh: hoàn thành một cơ hội, rồi Chuyển sinh để bắt đầu lại với một thẻ vĩnh viễn. Thành thạo bản đồ theo dõi các mục tiêu dài hạn của từng bản đồ."
+
+msgid "EXIT_TITLE"
+msgstr "Thoát LootFarmer?"
+
+msgid "EXIT_CONFIRM"
+msgstr "Tiến trình của bạn đã được lưu. Bạn có thể quay lại bất cứ lúc nào."
+
+msgid "EXIT_ACTION"
+msgstr "Thoát"
+
+msgid "SECTION_TUTORIAL"
+msgstr "Hướng dẫn và trợ giúp"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "Hiện tất cả menu ngay"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "Hiện tất cả menu ngay bây giờ? Thông thường menu mới xuất hiện khi bạn học cách chơi. Chuyển sinh vẫn cần tìm thấy Người Tuyết; chế độ Có hướng dẫn còn yêu cầu hoàn thành phần hướng dẫn."
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "Tất cả menu đã khả dụng"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "Tất cả menu đã khả dụng từ trước"
+
+msgid "PANEL_MASTERY"
+msgstr "Thành thạo bản đồ"
+
+msgid "MASTERY_OPEN"
+msgstr "Thành thạo bản đồ · Trò chơi %d%%"
+
+msgid "MASTERY_INTRO"
+msgstr "Các mục tiêu tùy chọn để hoàn thành 100%. Tiến độ là vĩnh viễn và được giữ khi Chuyển sinh."
+
+msgid "MASTERY_GAME"
+msgstr "Hoàn thành trò chơi %d%%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "Cả tám bản đồ: danh hiệu %s · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ Đã đạt: danh hiệu %s · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "Phần thưởng: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ Đã nhận thưởng: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "Chi tiết"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "Đến bản đồ này để bắt đầu"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "Thành thạo · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ Mọi bản đồ"
+
+msgid "MASTERY_EXPLORE"
+msgstr "Khám phá"
+
+msgid "MASTERY_HUNT"
+msgstr "Săn"
+
+msgid "MASTERY_RESEARCH"
+msgstr "Nghiên cứu"
+
+msgid "MASTERY_COLLECT"
+msgstr "Sưu tầm"
+
+msgid "MASTERY_FORGE"
+msgstr "Rèn"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "Khám phá toàn bộ bản đồ và mở khóa mọi trại."
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "Đánh bại %s con mỗi loại kẻ địch và %s lần mỗi Boss."
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "Hiện Chỉ số và Vật phẩm rơi của mọi kẻ địch ở đây."
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "Sở hữu mọi vũ khí, trang phục và kỹ năng rơi ở đây."
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "Trang phục từ đây đạt ^%s (trang phục Boss ^%s) và một vũ khí từ đây đã tiến hóa."
+
+msgid "MASTERY_MORE"
+msgstr "+%d nữa"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "Đã khám phá bản đồ %d%% trên 100%%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "Trại %d chưa mở khóa"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · Hiện Chỉ số"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · Hiện Vật phẩm rơi"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "Tiến hóa một trong: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "Kẻ địch chưa khám phá"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "Vật phẩm chưa khám phá"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "+%s%% HP tối đa"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "+%s%% sát thương"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "+%s%% xu"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "+%s%% EXP"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "+%s điểm Tỉ lệ chiến lợi phẩm"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "+%s điểm Tỉ lệ ngọc"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "Thành thạo · %s · %s hoàn thành"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "Đã mở Chuyển sinh"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "Đã tìm thấy %d cơ hội · chạm để mở"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "Hoàn thành một cơ hội, rồi Chuyển sinh để nhận thẻ vĩnh viễn"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "Đã thành thạo bản đồ · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "Hoàn thành 100%"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "Bậc Thầy Cày Cuốc"
+
+msgid "STATS_COMPLETION"
+msgstr "Hoàn thành trò chơi"
+
+msgid "STATS_TITLE"
+msgstr "Danh hiệu"
+
+msgid "STATS_MASTERY"
+msgstr "Thành thạo bản đồ"
+
+msgid "MAIN_HINT_0"
+msgstr "Đánh bại kẻ địch"
+
+msgid "MAIN_HINT_1"
+msgstr "Chạm vào một vũ khí hoặc trang phục trong túi đồ, rồi Trang bị"
+
+msgid "MAIN_HINT_2"
+msgstr "Mở một vật phẩm bạn có hai cái, rồi Ghép"
+
+msgid "MAIN_HINT_3"
+msgstr "Đi đến một trại và chạm Xem trại, rồi Mở khóa"
+
+msgid "MAIN_HINT_4"
+msgstr "Đánh bại Người Tuyết, Boss Mùa Đông I"
+
+msgid "MAIN_HINT_5"
+msgstr "Trang bị kỹ năng Hồi Máu (Mùa Đông II: tinh anh Mũ Phi Hành Gia và Robot Xanh Lơ làm rơi)"
+
+msgid "MAIN_HINT_6"
+msgstr "Mua một bậc Chi tiết bản đồ trong Thế giới"
+
+msgid "MAIN_HINT_7"
+msgstr "Tìm kỹ năng Nổ Băng (Mùa Hè I: tinh anh Mũ Rơm làm rơi)"
+
+msgid "MAIN_HINT_8"
+msgstr "Đánh bại Robot Xanh Lơ, Boss Mùa Đông II, để đến Mùa Hè I"
+
+msgid "MAIN_HINT_9"
+msgstr "Tiến hóa một vũ khí ^100 có 101 bản sao (chi tiết vật phẩm, Tiến hóa)"
+
+msgid "MAIN_HINT_10"
+msgstr "Sở hữu nhiều kỹ năng khác nhau"
+
+msgid "MAIN_HINT_11"
+msgstr "Đánh bại cả hai Boss Mùa Hè II để đến Mùa Thu I"
+
+msgid "MAIN_HINT_12"
+msgstr "Sở hữu nhiều kỹ năng khác nhau"
+
+msgid "MAIN_HINT_13"
+msgstr "Đánh bại cả hai Boss Mùa Thu II để đến Mùa Xuân I"
+
+msgid "MAIN_HINT_14"
+msgstr "Hoàn thành một lần Chuyển sinh"
+
+msgid "MAIN_HINT_15"
+msgstr "Đánh bại mọi loại kẻ địch và Boss ở Mùa Xuân II"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "Sẵn sàng! Nhận thưởng trong Nhiệm vụ"
+
+msgid "MISSION_DO_KILL"
+msgstr "Đánh bại %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "Đánh bại %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "Nhặt vũ khí hoặc trang phục rơi ra"
+
+msgid "MISSION_DO_MERGE"
+msgstr "Ghép vật phẩm"
+
+msgid "MISSION_DO_COINS"
+msgstr "Kiếm xu từ kẻ địch"
+
+msgid "MISSION_DO_CAST"
+msgstr "Thi triển kỹ năng đã trang bị"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "Tiếp theo: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "Đánh bại %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "Đánh bại kẻ địch bất kỳ"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "Nhặt vũ khí hoặc trang phục rơi ra"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "Ghép vật phẩm"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "Đánh bại Boss bất kỳ"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "Thi triển kỹ năng"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "Nhận nhiệm vụ thường"
+
+msgid "FOLLOW_TROPHY"
+msgstr "Đánh bại %s để lấy chiến tích · chiến tích %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "Ghép bất kỳ vũ khí, trang phục hoặc kỹ năng nào lên ^100: tốt nhất ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "Ghép một vật phẩm bậc %d trở lên lên ^100: tốt nhất ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "Ghép lên ^50: vũ khí %d/%d · trang phục %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "Ghép trang bị bậc 2+ lên ^50: vũ khí %d/%d · trang phục %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "Kiếm từ kẻ địch trong lượt này: xu %s/%s · ngọc %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "Đủ rồi! Hãy nộp: Chuyển sinh, rồi Nộp"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "Tổng thời gian vắng mặt: %.1f/72 giờ"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "Lần vắng mặt dài nhất: %.1f/24 giờ"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "Xu kiếm được khi vắng mặt: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "Khám phá %s: %d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "Đánh bại %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "Mở khóa mọi trại ở %s: %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "Sau đó: %s (còn %d)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!CẢNH BÁO: PHÁT HIỆN BOSS!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · Boss %s"
+
+msgid "MASTERY_CHIP"
+msgstr "Thành thạo %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "Thành thạo bản đồ của bản đồ này: phần trăm và hạng mục đã hoàn thành. Chạm để xem chi tiết."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "Cày cho đến khi bạn đủ sức hạ Boss."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "Người Tuyết canh giữ đường đến Mùa Đông II."
+
+msgid "VIEW_CAMP"
+msgstr "Xem trại"
+
+msgid "DROP_ALL"
+msgstr "Bỏ tất cả"
+
+msgid "DROP_ALL_TITLE"
+msgstr "Bỏ cả chồng?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nMọi bản sao rời khỏi túi đồ và ô của nó trống ngay. Chồng đồ nằm trên mặt đất 5 phút: chạm vào để nhặt lại (Tự động nhặt không bao giờ lấy lại nó). Nhặt lại không tính tiến độ nhiệm vụ, Chuyển sinh hay Thành thạo."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "thành thạo ^%d (được giữ)"
+
+msgid "DROPPED_NOTICE"
+msgstr "Đã bỏ %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "Hãy tháo ra trước"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "Hồi cho bạn %s HP ngay (%s HP, tối đa %s%% HP tối đa) khi HP dưới %s%%"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "+%s%% sát thương đòn đánh trong 5 giây (+%s sát thương mỗi đòn hiện tại) · chỉ trong trận"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× sát thương đòn đánh (%s hiện tại) lên mọi kẻ địch trong phạm vi %s quanh bạn, và làm chậm chúng 25%% trong 3 giây"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× sát thương đòn đánh (%s hiện tại) lên mục tiêu và mọi kẻ địch trong phạm vi %s quanh nó"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "%s× sát thương đòn đánh (%s hiện tại) lên mục tiêu hiện tại"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "%s× sát thương đòn đánh (%s hiện tại) lên mục tiêu hiện tại, một đòn cận chiến mạnh"
+
+msgid "SKILL_DESC_STATS"
+msgstr "Mục tiêu: %s · Tầm: %s · Hồi chiêu: %s giây"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "bạn"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "mọi kẻ địch trong vùng"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 kẻ địch"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "bản thân"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s HP"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s%% sát thương"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× sát thương đòn đánh"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "Hồi Máu dùng được bất cứ khi nào mất HP, kể cả ngoài trận."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "Chuyển sinh"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "Đổi %d cơ hội và bắt đầu lượt chơi mới"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "Bạn chọn một thẻ vĩnh viễn cho mỗi cơ hội:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 thẻ"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "VĨNH VIỄN · BẠN GIỮ LẠI"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "LƯỢT NÀY ĐẶT LẠI"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "Thẻ được chọn từng cái một và lưu ngay. Lượt chơi bắt đầu lại ở Mùa Đông I sau thẻ cuối cùng."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "Bắt đầu Chuyển sinh"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "Thẻ và bộ thẻ chuyển sinh (đang có %d) cùng các thẻ mới"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "Ngọc của bạn: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "Vùng bản đồ đã khám phá, trại đã thấy và Boss đã tìm thấy"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "Mọi nâng cấp Ngọc, tự động hóa và sức chứa túi đồ"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "Chìa khóa Boss, thành tựu kẻ địch và Thành thạo bản đồ"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "Cài đặt và tiến độ hướng dẫn"
+
+msgid "RESET_LINE_COINS"
+msgstr "Xu: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "Cấp nhân vật %d (về cấp 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "Vật phẩm, các lần ghép và đồ tiêu hao"
+
+msgid "RESET_LINE_MAPS"
+msgstr "Quyền vào bản đồ (về Mùa Đông I) và trại đã sở hữu"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "Nâng cấp bằng xu và nâng cấp bản đồ"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "Cơ hội và nhiệm vụ chưa hoàn thành"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "Chạm Xem trại"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "Thao tác này mở trại, nơi bạn có thể mở khóa nó."
+
+msgid "HELP"
+msgstr "Trợ giúp"
+
+msgid "PANEL_HELP"
+msgstr "Trợ giúp"
+
+msgid "HELP_INTRO"
+msgstr "Tổng quan ngắn về cách chơi LootFarmer. Đọc phần này không thay đổi gì trong trò chơi của bạn."
+
+msgid "HELP_BACK"
+msgstr "Quay lại Cài đặt"
+
+msgid "SECTION_LANGUAGE"
+msgstr "Ngôn ngữ"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "Tỉ lệ chí mạng"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "Sát thương chí mạng"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "Ô kỹ năng tự động"
+
+msgid "SOURCE_UPGRADES"
+msgstr "Nâng cấp"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "Kỹ năng tự động: đã gán %d / %d"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "Hãy trang bị một kỹ năng và mua một ô tự động còn trống trước."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "Tự động ghép: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "Kích thước ô túi đồ"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "Hồi tối đa %s HP (%s%% HP tối đa). Dùng được bất cứ khi nào mất HP, kể cả ngoài trận."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "Kích hoạt cần đang trong trận và có kẻ địch trong phạm vi %s đơn vị."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "Một mục tiêu. Giảm tốc độ đánh %s%% trong %s giây (Boss: %s giây). Tốc độ di chuyển không đổi."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "Boss kháng một nửa thời lượng hiệu ứng có thời hạn; độ mạnh và sát thương không đổi."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "Cấp thành thạo tiếp theo: %d / %d lần dùng · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "Tự động dùng: bất cứ khi nào mất HP và hết thời gian hồi, kể cả ngoài trận."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "Chạm vào trại màu xanh để di chuyển. Trại mờ đang bị khóa. Không thể di chuyển khi đang chiến đấu."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d giây"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "Hãy hoàn thành phần hướng dẫn Có hướng dẫn ở Mùa Đông II trước khi dùng Chuyển sinh."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "Cấp nhân vật %d, EXP đã kiếm và thưởng cấp"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "Thành thạo đồ tiêu hao và tiến độ lên cấp tiếp theo"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "Chọn một trại"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "Đóng bảng này để tiếp tục."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "Chạm nút đóng. Tiến trình của bạn đã được lưu."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "Mua một Nâng cấp nhân vật."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "Chọn một nâng cấp toàn cục để hỗ trợ các trận tiếp theo."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "Mở rộng túi trang bị."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "Dùng Ngọc để mua thêm một ô. Phần quà hướng dẫn một lần sẽ bù nếu bạn thiếu."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "Đi theo mũi tên đến trại."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "Tiến lại gần, khám phá trại, rồi chạm Xem trại và mua mở khóa."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "Tìm Boss đầu tiên."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "Đi theo mũi tên về phía Người Tuyết. Chỉ cần tìm thấy, không cần đánh bại."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "Chuẩn bị trước khi đánh Boss."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "Boss có thể rất mạnh. Lên cấp để tăng chỉ số toàn cục; cày trang bị, ghép bản sao và mua nâng cấp."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "Cày thêm vài kẻ địch."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "Tích lũy sức mạnh và Xu trước khi đi tiếp."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "Mua một Bình Máu."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "Mở Nâng cấp nhân vật, rồi Đồ tiêu hao. Số bình máu đang có cũng được tính."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "Dọn chỗ cho Bình Máu."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "Mua một ô đồ tiêu hao, hoặc dùng một món đồ tiêu hao đang có để trống ô."
+
+msgid "GUIDE_POTION_USE"
+msgstr "Dùng Bình Máu của bạn."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "Chạm vào ô của nó trong túi đồ khi mất HP. Dùng đồ tiêu hao giúp tăng thành thạo của nó."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "Dùng bình máu khi cần hồi máu."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "Hãy đánh kẻ địch gần đó trước. Khi đầy HP sẽ không lãng phí bình máu."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "Chuyển sinh mang lại lợi ích vĩnh viễn."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "Hoàn thành cơ hội để nhận thẻ. Chế độ Có hướng dẫn mở khóa đặt lại sau phần hướng dẫn này; bạn vẫn có thể chơi tiếp mà không Chuyển sinh."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "Bạn đã đủ điều kiện nhận thưởng Chuyển sinh."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "Cơ hội của bạn đã sẵn sàng. Hãy hoàn thành phần hướng dẫn ở Mùa Đông II trước khi quyết định có đặt lại hay không."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "Bản đồ tiếp theo đã mở."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "Mở Thế giới để xem các màn đã mở và trại của chúng."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "Di chuyển giữa các trại đã mở."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "Thế giới đưa bạn đi thẳng khi chỉ có một trại đã mở, hoặc hiện bản đồ khi có nhiều trại. Chiến đấu sẽ chặn dịch chuyển."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "Cột mốc mang đến mục tiêu tùy chọn."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "Khám phá Thành thạo bản đồ và thành tựu khi bạn muốn thêm phần thưởng. Tiếp tục qua Thế giới đến Mùa Đông II."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "Di chuyển đến Mùa Đông II."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "Mở Thế giới và chọn Mùa Đông II để tiếp tục cuộc phiêu lưu."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "CON ĐƯỜNG PHÍA TRƯỚC"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "Mục tiêu cuối cùng của bạn là đánh bại Boss cuối ở Màn 8 và chinh phục trò chơi.\n\nMuốn thử thách lớn hơn? Hãy đạt 100% hoàn thành bằng cách vượt qua mọi cột mốc trong Thành thạo bản đồ.\n\nHãy chơi theo nhịp của riêng bạn, tận hưởng hành trình, và chúc may mắn!"
+
+msgid "SLOT_SMALL"
+msgstr "Nhỏ"
+
+msgid "SLOT_MEDIUM"
+msgstr "Vừa"
+
+msgid "SLOT_LARGE"
+msgstr "Lớn"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "Chung"
+
+msgid "REVIEW_TITLE"
+msgstr "Bạn thích LootFarmer chứ?"
+
+msgid "REVIEW_LEAD"
+msgstr "Cuộc phiêu lưu của bạn chỉ mới bắt đầu!"
+
+msgid "REVIEW_BODY"
+msgstr "Đã tìm được chiến lợi phẩm xịn chưa? Chúng tôi rất muốn nghe suy nghĩ của bạn. Một đánh giá chân thật giúp chúng tôi cải thiện LootFarmer và giúp người chơi khác tìm thấy trò chơi."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Đánh giá trên Google Play"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "Đánh giá trên itch.io"
+
+msgid "REVIEW_LATER"
+msgstr "Để sau"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "Không thể mở trang cửa hàng. Hãy kiểm tra kết nối và thử lại."
+
+msgid "SECTION_FEEDBACK"
+msgstr "Góp ý"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "Chọn mục tiêu"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "Kéo từ anh hùng của bạn đến một kẻ địch, rồi thả ra để chọn làm mục tiêu. Bạn sẽ dồn đòn đánh vào kẻ địch đã chọn."
+
+msgid "GUIDE_TARGET"
+msgstr "Chọn mục tiêu"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "Kéo từ anh hùng của bạn đến một kẻ địch, rồi thả ra để chọn làm mục tiêu. Bạn sẽ dồn đòn đánh vào kẻ địch đã chọn."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "Tìm một kẻ địch để chọn làm mục tiêu"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "Đi đến khi thấy một kẻ địch, rồi kéo từ anh hùng của bạn đến nó và thả ra."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "Săn %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d điểm"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s giây"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d giờ %02d phút"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d phút %02d giây"
+
+msgid "DURATION_SECONDS"
+msgstr "%d giây"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Vị trí cần điều khiển"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Trái"
+
+msgid "JOYSTICK_CENTER"
+msgstr "Giữa"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Phải"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "Không thể mở liên kết. Hãy kiểm tra kết nối và thử lại."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Mọi chế độ đều là cùng một trò chơi. Chỉ mức độ trợ giúp là khác nhau."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Bài học từng bước kèm chỉ dẫn. Menu mở dần khi bạn học."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Vài thẻ ngắn về điều khiển và mục tiêu. Mọi menu đều mở."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Không có bài học hay mẹo. Mọi menu mở ngay từ đầu."

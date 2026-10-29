@@ -43,6 +43,7 @@ pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
+locale/include_text_server_data=true
 locale/translations=PackedStringArray("res://localization/en.po")
 
 [rendering]

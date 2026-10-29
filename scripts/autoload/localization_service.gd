@@ -12,24 +12,27 @@ const RELEASE_LANGUAGES: Array[String] = [
     "pl_PL", "ru_RU", "uk_UA", "tr_TR", "id_ID", "vi_VN", "th_TH", "hi_IN",
     "ja_JP", "ko_KR", "zh_CN", "zh_TW",
 ]
-## Per-locale readiness, the one list a player build reads: English, Batch 01 (Change 38) and Batch 02 (Change 39).
+## Per-locale readiness, the one list a player build reads: English, Batch 01 (Change 38), Batch 02 (Change 39)
+## and Batch 03 (Change 42).
 ## Add a locale here only after its batch passed and the developer approved it; keep it on one line
 ## (tools/export_manifest.py and tools/validate_localization.py read it).
-const ENABLED_LANGUAGES: Array[String] = ["en_US", "es_419", "es_ES", "pt_BR", "fr_FR", "de_DE", "it_IT", "nl_NL", "pl_PL", "ru_RU", "uk_UA"]
+const ENABLED_LANGUAGES: Array[String] = ["en_US", "es_419", "es_ES", "pt_BR", "fr_FR", "de_DE", "it_IT", "nl_NL", "pl_PL", "ru_RU", "uk_UA", "tr_TR", "id_ID", "vi_VN", "th_TH", "hi_IN"]
 ## The final 20-language QA gate (132.5 step 5) is separate from enabling validated locales: it certifies the
 ## whole set together and stays false while any target locale is missing from ENABLED_LANGUAGES.
 const ALL_LANGUAGES_CERTIFIED: bool = false
-## Validated batches a probe or capture may load by name (--test-languages=batch01). Batches 01 and 02 are
+## Validated batches a probe or capture may load by name (--test-languages=batch01). Batches 01-03 are
 ## enabled already, so for them the switch changes nothing; a batch under validation is added here first.
 const TEST_BATCHES: Dictionary = {
     "batch01": ["es_419", "es_ES", "pt_BR", "fr_FR", "de_DE"],
     "batch02": ["it_IT", "nl_NL", "pl_PL", "ru_RU", "uk_UA"],
+    "batch03": ["tr_TR", "id_ID", "vi_VN", "th_TH", "hi_IN"],
 }
 ## Settings language id -> the locale Godot 4.7 resolves. Godot folds es_419 into generic "es", so "es"
 ## serves Latin America while es_ES stays Spain (Playbook 132.6).
 const GODOT_LOCALES: Dictionary = {
     "en_US": "en", "es_419": "es", "es_ES": "es_ES", "pt_BR": "pt_BR", "fr_FR": "fr_FR", "de_DE": "de_DE",
     "it_IT": "it_IT", "nl_NL": "nl_NL", "pl_PL": "pl_PL", "ru_RU": "ru_RU", "uk_UA": "uk_UA",
+    "tr_TR": "tr_TR", "id_ID": "id_ID", "vi_VN": "vi_VN", "th_TH": "th_TH", "hi_IN": "hi_IN",
 }
 ## Each language's own name in its own language and script. These are proper names: never translated, the same
 ## whatever the current locale.
@@ -37,12 +40,20 @@ const NATIVE_NAMES: Dictionary = {
     "en_US": "English", "es_419": "Español (Latinoamérica)", "es_ES": "Español (España)",
     "pt_BR": "Português (Brasil)", "fr_FR": "Français", "de_DE": "Deutsch", "it_IT": "Italiano",
     "nl_NL": "Nederlands", "pl_PL": "Polski", "ru_RU": "Русский", "uk_UA": "Українська",
+    "tr_TR": "Türkçe", "id_ID": "Bahasa Indonesia", "vi_VN": "Tiếng Việt", "th_TH": "ไทย", "hi_IN": "हिन्दी",
 }
 ## Device language codes older Android versions still report (java.util.Locale legacy codes).
 const LEGACY_LANGUAGE_CODES: Dictionary = {"in": "id", "iw": "he", "ji": "yi"}
 const CATALOG_PATH := "res://localization/%s.po"
+## The theme font (DejaVu Sans) has no Thai or Devanagari. Those locales draw with the theme font plus an OFL Noto
+## fallback (Change 42); every other locale keeps the plain theme font, because Godot sizes a line by the tallest
+## font in the chain and the taller Noto metrics would otherwise change every Latin and Cyrillic layout.
+const SCRIPT_FONTS: Dictionary = {
+    "th_TH": preload("res://resources/game/ui_font_thai.tres"),
+    "hi_IN": preload("res://resources/game/ui_font_devanagari.tres"),
+}
 
-## Probes and captures: locales of a test batch that are not enabled for players (none while Batches 01 and 02
+## Probes and captures: locales of a test batch that are not enabled for players (none while Batches 01-03
 ## are the test batches).
 var _test_languages: Array[String] = []
 ## Locales whose catalog is registered with the TranslationServer (loaded on first use, not at startup).
@@ -51,6 +62,9 @@ var _loaded: Array[String] = ["en_US"]
 var _test_locale := ""
 ## Probes only: a device locale standing in for OS.get_locale() (Automatic tests).
 var _test_device_locale := ""
+## The theme's own default font, restored for every locale without a script fallback.
+var _theme: Theme = preload("res://resources/game/theme.tres")
+var _theme_font: Font = _theme.default_font
 
 
 func _ready() -> void:
@@ -171,9 +185,17 @@ func apply_language() -> void:
     if _test_locale == "" and not _load_catalog(language):
         language = "en_US"
     var locale: String = _test_locale if _test_locale != "" else GODOT_LOCALES.get(language, "en")
+    var font: Font = SCRIPT_FONTS.get(language, _theme_font)
+    if _theme.default_font != font:
+        _theme.default_font = font
     if TranslationServer.get_locale() != locale:
         TranslationServer.set_locale(locale)
         language_applied.emit(locale)
+
+
+## The font a language draws with: the theme font, plus the Thai or Devanagari fallback for th_TH and hi_IN.
+func script_font(language: String) -> Font:
+    return SCRIPT_FONTS.get(language, _theme_font)
 
 
 ## Registers a catalog the first time its locale is used. English ships in project.godot.

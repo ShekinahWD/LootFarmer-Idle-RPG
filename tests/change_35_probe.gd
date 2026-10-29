@@ -462,7 +462,7 @@ func catalog_checks() -> void:
         if tr(key)!=keys[key] or not po.contains("msgid \"%s\"" % key) or "%" in keys[key] or "--" in keys[key]:ok=false
     check(ok and keys.size()==14,"All 14 new English strings in en.po, no placeholders, no double dashes")
     # Change 40 (progressive activation): localization/ also holds the developer's drafts; what matters is what a
-    # player can reach. English is registered in project.godot, the ten enabled catalogs ship through the export
+    # player can reach. English is registered in project.godot, the fifteen enabled catalogs ship through the export
     # manifest and are selectable, and no draft is packaged or selectable.
     var registered: PackedStringArray=ProjectSettings.get_setting("internationalization/locale/translations")
     var manifest: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tools/export_manifest.json"))
@@ -470,8 +470,8 @@ func catalog_checks() -> void:
     var expected: Array=LocalizationService.ENABLED_LANGUAGES.map(func(l):return "res://localization/%s.po" % ("en" if l=="en_US" else l))
     shipped.sort();expected.sort()
     var drafts:=LocalizationService.RELEASE_LANGUAGES.filter(func(l):return not l in LocalizationService.ENABLED_LANGUAGES)
-    check(registered==PackedStringArray(["res://localization/en.po"]) and shipped==expected and expected.size()==11,"Exactly English and the ten enabled catalogs ship (%d localization files in the manifest)" % shipped.size())
-    check(LocalizationService.available_languages()==LocalizationService.ENABLED_LANGUAGES and drafts.size()==9 and not drafts.any(func(l):return LocalizationService.select_language(l)),"The nine drafts are neither packaged nor selectable")
+    check(registered==PackedStringArray(["res://localization/en.po"]) and shipped==expected and expected.size()==16,"Exactly English and the fifteen enabled catalogs ship (%d localization files in the manifest)" % shipped.size())
+    check(LocalizationService.available_languages()==LocalizationService.ENABLED_LANGUAGES and drafts.size()==4 and not drafts.any(func(l):return LocalizationService.select_language(l)),"The four Batch 04 drafts are neither packaged nor selectable")
     var text: String=tr("REVIEW_BODY")+" "+tr("REVIEW_TITLE")+" "+tr("REVIEW_LEAD")
     var lower:=text.to_lower()
     check(lower.contains("honest") and not lower.contains("5 star") and not lower.contains("five star") and not lower.contains("reward") and not lower.contains("gem"),"The request is for an honest review: no stars, rewards or pressure")

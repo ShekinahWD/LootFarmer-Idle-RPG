@@ -1,4 +1,15 @@
-# LootFarmer — Test Suite (current, 2026-10-29, Change 41)
+# LootFarmer — Test Suite (current, 2026-10-29, Change 42)
+
+## Change 42 — Localization Batch 03 (29 October 2026)
+
+Command: `python tools/run_probes.py`. **46 entries:** `validate_campaign_source`, `export_manifest`, `validate_localization` and 43 Godot scenes. Details: [Batch 03 report](LootFarmer_Localization_Batch_03_Report.md).
+
+- **Registered** `localization_batch03_probe` (135 checks): availability before/after activation, Batch 04 drafts and `batch04` refused; routing and all 1,951 keys × 5 through Godot's PO loader; per-locale theme font (Thai/Devanagari chains, plain DejaVu elsewhere) and glyph coverage with system fallback off; Devanagari conjunct, pre-base matra and ligatures; Thai mark stacking, dictionary word breaks and no line starting with a following vowel/ๆ/mark; dropdown draws every native name; Automatic for tr/id/in/vi/th/hi and English for neighbours; formatting, durations, Turkish İ/ı, Hindi count lines; live switching with panels open; persistence and old saves.
+- **`localization_sweep`:** defaults now pseudo + English + 15 languages × 3 shapes; new `missing_glyph` (Font.has_char on the control's own font) and `clipped_y` checks (world-space labels excluded); timeout 900 s.
+- **Updated for 16 languages / 4 drafts:** `localization_batch01_probe`, `localization_batch02_probe`, `change_40_probe` (dropdown size from the enabled list), `change_35_probe`, `ui_probe`, `bootstrap_probe`. `validate_localization` compares `%%` by count and enforces the Hindi count rule; `validate_campaign_source` reads UTF-8.
+- **Outside the suite:** `change_40_capture` now also renders Thai/Hindi dropdowns and Automatic on a Thai device; `verify_export.py` accepts and, with `include_text_server_data`, requires `icudt_godot.dat`.
+
+**Final run in the working tree: 43/46**, no script errors or timeouts; the 3 failures (`export_manifest`, `change_27_probe`, `change_26_probe`) are the pre-existing ones from the developer's uncommitted `project.godot` / `export_presets.cfg` edits. In a clean worktree of `7ff484f` + the Change 42 files all three pass (10/10 with the localization probes). Export: signed AAB and the itch.io Android / Windows packs `verify_export.py` PASS, 264/264 files, en + 15 catalogs, both Noto fonts and the ICU data.
 
 ## Change 41 — Playtest corrections (29 October 2026)
 

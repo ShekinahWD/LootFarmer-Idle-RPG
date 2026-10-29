@@ -6,7 +6,7 @@ file (Change 24: a test run never rewrites archived evidence such as docs/Change
 from pathlib import Path
 import json, re, sys
 ROOT=Path(__file__).resolve().parents[1]
-c=json.loads((ROOT/'data/game/catalog.json').read_text())
+c=json.loads((ROOT/'data/game/catalog.json').read_text(encoding='utf-8'))
 checks=[]
 def check(label, condition):
     checks.append({'check':label,'pass':bool(condition)})
@@ -29,9 +29,9 @@ for ident,entry in c['items'].items():
     check('successor '+ident,not entry['next'] or entry['next'] in c['items'])
 for combo in c['campaign']['combos']:
     check('combo '+combo['id'],len(combo['cards'])==3 and all(x in c['campaign']['cards'] for x in combo['cards']))
-strings=set(re.findall(r'^msgid "([^"]+)"$',(ROOT/'localization/en.po').read_text(),re.M))
+strings=set(re.findall(r'^msgid "([^"]+)"$',(ROOT/'localization/en.po').read_text(encoding='utf-8'),re.M))
 for script in (ROOT/'scripts/game').glob('*.gd'):
-    for key in re.findall(r'tr\("([A-Z_0-9]+)"\)',script.read_text()):check('translation '+key,key in strings)
+    for key in re.findall(r'tr\("([A-Z_0-9]+)"\)',script.read_text(encoding='utf-8')):check('translation '+key,key in strings)
 for key in c['upgrades']:check('upgrade translation '+key,'UP_'+key.upper() in strings)
 for s in c['stages']:
     check('season clear/effect '+str(s['id']), bool(s['weather'])==(s['id']%2==0))

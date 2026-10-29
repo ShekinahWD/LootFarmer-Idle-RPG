@@ -3,7 +3,8 @@ change_22 and change_24 probes, Change 25 the change_25 probe, Change 26 the cha
 export manifest check, Change 27 the change_27 probe, Change 34 the change_34 screenshot-set probe, Change 35
 the change_35 review-invitation and targeting-lesson probe, Change 36 the change_36 supply-mastery probe, Change 38
 the Localization Batch 01 probe and the rendered-text localization sweep, Change 40 the change_40 language
-dropdown and progressive-activation probe, Change 41 the change_41 playtest-corrections probe). Runs each probe headless, one at a time
+dropdown and progressive-activation probe, Change 41 the change_41 playtest-corrections probe, Change 42 the
+Localization Batch 03 probe). Runs each probe headless, one at a time
 (playbook 60.1), with a hard timeout, and counts a run as failed when it exits non-zero, times out
 or prints any SCRIPT ERROR (a script error aborts a probe's coroutine before it can quit).
 
@@ -30,7 +31,8 @@ SUITE = {
     'change_40_probe': 300,
     'localization_batch01_probe': 300,
     'localization_batch02_probe': 300,
-    'localization_sweep': 600,
+    'localization_batch03_probe': 300,
+    'localization_sweep': 900,
     'change_36_probe': 180,
     'change_35_probe': 240,
     'change_34_probe': 120,

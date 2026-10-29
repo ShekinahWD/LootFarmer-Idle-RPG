@@ -1,0 +1,196 @@
+{
+ "english_keys": 1951,
+ "enabled": [
+  "en_US",
+  "es_419",
+  "es_ES",
+  "pt_BR",
+  "fr_FR",
+  "de_DE",
+  "it_IT",
+  "nl_NL",
+  "pl_PL",
+  "ru_RU",
+  "uk_UA",
+  "tr_TR",
+  "id_ID",
+  "vi_VN",
+  "th_TH",
+  "hi_IN"
+ ],
+ "drafts_hidden": [
+  "ja_JP",
+  "ko_KR",
+  "zh_CN",
+  "zh_TW"
+ ],
+ "certified": false,
+ "catalogs": {
+  "es_419": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 7,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "es_ES": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 7,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "pt_BR": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 11,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "fr_FR": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 17,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "de_DE": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 27,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "it_IT": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 13,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "nl_NL": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 39,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "pl_PL": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 11,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "ru_RU": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 3,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "uk_UA": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 3,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "tr_TR": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 4,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "id_ID": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 22,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "vi_VN": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 7,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "th_TH": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 6,
+   "english_words": 0,
+   "raw_keys": 0
+  },
+  "hi_IN": {
+   "keys": 1951,
+   "fuzzy": 0,
+   "empty": 0,
+   "placeholder_errors": 0,
+   "symbol_errors": 0,
+   "english_copies": 0,
+   "allowlisted_copies": 8,
+   "english_words": 0,
+   "raw_keys": 0
+  }
+ },
+ "problems": []
+}

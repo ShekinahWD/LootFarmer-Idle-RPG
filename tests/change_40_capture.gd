@@ -69,6 +69,18 @@ func run() -> void:
     await reveal()
     await shot("closed_automatic_de")
     await open_shot("open_automatic_de")
+    # 7. Change 42: Thai and Hindi chosen (script fallback fonts), and Automatic on a Thai device.
+    LocalizationService.set_test_device_locale("en_US")
+    for lang in ["th_TH","hi_IN"]:
+        LocalizationService.select_language(lang);await frames(10)
+        await reveal()
+        await shot("closed_"+lang)
+        await open_shot("open_"+lang)
+    LocalizationService.set_test_device_locale("th_TH")
+    LocalizationService.select_language("automatic");await frames(10)
+    await reveal()
+    await open_shot("open_automatic_th")
+    LocalizationService.set_test_device_locale("en_US")
     var f:=FileAccess.open(ProjectSettings.globalize_path(out+shape+"_layout.json"),FileAccess.WRITE)
     f.store_string(JSON.stringify(layout,"  "));f.close()
     print("CHANGE_40_CAPTURE shape=%s screens=%d" % [shape,layout.size()])

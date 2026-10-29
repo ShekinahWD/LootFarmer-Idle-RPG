@@ -1,10 +1,13 @@
 extends Node
-## Localization Batches 01 and 02: renders the game's player-visible surfaces in one or more languages and
+## Localization Batches 01-03: renders the game's player-visible surfaces in one or more languages and
 ## checks what is actually on screen (Playbook 132.4, 132.6).
 ## - pseudo: every catalog string is wrapped in ⟦ ⟧; any visible text outside the markers did not come
 ##   from the catalog (hardcoded English, a key built from data, a name derived from an id).
 ## - a real language: no raw keys, no English sentence that the language translates differently,
-##   no clipped single-line text, nothing pushed off screen horizontally, buttons stay tappable.
+##   no clipped single-line text, nothing pushed off screen horizontally, buttons stay tappable; Batch 03
+##   (Change 42): every visible character exists in the control's own bundled font chain (Font.has_char never
+##   consults system fonts) and no label or button is shorter than its text needs (Thai and Devanagari lines
+##   are taller).
 ## Headless: -- --probe --profile=probe-l10n --no-autosave --first-run-complete [--langs=pseudo,de_DE]
 ##   [--sizes=432x960,540x960,768x1024] [--report=res://docs/.../sweep.json]
 ## The canvas stretches to 720 units wide (canvas_items, expand), so shapes, not pixel counts, change layout:
@@ -12,8 +15,8 @@ extends Node
 ## Windowed screenshots: --resolution 540x960 ... --langs=de_DE --shots=res://docs/.../screens/ --shape=540
 var game
 var sim
-## Defaults (the maintained-suite run): pseudo-locale, English, Batch 01 and Batch 02 at the three portrait shapes.
-var langs: Array=["pseudo","en","es_419","es_ES","pt_BR","fr_FR","de_DE","it_IT","nl_NL","pl_PL","ru_RU","uk_UA"]
+## Defaults (the maintained-suite run): pseudo-locale, English, Batches 01-03 at the three portrait shapes.
+var langs: Array=["pseudo","en","es_419","es_ES","pt_BR","fr_FR","de_DE","it_IT","nl_NL","pl_PL","ru_RU","uk_UA","tr_TR","id_ID","vi_VN","th_TH","hi_IN"]
 var sizes: Array=[]
 var shots:=""
 var shape:=""
@@ -64,6 +67,7 @@ func run() -> void:
         if value.split(" ").size()>=3 and not "%" in value:english_values[value]=key
     LocalizationService.enable_test_batch("batch01")
     LocalizationService.enable_test_batch("batch02")
+    LocalizationService.enable_test_batch("batch03")
     TranslationServer.add_translation(pseudo_translation())
     for lang in langs:
         if lang!="pseudo":translations[lang]=read_po("res://localization/%s.po" % lang)
@@ -189,6 +193,10 @@ func inspect(screen: String) -> void:
         for t in texts_of(c):
             for line in t.split("\n"):
                 if raw.search(line.strip_edges())!=null:add(screen,"raw_key",line,c)
+            var glyph_font: Font=c.get_theme_font("normal_font" if c is RichTextLabel else "font")
+            for ch in t:
+                if ch.unicode_at(0)>32 and ch!="\u00a0" and ch!="\u202f" and not glyph_font.has_char(ch.unicode_at(0)):
+                    add(screen,"missing_glyph","%s in %s" % [ch,t.left(40)],c)
             if current_lang=="pseudo":
                 # Language names in the language dropdown are proper names, never catalog text (Change 40).
                 var rest: String=strip_marked(t)
@@ -217,6 +225,9 @@ func inspect(screen: String) -> void:
             var room: float=r.size.x-c.get_theme_stylebox("normal").get_minimum_size().x-icon_w
             for line in displayed(c).split("\n"):
                 if font.get_string_size(line,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x>room+2:add(screen,"clipped",line,c)
+        # World-space labels (the HP number over an actor) are drawn scaled inside the map viewport, not laid out.
+        if (c is Label or c is Button) and displayed(c)!="" and c.get_combined_minimum_size().y>r.size.y+2 and not game.get_node("Safe/Layout/Map/ViewportContainer").is_ancestor_of(c):
+            add(screen,"clipped_y","%s h=%d needs %d" % [displayed(c).left(40),int(r.size.y),int(c.get_combined_minimum_size().y)],c)
         if c is Button and not c.disabled and r.size.y<44 and displayed(c)!="" and scroll==null and not c.get_parent() is TabBar:
             add(screen,"small_button","%s h=%d" % [displayed(c).left(40),int(r.size.y)],c)
     if shots!="" and (shot_screens.is_empty() or screen in shot_screens):

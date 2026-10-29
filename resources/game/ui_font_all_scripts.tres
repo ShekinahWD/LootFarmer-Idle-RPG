@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=4 format=3]
+
+[ext_resource type="FontFile" path="res://assets/Fonts/DejaVuSans.ttf" id="base"]
+[ext_resource type="FontFile" path="res://assets/Fonts/NotoSansThai.ttf" id="thai"]
+[ext_resource type="FontFile" path="res://assets/Fonts/NotoSansDevanagari.ttf" id="devanagari"]
+
+[resource]
+base_font=ExtResource("base")
+fallbacks=Array[Font]([ExtResource("thai"), ExtResource("devanagari")])

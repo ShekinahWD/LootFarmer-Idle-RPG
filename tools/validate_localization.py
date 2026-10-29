@@ -1,16 +1,18 @@
 """Structural check of LootFarmer's translation catalogs against the canonical English source
-(Localization Batches 01 and 02, Changes 38 and 39; progressive activation, Change 40; Playbook 132.5).
+(Localization Batches 01-03, Changes 38, 39 and 42; progressive activation, Change 40; Playbook 132.5).
 
 For every catalog a player build enables (ENABLED_LANGUAGES in scripts/autoload/localization_service.gd) and every
 validated test batch (TEST_BATCHES):
   - the exact English key set, in the English order, each key once;
   - a nonempty msgstr, no fuzzy flag, no msgctxt/plural forms the source does not have;
-  - the same placeholder sequence (%s %d %.1f %02d %% ... in the same order: GDScript's % has no positional
-    arguments), the same number of \\n and the same fixed symbols (^ × → ✓ • ‹);
+  - the same value placeholders (%s %d %.1f %02d ... in the same order: GDScript's % has no positional
+    arguments), the same number of %% (it may move: Turkish writes the percent sign first, "%12"), the same
+    number of \\n and the same fixed symbols (^ × → ✓ • ‹);
   - no raw semantic key and no msgstr equal to its English text unless tools/localization_allowlist.json names it;
   - no common English function words left in the text (a copy-through heuristic);
-  - Polish, Russian, Ukrainian (Batch 02): no number placeholder directly followed by a noun whose form depends
-    on the count (the source has no plural forms, so those catalogs use count-neutral wording);
+  - Polish, Russian, Ukrainian (Batch 02) and Hindi (Batch 03): no number placeholder directly followed by a
+    noun whose form depends on the count (the source has no plural forms, so those catalogs use count-neutral
+    wording);
   - a Language header naming the catalog's locale.
 It also checks the English catalog itself (unique keys, every scene-text key present), that project.godot
 registers only en.po (LocalizationService loads the enabled catalogs on first use), and the readiness table:
@@ -36,8 +38,14 @@ COUNT_FOLLOWERS = {
     'pl_PL': {'s', 'min', 'godz', 'pkt', 'jedn', 'PŻ', 'PD', 'obrony', 'do', 'z', 'na', 'od', 'lub', 'więcej', 'jeszcze'},
     'ru_RU': {'с', 'мин', 'ч', 'п', 'ед', 'ОЗ', 'опыта', 'урона', 'к', 'из', 'на', 'до', 'от', 'ещё'},
     'uk_UA': {'с', 'хв', 'год', 'в', 'од', 'ОЗ', 'досвіду', 'шкоди', 'до', 'з', 'на', 'від', 'ще'},
+    # Batch 03: Hindi -ā nouns change in the direct plural (1 सिक्का, 2 सिक्के; 1 घंटा, 2 घंटे) and feminine
+    # plurals add -ẽ/-yā̃ (पोशाकें, प्रतियाँ). After a number: abbreviations, postpositions and invariant nouns only.
+    # Words that follow a name placeholder (verbs, अभी) are listed too: they never change with a number either.
+    'hi_IN': {'से', 'मि', 'घं', 'सेकंड', 'मिनट', 'HP', 'XP', 'अंक', 'बार', 'रत्न', 'यूनिट', 'दुश्मन', 'कार्ड', 'प्रकार',
+              'स्थान', 'लेवल', 'बॉस', 'कैंप', 'स्लॉट', 'उपयोग', 'रक्षा', 'डैमेज', 'दिशा', 'उपाधि', 'की', 'का', 'के', 'को',
+              'तक', 'पर', 'में', 'या', 'और', 'बाकी', 'अभी', 'पूरा', 'तय', 'चुनें', 'हराएँ', 'अनलॉक', 'स्वचालित'},
 }
-COUNT_WORD = re.compile(r'%(?:\.\d)?[ds](?: | )([^\s\d%·•()/:,.;!?×\-−→+^—]+)')
+COUNT_WORD = re.compile(r'%(?:\.\d)?[ds](?: | )([^\s\d%·•()/:,.;!?×\-−→+^—।]+)')
 
 
 def read_po(path):
@@ -129,7 +137,8 @@ def check_catalog(lang, english, allow, problems):
             report['empty'] += 1
             problems.append(f'{lang} {key}: empty')
             continue
-        if PLACEHOLDER.findall(value) != PLACEHOLDER.findall(en):
+        values = lambda s: [p for p in PLACEHOLDER.findall(s) if p != '%%']
+        if values(value) != values(en) or value.count('%%') != en.count('%%'):
             report['placeholder_errors'] += 1
             problems.append(f'{lang} {key}: placeholders {PLACEHOLDER.findall(value)} != {PLACEHOLDER.findall(en)}')
         for symbol in SYMBOLS:

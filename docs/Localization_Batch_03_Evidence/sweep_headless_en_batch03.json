@@ -1,0 +1,162 @@
+{
+  "findings": [
+    {
+      "kind": "clipped_y",
+      "lang": "en",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "432x960",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "tr_TR",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "432x960",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "id_ID",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "432x960",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "vi_VN",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "432x960",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "th_TH",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "432x960",
+      "text": "237/395 h=9 needs 36"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "hi_IN",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "432x960",
+      "text": "237/395 h=8 needs 32"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "en",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "540x960",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "tr_TR",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "540x960",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "id_ID",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "540x960",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "vi_VN",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "540x960",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "th_TH",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "540x960",
+      "text": "237/395 h=9 needs 36"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "hi_IN",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "540x960",
+      "text": "237/395 h=8 needs 32"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "en",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "768x1024",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "tr_TR",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "768x1024",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "id_ID",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "768x1024",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "vi_VN",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "768x1024",
+      "text": "237/395 h=7 needs 28"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "th_TH",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "768x1024",
+      "text": "237/395 h=9 needs 36"
+    },
+    {
+      "kind": "clipped_y",
+      "lang": "hi_IN",
+      "node": "Safe/Layout/Map/ViewportContainer/Viewport/World/Actors/Actor/HP/Text",
+      "screen": "hud",
+      "size": "768x1024",
+      "text": "237/395 h=8 needs 32"
+    }
+  ],
+  "langs": [
+    "en",
+    "tr_TR",
+    "id_ID",
+    "vi_VN",
+    "th_TH",
+    "hi_IN"
+  ],
+  "screens": 1055,
+  "sizes": [
+    "432x960",
+    "540x960",
+    "768x1024"
+  ]
+}

@@ -8,6 +8,9 @@ extends OptionButton
 ## them only when the offered list, the choice or the locale changes, and never while the menu is open.
 
 const GROUP := &"dropdown"
+## Every language name is written in its own script (ไทย, हिन्दी), whatever the current locale, so the dropdown
+## always draws with the theme font plus the Thai and Devanagari fallbacks (Change 42).
+const ALL_SCRIPTS_FONT := preload("res://resources/game/ui_font_all_scripts.tres")
 const MARGIN := 12.0
 ## Below this many rows on the roomier side, the menu covers the button instead (still inside the safe area).
 const MIN_ROWS := 3
@@ -28,6 +31,7 @@ func _init() -> void:
     size_flags_horizontal = SIZE_EXPAND_FILL
     custom_minimum_size = Vector2(0, 72)
     add_theme_font_size_override("font_size", 22)
+    add_theme_font_override("font", ALL_SCRIPTS_FONT)
     add_theme_constant_override("arrow_margin", 18)
     if _arrow == null:
         var image := ThemeDB.get_default_theme().get_icon("arrow", "OptionButton").get_image()
@@ -36,6 +40,7 @@ func _init() -> void:
     add_theme_icon_override("arrow", _arrow)
     var menu := get_popup()
     menu.auto_translate_mode = AUTO_TRANSLATE_MODE_DISABLED
+    menu.add_theme_font_override("font", ALL_SCRIPTS_FONT)
     menu.about_to_popup.connect(_place_menu)
     menu.popup_hide.connect(_menu_closed)
     # An internal, top-level child: the panel reconciler never sees it, and it covers the whole screen.

@@ -1,6 +1,6 @@
 {
  "_doc": [
-  "Localization Batches 01 (Change 38) and 02 (Change 39): translations that are deliberately identical to the English source.",
+  "Localization Batches 01 (Change 38), 02 (Change 39) and 03 (Change 42): translations that are deliberately identical to the English source.",
   "A targeted allowlist (Playbook 132.5): one entry per locale and key, with the reason. tools/validate_localization.py",
   "fails on any other msgstr equal to its English text. Reasons: brand (store title kept as the product name),",
   "abbreviation (unit or game abbreviation used unchanged by players of that language), cognate (the correct word",
@@ -163,5 +163,62 @@
   "APP_TITLE": "brand",
   "GAME_TITLE": "brand",
   "DISCORD": "brand: Discord (the service's name, Change 41)"
+ },
+ "tr_TR": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "DISCORD": "brand: Discord (the service's name, Change 41)",
+  "BOSS_LABEL": "loanword: Boss (the term Turkish players use; patron means employer)"
+ },
+ "id_ID": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "DISCORD": "brand: Discord (the service's name, Change 41)",
+  "UI_CONFIRM": "loanword: reset (Indonesian UI term)",
+  "PLAYER_STATUS": "abbreviation: HP",
+  "HUD_HP": "abbreviation: HP",
+  "STATS_SHORT_HP": "abbreviation: HP",
+  "LEVEL": "loanword: level (standard Indonesian, KBBI; tingkat is the item tier)",
+  "HUD_LEVEL": "loanword: level (standard Indonesian, KBBI; tingkat is the item tier)",
+  "ENEMY_LEVEL": "loanword: level (standard Indonesian, KBBI; tingkat is the item tier)",
+  "UPGRADE_LEVEL": "loanword: level (standard Indonesian, KBBI; tingkat is the item tier)",
+  "STATS_LEVEL": "loanword: level (standard Indonesian, KBBI; tingkat is the item tier)",
+  "LEVEL_PANEL_LEVEL": "loanword: level (standard Indonesian, KBBI; tingkat is the item tier)",
+  "PANEL_ITEM": "loanword: item (KBBI)",
+  "COMPARE_ITEM": "loanword: item (KBBI)",
+  "TAB_OFFLINE": "loanword: offline",
+  "STAT_DAMAGE": "loanword: damage/DMG, the word Indonesian players use for it",
+  "STATS_SHORT_DAMAGE": "abbreviation: dmg",
+  "MASTERY_REWARD_DAMAGE": "loanword: damage/DMG, the word Indonesian players use for it",
+  "SKILL_AMOUNT_FOCUS": "loanword: damage/DMG, the word Indonesian players use for it",
+  "STATS_PRESTIGE_MULT_VALUE": "abbreviation: HP; loanword: damage/DMG, the word Indonesian players use for it",
+  "FARMING_MAP_TITLE": "loanword: farming (Indonesian gaming term)"
+ },
+ "vi_VN": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "DISCORD": "brand: Discord (the service's name, Change 41)",
+  "PLAYER_STATUS": "abbreviation: HP",
+  "HUD_HP": "abbreviation: HP",
+  "STATS_SHORT_HP": "abbreviation: HP",
+  "BOSS_LABEL": "loanword: Boss (the term Vietnamese players use)"
+ },
+ "th_TH": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "DISCORD": "brand: Discord (the service's name, Change 41)",
+  "PLAYER_STATUS": "abbreviation: HP",
+  "HUD_HP": "abbreviation: HP",
+  "STATS_SHORT_HP": "abbreviation: HP"
+ },
+ "hi_IN": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "DISCORD": "brand: Discord (the service's name, Change 41)",
+  "PLAYER_STATUS": "abbreviation: HP",
+  "HUD_HP": "abbreviation: HP",
+  "STATS_SHORT_HP": "abbreviation: HP",
+  "SUPPLY_AMOUNT_XP": "abbreviation: XP",
+  "MASTERY_REWARD_XP": "abbreviation: XP"
  }
 }

@@ -1,0 +1,5864 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: hi_IN\n"
+"Language-Team: Hindi (India)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 03 (Change 42)\n"
+"X-LootFarmer-Source: localization/en.po d6102fccdbae9721e20d5baa922c9a50d88ec85324c09b9b179832d3d47fe7e3\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Android स्टार्टअप जाँच"
+
+msgid "BOOT_DETAIL"
+msgstr "चेकपॉइंट 0 • गेमप्ले अभी लागू नहीं हुआ है।"
+
+msgid "BOOT_VERSION"
+msgstr "संस्करण %s"
+
+msgid "BOOT_TAPS"
+msgstr "सहेजे गए टच: %d"
+
+msgid "BOOT_TAP"
+msgstr "टच जाँचें और सहेजें"
+
+msgid "BOOT_SAVED"
+msgstr "सहेजना पूरा हुआ"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "सहेजना उपलब्ध नहीं है। सत्यापन लॉग जाँचें।"
+
+msgid "BOOT_PAUSE"
+msgstr "रोकें"
+
+msgid "BOOT_RESUME"
+msgstr "जारी रखें"
+
+msgid "BOOT_RESET"
+msgstr "पूरा रीसेट"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "प्रगति रीसेट करें?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "इससे इस प्रोफ़ाइल की सारी प्रगति मिट जाएगी। आपकी सेटिंग्स बनी रहेंगी।"
+
+msgid "UI_CONFIRM"
+msgstr "रीसेट करें"
+
+msgid "UI_CANCEL"
+msgstr "रद्द करें"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "भाषा"
+
+msgid "LANG_AUTOMATIC"
+msgstr "स्वचालित"
+
+msgid "LANG_DISABLED"
+msgstr "अनुवाद सत्यापन के बाद उपलब्ध"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "अंग्रेज़ी चालू है। बाकी भाषाएँ सत्यापन के बाद खुलेंगी।"
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "एक अपठनीय या नया सेव सुरक्षित रखा गया है। संगत बैकअप बहाल करें या जानबूझकर इस प्रोफ़ाइल को रीसेट करें।"
+
+msgid "LANG_EN_US"
+msgstr "अंग्रेज़ी"
+
+msgid "LANG_ES_419"
+msgstr "स्पेनिश (लैटिन अमेरिका)"
+
+msgid "LANG_ES_ES"
+msgstr "स्पेनिश (स्पेन)"
+
+msgid "LANG_PT_BR"
+msgstr "पुर्तगाली (ब्राज़ील)"
+
+msgid "LANG_FR_FR"
+msgstr "फ़्रेंच"
+
+msgid "LANG_DE_DE"
+msgstr "जर्मन"
+
+msgid "LANG_IT_IT"
+msgstr "इतालवी"
+
+msgid "LANG_NL_NL"
+msgstr "डच"
+
+msgid "LANG_PL_PL"
+msgstr "पोलिश"
+
+msgid "LANG_RU_RU"
+msgstr "रूसी"
+
+msgid "LANG_UK_UA"
+msgstr "यूक्रेनी"
+
+msgid "LANG_TR_TR"
+msgstr "तुर्की"
+
+msgid "LANG_ID_ID"
+msgstr "इंडोनेशियाई"
+
+msgid "LANG_VI_VN"
+msgstr "वियतनामी"
+
+msgid "LANG_TH_TH"
+msgstr "थाई"
+
+msgid "LANG_HI_IN"
+msgstr "हिन्दी"
+
+msgid "LANG_JA_JP"
+msgstr "जापानी"
+
+msgid "LANG_KO_KR"
+msgstr "कोरियाई"
+
+msgid "LANG_ZH_CN"
+msgstr "चीनी (सरलीकृत)"
+
+msgid "LANG_ZH_TW"
+msgstr "चीनी (पारंपरिक)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "सिक्के %s     रत्न %s"
+
+msgid "PAUSE"
+msgstr "रोकें"
+
+msgid "RESUME"
+msgstr "जारी रखें"
+
+msgid "PLAYER_STATUS"
+msgstr "HP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "%.1f से. में कैंप पर वापसी"
+
+msgid "BOOST_ACTIVE"
+msgstr "सिक्का बूस्ट %d से."
+
+msgid "GROUP_0"
+msgstr "अंकुर घास का मैदान"
+
+msgid "GROUP_1"
+msgstr "रोबोट चौराहा"
+
+msgid "GROUP_2"
+msgstr "डायनासोर उपवन"
+
+msgid "GROUP_3"
+msgstr "मृत्यु का मैदान"
+
+msgid "CLOSE"
+msgstr "बंद करें"
+
+msgid "CONFIRM"
+msgstr "पुष्टि करें"
+
+msgid "CANCEL"
+msgstr "रद्द करें"
+
+msgid "LEVEL"
+msgstr "लेवल"
+
+msgid "INVENTORY_HEADING"
+msgstr "गियर"
+
+msgid "SUPPLY_HEADING"
+msgstr "रसद"
+
+msgid "GEAR_CAPACITY"
+msgstr "गियर  %d / %d  ·  देखने के लिए टैप करें"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "रसद  %d / %d  ·  उपयोग या स्वचालित करने के लिए टैप करें"
+
+msgid "EMPTY_SLOT"
+msgstr "खाली"
+
+msgid "EQUIPPED"
+msgstr "पहना हुआ"
+
+msgid "AUTO"
+msgstr "ऑटो"
+
+msgid "UPGRADES"
+msgstr "अपग्रेड"
+
+msgid "WORLD"
+msgstr "दुनिया"
+
+msgid "STATS"
+msgstr "आँकड़े"
+
+msgid "SETTINGS"
+msgstr "सेटिंग्स"
+
+msgid "PANEL_ITEM"
+msgstr "आइटम"
+
+msgid "PANEL_UPGRADES"
+msgstr "खिलाड़ी अपग्रेड"
+
+msgid "PANEL_TRAVEL"
+msgstr "कैंप और फ़ार्मिंग"
+
+msgid "PANEL_STATS"
+msgstr "आपका बिल्ड"
+
+msgid "PANEL_SETTINGS"
+msgstr "सेटिंग्स"
+
+msgid "PANEL_HISTORY"
+msgstr "हाल में मिली चीज़ें"
+
+msgid "PANEL_PRESTIGE"
+msgstr "एक नई शुरुआत"
+
+msgid "HELP_0"
+msgstr "उत्तर की ओर खोजबीन के लिए जॉयस्टिक का उपयोग करें। छोड़ते ही पास के दुश्मनों से अपने-आप लड़ाई होगी।"
+
+msgid "HELP_1"
+msgstr "अंकुर अकेले लड़ते हैं। फ़ार्म करने के लिए उनके पास रहें; गिरे गियर को उठाने के लिए टैप करें।"
+
+msgid "HELP_2"
+msgstr "ज़मीन पर पड़े आइटम पर टैप करें। सिक्के और रत्न सीधे आपके बटुए में जाते हैं।"
+
+msgid "HELP_3"
+msgstr "नीचे अपने नए गियर पर टैप करें, फिर उसे लैस करें। आप एक पोशाक और एक हथियार पहन सकते हैं।"
+
+msgid "HELP_4"
+msgstr "उस आइटम प्रकार को मज़बूत करने के लिए एक प्रति मर्ज करें। स्टॉक शून्य होने पर भी उसकी प्रगति बनी रहती है।"
+
+msgid "HELP_5"
+msgstr "किसी दुश्मन प्रकार को खोलें और ऑटो-कलेक्ट खरीदें, ताकि फ़ार्म करते समय उसकी लूट इकट्ठा हो।"
+
+msgid "HELP_6"
+msgstr "अपना बिल्ड बढ़ाएँ, उत्तर की खोज करें और मृत्यु को हराएँ। दुनिया शुरू से खुली है।"
+
+msgid "HELP_7"
+msgstr "आपके स्थायी बोनस बने रहते हैं। और मज़बूत दौर बनाएँ और मृत्यु को फिर चुनौती दें।"
+
+msgid "HELP_VICTORY"
+msgstr "मृत्यु पराजित! फ़ार्मिंग जारी रखें या दुनिया में प्रेस्टीज कार्ड चुनें।"
+
+msgid "HELP_PAUSED"
+msgstr "रुका हुआ · इन्वेंटरी प्रबंधन उपलब्ध है। फ़ार्मिंग जारी रखने के लिए फिर शुरू करें।"
+
+msgid "HISTORY_EMPTY"
+msgstr "आपकी नई खोजें यहाँ दिखेंगी।\nपिछली दस देखने के लिए टैप करें।"
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s रत्न"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "बेचा: %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "लकड़ी की तलवार"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "पत्थर की तलवार"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "लोहे की तलवार"
+
+msgid "ITEM_SPROUT"
+msgstr "अंकुर की पोशाक"
+
+msgid "ITEM_ROBOT"
+msgstr "रोबोट की पोशाक"
+
+msgid "ITEM_DINOSAUR"
+msgstr "डायनासोर की पोशाक"
+
+msgid "ITEM_POTION"
+msgstr "हेल्थ पोशन"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "सिक्का टॉनिक"
+
+msgid "ITEM_QUANTITY"
+msgstr "आपके पास: %s"
+
+msgid "NORMAL_STATS"
+msgstr "सामान्य आँकड़े · मर्ज से बढ़ते हैं"
+
+msgid "EXTRA_STATS"
+msgstr "अतिरिक्त आँकड़े · इस आइटम प्रकार में साझा"
+
+msgid "EQUIP"
+msgstr "लैस करें"
+
+msgid "UNEQUIP"
+msgstr "हटाएँ"
+
+msgid "REROLL"
+msgstr "दोनों अतिरिक्त फिर से रोल करें · %s रत्न"
+
+msgid "REROLL_CONFIRM"
+msgstr "दोनों अतिरिक्त आँकड़े बदलने के लिए %s रत्न खर्च करें? नया रोल पुराने की जगह ले लेगा, भले ही वह कमज़ोर हो।"
+
+msgid "USE"
+msgstr "एक उपयोग करें"
+
+msgid "MERGE_ONE"
+msgstr "एक अतिरिक्त प्रति मर्ज करें"
+
+msgid "MERGE_ALL"
+msgstr "अतिरिक्त प्रतियाँ मर्ज करें: %d"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "^100 पर, अगले टियर के एक आइटम के लिए 100 अतिरिक्त प्रतियाँ खर्च करें। स्रोत आइटम और उसका मर्ज लेवल बने रहते हैं। उसी श्रेणी का लक्ष्य स्टैक या खाली स्लॉट ज़रूरी है।"
+
+msgid "EVOLVE"
+msgstr "इवॉल्व करें → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "इस स्लॉट का स्वचालन चालू/बंद करें"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "यह स्लॉट अपने-आप उपयोग करें: %s"
+
+msgid "ON"
+msgstr "चालू"
+
+msgid "OFF"
+msgstr "बंद"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "यह स्लॉट खाली है। नए आइटम प्रकारों को खाली स्लॉट चाहिए; मौजूदा प्रकार एक साथ जमा होते हैं।"
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "समूह अपग्रेड हर सदस्य पर लागू होते हैं। हर दुश्मन अपनी लूट खुद तय करता है। सिक्के और रत्न तुरंत जुड़ जाते हैं।"
+
+msgid "GROUP_SELECT"
+msgstr "दुश्मन समूह: %s · बदलने के लिए टैप करें"
+
+msgid "AUTOMATION_HEADING"
+msgstr "इन्वेंटरी और स्वचालन · प्रेस्टीज के बाद भी बने रहते हैं"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "सिक्के"
+
+msgid "GEMS"
+msgstr "रत्न"
+
+msgid "TRAVEL_HELP"
+msgstr "पुनर्जीवन स्थान चुनने के लिए नक्शे पर किसी कैंप पर टैप करें। कैंप पैनल से अनलॉक करने पर भी वह चुना जाता है। टेलीपोर्ट नहीं।"
+
+msgid "SPAWN_SELECT"
+msgstr "कैंप %d चुनें"
+
+msgid "SPAWN_BUY"
+msgstr "कैंप %d अनलॉक करें · सिक्के: %s"
+
+msgid "SELECTED"
+msgstr "चुना गया"
+
+msgid "FOCUS_HELP"
+msgstr "हर दुश्मन प्रकार के लिए फ़ार्मिंग अनलॉक करें, फिर केवल पोशाक, केवल हथियार या दोनों चुनें। मरने के बाद उसी कैंप पर लौटें। खुद चलने से फ़ार्मिंग रुक जाती है।"
+
+msgid "FOCUS_GROUP"
+msgstr "फ़ार्म: %s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "एक प्रेस्टीज कार्ड चुनें"
+
+msgid "PRESTIGE_COUNT"
+msgstr "पूरे किए गए प्रेस्टीज: %d"
+
+msgid "NO_OFFLINE"
+msgstr "प्रगति सहेजी गई। ऑफ़लाइन इनाम पूर्ण गेम के लिए नियोजित हैं; यह बिल्ड बंद या बैकग्राउंड में होने पर नहीं चलता।"
+
+msgid "SAVE_NOW"
+msgstr "अभी सहेजें"
+
+msgid "HARD_RESET"
+msgstr "पूरा रीसेट"
+
+msgid "RESET_CONFIRM"
+msgstr "सारी प्रगति, इन्वेंटरी, स्वचालन और प्रेस्टीज कार्ड मिटाएँ? सेटिंग्स बनी रहेंगी। इसे पूर्ववत नहीं किया जा सकता।"
+
+msgid "LANGUAGE_NOTE"
+msgstr "विकास के दौरान अंग्रेज़ी उपलब्ध है। बाकी 19 भाषाएँ अनुवाद सत्यापन के बाद खुलेंगी।"
+
+msgid "CREDITS"
+msgstr "पात्र और दुनिया कला: SnowHex द्वारा Pixel Plains। इंटरफ़ेस: Kenney Fantasy UI Borders (CC0)।"
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "एक स्थायी +5% कार्ड चुनें। बोनस हर दौर में जुड़ते जाते हैं। आप यह पैनल बंद करके फ़ार्मिंग जारी रख सकते हैं।"
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "इस स्थायी कार्ड के साथ नया दौर शुरू करें? मुद्राएँ, इन्वेंटरी, आइटम मर्ज/अतिरिक्त, दुश्मन फ़ार्मिंग अपग्रेड और कैंप रीसेट होंगे। उजागर दुश्मन जानकारी, स्वचालन लेवल, इन्वेंटरी क्षमता और सभी प्रेस्टीज कार्ड बने रहेंगे।"
+
+msgid "CARD_DAMAGE"
+msgstr "+5% डैमेज · स्थायी"
+
+msgid "CARD_HP"
+msgstr "+5% अधिकतम HP · स्थायी"
+
+msgid "CARD_COINS"
+msgstr "+5% सिक्का मात्रा · स्थायी"
+
+msgid "CARD_GEMS"
+msgstr "+5% रत्न संभावना (सापेक्ष) · स्थायी"
+
+msgid "CARD_LOOT"
+msgstr "+5% गियर ड्रॉप संभावना (सापेक्ष) · स्थायी"
+
+msgid "CARD_MERGE"
+msgstr "+5% सामान्य आँकड़ों का मर्ज लाभ · स्थायी"
+
+msgid "STAT_HP"
+msgstr "अधिकतम HP"
+
+msgid "STAT_DAMAGE"
+msgstr "डैमेज"
+
+msgid "STAT_DEFENSE"
+msgstr "रक्षा"
+
+msgid "STAT_CRIT"
+msgstr "क्रिटिकल संभावना"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "क्रिटिकल गुणक"
+
+msgid "STAT_LIFESTEAL"
+msgstr "जीवन चोरी"
+
+msgid "STAT_REGEN"
+msgstr "प्रति सेकंड HP"
+
+msgid "STAT_SPEED"
+msgstr "हमला गति बोनस"
+
+msgid "STAT_HEAL"
+msgstr "उपचार"
+
+msgid "STAT_COIN_BONUS"
+msgstr "सिक्का मात्रा बोनस"
+
+msgid "NEED_DUPLICATES"
+msgstr "मर्ज करने के लिए एक अतिरिक्त प्रति चाहिए।"
+
+msgid "MERGE_MAX"
+msgstr "यह आइटम ^100 पर है।"
+
+msgid "EVOLUTION_NEEDS"
+msgstr "इवॉल्यूशन के लिए ^100 और 101 स्रोत प्रतियाँ चाहिए।"
+
+msgid "INVENTORY_FULL"
+msgstr "कोई खाली स्लॉट नहीं। जगह बनाएँ या यह इन्वेंटरी बढ़ाएँ।"
+
+msgid "AUTOMATION_LOCKED"
+msgstr "यह स्वचालन अपग्रेड में अनलॉक करें।"
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "अपग्रेड में एक और ऑटो-उपयोग स्लॉट अनलॉक करें।"
+
+msgid "CANNOT_USE"
+msgstr "उपयोग योग्य रसद नहीं है, या आपका पात्र मृत है।"
+
+msgid "UPGRADE_MAX"
+msgstr "अधिकतम"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "पर्याप्त सिक्के नहीं हैं।"
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "पर्याप्त रत्न नहीं हैं।"
+
+msgid "SPAWN_BOUGHT"
+msgstr "कैंप अनलॉक हुआ। पुनर्जीवन के लिए इसे चुनें।"
+
+msgid "EVOLVED"
+msgstr "अगले टियर का आइटम मिला। आपके स्रोत आइटम की प्रगति बनी रहती है।"
+
+msgid "PLAYER_DIED"
+msgstr "आपके चुने कैंप पर वापसी हो रही है। कुछ भी नहीं खोया।"
+
+msgid "BOSS_DEFEATED"
+msgstr "मृत्यु पराजित! एक स्थायी प्रेस्टीज कार्ड आपका इंतज़ार कर रहा है।"
+
+msgid "PRESTIGED"
+msgstr "नया दौर शुरू होता है। आपके स्थायी बोनस बने रहते हैं।"
+
+msgid "SAVED"
+msgstr "प्रगति सहेजी गई।"
+
+msgid "SAVE_ERROR"
+msgstr "सहेजा नहीं जा सका। आपकी प्रगति मेमोरी में है; कृपया फिर से कोशिश करें।"
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "सेव सुरक्षित रूप से लोड नहीं हो सका। जानबूझकर पूरा रीसेट करने तक सहेजना बंद है।"
+
+msgid "ACTION_PREVIEW"
+msgstr "क्रिया · लागत और प्रभाव"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "उपकरण स्लॉट +1 (अधिकतम 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "रसद स्लॉट +1 (हर रसद प्रकार के लिए एक)"
+
+msgid "UP_COLLECT"
+msgstr "ऑटो-कलेक्ट अनलॉक करें"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "संग्रह दायरा +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "एक बार में संग्रह +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "संग्रह अंतराल −1 से."
+
+msgid "UP_MERGE_GEAR"
+msgstr "गियर ऑटो-मर्ज अनलॉक करें"
+
+msgid "UP_AUTO_USE"
+msgstr "स्वचालित रसद स्लॉट +1"
+
+msgid "UP_USE_SPEED"
+msgstr "ऑटो-उपयोग अंतराल −1 से."
+
+msgid "UP_FOCUS"
+msgstr "फ़ोकस फ़ार्मिंग अनलॉक करें"
+
+msgid "UP_RESPAWN"
+msgstr "पुनर्जीवन देरी −1 से."
+
+msgid "UP_LOOT"
+msgstr "गियर ड्रॉप संभावना +0.5 अंक (प्रति आइटम)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "सिक्का ड्रॉप संभावना"
+
+msgid "UP_GEM_CHANCE"
+msgstr "सभी दुश्मनों की रत्न ड्रॉप संभावना"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "प्रति दुश्मन सिक्के +50%"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "प्रति ड्रॉप रत्न (बॉस ×3 देते हैं)"
+
+msgid "CHAT_SURPRISE"
+msgstr "अरे! ध्यान से!"
+
+msgid "RECENT_HEADER"
+msgstr "हाल की खोजें · इतिहास के लिए टैप करें"
+
+msgid "ZOOM_IN"
+msgstr "ज़ूम इन"
+
+msgid "ZOOM_OUT"
+msgstr "ज़ूम आउट"
+
+msgid "CAMERA_ZOOM"
+msgstr "कैमरा ज़ूम"
+
+msgid "PANEL_ENEMY"
+msgstr "दुश्मन"
+
+msgid "PANEL_CAMP"
+msgstr "पुनर्जीवन कैंप"
+
+msgid "TAB_AUTOMATION"
+msgstr "स्वचालन"
+
+msgid "TAB_INVENTORY"
+msgstr "इन्वेंटरी"
+
+msgid "TAB_SUPPLIES"
+msgstr "रसद"
+
+msgid "TAB_OVERVIEW"
+msgstr "सारांश"
+
+msgid "TAB_UPGRADES"
+msgstr "अपग्रेड"
+
+msgid "UP_REVEAL_STATS"
+msgstr "आँकड़े दिखाएँ · स्थायी"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "ड्रॉप दिखाएँ · स्थायी"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "दुश्मन के आँकड़े"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "संभावित ड्रॉप"
+
+msgid "UNKNOWN_STATS"
+msgstr "HP ???   •   डैमेज ???\nहमला अंतराल ???   •   रक्षा ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "HP %s   •   डैमेज %s\nहर %s से. में हमला   •   रक्षा %s"
+
+msgid "DROP_COINS"
+msgstr "सिक्के ×%s · निश्चित"
+
+msgid "DROP_GEMS"
+msgstr "रत्न · %s%% संभावना · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "एक उपकरण रोल दोनों गियर आइटमों में से एक चुनता है। रत्न और रसद अलग से रोल होते हैं। संभावनाओं में आपके मौजूदा अपग्रेड शामिल हैं।"
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 प्रतिशत अंक / लेवल · अधिकतम +15"
+
+msgid "ENEMY_CAT"
+msgstr "बुलाई गई बिल्ली"
+
+msgid "CAT_DETAILS"
+msgstr "मृत्यु की बुलाई गई सेविका।\nकोई ड्रॉप या समूह अपग्रेड नहीं।"
+
+msgid "CAMP_NAME"
+msgstr "कैंप %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "चुनने के लिए टैप करें"
+
+msgid "CAMP_LOCKED"
+msgstr "लॉक · अनलॉक करने के लिए टैप करें"
+
+msgid "CAMP_HELP"
+msgstr "कैंप पुनर्जीवन स्थान हैं। जल्दी ठीक होने के लिए अनलॉक कैंप के पास आराम करें। अनलॉक करना, पुनर्जीवन के लिए चुनना और यात्रा करना अलग-अलग क्रियाएँ हैं। कैंप पर खड़े होने पर कैंप देखें बटन दिखता है।"
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "पुनर्जीवन कैंप चुना गया।"
+
+msgid "OPEN_PLAYER"
+msgstr "खिलाड़ी अपग्रेड"
+
+msgid "OPEN_GROUP"
+msgstr "देखें: %s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "गोमेद हँसिया"
+
+msgid "ITEM_REAPER"
+msgstr "यमदूत की पोशाक"
+
+msgid "VARIANT_OUTFIT"
+msgstr "पोशाक"
+
+msgid "VARIANT_WEAPON"
+msgstr "हथियार"
+
+msgid "VARIANT_BOTH"
+msgstr "दोनों"
+
+msgid "ITEM_DETAILS"
+msgstr "आइटम विवरण"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "लेवल अप!"
+
+msgid "GEAR"
+msgstr "गियर"
+
+msgid "CONSUMABLES"
+msgstr "रसद"
+
+msgid "HUD_HP"
+msgstr "HP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "%.1f से. में पुनर्जीवन"
+
+msgid "HUD_LEVEL"
+msgstr "लेवल %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "गियर %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "रसद %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "मर्ज %d"
+
+msgid "ITEM_OWNED"
+msgstr "आपके पास: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "पहना हुआ · 100% योगदान"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "रखा हुआ · 30% योगदान (हर हथियार प्रकार के लिए एक बार)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "मर्ज करें"
+
+msgid "LESS_OPTIONS"
+msgstr "कम विकल्प"
+
+msgid "MORE_OPTIONS"
+msgstr "और विकल्प"
+
+msgid "LOOT_HISTORY"
+msgstr "लूट इतिहास"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "लेवल %d / 1,000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "लेवल %d · HP और डैमेज बढ़े"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "उपयोग के लिए रसद पर टैप करें · विवरण के लिए दबाए रखें"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "अगला मर्ज: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "उपलब्धियाँ"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "इस दुश्मन प्रकार के सभी कैंपों में साझा। संग्रह अपग्रेड बने रहते हैं; इस प्रकार के बाकी अपग्रेड प्रेस्टीज पर रीसेट होते हैं।"
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 प्रतिशत अंक / लेवल · अधिकतम +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "+10% XP / लेवल · अधिकतम +200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "रसद ड्रॉप संभावना +1 अंक"
+
+msgid "UP_GROUP_XP"
+msgstr "अनुभव +10%"
+
+msgid "GROUP_XP_VALUE"
+msgstr "प्रति हार XP: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "स्थायी हार-पड़ाव, इस दुश्मन प्रकार के सभी कैंपों में साझा। इनाम अपने-आप लागू होते हैं और प्रेस्टीज के बाद भी रहते हैं।"
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "इस प्रकार के विरुद्ध: +%.0f%% डैमेज · +%.1f प्रतिशत अंक रत्न संभावना"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · हराए गए: %d\nइनाम: इस प्रकार के विरुद्ध +%.0f%% डैमेज और +%.1f प्रतिशत अंक रत्न संभावना"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "पूरा हुआ"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "हार उपलब्धियाँ"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%.0f%% डैमेज · +%.1f अंक रत्न संभावना"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "इस दुश्मन प्रकार के हथियार और पोशाकें अपने-आप मर्ज करता है।"
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "प्रति हार सिक्के +%s / लेवल"
+
+msgid "ACTION_PAUSED"
+msgstr "रुके होने पर उपलब्ध नहीं"
+
+msgid "ACTION_SUSPENDED"
+msgstr "ऐप निष्क्रिय होने पर उपलब्ध नहीं"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "शर्तें पूरी नहीं हुईं"
+
+msgid "VALUE_MAX"
+msgstr "अधिकतम"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s XP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s से."
+
+msgid "HP_PER_SECOND"
+msgstr "HP/से."
+
+msgid "STAT_SOURCES"
+msgstr "आपके आँकड़े कहाँ से आते हैं"
+
+msgid "SOURCE_BASE"
+msgstr "मूल आँकड़े"
+
+msgid "SOURCE_LEVEL"
+msgstr "खिलाड़ी लेवल"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "पहना हुआ गियर"
+
+msgid "SOURCE_STORED"
+msgstr "रखा हुआ गियर"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "स्थायी बोनस: HP ×%s · डैमेज ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "ऊपर के योग में सीमाएँ शामिल हैं: क्रिटिकल संभावना 75%, क्रिटिकल डैमेज ×4, जीवन चोरी 15%, हमला गति बोनस 200%।"
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "रसद रोल: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "टॉनिक: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · टियर %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "टियर %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · T%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "रत्न"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "हर दुश्मन पर लागू। प्रेस्टीज पर रीसेट। दुश्मन उपलब्धि बोनस हर प्रकार के लिए अलग रहते हैं।"
+
+msgid "FARM_VARIANT"
+msgstr "फ़ार्म: %s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "फ़ार्मिंग चयन: %s। पुनर्जीवन के बाद यहीं लौटता है।"
+
+msgid "MAX_ITEM_TIER"
+msgstr "अंतिम टियर पर पहुँचे। ^100 तक मर्ज अब भी उपलब्ध है।"
+
+msgid "TAB_PLAYER"
+msgstr "खिलाड़ी"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "प्रति स्थान दुश्मन"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "दुश्मन पुनर्जीवन देरी"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "बॉस रत्न संभावना"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "प्रति ड्रॉप बॉस बोनस रत्न"
+
+msgid "TRAVEL_COMBAT"
+msgstr "यात्रा से पहले लड़ाई खत्म करें।"
+
+msgid "TRAVEL_CAMP"
+msgstr "यात्रा · %s · कैंप %d"
+
+msgid "STAGE_LOCKED"
+msgstr "पहले स्टेज द्वार के बॉस हराएँ।"
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "पहले इस कैंप की खोज करें।"
+
+msgid "STAGE_UNLOCKED"
+msgstr "अगला स्टेज अनलॉक हुआ!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "अंतिम रक्षक सील है। उनकी चाबियाँ इकट्ठा करने के लिए बाकी 13 बॉस हराएँ। इकट्ठा की गई चाबियाँ प्रेस्टीज के बाद भी रहती हैं।"
+
+msgid "WORLD_COMPLETE"
+msgstr "वसंत II के सभी दुश्मन पराजित — अंतिम मिशन पूरा!"
+
+msgid "UNDISCOVERED"
+msgstr "अनदेखा"
+
+msgid "ENEMY_LEVEL"
+msgstr "लेवल %d"
+
+msgid "ALL_ITEMS"
+msgstr "सभी"
+
+msgid "WEAPONS"
+msgstr "हथियार"
+
+msgid "OUTFITS"
+msgstr "पोशाकें"
+
+msgid "SKILLS"
+msgstr "स्किल"
+
+msgid "VARIANT_SKILL"
+msgstr "एलीट"
+
+msgid "SKILL_EMPTY"
+msgstr "स्किल स्लॉट %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "यह स्किल परिवार पहले से लैस है।"
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "कोई स्किल हटाएँ या एक और स्लॉट अनलॉक करें।"
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "स्लॉट %d में लैस करें"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "स्लॉट %d स्वचालित उपयोग: %s"
+
+msgid "STOCK_BONUS"
+msgstr "अतिरिक्त प्रति बोनस: +%s%% मूल शक्ति। प्रतियाँ आपके पास ही रहती हैं।"
+
+msgid "CLAIM"
+msgstr "प्राप्त करें"
+
+msgid "CLAIM_REWARD"
+msgstr "प्राप्त करें · सिक्के: %s · रत्न: %s"
+
+msgid "MISSION_AUTO"
+msgstr "स्वचालित प्राप्ति: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "चालू"
+
+msgid "STATE_OFF_CAPS"
+msgstr "बंद"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "पूरे हुए सामान्य मिशन (खरीदे गए स्लॉट सहित) प्राप्त करता है, मुख्य उद्देश्य नहीं। खरीदने के बाद मिशन में स्वचालित प्राप्ति चालू करें।"
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "स्वचालित प्राप्ति अनलॉक है पर बंद है। सामान्य मिशन प्राप्त करना शुरू करने के लिए नीचे के स्विच पर टैप करें। मुख्य उद्देश्य हाथ से ही प्राप्त होते हैं।"
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "स्वचालित प्राप्ति चालू करने के लिए तैयार"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "मिशन खोलें, फिर स्वचालित प्राप्ति चालू करें। खरीदने के बाद यह बंद से शुरू होती है।"
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "स्वचालित प्राप्ति चालू करें"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "आपने स्वचालित प्राप्ति अनलॉक की है। इसे चालू करने के लिए यहाँ स्वचालित प्राप्ति: बंद पर टैप करें। मुख्य उद्देश्य हमेशा हाथ से प्राप्त होते हैं।"
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "स्टेज कार्ड फैलाएँ"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "स्टेज कार्ड समेटें"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "पहले यह उद्देश्य पूरा करें।"
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "नया काम स्थानीय समय से आधी रात को आता है।"
+
+msgid "MAIN_OBJECTIVES"
+msgstr "मुख्य उद्देश्य"
+
+msgid "KEY_PROGRESS"
+msgstr "बॉस चाबियाँ: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "पराजित द्वार बॉस: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "सिक्के/घं.: %s · रत्न/घं.: %s · इनाम सीमा: %s घं."
+
+msgid "OFFLINE_RECEIPT"
+msgstr "वापसी पर स्वागत है! इनाम वाले घंटे: %s · सिक्के: %s · रत्न: %s"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "पहले अपने प्रेस्टीज इनाम चुनना पूरा करें।"
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "नया प्रेस्टीज अवसर मिला।"
+
+msgid "PRESTIGE_BATCH"
+msgstr "प्रेस्टीज · कार्ड: %d"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "हर तैयार अवसर के लिए एक अनोखा कार्ड चुनें, फिर दौर एक बार रीसेट करें। आइटम, सिक्के, कैंप, कोहरा और सिक्का अपग्रेड रीसेट होते हैं। चाबियाँ, उपलब्धियाँ, कार्ड और रत्न अपग्रेड बने रहते हैं।"
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "%s को स्थायी रूप से रखें? यह चुनाव अभी सहेजा जाएगा और बदला नहीं जा सकता।"
+
+msgid "PRESTIGE_CHOICES"
+msgstr "कार्ड चुनें: %d / %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "अनोखे कार्ड: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "पहले कोई खोजा गया प्रेस्टीज अवसर पूरा करें।"
+
+msgid "IN_PROGRESS"
+msgstr "प्रगति पर"
+
+msgid "FOLLOW"
+msgstr "फ़ॉलो करें"
+
+msgid "UNFOLLOW"
+msgstr "फ़ॉलो हटाएँ"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "ज़रूरी आइटम या मुद्रा जमा करें"
+
+msgid "CONTRACT_NEEDS"
+msgstr "पहले हर पोशाक की पूरी संख्या इकट्ठा करें।"
+
+msgid "OFFERING_NEEDS"
+msgstr "आपके पास ज़रूरी शेष राशि और ऑनलाइन कमाई गई बिना खर्च की मुद्रा होनी चाहिए।"
+
+msgid "OWNED_CARDS"
+msgstr "आपके कार्ड"
+
+msgid "COMBOS"
+msgstr "कार्ड सेट"
+
+msgid "PANEL_INVENTORY"
+msgstr "इन्वेंटरी"
+
+msgid "PANEL_MAP"
+msgstr "नक्शा"
+
+msgid "PANEL_MISSIONS"
+msgstr "मिशन"
+
+msgid "PANEL_OFFLINE"
+msgstr "ऑफ़लाइन इनाम"
+
+msgid "GOAL_KILL"
+msgstr "शिकार"
+
+msgid "GOAL_BOSS"
+msgstr "बॉस शिकार"
+
+msgid "GOAL_GEAR"
+msgstr "गियर इकट्ठा करें"
+
+msgid "GOAL_MERGE"
+msgstr "मर्ज"
+
+msgid "GOAL_COINS"
+msgstr "सिक्के कमाएँ"
+
+msgid "GOAL_CAST"
+msgstr "स्किल चलाएँ"
+
+msgid "GOAL_WAITING"
+msgstr "दूसरा उद्देश्य पाने के लिए खोजबीन करें"
+
+msgid "STAT_POWER"
+msgstr "शक्ति"
+
+msgid "INTRINSIC_POWER"
+msgstr "मूल %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "अगला टियर इस टियर की मूल ^100 शक्ति के 85% से शुरू होता है, स्टॉक और बाहरी बोनस से पहले।"
+
+msgid "MAP_FARMING"
+msgstr "%s · स्थान: %d · प्रति स्थान: %d · पुनर्जीवन %s से."
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "अंतिम स्टेज के पराजित प्रकार: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "कैंप दृश्य दायरा"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "खिलाड़ी दृश्य दायरा"
+
+msgid "UP_MAP_DETAIL"
+msgstr "नक्शा विवरण"
+
+msgid "UP_MOVEMENT"
+msgstr "चलने की गति +10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "ऑटो-मर्ज अंतराल −1 से."
+
+msgid "UP_MISSION_CLAIM"
+msgstr "स्वचालित मिशन प्राप्ति अनलॉक करें"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "मिशन स्लॉट"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "लैस स्किल स्लॉट"
+
+msgid "UP_SKILL_DROP"
+msgstr "स्किल ड्रॉप संभावना"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "ऑफ़लाइन इनाम अवधि"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "प्रति घंटा ऑफ़लाइन सिक्के"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "प्रति घंटा ऑफ़लाइन रत्न"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "ऑफ़लाइन हथियार ड्रॉप अनलॉक करें"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "ऑफ़लाइन पोशाक ड्रॉप अनलॉक करें"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "ऑफ़लाइन रसद अनलॉक करें"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "प्रति घंटा ऑफ़लाइन हथियार"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "प्रति घंटा ऑफ़लाइन पोशाकें"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "प्रति घंटा ऑफ़लाइन रसद"
+
+msgid "MAP_LEGEND"
+msgstr "आपकी खोजी गई ज़मीन साफ़ रहती है; पास की ज़मीन केवल वहाँ रहने तक दिखती है। कैंप दूर से भी दिख सकते हैं।"
+
+msgid "MINIMAP"
+msgstr "नक्शा"
+
+msgid "SKILL_TUTORIAL"
+msgstr "एलीट दुश्मन एक हथियार, पोशाक और स्किल रखते हैं। हर ड्रॉप का अपना रोल होता है। इन्वेंटरी से एक स्किल लैस करें और चलाने के लिए उसके बटन पर टैप करें।"
+
+msgid "MAIN_0"
+msgstr "5 सामान्य दुश्मन हराएँ"
+
+msgid "MAIN_1"
+msgstr "अपना पहला आइटम लैस करें"
+
+msgid "MAIN_2"
+msgstr "एक डुप्लिकेट मर्ज करें"
+
+msgid "MAIN_3"
+msgstr "एक अतिरिक्त कैंप अनलॉक करें"
+
+msgid "MAIN_4"
+msgstr "हिममानव को हराएँ · सर्दी II खुलता है"
+
+msgid "MAIN_5"
+msgstr "उपचार लैस करें"
+
+msgid "MAIN_6"
+msgstr "नक्शा विवरण अपग्रेड करें"
+
+msgid "MAIN_7"
+msgstr "हिम विस्फोट पाएँ"
+
+msgid "MAIN_8"
+msgstr "गर्मी I अनलॉक करें"
+
+msgid "MAIN_9"
+msgstr "एक आइटम इवॉल्व करें"
+
+msgid "MAIN_10"
+msgstr "4 स्किल परिवार पाएँ"
+
+msgid "MAIN_11"
+msgstr "पतझड़ I अनलॉक करें"
+
+msgid "MAIN_12"
+msgstr "सभी 6 स्किल परिवार पाएँ"
+
+msgid "MAIN_13"
+msgstr "वसंत I अनलॉक करें"
+
+msgid "MAIN_14"
+msgstr "एक प्रेस्टीज पूरा करें"
+
+msgid "MAIN_15"
+msgstr "हर बॉस चाबी इकट्ठा करें और वसंत II जीतें"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "उपचार कूलडाउन"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "हिम कूलडाउन"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "अग्नि कूलडाउन"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "वज्र कूलडाउन"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "एकाग्रता कूलडाउन"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "प्रहार कूलडाउन"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "स्वचालित उपयोग अनलॉक करें · स्लॉट 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "स्वचालित उपयोग अनलॉक करें · स्लॉट 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "स्वचालित उपयोग अनलॉक करें · स्लॉट 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "उपचार"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "उपचार"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "उपचार"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "उपचार"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "उपचार"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "उपचार"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "उपचार"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "हिम विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "हिम विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "हिम विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "हिम विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "हिम विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "हिम विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "हिम विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "अग्नि विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "अग्नि विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "अग्नि विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "अग्नि विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "अग्नि विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "अग्नि विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "अग्नि विस्फोट"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "वज्रपात"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "वज्रपात"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "वज्रपात"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "वज्रपात"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "वज्रपात"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "वज्रपात"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "वज्रपात"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "जादुई एकाग्रता"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "जादुई एकाग्रता"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "जादुई एकाग्रता"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "जादुई एकाग्रता"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "जादुई एकाग्रता"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "जादुई एकाग्रता"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "जादुई एकाग्रता"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "जादुई प्रहार"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "जादुई प्रहार"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "जादुई प्रहार"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "जादुई प्रहार"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "जादुई प्रहार"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "जादुई प्रहार"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "जादुई प्रहार"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "नीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "नीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "नीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "नीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "नीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "नीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "नीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "नीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "नीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "नीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "नीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "नीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "नीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "नीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "लाल मफ़लर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "लाल मफ़लर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "लाल मफ़लर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "लाल मफ़लर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "लाल मफ़लर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "लाल मफ़लर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "लाल मफ़लर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "लाल मफ़लर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "लाल मफ़लर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "लाल मफ़लर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "लाल मफ़लर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "लाल मफ़लर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "लाल मफ़लर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "लाल मफ़लर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "शेफ़ टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "शेफ़ टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "शेफ़ टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "शेफ़ टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "शेफ़ टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "शेफ़ टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "शेफ़ टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "शेफ़ टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "शेफ़ टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "शेफ़ टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "शेफ़ टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "शेफ़ टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "शेफ़ टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "शेफ़ टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "हिममानव की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "हिममानव की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "हिममानव की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "हिममानव की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "हिममानव की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "हिममानव की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "हिममानव की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "भेड़िया हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "भेड़िया हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "भेड़िया हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "भेड़िया हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "भेड़िया हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "भेड़िया हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "भेड़िया हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "भेड़िया हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "भेड़िया हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "भेड़िया हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "भेड़िया हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "भेड़िया हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "भेड़िया हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "भेड़िया हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "चितकबरी बिल्ली हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "चितकबरी बिल्ली हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "चितकबरी बिल्ली हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "चितकबरी बिल्ली हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "चितकबरी बिल्ली हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "चितकबरी बिल्ली हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "चितकबरी बिल्ली हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "चितकबरी बिल्ली हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "चितकबरी बिल्ली हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "चितकबरी बिल्ली हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "चितकबरी बिल्ली हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "चितकबरी बिल्ली हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "चितकबरी बिल्ली हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "चितकबरी बिल्ली हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "सुनहरा मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "सुनहरा मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "सुनहरा मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "सुनहरा मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "सुनहरा मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "सुनहरा मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "सुनहरा मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "सुनहरा मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "सुनहरा मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "सुनहरा मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "सुनहरा मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "सुनहरा मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "सुनहरा मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "सुनहरा मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "रेनडियर सींग की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "रेनडियर सींग की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "रेनडियर सींग की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "रेनडियर सींग की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "रेनडियर सींग की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "रेनडियर सींग की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "रेनडियर सींग की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "रेनडियर सींग की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "रेनडियर सींग की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "रेनडियर सींग की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "रेनडियर सींग की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "रेनडियर सींग की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "रेनडियर सींग की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "रेनडियर सींग की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "सांता टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "सांता टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "सांता टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "सांता टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "सांता टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "सांता टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "सांता टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "सांता टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "सांता टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "सांता टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "सांता टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "सांता टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "सांता टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "सांता टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "अंतरिक्ष हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "अंतरिक्ष हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "अंतरिक्ष हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "अंतरिक्ष हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "अंतरिक्ष हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "अंतरिक्ष हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "अंतरिक्ष हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "अंतरिक्ष हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "अंतरिक्ष हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "अंतरिक्ष हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "अंतरिक्ष हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "अंतरिक्ष हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "अंतरिक्ष हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "अंतरिक्ष हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "आसमानी रोबोट की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "आसमानी रोबोट की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "आसमानी रोबोट की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "आसमानी रोबोट की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "आसमानी रोबोट की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "आसमानी रोबोट की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "आसमानी रोबोट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "पुआल टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "पुआल टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "पुआल टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "पुआल टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "पुआल टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "पुआल टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "पुआल टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "पुआल टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "पुआल टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "पुआल टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "पुआल टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "पुआल टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "पुआल टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "पुआल टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "धूप का चश्मा की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "धूप का चश्मा की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "धूप का चश्मा की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "धूप का चश्मा की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "धूप का चश्मा की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "धूप का चश्मा की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "धूप का चश्मा की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "धूप का चश्मा की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "धूप का चश्मा की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "धूप का चश्मा की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "धूप का चश्मा की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "धूप का चश्मा की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "धूप का चश्मा की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "धूप का चश्मा की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "पीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "पीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "पीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "पीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "पीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "पीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "पीली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "पीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "पीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "पीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "पीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "पीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "पीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "पीली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "स्लेटी बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "स्लेटी बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "स्लेटी बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "स्लेटी बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "स्लेटी बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "स्लेटी बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "स्लेटी बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "काउबॉय बंदाना की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "काउबॉय बंदाना की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "काउबॉय बंदाना की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "काउबॉय बंदाना की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "काउबॉय बंदाना की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "काउबॉय बंदाना की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "काउबॉय बंदाना की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "काउबॉय बंदाना की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "काउबॉय बंदाना की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "काउबॉय बंदाना की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "काउबॉय बंदाना की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "काउबॉय बंदाना की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "काउबॉय बंदाना की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "काउबॉय बंदाना की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "बत्तख ट्यूब की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "बत्तख ट्यूब की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "बत्तख ट्यूब की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "बत्तख ट्यूब की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "बत्तख ट्यूब की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "बत्तख ट्यूब की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "बत्तख ट्यूब की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "बत्तख ट्यूब की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "बत्तख ट्यूब की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "बत्तख ट्यूब की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "बत्तख ट्यूब की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "बत्तख ट्यूब की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "बत्तख ट्यूब की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "बत्तख ट्यूब की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "इंद्रधनुषी जोकर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "इंद्रधनुषी जोकर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "इंद्रधनुषी जोकर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "इंद्रधनुषी जोकर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "इंद्रधनुषी जोकर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "इंद्रधनुषी जोकर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "इंद्रधनुषी जोकर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "इंद्रधनुषी जोकर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "इंद्रधनुषी जोकर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "इंद्रधनुषी जोकर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "इंद्रधनुषी जोकर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "इंद्रधनुषी जोकर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "इंद्रधनुषी जोकर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "इंद्रधनुषी जोकर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "लाल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "लाल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "लाल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "लाल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "लाल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "लाल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "लाल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "लाल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "लाल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "लाल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "लाल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "लाल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "लाल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "लाल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "स्नॉर्कल गोताखोर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "स्नॉर्कल गोताखोर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "स्नॉर्कल गोताखोर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "स्नॉर्कल गोताखोर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "स्नॉर्कल गोताखोर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "स्नॉर्कल गोताखोर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "स्नॉर्कल गोताखोर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "स्नॉर्कल गोताखोर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "स्नॉर्कल गोताखोर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "स्नॉर्कल गोताखोर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "स्नॉर्कल गोताखोर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "स्नॉर्कल गोताखोर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "स्नॉर्कल गोताखोर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "स्नॉर्कल गोताखोर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "पुआल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "पुआल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "पुआल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "पुआल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "पुआल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "पुआल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "पुआल टोपी तैराक की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "पुआल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "पुआल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "पुआल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "पुआल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "पुआल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "पुआल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "पुआल टोपी तैराक की तलवार"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "फ़िरोज़ी डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "फ़िरोज़ी डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "फ़िरोज़ी डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "फ़िरोज़ी डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "फ़िरोज़ी डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "फ़िरोज़ी डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "फ़िरोज़ी डायनासोर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "काली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "काली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "काली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "काली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "काली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "काली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "काली टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "काली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "काली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "काली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "काली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "काली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "काली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "काली टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "मशरूम टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "मशरूम टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "मशरूम टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "मशरूम टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "मशरूम टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "मशरूम टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "मशरूम टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "मशरूम टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "मशरूम टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "मशरूम टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "मशरूम टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "मशरूम टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "मशरूम टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "मशरूम टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "कद्दू सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "कद्दू सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "कद्दू सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "कद्दू सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "कद्दू सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "कद्दू सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "कद्दू सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "कद्दू सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "कद्दू सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "कद्दू सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "कद्दू सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "कद्दू सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "कद्दू सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "कद्दू सिर की तलवार"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "गिलहरी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "गिलहरी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "गिलहरी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "गिलहरी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "गिलहरी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "गिलहरी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "गिलहरी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "लाल लोमड़ी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "लाल लोमड़ी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "लाल लोमड़ी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "लाल लोमड़ी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "लाल लोमड़ी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "लाल लोमड़ी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "लाल लोमड़ी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "सींग वाला हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "सींग वाला हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "सींग वाला हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "सींग वाला हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "सींग वाला हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "सींग वाला हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "सींग वाला हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "सींग वाला हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "सींग वाला हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "सींग वाला हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "सींग वाला हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "सींग वाला हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "सींग वाला हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "सींग वाला हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "नारंगी स्क्रीन हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "नारंगी स्क्रीन हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "नारंगी स्क्रीन हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "नारंगी स्क्रीन हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "नारंगी स्क्रीन हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "नारंगी स्क्रीन हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "नारंगी स्क्रीन हेलमेट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "नारंगी स्क्रीन हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "नारंगी स्क्रीन हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "नारंगी स्क्रीन हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "नारंगी स्क्रीन हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "नारंगी स्क्रीन हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "नारंगी स्क्रीन हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "नारंगी स्क्रीन हेलमेट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "टीवी सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "टीवी सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "टीवी सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "टीवी सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "टीवी सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "टीवी सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "टीवी सिर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "टीवी सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "टीवी सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "टीवी सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "टीवी सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "टीवी सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "टीवी सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "टीवी सिर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "ऊँची टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "ऊँची टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "ऊँची टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "ऊँची टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "ऊँची टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "ऊँची टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "ऊँची टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "ऊँची टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "ऊँची टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "ऊँची टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "ऊँची टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "ऊँची टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "ऊँची टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "ऊँची टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "काली बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "काली बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "काली बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "काली बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "काली बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "काली बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "काली बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "यमदूत की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "यमदूत की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "यमदूत की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "यमदूत की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "यमदूत की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "यमदूत की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "यमदूत की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "खरगोश कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "खरगोश कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "खरगोश कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "खरगोश कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "खरगोश कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "खरगोश कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "खरगोश कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "खरगोश कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "खरगोश कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "खरगोश कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "खरगोश कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "खरगोश कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "खरगोश कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "खरगोश कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "बिल्ली कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "बिल्ली कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "बिल्ली कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "बिल्ली कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "बिल्ली कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "बिल्ली कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "बिल्ली कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "बिल्ली कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "बिल्ली कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "बिल्ली कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "बिल्ली कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "बिल्ली कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "बिल्ली कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "बिल्ली कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "एल्फ़ कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "एल्फ़ कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "एल्फ़ कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "एल्फ़ कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "एल्फ़ कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "एल्फ़ कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "एल्फ़ कान की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "एल्फ़ कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "एल्फ़ कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "एल्फ़ कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "एल्फ़ कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "एल्फ़ कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "एल्फ़ कान की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "एल्फ़ कान की तलवार"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "मधुमक्खी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "मधुमक्खी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "मधुमक्खी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "मधुमक्खी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "मधुमक्खी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "मधुमक्खी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "मधुमक्खी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "नारंगी धारीदार बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "नारंगी धारीदार बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "नारंगी धारीदार बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "नारंगी धारीदार बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "नारंगी धारीदार बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "नारंगी धारीदार बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "नारंगी धारीदार बिल्ली की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "फूलों का मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "फूलों का मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "फूलों का मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "फूलों का मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "फूलों का मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "फूलों का मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "फूलों का मुकुट की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "फूलों का मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "फूलों का मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "फूलों का मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "फूलों का मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "फूलों का मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "फूलों का मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "फूलों का मुकुट की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "हरी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "हरी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "हरी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "हरी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "हरी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "हरी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "हरी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "हरी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "हरी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "हरी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "हरी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "हरी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "हरी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "हरी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "गुलाबी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "गुलाबी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "गुलाबी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "गुलाबी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "गुलाबी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "गुलाबी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "गुलाबी टोपी की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "गुलाबी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "गुलाबी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "गुलाबी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "गुलाबी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "गुलाबी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "गुलाबी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "गुलाबी टोपी की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "गुलाबी फूल हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "गुलाबी फूल हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "गुलाबी फूल हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "गुलाबी फूल हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "गुलाबी फूल हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "गुलाबी फूल हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "गुलाबी फूल हुड की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "गुलाबी फूल हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "गुलाबी फूल हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "गुलाबी फूल हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "गुलाबी फूल हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "गुलाबी फूल हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "गुलाबी फूल हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "गुलाबी फूल हुड की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "सादी पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "सादी पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "सादी पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "सादी पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "सादी पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "सादी पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "सादी पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "सादी तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "सादी तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "सादी तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "सादी तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "सादी तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "सादी तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "सादी तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "अंकुर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "अंकुर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "अंकुर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "अंकुर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "अंकुर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "अंकुर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "अंकुर की पोशाक"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "अंकुर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "अंकुर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "अंकुर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "अंकुर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "अंकुर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "अंकुर की तलवार"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "अंकुर की तलवार"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "लाल पांडा की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "लाल पांडा की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "लाल पांडा की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "लाल पांडा की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "लाल पांडा की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "लाल पांडा की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "लाल पांडा की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "सूरजमुखी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "सूरजमुखी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "सूरजमुखी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "सूरजमुखी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "सूरजमुखी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "सूरजमुखी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "सूरजमुखी की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "हरा एलियन की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "हरा एलियन की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "हरा एलियन की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "हरा एलियन की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "हरा एलियन की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "हरा एलियन की पोशाक"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "हरा एलियन की पोशाक"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "उपचार"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "हिम विस्फोट"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "अग्नि विस्फोट"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "वज्रपात"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "जादुई एकाग्रता"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "जादुई प्रहार"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "नीली टोपी"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "लाल मफ़लर"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "शेफ़ टोपी"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "हिममानव"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "भेड़िया हुड"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "चितकबरी बिल्ली हुड"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "सुनहरा मुकुट"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "रेनडियर सींग"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "सांता टोपी"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "अंतरिक्ष हेलमेट"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "आसमानी रोबोट"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "पुआल टोपी"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "धूप का चश्मा"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "पीली टोपी"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "स्लेटी बिल्ली"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "काउबॉय बंदाना"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "बत्तख ट्यूब"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "इंद्रधनुषी जोकर"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "लाल टोपी तैराक"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "स्नॉर्कल गोताखोर"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "पुआल टोपी तैराक"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "डायनासोर"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "फ़िरोज़ी डायनासोर"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "काली टोपी"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "मशरूम टोपी"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "कद्दू सिर"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "गिलहरी"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "लाल लोमड़ी"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "सींग वाला हुड"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "नारंगी स्क्रीन हेलमेट"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "टीवी सिर"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "ऊँची टोपी"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "काली बिल्ली"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "यमदूत"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "खरगोश कान"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "बिल्ली कान"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "एल्फ़ कान"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "मधुमक्खी"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "नारंगी धारीदार बिल्ली"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "फूलों का मुकुट"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "हरी टोपी"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "गुलाबी टोपी"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "गुलाबी फूल हुड"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "सादा"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "अंकुर"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "लाल पांडा"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "सूरजमुखी"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "हरा एलियन"
+
+msgid "CONTENT_STAGES_1"
+msgstr "सर्दी I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "सर्दी II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "गर्मी I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "गर्मी II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "पतझड़ I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "पतझड़ II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "वसंत I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "वसंत II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "पहला इनामी शिकार"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "हिममानव (सर्दी I का बॉस) को 10 बार हराएँ"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "गर्मी का इनामी शिकार"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "स्लेटी बिल्ली (गर्मी I की बॉस) को 20 बार हराएँ"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "पतझड़ का इनामी शिकार"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "यमदूत (पतझड़ II का बॉस) को 30 बार हराएँ"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "सर्दी का रास्ता"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "सर्दी I पर क्रम से: 100 नीली टोपी, फिर 100 लाल मफ़लर, फिर 100 शेफ़ टोपी हराएँ"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "गर्मी का रास्ता"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "गर्मी I पर क्रम से: 150 पुआल टोपी, फिर 150 धूप का चश्मा, फिर 150 पीली टोपी हराएँ"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "वसंत का रास्ता"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "वसंत I पर क्रम से: 200 खरगोश कान, फिर 200 बिल्ली कान, फिर 200 एल्फ़ कान हराएँ"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "सर्दी संग्रह"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "नीली टोपी, लाल मफ़लर और शेफ़ टोपी की पोशाकें, हर एक की 21 उठाएँ (सर्दी I के ड्रॉप)। जमा करें बटन हर एक की 20 देता है और एक आपके पास रहती है"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "गर्मी संग्रह"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "पुआल टोपी, धूप का चश्मा और पीली टोपी की पोशाकें, हर एक की 31 उठाएँ (गर्मी I के ड्रॉप)। जमा करें बटन हर एक की 30 देता है और एक आपके पास रहती है"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "वसंत संग्रह"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "खरगोश कान, बिल्ली कान और एल्फ़ कान की पोशाकें, हर एक की 41 उठाएँ (वसंत I के ड्रॉप)। जमा करें बटन हर एक की 40 देता है और एक आपके पास रहती है"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "पहली उत्कृष्ट कृति"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "कोई भी हथियार, पोशाक या स्किल ^100 तक मर्ज करें"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "दूसरा टियर"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "टियर 2 या ऊपर का कोई आइटम ^100 तक मर्ज करें (टियर 2 गर्मी I से ड्रॉप होता है, या कोई हथियार इवॉल्व करें)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "तीसरा टियर"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "टियर 3 या ऊपर का कोई आइटम ^100 तक मर्ज करें (टियर 3 पतझड़ I से ड्रॉप होता है, या कोई हथियार दो बार इवॉल्व करें)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "जोड़ीदार गियर"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "एक हथियार और एक पोशाक ^50 तक मर्ज करें"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "विस्तृत शस्त्रागार"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "3 अलग हथियार और 3 अलग पोशाकें ^50 तक मर्ज करें"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "विकसित शस्त्रागार"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "टियर 2+ के 3 अलग हथियार और टियर 2+ की 3 अलग पोशाकें ^50 तक मर्ज करें"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "सर्दी पर महारत"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "सर्दी I और सर्दी II पर: हर नक्शे का 90% खोजें, दोनों बॉस हराएँ और हर कैंप अनलॉक करें"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "गर्मी पर महारत"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "गर्मी I और गर्मी II पर: हर नक्शे का 90% खोजें, तीनों बॉस हराएँ और हर कैंप अनलॉक करें"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "वसंत पर महारत"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "वसंत I और वसंत II पर: हर नक्शे का 90% खोजें, पाँचों बॉस हराएँ और हर कैंप अनलॉक करें"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "बिना सहायता की सर्दी"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "लड़ाई के दौरान कोई भी रसद इस्तेमाल किए बिना आसमानी रोबोट (सर्दी II का बॉस) को हराएँ"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "बिना सहायता की गर्मी"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "लड़ाई के दौरान कोई भी रसद इस्तेमाल किए बिना फ़िरोज़ी डायनासोर (गर्मी II का बॉस) को हराएँ"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "बिना सहायता का पतझड़"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "लड़ाई के दौरान कोई भी रसद इस्तेमाल किए बिना यमदूत (पतझड़ II का बॉस) को हराएँ"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "छोटी भेंट"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "इस दौर में दुश्मनों से 2K सिक्के और 30 रत्न कमाएँ, फिर जमा करें बटन से सौंप दें"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "बढ़ती भेंट"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "इस दौर में दुश्मनों से 20K सिक्के और 100 रत्न कमाएँ, फिर जमा करें बटन से सौंप दें"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "भव्य भेंट"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "इस दौर में दुश्मनों से 100K सिक्के और 300 रत्न कमाएँ, फिर जमा करें बटन से सौंप दें"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "छोटी शृंखला"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "क्रम से: 100 दुश्मन हराएँ, 10 हथियार या पोशाक ड्रॉप उठाएँ, फिर 10 बार मर्ज करें"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "लंबी शृंखला"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "क्रम से: 250 दुश्मन हराएँ, 3 बॉस हराएँ, 25 बार मर्ज करें, फिर 30 स्किल चलाएँ"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "उस्ताद शृंखला"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "क्रम से: 500 दुश्मन हराएँ, 10 बॉस हराएँ, 50 बार मर्ज करें, फिर 3 सामान्य मिशन प्राप्त करें"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "सर्दी की ट्रॉफ़ियाँ"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "इसे पाने के बाद हिममानव (सर्दी I) और आसमानी रोबोट (सर्दी II) को एक-एक बार हराएँ"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "गर्मी की ट्रॉफ़ियाँ"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "इसे पाने के बाद स्लेटी बिल्ली (गर्मी I), डायनासोर और फ़िरोज़ी डायनासोर (गर्मी II) को एक-एक बार हराएँ"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "पतझड़ की ट्रॉफ़ियाँ"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "इसे पाने के बाद गिलहरी और लाल लोमड़ी (पतझड़ I), काली बिल्ली और यमदूत (पतझड़ II) को एक-एक बार हराएँ"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "दूर बिताया समय"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "कुल मिलाकर 72 घंटे गेम से दूर रहें"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "लंबा आराम"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "एक बार में लगातार 24 घंटे गेम से दूर रहें"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "ऑफ़लाइन कमाई"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "दूर रहते हुए 10K सिक्के कमाएँ (वापसी पर स्वागत इनाम प्राप्त करें)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "बॉस से +20% XP"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+10% चलने की गति"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+50% ऑटो-कलेक्ट दायरा"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "पहने हुए गियर के मूल आँकड़ों पर +10%"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+10% अधिकतम HP"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "आपके आसपास खोज दायरा +25%"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "बॉस के विरुद्ध +10% डैमेज"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "हर दुश्मन से +10% सिक्के"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "मिशनों से +25% सिक्के"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "बॉस से +25% रत्न"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "प्रति घंटा ऑफ़लाइन सिक्कों पर +25%"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "2 सेकंड पहले पुनर्जीवन (न्यूनतम 2 से.)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "सामान्य दुश्मनों से +15% सिक्के"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "हर मर्ज से मिलने वाले आँकड़ों पर +10%"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "बॉस के विरुद्ध +10% डैमेज"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "ऑफ़लाइन आइटम दरों पर +25%"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+10% अधिकतम HP"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "दैत्य संहारक"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "बॉस के विरुद्ध +25% डैमेज"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "बॉस कवच"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "बॉस से 20% कम डैमेज लें"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "इनाम"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "बॉस से +100% सिक्के"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "खोजी"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "सामान्य दुश्मनों के विरुद्ध +20% डैमेज"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "राह के सिक्के"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "सामान्य दुश्मनों से +30% सिक्के"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "राह की सीख"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "सामान्य दुश्मनों से +30% XP"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "सावधान संग्राहक"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+100% ऑटो-कलेक्ट दायरा"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "गियर भाग्य"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "उपकरण ड्रॉप संभावना पर +3 अंक"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "रसद भाग्य"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "रसद ड्रॉप संभावना पर +5 अंक"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "बारीक कारीगरी"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "हर मर्ज से मिलने वाले आँकड़ों पर +25%"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "रीरोल कारीगरी"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "रीरोल में 50% कम रत्न लगते हैं"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "मज़बूत नींव"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "आपके पहने हथियार और पोशाक के मूल आँकड़ों पर +20%"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "कवच भंडार"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+20% अधिकतम HP"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "हथियार प्रशिक्षण"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "हमलों और स्किल से +15% डैमेज"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "संतुलित साज़ो-सामान"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "हर दुश्मन से 10% कम डैमेज लें"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "अन्वेषक"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+15% चलने की गति"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "दूरदृष्टि"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "आपके आसपास खोज दायरा +50%"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "कैंप सर्वेक्षण"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "कैंप में 50% कम सिक्के लगते हैं"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "सटीकता"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "क्रिटिकल हिट संभावना पर +15 अंक"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "संकल्प"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "अपने दिए डैमेज का 5% HP वापस पाएँ"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "ज़ोरदार वार"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "क्रिटिकल हिट +75% अधिक डैमेज करते हैं"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "सिक्कों की समझ"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "हर दुश्मन से +25% सिक्के"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "रत्नों की समझ"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "रत्न ड्रॉप संभावना पर +5 अंक"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "समझदार खर्च"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "सिक्का अपग्रेड 15% सस्ते"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "मिशन सिक्के"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "मिशनों से +50% सिक्के"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "मिशन रत्न"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "मिशनों से +50% रत्न"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "एकाग्र अभ्यास"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "स्किल डैमेज, उपचार और एकाग्रता पर +25%"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "ट्रॉफ़ी शिकारी"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "बॉस से +50% XP"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "ट्रॉफ़ी शक्ति"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "बॉस के विरुद्ध +20% डैमेज"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "ट्रॉफ़ी रत्न"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "बॉस से +50% रत्न"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "चुपचाप सिक्के"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "प्रति घंटा ऑफ़लाइन सिक्कों पर +50%"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "चुपचाप रत्न"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "प्रति घंटा ऑफ़लाइन रत्नों पर +50%"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "चुपचाप खोजें"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "ऑफ़लाइन आइटम दरों पर +50%"
+
+msgid "CHAIN_PROGRESS"
+msgstr "चरण %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "इस अपडेट के लिए डेवलपमेंट सेव रीसेट किया गया। नई प्रगति सहेजी जा सकती है।"
+
+msgid "HEAL_ROLE"
+msgstr "टिकाऊपन: अभी %s HP, हर %s से. में। चलाना मुफ़्त; अधिकतम HP के 12%% तक सीमित। पोशन आपात स्थिति में ज़्यादा उपचार देते हैं।"
+
+msgid "REGULAR_MISSIONS"
+msgstr "शिकार कार्य"
+
+msgid "GUIDE_CHOOSE"
+msgstr "आपको कितना मार्गदर्शन चाहिए?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "निर्देशित"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "बुनियादी"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "कोई नहीं"
+
+msgid "GUIDE_REVIEW"
+msgstr "मार्गदर्शन फिर से चुनें"
+
+msgid "GUIDE_GOT_IT"
+msgstr "समझ गया"
+
+msgid "GUIDE_MOVE"
+msgstr "अपने बाईं ओर का रास्ता पकड़ें।"
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "चमकते जॉयस्टिक को तीर की ओर खींचें। पहले दुश्मन रास्ते में इंतज़ार कर रहे हैं।"
+
+msgid "GUIDE_KILL"
+msgstr "हमला करने के लिए दुश्मन के पास रुकें"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "एक पल स्थिर खड़े रहें, आप अपने-आप हमला करेंगे। सर्दी के दुश्मन केवल जवाबी हमला करते हैं।"
+
+msgid "GUIDE_COLLECT"
+msgstr "गिरे आइटम पर टैप करें"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "लूट कुछ देर ज़मीन पर रहती है। सिक्के और रत्न अपने-आप जुड़ जाते हैं।"
+
+msgid "GUIDE_EQUIP"
+msgstr "अपने नए आइटम पर टैप करें"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "आइटम विवरण इसकी तुलना आपके मौजूदा पहनावे से करता है।"
+
+msgid "GUIDE_MERGE"
+msgstr "वह आइटम खोलें जो आपके पास दो हैं"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "एक प्रति मर्ज करने से आइटम हमेशा के लिए मज़बूत होता है।"
+
+msgid "GUIDE_UPGRADE"
+msgstr "इस दुश्मन के अपग्रेड पर टैप करें"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "हर दुश्मन प्रकार के लूट, सिक्कों और अनुभव के अपने अपग्रेड होते हैं।"
+
+msgid "GUIDE_CAMP"
+msgstr "कैंप अनलॉक करने के लिए दुनिया खोलें"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "आपको एक कैंप मिला है और आप उसे खरीद सकते हैं। दुनिया खोलें, या कैंप तक चलें और कैंप देखें पर टैप करें।"
+
+msgid "GUIDE_OVERVIEW"
+msgstr "चलें, लड़ें, इकट्ठा करें"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "चलने के लिए नक्शे के नीचे जॉयस्टिक खींचें। छोड़ते ही आपका हीरो पास के दुश्मनों से लड़ता है। उठाने के लिए लूट पर टैप करें।"
+
+msgid "GUIDE_AGGRESSION"
+msgstr "ये दुश्मन पास आने पर आपको देख लेते हैं"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "सर्दी II के दुश्मन पास आने पर हमला करते हैं। एक-एक करके पास जाएँ।"
+
+msgid "GUIDE_SKILLS"
+msgstr "स्किल आपके गियर का साथ देते हैं"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "चलाने के लिए लैस स्किल पर टैप करें। उपचार लगातार काम करता है; पोशन एक बार में ज़्यादा HP लौटाते हैं।"
+
+msgid "GUIDE_GROUPS"
+msgstr "कुछ दुश्मन अब साथियों को बुलाते हैं"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "गर्मी के दुश्मन पास के उसी तरह के साथियों की मदद करते हैं। अपने HP पर नज़र रखें।"
+
+msgid "PRESTIGE_GATE"
+msgstr "पहले सर्दी पार करें: गर्मी I तक पहुँचने के लिए आसमानी रोबोट को हराएँ।"
+
+msgid "NAV_PRESTIGE"
+msgstr "प्रेस्टीज"
+
+msgid "PANEL_WORLD"
+msgstr "दुनिया"
+
+msgid "TAB_OFFLINE"
+msgstr "ऑफ़लाइन"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "ये अपग्रेड अपग्रेड बटन से या अपने पात्र पर टैप करके खोलें।"
+
+msgid "HUD_RESTING"
+msgstr "· आराम"
+
+msgid "ITEM_PREVIOUS"
+msgstr "पिछला आइटम"
+
+msgid "ITEM_NEXT"
+msgstr "अगला आइटम"
+
+msgid "ITEM_POSITION"
+msgstr "%d / %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "लैस करने पर: %s"
+
+msgid "NO_CHANGE"
+msgstr "कोई बदलाव नहीं"
+
+msgid "EQUIPPED_NOW"
+msgstr "अभी लैस: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "इस स्लॉट में अभी कुछ लैस नहीं है।"
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "लैस: पूरे आँकड़े"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "रखा हुआ: आँकड़ों का 30%"
+
+msgid "UPGRADE_LEVEL"
+msgstr "लेवल %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "बॉस"
+
+msgid "ENEMY_KILLS"
+msgstr "पराजित: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "पुनर्जीवन कैंप"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "अनलॉक"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "लॉक · सिक्के: %s"
+
+msgid "SECTION_CAMPS"
+msgstr "कैंप"
+
+msgid "CAMPS_HIDDEN"
+msgstr "खोजबीन से मिलने वाले और कैंप: %d।"
+
+msgid "SECTION_TRAVEL"
+msgstr "दूसरे स्टेज पर जाएँ"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "नक्शा अपग्रेड"
+
+msgid "SECTION_DANGER"
+msgstr "ख़तरा क्षेत्र"
+
+msgid "CAMP_UNLOCK"
+msgstr "अनलॉक करें"
+
+msgid "CAMP_SELECT"
+msgstr "यहाँ पुनर्जीवन"
+
+msgid "CAMP_TRAVEL"
+msgstr "यात्रा करें"
+
+msgid "CARD_OWNED"
+msgstr "आपके पास"
+
+msgid "CARD_SELECTED"
+msgstr "चुना गया"
+
+msgid "CARD_LOCKED"
+msgstr "अभी अर्जित नहीं"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "तैयार"
+
+msgid "PRESTIGE_INTRO"
+msgstr "स्थायी कार्ड पाने के लिए अवसर पूरे करें। प्रेस्टीज हर तैयार अवसर को एक साथ भुनाता है और नया दौर शुरू करता है।"
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "तैयार: %d  ·  आपके कार्ड: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "अभी कोई अवसर नहीं मिला। उन्हें पाने के लिए बॉस हराएँ, मर्ज करें और खोजबीन करें।"
+
+msgid "NO_CARDS_YET"
+msgstr "अभी कोई कार्ड नहीं।"
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "भुनाए जाने वाले तैयार अवसर: %d (%s)।\n\nआप हर एक के लिए एक स्थायी कार्ड चुनते हैं, फिर दौर एक बार फिर से शुरू होता है।\n\nबने रहेंगे: कार्ड, बॉस चाबियाँ, उपलब्धियाँ, रत्न अपग्रेड, स्वचालन, सेटिंग्स।\nरीसेट होंगे: सिक्के, आइटम, लेवल, कैंप, नक्शा खोज, सिक्का अपग्रेड और अधूरी चुनौतियाँ।"
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "इनाम चुनें · %d / %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "अब तक चुने गए: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "आपके पास रहेगा"
+
+msgid "PRESTIGE_KEEP"
+msgstr "कार्ड और सेट, आपके रत्न, खोजे गए नक्शा क्षेत्र, रत्नों से खरीदा हर अपग्रेड (सभी श्रेणियाँ), स्वचालन, इन्वेंटरी जगह, बॉस चाबियाँ, दुश्मन उपलब्धियाँ, खिलाड़ी लेवल और XP, नक्शा महारत और सेटिंग्स।"
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "इस दौर में रीसेट होगा"
+
+msgid "PRESTIGE_RESET"
+msgstr "सिक्के, आइटम (रसद स्टॉक सहित) और मर्ज, रसद महारत, नक्शा पहुँच और आपके कैंप, नक्शा और सिक्का अपग्रेड और अधूरी चुनौतियाँ।"
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "रखें: %s"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "चुनने के लिए किसी कार्ड पर टैप करें"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "%s को स्थायी रूप से रखें? यह आख़िरी चुनाव है: नया दौर इसके तुरंत बाद शुरू होगा।"
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "प्रेस्टीज अवसर मिला!"
+
+msgid "MILESTONE_READY"
+msgstr "अवसर पूरा हुआ!"
+
+msgid "MILESTONE_CARD"
+msgstr "कार्ड मिला: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "नया दौर शुरू होता है"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "आपके संग्रह में जुड़े स्थायी कार्ड: %d।"
+
+msgid "MILESTONE_STAGE"
+msgstr "नया स्टेज अनलॉक हुआ"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "बॉस शिकारी सेट"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "अभियान सेट"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "संग्रह सेट"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "उत्कृष्ट कृति सेट"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "शस्त्रागार सेट"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "क्षेत्रीय सेट"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "चुनौती सेट"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "भेंट सेट"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "विशेषज्ञ सेट"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "ट्रॉफ़ी सेट"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "ऑफ़लाइन सेट"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "तैयार अन्वेषक"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "समर्पित फ़ार्मर"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "कारीगरी की यात्रा"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "बॉस विशेषज्ञ"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "धैर्यवान संग्राहक"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "संतुलित विकास"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "दुश्मनों को हराते रहें"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "आपका पहला हथियार या पोशाक कुछ जीत के भीतर ड्रॉप होगी।"
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "लैस करें पर टैप करें"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "लैस गियर पूरे आँकड़े देता है। रखा हुआ गियर फिर भी 30% देता है।"
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "मर्ज करें पर टैप करें"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "हर मर्ज एक अतिरिक्त प्रति इस्तेमाल करता है और आइटम का लेवल बढ़ाता है।"
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "दूसरी प्रति इकट्ठा करें"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "मिलती-जुलती प्रति कुछ और जीत के भीतर ड्रॉप होगी।"
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "पहले कोई दुश्मन ढूँढें"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "दुश्मनों के पास जाएँ ताकि उनके अपग्रेड उपलब्ध हों।"
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "अपग्रेड के लिए सिक्के कमाएँ"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "और ज़रूरी सिक्के: %s। हर पराजित दुश्मन सिक्के गिराता है।"
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "अपग्रेड टैब खोलें"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "इस दुश्मन प्रकार के अपग्रेड वहाँ सूचीबद्ध हैं।"
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "एक अपग्रेड खरीदें"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "बेहतर लूट संभावना पहली अच्छी पसंद है।"
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "दूसरा कैंप ढूँढने के लिए खोजबीन करें"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "कोहरे में चलें। उजागर होते ही कैंप दिखने लगते हैं।"
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "कैंप के लिए सिक्के कमाएँ"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "और ज़रूरी सिक्के: %s। दुश्मनों को हराते रहें।"
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "अनलॉक करें पर टैप करें"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "कैंप पुनर्जीवन स्थान बन जाता है और आसपास की ज़मीन उजागर करता है।"
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "कैंप अनलॉक हुआ"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "हार के बाद वहाँ लौटने के लिए यहाँ पुनर्जीवन का उपयोग करें। कैंप के पास आराम करने से जल्दी ठीक होते हैं।"
+
+msgid "GUIDE_PRESTIGE"
+msgstr "प्रेस्टीज अवसर मिला"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "स्थायी कार्ड के लिए इसे पूरा करें। पहले हिममानव को ढूँढें; निर्देशित मोड में ट्यूटोरियल पूरा करना भी ज़रूरी है।"
+
+msgid "GUIDE_REST"
+msgstr "HP कम है?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "लड़ाई से दूर हटें। अनलॉक कैंप के पास आराम करने से आप जल्दी ठीक होते हैं।"
+
+msgid "SECTION_REWARDS"
+msgstr "इनाम"
+
+msgid "SECTION_AUTOMATION"
+msgstr "स्वचालन"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "लॉक"
+
+msgid "PROGRESS_MERGE"
+msgstr "अब तक का सर्वश्रेष्ठ: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "^50 पर हथियार: %d/%d · ^50 पर पोशाकें: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "ट्रॉफ़ियाँ: %d / %d (हर बॉस अगली हार पर एक गिराता है)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "प्रगति: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "पोशन या टॉनिक इस्तेमाल किए बिना लड़ाई जीतें।"
+
+msgid "PROGRESS_REGIONAL"
+msgstr "खोजा गया %s · बॉस %d/%d · कैंप %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "सोने की तलवार"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "हीरे की तलवार"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "पन्ने की तलवार"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "ओब्सीडियन तलवार"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "लकड़ी की कुल्हाड़ी"
+
+msgid "ITEM_STONE_AXE"
+msgstr "पत्थर की कुल्हाड़ी"
+
+msgid "ITEM_IRON_AXE"
+msgstr "लोहे की कुल्हाड़ी"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "सोने की कुल्हाड़ी"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "हीरे की कुल्हाड़ी"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "पन्ने की कुल्हाड़ी"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "ओब्सीडियन कुल्हाड़ी"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "कोई हथियार या पोशाक ढूँढें"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "वह खोज एक रसद थी। दुश्मनों को हराते रहें: कभी-कभी वे अपना पहना हथियार या पोशाक गिराते हैं, जिससे एक खाली गियर स्लॉट भरता है।"
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "गियर उठाएँ"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "एक हथियार या पोशाक गिरी है। उसे गियर स्लॉट में रखने के लिए टैप करें।"
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "केवल प्रगति पर चल रहे अवसर को फ़ॉलो किया जा सकता है।"
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "पार करें: %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "प्राप्त करने के लिए तैयार"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ प्राप्त किया"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "पूरे उद्देश्य (%d) · %s"
+
+msgid "SHOW"
+msgstr "दिखाएँ"
+
+msgid "HIDE"
+msgstr "छिपाएँ"
+
+msgid "PLAYTIME_LINE"
+msgstr "खेलने का समय: %s · यह दौर: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "वापसी पर स्वागत है!"
+
+msgid "OFFLINE_AWAY"
+msgstr "दूर रहे: %s · इनाम वाले घंटे: %s"
+
+msgid "OFFLINE_CLAIM"
+msgstr "ऑफ़लाइन कमाई प्राप्त करें"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "ऑफ़लाइन कमाई प्राप्त हुई"
+
+msgid "OFFLINE_NOTHING"
+msgstr "कोई ऑफ़लाइन कमाई इंतज़ार में नहीं है।"
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "ऑफ़लाइन कमाई प्राप्त होने का इंतज़ार कर रही है।"
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "पिछली प्राप्ति: इनाम वाले घंटे: %s · सिक्के: %s · रत्न: %s"
+
+msgid "NAV_UPGRADES"
+msgstr "अपग्रेड"
+
+msgid "STATS_OPEN"
+msgstr "आँकड़े"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "नए अपग्रेड अनलॉक हुए: %s (खिलाड़ी अपग्रेड)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "प्रेस्टीज रीसेट अनलॉक करने के लिए सर्दी I का हिममानव (पहला बॉस) ढूँढें।"
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "हिममानव को ढूँढें"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "ये तैयार अवसर जो भी कार्ड दे सकते हैं, वे सब आपके पास पहले से हैं।"
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "पहले नक्शे पर यह स्थान ढूँढें।"
+
+msgid "EQUIPPED_PINNED"
+msgstr "लैस"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "हथियार"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "पोशाक"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "खाली स्लॉट"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "लैस"
+
+msgid "COMPARE_SELECTED"
+msgstr "चयनित"
+
+msgid "COMPARE_ITEM"
+msgstr "आइटम"
+
+msgid "COMPARE_UPGRADE"
+msgstr "बेहतर"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "कमज़ोर"
+
+msgid "COMPARE_MIXED"
+msgstr "कुछ बेहतर, कुछ कमज़ोर"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "टियर %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "अपनी ही प्रतियाँ मर्ज करने से बढ़ता है, ^%d तक। यह कभी दूसरा आइटम नहीं बनता; ^100 के बाद हर मर्ज थोड़ा कम जोड़ता है।"
+
+msgid "FOLLOW_READY"
+msgstr "तैयार! कार्ड चुनने के लिए प्रेस्टीज खोलें"
+
+msgid "FOLLOW_STEP"
+msgstr "चरण %d/%d · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "हराएँ: %s: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "लड़ाई में कोई रसद इस्तेमाल किए बिना हराएँ: %s: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "मिशन प्राप्त करें"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "पात्र"
+
+msgid "STATS_LEVEL"
+msgstr "लेवल"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "स्टेज"
+
+msgid "STATS_PRESTIGES"
+msgstr "पूरे किए प्रेस्टीज"
+
+msgid "STATS_CARDS"
+msgstr "प्रेस्टीज कार्ड"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "आक्रमण"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "हमला गति"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/से. (+%s%%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "रक्षा और रिकवरी"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%s%% डैमेज)"
+
+msgid "STATS_RESPAWN"
+msgstr "पुनर्जीवन समय"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "बूस्ट"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "प्रेस्टीज गुणक"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "HP ×%s · डैमेज ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "चलने की गति"
+
+msgid "STATS_STORED_SHARE"
+msgstr "रखे गियर का योगदान"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "लैस गियर बोनस"
+
+msgid "STATS_SECTION_TIME"
+msgstr "खेलने का समय"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "सभी दौर"
+
+msgid "STATS_TIME_RUN"
+msgstr "यह दौर"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "डैमेज"
+
+msgid "STATS_SHORT_HP"
+msgstr "HP"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "रक्षा"
+
+msgid "STATS_SHORT_CRIT"
+msgstr "क्रिट"
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "क्रिट डैमेज"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "हमला गति"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "जीवन चोरी"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "HP/से."
+
+msgid "CAMP_SIGHTED"
+msgstr "कैंप दिखा! अब यह आपके नक्शे और दुनिया पैनल में है।"
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "कार्ड और महारत HP बोनस"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "कार्ड और महारत डैमेज बोनस"
+
+msgid "STAT_REGEN_PCT"
+msgstr "रिकवरी"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "अधिकतम HP/से."
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "अधिकतम HP/से."
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s%% अधिकतम HP/से. (%s HP/से.)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "पोशाक पड़ाव (पहनने पर)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "हथियार %s%% · पोशाकें %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "रक्षक +%s रक्षा"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s HP"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%s%% पोशाक HP"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "रिकवरी %s%% अधिकतम HP/से."
+
+msgid "MILESTONES_ACTIVE"
+msgstr "पड़ाव (पहनने पर): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "पड़ाव: अभी कोई नहीं। पहला ^100 पर खुलता है।"
+
+msgid "MILESTONES_COMPLETE"
+msgstr "सभी पड़ाव पूरे (महारत)।"
+
+msgid "MILESTONE_NEXT"
+msgstr "अगला ^%d पर: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "अपनी ही प्रतियाँ मर्ज करने से बढ़ती है, ^%d तक: ^100 तक हर प्रति पर मूल HP का +2%%, फिर हर प्रति पर +1%%। यह कभी दूसरा आइटम नहीं बनती। पड़ाव केवल पहनने पर काम करते हैं; रखे जाने पर इसके HP का %s%% गिना जाता है।"
+
+msgid "PANEL_LEVEL"
+msgstr "खिलाड़ी लेवल और विकास"
+
+msgid "PANEL_FARMING"
+msgstr "फ़ार्मिंग गाइड"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "लेवल विकास और आँकड़ों के स्रोत देखने के लिए टैप करें"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "स्लॉट %d → %d / %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "स्लॉट %d / %d · अधिकतम"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · अधिकतम"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "बॉस प्रति ड्रॉप %s रत्न देता है"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "फ़ार्मिंग गाइड"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "प्रेस्टीज लॉक · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "प्रेस्टीज रीसेट के लिए ज़रूरी"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "सर्दी I का हिममानव ढूँढें (पहला बॉस)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "कम से कम एक तैयार अवसर जो कार्ड दे सके"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "हिममानव को ढूँढें"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "कोई तैयार अवसर नहीं"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "देने के लिए कोई कार्ड नहीं बचा"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "आँकड़ों के अन्य स्रोत"
+
+msgid "BREAKDOWN_HP"
+msgstr "आपका HP कहाँ से आता है"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "आपका डैमेज कहाँ से आता है"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "प्रेस्टीज से पहले"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "कार्ड और महारत"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "कुल (लड़ाई में इस्तेमाल)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "प्रति वार, कुल में शामिल नहीं"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "आपको लगने वाला डैमेज"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "खिलाड़ी लेवल (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "रखा हुआ गियर (पोशाकें %s%%, हथियार %s%%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "लैस गियर (+%s%% कार्ड सहित)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "हार-पड़ाव, विरुद्ध: %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "सामान्य दुश्मनों के विरुद्ध प्रेस्टीज"
+
+msgid "PER_HIT_BOSS"
+msgstr "बॉस के विरुद्ध प्रेस्टीज"
+
+msgid "PER_HIT_FOCUS"
+msgstr "एकाग्रता (%d से. बाकी)"
+
+msgid "TAKEN_GUARD"
+msgstr "प्रेस्टीज रक्षा"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "बॉस के विरुद्ध प्रेस्टीज रक्षा"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "लेवल %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "अधिकतम लेवल पर पहुँच गए। लेवल अब कुछ नहीं जोड़ते।"
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s XP · और %s, लक्ष्य लेवल %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "लेवल विकास"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "हर लेवल (मूल)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s HP · +%s डैमेज"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "अब तक के %d लेवल से"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "लेवल %d पर HP"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "लेवल %d पर डैमेज"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "प्रेस्टीज कार्ड हर स्रोत को गुणा करते हैं: HP ×%s, डैमेज ×%s।"
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "हर दुश्मन को कहाँ फ़ार्म करें और वह क्या गिराता है। किसी नक्शे की प्रविष्टि तब खुलती है जब उसका नक्शा विवरण अधिकतम हो और वहाँ के हर दुश्मन प्रकार के आँकड़े और ड्रॉप उजागर हों। केवल आपके खोजे स्थान ही अपनी जगह दिखाते हैं।"
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "आप यहाँ हैं"
+
+msgid "FARMING_READY"
+msgstr "प्रविष्टि अनलॉक"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "खोलें"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "नक्शा विवरण %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "आँकड़े और ड्रॉप %d/%d प्रकार"
+
+msgid "FARMING_LOCKED"
+msgstr "ज़रूरी: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "अभी न पहुँचे नक्शे: %d।"
+
+msgid "FARMING_MAP_TITLE"
+msgstr "फ़ार्मिंग · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "संभावनाओं में आपके मौजूदा अपग्रेड शामिल हैं। दिशाएँ इस नक्शे पर आपके सबसे पास के ज्ञात कैंप से गिनी जाती हैं।"
+
+msgid "FARMING_BACK"
+msgstr "सभी नक्शे"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "अनदेखा दुश्मन · उसे ढूँढने के लिए यह नक्शा खोजें"
+
+msgid "FARMING_REWARDS"
+msgstr "सिक्के ×%s · रत्न %s%% ×%s · XP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "रसद: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "अनदेखा स्थान"
+
+msgid "FARMING_DETAILS"
+msgstr "विवरण"
+
+msgid "FARMING_AT_CAMP"
+msgstr "कैंप %d पर"
+
+msgid "FARMING_LOCATION"
+msgstr "%s दिशा · कैंप %d से · %s"
+
+msgid "COMPASS_N"
+msgstr "उत्तर"
+
+msgid "COMPASS_NE"
+msgstr "उत्तर-पूर्व"
+
+msgid "COMPASS_E"
+msgstr "पूर्व"
+
+msgid "COMPASS_SE"
+msgstr "दक्षिण-पूर्व"
+
+msgid "COMPASS_S"
+msgstr "दक्षिण"
+
+msgid "COMPASS_SW"
+msgstr "दक्षिण-पश्चिम"
+
+msgid "COMPASS_W"
+msgstr "पश्चिम"
+
+msgid "COMPASS_NW"
+msgstr "उत्तर-पश्चिम"
+
+msgid "DISTANCE_NEAR"
+msgstr "पास"
+
+msgid "DISTANCE_MID"
+msgstr "थोड़ी दूर"
+
+msgid "DISTANCE_FAR"
+msgstr "दूर"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "अरे! मेरी पोशाक!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "मेरा हथियार!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "मेरी जादू की किताब!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "मेरी रसद!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "रक्षा टॉनिक"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "रिकवरी मरहम"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "ज्ञान टॉनिक"
+
+msgid "FOLLOW_COLLECT"
+msgstr "चरण %d/%d · इकट्ठा करें: %s (स्रोत: %s): %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "सब मिल गए! जमा करें: प्रेस्टीज, फिर जमा करें"
+
+msgid "FILTERS"
+msgstr "फ़िल्टर"
+
+msgid "FILTERS_ACTIVE"
+msgstr "फ़िल्टर · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "गियर ग्रिड फ़िल्टर करें। फ़िल्टर बंद करने पर हर आइटम फिर दिखता है।"
+
+msgid "PANEL_FILTERS"
+msgstr "फ़िल्टर"
+
+msgid "FILTERS_HINT"
+msgstr "फ़िल्टर खुले रहने तक गियर ग्रिड केवल यही श्रेणी दिखाता है। बंद करने पर हर आइटम फिर दिखता है।"
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "रसद स्लॉट: हर रसद प्रकार के लिए एक (%d प्रकार)। फ़िल्टर गियर गिनती के पास हैं।"
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "इस रसद के हर 3 वास्तविक उपयोग एक महारत लेवल देते हैं, ^%d तक। खरीद और ड्रॉप केवल स्टॉक बढ़ाते हैं। प्रेस्टीज महारत और उपयोग प्रगति को रीसेट करता है।"
+
+msgid "BUY_SUPPLY"
+msgstr "खरीदें: %s · सिक्के: %s"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · %d से. बाकी"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "सक्रिय: %s · %d से. बाकी"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "कूलडाउन · %s से."
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "उपयोग के लिए तैयार"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "ऑटो-उपयोग: HP %s%% या कम होने पर, कूलडाउन के बाद"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "ऑटो-उपयोग: जब भी यह सक्रिय न हो"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "ऑटो-उपयोग: लड़ाई के दौरान, जब सक्रिय न हो"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "ऑटो-उपयोग: HP %s%% या कम होने पर, जब सक्रिय न हो"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "ऑटो-उपयोग: जब भी यह सक्रिय न हो"
+
+msgid "SUPPLY_STOCK"
+msgstr "स्टॉक: %s · हर उपयोग में एक खर्च होता है"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "अगली मिली प्रति: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "महारत बोनस: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "अवधि %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "कूलडाउन %s से."
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "अधिकतम HP का %s%%"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%s%% सिक्के"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%s%% XP"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s रक्षा"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "प्रति सेकंड अधिकतम HP का %s%%"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "अधिकतम HP का %s%% ठीक करता है (अभी %s HP) · कूलडाउन %s से. · %s%% HP से कम होने पर उपयोग योग्य"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "%s%% अधिक सिक्के पराजित दुश्मनों से, %s से. तक"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s रक्षा (%s%% कम डैमेज लगता है), %s से. तक"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "प्रति सेकंड अधिकतम HP का %s%% ठीक करता है, %s से. तक (कुल %s%%) · %s%% HP से कम होने पर उपयोग योग्य"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "%s%% अधिक XP पराजित दुश्मनों से, %s से. तक"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "महारत ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "ऑटो: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "इस रसद के लिए आपका HP बहुत ज़्यादा है।"
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "पोशन अभी कूलडाउन में है।"
+
+msgid "SUPPLY_ACTIVE"
+msgstr "पहले से सक्रिय है। ख़त्म होने पर फिर इस्तेमाल करें।"
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "हर तीन उपयोग रसद महारत बढ़ाते हैं। प्रेस्टीज महारत और उपयोग प्रगति को रीसेट करता है।"
+
+msgid "SOURCE_SUPPLY"
+msgstr "सक्रिय रसद"
+
+msgid "CAMP_TELEPORT"
+msgstr "टेलीपोर्ट"
+
+msgid "PANEL_TELEPORT"
+msgstr "टेलीपोर्ट"
+
+msgid "TELEPORT_TITLE"
+msgstr "टेलीपोर्ट"
+
+msgid "TELEPORT_HELP"
+msgstr "अपना कोई दूसरा कैंप चुनें, इस नक्शे पर या किसी पहुँचे हुए नक्शे पर। लड़ाई के दौरान टेलीपोर्ट नहीं होता।"
+
+msgid "TELEPORT_HERE"
+msgstr "आप यहाँ हैं"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "चुना गया गंतव्य"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "यह नक्शा"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "दूसरा नक्शा"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "चुनें"
+
+msgid "TELEPORT_BACK"
+msgstr "वापस"
+
+msgid "TELEPORT_GO"
+msgstr "टेलीपोर्ट · %s · कैंप %d"
+
+msgid "TELEPORT_PICK"
+msgstr "गंतव्य चुनें"
+
+msgid "TELEPORT_NONE"
+msgstr "अभी कोई दूसरा कैंप नहीं। वहाँ टेलीपोर्ट करने के लिए दूसरा कैंप अनलॉक करें।"
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · कैंप %d"
+
+msgid "MAP_EXPLORED"
+msgstr "नक्शा खोजा गया: %d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "इस नक्शे का कितना हिस्सा आपने हमेशा के लिए खोज लिया है। पल भर की नज़र और कैमरा घुमाना नहीं गिना जाता।"
+
+msgid "SECTION_AUDIO"
+msgstr "ध्वनि और संगीत"
+
+msgid "MUSIC_VOLUME"
+msgstr "संगीत %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "ध्वनि प्रभाव %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "गेमप्ले ध्वनियाँ म्यूट: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "विशेष ध्वनियाँ म्यूट: %s"
+
+msgid "AUDIO_HINT"
+msgstr "गेमप्ले ध्वनियाँ: टैप, ख़रीद, मर्ज और लड़ाई। विशेष ध्वनियाँ: सूचनाएँ (प्राप्ति के लिए तैयार मिशन या उद्देश्य, प्रेस्टीज समाचार, नया मेन्यू, नक्शा महारत प्रगति, मिला हुआ बॉस) और पड़ाव (नया नक्शा, एक प्रेस्टीज)। ध्वनि प्रभाव वॉल्यूम दोनों को नियंत्रित करता है।"
+
+msgid "UP_MERGE_ALL"
+msgstr "सब मर्ज करें"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "एक बार का अनलॉक: फ़िल्टर में सब मर्ज करें बटन एक टैप में हर अतिरिक्त प्रति मर्ज करता है · उपयोग मुफ़्त · प्रेस्टीज के बाद भी रहता है"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "अनलॉक · फ़िल्टर में सब मर्ज करें इस्तेमाल करें"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "सब मर्ज करें अभी अनलॉक नहीं है"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "सब मर्ज करें: अपग्रेड → इन्वेंटरी में 5K रत्नों से एक बार अनलॉक करें।"
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "सब मर्ज करें · अतिरिक्त प्रतियाँ: %d"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "सब मर्ज करें"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "मर्ज करने को कुछ नहीं"
+
+msgid "MERGE_ALL_DONE"
+msgstr "मर्ज हुई प्रतियाँ: %d · आइटम: %d"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "ऑटो-इवॉल्यूशन अनलॉक करें"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "इनकी अतिरिक्त प्रतियाँ मर्ज करता है: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "चालू · मर्ज करता है: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "^100 और 101 प्रतियों पर इवॉल्व करता है: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "चालू · इवॉल्व करता है: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "कूलडाउन: %s से."
+
+msgid "GATE_HUD"
+msgstr "अगला स्टेज · बॉस %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "दुनिया साफ़ · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "अगला नक्शा खोलने के लिए इस नक्शे पर हराए जाने वाले बॉस। जो मिले हुए बॉस अब भी गिने जाते हैं, उन पर सुनहरा बैनर होता है।"
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "अगला स्टेज पहले से खुला है"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "अनदेखा बॉस"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · पराजित"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · अभी ज़रूरी"
+
+msgid "OFFERING_PROGRESS"
+msgstr "सिक्के %s / %s · रत्न %s / %s"
+
+msgid "SECTION_RESEARCH"
+msgstr "अनुसंधान"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "फ़ोकस फ़ार्मिंग अनलॉक हुई"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "नीचे फ़ार्म पर टैप करें: आपका हीरो इस स्थान तक चलकर यहीं खुद लड़ता है। रोकने के लिए फिर टैप करें या चलें।"
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "शुरू करने के लिए फ़ार्म पर टैप करें"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "आपका हीरो इस स्थान तक चलकर खुद लड़ता है। चलने से यह रुक जाता है।"
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "फ़ोकस फ़ार्मिंग अनलॉक हुई"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "इस दुश्मन के अपग्रेड खोलें, फिर ऊपर फ़ार्म पर टैप करें।"
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "फ़ोकस फ़ार्मिंग अनलॉक हुई"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "दुनिया में या नक्शे पर उस दुश्मन पर टैप करें, फिर फ़ार्म पर टैप करें।"
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "पहले यह स्थान ढूँढें"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "फ़ार्मिंग केवल आपके खोजे स्थानों तक जाती है। ऊपर से कोई खोजा हुआ स्थान चुनें।"
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "नया गियर: टैप करें, फिर लैस करें"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "लैस गियर पूरे आँकड़े देता है। रखा हुआ गियर फिर भी कुछ हिस्सा जोड़ता है।"
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "एक जैसे दो: खोलें, फिर मर्ज करें"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "एक अतिरिक्त प्रति मर्ज करने से आइटम हमेशा के लिए मज़बूत होता है।"
+
+msgid "GUIDE_MISSIONS"
+msgstr "मिशन अनलॉक हुए: मिशन खोलें"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "उद्देश्य और दैनिक मिशन सिक्के और रत्न देते हैं।"
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "प्राप्त करें पर टैप करें"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "पूरे उद्देश्य यहाँ तब तक रहते हैं जब तक आप उनका इनाम प्राप्त न करें।"
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "अभी प्राप्त करने को कुछ नहीं"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "इनाम तैयार होने पर मिशन बटन पर ! दिखता है।"
+
+msgid "GUIDE_SLOTS"
+msgstr "अपग्रेड अनलॉक हुए: अपग्रेड खोलें"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "खिलाड़ी अपग्रेड इस दौर तक चलते हैं; रत्न अपग्रेड हमेशा रहते हैं।"
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "इन्वेंटरी टैब खोलें"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "ज़्यादा उपकरण स्लॉट से आप ज़्यादा तरह का गियर रख सकते हैं।"
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "एक उपकरण स्लॉट खरीदें"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "हर तरह के आइटम को अपना स्लॉट चाहिए; प्रतियाँ एक साथ जमा होती हैं।"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "रसद टैब खोलें"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "रसद कठिन लड़ाइयों में मदद करती है।"
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "एक हेल्थ पोशन खरीदें"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "लड़ाई के दौरान ठीक होने के लिए अपनी रसद में पोशन पर टैप करें।"
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "हेल्थ पोशन के लिए सिक्के कमाएँ"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "और ज़रूरी सिक्के: %s। हर पराजित दुश्मन सिक्के गिराता है।"
+
+msgid "GUIDE_SNOWMAN"
+msgstr "मुख्य उद्देश्य: हिममानव को हराएँ"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "उसे हराने से सर्दी II खुलता है; उसे ढूँढने से प्रेस्टीज खुलता है। पहले गियर मर्ज करें, लेवल बढ़ाएँ और पोशन साथ रखें।"
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "प्रेस्टीज अनलॉक हुआ: प्रेस्टीज खोलें"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "वहाँ के अवसर स्थायी कार्ड दिलाते हैं।"
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "किसी अवसर पर फ़ॉलो करें पर टैप करें"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "उसका अगला चरण नक्शे पर दिखता है। जब कोई तैयार हो, प्रेस्टीज दुनिया फिर से शुरू करता है और कार्ड आपके पास रहता है।"
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "एक अवसर पूरा करें"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "खेलते-खेलते नए अवसर आते हैं। जब कोई तैयार हो, प्रेस्टीज दुनिया फिर से शुरू करता है और कार्ड आपके पास रहता है।"
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "मिशन अनलॉक हुए"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "उद्देश्य और दैनिक मिशन सिक्के और रत्न देते हैं। उन्हें मिशन में प्राप्त करें।"
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "दुश्मन अपग्रेड अनलॉक हुए"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "उसकी लूट, सिक्के और XP बढ़ाने के लिए नक्शे के ऊपर अपग्रेड (या किसी दुश्मन) पर टैप करें।"
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "दुनिया का नक्शा अनलॉक हुआ"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "मिनी-नक्शा और दुनिया दिखाते हैं कि आप कहाँ-कहाँ गए हैं। वहाँ पुनर्जीवन और आराम के लिए कैंप अनलॉक करें।"
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "खिलाड़ी अपग्रेड अनलॉक हुए"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "अपग्रेड में उपकरण स्लॉट, रसद और स्थायी रत्न अपग्रेड खरीदें।"
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "मुख्य उद्देश्य: हिममानव को हराएँ"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "उसे हराने से सर्दी II खुलता है; उसे ढूँढने से प्रेस्टीज खुलता है। पहले गियर मर्ज करें, लेवल बढ़ाएँ और पोशन साथ रखें।"
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "प्रेस्टीज अनलॉक हुआ"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "एक अवसर पूरा करें, फिर स्थायी कार्ड के साथ फिर से शुरू करने के लिए प्रेस्टीज करें।"
+
+msgid "GUIDE_SKIP"
+msgstr "छोड़ें"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "गियर लैस और मर्ज करें"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "अपनी इन्वेंटरी में गियर पर टैप करें, फिर पूरे आँकड़ों के लिए लैस करें; रखा हुआ गियर फिर भी कुछ हिस्सा जोड़ता है। एक जैसे दो आइटम मर्ज होकर एक हमेशा मज़बूत आइटम बनते हैं।"
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "अपग्रेड और मिशन"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "उसकी लूट, सिक्के और XP बढ़ाने के लिए किसी दुश्मन (या नक्शे के ऊपर अपग्रेड) पर टैप करें। खिलाड़ी अपग्रेड में उपकरण स्लॉट, रसद और स्थायी रत्न अपग्रेड मिलते हैं। सिक्कों और रत्नों के लिए मिशन प्राप्त करें।"
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "खोज, कैंप और स्टेज"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "चलने से कोहरा हटता है; मिनी-नक्शा और दुनिया दिखाते हैं कि आप कहाँ-कहाँ गए हैं। वहाँ पुनर्जीवन और आराम के लिए दुनिया में कैंप अनलॉक करें। अगला स्टेज खोलने के लिए नक्शे के बॉस हराएँ।"
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "प्रेस्टीज और नक्शा महारत"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "सर्दी I का हिममानव ढूँढने से प्रेस्टीज रीसेट अनलॉक होता है: एक अवसर पूरा करें, फिर स्थायी कार्ड के साथ फिर से शुरू करने के लिए प्रेस्टीज करें। नक्शा महारत हर नक्शे के लंबे लक्ष्यों पर नज़र रखती है।"
+
+msgid "EXIT_TITLE"
+msgstr "LootFarmer छोड़ें?"
+
+msgid "EXIT_CONFIRM"
+msgstr "आपकी प्रगति सहेजी गई है। आप कभी भी वापस आ सकते हैं।"
+
+msgid "EXIT_ACTION"
+msgstr "बाहर निकलें"
+
+msgid "SECTION_TUTORIAL"
+msgstr "ट्यूटोरियल और सहायता"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "सभी मेन्यू अभी दिखाएँ"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "हर मेन्यू अभी दिखाएँ? नए मेन्यू सामान्यतः गेम सीखते-सीखते दिखते हैं। प्रेस्टीज के लिए फिर भी हिममानव का मिलना ज़रूरी है; निर्देशित मोड में ट्यूटोरियल पूरा करना भी ज़रूरी है।"
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "सभी मेन्यू अब उपलब्ध हैं"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "हर मेन्यू पहले से उपलब्ध है"
+
+msgid "PANEL_MASTERY"
+msgstr "नक्शा महारत"
+
+msgid "MASTERY_OPEN"
+msgstr "नक्शा महारत · गेम %d%%"
+
+msgid "MASTERY_INTRO"
+msgstr "100% पूर्णता के लिए वैकल्पिक लक्ष्य। प्रगति स्थायी है और प्रेस्टीज के बाद भी रहती है।"
+
+msgid "MASTERY_GAME"
+msgstr "गेम पूर्णता %d%%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "सभी आठ नक्शे: %s उपाधि · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ अर्जित: %s उपाधि · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "इनाम: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ इनाम अर्जित: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "विवरण"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "शुरू करने के लिए इस नक्शे तक पहुँचें"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "महारत · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ सभी नक्शे"
+
+msgid "MASTERY_EXPLORE"
+msgstr "खोज"
+
+msgid "MASTERY_HUNT"
+msgstr "शिकार"
+
+msgid "MASTERY_RESEARCH"
+msgstr "अनुसंधान"
+
+msgid "MASTERY_COLLECT"
+msgstr "संग्रह"
+
+msgid "MASTERY_FORGE"
+msgstr "भट्ठी"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "पूरा नक्शा खोजें और हर कैंप अनलॉक करें।"
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "हर दुश्मन प्रकार के %s और हर बॉस के %s हराएँ।"
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "यहाँ के हर दुश्मन के आँकड़े और ड्रॉप उजागर करें।"
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "यहाँ ड्रॉप होने वाला हर हथियार, पोशाक और स्किल पाएँ।"
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "यहाँ की पोशाकें ^%s तक (बॉस पोशाकें ^%s तक) और यहाँ का एक हथियार इवॉल्व किया हुआ।"
+
+msgid "MASTERY_MORE"
+msgstr "+%d और"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "नक्शा खोजा गया %d%% / 100%%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "कैंप %d अभी अनलॉक नहीं हुआ"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · आँकड़े दिखाएँ"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · ड्रॉप दिखाएँ"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "इनमें से एक इवॉल्व करें: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "अनदेखा दुश्मन"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "अनदेखा आइटम"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "+%s%% अधिकतम HP"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "+%s%% डैमेज"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "+%s%% सिक्के"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "+%s%% XP"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "+%s अंक लूट संभावना"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "+%s अंक रत्न संभावना"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "महारत · %s · %s पूरा"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "प्रेस्टीज अनलॉक हुआ"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "मिले अवसर: %d · खोलने के लिए टैप करें"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "एक अवसर पूरा करें, फिर स्थायी कार्ड के लिए प्रेस्टीज करें"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "नक्शे पर महारत · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "100% पूरा"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "उस्ताद फ़ार्मर"
+
+msgid "STATS_COMPLETION"
+msgstr "गेम पूर्णता"
+
+msgid "STATS_TITLE"
+msgstr "उपाधि"
+
+msgid "STATS_MASTERY"
+msgstr "नक्शा महारत"
+
+msgid "MAIN_HINT_0"
+msgstr "दुश्मनों को हराएँ"
+
+msgid "MAIN_HINT_1"
+msgstr "इन्वेंटरी में किसी हथियार या पोशाक पर टैप करें, फिर लैस करें"
+
+msgid "MAIN_HINT_2"
+msgstr "ऐसा आइटम खोलें जो आपके पास दो हों, फिर मर्ज करें"
+
+msgid "MAIN_HINT_3"
+msgstr "किसी कैंप तक चलें और कैंप देखें पर टैप करें, फिर अनलॉक करें"
+
+msgid "MAIN_HINT_4"
+msgstr "सर्दी I के बॉस हिममानव को हराएँ"
+
+msgid "MAIN_HINT_5"
+msgstr "उपचार स्किल लैस करें (सर्दी II: अंतरिक्ष हेलमेट एलीट और आसमानी रोबोट इसे गिराते हैं)"
+
+msgid "MAIN_HINT_6"
+msgstr "दुनिया में नक्शा विवरण की एक रैंक खरीदें"
+
+msgid "MAIN_HINT_7"
+msgstr "हिम विस्फोट स्किल ढूँढें (गर्मी I: पुआल टोपी एलीट इसे गिराते हैं)"
+
+msgid "MAIN_HINT_8"
+msgstr "गर्मी I तक पहुँचने के लिए सर्दी II के बॉस आसमानी रोबोट को हराएँ"
+
+msgid "MAIN_HINT_9"
+msgstr "101 प्रतियों वाला ^100 का हथियार इवॉल्व करें (आइटम विवरण, इवॉल्व करें)"
+
+msgid "MAIN_HINT_10"
+msgstr "अलग-अलग स्किल पाएँ"
+
+msgid "MAIN_HINT_11"
+msgstr "पतझड़ I तक पहुँचने के लिए गर्मी II के दोनों बॉस हराएँ"
+
+msgid "MAIN_HINT_12"
+msgstr "अलग-अलग स्किल पाएँ"
+
+msgid "MAIN_HINT_13"
+msgstr "वसंत I तक पहुँचने के लिए पतझड़ II के दोनों बॉस हराएँ"
+
+msgid "MAIN_HINT_14"
+msgstr "एक प्रेस्टीज पूरा करें"
+
+msgid "MAIN_HINT_15"
+msgstr "वसंत II के हर दुश्मन प्रकार और बॉस को हराएँ"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "तैयार! इसे मिशन में प्राप्त करें"
+
+msgid "MISSION_DO_KILL"
+msgstr "हराएँ: %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "हराएँ: %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "हथियार या पोशाक ड्रॉप उठाएँ"
+
+msgid "MISSION_DO_MERGE"
+msgstr "आइटम मर्ज करें"
+
+msgid "MISSION_DO_COINS"
+msgstr "दुश्मनों से सिक्के कमाएँ"
+
+msgid "MISSION_DO_CAST"
+msgstr "लैस स्किल चलाएँ"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "अगला: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "हराएँ: %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "कोई भी दुश्मन हराएँ"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "हथियार या पोशाक ड्रॉप उठाएँ"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "आइटम मर्ज करें"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "कोई भी बॉस हराएँ"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "स्किल चलाएँ"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "सामान्य मिशन प्राप्त करें"
+
+msgid "FOLLOW_TROPHY"
+msgstr "ट्रॉफ़ी के लिए हराएँ: %s · ट्रॉफ़ियाँ %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "कोई भी हथियार, पोशाक या स्किल ^100 तक मर्ज करें: सर्वश्रेष्ठ ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "टियर %d या ऊपर का कोई आइटम ^100 तक मर्ज करें: सर्वश्रेष्ठ ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "^50 तक मर्ज करें: हथियार %d/%d · पोशाकें %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "टियर 2+ गियर ^50 तक मर्ज करें: हथियार %d/%d · पोशाकें %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "इस दौर में दुश्मनों से कमाएँ: सिक्के %s/%s · रत्न %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "काफ़ी है! जमा करें: प्रेस्टीज, फिर जमा करें"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "कुल दूर रहने का समय: %.1f/72 घं."
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "सबसे लंबी एक अनुपस्थिति: %.1f/24 घं."
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "दूर रहते हुए कमाए सिक्के: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "खोजें: %s: %d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "हराएँ: %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "हर कैंप अनलॉक करें (%s): %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "फिर: %s (%d बाकी)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!चेतावनी: बॉस मिला!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · %s का बॉस"
+
+msgid "MASTERY_CHIP"
+msgstr "महारत %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "इस नक्शे की नक्शा महारत: प्रतिशत और पूरी हुई श्रेणियाँ। विवरण के लिए टैप करें।"
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "बॉस को हराने लायक होने तक फ़ार्म करें।"
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "हिममानव सर्दी II का रास्ता रोके खड़ा है।"
+
+msgid "VIEW_CAMP"
+msgstr "कैंप देखें"
+
+msgid "DROP_ALL"
+msgstr "सब गिराएँ"
+
+msgid "DROP_ALL_TITLE"
+msgstr "पूरा स्टैक गिराएँ?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nहर प्रति आपकी इन्वेंटरी से निकल जाती है और उसका स्लॉट तुरंत खाली हो जाता है। स्टैक 5 मिनट तक ज़मीन पर रहता है: वापस उठाने के लिए उस पर टैप करें (ऑटो-कलेक्ट उसे कभी वापस नहीं उठाता)। दोबारा उठाने पर मिशन, प्रेस्टीज या महारत की कोई प्रगति नहीं मिलती।"
+
+msgid "DROP_ALL_MASTERY"
+msgstr "महारत ^%d (बनी रहती है)"
+
+msgid "DROPPED_NOTICE"
+msgstr "गिराया: %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "पहले इसे हटाएँ"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "अभी आपको %s HP ठीक करता है (%s HP, अधिकतम HP का अधिकतम %s%%), जब HP %s%% से कम हो"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "5 से. तक +%s%% हमला डैमेज (अभी प्रति वार +%s डैमेज) · केवल लड़ाई में"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× हमला डैमेज (अभी %s) आपसे %s की दूरी तक हर दुश्मन पर, और उन्हें 3 से. तक 25%% धीमा करता है"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× हमला डैमेज (अभी %s) आपके लक्ष्य और उससे %s की दूरी तक हर दुश्मन पर"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "मौजूदा लक्ष्य पर %s× हमला डैमेज (अभी %s)"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "मौजूदा लक्ष्य पर %s× हमला डैमेज (अभी %s), पास से भारी वार"
+
+msgid "SKILL_DESC_STATS"
+msgstr "लक्ष्य: %s · दायरा: %s · कूलडाउन: %s से."
+
+msgid "SKILL_TARGET_SELF"
+msgstr "आप"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "क्षेत्र के सभी दुश्मन"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 दुश्मन"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "स्वयं"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s HP"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s%% डैमेज"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× हमला डैमेज"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "HP कम होने पर उपचार कभी भी इस्तेमाल हो सकता है, लड़ाई के बाहर भी।"
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "प्रेस्टीज"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "भुनाए जाने वाले अवसर: %d · और नया दौर शुरू करें"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "आप हर एक के लिए एक स्थायी कार्ड चुनते हैं:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 कार्ड"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "स्थायी · आपके पास रहेगा"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "इस दौर में रीसेट होगा"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "कार्ड एक-एक करके चुने जाते हैं और तुरंत सहेजे जाते हैं। आख़िरी कार्ड के बाद दौर सर्दी I पर फिर से शुरू होता है।"
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "प्रेस्टीज शुरू करें"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "प्रेस्टीज कार्ड और सेट (आपके पास: %d) और नए कार्ड"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "आपके रत्न: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "खोजे गए नक्शा क्षेत्र, दिखे कैंप और मिले बॉस"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "हर रत्न अपग्रेड, स्वचालन और इन्वेंटरी जगह"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "बॉस चाबियाँ, दुश्मन उपलब्धियाँ और नक्शा महारत"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "सेटिंग्स और ट्यूटोरियल प्रगति"
+
+msgid "RESET_LINE_COINS"
+msgstr "सिक्के: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "खिलाड़ी लेवल %d (वापस 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "आइटम, मर्ज और रसद स्टॉक"
+
+msgid "RESET_LINE_MAPS"
+msgstr "नक्शा पहुँच (वापस सर्दी I) और आपके कैंप"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "सिक्का अपग्रेड और नक्शा अपग्रेड"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "अधूरे अवसर और मिशन"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "कैंप देखें पर टैप करें"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "इससे यह कैंप खुलता है, जहाँ आप इसे अनलॉक कर सकते हैं।"
+
+msgid "HELP"
+msgstr "सहायता"
+
+msgid "PANEL_HELP"
+msgstr "सहायता"
+
+msgid "HELP_INTRO"
+msgstr "LootFarmer कैसे खेला जाता है, इसका छोटा सा परिचय। इसे पढ़ने से आपके गेम में कुछ नहीं बदलता।"
+
+msgid "HELP_BACK"
+msgstr "सेटिंग्स पर वापस"
+
+msgid "SECTION_LANGUAGE"
+msgstr "भाषा"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "क्रिटिकल संभावना"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "क्रिटिकल डैमेज"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "स्वचालित स्किल स्लॉट"
+
+msgid "SOURCE_UPGRADES"
+msgstr "अपग्रेड"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "स्वचालित स्किल: %d / %d तय"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "पहले कोई स्किल लैस करें और उपलब्ध स्वचालित स्लॉट खरीदें।"
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "ऑटो-मर्ज: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "इन्वेंटरी स्लॉट का आकार"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "%s HP तक लौटाता है (अधिकतम HP का %s%%)। HP कम होने पर कभी भी उपलब्ध, लड़ाई के बाहर भी।"
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "सक्रिय करने के लिए लड़ाई और %s यूनिट के भीतर एक दुश्मन ज़रूरी है।"
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "एक लक्ष्य। हमला गति %s%% घटाता है, %s सेकंड तक (बॉस: %s सेकंड)। चलने की गति नहीं बदलती।"
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "बॉस समयबद्ध प्रभावों की आधी अवधि झेल जाते हैं; ताक़त और डैमेज नहीं बदलते।"
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "अगला महारत लेवल: %d / %d उपयोग · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "ऑटो-उपयोग: जब भी HP कम हो और कूलडाउन तैयार हो, लड़ाई के बाहर भी।"
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "यात्रा के लिए हरे कैंप पर टैप करें। धुँधले कैंप लॉक हैं। लड़ाई के दौरान यात्रा उपलब्ध नहीं है।"
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d से."
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "प्रेस्टीज इस्तेमाल करने से पहले सर्दी II में निर्देशित ट्यूटोरियल पूरा करें।"
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "खिलाड़ी लेवल %d, अर्जित XP और लेवल बोनस"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "रसद महारत और उसके अगले लेवल की ओर प्रगति"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "एक कैंप चुनें"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "जारी रखने के लिए यह पैनल बंद करें।"
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "बंद करें बटन पर टैप करें। आपकी प्रगति सहेजी जा चुकी है।"
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "एक खिलाड़ी अपग्रेड खरीदें।"
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "अगली लड़ाइयों में मदद के लिए एक वैश्विक अपग्रेड चुनें।"
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "अपनी उपकरण इन्वेंटरी बढ़ाएँ।"
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "एक और स्लॉट खरीदने के लिए रत्न इस्तेमाल करें। कमी होने पर एक बार का ट्यूटोरियल उपहार उसे पूरा करता है।"
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "कैंप तक तीर का पीछा करें।"
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "पास जाकर उसे खोजें, फिर कैंप देखें पर टैप करें और उसका अनलॉक खरीदें।"
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "पहला बॉस ढूँढें।"
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "हिममानव की ओर तीर का पीछा करें। खोजने के लिए उसे हराना ज़रूरी नहीं।"
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "बॉस से लड़ने से पहले तैयारी करें।"
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "बॉस बहुत ताक़तवर हो सकते हैं। वैश्विक आँकड़ों के लिए लेवल बढ़ाएँ; उपकरण फ़ार्म करें, प्रतियाँ मर्ज करें और अपग्रेड खरीदें।"
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "कुछ और दुश्मन फ़ार्म करें।"
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "आगे बढ़ने से पहले ताक़त बढ़ाएँ और सिक्के जुटाएँ।"
+
+msgid "GUIDE_POTION_BUY"
+msgstr "एक हेल्थ पोशन खरीदें।"
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "खिलाड़ी अपग्रेड खोलें, फिर रसद। मौजूदा पोशन स्टॉक भी गिना जाता है।"
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "हेल्थ पोशन के लिए जगह बनाएँ।"
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "एक रसद स्लॉट खरीदें, या स्लॉट खाली करने के लिए मौजूदा रसद इस्तेमाल करें।"
+
+msgid "GUIDE_POTION_USE"
+msgstr "अपना हेल्थ पोशन इस्तेमाल करें।"
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "HP कम होने पर उसके इन्वेंटरी स्लॉट पर टैप करें। रसद इस्तेमाल करने से उसकी महारत बढ़ती है।"
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "उपचार की ज़रूरत हो तब पोशन इस्तेमाल करें।"
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "पहले पास के दुश्मनों से लड़ें। HP भरा होने पर पोशन कभी बर्बाद नहीं होता।"
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "प्रेस्टीज स्थायी फ़ायदे देता है।"
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "कार्ड के लिए अवसर पूरे करें। निर्देशित मोड इस ट्यूटोरियल के बाद रीसेट अनलॉक करता है; बिना प्रेस्टीज के आगे खेलना भी ठीक है।"
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "आप पहले से प्रेस्टीज इनाम के योग्य हैं।"
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "आपका अवसर तैयार है। रीसेट करना है या नहीं, यह तय करने से पहले सर्दी II में निर्देशित ट्यूटोरियल पूरा करें।"
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "अगला नक्शा खुल गया है।"
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "अनलॉक स्टेज और उनके कैंप देखने के लिए दुनिया खोलें।"
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "अनलॉक कैंपों के बीच यात्रा करें।"
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "एक कैंप अनलॉक होने पर दुनिया सीधे वहाँ ले जाती है, कई होने पर नक्शा दिखाती है। लड़ाई टेलीपोर्ट रोकती है।"
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "पड़ाव वैकल्पिक लक्ष्य देते हैं।"
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "अतिरिक्त इनाम चाहिए तो नक्शा महारत और उपलब्धियाँ देखें। दुनिया से होकर सर्दी II की ओर बढ़ें।"
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "सर्दी II की यात्रा करें।"
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "रोमांच जारी रखने के लिए दुनिया खोलें और सर्दी II चुनें।"
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "आगे का रास्ता"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "आपका अंतिम लक्ष्य स्टेज 8 के आख़िरी बॉस को हराकर गेम जीतना है।\n\nऔर बड़ी चुनौती चाहिए? नक्शा महारत का हर पड़ाव पूरा करके 100% पूर्णता पाएँ।\n\nअपनी रफ़्तार से खेलें, सफ़र का आनंद लें, और शुभकामनाएँ!"
+
+msgid "SLOT_SMALL"
+msgstr "छोटा"
+
+msgid "SLOT_MEDIUM"
+msgstr "मध्यम"
+
+msgid "SLOT_LARGE"
+msgstr "बड़ा"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "सामान्य"
+
+msgid "REVIEW_TITLE"
+msgstr "LootFarmer पसंद आ रहा है?"
+
+msgid "REVIEW_LEAD"
+msgstr "आपका रोमांच तो अभी शुरू हुआ है!"
+
+msgid "REVIEW_BODY"
+msgstr "कुछ बढ़िया लूट मिली? हम जानना चाहेंगे कि आप क्या सोचते हैं। एक ईमानदार समीक्षा LootFarmer को बेहतर बनाने में और दूसरे खिलाड़ियों को यह गेम खोजने में मदद करती है।"
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Google Play पर समीक्षा दें"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "itch.io पर समीक्षा दें"
+
+msgid "REVIEW_LATER"
+msgstr "शायद बाद में"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "स्टोर पेज नहीं खुल सका। अपना कनेक्शन जाँचें और फिर कोशिश करें।"
+
+msgid "SECTION_FEEDBACK"
+msgstr "प्रतिक्रिया"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "किसी दुश्मन को निशाना बनाएँ"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "अपने हीरो से किसी दुश्मन तक खींचें, फिर निशाना बनाने के लिए छोड़ें। आपके हमले चुने गए दुश्मन पर केंद्रित होंगे।"
+
+msgid "GUIDE_TARGET"
+msgstr "किसी दुश्मन को निशाना बनाएँ"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "अपने हीरो से किसी दुश्मन तक खींचें, फिर निशाना बनाने के लिए छोड़ें। आपके हमले चुने गए दुश्मन पर केंद्रित होंगे।"
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "निशाना बनाने के लिए कोई दुश्मन ढूँढें"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "तब तक चलें जब तक कोई दुश्मन न दिखे, फिर अपने हीरो से उस तक खींचें और छोड़ें।"
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "शिकार: %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d अंक"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s से."
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d घं. %02d मि."
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d मि. %02d से."
+
+msgid "DURATION_SECONDS"
+msgstr "%d से."
+
+msgid "JOYSTICK_POSITION"
+msgstr "जॉयस्टिक स्थिति"
+
+msgid "JOYSTICK_LEFT"
+msgstr "बाएँ"
+
+msgid "JOYSTICK_CENTER"
+msgstr "बीच में"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "दाएँ"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "लिंक नहीं खुल सका। अपना कनेक्शन जाँचें और फिर कोशिश करें।"
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "हर मोड में गेम एक ही है। केवल मदद की मात्रा बदलती है।"
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "संकेतों के साथ चरण-दर-चरण पाठ। जैसे-जैसे आप सीखते हैं, मेन्यू खुलते जाते हैं।"
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "नियंत्रण और लक्ष्यों पर कुछ छोटे कार्ड। हर मेन्यू खुला है।"
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "कोई पाठ या सुझाव नहीं। हर मेन्यू शुरू से खुला है।"

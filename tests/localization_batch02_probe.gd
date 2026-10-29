@@ -1,7 +1,7 @@
 extends "res://tests/localization_batch01_probe.gd"
 ## Localization Batch 02 (Change 39): it_IT, nl_NL, pl_PL, ru_RU and uk_UA. Enabled for players in Change 40.
 ## Reuses the Batch 01 probe's helpers (check, frames, dropdown, choose, english_left).
-## 1. Availability: the five are selectable without any test switch and load on first use; the nine drafts and an
+## 1. Availability: the five are selectable without any test switch and load on first use; the Batch 04 drafts and an
 ##    unvalidated batch name are refused; a stored Russian choice is restored.
 ## 2. Routing: each locale routes to its own catalog through Godot's PO loader; every key resolves; every glyph
 ##    (Cyrillic incl. Ukrainian і ї є ґ, Polish diacritics, typographic quotes) exists in the theme font; Russian
@@ -56,11 +56,11 @@ func gate_batch02() -> void:
     BootContext.is_probe=false
     check(not LocalizationService.enable_test_batch("batch02") and not LocalizationService.set_test_locale("uk_UA"),"The test switches are refused outside probes and captures")
     BootContext.is_probe=was_probe
-    check(not LocalizationService.enable_test_batch("batch03"),"An unvalidated batch name is refused")
+    check(not LocalizationService.enable_test_batch("batch04"),"An unvalidated batch name is refused")
     check(LocalizationService.available_languages()==(ENABLED as Array[String]),"…and nothing was added by the refused calls")
     game._open("settings");await frames(4)
     var choices:=dropdown_choices()
-    check(choices.size()==12 and DRAFTS.all(func(l):return not l in choices),"The dropdown lists 12 choices and none of the nine drafts")
+    check(choices.size()==ENABLED.size()+1 and DRAFTS.all(func(l):return not l in choices),"The dropdown lists %d choices and none of the Batch 04 drafts" % choices.size())
     game._close()
 
 # ---------------------------------------------------------------- 2. routing, coverage, glyphs

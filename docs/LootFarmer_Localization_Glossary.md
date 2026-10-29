@@ -1,4 +1,4 @@
-# LootFarmer — Localization Glossary (Batches 01–02)
+# LootFarmer — Localization Glossary (Batches 01–03)
 
 Game-specific terminology decisions for the runtime catalogs in `localization/`. The English catalog (`localization/en.po`) is the source of truth. Batch 01 (Change 38): es-419, es-ES, pt-BR, fr-FR, de-DE. Batch 02 (Change 39): it-IT, nl-NL, pl-PL, ru-RU, uk-UA. Batches 03–04 add their columns here.
 
@@ -129,7 +129,7 @@ Enemy, boss, stage, skill and item names are translated descriptively. Each item
 - **No-break spaces:** a number or numeric placeholder is glued to the word after it with a no-break space ("12 s", "5 Minuten", "37 с"), so units never start a line.
 - **Durations** use the `DURATION_*` keys: `1 h 05 min`, `1 Std. 05 Min.`, `1 u 05 min`, `1 godz. 05 min`, `1 ч 05 мин`, `1 год 05 хв`.
 - **Compass directions** carry their preposition in the `COMPASS_*` key: *A nord del campo 3*, *Ten noorden van kamp 3*, *Na północ od obozu 3*, *К северу от лагеря 3*, *На північ від табору 3*.
-- **Language names** in Settings are shown in the current UI language, matching the English catalog. Autonyms (*Deutsch*, *日本語*) wait for the global gate, when the CJK, Thai and Devanagari font fallbacks exist; DejaVu Sans would draw those scripts as empty boxes. DejaVu Sans covers Latin, Polish and the full Russian and Ukrainian Cyrillic set.
+- **Language names** in the Settings dropdown are autonyms, the same in every UI language (Change 40); since Change 42 the dropdown draws with the Thai and Devanagari fallbacks so *ไทย* and *हिन्दी* render everywhere. DejaVu Sans covers Latin (incl. Turkish and Vietnamese), Polish and the full Russian and Ukrainian Cyrillic set.
 
 ## Change 41 additions (29 October 2026)
 
@@ -142,3 +142,59 @@ Enemy, boss, stage, skill and item names are translated descriptively. Each item
 - The mode names are the first part of the earlier "Name · description" strings, unchanged; each description is now its own key (`GUIDE_MODE_*_DETAIL`).
 - Collection contracts state both numbers: the count to collect (21 / 31 / 41) and the count handed in (20 / 30 / 40), with "you keep one". pl/ru/uk use the literal numbers with the correct case (pl „po 21 strojów”, ru «по 21 костюму», uk «по 21 вбранню»); no number placeholder is involved.
 - `PROGRESS_COLLECTION` is "Progress: %s" (was "Found this run"), because the kept copy can be an older one.
+
+## Batch 03 (Change 42): tr-TR, id-ID, vi-VN, th-TH, hi-IN
+
+Written from scratch against the 1,951-key English catalog; the drafts were reference only. Reviewed by Claude, not by native speakers.
+
+| English | tr-TR | id-ID | vi-VN | th-TH | hi-IN |
+|---|---|---|---|---|---|
+| Coins / Gems | Altın / Mücevher | Koin / Permata | Xu / Ngọc | เหรียญ / อัญมณี | सिक्के / रत्न |
+| Gear (equipment) | ekipman | perlengkapan | trang bị | อุปกรณ์ | गियर (उपकरण in "equipment slot") |
+| Inventory | envanter | inventaris | túi đồ | กระเป๋า | इन्वेंटरी |
+| Weapon / Outfit | silah / kıyafet | senjata / kostum | vũ khí / trang phục | อาวุธ / ชุด | हथियार / पोशाक (f.) |
+| Supplies (consumables) | malzemeler | perbekalan | đồ tiêu hao | เสบียง | रसद |
+| Slot | yuva | slot | ô | ช่อง | स्लॉट |
+| Merge | birleştir · birleştirme | gabungkan · penggabungan | ghép | ผสาน · การผสาน | मर्ज करें · मर्ज |
+| Evolve | evrimleştir · evrim | evolusikan · evolusi | tiến hóa | วิวัฒนาการ | इवॉल्व करें · इवॉल्यूशन |
+| Upgrade (bought) | geliştirme | peningkatan | nâng cấp | อัปเกรด | अपग्रेड |
+| Spare copy | yedek kopya | salinan cadangan | bản sao dư | ชิ้นสำรอง | अतिरिक्त प्रति |
+| Supply Mastery | Malzeme Ustalığı | Penguasaan Perbekalan | Thành thạo đồ tiêu hao | ความชำนาญเสบียง | रसद महारत |
+| Map Mastery | Harita Ustalığı | Penguasaan Peta | Thành thạo bản đồ | ความชำนาญแผนที่ | नक्शा महारत |
+| Prestige | Prestij | Prestise | Chuyển sinh | เพรสทีจ | प्रेस्टीज |
+| Opportunity / card | fırsat / kart | peluang / kartu | cơ hội / thẻ | โอกาส / การ์ด | अवसर / कार्ड |
+| Mission / Main objective | görev / ana hedef | misi / tujuan utama | nhiệm vụ / mục tiêu chính | ภารกิจ / เป้าหมายหลัก | मिशन / मुख्य उद्देश्य |
+| Claim / pick up | Al / topla | Klaim / ambil | Nhận / nhặt | รับ / เก็บ | प्राप्त करें / उठाएँ |
+| Camp / respawn | kamp / yeniden doğma | kemah / bangkit | trại / hồi sinh | ค่าย / เกิดใหม่ | कैंप / पुनर्जीवन |
+| View Camp | Kampı Gör | Lihat Kemah | Xem trại | ดูค่าย | कैंप देखें |
+| Farm (verb) | farm yap · farmla | farming | cày | ฟาร์ม | फ़ार्म करें |
+| Boss | boss (boss'u, boss'lar) | bos | Boss | บอส | बॉस |
+| Skill / cooldown | yetenek / bekleme süresi | skill / jeda | kỹ năng / hồi chiêu | สกิล / คูลดาวน์ | स्किल / कूलडाउन |
+| Cast a skill | kullan | rapal | thi triển | ร่าย | चलाएँ |
+| Loot / drop | ganimet / düşen | jarahan / drop | chiến lợi phẩm / rơi | ของดรอป / ดรอป | लूट / ड्रॉप |
+| Trophy | kupa | trofi | chiến tích | ถ้วยรางวัล | ट्रॉफ़ी |
+| Tier / level | kademe / seviye | tingkat / level | bậc / cấp | ขั้น / เลเวล | टियर / लेवल |
+| Stage (map) / map | bölge / harita | tahap / peta | màn / bản đồ | ด่าน / แผนที่ | स्टेज / नक्शा |
+| Run (between Prestiges) | tur | putaran | lượt chơi | รอบ | दौर |
+| HP / XP | Can / TP | HP / EXP | HP / EXP | HP / EXP | HP / XP |
+| Tap | Dokun | Ketuk | Chạm | แตะ | टैप करें |
+| Target (drag from the hero) | hedef al | jadikan target | chọn làm mục tiêu | เลือกเป็นเป้าหมาย | निशाना बनाएँ |
+| Defeat | yen | kalahkan | đánh bại | กำจัด (บอส: ปราบ) | हराएँ |
+| Equip / Unequip | Kuşan / Çıkar | Pakai / Lepas | Trang bị / Tháo | สวมใส่ / ถอด | लैस करें / हटाएँ |
+| Elite | Seçkin | Elit | Tinh anh | อีลิท | एलीट |
+| Honest review | dürüst değerlendirme | ulasan jujur | đánh giá chân thật | รีวิวตามจริง | ईमानदार समीक्षा |
+| Joystick position: Left / Center / Right | Joystick konumu: Sol / Orta / Sağ | Posisi joystick: Kiri / Tengah / Kanan | Vị trí cần điều khiển: Trái / Giữa / Phải | ตำแหน่งจอยสติ๊ก: ซ้าย / กลาง / ขวา | जॉयस्टिक स्थिति: बाएँ / बीच में / दाएँ |
+| Guided / Basic / None | Rehberli / Temel / Yok | Terpandu / Dasar / Tanpa | Có hướng dẫn / Cơ bản / Không | แนะนำทีละขั้น / พื้นฐาน / ไม่มี | निर्देशित / बुनियादी / कोई नहीं |
+| Stages (Winter I …) | Kış, Yaz, Sonbahar, İlkbahar | Musim Dingin, Panas, Gugur, Semi | Mùa Đông, Hè, Thu, Xuân | ฤดูหนาว, ร้อน, ใบไม้ร่วง, ใบไม้ผลิ | सर्दी, गर्मी, पतझड़, वसंत |
+| Grim Reaper / Death (legacy) | Tırpanlı Ölüm / Ölüm | Malaikat Maut / Sang Maut | Thần Chết / Tử Thần | ยมทูต / มัจจุราช | यमदूत / मृत्यु |
+
+### Register and language rules (Batch 03)
+
+- **tr-TR:** sen; imperatives *Dokun, Yen, Kuşan*. Turkish suffixes follow the vowel of the word they attach to, which code cannot know for a name or number, so **no suffix is ever attached to a placeholder**: *Yen: %s* / *%s yen*, *Seç: Kamp %d*, *Can (seviye %d)*, *canın %%%s kadarı*. Fixed names and numerals take their correct suffix by hand (*Kardan Adam'ı*, *Kış II'yi*, *Yaz I'e*, *^100'e*, *21 tane*). Percent sign first: *%12*, written `%%%s` (the validator accepts a moved `%%`). All-caps headers use İ/I correctly (*SEVİYE, KUŞANILI, AÇIK*); the UI never uppercases text itself. Singular after numerals (*5 düşman*). *Boss* kept (patron means employer); trophy *kupa*, distinct from loot *ganimet*.
+- **id-ID:** kamu, plain imperatives; KBBI/gaming loanwords *level, item, reset, offline, damage, farming, skill, slot, drop*; *tingkat* only for item tier; *jeda* for cooldown; no plural after numbers. 22 allowlisted English-identical lines (all loanwords or HP).
+- **vi-VN:** bạn; NFC precomposed diacritics throughout (checked); *Chuyển sinh* for Prestige (the Vietnamese idle/MMO reset term), deliberately distinct from respawn *hồi sinh*; *cày* for farming, *ghép* for merge; Cyan *xanh lơ* vs Teal *xanh mòng két*.
+- **th-TH:** no pronoun where natural, คุณ otherwise; no spaces inside a phrase, a space between clauses, no final full stop. **ค่าย for camp** (not the loanword แคมป์, which Godot's ICU dictionary split as แคม|ป์ when wrapping). **ๆ attached** (ใกล้ๆ), so no line can start with ๆ. Cyan *ฟ้า* vs Teal *เขียวหัวเป็ด*. Roman numerals kept in stage names.
+- **hi-IN:** आप with *-ें/-एँ* imperatives; danda । ends sentences; Western digits. Hindi -ā nouns and feminine plurals change with the count (1 सिक्का / 2 सिक्के), so count lines put the label first: *सिक्के: %s*, *मर्ज हुई प्रतियाँ: %d* — enforced by the validator (`COUNT_FOLLOWERS['hi_IN']`). Verbs never agree with a name placeholder (*हराएँ: %s*). Item names *<enemy> की पोशाक / की तलवार* (both feminine, so *की* always agrees). Abbreviated units *से., मि., घं.*.
+- **Item names** are generated from the enemy names: tr *<ad> Kıyafeti / Kılıcı*, id *Kostum / Pedang <nama>*, vi *Trang phục / Kiếm <tên>*, th *ชุด / ดาบ<ชื่อ>*, hi *<नाम> की पोशाक / तलवार*; the Plain enemy gets an adjective (*Sade Kıyafet, Trang phục Thường, ชุดธรรมดา, सादी पोशाक*).
+- **Compass:** tr *%s yönü · Kamp %d çevresi*, id *Sebelah utara Kemah %d*, vi *Phía bắc trại %d*, th *ทางเหนือของค่าย %d*, hi *उत्तर दिशा · कैंप %d से*.
+- **Fonts:** Thai and Hindi draw with the theme font plus Noto Sans Thai / Noto Sans Devanagari (OFL); every other locale keeps plain DejaVu Sans (Turkish and Vietnamese are fully covered by it). The language dropdown always carries both fallbacks so ไทย and हिन्दी render in every locale.

@@ -1,0 +1,5864 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: th_TH\n"
+"Language-Team: Thai (Thailand)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 03 (Change 42)\n"
+"X-LootFarmer-Source: localization/en.po d6102fccdbae9721e20d5baa922c9a50d88ec85324c09b9b179832d3d47fe7e3\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "ทดสอบการเริ่มต้นบน Android"
+
+msgid "BOOT_DETAIL"
+msgstr "จุดตรวจสอบ 0 • ยังไม่มีระบบเกมเพลย์"
+
+msgid "BOOT_VERSION"
+msgstr "เวอร์ชัน %s"
+
+msgid "BOOT_TAPS"
+msgstr "จำนวนการแตะที่บันทึกไว้: %d"
+
+msgid "BOOT_TAP"
+msgstr "ทดสอบการแตะและบันทึก"
+
+msgid "BOOT_SAVED"
+msgstr "บันทึกเสร็จแล้ว"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "บันทึกไม่ได้ โปรดตรวจสอบบันทึกการตรวจสอบ"
+
+msgid "BOOT_PAUSE"
+msgstr "หยุดชั่วคราว"
+
+msgid "BOOT_RESUME"
+msgstr "เล่นต่อ"
+
+msgid "BOOT_RESET"
+msgstr "รีเซ็ตทั้งหมด"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "รีเซ็ตความคืบหน้าไหม"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "การดำเนินการนี้จะล้างความคืบหน้าทั้งหมดในโปรไฟล์นี้ การตั้งค่าจะยังอยู่"
+
+msgid "UI_CONFIRM"
+msgstr "รีเซ็ต"
+
+msgid "UI_CANCEL"
+msgstr "ยกเลิก"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "ภาษา"
+
+msgid "LANG_AUTOMATIC"
+msgstr "อัตโนมัติ"
+
+msgid "LANG_DISABLED"
+msgstr "ใช้ได้หลังตรวจสอบคำแปลแล้ว"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "เปิดใช้ภาษาอังกฤษแล้ว ภาษาอื่นจะปลดล็อกหลังการตรวจสอบ"
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "เก็บเซฟที่อ่านไม่ได้หรือใหม่กว่าไว้แล้ว โปรดกู้คืนข้อมูลสำรองที่เข้ากันได้ หรือตั้งใจรีเซ็ตโปรไฟล์นี้"
+
+msgid "LANG_EN_US"
+msgstr "ภาษาอังกฤษ"
+
+msgid "LANG_ES_419"
+msgstr "ภาษาสเปน (ละตินอเมริกา)"
+
+msgid "LANG_ES_ES"
+msgstr "ภาษาสเปน (สเปน)"
+
+msgid "LANG_PT_BR"
+msgstr "ภาษาโปรตุเกส (บราซิล)"
+
+msgid "LANG_FR_FR"
+msgstr "ภาษาฝรั่งเศส"
+
+msgid "LANG_DE_DE"
+msgstr "ภาษาเยอรมัน"
+
+msgid "LANG_IT_IT"
+msgstr "ภาษาอิตาลี"
+
+msgid "LANG_NL_NL"
+msgstr "ภาษาดัตช์"
+
+msgid "LANG_PL_PL"
+msgstr "ภาษาโปแลนด์"
+
+msgid "LANG_RU_RU"
+msgstr "ภาษารัสเซีย"
+
+msgid "LANG_UK_UA"
+msgstr "ภาษายูเครน"
+
+msgid "LANG_TR_TR"
+msgstr "ภาษาตุรกี"
+
+msgid "LANG_ID_ID"
+msgstr "ภาษาอินโดนีเซีย"
+
+msgid "LANG_VI_VN"
+msgstr "ภาษาเวียดนาม"
+
+msgid "LANG_TH_TH"
+msgstr "ภาษาไทย"
+
+msgid "LANG_HI_IN"
+msgstr "ภาษาฮินดี"
+
+msgid "LANG_JA_JP"
+msgstr "ภาษาญี่ปุ่น"
+
+msgid "LANG_KO_KR"
+msgstr "ภาษาเกาหลี"
+
+msgid "LANG_ZH_CN"
+msgstr "ภาษาจีน (ตัวย่อ)"
+
+msgid "LANG_ZH_TW"
+msgstr "ภาษาจีน (ตัวเต็ม)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "เหรียญ %s     อัญมณี %s"
+
+msgid "PAUSE"
+msgstr "หยุดชั่วคราว"
+
+msgid "RESUME"
+msgstr "เล่นต่อ"
+
+msgid "PLAYER_STATUS"
+msgstr "HP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "กลับค่ายใน %.1f วินาที"
+
+msgid "BOOST_ACTIVE"
+msgstr "บูสต์เหรียญ %d วินาที"
+
+msgid "GROUP_0"
+msgstr "ทุ่งต้นกล้า"
+
+msgid "GROUP_1"
+msgstr "ทางแยกหุ่นยนต์"
+
+msgid "GROUP_2"
+msgstr "ป่าไดโนเสาร์"
+
+msgid "GROUP_3"
+msgstr "ลานมัจจุราช"
+
+msgid "CLOSE"
+msgstr "ปิด"
+
+msgid "CONFIRM"
+msgstr "ยืนยัน"
+
+msgid "CANCEL"
+msgstr "ยกเลิก"
+
+msgid "LEVEL"
+msgstr "เลเวล"
+
+msgid "INVENTORY_HEADING"
+msgstr "อุปกรณ์"
+
+msgid "SUPPLY_HEADING"
+msgstr "เสบียง"
+
+msgid "GEAR_CAPACITY"
+msgstr "อุปกรณ์  %d / %d  ·  แตะเพื่อดู"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "เสบียง  %d / %d  ·  แตะเพื่อใช้หรือตั้งอัตโนมัติ"
+
+msgid "EMPTY_SLOT"
+msgstr "ว่าง"
+
+msgid "EQUIPPED"
+msgstr "สวมใส่อยู่"
+
+msgid "AUTO"
+msgstr "อัตโนมัติ"
+
+msgid "UPGRADES"
+msgstr "อัปเกรด"
+
+msgid "WORLD"
+msgstr "โลก"
+
+msgid "STATS"
+msgstr "ค่าสถานะ"
+
+msgid "SETTINGS"
+msgstr "ตั้งค่า"
+
+msgid "PANEL_ITEM"
+msgstr "ไอเทม"
+
+msgid "PANEL_UPGRADES"
+msgstr "อัปเกรดผู้เล่น"
+
+msgid "PANEL_TRAVEL"
+msgstr "ค่ายและการฟาร์ม"
+
+msgid "PANEL_STATS"
+msgstr "บิลด์ของคุณ"
+
+msgid "PANEL_SETTINGS"
+msgstr "ตั้งค่า"
+
+msgid "PANEL_HISTORY"
+msgstr "ของที่ได้ล่าสุด"
+
+msgid "PANEL_PRESTIGE"
+msgstr "การเริ่มต้นใหม่"
+
+msgid "HELP_0"
+msgstr "ใช้จอยสติ๊กสำรวจไปทางเหนือ ปล่อยมือเพื่อสู้กับศัตรูใกล้ๆ โดยอัตโนมัติ"
+
+msgid "HELP_1"
+msgstr "ต้นกล้าสู้เพียงลำพัง อยู่ใกล้ๆ เพื่อฟาร์ม แตะอุปกรณ์ที่ดรอปเพื่อเก็บ"
+
+msgid "HELP_2"
+msgstr "แตะไอเทมบนพื้น เหรียญและอัญมณีจะเข้ากระเป๋าเงินทันที"
+
+msgid "HELP_3"
+msgstr "แตะอุปกรณ์ใหม่ด้านล่าง แล้วสวมใส่ คุณสวมชุดได้หนึ่งชุดและอาวุธหนึ่งชิ้น"
+
+msgid "HELP_4"
+msgstr "ผสานชิ้นซ้ำเพื่อเสริมพลังไอเทมประเภทนั้น ความคืบหน้ายังอยู่แม้ของในคลังจะหมด"
+
+msgid "HELP_5"
+msgstr "เปิดหน้าศัตรูประเภทหนึ่งแล้วซื้อการเก็บอัตโนมัติ เพื่อเก็บของดรอปขณะฟาร์ม"
+
+msgid "HELP_6"
+msgstr "พัฒนาบิลด์ สำรวจทางเหนือ และปราบมัจจุราช โลกเปิดตั้งแต่เริ่ม"
+
+msgid "HELP_7"
+msgstr "โบนัสถาวรยังอยู่ สร้างรอบที่แข็งแกร่งขึ้นแล้วท้าชิงมัจจุราชอีกครั้ง"
+
+msgid "HELP_VICTORY"
+msgstr "ปราบมัจจุราชแล้ว ฟาร์มต่อ หรือเลือกการ์ดเพรสทีจในหน้าโลก"
+
+msgid "HELP_PAUSED"
+msgstr "หยุดชั่วคราว · จัดการกระเป๋าได้ กดเล่นต่อเพื่อฟาร์มต่อ"
+
+msgid "HISTORY_EMPTY"
+msgstr "ของที่เพิ่งพบจะแสดงที่นี่\nแตะเพื่อดูสิบรายการล่าสุด"
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s อัญมณี"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "ขายแล้ว %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "ดาบไม้"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "ดาบหิน"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "ดาบเหล็ก"
+
+msgid "ITEM_SPROUT"
+msgstr "ชุดต้นกล้า"
+
+msgid "ITEM_ROBOT"
+msgstr "ชุดหุ่นยนต์"
+
+msgid "ITEM_DINOSAUR"
+msgstr "ชุดไดโนเสาร์"
+
+msgid "ITEM_POTION"
+msgstr "ยาฟื้นพลัง"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "โทนิกเหรียญ"
+
+msgid "ITEM_QUANTITY"
+msgstr "มีอยู่: %s"
+
+msgid "NORMAL_STATS"
+msgstr "ค่าสถานะปกติ · เพิ่มได้จากการผสาน"
+
+msgid "EXTRA_STATS"
+msgstr "ค่าสถานะพิเศษ · ใช้ร่วมกันในไอเทมประเภทนี้"
+
+msgid "EQUIP"
+msgstr "สวมใส่"
+
+msgid "UNEQUIP"
+msgstr "ถอด"
+
+msgid "REROLL"
+msgstr "สุ่มค่าพิเศษใหม่ทั้งสอง · %s อัญมณี"
+
+msgid "REROLL_CONFIRM"
+msgstr "ใช้ %s อัญมณีเพื่อเปลี่ยนค่าสถานะพิเศษทั้งสองไหม ผลใหม่จะแทนที่ผลเดิมแม้จะอ่อนกว่า"
+
+msgid "USE"
+msgstr "ใช้หนึ่งชิ้น"
+
+msgid "MERGE_ONE"
+msgstr "ผสานชิ้นสำรองหนึ่งชิ้น"
+
+msgid "MERGE_ALL"
+msgstr "ผสานชิ้นสำรอง %d ชิ้น"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "เมื่อถึง ^100 ใช้ชิ้นสำรอง 100 ชิ้นแลกไอเทมขั้นถัดไปหนึ่งชิ้น ไอเทมต้นทางและเลเวลการผสานยังอยู่ ต้องมีกองปลายทางหรือช่องว่างในหมวดเดียวกัน"
+
+msgid "EVOLVE"
+msgstr "วิวัฒนาการ → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "เปิด/ปิดอัตโนมัติของช่องนี้"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "ใช้ช่องนี้อัตโนมัติ: %s"
+
+msgid "ON"
+msgstr "เปิด"
+
+msgid "OFF"
+msgstr "ปิด"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "ช่องนี้ว่าง ไอเทมประเภทใหม่ต้องใช้ช่องว่าง ส่วนประเภทที่มีอยู่แล้วจะซ้อนรวมกัน"
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "อัปเกรดกลุ่มมีผลกับสมาชิกทุกตัว ศัตรูแต่ละตัวสุ่มของดรอปของตัวเอง เหรียญและอัญมณีเข้าบัญชีทันที"
+
+msgid "GROUP_SELECT"
+msgstr "กลุ่มศัตรู: %s · แตะเพื่อเปลี่ยน"
+
+msgid "AUTOMATION_HEADING"
+msgstr "กระเป๋าและระบบอัตโนมัติ · คงอยู่หลังเพรสทีจ"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "เหรียญ"
+
+msgid "GEMS"
+msgstr "อัญมณี"
+
+msgid "TRAVEL_HELP"
+msgstr "แตะค่ายบนแผนที่เพื่อเลือกจุดเกิดใหม่ การปลดล็อกผ่านหน้าค่ายจะเลือกค่ายนั้นด้วย ไม่มีการวาร์ป"
+
+msgid "SPAWN_SELECT"
+msgstr "เลือกค่าย %d"
+
+msgid "SPAWN_BUY"
+msgstr "ปลดล็อกค่าย %d · %s เหรียญ"
+
+msgid "SELECTED"
+msgstr "เลือกแล้ว"
+
+msgid "FOCUS_HELP"
+msgstr "ปลดล็อกการฟาร์มทีละประเภทศัตรู แล้วเลือกเฉพาะชุด เฉพาะอาวุธ หรือทั้งสองอย่าง หลังตายจะกลับไปที่ค่ายนั้น การเดินเองจะยกเลิกการฟาร์ม"
+
+msgid "FOCUS_GROUP"
+msgstr "ฟาร์ม %s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "เลือกการ์ดเพรสทีจ"
+
+msgid "PRESTIGE_COUNT"
+msgstr "เพรสทีจไปแล้ว: %d"
+
+msgid "NO_OFFLINE"
+msgstr "บันทึกความคืบหน้าแล้ว รางวัลออฟไลน์มีแผนสำหรับเกมฉบับเต็ม เวอร์ชันนี้ไม่จำลองขณะปิดหรือทำงานเบื้องหลัง"
+
+msgid "SAVE_NOW"
+msgstr "บันทึกตอนนี้"
+
+msgid "HARD_RESET"
+msgstr "รีเซ็ตทั้งหมด"
+
+msgid "RESET_CONFIRM"
+msgstr "ลบความคืบหน้า กระเป๋า ระบบอัตโนมัติ และการ์ดเพรสทีจทั้งหมดไหม การตั้งค่าจะยังอยู่ ย้อนกลับไม่ได้"
+
+msgid "LANGUAGE_NOTE"
+msgstr "ระหว่างการพัฒนามีภาษาอังกฤษให้ใช้ อีก 19 ภาษาจะปลดล็อกหลังตรวจสอบคำแปล"
+
+msgid "CREDITS"
+msgstr "ภาพตัวละครและฉาก: Pixel Plains โดย SnowHex อินเทอร์เฟซ: Kenney Fantasy UI Borders (CC0)"
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "เลือกการ์ดถาวร +5% หนึ่งใบ โบนัสสะสมข้ามรอบ คุณปิดหน้านี้แล้วฟาร์มต่อได้"
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "เริ่มรอบใหม่พร้อมการ์ดถาวรใบนี้ไหม จะรีเซ็ตสกุลเงิน กระเป๋า การผสาน/ค่าพิเศษของไอเทม อัปเกรดการฟาร์มศัตรู และค่าย แต่จะเก็บข้อมูลศัตรูที่เปิดเผยแล้ว เลเวลระบบอัตโนมัติ ความจุกระเป๋า และการ์ดเพรสทีจทั้งหมด"
+
+msgid "CARD_DAMAGE"
+msgstr "ดาเมจ +5% · ถาวร"
+
+msgid "CARD_HP"
+msgstr "HP สูงสุด +5% · ถาวร"
+
+msgid "CARD_COINS"
+msgstr "จำนวนเหรียญ +5% · ถาวร"
+
+msgid "CARD_GEMS"
+msgstr "โอกาสได้อัญมณี +5% (สัมพัทธ์) · ถาวร"
+
+msgid "CARD_LOOT"
+msgstr "โอกาสดรอปอุปกรณ์ +5% (สัมพัทธ์) · ถาวร"
+
+msgid "CARD_MERGE"
+msgstr "ค่าสถานะปกติจากการผสาน +5% · ถาวร"
+
+msgid "STAT_HP"
+msgstr "HP สูงสุด"
+
+msgid "STAT_DAMAGE"
+msgstr "ดาเมจ"
+
+msgid "STAT_DEFENSE"
+msgstr "พลังป้องกัน"
+
+msgid "STAT_CRIT"
+msgstr "โอกาสคริติคอล"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "ตัวคูณคริติคอล"
+
+msgid "STAT_LIFESTEAL"
+msgstr "ดูดเลือด"
+
+msgid "STAT_REGEN"
+msgstr "HP ต่อวินาที"
+
+msgid "STAT_SPEED"
+msgstr "โบนัสความเร็วโจมตี"
+
+msgid "STAT_HEAL"
+msgstr "การฟื้นฟู"
+
+msgid "STAT_COIN_BONUS"
+msgstr "โบนัสจำนวนเหรียญ"
+
+msgid "NEED_DUPLICATES"
+msgstr "ต้องมีชิ้นสำรองจึงจะผสานได้"
+
+msgid "MERGE_MAX"
+msgstr "ไอเทมนี้อยู่ที่ ^100 แล้ว"
+
+msgid "EVOLUTION_NEEDS"
+msgstr "การวิวัฒนาการต้องมี ^100 และชิ้นต้นทาง 101 ชิ้น"
+
+msgid "INVENTORY_FULL"
+msgstr "ไม่มีช่องว่าง เคลียร์ที่หรือขยายกระเป๋านี้"
+
+msgid "AUTOMATION_LOCKED"
+msgstr "ปลดล็อกระบบอัตโนมัตินี้ในหน้าอัปเกรด"
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "ปลดล็อกช่องใช้อัตโนมัติเพิ่มในหน้าอัปเกรด"
+
+msgid "CANNOT_USE"
+msgstr "ไม่มีเสบียงที่ใช้ได้ หรือตัวละครตายอยู่"
+
+msgid "UPGRADE_MAX"
+msgstr "สูงสุด"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "เหรียญไม่พอ"
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "อัญมณีไม่พอ"
+
+msgid "SPAWN_BOUGHT"
+msgstr "ปลดล็อกค่ายแล้ว เลือกค่ายนี้เพื่อใช้เป็นจุดเกิดใหม่"
+
+msgid "EVOLVED"
+msgstr "ได้ไอเทมขั้นถัดไปแล้ว ความคืบหน้าของไอเทมต้นทางยังอยู่"
+
+msgid "PLAYER_DIED"
+msgstr "กำลังกลับไปยังค่ายที่เลือก ไม่มีอะไรหาย"
+
+msgid "BOSS_DEFEATED"
+msgstr "ปราบมัจจุราชแล้ว การ์ดเพรสทีจถาวรรอคุณอยู่"
+
+msgid "PRESTIGED"
+msgstr "รอบใหม่เริ่มแล้ว โบนัสถาวรยังอยู่"
+
+msgid "SAVED"
+msgstr "บันทึกความคืบหน้าแล้ว"
+
+msgid "SAVE_ERROR"
+msgstr "บันทึกไม่สำเร็จ ความคืบหน้ายังอยู่ในหน่วยความจำ โปรดลองอีกครั้ง"
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "โหลดเซฟอย่างปลอดภัยไม่ได้ ปิดการบันทึกไว้จนกว่าจะตั้งใจรีเซ็ตทั้งหมด"
+
+msgid "ACTION_PREVIEW"
+msgstr "การกระทำ · ค่าใช้จ่ายและผล"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "ช่องอุปกรณ์ +1 (สูงสุด 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "ช่องเสบียง +1 (ประเภทละหนึ่งช่อง)"
+
+msgid "UP_COLLECT"
+msgstr "ปลดล็อกการเก็บอัตโนมัติ"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "ระยะเก็บ +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "จำนวนที่เก็บต่อครั้ง +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "ระยะเวลาระหว่างการเก็บ −1 วินาที"
+
+msgid "UP_MERGE_GEAR"
+msgstr "ปลดล็อกการผสานอุปกรณ์อัตโนมัติ"
+
+msgid "UP_AUTO_USE"
+msgstr "ช่องเสบียงอัตโนมัติ +1"
+
+msgid "UP_USE_SPEED"
+msgstr "ระยะเวลาระหว่างการใช้อัตโนมัติ −1 วินาที"
+
+msgid "UP_FOCUS"
+msgstr "ปลดล็อกการฟาร์มแบบโฟกัส"
+
+msgid "UP_RESPAWN"
+msgstr "เวลาเกิดใหม่ −1 วินาที"
+
+msgid "UP_LOOT"
+msgstr "โอกาสดรอปอุปกรณ์ +0.5 แต้ม (ต่อไอเทม)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "โอกาสดรอปเหรียญ"
+
+msgid "UP_GEM_CHANCE"
+msgstr "โอกาสดรอปอัญมณีรวม"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "เหรียญต่อศัตรู +50%"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "อัญมณีต่อการดรอป (บอสให้ ×3)"
+
+msgid "CHAT_SURPRISE"
+msgstr "เฮ้ ระวังหน่อย!"
+
+msgid "RECENT_HEADER"
+msgstr "ของที่เพิ่งพบ · แตะเพื่อดูประวัติ"
+
+msgid "ZOOM_IN"
+msgstr "ซูมเข้า"
+
+msgid "ZOOM_OUT"
+msgstr "ซูมออก"
+
+msgid "CAMERA_ZOOM"
+msgstr "ซูมกล้อง"
+
+msgid "PANEL_ENEMY"
+msgstr "ศัตรู"
+
+msgid "PANEL_CAMP"
+msgstr "ค่ายเกิดใหม่"
+
+msgid "TAB_AUTOMATION"
+msgstr "อัตโนมัติ"
+
+msgid "TAB_INVENTORY"
+msgstr "กระเป๋า"
+
+msgid "TAB_SUPPLIES"
+msgstr "เสบียง"
+
+msgid "TAB_OVERVIEW"
+msgstr "ภาพรวม"
+
+msgid "TAB_UPGRADES"
+msgstr "อัปเกรด"
+
+msgid "UP_REVEAL_STATS"
+msgstr "เปิดเผยค่าสถานะ · ถาวร"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "เปิดเผยของดรอป · ถาวร"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "ค่าสถานะศัตรู"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "ของที่อาจดรอป"
+
+msgid "UNKNOWN_STATS"
+msgstr "HP ???   •   ดาเมจ ???\nระยะเวลาโจมตี ???   •   พลังป้องกัน ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "HP %s   •   ดาเมจ %s\nโจมตีทุก %s วินาที   •   พลังป้องกัน %s"
+
+msgid "DROP_COINS"
+msgstr "เหรียญ ×%s · ได้แน่นอน"
+
+msgid "DROP_GEMS"
+msgstr "อัญมณี · โอกาส %s%% · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "การสุ่มอุปกรณ์หนึ่งครั้งเลือกอุปกรณ์หนึ่งในสองชิ้น อัญมณีและเสบียงสุ่มแยกกัน โอกาสรวมอัปเกรดปัจจุบันของคุณแล้ว"
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 จุดเปอร์เซ็นต์ / เลเวล · สูงสุด +15"
+
+msgid "ENEMY_CAT"
+msgstr "แมวที่ถูกอัญเชิญ"
+
+msgid "CAT_DETAILS"
+msgstr "สมุนที่มัจจุราชอัญเชิญมา\nไม่มีของดรอปหรืออัปเกรดกลุ่ม"
+
+msgid "CAMP_NAME"
+msgstr "ค่าย %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "แตะเพื่อเลือก"
+
+msgid "CAMP_LOCKED"
+msgstr "ล็อกอยู่ · แตะเพื่อปลดล็อก"
+
+msgid "CAMP_HELP"
+msgstr "ค่ายคือจุดเกิดใหม่ พักข้างค่ายที่ปลดล็อกแล้วเพื่อฟื้นตัวเร็ว การปลดล็อก การเลือกเป็นจุดเกิดใหม่ และการเดินทางเป็นคนละการกระทำ เมื่อยืนที่ค่ายจะมีปุ่มดูค่าย"
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "เลือกค่ายเกิดใหม่แล้ว"
+
+msgid "OPEN_PLAYER"
+msgstr "อัปเกรดผู้เล่น"
+
+msgid "OPEN_GROUP"
+msgstr "ดู %s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "เคียวนิล"
+
+msgid "ITEM_REAPER"
+msgstr "ชุดยมทูต"
+
+msgid "VARIANT_OUTFIT"
+msgstr "ชุด"
+
+msgid "VARIANT_WEAPON"
+msgstr "อาวุธ"
+
+msgid "VARIANT_BOTH"
+msgstr "ทั้งสอง"
+
+msgid "ITEM_DETAILS"
+msgstr "รายละเอียดไอเทม"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "เลเวลอัป!"
+
+msgid "GEAR"
+msgstr "อุปกรณ์"
+
+msgid "CONSUMABLES"
+msgstr "เสบียง"
+
+msgid "HUD_HP"
+msgstr "HP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "ฟื้นใน %.1f วินาที"
+
+msgid "HUD_LEVEL"
+msgstr "เลเวล %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "อุปกรณ์ %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "เสบียง %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "ผสาน %d"
+
+msgid "ITEM_OWNED"
+msgstr "มีอยู่: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "สวมใส่อยู่ · มีผล 100%"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "เก็บไว้ · มีผล 30% (ครั้งเดียวต่อประเภทอาวุธ)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "ผสาน"
+
+msgid "LESS_OPTIONS"
+msgstr "ตัวเลือกน้อยลง"
+
+msgid "MORE_OPTIONS"
+msgstr "ตัวเลือกเพิ่มเติม"
+
+msgid "LOOT_HISTORY"
+msgstr "ประวัติของดรอป"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "เลเวล %d / 1,000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "เลเวล %d · HP และดาเมจเพิ่มขึ้น"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "แตะเสบียงเพื่อใช้ · กดค้างเพื่อดูรายละเอียด"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "การผสานครั้งถัดไป: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "ความสำเร็จ"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "ใช้ร่วมกันทุกค่ายของศัตรูประเภทนี้ อัปเกรดการเก็บยังคงอยู่ ส่วนอัปเกรดอื่นของประเภทนี้จะรีเซ็ตเมื่อเพรสทีจ"
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 จุดเปอร์เซ็นต์ / เลเวล · สูงสุด +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "EXP +10% / เลเวล · สูงสุด +200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "โอกาสดรอปเสบียง +1 แต้ม"
+
+msgid "UP_GROUP_XP"
+msgstr "ค่าประสบการณ์ +10%"
+
+msgid "GROUP_XP_VALUE"
+msgstr "EXP ต่อการกำจัด: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "เป้าหมายการกำจัดถาวร ใช้ร่วมกันทุกค่ายของศัตรูประเภทนี้ รางวัลมีผลอัตโนมัติและคงอยู่หลังเพรสทีจ"
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "ต่อประเภทนี้: ดาเมจ +%.0f%% · โอกาสอัญมณี +%.1f จุดเปอร์เซ็นต์"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · กำจัด %d ตัว\nรางวัล: ดาเมจ +%.0f%% และโอกาสอัญมณี +%.1f จุดเปอร์เซ็นต์ ต่อประเภทนี้"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "สำเร็จแล้ว"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "ความสำเร็จการกำจัด"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "ดาเมจ +%.0f%% · โอกาสอัญมณี +%.1f แต้ม"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "ผสานอาวุธและชุดของศัตรูประเภทนี้โดยอัตโนมัติ"
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "+%s เหรียญต่อการกำจัด / เลเวล"
+
+msgid "ACTION_PAUSED"
+msgstr "ใช้ไม่ได้ขณะหยุดชั่วคราว"
+
+msgid "ACTION_SUSPENDED"
+msgstr "ใช้ไม่ได้ขณะแอปไม่ได้ทำงาน"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "ยังไม่ตรงตามเงื่อนไข"
+
+msgid "VALUE_MAX"
+msgstr "สูงสุด"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s EXP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s วินาที"
+
+msgid "HP_PER_SECOND"
+msgstr "HP/วินาที"
+
+msgid "STAT_SOURCES"
+msgstr "ค่าสถานะของคุณมาจากไหน"
+
+msgid "SOURCE_BASE"
+msgstr "ค่าสถานะพื้นฐาน"
+
+msgid "SOURCE_LEVEL"
+msgstr "เลเวลผู้เล่น"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "อุปกรณ์ที่สวมใส่"
+
+msgid "SOURCE_STORED"
+msgstr "อุปกรณ์ที่เก็บไว้"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "โบนัสถาวร: HP ×%s · ดาเมจ ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "ผลรวมด้านบนคิดเพดานแล้ว: โอกาสคริติคอล 75% ดาเมจคริติคอล ×4 ดูดเลือด 15% โบนัสความเร็วโจมตี 200%"
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "การสุ่มเสบียง: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "โทนิก: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · ขั้น %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "ขั้น %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · ข%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "อัญมณี"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "มีผลกับศัตรูทุกตัว รีเซ็ตเมื่อเพรสทีจ โบนัสความสำเร็จของศัตรูยังเฉพาะแต่ละประเภท"
+
+msgid "FARM_VARIANT"
+msgstr "ฟาร์ม %s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "การฟาร์มที่เลือก: %s หลังเกิดใหม่จะกลับมาที่นี่"
+
+msgid "MAX_ITEM_TIER"
+msgstr "ถึงขั้นสุดท้ายแล้ว ยังผสานได้ถึง ^100"
+
+msgid "TAB_PLAYER"
+msgstr "ผู้เล่น"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "ศัตรูต่อจุด"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "เวลาเกิดใหม่ของศัตรู"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "โอกาสอัญมณีจากบอส"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "อัญมณีโบนัสจากบอสต่อการดรอป"
+
+msgid "TRAVEL_COMBAT"
+msgstr "จบการต่อสู้ก่อนเดินทาง"
+
+msgid "TRAVEL_CAMP"
+msgstr "เดินทาง · %s · ค่าย %d"
+
+msgid "STAGE_LOCKED"
+msgstr "ปราบบอสประตูด่านก่อน"
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "สำรวจค่ายนี้ก่อน"
+
+msgid "STAGE_UNLOCKED"
+msgstr "ปลดล็อกด่านถัดไปแล้ว!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "ผู้พิทักษ์สุดท้ายถูกผนึกไว้ ปราบบอสอีก 13 ตัวเพื่อเก็บกุญแจของพวกมัน กุญแจที่เก็บแล้วคงอยู่หลังเพรสทีจ"
+
+msgid "WORLD_COMPLETE"
+msgstr "ปราบศัตรูฤดูใบไม้ผลิ II ทั้งหมดแล้ว — ภารกิจสุดท้ายสำเร็จ!"
+
+msgid "UNDISCOVERED"
+msgstr "ยังไม่สำรวจ"
+
+msgid "ENEMY_LEVEL"
+msgstr "เลเวล %d"
+
+msgid "ALL_ITEMS"
+msgstr "ทั้งหมด"
+
+msgid "WEAPONS"
+msgstr "อาวุธ"
+
+msgid "OUTFITS"
+msgstr "ชุด"
+
+msgid "SKILLS"
+msgstr "สกิล"
+
+msgid "VARIANT_SKILL"
+msgstr "อีลิท"
+
+msgid "SKILL_EMPTY"
+msgstr "ช่องสกิล %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "สกิลตระกูลนี้ติดตั้งอยู่แล้ว"
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "ถอดสกิลหนึ่งออก หรือปลดล็อกช่องเพิ่ม"
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "ติดตั้งในช่อง %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "ร่ายอัตโนมัติช่อง %d: %s"
+
+msgid "STOCK_BONUS"
+msgstr "โบนัสชิ้นสำรอง: พลังพื้นฐาน +%s%% ชิ้นสำรองยังเป็นของคุณ"
+
+msgid "CLAIM"
+msgstr "รับ"
+
+msgid "CLAIM_REWARD"
+msgstr "รับ · %s เหรียญ · %s อัญมณี"
+
+msgid "MISSION_AUTO"
+msgstr "รับอัตโนมัติ: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "เปิด"
+
+msgid "STATE_OFF_CAPS"
+msgstr "ปิด"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "รับภารกิจทั่วไปที่ทำสำเร็จ (รวมช่องที่ซื้อ) แต่ไม่รับเป้าหมายหลัก หลังซื้อแล้ว ให้เปิดรับอัตโนมัติในหน้าภารกิจ"
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "ปลดล็อกรับอัตโนมัติแล้วแต่ยังปิดอยู่ แตะสวิตช์ด้านล่างเพื่อเริ่มรับภารกิจทั่วไป เป้าหมายหลักยังต้องกดรับเอง"
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "รับอัตโนมัติพร้อมเปิดใช้แล้ว"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "เปิดหน้าภารกิจ แล้วเปิดรับอัตโนมัติ หลังซื้อจะเริ่มต้นแบบปิดไว้"
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "เปิดรับอัตโนมัติ"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "คุณปลดล็อกการรับอัตโนมัติแล้ว แตะ รับอัตโนมัติ: ปิด ตรงนี้เพื่อเปิดใช้ เป้าหมายหลักต้องกดรับเองเสมอ"
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "ขยายการ์ดด่าน"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "ย่อการ์ดด่าน"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "ทำเป้าหมายนี้ให้สำเร็จก่อน"
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "งานใหม่จะมาตอนเที่ยงคืนตามเวลาท้องถิ่น"
+
+msgid "MAIN_OBJECTIVES"
+msgstr "เป้าหมายหลัก"
+
+msgid "KEY_PROGRESS"
+msgstr "กุญแจบอส: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "บอสประตูที่ปราบแล้ว: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "%s เหรียญ/ชม. · %s อัญมณี/ชม. · รางวัลสูงสุด %s ชั่วโมง"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "ยินดีต้อนรับกลับ! ได้รางวัล %s ชั่วโมง · %s เหรียญ · %s อัญมณี"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "เลือกรางวัลเพรสทีจให้เสร็จก่อน"
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "พบโอกาสเพรสทีจใหม่"
+
+msgid "PRESTIGE_BATCH"
+msgstr "เพรสทีจ · %d การ์ด"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "เลือกการ์ดที่ไม่ซ้ำหนึ่งใบต่อโอกาสที่พร้อมแต่ละอย่าง แล้วรีเซ็ตรอบครั้งเดียว ไอเทม เหรียญ ค่าย หมอก และอัปเกรดด้วยเหรียญจะรีเซ็ต ส่วนกุญแจ ความสำเร็จ การ์ด และอัปเกรดด้วยอัญมณียังอยู่"
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "เก็บ %s ไว้ถาวรไหม ตัวเลือกนี้จะบันทึกทันทีและเปลี่ยนไม่ได้"
+
+msgid "PRESTIGE_CHOICES"
+msgstr "เลือกการ์ดใบที่ %d จาก %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "การ์ดไม่ซ้ำ: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "ทำโอกาสเพรสทีจที่พบแล้วให้สำเร็จก่อน"
+
+msgid "IN_PROGRESS"
+msgstr "กำลังดำเนินการ"
+
+msgid "FOLLOW"
+msgstr "ติดตาม"
+
+msgid "UNFOLLOW"
+msgstr "เลิกติดตาม"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "ส่งไอเทมหรือสกุลเงินที่กำหนด"
+
+msgid "CONTRACT_NEEDS"
+msgstr "เก็บชุดแต่ละแบบให้ครบจำนวนก่อน"
+
+msgid "OFFERING_NEEDS"
+msgstr "ต้องมียอดเงินตามที่กำหนดและสกุลเงินที่หาได้ขณะออนไลน์ที่ยังไม่ได้ใช้"
+
+msgid "OWNED_CARDS"
+msgstr "การ์ดที่มี"
+
+msgid "COMBOS"
+msgstr "ชุดการ์ด"
+
+msgid "PANEL_INVENTORY"
+msgstr "กระเป๋า"
+
+msgid "PANEL_MAP"
+msgstr "แผนที่"
+
+msgid "PANEL_MISSIONS"
+msgstr "ภารกิจ"
+
+msgid "PANEL_OFFLINE"
+msgstr "รางวัลออฟไลน์"
+
+msgid "GOAL_KILL"
+msgstr "ล่า"
+
+msgid "GOAL_BOSS"
+msgstr "ล่าบอส"
+
+msgid "GOAL_GEAR"
+msgstr "เก็บอุปกรณ์"
+
+msgid "GOAL_MERGE"
+msgstr "ผสาน"
+
+msgid "GOAL_COINS"
+msgstr "หาเหรียญ"
+
+msgid "GOAL_CAST"
+msgstr "ร่ายสกิล"
+
+msgid "GOAL_WAITING"
+msgstr "สำรวจเพื่อหาเป้าหมายอื่น"
+
+msgid "STAT_POWER"
+msgstr "พลัง"
+
+msgid "INTRINSIC_POWER"
+msgstr "พื้นฐาน %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "ขั้นถัดไปเริ่มที่ 85% ของพลังพื้นฐาน ^100 ของขั้นนี้ ก่อนรวมโบนัสจากจำนวนและโบนัสภายนอก"
+
+msgid "MAP_FARMING"
+msgstr "%s · %d จุด · จุดละ %d · เกิดใหม่ %s วินาที"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "ประเภทศัตรูด่านสุดท้ายที่ปราบแล้ว: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "รัศมีมองเห็นของค่าย"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "รัศมีมองเห็นของผู้เล่น"
+
+msgid "UP_MAP_DETAIL"
+msgstr "รายละเอียดแผนที่"
+
+msgid "UP_MOVEMENT"
+msgstr "ความเร็วเคลื่อนที่ +10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "ระยะเวลาระหว่างการผสานอัตโนมัติ −1 วินาที"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "ปลดล็อกการรับภารกิจอัตโนมัติ"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "ช่องภารกิจ"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "ช่องสกิลที่ติดตั้ง"
+
+msgid "UP_SKILL_DROP"
+msgstr "โอกาสดรอปสกิล"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "ระยะเวลารางวัลออฟไลน์"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "เหรียญออฟไลน์ต่อชั่วโมง"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "อัญมณีออฟไลน์ต่อชั่วโมง"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "ปลดล็อกอาวุธดรอปขณะออฟไลน์"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "ปลดล็อกชุดดรอปขณะออฟไลน์"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "ปลดล็อกเสบียงขณะออฟไลน์"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "อาวุธออฟไลน์ต่อชั่วโมง"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "ชุดออฟไลน์ต่อชั่วโมง"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "เสบียงออฟไลน์ต่อชั่วโมง"
+
+msgid "MAP_LEGEND"
+msgstr "พื้นที่ที่สำรวจแล้วจะมองเห็นตลอด พื้นที่ใกล้เคียงจะเห็นเฉพาะตอนที่คุณอยู่ตรงนั้น ค่ายมองเห็นได้จากระยะไกลกว่า"
+
+msgid "MINIMAP"
+msgstr "แผนที่"
+
+msgid "SKILL_TUTORIAL"
+msgstr "ศัตรูอีลิทพกอาวุธ ชุด และสกิล ของดรอปแต่ละอย่างสุ่มแยกกัน ติดตั้งสกิลจากกระเป๋า แล้วแตะปุ่มของสกิลเพื่อร่าย"
+
+msgid "MAIN_0"
+msgstr "กำจัดศัตรูธรรมดา 5 ตัว"
+
+msgid "MAIN_1"
+msgstr "สวมใส่ไอเทมชิ้นแรก"
+
+msgid "MAIN_2"
+msgstr "ผสานชิ้นซ้ำ"
+
+msgid "MAIN_3"
+msgstr "ปลดล็อกค่ายเพิ่ม"
+
+msgid "MAIN_4"
+msgstr "ปราบมนุษย์หิมะ · ปลดล็อกฤดูหนาว II"
+
+msgid "MAIN_5"
+msgstr "ติดตั้งฟื้นฟู"
+
+msgid "MAIN_6"
+msgstr "อัปเกรดรายละเอียดแผนที่"
+
+msgid "MAIN_7"
+msgstr "ได้รับระเบิดน้ำแข็ง"
+
+msgid "MAIN_8"
+msgstr "ปลดล็อกฤดูร้อน I"
+
+msgid "MAIN_9"
+msgstr "วิวัฒนาการไอเทม"
+
+msgid "MAIN_10"
+msgstr "มีสกิล 4 ตระกูล"
+
+msgid "MAIN_11"
+msgstr "ปลดล็อกฤดูใบไม้ร่วง I"
+
+msgid "MAIN_12"
+msgstr "มีสกิลครบทั้ง 6 ตระกูล"
+
+msgid "MAIN_13"
+msgstr "ปลดล็อกฤดูใบไม้ผลิ I"
+
+msgid "MAIN_14"
+msgstr "เพรสทีจหนึ่งครั้ง"
+
+msgid "MAIN_15"
+msgstr "เก็บกุญแจบอสทั้งหมดและพิชิตฤดูใบไม้ผลิ II"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "คูลดาวน์ฟื้นฟู"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "คูลดาวน์น้ำแข็ง"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "คูลดาวน์เพลิง"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "คูลดาวน์สายฟ้า"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "คูลดาวน์สมาธิ"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "คูลดาวน์โจมตีเวท"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "ปลดล็อกการร่ายอัตโนมัติ · ช่อง 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "ปลดล็อกการร่ายอัตโนมัติ · ช่อง 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "ปลดล็อกการร่ายอัตโนมัติ · ช่อง 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "ฟื้นฟู"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "ฟื้นฟู"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "ฟื้นฟู"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "ฟื้นฟู"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "ฟื้นฟู"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "ฟื้นฟู"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "ฟื้นฟู"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "ระเบิดน้ำแข็ง"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "ระเบิดน้ำแข็ง"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "ระเบิดน้ำแข็ง"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "ระเบิดน้ำแข็ง"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "ระเบิดน้ำแข็ง"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "ระเบิดน้ำแข็ง"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "ระเบิดน้ำแข็ง"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "ระเบิดเพลิง"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "ระเบิดเพลิง"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "ระเบิดเพลิง"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "ระเบิดเพลิง"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "ระเบิดเพลิง"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "ระเบิดเพลิง"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "ระเบิดเพลิง"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "สายฟ้าฟาด"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "สายฟ้าฟาด"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "สายฟ้าฟาด"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "สายฟ้าฟาด"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "สายฟ้าฟาด"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "สายฟ้าฟาด"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "สายฟ้าฟาด"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "สมาธิเวท"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "สมาธิเวท"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "สมาธิเวท"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "สมาธิเวท"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "สมาธิเวท"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "สมาธิเวท"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "สมาธิเวท"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "โจมตีเวท"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "โจมตีเวท"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "โจมตีเวท"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "โจมตีเวท"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "โจมตีเวท"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "โจมตีเวท"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "โจมตีเวท"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "ชุดหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "ชุดหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "ชุดหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "ชุดหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "ชุดหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "ชุดหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "ชุดหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "ดาบหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "ดาบหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "ดาบหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "ดาบหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "ดาบหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "ดาบหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "ดาบหมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "ชุดผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "ชุดผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "ชุดผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "ชุดผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "ชุดผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "ชุดผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "ชุดผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "ดาบผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "ดาบผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "ดาบผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "ดาบผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "ดาบผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "ดาบผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "ดาบผ้าพันคอแดง"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "ชุดหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "ชุดหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "ชุดหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "ชุดหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "ชุดหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "ชุดหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "ชุดหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "ดาบหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "ดาบหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "ดาบหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "ดาบหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "ดาบหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "ดาบหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "ดาบหมวกเชฟ"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "ชุดมนุษย์หิมะ"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "ชุดมนุษย์หิมะ"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "ชุดมนุษย์หิมะ"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "ชุดมนุษย์หิมะ"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "ชุดมนุษย์หิมะ"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "ชุดมนุษย์หิมะ"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "ชุดมนุษย์หิมะ"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "ชุดฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "ชุดฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "ชุดฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "ชุดฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "ชุดฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "ชุดฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "ชุดฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "ดาบฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "ดาบฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "ดาบฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "ดาบฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "ดาบฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "ดาบฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "ดาบฮู้ดหมาป่า"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "ชุดฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "ชุดฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "ชุดฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "ชุดฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "ชุดฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "ชุดฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "ชุดฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "ดาบฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "ดาบฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "ดาบฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "ดาบฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "ดาบฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "ดาบฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "ดาบฮู้ดแมวสามสี"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "ชุดมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "ชุดมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "ชุดมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "ชุดมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "ชุดมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "ชุดมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "ชุดมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "ดาบมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "ดาบมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "ดาบมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "ดาบมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "ดาบมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "ดาบมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "ดาบมงกุฎทองคำ"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "ชุดเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "ชุดเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "ชุดเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "ชุดเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "ชุดเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "ชุดเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "ชุดเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "ดาบเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "ดาบเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "ดาบเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "ดาบเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "ดาบเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "ดาบเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "ดาบเขากวางเรนเดียร์"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "ชุดหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "ชุดหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "ชุดหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "ชุดหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "ชุดหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "ชุดหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "ชุดหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "ดาบหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "ดาบหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "ดาบหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "ดาบหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "ดาบหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "ดาบหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "ดาบหมวกซานต้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "ชุดหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "ชุดหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "ชุดหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "ชุดหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "ชุดหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "ชุดหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "ชุดหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "ดาบหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "ดาบหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "ดาบหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "ดาบหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "ดาบหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "ดาบหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "ดาบหมวกนักบินอวกาศ"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "ชุดหุ่นยนต์ฟ้า"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "ชุดหุ่นยนต์ฟ้า"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "ชุดหุ่นยนต์ฟ้า"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "ชุดหุ่นยนต์ฟ้า"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "ชุดหุ่นยนต์ฟ้า"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "ชุดหุ่นยนต์ฟ้า"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "ชุดหุ่นยนต์ฟ้า"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "ชุดหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "ชุดหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "ชุดหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "ชุดหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "ชุดหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "ชุดหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "ชุดหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "ดาบหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "ดาบหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "ดาบหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "ดาบหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "ดาบหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "ดาบหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "ดาบหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "ชุดแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "ชุดแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "ชุดแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "ชุดแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "ชุดแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "ชุดแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "ชุดแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "ดาบแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "ดาบแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "ดาบแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "ดาบแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "ดาบแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "ดาบแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "ดาบแว่นกันแดด"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "ชุดหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "ชุดหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "ชุดหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "ชุดหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "ชุดหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "ชุดหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "ชุดหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "ดาบหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "ดาบหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "ดาบหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "ดาบหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "ดาบหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "ดาบหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "ดาบหมวกแก๊ปเหลือง"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "ชุดแมวเทา"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "ชุดแมวเทา"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "ชุดแมวเทา"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "ชุดแมวเทา"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "ชุดแมวเทา"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "ชุดแมวเทา"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "ชุดแมวเทา"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "ชุดผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "ชุดผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "ชุดผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "ชุดผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "ชุดผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "ชุดผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "ชุดผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "ดาบผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "ดาบผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "ดาบผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "ดาบผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "ดาบผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "ดาบผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "ดาบผ้าโพกคาวบอย"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "ชุดห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "ชุดห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "ชุดห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "ชุดห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "ชุดห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "ชุดห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "ชุดห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "ดาบห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "ดาบห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "ดาบห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "ดาบห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "ดาบห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "ดาบห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "ดาบห่วงยางเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "ชุดตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "ชุดตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "ชุดตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "ชุดตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "ชุดตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "ชุดตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "ชุดตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "ดาบตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "ดาบตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "ดาบตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "ดาบตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "ดาบตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "ดาบตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "ดาบตัวตลกสีรุ้ง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "ชุดนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "ชุดนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "ชุดนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "ชุดนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "ชุดนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "ชุดนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "ชุดนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "ดาบนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "ดาบนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "ดาบนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "ดาบนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "ดาบนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "ดาบนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "ดาบนักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "ชุดนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "ชุดนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "ชุดนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "ชุดนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "ชุดนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "ชุดนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "ชุดนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "ดาบนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "ดาบนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "ดาบนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "ดาบนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "ดาบนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "ดาบนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "ดาบนักดำน้ำตื้น"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "ชุดนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "ชุดนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "ชุดนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "ชุดนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "ชุดนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "ชุดนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "ชุดนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "ดาบนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "ดาบนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "ดาบนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "ดาบนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "ดาบนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "ดาบนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "ดาบนักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "ชุดไดโนเสาร์"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "ชุดไดโนเสาร์"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "ชุดไดโนเสาร์"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "ชุดไดโนเสาร์"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "ชุดไดโนเสาร์"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "ชุดไดโนเสาร์"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "ชุดไดโนเสาร์"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "ชุดไดโนเสาร์เขียวหัวเป็ด"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "ชุดไดโนเสาร์เขียวหัวเป็ด"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "ชุดไดโนเสาร์เขียวหัวเป็ด"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "ชุดไดโนเสาร์เขียวหัวเป็ด"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "ชุดไดโนเสาร์เขียวหัวเป็ด"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "ชุดไดโนเสาร์เขียวหัวเป็ด"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "ชุดไดโนเสาร์เขียวหัวเป็ด"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "ชุดหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "ชุดหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "ชุดหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "ชุดหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "ชุดหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "ชุดหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "ชุดหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "ดาบหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "ดาบหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "ดาบหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "ดาบหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "ดาบหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "ดาบหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "ดาบหมวกแก๊ปดำ"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "ชุดหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "ชุดหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "ชุดหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "ชุดหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "ชุดหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "ชุดหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "ชุดหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "ดาบหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "ดาบหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "ดาบหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "ดาบหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "ดาบหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "ดาบหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "ดาบหมวกเห็ด"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "ชุดหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "ชุดหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "ชุดหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "ชุดหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "ชุดหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "ชุดหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "ชุดหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "ดาบหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "ดาบหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "ดาบหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "ดาบหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "ดาบหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "ดาบหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "ดาบหัวฟักทอง"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "ชุดกระรอก"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "ชุดกระรอก"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "ชุดกระรอก"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "ชุดกระรอก"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "ชุดกระรอก"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "ชุดกระรอก"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "ชุดกระรอก"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "ชุดจิ้งจอกแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "ชุดจิ้งจอกแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "ชุดจิ้งจอกแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "ชุดจิ้งจอกแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "ชุดจิ้งจอกแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "ชุดจิ้งจอกแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "ชุดจิ้งจอกแดง"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "ชุดฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "ชุดฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "ชุดฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "ชุดฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "ชุดฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "ชุดฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "ชุดฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "ดาบฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "ดาบฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "ดาบฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "ดาบฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "ดาบฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "ดาบฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "ดาบฮู้ดมีเขา"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "ชุดหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "ชุดหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "ชุดหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "ชุดหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "ชุดหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "ชุดหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "ชุดหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "ดาบหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "ดาบหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "ดาบหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "ดาบหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "ดาบหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "ดาบหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "ดาบหมวกจอสีส้ม"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "ชุดหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "ชุดหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "ชุดหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "ชุดหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "ชุดหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "ชุดหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "ชุดหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "ดาบหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "ดาบหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "ดาบหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "ดาบหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "ดาบหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "ดาบหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "ดาบหัวทีวี"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "ชุดหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "ชุดหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "ชุดหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "ชุดหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "ชุดหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "ชุดหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "ชุดหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "ดาบหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "ดาบหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "ดาบหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "ดาบหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "ดาบหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "ดาบหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "ดาบหมวกทรงสูง"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "ชุดแมวดำ"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "ชุดแมวดำ"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "ชุดแมวดำ"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "ชุดแมวดำ"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "ชุดแมวดำ"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "ชุดแมวดำ"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "ชุดแมวดำ"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "ชุดยมทูต"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "ชุดยมทูต"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "ชุดยมทูต"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "ชุดยมทูต"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "ชุดยมทูต"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "ชุดยมทูต"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "ชุดยมทูต"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "ชุดหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "ชุดหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "ชุดหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "ชุดหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "ชุดหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "ชุดหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "ชุดหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "ดาบหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "ดาบหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "ดาบหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "ดาบหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "ดาบหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "ดาบหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "ดาบหูกระต่าย"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "ชุดหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "ชุดหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "ชุดหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "ชุดหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "ชุดหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "ชุดหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "ชุดหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "ดาบหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "ดาบหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "ดาบหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "ดาบหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "ดาบหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "ดาบหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "ดาบหูแมว"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "ชุดหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "ชุดหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "ชุดหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "ชุดหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "ชุดหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "ชุดหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "ชุดหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "ดาบหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "ดาบหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "ดาบหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "ดาบหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "ดาบหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "ดาบหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "ดาบหูเอลฟ์"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "ชุดผึ้ง"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "ชุดผึ้ง"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "ชุดผึ้ง"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "ชุดผึ้ง"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "ชุดผึ้ง"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "ชุดผึ้ง"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "ชุดผึ้ง"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "ชุดแมวส้มลายเสือ"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "ชุดแมวส้มลายเสือ"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "ชุดแมวส้มลายเสือ"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "ชุดแมวส้มลายเสือ"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "ชุดแมวส้มลายเสือ"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "ชุดแมวส้มลายเสือ"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "ชุดแมวส้มลายเสือ"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "ชุดมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "ชุดมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "ชุดมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "ชุดมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "ชุดมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "ชุดมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "ชุดมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "ดาบมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "ดาบมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "ดาบมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "ดาบมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "ดาบมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "ดาบมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "ดาบมงกุฎดอกไม้"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "ชุดหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "ชุดหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "ชุดหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "ชุดหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "ชุดหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "ชุดหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "ชุดหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "ดาบหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "ดาบหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "ดาบหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "ดาบหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "ดาบหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "ดาบหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "ดาบหมวกแก๊ปเขียว"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "ชุดหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "ชุดหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "ชุดหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "ชุดหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "ชุดหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "ชุดหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "ชุดหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "ดาบหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "ดาบหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "ดาบหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "ดาบหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "ดาบหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "ดาบหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "ดาบหมวกแก๊ปชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "ชุดฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "ชุดฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "ชุดฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "ชุดฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "ชุดฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "ชุดฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "ชุดฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "ดาบฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "ดาบฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "ดาบฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "ดาบฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "ดาบฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "ดาบฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "ดาบฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "ชุดธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "ชุดธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "ชุดธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "ชุดธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "ชุดธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "ชุดธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "ชุดธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "ดาบธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "ดาบธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "ดาบธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "ดาบธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "ดาบธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "ดาบธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "ดาบธรรมดา"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "ชุดต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "ชุดต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "ชุดต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "ชุดต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "ชุดต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "ชุดต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "ชุดต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "ดาบต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "ดาบต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "ดาบต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "ดาบต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "ดาบต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "ดาบต้นกล้า"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "ดาบต้นกล้า"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "ชุดแพนด้าแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "ชุดแพนด้าแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "ชุดแพนด้าแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "ชุดแพนด้าแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "ชุดแพนด้าแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "ชุดแพนด้าแดง"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "ชุดแพนด้าแดง"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "ชุดทานตะวัน"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "ชุดทานตะวัน"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "ชุดทานตะวัน"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "ชุดทานตะวัน"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "ชุดทานตะวัน"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "ชุดทานตะวัน"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "ชุดทานตะวัน"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "ชุดเอเลี่ยนเขียว"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "ชุดเอเลี่ยนเขียว"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "ชุดเอเลี่ยนเขียว"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "ชุดเอเลี่ยนเขียว"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "ชุดเอเลี่ยนเขียว"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "ชุดเอเลี่ยนเขียว"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "ชุดเอเลี่ยนเขียว"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "ฟื้นฟู"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "ระเบิดน้ำแข็ง"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "ระเบิดเพลิง"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "สายฟ้าฟาด"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "สมาธิเวท"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "โจมตีเวท"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "หมวกแก๊ปน้ำเงิน"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "ผ้าพันคอแดง"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "หมวกเชฟ"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "มนุษย์หิมะ"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "ฮู้ดหมาป่า"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "ฮู้ดแมวสามสี"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "มงกุฎทองคำ"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "เขากวางเรนเดียร์"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "หมวกซานต้า"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "หมวกนักบินอวกาศ"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "หุ่นยนต์ฟ้า"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "หมวกฟาง"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "แว่นกันแดด"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "หมวกแก๊ปเหลือง"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "แมวเทา"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "ผ้าโพกคาวบอย"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "ห่วงยางเป็ด"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "ตัวตลกสีรุ้ง"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "นักว่ายน้ำหมวกแดง"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "นักดำน้ำตื้น"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "นักว่ายน้ำหมวกฟาง"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "ไดโนเสาร์"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "ไดโนเสาร์เขียวหัวเป็ด"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "หมวกแก๊ปดำ"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "หมวกเห็ด"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "หัวฟักทอง"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "กระรอก"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "จิ้งจอกแดง"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "ฮู้ดมีเขา"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "หมวกจอสีส้ม"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "หัวทีวี"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "หมวกทรงสูง"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "แมวดำ"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "ยมทูต"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "หูกระต่าย"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "หูแมว"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "หูเอลฟ์"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "ผึ้ง"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "แมวส้มลายเสือ"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "มงกุฎดอกไม้"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "หมวกแก๊ปเขียว"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "หมวกแก๊ปชมพู"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "ฮู้ดดอกไม้ชมพู"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "คนธรรมดา"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "ต้นกล้า"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "แพนด้าแดง"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "ทานตะวัน"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "เอเลี่ยนเขียว"
+
+msgid "CONTENT_STAGES_1"
+msgstr "ฤดูหนาว I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "ฤดูหนาว II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "ฤดูร้อน I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "ฤดูร้อน II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "ฤดูใบไม้ร่วง I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "ฤดูใบไม้ร่วง II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "ฤดูใบไม้ผลิ I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "ฤดูใบไม้ผลิ II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "ค่าหัวแรก"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "ปราบมนุษย์หิมะ (บอสฤดูหนาว I) 10 ครั้ง"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "ค่าหัวฤดูร้อน"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "ปราบแมวเทา (บอสฤดูร้อน I) 20 ครั้ง"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "ค่าหัวฤดูใบไม้ร่วง"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "ปราบยมทูต (บอสฤดูใบไม้ร่วง II) 30 ครั้ง"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "เส้นทางฤดูหนาว"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "ในฤดูหนาว I ตามลำดับ: กำจัดหมวกแก๊ปน้ำเงิน 100 ตัว ต่อด้วยผ้าพันคอแดง 100 ตัว แล้วหมวกเชฟ 100 ตัว"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "เส้นทางฤดูร้อน"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "ในฤดูร้อน I ตามลำดับ: กำจัดหมวกฟาง 150 ตัว ต่อด้วยแว่นกันแดด 150 ตัว แล้วหมวกแก๊ปเหลือง 150 ตัว"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "เส้นทางฤดูใบไม้ผลิ"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "ในฤดูใบไม้ผลิ I ตามลำดับ: กำจัดหูกระต่าย 200 ตัว ต่อด้วยหูแมว 200 ตัว แล้วหูเอลฟ์ 200 ตัว"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "คอลเลกชันฤดูหนาว"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "เก็บชุดหมวกแก๊ปน้ำเงิน ชุดผ้าพันคอแดง และชุดหมวกเชฟ อย่างละ 21 ชุด (ดรอปในฤดูหนาว I) ปุ่มส่งมอบจะส่งอย่างละ 20 ชุด และคุณเก็บไว้หนึ่งชุด"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "คอลเลกชันฤดูร้อน"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "เก็บชุดหมวกฟาง ชุดแว่นกันแดด และชุดหมวกแก๊ปเหลือง อย่างละ 31 ชุด (ดรอปในฤดูร้อน I) ปุ่มส่งมอบจะส่งอย่างละ 30 ชุด และคุณเก็บไว้หนึ่งชุด"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "คอลเลกชันฤดูใบไม้ผลิ"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "เก็บชุดหูกระต่าย ชุดหูแมว และชุดหูเอลฟ์ อย่างละ 41 ชุด (ดรอปในฤดูใบไม้ผลิ I) ปุ่มส่งมอบจะส่งอย่างละ 40 ชุด และคุณเก็บไว้หนึ่งชุด"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "ผลงานชิ้นเอกแรก"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "ผสานอาวุธ ชุด หรือสกิลใดก็ได้จนถึง ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "ขั้นที่สอง"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "ผสานไอเทมขั้น 2 ขึ้นไปจนถึง ^100 (ขั้น 2 ดรอปตั้งแต่ฤดูร้อน I หรือวิวัฒนาการอาวุธ)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "ขั้นที่สาม"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "ผสานไอเทมขั้น 3 ขึ้นไปจนถึง ^100 (ขั้น 3 ดรอปตั้งแต่ฤดูใบไม้ร่วง I หรือวิวัฒนาการอาวุธสองครั้ง)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "อุปกรณ์คู่"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "ผสานอาวุธหนึ่งชิ้นและชุดหนึ่งชุดจนถึง ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "คลังอาวุธกว้างขวาง"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "ผสานอาวุธต่างกัน 3 ชิ้นและชุดต่างกัน 3 ชุดจนถึง ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "คลังอาวุธวิวัฒน์"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "ผสานอาวุธขั้น 2+ ต่างกัน 3 ชิ้นและชุดขั้น 2+ ต่างกัน 3 ชุดจนถึง ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "พิชิตฤดูหนาว"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "ในฤดูหนาว I และฤดูหนาว II: สำรวจแต่ละแผนที่ 90% ปราบบอสทั้งสอง และปลดล็อกทุกค่าย"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "พิชิตฤดูร้อน"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "ในฤดูร้อน I และฤดูร้อน II: สำรวจแต่ละแผนที่ 90% ปราบบอสทั้งสาม และปลดล็อกทุกค่าย"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "พิชิตฤดูใบไม้ผลิ"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "ในฤดูใบไม้ผลิ I และฤดูใบไม้ผลิ II: สำรวจแต่ละแผนที่ 90% ปราบบอสทั้งห้า และปลดล็อกทุกค่าย"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "ฤดูหนาวไร้ตัวช่วย"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "ปราบหุ่นยนต์ฟ้า (บอสฤดูหนาว II) โดยไม่ใช้เสบียงใดเลยระหว่างการต่อสู้"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "ฤดูร้อนไร้ตัวช่วย"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "ปราบไดโนเสาร์เขียวหัวเป็ด (บอสฤดูร้อน II) โดยไม่ใช้เสบียงใดเลยระหว่างการต่อสู้"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "ฤดูใบไม้ร่วงไร้ตัวช่วย"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "ปราบยมทูต (บอสฤดูใบไม้ร่วง II) โดยไม่ใช้เสบียงใดเลยระหว่างการต่อสู้"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "เครื่องบูชาเล็ก"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "หาเหรียญ 2K และอัญมณี 30 จากศัตรูในรอบนี้ แล้วส่งมอบด้วยปุ่มส่งมอบ"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "เครื่องบูชาที่เติบโต"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "หาเหรียญ 20K และอัญมณี 100 จากศัตรูในรอบนี้ แล้วส่งมอบด้วยปุ่มส่งมอบ"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "เครื่องบูชาใหญ่"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "หาเหรียญ 100K และอัญมณี 300 จากศัตรูในรอบนี้ แล้วส่งมอบด้วยปุ่มส่งมอบ"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "ภารกิจต่อเนื่องสั้น"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "ตามลำดับ: กำจัดศัตรู 100 ตัว เก็บอาวุธหรือชุดที่ดรอป 10 ชิ้น แล้วผสาน 10 ครั้ง"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "ภารกิจต่อเนื่องยาว"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "ตามลำดับ: กำจัดศัตรู 250 ตัว ปราบบอส 3 ตัว ผสาน 25 ครั้ง แล้วร่ายสกิล 30 ครั้ง"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "ภารกิจต่อเนื่องระดับมาสเตอร์"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "ตามลำดับ: กำจัดศัตรู 500 ตัว ปราบบอส 10 ตัว ผสาน 50 ครั้ง แล้วรับภารกิจทั่วไป 3 ภารกิจ"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "ถ้วยรางวัลฤดูหนาว"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "หลังพบโอกาสนี้ ปราบมนุษย์หิมะ (ฤดูหนาว I) และหุ่นยนต์ฟ้า (ฤดูหนาว II) อย่างละครั้ง"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "ถ้วยรางวัลฤดูร้อน"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "หลังพบโอกาสนี้ ปราบแมวเทา (ฤดูร้อน I) ไดโนเสาร์ และไดโนเสาร์เขียวหัวเป็ด (ฤดูร้อน II) อย่างละครั้ง"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "ถ้วยรางวัลฤดูใบไม้ร่วง"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "หลังพบโอกาสนี้ ปราบกระรอกและจิ้งจอกแดง (ฤดูใบไม้ร่วง I) แมวดำและยมทูต (ฤดูใบไม้ร่วง II) อย่างละครั้ง"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "เวลาที่ห่างหาย"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "ห่างจากเกมรวม 72 ชั่วโมง"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "พักยาว"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "ห่างจากเกมต่อเนื่อง 24 ชั่วโมงในครั้งเดียว"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "รายได้ออฟไลน์"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "หาเหรียญ 10K ระหว่างที่ไม่อยู่ (รับรางวัลยินดีต้อนรับกลับ)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "EXP จากบอส +20%"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "ความเร็วเคลื่อนที่ +10%"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "ระยะเก็บอัตโนมัติ +50%"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "ค่าสถานะพื้นฐานของอุปกรณ์ที่สวมใส่ +10%"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "HP สูงสุด +10%"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "รัศมีสำรวจรอบตัว +25%"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "ดาเมจต่อบอส +10%"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "เหรียญจากศัตรูทุกตัว +10%"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "เหรียญจากภารกิจ +25%"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "อัญมณีจากบอส +25%"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "เหรียญออฟไลน์ต่อชั่วโมง +25%"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "เกิดใหม่เร็วขึ้น 2 วินาที (อย่างน้อย 2 วินาที)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "เหรียญจากศัตรูธรรมดา +15%"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "ค่าสถานะที่ได้จากการผสานแต่ละครั้ง +10%"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "ดาเมจต่อบอส +10%"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "อัตราไอเทมออฟไลน์ +25%"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "HP สูงสุด +10%"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "นักล่ายักษ์"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "ดาเมจต่อบอส +25%"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "เกราะกันบอส"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "รับดาเมจจากบอสน้อยลง 20%"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "ค่าหัว"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "เหรียญจากบอส +100%"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "นักแกะรอย"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "ดาเมจต่อศัตรูธรรมดา +20%"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "เหรียญระหว่างทาง"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "เหรียญจากศัตรูธรรมดา +30%"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "บทเรียนระหว่างทาง"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "EXP จากศัตรูธรรมดา +30%"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "นักสะสมช่างเก็บ"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "ระยะเก็บอัตโนมัติ +100%"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "โชคอุปกรณ์"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "โอกาสดรอปอุปกรณ์ +3 แต้ม"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "โชคเสบียง"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "โอกาสดรอปเสบียง +5 แต้ม"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "ฝีมือประณีต"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "ค่าสถานะที่ได้จากการผสานแต่ละครั้ง +25%"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "เซียนสุ่มใหม่"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "การสุ่มใหม่ใช้อัญมณีน้อยลง 50%"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "รากฐานมั่นคง"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "ค่าสถานะพื้นฐานของอาวุธและชุดที่สวมใส่ +20%"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "เกราะสำรอง"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "HP สูงสุด +20%"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "ฝึกอาวุธ"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "ดาเมจจากการโจมตีและสกิล +15%"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "อุปกรณ์สมดุล"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "รับดาเมจจากศัตรูทุกตัวน้อยลง 10%"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "นักสำรวจ"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "ความเร็วเคลื่อนที่ +15%"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "สายตาไกล"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "รัศมีสำรวจรอบตัว +50%"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "สำรวจค่าย"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "ค่ายใช้เหรียญน้อยลง 50%"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "แม่นยำ"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "โอกาสคริติคอล +15 แต้ม"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "ความมุ่งมั่น"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "ฟื้น HP เท่ากับ 5% ของดาเมจที่ทำได้"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "ตีหนัก"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "การโจมตีคริติคอลทำดาเมจเพิ่มอีก +75%"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "ปัญญาเหรียญ"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "เหรียญจากศัตรูทุกตัว +25%"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "ปัญญาอัญมณี"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "โอกาสดรอปอัญมณี +5 แต้ม"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "ใช้จ่ายอย่างฉลาด"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "อัปเกรดด้วยเหรียญถูกลง 15%"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "เหรียญภารกิจ"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "เหรียญจากภารกิจ +50%"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "อัญมณีภารกิจ"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "อัญมณีจากภารกิจ +50%"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "ฝึกฝนอย่างมีสมาธิ"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "ดาเมจสกิล การฟื้นฟู และสมาธิ +25%"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "นักล่าถ้วยรางวัล"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "EXP จากบอส +50%"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "พลังถ้วยรางวัล"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "ดาเมจต่อบอส +20%"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "อัญมณีถ้วยรางวัล"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "อัญมณีจากบอส +50%"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "เหรียญเงียบๆ"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "เหรียญออฟไลน์ต่อชั่วโมง +50%"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "อัญมณีเงียบๆ"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "อัญมณีออฟไลน์ต่อชั่วโมง +50%"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "ของดีเงียบๆ"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "อัตราไอเทมออฟไลน์ +50%"
+
+msgid "CHAIN_PROGRESS"
+msgstr "ขั้นที่ %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "รีเซ็ตเซฟสำหรับการพัฒนาในอัปเดตนี้แล้ว บันทึกความคืบหน้าใหม่ได้"
+
+msgid "HEAL_ROLE"
+msgstr "ฟื้นต่อเนื่อง: %s HP ตอนนี้ ทุก %s วินาที ร่ายฟรี จำกัดที่ 12%% ของ HP สูงสุด ยาฟื้นพลังฟื้นฉุกเฉินได้แรงกว่า"
+
+msgid "REGULAR_MISSIONS"
+msgstr "งานล่า"
+
+msgid "GUIDE_CHOOSE"
+msgstr "อยากได้คำแนะนำมากแค่ไหน"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "แนะนำทีละขั้น"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "พื้นฐาน"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "ไม่มี"
+
+msgid "GUIDE_REVIEW"
+msgstr "เลือกระดับคำแนะนำใหม่"
+
+msgid "GUIDE_GOT_IT"
+msgstr "เข้าใจแล้ว"
+
+msgid "GUIDE_MOVE"
+msgstr "เดินตามทางด้านซ้าย"
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "ลากจอยสติ๊กที่เรืองแสงไปทางลูกศร ศัตรูกลุ่มแรกรออยู่ตามทาง"
+
+msgid "GUIDE_KILL"
+msgstr "หยุดข้างศัตรูเพื่อโจมตี"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "ยืนนิ่งสักครู่แล้วคุณจะโจมตีเอง ศัตรูฤดูหนาวจะสู้กลับเท่านั้น"
+
+msgid "GUIDE_COLLECT"
+msgstr "แตะไอเทมที่ดรอป"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "ของดรอปจะอยู่บนพื้นสักพัก เหรียญและอัญมณีจะเพิ่มให้อัตโนมัติ"
+
+msgid "GUIDE_EQUIP"
+msgstr "แตะไอเทมใหม่"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "รายละเอียดไอเทมจะเทียบกับของที่สวมอยู่"
+
+msgid "GUIDE_MERGE"
+msgstr "เปิดไอเทมที่คุณมีสองชิ้น"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "การผสานชิ้นซ้ำทำให้ไอเทมแข็งแกร่งขึ้นถาวร"
+
+msgid "GUIDE_UPGRADE"
+msgstr "แตะอัปเกรดของศัตรูตัวนี้"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "ศัตรูแต่ละประเภทมีอัปเกรดของดรอป เหรียญ และค่าประสบการณ์เป็นของตัวเอง"
+
+msgid "GUIDE_CAMP"
+msgstr "เปิดหน้าโลกเพื่อปลดล็อกค่าย"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "คุณพบค่ายและมีเหรียญพอแล้ว เปิดหน้าโลก หรือเดินไปที่ค่ายแล้วแตะดูค่าย"
+
+msgid "GUIDE_OVERVIEW"
+msgstr "เดิน สู้ เก็บ"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "ลากจอยสติ๊กด้านล่างแผนที่เพื่อเดิน ปล่อยมือแล้วฮีโร่จะสู้กับศัตรูใกล้ๆ แตะของดรอปเพื่อเก็บ"
+
+msgid "GUIDE_AGGRESSION"
+msgstr "ศัตรูกลุ่มนี้สังเกตเห็นคุณเมื่ออยู่ใกล้"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "ศัตรูในฤดูหนาว II จะโจมตีเมื่อคุณเข้าใกล้ เข้าหาทีละตัว"
+
+msgid "GUIDE_SKILLS"
+msgstr "สกิลช่วยเสริมอุปกรณ์"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "แตะสกิลที่ติดตั้งเพื่อร่าย ฟื้นฟูฟื้นได้สม่ำเสมอ ส่วนยาฟื้นพลังฟื้นได้มากกว่าในครั้งเดียว"
+
+msgid "GUIDE_GROUPS"
+msgstr "ศัตรูบางตัวเริ่มเรียกพวกมาช่วย"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "ศัตรูฤดูร้อนจะช่วยพวกเดียวกันที่อยู่ใกล้ ระวัง HP ของคุณ"
+
+msgid "PRESTIGE_GATE"
+msgstr "ผ่านฤดูหนาวก่อน: ปราบหุ่นยนต์ฟ้าเพื่อไปฤดูร้อน I"
+
+msgid "NAV_PRESTIGE"
+msgstr "เพรสทีจ"
+
+msgid "PANEL_WORLD"
+msgstr "โลก"
+
+msgid "TAB_OFFLINE"
+msgstr "ออฟไลน์"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "เปิดอัปเกรดเหล่านี้ด้วยปุ่มอัปเกรด หรือแตะที่ตัวละครของคุณ"
+
+msgid "HUD_RESTING"
+msgstr "· กำลังพัก"
+
+msgid "ITEM_PREVIOUS"
+msgstr "ไอเทมก่อนหน้า"
+
+msgid "ITEM_NEXT"
+msgstr "ไอเทมถัดไป"
+
+msgid "ITEM_POSITION"
+msgstr "%d จาก %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "ถ้าสวมใส่: %s"
+
+msgid "NO_CHANGE"
+msgstr "ไม่เปลี่ยนแปลง"
+
+msgid "EQUIPPED_NOW"
+msgstr "สวมอยู่ตอนนี้: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "ช่องนี้ยังไม่ได้สวมใส่อะไร"
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "สวมใส่: ค่าสถานะเต็ม"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "เก็บไว้: 30% ของค่าสถานะ"
+
+msgid "UPGRADE_LEVEL"
+msgstr "เลเวล %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "บอส"
+
+msgid "ENEMY_KILLS"
+msgstr "ปราบแล้ว: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "ค่ายเกิดใหม่"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "ปลดล็อกแล้ว"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "ล็อกอยู่ · %s เหรียญ"
+
+msgid "SECTION_CAMPS"
+msgstr "ค่าย"
+
+msgid "CAMPS_HIDDEN"
+msgstr "ยังมีค่ายรอให้สำรวจพบอีก %d แห่ง"
+
+msgid "SECTION_TRAVEL"
+msgstr "เดินทางไปด่านอื่น"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "อัปเกรดแผนที่"
+
+msgid "SECTION_DANGER"
+msgstr "โซนอันตราย"
+
+msgid "CAMP_UNLOCK"
+msgstr "ปลดล็อก"
+
+msgid "CAMP_SELECT"
+msgstr "เกิดใหม่ที่นี่"
+
+msgid "CAMP_TRAVEL"
+msgstr "เดินทาง"
+
+msgid "CARD_OWNED"
+msgstr "มีแล้ว"
+
+msgid "CARD_SELECTED"
+msgstr "เลือกแล้ว"
+
+msgid "CARD_LOCKED"
+msgstr "ยังไม่ได้รับ"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "พร้อม"
+
+msgid "PRESTIGE_INTRO"
+msgstr "ทำโอกาสให้สำเร็จเพื่อรับการ์ดถาวร เพรสทีจจะแลกโอกาสที่พร้อมทั้งหมดในครั้งเดียวและเริ่มรอบใหม่"
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "พร้อม: %d  ·  การ์ดที่มี: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "ยังไม่พบโอกาสใด ปราบบอส ผสาน และสำรวจเพื่อค้นหา"
+
+msgid "NO_CARDS_YET"
+msgstr "ยังไม่มีการ์ด"
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "แลกโอกาสที่พร้อม %d อย่าง: %s\n\nคุณจะเลือกการ์ดถาวรหนึ่งใบต่อหนึ่งโอกาส แล้วรอบจะเริ่มใหม่หนึ่งครั้ง\n\nเก็บไว้: การ์ด กุญแจบอส ความสำเร็จ อัปเกรดด้วยอัญมณี ระบบอัตโนมัติ การตั้งค่า\nรีเซ็ต: เหรียญ ไอเทม เลเวล ค่าย การสำรวจแผนที่ อัปเกรดด้วยเหรียญ และความท้าทายที่ยังไม่จบ"
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "เลือกรางวัล · %d จาก %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "เลือกแล้ว: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "สิ่งที่คุณเก็บไว้"
+
+msgid "PRESTIGE_KEEP"
+msgstr "การ์ดและชุดการ์ด อัญมณีของคุณ พื้นที่แผนที่ที่สำรวจแล้ว อัปเกรดทุกอย่างที่ซื้อด้วยอัญมณี (ทุกหมวด) ระบบอัตโนมัติ พื้นที่กระเป๋า กุญแจบอส ความสำเร็จของศัตรู เลเวลและ EXP ของผู้เล่น ความชำนาญแผนที่ และการตั้งค่า"
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "สิ่งที่รีเซ็ตในรอบนี้"
+
+msgid "PRESTIGE_RESET"
+msgstr "เหรียญ ไอเทม (รวมเสบียงในคลัง) และการผสาน ความชำนาญเสบียง การเข้าถึงแผนที่และค่ายที่มี อัปเกรดแผนที่และอัปเกรดด้วยเหรียญ และความท้าทายที่ยังไม่จบ"
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "เก็บ %s"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "แตะการ์ดเพื่อเลือก"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "เก็บ %s ไว้ถาวรไหม นี่คือตัวเลือกสุดท้าย รอบใหม่จะเริ่มทันทีหลังจากนี้"
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "พบโอกาสเพรสทีจ!"
+
+msgid "MILESTONE_READY"
+msgstr "โอกาสสำเร็จแล้ว!"
+
+msgid "MILESTONE_CARD"
+msgstr "ได้รับการ์ด: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "รอบใหม่เริ่มต้น"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "เพิ่มการ์ดถาวร %d ใบเข้าคอลเลกชันแล้ว"
+
+msgid "MILESTONE_STAGE"
+msgstr "ปลดล็อกด่านใหม่"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "ชุดนักล่าบอส"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "ชุดนักเดินทาง"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "ชุดนักสะสม"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "ชุดผลงานชิ้นเอก"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "ชุดคลังอาวุธ"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "ชุดภูมิภาค"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "ชุดความท้าทาย"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "ชุดเครื่องบูชา"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "ชุดผู้เชี่ยวชาญ"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "ชุดถ้วยรางวัล"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "ชุดออฟไลน์"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "นักสำรวจผู้พร้อม"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "นักฟาร์มตัวยง"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "เส้นทางช่างฝีมือ"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "ผู้เชี่ยวชาญบอส"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "นักสะสมผู้อดทน"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "การเติบโตที่สมดุล"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "กำจัดศัตรูต่อไป"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "อาวุธหรือชุดชิ้นแรกจะดรอปหลังชนะไม่กี่ครั้ง"
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "แตะสวมใส่"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "อุปกรณ์ที่สวมใส่ให้ค่าสถานะเต็ม อุปกรณ์ที่เก็บไว้ยังให้ 30%"
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "แตะผสาน"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "การผสานแต่ละครั้งใช้ชิ้นสำรองหนึ่งชิ้นและเพิ่มเลเวลของไอเทม"
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "เก็บชิ้นที่สอง"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "ชิ้นที่ตรงกันจะดรอปหลังชนะอีกไม่กี่ครั้ง"
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "หาศัตรูก่อน"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "เดินเข้าใกล้ศัตรูเพื่อให้อัปเกรดของมันใช้ได้"
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "หาเหรียญเพื่ออัปเกรด"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "ต้องการอีก %s เหรียญ ศัตรูที่ถูกกำจัดทุกตัวดรอปเหรียญ"
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "เปิดแท็บอัปเกรด"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "อัปเกรดของศัตรูประเภทนี้อยู่ในนั้น"
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "ซื้ออัปเกรด"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "โอกาสได้ของดรอปที่ดีขึ้นเป็นตัวเลือกแรกที่ดี"
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "สำรวจเพื่อหาค่ายอื่น"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "เดินเข้าไปในหมอก ค่ายจะปรากฏเมื่อคุณเปิดพื้นที่ถึง"
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "หาเหรียญสำหรับค่าย"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "ต้องการอีก %s เหรียญ กำจัดศัตรูต่อไป"
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "แตะปลดล็อก"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "ค่ายจะกลายเป็นจุดเกิดใหม่และเปิดเผยพื้นที่รอบๆ"
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "ปลดล็อกค่ายแล้ว"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "ใช้ เกิดใหม่ที่นี่ เพื่อกลับมาที่นี่หลังแพ้ การพักข้างค่ายฟื้นฟูได้เร็ว"
+
+msgid "GUIDE_PRESTIGE"
+msgstr "พบโอกาสเพรสทีจ"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "ทำให้สำเร็จเพื่อรับการ์ดถาวร หามนุษย์หิมะให้เจอก่อน และในโหมดแนะนำทีละขั้นต้องจบบทสอนด้วย"
+
+msgid "GUIDE_REST"
+msgstr "HP เหลือน้อย?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "ถอยออกจากการต่อสู้ การพักข้างค่ายที่ปลดล็อกแล้วจะฟื้นฟูคุณได้เร็ว"
+
+msgid "SECTION_REWARDS"
+msgstr "รางวัล"
+
+msgid "SECTION_AUTOMATION"
+msgstr "ระบบอัตโนมัติ"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "ล็อกอยู่"
+
+msgid "PROGRESS_MERGE"
+msgstr "ดีที่สุดตอนนี้: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "อาวุธที่ ^50: %d/%d · ชุดที่ ^50: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "ถ้วยรางวัล: %d / %d (บอสแต่ละตัวดรอปหนึ่งใบเมื่อถูกปราบครั้งถัดไป)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "ความคืบหน้า: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "ชนะการต่อสู้โดยไม่ใช้ยาหรือโทนิก"
+
+msgid "PROGRESS_REGIONAL"
+msgstr "สำรวจแล้ว %s · บอส %d/%d · ค่าย %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "ดาบทองคำ"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "ดาบเพชร"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "ดาบมรกต"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "ดาบหินออบซิเดียน"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "ขวานไม้"
+
+msgid "ITEM_STONE_AXE"
+msgstr "ขวานหิน"
+
+msgid "ITEM_IRON_AXE"
+msgstr "ขวานเหล็ก"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "ขวานทองคำ"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "ขวานเพชร"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "ขวานมรกต"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "ขวานหินออบซิเดียน"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "หาอาวุธหรือชุด"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "ของที่เจอเมื่อกี้เป็นเสบียง กำจัดศัตรูต่อไป บางครั้งพวกมันจะดรอปอาวุธหรือชุดที่ใส่อยู่ ซึ่งจะเติมช่องอุปกรณ์ที่ว่าง"
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "เก็บอุปกรณ์"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "มีอาวุธหรือชุดดรอปแล้ว แตะเพื่อเก็บเข้าช่องอุปกรณ์"
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "ติดตามได้เฉพาะโอกาสที่กำลังดำเนินการ"
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "ผ่าน %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "พร้อมรับ"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ รับแล้ว"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "เป้าหมายที่สำเร็จ (%d) · %s"
+
+msgid "SHOW"
+msgstr "แสดง"
+
+msgid "HIDE"
+msgstr "ซ่อน"
+
+msgid "PLAYTIME_LINE"
+msgstr "เวลาเล่น: %s · รอบนี้: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "ยินดีต้อนรับกลับ!"
+
+msgid "OFFLINE_AWAY"
+msgstr "ไม่อยู่ %s · ได้รางวัล %s ชั่วโมง"
+
+msgid "OFFLINE_CLAIM"
+msgstr "รับรายได้ออฟไลน์"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "รับรายได้ออฟไลน์แล้ว"
+
+msgid "OFFLINE_NOTHING"
+msgstr "ไม่มีรายได้ออฟไลน์รออยู่"
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "มีรายได้ออฟไลน์รอให้รับ"
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "รับครั้งล่าสุด: รางวัล %s ชั่วโมง · %s เหรียญ · %s อัญมณี"
+
+msgid "NAV_UPGRADES"
+msgstr "อัปเกรด"
+
+msgid "STATS_OPEN"
+msgstr "ค่าสถานะ"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "ปลดล็อกอัปเกรดใหม่: %s (อัปเกรดผู้เล่น)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "หามนุษย์หิมะในฤดูหนาว I (บอสตัวแรก) เพื่อปลดล็อกการรีเซ็ตเพรสทีจ"
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "หามนุษย์หิมะ"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "คุณมีการ์ดทุกใบที่โอกาสที่พร้อมเหล่านี้มอบให้ได้แล้ว"
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "หาจุดนี้บนแผนที่ก่อน"
+
+msgid "EQUIPPED_PINNED"
+msgstr "สวมใส่อยู่"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "อาวุธ"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "ชุด"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "ช่องว่าง"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "สวมใส่อยู่"
+
+msgid "COMPARE_SELECTED"
+msgstr "ที่เลือก"
+
+msgid "COMPARE_ITEM"
+msgstr "ไอเทม"
+
+msgid "COMPARE_UPGRADE"
+msgstr "ดีขึ้น"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "แย่ลง"
+
+msgid "COMPARE_MIXED"
+msgstr "ได้อย่างเสียอย่าง"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "ขั้น %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "แข็งแกร่งขึ้นจากการผสานชิ้นซ้ำของตัวเอง สูงสุด ^%d ไม่มีวันกลายเป็นไอเทมอื่น หลัง ^100 การผสานแต่ละครั้งจะเพิ่มน้อยลงเล็กน้อย"
+
+msgid "FOLLOW_READY"
+msgstr "พร้อมแล้ว! เปิดเพรสทีจเพื่อเลือกการ์ด"
+
+msgid "FOLLOW_STEP"
+msgstr "ขั้นที่ %d/%d · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "กำจัด %s: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "ปราบ %s โดยไม่ใช้เสบียงใดเลยระหว่างการต่อสู้: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "รับภารกิจ"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "ตัวละคร"
+
+msgid "STATS_LEVEL"
+msgstr "เลเวล"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "ด่าน"
+
+msgid "STATS_PRESTIGES"
+msgstr "เพรสทีจที่ทำแล้ว"
+
+msgid "STATS_CARDS"
+msgstr "การ์ดเพรสทีจ"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "การโจมตี"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "ความเร็วโจมตี"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/วินาที (+%s%%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "การป้องกันและการฟื้นตัว"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (ดาเมจ −%s%%)"
+
+msgid "STATS_RESPAWN"
+msgstr "เวลาเกิดใหม่"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "บูสต์"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "ตัวคูณเพรสทีจ"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "HP ×%s · ดาเมจ ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "ความเร็วเคลื่อนที่"
+
+msgid "STATS_STORED_SHARE"
+msgstr "ผลจากอุปกรณ์ที่เก็บไว้"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "โบนัสอุปกรณ์ที่สวมใส่"
+
+msgid "STATS_SECTION_TIME"
+msgstr "เวลาเล่น"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "ทุกรอบ"
+
+msgid "STATS_TIME_RUN"
+msgstr "รอบนี้"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "ดาเมจ"
+
+msgid "STATS_SHORT_HP"
+msgstr "HP"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "ป้องกัน"
+
+msgid "STATS_SHORT_CRIT"
+msgstr "คริ"
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "ดาเมจคริ"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "ความเร็วโจมตี"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "ดูดเลือด"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "HP/วินาที"
+
+msgid "CAMP_SIGHTED"
+msgstr "พบค่าย! ตอนนี้แสดงบนแผนที่และในหน้าโลกแล้ว"
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "โบนัส HP จากการ์ดและความชำนาญ"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "โบนัสดาเมจจากการ์ดและความชำนาญ"
+
+msgid "STAT_REGEN_PCT"
+msgstr "การฟื้นตัว"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "HP สูงสุด/วินาที"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "HP สูงสุด/วินาที"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s%% ของ HP สูงสุด/วินาที (%s HP/วินาที)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "เป้าหมายชุด (ขณะสวมใส่)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "อาวุธ %s%% · ชุด %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "พิทักษ์ พลังป้องกัน +%s"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "HP +%s"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "HP ของชุด +%s%%"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "ฟื้นตัว %s%% ของ HP สูงสุด/วินาที"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "เป้าหมาย (ขณะสวมใส่): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "เป้าหมาย: ยังไม่มี เป้าหมายแรกปลดล็อกที่ ^100"
+
+msgid "MILESTONES_COMPLETE"
+msgstr "ถึงทุกเป้าหมายแล้ว (ความชำนาญ)"
+
+msgid "MILESTONE_NEXT"
+msgstr "ถัดไปที่ ^%d: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "แข็งแกร่งขึ้นจากการผสานชิ้นซ้ำของตัวเอง สูงสุด ^%d: +2%% ของ HP พื้นฐานต่อชิ้นจนถึง ^100 จากนั้น +1%% ต่อชิ้น ไม่มีวันกลายเป็นไอเทมอื่น เป้าหมายมีผลเฉพาะขณะสวมใส่ ถ้าเก็บไว้จะนับ %s%% ของ HP"
+
+msgid "PANEL_LEVEL"
+msgstr "เลเวลผู้เล่นและการเติบโต"
+
+msgid "PANEL_FARMING"
+msgstr "คู่มือการฟาร์ม"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "แตะเพื่อดูการเติบโตตามเลเวลและแหล่งที่มาของค่าสถานะ"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "ช่อง %d → %d จาก %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "ช่อง %d / %d · เต็มแล้ว"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · สูงสุดแล้ว"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "บอสให้อัญมณี %s ต่อการดรอป"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "คู่มือการฟาร์ม"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "เพรสทีจล็อกอยู่ · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "เงื่อนไขการรีเซ็ตเพรสทีจ"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "หามนุษย์หิมะในฤดูหนาว I (บอสตัวแรก)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "มีโอกาสที่พร้อมและมอบการ์ดได้อย่างน้อยหนึ่งอย่าง"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "หามนุษย์หิมะ"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "ไม่มีโอกาสที่พร้อม"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "ไม่มีการ์ดเหลือให้มอบ"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "แหล่งค่าสถานะอื่น"
+
+msgid "BREAKDOWN_HP"
+msgstr "HP ของคุณมาจากไหน"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "ดาเมจของคุณมาจากไหน"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "ก่อนเพรสทีจ"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "การ์ดและความชำนาญ"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "รวม (ใช้ในการต่อสู้)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "ต่อการโจมตี ไม่รวมในยอดรวม"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "ดาเมจที่คุณได้รับ"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "เลเวลผู้เล่น (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "อุปกรณ์ที่เก็บไว้ (ชุด %s%% อาวุธ %s%%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "อุปกรณ์ที่สวมใส่ (รวมการ์ด +%s%%)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "เป้าหมายการกำจัดต่อ %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "เพรสทีจต่อศัตรูธรรมดา"
+
+msgid "PER_HIT_BOSS"
+msgstr "เพรสทีจต่อบอส"
+
+msgid "PER_HIT_FOCUS"
+msgstr "สมาธิ (เหลือ %d วินาที)"
+
+msgid "TAKEN_GUARD"
+msgstr "การป้องกันจากเพรสทีจ"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "การป้องกันจากเพรสทีจต่อบอส"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "เลเวล %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "ถึงเลเวลสูงสุดแล้ว เลเวลไม่เพิ่มอะไรอีก"
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s EXP · อีก %s ถึงเลเวล %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "การเติบโตตามเลเวล"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "ต่อเลเวล (พื้นฐาน)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "HP +%s · ดาเมจ +%s"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "จาก %d เลเวลจนถึงตอนนี้"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "HP ที่เลเวล %d"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "ดาเมจที่เลเวล %d"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "การ์ดเพรสทีจคูณทุกแหล่ง: HP ×%s ดาเมจ ×%s"
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "ที่ฟาร์มศัตรูแต่ละตัวและของที่ดรอป ข้อมูลของแผนที่จะเปิดเมื่อรายละเอียดแผนที่เต็มแล้ว และศัตรูทุกประเภทที่นั่นถูกเปิดเผยค่าสถานะและของดรอปแล้ว เฉพาะจุดที่คุณค้นพบแล้วเท่านั้นที่แสดงตำแหน่ง"
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "คุณอยู่ที่นี่"
+
+msgid "FARMING_READY"
+msgstr "ปลดล็อกข้อมูลแล้ว"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "เปิด"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "รายละเอียดแผนที่ %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "ค่าสถานะและของดรอป %d/%d ประเภท"
+
+msgid "FARMING_LOCKED"
+msgstr "ต้องมี: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "ยังไปไม่ถึงอีก %d แผนที่"
+
+msgid "FARMING_MAP_TITLE"
+msgstr "ฟาร์ม · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "โอกาสรวมอัปเกรดปัจจุบันของคุณแล้ว ทิศทางนับจากค่ายที่รู้จักซึ่งใกล้ที่สุดบนแผนที่นี้"
+
+msgid "FARMING_BACK"
+msgstr "ทุกแผนที่"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "ศัตรูที่ยังไม่พบ · สำรวจแผนที่นี้เพื่อค้นหา"
+
+msgid "FARMING_REWARDS"
+msgstr "เหรียญ ×%s · อัญมณี %s%% ×%s · EXP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "เสบียง: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "จุดที่ยังไม่พบ"
+
+msgid "FARMING_DETAILS"
+msgstr "รายละเอียด"
+
+msgid "FARMING_AT_CAMP"
+msgstr "ที่ค่าย %d"
+
+msgid "FARMING_LOCATION"
+msgstr "ทาง%sของค่าย %d · %s"
+
+msgid "COMPASS_N"
+msgstr "เหนือ"
+
+msgid "COMPASS_NE"
+msgstr "ตะวันออกเฉียงเหนือ"
+
+msgid "COMPASS_E"
+msgstr "ตะวันออก"
+
+msgid "COMPASS_SE"
+msgstr "ตะวันออกเฉียงใต้"
+
+msgid "COMPASS_S"
+msgstr "ใต้"
+
+msgid "COMPASS_SW"
+msgstr "ตะวันตกเฉียงใต้"
+
+msgid "COMPASS_W"
+msgstr "ตะวันตก"
+
+msgid "COMPASS_NW"
+msgstr "ตะวันตกเฉียงเหนือ"
+
+msgid "DISTANCE_NEAR"
+msgstr "ใกล้"
+
+msgid "DISTANCE_MID"
+msgstr "เดินไม่ไกล"
+
+msgid "DISTANCE_FAR"
+msgstr "ไกล"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "เฮ้! ชุดของฉัน!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "อาวุธของฉัน!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "ตำราเวทของฉัน!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "เสบียงของฉัน!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "โทนิกพิทักษ์"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "ยาทาฟื้นตัว"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "โทนิกปัญญา"
+
+msgid "FOLLOW_COLLECT"
+msgstr "ขั้นที่ %d/%d · เก็บ %s จาก %s: %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "พบครบแล้ว! ส่งมอบ: เพรสทีจ แล้วกดส่งมอบ"
+
+msgid "FILTERS"
+msgstr "ตัวกรอง"
+
+msgid "FILTERS_ACTIVE"
+msgstr "ตัวกรอง · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "กรองตารางอุปกรณ์ ปิดตัวกรองแล้วไอเทมทั้งหมดจะแสดงอีกครั้ง"
+
+msgid "PANEL_FILTERS"
+msgstr "ตัวกรอง"
+
+msgid "FILTERS_HINT"
+msgstr "ขณะเปิดตัวกรอง ตารางอุปกรณ์จะแสดงเฉพาะหมวดนี้ ปิดแล้วไอเทมทั้งหมดจะแสดงอีกครั้ง"
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "ช่องเสบียง: ประเภทละหนึ่งช่อง (%d ประเภท) ตัวกรองอยู่ข้างจำนวนอุปกรณ์"
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "ใช้เสบียงนี้จริงทุก 3 ครั้งจะได้ความชำนาญหนึ่งเลเวล สูงสุด ^%d การซื้อและการดรอปเพิ่มแค่จำนวนในคลัง เพรสทีจจะรีเซ็ตความชำนาญและความคืบหน้าการใช้"
+
+msgid "BUY_SUPPLY"
+msgstr "ซื้อ %s · %s เหรียญ"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · เหลือ %d วินาที"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "ทำงานอยู่: %s · เหลือ %d วินาที"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "คูลดาวน์ · %s วินาที"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "พร้อมใช้"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "ใช้อัตโนมัติ: เมื่อ HP เหลือ %s%% หรือน้อยกว่า หลังคูลดาวน์"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "ใช้อัตโนมัติ: ทุกครั้งที่ไม่ได้ทำงานอยู่"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "ใช้อัตโนมัติ: ระหว่างต่อสู้ เมื่อไม่ได้ทำงานอยู่"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "ใช้อัตโนมัติ: เมื่อ HP เหลือ %s%% หรือน้อยกว่า และไม่ได้ทำงานอยู่"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "ใช้อัตโนมัติ: ทุกครั้งที่ไม่ได้ทำงานอยู่"
+
+msgid "SUPPLY_STOCK"
+msgstr "ในคลัง: %s · ใช้แต่ละครั้งเสียหนึ่งชิ้น"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "ชิ้นถัดไปที่พบ: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "โบนัสความชำนาญ: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "ระยะเวลา %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "คูลดาวน์ %s วินาที"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%s%% ของ HP สูงสุด"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "เหรียญ +%s%%"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "EXP +%s%%"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "พลังป้องกัน +%s"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "%s%% ของ HP สูงสุดต่อวินาที"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "ฟื้น HP %s%% ของ HP สูงสุด (ตอนนี้ %s HP) · คูลดาวน์ %s วินาที · ใช้ได้เมื่อ HP ต่ำกว่า %s%%"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "เหรียญจากศัตรูที่ถูกกำจัด +%s%% เป็นเวลา %s วินาที"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "พลังป้องกัน +%s (รับดาเมจน้อยลง %s%%) เป็นเวลา %s วินาที"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "ฟื้น HP %s%% ของ HP สูงสุดต่อวินาที เป็นเวลา %s วินาที (รวม %s%%) · ใช้ได้เมื่อ HP ต่ำกว่า %s%%"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "EXP จากศัตรูที่ถูกกำจัด +%s%% เป็นเวลา %s วินาที"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "ความชำนาญ ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "อัตโนมัติ: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "HP ของคุณสูงเกินไปสำหรับเสบียงนี้"
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "ยายังอยู่ในคูลดาวน์"
+
+msgid "SUPPLY_ACTIVE"
+msgstr "ทำงานอยู่แล้ว ใช้อีกครั้งเมื่อหมดฤทธิ์"
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "ใช้ทุกสามครั้งจะเพิ่มความชำนาญเสบียง เพรสทีจจะรีเซ็ตความชำนาญและความคืบหน้าการใช้"
+
+msgid "SOURCE_SUPPLY"
+msgstr "เสบียงที่ทำงานอยู่"
+
+msgid "CAMP_TELEPORT"
+msgstr "วาร์ป"
+
+msgid "PANEL_TELEPORT"
+msgstr "วาร์ป"
+
+msgid "TELEPORT_TITLE"
+msgstr "วาร์ป"
+
+msgid "TELEPORT_HELP"
+msgstr "เลือกค่ายอื่นที่คุณมี บนแผนที่นี้หรือแผนที่ที่ไปถึงแล้ว วาร์ปไม่ได้ระหว่างต่อสู้"
+
+msgid "TELEPORT_HERE"
+msgstr "คุณอยู่ที่นี่"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "จุดหมายที่เลือก"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "แผนที่นี้"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "แผนที่อื่น"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "เลือก"
+
+msgid "TELEPORT_BACK"
+msgstr "ย้อนกลับ"
+
+msgid "TELEPORT_GO"
+msgstr "วาร์ป · %s · ค่าย %d"
+
+msgid "TELEPORT_PICK"
+msgstr "เลือกจุดหมาย"
+
+msgid "TELEPORT_NONE"
+msgstr "ยังไม่มีค่ายอื่น ปลดล็อกค่ายอื่นเพื่อวาร์ปไปที่นั่น"
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · ค่าย %d"
+
+msgid "MAP_EXPLORED"
+msgstr "สำรวจแผนที่แล้ว: %d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "สัดส่วนของแผนที่นี้ที่คุณสำรวจไว้ถาวร การมองเห็นชั่วคราวและการเลื่อนกล้องไม่นับ"
+
+msgid "SECTION_AUDIO"
+msgstr "เสียงและเพลง"
+
+msgid "MUSIC_VOLUME"
+msgstr "เพลง %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "เอฟเฟกต์เสียง %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "ปิดเสียงเกมเพลย์: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "ปิดเสียงพิเศษ: %s"
+
+msgid "AUDIO_HINT"
+msgstr "เสียงเกมเพลย์: การแตะ การซื้อ การผสาน และการต่อสู้ เสียงพิเศษ: การแจ้งเตือน (ภารกิจหรือเป้าหมายพร้อมรับ ข่าวเพรสทีจ เมนูใหม่ ความคืบหน้าความชำนาญแผนที่ พบบอส) และเหตุการณ์สำคัญ (แผนที่ใหม่ การเพรสทีจ) ระดับเสียงเอฟเฟกต์ควบคุมทั้งสองอย่าง"
+
+msgid "UP_MERGE_ALL"
+msgstr "ผสานทั้งหมด"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "ปลดล็อกครั้งเดียว: ปุ่มผสานทั้งหมดในตัวกรองจะผสานชิ้นสำรองทุกชิ้นในการแตะครั้งเดียว · ใช้ฟรี · คงอยู่หลังเพรสทีจ"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "ปลดล็อกแล้ว · ใช้ผสานทั้งหมดในตัวกรอง"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "ยังไม่ได้ปลดล็อกผสานทั้งหมด"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "ผสานทั้งหมด: ปลดล็อกครั้งเดียวด้วยอัญมณี 5K ที่อัปเกรด → กระเป๋า"
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "ผสานทั้งหมด · ชิ้นสำรอง %d ชิ้น"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "ผสานทั้งหมด"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "ไม่มีอะไรให้ผสาน"
+
+msgid "MERGE_ALL_DONE"
+msgstr "ผสาน %d ชิ้นในไอเทม %d รายการ"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "ปลดล็อกการวิวัฒนาการอัตโนมัติ"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "ผสานชิ้นสำรองของ: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "เปิด · ผสาน: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "วิวัฒนาการที่ ^100 เมื่อมี 101 ชิ้น: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "เปิด · วิวัฒนาการ: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "คูลดาวน์: %s วินาที"
+
+msgid "GATE_HUD"
+msgstr "ด่านถัดไป · บอส %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "เคลียร์โลก · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "บอสที่ต้องปราบบนแผนที่นี้เพื่อเปิดแผนที่ถัดไป บอสที่พบแล้วและยังนับอยู่จะมีแถบสีทอง"
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "ด่านถัดไปเปิดอยู่แล้ว"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "บอสที่ยังไม่พบ"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · ปราบแล้ว"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · ยังต้องปราบ"
+
+msgid "OFFERING_PROGRESS"
+msgstr "%s / %s เหรียญ · %s / %s อัญมณี"
+
+msgid "SECTION_RESEARCH"
+msgstr "การวิจัย"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "ปลดล็อกการฟาร์มแบบโฟกัสแล้ว"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "แตะฟาร์มด้านล่าง ฮีโร่จะเดินไปที่จุดนี้และสู้ที่นี่เอง แตะอีกครั้งหรือเดินเพื่อหยุด"
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "แตะฟาร์มเพื่อเริ่ม"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "ฮีโร่จะเดินไปที่จุดนี้และสู้เอง การเดินจะหยุดการฟาร์ม"
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "ปลดล็อกการฟาร์มแบบโฟกัสแล้ว"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "เปิดอัปเกรดของศัตรูตัวนี้ แล้วแตะฟาร์มด้านบน"
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "ปลดล็อกการฟาร์มแบบโฟกัสแล้ว"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "แตะศัตรูตัวนั้นในโลกหรือบนแผนที่ แล้วแตะฟาร์ม"
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "หาจุดนี้ก่อน"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "การฟาร์มจะเดินไปเฉพาะจุดที่คุณพบแล้ว เลือกจุดที่พบแล้วด้านบน"
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "อุปกรณ์ใหม่: แตะ แล้วสวมใส่"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "อุปกรณ์ที่สวมใส่ให้ค่าสถานะเต็ม อุปกรณ์ที่เก็บไว้ยังเพิ่มให้บางส่วน"
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "มีของซ้ำสองชิ้น: เปิด แล้วผสาน"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "การผสานชิ้นสำรองทำให้ไอเทมแข็งแกร่งขึ้นถาวร"
+
+msgid "GUIDE_MISSIONS"
+msgstr "ปลดล็อกภารกิจแล้ว: เปิดภารกิจ"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "เป้าหมายและภารกิจรายวันให้เหรียญและอัญมณี"
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "แตะรับ"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "เป้าหมายที่ทำสำเร็จจะรออยู่ที่นี่จนกว่าคุณจะรับรางวัล"
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "ยังไม่มีอะไรให้รับ"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "ปุ่มภารกิจจะแสดง ! เมื่อมีรางวัลพร้อม"
+
+msgid "GUIDE_SLOTS"
+msgstr "ปลดล็อกอัปเกรดแล้ว: เปิดอัปเกรด"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "อัปเกรดผู้เล่นอยู่ตลอดรอบนี้ ส่วนอัปเกรดอัญมณีอยู่ถาวร"
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "เปิดแท็บกระเป๋า"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "ช่องอุปกรณ์ที่มากขึ้นทำให้เก็บอุปกรณ์ได้หลายแบบขึ้น"
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "ซื้อช่องอุปกรณ์"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "ไอเทมแต่ละแบบต้องมีช่องของตัวเอง ชิ้นซ้ำจะซ้อนกัน"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "เปิดแท็บเสบียง"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "เสบียงช่วยในการต่อสู้ที่ยาก"
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "ซื้อยาฟื้นพลัง"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "แตะยาในเสบียงเพื่อฟื้นฟูระหว่างต่อสู้"
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "หาเหรียญเพื่อซื้อยาฟื้นพลัง"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "ต้องการอีก %s เหรียญ ศัตรูที่ถูกกำจัดทุกตัวดรอปเหรียญ"
+
+msgid "GUIDE_SNOWMAN"
+msgstr "เป้าหมายหลัก: ปราบมนุษย์หิมะ"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "ปราบมันเพื่อเปิดฤดูหนาว II และการพบมันจะเปิดเพรสทีจ ก่อนสู้ให้ผสานอุปกรณ์ เลเวลอัป และพกยาไปด้วย"
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "ปลดล็อกเพรสทีจแล้ว: เปิดเพรสทีจ"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "โอกาสในนั้นให้การ์ดถาวร"
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "แตะติดตามบนโอกาสหนึ่ง"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "ขั้นต่อไปจะแสดงบนแผนที่ เมื่อโอกาสใดพร้อม เพรสทีจจะเริ่มโลกใหม่และคุณเก็บการ์ดไว้"
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "ทำโอกาสให้สำเร็จ"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "โอกาสใหม่จะปรากฏระหว่างเล่น เมื่อโอกาสใดพร้อม เพรสทีจจะเริ่มโลกใหม่และคุณเก็บการ์ดไว้"
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "ปลดล็อกภารกิจแล้ว"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "เป้าหมายและภารกิจรายวันให้เหรียญและอัญมณี รับได้ในหน้าภารกิจ"
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "ปลดล็อกอัปเกรดศัตรูแล้ว"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "แตะอัปเกรดเหนือแผนที่ (หรือแตะศัตรู) เพื่อเพิ่มของดรอป เหรียญ และ EXP ของมัน"
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "ปลดล็อกแผนที่โลกแล้ว"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "มินิแมปและหน้าโลกแสดงที่ที่คุณเคยไป ปลดล็อกค่ายเพื่อเกิดใหม่และพักที่นั่น"
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "ปลดล็อกอัปเกรดผู้เล่นแล้ว"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "ซื้อช่องอุปกรณ์ เสบียง และอัปเกรดอัญมณีถาวรในหน้าอัปเกรด"
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "เป้าหมายหลัก: ปราบมนุษย์หิมะ"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "ปราบมันเพื่อเปิดฤดูหนาว II และการพบมันจะเปิดเพรสทีจ ก่อนสู้ให้ผสานอุปกรณ์ เลเวลอัป และพกยาไปด้วย"
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "ปลดล็อกเพรสทีจแล้ว"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "ทำโอกาสให้สำเร็จ แล้วเพรสทีจเพื่อเริ่มใหม่พร้อมการ์ดถาวร"
+
+msgid "GUIDE_SKIP"
+msgstr "ข้าม"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "สวมใส่และผสานอุปกรณ์"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "แตะอุปกรณ์ในกระเป๋า แล้วสวมใส่เพื่อรับค่าสถานะเต็ม อุปกรณ์ที่เก็บไว้ยังเพิ่มให้บางส่วน ไอเทมเดียวกันสองชิ้นจะผสานเป็นชิ้นเดียวที่แข็งแกร่งขึ้นถาวร"
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "อัปเกรดและภารกิจ"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "แตะศัตรู (หรืออัปเกรดเหนือแผนที่) เพื่อเพิ่มของดรอป เหรียญ และ EXP ของมัน อัปเกรดผู้เล่นขายช่องอุปกรณ์ เสบียง และอัปเกรดอัญมณีถาวร รับรางวัลภารกิจเพื่อรับเหรียญและอัญมณี"
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "สำรวจ ค่าย และด่าน"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "การเดินจะเปิดหมอก มินิแมปและหน้าโลกแสดงที่ที่คุณเคยไป ปลดล็อกค่ายในหน้าโลกเพื่อเกิดใหม่และพักที่นั่น ปราบบอสของแผนที่เพื่อเปิดด่านถัดไป"
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "เพรสทีจและความชำนาญแผนที่"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "การพบมนุษย์หิมะในฤดูหนาว I จะปลดล็อกการรีเซ็ตเพรสทีจ ทำโอกาสให้สำเร็จ แล้วเพรสทีจเพื่อเริ่มใหม่พร้อมการ์ดถาวร ความชำนาญแผนที่ติดตามเป้าหมายระยะยาวของแต่ละแผนที่"
+
+msgid "EXIT_TITLE"
+msgstr "ออกจาก LootFarmer ไหม"
+
+msgid "EXIT_CONFIRM"
+msgstr "บันทึกความคืบหน้าแล้ว กลับมาเล่นได้ทุกเมื่อ"
+
+msgid "EXIT_ACTION"
+msgstr "ออก"
+
+msgid "SECTION_TUTORIAL"
+msgstr "บทสอนและความช่วยเหลือ"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "แสดงเมนูทั้งหมดตอนนี้"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "แสดงเมนูทั้งหมดตอนนี้ไหม ปกติเมนูใหม่จะปรากฏเมื่อคุณเรียนรู้เกม เพรสทีจยังต้องพบมนุษย์หิมะก่อน และในโหมดแนะนำทีละขั้นต้องจบบทสอนด้วย"
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "ทุกเมนูพร้อมใช้งานแล้ว"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "ทุกเมนูพร้อมใช้งานอยู่แล้ว"
+
+msgid "PANEL_MASTERY"
+msgstr "ความชำนาญแผนที่"
+
+msgid "MASTERY_OPEN"
+msgstr "ความชำนาญแผนที่ · เกม %d%%"
+
+msgid "MASTERY_INTRO"
+msgstr "เป้าหมายเสริมสำหรับความสำเร็จ 100% ความคืบหน้าเป็นแบบถาวรและคงอยู่หลังเพรสทีจ"
+
+msgid "MASTERY_GAME"
+msgstr "ความสำเร็จของเกม %d%%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "ครบทั้งแปดแผนที่: ฉายา %s · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ ได้รับแล้ว: ฉายา %s · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "รางวัล: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ ได้รับรางวัลแล้ว: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "รายละเอียด"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "ไปให้ถึงแผนที่นี้เพื่อเริ่ม"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "ความชำนาญ · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ ทุกแผนที่"
+
+msgid "MASTERY_EXPLORE"
+msgstr "สำรวจ"
+
+msgid "MASTERY_HUNT"
+msgstr "ล่า"
+
+msgid "MASTERY_RESEARCH"
+msgstr "วิจัย"
+
+msgid "MASTERY_COLLECT"
+msgstr "สะสม"
+
+msgid "MASTERY_FORGE"
+msgstr "ตีเหล็ก"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "สำรวจแผนที่ให้ทั่วและปลดล็อกทุกค่าย"
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "กำจัดศัตรูแต่ละประเภท %s ตัว และบอสแต่ละตัว %s ครั้ง"
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "เปิดเผยค่าสถานะและของดรอปของศัตรูทุกตัวที่นี่"
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "ครอบครองอาวุธ ชุด และสกิลทุกอย่างที่ดรอปที่นี่"
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "ชุดจากที่นี่ถึง ^%s (ชุดบอส ^%s) และวิวัฒนาการอาวุธจากที่นี่หนึ่งชิ้น"
+
+msgid "MASTERY_MORE"
+msgstr "+อีก %d"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "สำรวจแผนที่แล้ว %d%% จาก 100%%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "ค่าย %d ยังไม่ปลดล็อก"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · เปิดเผยค่าสถานะ"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · เปิดเผยของดรอป"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "วิวัฒนาการหนึ่งในนี้: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "ศัตรูที่ยังไม่พบ"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "ไอเทมที่ยังไม่พบ"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "HP สูงสุด +%s%%"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "ดาเมจ +%s%%"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "เหรียญ +%s%%"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "EXP +%s%%"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "โอกาสได้ของดรอป +%s แต้ม"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "โอกาสได้อัญมณี +%s แต้ม"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "ความชำนาญ · %s · %s สำเร็จ"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "ปลดล็อกเพรสทีจแล้ว"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "พบโอกาส %d อย่าง · แตะเพื่อเปิด"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "ทำโอกาสให้สำเร็จ แล้วเพรสทีจเพื่อรับการ์ดถาวร"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "ชำนาญแผนที่แล้ว · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "สำเร็จ 100%"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "เซียนฟาร์ม"
+
+msgid "STATS_COMPLETION"
+msgstr "ความสำเร็จของเกม"
+
+msgid "STATS_TITLE"
+msgstr "ฉายา"
+
+msgid "STATS_MASTERY"
+msgstr "ความชำนาญแผนที่"
+
+msgid "MAIN_HINT_0"
+msgstr "กำจัดศัตรู"
+
+msgid "MAIN_HINT_1"
+msgstr "แตะอาวุธหรือชุดในกระเป๋า แล้วสวมใส่"
+
+msgid "MAIN_HINT_2"
+msgstr "เปิดไอเทมที่คุณมีสองชิ้น แล้วผสาน"
+
+msgid "MAIN_HINT_3"
+msgstr "เดินไปที่ค่ายแล้วแตะดูค่าย จากนั้นแตะปลดล็อก"
+
+msgid "MAIN_HINT_4"
+msgstr "ปราบมนุษย์หิมะ บอสของฤดูหนาว I"
+
+msgid "MAIN_HINT_5"
+msgstr "ติดตั้งสกิลฟื้นฟู (ฤดูหนาว II: อีลิทหมวกนักบินอวกาศและหุ่นยนต์ฟ้าดรอป)"
+
+msgid "MAIN_HINT_6"
+msgstr "ซื้อระดับรายละเอียดแผนที่ในหน้าโลก"
+
+msgid "MAIN_HINT_7"
+msgstr "หาสกิลระเบิดน้ำแข็ง (ฤดูร้อน I: อีลิทหมวกฟางดรอป)"
+
+msgid "MAIN_HINT_8"
+msgstr "ปราบหุ่นยนต์ฟ้า บอสของฤดูหนาว II เพื่อไปฤดูร้อน I"
+
+msgid "MAIN_HINT_9"
+msgstr "วิวัฒนาการอาวุธ ^100 ที่มี 101 ชิ้น (รายละเอียดไอเทม แล้ววิวัฒนาการ)"
+
+msgid "MAIN_HINT_10"
+msgstr "มีสกิลหลายแบบ"
+
+msgid "MAIN_HINT_11"
+msgstr "ปราบบอสทั้งสองของฤดูร้อน II เพื่อไปฤดูใบไม้ร่วง I"
+
+msgid "MAIN_HINT_12"
+msgstr "มีสกิลหลายแบบ"
+
+msgid "MAIN_HINT_13"
+msgstr "ปราบบอสทั้งสองของฤดูใบไม้ร่วง II เพื่อไปฤดูใบไม้ผลิ I"
+
+msgid "MAIN_HINT_14"
+msgstr "เพรสทีจหนึ่งครั้ง"
+
+msgid "MAIN_HINT_15"
+msgstr "ปราบศัตรูทุกประเภทและบอสของฤดูใบไม้ผลิ II"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "พร้อมแล้ว! รับในหน้าภารกิจ"
+
+msgid "MISSION_DO_KILL"
+msgstr "กำจัด %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "ปราบ %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "เก็บอาวุธหรือชุดที่ดรอป"
+
+msgid "MISSION_DO_MERGE"
+msgstr "ผสานไอเทม"
+
+msgid "MISSION_DO_COINS"
+msgstr "หาเหรียญจากศัตรู"
+
+msgid "MISSION_DO_CAST"
+msgstr "ร่ายสกิลที่ติดตั้ง"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "ถัดไป: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "กำจัด %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "กำจัดศัตรูตัวใดก็ได้"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "เก็บอาวุธหรือชุดที่ดรอป"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "ผสานไอเทม"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "ปราบบอสตัวใดก็ได้"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "ร่ายสกิล"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "รับภารกิจทั่วไป"
+
+msgid "FOLLOW_TROPHY"
+msgstr "ปราบ %s เพื่อรับถ้วยรางวัล · ถ้วยรางวัล %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "ผสานอาวุธ ชุด หรือสกิลใดก็ได้จนถึง ^100: ดีที่สุด ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "ผสานไอเทมขั้น %d ขึ้นไปจนถึง ^100: ดีที่สุด ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "ผสานจนถึง ^50: อาวุธ %d/%d · ชุด %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "ผสานอุปกรณ์ขั้น 2+ จนถึง ^50: อาวุธ %d/%d · ชุด %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "หาจากศัตรูในรอบนี้: เหรียญ %s/%s · อัญมณี %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "พอแล้ว! ส่งมอบ: เพรสทีจ แล้วกดส่งมอบ"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "เวลาที่ไม่อยู่รวม: %.1f/72 ชม."
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "ไม่อยู่นานที่สุดครั้งเดียว: %.1f/24 ชม."
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "เหรียญที่ได้ขณะไม่อยู่: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "สำรวจ %s: %d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "ปราบ %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "ปลดล็อกทุกค่ายใน %s: %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "จากนั้น: %s (เหลือ %d)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!คำเตือน พบบอส!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · บอสของ %s"
+
+msgid "MASTERY_CHIP"
+msgstr "ความชำนาญ %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "ความชำนาญแผนที่ของแผนที่นี้: เปอร์เซ็นต์และหมวดที่สำเร็จ แตะเพื่อดูรายละเอียด"
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "ฟาร์มจนกว่าจะชนะบอสได้"
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "มนุษย์หิมะเฝ้าทางไปฤดูหนาว II"
+
+msgid "VIEW_CAMP"
+msgstr "ดูค่าย"
+
+msgid "DROP_ALL"
+msgstr "ทิ้งทั้งหมด"
+
+msgid "DROP_ALL_TITLE"
+msgstr "ทิ้งทั้งกองไหม"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nทุกชิ้นจะออกจากกระเป๋าและช่องจะว่างทันที กองนี้จะอยู่บนพื้น 5 นาที แตะเพื่อเก็บคืน (การเก็บอัตโนมัติจะไม่เก็บคืนให้) การเก็บคืนไม่นับความคืบหน้าภารกิจ เพรสทีจ หรือความชำนาญ"
+
+msgid "DROP_ALL_MASTERY"
+msgstr "ความชำนาญ ^%d (คงไว้)"
+
+msgid "DROPPED_NOTICE"
+msgstr "ทิ้งแล้ว %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "ถอดออกก่อน"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "ฟื้น %s HP ทันที (%s HP สูงสุดไม่เกิน %s%% ของ HP สูงสุด) เมื่อ HP ต่ำกว่า %s%%"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "ดาเมจโจมตี +%s%% เป็นเวลา 5 วินาที (ตอนนี้ +%s ดาเมจต่อการโจมตี) · เฉพาะในการต่อสู้"
+
+msgid "SKILL_DESC_FROST"
+msgstr "ดาเมจโจมตี %s× (ตอนนี้ %s) ใส่ศัตรูทุกตัวในระยะ %s รอบตัวคุณ และทำให้ช้าลง 25%% เป็นเวลา 3 วินาที"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "ดาเมจโจมตี %s× (ตอนนี้ %s) ใส่เป้าหมายและศัตรูทุกตัวในระยะ %s รอบเป้าหมาย"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "ดาเมจโจมตี %s× (ตอนนี้ %s) ใส่เป้าหมายปัจจุบัน"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "ดาเมจโจมตี %s× (ตอนนี้ %s) ใส่เป้าหมายปัจจุบัน เป็นการโจมตีระยะประชิดที่หนักหน่วง"
+
+msgid "SKILL_DESC_STATS"
+msgstr "เป้าหมาย: %s · ระยะ: %s · คูลดาวน์: %s วินาที"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "คุณ"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "ศัตรูทุกตัวในพื้นที่"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "ศัตรู 1 ตัว"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "ตัวเอง"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s HP"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "ดาเมจ %s%%"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "ดาเมจโจมตี %s×"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "ใช้ฟื้นฟูได้ทุกเมื่อที่ HP ไม่เต็ม รวมถึงนอกการต่อสู้"
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "เพรสทีจ"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "แลกโอกาส %d อย่างและเริ่มรอบใหม่"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "คุณจะเลือกการ์ดถาวรหนึ่งใบต่อแต่ละโอกาส:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "การ์ด 1 ใบ"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "ถาวร · คุณเก็บไว้"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "รีเซ็ตในรอบนี้"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "เลือกการ์ดทีละใบและบันทึกทันที รอบจะเริ่มใหม่ที่ฤดูหนาว I หลังการ์ดใบสุดท้าย"
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "เริ่มเพรสทีจ"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "การ์ดและชุดการ์ดเพรสทีจ (มี %d ใบ) พร้อมใบใหม่"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "อัญมณีของคุณ: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "พื้นที่แผนที่ที่สำรวจแล้ว ค่ายที่มองเห็น และบอสที่พบ"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "อัปเกรดอัญมณีทุกอย่าง ระบบอัตโนมัติ และพื้นที่กระเป๋า"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "กุญแจบอส ความสำเร็จของศัตรู และความชำนาญแผนที่"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "การตั้งค่าและความคืบหน้าบทสอน"
+
+msgid "RESET_LINE_COINS"
+msgstr "เหรียญ: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "เลเวลผู้เล่น %d (กลับเป็น 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "ไอเทม การผสาน และเสบียงในคลัง"
+
+msgid "RESET_LINE_MAPS"
+msgstr "การเข้าถึงแผนที่ (กลับไปฤดูหนาว I) และค่ายที่มี"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "อัปเกรดด้วยเหรียญและอัปเกรดแผนที่"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "โอกาสและภารกิจที่ยังไม่จบ"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "แตะดูค่าย"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "จะเปิดหน้าค่ายนี้ ซึ่งคุณปลดล็อกได้"
+
+msgid "HELP"
+msgstr "ช่วยเหลือ"
+
+msgid "PANEL_HELP"
+msgstr "ช่วยเหลือ"
+
+msgid "HELP_INTRO"
+msgstr "ภาพรวมสั้นๆ ว่า LootFarmer เล่นอย่างไร การอ่านไม่เปลี่ยนแปลงอะไรในเกมของคุณ"
+
+msgid "HELP_BACK"
+msgstr "กลับไปที่ตั้งค่า"
+
+msgid "SECTION_LANGUAGE"
+msgstr "ภาษา"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "โอกาสคริติคอล"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "ดาเมจคริติคอล"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "ช่องสกิลอัตโนมัติ"
+
+msgid "SOURCE_UPGRADES"
+msgstr "อัปเกรด"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "สกิลอัตโนมัติ: กำหนดแล้ว %d / %d"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "ติดตั้งสกิลและซื้อช่องอัตโนมัติที่มีให้ก่อน"
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "ผสานอัตโนมัติ: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "ขนาดช่องในกระเป๋า"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "ฟื้นสูงสุด %s HP (%s%% ของ HP สูงสุด) ใช้ได้ทุกเมื่อที่ HP ไม่เต็ม รวมถึงนอกการต่อสู้"
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "ใช้งานได้เมื่ออยู่ในการต่อสู้และมีศัตรูในระยะ %s หน่วย"
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "เป้าหมายเดียว ลดความเร็วโจมตี %s%% เป็นเวลา %s วินาที (บอส: %s วินาที) การเคลื่อนที่ไม่เปลี่ยน"
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "บอสต้านทานระยะเวลาของเอฟเฟกต์ที่มีเวลาได้ครึ่งหนึ่ง ความแรงและดาเมจไม่เปลี่ยน"
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "เลเวลความชำนาญถัดไป: ใช้ %d / %d ครั้ง · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "ใช้อัตโนมัติ: ทุกครั้งที่ HP ไม่เต็มและคูลดาวน์พร้อม รวมถึงนอกการต่อสู้"
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "แตะค่ายสีเขียวเพื่อเดินทาง ค่ายสีจางยังล็อกอยู่ เดินทางไม่ได้ระหว่างต่อสู้"
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d วินาที"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "จบบทสอนแบบแนะนำทีละขั้นในฤดูหนาว II ก่อนใช้เพรสทีจ"
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "เลเวลผู้เล่น %d, EXP ที่ได้ และโบนัสเลเวล"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "ความชำนาญเสบียงและความคืบหน้าสู่เลเวลถัดไป"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "เลือกค่าย"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "ปิดหน้านี้เพื่อไปต่อ"
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "แตะปุ่มปิด บันทึกความคืบหน้าแล้ว"
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "ซื้ออัปเกรดผู้เล่น"
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "เลือกอัปเกรดรวมที่ช่วยการต่อสู้ครั้งต่อไป"
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "ขยายกระเป๋าอุปกรณ์"
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "ใช้อัญมณีซื้อช่องเพิ่ม ของขวัญบทสอนครั้งเดียวจะช่วยเติมส่วนที่ขาด"
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "ตามลูกศรไปที่ค่าย"
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "เข้าใกล้เพื่อค้นพบค่าย แล้วแตะดูค่ายและซื้อการปลดล็อก"
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "หาบอสตัวแรก"
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "ตามลูกศรไปหามนุษย์หิมะ แค่ค้นพบก็พอ ไม่ต้องปราบ"
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "เตรียมตัวก่อนสู้บอส"
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "บอสอาจแข็งแกร่งเกินไป เลเวลอัปเพื่อเพิ่มค่าสถานะรวม ฟาร์มอุปกรณ์ ผสานชิ้นซ้ำ และซื้ออัปเกรด"
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "ฟาร์มศัตรูอีกสักหน่อย"
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "สะสมพลังและเหรียญก่อนไปต่อ"
+
+msgid "GUIDE_POTION_BUY"
+msgstr "ซื้อยาฟื้นพลัง"
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "เปิดอัปเกรดผู้เล่น แล้วเลือกเสบียง ยาที่มีอยู่แล้วก็นับด้วย"
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "เคลียร์ที่สำหรับยาฟื้นพลัง"
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "ซื้อช่องเสบียง หรือใช้เสบียงที่มีอยู่เพื่อให้ช่องว่าง"
+
+msgid "GUIDE_POTION_USE"
+msgstr "ใช้ยาฟื้นพลัง"
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "แตะช่องในกระเป๋าเมื่อ HP ไม่เต็ม การใช้เสบียงจะเพิ่มความชำนาญของมัน"
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "ใช้ยาเมื่อต้องการฟื้นฟู"
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "สู้กับศัตรูใกล้ๆ ก่อน ถ้า HP เต็มจะไม่เสียยาเปล่า"
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "เพรสทีจให้ประโยชน์ถาวร"
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "ทำโอกาสให้สำเร็จเพื่อรับการ์ด โหมดแนะนำทีละขั้นจะปลดล็อกการรีเซ็ตหลังบทสอนนี้ จะเล่นต่อโดยไม่เพรสทีจก็ได้"
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "คุณมีสิทธิ์รับรางวัลเพรสทีจแล้ว"
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "โอกาสของคุณพร้อมแล้ว จบบทสอนแบบแนะนำทีละขั้นในฤดูหนาว II ก่อนตัดสินใจว่าจะรีเซ็ตหรือไม่"
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "แผนที่ถัดไปเปิดแล้ว"
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "เปิดหน้าโลกเพื่อดูด่านที่ปลดล็อกและค่ายของด่าน"
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "เดินทางระหว่างค่ายที่ปลดล็อกแล้ว"
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "หน้าโลกจะพาไปทันทีเมื่อมีค่ายปลดล็อกแห่งเดียว หรือแสดงแผนที่เมื่อมีหลายแห่ง การต่อสู้จะกันการวาร์ป"
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "เป้าหมายพิเศษเป็นทางเลือกเสริม"
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "ดูความชำนาญแผนที่และความสำเร็จเมื่ออยากได้รางวัลเพิ่ม เดินทางต่อผ่านหน้าโลกไปฤดูหนาว II"
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "เดินทางไปฤดูหนาว II"
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "เปิดหน้าโลกแล้วเลือกฤดูหนาว II เพื่อผจญภัยต่อ"
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "เส้นทางข้างหน้า"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "เป้าหมายสูงสุดของคุณคือปราบบอสสุดท้ายในด่าน 8 และพิชิตเกม\n\nอยากได้ความท้าทายที่ยิ่งกว่า? ทำให้สำเร็จ 100% ด้วยการทำทุกเป้าหมายในความชำนาญแผนที่\n\nเล่นตามจังหวะของคุณ สนุกกับการเดินทาง และขอให้โชคดี!"
+
+msgid "SLOT_SMALL"
+msgstr "เล็ก"
+
+msgid "SLOT_MEDIUM"
+msgstr "กลาง"
+
+msgid "SLOT_LARGE"
+msgstr "ใหญ่"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "ทั่วไป"
+
+msgid "REVIEW_TITLE"
+msgstr "ชอบ LootFarmer ไหม"
+
+msgid "REVIEW_LEAD"
+msgstr "การผจญภัยของคุณเพิ่งเริ่มต้น!"
+
+msgid "REVIEW_BODY"
+msgstr "เจอของดรอปดีๆ บ้างไหม เราอยากฟังความเห็นของคุณ รีวิวตามจริงช่วยให้เราพัฒนา LootFarmer และช่วยให้ผู้เล่นคนอื่นค้นพบเกมนี้"
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "รีวิวบน Google Play"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "รีวิวบน itch.io"
+
+msgid "REVIEW_LATER"
+msgstr "ไว้ทีหลัง"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "เปิดหน้าร้านค้าไม่ได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง"
+
+msgid "SECTION_FEEDBACK"
+msgstr "ความคิดเห็น"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "เลือกศัตรูเป็นเป้าหมาย"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "ลากจากฮีโร่ไปยังศัตรู แล้วปล่อยเพื่อเลือกเป็นเป้าหมาย การโจมตีของคุณจะมุ่งไปที่ศัตรูที่เลือก"
+
+msgid "GUIDE_TARGET"
+msgstr "เลือกศัตรูเป็นเป้าหมาย"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "ลากจากฮีโร่ไปยังศัตรู แล้วปล่อยเพื่อเลือกเป็นเป้าหมาย การโจมตีของคุณจะมุ่งไปที่ศัตรูที่เลือก"
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "หาศัตรูที่จะเลือกเป็นเป้าหมาย"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "เดินจนเห็นศัตรู แล้วลากจากฮีโร่ไปที่มันและปล่อย"
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "ล่า %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d แต้ม"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s วินาที"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d ชม. %02d นาที"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d นาที %02d วินาที"
+
+msgid "DURATION_SECONDS"
+msgstr "%d วินาที"
+
+msgid "JOYSTICK_POSITION"
+msgstr "ตำแหน่งจอยสติ๊ก"
+
+msgid "JOYSTICK_LEFT"
+msgstr "ซ้าย"
+
+msgid "JOYSTICK_CENTER"
+msgstr "กลาง"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "ขวา"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "เปิดลิงก์ไม่ได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง"
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "ทุกโหมดเล่นเกมเดียวกัน ต่างกันแค่ปริมาณความช่วยเหลือ"
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "บทเรียนทีละขั้นพร้อมตัวชี้ เมนูจะเปิดเมื่อคุณได้เรียนรู้"
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "การ์ดสั้นๆ ไม่กี่ใบเรื่องการควบคุมและเป้าหมาย ทุกเมนูเปิดอยู่"
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "ไม่มีบทเรียนหรือคำแนะนำ ทุกเมนูเปิดตั้งแต่แรก"

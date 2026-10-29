@@ -81,7 +81,7 @@ func run() -> void:
     for row in game.rows.find_children("*","OptionButton",true,false):
         if row.get_script()==game.LANGUAGE_DROPDOWN:offered=range(row.item_count).map(func(i):return row.get_item_metadata(i))
     var drafts:=LocalizationService.RELEASE_LANGUAGES.filter(func(l):return not l in LocalizationService.ENABLED_LANGUAGES)
-    check(offered==["automatic"]+LocalizationService.ENABLED_LANGUAGES and drafts.size()==9 and not drafts.any(func(l):return l in offered or LocalizationService.select_language(l)),"The dropdown offers Automatic and the 11 enabled languages; the 9 drafts are absent and refused")
+    check(offered==["automatic"]+LocalizationService.ENABLED_LANGUAGES and drafts.size()==4 and not drafts.any(func(l):return l in offered or LocalizationService.select_language(l)),"The dropdown offers Automatic and the 16 enabled languages; the 4 Batch 04 drafts are absent and refused")
     for panel in ["item","upgrades","travel","stats","history","prestige"]:
         game._open(panel)
     var actor=load("res://scenes/game/actor.tscn").instantiate()

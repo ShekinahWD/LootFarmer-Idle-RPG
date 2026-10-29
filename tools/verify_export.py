@@ -12,6 +12,8 @@ libraries per ABI and the package size. Each packed Godot file is mapped back to
 Any of these fails the check (exit 1). Non-gating in the suite: it needs an exported artifact.
 Change 40: a Godot .pck (godot --export-pack "<preset>" out.pck, e.g. the Windows itch.io preset) is read
 directly from its file directory; it has no native libraries or Android manifest, so ABIs and identity are skipped.
+Change 42: with internationalization/locale/include_text_server_data on (Thai line breaking), Godot packs its ICU
+data as icudt_godot.dat; it is an engine file, and its absence is a failure while the setting is on.
 
 Usage: python tools/verify_export.py builds/LootFarmerIdleRPG.26.aab [--baseline OLD.aab] [--report OUT.json]
        python tools/verify_export.py tests/tmp/export/windows.pck
@@ -23,6 +25,7 @@ import argparse, collections, hashlib, json, re, struct, sys, zipfile
 ROOT = Path(__file__).resolve().parents[1]
 PREFIXES = ['assetPackInstallTime/assets/', 'base/assets/', 'assets/']
 ENGINE = {'project.binary', 'assets.sparsepck', '_cl_', '.godot/uid_cache.bin', '.godot/global_script_class_cache.cfg'}
+TEXT_SERVER_DATA = 'icudt_godot.dat'
 FORBIDDEN = re.compile(r'(^|/)(tests|tools|docs|marketing|addons|Godot-Marketing-Toolkit|\.git|builds|store_assets|recordings)/'
                        r'|\.(keystore|jks|p12|pfx|env|save|bak)$|export_credentials|override\.cfg|(^|/)\.env')
 
@@ -59,7 +62,7 @@ def sparse_index(data):
 
 def source_of(name):
     """Source res:// path a packed Godot file stands for, or None for engine/imported targets."""
-    if name in ENGINE or name.startswith('.godot/'):
+    if name in ENGINE or name == TEXT_SERVER_DATA or name.startswith('.godot/'):
         return None
     for suffix in ('.import', '.remap'):
         if name.endswith(suffix):
@@ -173,6 +176,9 @@ def main():
                         problems['missing_target'].append('%s -> %s' % (name, target))
     for path in sorted(set(sources) - expected):
         problems['unexpected'].append(path)
+    wants_icu = re.search(r'^locale/include_text_server_data=true$', (ROOT / 'project.godot').read_text(encoding='utf-8'), re.M) is not None
+    if wants_icu and TEXT_SERVER_DATA not in packed:
+        problems['text_server_data_missing'].append(TEXT_SERVER_DATA)
     for name in sorted(infos):
         rel = name[len(root):] if name.startswith(root) else name
         if FORBIDDEN.search(rel):
@@ -214,6 +220,7 @@ def main():
         'godot_root': root, 'pck_engine': engine_version, 'pck_format': pck_format,
         'entries': len(infos), 'godot_files': len(packed), 'index_entries': len(index),
         'sources': len(sources), 'manifest_files': len(expected), 'stages': stages,
+        'text_server_data': packed[TEXT_SERVER_DATA].file_size if TEXT_SERVER_DATA in packed else None,
         'abis': {a: {'files': abis[a], 'compressed_bytes': abi_bytes[a]} for a in sorted(abis)},
         'godot_content_bytes': sum(i.compress_size for i in packed.values()),
         'groups_compressed_bytes': dict(by_group.most_common()),

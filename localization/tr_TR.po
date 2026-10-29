@@ -1,0 +1,5864 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: tr_TR\n"
+"Language-Team: Turkish (Turkey)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 03 (Change 42)\n"
+"X-LootFarmer-Source: localization/en.po d6102fccdbae9721e20d5baa922c9a50d88ec85324c09b9b179832d3d47fe7e3\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Android başlatma testi"
+
+msgid "BOOT_DETAIL"
+msgstr "Kontrol noktası 0 • Oynanış henüz uygulanmadı."
+
+msgid "BOOT_VERSION"
+msgstr "Sürüm %s"
+
+msgid "BOOT_TAPS"
+msgstr "Kaydedilen dokunma sayısı: %d"
+
+msgid "BOOT_TAP"
+msgstr "Dokunmayı test et ve kaydet"
+
+msgid "BOOT_SAVED"
+msgstr "Kayıt tamamlandı"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "Kayıt kullanılamıyor. Doğrulama günlüğünü kontrol et."
+
+msgid "BOOT_PAUSE"
+msgstr "Duraklat"
+
+msgid "BOOT_RESUME"
+msgstr "Devam et"
+
+msgid "BOOT_RESET"
+msgstr "Tam Sıfırlama"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "İlerleme sıfırlansın mı?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "Bu, bu profildeki tüm ilerlemeyi siler. Ayarların korunur."
+
+msgid "UI_CONFIRM"
+msgstr "Sıfırla"
+
+msgid "UI_CANCEL"
+msgstr "İptal"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "Dil"
+
+msgid "LANG_AUTOMATIC"
+msgstr "Otomatik"
+
+msgid "LANG_DISABLED"
+msgstr "Çeviri doğrulandıktan sonra kullanılabilir"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "İngilizce etkin. Diğer diller doğrulamadan sonra açılır."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "Okunamayan veya daha yeni bir kayıt korundu. Uyumlu bir yedeği geri yükle ya da bu profili bilerek sıfırla."
+
+msgid "LANG_EN_US"
+msgstr "İngilizce"
+
+msgid "LANG_ES_419"
+msgstr "İspanyolca (Latin Amerika)"
+
+msgid "LANG_ES_ES"
+msgstr "İspanyolca (İspanya)"
+
+msgid "LANG_PT_BR"
+msgstr "Portekizce (Brezilya)"
+
+msgid "LANG_FR_FR"
+msgstr "Fransızca"
+
+msgid "LANG_DE_DE"
+msgstr "Almanca"
+
+msgid "LANG_IT_IT"
+msgstr "İtalyanca"
+
+msgid "LANG_NL_NL"
+msgstr "Felemenkçe"
+
+msgid "LANG_PL_PL"
+msgstr "Lehçe"
+
+msgid "LANG_RU_RU"
+msgstr "Rusça"
+
+msgid "LANG_UK_UA"
+msgstr "Ukraynaca"
+
+msgid "LANG_TR_TR"
+msgstr "Türkçe"
+
+msgid "LANG_ID_ID"
+msgstr "Endonezce"
+
+msgid "LANG_VI_VN"
+msgstr "Vietnamca"
+
+msgid "LANG_TH_TH"
+msgstr "Tayca"
+
+msgid "LANG_HI_IN"
+msgstr "Hintçe"
+
+msgid "LANG_JA_JP"
+msgstr "Japonca"
+
+msgid "LANG_KO_KR"
+msgstr "Korece"
+
+msgid "LANG_ZH_CN"
+msgstr "Çince (Basitleştirilmiş)"
+
+msgid "LANG_ZH_TW"
+msgstr "Çince (Geleneksel)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "Altın %s     Mücevher %s"
+
+msgid "PAUSE"
+msgstr "Duraklat"
+
+msgid "RESUME"
+msgstr "Devam et"
+
+msgid "PLAYER_STATUS"
+msgstr "Can %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "%.1f sn içinde kampa dönülüyor"
+
+msgid "BOOST_ACTIVE"
+msgstr "Altın takviyesi %d sn"
+
+msgid "GROUP_0"
+msgstr "Filiz Çayırı"
+
+msgid "GROUP_1"
+msgstr "Robot Geçidi"
+
+msgid "GROUP_2"
+msgstr "Dinozor Korusu"
+
+msgid "GROUP_3"
+msgstr "Ölümün Açıklığı"
+
+msgid "CLOSE"
+msgstr "Kapat"
+
+msgid "CONFIRM"
+msgstr "Onayla"
+
+msgid "CANCEL"
+msgstr "İptal"
+
+msgid "LEVEL"
+msgstr "SEVİYE"
+
+msgid "INVENTORY_HEADING"
+msgstr "Ekipman"
+
+msgid "SUPPLY_HEADING"
+msgstr "Malzemeler"
+
+msgid "GEAR_CAPACITY"
+msgstr "EKİPMAN  %d / %d  ·  incelemek için dokun"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "MALZEMELER  %d / %d  ·  kullanmak ya da otomatikleştirmek için dokun"
+
+msgid "EMPTY_SLOT"
+msgstr "Boş"
+
+msgid "EQUIPPED"
+msgstr "Kuşanıldı"
+
+msgid "AUTO"
+msgstr "Otomatik"
+
+msgid "UPGRADES"
+msgstr "Geliştirmeler"
+
+msgid "WORLD"
+msgstr "Dünya"
+
+msgid "STATS"
+msgstr "İstatistikler"
+
+msgid "SETTINGS"
+msgstr "Ayarlar"
+
+msgid "PANEL_ITEM"
+msgstr "Eşya"
+
+msgid "PANEL_UPGRADES"
+msgstr "Oyuncu geliştirmeleri"
+
+msgid "PANEL_TRAVEL"
+msgstr "Kamplar ve farm"
+
+msgid "PANEL_STATS"
+msgstr "Karakterin"
+
+msgid "PANEL_SETTINGS"
+msgstr "Ayarlar"
+
+msgid "PANEL_HISTORY"
+msgstr "Son elde edilenler"
+
+msgid "PANEL_PRESTIGE"
+msgstr "Yeni bir başlangıç"
+
+msgid "HELP_0"
+msgstr "Kuzeyi keşfetmek için joystick'i kullan. Bıraktığında yakındaki düşmanlarla otomatik savaşırsın."
+
+msgid "HELP_1"
+msgstr "Filizler yalnız savaşır. Farm için yakınlarında kal; toplamak için düşen ekipmana dokun."
+
+msgid "HELP_2"
+msgstr "Yerdeki bir eşyaya dokun. Altın ve mücevherler doğrudan cüzdanına gider."
+
+msgid "HELP_3"
+msgstr "Aşağıdaki yeni ekipmanına dokun, sonra kuşan. Bir kıyafet ve bir silah kuşanabilirsin."
+
+msgid "HELP_4"
+msgstr "Bu eşya türünü güçlendirmek için bir kopyayı birleştir. Stoku sıfıra düşse bile ilerlemesi kalır."
+
+msgid "HELP_5"
+msgstr "Bir düşman türünü aç ve farm yaparken ganimetini toplaması için otomatik toplama satın al."
+
+msgid "HELP_6"
+msgstr "Yapını geliştir, kuzeyi keşfet ve Ölüm'ü yen. Dünya en baştan açıktır."
+
+msgid "HELP_7"
+msgstr "Kalıcı bonusların kalır. Daha güçlü bir tur kur ve Ölüm'e yeniden meydan oku."
+
+msgid "HELP_VICTORY"
+msgstr "Ölüm yenildi! Farm yapmaya devam et ya da Dünya altından bir prestij kartı seç."
+
+msgid "HELP_PAUSED"
+msgstr "Duraklatıldı · envanter yönetimi kullanılabilir. Farm'a devam etmek için sürdür."
+
+msgid "HISTORY_EMPTY"
+msgstr "Son buldukların burada görünür.\nSon on tanesini görmek için dokun."
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s mücevher"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "Satıldı: %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "Tahta Kılıç"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "Taş Kılıç"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "Demir Kılıç"
+
+msgid "ITEM_SPROUT"
+msgstr "Filiz Kıyafeti"
+
+msgid "ITEM_ROBOT"
+msgstr "Robot Kıyafeti"
+
+msgid "ITEM_DINOSAUR"
+msgstr "Dinozor Kıyafeti"
+
+msgid "ITEM_POTION"
+msgstr "Can İksiri"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "Altın Tonik"
+
+msgid "ITEM_QUANTITY"
+msgstr "Sahip olunan: %s"
+
+msgid "NORMAL_STATS"
+msgstr "Normal istatistikler · birleştirmeyle artar"
+
+msgid "EXTRA_STATS"
+msgstr "Ek istatistikler · bu eşya türünde ortak"
+
+msgid "EQUIP"
+msgstr "Kuşan"
+
+msgid "UNEQUIP"
+msgstr "Çıkar"
+
+msgid "REROLL"
+msgstr "İki eki yeniden belirle · %s mücevher"
+
+msgid "REROLL_CONFIRM"
+msgstr "İki ek istatistiği değiştirmek için %s mücevher harcansın mı? Yeni sonuç, daha zayıf olsa bile eskisinin yerini alır."
+
+msgid "USE"
+msgstr "Bir tane kullan"
+
+msgid "MERGE_ONE"
+msgstr "Bir yedek kopyayı birleştir"
+
+msgid "MERGE_ALL"
+msgstr "Yedek kopyaları birleştir: %d"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "^100'de, bir üst kademe eşya için 100 yedek kopya harca. Kaynak eşya ve birleştirme seviyesi kalır. Aynı kategoride hedef bir yığın ya da boş bir yuva gerekir."
+
+msgid "EVOLVE"
+msgstr "Evrimleştir → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "Bu yuvanın otomasyonunu aç/kapat"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "Bu yuvayı otomatik kullan: %s"
+
+msgid "ON"
+msgstr "Açık"
+
+msgid "OFF"
+msgstr "Kapalı"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "Bu yuva boş. Yeni eşya türleri boş bir yuvaya ihtiyaç duyar; mevcut türler üst üste yığılır."
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "Grup geliştirmeleri her üyeyi etkiler. Her düşman kendi ganimetini belirler. Altın ve mücevherler anında hesaba geçer."
+
+msgid "GROUP_SELECT"
+msgstr "Düşman grubu: %s · değiştirmek için dokun"
+
+msgid "AUTOMATION_HEADING"
+msgstr "Envanter ve otomasyon · prestijde korunur"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "altın"
+
+msgid "GEMS"
+msgstr "mücevher"
+
+msgid "TRAVEL_HELP"
+msgstr "Yeniden doğma noktanı seçmek için haritada bir kampa dokun. Bir kamp panelinden kilit açmak da onu seçer. Işınlanma yok."
+
+msgid "SPAWN_SELECT"
+msgstr "Seç: Kamp %d"
+
+msgid "SPAWN_BUY"
+msgstr "Kilidi aç: Kamp %d · %s altın"
+
+msgid "SELECTED"
+msgstr "Seçildi"
+
+msgid "FOCUS_HELP"
+msgstr "Düşman türü başına farm'ın kilidini aç, sonra yalnız kıyafet, yalnız silah ya da ikisini seç. Öldükten sonra o kampa dön. Elle hareket farm'ı iptal eder."
+
+msgid "FOCUS_GROUP"
+msgstr "Farm: %s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "Bir prestij kartı seç"
+
+msgid "PRESTIGE_COUNT"
+msgstr "Tamamlanan prestij: %d"
+
+msgid "NO_OFFLINE"
+msgstr "İlerleme kaydedildi. Çevrimdışı ödüller tam oyunda planlanıyor; bu sürüm kapalıyken ya da arka plandayken simülasyon yapmaz."
+
+msgid "SAVE_NOW"
+msgstr "Şimdi kaydet"
+
+msgid "HARD_RESET"
+msgstr "Tam Sıfırlama"
+
+msgid "RESET_CONFIRM"
+msgstr "Tüm ilerleme, envanter, otomasyon ve prestij kartları silinsin mi? Ayarlar korunur. Bu işlem geri alınamaz."
+
+msgid "LANGUAGE_NOTE"
+msgstr "Geliştirme sırasında İngilizce kullanılabilir. Diğer 19 dil, çeviri doğrulandıktan sonra açılacak."
+
+msgid "CREDITS"
+msgstr "Karakter ve dünya çizimleri: Pixel Plains, SnowHex. Arayüz: Kenney Fantasy UI Borders (CC0)."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "Kalıcı bir +%5 kartı seç. Bonuslar turlar boyunca birikir. Bu paneli kapatıp farm yapmaya devam edebilirsin."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "Bu kalıcı kartla yeni bir tura başlansın mı? Para birimleri, envanter, eşya birleştirmeleri/ekleri, düşman farm geliştirmeleri ve kamplar sıfırlanır. Açığa çıkan düşman bilgileri, otomasyon seviyeleri, envanter kapasiteleri ve tüm prestij kartları korunur."
+
+msgid "CARD_DAMAGE"
+msgstr "+%5 hasar · kalıcı"
+
+msgid "CARD_HP"
+msgstr "+%5 maksimum can · kalıcı"
+
+msgid "CARD_COINS"
+msgstr "+%5 altın miktarı · kalıcı"
+
+msgid "CARD_GEMS"
+msgstr "+%5 mücevher şansı (göreli) · kalıcı"
+
+msgid "CARD_LOOT"
+msgstr "+%5 ekipman düşme şansı (göreli) · kalıcı"
+
+msgid "CARD_MERGE"
+msgstr "+%5 normal istatistik birleştirme kazancı · kalıcı"
+
+msgid "STAT_HP"
+msgstr "Maksimum can"
+
+msgid "STAT_DAMAGE"
+msgstr "Hasar"
+
+msgid "STAT_DEFENSE"
+msgstr "Savunma"
+
+msgid "STAT_CRIT"
+msgstr "Kritik şansı"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "Kritik çarpanı"
+
+msgid "STAT_LIFESTEAL"
+msgstr "Can çalma"
+
+msgid "STAT_REGEN"
+msgstr "Saniye başına can"
+
+msgid "STAT_SPEED"
+msgstr "Saldırı hızı bonusu"
+
+msgid "STAT_HEAL"
+msgstr "İyileşme"
+
+msgid "STAT_COIN_BONUS"
+msgstr "Altın miktarı bonusu"
+
+msgid "NEED_DUPLICATES"
+msgstr "Birleştirmek için yedek bir kopya gerekir."
+
+msgid "MERGE_MAX"
+msgstr "Bu eşya ^100'de."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "Evrim için ^100 ve 101 kaynak kopya gerekir."
+
+msgid "INVENTORY_FULL"
+msgstr "Boş yuva yok. Yer aç ya da bu envanteri genişlet."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "Bu otomasyonun kilidini Geliştirmeler'den aç."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "Geliştirmeler'den bir otomatik kullanım yuvası daha aç."
+
+msgid "CANNOT_USE"
+msgstr "Kullanılabilir malzeme yok ya da karakterin ölü."
+
+msgid "UPGRADE_MAX"
+msgstr "MAKS"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "Yeterli altın yok."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "Yeterli mücevher yok."
+
+msgid "SPAWN_BOUGHT"
+msgstr "Kampın kilidi açıldı. Yeniden doğma için kullanmak üzere onu seç."
+
+msgid "EVOLVED"
+msgstr "Üst kademe eşya kazanıldı. Kaynak ilerlemen korunur."
+
+msgid "PLAYER_DIED"
+msgstr "Seçtiğin kampa dönülüyor. Hiçbir şey kaybolmaz."
+
+msgid "BOSS_DEFEATED"
+msgstr "Ölüm yenildi! Kalıcı bir prestij kartı seni bekliyor."
+
+msgid "PRESTIGED"
+msgstr "Yeni bir tur başlıyor. Kalıcı bonusların kalır."
+
+msgid "SAVED"
+msgstr "İlerleme kaydedildi."
+
+msgid "SAVE_ERROR"
+msgstr "Kaydedilemedi. İlerlemen bellekte duruyor; lütfen yeniden dene."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "Kayıt güvenle yüklenemedi. Bilinçli bir Tam Sıfırlama yapılana kadar kaydetme kapalı."
+
+msgid "ACTION_PREVIEW"
+msgstr "Eylem · bedel ve etki"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "Ekipman yuvası +1 (en fazla 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "Malzeme yuvası +1 (malzeme türü başına bir)"
+
+msgid "UP_COLLECT"
+msgstr "Otomatik toplamanın kilidini aç"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "Toplama menzili +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "Toplama grubu +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "Toplama aralığı −1 sn"
+
+msgid "UP_MERGE_GEAR"
+msgstr "Ekipman otomatik birleştirmenin kilidini aç"
+
+msgid "UP_AUTO_USE"
+msgstr "Otomatik malzeme yuvası +1"
+
+msgid "UP_USE_SPEED"
+msgstr "Otomatik kullanım aralığı −1 sn"
+
+msgid "UP_FOCUS"
+msgstr "Odaklı farm'ın kilidini aç"
+
+msgid "UP_RESPAWN"
+msgstr "Yeniden doğma süresi −1 sn"
+
+msgid "UP_LOOT"
+msgstr "Ekipman düşme şansı +0,5 puan (eşya başına)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "Altın düşme şansı"
+
+msgid "UP_GEM_CHANCE"
+msgstr "Genel mücevher düşme şansı"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "Düşman başına altın +%50"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "Düşüş başına mücevher (boss'lar ×3 verir)"
+
+msgid "CHAT_SURPRISE"
+msgstr "Hey! Dikkat et!"
+
+msgid "RECENT_HEADER"
+msgstr "Son buluntular · geçmiş için dokun"
+
+msgid "ZOOM_IN"
+msgstr "Yakınlaştır"
+
+msgid "ZOOM_OUT"
+msgstr "Uzaklaştır"
+
+msgid "CAMERA_ZOOM"
+msgstr "Kamera yakınlaştırma"
+
+msgid "PANEL_ENEMY"
+msgstr "Düşman"
+
+msgid "PANEL_CAMP"
+msgstr "Yeniden doğma kampı"
+
+msgid "TAB_AUTOMATION"
+msgstr "Otomasyon"
+
+msgid "TAB_INVENTORY"
+msgstr "Envanter"
+
+msgid "TAB_SUPPLIES"
+msgstr "Malzemeler"
+
+msgid "TAB_OVERVIEW"
+msgstr "Genel bakış"
+
+msgid "TAB_UPGRADES"
+msgstr "Geliştirmeler"
+
+msgid "UP_REVEAL_STATS"
+msgstr "İstatistikleri göster · kalıcı"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "Düşenleri göster · kalıcı"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "DÜŞMAN İSTATİSTİKLERİ"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "OLASI DÜŞENLER"
+
+msgid "UNKNOWN_STATS"
+msgstr "Can ???   •   Hasar ???\nSaldırı aralığı ???   •   Savunma ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "Can %s   •   Hasar %s\nHer %s sn'de saldırı   •   Savunma %s"
+
+msgid "DROP_COINS"
+msgstr "Altın ×%s · garantili"
+
+msgid "DROP_GEMS"
+msgstr "Mücevher · %%%s şans · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %%%s"
+
+msgid "DROP_ROLL_HELP"
+msgstr "Tek bir ekipman zarı iki ekipmandan birini seçer. Mücevher ve malzemeler ayrı belirlenir. Şanslara mevcut geliştirmelerin dahildir."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "Seviye başına +1 yüzde puanı · en fazla +15"
+
+msgid "ENEMY_CAT"
+msgstr "Çağrılmış kedi"
+
+msgid "CAT_DETAILS"
+msgstr "Ölüm'ün çağırdığı yardakçı.\nGanimet ya da grup geliştirmesi yok."
+
+msgid "CAMP_NAME"
+msgstr "Kamp %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "Seçmek için dokun"
+
+msgid "CAMP_LOCKED"
+msgstr "Kilitli · açmak için dokun"
+
+msgid "CAMP_HELP"
+msgstr "Kamplar yeniden doğma noktalarıdır. Hızlı toparlanmak için açık bir kampın yanında dinlen. Kilidi açmak, yeniden doğma için seçmek ve seyahat ayrı eylemlerdir. Bir kampta durunca Kampı Gör düğmesi çıkar."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "Yeniden doğma kampı seçildi."
+
+msgid "OPEN_PLAYER"
+msgstr "Oyuncu geliştirmeleri"
+
+msgid "OPEN_GROUP"
+msgstr "İncele: %s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "Oniks Tırpan"
+
+msgid "ITEM_REAPER"
+msgstr "Tırpanlı Ölüm Kıyafeti"
+
+msgid "VARIANT_OUTFIT"
+msgstr "Kıyafet"
+
+msgid "VARIANT_WEAPON"
+msgstr "Silah"
+
+msgid "VARIANT_BOTH"
+msgstr "İkisi"
+
+msgid "ITEM_DETAILS"
+msgstr "Eşya ayrıntıları"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "Seviye atladın!"
+
+msgid "GEAR"
+msgstr "Ekipman"
+
+msgid "CONSUMABLES"
+msgstr "Malzemeler"
+
+msgid "HUD_HP"
+msgstr "Can %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "%.1f sn içinde dirilme"
+
+msgid "HUD_LEVEL"
+msgstr "SEVİYE %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "Ekipman %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "Malzeme %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "BİRLEŞTİRME %d"
+
+msgid "ITEM_OWNED"
+msgstr "Sahip olunan: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "Kuşanıldı · %100 katkı"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "Depoda · %30 katkı (silah türü başına bir kez)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "Birleştir"
+
+msgid "LESS_OPTIONS"
+msgstr "Daha az seçenek"
+
+msgid "MORE_OPTIONS"
+msgstr "Daha fazla seçenek"
+
+msgid "LOOT_HISTORY"
+msgstr "Ganimet geçmişi"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "SEVİYE %d / 1.000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "SEVİYE %d · can ve hasar arttı"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "Kullanmak için malzemeye dokun · Ayrıntılar için basılı tut"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "Sonraki birleştirme: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "Başarımlar"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "Bu düşman türünün tüm kamplarında ortaktır. Toplama geliştirmeleri kalır; türün diğer geliştirmeleri prestijde sıfırlanır."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "Seviye başına +1 yüzde puanı · en fazla +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "Seviye başına +%10 TP · en fazla +%200"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "Malzeme düşme şansı +1 puan"
+
+msgid "UP_GROUP_XP"
+msgstr "Tecrübe +%10"
+
+msgid "GROUP_XP_VALUE"
+msgstr "Öldürme başına TP: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "Kalıcı öldürme kilometre taşları; bu düşman türünün kamplarında ortaktır. Ödüller otomatik uygulanır ve prestijden sonra da kalır."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "Bu türe karşı: +%%%.0f hasar · +%.1f yüzde puanı mücevher şansı"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · %d öldürme\nÖdül: bu türe karşı +%%%.0f hasar ve +%.1f yüzde puanı mücevher şansı"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "Tamamlandı"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "Öldürme başarımları"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%%%.0f hasar · +%.1f puan mücevher şansı"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "Bu düşman türünün silahlarını ve kıyafetlerini otomatik birleştirir."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "Seviye başına öldürme başı +%s altın"
+
+msgid "ACTION_PAUSED"
+msgstr "Duraklatılmışken kullanılamaz"
+
+msgid "ACTION_SUSPENDED"
+msgstr "Uygulama etkin değilken kullanılamaz"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "Gereksinimler karşılanmadı"
+
+msgid "VALUE_MAX"
+msgstr "MAKS"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s TP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s sn"
+
+msgid "HP_PER_SECOND"
+msgstr "Can/sn"
+
+msgid "STAT_SOURCES"
+msgstr "İstatistiklerin nereden geliyor"
+
+msgid "SOURCE_BASE"
+msgstr "Temel istatistikler"
+
+msgid "SOURCE_LEVEL"
+msgstr "Oyuncu seviyeleri"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "Kuşanılan ekipman"
+
+msgid "SOURCE_STORED"
+msgstr "Depodaki ekipman"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "Kalıcı bonuslar: Can ×%s · Hasar ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "Yukarıdaki toplamlar sınırları içerir: kritik şansı %75, kritik hasar ×4, can çalma %15, saldırı hızı bonusu %200."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "Malzeme zarı: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "Tonik: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · Kademe %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "Kademe %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · K%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "Mücevher"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "Her düşmana uygulanır. Prestijde sıfırlanır. Düşman başarım bonusları her türe özel kalır."
+
+msgid "FARM_VARIANT"
+msgstr "Farm: %s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "Farm seçimi: %s. Yeniden doğduktan sonra buraya döner."
+
+msgid "MAX_ITEM_TIER"
+msgstr "Son kademeye ulaşıldı. ^100'e kadar birleştirme hâlâ mümkün."
+
+msgid "TAB_PLAYER"
+msgstr "Oyuncu"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "Nokta başına düşman"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "Düşman yeniden doğma süresi"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "Boss mücevher şansı"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "Düşüş başına boss bonus mücevheri"
+
+msgid "TRAVEL_COMBAT"
+msgstr "Seyahat etmeden önce savaşı bitir."
+
+msgid "TRAVEL_CAMP"
+msgstr "Seyahat · %s · Kamp %d"
+
+msgid "STAGE_LOCKED"
+msgstr "Önce bölge kapısı boss'larını yen."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "Önce bu kampı keşfet."
+
+msgid "STAGE_UNLOCKED"
+msgstr "Sonraki bölge açıldı!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "Son muhafız mühürlü. Anahtarlarını toplamak için diğer 13 boss'u yen. Toplanan anahtarlar prestijden sonra da kalır."
+
+msgid "WORLD_COMPLETE"
+msgstr "Tüm İlkbahar II düşmanları yenildi — son görev tamamlandı!"
+
+msgid "UNDISCOVERED"
+msgstr "Keşfedilmedi"
+
+msgid "ENEMY_LEVEL"
+msgstr "Seviye %d"
+
+msgid "ALL_ITEMS"
+msgstr "Tümü"
+
+msgid "WEAPONS"
+msgstr "Silahlar"
+
+msgid "OUTFITS"
+msgstr "Kıyafetler"
+
+msgid "SKILLS"
+msgstr "Yetenekler"
+
+msgid "VARIANT_SKILL"
+msgstr "Seçkin"
+
+msgid "SKILL_EMPTY"
+msgstr "Yetenek yuvası %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "Bu yetenek ailesi zaten kuşanılmış."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "Bir yeteneği çıkar ya da bir yuva daha aç."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "Kuşan: yuva %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "Yuva %d otomatik kullanım: %s"
+
+msgid "STOCK_BONUS"
+msgstr "Yedek kopya bonusu: +%%%s içsel güç. Kopyalar sende kalır."
+
+msgid "CLAIM"
+msgstr "Al"
+
+msgid "CLAIM_REWARD"
+msgstr "Al · %s altın · %s mücevher"
+
+msgid "MISSION_AUTO"
+msgstr "Otomatik Alma: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "AÇIK"
+
+msgid "STATE_OFF_CAPS"
+msgstr "KAPALI"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "Tamamlanan normal görevleri (satın alınan yuvalar dahil) alır, Ana Hedefleri ALMAZ. Satın aldıktan sonra Görevler'de Otomatik Alma'yı AÇIK yap."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "Otomatik Alma'nın kilidi açıldı ama KAPALI. Normal görevleri almaya başlamak için aşağıdaki düğmeye dokun. Ana Hedefler elle kalır."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "Otomatik Alma etkinleştirilmeye hazır"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "Görevler'i aç, sonra Otomatik Alma'yı AÇIK yap. Satın aldıktan sonra KAPALI başlar."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "Otomatik Alma'yı aç"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "Otomatik almanın kilidini açtın. Etkinleştirmek için buradaki Otomatik Alma: KAPALI'ya dokun. Ana Hedefler her zaman elle alınır."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "Bölge kartlarını genişlet"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "Bölge kartlarını daralt"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "Önce bu hedefi tamamla."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "Yeni görev yerel saatle gece yarısı gelir."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "Ana hedefler"
+
+msgid "KEY_PROGRESS"
+msgstr "Boss anahtarları: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "Yenilen kapı boss'ları: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "%s altın/sa · %s mücevher/sa · ödül sınırı %s saat"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "Tekrar hoş geldin! Ödüllü süre: %s saat · %s altın · %s mücevher"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "Önce prestij ödüllerini seçmeyi bitir."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "Yeni prestij fırsatı keşfedildi."
+
+msgid "PRESTIGE_BATCH"
+msgstr "Prestij · kart: %d"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "Hazır her fırsat için benzersiz bir kart seç, sonra turu bir kez sıfırla. Eşyalar, altın, kamplar, sis ve altın geliştirmeleri sıfırlanır. Anahtarlar, başarımlar, kartlar ve mücevher geliştirmeleri kalır."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "%s kalıcı olarak alınsın mı? Bu seçim şimdi kaydedilir ve değiştirilemez."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "Kart seç: %d / %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "Benzersiz kartlar: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "Önce keşfedilmiş bir prestij fırsatını tamamla."
+
+msgid "IN_PROGRESS"
+msgstr "Devam ediyor"
+
+msgid "FOLLOW"
+msgstr "Takip et"
+
+msgid "UNFOLLOW"
+msgstr "Takibi bırak"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "Gereken eşyaları ya da parayı teslim et"
+
+msgid "CONTRACT_NEEDS"
+msgstr "Önce her kıyafetten gereken sayının tamamını topla."
+
+msgid "OFFERING_NEEDS"
+msgstr "Gereken bakiyeye ve çevrimiçi kazanılmış harcanmamış paraya ihtiyacın var."
+
+msgid "OWNED_CARDS"
+msgstr "Sahip olunan kartlar"
+
+msgid "COMBOS"
+msgstr "Kart setleri"
+
+msgid "PANEL_INVENTORY"
+msgstr "Envanter"
+
+msgid "PANEL_MAP"
+msgstr "Harita"
+
+msgid "PANEL_MISSIONS"
+msgstr "Görevler"
+
+msgid "PANEL_OFFLINE"
+msgstr "Çevrimdışı ödüller"
+
+msgid "GOAL_KILL"
+msgstr "Av"
+
+msgid "GOAL_BOSS"
+msgstr "Boss avı"
+
+msgid "GOAL_GEAR"
+msgstr "Ekipman topla"
+
+msgid "GOAL_MERGE"
+msgstr "Birleştir"
+
+msgid "GOAL_COINS"
+msgstr "Altın kazan"
+
+msgid "GOAL_CAST"
+msgstr "Yetenek kullan"
+
+msgid "GOAL_WAITING"
+msgstr "Başka bir hedef bulmak için keşfet"
+
+msgid "STAT_POWER"
+msgstr "Güç"
+
+msgid "INTRINSIC_POWER"
+msgstr "İçsel %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "Sonraki kademe, bu kademenin içsel ^100 gücünün %85'iyle başlar; stok ve dış bonuslar hariç."
+
+msgid "MAP_FARMING"
+msgstr "%s · %d nokta · nokta başına %d · %s sn yeniden doğma"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "Yenilen son bölge türleri: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "Kamp görüş yarıçapı"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "Oyuncu görüş yarıçapı"
+
+msgid "UP_MAP_DETAIL"
+msgstr "Harita ayrıntısı"
+
+msgid "UP_MOVEMENT"
+msgstr "Hareket hızı +%10"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "Otomatik birleştirme aralığı −1 sn"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "Otomatik görev almanın kilidini aç"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "Görev yuvaları"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "Kuşanılan yetenek yuvaları"
+
+msgid "UP_SKILL_DROP"
+msgstr "Yetenek düşme şansı"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "Çevrimdışı ödül süresi"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "Saat başına çevrimdışı altın"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "Saat başına çevrimdışı mücevher"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "Çevrimdışı silah düşmesinin kilidini aç"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "Çevrimdışı kıyafet düşmesinin kilidini aç"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "Çevrimdışı malzemelerin kilidini aç"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "Saat başına çevrimdışı silah"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "Saat başına çevrimdışı kıyafet"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "Saat başına çevrimdışı malzeme"
+
+msgid "MAP_LEGEND"
+msgstr "Keşfettiğin yerler açık kalır; yakındaki yerler yalnızca oradayken görünür. Kamplar daha uzaktan fark edilebilir."
+
+msgid "MINIMAP"
+msgstr "Harita"
+
+msgid "SKILL_TUTORIAL"
+msgstr "Seçkin düşmanlar bir silah, kıyafet ve yetenek taşır. Her birinin ayrı düşme zarı vardır. Envanterinden bir yetenek kuşan ve kullanmak için düğmesine dokun."
+
+msgid "MAIN_0"
+msgstr "5 normal düşman yen"
+
+msgid "MAIN_1"
+msgstr "İlk eşyanı kuşan"
+
+msgid "MAIN_2"
+msgstr "Bir kopyayı birleştir"
+
+msgid "MAIN_3"
+msgstr "Ek bir kampın kilidini aç"
+
+msgid "MAIN_4"
+msgstr "Kardan Adam'ı yen · Kış II'yi açar"
+
+msgid "MAIN_5"
+msgstr "Şifa'yı kuşan"
+
+msgid "MAIN_6"
+msgstr "Harita ayrıntısını geliştir"
+
+msgid "MAIN_7"
+msgstr "Buz Patlaması edin"
+
+msgid "MAIN_8"
+msgstr "Yaz I'in kilidini aç"
+
+msgid "MAIN_9"
+msgstr "Bir eşyayı evrimleştir"
+
+msgid "MAIN_10"
+msgstr "4 yetenek ailesi edin"
+
+msgid "MAIN_11"
+msgstr "Sonbahar I'in kilidini aç"
+
+msgid "MAIN_12"
+msgstr "6 yetenek ailesinin hepsini edin"
+
+msgid "MAIN_13"
+msgstr "İlkbahar I'in kilidini aç"
+
+msgid "MAIN_14"
+msgstr "Bir prestij tamamla"
+
+msgid "MAIN_15"
+msgstr "Tüm boss anahtarlarını topla ve İlkbahar II'yi temizle"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "Şifa bekleme süresi"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "Buz bekleme süresi"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "Ateş bekleme süresi"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "Yıldırım bekleme süresi"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "Odak bekleme süresi"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "Darbe bekleme süresi"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "Otomatik kullanımın kilidini aç · yuva 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "Otomatik kullanımın kilidini aç · yuva 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "Otomatik kullanımın kilidini aç · yuva 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "Şifa"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "Şifa"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "Şifa"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "Şifa"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "Şifa"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "Şifa"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "Şifa"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "Buz Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "Buz Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "Buz Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "Buz Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "Buz Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "Buz Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "Buz Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "Ateş Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "Ateş Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "Ateş Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "Ateş Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "Ateş Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "Ateş Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "Ateş Patlaması"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "Yıldırım Çarpması"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "Yıldırım Çarpması"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "Yıldırım Çarpması"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "Yıldırım Çarpması"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "Yıldırım Çarpması"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "Yıldırım Çarpması"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "Yıldırım Çarpması"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "Büyü Odağı"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "Büyü Odağı"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "Büyü Odağı"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "Büyü Odağı"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "Büyü Odağı"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "Büyü Odağı"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "Büyü Odağı"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "Büyü Darbesi"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "Büyü Darbesi"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "Büyü Darbesi"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "Büyü Darbesi"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "Büyü Darbesi"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "Büyü Darbesi"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "Büyü Darbesi"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "Mavi Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "Mavi Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "Mavi Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "Mavi Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "Mavi Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "Mavi Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "Mavi Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "Mavi Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "Mavi Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "Mavi Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "Mavi Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "Mavi Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "Mavi Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "Mavi Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "Kırmızı Atkı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "Kırmızı Atkı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "Kırmızı Atkı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "Kırmızı Atkı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "Kırmızı Atkı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "Kırmızı Atkı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "Kırmızı Atkı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "Kırmızı Atkı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "Kırmızı Atkı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "Kırmızı Atkı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "Kırmızı Atkı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "Kırmızı Atkı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "Kırmızı Atkı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "Kırmızı Atkı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "Aşçı Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "Aşçı Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "Aşçı Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "Aşçı Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "Aşçı Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "Aşçı Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "Aşçı Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "Aşçı Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "Aşçı Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "Aşçı Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "Aşçı Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "Aşçı Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "Aşçı Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "Aşçı Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "Kardan Adam Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "Kardan Adam Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "Kardan Adam Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "Kardan Adam Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "Kardan Adam Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "Kardan Adam Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "Kardan Adam Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "Kurt Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "Kurt Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "Kurt Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "Kurt Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "Kurt Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "Kurt Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "Kurt Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "Kurt Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "Kurt Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "Kurt Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "Kurt Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "Kurt Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "Kurt Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "Kurt Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "Üç Renkli Kedi Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "Üç Renkli Kedi Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "Üç Renkli Kedi Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "Üç Renkli Kedi Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "Üç Renkli Kedi Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "Üç Renkli Kedi Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "Üç Renkli Kedi Kapüşonu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "Üç Renkli Kedi Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "Üç Renkli Kedi Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "Üç Renkli Kedi Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "Üç Renkli Kedi Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "Üç Renkli Kedi Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "Üç Renkli Kedi Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "Üç Renkli Kedi Kapüşonu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "Altın Taç Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "Altın Taç Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "Altın Taç Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "Altın Taç Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "Altın Taç Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "Altın Taç Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "Altın Taç Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "Altın Taç Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "Altın Taç Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "Altın Taç Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "Altın Taç Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "Altın Taç Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "Altın Taç Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "Altın Taç Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "Ren Geyiği Boynuzu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "Ren Geyiği Boynuzu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "Ren Geyiği Boynuzu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "Ren Geyiği Boynuzu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "Ren Geyiği Boynuzu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "Ren Geyiği Boynuzu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "Ren Geyiği Boynuzu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "Ren Geyiği Boynuzu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "Ren Geyiği Boynuzu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "Ren Geyiği Boynuzu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "Ren Geyiği Boynuzu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "Ren Geyiği Boynuzu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "Ren Geyiği Boynuzu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "Ren Geyiği Boynuzu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "Noel Baba Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "Noel Baba Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "Noel Baba Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "Noel Baba Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "Noel Baba Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "Noel Baba Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "Noel Baba Şapkası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "Noel Baba Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "Noel Baba Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "Noel Baba Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "Noel Baba Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "Noel Baba Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "Noel Baba Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "Noel Baba Şapkası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "Uzay Kaskı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "Uzay Kaskı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "Uzay Kaskı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "Uzay Kaskı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "Uzay Kaskı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "Uzay Kaskı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "Uzay Kaskı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "Uzay Kaskı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "Uzay Kaskı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "Uzay Kaskı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "Uzay Kaskı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "Uzay Kaskı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "Uzay Kaskı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "Uzay Kaskı Kılıcı"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "Camgöbeği Robot Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "Camgöbeği Robot Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "Camgöbeği Robot Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "Camgöbeği Robot Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "Camgöbeği Robot Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "Camgöbeği Robot Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "Camgöbeği Robot Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "Hasır Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "Hasır Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "Hasır Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "Hasır Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "Hasır Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "Hasır Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "Hasır Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "Hasır Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "Hasır Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "Hasır Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "Hasır Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "Hasır Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "Hasır Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "Hasır Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "Güneş Gözlüğü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "Güneş Gözlüğü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "Güneş Gözlüğü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "Güneş Gözlüğü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "Güneş Gözlüğü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "Güneş Gözlüğü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "Güneş Gözlüğü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "Güneş Gözlüğü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "Güneş Gözlüğü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "Güneş Gözlüğü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "Güneş Gözlüğü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "Güneş Gözlüğü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "Güneş Gözlüğü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "Güneş Gözlüğü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "Sarı Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "Sarı Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "Sarı Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "Sarı Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "Sarı Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "Sarı Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "Sarı Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "Sarı Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "Sarı Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "Sarı Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "Sarı Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "Sarı Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "Sarı Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "Sarı Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "Gri Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "Gri Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "Gri Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "Gri Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "Gri Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "Gri Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "Gri Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "Kovboy Bandanası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "Kovboy Bandanası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "Kovboy Bandanası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "Kovboy Bandanası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "Kovboy Bandanası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "Kovboy Bandanası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "Kovboy Bandanası Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "Kovboy Bandanası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "Kovboy Bandanası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "Kovboy Bandanası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "Kovboy Bandanası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "Kovboy Bandanası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "Kovboy Bandanası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "Kovboy Bandanası Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "Ördekli Simit Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "Ördekli Simit Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "Ördekli Simit Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "Ördekli Simit Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "Ördekli Simit Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "Ördekli Simit Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "Ördekli Simit Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "Ördekli Simit Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "Ördekli Simit Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "Ördekli Simit Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "Ördekli Simit Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "Ördekli Simit Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "Ördekli Simit Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "Ördekli Simit Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "Gökkuşağı Palyaçosu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "Gökkuşağı Palyaçosu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "Gökkuşağı Palyaçosu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "Gökkuşağı Palyaçosu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "Gökkuşağı Palyaçosu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "Gökkuşağı Palyaçosu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "Gökkuşağı Palyaçosu Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "Gökkuşağı Palyaçosu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "Gökkuşağı Palyaçosu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "Gökkuşağı Palyaçosu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "Gökkuşağı Palyaçosu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "Gökkuşağı Palyaçosu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "Gökkuşağı Palyaçosu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "Gökkuşağı Palyaçosu Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "Kırmızı Boneli Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "Kırmızı Boneli Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "Kırmızı Boneli Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "Kırmızı Boneli Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "Kırmızı Boneli Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "Kırmızı Boneli Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "Kırmızı Boneli Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "Kırmızı Boneli Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "Kırmızı Boneli Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "Kırmızı Boneli Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "Kırmızı Boneli Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "Kırmızı Boneli Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "Kırmızı Boneli Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "Kırmızı Boneli Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "Şnorkelci Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "Şnorkelci Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "Şnorkelci Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "Şnorkelci Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "Şnorkelci Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "Şnorkelci Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "Şnorkelci Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "Şnorkelci Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "Şnorkelci Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "Şnorkelci Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "Şnorkelci Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "Şnorkelci Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "Şnorkelci Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "Şnorkelci Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "Hasır Şapkalı Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "Hasır Şapkalı Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "Hasır Şapkalı Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "Hasır Şapkalı Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "Hasır Şapkalı Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "Hasır Şapkalı Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "Hasır Şapkalı Yüzücü Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "Hasır Şapkalı Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "Hasır Şapkalı Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "Hasır Şapkalı Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "Hasır Şapkalı Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "Hasır Şapkalı Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "Hasır Şapkalı Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "Hasır Şapkalı Yüzücü Kılıcı"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "Turkuaz Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "Turkuaz Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "Turkuaz Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "Turkuaz Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "Turkuaz Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "Turkuaz Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "Turkuaz Dinozor Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "Siyah Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "Siyah Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "Siyah Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "Siyah Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "Siyah Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "Siyah Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "Siyah Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "Siyah Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "Siyah Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "Siyah Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "Siyah Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "Siyah Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "Siyah Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "Siyah Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "Mantar Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "Mantar Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "Mantar Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "Mantar Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "Mantar Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "Mantar Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "Mantar Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "Mantar Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "Mantar Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "Mantar Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "Mantar Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "Mantar Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "Mantar Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "Mantar Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "Balkabağı Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "Balkabağı Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "Balkabağı Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "Balkabağı Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "Balkabağı Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "Balkabağı Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "Balkabağı Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "Balkabağı Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "Balkabağı Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "Balkabağı Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "Balkabağı Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "Balkabağı Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "Balkabağı Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "Balkabağı Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "Sincap Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "Sincap Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "Sincap Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "Sincap Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "Sincap Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "Sincap Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "Sincap Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "Kızıl Tilki Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "Kızıl Tilki Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "Kızıl Tilki Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "Kızıl Tilki Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "Kızıl Tilki Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "Kızıl Tilki Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "Kızıl Tilki Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "Boynuzlu Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "Boynuzlu Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "Boynuzlu Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "Boynuzlu Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "Boynuzlu Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "Boynuzlu Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "Boynuzlu Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "Boynuzlu Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "Boynuzlu Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "Boynuzlu Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "Boynuzlu Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "Boynuzlu Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "Boynuzlu Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "Boynuzlu Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "Turuncu Ekranlı Kask Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "Turuncu Ekranlı Kask Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "Turuncu Ekranlı Kask Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "Turuncu Ekranlı Kask Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "Turuncu Ekranlı Kask Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "Turuncu Ekranlı Kask Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "Turuncu Ekranlı Kask Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "Turuncu Ekranlı Kask Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "Turuncu Ekranlı Kask Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "Turuncu Ekranlı Kask Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "Turuncu Ekranlı Kask Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "Turuncu Ekranlı Kask Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "Turuncu Ekranlı Kask Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "Turuncu Ekranlı Kask Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "Televizyon Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "Televizyon Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "Televizyon Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "Televizyon Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "Televizyon Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "Televizyon Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "Televizyon Kafa Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "Televizyon Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "Televizyon Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "Televizyon Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "Televizyon Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "Televizyon Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "Televizyon Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "Televizyon Kafa Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "Silindir Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "Silindir Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "Silindir Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "Silindir Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "Silindir Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "Silindir Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "Silindir Şapka Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "Silindir Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "Silindir Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "Silindir Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "Silindir Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "Silindir Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "Silindir Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "Silindir Şapka Kılıcı"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "Kara Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "Kara Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "Kara Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "Kara Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "Kara Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "Kara Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "Kara Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "Tırpanlı Ölüm Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "Tırpanlı Ölüm Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "Tırpanlı Ölüm Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "Tırpanlı Ölüm Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "Tırpanlı Ölüm Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "Tırpanlı Ölüm Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "Tırpanlı Ölüm Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "Tavşan Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "Tavşan Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "Tavşan Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "Tavşan Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "Tavşan Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "Tavşan Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "Tavşan Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "Tavşan Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "Tavşan Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "Tavşan Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "Tavşan Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "Tavşan Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "Tavşan Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "Tavşan Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "Kedi Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "Kedi Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "Kedi Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "Kedi Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "Kedi Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "Kedi Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "Kedi Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "Kedi Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "Kedi Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "Kedi Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "Kedi Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "Kedi Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "Kedi Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "Kedi Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "Elf Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "Elf Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "Elf Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "Elf Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "Elf Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "Elf Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "Elf Kulağı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "Elf Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "Elf Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "Elf Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "Elf Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "Elf Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "Elf Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "Elf Kulağı Kılıcı"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "Arı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "Arı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "Arı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "Arı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "Arı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "Arı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "Arı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "Sarman Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "Sarman Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "Sarman Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "Sarman Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "Sarman Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "Sarman Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "Sarman Kedi Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "Çiçek Tacı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "Çiçek Tacı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "Çiçek Tacı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "Çiçek Tacı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "Çiçek Tacı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "Çiçek Tacı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "Çiçek Tacı Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "Çiçek Tacı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "Çiçek Tacı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "Çiçek Tacı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "Çiçek Tacı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "Çiçek Tacı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "Çiçek Tacı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "Çiçek Tacı Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "Yeşil Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "Yeşil Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "Yeşil Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "Yeşil Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "Yeşil Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "Yeşil Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "Yeşil Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "Yeşil Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "Yeşil Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "Yeşil Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "Yeşil Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "Yeşil Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "Yeşil Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "Yeşil Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "Pembe Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "Pembe Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "Pembe Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "Pembe Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "Pembe Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "Pembe Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "Pembe Kasket Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "Pembe Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "Pembe Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "Pembe Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "Pembe Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "Pembe Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "Pembe Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "Pembe Kasket Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "Pembe Çiçekli Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "Pembe Çiçekli Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "Pembe Çiçekli Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "Pembe Çiçekli Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "Pembe Çiçekli Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "Pembe Çiçekli Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "Pembe Çiçekli Kapüşon Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "Pembe Çiçekli Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "Pembe Çiçekli Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "Pembe Çiçekli Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "Pembe Çiçekli Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "Pembe Çiçekli Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "Pembe Çiçekli Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "Pembe Çiçekli Kapüşon Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "Sade Kıyafet"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "Sade Kıyafet"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "Sade Kıyafet"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "Sade Kıyafet"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "Sade Kıyafet"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "Sade Kıyafet"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "Sade Kıyafet"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "Sade Kılıç"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "Sade Kılıç"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "Sade Kılıç"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "Sade Kılıç"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "Sade Kılıç"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "Sade Kılıç"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "Sade Kılıç"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "Filiz Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "Filiz Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "Filiz Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "Filiz Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "Filiz Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "Filiz Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "Filiz Kıyafeti"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "Filiz Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "Filiz Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "Filiz Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "Filiz Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "Filiz Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "Filiz Kılıcı"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "Filiz Kılıcı"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "Kızıl Panda Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "Kızıl Panda Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "Kızıl Panda Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "Kızıl Panda Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "Kızıl Panda Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "Kızıl Panda Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "Kızıl Panda Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "Ayçiçeği Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "Ayçiçeği Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "Ayçiçeği Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "Ayçiçeği Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "Ayçiçeği Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "Ayçiçeği Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "Ayçiçeği Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "Yeşil Uzaylı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "Yeşil Uzaylı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "Yeşil Uzaylı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "Yeşil Uzaylı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "Yeşil Uzaylı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "Yeşil Uzaylı Kıyafeti"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "Yeşil Uzaylı Kıyafeti"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "Şifa"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "Buz Patlaması"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "Ateş Patlaması"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "Yıldırım Çarpması"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "Büyü Odağı"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "Büyü Darbesi"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "Mavi Kasket"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "Kırmızı Atkı"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "Aşçı Şapkası"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "Kardan Adam"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "Kurt Kapüşonu"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "Üç Renkli Kedi Kapüşonu"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "Altın Taç"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "Ren Geyiği Boynuzu"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "Noel Baba Şapkası"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "Uzay Kaskı"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "Camgöbeği Robot"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "Hasır Şapka"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "Güneş Gözlüğü"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "Sarı Kasket"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "Gri Kedi"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "Kovboy Bandanası"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "Ördekli Simit"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "Gökkuşağı Palyaçosu"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "Kırmızı Boneli Yüzücü"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "Şnorkelci"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "Hasır Şapkalı Yüzücü"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "Dinozor"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "Turkuaz Dinozor"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "Siyah Kasket"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "Mantar Şapka"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "Balkabağı Kafa"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "Sincap"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "Kızıl Tilki"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "Boynuzlu Kapüşon"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "Turuncu Ekranlı Kask"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "Televizyon Kafa"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "Silindir Şapka"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "Kara Kedi"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "Tırpanlı Ölüm"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "Tavşan Kulağı"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "Kedi Kulağı"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "Elf Kulağı"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "Arı"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "Sarman Kedi"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "Çiçek Tacı"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "Yeşil Kasket"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "Pembe Kasket"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "Pembe Çiçekli Kapüşon"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "Sade"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "Filiz"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "Kızıl Panda"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "Ayçiçeği"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "Yeşil Uzaylı"
+
+msgid "CONTENT_STAGES_1"
+msgstr "Kış I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "Kış II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "Yaz I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "Yaz II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "Sonbahar I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "Sonbahar II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "İlkbahar I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "İlkbahar II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "İlk ödül avı"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "Kardan Adam'ı (Kış I boss'u) 10 kez yen"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "Yaz ödül avı"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "Gri Kedi'yi (Yaz I boss'u) 20 kez yen"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "Sonbahar ödül avı"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "Tırpanlı Ölüm'ü (Sonbahar II boss'u) 30 kez yen"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "Kış rotası"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "Kış I'de sırayla: 100 Mavi Kasket, sonra 100 Kırmızı Atkı, sonra 100 Aşçı Şapkası yen"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "Yaz rotası"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "Yaz I'de sırayla: 150 Hasır Şapka, sonra 150 Güneş Gözlüğü, sonra 150 Sarı Kasket yen"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "İlkbahar rotası"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "İlkbahar I'de sırayla: 200 Tavşan Kulağı, sonra 200 Kedi Kulağı, sonra 200 Elf Kulağı yen"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "Kış koleksiyonu"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "Mavi Kasket, Kırmızı Atkı ve Aşçı Şapkası kıyafetlerinin her birinden 21 tane topla (Kış I ganimetleri). Teslim düğmesi her birinden 20 tane alır, biri sende kalır"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "Yaz koleksiyonu"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "Hasır Şapka, Güneş Gözlüğü ve Sarı Kasket kıyafetlerinin her birinden 31 tane topla (Yaz I ganimetleri). Teslim düğmesi her birinden 30 tane alır, biri sende kalır"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "İlkbahar koleksiyonu"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "Tavşan Kulağı, Kedi Kulağı ve Elf Kulağı kıyafetlerinin her birinden 41 tane topla (İlkbahar I ganimetleri). Teslim düğmesi her birinden 40 tane alır, biri sende kalır"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "İlk başyapıt"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "Herhangi bir silahı, kıyafeti ya da yeteneği ^100'e kadar birleştir"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "İkinci kademe"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "2. ya da daha üst kademe bir eşyayı ^100'e kadar birleştir (2. kademe Yaz I'den itibaren düşer, ya da bir silahı evrimleştir)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "Üçüncü kademe"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "3. ya da daha üst kademe bir eşyayı ^100'e kadar birleştir (3. kademe Sonbahar I'den itibaren düşer, ya da bir silahı iki kez evrimleştir)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "Eşleşmiş ekipman"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "Bir silahı ve bir kıyafeti ^50'ye kadar birleştir"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "Geniş cephanelik"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "3 farklı silahı ve 3 farklı kıyafeti ^50'ye kadar birleştir"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "Evrimleşmiş cephanelik"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "2.+ kademe 3 farklı silahı ve 2.+ kademe 3 farklı kıyafeti ^50'ye kadar birleştir"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "Kış ustalığı"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "Kış I ve Kış II'de: her haritanın %90'ını keşfet, iki boss'u da yen ve tüm kampların kilidini aç"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "Yaz ustalığı"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "Yaz I ve Yaz II'de: her haritanın %90'ını keşfet, üç boss'un hepsini yen ve tüm kampların kilidini aç"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "İlkbahar ustalığı"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "İlkbahar I ve İlkbahar II'de: her haritanın %90'ını keşfet, beş boss'un hepsini yen ve tüm kampların kilidini aç"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "Yardımsız kış"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "Camgöbeği Robot'u (Kış II boss'u) savaş boyunca hiç malzeme kullanmadan yen"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "Yardımsız yaz"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "Turkuaz Dinozor'u (Yaz II boss'u) savaş boyunca hiç malzeme kullanmadan yen"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "Yardımsız sonbahar"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "Tırpanlı Ölüm'ü (Sonbahar II boss'u) savaş boyunca hiç malzeme kullanmadan yen"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "Küçük adak"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "Bu turda düşmanlardan 2K altın ve 30 mücevher kazan, sonra Teslim düğmesiyle ver"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "Büyüyen adak"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "Bu turda düşmanlardan 20K altın ve 100 mücevher kazan, sonra Teslim düğmesiyle ver"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "Büyük adak"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "Bu turda düşmanlardan 100K altın ve 300 mücevher kazan, sonra Teslim düğmesiyle ver"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "Kısa zincir"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "Sırayla: 100 düşman yen, 10 silah ya da kıyafet ganimeti topla, sonra 10 kez birleştir"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "Uzun zincir"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "Sırayla: 250 düşman yen, 3 boss yen, 25 kez birleştir, sonra 30 yetenek kullan"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "Usta zinciri"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "Sırayla: 500 düşman yen, 10 boss yen, 50 kez birleştir, sonra 3 normal görevin ödülünü al"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "Kış kupaları"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "Bunu bulduktan sonra Kardan Adam'ı (Kış I) ve Camgöbeği Robot'u (Kış II) birer kez yen"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "Yaz kupaları"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "Bunu bulduktan sonra Gri Kedi'yi (Yaz I), Dinozor'u ve Turkuaz Dinozor'u (Yaz II) birer kez yen"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "Sonbahar kupaları"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "Bunu bulduktan sonra Sincap'ı ve Kızıl Tilki'yi (Sonbahar I), Kara Kedi'yi ve Tırpanlı Ölüm'ü (Sonbahar II) birer kez yen"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "Uzakta geçen zaman"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "Oyundan toplam 72 saat uzak kal"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "Uzun mola"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "Oyundan tek seferde 24 saat uzak kal"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "Çevrimdışı gelir"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "Uzaktayken 10K altın kazan (Tekrar hoş geldin ödüllerini al)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "Boss'lardan +%20 TP"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+%10 hareket hızı"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+%50 otomatik toplama menzili"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "Kuşanılan ekipmanın temel istatistiklerine +%10"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+%10 maksimum can"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "Etrafındaki keşif yarıçapına +%25"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "Boss'lara karşı +%10 hasar"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "Her düşmandan +%10 altın"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "Görevlerden +%25 altın"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "Boss'lardan +%25 mücevher"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "Saat başına çevrimdışı altına +%25"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "2 saniye daha erken yeniden doğ (en az 2 sn)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "Normal düşmanlardan +%15 altın"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "Her birleştirmeden kazanılan istatistiklere +%10"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "Boss'lara karşı +%10 hasar"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "Çevrimdışı eşya oranlarına +%25"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+%10 maksimum can"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "Dev Avcısı"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "Boss'lara karşı +%25 hasar"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "Boss Kalkanı"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "Boss'lardan %20 daha az hasar al"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "Ödül"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "Boss'lardan +%100 altın"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "İz Sürücü"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "Normal düşmanlara karşı +%20 hasar"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "Yol Altını"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "Normal düşmanlardan +%30 altın"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "Yol Tecrübesi"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "Normal düşmanlardan +%30 TP"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "Dikkatli Koleksiyoncu"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+%100 otomatik toplama menzili"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "Ekipman Şansı"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "Ekipman düşme şansına +3 puan"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "Malzeme Şansı"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "Malzeme düşme şansına +5 puan"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "İnce İşçilik"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "Her birleştirmeden kazanılan istatistiklere +%25"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "Yeniden Belirleme Ustası"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "Yeniden belirleme %50 daha az mücevher tutar"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "Sağlam Temel"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "Kuşandığın silah ve kıyafetin temel istatistiklerine +%20"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "Zırh Rezervi"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+%20 maksimum can"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "Silah Eğitimi"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "Saldırı ve yeteneklerden +%15 hasar"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "Dengeli Teçhizat"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "Her düşmandan %10 daha az hasar al"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "Kâşif"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+%15 hareket hızı"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "Uzak Görüş"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "Etrafındaki keşif yarıçapına +%50"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "Kamp Keşfi"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "Kamplar %50 daha az altın tutar"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "Hassasiyet"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "Kritik vuruş şansına +15 puan"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "Kararlılık"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "Verdiğin hasarın %5'i kadar iyileş"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "Sert Vuruş"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "Kritik vuruşlar +%75 daha fazla hasar verir"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "Altın Bilgeliği"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "Her düşmandan +%25 altın"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "Mücevher Bilgeliği"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "Mücevher düşme şansına +5 puan"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "Akıllı Harcama"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "Altın geliştirmeleri %15 daha ucuz"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "Görev Altını"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "Görevlerden +%50 altın"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "Görev Mücevheri"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "Görevlerden +%50 mücevher"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "Odaklı Pratik"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "Yetenek hasarı, iyileştirme ve Odak'a +%25"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "Kupa Avcısı"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "Boss'lardan +%50 TP"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "Kupa Gücü"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "Boss'lara karşı +%20 hasar"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "Kupa Mücevheri"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "Boss'lardan +%50 mücevher"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "Sessiz Altın"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "Saat başına çevrimdışı altına +%50"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "Sessiz Mücevher"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "Saat başına çevrimdışı mücevhere +%50"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "Sessiz Buluntular"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "Çevrimdışı eşya oranlarına +%50"
+
+msgid "CHAIN_PROGRESS"
+msgstr "Adım %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "Bu güncelleme için geliştirme kaydı sıfırlandı. Yeni ilerleme kaydedilebilir."
+
+msgid "HEAL_ROLE"
+msgstr "Dayanıklılık: şimdi %s can, her %s sn'de bir. Kullanımı ücretsiz; maksimum canın %%12'siyle sınırlı. İksirler acil durumda daha güçlü iyileştirir."
+
+msgid "REGULAR_MISSIONS"
+msgstr "Av görevleri"
+
+msgid "GUIDE_CHOOSE"
+msgstr "Ne kadar rehberlik istersin?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "Rehberli"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "Temel"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "Yok"
+
+msgid "GUIDE_REVIEW"
+msgstr "Rehberliği yeniden seç"
+
+msgid "GUIDE_GOT_IT"
+msgstr "Anladım"
+
+msgid "GUIDE_MOVE"
+msgstr "Solundaki yolu izle."
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "Parlayan joystick'i oka doğru sürükle. İlk düşmanlar yol boyunca bekliyor."
+
+msgid "GUIDE_KILL"
+msgstr "Saldırmak için bir düşmanın yanında dur"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "Bir an hareketsiz kal, otomatik saldırırsın. Kış düşmanları yalnızca karşılık verir."
+
+msgid "GUIDE_COLLECT"
+msgstr "Düşen eşyaya dokun"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "Ganimet bir süre yerde kalır. Altın ve mücevherler otomatik eklenir."
+
+msgid "GUIDE_EQUIP"
+msgstr "Yeni eşyana dokun"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "Eşya ayrıntıları onu şu an giydiğinle karşılaştırır."
+
+msgid "GUIDE_MERGE"
+msgstr "İki tane sahip olduğun eşyayı aç"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "Bir kopyayı birleştirmek eşyayı kalıcı olarak güçlendirir."
+
+msgid "GUIDE_UPGRADE"
+msgstr "Bu düşman için Geliştirmeler'e dokun"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "Her düşman türünün ganimet, altın ve tecrübe için kendi geliştirmeleri vardır."
+
+msgid "GUIDE_CAMP"
+msgstr "Kamp açmak için Dünya'yı aç"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "Bir kamp buldun ve parası yetiyor. Dünya'yı aç ya da kampa yürüyüp Kampı Gör'e dokun."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "Yürü, savaş, topla"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "Yürümek için haritanın altındaki joystick'i sürükle. Bırakınca kahramanın yakındaki düşmanlarla savaşır. Almak için ganimete dokun."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "Bu düşmanlar seni yakında fark eder"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "Kış II düşmanları yaklaşınca saldırır. Teker teker yaklaş."
+
+msgid "GUIDE_SKILLS"
+msgstr "Yetenekler ekipmanını destekler"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "Kullanmak için kuşanılmış bir yeteneğe dokun. Şifa düzenli iyileştirir; iksirler tek seferde daha çok can verir."
+
+msgid "GUIDE_GROUPS"
+msgstr "Bazı düşmanlar artık yardım çağırıyor"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "Yaz düşmanları yakındaki aynı türden müttefiklerine yardım eder. Canına dikkat et."
+
+msgid "PRESTIGE_GATE"
+msgstr "Önce Kış'ı bitir: Yaz I'e ulaşmak için Camgöbeği Robot'u yen."
+
+msgid "NAV_PRESTIGE"
+msgstr "Prestij"
+
+msgid "PANEL_WORLD"
+msgstr "Dünya"
+
+msgid "TAB_OFFLINE"
+msgstr "Çevrimdışı"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "Bu geliştirmeleri Geliştirmeler düğmesiyle ya da karakterine dokunarak aç."
+
+msgid "HUD_RESTING"
+msgstr "· Dinleniyor"
+
+msgid "ITEM_PREVIOUS"
+msgstr "Önceki eşya"
+
+msgid "ITEM_NEXT"
+msgstr "Sonraki eşya"
+
+msgid "ITEM_POSITION"
+msgstr "%d / %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "Kuşanılırsa: %s"
+
+msgid "NO_CHANGE"
+msgstr "değişiklik yok"
+
+msgid "EQUIPPED_NOW"
+msgstr "Şu an kuşanılı: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "Bu yuvada henüz kuşanılmış bir şey yok."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "Kuşanılı: tam istatistik"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "Depoda: istatistiklerinin %30'u"
+
+msgid "UPGRADE_LEVEL"
+msgstr "Seviye %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "Boss"
+
+msgid "ENEMY_KILLS"
+msgstr "Yenilen: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "Yeniden doğma kampı"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "Kilidi açık"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "Kilitli · %s altın"
+
+msgid "SECTION_CAMPS"
+msgstr "Kamplar"
+
+msgid "CAMPS_HIDDEN"
+msgstr "Keşfederek bulunacak kamp sayısı: %d."
+
+msgid "SECTION_TRAVEL"
+msgstr "Başka bir bölgeye seyahat et"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "Harita geliştirmeleri"
+
+msgid "SECTION_DANGER"
+msgstr "Tehlikeli bölge"
+
+msgid "CAMP_UNLOCK"
+msgstr "Kilidi aç"
+
+msgid "CAMP_SELECT"
+msgstr "Burada yeniden doğ"
+
+msgid "CAMP_TRAVEL"
+msgstr "Seyahat et"
+
+msgid "CARD_OWNED"
+msgstr "Sahip olunan"
+
+msgid "CARD_SELECTED"
+msgstr "Seçildi"
+
+msgid "CARD_LOCKED"
+msgstr "Henüz kazanılmadı"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "Hazır"
+
+msgid "PRESTIGE_INTRO"
+msgstr "Kalıcı kartlar kazanmak için fırsatları tamamla. Prestij, hazır olanların hepsini tek seferde kullanır ve yeni bir tur başlatır."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "Hazır: %d  ·  Sahip olunan kart: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "Henüz fırsat keşfedilmedi. Bulmak için boss'ları yen, birleştir ve keşfet."
+
+msgid "NO_CARDS_YET"
+msgstr "Henüz kart yok."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "Kullanılacak hazır fırsat: %d (%s).\n\nHer biri için kalıcı bir kart seçersin, ardından tur bir kez yeniden başlar.\n\nKalanlar: kartlar, boss anahtarları, başarımlar, mücevher geliştirmeleri, otomasyon, ayarlar.\nSıfırlananlar: altın, eşyalar, seviye, kamplar, harita keşfi, altın geliştirmeleri ve bitmemiş meydan okumalar."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "Bir ödül seç · %d / %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "Şimdiye kadar seçilenler: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "Korudukların"
+
+msgid "PRESTIGE_KEEP"
+msgstr "Kartlar ve setler, Mücevherlerin, keşfedilmiş harita alanları, mücevherle alınan her geliştirme (tüm kategoriler), otomasyon, envanter alanı, boss anahtarları, düşman başarımları, oyuncu seviyesi ve TP, Harita Ustalığı ve ayarlar."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "Bu turda sıfırlananlar"
+
+msgid "PRESTIGE_RESET"
+msgstr "Altın, eşyalar (malzeme stoku dahil) ve birleştirmeler, Malzeme Ustalığı, harita erişimi ve sahip olunan kamplar, harita ve altın geliştirmeleri ve bitmemiş meydan okumalar."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "Koru: %s"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "Seçmek için bir karta dokun"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "%s kalıcı olarak alınsın mı? Bu son seçim: yeni tur hemen ardından başlar."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "Prestij fırsatı bulundu!"
+
+msgid "MILESTONE_READY"
+msgstr "Fırsat tamamlandı!"
+
+msgid "MILESTONE_CARD"
+msgstr "Kazanılan kart: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "Yeni bir tur başlıyor"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "Koleksiyonuna eklenen kalıcı kart: %d."
+
+msgid "MILESTONE_STAGE"
+msgstr "Yeni bölge açıldı"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "Boss Avcısı seti"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "Sefer seti"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "Koleksiyon seti"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "Başyapıt seti"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "Cephanelik seti"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "Bölge seti"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "Meydan okuma seti"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "Adak seti"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "Uzman seti"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "Kupa seti"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "Çevrimdışı set"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "Hazırlıklı Kâşif"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "Azimli Farmcı"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "Zanaat Yolculuğu"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "Boss Uzmanı"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "Sabırlı Koleksiyoncu"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "Dengeli Gelişim"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "Düşman yenmeye devam et"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "İlk silahın ya da kıyafetin birkaç zaferde düşer."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "Kuşan'a dokun"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "Kuşanılan ekipman tam istatistik verir. Depodaki ekipman yine de %30 verir."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "Birleştir'e dokun"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "Her birleştirme bir yedek kopya kullanır ve eşyanın seviyesini yükseltir."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "İkinci bir kopya topla"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "Eşleşen bir kopya birkaç zafer sonra düşer."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "Önce bir düşman bul"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "Geliştirmelerinin açılması için düşmanlara yaklaş."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "Bir geliştirme için altın kazan"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "Gereken ek altın: %s. Yenilen her düşman altın düşürür."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "Geliştirmeler sekmesini aç"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "Bu düşman türünün geliştirmeleri orada listelenir."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "Bir geliştirme satın al"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "Daha iyi ganimet şansı iyi bir ilk seçimdir."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "Başka bir kamp bulmak için keşfet"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "Sisin içine yürü. Kamplar ortaya çıkardığında görünür."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "Kamp için altın kazan"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "Gereken ek altın: %s. Düşman yenmeye devam et."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "Kilidi aç'a dokun"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "Kamp bir yeniden doğma noktası olur ve çevresindeki araziyi açığa çıkarır."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "Kampın kilidi açıldı"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "Yenildikten sonra oraya dönmek için Burada yeniden doğ'u kullan. Kampın yanında dinlenmek hızlı iyileştirir."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "Prestij fırsatı bulundu"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "Kalıcı bir kart için onu tamamla. Önce Kardan Adam'ı bul; Rehberli modda öğreticiyi tamamlamak da gerekir."
+
+msgid "GUIDE_REST"
+msgstr "Canın mı az?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "Savaştan uzaklaş. Açık bir kampın yanında dinlenmek seni hızla iyileştirir."
+
+msgid "SECTION_REWARDS"
+msgstr "Ödüller"
+
+msgid "SECTION_AUTOMATION"
+msgstr "Otomasyon"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "Kilitli"
+
+msgid "PROGRESS_MERGE"
+msgstr "Şimdiye kadarki en iyi: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "^50'deki silahlar: %d/%d · ^50'deki kıyafetler: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "Kupalar: %d / %d (her boss bir sonraki yenilgisinde bir tane düşürür)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "İlerleme: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "Savaşı iksir ya da tonik kullanmadan kazan."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "Keşfedilen %s · boss'lar %d/%d · kamplar %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "Altın Kılıç"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "Elmas Kılıç"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "Zümrüt Kılıç"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "Obsidyen Kılıç"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "Tahta Balta"
+
+msgid "ITEM_STONE_AXE"
+msgstr "Taş Balta"
+
+msgid "ITEM_IRON_AXE"
+msgstr "Demir Balta"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "Altın Balta"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "Elmas Balta"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "Zümrüt Balta"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "Obsidyen Balta"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "Bir silah ya da kıyafet bul"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "Bulduğun şey bir malzemeydi. Düşman yenmeye devam et: bazen giydikleri silahı ya da kıyafeti düşürürler, bu da boş bir ekipman yuvasını doldurur."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "Ekipmanı al"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "Bir silah ya da kıyafet düştü. Ekipman yuvasına koymak için ona dokun."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "Yalnızca devam eden bir fırsat takip edilebilir."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "Temizle: %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "Alınmaya hazır"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ Alındı"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "Tamamlanan hedefler (%d) · %s"
+
+msgid "SHOW"
+msgstr "Göster"
+
+msgid "HIDE"
+msgstr "Gizle"
+
+msgid "PLAYTIME_LINE"
+msgstr "Oynama süresi: %s · Bu tur: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "Tekrar hoş geldin!"
+
+msgid "OFFLINE_AWAY"
+msgstr "Uzakta geçen süre %s · ödüllü süre: %s saat"
+
+msgid "OFFLINE_CLAIM"
+msgstr "Çevrimdışı kazancı al"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "Çevrimdışı kazanç alındı"
+
+msgid "OFFLINE_NOTHING"
+msgstr "Bekleyen çevrimdışı kazanç yok."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "Alınmayı bekleyen çevrimdışı kazanç var."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "Son alım: %s ödüllü saat · %s altın · %s mücevher"
+
+msgid "NAV_UPGRADES"
+msgstr "Geliştirmeler"
+
+msgid "STATS_OPEN"
+msgstr "İstatistikler"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "Yeni geliştirmeler açıldı: %s (Oyuncu Geliştirmeleri)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "Prestij sıfırlamasını açmak için Kış I'deki Kardan Adam'ı (ilk boss) bul."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "Kardan Adam'ı bul"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "Bu hazır fırsatların verebileceği her karta zaten sahipsin."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "Önce bu noktayı haritada bul."
+
+msgid "EQUIPPED_PINNED"
+msgstr "Kuşanılı"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "Silah"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "Kıyafet"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "Boş yuva"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "KUŞANILI"
+
+msgid "COMPARE_SELECTED"
+msgstr "SEÇİLİ"
+
+msgid "COMPARE_ITEM"
+msgstr "EŞYA"
+
+msgid "COMPARE_UPGRADE"
+msgstr "Daha iyi"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "Daha kötü"
+
+msgid "COMPARE_MIXED"
+msgstr "Artı ve eksi"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "Kademe %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "Kendi kopyalarını birleştirerek büyür, en fazla ^%d. Asla başka bir eşyaya dönüşmez; ^100'den sonra her birleştirme biraz daha az ekler."
+
+msgid "FOLLOW_READY"
+msgstr "Hazır! Kart seçmek için Prestij'i aç"
+
+msgid "FOLLOW_STEP"
+msgstr "Adım %d/%d · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "%s yen: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "%s, savaşta hiç malzeme kullanmadan yen: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "Görev ödüllerini al"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "Karakter"
+
+msgid "STATS_LEVEL"
+msgstr "Seviye"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "Bölge"
+
+msgid "STATS_PRESTIGES"
+msgstr "Tamamlanan prestijler"
+
+msgid "STATS_CARDS"
+msgstr "Prestij kartları"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "Saldırı"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "Saldırı hızı"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/sn (+%%%s)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "Savunma ve toparlanma"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%%%s hasar)"
+
+msgid "STATS_RESPAWN"
+msgstr "Yeniden doğma süresi"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "Takviyeler"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "Prestij çarpanları"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "Can ×%s · Hasar ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "Hareket hızı"
+
+msgid "STATS_STORED_SHARE"
+msgstr "Depodaki ekipman katkısı"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "Kuşanılan ekipman bonusu"
+
+msgid "STATS_SECTION_TIME"
+msgstr "Oynama süresi"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "Tüm turlar"
+
+msgid "STATS_TIME_RUN"
+msgstr "Bu tur"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "hasar"
+
+msgid "STATS_SHORT_HP"
+msgstr "can"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "sav."
+
+msgid "STATS_SHORT_CRIT"
+msgstr "kritik"
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "kritik hasar"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "saldırı hızı"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "can çalma"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "can/sn"
+
+msgid "CAMP_SIGHTED"
+msgstr "Kamp görüldü! Artık haritanda ve Dünya panelinde."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "Kart ve Ustalık can bonusu"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "Kart ve Ustalık hasar bonusu"
+
+msgid "STAT_REGEN_PCT"
+msgstr "Toparlanma"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "maks. can/sn"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "maks. can/sn"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%%%s maks. can/sn (%s can/sn)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "Kıyafet kilometre taşları (giyiliyken)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "Silahlar %%%s · Kıyafetler %%%s"
+
+msgid "MILESTONE_GUARD"
+msgstr "Koruma +%s Savunma"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s can"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%%%s kıyafet canı"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "Toparlanma %%%s maks. can/sn"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "Kilometre taşları (giyiliyken): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "Kilometre taşı: henüz yok. İlki ^100'de açılır."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "Tüm kilometre taşlarına ulaşıldı (Ustalık)."
+
+msgid "MILESTONE_NEXT"
+msgstr "Sonraki (^%d): %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "Kendi kopyalarını birleştirerek büyür, en fazla ^%d: ^100'e kadar kopya başına temel canın +%%2'si, sonra kopya başına +%%1. Asla başka bir eşyaya dönüşmez. Kilometre taşları yalnızca giyiliyken çalışır; depodayken canının %%%s kadarı sayılır."
+
+msgid "PANEL_LEVEL"
+msgstr "Oyuncu seviyesi ve gelişim"
+
+msgid "PANEL_FARMING"
+msgstr "Farm rehberi"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "Seviye gelişimi ve istatistik kaynakları için dokun"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "Yuvalar %d → %d / %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "Yuvalar %d / %d · en üst seviyede"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · en üst seviyede"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "Boss düşüş başına %s mücevher verir"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "Farm rehberi"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "Prestij kilitli · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "Prestij sıfırlaması için gerekenler"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "Kış I'deki Kardan Adam'ı bul (ilk boss)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "Kart verebilecek en az bir hazır fırsat"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "Kardan Adam'ı bul"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "hazır fırsat yok"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "verilecek kart kalmadı"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "Diğer istatistik kaynakları"
+
+msgid "BREAKDOWN_HP"
+msgstr "Canın nereden geliyor"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "Hasarın nereden geliyor"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "Prestij öncesi"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "Kartlar ve Ustalık"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "Toplam (savaşta kullanılan)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "Vuruş başına, toplama dahil değil"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "Aldığın hasar"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "Oyuncu seviyeleri (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "Depodaki ekipman (kıyafetler %%%s, silahlar %%%s)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "Kuşanılan ekipman (+%%%s kart dahil)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "Öldürme kilometre taşları: %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "Normal düşmanlara karşı prestij"
+
+msgid "PER_HIT_BOSS"
+msgstr "Boss'lara karşı prestij"
+
+msgid "PER_HIT_FOCUS"
+msgstr "Odak (%d sn kaldı)"
+
+msgid "TAKEN_GUARD"
+msgstr "Prestij koruması"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "Boss'lara karşı prestij koruması"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "Seviye %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "Maksimum seviyeye ulaşıldı. Seviyeler artık bir şey eklemez."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s TP · %s daha, hedef seviye %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "Seviye gelişimi"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "Her seviye (temel)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s can · +%s hasar"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "Şimdiye kadarki %d seviyeden"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "Can (seviye %d)"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "Hasar (seviye %d)"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "Prestij kartları her kaynağı çarpar: can ×%s, hasar ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "Her düşmanı nerede farmlayacağın ve ne düşürdüğü. Bir haritanın girdisi, Harita Ayrıntısı en üst seviyeye ulaşınca ve oradaki her düşman türünün İstatistik ve Düşenleri açığa çıkınca açılır. Konumu yalnızca keşfettiğin noktalar gösterir."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "buradasın"
+
+msgid "FARMING_READY"
+msgstr "Girdi açıldı"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "Aç"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "Harita Ayrıntısı %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "İstatistik ve Düşenler %d/%d tür"
+
+msgid "FARMING_LOCKED"
+msgstr "Gerekenler: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "Henüz ulaşılmayan harita: %d."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "Farm · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "Şanslara mevcut geliştirmelerin dahildir. Yönler bu haritada bilinen en yakın kampından başlar."
+
+msgid "FARMING_BACK"
+msgstr "Tüm haritalar"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "Keşfedilmemiş düşman · bulmak için bu haritayı keşfet"
+
+msgid "FARMING_REWARDS"
+msgstr "Altın ×%s · Mücevher %%%s ×%s · TP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "Malzemeler: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "Keşfedilmemiş nokta"
+
+msgid "FARMING_DETAILS"
+msgstr "Ayrıntılar"
+
+msgid "FARMING_AT_CAMP"
+msgstr "Kamp %d yanında"
+
+msgid "FARMING_LOCATION"
+msgstr "%s yönü · Kamp %d çevresi · %s"
+
+msgid "COMPASS_N"
+msgstr "Kuzey"
+
+msgid "COMPASS_NE"
+msgstr "Kuzeydoğu"
+
+msgid "COMPASS_E"
+msgstr "Doğu"
+
+msgid "COMPASS_SE"
+msgstr "Güneydoğu"
+
+msgid "COMPASS_S"
+msgstr "Güney"
+
+msgid "COMPASS_SW"
+msgstr "Güneybatı"
+
+msgid "COMPASS_W"
+msgstr "Batı"
+
+msgid "COMPASS_NW"
+msgstr "Kuzeybatı"
+
+msgid "DISTANCE_NEAR"
+msgstr "yakın"
+
+msgid "DISTANCE_MID"
+msgstr "kısa bir yürüyüş"
+
+msgid "DISTANCE_FAR"
+msgstr "uzak"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "Hey! Kıyafetim!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "Silahım!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "Büyü kitabım!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "Malzemelerim!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "Koruma Toniği"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "Toparlanma Merhemi"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "Bilgelik Toniği"
+
+msgid "FOLLOW_COLLECT"
+msgstr "Adım %d/%d · %s topla (kaynak: %s): %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "Hepsi bulundu! Teslim et: Prestij, sonra Teslim"
+
+msgid "FILTERS"
+msgstr "Filtreler"
+
+msgid "FILTERS_ACTIVE"
+msgstr "Filtreler · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "Ekipman ızgarasını filtrele. Filtreler kapanınca her eşya yeniden görünür."
+
+msgid "PANEL_FILTERS"
+msgstr "Filtreler"
+
+msgid "FILTERS_HINT"
+msgstr "Filtreler açıkken ekipman ızgarası yalnızca bu kategoriyi gösterir. Kapatınca her eşya yeniden görünür."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "Malzeme yuvaları: malzeme türü başına bir (%d tür). Filtreler ekipman sayısının yanında."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "Bu malzemeyi her 3 gerçek kullanışın bir ustalık seviyesi verir, en fazla ^%d. Satın alma ve düşenler yalnızca stok ekler. Prestij ustalığı ve kullanım ilerlemesini sıfırlar."
+
+msgid "BUY_SUPPLY"
+msgstr "Satın al: %s · %s altın"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · %d sn kaldı"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "Etkin: %s · %d sn kaldı"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "Bekleme süresinde · %s sn"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "Kullanıma hazır"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "Otomatik kullanım: can %%%s veya altındayken, bekleme süresinden sonra"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "Otomatik kullanım: etkin olmadığı her an"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "Otomatik kullanım: savaş sırasında, etkin değilken"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "Otomatik kullanım: can %%%s veya altındayken, etkin değilken"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "Otomatik kullanım: etkin olmadığı her an"
+
+msgid "SUPPLY_STOCK"
+msgstr "Stok: %s · her kullanım bir tane harcar"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "Bulunan sonraki kopya: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "Ustalık bonusu: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "süre %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "bekleme süresi %s sn"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%%%s maks. can"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%%%s altın"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%%%s TP"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s Savunma"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "Saniyede %%%s maks. can"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "Maks. canın %%%s kadarını iyileştirir (şu an %s can) · bekleme süresi %s sn · can %%%s altındayken kullanılır"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "Yenilen düşmanlardan +%%%s altın, süre %s sn"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s Savunma (%%%s daha az hasar alırsın), süre %s sn"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "Saniyede maks. canın %%%s kadarını iyileştirir, süre %s sn (toplam %%%s) · can %%%s altındayken kullanılır"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "Yenilen düşmanlardan +%%%s TP, süre %s sn"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "Ustalık ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "Otomatik: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "Canın bu malzeme için fazla yüksek."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "İksir hâlâ bekleme süresinde."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "Zaten etkin. Süresi dolunca yeniden kullan."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "Her üç kullanım Malzeme Ustalığı'nı yükseltir. Prestij ustalığı ve kullanım ilerlemesini sıfırlar."
+
+msgid "SOURCE_SUPPLY"
+msgstr "Etkin malzemeler"
+
+msgid "CAMP_TELEPORT"
+msgstr "Işınlan"
+
+msgid "PANEL_TELEPORT"
+msgstr "Işınlanma"
+
+msgid "TELEPORT_TITLE"
+msgstr "Işınlanma"
+
+msgid "TELEPORT_HELP"
+msgstr "Sahip olduğun başka bir kampı seç; bu haritada ya da ulaştığın bir haritada. Savaş sırasında ışınlanma engellenir."
+
+msgid "TELEPORT_HERE"
+msgstr "Buradasın"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "Seçilen hedef"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "Bu harita"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "Başka bir harita"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "Seç"
+
+msgid "TELEPORT_BACK"
+msgstr "Geri"
+
+msgid "TELEPORT_GO"
+msgstr "Işınlan · %s · Kamp %d"
+
+msgid "TELEPORT_PICK"
+msgstr "Bir hedef seç"
+
+msgid "TELEPORT_NONE"
+msgstr "Henüz başka kamp yok. Oraya ışınlanmak için başka bir kampın kilidini aç."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · Kamp %d"
+
+msgid "MAP_EXPLORED"
+msgstr "Harita keşfi: %%%d"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "Bu haritanın ne kadarını kalıcı olarak keşfettiğin. Anlık görüş ve kamerayı kaydırmak sayılmaz."
+
+msgid "SECTION_AUDIO"
+msgstr "Ses ve müzik"
+
+msgid "MUSIC_VOLUME"
+msgstr "Müzik %%%d"
+
+msgid "SFX_VOLUME"
+msgstr "Ses efektleri %%%d"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "Oyun seslerini kapat: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "Özel sesleri kapat: %s"
+
+msgid "AUDIO_HINT"
+msgstr "Oyun sesleri: dokunmalar, satın almalar, birleştirmeler ve savaş. Özel sesler: bildirimler (alınmaya hazır bir görev ya da hedef, Prestij haberleri, yeni bir menü, Harita Ustalığı ilerlemesi, bulunan bir boss) ve kilometre taşları (yeni bir harita, bir Prestij). Ses efekti seviyesi ikisini de ayarlar."
+
+msgid "UP_MERGE_ALL"
+msgstr "Tümünü Birleştir"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "Tek seferlik kilit açma: Filtreler'deki Tümünü Birleştir düğmesi tek dokunuşla her yedek kopyayı birleştirir · kullanımı ücretsiz · Prestij'de korunur"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "Açık · Filtreler'de Tümünü Birleştir'i kullan"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "Tümünü Birleştir henüz açılmadı"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "Tümünü Birleştir: Geliştirmeler → Envanter'den bir kez 5K mücevhere aç."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "Tümünü Birleştir · yedek kopya: %d"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "Tümünü Birleştir"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "Birleştirilecek bir şey yok"
+
+msgid "MERGE_ALL_DONE"
+msgstr "Birleştirilen kopya: %d · eşya: %d"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "Otomatik evrimin kilidini aç"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "Şunların yedek kopyalarını birleştirir: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "Açık · birleştirir: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "^100'de 101 kopyayla evrimleştirir: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "Açık · evrimleştirir: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "Bekleme süresi: %s sn"
+
+msgid "GATE_HUD"
+msgstr "Sonraki · Boss %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "Dünya temiz · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "Sonraki haritayı açmak için bu haritada yenilmesi gereken boss'lar. Hâlâ sayılan bulunmuş boss'larda altın şerit var."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "Sonraki bölge zaten açık"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "Keşfedilmemiş boss"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · yenildi"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · hâlâ gerekli"
+
+msgid "OFFERING_PROGRESS"
+msgstr "%s / %s altın · %s / %s mücevher"
+
+msgid "SECTION_RESEARCH"
+msgstr "Araştırma"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "Odaklı Farm açıldı"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "Aşağıdaki Farm'a dokun: kahramanın bu noktaya yürür ve burada kendi kendine savaşır. Durdurmak için yeniden dokun ya da hareket et."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "Başlamak için Farm'a dokun"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "Kahramanın bu noktaya yürür ve kendi kendine savaşır. Hareket etmek onu durdurur."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "Odaklı Farm açıldı"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "Bu düşmanın Geliştirmeler'ini aç, sonra üstteki Farm'a dokun."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "Odaklı Farm açıldı"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "Dünyada ya da haritada o düşmana dokun, sonra Farm'a dokun."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "Önce bu noktayı bul"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "Farm yalnızca bulduğun noktalara yürür. Yukarıdan bulunmuş birini seç."
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "Yeni ekipman: dokun, sonra Kuşan"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "Kuşanılan ekipman tam istatistik verir. Depodaki ekipman yine de bir pay ekler."
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "Aynısından iki tane: aç, sonra Birleştir"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "Yedek bir kopyayı birleştirmek eşyayı kalıcı olarak güçlendirir."
+
+msgid "GUIDE_MISSIONS"
+msgstr "Görevler açıldı: Görevler'i aç"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "Hedefler ve günlük görevler altın ve mücevher verir."
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "Al'a dokun"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "Tamamlanan hedefler, ödülünü alana kadar burada bekler."
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "Henüz alınacak bir şey yok"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "Bir ödül hazır olunca Görevler düğmesinde ! görünür."
+
+msgid "GUIDE_SLOTS"
+msgstr "Geliştirmeler açıldı: Geliştirmeler'i aç"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "Oyuncu Geliştirmeleri bu tur boyunca sürer; Mücevher geliştirmeleri sonsuza dek kalır."
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "Envanter sekmesini aç"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "Daha fazla ekipman yuvası, daha çok türde ekipman tutmanı sağlar."
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "Bir ekipman yuvası satın al"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "Her eşya türünün kendi yuvası gerekir; kopyalar üst üste yığılır."
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "Malzemeler sekmesini aç"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "Malzemeler zorlu savaşlarda yardımcı olur."
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "Bir Can İksiri satın al"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "Savaş sırasında iyileşmek için malzemelerindeki bir iksire dokun."
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "Can İksiri için altın kazan"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "Gereken ek altın: %s. Yenilen her düşman altın düşürür."
+
+msgid "GUIDE_SNOWMAN"
+msgstr "Ana hedef: Kardan Adam'ı yen"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "Onu yenmek Kış II'yi açar; onu bulmak Prestij'i açar. Önce ekipmanını birleştir, seviye atla ve yanına iksir al."
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "Prestij açıldı: Prestij'i aç"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "Oradaki fırsatlar kalıcı kartlar kazandırır."
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "Bir fırsatta Takip et'e dokun"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "Sonraki adımı haritada görünür. Biri Hazır olduğunda Prestij dünyayı yeniden başlatır ve kart sende kalır."
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "Bir fırsatı tamamla"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "Oynadıkça yeni fırsatlar çıkar. Biri Hazır olduğunda Prestij dünyayı yeniden başlatır ve kart sende kalır."
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "Görevler açıldı"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "Hedefler ve günlük görevler altın ve mücevher verir. Ödüllerini Görevler'den al."
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "Düşman geliştirmeleri açıldı"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "Ganimetini, altınını ve TP'sini artırmak için haritanın üstündeki Geliştirmeler'e (ya da bir düşmana) dokun."
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "Dünya haritası açıldı"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "Mini harita ve Dünya nerelerde bulunduğunu gösterir. Orada yeniden doğmak ve dinlenmek için kampların kilidini aç."
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "Oyuncu Geliştirmeleri açıldı"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "Ekipman yuvalarını, malzemeleri ve kalıcı Mücevher geliştirmelerini Geliştirmeler'den satın al."
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "Ana hedef: Kardan Adam'ı yen"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "Onu yenmek Kış II'yi açar; onu bulmak Prestij'i açar. Önce ekipmanını birleştir, seviye atla ve yanına iksir al."
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "Prestij açıldı"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "Bir fırsatı tamamla, sonra kalıcı bir kartla yeniden başlamak için Prestij yap."
+
+msgid "GUIDE_SKIP"
+msgstr "Atla"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "Ekipmanı kuşan ve birleştir"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "Envanterindeki ekipmana dokun, sonra tam istatistikler için Kuşan; depodaki ekipman yine de bir pay ekler. Aynı eşyadan iki tane, kalıcı olarak daha güçlü tek bir eşyada birleşir."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "Geliştirmeler ve Görevler"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "Ganimetini, altınını ve TP'sini artırmak için bir düşmana (ya da haritanın üstündeki Geliştirmeler'e) dokun. Oyuncu Geliştirmeleri ekipman yuvaları, malzemeler ve kalıcı Mücevher geliştirmeleri satar. Altın ve mücevher için Görevler'in ödüllerini al."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "Keşif, kamplar ve bölgeler"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "Yürümek sisi dağıtır; mini harita ve Dünya nerelerde bulunduğunu gösterir. Orada yeniden doğmak ve dinlenmek için Dünya'dan kampların kilidini aç. Sonraki bölgeyi açmak için haritanın boss'larını yen."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "Prestij ve Harita Ustalığı"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "Kış I'deki Kardan Adam'ı bulmak Prestij sıfırlamasını açar: bir fırsatı tamamla, sonra kalıcı bir kartla yeniden başlamak için Prestij yap. Harita Ustalığı her haritanın uzun vadeli hedeflerini izler."
+
+msgid "EXIT_TITLE"
+msgstr "LootFarmer'dan çıkılsın mı?"
+
+msgid "EXIT_CONFIRM"
+msgstr "İlerlemen kaydedildi. İstediğin zaman geri dönebilirsin."
+
+msgid "EXIT_ACTION"
+msgstr "Çık"
+
+msgid "SECTION_TUTORIAL"
+msgstr "Öğretici ve yardım"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "Tüm menüleri şimdi göster"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "Tüm menüler şimdi gösterilsin mi? Yeni menüler normalde oyunu öğrendikçe çıkar. Prestij yine de Kardan Adam'ın bulunmasını gerektirir; Rehberli modda öğreticiyi tamamlamak da gerekir."
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "Tüm menüler artık kullanılabilir"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "Tüm menüler zaten kullanılabilir"
+
+msgid "PANEL_MASTERY"
+msgstr "Harita Ustalığı"
+
+msgid "MASTERY_OPEN"
+msgstr "Harita Ustalığı · Oyun %%%d"
+
+msgid "MASTERY_INTRO"
+msgstr "%100 tamamlama için isteğe bağlı hedefler. İlerleme kalıcıdır ve Prestij'de korunur."
+
+msgid "MASTERY_GAME"
+msgstr "Oyun tamamlama %%%d"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "Sekiz haritanın hepsi: %s unvanı · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ Kazanıldı: %s unvanı · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "Ödül: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ Ödül kazanıldı: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "Ayrıntılar"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "Başlamak için bu haritaya ulaş"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "Ustalık · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ Tüm haritalar"
+
+msgid "MASTERY_EXPLORE"
+msgstr "Keşif"
+
+msgid "MASTERY_HUNT"
+msgstr "Av"
+
+msgid "MASTERY_RESEARCH"
+msgstr "Araştırma"
+
+msgid "MASTERY_COLLECT"
+msgstr "Koleksiyon"
+
+msgid "MASTERY_FORGE"
+msgstr "Demirhane"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "Haritanın tamamını keşfet ve her kampın kilidini aç."
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "Her düşman türünden %s ve her boss'tan %s yen."
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "Buradaki her düşmanın İstatistiklerini ve Düşenlerini açığa çıkar."
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "Burada düşen her silahı, kıyafeti ve yeteneği edin."
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "Buradaki kıyafetleri ^%s seviyesine (boss kıyafetlerini ^%s seviyesine) çıkar ve buradan bir silahı evrimleştir."
+
+msgid "MASTERY_MORE"
+msgstr "+%d daha"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "Harita keşfi %%%d / %%100"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "Kamp %d henüz açılmadı"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · İstatistikleri göster"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · Düşenleri göster"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "Şunlardan birini evrimleştir: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "Keşfedilmemiş düşman"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "Keşfedilmemiş eşya"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "+%%%s maks. can"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "+%%%s hasar"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "+%%%s altın"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "+%%%s TP"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "+%s puan Ganimet Şansı"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "+%s puan Mücevher Şansı"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "Ustalık · %s · %s tamamlandı"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "Prestij açıldı"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "Bulunan fırsat: %d · açmak için dokun"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "Bir fırsatı tamamla, sonra kalıcı bir kart için Prestij yap"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "Harita ustalaşıldı · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "%100 tamamlandı"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "Usta Farmcı"
+
+msgid "STATS_COMPLETION"
+msgstr "Oyun tamamlama"
+
+msgid "STATS_TITLE"
+msgstr "Unvan"
+
+msgid "STATS_MASTERY"
+msgstr "Harita Ustalığı"
+
+msgid "MAIN_HINT_0"
+msgstr "Düşmanları yen"
+
+msgid "MAIN_HINT_1"
+msgstr "Envanterinde bir silaha ya da kıyafete dokun, sonra Kuşan"
+
+msgid "MAIN_HINT_2"
+msgstr "İki tane sahip olduğun bir eşyayı aç, sonra Birleştir"
+
+msgid "MAIN_HINT_3"
+msgstr "Bir kampa yürü ve Kampı Gör'e dokun, sonra Kilidi aç"
+
+msgid "MAIN_HINT_4"
+msgstr "Kış I boss'u Kardan Adam'ı yen"
+
+msgid "MAIN_HINT_5"
+msgstr "Şifa yeteneğini kuşan (Kış II: Uzay Kaskı seçkinleri ve Camgöbeği Robot düşürür)"
+
+msgid "MAIN_HINT_6"
+msgstr "Dünya'da bir Harita Ayrıntısı derecesi satın al"
+
+msgid "MAIN_HINT_7"
+msgstr "Bir Buz Patlaması yeteneği bul (Yaz I: Hasır Şapka seçkinleri düşürür)"
+
+msgid "MAIN_HINT_8"
+msgstr "Yaz I'e ulaşmak için Kış II boss'u Camgöbeği Robot'u yen"
+
+msgid "MAIN_HINT_9"
+msgstr "101 kopyası olan ^100 bir silahı evrimleştir (eşya ayrıntıları, Evrimleştir)"
+
+msgid "MAIN_HINT_10"
+msgstr "Farklı yeteneklere sahip ol"
+
+msgid "MAIN_HINT_11"
+msgstr "Sonbahar I'e ulaşmak için iki Yaz II boss'unu da yen"
+
+msgid "MAIN_HINT_12"
+msgstr "Farklı yeteneklere sahip ol"
+
+msgid "MAIN_HINT_13"
+msgstr "İlkbahar I'e ulaşmak için iki Sonbahar II boss'unu da yen"
+
+msgid "MAIN_HINT_14"
+msgstr "Bir Prestij tamamla"
+
+msgid "MAIN_HINT_15"
+msgstr "Her İlkbahar II düşman türünü ve boss'unu yen"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "Hazır! Ödülünü Görevler'den al"
+
+msgid "MISSION_DO_KILL"
+msgstr "%s yen (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "%s yen (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "Silah ya da kıyafet ganimeti topla"
+
+msgid "MISSION_DO_MERGE"
+msgstr "Eşya birleştir"
+
+msgid "MISSION_DO_COINS"
+msgstr "Düşmanlardan altın kazan"
+
+msgid "MISSION_DO_CAST"
+msgstr "Kuşanılmış yetenekleri kullan"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "Sonraki: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "%s yen"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "Herhangi bir düşman yen"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "Silah ya da kıyafet ganimeti topla"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "Eşya birleştir"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "Herhangi bir boss yen"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "Yetenek kullan"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "Normal görevlerin ödülünü al"
+
+msgid "FOLLOW_TROPHY"
+msgstr "Kupası için %s yen · kupalar %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "Herhangi bir silahı, kıyafeti ya da yeteneği ^100'e kadar birleştir: en iyi ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "%d. ya da daha üst kademe bir eşyayı ^100'e kadar birleştir: en iyi ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "^50'ye birleştir: silahlar %d/%d · kıyafetler %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "2.+ kademe ekipmanı ^50'ye birleştir: silahlar %d/%d · kıyafetler %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "Bu turda düşmanlardan kazan: altın %s/%s · mücevher %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "Yeterli! Teslim et: Prestij, sonra Teslim"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "Toplam uzakta geçen süre: %.1f/72 sa"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "En uzun tek ayrılık: %.1f/24 sa"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "Uzaktayken kazanılan altın: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "Keşfet: %s: %%%d/%%90"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "%s yen"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "Her kampın kilidini aç (%s): %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "Sonra: %s (%d kaldı)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!DİKKAT: BOSS BULUNDU!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · %s boss'u"
+
+msgid "MASTERY_CHIP"
+msgstr "Ustalık %%%d · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "Bu haritanın Harita Ustalığı: yüzde ve tamamlanan kategoriler. Ayrıntılar için dokun."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "Boss'u yenebilecek kadar farm yap."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "Kardan Adam, Kış II'ye giden yolu koruyor."
+
+msgid "VIEW_CAMP"
+msgstr "Kampı Gör"
+
+msgid "DROP_ALL"
+msgstr "Tümünü Bırak"
+
+msgid "DROP_ALL_TITLE"
+msgstr "Tüm yığın bırakılsın mı?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nHer kopya envanterinden çıkar ve yuvası hemen boşalır. Yığın 5 dakika yerde bekler: geri almak için ona dokun (Otomatik Toplama onu asla geri almaz). Yeniden almak görev, Prestij ya da Ustalık ilerlemesi vermez."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "ustalık ^%d (korunur)"
+
+msgid "DROPPED_NOTICE"
+msgstr "Bırakıldı: %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "Önce çıkar"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "Seni şimdi %s can iyileştirir (%s can, en fazla maks. canın %%%s kadarı); canın %%%s altındayken kullanılır"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "5 sn boyunca saldırı hasarına +%%%s (şu an vuruş başına +%s hasar) · yalnızca savaşta"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× saldırı hasarı (şu an %s), %s yarıçapındaki her düşmana; onları 3 sn boyunca %%25 yavaşlatır"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× saldırı hasarı (şu an %s): hedefine ve onun %s yakınındaki her düşmana"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "Mevcut hedefine %s× saldırı hasarı (şu an %s)"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "Mevcut hedefine %s× saldırı hasarı (şu an %s), ağır bir yakın dövüş vuruşu"
+
+msgid "SKILL_DESC_STATS"
+msgstr "Hedefler: %s · Menzil: %s · Bekleme süresi: %s sn"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "sen"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "alandaki tüm düşmanlar"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 düşman"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "kendin"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s can"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%%%s hasar"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× saldırı hasarı"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "Şifa, canın eksik olduğu her an kullanılabilir, savaş dışında da."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "Prestij"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "Hazır fırsatları kullan (%d) ve yeni bir tura başla"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "Her biri için kalıcı bir kart seçersin:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 kart"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "KALICI · SENDE KALIR"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "BU TURDA SIFIRLANIR"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "Kartlar teker teker seçilir ve hemen kaydedilir. Son karttan sonra tur Kış I'de yeniden başlar."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "Prestij'i başlat"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "Prestij kartları ve setleri (%d tane) artı yenileri"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "Mücevherlerin: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "Keşfedilmiş harita alanları, görülen kamplar ve bulunan boss'lar"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "Her Mücevher geliştirmesi, otomasyon ve envanter alanı"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "Boss anahtarları, düşman başarımları ve Harita Ustalığı"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "Ayarlar ve öğretici ilerlemesi"
+
+msgid "RESET_LINE_COINS"
+msgstr "Altın: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "Oyuncu seviyesi %d (1'e döner)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "Eşyalar, birleştirmeler ve malzeme stoku"
+
+msgid "RESET_LINE_MAPS"
+msgstr "Harita erişimi (Kış I'e döner) ve sahip olunan kamplar"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "Altın geliştirmeleri ve harita geliştirmeleri"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "Bitmemiş fırsatlar ve görevler"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "Kampı Gör'e dokun"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "Bu kampı açar; orada kilidini açabilirsin."
+
+msgid "HELP"
+msgstr "Yardım"
+
+msgid "PANEL_HELP"
+msgstr "Yardım"
+
+msgid "HELP_INTRO"
+msgstr "LootFarmer'ın nasıl oynandığına kısa bir bakış. Okumak oyununda hiçbir şeyi değiştirmez."
+
+msgid "HELP_BACK"
+msgstr "Ayarlar'a dön"
+
+msgid "SECTION_LANGUAGE"
+msgstr "Dil"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "Kritik Şansı"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "Kritik Hasar"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "Otomatik Yetenek Yuvaları"
+
+msgid "SOURCE_UPGRADES"
+msgstr "Geliştirmeler"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "Otomatik yetenekler: %d / %d atandı"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "Önce bir yetenek kuşan ve uygun bir otomatik yuva satın al."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "Otomatik birleştirme: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "Envanter yuvası boyutu"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "En fazla %s can yeniler (maksimum canın %%%s kadarı). Can eksik olduğu her an kullanılabilir, savaş dışında da."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "Etkinleştirmek için savaşta olmak ve %s birim içinde bir düşman gerekir."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "Tek hedef. Saldırı hızını %%%s oranında %s saniye azaltır (boss'larda %s saniye). Hareket değişmez."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "Boss'lar süreli etkilerin süresinin yarısına direnir; etkinin gücü ve hasarı değişmez."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "Sonraki ustalık seviyesi: %d / %d kullanım · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "Otomatik kullanım: can eksikken ve bekleme süresi dolmuşken, savaş dışında da."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "Seyahat etmek için yeşil bir kampa dokun. Soluk kamplar kilitli. Savaş sırasında seyahat edilemez."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d sn"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "Prestij'i kullanmadan önce Kış II'de Rehberli öğreticiyi tamamla."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "Oyuncu seviyesi %d, kazanılan TP ve seviye bonusları"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "Malzeme Ustalığı ve bir sonraki seviyeye doğru ilerleme"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "Bir kamp seç"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "Devam etmek için bu paneli kapat."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "Kapat düğmesine dokun. İlerlemen kaydedildi."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "Bir Oyuncu Geliştirmesi satın al."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "Sonraki savaşlarına yardım edecek genel bir geliştirme seç."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "Ekipman envanterini genişlet."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "Bir yuva daha almak için Mücevher kullan. Eksik kalırsa öğreticiye özel tek seferlik bir hediye kapatır."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "Kampa gitmek için oku izle."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "Yaklaş, kampı keşfet, sonra Kampı Gör'e dokun ve kilidini satın al."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "İlk boss'u bul."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "Kardan Adam'a doğru oku izle. Keşfetmek için onu yenmen gerekmez."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "Boss'la savaşmadan önce hazırlan."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "Boss'lar çok güçlü olabilir. Genel istatistikler için seviye atla; ekipman farmla, kopyaları birleştir ve geliştirme satın al."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "Birkaç düşman daha farmla."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "Devam etmeden önce güç topla ve Altın biriktir."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "Bir Can İksiri satın al."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "Oyuncu Geliştirmeleri'ni, sonra Malzemeler'i aç. Mevcut iksir stokun da sayılır."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "Can İksiri için yer aç."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "Bir malzeme yuvası satın al ya da bir yuvayı boşaltmak için mevcut bir malzemeyi kullan."
+
+msgid "GUIDE_POTION_USE"
+msgstr "Can İksirini kullan."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "Canın eksikken envanterdeki yuvasına dokun. Bir malzemeyi kullanmak ustalığını ilerletir."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "İyileşmen gerektiğinde iksir kullan."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "Önce yakındaki düşmanlarla savaş. Can doluyken iksir asla boşa gitmez."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "Prestij kalıcı faydalar sağlar."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "Kartlar için fırsatları tamamla. Rehberli mod sıfırlamayı bu öğreticiden sonra açar; Prestij yapmadan devam etmek serbesttir."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "Bir Prestij ödülünü zaten hak ediyorsun."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "Fırsatın hazır. Sıfırlayıp sıfırlamamaya karar vermeden önce Kış II'de Rehberli öğreticiyi bitir."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "Sonraki harita açık."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "Açık bölgeleri ve kamplarını görmek için Dünya'yı aç."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "Açık kamplar arasında seyahat et."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "Tek kamp açıkken Dünya doğrudan oraya götürür, birkaç tane varsa bir harita sunar. Savaş ışınlanmayı engeller."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "Kilometre taşları isteğe bağlı hedefler sunar."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "Ek ödül istediğinde Harita Ustalığı'na ve başarımlara göz at. Dünya üzerinden Kış II'ye devam et."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "Kış II'ye seyahat et."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "Maceraya devam etmek için Dünya'yı aç ve Kış II'yi seç."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "ÖNÜMÜZDEKİ YOL"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "Nihai hedefin, 8. Bölge'deki son boss'u yenip oyunu fethetmek.\n\nDaha büyük bir meydan okuma mı istiyorsun? Harita Ustalığı'ndaki her kilometre taşını bitirerek %100 tamamlamaya ulaş.\n\nKendi temponda oyna, yolculuğun tadını çıkar ve bol şans!"
+
+msgid "SLOT_SMALL"
+msgstr "Küçük"
+
+msgid "SLOT_MEDIUM"
+msgstr "Orta"
+
+msgid "SLOT_LARGE"
+msgstr "Büyük"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "Genel"
+
+msgid "REVIEW_TITLE"
+msgstr "LootFarmer hoşuna gidiyor mu?"
+
+msgid "REVIEW_LEAD"
+msgstr "Maceran daha yeni başlıyor!"
+
+msgid "REVIEW_BODY"
+msgstr "Güzel ganimetler buldun mu? Ne düşündüğünü duymayı çok isteriz. Dürüst bir değerlendirme LootFarmer'ı geliştirmemize ve diğer oyuncuların oyunu keşfetmesine yardımcı olur."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Google Play'de değerlendir"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "itch.io'da değerlendir"
+
+msgid "REVIEW_LATER"
+msgstr "Belki sonra"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "Mağaza sayfası açılamadı. Bağlantını kontrol edip yeniden dene."
+
+msgid "SECTION_FEEDBACK"
+msgstr "Geri bildirim"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "Bir düşmanı hedef al"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "Kahramanından bir düşmana sürükle, sonra hedef almak için bırak. Saldırıların seçili düşmana yoğunlaşır."
+
+msgid "GUIDE_TARGET"
+msgstr "Bir düşmanı hedef al"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "Kahramanından bir düşmana sürükle, sonra hedef almak için bırak. Saldırıların seçili düşmana yoğunlaşır."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "Hedef alacak bir düşman bul"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "Bir düşman görünene kadar yürü, sonra kahramanından ona sürükle ve bırak."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "Avla: %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d puan"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s sn"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d sa %02d dk"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d dk %02d sn"
+
+msgid "DURATION_SECONDS"
+msgstr "%d sn"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Joystick konumu"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Sol"
+
+msgid "JOYSTICK_CENTER"
+msgstr "Orta"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Sağ"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "Bağlantı açılamadı. İnternet bağlantını kontrol edip yeniden dene."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Her modda oyun aynıdır. Yalnızca yardımın miktarı değişir."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "İşaretçilerle adım adım dersler. Menüler sen öğrendikçe açılır."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Kontroller ve hedefler hakkında birkaç kısa kart. Tüm menüler açık."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Ders ya da ipucu yok. Tüm menüler en baştan açık."

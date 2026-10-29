@@ -1,0 +1,15 @@
+{
+  "findings": [],
+  "langs": [
+    "en",
+    "tr_TR",
+    "id_ID",
+    "vi_VN",
+    "th_TH",
+    "hi_IN"
+  ],
+  "screens": 336,
+  "sizes": [
+    "432x960"
+  ]
+}

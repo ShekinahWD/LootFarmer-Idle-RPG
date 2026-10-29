@@ -1,0 +1,5864 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: id_ID\n"
+"Language-Team: Indonesian (Indonesia)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-LootFarmer-Batch: Localization Batch 03 (Change 42)\n"
+"X-LootFarmer-Source: localization/en.po d6102fccdbae9721e20d5baa922c9a50d88ec85324c09b9b179832d3d47fe7e3\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Uji awal Android"
+
+msgid "BOOT_DETAIL"
+msgstr "Titik periksa 0 • Gameplay belum diterapkan."
+
+msgid "BOOT_VERSION"
+msgstr "Versi %s"
+
+msgid "BOOT_TAPS"
+msgstr "Jumlah sentuhan tersimpan: %d"
+
+msgid "BOOT_TAP"
+msgstr "Uji sentuhan dan simpan"
+
+msgid "BOOT_SAVED"
+msgstr "Penyimpanan selesai"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "Penyimpanan tidak tersedia. Periksa log validasi."
+
+msgid "BOOT_PAUSE"
+msgstr "Jeda"
+
+msgid "BOOT_RESUME"
+msgstr "Lanjutkan"
+
+msgid "BOOT_RESET"
+msgstr "Reset Total"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "Reset progres?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "Ini menghapus semua progres di profil ini. Pengaturanmu tetap disimpan."
+
+msgid "UI_CONFIRM"
+msgstr "Reset"
+
+msgid "UI_CANCEL"
+msgstr "Batal"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "Bahasa"
+
+msgid "LANG_AUTOMATIC"
+msgstr "Otomatis"
+
+msgid "LANG_DISABLED"
+msgstr "Tersedia setelah terjemahan divalidasi"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "Bahasa Inggris aktif. Bahasa lain terbuka setelah validasi."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "Simpanan yang tidak terbaca atau lebih baru telah diamankan. Pulihkan cadangan yang cocok atau reset profil ini dengan sengaja."
+
+msgid "LANG_EN_US"
+msgstr "Bahasa Inggris"
+
+msgid "LANG_ES_419"
+msgstr "Bahasa Spanyol (Amerika Latin)"
+
+msgid "LANG_ES_ES"
+msgstr "Bahasa Spanyol (Spanyol)"
+
+msgid "LANG_PT_BR"
+msgstr "Bahasa Portugis (Brasil)"
+
+msgid "LANG_FR_FR"
+msgstr "Bahasa Prancis"
+
+msgid "LANG_DE_DE"
+msgstr "Bahasa Jerman"
+
+msgid "LANG_IT_IT"
+msgstr "Bahasa Italia"
+
+msgid "LANG_NL_NL"
+msgstr "Bahasa Belanda"
+
+msgid "LANG_PL_PL"
+msgstr "Bahasa Polandia"
+
+msgid "LANG_RU_RU"
+msgstr "Bahasa Rusia"
+
+msgid "LANG_UK_UA"
+msgstr "Bahasa Ukraina"
+
+msgid "LANG_TR_TR"
+msgstr "Bahasa Turki"
+
+msgid "LANG_ID_ID"
+msgstr "Bahasa Indonesia"
+
+msgid "LANG_VI_VN"
+msgstr "Bahasa Vietnam"
+
+msgid "LANG_TH_TH"
+msgstr "Bahasa Thai"
+
+msgid "LANG_HI_IN"
+msgstr "Bahasa Hindi"
+
+msgid "LANG_JA_JP"
+msgstr "Bahasa Jepang"
+
+msgid "LANG_KO_KR"
+msgstr "Bahasa Korea"
+
+msgid "LANG_ZH_CN"
+msgstr "Bahasa Tionghoa (Sederhana)"
+
+msgid "LANG_ZH_TW"
+msgstr "Bahasa Tionghoa (Tradisional)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "Koin %s     Permata %s"
+
+msgid "PAUSE"
+msgstr "Jeda"
+
+msgid "RESUME"
+msgstr "Lanjutkan"
+
+msgid "PLAYER_STATUS"
+msgstr "HP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "Kembali ke kemah dalam %.1f dtk"
+
+msgid "BOOST_ACTIVE"
+msgstr "Peningkat koin %d dtk"
+
+msgid "GROUP_0"
+msgstr "Padang Tunas"
+
+msgid "GROUP_1"
+msgstr "Persimpangan Robot"
+
+msgid "GROUP_2"
+msgstr "Hutan Dinosaurus"
+
+msgid "GROUP_3"
+msgstr "Lapangan Sang Maut"
+
+msgid "CLOSE"
+msgstr "Tutup"
+
+msgid "CONFIRM"
+msgstr "Konfirmasi"
+
+msgid "CANCEL"
+msgstr "Batal"
+
+msgid "LEVEL"
+msgstr "LEVEL"
+
+msgid "INVENTORY_HEADING"
+msgstr "Perlengkapan"
+
+msgid "SUPPLY_HEADING"
+msgstr "Perbekalan"
+
+msgid "GEAR_CAPACITY"
+msgstr "PERLENGKAPAN  %d / %d  ·  ketuk untuk melihat"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "PERBEKALAN  %d / %d  ·  ketuk untuk memakai atau mengotomatiskan"
+
+msgid "EMPTY_SLOT"
+msgstr "Kosong"
+
+msgid "EQUIPPED"
+msgstr "Dipakai"
+
+msgid "AUTO"
+msgstr "Oto"
+
+msgid "UPGRADES"
+msgstr "Peningkatan"
+
+msgid "WORLD"
+msgstr "Dunia"
+
+msgid "STATS"
+msgstr "Statistik"
+
+msgid "SETTINGS"
+msgstr "Pengaturan"
+
+msgid "PANEL_ITEM"
+msgstr "Item"
+
+msgid "PANEL_UPGRADES"
+msgstr "Peningkatan pemain"
+
+msgid "PANEL_TRAVEL"
+msgstr "Kemah & farming"
+
+msgid "PANEL_STATS"
+msgstr "Build-mu"
+
+msgid "PANEL_SETTINGS"
+msgstr "Pengaturan"
+
+msgid "PANEL_HISTORY"
+msgstr "Perolehan terbaru"
+
+msgid "PANEL_PRESTIGE"
+msgstr "Awal yang baru"
+
+msgid "HELP_0"
+msgstr "Gunakan joystick untuk menjelajah ke utara. Lepaskan untuk otomatis melawan musuh di dekatmu."
+
+msgid "HELP_1"
+msgstr "Tunas bertarung sendiri. Tetap di dekat mereka untuk farming; ketuk perlengkapan yang jatuh untuk mengambilnya."
+
+msgid "HELP_2"
+msgstr "Ketuk item di tanah. Koin dan permata langsung masuk ke dompetmu."
+
+msgid "HELP_3"
+msgstr "Ketuk perlengkapan barumu di bawah, lalu pakai. Kamu bisa memakai satu kostum dan satu senjata."
+
+msgid "HELP_4"
+msgstr "Gabungkan salinan untuk memperkuat jenis item itu. Progresnya tetap ada meski stoknya habis."
+
+msgid "HELP_5"
+msgstr "Buka satu jenis musuh dan beli ambil otomatis untuk mengumpulkan jarahannya selagi kamu farming."
+
+msgid "HELP_6"
+msgstr "Kembangkan build-mu, jelajahi utara, dan kalahkan Sang Maut. Dunia sudah terbuka sejak awal."
+
+msgid "HELP_7"
+msgstr "Bonus permanenmu tetap ada. Bangun putaran yang lebih kuat dan tantang Sang Maut lagi."
+
+msgid "HELP_VICTORY"
+msgstr "Sang Maut kalah! Lanjutkan farming atau pilih kartu prestise di Dunia."
+
+msgid "HELP_PAUSED"
+msgstr "Dijeda · inventaris bisa diatur. Lanjutkan untuk meneruskan farming."
+
+msgid "HISTORY_EMPTY"
+msgstr "Temuan terbarumu muncul di sini.\nKetuk untuk melihat sepuluh terakhir."
+
+msgid "HISTORY_CURRENCY"
+msgstr "+%s permata"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "Terjual %s %s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "Pedang Kayu"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "Pedang Batu"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "Pedang Besi"
+
+msgid "ITEM_SPROUT"
+msgstr "Kostum Tunas"
+
+msgid "ITEM_ROBOT"
+msgstr "Kostum Robot"
+
+msgid "ITEM_DINOSAUR"
+msgstr "Kostum Dinosaurus"
+
+msgid "ITEM_POTION"
+msgstr "Ramuan Penyembuh"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "Tonik Koin"
+
+msgid "ITEM_QUANTITY"
+msgstr "Dimiliki: %s"
+
+msgid "NORMAL_STATS"
+msgstr "Statistik normal · naik dengan penggabungan"
+
+msgid "EXTRA_STATS"
+msgstr "Statistik tambahan · berlaku untuk jenis item ini"
+
+msgid "EQUIP"
+msgstr "Pakai"
+
+msgid "UNEQUIP"
+msgstr "Lepas"
+
+msgid "REROLL"
+msgstr "Acak ulang kedua tambahan · %s permata"
+
+msgid "REROLL_CONFIRM"
+msgstr "Habiskan %s permata untuk mengganti kedua statistik tambahan? Hasil baru menggantikan yang lama, meski lebih lemah."
+
+msgid "USE"
+msgstr "Pakai satu"
+
+msgid "MERGE_ONE"
+msgstr "Gabungkan satu salinan cadangan"
+
+msgid "MERGE_ALL"
+msgstr "Gabungkan %d salinan cadangan"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "Di ^100, habiskan 100 salinan cadangan untuk satu item tingkat berikutnya. Item sumber dan level gabungannya tetap. Diperlukan tumpukan tujuan atau slot kosong dari kategori yang sama."
+
+msgid "EVOLVE"
+msgstr "Evolusikan → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "Aktifkan/nonaktifkan otomatisasi slot ini"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "Pakai slot ini otomatis: %s"
+
+msgid "ON"
+msgstr "Aktif"
+
+msgid "OFF"
+msgstr "Nonaktif"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "Slot ini kosong. Jenis item baru butuh slot kosong; jenis yang sudah ada akan bertumpuk."
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "Peningkatan kelompok berlaku untuk semua anggotanya. Setiap musuh mengacak jarahannya sendiri. Koin dan permata langsung masuk."
+
+msgid "GROUP_SELECT"
+msgstr "Kelompok musuh: %s · ketuk untuk mengganti"
+
+msgid "AUTOMATION_HEADING"
+msgstr "Inventaris & otomatisasi · tetap setelah prestise"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "koin"
+
+msgid "GEMS"
+msgstr "permata"
+
+msgid "TRAVEL_HELP"
+msgstr "Ketuk kemah di peta untuk memilih titik bangkit. Membuka kemah lewat panelnya juga memilihnya. Tanpa teleportasi."
+
+msgid "SPAWN_SELECT"
+msgstr "Pilih kemah %d"
+
+msgid "SPAWN_BUY"
+msgstr "Buka kemah %d · %s koin"
+
+msgid "SELECTED"
+msgstr "Dipilih"
+
+msgid "FOCUS_HELP"
+msgstr "Buka farming per jenis musuh, lalu pilih kostum saja, senjata saja, atau keduanya. Kembali ke kemah itu setelah mati. Bergerak manual membatalkan farming."
+
+msgid "FOCUS_GROUP"
+msgstr "Farming %s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "Pilih kartu prestise"
+
+msgid "PRESTIGE_COUNT"
+msgstr "Prestise selesai: %d"
+
+msgid "NO_OFFLINE"
+msgstr "Progres tersimpan. Hadiah offline direncanakan untuk game penuh; versi ini tidak berjalan saat ditutup atau di latar belakang."
+
+msgid "SAVE_NOW"
+msgstr "Simpan sekarang"
+
+msgid "HARD_RESET"
+msgstr "Reset Total"
+
+msgid "RESET_CONFIRM"
+msgstr "Hapus semua progres, inventaris, otomatisasi, dan kartu prestise? Pengaturan tetap disimpan. Tindakan ini tidak bisa dibatalkan."
+
+msgid "LANGUAGE_NOTE"
+msgstr "Bahasa Inggris tersedia selama pengembangan. 19 bahasa lainnya akan terbuka setelah terjemahannya divalidasi."
+
+msgid "CREDITS"
+msgstr "Seni karakter & dunia: Pixel Plains oleh SnowHex. Antarmuka: Kenney Fantasy UI Borders (CC0)."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "Pilih satu kartu permanen +5%. Bonus menumpuk di setiap putaran. Kamu boleh menutup panel ini dan terus farming."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "Mulai putaran baru dengan kartu permanen ini? Mata uang, inventaris, gabungan/tambahan item, peningkatan farming musuh, dan kemah direset. Info musuh yang terungkap, level otomatisasi, kapasitas inventaris, dan semua kartu prestise tetap ada."
+
+msgid "CARD_DAMAGE"
+msgstr "+5% damage · permanen"
+
+msgid "CARD_HP"
+msgstr "+5% HP maksimum · permanen"
+
+msgid "CARD_COINS"
+msgstr "+5% jumlah koin · permanen"
+
+msgid "CARD_GEMS"
+msgstr "+5% peluang permata (relatif) · permanen"
+
+msgid "CARD_LOOT"
+msgstr "+5% peluang drop perlengkapan (relatif) · permanen"
+
+msgid "CARD_MERGE"
+msgstr "+5% hasil gabungan statistik normal · permanen"
+
+msgid "STAT_HP"
+msgstr "HP maksimum"
+
+msgid "STAT_DAMAGE"
+msgstr "Damage"
+
+msgid "STAT_DEFENSE"
+msgstr "Pertahanan"
+
+msgid "STAT_CRIT"
+msgstr "Peluang kritis"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "Pengali kritis"
+
+msgid "STAT_LIFESTEAL"
+msgstr "Curi nyawa"
+
+msgid "STAT_REGEN"
+msgstr "HP per detik"
+
+msgid "STAT_SPEED"
+msgstr "Bonus kecepatan serang"
+
+msgid "STAT_HEAL"
+msgstr "Penyembuhan"
+
+msgid "STAT_COIN_BONUS"
+msgstr "Bonus jumlah koin"
+
+msgid "NEED_DUPLICATES"
+msgstr "Kamu perlu salinan cadangan untuk menggabungkan."
+
+msgid "MERGE_MAX"
+msgstr "Item ini sudah di ^100."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "Evolusi butuh ^100 dan 101 salinan sumber."
+
+msgid "INVENTORY_FULL"
+msgstr "Tidak ada slot kosong. Kosongkan tempat atau perluas inventaris ini."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "Buka otomatisasi ini di Peningkatan."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "Buka slot pakai otomatis lain di Peningkatan."
+
+msgid "CANNOT_USE"
+msgstr "Tidak ada perbekalan yang bisa dipakai, atau karaktermu mati."
+
+msgid "UPGRADE_MAX"
+msgstr "MAKS"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "Koin tidak cukup."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "Permata tidak cukup."
+
+msgid "SPAWN_BOUGHT"
+msgstr "Kemah terbuka. Pilih kemah ini agar bisa dipakai untuk bangkit kembali."
+
+msgid "EVOLVED"
+msgstr "Item tingkat berikutnya didapat. Progres item sumbermu tetap."
+
+msgid "PLAYER_DIED"
+msgstr "Kembali ke kemah pilihanmu. Tidak ada yang hilang."
+
+msgid "BOSS_DEFEATED"
+msgstr "Sang Maut kalah! Kartu prestise permanen menantimu."
+
+msgid "PRESTIGED"
+msgstr "Putaran baru dimulai. Bonus permanenmu tetap ada."
+
+msgid "SAVED"
+msgstr "Progres disimpan."
+
+msgid "SAVE_ERROR"
+msgstr "Gagal menyimpan. Progresmu masih ada di memori; coba lagi."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "Simpanan tidak bisa dimuat dengan aman. Penyimpanan dimatikan sampai Reset Total dilakukan dengan sengaja."
+
+msgid "ACTION_PREVIEW"
+msgstr "Aksi · biaya dan efek"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "Slot perlengkapan +1 (maks. 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "Slot perbekalan +1 (satu per jenis perbekalan)"
+
+msgid "UP_COLLECT"
+msgstr "Buka ambil otomatis"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "Jangkauan ambil +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "Jumlah ambil sekaligus +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "Jeda ambil −1 dtk"
+
+msgid "UP_MERGE_GEAR"
+msgstr "Buka gabung otomatis perlengkapan"
+
+msgid "UP_AUTO_USE"
+msgstr "Slot perbekalan otomatis +1"
+
+msgid "UP_USE_SPEED"
+msgstr "Jeda pakai otomatis −1 dtk"
+
+msgid "UP_FOCUS"
+msgstr "Buka farming terfokus"
+
+msgid "UP_RESPAWN"
+msgstr "Waktu bangkit −1 dtk"
+
+msgid "UP_LOOT"
+msgstr "Peluang drop perlengkapan +0,5 poin (per item)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "Peluang drop koin"
+
+msgid "UP_GEM_CHANCE"
+msgstr "Peluang drop permata global"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "Koin per musuh +50%"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "Permata per drop (bos memberi ×3)"
+
+msgid "CHAT_SURPRISE"
+msgstr "Hei! Hati-hati!"
+
+msgid "RECENT_HEADER"
+msgstr "Temuan terbaru · ketuk untuk riwayat"
+
+msgid "ZOOM_IN"
+msgstr "Perbesar"
+
+msgid "ZOOM_OUT"
+msgstr "Perkecil"
+
+msgid "CAMERA_ZOOM"
+msgstr "Zoom kamera"
+
+msgid "PANEL_ENEMY"
+msgstr "Musuh"
+
+msgid "PANEL_CAMP"
+msgstr "Kemah bangkit"
+
+msgid "TAB_AUTOMATION"
+msgstr "Otomatisasi"
+
+msgid "TAB_INVENTORY"
+msgstr "Inventaris"
+
+msgid "TAB_SUPPLIES"
+msgstr "Perbekalan"
+
+msgid "TAB_OVERVIEW"
+msgstr "Ringkasan"
+
+msgid "TAB_UPGRADES"
+msgstr "Peningkatan"
+
+msgid "UP_REVEAL_STATS"
+msgstr "Ungkap statistik · permanen"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "Ungkap drop · permanen"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "STATISTIK MUSUH"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "KEMUNGKINAN DROP"
+
+msgid "UNKNOWN_STATS"
+msgstr "HP ???   •   Damage ???\nJeda serangan ???   •   Pertahanan ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "HP %s   •   Damage %s\nMenyerang tiap %s dtk   •   Pertahanan %s"
+
+msgid "DROP_COINS"
+msgstr "Koin ×%s · pasti"
+
+msgid "DROP_GEMS"
+msgstr "Permata · peluang %s%% · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "Satu undian perlengkapan memilih salah satu dari dua item perlengkapan. Permata dan perbekalan diundi terpisah. Peluang sudah termasuk peningkatanmu saat ini."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "+1 poin persentase / level · maks. +15"
+
+msgid "ENEMY_CAT"
+msgstr "Kucing panggilan"
+
+msgid "CAT_DETAILS"
+msgstr "Pelayan panggilan Sang Maut.\nTanpa drop atau peningkatan kelompok."
+
+msgid "CAMP_NAME"
+msgstr "Kemah %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "Ketuk untuk memilih"
+
+msgid "CAMP_LOCKED"
+msgstr "Terkunci · ketuk untuk membuka"
+
+msgid "CAMP_HELP"
+msgstr "Kemah adalah titik bangkit. Beristirahatlah di samping kemah yang terbuka untuk pulih dengan cepat. Membuka, memilihnya untuk bangkit, dan bepergian adalah aksi terpisah. Saat berdiri di kemah, muncul tombol Lihat Kemah."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "Kemah bangkit dipilih."
+
+msgid "OPEN_PLAYER"
+msgstr "Peningkatan pemain"
+
+msgid "OPEN_GROUP"
+msgstr "Periksa %s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "Sabit Oniks"
+
+msgid "ITEM_REAPER"
+msgstr "Kostum Malaikat Maut"
+
+msgid "VARIANT_OUTFIT"
+msgstr "Kostum"
+
+msgid "VARIANT_WEAPON"
+msgstr "Senjata"
+
+msgid "VARIANT_BOTH"
+msgstr "Keduanya"
+
+msgid "ITEM_DETAILS"
+msgstr "Detail item"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "Naik level!"
+
+msgid "GEAR"
+msgstr "Perlengkapan"
+
+msgid "CONSUMABLES"
+msgstr "Perbekalan"
+
+msgid "HUD_HP"
+msgstr "HP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "Bangkit dalam %.1f dtk"
+
+msgid "HUD_LEVEL"
+msgstr "LEVEL %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "Perlengkapan %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "Perbekalan %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "GABUNG %d"
+
+msgid "ITEM_OWNED"
+msgstr "Dimiliki: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "Dipakai · kontribusi 100%"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "Disimpan · kontribusi 30% (sekali per jenis senjata)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "Gabungkan"
+
+msgid "LESS_OPTIONS"
+msgstr "Lebih sedikit opsi"
+
+msgid "MORE_OPTIONS"
+msgstr "Opsi lainnya"
+
+msgid "LOOT_HISTORY"
+msgstr "Riwayat jarahan"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "LEVEL %d / 1.000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "LEVEL %d · HP dan damage naik"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "Ketuk perbekalan untuk memakai · Tahan untuk detail"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "Gabungan berikutnya: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "Pencapaian"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "Berlaku di semua kemah jenis musuh ini. Peningkatan pengambilan tetap ada; peningkatan jenis lainnya direset saat prestise."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "+1 poin persentase / level · maks. +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "+10% EXP / level · maks. +200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "Peluang drop perbekalan +1 poin"
+
+msgid "UP_GROUP_XP"
+msgstr "Pengalaman +10%"
+
+msgid "GROUP_XP_VALUE"
+msgstr "EXP per musuh: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "Tonggak kalahkan permanen, berlaku di semua kemah jenis musuh ini. Hadiah otomatis berlaku dan bertahan setelah prestise."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "Melawan jenis ini: +%.0f%% damage · +%.1f poin persentase peluang permata"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · %d dikalahkan\nHadiah: +%.0f%% damage dan +%.1f poin persentase peluang permata untuk jenis ini"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "Selesai"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "Pencapaian kalahkan musuh"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "+%.0f%% damage · +%.1f poin peluang permata"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "Menggabungkan senjata dan kostum jenis musuh ini secara otomatis."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "+%s koin per musuh / level"
+
+msgid "ACTION_PAUSED"
+msgstr "Tidak tersedia saat dijeda"
+
+msgid "ACTION_SUSPENDED"
+msgstr "Tidak tersedia saat aplikasi tidak aktif"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "Syarat belum terpenuhi"
+
+msgid "VALUE_MAX"
+msgstr "MAKS"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s EXP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s dtk"
+
+msgid "HP_PER_SECOND"
+msgstr "HP/dtk"
+
+msgid "STAT_SOURCES"
+msgstr "Asal statistikmu"
+
+msgid "SOURCE_BASE"
+msgstr "Statistik dasar"
+
+msgid "SOURCE_LEVEL"
+msgstr "Level pemain"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "Perlengkapan yang dipakai"
+
+msgid "SOURCE_STORED"
+msgstr "Perlengkapan yang disimpan"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "Bonus permanen: HP ×%s · Damage ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "Total di atas sudah termasuk batas: peluang kritis 75%, damage kritis ×4, curi nyawa 15%, bonus kecepatan serang 200%."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "Undian perbekalan: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "Tonik: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · Tingkat %d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "Tingkat %d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · T%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "Permata"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "Berlaku untuk semua musuh. Direset saat prestise. Bonus pencapaian musuh tetap khusus untuk tiap jenis."
+
+msgid "FARM_VARIANT"
+msgstr "Farming %s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "Pilihan farming: %s. Kembali ke sini setelah bangkit."
+
+msgid "MAX_ITEM_TIER"
+msgstr "Tingkat terakhir tercapai. Penggabungan masih bisa sampai ^100."
+
+msgid "TAB_PLAYER"
+msgstr "Pemain"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "Musuh per titik"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "Waktu muncul ulang musuh"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "Peluang permata bos"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "Bonus permata bos per drop"
+
+msgid "TRAVEL_COMBAT"
+msgstr "Selesaikan pertarungan sebelum bepergian."
+
+msgid "TRAVEL_CAMP"
+msgstr "Pergi · %s · Kemah %d"
+
+msgid "STAGE_LOCKED"
+msgstr "Kalahkan dulu bos gerbang tahap ini."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "Jelajahi kemah ini dulu."
+
+msgid "STAGE_UNLOCKED"
+msgstr "Tahap berikutnya terbuka!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "Penjaga terakhir tersegel. Kalahkan 13 bos lainnya untuk mengumpulkan kunci mereka. Kunci yang terkumpul tetap ada setelah prestise."
+
+msgid "WORLD_COMPLETE"
+msgstr "Semua musuh Musim Semi II dikalahkan — misi terakhir selesai!"
+
+msgid "UNDISCOVERED"
+msgstr "Belum dijelajahi"
+
+msgid "ENEMY_LEVEL"
+msgstr "Level %d"
+
+msgid "ALL_ITEMS"
+msgstr "Semua"
+
+msgid "WEAPONS"
+msgstr "Senjata"
+
+msgid "OUTFITS"
+msgstr "Kostum"
+
+msgid "SKILLS"
+msgstr "Skill"
+
+msgid "VARIANT_SKILL"
+msgstr "Elit"
+
+msgid "SKILL_EMPTY"
+msgstr "Slot skill %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "Keluarga skill ini sudah dipakai."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "Lepas satu skill atau buka slot lain."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "Pakai di slot %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "Slot %d rapal otomatis: %s"
+
+msgid "STOCK_BONUS"
+msgstr "Bonus salinan cadangan: +%s%% kekuatan intrinsik. Salinan tetap kamu miliki."
+
+msgid "CLAIM"
+msgstr "Klaim"
+
+msgid "CLAIM_REWARD"
+msgstr "Klaim · %s koin · %s permata"
+
+msgid "MISSION_AUTO"
+msgstr "Klaim Otomatis: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "AKTIF"
+
+msgid "STATE_OFF_CAPS"
+msgstr "NONAKTIF"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "Mengklaim misi biasa yang selesai (termasuk slot yang dibeli), BUKAN Tujuan Utama. Setelah membeli, AKTIFKAN Klaim Otomatis di Misi."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "Klaim Otomatis sudah terbuka tapi NONAKTIF. Ketuk tombol di bawah untuk mulai mengklaim misi biasa. Tujuan Utama tetap manual."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "Klaim Otomatis siap diaktifkan"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "Buka Misi, lalu AKTIFKAN Klaim Otomatis. Setelah dibeli, statusnya NONAKTIF."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "Aktifkan Klaim Otomatis"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "Kamu sudah membuka klaim otomatis. Ketuk Klaim Otomatis: NONAKTIF di sini untuk mengaktifkannya. Tujuan Utama selalu manual."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "Bentangkan kartu tahap"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "Ciutkan kartu tahap"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "Selesaikan tujuan ini dulu."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "Tugas baru datang tengah malam waktu setempat."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "Tujuan utama"
+
+msgid "KEY_PROGRESS"
+msgstr "Kunci bos: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "Bos gerbang dikalahkan: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "%s koin/jam · %s permata/jam · batas hadiah %s jam"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "Selamat datang kembali! %s jam berhadiah · %s koin · %s permata"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "Selesaikan dulu pemilihan hadiah prestisemu."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "Peluang prestise baru ditemukan."
+
+msgid "PRESTIGE_BATCH"
+msgstr "Prestise · %d kartu"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "Pilih satu kartu unik untuk setiap peluang yang siap, lalu reset putaran sekali. Item, koin, kemah, kabut, dan peningkatan koin direset. Kunci, pencapaian, kartu, dan peningkatan permata tetap."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "Simpan %s secara permanen? Pilihan ini langsung disimpan dan tidak bisa diubah."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "Pilih kartu %d dari %d"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "Kartu unik: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "Selesaikan dulu peluang prestise yang ditemukan."
+
+msgid "IN_PROGRESS"
+msgstr "Sedang berjalan"
+
+msgid "FOLLOW"
+msgstr "Ikuti"
+
+msgid "UNFOLLOW"
+msgstr "Berhenti ikuti"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "Serahkan item atau mata uang yang diminta"
+
+msgid "CONTRACT_NEEDS"
+msgstr "Kumpulkan dulu jumlah penuh setiap kostum."
+
+msgid "OFFERING_NEEDS"
+msgstr "Kamu butuh saldo yang diminta dan mata uang hasil online yang belum dibelanjakan."
+
+msgid "OWNED_CARDS"
+msgstr "Kartu dimiliki"
+
+msgid "COMBOS"
+msgstr "Set kartu"
+
+msgid "PANEL_INVENTORY"
+msgstr "Inventaris"
+
+msgid "PANEL_MAP"
+msgstr "Peta"
+
+msgid "PANEL_MISSIONS"
+msgstr "Misi"
+
+msgid "PANEL_OFFLINE"
+msgstr "Hadiah offline"
+
+msgid "GOAL_KILL"
+msgstr "Berburu"
+
+msgid "GOAL_BOSS"
+msgstr "Berburu bos"
+
+msgid "GOAL_GEAR"
+msgstr "Kumpulkan perlengkapan"
+
+msgid "GOAL_MERGE"
+msgstr "Gabungkan"
+
+msgid "GOAL_COINS"
+msgstr "Dapatkan koin"
+
+msgid "GOAL_CAST"
+msgstr "Rapal skill"
+
+msgid "GOAL_WAITING"
+msgstr "Jelajahi untuk menemukan tujuan lain"
+
+msgid "STAT_POWER"
+msgstr "Kekuatan"
+
+msgid "INTRINSIC_POWER"
+msgstr "Intrinsik %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "Tingkat berikutnya dimulai dari 85% kekuatan intrinsik ^100 tingkat ini, sebelum bonus stok dan bonus luar."
+
+msgid "MAP_FARMING"
+msgstr "%s · %d titik · %d per titik · muncul ulang %s dtk"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "Jenis tahap akhir dikalahkan: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "Radius pandang kemah"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "Radius pandang pemain"
+
+msgid "UP_MAP_DETAIL"
+msgstr "Detail peta"
+
+msgid "UP_MOVEMENT"
+msgstr "Kecepatan gerak +10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "Jeda gabung otomatis −1 dtk"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "Buka klaim misi otomatis"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "Slot misi"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "Slot skill terpasang"
+
+msgid "UP_SKILL_DROP"
+msgstr "Peluang drop skill"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "Durasi hadiah offline"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "Koin offline per jam"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "Permata offline per jam"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "Buka drop senjata offline"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "Buka drop kostum offline"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "Buka perbekalan offline"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "Senjata offline per jam"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "Kostum offline per jam"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "Perbekalan offline per jam"
+
+msgid "MAP_LEGEND"
+msgstr "Area yang sudah kamu jelajahi tetap terlihat; area sekitar hanya terlihat saat kamu di sana. Kemah bisa terlihat dari jarak lebih jauh."
+
+msgid "MINIMAP"
+msgstr "Peta"
+
+msgid "SKILL_TUTORIAL"
+msgstr "Musuh elit membawa senjata, kostum, dan skill. Setiap drop diundi sendiri. Pasang skill dari inventarismu dan ketuk tombolnya untuk merapal."
+
+msgid "MAIN_0"
+msgstr "Kalahkan 5 musuh biasa"
+
+msgid "MAIN_1"
+msgstr "Pakai item pertamamu"
+
+msgid "MAIN_2"
+msgstr "Gabungkan sebuah salinan"
+
+msgid "MAIN_3"
+msgstr "Buka kemah tambahan"
+
+msgid "MAIN_4"
+msgstr "Kalahkan Manusia Salju · membuka Musim Dingin II"
+
+msgid "MAIN_5"
+msgstr "Pasang Penyembuhan"
+
+msgid "MAIN_6"
+msgstr "Tingkatkan detail peta"
+
+msgid "MAIN_7"
+msgstr "Dapatkan Ledakan Es"
+
+msgid "MAIN_8"
+msgstr "Buka Musim Panas I"
+
+msgid "MAIN_9"
+msgstr "Evolusikan sebuah item"
+
+msgid "MAIN_10"
+msgstr "Dapatkan 4 keluarga skill"
+
+msgid "MAIN_11"
+msgstr "Buka Musim Gugur I"
+
+msgid "MAIN_12"
+msgstr "Dapatkan keenam keluarga skill"
+
+msgid "MAIN_13"
+msgstr "Buka Musim Semi I"
+
+msgid "MAIN_14"
+msgstr "Selesaikan satu prestise"
+
+msgid "MAIN_15"
+msgstr "Kumpulkan semua kunci bos dan taklukkan Musim Semi II"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "Jeda Penyembuhan"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "Jeda Es"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "Jeda Api"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "Jeda Petir"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "Jeda Fokus"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "Jeda Serangan"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "Buka rapal otomatis · slot 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "Buka rapal otomatis · slot 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "Buka rapal otomatis · slot 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "Penyembuhan"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "Penyembuhan"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "Penyembuhan"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "Penyembuhan"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "Penyembuhan"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "Penyembuhan"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "Penyembuhan"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "Ledakan Es"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "Ledakan Es"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "Ledakan Es"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "Ledakan Es"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "Ledakan Es"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "Ledakan Es"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "Ledakan Es"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "Ledakan Api"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "Ledakan Api"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "Ledakan Api"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "Ledakan Api"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "Ledakan Api"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "Ledakan Api"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "Ledakan Api"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "Sambaran Petir"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "Sambaran Petir"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "Sambaran Petir"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "Sambaran Petir"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "Sambaran Petir"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "Sambaran Petir"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "Sambaran Petir"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "Fokus Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "Fokus Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "Fokus Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "Fokus Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "Fokus Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "Fokus Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "Fokus Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "Serangan Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "Serangan Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "Serangan Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "Serangan Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "Serangan Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "Serangan Arkana"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "Serangan Arkana"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "Kostum Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "Kostum Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "Kostum Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "Kostum Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "Kostum Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "Kostum Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "Kostum Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "Pedang Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "Pedang Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "Pedang Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "Pedang Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "Pedang Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "Pedang Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "Pedang Topi Biru"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "Kostum Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "Kostum Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "Kostum Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "Kostum Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "Kostum Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "Kostum Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "Kostum Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "Pedang Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "Pedang Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "Pedang Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "Pedang Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "Pedang Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "Pedang Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "Pedang Syal Merah"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "Kostum Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "Kostum Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "Kostum Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "Kostum Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "Kostum Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "Kostum Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "Kostum Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "Pedang Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "Pedang Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "Pedang Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "Pedang Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "Pedang Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "Pedang Topi Koki"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "Pedang Topi Koki"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "Kostum Manusia Salju"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "Kostum Manusia Salju"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "Kostum Manusia Salju"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "Kostum Manusia Salju"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "Kostum Manusia Salju"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "Kostum Manusia Salju"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "Kostum Manusia Salju"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "Kostum Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "Kostum Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "Kostum Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "Kostum Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "Kostum Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "Kostum Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "Kostum Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "Pedang Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "Pedang Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "Pedang Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "Pedang Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "Pedang Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "Pedang Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "Pedang Tudung Serigala"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "Kostum Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "Kostum Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "Kostum Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "Kostum Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "Kostum Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "Kostum Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "Kostum Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "Pedang Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "Pedang Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "Pedang Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "Pedang Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "Pedang Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "Pedang Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "Pedang Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "Kostum Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "Kostum Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "Kostum Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "Kostum Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "Kostum Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "Kostum Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "Kostum Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "Pedang Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "Pedang Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "Pedang Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "Pedang Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "Pedang Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "Pedang Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "Pedang Mahkota Emas"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "Kostum Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "Kostum Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "Kostum Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "Kostum Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "Kostum Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "Kostum Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "Kostum Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "Pedang Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "Pedang Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "Pedang Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "Pedang Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "Pedang Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "Pedang Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "Pedang Tanduk Rusa Kutub"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "Kostum Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "Kostum Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "Kostum Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "Kostum Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "Kostum Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "Kostum Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "Kostum Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "Pedang Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "Pedang Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "Pedang Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "Pedang Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "Pedang Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "Pedang Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "Pedang Topi Sinterklas"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "Kostum Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "Kostum Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "Kostum Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "Kostum Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "Kostum Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "Kostum Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "Kostum Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "Pedang Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "Pedang Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "Pedang Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "Pedang Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "Pedang Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "Pedang Helm Antariksa"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "Pedang Helm Antariksa"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "Kostum Robot Sian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "Kostum Robot Sian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "Kostum Robot Sian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "Kostum Robot Sian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "Kostum Robot Sian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "Kostum Robot Sian"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "Kostum Robot Sian"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "Kostum Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "Kostum Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "Kostum Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "Kostum Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "Kostum Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "Kostum Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "Kostum Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "Pedang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "Pedang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "Pedang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "Pedang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "Pedang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "Pedang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "Pedang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "Kostum Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "Kostum Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "Kostum Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "Kostum Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "Kostum Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "Kostum Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "Kostum Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "Pedang Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "Pedang Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "Pedang Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "Pedang Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "Pedang Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "Pedang Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "Pedang Kacamata Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "Kostum Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "Kostum Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "Kostum Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "Kostum Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "Kostum Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "Kostum Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "Kostum Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "Pedang Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "Pedang Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "Pedang Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "Pedang Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "Pedang Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "Pedang Topi Kuning"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "Pedang Topi Kuning"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "Kostum Kucing Abu-abu"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "Kostum Kucing Abu-abu"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "Kostum Kucing Abu-abu"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "Kostum Kucing Abu-abu"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "Kostum Kucing Abu-abu"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "Kostum Kucing Abu-abu"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "Kostum Kucing Abu-abu"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "Kostum Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "Kostum Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "Kostum Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "Kostum Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "Kostum Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "Kostum Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "Kostum Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "Pedang Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "Pedang Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "Pedang Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "Pedang Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "Pedang Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "Pedang Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "Pedang Bandana Koboi"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "Kostum Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "Kostum Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "Kostum Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "Kostum Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "Kostum Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "Kostum Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "Kostum Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "Pedang Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "Pedang Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "Pedang Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "Pedang Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "Pedang Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "Pedang Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "Pedang Pelampung Bebek"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "Kostum Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "Kostum Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "Kostum Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "Kostum Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "Kostum Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "Kostum Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "Kostum Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "Pedang Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "Pedang Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "Pedang Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "Pedang Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "Pedang Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "Pedang Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "Pedang Badut Pelangi"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "Kostum Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "Kostum Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "Kostum Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "Kostum Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "Kostum Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "Kostum Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "Kostum Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "Pedang Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "Pedang Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "Pedang Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "Pedang Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "Pedang Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "Pedang Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "Pedang Perenang Topi Merah"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "Kostum Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "Kostum Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "Kostum Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "Kostum Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "Kostum Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "Kostum Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "Kostum Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "Pedang Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "Pedang Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "Pedang Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "Pedang Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "Pedang Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "Pedang Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "Pedang Penyelam Snorkel"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "Kostum Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "Kostum Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "Kostum Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "Kostum Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "Kostum Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "Kostum Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "Kostum Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "Pedang Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "Pedang Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "Pedang Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "Pedang Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "Pedang Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "Pedang Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "Pedang Perenang Topi Jerami"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "Kostum Dinosaurus"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "Kostum Dinosaurus"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "Kostum Dinosaurus"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "Kostum Dinosaurus"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "Kostum Dinosaurus"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "Kostum Dinosaurus"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "Kostum Dinosaurus"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "Kostum Dinosaurus Toska"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "Kostum Dinosaurus Toska"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "Kostum Dinosaurus Toska"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "Kostum Dinosaurus Toska"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "Kostum Dinosaurus Toska"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "Kostum Dinosaurus Toska"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "Kostum Dinosaurus Toska"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "Kostum Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "Kostum Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "Kostum Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "Kostum Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "Kostum Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "Kostum Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "Kostum Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "Pedang Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "Pedang Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "Pedang Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "Pedang Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "Pedang Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "Pedang Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "Pedang Topi Hitam"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "Kostum Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "Kostum Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "Kostum Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "Kostum Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "Kostum Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "Kostum Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "Kostum Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "Pedang Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "Pedang Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "Pedang Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "Pedang Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "Pedang Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "Pedang Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "Pedang Topi Jamur"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "Kostum Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "Kostum Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "Kostum Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "Kostum Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "Kostum Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "Kostum Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "Kostum Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "Pedang Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "Pedang Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "Pedang Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "Pedang Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "Pedang Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "Pedang Kepala Labu"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "Pedang Kepala Labu"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "Kostum Tupai"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "Kostum Tupai"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "Kostum Tupai"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "Kostum Tupai"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "Kostum Tupai"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "Kostum Tupai"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "Kostum Tupai"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "Kostum Rubah Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "Kostum Rubah Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "Kostum Rubah Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "Kostum Rubah Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "Kostum Rubah Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "Kostum Rubah Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "Kostum Rubah Merah"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "Kostum Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "Kostum Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "Kostum Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "Kostum Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "Kostum Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "Kostum Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "Kostum Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "Pedang Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "Pedang Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "Pedang Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "Pedang Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "Pedang Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "Pedang Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "Pedang Tudung Bertanduk"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "Kostum Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "Kostum Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "Kostum Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "Kostum Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "Kostum Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "Kostum Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "Kostum Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "Pedang Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "Pedang Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "Pedang Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "Pedang Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "Pedang Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "Pedang Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "Pedang Helm Layar Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "Kostum Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "Kostum Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "Kostum Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "Kostum Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "Kostum Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "Kostum Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "Kostum Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "Pedang Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "Pedang Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "Pedang Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "Pedang Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "Pedang Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "Pedang Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "Pedang Kepala Televisi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "Kostum Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "Kostum Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "Kostum Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "Kostum Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "Kostum Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "Kostum Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "Kostum Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "Pedang Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "Pedang Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "Pedang Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "Pedang Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "Pedang Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "Pedang Topi Tinggi"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "Pedang Topi Tinggi"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "Kostum Kucing Hitam"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "Kostum Kucing Hitam"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "Kostum Kucing Hitam"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "Kostum Kucing Hitam"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "Kostum Kucing Hitam"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "Kostum Kucing Hitam"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "Kostum Kucing Hitam"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "Kostum Malaikat Maut"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "Kostum Malaikat Maut"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "Kostum Malaikat Maut"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "Kostum Malaikat Maut"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "Kostum Malaikat Maut"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "Kostum Malaikat Maut"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "Kostum Malaikat Maut"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "Kostum Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "Kostum Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "Kostum Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "Kostum Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "Kostum Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "Kostum Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "Kostum Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "Pedang Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "Pedang Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "Pedang Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "Pedang Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "Pedang Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "Pedang Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "Pedang Telinga Kelinci"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "Kostum Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "Kostum Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "Kostum Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "Kostum Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "Kostum Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "Kostum Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "Kostum Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "Pedang Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "Pedang Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "Pedang Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "Pedang Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "Pedang Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "Pedang Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "Pedang Telinga Kucing"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "Kostum Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "Kostum Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "Kostum Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "Kostum Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "Kostum Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "Kostum Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "Kostum Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "Pedang Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "Pedang Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "Pedang Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "Pedang Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "Pedang Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "Pedang Telinga Peri"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "Pedang Telinga Peri"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "Kostum Lebah"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "Kostum Lebah"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "Kostum Lebah"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "Kostum Lebah"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "Kostum Lebah"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "Kostum Lebah"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "Kostum Lebah"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "Kostum Kucing Belang Oranye"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "Kostum Kucing Belang Oranye"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "Kostum Kucing Belang Oranye"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "Kostum Kucing Belang Oranye"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "Kostum Kucing Belang Oranye"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "Kostum Kucing Belang Oranye"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "Kostum Kucing Belang Oranye"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "Kostum Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "Kostum Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "Kostum Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "Kostum Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "Kostum Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "Kostum Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "Kostum Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "Pedang Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "Pedang Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "Pedang Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "Pedang Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "Pedang Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "Pedang Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "Pedang Mahkota Bunga"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "Kostum Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "Kostum Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "Kostum Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "Kostum Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "Kostum Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "Kostum Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "Kostum Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "Pedang Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "Pedang Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "Pedang Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "Pedang Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "Pedang Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "Pedang Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "Pedang Topi Hijau"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "Kostum Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "Kostum Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "Kostum Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "Kostum Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "Kostum Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "Kostum Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "Kostum Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "Pedang Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "Pedang Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "Pedang Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "Pedang Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "Pedang Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "Pedang Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "Pedang Topi Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "Kostum Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "Kostum Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "Kostum Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "Kostum Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "Kostum Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "Kostum Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "Kostum Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "Pedang Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "Pedang Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "Pedang Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "Pedang Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "Pedang Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "Pedang Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "Pedang Tudung Bunga Merah Muda"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "Kostum Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "Kostum Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "Kostum Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "Kostum Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "Kostum Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "Kostum Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "Kostum Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "Pedang Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "Pedang Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "Pedang Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "Pedang Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "Pedang Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "Pedang Polos"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "Pedang Polos"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "Kostum Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "Kostum Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "Kostum Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "Kostum Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "Kostum Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "Kostum Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "Kostum Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "Pedang Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "Pedang Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "Pedang Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "Pedang Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "Pedang Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "Pedang Tunas"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "Pedang Tunas"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "Kostum Panda Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "Kostum Panda Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "Kostum Panda Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "Kostum Panda Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "Kostum Panda Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "Kostum Panda Merah"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "Kostum Panda Merah"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "Kostum Bunga Matahari"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "Kostum Bunga Matahari"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "Kostum Bunga Matahari"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "Kostum Bunga Matahari"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "Kostum Bunga Matahari"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "Kostum Bunga Matahari"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "Kostum Bunga Matahari"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "Kostum Alien Hijau"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "Kostum Alien Hijau"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "Kostum Alien Hijau"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "Kostum Alien Hijau"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "Kostum Alien Hijau"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "Kostum Alien Hijau"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "Kostum Alien Hijau"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "Penyembuhan"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "Ledakan Es"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "Ledakan Api"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "Sambaran Petir"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "Fokus Arkana"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "Serangan Arkana"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "Topi Biru"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "Syal Merah"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "Topi Koki"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "Manusia Salju"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "Tudung Serigala"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "Tudung Kucing Belang Tiga"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "Mahkota Emas"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "Tanduk Rusa Kutub"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "Topi Sinterklas"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "Helm Antariksa"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "Robot Sian"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "Topi Jerami"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "Kacamata Hitam"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "Topi Kuning"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "Kucing Abu-abu"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "Bandana Koboi"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "Pelampung Bebek"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "Badut Pelangi"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "Perenang Topi Merah"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "Penyelam Snorkel"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "Perenang Topi Jerami"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "Dinosaurus"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "Dinosaurus Toska"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "Topi Hitam"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "Topi Jamur"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "Kepala Labu"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "Tupai"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "Rubah Merah"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "Tudung Bertanduk"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "Helm Layar Oranye"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "Kepala Televisi"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "Topi Tinggi"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "Kucing Hitam"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "Malaikat Maut"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "Telinga Kelinci"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "Telinga Kucing"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "Telinga Peri"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "Lebah"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "Kucing Belang Oranye"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "Mahkota Bunga"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "Topi Hijau"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "Topi Merah Muda"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "Tudung Bunga Merah Muda"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "Polos"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "Tunas"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "Panda Merah"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "Bunga Matahari"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "Alien Hijau"
+
+msgid "CONTENT_STAGES_1"
+msgstr "Musim Dingin I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "Musim Dingin II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "Musim Panas I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "Musim Panas II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "Musim Gugur I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "Musim Gugur II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "Musim Semi I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "Musim Semi II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "Buruan pertama"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "Kalahkan Manusia Salju (bos Musim Dingin I) 10 kali"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "Buruan musim panas"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "Kalahkan Kucing Abu-abu (bos Musim Panas I) 20 kali"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "Buruan musim gugur"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "Kalahkan Malaikat Maut (bos Musim Gugur II) 30 kali"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "Rute musim dingin"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "Di Musim Dingin I, berurutan: kalahkan 100 Topi Biru, lalu 100 Syal Merah, lalu 100 Topi Koki"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "Rute musim panas"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "Di Musim Panas I, berurutan: kalahkan 150 Topi Jerami, lalu 150 Kacamata Hitam, lalu 150 Topi Kuning"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "Rute musim semi"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "Di Musim Semi I, berurutan: kalahkan 200 Telinga Kelinci, lalu 200 Telinga Kucing, lalu 200 Telinga Peri"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "Koleksi musim dingin"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "Ambil masing-masing 21 kostum Topi Biru, Syal Merah, dan Topi Koki (drop Musim Dingin I). Tombol Serahkan mengambil 20 dari tiap kostum dan satu tetap milikmu"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "Koleksi musim panas"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "Ambil masing-masing 31 kostum Topi Jerami, Kacamata Hitam, dan Topi Kuning (drop Musim Panas I). Tombol Serahkan mengambil 30 dari tiap kostum dan satu tetap milikmu"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "Koleksi musim semi"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "Ambil masing-masing 41 kostum Telinga Kelinci, Telinga Kucing, dan Telinga Peri (drop Musim Semi I). Tombol Serahkan mengambil 40 dari tiap kostum dan satu tetap milikmu"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "Mahakarya pertama"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "Gabungkan senjata, kostum, atau skill apa pun sampai ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "Tingkat kedua"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "Gabungkan item tingkat 2 atau lebih tinggi sampai ^100 (tingkat 2 jatuh mulai Musim Panas I, atau evolusikan senjata)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "Tingkat ketiga"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "Gabungkan item tingkat 3 atau lebih tinggi sampai ^100 (tingkat 3 jatuh mulai Musim Gugur I, atau evolusikan senjata dua kali)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "Perlengkapan berpasangan"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "Gabungkan satu senjata dan satu kostum sampai ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "Gudang senjata luas"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "Gabungkan 3 senjata berbeda dan 3 kostum berbeda sampai ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "Gudang senjata berevolusi"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "Gabungkan 3 senjata tingkat 2+ berbeda dan 3 kostum tingkat 2+ berbeda sampai ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "Penguasaan musim dingin"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "Di Musim Dingin I dan Musim Dingin II: jelajahi 90% tiap peta, kalahkan kedua bos, dan buka semua kemah"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "Penguasaan musim panas"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "Di Musim Panas I dan Musim Panas II: jelajahi 90% tiap peta, kalahkan ketiga bos, dan buka semua kemah"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "Penguasaan musim semi"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "Di Musim Semi I dan Musim Semi II: jelajahi 90% tiap peta, kalahkan kelima bos, dan buka semua kemah"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "Musim dingin tanpa bantuan"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "Kalahkan Robot Sian (bos Musim Dingin II) tanpa memakai perbekalan apa pun selama pertarungan"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "Musim panas tanpa bantuan"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "Kalahkan Dinosaurus Toska (bos Musim Panas II) tanpa memakai perbekalan apa pun selama pertarungan"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "Musim gugur tanpa bantuan"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "Kalahkan Malaikat Maut (bos Musim Gugur II) tanpa memakai perbekalan apa pun selama pertarungan"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "Persembahan kecil"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "Dapatkan 2K koin dan 30 permata dari musuh di putaran ini, lalu serahkan lewat tombol Serahkan"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "Persembahan tumbuh"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "Dapatkan 20K koin dan 100 permata dari musuh di putaran ini, lalu serahkan lewat tombol Serahkan"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "Persembahan agung"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "Dapatkan 100K koin dan 300 permata dari musuh di putaran ini, lalu serahkan lewat tombol Serahkan"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "Rantai pendek"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "Berurutan: kalahkan 100 musuh, ambil 10 drop senjata atau kostum, lalu gabungkan 10 kali"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "Rantai panjang"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "Berurutan: kalahkan 250 musuh, kalahkan 3 bos, gabungkan 25 kali, lalu rapal 30 skill"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "Rantai master"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "Berurutan: kalahkan 500 musuh, kalahkan 10 bos, gabungkan 50 kali, lalu klaim 3 misi biasa"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "Trofi musim dingin"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "Setelah menemukan ini, kalahkan Manusia Salju (Musim Dingin I) dan Robot Sian (Musim Dingin II) masing-masing sekali"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "Trofi musim panas"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "Setelah menemukan ini, kalahkan Kucing Abu-abu (Musim Panas I), Dinosaurus, dan Dinosaurus Toska (Musim Panas II) masing-masing sekali"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "Trofi musim gugur"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "Setelah menemukan ini, kalahkan Tupai dan Rubah Merah (Musim Gugur I), Kucing Hitam dan Malaikat Maut (Musim Gugur II) masing-masing sekali"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "Waktu jauh"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "Tinggalkan game total selama 72 jam"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "Istirahat panjang"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "Tinggalkan game selama 24 jam berturut-turut"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "Penghasilan offline"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "Dapatkan 10K koin saat pergi (klaim hadiah Selamat datang kembali)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "+20% EXP dari bos"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "+10% kecepatan gerak"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "+50% jangkauan ambil otomatis"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "+10% statistik dasar perlengkapan yang dipakai"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "+10% HP maksimum"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "+25% radius penjelajahan di sekitarmu"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "+10% damage terhadap bos"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "+10% koin dari setiap musuh"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "+25% koin dari misi"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "+25% permata dari bos"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "+25% koin offline per jam"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "Bangkit 2 detik lebih cepat (minimal 2 dtk)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "+15% koin dari musuh biasa"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "+10% statistik yang didapat dari setiap penggabungan"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "+10% damage terhadap bos"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "+25% laju item offline"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "+10% HP maksimum"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "Pembantai Raksasa"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "+25% damage terhadap bos"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "Perisai Bos"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "Terima 20% lebih sedikit damage dari bos"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "Hadiah Buruan"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "+100% koin dari bos"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "Pelacak"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "+20% damage terhadap musuh biasa"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "Koin Jalanan"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "+30% koin dari musuh biasa"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "Pelajaran Jalanan"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "+30% EXP dari musuh biasa"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "Pengumpul Teliti"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "+100% jangkauan ambil otomatis"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "Untung Perlengkapan"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "+3 poin peluang drop perlengkapan"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "Untung Perbekalan"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "+5 poin peluang drop perbekalan"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "Kerajinan Halus"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "+25% statistik yang didapat dari setiap penggabungan"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "Ahli Acak Ulang"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "Acak ulang butuh 50% lebih sedikit permata"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "Fondasi Kokoh"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "+20% statistik dasar senjata dan kostum yang kamu pakai"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "Cadangan Zirah"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "+20% HP maksimum"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "Latihan Senjata"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "+15% damage dari serangan dan skill"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "Perlengkapan Seimbang"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "Terima 10% lebih sedikit damage dari setiap musuh"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "Penjelajah"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "+15% kecepatan gerak"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "Pandangan Jauh"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "+50% radius penjelajahan di sekitarmu"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "Survei Kemah"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "Kemah 50% lebih murah"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "Presisi"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "+15 poin peluang serangan kritis"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "Tekad"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "Pulihkan 5% dari damage yang kamu berikan"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "Pukulan Keras"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "Serangan kritis memberi +75% damage lebih besar"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "Kebijakan Koin"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "+25% koin dari setiap musuh"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "Kebijakan Permata"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "+5 poin peluang drop permata"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "Belanja Bijak"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "Peningkatan koin 15% lebih murah"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "Koin Misi"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "+50% koin dari misi"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "Permata Misi"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "+50% permata dari misi"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "Latihan Terfokus"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "+25% damage skill, penyembuhan, dan Fokus"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "Pemburu Trofi"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "+50% EXP dari bos"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "Kekuatan Trofi"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "+20% damage terhadap bos"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "Permata Trofi"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "+50% permata dari bos"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "Koin Tenang"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "+50% koin offline per jam"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "Permata Tenang"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "+50% permata offline per jam"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "Temuan Tenang"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "+50% laju item offline"
+
+msgid "CHAIN_PROGRESS"
+msgstr "Langkah %d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "Simpanan pengembangan direset untuk pembaruan ini. Progres baru bisa disimpan."
+
+msgid "HEAL_ROLE"
+msgstr "Penopang: %s HP sekarang, tiap %s dtk. Gratis dirapal; maksimal 12%% HP maksimum. Ramuan memberi penyembuhan darurat yang lebih kuat."
+
+msgid "REGULAR_MISSIONS"
+msgstr "Tugas berburu"
+
+msgid "GUIDE_CHOOSE"
+msgstr "Seberapa banyak panduan yang kamu mau?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "Terpandu"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "Dasar"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "Tanpa"
+
+msgid "GUIDE_REVIEW"
+msgstr "Pilih panduan lagi"
+
+msgid "GUIDE_GOT_IT"
+msgstr "Mengerti"
+
+msgid "GUIDE_MOVE"
+msgstr "Ikuti jalan di sebelah kirimu."
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "Seret joystick yang bercahaya ke arah panah. Musuh pertama menunggu di sepanjang jalan."
+
+msgid "GUIDE_KILL"
+msgstr "Berhenti di dekat musuh untuk menyerang"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "Diam sebentar dan kamu menyerang otomatis. Musuh musim dingin hanya membalas."
+
+msgid "GUIDE_COLLECT"
+msgstr "Ketuk item yang jatuh"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "Jarahan tetap di tanah untuk sementara. Koin dan permata ditambahkan otomatis."
+
+msgid "GUIDE_EQUIP"
+msgstr "Ketuk item barumu"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "Detail item membandingkannya dengan yang sedang kamu pakai."
+
+msgid "GUIDE_MERGE"
+msgstr "Buka item yang kamu punya dua"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "Menggabungkan salinan membuat item itu lebih kuat secara permanen."
+
+msgid "GUIDE_UPGRADE"
+msgstr "Ketuk Peningkatan untuk musuh ini"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "Setiap jenis musuh punya peningkatan sendiri untuk jarahan, koin, dan pengalaman."
+
+msgid "GUIDE_CAMP"
+msgstr "Buka Dunia untuk membuka kemah"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "Kamu menemukan kemah dan koinmu cukup. Buka Dunia, atau jalan ke kemah lalu ketuk Lihat Kemah."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "Jalan, bertarung, ambil"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "Seret joystick di bagian bawah peta untuk berjalan. Lepaskan dan pahlawanmu melawan musuh di dekatnya. Ketuk jarahan untuk mengambilnya."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "Musuh ini menyadari kehadiranmu"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "Musuh Musim Dingin II menyerang saat kamu mendekat. Dekati satu per satu."
+
+msgid "GUIDE_SKILLS"
+msgstr "Skill mendukung perlengkapanmu"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "Ketuk skill yang terpasang untuk merapalnya. Penyembuhan bekerja stabil; ramuan memulihkan lebih banyak sekaligus."
+
+msgid "GUIDE_GROUPS"
+msgstr "Beberapa musuh kini memanggil sekutu"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "Musuh musim panas membantu sekutu sejenis di dekatnya. Perhatikan HP-mu."
+
+msgid "PRESTIGE_GATE"
+msgstr "Taklukkan musim dingin dulu: kalahkan Robot Sian untuk mencapai Musim Panas I."
+
+msgid "NAV_PRESTIGE"
+msgstr "Prestise"
+
+msgid "PANEL_WORLD"
+msgstr "Dunia"
+
+msgid "TAB_OFFLINE"
+msgstr "Offline"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "Buka peningkatan ini dengan tombol Peningkatan atau dengan mengetuk karaktermu."
+
+msgid "HUD_RESTING"
+msgstr "· Beristirahat"
+
+msgid "ITEM_PREVIOUS"
+msgstr "Item sebelumnya"
+
+msgid "ITEM_NEXT"
+msgstr "Item berikutnya"
+
+msgid "ITEM_POSITION"
+msgstr "%d dari %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "Jika dipakai: %s"
+
+msgid "NO_CHANGE"
+msgstr "tidak berubah"
+
+msgid "EQUIPPED_NOW"
+msgstr "Dipakai sekarang: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "Belum ada yang dipakai di slot ini."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "Dipakai: statistik penuh"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "Disimpan: 30% statistiknya"
+
+msgid "UPGRADE_LEVEL"
+msgstr "Level %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "Bos"
+
+msgid "ENEMY_KILLS"
+msgstr "Dikalahkan: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "Kemah bangkit"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "Terbuka"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "Terkunci · %s koin"
+
+msgid "SECTION_CAMPS"
+msgstr "Kemah"
+
+msgid "CAMPS_HIDDEN"
+msgstr "%d kemah lagi menunggu ditemukan lewat penjelajahan."
+
+msgid "SECTION_TRAVEL"
+msgstr "Pergi ke tahap lain"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "Peningkatan peta"
+
+msgid "SECTION_DANGER"
+msgstr "Zona berbahaya"
+
+msgid "CAMP_UNLOCK"
+msgstr "Buka"
+
+msgid "CAMP_SELECT"
+msgstr "Bangkit di sini"
+
+msgid "CAMP_TRAVEL"
+msgstr "Pergi"
+
+msgid "CARD_OWNED"
+msgstr "Dimiliki"
+
+msgid "CARD_SELECTED"
+msgstr "Dipilih"
+
+msgid "CARD_LOCKED"
+msgstr "Belum didapat"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "Siap"
+
+msgid "PRESTIGE_INTRO"
+msgstr "Selesaikan peluang untuk mendapatkan kartu permanen. Prestise menukarkan semua yang siap sekaligus dan memulai putaran baru."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "Siap: %d  ·  Kartu dimiliki: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "Belum ada peluang yang ditemukan. Kalahkan bos, gabungkan item, dan jelajahi untuk menemukannya."
+
+msgid "NO_CARDS_YET"
+msgstr "Belum ada kartu."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "Tukarkan %d peluang yang siap: %s.\n\nKamu memilih satu kartu permanen untuk masing-masing, lalu putaran dimulai ulang sekali.\n\nTetap: kartu, kunci bos, pencapaian, peningkatan permata, otomatisasi, pengaturan.\nDireset: koin, item, level, kemah, penjelajahan peta, peningkatan koin, dan tantangan yang belum selesai."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "Pilih hadiah · %d dari %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "Sudah dipilih: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "Yang tetap kamu miliki"
+
+msgid "PRESTIGE_KEEP"
+msgstr "Kartu dan set, Permatamu, area peta yang dijelajahi, setiap peningkatan yang dibeli dengan permata (semua kategori), otomatisasi, kapasitas inventaris, kunci bos, pencapaian musuh, level pemain dan EXP, Penguasaan Peta, serta pengaturan."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "Yang direset di putaran ini"
+
+msgid "PRESTIGE_RESET"
+msgstr "Koin, item (termasuk stok perbekalan) dan gabungannya, Penguasaan Perbekalan, akses peta dan kemah yang dimiliki, peningkatan peta dan koin, serta tantangan yang belum selesai."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "Simpan %s"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "Ketuk kartu untuk memilihnya"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "Simpan %s secara permanen? Ini pilihan terakhir: putaran baru langsung dimulai setelahnya."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "Peluang prestise ditemukan!"
+
+msgid "MILESTONE_READY"
+msgstr "Peluang selesai!"
+
+msgid "MILESTONE_CARD"
+msgstr "Kartu didapat: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "Putaran baru dimulai"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "%d kartu permanen ditambahkan ke koleksimu."
+
+msgid "MILESTONE_STAGE"
+msgstr "Tahap baru terbuka"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "Set Pemburu Bos"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "Set Ekspedisi"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "Set Koleksi"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "Set Mahakarya"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "Set Gudang Senjata"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "Set Wilayah"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "Set Tantangan"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "Set Persembahan"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "Set Spesialis"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "Set Trofi"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "Set Offline"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "Penjelajah Siaga"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "Petani Tekun"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "Perjalanan Perajin"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "Spesialis Bos"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "Kolektor Sabar"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "Pertumbuhan Seimbang"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "Terus kalahkan musuh"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "Senjata atau kostum pertamamu akan jatuh setelah beberapa kemenangan."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "Ketuk Pakai"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "Perlengkapan yang dipakai memberi statistik penuh. Perlengkapan yang disimpan tetap memberi 30%."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "Ketuk Gabungkan"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "Setiap penggabungan memakai satu salinan cadangan dan menaikkan level item."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "Kumpulkan salinan kedua"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "Salinan yang sama akan jatuh setelah beberapa kemenangan lagi."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "Temukan musuh dulu"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "Dekati musuh agar peningkatannya tersedia."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "Kumpulkan koin untuk peningkatan"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "Butuh %s koin lagi. Setiap musuh yang kalah menjatuhkan koin."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "Buka tab Peningkatan"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "Peningkatan untuk jenis musuh ini ada di sana."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "Beli peningkatan"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "Peluang jarahan yang lebih baik adalah pilihan pertama yang bagus."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "Jelajahi untuk menemukan kemah lain"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "Berjalanlah ke dalam kabut. Kemah muncul begitu kamu mengungkapnya."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "Kumpulkan koin untuk kemah"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "Butuh %s koin lagi. Terus kalahkan musuh."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "Ketuk Buka"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "Kemah menjadi titik bangkit dan mengungkap daerah di sekitarnya."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "Kemah terbuka"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "Gunakan Bangkit di sini untuk kembali ke sana setelah kalah. Beristirahat di samping kemah memulihkan dengan cepat."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "Peluang prestise ditemukan"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "Selesaikan untuk mendapat kartu permanen. Temukan Manusia Salju dulu; mode Terpandu juga mewajibkan tutorial selesai."
+
+msgid "GUIDE_REST"
+msgstr "HP menipis?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "Menjauhlah dari pertarungan. Beristirahat di samping kemah yang terbuka memulihkanmu dengan cepat."
+
+msgid "SECTION_REWARDS"
+msgstr "Hadiah"
+
+msgid "SECTION_AUTOMATION"
+msgstr "Otomatisasi"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "Terkunci"
+
+msgid "PROGRESS_MERGE"
+msgstr "Terbaik sejauh ini: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "Senjata di ^50: %d/%d · Kostum di ^50: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "Trofi: %d / %d (setiap bos menjatuhkan satu saat dikalahkan berikutnya)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "Progres: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "Menangkan pertarungan tanpa memakai ramuan atau tonik."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "Dijelajahi %s · bos %d/%d · kemah %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "Pedang Emas"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "Pedang Berlian"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "Pedang Zamrud"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "Pedang Obsidian"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "Kapak Kayu"
+
+msgid "ITEM_STONE_AXE"
+msgstr "Kapak Batu"
+
+msgid "ITEM_IRON_AXE"
+msgstr "Kapak Besi"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "Kapak Emas"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "Kapak Berlian"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "Kapak Zamrud"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "Kapak Obsidian"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "Temukan senjata atau kostum"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "Temuan tadi adalah perbekalan. Terus kalahkan musuh: kadang mereka menjatuhkan senjata atau kostum yang mereka pakai, dan itu mengisi slot perlengkapan yang kosong."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "Ambil perlengkapannya"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "Sebuah senjata atau kostum jatuh. Ketuk untuk memasukkannya ke slot perlengkapan."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "Hanya peluang yang sedang berjalan yang bisa diikuti."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "Taklukkan %s"
+
+msgid "MISSION_STATE_READY"
+msgstr "Siap diklaim"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ Diklaim"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "Tujuan selesai (%d) · %s"
+
+msgid "SHOW"
+msgstr "Tampilkan"
+
+msgid "HIDE"
+msgstr "Sembunyikan"
+
+msgid "PLAYTIME_LINE"
+msgstr "Waktu bermain: %s · Putaran ini: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "Selamat datang kembali!"
+
+msgid "OFFLINE_AWAY"
+msgstr "Pergi %s · %s jam berhadiah"
+
+msgid "OFFLINE_CLAIM"
+msgstr "Klaim hasil offline"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "Hasil offline diklaim"
+
+msgid "OFFLINE_NOTHING"
+msgstr "Tidak ada hasil offline yang menunggu."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "Hasil offline menunggu untuk diklaim."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "Klaim terakhir: %s jam berhadiah · %s koin · %s permata"
+
+msgid "NAV_UPGRADES"
+msgstr "Peningkatan"
+
+msgid "STATS_OPEN"
+msgstr "Statistik"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "Peningkatan baru terbuka: %s (Peningkatan Pemain)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "Temukan Manusia Salju di Musim Dingin I (bos pertama) untuk membuka reset Prestise."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "Temukan Manusia Salju"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "Kamu sudah memiliki semua kartu yang bisa diberikan peluang-peluang siap ini."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "Temukan dulu titik ini di peta."
+
+msgid "EQUIPPED_PINNED"
+msgstr "Dipakai"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "Senjata"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "Kostum"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "Slot kosong"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "DIPAKAI"
+
+msgid "COMPARE_SELECTED"
+msgstr "DIPILIH"
+
+msgid "COMPARE_ITEM"
+msgstr "ITEM"
+
+msgid "COMPARE_UPGRADE"
+msgstr "Lebih baik"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "Lebih buruk"
+
+msgid "COMPARE_MIXED"
+msgstr "Untung-rugi"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "Tingkat %d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "Tumbuh dengan menggabungkan salinannya sendiri, hingga ^%d. Item ini tidak pernah berubah menjadi item lain; setelah ^100 tiap penggabungan menambah sedikit lebih kecil."
+
+msgid "FOLLOW_READY"
+msgstr "Siap! Buka Prestise untuk memilih kartu"
+
+msgid "FOLLOW_STEP"
+msgstr "Langkah %d/%d · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "Kalahkan %s: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "Kalahkan %s tanpa memakai perbekalan apa pun selama pertarungan: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "Klaim misi"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "Karakter"
+
+msgid "STATS_LEVEL"
+msgstr "Level"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "Tahap"
+
+msgid "STATS_PRESTIGES"
+msgstr "Prestise selesai"
+
+msgid "STATS_CARDS"
+msgstr "Kartu prestise"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "Serangan"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "Kecepatan serang"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s/dtk (+%s%%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "Pertahanan dan pemulihan"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (−%s%% damage)"
+
+msgid "STATS_RESPAWN"
+msgstr "Waktu bangkit"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "Peningkat"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "Pengali prestise"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "HP ×%s · Damage ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "Kecepatan gerak"
+
+msgid "STATS_STORED_SHARE"
+msgstr "Kontribusi perlengkapan simpanan"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "Bonus perlengkapan dipakai"
+
+msgid "STATS_SECTION_TIME"
+msgstr "Waktu bermain"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "Semua putaran"
+
+msgid "STATS_TIME_RUN"
+msgstr "Putaran ini"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "dmg"
+
+msgid "STATS_SHORT_HP"
+msgstr "HP"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "pert"
+
+msgid "STATS_SHORT_CRIT"
+msgstr "krit"
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "dmg krit"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "kcpt serang"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "curi nyawa"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "HP/dtk"
+
+msgid "CAMP_SIGHTED"
+msgstr "Kemah terlihat! Sekarang ada di petamu dan di panel Dunia."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "Bonus HP Kartu & Penguasaan"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "Bonus damage Kartu & Penguasaan"
+
+msgid "STAT_REGEN_PCT"
+msgstr "Pemulihan"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "HP maks/dtk"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "HP maks/dtk"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "%s%% HP maks/dtk (%s HP/dtk)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "Tonggak kostum (saat dipakai)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "Senjata %s%% · Kostum %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "Jaga +%s Pertahanan"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "+%s HP"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "+%s%% HP kostum"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "Pemulihan %s%% HP maks/dtk"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "Tonggak (saat dipakai): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "Tonggak: belum ada. Yang pertama terbuka di ^100."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "Semua tonggak tercapai (Penguasaan)."
+
+msgid "MILESTONE_NEXT"
+msgstr "Berikutnya di ^%d: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "Tumbuh dengan menggabungkan salinannya sendiri, hingga ^%d: +2%% HP dasar per salinan sampai ^100, lalu +1%% per salinan. Tidak pernah berubah menjadi item lain. Tonggak hanya aktif saat dipakai; saat disimpan, kostum menyumbang %s%% HP-nya."
+
+msgid "PANEL_LEVEL"
+msgstr "Level pemain & pertumbuhan"
+
+msgid "PANEL_FARMING"
+msgstr "Panduan farming"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "Ketuk untuk pertumbuhan level dan sumber statistik"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "Slot %d → %d dari %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "Slot %d / %d · maksimal"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · maksimal"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "Bos memberi %s permata per drop"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "Panduan farming"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "Prestise terkunci · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "Syarat reset Prestise"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "Temukan Manusia Salju di Musim Dingin I (bos pertama)"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "Minimal satu peluang siap yang bisa memberi kartu"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "temukan Manusia Salju"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "belum ada peluang yang siap"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "tidak ada kartu tersisa untuk diberikan"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "Sumber statistik lain"
+
+msgid "BREAKDOWN_HP"
+msgstr "Asal HP-mu"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "Asal damage-mu"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "Sebelum prestise"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "Kartu dan Penguasaan"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "Total (dipakai dalam pertarungan)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "Per serangan, tidak masuk total"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "Damage yang kamu terima"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "Level pemain (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "Perlengkapan simpanan (kostum %s%%, senjata %s%%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "Perlengkapan dipakai (termasuk kartu +%s%%)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "Tonggak kalahkan vs %s"
+
+msgid "PER_HIT_NORMAL"
+msgstr "Prestise vs musuh biasa"
+
+msgid "PER_HIT_BOSS"
+msgstr "Prestise vs bos"
+
+msgid "PER_HIT_FOCUS"
+msgstr "Fokus (sisa %d dtk)"
+
+msgid "TAKEN_GUARD"
+msgstr "Perlindungan prestise"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "Perlindungan prestise vs bos"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "Level %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "Level maksimum tercapai. Level tidak menambah apa-apa lagi."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s EXP · %s lagi untuk mencapai level %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "Pertumbuhan level"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "Setiap level (dasar)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "+%s HP · +%s damage"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "Dari %d level sejauh ini"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "HP di level %d"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "Damage di level %d"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "Kartu prestise mengalikan setiap sumber: HP ×%s, damage ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "Tempat farming tiap musuh dan apa yang dijatuhkannya. Entri sebuah peta terbuka setelah Detail Peta-nya maksimal dan Statistik serta Drop setiap jenis musuh di sana terungkap. Hanya titik yang sudah kamu temukan yang menunjukkan lokasinya."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "kamu di sini"
+
+msgid "FARMING_READY"
+msgstr "Entri terbuka"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "Buka"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "Detail Peta %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "Statistik & Drop %d/%d jenis"
+
+msgid "FARMING_LOCKED"
+msgstr "Butuh: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "%d peta lagi belum dicapai."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "Farming · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "Peluang sudah termasuk peningkatanmu saat ini. Arah dihitung dari kemah terdekat yang kamu ketahui di peta ini."
+
+msgid "FARMING_BACK"
+msgstr "Semua peta"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "Musuh belum ditemukan · jelajahi peta ini untuk menemukannya"
+
+msgid "FARMING_REWARDS"
+msgstr "Koin ×%s · Permata %s%% ×%s · EXP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "Perbekalan: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "Titik belum ditemukan"
+
+msgid "FARMING_DETAILS"
+msgstr "Detail"
+
+msgid "FARMING_AT_CAMP"
+msgstr "Di Kemah %d"
+
+msgid "FARMING_LOCATION"
+msgstr "%s Kemah %d · %s"
+
+msgid "COMPASS_N"
+msgstr "Sebelah utara"
+
+msgid "COMPASS_NE"
+msgstr "Sebelah timur laut"
+
+msgid "COMPASS_E"
+msgstr "Sebelah timur"
+
+msgid "COMPASS_SE"
+msgstr "Sebelah tenggara"
+
+msgid "COMPASS_S"
+msgstr "Sebelah selatan"
+
+msgid "COMPASS_SW"
+msgstr "Sebelah barat daya"
+
+msgid "COMPASS_W"
+msgstr "Sebelah barat"
+
+msgid "COMPASS_NW"
+msgstr "Sebelah barat laut"
+
+msgid "DISTANCE_NEAR"
+msgstr "dekat"
+
+msgid "DISTANCE_MID"
+msgstr "jalan sebentar"
+
+msgid "DISTANCE_FAR"
+msgstr "jauh"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "Hei! Kostumku!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "Senjataku!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "Buku sihirku!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "Perbekalanku!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "Tonik Penjaga"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "Salep Pemulihan"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "Tonik Kebijaksanaan"
+
+msgid "FOLLOW_COLLECT"
+msgstr "Langkah %d/%d · Kumpulkan %s dari %s: %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "Semua ditemukan! Serahkan: Prestise, lalu Serahkan"
+
+msgid "FILTERS"
+msgstr "Filter"
+
+msgid "FILTERS_ACTIVE"
+msgstr "Filter · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "Saring kisi perlengkapan. Menutup Filter menampilkan semua item lagi."
+
+msgid "PANEL_FILTERS"
+msgstr "Filter"
+
+msgid "FILTERS_HINT"
+msgstr "Selama Filter terbuka, kisi perlengkapan hanya menampilkan kategori ini. Menutupnya menampilkan semua item lagi."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "Slot perbekalan: satu per jenis perbekalan (%d jenis). Filter ada di samping jumlah perlengkapan."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "Setiap 3 kali benar-benar memakai perbekalan ini memberi satu level penguasaan, hingga ^%d. Pembelian dan drop hanya menambah stok. Prestise mereset penguasaan dan progres pemakaian."
+
+msgid "BUY_SUPPLY"
+msgstr "Beli %s · %s koin"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · sisa %d dtk"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "Aktif: %s · sisa %d dtk"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "Jeda · %s dtk"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "Siap dipakai"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "Pakai otomatis: saat HP %s%% atau kurang, setelah jeda"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "Pakai otomatis: kapan pun sedang tidak aktif"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "Pakai otomatis: saat bertarung, ketika tidak aktif"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "Pakai otomatis: saat HP %s%% atau kurang, ketika tidak aktif"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "Pakai otomatis: kapan pun sedang tidak aktif"
+
+msgid "SUPPLY_STOCK"
+msgstr "Stok: %s · tiap pemakaian menghabiskan satu"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "Salinan berikutnya ditemukan: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "Bonus penguasaan: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "durasi %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "jeda %s dtk"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "%s%% HP maks"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "+%s%% koin"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "+%s%% EXP"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "+%s Pertahanan"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "%s%% HP maks per detik"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "Memulihkan %s%% HP maks (%s HP sekarang) · jeda %s dtk · bisa dipakai di bawah %s%% HP"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "+%s%% koin dari musuh yang dikalahkan selama %s dtk"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "+%s Pertahanan (%s%% lebih sedikit damage diterima) selama %s dtk"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "Memulihkan %s%% HP maks per detik selama %s dtk (total %s%%) · bisa dipakai di bawah %s%% HP"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "+%s%% EXP dari musuh yang dikalahkan selama %s dtk"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "Penguasaan ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "Oto: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "HP-mu terlalu tinggi untuk perbekalan ini."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "Ramuan masih dalam jeda."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "Sudah aktif. Pakai lagi setelah habis."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "Setiap tiga pemakaian menaikkan Penguasaan Perbekalan. Prestise mereset penguasaan dan progres pemakaian."
+
+msgid "SOURCE_SUPPLY"
+msgstr "Perbekalan aktif"
+
+msgid "CAMP_TELEPORT"
+msgstr "Teleportasi"
+
+msgid "PANEL_TELEPORT"
+msgstr "Teleportasi"
+
+msgid "TELEPORT_TITLE"
+msgstr "Teleportasi"
+
+msgid "TELEPORT_HELP"
+msgstr "Pilih kemah lain milikmu, di peta ini atau di peta yang sudah kamu capai. Teleportasi tidak bisa dilakukan saat bertarung."
+
+msgid "TELEPORT_HERE"
+msgstr "Kamu di sini"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "Tujuan dipilih"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "Peta ini"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "Peta lain"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "Pilih"
+
+msgid "TELEPORT_BACK"
+msgstr "Kembali"
+
+msgid "TELEPORT_GO"
+msgstr "Teleportasi · %s · Kemah %d"
+
+msgid "TELEPORT_PICK"
+msgstr "Pilih tujuan"
+
+msgid "TELEPORT_NONE"
+msgstr "Belum ada kemah lain. Buka kemah lain untuk berteleportasi ke sana."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · Kemah %d"
+
+msgid "MAP_EXPLORED"
+msgstr "Peta Dijelajahi: %d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "Seberapa banyak peta ini yang sudah kamu jelajahi secara permanen. Penglihatan sesaat dan menggeser kamera tidak dihitung."
+
+msgid "SECTION_AUDIO"
+msgstr "Suara & musik"
+
+msgid "MUSIC_VOLUME"
+msgstr "Musik %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "Efek suara %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "Bisukan suara gameplay: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "Bisukan suara khusus: %s"
+
+msgid "AUDIO_HINT"
+msgstr "Suara gameplay: ketukan, pembelian, penggabungan, dan pertarungan. Suara khusus: notifikasi (misi atau tujuan siap diklaim, kabar Prestise, menu baru, progres Penguasaan Peta, bos ditemukan) dan tonggak (peta baru, sebuah Prestise). Volume efek suara mengatur keduanya."
+
+msgid "UP_MERGE_ALL"
+msgstr "Gabung Semua"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "Buka sekali: tombol Gabung Semua di Filter menggabungkan semua salinan cadangan dalam satu ketukan · gratis dipakai · tetap setelah Prestise"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "Terbuka · pakai Gabung Semua di Filter"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "Gabung Semua belum terbuka"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "Gabung Semua: buka sekali seharga 5K permata di Peningkatan → Inventaris."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "Gabung Semua · %d salinan cadangan"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "Gabung Semua"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "Tidak ada yang bisa digabung"
+
+msgid "MERGE_ALL_DONE"
+msgstr "%d salinan digabung ke %d item"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "Buka evolusi otomatis"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "Menggabungkan salinan cadangan dari: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "Aktif · menggabungkan: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Berevolusi di ^100 dengan 101 salinan: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "Aktif · mengevolusikan: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "Jeda: %s dtk"
+
+msgid "GATE_HUD"
+msgstr "Tahap berikut · Bos %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "Dunia tuntas · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "Bos yang harus dikalahkan di peta ini untuk membuka peta berikutnya. Bos yang sudah ditemukan dan masih dihitung memakai pita emas."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "Tahap berikutnya sudah terbuka"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "Bos belum ditemukan"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · dikalahkan"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · masih dibutuhkan"
+
+msgid "OFFERING_PROGRESS"
+msgstr "%s / %s koin · %s / %s permata"
+
+msgid "SECTION_RESEARCH"
+msgstr "Riset"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "Farming Terfokus terbuka"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "Ketuk Farming di bawah: pahlawanmu berjalan ke titik ini dan bertarung sendiri di sini. Ketuk lagi atau bergerak untuk berhenti."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "Ketuk Farming untuk mulai"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "Pahlawanmu berjalan ke titik ini dan melawannya sendiri. Bergerak akan menghentikannya."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "Farming Terfokus terbuka"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "Buka Peningkatan musuh ini, lalu ketuk Farming di bagian atas."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "Farming Terfokus terbuka"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "Ketuk musuh itu di dunia atau di peta, lalu ketuk Farming."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "Temukan titik ini dulu"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "Farming hanya berjalan ke titik yang sudah kamu temukan. Pilih salah satu yang sudah ditemukan di atas."
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "Perlengkapan baru: ketuk, lalu Pakai"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "Perlengkapan yang dipakai memberi statistik penuh. Perlengkapan yang disimpan tetap menambah sebagian."
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "Dua yang sama: buka, lalu Gabungkan"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "Menggabungkan salinan cadangan membuat item lebih kuat secara permanen."
+
+msgid "GUIDE_MISSIONS"
+msgstr "Misi terbuka: buka Misi"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "Tujuan dan misi harian memberi koin dan permata."
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "Ketuk Klaim"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "Tujuan yang selesai menunggu di sini sampai kamu mengklaim hadiahnya."
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "Belum ada yang bisa diklaim"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "Tombol Misi menampilkan ! saat hadiah siap."
+
+msgid "GUIDE_SLOTS"
+msgstr "Peningkatan terbuka: buka Peningkatan"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "Peningkatan Pemain berlaku selama putaran ini; peningkatan Permata tersimpan selamanya."
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "Buka tab Inventaris"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "Slot perlengkapan tambahan memungkinkanmu menyimpan lebih banyak jenis perlengkapan."
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "Beli slot perlengkapan"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "Setiap jenis item butuh slot sendiri; salinannya bertumpuk."
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "Buka tab Perbekalan"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "Perbekalan membantu di pertarungan sulit."
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "Beli Ramuan Penyembuh"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "Ketuk ramuan di perbekalanmu untuk sembuh saat bertarung."
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "Kumpulkan koin untuk Ramuan Penyembuh"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "Butuh %s koin lagi. Setiap musuh yang kalah menjatuhkan koin."
+
+msgid "GUIDE_SNOWMAN"
+msgstr "Tujuan utama: kalahkan Manusia Salju"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "Mengalahkannya membuka Musim Dingin II; menemukannya membuka Prestise. Gabungkan perlengkapan, naikkan level, dan bawa ramuan dulu."
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "Prestise terbuka: buka Prestise"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "Peluang di sana memberi kartu permanen."
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "Ketuk Ikuti pada sebuah peluang"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "Langkah berikutnya tampil di peta. Saat salah satunya Siap, Prestise memulai ulang dunia dan kamu tetap memiliki kartunya."
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "Selesaikan sebuah peluang"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "Peluang baru muncul selama kamu bermain. Saat salah satunya Siap, Prestise memulai ulang dunia dan kamu tetap memiliki kartunya."
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "Misi terbuka"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "Tujuan dan misi harian memberi koin dan permata. Klaim di Misi."
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "Peningkatan musuh terbuka"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "Ketuk Peningkatan di atas peta (atau ketuk musuh) untuk menaikkan jarahan, koin, dan EXP-nya."
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "Peta dunia terbuka"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "Peta mini dan Dunia menunjukkan tempat yang pernah kamu datangi. Buka kemah untuk bangkit dan beristirahat di sana."
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "Peningkatan Pemain terbuka"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "Beli slot perlengkapan, perbekalan, dan peningkatan Permata permanen di Peningkatan."
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "Tujuan utama: kalahkan Manusia Salju"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "Mengalahkannya membuka Musim Dingin II; menemukannya membuka Prestise. Gabungkan perlengkapan, naikkan level, dan bawa ramuan dulu."
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "Prestise terbuka"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "Selesaikan sebuah peluang, lalu lakukan Prestise untuk memulai ulang dengan kartu permanen."
+
+msgid "GUIDE_SKIP"
+msgstr "Lewati"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "Pakai dan gabungkan perlengkapan"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "Ketuk perlengkapan di inventarismu, lalu Pakai untuk statistik penuhnya; perlengkapan yang disimpan tetap menambah sebagian. Dua item yang sama bergabung menjadi satu yang lebih kuat secara permanen."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "Peningkatan dan Misi"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "Ketuk musuh (atau Peningkatan di atas peta) untuk menaikkan jarahan, koin, dan EXP-nya. Peningkatan Pemain menjual slot perlengkapan, perbekalan, dan peningkatan Permata permanen. Klaim Misi untuk koin dan permata."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "Jelajah, kemah, dan tahap"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "Berjalan menyingkap kabut; peta mini dan Dunia menunjukkan tempat yang pernah kamu datangi. Buka kemah di Dunia untuk bangkit dan beristirahat di sana. Kalahkan bos sebuah peta untuk membuka tahap berikutnya."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "Prestise dan Penguasaan Peta"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "Menemukan Manusia Salju di Musim Dingin I membuka reset Prestise: selesaikan sebuah peluang, lalu lakukan Prestise untuk memulai ulang dengan kartu permanen. Penguasaan Peta mencatat tujuan jangka panjang tiap peta."
+
+msgid "EXIT_TITLE"
+msgstr "Keluar dari LootFarmer?"
+
+msgid "EXIT_CONFIRM"
+msgstr "Progresmu sudah disimpan. Kamu bisa kembali kapan saja."
+
+msgid "EXIT_ACTION"
+msgstr "Keluar"
+
+msgid "SECTION_TUTORIAL"
+msgstr "Tutorial dan bantuan"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "Tampilkan semua menu sekarang"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "Tampilkan semua menu sekarang? Biasanya menu baru muncul selagi kamu mempelajari game. Prestise tetap butuh Manusia Salju ditemukan; mode Terpandu juga mewajibkan tutorial selesai."
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "Semua menu kini tersedia"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "Semua menu sudah tersedia"
+
+msgid "PANEL_MASTERY"
+msgstr "Penguasaan Peta"
+
+msgid "MASTERY_OPEN"
+msgstr "Penguasaan Peta · Game %d%%"
+
+msgid "MASTERY_INTRO"
+msgstr "Tujuan opsional untuk penyelesaian 100%. Progresnya permanen dan tetap setelah Prestise."
+
+msgid "MASTERY_GAME"
+msgstr "Penyelesaian game %d%%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "Kedelapan peta: gelar %s · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ Didapat: gelar %s · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "Hadiah: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ Hadiah didapat: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "Detail"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "Capai peta ini untuk memulai"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "Penguasaan · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ Semua peta"
+
+msgid "MASTERY_EXPLORE"
+msgstr "Jelajah"
+
+msgid "MASTERY_HUNT"
+msgstr "Buru"
+
+msgid "MASTERY_RESEARCH"
+msgstr "Riset"
+
+msgid "MASTERY_COLLECT"
+msgstr "Koleksi"
+
+msgid "MASTERY_FORGE"
+msgstr "Tempa"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "Jelajahi seluruh peta dan buka setiap kemah."
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "Kalahkan %s dari setiap jenis musuh dan %s dari setiap bos."
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "Ungkap Statistik dan Drop setiap musuh di sini."
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "Dapatkan setiap senjata, kostum, dan skill yang jatuh di sini."
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "Kostum dari sini sampai ^%s (kostum bos ^%s) dan satu senjata dari sini berevolusi."
+
+msgid "MASTERY_MORE"
+msgstr "+%d lagi"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "Peta dijelajahi %d%% dari 100%%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "Kemah %d belum terbuka"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · Ungkap Statistik"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · Ungkap Drop"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "Evolusikan salah satu: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "Musuh belum ditemukan"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "Item belum ditemukan"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "+%s%% HP maks"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "+%s%% damage"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "+%s%% koin"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "+%s%% EXP"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "+%s poin Peluang Jarahan"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "+%s poin Peluang Permata"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "Penguasaan · %s · %s selesai"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "Prestise terbuka"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "%d peluang ditemukan · ketuk untuk membuka"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "Selesaikan sebuah peluang, lalu lakukan Prestise untuk kartu permanen"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "Peta dikuasai · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "Selesai 100%"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "Petani Ulung"
+
+msgid "STATS_COMPLETION"
+msgstr "Penyelesaian game"
+
+msgid "STATS_TITLE"
+msgstr "Gelar"
+
+msgid "STATS_MASTERY"
+msgstr "Penguasaan Peta"
+
+msgid "MAIN_HINT_0"
+msgstr "Kalahkan musuh"
+
+msgid "MAIN_HINT_1"
+msgstr "Ketuk senjata atau kostum di inventarismu, lalu Pakai"
+
+msgid "MAIN_HINT_2"
+msgstr "Buka item yang kamu punya dua, lalu Gabungkan"
+
+msgid "MAIN_HINT_3"
+msgstr "Jalan ke kemah dan ketuk Lihat Kemah, lalu Buka"
+
+msgid "MAIN_HINT_4"
+msgstr "Kalahkan Manusia Salju, bos Musim Dingin I"
+
+msgid "MAIN_HINT_5"
+msgstr "Pasang skill Penyembuhan (Musim Dingin II: elit Helm Antariksa dan Robot Sian menjatuhkannya)"
+
+msgid "MAIN_HINT_6"
+msgstr "Beli satu tingkat Detail Peta di Dunia"
+
+msgid "MAIN_HINT_7"
+msgstr "Temukan skill Ledakan Es (Musim Panas I: elit Topi Jerami menjatuhkannya)"
+
+msgid "MAIN_HINT_8"
+msgstr "Kalahkan Robot Sian, bos Musim Dingin II, untuk mencapai Musim Panas I"
+
+msgid "MAIN_HINT_9"
+msgstr "Evolusikan senjata ^100 yang punya 101 salinan (detail item, Evolusikan)"
+
+msgid "MAIN_HINT_10"
+msgstr "Miliki skill yang berbeda-beda"
+
+msgid "MAIN_HINT_11"
+msgstr "Kalahkan kedua bos Musim Panas II untuk mencapai Musim Gugur I"
+
+msgid "MAIN_HINT_12"
+msgstr "Miliki skill yang berbeda-beda"
+
+msgid "MAIN_HINT_13"
+msgstr "Kalahkan kedua bos Musim Gugur II untuk mencapai Musim Semi I"
+
+msgid "MAIN_HINT_14"
+msgstr "Selesaikan satu Prestise"
+
+msgid "MAIN_HINT_15"
+msgstr "Kalahkan setiap jenis musuh dan bos Musim Semi II"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "Siap! Klaim di Misi"
+
+msgid "MISSION_DO_KILL"
+msgstr "Kalahkan %s (%s)"
+
+msgid "MISSION_DO_BOSS"
+msgstr "Kalahkan %s (%s)"
+
+msgid "MISSION_DO_GEAR"
+msgstr "Ambil drop senjata atau kostum"
+
+msgid "MISSION_DO_MERGE"
+msgstr "Gabungkan item"
+
+msgid "MISSION_DO_COINS"
+msgstr "Dapatkan koin dari musuh"
+
+msgid "MISSION_DO_CAST"
+msgstr "Rapal skill yang terpasang"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "Berikutnya: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "Kalahkan %s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "Kalahkan musuh apa saja"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "Ambil drop senjata atau kostum"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "Gabungkan item"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "Kalahkan bos apa saja"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "Rapal skill"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "Klaim misi biasa"
+
+msgid "FOLLOW_TROPHY"
+msgstr "Kalahkan %s untuk trofinya · trofi %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "Gabungkan senjata, kostum, atau skill apa pun sampai ^100: terbaik ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "Gabungkan item tingkat %d atau lebih tinggi sampai ^100: terbaik ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "Gabungkan sampai ^50: senjata %d/%d · kostum %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "Gabungkan perlengkapan tingkat 2+ sampai ^50: senjata %d/%d · kostum %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "Dapatkan dari musuh di putaran ini: koin %s/%s · permata %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "Cukup! Serahkan: Prestise, lalu Serahkan"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "Total waktu pergi: %.1f/72 jam"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "Kepergian terlama sekaligus: %.1f/24 jam"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "Koin yang didapat saat pergi: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "Jelajahi %s: %d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "Kalahkan %s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "Buka setiap kemah di %s: %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "Lalu: %s (sisa %d)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!AWAS, BOS DITEMUKAN!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · bos %s"
+
+msgid "MASTERY_CHIP"
+msgstr "Penguasaan %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "Penguasaan Peta untuk peta ini: persentase dan kategori yang selesai. Ketuk untuk detail."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "Farming sampai kamu bisa mengalahkan bos."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "Manusia Salju menjaga jalan ke Musim Dingin II."
+
+msgid "VIEW_CAMP"
+msgstr "Lihat Kemah"
+
+msgid "DROP_ALL"
+msgstr "Buang Semua"
+
+msgid "DROP_ALL_TITLE"
+msgstr "Buang seluruh tumpukan?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nSetiap salinan keluar dari inventarismu dan slotnya langsung kosong. Tumpukan itu menunggu di tanah selama 5 menit: ketuk untuk mengambilnya lagi (Ambil Otomatis tidak akan mengambilnya kembali). Mengambilnya lagi tidak memberi progres misi, Prestise, atau Penguasaan."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "penguasaan ^%d (tetap)"
+
+msgid "DROPPED_NOTICE"
+msgstr "Dibuang %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "Lepas dulu"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "Memulihkanmu %s HP sekarang (%s HP, paling banyak %s%% HP maks) saat HP-mu di bawah %s%%"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "+%s%% damage serangan selama 5 dtk (+%s damage per serangan sekarang) · hanya saat bertarung"
+
+msgid "SKILL_DESC_FROST"
+msgstr "%s× damage serangan (%s sekarang) ke setiap musuh dalam jarak %s darimu, dan memperlambat mereka 25%% selama 3 dtk"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "%s× damage serangan (%s sekarang) ke targetmu dan setiap musuh dalam jarak %s darinya"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "%s× damage serangan (%s sekarang) ke target saat ini"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "%s× damage serangan (%s sekarang) ke target saat ini, pukulan berat jarak dekat"
+
+msgid "SKILL_DESC_STATS"
+msgstr "Target: %s · Jangkauan: %s · Jeda: %s dtk"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "kamu"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "semua musuh di area"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 musuh"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "diri sendiri"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s HP"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s%% damage"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× damage serangan"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "Penyembuhan bisa dipakai kapan pun HP berkurang, termasuk di luar pertarungan."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "Prestise"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "Tukarkan %d peluang dan mulai putaran baru"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "Kamu memilih satu kartu permanen untuk masing-masing:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 kartu"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "PERMANEN · TETAP KAMU MILIKI"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "DIRESET DI PUTARAN INI"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "Kartu dipilih satu per satu dan langsung disimpan. Putaran dimulai ulang di Musim Dingin I setelah kartu terakhir."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "Mulai Prestise"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "Kartu dan set prestise (%d dimiliki) ditambah yang baru"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "Permatamu: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "Area peta yang dijelajahi, kemah yang terlihat, dan bos yang ditemukan"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "Semua peningkatan Permata, otomatisasi, dan kapasitas inventaris"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "Kunci bos, pencapaian musuh, dan Penguasaan Peta"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "Pengaturan dan progres tutorial"
+
+msgid "RESET_LINE_COINS"
+msgstr "Koin: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "Level pemain %d (kembali ke 1)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "Item, gabungan, dan stok perbekalan"
+
+msgid "RESET_LINE_MAPS"
+msgstr "Akses peta (kembali ke Musim Dingin I) dan kemah yang dimiliki"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "Peningkatan koin dan peningkatan peta"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "Peluang dan misi yang belum selesai"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "Ketuk Lihat Kemah"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "Ini membuka kemah ini, tempat kamu bisa membukanya."
+
+msgid "HELP"
+msgstr "Bantuan"
+
+msgid "PANEL_HELP"
+msgstr "Bantuan"
+
+msgid "HELP_INTRO"
+msgstr "Ringkasan singkat cara bermain LootFarmer. Membacanya tidak mengubah apa pun di game-mu."
+
+msgid "HELP_BACK"
+msgstr "Kembali ke Pengaturan"
+
+msgid "SECTION_LANGUAGE"
+msgstr "Bahasa"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "Peluang Kritis"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "Damage Kritis"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "Slot Skill Otomatis"
+
+msgid "SOURCE_UPGRADES"
+msgstr "Peningkatan"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "Skill otomatis: %d / %d terpasang"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "Pasang skill dan beli slot otomatis yang tersedia dulu."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "Gabung otomatis: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "Ukuran slot inventaris"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "Memulihkan hingga %s HP (%s%% HP maksimum). Bisa dipakai kapan pun HP berkurang, termasuk di luar pertarungan."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "Aktivasi butuh pertarungan dan musuh dalam jarak %s unit."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "Target tunggal. Mengurangi kecepatan serang sebesar %s%% selama %s detik (bos: %s detik). Gerakan tidak berubah."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "Bos menahan separuh durasi efek berwaktu; kekuatan dan damage-nya tidak berubah."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "Level penguasaan berikutnya: %d / %d pemakaian · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "Pakai otomatis: kapan pun HP berkurang dan jeda sudah siap, termasuk di luar pertarungan."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "Ketuk kemah hijau untuk pergi. Kemah redup masih terkunci. Bepergian tidak bisa dilakukan saat bertarung."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d dtk"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "Selesaikan tutorial Terpandu di Musim Dingin II sebelum memakai Prestise."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "Level pemain %d, EXP yang didapat, dan bonus level"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "Penguasaan Perbekalan dan progres menuju level berikutnya"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "Pilih kemah"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "Tutup panel ini untuk melanjutkan."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "Ketuk tombol tutup. Progresmu sudah disimpan."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "Beli Peningkatan Pemain."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "Pilih peningkatan global untuk membantu pertarunganmu berikutnya."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "Perluas inventaris perlengkapanmu."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "Gunakan Permata untuk membeli slot tambahan. Hadiah tutorial sekali pakai menutup kekurangannya."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "Ikuti panah menuju kemah."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "Dekati dan temukan kemahnya, lalu ketuk Lihat Kemah dan beli pembukaannya."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "Temukan bos pertama."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "Ikuti panah menuju Manusia Salju. Menemukannya tidak mengharuskanmu mengalahkannya."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "Bersiaplah sebelum melawan bos."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "Bos bisa terlalu kuat. Naikkan level untuk statistik global; farming perlengkapan, gabungkan salinan, dan beli peningkatan."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "Farming beberapa musuh lagi."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "Kumpulkan kekuatan dan Koin sebelum melanjutkan."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "Beli Ramuan Penyembuh."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "Buka Peningkatan Pemain, lalu Perbekalan. Stok ramuan yang sudah ada juga dihitung."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "Sediakan tempat untuk Ramuan Penyembuh."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "Beli slot perbekalan, atau pakai perbekalan yang ada untuk mengosongkan slot."
+
+msgid "GUIDE_POTION_USE"
+msgstr "Pakai Ramuan Penyembuhmu."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "Ketuk slot inventarisnya saat HP berkurang. Memakai perbekalan menaikkan penguasaannya."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "Pakai ramuan saat kamu butuh penyembuhan."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "Lawan musuh di dekatmu dulu. HP penuh tidak pernah membuang ramuan."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "Prestise memberi manfaat permanen."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "Selesaikan peluang untuk mendapat kartu. Mode Terpandu membuka reset setelah tutorial ini; melanjutkan tanpa Prestise juga boleh."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "Kamu sudah memenuhi syarat hadiah Prestise."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "Peluangmu sudah siap. Selesaikan tutorial Terpandu di Musim Dingin II sebelum memutuskan apakah akan mereset."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "Peta berikutnya terbuka."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "Buka Dunia untuk melihat tahap yang terbuka dan kemahnya."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "Bepergian antar kemah yang terbuka."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "Dunia langsung memberangkatkanmu jika hanya satu kemah terbuka, atau menampilkan peta jika ada beberapa. Pertarungan menghalangi teleportasi."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "Tonggak menawarkan tujuan opsional."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "Jelajahi Penguasaan Peta dan pencapaian saat kamu ingin hadiah tambahan. Lanjutkan lewat Dunia ke Musim Dingin II."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "Pergi ke Musim Dingin II."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "Buka Dunia dan pilih Musim Dingin II untuk melanjutkan petualangan."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "JALAN DI DEPAN"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "Tujuan akhirmu adalah mengalahkan bos terakhir di Tahap 8 dan menaklukkan game ini.\n\nIngin tantangan yang lebih besar? Raih penyelesaian 100% dengan menuntaskan setiap tonggak di Penguasaan Peta.\n\nBermainlah sesuai ritmemu, nikmati perjalanannya, dan semoga beruntung!"
+
+msgid "SLOT_SMALL"
+msgstr "Kecil"
+
+msgid "SLOT_MEDIUM"
+msgstr "Sedang"
+
+msgid "SLOT_LARGE"
+msgstr "Besar"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "Umum"
+
+msgid "REVIEW_TITLE"
+msgstr "Suka LootFarmer?"
+
+msgid "REVIEW_LEAD"
+msgstr "Petualanganmu baru saja dimulai!"
+
+msgid "REVIEW_BODY"
+msgstr "Menemukan jarahan keren? Kami ingin tahu pendapatmu. Ulasan jujur membantu kami menyempurnakan LootFarmer dan membantu pemain lain menemukan game ini."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Ulas di Google Play"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "Ulas di itch.io"
+
+msgid "REVIEW_LATER"
+msgstr "Nanti saja"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "Halaman toko tidak bisa dibuka. Periksa koneksimu dan coba lagi."
+
+msgid "SECTION_FEEDBACK"
+msgstr "Masukan"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "Jadikan musuh target"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "Seret dari pahlawanmu ke musuh, lalu lepaskan untuk menjadikannya target. Seranganmu akan terfokus pada musuh yang dipilih."
+
+msgid "GUIDE_TARGET"
+msgstr "Jadikan musuh target"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "Seret dari pahlawanmu ke musuh, lalu lepaskan untuk menjadikannya target. Seranganmu akan terfokus pada musuh yang dipilih."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "Temukan musuh untuk dijadikan target"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "Berjalanlah sampai musuh terlihat, lalu seret dari pahlawanmu ke musuh itu dan lepaskan."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "Buru %s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d poin"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s dtk"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d j %02d mnt"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d mnt %02d dtk"
+
+msgid "DURATION_SECONDS"
+msgstr "%d dtk"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Posisi joystick"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Kiri"
+
+msgid "JOYSTICK_CENTER"
+msgstr "Tengah"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Kanan"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "Tautan tidak bisa dibuka. Periksa koneksimu dan coba lagi."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Setiap mode memainkan game yang sama. Hanya jumlah bantuannya yang berbeda."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Pelajaran langkah demi langkah dengan petunjuk. Menu terbuka seiring kamu mempelajarinya."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Beberapa kartu singkat tentang kontrol dan tujuan. Semua menu terbuka."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Tanpa pelajaran atau tips. Semua menu terbuka sejak awal."
