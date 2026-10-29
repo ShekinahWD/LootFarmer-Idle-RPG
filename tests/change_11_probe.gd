@@ -288,7 +288,7 @@ func supply_checks() -> void:
     sim.state.upgrades["supply_slots"]=4;sim.state.supplies.resize(5);sim.state.supplies.fill("")
     sim.add_item("potion",11)
     check(sim.supply_mastery("potion")==0,"Found supplies grant no mastery")
-    sim.state.supply_uses.potion=50 # fixture: 50 prior actual uses
+    sim.state.supply_uses.potion=10*int(sim.catalog.progression.change17.supply_uses_per_level) # fixture: ^10 of prior actual uses
     check(sim.quantity("potion")==11 and sim.supply_mastery("potion")==10,"11 found potions: stock 11, mastery ^10")
     check(near(sim.supply_value("potion"),.1*1.1),"Mastery ^10 heals 11% of max HP (Change 16: 10% base)")
     sim.state.player.hp=sim.stats().hp*.5
@@ -302,7 +302,7 @@ func supply_checks() -> void:
     # Change 13: the potion cooldown is 12 s with a 10 s floor (12 x 0.8 = 9.6 -> 10).
     check(near(sim.supply_cooldown("potion"),10.0) and near(sim.supply_duration("guard_tonic"),20),"^100 potion cooldown 10 s (Change 13 floor); an unmastered Guard Tonic lasts 20 s")
     sim.add_item("guard_tonic",26)
-    sim.state.supply_uses.guard_tonic=125 # fixture: 25 mastery
+    sim.state.supply_uses.guard_tonic=25*int(sim.catalog.progression.change17.supply_uses_per_level) # fixture: 25 mastery
     check(near(sim.supply_duration("guard_tonic"),24),"^25 Steady milestone: Guard Tonic lasts 24 s")
     # Use rules and effects.
     fresh()
@@ -375,7 +375,7 @@ func supply_save_checks() -> void:
     fresh()
     sim.state.upgrades["supply_slots"]=2;sim.state.supplies.resize(3);sim.state.supplies.fill("")
     sim.add_item("potion",31);sim.add_item("guard_tonic",3)
-    sim.state.supply_uses.potion=150 # fixture: 30 mastery
+    sim.state.supply_uses.potion=30*int(sim.catalog.progression.change17.supply_uses_per_level) # fixture: 30 mastery
     sim.state.upgrades["auto_use"]=1;sim.bind_auto(1)
     sim.use_item("guard_tonic")
     check(SaveService.save_now(),"Save with supplies written to disk")
@@ -476,7 +476,7 @@ func prestige_upgrade_checks() -> void:
     check(sim.state.supply_found.is_empty() or true,"(supply mastery checked below)")
     fresh()
     sim.add_item("potion",21)
-    sim.state.supply_uses.potion=100 # fixture: 20 mastery
+    sim.state.supply_uses.potion=20*int(sim.catalog.progression.change17.supply_uses_per_level) # fixture: 20 mastery
     sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1
     sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     sim.campaign.begin_prestige();sim.prestige(sim.campaign.offered_cards()[0])

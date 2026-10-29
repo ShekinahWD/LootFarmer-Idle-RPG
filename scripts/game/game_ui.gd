@@ -1483,7 +1483,7 @@ func _item_panel() -> void:
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
 
 ## Supply details (Change 11): what it does now, whether it can be used, stock (charges spent by use)
-## and use-based mastery (five actual uses per level, reset by Prestige), with the
+## and use-based mastery (change17.supply_uses_per_level actual uses per level, reset by Prestige), with the
 ## next mastery gain and milestone. Pinned: previous, Use, the slot's auto-use toggle, next.
 func _supply_panel(id: String,list: Array) -> void:
     var s:=sim.supply(id)

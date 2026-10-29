@@ -2,6 +2,15 @@
 
 > **Balance status (production audit, 2026-10-28):** the developer has playtested Android builds throughout development and reports that **Stages 1–5 feel well balanced**; they are accepted and must not be redesigned. **Stages 6–8, the final boss and late Prestige pacing are still awaiting acceptance play.** The last recorded late-game benchmark (`change_9_balance`, Change 17) was 33/35 and was not re-run in the audit. Later economy values (Change 16 per-map 1.5 / 1.55) remain in force.
 
+## Change 36 — supply mastery divisor and final-boss audit (28 October 2026)
+
+- `supply_uses_per_level` 5 → **3**: ^25 = 75 uses, ^50 = 150, ^100 = 300. This is the only balance value changed.
+- The final boss was audited with real-simulation duels (`tests/change_36_final_boss_audit`; builds in `docs/Change_36_Evidence/final_boss_builds.json`).
+  - **Minimum verified:** one early Prestige, level 250, Diamond Sword ^75, Red Panda outfit ^0, Potion/Recovery Salve/Guard Tonic ^25 on auto: 5/5 wins in about 260 s.
+  - **Recommended:** level 260, Diamond Sword ^100, Red Panda ^25, three skills ^10: 5/5 in about 158 s.
+  - **Without Prestige:** at least Emerald ^50, Red Panda ^100 and supplies ^100.
+  - Survival is a cliff decided by sustain (Lifesteal card plus all three supplies). Recommendations are in the [Change 36 report](LootFarmer_Change_36_Report.md); none is applied.
+
 ## Change 17 — current gameplay authority (27 October 2026)
 
 Change 17 supersedes earlier descriptions of skill power/cooldowns, supply mastery/healing, automatic skill slots and mission rewards. It adds persistent boss countdown APIs and permanent critical upgrades, reuses the supply interval/shop systems, and optimizes rain calculations without changing authored appearance. Schema 8 saves remain compatible; existing mastery and automation purchases migrate. No UI/tutorial implementation is included.

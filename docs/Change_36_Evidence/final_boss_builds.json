@@ -1,0 +1,2275 @@
+{
+ "_about": "Change 36 final-boss audit ladder. Card sets are earlier-run opportunities resolved by a real Prestige transaction; see tests/change_36_final_boss_audit.gd.",
+ "seeds": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "card_sets": {
+  "none": {
+   "ready": [],
+   "picks": []
+  },
+  "early": {
+   "ready": [
+    "hunter_o1",
+    "hunter_o2",
+    "challenge_o1",
+    "challenge_o2",
+    "trophy_o1",
+    "trophy_o2",
+    "arsenal_o1",
+    "arsenal_o2",
+    "masterwork_o1",
+    "masterwork_o3",
+    "specialist_o1",
+    "specialist_o2",
+    "expedition_o1",
+    "expedition_o2",
+    "expedition_o3",
+    "collection_o1",
+    "collection_o2",
+    "regional_o1",
+    "regional_o2",
+    "offering_o1",
+    "offline_o1",
+    "offline_o2",
+    "offline_o3"
+   ],
+   "picks": [
+    "hunter_c1",
+    "hunter_c2",
+    "challenge_c1",
+    "challenge_c2",
+    "challenge_c3",
+    "trophy_c2",
+    "trophy_c1",
+    "arsenal_c1",
+    "arsenal_c2",
+    "arsenal_c3",
+    "masterwork_c3",
+    "masterwork_c1",
+    "specialist_c3",
+    "specialist_c1",
+    "offline_c1",
+    "collection_c2",
+    "regional_c2",
+    "offering_c1"
+   ]
+  },
+  "full": {
+   "ready": [
+    "hunter_o1",
+    "hunter_o2",
+    "hunter_o3",
+    "expedition_o1",
+    "expedition_o2",
+    "expedition_o3",
+    "collection_o1",
+    "collection_o2",
+    "collection_o3",
+    "masterwork_o1",
+    "masterwork_o2",
+    "masterwork_o3",
+    "arsenal_o1",
+    "arsenal_o2",
+    "arsenal_o3",
+    "regional_o1",
+    "regional_o2",
+    "regional_o3",
+    "challenge_o1",
+    "challenge_o2",
+    "challenge_o3",
+    "offering_o1",
+    "offering_o2",
+    "offering_o3",
+    "specialist_o1",
+    "specialist_o2",
+    "specialist_o3",
+    "trophy_o1",
+    "trophy_o2",
+    "trophy_o3",
+    "offline_o1",
+    "offline_o2",
+    "offline_o3"
+   ],
+   "picks": [
+    "hunter_c1",
+    "hunter_c2",
+    "challenge_c1",
+    "challenge_c2",
+    "challenge_c3",
+    "trophy_c2",
+    "trophy_c1",
+    "arsenal_c1",
+    "arsenal_c2",
+    "arsenal_c3",
+    "masterwork_c3",
+    "masterwork_c1",
+    "specialist_c3",
+    "specialist_c1",
+    "offline_c1",
+    "collection_c2",
+    "regional_c2",
+    "offering_c1"
+   ]
+  }
+ },
+ "builds": [
+  {
+   "id": "MIN",
+   "label": "Minimum (one early Prestige): Diamond Sword ^75, Red Panda outfit ^0, no skills, supplies ^25",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "MIN-w50",
+   "label": "Loses: MIN with Diamond Sword ^50",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    50
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "MIN-old",
+   "label": "Loses: MIN after the same 75 uses under the old 5-use rule (^15)",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     60
+    ],
+    "recovery_salve": [
+     15,
+     30
+    ],
+    "guard_tonic": [
+     15,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "MIN-s20",
+   "label": "Loses: MIN with supplies ^20",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     20,
+     60
+    ],
+    "recovery_salve": [
+     20,
+     30
+    ],
+    "guard_tonic": [
+     20,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "MIN-L235",
+   "label": "MIN at level 235",
+   "prestige": "early",
+   "level": 235,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "MIN-stock",
+   "label": "Loses: MIN with stock 15/10/6",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     15
+    ],
+    "recovery_salve": [
+     25,
+     10
+    ],
+    "guard_tonic": [
+     25,
+     6
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "MIN-noSalve",
+   "label": "Loses: MIN without Recovery Salve",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "MIN-noGuard",
+   "label": "Loses: MIN without Guard Tonic",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "MIN-noPotion",
+   "label": "Loses: MIN without Health Potion",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "MIN-none",
+   "label": "Loses: MIN without supplies",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "MIN-redpanda",
+   "label": "Key prerequisite: MIN against the Red Panda",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4,
+   "boss": "boss-red-panda"
+  },
+  {
+   "id": "MIN-sunflower",
+   "label": "Key prerequisite: MIN against the Sunflower",
+   "prestige": "early",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    75
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4,
+   "boss": "boss-sunflower"
+  },
+  {
+   "id": "REC",
+   "label": "Recommended (one early Prestige): L260, Diamond Sword ^100, Red Panda outfit ^25, Strike/Lightning/Focus ^10, supplies ^25",
+   "prestige": "early",
+   "level": 260,
+   "weapon": [
+    "diamond_sword",
+    100
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    25
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [
+    [
+     "skill_strike",
+     10
+    ],
+    [
+     "skill_lightning",
+     10
+    ],
+    [
+     "skill_focus",
+     10
+    ]
+   ],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "REC-noskill",
+   "label": "REC without skills",
+   "prestige": "early",
+   "level": 260,
+   "weapon": [
+    "diamond_sword",
+    100
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    25
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "REC-sup50",
+   "label": "REC with supplies ^50",
+   "prestige": "early",
+   "level": 260,
+   "weapon": [
+    "diamond_sword",
+    100
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    25
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [
+    [
+     "skill_strike",
+     10
+    ],
+    [
+     "skill_lightning",
+     10
+    ],
+    [
+     "skill_focus",
+     10
+    ]
+   ],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     50,
+     60
+    ],
+    "recovery_salve": [
+     50,
+     30
+    ],
+    "guard_tonic": [
+     50,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "REC-full",
+   "label": "REC with the full card set (second Prestige)",
+   "prestige": "full",
+   "level": 260,
+   "weapon": [
+    "diamond_sword",
+    100
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    25
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [
+    [
+     "skill_strike",
+     10
+    ],
+    [
+     "skill_lightning",
+     10
+    ],
+    [
+     "skill_focus",
+     10
+    ]
+   ],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "REC-stock",
+   "label": "REC with stock 15/10/6",
+   "prestige": "early",
+   "level": 260,
+   "weapon": [
+    "diamond_sword",
+    100
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    25
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [
+    [
+     "skill_strike",
+     10
+    ],
+    [
+     "skill_lightning",
+     10
+    ],
+    [
+     "skill_focus",
+     10
+    ]
+   ],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     15
+    ],
+    "recovery_salve": [
+     25,
+     10
+    ],
+    "guard_tonic": [
+     25,
+     6
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "REC-noSalve",
+   "label": "Loses: REC without Recovery Salve",
+   "prestige": "early",
+   "level": 260,
+   "weapon": [
+    "diamond_sword",
+    100
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    25
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [
+    [
+     "skill_strike",
+     10
+    ],
+    [
+     "skill_lightning",
+     10
+    ],
+    [
+     "skill_focus",
+     10
+    ]
+   ],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "REC-none",
+   "label": "Loses: REC without supplies",
+   "prestige": "early",
+   "level": 260,
+   "weapon": [
+    "diamond_sword",
+    100
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    25
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [
+    [
+     "skill_strike",
+     10
+    ],
+    [
+     "skill_lightning",
+     10
+    ],
+    [
+     "skill_focus",
+     10
+    ]
+   ],
+   "crit": [
+    0,
+    0
+   ]
+  },
+  {
+   "id": "REC-p0",
+   "label": "REC with no Prestige cards",
+   "prestige": "none",
+   "level": 260,
+   "weapon": [
+    "diamond_sword",
+    100
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    25
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [
+    [
+     "skill_strike",
+     10
+    ],
+    [
+     "skill_lightning",
+     10
+    ],
+    [
+     "skill_focus",
+     10
+    ]
+   ],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "FULL",
+   "label": "Full card set minimum found: Diamond Sword ^50, Sprout outfit ^0, no skills, supplies ^25",
+   "prestige": "full",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    50
+   ],
+   "outfit": [
+    "unit-sprout_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     25,
+     60
+    ],
+    "recovery_salve": [
+     25,
+     30
+    ],
+    "guard_tonic": [
+     25,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "FULL-s15",
+   "label": "Loses: FULL with supplies ^15",
+   "prestige": "full",
+   "level": 250,
+   "weapon": [
+    "diamond_sword",
+    50
+   ],
+   "outfit": [
+    "unit-sprout_outfit_t5",
+    0
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     60
+    ],
+    "recovery_salve": [
+     15,
+     30
+    ],
+    "guard_tonic": [
+     15,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "NOP",
+   "label": "No-Prestige minimum found: Emerald Sword ^50, Red Panda outfit ^100, no skills, supplies ^100",
+   "prestige": "none",
+   "level": 250,
+   "weapon": [
+    "emerald_sword",
+    50
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    100
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ],
+    [
+     "diamond_sword",
+     100
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     100,
+     60
+    ],
+    "recovery_salve": [
+     100,
+     30
+    ],
+    "guard_tonic": [
+     100,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "NOP-s50",
+   "label": "Loses: no-Prestige with supplies ^50",
+   "prestige": "none",
+   "level": 250,
+   "weapon": [
+    "emerald_sword",
+    50
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    100
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ],
+    [
+     "diamond_sword",
+     100
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     50,
+     60
+    ],
+    "recovery_salve": [
+     50,
+     30
+    ],
+    "guard_tonic": [
+     50,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "NOP-o50",
+   "label": "Loses: no-Prestige with Red Panda outfit ^50",
+   "prestige": "none",
+   "level": 250,
+   "weapon": [
+    "emerald_sword",
+    50
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    50
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ],
+    [
+     "diamond_sword",
+     100
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     100,
+     60
+    ],
+    "recovery_salve": [
+     100,
+     30
+    ],
+    "guard_tonic": [
+     100,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "NOP-alt",
+   "label": "No-Prestige alternative: Emerald ^25, Red Panda ^100, Strike/Lightning/Heal ^25, supplies ^100",
+   "prestige": "none",
+   "level": 250,
+   "weapon": [
+    "emerald_sword",
+    25
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    100
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ],
+    [
+     "diamond_sword",
+     100
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [
+    [
+     "skill_strike",
+     25
+    ],
+    [
+     "skill_lightning",
+     25
+    ],
+    [
+     "skill_heal",
+     25
+    ]
+   ],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     100,
+     60
+    ],
+    "recovery_salve": [
+     100,
+     30
+    ],
+    "guard_tonic": [
+     100,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4
+  },
+  {
+   "id": "NOP-redpanda",
+   "label": "Key prerequisite: no-Prestige minimum against the Red Panda",
+   "prestige": "none",
+   "level": 250,
+   "weapon": [
+    "emerald_sword",
+    50
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    100
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ],
+    [
+     "diamond_sword",
+     100
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     100,
+     60
+    ],
+    "recovery_salve": [
+     100,
+     30
+    ],
+    "guard_tonic": [
+     100,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4,
+   "boss": "boss-red-panda"
+  },
+  {
+   "id": "NOP-sunflower",
+   "label": "Key prerequisite: no-Prestige minimum against the Sunflower",
+   "prestige": "none",
+   "level": 250,
+   "weapon": [
+    "emerald_sword",
+    50
+   ],
+   "outfit": [
+    "boss-red-panda_outfit_t5",
+    100
+   ],
+   "stored_weapons": [
+    [
+     "gold_sword",
+     20
+    ],
+    [
+     "gold_axe",
+     10
+    ],
+    [
+     "diamond_axe",
+     5
+    ],
+    [
+     "diamond_sword",
+     100
+    ]
+   ],
+   "stored_outfits": [
+    [
+     "unit-flower-crown_outfit_t5",
+     0
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     0
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     0
+    ]
+   ],
+   "skills": [],
+   "crit": [
+    0,
+    0
+   ],
+   "supplies": {
+    "potion": [
+     100,
+     60
+    ],
+    "recovery_salve": [
+     100,
+     30
+    ],
+    "guard_tonic": [
+     100,
+     30
+    ]
+   },
+   "auto": [
+    "potion",
+    "recovery_salve",
+    "guard_tonic"
+   ],
+   "use_speed": 4,
+   "boss": "boss-sunflower"
+  }
+ ],
+ "farms": [
+  {
+   "id": "sprout-v2",
+   "farmer": "MIN",
+   "group": "unit-sprout",
+   "variant": 2,
+   "minutes": 30,
+   "global_upgrades": {
+    "mission_slots": 5,
+    "mission_claim": 1
+   }
+  },
+  {
+   "id": "plain-v1",
+   "farmer": "MIN",
+   "group": "unit-plain",
+   "variant": 1,
+   "minutes": 30,
+   "global_upgrades": {
+    "mission_slots": 5,
+    "mission_claim": 1
+   }
+  },
+  {
+   "id": "sprout-v2-loot8",
+   "farmer": "MIN",
+   "group": "unit-sprout",
+   "variant": 2,
+   "minutes": 30,
+   "upgrades": {
+    "loot": 8
+   },
+   "global_upgrades": {
+    "mission_slots": 5,
+    "mission_claim": 1
+   }
+  },
+  {
+   "id": "sprout-v3",
+   "farmer": "MIN",
+   "group": "unit-sprout",
+   "variant": 3,
+   "minutes": 30,
+   "global_upgrades": {
+    "mission_slots": 5,
+    "mission_claim": 1
+   }
+  },
+  {
+   "id": "sprout-v2-rec-maxed",
+   "farmer": "REC",
+   "group": "unit-sprout",
+   "variant": 2,
+   "minutes": 30,
+   "upgrades": {
+    "loot": 15,
+    "supply_drop": 15,
+    "skill_drop": 15,
+    "spawn_amount": 3,
+    "spawn_cooldown": 5,
+    "collect": 1,
+    "collect_range": 4,
+    "collect_batch": 5,
+    "collect_speed": 5
+   },
+   "global_upgrades": {
+    "mission_slots": 5,
+    "mission_claim": 1
+   }
+  },
+  {
+   "id": "red-panda-loop",
+   "farmer": "MIN",
+   "group": "boss-red-panda",
+   "variant": 2,
+   "minutes": 60,
+   "global_upgrades": {
+    "mission_slots": 5,
+    "mission_claim": 1
+   }
+  },
+  {
+   "id": "sunflower-loop",
+   "farmer": "MIN",
+   "group": "boss-sunflower",
+   "variant": 2,
+   "minutes": 60,
+   "global_upgrades": {
+    "mission_slots": 5,
+    "mission_claim": 1
+   }
+  }
+ ]
+}

@@ -4695,7 +4695,7 @@ msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Supply slots: one per supply type (%d types). Filters sit next to the gear count."
 
 msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Every 5 actual uses of this supply grants one mastery level, up to ^%d. Purchases and drops add stock only. Prestige resets mastery and use progress."
+msgstr "Every 3 actual uses of this supply grant one mastery level, up to ^%d. Purchases and drops add stock only. Prestige resets mastery and use progress."
 
 msgid "BUY_SUPPLY"
 msgstr "Buy %s · %s coins"
@@ -4788,7 +4788,7 @@ msgid "SUPPLY_ACTIVE"
 msgstr "Already active. Use it again when it runs out."
 
 msgid "SUPPLY_NO_MERGE"
-msgstr "Every five uses raise Supply Mastery. Prestige resets mastery and use progress."
+msgstr "Every three uses raise Supply Mastery. Prestige resets mastery and use progress."
 
 msgid "SOURCE_SUPPLY"
 msgstr "Active supplies"

@@ -1,4 +1,9 @@
-# LootFarmer — Game Design Document — current (2026-10-28, Change 35)
+# LootFarmer — Game Design Document — current (2026-10-28, Change 36)
+
+## Change 36 — supply mastery every 3 uses; final-boss audit (28 October 2026)
+
+- **Supply mastery** rises one level per **3 successful uses** (was 5): `progression.change17.supply_uses_per_level`. Cap ^100 (300 uses), milestones ^25/^50/^100, effects, stock, auto-use and Prestige clearing are unchanged. Saves keep their actual use counts and re-derive mastery with the new divisor.
+- **Final boss (Green Alien, Spring II, 13 keys):** audited, not changed. It is beatable with one Prestige and moderate Stage 8 gear when all three combat supplies are mastered to ^25. Evidence, builds and recommendations: [Change 36 report](LootFarmer_Change_36_Report.md).
 
 ## Change 35 — review invitation and enemy-targeting lesson (28 October 2026)
 

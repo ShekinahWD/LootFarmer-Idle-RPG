@@ -64,10 +64,11 @@ func supplies() -> void:
         check(sim.supply_mastery(id)==0,"Buying gives no mastery "+id)
         sim.add_item(id,10)
         check(sim.supply_mastery(id)==0,"Collecting gives no mastery "+id)
-        for i in range(5):
+        var per: int=int(sim.catalog.progression.change17.supply_uses_per_level)
+        for i in range(per):
             sim.state.player.hp=sim.stats().hp*.5;sim.state.use_cd=0;sim.state.boost_time=0;sim.state.buffs={}
             check(sim.use_item(id),"Actual use "+id+str(i))
-            check(sim.supply_mastery(id)==(1 if i==4 else 0),"Five uses per mastery "+id+str(i))
+            check(sim.supply_mastery(id)==(1 if i==per-1 else 0),"Uses per mastery level "+id+str(i))
         price+=100
     sim.state.player.hp=sim.stats().hp*.999;sim.state.use_cd=0
     check(sim.use_item("potion"),"Potion at 99.9% out of combat")
@@ -219,9 +220,9 @@ func persistence() -> void:
     check(sim.level("critical_chance")==20 and sim.level("critical_damage")==0 and sim.state.supply_uses.get("potion",0)==0 and sim.state.boss_respawns.is_empty(),"Malformed progression normalized")
     check(sim.automatic_skill_assignments()==[0],"Loaded assignments bounded by capacity")
     sim.state.upgrades.erase("critical_chance")
-    sim.state.supply_uses.potion=4
+    sim.state.supply_uses.potion=int(sim.catalog.progression.change17.supply_uses_per_level)-1
     sim.state.player.hp=sim.stats().hp*.5;sim.state.use_cd=0
-    check(sim.use_item("potion") and sim.supply_mastery("potion")==26,"Legacy credit plus new fifth use")
+    check(sim.use_item("potion") and sim.supply_mastery("potion")==26,"Legacy credit plus new level-completing use")
     # Real Prestige transaction with an earned opportunity, using the existing test fixture convention.
     sim.state.gems=10000;sim.buy_upgrade("critical_chance");sim.buy_upgrade("critical_damage");sim.buy_upgrade("auto_use");sim.buy_upgrade("use_speed")
     sim.state.reward_stage=8

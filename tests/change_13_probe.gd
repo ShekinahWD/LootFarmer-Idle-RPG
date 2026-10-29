@@ -205,7 +205,7 @@ func potion_checks() -> void:
     check(near(sim.supply_value("potion"),.1),"Heal amount 10% of max HP at ^0 (Change 16)")
     var expected:=[[25,10.8],[50,10.2],[100,10.0]]
     for pair in expected:
-        sim.state.supply_uses["potion"]=int(pair[0])*5 # fixture: mastery
+        sim.state.supply_uses["potion"]=int(pair[0])*int(sim.catalog.progression.change17.supply_uses_per_level) # fixture: mastery
         check(near(sim.supply_cooldown("potion"),float(pair[1])),"^%d mastery: %s s" % [pair[0],pair[1]])
     check(near(sim.supply_cooldown_with("potion",.5),10.0),"The 10 s floor holds for any multiplier")
     sim.state.supply_uses["potion"]=0

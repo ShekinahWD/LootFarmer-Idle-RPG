@@ -1,0 +1,8 @@
+id,farmer,spot,variant,minutes,kills,kills_per_min,xp_per_min,coins_per_min,gems_per_min,deaths,upgrade_coins,upgrade_gems,drops
+sprout-v2,MIN,unit-sprout,2,30,198,6.60,135135,204,0.30,2,0,649,"{'diamond_sword':16,'guard_tonic':1,'potion':6,'recovery_salve':1,'unit-sprout_outfit_t5':12,'wisdom_tonic':3}"
+plain-v1,MIN,unit-plain,1,30,226,7.53,109352,233,0.37,0,0,649,"{'diamond_sword':21,'potion':7,'recovery_salve':2,'wisdom_tonic':1}"
+sprout-v2-loot8,MIN,unit-sprout,2,30,198,6.60,135135,204,0.33,2,12326,649,"{'diamond_sword':26,'guard_tonic':1,'potion':7,'recovery_salve':1,'unit-sprout_outfit_t5':18,'wisdom_tonic':1}"
+sprout-v3,MIN,unit-sprout,3,30,74,2.47,50505,76,0.10,38,0,649,"{'coin_boost':1,'diamond_sword':8,'potion':2,'skill_focus':4,'unit-sprout_outfit_t5':11,'wisdom_tonic':2}"
+sprout-v2-rec-maxed,REC,unit-sprout,2,30,163,5.43,112271,169,0.40,43,523490,20715,"{'coin_boost':5,'diamond_sword':24,'guard_tonic':7,'potion':19,'recovery_salve':7,'unit-sprout_outfit_t5':26,'wisdom_tonic':1}"
+red-panda-loop,MIN,boss-red-panda,2,60,22,0.37,483786,63,0.05,0,0,649,"{'boss-red-panda_outfit_t5':3,'emerald_sword':5,'guard_tonic':1,'potion':2,'skill_frost':1,'skill_heal':1}"
+sunflower-loop,MIN,boss-sunflower,2,60,8,0.13,208940,23,0.00,21,0,649,"{'boss-sunflower_outfit_t5':1,'emerald_sword':2,'skill_focus':1}"

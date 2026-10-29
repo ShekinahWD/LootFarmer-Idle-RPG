@@ -21912,7 +21912,7 @@
       "boss_status_duration": 0.5,
       "lightning_attack_rate": 0.5,
       "lightning_duration": 3.0,
-      "supply_uses_per_level": 5,
+      "supply_uses_per_level": 3,
       "auto_supply_base_interval": 10.0,
       "auto_supply_min_interval": 2.0,
       "mission_regular_kills": 40,

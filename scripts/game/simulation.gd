@@ -267,8 +267,9 @@ func merge_level(id: String) -> int:
 
 # ---------------------------------------------------------------- supplies (Change 11)
 # A supply has stock (items[id].qty) and permanent mastery from successful uses (Change 17).
-# Every five uses add one capped level; one-time supply_mastery_credit preserves older earned levels.
-# supply_found is historical only. Uses and credit survive Prestige; stock/buffs/bindings do not.
+# Every change17.supply_uses_per_level uses (3 since Change 36) add one capped level; one-time
+# supply_mastery_credit preserves older earned levels.
+# supply_found is historical only. Prestige clears uses and credit as well as stock/buffs/bindings.
 # Coin Tonic keeps boost_time/boost_power; other timed supplies use state.buffs[id] = {time, power}.
 
 func supply(id: String) -> Dictionary:

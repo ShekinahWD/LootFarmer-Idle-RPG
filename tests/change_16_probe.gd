@@ -506,7 +506,7 @@ func potion_checks() -> void:
     fresh()
     sim.add_item("potion",1)
     check(sim.supply_mastery("potion")==0 and near(sim.supply_value("potion"),.1),"^0 heals 10% of max HP")
-    sim.state.supply_uses["potion"]=250 # fixture: ^50
+    sim.state.supply_uses["potion"]=50*int(sim.catalog.progression.change17.supply_uses_per_level) # fixture: ^50
     check(near(sim.supply_value("potion"),.15),"^50 heals 15%")
     sim.state.supply_uses["potion"]=500 # fixture: ^100
     check(sim.supply_mastery("potion")==100 and near(sim.supply_value("potion"),.2),"^100 heals 20% before external bonuses")

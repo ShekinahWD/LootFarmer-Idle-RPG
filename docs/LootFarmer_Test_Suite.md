@@ -1,4 +1,13 @@
-# LootFarmer — Test Suite (current, 2026-10-28, Change 35)
+# LootFarmer — Test Suite (current, 2026-10-28, Change 36)
+
+## Change 36 — supply mastery every 3 uses; final-boss audit (28 October 2026)
+
+Command: `python tools/run_probes.py`. **39 entries (validator + export_manifest + 37 Godot scenes, new `change_36_probe`): 38/39 on the single final run, no script errors, no timeouts.**
+
+- The one failure is `change_35_probe` "Only English is shipped and selectable". That assertion requires `localization/` to hold exactly one file. During this change the developer placed an untracked `localization/LootFarmer_Runtime_19_Languages_Partial_Drafts.zip` there. It is not part of this change and was left in place. `en.po` is still the only catalog and English the only selectable language.
+- New: `change_36_probe` 180/0 (uses 0–6 for every supply type, cap, milestones, auto/blocked use, saves, Prestige, panel text, English copy).
+- Updated fixtures: change_5/11/13/16/17 (uses = mastery × catalog divisor).
+- Non-gating audit: `change_36_final_boss_audit` 280/0 and farm 14/0. Details: [Change 36 report](LootFarmer_Change_36_Report.md).
 
 ## Change 35 — review invitation and targeting lesson (28 October 2026)
 
@@ -220,7 +229,8 @@ One full maintained-suite run after the implementation: 18 / 22 passed. The four
 
 | Item | Status | Why |
 |---|---|---|
-| change_9_balance | Passes | A balance fixture (deterministic duels); run it deliberately when combat numbers change. |
+| change_36_final_boss_audit | 280 / 0 (duels), 14 / 0 (farm), Change 36 | Final-boss audit: obtainability-checked builds (real Prestige transaction, bought upgrades), 140 duels with 5 seeds each (≈6 min), `--mode=farm` Stage 8 farm rates (≈2 min). Builds and CSVs: `docs/Change_36_Evidence/`. Run deliberately when combat, supply or card values change. |
+| change_9_balance | Historical for the final boss | Deterministic duels; its final-boss rows seed fake key ids and no supplies, upgrades or Prestige. Superseded for the final boss by change_36_final_boss_audit. |
 | change_16_audio | Passes (11 / 11), windowed | Real music playback through volume 0, the game pause and a scene re-entry. The audio service never decodes music headless, so this runs with a window: `godot --path . res://tests/change_16_audio.tscn -- --probe --profile=probe-c16-audio --no-autosave --first-run-complete`. |
 | tools/verify_export.py | PASS on `LootFarmerIdleRPG.26.aab` | Inspects an exported AAB/APK against the allowlist; needs an export (Change 26). |
 | pacing_bot | Not run | Natural-pace benchmark (minutes per run); for pacing questions only. |

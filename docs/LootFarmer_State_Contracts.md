@@ -90,7 +90,7 @@ These contracts are implemented in Change 4 and exercised by the campaign/conten
 | Player level / earned XP | **Keep**; derived stats recompute once, no level reward replay |
 | Coins / inventory / equipped bindings / merge, evolution, rolls, copy bonuses | Clear; restore authored starting profile |
 | Upgrade purchases | Every gem-funded upgrade is kept (Change 11, `simulation.upgrade_kept`); coin upgrades follow the Upgrade Catalog Keep/Reset field. Kept Spawn Amount re-spawns its extra actors in the fresh world at once |
-| Supply mastery (`supply_uses`, `supply_mastery_credit`) | **Clear both**; zero mastery and zero five-use remainder. Supply stock, buffs and bindings also clear |
+| Supply mastery (`supply_uses`, `supply_mastery_credit`) | **Clear both**; zero mastery and zero use remainder (3 successful uses per level since Change 36). Supply stock, buffs and bindings also clear |
 | Highest reward stage (`reward_stage`) | Keep, even though stage access resets |
 | Boss countdowns (`boss_respawns`, `boss_saved_at`) | Clear with the run |
 | Automation bindings / toggles / farm focus | Retain purchased capabilities and explicitly approved per-skill-slot auto toggles. Clear item/equipment/farm targets and consumable bindings; regular mission-auto toggle resets. |
@@ -270,7 +270,7 @@ Save schema stays **8**. `normalize_snapshot` adds the new records to existing s
 |---|---|---|---|---|
 | boss_respawns | `{actor_id: {group, stage, remaining, x, y}}`, default `{}` | Rebuild absent store from dead bosses in active/inactive worlds; normalize identities and coordinates | Clear | Clear |
 | boss_saved_at | Timestamp used only for offline elapsed settlement | Advance remaining once at restore/resume; snapshot timestamps frozen while suspended; negative elapsed is zero | Reset | Reset |
-| supply_uses | Per-type successful uses, default `{}`, retained to cap ×5 | Clamp 0..500; no collection-derived uses | Clear | Clear |
+| supply_uses | Per-type successful uses, default `{}`, retained to cap × `change17.supply_uses_per_level` (3 since Change 36: 300) | Clamp 0..cap×per-level (300); no collection-derived uses. Counts are actual uses, so an older save keeps its count and re-derives mastery with the new divisor; mastery at the cap is unchanged by the clamp | Clear | Clear |
 | supply_mastery_credit | Legacy mastery, default `{}` | Once, if absent: clamp(supply_found−1,0,100). Later loads never derive it again | Clear | Clear |
 | reward_stage | Highest reward stage, default 1 | Max prior unlocked/visited-stage evidence; getter maxes with current unlocked_stage | Keep | 1 |
 | upgrades.skill_auto_slots | Capacity 0..3 | Fold old skill_auto_0/1/2 ranks once; erase retired saved ranks | Keep | 0 |

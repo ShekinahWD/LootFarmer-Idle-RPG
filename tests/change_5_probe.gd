@@ -22,7 +22,7 @@ func run() -> void:
         check(sim.add_item(potion,3) and sim.add_item(heal,3),"Healing items fit storage")
         sim.equip(heal)
         for merge in [0,50,100]:
-            sim.state.supply_uses[potion]=merge*5;sim.record(heal).merge=merge;sim.touch() # fixture: potion mastery ^merge
+            sim.state.supply_uses[potion]=merge*int(sim.catalog.progression.change17.supply_uses_per_level);sim.record(heal).merge=merge;sim.touch() # fixture: potion mastery ^merge
             var potion_hp: float=sim.stats().hp*sim.supply_value(potion)
             var skill_hp: float=minf(sim.normal(heal).power,sim.stats().hp*.3)
             # Change 17: both are HP-relative; legacy tiers share the same Heal family curve.
