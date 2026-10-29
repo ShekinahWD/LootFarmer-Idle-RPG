@@ -69,6 +69,27 @@ var aim_progress:=0.0
 const AIM_TRAVEL_SECONDS:=1.3
 const AIM_HOLD_SECONDS:=0.6
 const AIM_COLOR:=Color(1,.75,.2)
+## Change 41: the three mode choices as large cards: art, the mode's name and one line on what it gives
+## (GUIDE_MODE_<MODE> and GUIDE_MODE_<MODE>_DETAIL). Every mode plays the same game; Guided, the
+## beginner's mode, uses the primary style, and None is never styled as a recommendation.
+const MODES:=["guided","basic","none"]
+const MODE_ART:={"guided":273,"basic":60,"none":1}
+const MODE_TITLE_COLORS:={"guided":Color(1,.93,.7),"basic":Color(.72,.88,1),"none":Color(.86,.88,.92)}
+const MODE_MIN_HEIGHT:=112.0
+## The chooser is shown at its settled size only (Playbook 16.3): transparent until its wanted size has
+## held for two frames, never longer than CHOOSER_SETTLE_CAP frames.
+const CHOOSER_SETTLE_CAP:=12
+var chooser_detail: Label
+var chooser_settled:=0
+var chooser_frames:=0
+var chooser_wanted:=Vector2.ZERO
+## Change 41: during the Guided movement lesson, the real joystick is framed and a ghost knob shows the
+## drag toward the path (stick_demo), wherever Settings placed the stick; drawn only, never input.
+var stick_demo: Control
+var stick_direction:=Vector2.LEFT
+var stick_progress:=0.0
+const STICK_TRAVEL_SECONDS:=0.9
+const STICK_HOLD_SECONDS:=0.5
 
 func setup(owner_ui) -> void:
     ui=owner_ui;sim=ui.sim
@@ -78,13 +99,14 @@ func setup(owner_ui) -> void:
     # The first-launch chooser is the only modal: it is a decision, shown before the first tick.
     blocker=Control.new();blocker.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);blocker.mouse_filter=Control.MOUSE_FILTER_STOP;add_child(blocker)
     chooser=PanelContainer.new();add_child(chooser)
-    var list:=VBoxContainer.new();list.add_theme_constant_override("separation",12);chooser.add_child(list)
-    chooser_heading=Label.new();chooser_heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;list.add_child(chooser_heading)
-    for mode in ["guided","basic","none"]:
-        var button:=Button.new();button.custom_minimum_size.y=76;button.set_meta("mode",mode);list.add_child(button)
-        button.pressed.connect(func()->void:choose(mode))
+    var list:=VBoxContainer.new();list.add_theme_constant_override("separation",14);chooser.add_child(list)
+    chooser_heading=Label.new();chooser_heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;chooser_heading.add_theme_font_size_override("font_size",26);chooser_heading.add_theme_color_override("font_color",Color(1,.88,.5));list.add_child(chooser_heading)
+    chooser_detail=Label.new();chooser_detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;chooser_detail.add_theme_font_size_override("font_size",18);chooser_detail.add_theme_color_override("font_color",Color(.8,.84,.9));list.add_child(chooser_detail)
+    for mode in MODES:list.add_child(_mode_button(mode))
     aim=Control.new();aim.mouse_filter=Control.MOUSE_FILTER_IGNORE;aim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(aim);aim.hide()
     aim.draw.connect(_draw_aim)
+    stick_demo=Control.new();stick_demo.mouse_filter=Control.MOUSE_FILTER_IGNORE;stick_demo.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(stick_demo);stick_demo.hide()
+    stick_demo.draw.connect(_draw_stick_demo)
     final_backdrop=ColorRect.new();final_backdrop.color=Color(0,0,0,0.72);final_backdrop.mouse_filter=Control.MOUSE_FILTER_IGNORE;final_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(final_backdrop);final_backdrop.hide()
     card=PanelContainer.new();card.theme_type_variation=&"Backing";card.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(card)
     var content:=VBoxContainer.new();content.mouse_filter=Control.MOUSE_FILTER_IGNORE;content.add_theme_constant_override("separation",4);card.add_child(content)
@@ -116,13 +138,62 @@ func setup(owner_ui) -> void:
 ## Localization Batch 01: redrawn when the language changes.
 func _localize() -> void:
     chooser_heading.text=tr("GUIDE_CHOOSE")
+    chooser_detail.text=tr("GUIDE_CHOOSE_DETAIL")
     for button in chooser_heading.get_parent().get_children():
-        if button is Button:button.text=tr("GUIDE_MODE_"+str(button.get_meta("mode")).to_upper())
+        if button is Button:
+            var key:="GUIDE_MODE_"+str(button.get_meta("mode")).to_upper()
+            button.get_node("Row/Text/Title").text=tr(key)
+            button.get_node("Row/Text/Detail").text=tr(key+"_DETAIL")
+    chooser_settled=0;chooser_frames=0
     skip_button.text=tr("GUIDE_SKIP")
     intro_button.text=tr("GUIDE_GOT_IT")
 
 func _notification(what: int) -> void:
     if what==NOTIFICATION_TRANSLATION_CHANGED and chooser_heading!=null:_localize()
+
+## One mode card: a full-size button holding its art, name and one line of detail. The content ignores
+## input, so the whole card is the touch target; its height follows the wrapped detail (_fit_chooser).
+func _mode_button(mode: String) -> Button:
+    var button:=Button.new();button.set_meta("mode",mode);button.name="Mode_"+mode
+    button.custom_minimum_size.y=MODE_MIN_HEIGHT;button.focus_mode=Control.FOCUS_NONE
+    if mode=="guided":button.theme_type_variation=&"Primary"
+    button.pressed.connect(func()->void:choose(mode))
+    var row:=HBoxContainer.new();row.name="Row";row.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);row.offset_left=16;row.offset_right=-16;row.offset_top=10;row.offset_bottom=-10
+    row.add_theme_constant_override("separation",16);button.add_child(row)
+    var art:=TextureRect.new();art.texture=ui._art(int(MODE_ART[mode]));art.custom_minimum_size=Vector2(56,56);art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    art.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;art.size_flags_vertical=Control.SIZE_SHRINK_CENTER;art.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(art)
+    var text:=VBoxContainer.new();text.name="Text";text.mouse_filter=Control.MOUSE_FILTER_IGNORE;text.size_flags_horizontal=Control.SIZE_EXPAND_FILL;text.alignment=BoxContainer.ALIGNMENT_CENTER;text.add_theme_constant_override("separation",2);row.add_child(text)
+    var heading:=Label.new();heading.name="Title";heading.mouse_filter=Control.MOUSE_FILTER_IGNORE;heading.add_theme_font_size_override("font_size",28)
+    heading.add_theme_color_override("font_color",MODE_TITLE_COLORS[mode]);heading.add_theme_color_override("font_outline_color",Color(0,0,0,.85));heading.add_theme_constant_override("outline_size",4);text.add_child(heading)
+    var detail:=Label.new();detail.name="Detail";detail.mouse_filter=Control.MOUSE_FILTER_IGNORE;detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;detail.add_theme_font_size_override("font_size",19)
+    detail.add_theme_color_override("font_color",Color(1,.97,.9) if mode=="guided" else Color(.86,.9,.95));detail.add_theme_color_override("font_outline_color",Color(0,0,0,.7));detail.add_theme_constant_override("outline_size",3);text.add_child(detail)
+    return button
+
+## Sizes the chooser for the safe area and its mode cards for their wrapped text, then reveals it only
+## once that size has held (a wrapped label measures one word per line on its first pass).
+func _fit_chooser() -> void:
+    var insets:=LayoutService.get_safe_area_insets_canvas()
+    var width:=minf(640,ui.size.x-insets.x-insets.z-32)
+    var inner:=width-chooser.get_theme_stylebox("panel").get_minimum_size().x
+    if chooser_heading.custom_minimum_size.x!=inner:chooser_heading.custom_minimum_size.x=inner;chooser_detail.custom_minimum_size.x=inner
+    for button in chooser_heading.get_parent().get_children():
+        if not button is Button:continue
+        var row: Control=button.get_node("Row")
+        var detail: Label=row.get_node("Text/Detail")
+        var room:=inner-32-56-16
+        if detail.custom_minimum_size.x!=room:detail.custom_minimum_size.x=room
+        var height:=maxf(MODE_MIN_HEIGHT,row.get_combined_minimum_size().y+20)
+        if button.custom_minimum_size.y!=height:button.custom_minimum_size.y=height
+    var wanted:=Vector2(width,chooser.get_combined_minimum_size().y)
+    if not chooser.size.is_equal_approx(wanted):chooser.size=wanted
+    var at:=Vector2(ui.centered_x(chooser.size.x,insets),(ui.size.y-chooser.size.y)*.5)
+    if not chooser.position.is_equal_approx(at):chooser.position=at
+    chooser_frames+=1
+    chooser_settled=chooser_settled+1 if wanted.is_equal_approx(chooser_wanted) else 0
+    chooser_wanted=wanted
+    var shown:=chooser_settled>=2 or chooser_frames>=CHOOSER_SETTLE_CAP
+    if chooser.modulate.a!=(1.0 if shown else 0.0):chooser.modulate.a=1.0 if shown else 0.0
 
 func _frame(color: Color) -> NinePatchRect:
     var f:=NinePatchRect.new();f.texture=FRAME
@@ -148,15 +219,10 @@ func _process(dt: float) -> void:
     blocker.visible=chooser.visible
     if chooser.visible:
         sim.suspended=true
-        # Change 10: centred from the chooser's real size on the X axis of the safe area (it was
-        # placed by its smaller minimum width while drawn 600 wide, so it sat right of centre).
-        var insets:=LayoutService.get_safe_area_insets_canvas()
-        var width:=minf(600,ui.size.x-insets.x-insets.z-48)
-        var wanted:=Vector2(maxf(width,chooser.get_combined_minimum_size().x),chooser.get_combined_minimum_size().y)
-        if not chooser.size.is_equal_approx(wanted):chooser.size=wanted
-        var at:=Vector2(ui.centered_x(chooser.size.x,insets),(ui.size.y-chooser.size.y)*.5)
-        if not chooser.position.is_equal_approx(at):chooser.position=at
+        # Change 10: centred on the X axis of the safe area. Change 41: the cards wrap to the width.
+        _fit_chooser()
         _hide_all();return
+    chooser_settled=0;chooser_frames=0
     var running: bool=not get_tree().paused and not sim.suspended and not sim.held and sim.state.prestige_batch.is_empty()
     if running:
         sim.campaign.guided.advance_waits(dt)
@@ -519,7 +585,7 @@ func _panel_control(key: String,enabled_only:=false) -> Control:
     return null
 
 func _hide_all() -> void:
-    card.hide();final_backdrop.hide();highlight.hide();shade.hide();pointer.hide();aim.hide()
+    card.hide();final_backdrop.hide();highlight.hide();shade.hide();pointer.hide();aim.hide();stick_demo.hide()
 
 func _present() -> void:
     var data: Dictionary=sim.state.tutorial
@@ -557,7 +623,7 @@ func _present() -> void:
     # Introductions are text only, except in Guided: the Focused Farming and Auto Claim hints and
     # the Snowman objective and Prestige cards point at their control. Basic and None never point.
     if data.mode!="guided" or (pending not in ["focus","mission_auto_hint","mission_auto_open"] and intro_id!="" and not step in POINTING_INTROS):
-        highlight.hide();shade.hide();pointer.hide();aim.hide();return
+        highlight.hide();shade.hide();pointer.hide();aim.hide();stick_demo.hide();return
     _point()
 
 func _picture() -> Texture2D:
@@ -602,6 +668,7 @@ func _point_path() -> void:
     if from.distance_to(to)<4:
         pointer.hide();return
     var direction:=(to-from).normalized()
+    stick_direction=direction
     var bob:=6.0*sin(pulse*5)
     pointer.rotation=direction.angle()-ARROW_BASE_ANGLE
     var center:=from+direction*(PATH_ARROW_DISTANCE+bob)
@@ -609,12 +676,14 @@ func _point_path() -> void:
     pointer.show()
 
 func _point() -> void:
+    if step!="move":stick_demo.hide()
     if step=="target":
         _point_aim()
         return
     aim.hide()
     if path_point!=Vector2.INF:
         _point_path()
+        if step=="move":_point_stick()
         return
     var rect:=Rect2()
     var have:=false
@@ -637,7 +706,8 @@ func _point() -> void:
         rect=Rect2(screen-Vector2(16,40),Vector2(32,44))
         have=map.get_global_rect().grow(-24).has_point(screen) and not (ui.sheet.visible and ui.sheet.get_global_rect().has_point(screen))
     if not have:
-        highlight.hide();shade.hide();pointer.hide();return
+        highlight.hide();shade.hide();pointer.hide();stick_demo.hide();return
+    if step=="move" and target==ui.stick:stick_direction=Vector2.UP;_show_stick_demo(rect)
     var glow:=.75+.25*sin(pulse*4)
     if is_instance_valid(target) and world_target==Vector2.INF:
         highlight.position=rect.position-Vector2.ONE*4;highlight.size=rect.size+Vector2.ONE*8
@@ -654,6 +724,46 @@ func _point() -> void:
     pointer.position=tip-direction*(POINTER_SIZE*.45+6+bob)-pointer.size*.5
     pointer.position.x=clampf(pointer.position.x,4,ui.size.x-POINTER_SIZE-4)
     pointer.show()
+
+## Change 41: the Guided movement lesson on Winter I also frames the real joystick (wherever Settings put
+## it) and plays the drag on it toward the path arrow's direction. The frame and the ghost knob follow the
+## stick's live rectangle every frame and step aside while the player's thumb is on it.
+func _point_stick() -> void:
+    var stick: Control=ui.stick
+    if not stick.is_visible_in_tree() or stick.pointer!=-2:
+        highlight.hide();shade.hide();stick_demo.hide();return
+    var rect: Rect2=stick.get_global_rect()
+    var glow:=.75+.25*sin(pulse*4)
+    highlight.position=rect.position-Vector2.ONE*4;highlight.size=rect.size+Vector2.ONE*8
+    shade.position=rect.position-Vector2.ONE*7;shade.size=rect.size+Vector2.ONE*14
+    highlight.modulate=Color(1,.85,.4,glow);highlight.show();shade.show()
+    _show_stick_demo(rect)
+
+func _show_stick_demo(rect: Rect2) -> void:
+    if ui.stick.pointer!=-2:stick_demo.hide();return
+    var cycle: float=fmod(pulse,STICK_TRAVEL_SECONDS+STICK_HOLD_SECONDS)
+    stick_progress=minf(1.0,cycle/STICK_TRAVEL_SECONDS)
+    stick_rect=rect
+    stick_demo.show();stick_demo.queue_redraw()
+
+## The ghost knob: from the stick's centre toward the lesson's direction, in the aim colours.
+var stick_rect:=Rect2()
+func _draw_stick_demo() -> void:
+    if stick_rect.size==Vector2.ZERO:return
+    var center:=stick_rect.get_center()
+    var reach: float=float(ui.stick.radius)
+    var eased:=stick_progress*stick_progress*(3.0-2.0*stick_progress)
+    var knob:=center+stick_direction*reach*eased
+    var d:=0.0
+    while d<reach:
+        stick_demo.draw_line(center+stick_direction*d,center+stick_direction*minf(reach,d+10),Color(0,0,0,.6),6,true)
+        stick_demo.draw_line(center+stick_direction*d,center+stick_direction*minf(reach,d+10),Color(AIM_COLOR,.9),3,true)
+        d+=18
+    var glow:=.6+.4*sin(pulse*6)
+    stick_demo.draw_circle(knob,30,Color(AIM_COLOR,.3+.15*glow))
+    stick_demo.draw_arc(knob,30,0,TAU,40,Color(0,0,0,.75),7,true)
+    stick_demo.draw_arc(knob,30,0,TAU,40,Color(AIM_COLOR,.75+.25*glow),4,true)
+    stick_demo.draw_circle(center,6,Color(1,1,1,.9))
 
 ## Change 35: the targeting demonstration, from the player's screen position to the suggested enemy
 ## (world_target), in map coordinates like _point_path. Hidden while the player is already aiming

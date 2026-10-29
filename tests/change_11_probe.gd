@@ -67,14 +67,16 @@ func follower_checks() -> void:
         var item: String=sim.campaign.contract_outfit(name)
         forbidden.append_array([item,sim.catalog.display_name(item),tr(sim.catalog.groups[sim.campaign.group_id("unit-"+name)].name)])
     var items: Array=[sim.campaign.contract_outfit("blue-cap"),sim.campaign.contract_outfit("red-scarf"),sim.campaign.contract_outfit("chef-hat")]
-    var stages: Array=[[0,0,0],[20,7,0],[20,20,12],[20,20,20]]
+    # Change 41: a contract asks for 21 of each (20 handed in, one kept); the fixture owns what it found.
+    var stages: Array=[[0,0,0],[21,7,0],[21,21,12],[21,21,21]]
     # Change 16 supersedes the Change 11 rule: the follower now names the exact item it needs next,
     # with the enemy and map, and shows that item's icon (change_16_probe covers all 33 opportunities).
-    var expected: Array=["Step 1/3 · Collect %s from Blue Cap (Winter I): 0/20" % sim.catalog.display_name(items[0]),"Step 2/3 · Collect %s from Red Scarf (Winter I): 7/20" % sim.catalog.display_name(items[1]),"Step 3/3 · Collect %s from Chef Hat (Winter I): 12/20" % sim.catalog.display_name(items[2]),tr("FOLLOW_COLLECTION_SUBMIT")]
+    var expected: Array=["Step 1/3 · Collect %s from Blue Cap (Winter I): 0/21" % sim.catalog.display_name(items[0]),"Step 2/3 · Collect %s from Red Scarf (Winter I): 7/21" % sim.catalog.display_name(items[1]),"Step 3/3 · Collect %s from Chef Hat (Winter I): 12/21" % sim.catalog.display_name(items[2]),tr("FOLLOW_COLLECTION_SUBMIT")]
     var icons: Array=[game.icon_cache.get(items[0]),game.icon_cache.get(items[1]),game.icon_cache.get(items[2]),game._path_art("collection")]
     for i in range(stages.size()):
         for k in range(3):
             sim.state.online_items[items[k]]=float(stages[i][k]);sim.state.opportunities[id]["item_"+items[k]]=float(stages[i][k]) # fixture: found this run
+            if sim.quantity(items[k])<stages[i][k]:sim.add_item(items[k],stages[i][k]-sim.quantity(items[k]),false,false) # fixture: and owned
         sim.touch();game._refresh_follow_tracker()
         check(tracker.visible and step.text.get_slice("
 ",0)==expected[i] and tracker.get_node("Row/Icon").texture==icons[i],"Collection stage %d follower reads \"%s\" with that item's icon" % [i,step.text.get_slice("
@@ -82,7 +84,7 @@ func follower_checks() -> void:
     check(tracker.get_node("Row/Text/Name").text==tr("CONTENT_COLLECTION_O1_NAME"),"Follower keeps the Prestige name")
     game._open("prestige");await frames(2)
     var detail:=label_containing(sim.catalog.display_name(items[0]))
-    check(detail!=null and detail.text.contains("20/20"),"Prestige panel still names each required outfit with its count")
+    check(detail!=null and detail.text.contains("21/21"),"Prestige panel still names each required outfit with its count")
     check(label_containing(tr("CONTENT_COLLECTION_O1_DESCRIPTION"))!=null,"Prestige panel keeps the full description")
     game._close()
     sim.state.opportunities["hunter_o1"]={"ready":false,"baseline":{},"step":0,"count":0}

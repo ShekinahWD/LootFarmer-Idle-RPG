@@ -289,7 +289,9 @@ func notice_checks() -> void:
     sim.state.opportunities["collection_o1"]={"ready":false,"baseline":{},"step":0,"count":0}
     sim.state.follow="collection_o1";sim.campaign.evaluate()
     var item: String=sim.campaign.contract_outfit("blue-cap")
-    sim.state.online_items[item]=20.0;sim.state.opportunities["collection_o1"]["item_"+item]=20.0
+    # Change 41: an outfit is complete at 21 (20 to hand in and one kept), so the fixture owns 21.
+    sim.add_item(item,21,false,false)
+    sim.state.online_items[item]=21.0;sim.state.opportunities["collection_o1"]["item_"+item]=21.0
     sim.campaign.evaluate()
     check(notices==[["follow_step","collection_o1"]],"A collection step (one outfit complete) emits one notice")
     sim.state.follow="";notices.clear()

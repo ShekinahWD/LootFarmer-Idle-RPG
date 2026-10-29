@@ -455,13 +455,15 @@ func follow_text_checks() -> void:
     check(bad.is_empty(),"Every opportunity says what to do with current/required progress, names the enemy and map where one applies and the next requirement %s" % str(bad))
     var col: String=sim.campaign.follow_summary("collection_o1")
     var item: String=sim.campaign.contract_outfit("blue-cap")
-    check(col.contains(sim.catalog.display_name(item)) and col.contains("Blue Cap (Winter I)") and col.contains("0/20") and col.contains("Next: "+sim.catalog.display_name(sim.campaign.contract_outfit("red-scarf"))),"Winter collection names the exact item: \"%s\"" % col.replace("\n"," / "))
+    check(col.contains(sim.catalog.display_name(item)) and col.contains("Blue Cap (Winter I)") and col.contains("0/21") and col.contains("Next: "+sim.catalog.display_name(sim.campaign.contract_outfit("red-scarf"))),"Winter collection names the exact item: \"%s\"" % col.replace("\n"," / "))
     check(sim.campaign.follow_focus("collection_o1")=={"item":item},"…and the tracker shows that item's icon")
     sim.state.follow="collection_o1";game._refresh_follow_tracker()
     check(map_node("FollowTracker").get_node("Row/Icon").texture==game.icon_cache.get(item),"Tracker icon = the Blue Cap Outfit")
-    sim.state.online_items[item]=20.0;sim.state.opportunities.collection_o1["item_"+item]=20.0 # fixture: 20 found
+    # Change 41: 21 of an outfit completes its step (20 handed in, one kept).
+    sim.add_item(item,21,false,false)
+    sim.state.online_items[item]=21.0;sim.state.opportunities.collection_o1["item_"+item]=21.0 # fixture: 21 found
     col=sim.campaign.follow_summary("collection_o1")
-    check(col.begins_with("Step 2/3") and col.contains(sim.catalog.display_name(sim.campaign.contract_outfit("red-scarf"))),"After 20 Blue Caps the next outfit is named: \"%s\"" % col.replace("\n"," / "))
+    check(col.begins_with("Step 2/3") and col.contains(sim.catalog.display_name(sim.campaign.contract_outfit("red-scarf"))),"After 21 Blue Caps the next outfit is named: \"%s\"" % col.replace("\n"," / "))
     var exp: String=sim.campaign.follow_summary("expedition_o1")
     check(exp.begins_with("Step 1/3 · Defeat Blue Cap (Winter I): 0/100") and exp.contains("Next: Defeat Red Scarf (Winter I) ×100"),"Winter route: \"%s\"" % exp.replace("\n"," / "))
     check(sim.campaign.follow_summary("hunter_o1")=="Defeat Snowman (Winter I): 0/10","First bounty: \"%s\"" % sim.campaign.follow_summary("hunter_o1"))

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/game/pickup_style.gd" id="style"]
+
+[resource]
+script = ExtResource("style")
+gear_size = 16.0
+supply_size = 14.0
+hop_seconds = 0.34
+hop_height = 11.0
+pop_from_scale = 0.35
+pop_overshoot = 1.22
+hop_above_actors = true
+supply_hop_scale = 0.6
+glint_radius = Vector2(9, 3.6)
+glint_alpha_min = 0.28
+glint_alpha_max = 0.6
+glint_pulse_speed = 3.2
+glint_width = 1.6
+glint_lighten = 0.45
+glint_edge_alpha = 0.45
+spark_seconds = 1.2
+spark_interval = 4.0
+landing_spark_scale_gear = 1.35
+landing_spark_scale_supply = 1.0

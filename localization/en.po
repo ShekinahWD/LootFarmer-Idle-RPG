@@ -1034,7 +1034,7 @@ msgid "SUBMIT_CONTRACT"
 msgstr "Submit required items or currency"
 
 msgid "CONTRACT_NEEDS"
-msgstr "Collect the required copies online and keep one of each."
+msgstr "Collect the full count of each outfit first."
 
 msgid "OFFERING_NEEDS"
 msgstr "You need the required balance and unspent online-earned currency."
@@ -3304,19 +3304,19 @@ msgid "CONTENT_COLLECTION_O1_NAME"
 msgstr "Winter collection"
 
 msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
-msgstr "Pick up 20 each of the Blue Cap, Red Scarf and Chef Hat outfits (Winter I drops), then hand them in with Submit"
+msgstr "Pick up 21 each of the Blue Cap, Red Scarf and Chef Hat outfits (Winter I drops). Submit hands in 20 of each and you keep one"
 
 msgid "CONTENT_COLLECTION_O2_NAME"
 msgstr "Summer collection"
 
 msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
-msgstr "Pick up 30 each of the Straw Hat, Sunglasses and Yellow Cap outfits (Summer I drops), then hand them in with Submit"
+msgstr "Pick up 31 each of the Straw Hat, Sunglasses and Yellow Cap outfits (Summer I drops). Submit hands in 30 of each and you keep one"
 
 msgid "CONTENT_COLLECTION_O3_NAME"
 msgstr "Spring collection"
 
 msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
-msgstr "Pick up 40 each of the Bunny Ears, Cat Ears and Elf Ears outfits (Spring I drops), then hand them in with Submit"
+msgstr "Pick up 41 each of the Bunny Ears, Cat Ears and Elf Ears outfits (Spring I drops). Submit hands in 40 of each and you keep one"
 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "First masterwork"
@@ -3729,13 +3729,13 @@ msgid "GUIDE_CHOOSE"
 msgstr "How much guidance would you like?"
 
 msgid "GUIDE_MODE_GUIDED"
-msgstr "Guided · Learn one action at a time"
+msgstr "Guided"
 
 msgid "GUIDE_MODE_BASIC"
-msgstr "Basic · All menus open, a short overview"
+msgstr "Basic"
 
 msgid "GUIDE_MODE_NONE"
-msgstr "None · All menus open, no tips"
+msgstr "None"
 
 msgid "GUIDE_REVIEW"
 msgstr "Choose guidance again"
@@ -3747,7 +3747,7 @@ msgid "GUIDE_MOVE"
 msgstr "Follow the path to your left."
 
 msgid "GUIDE_MOVE_DETAIL"
-msgstr "Drag the joystick toward the arrow. The first enemies wait along the path."
+msgstr "Drag the glowing joystick toward the arrow. The first enemies wait along the path."
 
 msgid "GUIDE_KILL"
 msgstr "Stop next to an enemy to attack"
@@ -3789,7 +3789,7 @@ msgid "GUIDE_OVERVIEW"
 msgstr "Walk, fight, collect"
 
 msgid "GUIDE_OVERVIEW_DETAIL"
-msgstr "Drag the joystick to walk. Stand still near an enemy to attack. Tap dropped loot to pick it up."
+msgstr "Drag the joystick at the bottom of the map to walk. Let go and your hero fights nearby enemies. Tap loot to pick it up."
 
 msgid "GUIDE_AGGRESSION"
 msgstr "These enemies notice you nearby"
@@ -4122,7 +4122,7 @@ msgid "PROGRESS_TROPHY"
 msgstr "Trophies: %d / %d (each boss drops one on its next defeat)"
 
 msgid "PROGRESS_COLLECTION"
-msgstr "Found this run: %s"
+msgstr "Progress: %s"
 
 msgid "PROGRESS_CHALLENGE"
 msgstr "Win the fight without using potions or tonics."
@@ -5830,3 +5830,33 @@ msgstr "%dm %02ds"
 
 msgid "DURATION_SECONDS"
 msgstr "%ds"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Joystick position"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Left"
+
+msgid "JOYSTICK_CENTER"
+msgstr "Center"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Right"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "The link couldn't be opened. Check your connection and try again."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Every mode plays the same game. Only the amount of help changes."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Step-by-step lessons with pointers. Menus open as you learn them."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "A few short cards on controls and goals. Every menu is open."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "No lessons or tips. Every menu is open from the start."

@@ -17,6 +17,9 @@ var mute_gameplay: bool = false
 var mute_special: bool = false
 var camera_zoom: float = 2.0
 var inventory_zoom: int = 2
+## Change 41: where the movement joystick sits along the bottom of the map: 0 Left, 1 Center (default and
+## the place every earlier profile had), 2 Right. Like every setting it survives Hard Reset.
+var joystick_position: int = 1
 
 ## Optional but useful for incremental/idle projects. If the game has no speed
 ## control, simply leave this at 1.0 and do not expose a UI for it.
@@ -34,6 +37,7 @@ func reset_to_defaults() -> void:
     selected_game_speed = 1.0
     camera_zoom = 2.0
     inventory_zoom = 2
+    joystick_position = 1
     Engine.time_scale = 1.0
     settings_changed.emit()
     game_speed_changed.emit(selected_game_speed)
@@ -87,11 +91,17 @@ func set_inventory_zoom(value: int) -> void:
     SaveService.mark_dirty()
 
 
+func set_joystick_position(value: int) -> void:
+    joystick_position = clampi(value, 0, 2)
+    settings_changed.emit()
+
+
 func to_save_dict() -> Dictionary:
     return {
         "selected_language": selected_language,
         "camera_zoom": camera_zoom,
         "inventory_zoom": inventory_zoom,
+        "joystick_position": joystick_position,
         "sfx_volume": sfx_volume,
         "music_volume": music_volume,
         "mute_gameplay": mute_gameplay,
@@ -111,6 +121,9 @@ func from_save_dict(data: Dictionary) -> void:
     mute_gameplay = bool(data.get("mute_gameplay", false))
     mute_special = bool(data.get("mute_special", false))
     inventory_zoom = clampi(int(data.get("inventory_zoom",2)),0,2)
+    # Saves before Change 41 have no joystick position: Center, where the joystick always was.
+    var joystick = data.get("joystick_position", 1)
+    joystick_position = clampi(int(joystick), 0, 2) if joystick is int or joystick is float else 1
     set_camera_zoom(float(data.get("camera_zoom", 2.0)))
     set_game_speed(float(data.get("selected_game_speed", 1.0)))
     settings_changed.emit()

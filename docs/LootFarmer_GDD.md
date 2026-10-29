@@ -1,4 +1,16 @@
-# LootFarmer — Game Design Document — current (2026-10-28, Change 36)
+# LootFarmer — Game Design Document — current (2026-10-29, Change 41)
+
+## Change 41 — playtest corrections (29 October 2026)
+
+Save schema 8 and save file version 3 unchanged; one new setting. Details and evidence: [Change 41 report](LootFarmer_Change_41_Report.md). This section supersedes the collection numbers in *Change 16 additions* and the "Collection follower" counts of *Change 11 additions*, and adds to *Core loop and controls*.
+
+- **Collection contracts (Prestige):** Winter / Summer / Spring ask for **21 / 31 / 41** of each outfit; Submit hands in **20 / 30 / 40** of each and the player keeps one (the kept copy can be any owned copy: worn, older or offline). Progress per outfit = copies picked up online this run since the contract was found (up to the hand-in amount; spending copies lowers it) + 1 when the inventory holds one more than those. The card, the HUD tracker, the follower, the step sounds, readiness and Submit read that one count, so the number shown is always the number Submit needs.
+- **Focus Farming target priority:** (1) eligible enemies of the focused type and loadout; (2) when none is eligible, the nearest enemy actively attacking the hero (aggro and not returning home, within acquisition range); (3) otherwise walk back to or wait at the farming spot. Calm or passive strangers are never attacked under a Focus; the focus regains priority as soon as a focused enemy is eligible. Auto-attack and skills share the rule. Manual targeting and movement still end Focus.
+- **Joystick position:** Settings → Joystick position Left / Center (default) / Right, along the bottom of the map only (same size and height, 16 px from the map edge); applied at once, saved with the settings, kept by Hard Reset.
+- **Onboarding chooser:** three large cards with art, the mode name and one line each (Guided: step-by-step lessons with pointers, menus open as you learn them; Basic: a few short cards on controls and goals, every menu open; None: no lessons or tips, every menu open), under "Every mode plays the same game. Only the amount of help changes." Guided uses the primary style. Mode rules are those of Change 25.
+- **Guided movement lesson:** the real joystick is framed and a ghost knob demonstrates the drag toward the path arrow, at whichever position the joystick is, until the path is walked. Basic and Help: "Drag the joystick at the bottom of the map to walk. Let go and your hero fights nearby enemies. Tap loot to pick it up."
+- **Drops (presentation only):** a new drop hops out of the defeated enemy in 0.34 s and lands on its real spot; equipment is 16 px on a thin ring in its tier colour, supplies 14 px with a lower hop; the sparkle plays on landing and then at a per-drop phase. Collectible from the first frame; drops already on the ground after a load or map change do not hop. Values: `resources/game/pickup_style.tres`.
+- **Discord:** one Settings button, "Discord", opening `https://discord.gg/zbr9RH6QWa` (defined once in `resources/game/external_links.tres`); a failed launch shows a short message and changes nothing.
 
 ## Change 36 — supply mastery every 3 uses; final-boss audit (28 October 2026)
 

@@ -1037,7 +1037,7 @@ msgid "SUBMIT_CONTRACT"
 msgstr "Здати потрібні предмети чи валюту"
 
 msgid "CONTRACT_NEEDS"
-msgstr "Збери потрібні копії онлайн і залиш по одній кожної."
+msgstr "Спершу збери повну кількість кожного вбрання."
 
 msgid "OFFERING_NEEDS"
 msgstr "Потрібен необхідний баланс і невитрачена валюта, зароблена онлайн."
@@ -3308,19 +3308,19 @@ msgid "CONTENT_COLLECTION_O1_NAME"
 msgstr "Зимова колекція"
 
 msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
-msgstr "Підбери по 20 вбрань синього кашкета, червоного шарфа й кухарського ковпака (здобич Зими I), а потім здай їх кнопкою «Здати»"
+msgstr "Підбери по 21 вбранню синього кашкета, червоного шарфа й кухарського ковпака (здобич Зими I). Кнопка «Здати» забирає по 20, а одне вбрання кожного виду лишається в тебе"
 
 msgid "CONTENT_COLLECTION_O2_NAME"
 msgstr "Літня колекція"
 
 msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
-msgstr "Підбери по 30 вбрань солом’яного капелюха, темних окулярів і жовтого кашкета (здобич Літа I), а потім здай їх кнопкою «Здати»"
+msgstr "Підбери по 31 вбранню солом’яного капелюха, темних окулярів і жовтого кашкета (здобич Літа I). Кнопка «Здати» забирає по 30, а одне вбрання кожного виду лишається в тебе"
 
 msgid "CONTENT_COLLECTION_O3_NAME"
 msgstr "Весняна колекція"
 
 msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
-msgstr "Підбери по 40 вбрань заячих вушок, котячих вушок та ельфійських вух (здобич Весни I), а потім здай їх кнопкою «Здати»"
+msgstr "Підбери по 41 вбранню заячих вушок, котячих вушок та ельфійських вух (здобич Весни I). Кнопка «Здати» забирає по 40, а одне вбрання кожного виду лишається в тебе"
 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Перший шедевр"
@@ -3731,13 +3731,13 @@ msgid "GUIDE_CHOOSE"
 msgstr "Скільки підказок тобі потрібно?"
 
 msgid "GUIDE_MODE_GUIDED"
-msgstr "З навчанням · одна дія за раз"
+msgstr "З навчанням"
 
 msgid "GUIDE_MODE_BASIC"
-msgstr "Базовий · усі меню відкриті, короткий огляд"
+msgstr "Базовий"
 
 msgid "GUIDE_MODE_NONE"
-msgstr "Без підказок · усі меню відкриті"
+msgstr "Без підказок"
 
 msgid "GUIDE_REVIEW"
 msgstr "Вибрати режим підказок знову"
@@ -3749,7 +3749,7 @@ msgid "GUIDE_MOVE"
 msgstr "Іди стежкою ліворуч."
 
 msgid "GUIDE_MOVE_DETAIL"
-msgstr "Тягни джойстик у бік стрілки. Перші вороги чекають уздовж стежки."
+msgstr "Тягни джойстик, що світиться, у бік стрілки. Перші вороги чекають уздовж стежки."
 
 msgid "GUIDE_KILL"
 msgstr "Зупинись біля ворога, щоб атакувати"
@@ -3791,7 +3791,7 @@ msgid "GUIDE_OVERVIEW"
 msgstr "Ходи, бийся, збирай"
 
 msgid "GUIDE_OVERVIEW_DETAIL"
-msgstr "Тягни джойстик, щоб іти. Стань біля ворога, щоб атакувати. Торкнись здобичі, що випала, щоб підібрати її."
+msgstr "Тягни джойстик унизу мапи, щоб іти. Відпусти його, і герой битиметься з ворогами поруч. Торкнись здобичі, щоб підібрати її."
 
 msgid "GUIDE_AGGRESSION"
 msgstr "Ці вороги помічають тебе поблизу"
@@ -4124,7 +4124,7 @@ msgid "PROGRESS_TROPHY"
 msgstr "Трофеї: %d / %d (кожен бос залишить трофей після наступної перемоги)"
 
 msgid "PROGRESS_COLLECTION"
-msgstr "Знайдено за забіг: %s"
+msgstr "Прогрес: %s"
 
 msgid "PROGRESS_CHALLENGE"
 msgstr "Виграй бій, не використовуючи зілля й тоніків."
@@ -5832,3 +5832,33 @@ msgstr "%d хв %02d с"
 
 msgid "DURATION_SECONDS"
 msgstr "%d с"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Положення джойстика"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Ліворуч"
+
+msgid "JOYSTICK_CENTER"
+msgstr "По центру"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Праворуч"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "Не вдалося відкрити посилання. Перевір з’єднання й спробуй ще раз."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "У всіх режимах та сама гра. Змінюється лише кількість підказок."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Покрокові уроки з покажчиками. Меню відкриваються в міру навчання."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Кілька коротких карток про керування й цілі. Усі меню відкриті."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Жодних уроків і підказок. Усі меню відкриті від самого початку."

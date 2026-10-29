@@ -114,9 +114,11 @@ func _process(_delta: float) -> void:
         seen[id]=true
         if not pickups.has(id):
             var node=PICKUP.instantiate()
-            var icon: Sprite2D=node.get_node("Icon")
-            icon.texture=textures[drop.item]
-            icon.scale=Vector2.ONE*14.0/maxf(icon.texture.get_width(),icon.texture.get_height())
+            # Change 41: equipment hops in with a tier-coloured ring (resources/game/pickup_style.tres).
+            # Only a drop made moments ago arrives that way (ground loot lasts 300 s; a load or a map
+            # change shows older drops in place).
+            var item: Dictionary=sim.catalog.items[drop.item]
+            node.setup(textures[drop.item],str(item.kind),_tier_color(item),id,float(drop.ttl)>=FRESH_DROP_TTL)
             $Pickups.add_child(node)
             pickups[id]=node
         pickups[id].position=Vector2(drop.x,drop.y)
@@ -132,6 +134,12 @@ func _process(_delta: float) -> void:
             pickups[id].queue_free()
             pickups.erase(id)
     update_camera()
+
+## A drop whose remaining ground time is at least this was made within the last half second.
+const FRESH_DROP_TTL:=299.5
+func _tier_color(item: Dictionary) -> Color:
+    var colors: Array=sim.catalog.progression.tier_colors
+    return Color(colors[clampi(int(item.get("tier",1))-1,0,colors.size()-1)])
 
 ## The camera's visible world rectangle this frame, grown by CULL_MARGIN (bosses, overhead stacks).
 func _cull_rect() -> Rect2:

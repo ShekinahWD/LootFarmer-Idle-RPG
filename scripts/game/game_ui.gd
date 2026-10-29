@@ -28,6 +28,8 @@ const ROW=preload("res://scenes/game/action_row.tscn")
 ## Change 10: outfit slot look per ^100 merge milestone (inspector-editable resource).
 const OUTFIT_SLOT_STYLES: OutfitSlotStyles=preload("res://resources/game/outfit_slot_styles.tres")
 const LANGUAGE_DROPDOWN:=preload("res://scripts/game/language_dropdown.gd")
+## Change 41: community links, each defined once (Playbook 52).
+const EXTERNAL_LINKS=preload("res://resources/game/external_links.tres")
 ## Values copied from a freshly built description into the live control of the same shape.
 const SYNC_PROPERTIES:=["text","disabled","tooltip_text","value","max_value","texture","icon","modulate","self_modulate","visible","theme_type_variation"]
 const PANEL_ALIASES:={"travel":"world","map":"world","inventory":"filters"}
@@ -135,6 +137,8 @@ func _ready() -> void:
     $Safe/Layout/Map/Zoom/Slider.value_changed.connect(SettingsState.set_camera_zoom)
     SettingsState.settings_changed.connect(_sync_zoom)
     _sync_zoom()
+    SettingsState.settings_changed.connect(_place_joystick)
+    _place_joystick()
     for id in sim.catalog.items:
         icon_cache[id]=sim.catalog.icon(id)
     arrow_art=cropped(ARROW)
@@ -734,6 +738,22 @@ func _apply_milestone_frame(node: Control,id: String) -> void:
         frame.name="MilestoneFrame"
         node.add_child(frame)
     OUTFIT_SLOT_STYLES.apply(frame,rank)
+
+## Change 41: the joystick follows Settings → Joystick position at once (Left / Center / Right).
+func _place_joystick() -> void:
+    if stick.slot!=SettingsState.joystick_position or stick.anchor_left!=[0.0,.5,1.0][stick.slot]:
+        stick.place(SettingsState.joystick_position)
+
+## Change 41: Left / Center / Right, highlighted like the slot sizes; applied and saved at once.
+func _joystick_controls() -> void:
+    _section(tr("JOYSTICK_POSITION"))
+    var row:=HBoxContainer.new()
+    rows.add_child(row)
+    for i in range(3):
+        var button:=_action(tr(["JOYSTICK_LEFT","JOYSTICK_CENTER","JOYSTICK_RIGHT"][i]),func()->void:SettingsState.set_joystick_position(i);panel_revision=-1,true,"",row)
+        button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        button.theme_type_variation=&"Primary" if i==SettingsState.joystick_position else &""
+        button.set_meta("guide","joystick_%s" % stick.POSITIONS[i])
 
 func _inventory_zoom_controls() -> void:
     _section(tr("INVENTORY_ZOOM"))
@@ -2433,6 +2453,7 @@ func _stat_text(key: String,value: float,bonus: bool=false) -> String:
 
 func _settings_panel() -> void:
     _inventory_zoom_controls()
+    _joystick_controls()
     var row:=HFlowContainer.new()
     row.add_theme_constant_override("h_separation",8)
     row.add_theme_constant_override("v_separation",8)
@@ -2441,6 +2462,9 @@ func _settings_panel() -> void:
     _action(tr("STATS_OPEN"),func()->void:_open("stats"),true,"",row).set_meta("guide","open_stats")
     _action(tr("LOOT_HISTORY"),func()->void:_open("history"),true,"",row)
     _action(tr("SAVE_NOW"),func()->void:if SaveService.save_now():_event("SAVED"),true,"",row)
+    # Change 41: one Discord button beside them (no section of its own); the invite lives in
+    # resources/game/external_links.tres. A failed launch says so and changes nothing else.
+    _action(tr("DISCORD"),_open_discord,true,"",row).set_meta("guide","discord")
     for button in row.get_children():
         button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
     # Change 16: Help opens the Basic tutorial as a page to read (it changes no progress, discovery or
@@ -2475,6 +2499,10 @@ func _settings_panel() -> void:
     _section(tr("SECTION_DANGER"))
     _action(tr("HARD_RESET"),func()->void:_confirm(tr("RESET_CONFIRM"),func()->void:SaveService.hard_reset();_close()))
     _text(tr("CREDITS"),17,Color(.7,.75,.82))
+
+func _open_discord() -> void:
+    if not EXTERNAL_LINKS.open(EXTERNAL_LINKS.discord_url) and not EXTERNAL_LINKS.failure_was_repeat:
+        _say(tr("LINK_OPEN_FAILED"))
 
 ## One volume control: "Music 80%" and a 0-100 slider. The label follows the slider directly;
 ## settings_changed persists it.

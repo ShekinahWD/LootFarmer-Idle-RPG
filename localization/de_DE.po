@@ -1037,7 +1037,7 @@ msgid "SUBMIT_CONTRACT"
 msgstr "Geforderte Gegenstände oder Währung abgeben"
 
 msgid "CONTRACT_NEEDS"
-msgstr "Sammle die geforderten Kopien im Spiel und behalte jeweils eine."
+msgstr "Sammle zuerst die volle Anzahl jedes Kostüms."
 
 msgid "OFFERING_NEEDS"
 msgstr "Du brauchst den geforderten Betrag und nicht ausgegebene, im Spiel verdiente Währung."
@@ -3308,19 +3308,19 @@ msgid "CONTENT_COLLECTION_O1_NAME"
 msgstr "Wintersammlung"
 
 msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
-msgstr "Sammle je 20 Kostüme Blaukappe, Rotschal und Kochmütze (Drops aus Winter I) und gib sie dann mit Abgeben ab"
+msgstr "Sammle je 21 Kostüme Blaukappe, Rotschal und Kochmütze (Drops aus Winter I). Mit Abgeben gibst du je 20 ab und behältst eines"
 
 msgid "CONTENT_COLLECTION_O2_NAME"
 msgstr "Sommersammlung"
 
 msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
-msgstr "Sammle je 30 Kostüme Strohhut, Sonnenbrille und Gelbkappe (Drops aus Sommer I) und gib sie dann mit Abgeben ab"
+msgstr "Sammle je 31 Kostüme Strohhut, Sonnenbrille und Gelbkappe (Drops aus Sommer I). Mit Abgeben gibst du je 30 ab und behältst eines"
 
 msgid "CONTENT_COLLECTION_O3_NAME"
 msgstr "Frühlingssammlung"
 
 msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
-msgstr "Sammle je 40 Kostüme Hasenohren, Katzenohren und Elfenohren (Drops aus Frühling I) und gib sie dann mit Abgeben ab"
+msgstr "Sammle je 41 Kostüme Hasenohren, Katzenohren und Elfenohren (Drops aus Frühling I). Mit Abgeben gibst du je 40 ab und behältst eines"
 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Erstes Meisterstück"
@@ -3731,13 +3731,13 @@ msgid "GUIDE_CHOOSE"
 msgstr "Wie viel Anleitung möchtest du?"
 
 msgid "GUIDE_MODE_GUIDED"
-msgstr "Geführt · Lerne eine Aktion nach der anderen"
+msgstr "Geführt"
 
 msgid "GUIDE_MODE_BASIC"
-msgstr "Einfach · Alle Menüs offen, kurzer Überblick"
+msgstr "Einfach"
 
 msgid "GUIDE_MODE_NONE"
-msgstr "Keine · Alle Menüs offen, keine Tipps"
+msgstr "Keine"
 
 msgid "GUIDE_REVIEW"
 msgstr "Anleitung neu wählen"
@@ -3749,7 +3749,7 @@ msgid "GUIDE_MOVE"
 msgstr "Folge dem Weg zu deiner Linken."
 
 msgid "GUIDE_MOVE_DETAIL"
-msgstr "Zieh den Joystick in Richtung des Pfeils. Die ersten Gegner warten am Weg."
+msgstr "Zieh den leuchtenden Joystick in Richtung des Pfeils. Die ersten Gegner warten am Weg."
 
 msgid "GUIDE_KILL"
 msgstr "Bleib neben einem Gegner stehen, um anzugreifen"
@@ -3791,7 +3791,7 @@ msgid "GUIDE_OVERVIEW"
 msgstr "Laufen, kämpfen, sammeln"
 
 msgid "GUIDE_OVERVIEW_DETAIL"
-msgstr "Zieh den Joystick, um zu laufen. Steh neben einem Gegner still, um anzugreifen. Tippe auf liegende Beute, um sie aufzuheben."
+msgstr "Zieh den Joystick unten auf der Karte, um zu laufen. Lass ihn los, dann kämpft dein Held gegen Gegner in der Nähe. Tippe auf Beute, um sie aufzuheben."
 
 msgid "GUIDE_AGGRESSION"
 msgstr "Diese Gegner bemerken dich in der Nähe"
@@ -4124,7 +4124,7 @@ msgid "PROGRESS_TROPHY"
 msgstr "Trophäen: %d / %d (jeder Boss lässt bei seiner nächsten Niederlage eine fallen)"
 
 msgid "PROGRESS_COLLECTION"
-msgstr "In diesem Durchlauf gefunden: %s"
+msgstr "Fortschritt: %s"
 
 msgid "PROGRESS_CHALLENGE"
 msgstr "Gewinne den Kampf ohne Tränke oder Tonika."
@@ -5832,3 +5832,33 @@ msgstr "%d Min. %02d s"
 
 msgid "DURATION_SECONDS"
 msgstr "%d s"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Joystick-Position"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Links"
+
+msgid "JOYSTICK_CENTER"
+msgstr "Mitte"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Rechts"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "Der Link konnte nicht geöffnet werden. Prüfe deine Verbindung und versuch es erneut."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Jeder Modus ist dasselbe Spiel. Nur die Menge an Hilfe ändert sich."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Lektionen Schritt für Schritt mit Zeigern. Menüs öffnen sich, während du lernst."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Ein paar kurze Karten zu Steuerung und Zielen. Alle Menüs sind offen."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Keine Lektionen oder Tipps. Alle Menüs sind von Anfang an offen."

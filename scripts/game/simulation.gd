@@ -1235,25 +1235,58 @@ func select_target(id: String) -> bool:
     touch()
     return true
 
+## Change 41: automatic target priority, shared by auto-attack (_combat_target) and skill activation
+## (campaign.skill_activation_target). Without a Farming Focus: the nearest visible enemy within radius.
+## With a Focus: 1) the nearest eligible enemy of the focused type and loadout; 2) only when none is
+## eligible, the nearest enemy actively attacking the player (threatens_player); 3) nothing, so the
+## caller walks back to or waits at the farming spot. Enemies that are merely nearby or passive are never
+## chosen under a Focus, so the hero defends itself without chasing strangers across the map. Ties keep
+## the roster order (deterministic).
+func auto_target(radius: float,view=null) -> Dictionary:
+    if view==null:view=campaign.sight()
+    var origin:=position_of(state.player)
+    var target: Dictionary={}
+    var threat: Dictionary={}
+    var best:=radius
+    var best_threat:=radius
+    for enemy in state.enemies:
+        if enemy.hp<=0 or not campaign.target_allowed(enemy,view):
+            continue
+        var d:=origin.distance_to(position_of(enemy))
+        if focus_match(enemy):
+            if d<best:best=d;target=enemy
+        elif threatens_player(enemy) and d<best_threat:
+            best_threat=d;threat=enemy
+    return target if not target.is_empty() else threat
+
+## True without a Focus, else only for the focused type and loadout.
+func focus_match(enemy: Dictionary) -> bool:
+    return int(state.focus)<0 or (int(enemy.group)==int(state.focus) and int(enemy.get("variant",2))==int(state.focus_variant))
+
+## An enemy engaged with the living player: alive, aggro and not leashing home (it is chasing or hitting
+## the player; aggro only ever targets the player). Seeing or standing near the player is not enough.
+func threatens_player(enemy: Dictionary) -> bool:
+    return float(state.player.hp)>0 and float(enemy.hp)>0 and bool(enemy.get("aggro",false)) and not bool(enemy.get("returning",false))
+
 func _combat_target() -> Dictionary:
     var target:=_find_actor(locked_target)
-    if not target.is_empty() and target.hp>0 and campaign.target_allowed(target):
+    if not target.is_empty() and target.hp>0 and campaign.target_allowed(target) and _keeps_lock(target):
         return target
     clear_target()
-    target={}
-    var distance: float=catalog.world.acquisition
-    var view=campaign.sight()
-    for enemy in state.enemies:
-        if enemy.hp<=0 or not campaign.target_allowed(enemy,view) or (int(state.focus)>=0 and (int(enemy.group)!=int(state.focus) or int(enemy.get("variant",2))!=int(state.focus_variant))):
-            continue
-        var d:=position_of(state.player).distance_to(position_of(enemy))
-        if d<distance:
-            distance=d
-            target=enemy
-    if not target.is_empty() and target.hp>0:
+    target=auto_target(float(catalog.world.acquisition))
+    if not target.is_empty():
         locked_target=target.id
         return target
     return {}
+
+## A lock survives while it is the player's own choice, the focused type, or (under a Focus) a defensive
+## lock on an attacker that still attacks while no focused enemy is eligible: the focus regains priority
+## as soon as one is (Change 41).
+func _keeps_lock(target: Dictionary) -> bool:
+    if manual_target==str(target.id) or focus_match(target):return true
+    if not threatens_player(target):return false
+    var preferred:=auto_target(float(catalog.world.acquisition))
+    return preferred.is_empty() or not focus_match(preferred)
 
 func achievement_thresholds(group: int) -> Array:
     return catalog.progression.achievements.boss_kills if catalog.groups[group].boss else catalog.progression.achievements.kills

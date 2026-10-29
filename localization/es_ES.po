@@ -1037,7 +1037,7 @@ msgid "SUBMIT_CONTRACT"
 msgstr "Entregar los objetos o la divisa requeridos"
 
 msgid "CONTRACT_NEEDS"
-msgstr "Consigue las copias requeridas en línea y quédate con una de cada una."
+msgstr "Primero reúne la cantidad completa de cada atuendo."
 
 msgid "OFFERING_NEEDS"
 msgstr "Necesitas el saldo requerido y divisas ganadas en línea sin gastar."
@@ -3308,19 +3308,19 @@ msgid "CONTENT_COLLECTION_O1_NAME"
 msgstr "Colección de invierno"
 
 msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
-msgstr "Recoge 20 atuendos de cada uno: Gorra Azul, Bufanda Roja y Gorro de Chef (botín de Invierno I) y luego entrégalos con Entregar"
+msgstr "Recoge 21 atuendos de cada uno: Gorra Azul, Bufanda Roja y Gorro de Chef (botín de Invierno I). Al pulsar Entregar das 20 de cada uno y te quedas con uno"
 
 msgid "CONTENT_COLLECTION_O2_NAME"
 msgstr "Colección de verano"
 
 msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
-msgstr "Recoge 30 atuendos de cada uno: Sombrero de Paja, Gafas de Sol y Gorra Amarilla (botín de Verano I) y luego entrégalos con Entregar"
+msgstr "Recoge 31 atuendos de cada uno: Sombrero de Paja, Gafas de Sol y Gorra Amarilla (botín de Verano I). Al pulsar Entregar das 30 de cada uno y te quedas con uno"
 
 msgid "CONTENT_COLLECTION_O3_NAME"
 msgstr "Colección de primavera"
 
 msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
-msgstr "Recoge 40 atuendos de cada uno: Orejas de Conejo, Orejas de Gato y Orejas de Elfo (botín de Primavera I) y luego entrégalos con Entregar"
+msgstr "Recoge 41 atuendos de cada uno: Orejas de Conejo, Orejas de Gato y Orejas de Elfo (botín de Primavera I). Al pulsar Entregar das 40 de cada uno y te quedas con uno"
 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Primera obra maestra"
@@ -3731,13 +3731,13 @@ msgid "GUIDE_CHOOSE"
 msgstr "¿Cuánta ayuda quieres?"
 
 msgid "GUIDE_MODE_GUIDED"
-msgstr "Guiada · Aprende una acción a la vez"
+msgstr "Guiada"
 
 msgid "GUIDE_MODE_BASIC"
-msgstr "Básica · Todos los menús abiertos y un resumen breve"
+msgstr "Básica"
 
 msgid "GUIDE_MODE_NONE"
-msgstr "Ninguna · Todos los menús abiertos, sin consejos"
+msgstr "Ninguna"
 
 msgid "GUIDE_REVIEW"
 msgstr "Volver a elegir la ayuda"
@@ -3749,7 +3749,7 @@ msgid "GUIDE_MOVE"
 msgstr "Sigue el camino a tu izquierda."
 
 msgid "GUIDE_MOVE_DETAIL"
-msgstr "Arrastra el joystick hacia la flecha. Los primeros enemigos te esperan a lo largo del camino."
+msgstr "Arrastra el joystick que brilla hacia la flecha. Los primeros enemigos te esperan a lo largo del camino."
 
 msgid "GUIDE_KILL"
 msgstr "Detente junto a un enemigo para atacar"
@@ -3791,7 +3791,7 @@ msgid "GUIDE_OVERVIEW"
 msgstr "Camina, lucha, recoge"
 
 msgid "GUIDE_OVERVIEW_DETAIL"
-msgstr "Arrastra el joystick para caminar. Quédate quieto cerca de un enemigo para atacar. Pulsa el botín en el suelo para recogerlo."
+msgstr "Arrastra el joystick de la parte inferior del mapa para caminar. Suéltalo y tu héroe luchará contra los enemigos cercanos. Pulsa el botín para recogerlo."
 
 msgid "GUIDE_AGGRESSION"
 msgstr "Estos enemigos te notan cuando estás cerca"
@@ -4124,7 +4124,7 @@ msgid "PROGRESS_TROPHY"
 msgstr "Trofeos: %d / %d (cada jefe suelta uno en su próxima derrota)"
 
 msgid "PROGRESS_COLLECTION"
-msgstr "Encontrado en esta partida: %s"
+msgstr "Progreso: %s"
 
 msgid "PROGRESS_CHALLENGE"
 msgstr "Gana la pelea sin usar pociones ni tónicos."
@@ -5832,3 +5832,33 @@ msgstr "%d min %02d s"
 
 msgid "DURATION_SECONDS"
 msgstr "%d s"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Posición del joystick"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Izquierda"
+
+msgid "JOYSTICK_CENTER"
+msgstr "Centro"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Derecha"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "No se ha podido abrir el enlace. Comprueba tu conexión y vuelve a intentarlo."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Todos los modos son el mismo juego. Solo cambia cuánta ayuda recibes."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Lecciones paso a paso con indicaciones. Los menús se abren a medida que aprendes."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Unas pocas tarjetas breves sobre controles y objetivos. Todos los menús están abiertos."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Sin lecciones ni consejos. Todos los menús están abiertos desde el principio."

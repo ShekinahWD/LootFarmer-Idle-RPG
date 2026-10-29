@@ -1,6 +1,27 @@
 extends Control
 signal direction_changed(value: Vector2)
 @export var radius:=64.0
+## Change 41: Settings → Joystick position (SettingsState.joystick_position) moves the stick only along
+## the bottom of the map, anchored to its left edge, centre or right edge; its size, height and feel
+## never change. The margins keep it off the map edges (the map already sits inside the safe area).
+@export var edge_margin:=16.0
+@export var bottom_margin:=16.0
+const POSITIONS:=["left","center","right"]
+var slot:=1
+
+## Anchors the stick to the bottom-left, bottom-centre or bottom-right of its parent (0, 1, 2). A thumb
+## still on the stick is released first, so a move can never leave a direction held.
+func place(value: int) -> void:
+    value=clampi(value,0,2)
+    if value!=slot and pointer!=-2:release()
+    slot=value
+    var side: Vector2=custom_minimum_size
+    var anchor: float=[0.0,0.5,1.0][value]
+    anchor_left=anchor;anchor_right=anchor;anchor_top=1.0;anchor_bottom=1.0
+    offset_left=[edge_margin,-side.x*.5,-side.x-edge_margin][value]
+    offset_right=offset_left+side.x
+    offset_top=-side.y-bottom_margin
+    offset_bottom=-bottom_margin
 var pointer: int=-2
 var direction:=Vector2.ZERO
 

@@ -14,6 +14,8 @@
 >
 > **Progressive localization activation — 2026-10-29 (LootFarmer Change 40):** The developer approved enabling validated translation batches before the whole target set is done. Section 132 now gates each locale on its own readiness (one per-locale list drives Settings, Automatic and export packaging), Settings uses one compact dropdown that lists only the locales a build offers (unavailable ones are hidden, not disabled), Automatic matches the device language among enabled and packaged locales with English fallback, and the 20-language milestone is the final comprehensive QA gate rather than a precondition for any activation (0.11, 129.1, 132.2, 132.3, 132.5, 132.6). The earlier rule "all 19 disabled and visible until every language passes" is superseded.
 >
+> **Playtest corrections — 2026-10-29 (LootFarmer Change 41):** Added from one validated correction batch, merged into the owning sections: a requirement that keeps a copy back is shown in full and counted by the predicate the action checks (143.1), a farming focus keeps self-defence as an explicit fallback tier (8.3), mode-chooser cards and teaching a movement control on the control itself (18.2, 18.3), a player-movable on-screen control (121.12), loot arrival feedback that never delays collection (125.4), a single community link (52) and new `class_name` scripts in headless runs (113). Desktop probes and renders only; thumb comfort, link launching and drop readability on a phone are not certified by these notes.
+>
 > **Changes 27–36 reconciliation — 2026-10-28 (LootFarmer documentation Change 37):** Lessons from LootFarmer's store media, review invitation and late-game balance work were merged into their owning sections instead of a new change section: natural marketing copy (74.1), screenshot sets planned as a portfolio with per-frame provenance and contact-sheet review (87.10, plus the Chromebook slot in 87.1 and the window-limit wording in 87.7), the store trailer's observable gameplay chain, clean takes and music-only audio (133.7, 133.1, 133.3), the feature graphic's portrait end card now validated in a finished video (101.1), social-video composition decided per game for portrait-first titles (133.5, 0.9, 49, 134.4), the runtime English source audit and translation-quality gates (132.4, 132.5, 134.3), configurable review-invitation values and presentation (52.2), boss-readiness audits (112.2) and changing uses-per-level for consumable mastery (141.1), licence records as a publication gate (49) and exact test reporting with environment contamination (60.1). Match cuts are recorded as a future option only (133.7). The four-season variety in LootFarmer's media is that game's content, not a requirement. Sections 138–146 are still project-labelled batches; folding them was deliberately left for a separate pass.
 >
 > **Asset-workflow update — 2026-10-18:** Added lessons from Loopcremental's supplied-asset prototype review: verified animation inventories and base-unit composition (22.1–22.3), action/contact/death presentation contracts (13.1–13.4), asset-only UI boundaries (22.2, 125.10), practical editor-editability checks (63.1), and evidence-based visual audits (56.1). These additions document reusable requirements and approved examples; they do not certify the prototype or its previous test reports. The 2026-10-15 production baseline and unrelated guidance remain unchanged.
@@ -1767,6 +1769,21 @@ Probe: several automatic entities with several needs never all take the same tas
 
 Reuse (Growing Kingdom): `RunState.set_villager_mode()`, `set_recruit_mode()`, `apply_new_villager_config()`, `set_all_smart()`, `set_all_manual()`, `SMART_EDIT_REASON`; `ProfileState.recruits_smart()`; `EconomySystem.smart_plan()`, `kingdom_needs()`, `task_coverage()`, `smart_scores()`; the New Villager card in `villagers_panel.gd`; `core_probe` `_test_smart_workforce`, `_test_smart_recruit_modes`, `_test_smart_allocation`; `android_ui_probe` `_check_villager_modes`. Worker specifics (coordinated allocation, finishing a taken project) are in section 115.1.
 
+## 8.3 A farming focus keeps self-defence
+
+An auto-farm focus ("fight only this enemy type here") filters what the player hunts; it must not stop the hero answering what hunts it. LootFarmer's focus removed every other enemy from target selection, so an aggressive stranger picked up on the way to the spot, or at the spot while the focused enemies respawned, hit a hero that stood still (Change 41 playtest). Make the priority explicit, in the one decision that auto-attack and auto-cast skills share:
+
+```text
+1. eligible focused targets (type and loadout), nearest first
+2. only when none is eligible: enemies actively engaged with the player, nearest first
+3. otherwise: return to / wait at the focus point
+```
+
+- **Define "attacking" by state, not by proximity:** engaged with the player (aggro), not leashing home, within the ordinary acquisition range. Visible, nearby, passive or calm enemies are never chosen under a focus, so defence never becomes wandering, and the hero never chases an attacker that gave up.
+- **The focus regains priority at once.** A defensive lock survives only while no focused target is eligible; a manual target stays above everything, as before.
+- **Deterministic ties** (roster order) and nothing new saved: locks remain session state.
+- **Test** focused alive, respawning and out of range; aggro picked up during travel; several attackers and a tie; a leashing attacker; a calm stranger; restoration when a focused target returns; manual override; behaviour with no focus unchanged; and one stepped fight in the real simulation that ends with the hero walking back to the spot, alive.
+
 Reusable rule:
 
 > Automation is a mode above the manual configuration: one function changes it, the manual data waits untouched underneath, an individual switch back restores it, creation can choose the mode up front and a queue snapshots what the creation card showed, and the policy commits in simulation time before it reassesses.
@@ -2234,6 +2251,8 @@ If a mode shows reference cards up front, it opens the very deck the settings sc
 
 Persist the chosen mode and define reset behavior explicitly: Hard Reset returns to the chooser, and a Prestige never replays first-run onboarding. A mode may also set a presentation default on its **first choice only** (LootFarmer's Basic and None start with Large inventory slots); apply it in the choice handler, never on load, Prestige or restart, so a size the player picks later is never overwritten. A short overview mode is a few concise, skippable, non-blocking cards up front from the same deck Help shows, not a later chain of tips.
 
+**Present the modes as cards that say what each gives (LootFarmer Change 41).** One-line buttons ("Guided · Learn one action at a time") were not enough for a playtester to tell the depths apart. Give each mode a large card (the whole card is the touch target): distinct art, the mode's name and one line on what it provides (lessons with pointers and staged menus; a few short cards with every menu open; nothing at all), with one line above them saying every mode plays the same game. Only the beginner mode gets the primary style; never style "None" as a recommendation. Reveal the chooser at its settled size (section 16.3) and check the longest language at the narrowest phone.
+
 Use two gameplay modes only:
 
 ```text
@@ -2263,6 +2282,8 @@ Teach one concept at a time:
 Use event completion, not arbitrary timers, for mandatory actions.
 
 **Teach a gesture by showing the real gesture, and complete it on the real success.** A lesson about a drag (for example "drag from your hero to an enemy and release on it") needs more than a pointer at a control: draw the gesture itself over the world, from its real start point to a real target the player can use now (a ring on the start, a dashed path, the pointer travelling along it, a ring where to release), recomputed every frame, input-transparent, and stepping aside while the player is mid-gesture so the game's own feedback (an aim line) takes over. Name the exact start: "drag from your hero" and "drag the joystick" are different interactions. Complete the step from the one place the action actually succeeds (the selection function the gesture calls, after its own validity checks), through a tightly scoped signal such as `progress.action("target")`, never from a tap, a timer, a failed attempt or an automatic equivalent (auto-acquisition of a target is not a manual target). If the action can be genuinely impossible (no valid target in sight), count only that unavailable time toward a documented escape, so ordinary play still has to make the gesture and an empty map cannot strand the tutorial. Basic-style reference cards teach the same gesture in one short card next to the opening card, and Help shows that same card (one deck, section 18.2); they never point or gate. The escape time and the target-selection rule for the demonstration are per-game tuning in data, not constants of the pattern. (LootFarmer Change 35.)
+
+**Teach a movement control on the control itself.** A world arrow saying "go this way" teaches the destination, not the input: a playtester followed neither because they never found the joystick. During the movement lesson also frame the real control and play its gesture on it (a ghost knob travelling from the centre toward the lesson's direction), both read from the control's live rectangle every frame so they follow a moved control, input-transparent, hidden while the player's thumb is on it, and gone when the lesson completes on its real outcome. Name the control in the card ("drag the glowing joystick"); add no permanent HUD text. (LootFarmer Change 41.)
 
 **Inserting a step into a saved, ordered tutorial.** Put the new step where the beginner meets it and reconcile old saves by order, not by guesses: if a step that comes *after* the new one is already complete, the profile predates the new step, so treat it as done (both live in the step evaluation and in load normalization). Because the new step is ordered before that later step, a new profile can never satisfy the rule without doing the lesson. Existing players beyond the opening map, finished tutorials and profiles in other modes never receive it. Update index-based test fixtures (`STEPS.slice(0, 13)`) to name the step they mean (`STEPS.slice(0, STEPS.find("close_upgrade") + 1)`), or every insertion silently shifts them.
 
@@ -3637,6 +3658,8 @@ Benefits:
 - easier QA before release.
 
 Community links fit naturally in Settings and major completion/end-of-content screens, but should remain optional and never block progression.
+
+**A single community link is one button, not a section (LootFarmer Change 41).** Put it beside the other Settings actions with the service's name as its label, keep the URL in one inspector resource, and open it through a replaceable opener (`OS.shell_open` hands an https URL to the default browser on desktop and to a view intent on Android, which the service's app may claim). Ignore a second press within a short guard (a double tap), and on failure show one short message in the panel and change nothing else. Treat the service name as a brand in every catalog (allowlisted, not translated). Opening it on a real Android device with and without the app installed is a separate device check.
 
 ## 52.1 The storefront is a property of the release artifact, never of the device
 
@@ -5948,6 +5971,7 @@ Three Godot 4 traps that cost Feed the Dragon time, each with a guard that now p
 - **Tests must never touch the real save.** Every probe and capture tool requires `--save-path=user://<name>.json` and refuses to run without it.
 - **When a first-run screen is added, make every end-to-end probe choose explicitly.** A chooser that pauses a fresh profile would stall every scene probe. Each probe sets the onboarding mode (Skip) before it instantiates the main scene, so all of them start exactly as before, and the onboarding checks do a Hard Reset and choose their own mode.
 - **`Array()` of a typed array is not a copy.** In Godot 4 it returns the same array. Feed the Dragon's `to_save_dict()` stored `Array(construction_order)`, and the offline pass used that dictionary as its in-memory snapshot: the dry run changed the live array, the restore brought back a changed order, and the offline pass built projects in the wrong order. Any `to_save_dict()` that is also used as a snapshot must `duplicate()` its typed arrays, with a regression test that changes the live array after saving (`test_save_dict_is_a_copy` in `tests/core_probe.gd`).
+- **A new `class_name` is unknown to headless runs until the global class cache is refreshed.** The cache is written by the editor or by `godot --headless --import`; a probe run straight after adding `class_name PickupStyle` failed to parse every script that named the type (LootFarmer Change 41). For a small data resource read by one or two scripts, use the preload pattern (a script without `class_name`, a `.tres`, `preload` where it is used) or run the import step first, and keep the suite's "any SCRIPT ERROR fails" rule so the trap cannot pass silently.
 
 Reuse: `tools/run_probes.ps1` in Feed the Dragon (editor-open check, then every probe with its own save path).
 
@@ -7270,6 +7294,10 @@ The world may draw under a notch or gesture bar; controls may not. The HUD appli
 
 Reference implementation: `scripts/world/map_camera.gd`, `Hud.blocks_point()` in `scripts/ui/hud.gd`, `scripts/ui/touch_scroll.gd`, `scripts/autoload/layout_service.gd`.
 
+## 121.12 A player-movable on-screen control
+
+When players may move a control (a virtual joystick at Left / Center / Right), change only its anchor inside the band it already owns: same size, height, dead zone and feel, margins as editable values, the safe area applied by its container. Apply the choice at once, save it with the settings (kept by Hard Reset like the other settings; a save without it gets the old place) and release any touch the control holds when it moves, so no direction stays pressed. Everything that refers to the control (trackers stacked above it, tutorial frames and demonstrations, toasts) must read its live rectangle; then a new position needs no other change. Probe every position for containment in the band and the safe area, clearance from neighbours, a touch on the control never reaching the map, and the vacated spot becoming map (pan and target) again. (LootFarmer Change 41; thumb comfort per position is a device check.)
+
 ---
 
 # 122. World picking, selection and the selection marker
@@ -7691,6 +7719,7 @@ If a map supports tap-to-locate, selection or navigation, filter the hit candida
 - **Delivery numbers:** "+4 Wood" rises from the drop-off in the resource's colour, **including the bonus**, so a better drop-off visibly pays more.
 - **Thrown goods:** a sprite on a quadratic Bézier arc (apex 140 px above the midpoint), spinning 1.5 turns in 0.65 s; the receiver reacts on landing (a heal burst and "+10"). The credit already happened at the throw.
 - **Availability changes:** dust when a node empties or returns; a large dust burst when a worker or unit appears.
+- **Loot arrival (LootFarmer Change 41).** A drop that appears at full size under a dying enemy is missed at gameplay speed, and a periodic sparkle on one shared clock makes many drops flash together. Give a new drop a short arrival (a hop of about a third of a second onto its real spot, drawn above the actors only while it hops), set equipment apart from consumables (a slightly larger icon and a thin ring in the item's tier colour, the same colour as its inventory slot, as a bright line over a dark edge), play the sparkle once on landing and then at a per-drop phase. Decide "new" from state (remaining ground time), so a load or map change never replays arrivals; keep it presentation only: collectible from the first frame, no writes to the pickup and no random draws, values in an inspector resource. Compare before and after at fixed times after the drop.
 
 ## 125.5 Impact
 
@@ -7920,6 +7949,7 @@ Defects that were in the probes, not the game, and the habits that prevent them:
 - **A runtime error inside a synchronous test ends it early and can still read as a pass.** Godot stops the function at a script error (Growing Kingdom: assigning an untyped array literal to a typed `Array[String]` field); the harness printed "ok" for the section because none of the checks that ran had failed, and the checks after the error never ran. Treat any `SCRIPT ERROR` in a probe's output as a failure (scan the log, or count errors in the harness), and assign typed arrays with `assign()`.
 - **A JSON round trip turns integers into floats.** A saved record compared after reload (`{"rival": 34}` against `{"rival": 34.0}`) is unequal, and a typed comparison downstream may misbehave. Normalise each saved record's fields to their types in the loader, and let probes compare the loaded record with the original.
 - **A rule change can remove a probe's scaffolding.** Probes that parked soldiers with a Move to build a stall broke when Moves became temporary (they now end after idle time). When an order, timer or state becomes self-ending, search the probes for every place that used it as a fixture, and keep the fixture alive explicitly (re-issue it on its end event) rather than weakening the new rule.
+- **A HUD refreshed on a real-time interval is not refreshed by a few headless frames.** Headless frames take microseconds, so LootFarmer's 0.15 s HUD tick had not run when a probe looked for a tracker it had just enabled. Call the refresh the check depends on, or wait real time, before asserting.
 
 Reuse (Growing Kingdom): `tests/probe_env.gd` (`hide_dev_overlays()`), the watchdog in each probe, `tools/run_probes.ps1`.
 
@@ -8948,6 +8978,8 @@ To play one cue when a tracked objective's step completes, compare a derived "st
 ## 143.1 A badge and the action it advertises read one predicate, and the list shows what the badge counts
 
 A "ready" badge that reads its own condition drifts from the Claim buttons it promises. LootFarmer's Missions `!` lit for any ready main objective, while the panel listed only the first three unclaimed objectives whatever their state, so a ready objective further down kept the badge on with no Claim button anywhere. Write one eligibility function per claimable kind and let the badge, the button and the list all call it. When a list is capped, choose its entries by that function, ready ones first, so every lit badge has a visible action behind it. Things that automation will take on the next tick (auto-claim) are not manual actions. Recompute the badge from state rather than storing a flag, so a claim, refresh, reset or load cannot leave it stale.
+
+**The progress counter is part of the same predicate (LootFarmer Change 41).** When an action keeps something back (hand in 20 copies, keep one), the number shown must be the full requirement (21), and progress must be one count that reaches it exactly when the action accepts, not the hand-in amount plus an extra check hidden in the action. LootFarmer's Collection contracts counted to 20 on the card, the tracker, the follower and the step sounds, while Submit also required a 21st copy: a player with exactly 20 was told to hand them in and then refused. First decide whether the kept copy is intended (if not, fix the predicate rather than the number); then write the count as a pure function of state, let every surface and the action read it, and test exact, one short, one over, a kept copy that is worn or older, a spent copy, and reload.
 
 ## 143.2 Place each effect by the sheet's contact point, the body and the layer, per effect
 

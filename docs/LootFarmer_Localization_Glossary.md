@@ -10,6 +10,7 @@ Game-specific terminology decisions for the runtime catalogs in `localization/`.
 | `LootFarmer - Idle RPG`, `LOOTFARMER · IDLE RPG` | `APP_TITLE`, `GAME_TITLE` | Store title kept as the product name. |
 | Google Play, itch.io | review buttons | Storefront names. |
 | Pixel Plains, SnowHex, Kenney Fantasy UI Borders, CC0 | `CREDITS` | Credited works and licence. |
+| Discord | `DISCORD` (Settings button, Change 41) | Service name, identical in every catalog (allowlisted as a brand). |
 
 The exact entries that equal their English text are listed per locale and key in `tools/localization_allowlist.json` (brand, abbreviation, cognate or loanword). `tools/validate_localization.py` fails on any other copy-through. Batch 02 counts: it 12, nl 38, pl 10, ru 2, uk 2.
 
@@ -129,3 +130,15 @@ Enemy, boss, stage, skill and item names are translated descriptively. Each item
 - **Durations** use the `DURATION_*` keys: `1 h 05 min`, `1 Std. 05 Min.`, `1 u 05 min`, `1 godz. 05 min`, `1 ч 05 мин`, `1 год 05 хв`.
 - **Compass directions** carry their preposition in the `COMPASS_*` key: *A nord del campo 3*, *Ten noorden van kamp 3*, *Na północ od obozu 3*, *К северу от лагеря 3*, *На північ від табору 3*.
 - **Language names** in Settings are shown in the current UI language, matching the English catalog. Autonyms (*Deutsch*, *日本語*) wait for the global gate, when the CJK, Thai and Devanagari font fallbacks exist; DejaVu Sans would draw those scripts as empty boxes. DejaVu Sans covers Latin, Polish and the full Russian and Ukrainian Cyrillic set.
+
+## Change 41 additions (29 October 2026)
+
+| English | es-419 / es-ES | pt-BR | fr-FR | de-DE | it-IT | nl-NL | pl-PL | ru-RU | uk-UA |
+|---|---|---|---|---|---|---|---|---|---|
+| Joystick position | Posición del joystick | Posição do joystick | Position du joystick | Joystick-Position | Posizione del joystick | Joystickpositie | Pozycja joysticka | Положение джойстика | Положення джойстика |
+| Left / Center / Right | Izquierda / Centro / Derecha | Esquerda / Centro / Direita | Gauche / Centre / Droite | Links / Mitte / Rechts | Sinistra / Centro / Destra | Links / Midden / Rechts | Z lewej / Na środku / Z prawej | Слева / По центру / Справа | Ліворуч / По центру / Праворуч |
+| Guided / Basic / None (mode names) | Guiada / Básica / Ninguna | Guiado / Básico / Nenhum | Guidé / Simple / Aucun | Geführt / Einfach / Keine | Guidata / Base / Nessuna | Begeleid / Basis / Geen | Z przewodnikiem / Podstawowy / Bez podpowiedzi | С обучением / Базовый / Без подсказок | З навчанням / Базовий / Без підказок |
+
+- The mode names are the first part of the earlier "Name · description" strings, unchanged; each description is now its own key (`GUIDE_MODE_*_DETAIL`).
+- Collection contracts state both numbers: the count to collect (21 / 31 / 41) and the count handed in (20 / 30 / 40), with "you keep one". pl/ru/uk use the literal numbers with the correct case (pl „po 21 strojów”, ru «по 21 костюму», uk «по 21 вбранню»); no number placeholder is involved.
+- `PROGRESS_COLLECTION` is "Progress: %s" (was "Found this run"), because the kept copy can be an older one.

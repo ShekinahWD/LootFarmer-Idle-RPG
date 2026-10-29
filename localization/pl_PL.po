@@ -1037,7 +1037,7 @@ msgid "SUBMIT_CONTRACT"
 msgstr "Oddaj wymagane przedmioty lub walutę"
 
 msgid "CONTRACT_NEEDS"
-msgstr "Zbierz wymagane kopie online i zachowaj po jednej z każdej."
+msgstr "Najpierw zbierz pełną liczbę każdego stroju."
 
 msgid "OFFERING_NEEDS"
 msgstr "Potrzebujesz wymaganego salda i niewydanej waluty zdobytej online."
@@ -3308,19 +3308,19 @@ msgid "CONTENT_COLLECTION_O1_NAME"
 msgstr "Zimowa kolekcja"
 
 msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
-msgstr "Zbierz po 20 strojów niebieskiej czapki, czerwonego szalika i czapki kucharskiej (dropy z Zimy I), a potem oddaj je przyciskiem Oddaj"
+msgstr "Zbierz po 21 strojów niebieskiej czapki, czerwonego szalika i czapki kucharskiej (dropy z Zimy I). Przycisk Oddaj zabiera po 20, a jeden strój każdego rodzaju zostaje u ciebie"
 
 msgid "CONTENT_COLLECTION_O2_NAME"
 msgstr "Letnia kolekcja"
 
 msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
-msgstr "Zbierz po 30 strojów słomkowego kapelusza, ciemnych okularów i żółtej czapki (dropy z Lata I), a potem oddaj je przyciskiem Oddaj"
+msgstr "Zbierz po 31 strojów słomkowego kapelusza, ciemnych okularów i żółtej czapki (dropy z Lata I). Przycisk Oddaj zabiera po 30, a jeden strój każdego rodzaju zostaje u ciebie"
 
 msgid "CONTENT_COLLECTION_O3_NAME"
 msgstr "Wiosenna kolekcja"
 
 msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
-msgstr "Zbierz po 40 strojów króliczych uszu, kocich uszu i elfich uszu (dropy z Wiosny I), a potem oddaj je przyciskiem Oddaj"
+msgstr "Zbierz po 41 strojów króliczych uszu, kocich uszu i elfich uszu (dropy z Wiosny I). Przycisk Oddaj zabiera po 40, a jeden strój każdego rodzaju zostaje u ciebie"
 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Pierwsze arcydzieło"
@@ -3731,13 +3731,13 @@ msgid "GUIDE_CHOOSE"
 msgstr "Ile podpowiedzi chcesz?"
 
 msgid "GUIDE_MODE_GUIDED"
-msgstr "Z przewodnikiem · jedna czynność naraz"
+msgstr "Z przewodnikiem"
 
 msgid "GUIDE_MODE_BASIC"
-msgstr "Podstawowy · wszystkie menu otwarte, krótki przegląd"
+msgstr "Podstawowy"
 
 msgid "GUIDE_MODE_NONE"
-msgstr "Bez podpowiedzi · wszystkie menu otwarte"
+msgstr "Bez podpowiedzi"
 
 msgid "GUIDE_REVIEW"
 msgstr "Wybierz tryb podpowiedzi ponownie"
@@ -3749,7 +3749,7 @@ msgid "GUIDE_MOVE"
 msgstr "Idź ścieżką w lewo."
 
 msgid "GUIDE_MOVE_DETAIL"
-msgstr "Przeciągnij joystick w stronę strzałki. Pierwsi wrogowie czekają przy ścieżce."
+msgstr "Przeciągnij świecący joystick w stronę strzałki. Pierwsi wrogowie czekają przy ścieżce."
 
 msgid "GUIDE_KILL"
 msgstr "Zatrzymaj się przy wrogu, by zaatakować"
@@ -3791,7 +3791,7 @@ msgid "GUIDE_OVERVIEW"
 msgstr "Chodź, walcz, zbieraj"
 
 msgid "GUIDE_OVERVIEW_DETAIL"
-msgstr "Przeciągnij joystick, by iść. Stań przy wrogu, by atakować. Dotknij upuszczonego łupu, by go podnieść."
+msgstr "Przeciągnij joystick na dole mapy, by iść. Puść go, a bohater zaatakuje pobliskich wrogów. Dotknij łupu, by go podnieść."
 
 msgid "GUIDE_AGGRESSION"
 msgstr "Ci wrogowie zauważają cię z bliska"
@@ -4124,7 +4124,7 @@ msgid "PROGRESS_TROPHY"
 msgstr "Trofea: %d / %d (każdy boss upuści jedno przy następnym pokonaniu)"
 
 msgid "PROGRESS_COLLECTION"
-msgstr "Znalezione w tej rozgrywce: %s"
+msgstr "Postęp: %s"
 
 msgid "PROGRESS_CHALLENGE"
 msgstr "Wygraj walkę bez używania mikstur i toników."
@@ -5832,3 +5832,33 @@ msgstr "%d min %02d s"
 
 msgid "DURATION_SECONDS"
 msgstr "%d s"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Pozycja joysticka"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Z lewej"
+
+msgid "JOYSTICK_CENTER"
+msgstr "Na środku"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Z prawej"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "Nie udało się otworzyć linku. Sprawdź połączenie i spróbuj ponownie."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Każdy tryb to ta sama gra. Zmienia się tylko ilość pomocy."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Lekcje krok po kroku ze wskaźnikami. Menu otwierają się w miarę nauki."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Kilka krótkich kart o sterowaniu i celach. Wszystkie menu są otwarte."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Bez lekcji i podpowiedzi. Wszystkie menu są otwarte od początku."

@@ -1,4 +1,15 @@
-# LootFarmer — State and Reset Contracts — current (2026-10-28, Change 35)
+# LootFarmer — State and Reset Contracts — current (2026-10-29, Change 41)
+
+## Change 41 — playtest corrections (29 October 2026)
+
+| Record | Meaning | Default | Save | Prestige | Hard Reset |
+|---|---|---|---|---|---|
+| settings `joystick_position` | 0 Left, 1 Center, 2 Right: where `joystick.place` anchors the stick along the bottom of the map. | 1 | settings record; missing or non-numeric → 1, clamped 0–2 | keep | keep (settings survive) |
+
+- **Collection contracts:** no new field. `campaign.collection_goal(n)` = 20 / 30 / 40 (handed in), `collection_required(n)` = goal + 1 (shown and required). `collection_counts(id)[i]` = `min(goal, min(online_items[item], opportunities[id]["item_"+item]))` + (1 if `quantity(item)` exceeds that), a pure function of state. `collection_complete(id)` (all at the requirement) is what `submit` checks; it removes `collection_goal(n)` of each through `sim._remove` (credits fall with the copies). `opportunity_progress`, `follow_summary`, `follow_focus` and `follow_steps_done` use the same counts. Existing saves load unchanged; a profile with 20 of each and no spare copy now reads 20/21 (it could not submit before either).
+- **Focus Farming targets:** `sim.auto_target(radius, view)`: under a Focus, the nearest visible `focus_match` enemy within radius, else the nearest `threatens_player` enemy (alive, `aggro`, not `returning`, player alive); without a Focus, the nearest visible enemy (unchanged). `_combat_target` keeps a lock while it is the manual target, a focus match, or an attacker with no eligible focused enemy (`_keeps_lock`). `campaign.skill_activation_target` uses `auto_target` within the activation distance after the locked target. Nothing is saved; `locked_target` / `manual_target` stay session state.
+- **Drops:** presentation reads `pickup.ttl` only; a view created while `ttl >= 299.5` plays the arrival. `pickup_spark.gd` never writes `state.pickups` or uses `sim.rng`.
+- **External links:** `resources/game/external_links.tres` (`discord_url`, `repeat_guard_seconds`); `open(url)` returns false for a failure or a repeat inside the guard (`failure_was_repeat`); the opener is replaceable in probes. No game state changes on success or failure.
 
 ## Change 35 — review invitation and targeting step (28 October 2026)
 

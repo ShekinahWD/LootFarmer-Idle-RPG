@@ -1037,7 +1037,7 @@ msgid "SUBMIT_CONTRACT"
 msgstr "Consegna oggetti o valuta richiesti"
 
 msgid "CONTRACT_NEEDS"
-msgstr "Raccogli online le copie richieste e tienine una di ciascuna."
+msgstr "Prima raccogli il numero completo di ogni costume."
 
 msgid "OFFERING_NEEDS"
 msgstr "Ti servono il saldo richiesto e valuta guadagnata online non ancora spesa."
@@ -3308,19 +3308,19 @@ msgid "CONTENT_COLLECTION_O1_NAME"
 msgstr "Collezione invernale"
 
 msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
-msgstr "Raccogli 20 costumi ciascuno da Berretto Blu, Sciarpa Rossa e Cappello da Chef (drop di Inverno I), poi consegnali con Consegna"
+msgstr "Raccogli 21 costumi ciascuno da Berretto Blu, Sciarpa Rossa e Cappello da Chef (drop di Inverno I). Con Consegna ne consegni 20 di ciascuno e ne tieni uno"
 
 msgid "CONTENT_COLLECTION_O2_NAME"
 msgstr "Collezione estiva"
 
 msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
-msgstr "Raccogli 30 costumi ciascuno da Cappello di Paglia, Occhiali da Sole e Berretto Giallo (drop di Estate I), poi consegnali con Consegna"
+msgstr "Raccogli 31 costumi ciascuno da Cappello di Paglia, Occhiali da Sole e Berretto Giallo (drop di Estate I). Con Consegna ne consegni 30 di ciascuno e ne tieni uno"
 
 msgid "CONTENT_COLLECTION_O3_NAME"
 msgstr "Collezione primaverile"
 
 msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
-msgstr "Raccogli 40 costumi ciascuno da Orecchie da Coniglio, Orecchie da Gatto e Orecchie da Elfo (drop di Primavera I), poi consegnali con Consegna"
+msgstr "Raccogli 41 costumi ciascuno da Orecchie da Coniglio, Orecchie da Gatto e Orecchie da Elfo (drop di Primavera I). Con Consegna ne consegni 40 di ciascuno e ne tieni uno"
 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Primo capolavoro"
@@ -3731,13 +3731,13 @@ msgid "GUIDE_CHOOSE"
 msgstr "Quanto aiuto vuoi?"
 
 msgid "GUIDE_MODE_GUIDED"
-msgstr "Guidata · impara un’azione alla volta"
+msgstr "Guidata"
 
 msgid "GUIDE_MODE_BASIC"
-msgstr "Base · tutti i menu aperti, breve panoramica"
+msgstr "Base"
 
 msgid "GUIDE_MODE_NONE"
-msgstr "Nessuna · tutti i menu aperti, nessun consiglio"
+msgstr "Nessuna"
 
 msgid "GUIDE_REVIEW"
 msgstr "Scegli di nuovo la guida"
@@ -3749,7 +3749,7 @@ msgid "GUIDE_MOVE"
 msgstr "Segui il sentiero alla tua sinistra."
 
 msgid "GUIDE_MOVE_DETAIL"
-msgstr "Trascina il joystick verso la freccia. I primi nemici ti aspettano lungo il sentiero."
+msgstr "Trascina il joystick luminoso verso la freccia. I primi nemici ti aspettano lungo il sentiero."
 
 msgid "GUIDE_KILL"
 msgstr "Fermati vicino a un nemico per attaccare"
@@ -3791,7 +3791,7 @@ msgid "GUIDE_OVERVIEW"
 msgstr "Cammina, combatti, raccogli"
 
 msgid "GUIDE_OVERVIEW_DETAIL"
-msgstr "Trascina il joystick per camminare. Fermati vicino a un nemico per attaccare. Tocca il bottino caduto per raccoglierlo."
+msgstr "Trascina il joystick in basso sulla mappa per camminare. Rilascialo e il tuo eroe combatte i nemici vicini. Tocca il bottino per raccoglierlo."
 
 msgid "GUIDE_AGGRESSION"
 msgstr "Questi nemici ti notano da vicino"
@@ -4124,7 +4124,7 @@ msgid "PROGRESS_TROPHY"
 msgstr "Trofei: %d / %d (ogni boss ne lascia uno alla prossima sconfitta)"
 
 msgid "PROGRESS_COLLECTION"
-msgstr "Trovati in questa partita: %s"
+msgstr "Progressi: %s"
 
 msgid "PROGRESS_CHALLENGE"
 msgstr "Vinci lo scontro senza usare pozioni o tonici."
@@ -5832,3 +5832,33 @@ msgstr "%d min %02d s"
 
 msgid "DURATION_SECONDS"
 msgstr "%d s"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Posizione del joystick"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Sinistra"
+
+msgid "JOYSTICK_CENTER"
+msgstr "Centro"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Destra"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "Impossibile aprire il link. Controlla la connessione e riprova."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Ogni modalità è lo stesso gioco. Cambia solo quanto aiuto ricevi."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Lezioni passo passo con indicatori. I menu si aprono man mano che impari."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Poche schede brevi su comandi e obiettivi. Tutti i menu sono aperti."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Nessuna lezione o consiglio. Tutti i menu sono aperti fin dall’inizio."

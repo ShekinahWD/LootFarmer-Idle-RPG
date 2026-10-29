@@ -1,6 +1,9 @@
 """Set or add English strings in localization/en.po from a JSON object {msgid: msgstr}.
 Usage: python tools/po_set.py strings.json   (UTF-8 JSON). Existing ids are replaced in place;
-new ids are appended. Keeps LF endings and the file's existing order."""
+new ids are appended. Keeps LF endings and the file's existing order.
+Change 41: --po=localization/<locale>.po writes into another catalog the same way, and
+--translations={locale: {msgid: msgstr}} JSON writes every listed catalog: appending in the JSON's key
+order keeps each catalog in the English key order the validator expects."""
 from pathlib import Path
 import json, re, sys
 
@@ -12,8 +15,20 @@ def escape(text):
 
 
 def main():
-    entries = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
-    text = PO.read_bytes().decode('utf-8')
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    options = dict(a[2:].split('=', 1) for a in sys.argv[1:] if a.startswith('--') and '=' in a)
+    if 'translations' in options:
+        table = json.loads(Path(options['translations']).read_text(encoding='utf-8'))
+        for lang, entries in table.items():
+            print(lang, write(PO.parent / f'{lang}.po', entries))
+        return
+    entries = json.loads(Path(args[0]).read_text(encoding='utf-8'))
+    target = Path(options['po']) if 'po' in options else PO
+    print(json.dumps(write(target, entries)))
+
+
+def write(po, entries):
+    text = po.read_bytes().decode('utf-8')
     added = replaced = 0
     for key, value in entries.items():
         pattern = re.compile(r'^msgid "%s"\nmsgstr ".*"$' % re.escape(key), re.M)
@@ -24,8 +39,8 @@ def main():
         else:
             text = text.rstrip('\n') + '\n\n' + line + '\n'
             added += 1
-    PO.write_bytes(text.encode('utf-8'))
-    print(json.dumps({'replaced': replaced, 'added': added}))
+    po.write_bytes(text.encode('utf-8'))
+    return {'replaced': replaced, 'added': added}
 
 
 if __name__ == '__main__':

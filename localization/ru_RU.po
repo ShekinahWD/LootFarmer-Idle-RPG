@@ -1037,7 +1037,7 @@ msgid "SUBMIT_CONTRACT"
 msgstr "Сдать нужные предметы или валюту"
 
 msgid "CONTRACT_NEEDS"
-msgstr "Собери нужные копии в онлайне и оставь по одной каждого."
+msgstr "Сначала собери полное количество каждого костюма."
 
 msgid "OFFERING_NEEDS"
 msgstr "Нужен требуемый баланс и непотраченная валюта, заработанная в онлайне."
@@ -3308,19 +3308,19 @@ msgid "CONTENT_COLLECTION_O1_NAME"
 msgstr "Зимняя коллекция"
 
 msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
-msgstr "Подбери по 20 костюмов синей кепки, красного шарфа и поварского колпака (добыча Зимы I), затем сдай их кнопкой «Сдать»"
+msgstr "Подбери по 21 костюму синей кепки, красного шарфа и поварского колпака (добыча Зимы I). Кнопка «Сдать» забирает по 20, а один каждого вида остаётся у тебя"
 
 msgid "CONTENT_COLLECTION_O2_NAME"
 msgstr "Летняя коллекция"
 
 msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
-msgstr "Подбери по 30 костюмов соломенной шляпы, тёмных очков и жёлтой кепки (добыча Лета I), затем сдай их кнопкой «Сдать»"
+msgstr "Подбери по 31 костюму соломенной шляпы, тёмных очков и жёлтой кепки (добыча Лета I). Кнопка «Сдать» забирает по 30, а один каждого вида остаётся у тебя"
 
 msgid "CONTENT_COLLECTION_O3_NAME"
 msgstr "Весенняя коллекция"
 
 msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
-msgstr "Подбери по 40 костюмов заячьих ушек, кошачьих ушек и эльфийских ушей (добыча Весны I), затем сдай их кнопкой «Сдать»"
+msgstr "Подбери по 41 костюму заячьих ушек, кошачьих ушек и эльфийских ушей (добыча Весны I). Кнопка «Сдать» забирает по 40, а один каждого вида остаётся у тебя"
 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Первый шедевр"
@@ -3731,13 +3731,13 @@ msgid "GUIDE_CHOOSE"
 msgstr "Сколько подсказок тебе нужно?"
 
 msgid "GUIDE_MODE_GUIDED"
-msgstr "С обучением · по одному действию за раз"
+msgstr "С обучением"
 
 msgid "GUIDE_MODE_BASIC"
-msgstr "Базовый · все меню открыты, краткий обзор"
+msgstr "Базовый"
 
 msgid "GUIDE_MODE_NONE"
-msgstr "Без подсказок · все меню открыты"
+msgstr "Без подсказок"
 
 msgid "GUIDE_REVIEW"
 msgstr "Выбрать режим подсказок заново"
@@ -3749,7 +3749,7 @@ msgid "GUIDE_MOVE"
 msgstr "Иди по тропе налево."
 
 msgid "GUIDE_MOVE_DETAIL"
-msgstr "Тяни джойстик в сторону стрелки. Первые враги ждут на тропе."
+msgstr "Тяни светящийся джойстик в сторону стрелки. Первые враги ждут на тропе."
 
 msgid "GUIDE_KILL"
 msgstr "Остановись рядом с врагом, чтобы атаковать"
@@ -3791,7 +3791,7 @@ msgid "GUIDE_OVERVIEW"
 msgstr "Ходи, сражайся, собирай"
 
 msgid "GUIDE_OVERVIEW_DETAIL"
-msgstr "Тяни джойстик, чтобы идти. Встань рядом с врагом, чтобы атаковать. Нажми на выпавшую добычу, чтобы подобрать её."
+msgstr "Тяни джойстик внизу карты, чтобы идти. Отпусти его, и герой сразится с ближайшими врагами. Нажми на добычу, чтобы подобрать её."
 
 msgid "GUIDE_AGGRESSION"
 msgstr "Эти враги замечают тебя издалека"
@@ -4124,7 +4124,7 @@ msgid "PROGRESS_TROPHY"
 msgstr "Трофеи: %d / %d (каждый босс оставит трофей при следующей победе)"
 
 msgid "PROGRESS_COLLECTION"
-msgstr "Найдено за забег: %s"
+msgstr "Прогресс: %s"
 
 msgid "PROGRESS_CHALLENGE"
 msgstr "Выиграй бой, не применяя зелья и тоники."
@@ -5832,3 +5832,33 @@ msgstr "%d мин %02d с"
 
 msgid "DURATION_SECONDS"
 msgstr "%d с"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Положение джойстика"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Слева"
+
+msgid "JOYSTICK_CENTER"
+msgstr "По центру"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Справа"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "Не удалось открыть ссылку. Проверь подключение и попробуй ещё раз."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Во всех режимах одна и та же игра. Меняется только количество подсказок."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Пошаговые уроки с указателями. Меню открываются по мере обучения."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Несколько коротких карточек об управлении и целях. Все меню открыты."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Никаких уроков и подсказок. Все меню открыты с самого начала."

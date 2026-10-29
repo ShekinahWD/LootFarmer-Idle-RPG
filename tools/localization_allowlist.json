@@ -12,7 +12,8 @@
   "LANG_HI_IN": "cognate: Hindi",
   "AUTO": "abbreviation: Auto",
   "AUTO_SHORT": "abbreviation: Auto",
-  "PRESTIGE_GENERAL": "cognate: General"
+  "PRESTIGE_GENERAL": "cognate: General",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  },
  "es_ES": {
   "APP_TITLE": "brand",
@@ -20,7 +21,8 @@
   "LANG_HI_IN": "cognate: Hindi",
   "AUTO": "abbreviation: Auto",
   "AUTO_SHORT": "abbreviation: Auto",
-  "PRESTIGE_GENERAL": "cognate: General"
+  "PRESTIGE_GENERAL": "cognate: General",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  },
  "pt_BR": {
   "APP_TITLE": "brand",
@@ -32,7 +34,8 @@
   "COMPARE_ITEM": "cognate: ITEM",
   "VARIANT_SKILL": "cognate: Elite",
   "TAB_OFFLINE": "loanword: Offline",
-  "FOLLOW_REGIONAL_EXPLORE": "cognate: Explore (imperative of explorar)"
+  "FOLLOW_REGIONAL_EXPLORE": "cognate: Explore (imperative of explorar)",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  },
  "fr_FR": {
   "APP_TITLE": "brand",
@@ -50,7 +53,8 @@
   "PRESTIGE_CONFIRM_TITLE": "cognate: Prestige",
   "BOSS_LABEL": "loanword: Boss",
   "SECTION_CAMPS": "cognate: Camps",
-  "TELEPORT_DESTINATION": "cognate: Camp"
+  "TELEPORT_DESTINATION": "cognate: Camp",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  },
  "de_DE": {
   "APP_TITLE": "brand",
@@ -78,7 +82,8 @@
   "MASTERY_DETAILS": "cognate: Details",
   "PANEL_TELEPORT": "cognate: Teleport",
   "TELEPORT_TITLE": "cognate: Teleport",
-  "SECTION_FEEDBACK": "loanword: Feedback"
+  "SECTION_FEEDBACK": "loanword: Feedback",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  },
  "it_IT": {
   "APP_TITLE": "brand",
@@ -92,7 +97,8 @@
   "BOSS_LABEL": "loanword: Boss",
   "STATS_SHORT_CRIT": "abbreviation: crit (critico)",
   "FARMING_MAP_TITLE": "loanword: Farming (Italian players say farmare / il farming)",
-  "SECTION_FEEDBACK": "loanword: Feedback"
+  "SECTION_FEEDBACK": "loanword: Feedback",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  },
  "nl_NL": {
   "APP_TITLE": "brand",
@@ -132,7 +138,8 @@
   "FILTERS": "cognate: Filters",
   "FILTERS_ACTIVE": "cognate: Filters",
   "PANEL_FILTERS": "cognate: Filters",
-  "SECTION_FEEDBACK": "loanword: Feedback"
+  "SECTION_FEEDBACK": "loanword: Feedback",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  },
  "pl_PL": {
   "APP_TITLE": "brand",
@@ -144,14 +151,17 @@
   "BOSS_LABEL": "loanword: Boss",
   "CAMP_TELEPORT": "cognate: Teleport",
   "PANEL_TELEPORT": "cognate: Teleport",
-  "TELEPORT_TITLE": "cognate: Teleport"
+  "TELEPORT_TITLE": "cognate: Teleport",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  },
  "ru_RU": {
   "APP_TITLE": "brand",
-  "GAME_TITLE": "brand"
+  "GAME_TITLE": "brand",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  },
  "uk_UA": {
   "APP_TITLE": "brand",
-  "GAME_TITLE": "brand"
+  "GAME_TITLE": "brand",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  }
 }

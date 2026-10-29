@@ -3,7 +3,7 @@ change_22 and change_24 probes, Change 25 the change_25 probe, Change 26 the cha
 export manifest check, Change 27 the change_27 probe, Change 34 the change_34 screenshot-set probe, Change 35
 the change_35 review-invitation and targeting-lesson probe, Change 36 the change_36 supply-mastery probe, Change 38
 the Localization Batch 01 probe and the rendered-text localization sweep, Change 40 the change_40 language
-dropdown and progressive-activation probe). Runs each probe headless, one at a time
+dropdown and progressive-activation probe, Change 41 the change_41 playtest-corrections probe). Runs each probe headless, one at a time
 (playbook 60.1), with a hard timeout, and counts a run as failed when it exits non-zero, times out
 or prints any SCRIPT ERROR (a script error aborts a probe's coroutine before it can quit).
 
@@ -17,7 +17,7 @@ natural-pace pacing_bot and the change_9_balance fixture (balance benchmarks, ru
 the historical probes listed in docs/LootFarmer_Test_Suite.md, and the non-gating desktop performance
 benchmark (tools/run_benchmark.py, Change 24: timings are reported, never asserted), and the packaged-artifact
 check (tools/verify_export.py, Change 26: needs an exported AAB/APK or, since Change 40, a PCK), and the windowed
-dropdown captures (change_40_capture).
+captures (change_40_capture, change_41_capture).
 """
 from pathlib import Path
 import os, re, subprocess, sys, time
@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GODOT = os.environ.get('GODOT', 'D:/Programs/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe')
 # name -> timeout in seconds
 SUITE = {
+    'change_41_probe': 300,
     'change_40_probe': 300,
     'localization_batch01_probe': 300,
     'localization_batch02_probe': 300,

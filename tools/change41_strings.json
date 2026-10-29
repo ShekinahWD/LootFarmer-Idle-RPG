@@ -1,0 +1,22 @@
+{
+ "GUIDE_MODE_GUIDED": "Guided",
+ "GUIDE_MODE_BASIC": "Basic",
+ "GUIDE_MODE_NONE": "None",
+ "GUIDE_MOVE_DETAIL": "Drag the glowing joystick toward the arrow. The first enemies wait along the path.",
+ "GUIDE_OVERVIEW_DETAIL": "Drag the joystick at the bottom of the map to walk. Let go and your hero fights nearby enemies. Tap loot to pick it up.",
+ "CONTRACT_NEEDS": "Collect the full count of each outfit first.",
+ "CONTENT_COLLECTION_O1_DESCRIPTION": "Pick up 21 each of the Blue Cap, Red Scarf and Chef Hat outfits (Winter I drops). Submit hands in 20 of each and you keep one",
+ "CONTENT_COLLECTION_O2_DESCRIPTION": "Pick up 31 each of the Straw Hat, Sunglasses and Yellow Cap outfits (Summer I drops). Submit hands in 30 of each and you keep one",
+ "CONTENT_COLLECTION_O3_DESCRIPTION": "Pick up 41 each of the Bunny Ears, Cat Ears and Elf Ears outfits (Spring I drops). Submit hands in 40 of each and you keep one",
+ "JOYSTICK_POSITION": "Joystick position",
+ "JOYSTICK_LEFT": "Left",
+ "JOYSTICK_CENTER": "Center",
+ "JOYSTICK_RIGHT": "Right",
+ "DISCORD": "Discord",
+ "LINK_OPEN_FAILED": "The link couldn't be opened. Check your connection and try again.",
+ "GUIDE_CHOOSE_DETAIL": "Every mode plays the same game. Only the amount of help changes.",
+ "GUIDE_MODE_GUIDED_DETAIL": "Step-by-step lessons with pointers. Menus open as you learn them.",
+ "GUIDE_MODE_BASIC_DETAIL": "A few short cards on controls and goals. Every menu is open.",
+ "GUIDE_MODE_NONE_DETAIL": "No lessons or tips. Every menu is open from the start.",
+ "PROGRESS_COLLECTION": "Progress: %s"
+}

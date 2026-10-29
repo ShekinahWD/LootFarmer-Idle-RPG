@@ -1037,7 +1037,7 @@ msgid "SUBMIT_CONTRACT"
 msgstr "Vereiste voorwerpen of valuta inleveren"
 
 msgid "CONTRACT_NEEDS"
-msgstr "Verzamel de vereiste exemplaren online en houd er van elk één."
+msgstr "Verzamel eerst het volledige aantal van elke outfit."
 
 msgid "OFFERING_NEEDS"
 msgstr "Je hebt het vereiste saldo en online verdiende, niet-uitgegeven valuta nodig."
@@ -3308,19 +3308,19 @@ msgid "CONTENT_COLLECTION_O1_NAME"
 msgstr "Wintercollectie"
 
 msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
-msgstr "Raap van elk 20 Blauwe Pet-, Rode Sjaal- en Koksmuts-outfits op (drops van Winter I) en lever ze dan in met Inleveren"
+msgstr "Raap van elk 21 Blauwe Pet-, Rode Sjaal- en Koksmuts-outfits op (drops van Winter I). Met Inleveren lever je er van elk 20 in en houd je er één"
 
 msgid "CONTENT_COLLECTION_O2_NAME"
 msgstr "Zomercollectie"
 
 msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
-msgstr "Raap van elk 30 Strohoed-, Zonnebril- en Gele Pet-outfits op (drops van Zomer I) en lever ze dan in met Inleveren"
+msgstr "Raap van elk 31 Strohoed-, Zonnebril- en Gele Pet-outfits op (drops van Zomer I). Met Inleveren lever je er van elk 30 in en houd je er één"
 
 msgid "CONTENT_COLLECTION_O3_NAME"
 msgstr "Lentecollectie"
 
 msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
-msgstr "Raap van elk 40 Konijnenoren-, Kattenoren- en Elfenoren-outfits op (drops van Lente I) en lever ze dan in met Inleveren"
+msgstr "Raap van elk 41 Konijnenoren-, Kattenoren- en Elfenoren-outfits op (drops van Lente I). Met Inleveren lever je er van elk 40 in en houd je er één"
 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Eerste meesterwerk"
@@ -3731,13 +3731,13 @@ msgid "GUIDE_CHOOSE"
 msgstr "Hoeveel begeleiding wil je?"
 
 msgid "GUIDE_MODE_GUIDED"
-msgstr "Begeleid · leer één actie tegelijk"
+msgstr "Begeleid"
 
 msgid "GUIDE_MODE_BASIC"
-msgstr "Basis · alle menu's open, kort overzicht"
+msgstr "Basis"
 
 msgid "GUIDE_MODE_NONE"
-msgstr "Geen · alle menu's open, geen tips"
+msgstr "Geen"
 
 msgid "GUIDE_REVIEW"
 msgstr "Begeleiding opnieuw kiezen"
@@ -3749,7 +3749,7 @@ msgid "GUIDE_MOVE"
 msgstr "Volg het pad aan je linkerkant."
 
 msgid "GUIDE_MOVE_DETAIL"
-msgstr "Sleep de joystick naar de pijl. De eerste vijanden wachten langs het pad."
+msgstr "Sleep de oplichtende joystick naar de pijl. De eerste vijanden wachten langs het pad."
 
 msgid "GUIDE_KILL"
 msgstr "Stop naast een vijand om aan te vallen"
@@ -3791,7 +3791,7 @@ msgid "GUIDE_OVERVIEW"
 msgstr "Lopen, vechten, verzamelen"
 
 msgid "GUIDE_OVERVIEW_DETAIL"
-msgstr "Sleep de joystick om te lopen. Sta stil bij een vijand om aan te vallen. Tik op gevallen buit om die op te rapen."
+msgstr "Sleep de joystick onder aan de kaart om te lopen. Laat los en je held vecht tegen vijanden in de buurt. Tik op buit om die op te rapen."
 
 msgid "GUIDE_AGGRESSION"
 msgstr "Deze vijanden merken je van dichtbij op"
@@ -4124,7 +4124,7 @@ msgid "PROGRESS_TROPHY"
 msgstr "Trofeeën: %d / %d (elke baas laat er een vallen bij de volgende nederlaag)"
 
 msgid "PROGRESS_COLLECTION"
-msgstr "Gevonden deze run: %s"
+msgstr "Voortgang: %s"
 
 msgid "PROGRESS_CHALLENGE"
 msgstr "Win het gevecht zonder drankjes of tonica te gebruiken."
@@ -5832,3 +5832,33 @@ msgstr "%d min %02d s"
 
 msgid "DURATION_SECONDS"
 msgstr "%d s"
+
+msgid "JOYSTICK_POSITION"
+msgstr "Joystickpositie"
+
+msgid "JOYSTICK_LEFT"
+msgstr "Links"
+
+msgid "JOYSTICK_CENTER"
+msgstr "Midden"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "Rechts"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "De link kon niet worden geopend. Controleer je verbinding en probeer het opnieuw."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "Elke modus is hetzelfde spel. Alleen de hoeveelheid hulp verschilt."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "Stapsgewijze lessen met aanwijzers. Menu's gaan open terwijl je leert."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "Een paar korte kaarten over besturing en doelen. Alle menu's zijn open."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "Geen lessen of tips. Alle menu's zijn vanaf het begin open."

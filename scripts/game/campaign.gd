@@ -525,22 +525,16 @@ func skill_cast_block_reason(slot: int) -> String:
 func skill_activation_distance() -> float:
     return maxf(0,float(sim.catalog.progression.change17.skill_activation_distance))
 
-## Preserve locked-target priority and farming filters, but only select eligible nearby actors.
+## Preserve locked-target priority and farming filters, but only select eligible nearby actors (with a
+## Farming Focus, an enemy attacking the player is the fallback, as for auto-attack: sim.auto_target).
 ## This activation radius does not change Frost/Fire damage areas or enemy skill reach.
 func skill_activation_target() -> Dictionary:
     var origin: Vector2=sim.position_of(sim.state.player)
     var radius_sq:=pow(skill_activation_distance(),2)
     var locked: Dictionary=sim._find_actor(sim.locked_target)
     if not locked.is_empty() and locked.id!="player" and locked.hp>0 and target_allowed(locked) and origin.distance_squared_to(sim.position_of(locked))<=radius_sq:return locked
-    var result: Dictionary={}
-    var view:=sight()
-    for enemy in sim.state.enemies:
-        if enemy.hp<=0 or not target_allowed(enemy,view):continue
-        if int(sim.state.focus)>=0 and (int(enemy.group)!=int(sim.state.focus) or int(enemy.get("variant",2))!=int(sim.state.focus_variant)):continue
-        var distance:=origin.distance_squared_to(sim.position_of(enemy))
-        if distance<=radius_sq and (result.is_empty() or distance<radius_sq):
-            radius_sq=distance;result=enemy
-    return result
+    # Change 41: the same priority as auto-attack (focused type, then an attacker, never a bystander).
+    return sim.auto_target(sqrt(radius_sq)+.001,sight())
 
 func player_skill_block_reason(key: String) -> String:
     if not sim.catalog.skills.has(key):return "SKILL_UNKNOWN"
@@ -1111,7 +1105,7 @@ func follow_steps_done(id: String) -> int:
         "collection":
             var done:=0
             for c in collection_counts(id):
-                if c>=10+10*n:done+=1
+                if c>=collection_required(n):done+=1
             return done
         "trophy":
             var got:=0
@@ -1140,13 +1134,11 @@ func submit(id: String) -> bool:
         if sim.state.online_coins<coins or sim.state.online_gems<gems or sim.state.coins<coins or sim.state.gems<gems:return sim.fail("OFFERING_NEEDS")
         sim.state.coins-=coins;sim.state.gems-=gems;sim.state.online_coins-=coins;sim.state.online_gems-=gems
     elif id.begins_with("collection"):
-        var names: Array=[['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
-        var count=10+10*n
-        for name in names:
-            var item: String=contract_outfit(name)
-            if sim.quantity(item)<count+1 or minf(float(sim.state.online_items.get(item,0)),float(o.get("item_"+item,0)))<count:return sim.fail("CONTRACT_NEEDS")
-        for name in names:
-            var item: String=contract_outfit(name);sim._remove(item,count)
+        # Change 41: the same per-outfit counts the panel, tracker and follower show, toward the same
+        # collection_required; Submit hands in collection_goal copies of each and keeps one.
+        if not collection_complete(id):return sim.fail("CONTRACT_NEEDS")
+        for name in collection_names(n):
+            sim._remove(contract_outfit(name),collection_goal(n))
     else:return false
     o.submitted=true;evaluate();sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
@@ -1811,7 +1803,7 @@ func opportunity_progress(id: String) -> String:
         var parts: Array=[]
         var counts:=collection_counts(id)
         for i in range(names.size()):
-            parts.append("%s %d/%d" % [sim.catalog.display_name(contract_outfit(names[i])),counts[i],10+10*n])
+            parts.append("%s %d/%d" % [sim.catalog.display_name(contract_outfit(names[i])),counts[i],collection_required(n)])
         return sim.tr("PROGRESS_COLLECTION") % " · ".join(parts)
     if path=="challenge":return sim.tr("PROGRESS_CHALLENGE")
     if path=="regional":return _regional_progress(n)
@@ -1835,7 +1827,7 @@ func follow_summary(id: String) -> String:
             if index+1<chain.size():line+="\n"+sim.tr("FOLLOW_NEXT") % (_chain_goal(chain[index+1])+" ×%d" % int(chain[index+1][2]))
             return line
         "collection":
-            var goal: int=10+10*n
+            var goal:=collection_required(n)
             var counts:=collection_counts(id)
             var names:=collection_names(n)
             var open: Array=[]
@@ -1901,7 +1893,7 @@ func follow_focus(id: String) -> Dictionary:
             var counts:=collection_counts(id)
             var names:=collection_names(n)
             for i in range(counts.size()):
-                if counts[i]<10+10*n:return {"item":contract_outfit(names[i])}
+                if counts[i]<collection_required(n):return {"item":contract_outfit(names[i])}
         "expedition":
             var chain=chain_for(id);var index=int(o.get("step",0))
             if index<chain.size():return {"group":group_id(str(chain[index][1]))}
@@ -1947,16 +1939,33 @@ func _regional_follow(n: int) -> String:
     if todo.size()>1:line+="\n"+sim.tr("FOLLOW_THEN_MORE") % [todo[1],todo.size()-1]
     return line
 
-## Copies of each required outfit found this run since the contract was discovered, capped at its goal.
+## Change 41: a Collection contract hands in collection_goal(n) copies of each outfit (20 / 30 / 40) and
+## the player keeps one, so it asks for collection_required(n) (21 / 31 / 41) from the start. Before, the
+## panel and tracker counted to 20 while Submit also wanted a 21st copy, and players met that only when
+## submitting. The retained copy is intentional (as for merges): equipping or wearing the outfit never
+## leaves the player without it.
+func collection_goal(n: int) -> int:return 10+10*n
+func collection_required(n: int) -> int:return collection_goal(n)+1
+
+## Progress per required outfit toward collection_required(n): copies picked up online this run since the
+## contract was discovered (spent copies lower it, up to the hand-in amount), plus the one copy kept when
+## the inventory holds one more than those, whatever its origin (an older, equipped or offline copy). It
+## reaches the requirement exactly when Submit can hand in collection_goal(n) and keep one, so the panel,
+## the tracker, the follow notices, the readiness and Submit all read this one count.
 func collection_counts(id: String) -> Array:
     var o: Dictionary=sim.state.opportunities.get(id,{})
     var n=int(id.right(1))
-    var names: Array=[['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
     var result: Array=[]
-    for name in names:
+    for name in collection_names(n):
         var item: String=contract_outfit(name)
-        result.append(mini(10+10*n,int(minf(float(sim.state.online_items.get(item,0)),float(o.get("item_"+item,0))))))
+        var credited:=mini(collection_goal(n),int(minf(float(sim.state.online_items.get(item,0)),float(o.get("item_"+item,0)))))
+        result.append(credited+(1 if sim.quantity(item)>credited else 0))
     return result
+
+## Every required outfit at collection_required: what Submit accepts.
+func collection_complete(id: String) -> bool:
+    var n=int(id.right(1))
+    return collection_counts(id).all(func(c):return c>=collection_required(n))
 
 ## Discoverable cells of a map: its full fog grid (the authored map size in fog cells).
 ## Change 15: only reachable cells count (fog_rules.unreachable_cells lists the few inside large solid

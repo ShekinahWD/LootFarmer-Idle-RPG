@@ -16,7 +16,7 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 250,
+  "files": 254,
   "stages": 8,
   "imported": 154
  },
@@ -70,7 +70,8 @@
     249,
     264,
     266,
-    269
+    269,
+    273
    ],
    "sites": [
     "res://scripts/game/game_ui.gd: ITEM_ART % index",
@@ -79,6 +80,7 @@
     "res://scripts/game/game_ui.gd: int(HELP_ART.get(card,60))",
     "res://scripts/game/game_ui.gd: int(sim.catalog.campaign.paths.get(path,{}).get(\"icon\",211))",
     "res://scripts/game/prestige_card.gd: ITEM_ART % int(path_info.get(\"icon\",211))",
+    "res://scripts/game/tutorial_guide.gd: int(MODE_ART[mode])",
     "res://scripts/game/tutorial_guide.gd: int(ui.HELP_ART.get(step,60))"
    ],
    "paths": [
@@ -95,6 +97,7 @@
     "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-264.png",
     "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-266.png",
     "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-269.png",
+    "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-273.png",
     "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-42.png",
     "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-44.png",
     "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-57.png",
@@ -505,12 +508,14 @@
   "res://resources/game/death_weapon.tres": "literal in res://scripts/game/world.gd",
   "res://resources/game/distribution_channels.tres": "literal in res://scripts/game/review_invitation.gd",
   "res://resources/game/enemy_abilities.tres": "literal in res://scripts/game/simulation.gd",
+  "res://resources/game/external_links.tres": "literal in res://scripts/game/game_ui.gd",
   "res://resources/game/fog_rules.tres": "literal in res://scripts/game/campaign.gd",
   "res://resources/game/fog_veil.gdshader": "literal in res://scripts/game/fog_layer.gd",
   "res://resources/game/gem.tres": "dependency of res://scenes/game/main.tscn",
   "res://resources/game/mastery_rules.tres": "literal in res://scripts/game/mastery.gd",
   "res://resources/game/onboarding_rules.tres": "literal in res://scripts/game/onboarding.gd",
   "res://resources/game/outfit_slot_styles.tres": "literal in res://scripts/game/game_ui.gd",
+  "res://resources/game/pickup_style.tres": "literal in res://scripts/game/pickup_spark.gd",
   "res://resources/game/review_rules.tres": "literal in res://scripts/game/review_invitation.gd",
   "res://resources/game/skill_effects.tres": "literal in res://scripts/game/world.gd",
   "res://resources/game/theme.tres": "dependency of res://scenes/game/main.tscn",
@@ -552,6 +557,7 @@
   "res://scripts/game/catalog.gd": "class_name LootCatalog used by res://scripts/game/simulation.gd",
   "res://scripts/game/distribution_channels.gd": "dependency of res://resources/game/distribution_channels.tres",
   "res://scripts/game/enemy_ability_rules.gd": "class_name EnemyAbilityRules used by res://scripts/game/simulation.gd",
+  "res://scripts/game/external_links.gd": "dependency of res://resources/game/external_links.tres",
   "res://scripts/game/fog_layer.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/fog_rules.gd": "dependency of res://resources/game/fog_rules.tres",
   "res://scripts/game/game_ui.gd": "dependency of res://scenes/game/main.tscn",
@@ -568,6 +574,7 @@
   "res://scripts/game/onboarding_rules.gd": "class_name OnboardingRules used by res://scripts/game/onboarding.gd",
   "res://scripts/game/outfit_slot_styles.gd": "class_name OutfitSlotStyles used by res://scripts/game/game_ui.gd",
   "res://scripts/game/pickup_spark.gd": "dependency of res://scenes/game/pickup.tscn",
+  "res://scripts/game/pickup_style.gd": "dependency of res://resources/game/pickup_style.tres",
   "res://scripts/game/prestige_card.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/prestige_confirm.gd": "dependency of res://scenes/game/prestige_confirm.tscn",
   "res://scripts/game/review_dialog.gd": "dependency of res://scenes/game/review_invitation.tscn",

@@ -1,4 +1,22 @@
-# LootFarmer — Test Suite (current, 2026-10-29, Change 40)
+# LootFarmer — Test Suite (current, 2026-10-29, Change 41)
+
+## Change 41 — Playtest corrections (29 October 2026)
+
+Command: `python tools/run_probes.py`. **45 entries:** `validate_campaign_source`, `export_manifest`, `validate_localization` and 42 Godot scenes. Details: [Change 41 report](LootFarmer_Change_41_Report.md).
+
+- **Registered** `change_41_probe` (193 checks):
+  - Collection contracts: 21 / 31 / 41 required, 20 / 30 / 40 handed in; the reported exact case (20 of each reads 20/21 on the follower, card and tracker, Submit refuses and spends nothing); 21 of each completes and keeps one; one short, one over, an older copy as the kept one, the worn copy stays worn, a merged copy lowers the count, save/reload before and after Submit, all three contracts.
+  - Focus Farming: focused enemy before a closer attacker; attacker when the focused enemies respawn (auto-attack and skills); calm and leashing strangers and attackers beyond acquisition ignored; nearest of several attackers and roster-order ties; the focus regains priority; manual target overrides; no-Focus behaviour unchanged; a stepped Winter II fight (aggro on the way, attacker defeated, calm stranger untouched, the hero walks on with Focus on).
+  - Joystick: Left / Center / Right inside the map band at the same size and height, clear of the skill bar and dock, trackers above it; save/reload, Hard Reset keeps it, missing / malformed / out-of-range saved values; the Settings row (highlight, immediate move); a touch on the stick never reaches the map, moving it releases a held stick, the vacated centre is map again.
+  - Chooser at 720x1280, 576x1280 and 1024x1366: three cards in order, settled and on screen, ≥ 112 px, name and detail inside, whole card is the target, Guided primary and None not; each card chooses its mode.
+  - Guided movement lesson at all three positions: the stick framed, the ghost knob toward the path, input-transparent, following a mid-lesson move, hidden under the thumb, gone after the path is walked; Basic and None never point; the Basic card names the joystick's place.
+  - Drops: gear vs supply, arrival above the actors then resting on the exact simulation spot, no pickup or RNG change, per-drop sparkle phase, collectible mid-arrival, older drops do not hop.
+  - Discord: exact URL from one resource, one button beside Stats, no Community heading, reachable at 720x1280, repeat guard, failure message with Settings still open and no game-state change.
+  - Localization: German redraw of the new row and button; every Change 41 key present in all 10 enabled catalogs.
+- **Updated to the corrected rule, coverage kept:** `change_11_probe` (collection follower stages now own the kept copy, expect `/21`), `change_12_probe` (a collection step completes at 21), `change_16_probe` (Winter collection follower `0/21`; the next outfit after 21).
+- **Outside the suite:** `change_41_capture` (windowed: `--shape`, `--lang`, `--drops-only`; `docs/Change_41_Evidence/`).
+
+**Final run in the working tree (once, at the end): 42/45**, no script errors or timeouts. The 3 failures are `export_manifest` ("Android itch.io APK version/code 27 != project config/version 26"), `change_27_probe` (project version 27, Android Release code 27, project icon) and `change_26_probe` (core file `uid://drj4h6jnqymfy` ships). All three come from the developer's uncommitted `project.godot` / `export_presets.cfg` edits that predate this change (the same three as Changes 39 and 40); they were left untouched. In a clean worktree of the previous commit with the Change 41 files applied, `export_manifest`, `change_27_probe`, `change_26_probe` and `change_41_probe` all pass. Export packs of Android Release, Android itch.io APK and Windows itch.io from that worktree: `verify_export.py` PASS (254 / 254 files, no draft catalogs).
 
 ## Change 40 — Progressive localization activation and language dropdown (29 October 2026)
 
