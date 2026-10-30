@@ -16,9 +16,9 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 264,
+  "files": 280,
   "stages": 8,
-  "imported": 156
+  "imported": 164
  },
  "families": {
   "stage_scenes": {
@@ -315,6 +315,8 @@
     "hi_IN",
     "id_ID",
     "it_IT",
+    "ja_JP",
+    "ko_KR",
     "nl_NL",
     "pl_PL",
     "pt_BR",
@@ -322,7 +324,9 @@
     "th_TH",
     "tr_TR",
     "uk_UA",
-    "vi_VN"
+    "vi_VN",
+    "zh_CN",
+    "zh_TW"
    ],
    "sites": [
     "res://scripts/autoload/localization_service.gd: CATALOG_PATH % language"
@@ -335,6 +339,8 @@
     "res://localization/hi_IN.po",
     "res://localization/id_ID.po",
     "res://localization/it_IT.po",
+    "res://localization/ja_JP.po",
+    "res://localization/ko_KR.po",
     "res://localization/nl_NL.po",
     "res://localization/pl_PL.po",
     "res://localization/pt_BR.po",
@@ -342,7 +348,9 @@
     "res://localization/th_TH.po",
     "res://localization/tr_TR.po",
     "res://localization/uk_UA.po",
-    "res://localization/vi_VN.po"
+    "res://localization/vi_VN.po",
+    "res://localization/zh_CN.po",
+    "res://localization/zh_TW.po"
    ]
   }
  },
@@ -350,8 +358,16 @@
   "res://assets/Audio/button.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/Audio/prestige.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/Fonts/DejaVuSans.ttf": "dependency of res://resources/game/theme.tres",
-  "res://assets/Fonts/NotoSansDevanagari.ttf": "dependency of res://resources/game/ui_font_devanagari.tres",
-  "res://assets/Fonts/NotoSansThai.ttf": "dependency of res://resources/game/ui_font_thai.tres",
+  "res://assets/Fonts/NotoSansDevanagari.ttf": "dependency of res://resources/game/ui_font_all_scripts.tres",
+  "res://assets/Fonts/NotoSansJP-Endonym.ttf": "dependency of res://resources/game/ui_font_all_scripts.tres",
+  "res://assets/Fonts/NotoSansJP-LootFarmer.ttf": "dependency of res://resources/game/ui_font_japanese.tres",
+  "res://assets/Fonts/NotoSansKR-Endonym.ttf": "dependency of res://resources/game/ui_font_all_scripts.tres",
+  "res://assets/Fonts/NotoSansKR-LootFarmer.ttf": "dependency of res://resources/game/ui_font_korean.tres",
+  "res://assets/Fonts/NotoSansSC-Endonym.ttf": "dependency of res://resources/game/ui_font_all_scripts.tres",
+  "res://assets/Fonts/NotoSansSC-LootFarmer.ttf": "dependency of res://resources/game/ui_font_chinese_simplified.tres",
+  "res://assets/Fonts/NotoSansTC-Endonym.ttf": "dependency of res://resources/game/ui_font_all_scripts.tres",
+  "res://assets/Fonts/NotoSansTC-LootFarmer.ttf": "dependency of res://resources/game/ui_font_chinese_traditional.tres",
+  "res://assets/Fonts/NotoSansThai.ttf": "dependency of res://resources/game/ui_font_all_scripts.tres",
   "res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-001.png": "dependency of res://resources/game/outfit_slot_styles.tres",
   "res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-002.png": "dependency of res://resources/game/outfit_slot_styles.tres",
   "res://assets/KenneyFantasyUI/PNG/Default/Border/panel-border-011.png": "dependency of res://scenes/game/prestige_card.tscn",
@@ -512,6 +528,8 @@
   "res://localization/hi_IN.po": "family language_catalogs",
   "res://localization/id_ID.po": "family language_catalogs",
   "res://localization/it_IT.po": "family language_catalogs",
+  "res://localization/ja_JP.po": "family language_catalogs",
+  "res://localization/ko_KR.po": "family language_catalogs",
   "res://localization/nl_NL.po": "family language_catalogs",
   "res://localization/pl_PL.po": "family language_catalogs",
   "res://localization/pt_BR.po": "family language_catalogs",
@@ -520,6 +538,8 @@
   "res://localization/tr_TR.po": "family language_catalogs",
   "res://localization/uk_UA.po": "family language_catalogs",
   "res://localization/vi_VN.po": "family language_catalogs",
+  "res://localization/zh_CN.po": "family language_catalogs",
+  "res://localization/zh_TW.po": "family language_catalogs",
   "res://resources/game/audio_cues.tres": "literal in res://scripts/game/game_ui.gd",
   "res://resources/game/coin.tres": "dependency of res://scenes/game/main.tscn",
   "res://resources/game/death_weapon.tres": "literal in res://scripts/game/world.gd",
@@ -536,8 +556,12 @@
   "res://resources/game/review_rules.tres": "literal in res://scripts/game/review_invitation.gd",
   "res://resources/game/skill_effects.tres": "literal in res://scripts/game/world.gd",
   "res://resources/game/theme.tres": "literal in res://scripts/autoload/localization_service.gd",
-  "res://resources/game/ui_font_all_scripts.tres": "literal in res://scripts/game/language_dropdown.gd",
+  "res://resources/game/ui_font_all_scripts.tres": "literal in res://scripts/autoload/localization_service.gd",
+  "res://resources/game/ui_font_chinese_simplified.tres": "literal in res://scripts/autoload/localization_service.gd",
+  "res://resources/game/ui_font_chinese_traditional.tres": "literal in res://scripts/autoload/localization_service.gd",
   "res://resources/game/ui_font_devanagari.tres": "literal in res://scripts/autoload/localization_service.gd",
+  "res://resources/game/ui_font_japanese.tres": "literal in res://scripts/autoload/localization_service.gd",
+  "res://resources/game/ui_font_korean.tres": "literal in res://scripts/autoload/localization_service.gd",
   "res://resources/game/ui_font_thai.tres": "literal in res://scripts/autoload/localization_service.gd",
   "res://resources/game/weather_blue_leaves.tres": "literal in res://scripts/game/season_weather.gd",
   "res://resources/game/weather_leaves.tres": "literal in res://scripts/game/season_weather.gd",

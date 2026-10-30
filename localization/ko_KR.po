@@ -1,0 +1,5862 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: ko_KR\n"
+"Language-Team: Korean (Korea)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"X-Localization-Batch: 04 (Change 43); English source SHA-256 d6102fccdbae9721e20d5baa922c9a50d88ec85324c09b9b179832d3d47fe7e3\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Android 초⁠기 점⁠검"
+
+msgid "BOOT_DETAIL"
+msgstr "체⁠크⁠포⁠인⁠트 0 • 게⁠임⁠플⁠레⁠이⁠는 아⁠직 구⁠현⁠되⁠지 않⁠았⁠습⁠니⁠다."
+
+msgid "BOOT_VERSION"
+msgstr "버⁠전 %s"
+
+msgid "BOOT_TAPS"
+msgstr "저⁠장⁠된 터⁠치 횟⁠수: %d"
+
+msgid "BOOT_TAP"
+msgstr "터⁠치 및 저⁠장 테⁠스⁠트"
+
+msgid "BOOT_SAVED"
+msgstr "저⁠장 완⁠료"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "저⁠장⁠할 수 없⁠습⁠니⁠다. 검⁠증 로⁠그⁠를 확⁠인⁠하⁠세⁠요."
+
+msgid "BOOT_PAUSE"
+msgstr "일⁠시⁠정⁠지"
+
+msgid "BOOT_RESUME"
+msgstr "계⁠속⁠하⁠기"
+
+msgid "BOOT_RESET"
+msgstr "완⁠전 초⁠기⁠화"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "진⁠행 상⁠황⁠을 초⁠기⁠화⁠할⁠까⁠요?"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "이 프⁠로⁠필⁠의 모⁠든 진⁠행 상⁠황⁠이 삭⁠제⁠됩⁠니⁠다. 설⁠정⁠은 유⁠지⁠됩⁠니⁠다."
+
+msgid "UI_CONFIRM"
+msgstr "초⁠기⁠화"
+
+msgid "UI_CANCEL"
+msgstr "취⁠소"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "언⁠어"
+
+msgid "LANG_AUTOMATIC"
+msgstr "자⁠동"
+
+msgid "LANG_DISABLED"
+msgstr "번⁠역 검⁠증 후 사⁠용 가⁠능"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "영⁠어⁠가 활⁠성⁠화⁠되⁠어 있⁠습⁠니⁠다. 다⁠른 언⁠어⁠는 검⁠증 후 열⁠립⁠니⁠다."
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "읽⁠을 수 없⁠거⁠나 더 새⁠로⁠운 버⁠전⁠의 저⁠장 데⁠이⁠터⁠를 보⁠존⁠했⁠습⁠니⁠다. 호⁠환⁠되⁠는 백⁠업⁠을 복⁠원⁠하⁠거⁠나 이 프⁠로⁠필⁠을 직⁠접 초⁠기⁠화⁠하⁠세⁠요."
+
+msgid "LANG_EN_US"
+msgstr "영⁠어"
+
+msgid "LANG_ES_419"
+msgstr "스⁠페⁠인⁠어(중⁠남⁠미)"
+
+msgid "LANG_ES_ES"
+msgstr "스⁠페⁠인⁠어(스⁠페⁠인)"
+
+msgid "LANG_PT_BR"
+msgstr "포⁠르⁠투⁠갈⁠어(브⁠라⁠질)"
+
+msgid "LANG_FR_FR"
+msgstr "프⁠랑⁠스⁠어"
+
+msgid "LANG_DE_DE"
+msgstr "독⁠일⁠어"
+
+msgid "LANG_IT_IT"
+msgstr "이⁠탈⁠리⁠아⁠어"
+
+msgid "LANG_NL_NL"
+msgstr "네⁠덜⁠란⁠드⁠어"
+
+msgid "LANG_PL_PL"
+msgstr "폴⁠란⁠드⁠어"
+
+msgid "LANG_RU_RU"
+msgstr "러⁠시⁠아⁠어"
+
+msgid "LANG_UK_UA"
+msgstr "우⁠크⁠라⁠이⁠나⁠어"
+
+msgid "LANG_TR_TR"
+msgstr "튀⁠르⁠키⁠예⁠어"
+
+msgid "LANG_ID_ID"
+msgstr "인⁠도⁠네⁠시⁠아⁠어"
+
+msgid "LANG_VI_VN"
+msgstr "베⁠트⁠남⁠어"
+
+msgid "LANG_TH_TH"
+msgstr "태⁠국⁠어"
+
+msgid "LANG_HI_IN"
+msgstr "힌⁠디⁠어"
+
+msgid "LANG_JA_JP"
+msgstr "일⁠본⁠어"
+
+msgid "LANG_KO_KR"
+msgstr "한⁠국⁠어"
+
+msgid "LANG_ZH_CN"
+msgstr "중⁠국⁠어(간⁠체)"
+
+msgid "LANG_ZH_TW"
+msgstr "중⁠국⁠어(번⁠체)"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "코⁠인 %s     보⁠석 %s"
+
+msgid "PAUSE"
+msgstr "일⁠시⁠정⁠지"
+
+msgid "RESUME"
+msgstr "계⁠속⁠하⁠기"
+
+msgid "PLAYER_STATUS"
+msgstr "HP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "%.1f⁠초 후 캠⁠프⁠로 돌⁠아⁠갑⁠니⁠다"
+
+msgid "BOOST_ACTIVE"
+msgstr "코⁠인 부⁠스⁠트 %d⁠초"
+
+msgid "GROUP_0"
+msgstr "새⁠싹 초⁠원"
+
+msgid "GROUP_1"
+msgstr "로⁠봇 교⁠차⁠로"
+
+msgid "GROUP_2"
+msgstr "공⁠룡 숲"
+
+msgid "GROUP_3"
+msgstr "죽⁠음⁠의 공⁠터"
+
+msgid "CLOSE"
+msgstr "닫⁠기"
+
+msgid "CONFIRM"
+msgstr "확⁠인"
+
+msgid "CANCEL"
+msgstr "취⁠소"
+
+msgid "LEVEL"
+msgstr "레⁠벨"
+
+msgid "INVENTORY_HEADING"
+msgstr "장⁠비"
+
+msgid "SUPPLY_HEADING"
+msgstr "소⁠모⁠품"
+
+msgid "GEAR_CAPACITY"
+msgstr "장⁠비  %d / %d  ·  터⁠치⁠하⁠여 확⁠인"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "소⁠모⁠품  %d / %d  ·  터⁠치⁠하⁠여 사⁠용 또⁠는 자⁠동⁠화"
+
+msgid "EMPTY_SLOT"
+msgstr "비⁠어 있⁠음"
+
+msgid "EQUIPPED"
+msgstr "장⁠착 중"
+
+msgid "AUTO"
+msgstr "자⁠동"
+
+msgid "UPGRADES"
+msgstr "강⁠화"
+
+msgid "WORLD"
+msgstr "월⁠드"
+
+msgid "STATS"
+msgstr "능⁠력⁠치"
+
+msgid "SETTINGS"
+msgstr "설⁠정"
+
+msgid "PANEL_ITEM"
+msgstr "아⁠이⁠템"
+
+msgid "PANEL_UPGRADES"
+msgstr "플⁠레⁠이⁠어 강⁠화"
+
+msgid "PANEL_TRAVEL"
+msgstr "캠⁠프 및 파⁠밍"
+
+msgid "PANEL_STATS"
+msgstr "내 빌⁠드"
+
+msgid "PANEL_SETTINGS"
+msgstr "설⁠정"
+
+msgid "PANEL_HISTORY"
+msgstr "최⁠근 획⁠득"
+
+msgid "PANEL_PRESTIGE"
+msgstr "새⁠로⁠운 시⁠작"
+
+msgid "HELP_0"
+msgstr "조⁠이⁠스⁠틱⁠으⁠로 북⁠쪽⁠을 탐⁠험⁠하⁠세⁠요. 손⁠을 떼⁠면 근⁠처⁠의 적⁠과 자⁠동⁠으⁠로 싸⁠웁⁠니⁠다."
+
+msgid "HELP_1"
+msgstr "새⁠싹⁠은 혼⁠자 싸⁠웁⁠니⁠다. 근⁠처⁠에 머⁠물⁠며 파⁠밍⁠하⁠고, 떨⁠어⁠진 장⁠비⁠를 터⁠치⁠해 획⁠득⁠하⁠세⁠요."
+
+msgid "HELP_2"
+msgstr "바⁠닥⁠의 아⁠이⁠템⁠을 터⁠치⁠하⁠세⁠요. 코⁠인⁠과 보⁠석⁠은 바⁠로 지⁠갑⁠에 들⁠어⁠갑⁠니⁠다."
+
+msgid "HELP_3"
+msgstr "아⁠래⁠의 새 장⁠비⁠를 터⁠치⁠한 뒤 장⁠착⁠하⁠세⁠요. 의⁠상⁠과 무⁠기⁠를 하⁠나⁠씩 착⁠용⁠할 수 있⁠습⁠니⁠다."
+
+msgid "HELP_4"
+msgstr "중⁠복 아⁠이⁠템⁠을 합⁠성⁠하⁠면 그 아⁠이⁠템 종⁠류⁠가 강⁠해⁠집⁠니⁠다. 재⁠고⁠가 0⁠이 되⁠어⁠도 진⁠행⁠도⁠는 유⁠지⁠됩⁠니⁠다."
+
+msgid "HELP_5"
+msgstr "적 종⁠류⁠를 열⁠고 자⁠동 수⁠집⁠을 구⁠매⁠하⁠면 파⁠밍⁠하⁠는 동⁠안 전⁠리⁠품⁠을 모⁠읍⁠니⁠다."
+
+msgid "HELP_6"
+msgstr "빌⁠드⁠를 키⁠우⁠고 북⁠쪽⁠을 탐⁠험⁠해 사⁠신⁠을 쓰⁠러⁠뜨⁠리⁠세⁠요. 세⁠계⁠는 처⁠음⁠부⁠터 열⁠려 있⁠습⁠니⁠다."
+
+msgid "HELP_7"
+msgstr "영⁠구 보⁠너⁠스⁠는 유⁠지⁠됩⁠니⁠다. 더 강⁠한 회⁠차⁠를 만⁠들⁠어 다⁠시 사⁠신⁠에⁠게 도⁠전⁠하⁠세⁠요."
+
+msgid "HELP_VICTORY"
+msgstr "사⁠신⁠을 쓰⁠러⁠뜨⁠렸⁠습⁠니⁠다! 파⁠밍⁠을 계⁠속⁠하⁠거⁠나 월⁠드⁠에⁠서 환⁠생 카⁠드⁠를 선⁠택⁠하⁠세⁠요."
+
+msgid "HELP_PAUSED"
+msgstr "일⁠시⁠정⁠지 · 인⁠벤⁠토⁠리⁠를 관⁠리⁠할 수 있⁠습⁠니⁠다. 계⁠속⁠하⁠려⁠면 재⁠개⁠하⁠세⁠요."
+
+msgid "HISTORY_EMPTY"
+msgstr "최⁠근 획⁠득⁠한 아⁠이⁠템⁠이 여⁠기⁠에 표⁠시⁠됩⁠니⁠다.\n터⁠치⁠하⁠면 최⁠근 10⁠개⁠를 봅⁠니⁠다."
+
+msgid "HISTORY_CURRENCY"
+msgstr "보⁠석 +%s"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "%s⁠개⁠의 %s 판⁠매"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "나⁠무 검"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "돌 검"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "철 검"
+
+msgid "ITEM_SPROUT"
+msgstr "새⁠싹 의⁠상"
+
+msgid "ITEM_ROBOT"
+msgstr "로⁠봇 의⁠상"
+
+msgid "ITEM_DINOSAUR"
+msgstr "공⁠룡 의⁠상"
+
+msgid "ITEM_POTION"
+msgstr "체⁠력 물⁠약"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "코⁠인 강⁠장⁠제"
+
+msgid "ITEM_QUANTITY"
+msgstr "보⁠유: %s"
+
+msgid "NORMAL_STATS"
+msgstr "기⁠본 능⁠력⁠치 · 합⁠성⁠으⁠로 상⁠승"
+
+msgid "EXTRA_STATS"
+msgstr "추⁠가 능⁠력⁠치 · 이 아⁠이⁠템 종⁠류 공⁠통"
+
+msgid "EQUIP"
+msgstr "장⁠착"
+
+msgid "UNEQUIP"
+msgstr "해⁠제"
+
+msgid "REROLL"
+msgstr "추⁠가 능⁠력⁠치 2⁠개 재⁠설⁠정 · 보⁠석 %s"
+
+msgid "REROLL_CONFIRM"
+msgstr "보⁠석 %s⁠개⁠를 사⁠용⁠해 추⁠가 능⁠력⁠치 2⁠개⁠를 모⁠두 교⁠체⁠할⁠까⁠요? 더 약⁠하⁠더⁠라⁠도 새 결⁠과⁠가 기⁠존 결⁠과⁠를 대⁠체⁠합⁠니⁠다."
+
+msgid "USE"
+msgstr "1⁠개 사⁠용"
+
+msgid "MERGE_ONE"
+msgstr "여⁠분 1⁠개 합⁠성"
+
+msgid "MERGE_ALL"
+msgstr "여⁠분 %d⁠개 합⁠성"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "^100⁠에⁠서 여⁠분 100⁠개⁠를 사⁠용⁠해 다⁠음 등⁠급 아⁠이⁠템 1⁠개⁠를 얻⁠습⁠니⁠다. 원⁠래 아⁠이⁠템⁠과 합⁠성 레⁠벨⁠은 유⁠지⁠됩⁠니⁠다. 같⁠은 분⁠류⁠의 대⁠상 묶⁠음⁠이⁠나 빈 슬⁠롯⁠이 필⁠요⁠합⁠니⁠다."
+
+msgid "EVOLVE"
+msgstr "진⁠화 → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "이 슬⁠롯⁠의 자⁠동⁠화 전⁠환"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "이 슬⁠롯 자⁠동 사⁠용: %s"
+
+msgid "ON"
+msgstr "켜⁠짐"
+
+msgid "OFF"
+msgstr "꺼⁠짐"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "이 슬⁠롯⁠은 비⁠어 있⁠습⁠니⁠다. 새⁠로⁠운 종⁠류⁠의 아⁠이⁠템⁠에⁠는 빈 슬⁠롯⁠이 필⁠요⁠하⁠며, 기⁠존 종⁠류⁠는 함⁠께 쌓⁠입⁠니⁠다."
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "그⁠룹 강⁠화⁠는 모⁠든 구⁠성⁠원⁠에⁠게 적⁠용⁠됩⁠니⁠다. 전⁠리⁠품⁠은 적⁠마⁠다 따⁠로 판⁠정⁠됩⁠니⁠다. 코⁠인⁠과 보⁠석⁠은 즉⁠시 지⁠급⁠됩⁠니⁠다."
+
+msgid "GROUP_SELECT"
+msgstr "적 그⁠룹: %s · 터⁠치⁠하⁠여 변⁠경"
+
+msgid "AUTOMATION_HEADING"
+msgstr "인⁠벤⁠토⁠리 및 자⁠동⁠화 · 환⁠생 후⁠에⁠도 유⁠지"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "코⁠인"
+
+msgid "GEMS"
+msgstr "보⁠석"
+
+msgid "TRAVEL_HELP"
+msgstr "지⁠도⁠에⁠서 캠⁠프⁠를 터⁠치⁠해 부⁠활 지⁠점⁠을 선⁠택⁠하⁠세⁠요. 캠⁠프 패⁠널⁠에⁠서 해⁠금⁠해⁠도 선⁠택⁠됩⁠니⁠다. 순⁠간⁠이⁠동⁠은 없⁠습⁠니⁠다."
+
+msgid "SPAWN_SELECT"
+msgstr "캠⁠프 %d 선⁠택"
+
+msgid "SPAWN_BUY"
+msgstr "캠⁠프 %d 해⁠금 · 코⁠인 %s"
+
+msgid "SELECTED"
+msgstr "선⁠택⁠됨"
+
+msgid "FOCUS_HELP"
+msgstr "적 종⁠류⁠별⁠로 파⁠밍⁠을 해⁠금⁠한 뒤 의⁠상⁠만, 무⁠기⁠만 또⁠는 둘 다⁠를 선⁠택⁠하⁠세⁠요. 쓰⁠러⁠지⁠면 그 캠⁠프⁠로 돌⁠아⁠갑⁠니⁠다. 직⁠접 이⁠동⁠하⁠면 파⁠밍⁠이 취⁠소⁠됩⁠니⁠다."
+
+msgid "FOCUS_GROUP"
+msgstr "%s 파⁠밍 · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "환⁠생 카⁠드⁠를 선⁠택⁠하⁠세⁠요"
+
+msgid "PRESTIGE_COUNT"
+msgstr "환⁠생 횟⁠수: %d"
+
+msgid "NO_OFFLINE"
+msgstr "진⁠행 상⁠황⁠은 저⁠장⁠되⁠었⁠습⁠니⁠다. 오⁠프⁠라⁠인 보⁠상⁠은 정⁠식 버⁠전⁠에⁠서 제⁠공⁠될 예⁠정⁠이⁠며, 이 빌⁠드⁠는 종⁠료 중⁠이⁠나 백⁠그⁠라⁠운⁠드 상⁠태⁠에⁠서 진⁠행⁠을 계⁠산⁠하⁠지 않⁠습⁠니⁠다."
+
+msgid "SAVE_NOW"
+msgstr "지⁠금 저⁠장"
+
+msgid "HARD_RESET"
+msgstr "완⁠전 초⁠기⁠화"
+
+msgid "RESET_CONFIRM"
+msgstr "진⁠행 상⁠황, 인⁠벤⁠토⁠리, 자⁠동⁠화, 환⁠생 카⁠드⁠를 모⁠두 지⁠울⁠까⁠요? 설⁠정⁠은 유⁠지⁠됩⁠니⁠다. 이 작⁠업⁠은 되⁠돌⁠릴 수 없⁠습⁠니⁠다."
+
+msgid "LANGUAGE_NOTE"
+msgstr "개⁠발 중⁠에⁠는 영⁠어⁠만 사⁠용⁠할 수 있⁠습⁠니⁠다. 나⁠머⁠지 19⁠개 언⁠어⁠는 번⁠역 검⁠증 후 열⁠립⁠니⁠다."
+
+msgid "CREDITS"
+msgstr "캐⁠릭⁠터 및 월⁠드 아⁠트: Pixel Plains (SnowHex). 인⁠터⁠페⁠이⁠스: Kenney Fantasy UI Borders (CC0)."
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "영⁠구 +5% 카⁠드 1⁠장⁠을 선⁠택⁠하⁠세⁠요. 보⁠너⁠스⁠는 회⁠차⁠를 거⁠듭⁠하⁠며 누⁠적⁠됩⁠니⁠다. 이 패⁠널⁠을 닫⁠고 계⁠속 파⁠밍⁠해⁠도 됩⁠니⁠다."
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "이 영⁠구 카⁠드⁠로 새 회⁠차⁠를 시⁠작⁠할⁠까⁠요? 화⁠폐, 인⁠벤⁠토⁠리, 아⁠이⁠템 합⁠성 및 추⁠가 능⁠력⁠치, 적 파⁠밍 강⁠화, 캠⁠프⁠가 초⁠기⁠화⁠됩⁠니⁠다. 공⁠개⁠된 적 정⁠보, 자⁠동⁠화 레⁠벨, 인⁠벤⁠토⁠리 용⁠량, 모⁠든 환⁠생 카⁠드⁠는 유⁠지⁠됩⁠니⁠다."
+
+msgid "CARD_DAMAGE"
+msgstr "피⁠해 +5% · 영⁠구"
+
+msgid "CARD_HP"
+msgstr "최⁠대 체⁠력 +5% · 영⁠구"
+
+msgid "CARD_COINS"
+msgstr "코⁠인 획⁠득⁠량 +5% · 영⁠구"
+
+msgid "CARD_GEMS"
+msgstr "보⁠석 확⁠률 +5% (상⁠대) · 영⁠구"
+
+msgid "CARD_LOOT"
+msgstr "장⁠비 드⁠롭 확⁠률 +5% (상⁠대) · 영⁠구"
+
+msgid "CARD_MERGE"
+msgstr "합⁠성 시 기⁠본 능⁠력⁠치 상⁠승⁠량 +5% · 영⁠구"
+
+msgid "STAT_HP"
+msgstr "최⁠대 체⁠력"
+
+msgid "STAT_DAMAGE"
+msgstr "피⁠해"
+
+msgid "STAT_DEFENSE"
+msgstr "방⁠어"
+
+msgid "STAT_CRIT"
+msgstr "치⁠명⁠타 확⁠률"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "치⁠명⁠타 배⁠율"
+
+msgid "STAT_LIFESTEAL"
+msgstr "흡⁠혈"
+
+msgid "STAT_REGEN"
+msgstr "초⁠당 체⁠력 회⁠복"
+
+msgid "STAT_SPEED"
+msgstr "공⁠격 속⁠도 보⁠너⁠스"
+
+msgid "STAT_HEAL"
+msgstr "치⁠유⁠량"
+
+msgid "STAT_COIN_BONUS"
+msgstr "코⁠인 획⁠득⁠량 보⁠너⁠스"
+
+msgid "NEED_DUPLICATES"
+msgstr "합⁠성⁠하⁠려⁠면 여⁠분⁠이 1⁠개 필⁠요⁠합⁠니⁠다."
+
+msgid "MERGE_MAX"
+msgstr "이 아⁠이⁠템⁠은 이⁠미 ^100⁠입⁠니⁠다."
+
+msgid "EVOLUTION_NEEDS"
+msgstr "진⁠화⁠하⁠려⁠면 ^100⁠과 원⁠본 101⁠개⁠가 필⁠요⁠합⁠니⁠다."
+
+msgid "INVENTORY_FULL"
+msgstr "빈 슬⁠롯⁠이 없⁠습⁠니⁠다. 공⁠간⁠을 비⁠우⁠거⁠나 이 인⁠벤⁠토⁠리⁠를 확⁠장⁠하⁠세⁠요."
+
+msgid "AUTOMATION_LOCKED"
+msgstr "이 자⁠동⁠화⁠는 강⁠화⁠에⁠서 해⁠금⁠하⁠세⁠요."
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "강⁠화⁠에⁠서 자⁠동 사⁠용 슬⁠롯⁠을 하⁠나 더 해⁠금⁠하⁠세⁠요."
+
+msgid "CANNOT_USE"
+msgstr "사⁠용⁠할 수 있⁠는 소⁠모⁠품⁠이 없⁠거⁠나 캐⁠릭⁠터⁠가 쓰⁠러⁠졌⁠습⁠니⁠다."
+
+msgid "UPGRADE_MAX"
+msgstr "최⁠대"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "코⁠인⁠이 부⁠족⁠합⁠니⁠다."
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "보⁠석⁠이 부⁠족⁠합⁠니⁠다."
+
+msgid "SPAWN_BOUGHT"
+msgstr "캠⁠프⁠를 해⁠금⁠했⁠습⁠니⁠다. 부⁠활 지⁠점⁠으⁠로 쓰⁠려⁠면 선⁠택⁠하⁠세⁠요."
+
+msgid "EVOLVED"
+msgstr "다⁠음 등⁠급 아⁠이⁠템⁠을 획⁠득⁠했⁠습⁠니⁠다. 원⁠본⁠의 진⁠행⁠도⁠는 유⁠지⁠됩⁠니⁠다."
+
+msgid "PLAYER_DIED"
+msgstr "선⁠택⁠한 캠⁠프⁠로 돌⁠아⁠갑⁠니⁠다. 잃⁠는 것⁠은 없⁠습⁠니⁠다."
+
+msgid "BOSS_DEFEATED"
+msgstr "사⁠신⁠을 쓰⁠러⁠뜨⁠렸⁠습⁠니⁠다! 영⁠구 환⁠생 카⁠드⁠가 기⁠다⁠립⁠니⁠다."
+
+msgid "PRESTIGED"
+msgstr "새 회⁠차⁠가 시⁠작⁠됩⁠니⁠다. 영⁠구 보⁠너⁠스⁠는 유⁠지⁠됩⁠니⁠다."
+
+msgid "SAVED"
+msgstr "저⁠장⁠되⁠었⁠습⁠니⁠다."
+
+msgid "SAVE_ERROR"
+msgstr "저⁠장⁠하⁠지 못⁠했⁠습⁠니⁠다. 진⁠행 상⁠황⁠은 메⁠모⁠리⁠에 남⁠아 있⁠으⁠니 다⁠시 시⁠도⁠하⁠세⁠요."
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "저⁠장 데⁠이⁠터⁠를 안⁠전⁠하⁠게 불⁠러⁠오⁠지 못⁠했⁠습⁠니⁠다. 직⁠접 완⁠전 초⁠기⁠화⁠할 때⁠까⁠지 저⁠장⁠이 비⁠활⁠성⁠화⁠됩⁠니⁠다."
+
+msgid "ACTION_PREVIEW"
+msgstr "행⁠동 · 비⁠용⁠과 효⁠과"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "장⁠비 슬⁠롯 +1 (최⁠대 70)"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "소⁠모⁠품 슬⁠롯 +1 (종⁠류⁠당 1⁠개)"
+
+msgid "UP_COLLECT"
+msgstr "자⁠동 수⁠집 해⁠금"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "수⁠집 범⁠위 +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "한 번⁠에 수⁠집⁠하⁠는 수 +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "수⁠집 간⁠격 −1⁠초"
+
+msgid "UP_MERGE_GEAR"
+msgstr "장⁠비 자⁠동 합⁠성 해⁠금"
+
+msgid "UP_AUTO_USE"
+msgstr "자⁠동 소⁠모⁠품 슬⁠롯 +1"
+
+msgid "UP_USE_SPEED"
+msgstr "자⁠동 사⁠용 간⁠격 −1⁠초"
+
+msgid "UP_FOCUS"
+msgstr "집⁠중 파⁠밍 해⁠금"
+
+msgid "UP_RESPAWN"
+msgstr "부⁠활 대⁠기 −1⁠초"
+
+msgid "UP_LOOT"
+msgstr "장⁠비 드⁠롭 확⁠률 +0.5⁠포⁠인⁠트 (아⁠이⁠템⁠별)"
+
+msgid "UP_COIN_CHANCE"
+msgstr "코⁠인 드⁠롭 확⁠률"
+
+msgid "UP_GEM_CHANCE"
+msgstr "전⁠체 보⁠석 드⁠롭 확⁠률"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "적 1⁠마⁠리⁠당 코⁠인 +50%"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "드⁠롭⁠당 보⁠석 수 (보⁠스⁠는 ×3)"
+
+msgid "CHAT_SURPRISE"
+msgstr "야! 조⁠심⁠해!"
+
+msgid "RECENT_HEADER"
+msgstr "최⁠근 획⁠득 · 터⁠치⁠하⁠여 기⁠록 보⁠기"
+
+msgid "ZOOM_IN"
+msgstr "확⁠대"
+
+msgid "ZOOM_OUT"
+msgstr "축⁠소"
+
+msgid "CAMERA_ZOOM"
+msgstr "카⁠메⁠라 줌"
+
+msgid "PANEL_ENEMY"
+msgstr "적"
+
+msgid "PANEL_CAMP"
+msgstr "부⁠활 캠⁠프"
+
+msgid "TAB_AUTOMATION"
+msgstr "자⁠동⁠화"
+
+msgid "TAB_INVENTORY"
+msgstr "인⁠벤⁠토⁠리"
+
+msgid "TAB_SUPPLIES"
+msgstr "소⁠모⁠품"
+
+msgid "TAB_OVERVIEW"
+msgstr "개⁠요"
+
+msgid "TAB_UPGRADES"
+msgstr "강⁠화"
+
+msgid "UP_REVEAL_STATS"
+msgstr "능⁠력⁠치 공⁠개 · 영⁠구"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "드⁠롭 공⁠개 · 영⁠구"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "적 능⁠력⁠치"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "드⁠롭 가⁠능 아⁠이⁠템"
+
+msgid "UNKNOWN_STATS"
+msgstr "HP ???   •   피⁠해 ???\n공⁠격 간⁠격 ???   •   방⁠어 ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "HP %s   •   피⁠해 %s\n공⁠격 간⁠격 %s⁠초   •   방⁠어 %s"
+
+msgid "DROP_COINS"
+msgstr "코⁠인 ×%s · 확⁠정"
+
+msgid "DROP_GEMS"
+msgstr "보⁠석 · 확⁠률 %s%% · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "장⁠비 판⁠정 1⁠회⁠에 두 장⁠비 아⁠이⁠템 중 하⁠나⁠가 선⁠택⁠됩⁠니⁠다. 보⁠석⁠과 소⁠모⁠품⁠은 따⁠로 판⁠정⁠됩⁠니⁠다. 확⁠률⁠에⁠는 현⁠재 강⁠화⁠가 반⁠영⁠되⁠어 있⁠습⁠니⁠다."
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "레⁠벨⁠당 +1⁠포⁠인⁠트 · 최⁠대 +15"
+
+msgid "ENEMY_CAT"
+msgstr "소⁠환⁠된 고⁠양⁠이"
+
+msgid "CAT_DETAILS"
+msgstr "사⁠신⁠이 소⁠환⁠한 하⁠수⁠인.\n드⁠롭⁠과 그⁠룹 강⁠화⁠가 없⁠습⁠니⁠다."
+
+msgid "CAMP_NAME"
+msgstr "캠⁠프 %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "터⁠치⁠하⁠여 선⁠택"
+
+msgid "CAMP_LOCKED"
+msgstr "잠⁠김 · 터⁠치⁠하⁠여 해⁠금"
+
+msgid "CAMP_HELP"
+msgstr "캠⁠프⁠는 부⁠활 지⁠점⁠입⁠니⁠다. 해⁠금⁠한 캠⁠프 옆⁠에⁠서 쉬⁠면 빠⁠르⁠게 회⁠복⁠합⁠니⁠다. 해⁠금, 부⁠활 지⁠점 선⁠택, 이⁠동⁠은 각⁠각 별⁠개⁠의 행⁠동⁠입⁠니⁠다. 캠⁠프⁠에 서 있⁠으⁠면 캠⁠프 보⁠기 버⁠튼⁠이 나⁠타⁠납⁠니⁠다."
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "부⁠활 캠⁠프⁠를 선⁠택⁠했⁠습⁠니⁠다."
+
+msgid "OPEN_PLAYER"
+msgstr "플⁠레⁠이⁠어 강⁠화"
+
+msgid "OPEN_GROUP"
+msgstr "%s 살⁠펴⁠보⁠기"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "오⁠닉⁠스 낫"
+
+msgid "ITEM_REAPER"
+msgstr "사⁠신 의⁠상"
+
+msgid "VARIANT_OUTFIT"
+msgstr "의⁠상"
+
+msgid "VARIANT_WEAPON"
+msgstr "무⁠기"
+
+msgid "VARIANT_BOTH"
+msgstr "둘 다"
+
+msgid "ITEM_DETAILS"
+msgstr "아⁠이⁠템 정⁠보"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "레⁠벨 업!"
+
+msgid "GEAR"
+msgstr "장⁠비"
+
+msgid "CONSUMABLES"
+msgstr "소⁠모⁠품"
+
+msgid "HUD_HP"
+msgstr "HP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "%.1f⁠초 후 부⁠활"
+
+msgid "HUD_LEVEL"
+msgstr "레⁠벨 %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "장⁠비 %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "소⁠모⁠품 %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "합⁠성 %d"
+
+msgid "ITEM_OWNED"
+msgstr "보⁠유: %s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "장⁠착 중 · 100% 반⁠영"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "보⁠관 중 · 30% 반⁠영 (무⁠기 종⁠류⁠당 1⁠회)"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "합⁠성"
+
+msgid "LESS_OPTIONS"
+msgstr "옵⁠션 접⁠기"
+
+msgid "MORE_OPTIONS"
+msgstr "옵⁠션 더 보⁠기"
+
+msgid "LOOT_HISTORY"
+msgstr "전⁠리⁠품 기⁠록"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "레⁠벨 %d / 1,000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "레⁠벨 %d · 체⁠력⁠과 피⁠해 증⁠가"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "터⁠치⁠하⁠여 사⁠용 · 길⁠게 눌⁠러 상⁠세 정⁠보"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "다⁠음 합⁠성: +"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "업⁠적"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "이 적 종⁠류⁠의 모⁠든 캠⁠프⁠에⁠서 공⁠유⁠됩⁠니⁠다. 수⁠집 강⁠화⁠는 유⁠지⁠되⁠고, 나⁠머⁠지 종⁠류⁠별 강⁠화⁠는 환⁠생 시 초⁠기⁠화⁠됩⁠니⁠다."
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "레⁠벨⁠당 +1⁠포⁠인⁠트 · 최⁠대 +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "레⁠벨⁠당 경⁠험⁠치 +10% · 최⁠대 +200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "소⁠모⁠품 드⁠롭 확⁠률 +1⁠포⁠인⁠트"
+
+msgid "UP_GROUP_XP"
+msgstr "경⁠험⁠치 +10%"
+
+msgid "GROUP_XP_VALUE"
+msgstr "처⁠치⁠당 경⁠험⁠치: %s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "영⁠구 처⁠치 업⁠적⁠으⁠로, 이 적 종⁠류⁠의 모⁠든 캠⁠프⁠에⁠서 공⁠유⁠됩⁠니⁠다. 보⁠상⁠은 자⁠동⁠으⁠로 적⁠용⁠되⁠며 환⁠생 후⁠에⁠도 유⁠지⁠됩⁠니⁠다."
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "이 종⁠류 상⁠대: 피⁠해 +%.0f%% · 보⁠석 확⁠률 +%.1f⁠포⁠인⁠트"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · %d⁠회 처⁠치\n보⁠상: 이 종⁠류 상⁠대 피⁠해 +%.0f%%, 보⁠석 확⁠률 +%.1f⁠포⁠인⁠트"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "완⁠료"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "처⁠치 업⁠적"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "피⁠해 +%.0f%% · 보⁠석 확⁠률 +%.1f⁠포⁠인⁠트"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "이 적 종⁠류⁠의 무⁠기⁠와 의⁠상⁠을 자⁠동⁠으⁠로 합⁠성⁠합⁠니⁠다."
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "처⁠치⁠당 코⁠인 +%s / 레⁠벨"
+
+msgid "ACTION_PAUSED"
+msgstr "일⁠시⁠정⁠지 중⁠에⁠는 사⁠용⁠할 수 없⁠습⁠니⁠다"
+
+msgid "ACTION_SUSPENDED"
+msgstr "앱⁠이 비⁠활⁠성 상⁠태⁠일 때⁠는 사⁠용⁠할 수 없⁠습⁠니⁠다"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "조⁠건⁠을 충⁠족⁠하⁠지 않⁠았⁠습⁠니⁠다"
+
+msgid "VALUE_MAX"
+msgstr "최⁠대"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s EXP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s⁠초"
+
+msgid "HP_PER_SECOND"
+msgstr "HP/초"
+
+msgid "STAT_SOURCES"
+msgstr "능⁠력⁠치 출⁠처"
+
+msgid "SOURCE_BASE"
+msgstr "기⁠본 능⁠력⁠치"
+
+msgid "SOURCE_LEVEL"
+msgstr "플⁠레⁠이⁠어 레⁠벨"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "장⁠착⁠한 장⁠비"
+
+msgid "SOURCE_STORED"
+msgstr "보⁠관 중⁠인 장⁠비"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "영⁠구 보⁠너⁠스: 체⁠력 ×%s · 피⁠해 ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "위 합⁠계⁠에⁠는 상⁠한⁠이 적⁠용⁠됩⁠니⁠다: 치⁠명⁠타 확⁠률 75%, 치⁠명⁠타 배⁠율 ×4, 흡⁠혈 15%, 공⁠격 속⁠도 보⁠너⁠스 200%."
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "소⁠모⁠품 판⁠정: %s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "강⁠장⁠제: %s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · %d⁠등⁠급"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "%d⁠등⁠급 · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · %d⁠등⁠급 · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "보⁠석"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "모⁠든 적⁠에⁠게 적⁠용⁠됩⁠니⁠다. 환⁠생 시 초⁠기⁠화⁠됩⁠니⁠다. 적 업⁠적 보⁠너⁠스⁠는 종⁠류⁠별⁠로 따⁠로 유⁠지⁠됩⁠니⁠다."
+
+msgid "FARM_VARIANT"
+msgstr "%s 파⁠밍 · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "파⁠밍 대⁠상: %s. 부⁠활 후 이⁠곳⁠으⁠로 돌⁠아⁠옵⁠니⁠다."
+
+msgid "MAX_ITEM_TIER"
+msgstr "최⁠종 등⁠급⁠에 도⁠달⁠했⁠습⁠니⁠다. ^100⁠까⁠지⁠는 계⁠속 합⁠성⁠할 수 있⁠습⁠니⁠다."
+
+msgid "TAB_PLAYER"
+msgstr "플⁠레⁠이⁠어"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "지⁠점⁠당 적 수"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "적 재⁠출⁠현 대⁠기"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "보⁠스 보⁠석 확⁠률"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "보⁠스 드⁠롭⁠당 추⁠가 보⁠석"
+
+msgid "TRAVEL_COMBAT"
+msgstr "이⁠동⁠하⁠기 전⁠에 전⁠투⁠를 끝⁠내⁠세⁠요."
+
+msgid "TRAVEL_CAMP"
+msgstr "이⁠동 · %s · 캠⁠프 %d"
+
+msgid "STAGE_LOCKED"
+msgstr "먼⁠저 스⁠테⁠이⁠지 관⁠문 보⁠스⁠를 처⁠치⁠하⁠세⁠요."
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "먼⁠저 이 캠⁠프⁠를 탐⁠험⁠하⁠세⁠요."
+
+msgid "STAGE_UNLOCKED"
+msgstr "다⁠음 스⁠테⁠이⁠지 해⁠금!"
+
+msgid "FINAL_DISCOVERED"
+msgstr "최⁠후⁠의 수⁠호⁠자⁠는 봉⁠인⁠되⁠어 있⁠습⁠니⁠다. 다⁠른 보⁠스 13⁠마⁠리⁠를 처⁠치⁠해 열⁠쇠⁠를 모⁠으⁠세⁠요. 모⁠은 열⁠쇠⁠는 환⁠생 후⁠에⁠도 유⁠지⁠됩⁠니⁠다."
+
+msgid "WORLD_COMPLETE"
+msgstr "봄 II⁠의 모⁠든 적 처⁠치 — 최⁠종 미⁠션 완⁠료!"
+
+msgid "UNDISCOVERED"
+msgstr "미⁠탐⁠험"
+
+msgid "ENEMY_LEVEL"
+msgstr "레⁠벨 %d"
+
+msgid "ALL_ITEMS"
+msgstr "전⁠체"
+
+msgid "WEAPONS"
+msgstr "무⁠기"
+
+msgid "OUTFITS"
+msgstr "의⁠상"
+
+msgid "SKILLS"
+msgstr "스⁠킬"
+
+msgid "VARIANT_SKILL"
+msgstr "정⁠예"
+
+msgid "SKILL_EMPTY"
+msgstr "스⁠킬 슬⁠롯 %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "이 계⁠열⁠의 스⁠킬⁠은 이⁠미 장⁠착⁠했⁠습⁠니⁠다."
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "스⁠킬⁠을 해⁠제⁠하⁠거⁠나 슬⁠롯⁠을 하⁠나 더 해⁠금⁠하⁠세⁠요."
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "슬⁠롯 %d⁠에 장⁠착"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "슬⁠롯 %d 자⁠동 시⁠전: %s"
+
+msgid "STOCK_BONUS"
+msgstr "여⁠분 보⁠너⁠스: 고⁠유 위⁠력 +%s%%. 여⁠분⁠은 그⁠대⁠로 보⁠유⁠합⁠니⁠다."
+
+msgid "CLAIM"
+msgstr "받⁠기"
+
+msgid "CLAIM_REWARD"
+msgstr "받⁠기 · 코⁠인 %s · 보⁠석 %s"
+
+msgid "MISSION_AUTO"
+msgstr "자⁠동 수⁠령: %s"
+
+msgid "STATE_ON_CAPS"
+msgstr "켜⁠짐"
+
+msgid "STATE_OFF_CAPS"
+msgstr "꺼⁠짐"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "완⁠료⁠한 일⁠반 미⁠션(구⁠매⁠한 슬⁠롯 포⁠함)을 수⁠령⁠합⁠니⁠다. 메⁠인 목⁠표⁠는 해⁠당⁠되⁠지 않⁠습⁠니⁠다. 구⁠매 후 미⁠션⁠에⁠서 자⁠동 수⁠령⁠을 켜⁠세⁠요."
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "자⁠동 수⁠령⁠이 해⁠금⁠되⁠었⁠지⁠만 꺼⁠져 있⁠습⁠니⁠다. 아⁠래 스⁠위⁠치⁠를 터⁠치⁠하⁠면 일⁠반 미⁠션⁠을 수⁠령⁠하⁠기 시⁠작⁠합⁠니⁠다. 메⁠인 목⁠표⁠는 계⁠속 수⁠동⁠입⁠니⁠다."
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "자⁠동 수⁠령⁠을 켤 수 있⁠습⁠니⁠다"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "미⁠션⁠을 열⁠고 자⁠동 수⁠령⁠을 켜⁠세⁠요. 구⁠매 직⁠후⁠에⁠는 꺼⁠져 있⁠습⁠니⁠다."
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "자⁠동 수⁠령 켜⁠기"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "자⁠동 수⁠령⁠을 해⁠금⁠했⁠습⁠니⁠다. 여⁠기⁠에⁠서 ‘자⁠동 수⁠령: 꺼⁠짐’을 터⁠치⁠해 켜⁠세⁠요. 메⁠인 목⁠표⁠는 항⁠상 수⁠동⁠입⁠니⁠다."
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "스⁠테⁠이⁠지 카⁠드 펼⁠치⁠기"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "스⁠테⁠이⁠지 카⁠드 접⁠기"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "먼⁠저 이 목⁠표⁠를 완⁠료⁠하⁠세⁠요."
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "현⁠지 시⁠간 자⁠정⁠에 새 과⁠제⁠가 도⁠착⁠합⁠니⁠다."
+
+msgid "MAIN_OBJECTIVES"
+msgstr "메⁠인 목⁠표"
+
+msgid "KEY_PROGRESS"
+msgstr "보⁠스 열⁠쇠: %d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "처⁠치⁠한 관⁠문 보⁠스: %d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "코⁠인 %s/시⁠간 · 보⁠석 %s/시⁠간 · 보⁠상 상⁠한 %s⁠시⁠간"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "돌⁠아⁠오⁠신 걸 환⁠영⁠합⁠니⁠다! 보⁠상 %s⁠시⁠간 · 코⁠인 %s · 보⁠석 %s"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "먼⁠저 환⁠생 보⁠상 선⁠택⁠을 마⁠치⁠세⁠요."
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "새⁠로⁠운 환⁠생 기⁠회⁠를 발⁠견⁠했⁠습⁠니⁠다."
+
+msgid "PRESTIGE_BATCH"
+msgstr "환⁠생 · 카⁠드 %d⁠장"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "준⁠비⁠된 기⁠회⁠마⁠다 고⁠유 카⁠드⁠를 1⁠장⁠씩 고⁠른 뒤 회⁠차⁠를 한 번 초⁠기⁠화⁠합⁠니⁠다. 아⁠이⁠템, 코⁠인, 캠⁠프, 안⁠개, 코⁠인 강⁠화⁠는 초⁠기⁠화⁠됩⁠니⁠다. 열⁠쇠, 업⁠적, 카⁠드, 보⁠석 강⁠화⁠는 유⁠지⁠됩⁠니⁠다."
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "선⁠택: %s · 영⁠구⁠히 보⁠유⁠할⁠까⁠요? 이 선⁠택⁠은 즉⁠시 저⁠장⁠되⁠며 바⁠꿀 수 없⁠습⁠니⁠다."
+
+msgid "PRESTIGE_CHOICES"
+msgstr "카⁠드 선⁠택 (%d / %d)"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "고⁠유 카⁠드: %d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "먼⁠저 발⁠견⁠한 환⁠생 기⁠회⁠를 완⁠료⁠하⁠세⁠요."
+
+msgid "IN_PROGRESS"
+msgstr "진⁠행 중"
+
+msgid "FOLLOW"
+msgstr "추⁠적"
+
+msgid "UNFOLLOW"
+msgstr "추⁠적 해⁠제"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "필⁠요⁠한 아⁠이⁠템 또⁠는 화⁠폐 제⁠출"
+
+msgid "CONTRACT_NEEDS"
+msgstr "먼⁠저 각 의⁠상⁠을 필⁠요⁠한 수⁠만⁠큼 모⁠으⁠세⁠요."
+
+msgid "OFFERING_NEEDS"
+msgstr "필⁠요⁠한 잔⁠액⁠과 사⁠용⁠하⁠지 않⁠은 온⁠라⁠인 획⁠득 화⁠폐⁠가 필⁠요⁠합⁠니⁠다."
+
+msgid "OWNED_CARDS"
+msgstr "보⁠유 카⁠드"
+
+msgid "COMBOS"
+msgstr "카⁠드 세⁠트"
+
+msgid "PANEL_INVENTORY"
+msgstr "인⁠벤⁠토⁠리"
+
+msgid "PANEL_MAP"
+msgstr "지⁠도"
+
+msgid "PANEL_MISSIONS"
+msgstr "미⁠션"
+
+msgid "PANEL_OFFLINE"
+msgstr "오⁠프⁠라⁠인 보⁠상"
+
+msgid "GOAL_KILL"
+msgstr "사⁠냥"
+
+msgid "GOAL_BOSS"
+msgstr "보⁠스 사⁠냥"
+
+msgid "GOAL_GEAR"
+msgstr "장⁠비 수⁠집"
+
+msgid "GOAL_MERGE"
+msgstr "합⁠성"
+
+msgid "GOAL_COINS"
+msgstr "코⁠인 획⁠득"
+
+msgid "GOAL_CAST"
+msgstr "스⁠킬 사⁠용"
+
+msgid "GOAL_WAITING"
+msgstr "탐⁠험⁠하⁠여 다⁠른 목⁠표⁠를 찾⁠으⁠세⁠요"
+
+msgid "STAT_POWER"
+msgstr "위⁠력"
+
+msgid "INTRINSIC_POWER"
+msgstr "고⁠유 %s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "다⁠음 등⁠급⁠은 재⁠고 및 외⁠부 보⁠너⁠스⁠를 제⁠외⁠한 이 등⁠급 ^100 고⁠유 위⁠력⁠의 85%에⁠서 시⁠작⁠합⁠니⁠다."
+
+msgid "MAP_FARMING"
+msgstr "%s · 출⁠현 지⁠점 %d⁠곳 · 지⁠점⁠당 %d⁠마⁠리 · 재⁠출⁠현 %s⁠초"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "처⁠치⁠한 최⁠종 스⁠테⁠이⁠지 종⁠류: %d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "캠⁠프 발⁠견 반⁠경"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "플⁠레⁠이⁠어 시⁠야 반⁠경"
+
+msgid "UP_MAP_DETAIL"
+msgstr "지⁠도 상⁠세⁠도"
+
+msgid "UP_MOVEMENT"
+msgstr "이⁠동 속⁠도 +10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "자⁠동 합⁠성 간⁠격 −1⁠초"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "미⁠션 자⁠동 수⁠령 해⁠금"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "미⁠션 슬⁠롯"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "장⁠착 스⁠킬 슬⁠롯"
+
+msgid "UP_SKILL_DROP"
+msgstr "스⁠킬 드⁠롭 확⁠률"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "오⁠프⁠라⁠인 보⁠상 시⁠간"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "시⁠간⁠당 오⁠프⁠라⁠인 코⁠인"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "시⁠간⁠당 오⁠프⁠라⁠인 보⁠석"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "오⁠프⁠라⁠인 무⁠기 드⁠롭 해⁠금"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "오⁠프⁠라⁠인 의⁠상 드⁠롭 해⁠금"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "오⁠프⁠라⁠인 소⁠모⁠품 해⁠금"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "시⁠간⁠당 오⁠프⁠라⁠인 무⁠기"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "시⁠간⁠당 오⁠프⁠라⁠인 의⁠상"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "시⁠간⁠당 오⁠프⁠라⁠인 소⁠모⁠품"
+
+msgid "MAP_LEGEND"
+msgstr "탐⁠험⁠한 지⁠역⁠은 계⁠속 밝⁠게 보⁠이⁠고, 근⁠처 지⁠역⁠은 그⁠곳⁠에 있⁠을 때⁠만 보⁠입⁠니⁠다. 캠⁠프⁠는 더 멀⁠리⁠서⁠도 발⁠견⁠할 수 있⁠습⁠니⁠다."
+
+msgid "MINIMAP"
+msgstr "지⁠도"
+
+msgid "SKILL_TUTORIAL"
+msgstr "정⁠예 적⁠은 무⁠기, 의⁠상, 스⁠킬⁠을 지⁠니⁠고 있⁠습⁠니⁠다. 각 드⁠롭⁠은 따⁠로 판⁠정⁠됩⁠니⁠다. 인⁠벤⁠토⁠리⁠에⁠서 스⁠킬⁠을 장⁠착⁠한 뒤 버⁠튼⁠을 터⁠치⁠해 시⁠전⁠하⁠세⁠요."
+
+msgid "MAIN_0"
+msgstr "일⁠반 적 5⁠마⁠리 처⁠치"
+
+msgid "MAIN_1"
+msgstr "첫 아⁠이⁠템 장⁠착"
+
+msgid "MAIN_2"
+msgstr "중⁠복 아⁠이⁠템 합⁠성"
+
+msgid "MAIN_3"
+msgstr "추⁠가 캠⁠프 해⁠금"
+
+msgid "MAIN_4"
+msgstr "눈⁠사⁠람 처⁠치 · 겨⁠울 II 해⁠금"
+
+msgid "MAIN_5"
+msgstr "치⁠유 장⁠착"
+
+msgid "MAIN_6"
+msgstr "지⁠도 상⁠세⁠도 강⁠화"
+
+msgid "MAIN_7"
+msgstr "서⁠리 폭⁠발 획⁠득"
+
+msgid "MAIN_8"
+msgstr "여⁠름 I 해⁠금"
+
+msgid "MAIN_9"
+msgstr "아⁠이⁠템 진⁠화"
+
+msgid "MAIN_10"
+msgstr "스⁠킬 계⁠열 4⁠종 획⁠득"
+
+msgid "MAIN_11"
+msgstr "가⁠을 I 해⁠금"
+
+msgid "MAIN_12"
+msgstr "스⁠킬 계⁠열 6⁠종 모⁠두 획⁠득"
+
+msgid "MAIN_13"
+msgstr "봄 I 해⁠금"
+
+msgid "MAIN_14"
+msgstr "환⁠생 1⁠회 완⁠료"
+
+msgid "MAIN_15"
+msgstr "모⁠든 보⁠스 열⁠쇠⁠를 모⁠으⁠고 봄 II 클⁠리⁠어"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "치⁠유 쿨⁠타⁠임"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "서⁠리 쿨⁠타⁠임"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "화⁠염 쿨⁠타⁠임"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "번⁠개 쿨⁠타⁠임"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "집⁠중 쿨⁠타⁠임"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "일⁠격 쿨⁠타⁠임"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "자⁠동 시⁠전 해⁠금 · 슬⁠롯 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "자⁠동 시⁠전 해⁠금 · 슬⁠롯 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "자⁠동 시⁠전 해⁠금 · 슬⁠롯 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "치⁠유"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "치⁠유"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "치⁠유"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "치⁠유"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "치⁠유"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "치⁠유"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "치⁠유"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "서⁠리 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "서⁠리 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "서⁠리 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "서⁠리 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "서⁠리 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "서⁠리 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "서⁠리 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "화⁠염 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "화⁠염 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "화⁠염 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "화⁠염 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "화⁠염 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "화⁠염 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "화⁠염 폭⁠발"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "번⁠개 강⁠타"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "번⁠개 강⁠타"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "번⁠개 강⁠타"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "번⁠개 강⁠타"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "번⁠개 강⁠타"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "번⁠개 강⁠타"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "번⁠개 강⁠타"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "비⁠전 집⁠중"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "비⁠전 집⁠중"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "비⁠전 집⁠중"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "비⁠전 집⁠중"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "비⁠전 집⁠중"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "비⁠전 집⁠중"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "비⁠전 집⁠중"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "비⁠전 일⁠격"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "비⁠전 일⁠격"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "비⁠전 일⁠격"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "비⁠전 일⁠격"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "비⁠전 일⁠격"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "비⁠전 일⁠격"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "비⁠전 일⁠격"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "파⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "파⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "파⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "파⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "파⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "파⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "파⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "파⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "파⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "파⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "파⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "파⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "파⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "파⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "빨⁠간 목⁠도⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "빨⁠간 목⁠도⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "빨⁠간 목⁠도⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "빨⁠간 목⁠도⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "빨⁠간 목⁠도⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "빨⁠간 목⁠도⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "빨⁠간 목⁠도⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "빨⁠간 목⁠도⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "빨⁠간 목⁠도⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "빨⁠간 목⁠도⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "빨⁠간 목⁠도⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "빨⁠간 목⁠도⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "빨⁠간 목⁠도⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "빨⁠간 목⁠도⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "요⁠리⁠사 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "요⁠리⁠사 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "요⁠리⁠사 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "요⁠리⁠사 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "요⁠리⁠사 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "요⁠리⁠사 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "요⁠리⁠사 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "요⁠리⁠사 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "요⁠리⁠사 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "요⁠리⁠사 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "요⁠리⁠사 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "요⁠리⁠사 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "요⁠리⁠사 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "요⁠리⁠사 모⁠자 검"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "눈⁠사⁠람 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "눈⁠사⁠람 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "눈⁠사⁠람 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "눈⁠사⁠람 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "눈⁠사⁠람 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "눈⁠사⁠람 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "눈⁠사⁠람 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "늑⁠대 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "늑⁠대 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "늑⁠대 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "늑⁠대 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "늑⁠대 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "늑⁠대 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "늑⁠대 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "늑⁠대 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "늑⁠대 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "늑⁠대 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "늑⁠대 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "늑⁠대 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "늑⁠대 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "늑⁠대 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "황⁠금 왕⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "황⁠금 왕⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "황⁠금 왕⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "황⁠금 왕⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "황⁠금 왕⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "황⁠금 왕⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "황⁠금 왕⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "황⁠금 왕⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "황⁠금 왕⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "황⁠금 왕⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "황⁠금 왕⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "황⁠금 왕⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "황⁠금 왕⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "황⁠금 왕⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "순⁠록 뿔 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "순⁠록 뿔 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "순⁠록 뿔 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "순⁠록 뿔 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "순⁠록 뿔 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "순⁠록 뿔 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "순⁠록 뿔 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "순⁠록 뿔 검"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "순⁠록 뿔 검"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "순⁠록 뿔 검"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "순⁠록 뿔 검"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "순⁠록 뿔 검"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "순⁠록 뿔 검"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "순⁠록 뿔 검"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "산⁠타 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "산⁠타 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "산⁠타 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "산⁠타 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "산⁠타 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "산⁠타 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "산⁠타 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "산⁠타 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "산⁠타 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "산⁠타 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "산⁠타 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "산⁠타 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "산⁠타 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "산⁠타 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "우⁠주 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "우⁠주 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "우⁠주 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "우⁠주 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "우⁠주 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "우⁠주 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "우⁠주 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "우⁠주 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "우⁠주 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "우⁠주 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "우⁠주 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "우⁠주 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "우⁠주 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "우⁠주 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "시⁠안 로⁠봇 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "시⁠안 로⁠봇 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "시⁠안 로⁠봇 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "시⁠안 로⁠봇 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "시⁠안 로⁠봇 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "시⁠안 로⁠봇 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "시⁠안 로⁠봇 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "밀⁠짚⁠모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "밀⁠짚⁠모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "밀⁠짚⁠모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "밀⁠짚⁠모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "밀⁠짚⁠모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "밀⁠짚⁠모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "밀⁠짚⁠모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "밀⁠짚⁠모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "밀⁠짚⁠모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "밀⁠짚⁠모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "밀⁠짚⁠모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "밀⁠짚⁠모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "밀⁠짚⁠모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "밀⁠짚⁠모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "선⁠글⁠라⁠스 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "선⁠글⁠라⁠스 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "선⁠글⁠라⁠스 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "선⁠글⁠라⁠스 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "선⁠글⁠라⁠스 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "선⁠글⁠라⁠스 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "선⁠글⁠라⁠스 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "선⁠글⁠라⁠스 검"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "선⁠글⁠라⁠스 검"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "선⁠글⁠라⁠스 검"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "선⁠글⁠라⁠스 검"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "선⁠글⁠라⁠스 검"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "선⁠글⁠라⁠스 검"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "선⁠글⁠라⁠스 검"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "노⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "노⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "노⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "노⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "노⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "노⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "노⁠란 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "노⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "노⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "노⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "노⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "노⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "노⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "노⁠란 모⁠자 검"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "회⁠색 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "회⁠색 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "회⁠색 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "회⁠색 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "회⁠색 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "회⁠색 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "회⁠색 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 검"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 검"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 검"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 검"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 검"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 검"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나 검"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "오⁠리 튜⁠브 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "오⁠리 튜⁠브 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "오⁠리 튜⁠브 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "오⁠리 튜⁠브 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "오⁠리 튜⁠브 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "오⁠리 튜⁠브 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "오⁠리 튜⁠브 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "오⁠리 튜⁠브 검"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "오⁠리 튜⁠브 검"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "오⁠리 튜⁠브 검"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "오⁠리 튜⁠브 검"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "오⁠리 튜⁠브 검"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "오⁠리 튜⁠브 검"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "오⁠리 튜⁠브 검"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "무⁠지⁠개 광⁠대 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "무⁠지⁠개 광⁠대 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "무⁠지⁠개 광⁠대 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "무⁠지⁠개 광⁠대 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "무⁠지⁠개 광⁠대 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "무⁠지⁠개 광⁠대 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "무⁠지⁠개 광⁠대 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "무⁠지⁠개 광⁠대 검"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "무⁠지⁠개 광⁠대 검"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "무⁠지⁠개 광⁠대 검"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "무⁠지⁠개 광⁠대 검"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "무⁠지⁠개 광⁠대 검"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "무⁠지⁠개 광⁠대 검"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "무⁠지⁠개 광⁠대 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "스⁠노⁠클⁠러 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "스⁠노⁠클⁠러 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "스⁠노⁠클⁠러 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "스⁠노⁠클⁠러 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "스⁠노⁠클⁠러 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "스⁠노⁠클⁠러 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "스⁠노⁠클⁠러 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "스⁠노⁠클⁠러 검"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "스⁠노⁠클⁠러 검"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "스⁠노⁠클⁠러 검"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "스⁠노⁠클⁠러 검"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "스⁠노⁠클⁠러 검"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "스⁠노⁠클⁠러 검"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "스⁠노⁠클⁠러 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객 검"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "청⁠록 공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "청⁠록 공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "청⁠록 공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "청⁠록 공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "청⁠록 공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "청⁠록 공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "청⁠록 공⁠룡 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "검⁠은 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "검⁠은 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "검⁠은 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "검⁠은 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "검⁠은 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "검⁠은 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "검⁠은 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "검⁠은 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "검⁠은 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "검⁠은 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "검⁠은 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "검⁠은 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "검⁠은 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "검⁠은 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "버⁠섯 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "버⁠섯 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "버⁠섯 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "버⁠섯 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "버⁠섯 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "버⁠섯 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "버⁠섯 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "버⁠섯 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "버⁠섯 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "버⁠섯 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "버⁠섯 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "버⁠섯 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "버⁠섯 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "버⁠섯 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "호⁠박 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "호⁠박 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "호⁠박 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "호⁠박 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "호⁠박 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "호⁠박 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "호⁠박 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "호⁠박 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "호⁠박 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "호⁠박 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "호⁠박 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "호⁠박 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "호⁠박 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "호⁠박 머⁠리 검"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "다⁠람⁠쥐 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "다⁠람⁠쥐 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "다⁠람⁠쥐 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "다⁠람⁠쥐 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "다⁠람⁠쥐 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "다⁠람⁠쥐 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "다⁠람⁠쥐 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "붉⁠은⁠여⁠우 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "붉⁠은⁠여⁠우 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "붉⁠은⁠여⁠우 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "붉⁠은⁠여⁠우 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "붉⁠은⁠여⁠우 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "붉⁠은⁠여⁠우 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "붉⁠은⁠여⁠우 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "뿔 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "뿔 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "뿔 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "뿔 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "뿔 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "뿔 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "뿔 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "뿔 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "뿔 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "뿔 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "뿔 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "뿔 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "뿔 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "뿔 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "주⁠황 화⁠면 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "주⁠황 화⁠면 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "주⁠황 화⁠면 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "주⁠황 화⁠면 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "주⁠황 화⁠면 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "주⁠황 화⁠면 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "주⁠황 화⁠면 헬⁠멧 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "주⁠황 화⁠면 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "주⁠황 화⁠면 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "주⁠황 화⁠면 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "주⁠황 화⁠면 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "주⁠황 화⁠면 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "주⁠황 화⁠면 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "주⁠황 화⁠면 헬⁠멧 검"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "텔⁠레⁠비⁠전 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "텔⁠레⁠비⁠전 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "텔⁠레⁠비⁠전 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "텔⁠레⁠비⁠전 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "텔⁠레⁠비⁠전 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "텔⁠레⁠비⁠전 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "텔⁠레⁠비⁠전 머⁠리 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "텔⁠레⁠비⁠전 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "텔⁠레⁠비⁠전 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "텔⁠레⁠비⁠전 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "텔⁠레⁠비⁠전 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "텔⁠레⁠비⁠전 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "텔⁠레⁠비⁠전 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "텔⁠레⁠비⁠전 머⁠리 검"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "실⁠크⁠해⁠트 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "실⁠크⁠해⁠트 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "실⁠크⁠해⁠트 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "실⁠크⁠해⁠트 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "실⁠크⁠해⁠트 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "실⁠크⁠해⁠트 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "실⁠크⁠해⁠트 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "실⁠크⁠해⁠트 검"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "실⁠크⁠해⁠트 검"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "실⁠크⁠해⁠트 검"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "실⁠크⁠해⁠트 검"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "실⁠크⁠해⁠트 검"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "실⁠크⁠해⁠트 검"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "실⁠크⁠해⁠트 검"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "검⁠은 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "검⁠은 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "검⁠은 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "검⁠은 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "검⁠은 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "검⁠은 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "검⁠은 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "사⁠신 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "사⁠신 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "사⁠신 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "사⁠신 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "사⁠신 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "사⁠신 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "사⁠신 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "토⁠끼 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "토⁠끼 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "토⁠끼 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "토⁠끼 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "토⁠끼 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "토⁠끼 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "토⁠끼 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "토⁠끼 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "토⁠끼 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "토⁠끼 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "토⁠끼 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "토⁠끼 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "토⁠끼 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "토⁠끼 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "고⁠양⁠이 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "고⁠양⁠이 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "고⁠양⁠이 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "고⁠양⁠이 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "고⁠양⁠이 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "고⁠양⁠이 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "고⁠양⁠이 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "고⁠양⁠이 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "고⁠양⁠이 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "고⁠양⁠이 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "고⁠양⁠이 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "고⁠양⁠이 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "고⁠양⁠이 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "고⁠양⁠이 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "엘⁠프 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "엘⁠프 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "엘⁠프 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "엘⁠프 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "엘⁠프 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "엘⁠프 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "엘⁠프 귀 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "엘⁠프 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "엘⁠프 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "엘⁠프 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "엘⁠프 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "엘⁠프 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "엘⁠프 귀 검"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "엘⁠프 귀 검"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "벌 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "벌 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "벌 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "벌 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "벌 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "벌 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "벌 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "치⁠즈 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "치⁠즈 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "치⁠즈 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "치⁠즈 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "치⁠즈 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "치⁠즈 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "치⁠즈 고⁠양⁠이 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "화⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "화⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "화⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "화⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "화⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "화⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "화⁠관 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "화⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "화⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "화⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "화⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "화⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "화⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "화⁠관 검"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "초⁠록 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "초⁠록 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "초⁠록 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "초⁠록 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "초⁠록 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "초⁠록 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "초⁠록 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "초⁠록 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "초⁠록 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "초⁠록 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "초⁠록 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "초⁠록 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "초⁠록 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "초⁠록 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "분⁠홍 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "분⁠홍 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "분⁠홍 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "분⁠홍 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "분⁠홍 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "분⁠홍 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "분⁠홍 모⁠자 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "분⁠홍 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "분⁠홍 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "분⁠홍 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "분⁠홍 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "분⁠홍 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "분⁠홍 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "분⁠홍 모⁠자 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "분⁠홍 꽃 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "분⁠홍 꽃 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "분⁠홍 꽃 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "분⁠홍 꽃 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "분⁠홍 꽃 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "분⁠홍 꽃 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "분⁠홍 꽃 후⁠드 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "분⁠홍 꽃 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "분⁠홍 꽃 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "분⁠홍 꽃 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "분⁠홍 꽃 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "분⁠홍 꽃 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "분⁠홍 꽃 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "분⁠홍 꽃 후⁠드 검"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "기⁠본 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "기⁠본 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "기⁠본 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "기⁠본 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "기⁠본 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "기⁠본 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "기⁠본 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "기⁠본 검"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "기⁠본 검"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "기⁠본 검"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "기⁠본 검"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "기⁠본 검"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "기⁠본 검"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "기⁠본 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "새⁠싹 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "새⁠싹 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "새⁠싹 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "새⁠싹 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "새⁠싹 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "새⁠싹 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "새⁠싹 의⁠상"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "새⁠싹 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "새⁠싹 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "새⁠싹 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "새⁠싹 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "새⁠싹 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "새⁠싹 검"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "새⁠싹 검"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "레⁠서⁠판⁠다 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "레⁠서⁠판⁠다 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "레⁠서⁠판⁠다 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "레⁠서⁠판⁠다 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "레⁠서⁠판⁠다 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "레⁠서⁠판⁠다 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "레⁠서⁠판⁠다 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "해⁠바⁠라⁠기 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "해⁠바⁠라⁠기 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "해⁠바⁠라⁠기 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "해⁠바⁠라⁠기 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "해⁠바⁠라⁠기 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "해⁠바⁠라⁠기 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "해⁠바⁠라⁠기 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "초⁠록 외⁠계⁠인 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "초⁠록 외⁠계⁠인 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "초⁠록 외⁠계⁠인 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "초⁠록 외⁠계⁠인 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "초⁠록 외⁠계⁠인 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "초⁠록 외⁠계⁠인 의⁠상"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "초⁠록 외⁠계⁠인 의⁠상"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "치⁠유"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "서⁠리 폭⁠발"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "화⁠염 폭⁠발"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "번⁠개 강⁠타"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "비⁠전 집⁠중"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "비⁠전 일⁠격"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "파⁠란 모⁠자"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "빨⁠간 목⁠도⁠리"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "요⁠리⁠사 모⁠자"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "눈⁠사⁠람"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "늑⁠대 후⁠드"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "삼⁠색 고⁠양⁠이 후⁠드"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "황⁠금 왕⁠관"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "순⁠록 뿔"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "산⁠타 모⁠자"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "우⁠주 헬⁠멧"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "시⁠안 로⁠봇"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "밀⁠짚⁠모⁠자"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "선⁠글⁠라⁠스"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "노⁠란 모⁠자"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "회⁠색 고⁠양⁠이"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "카⁠우⁠보⁠이 반⁠다⁠나"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "오⁠리 튜⁠브"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "무⁠지⁠개 광⁠대"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "빨⁠간 모⁠자 수⁠영⁠객"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "스⁠노⁠클⁠러"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "밀⁠짚⁠모⁠자 수⁠영⁠객"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "공⁠룡"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "청⁠록 공⁠룡"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "검⁠은 모⁠자"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "버⁠섯 모⁠자"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "호⁠박 머⁠리"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "다⁠람⁠쥐"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "붉⁠은⁠여⁠우"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "뿔 후⁠드"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "주⁠황 화⁠면 헬⁠멧"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "텔⁠레⁠비⁠전 머⁠리"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "실⁠크⁠해⁠트"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "검⁠은 고⁠양⁠이"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "사⁠신"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "토⁠끼 귀"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "고⁠양⁠이 귀"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "엘⁠프 귀"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "벌"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "치⁠즈 고⁠양⁠이"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "화⁠관"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "초⁠록 모⁠자"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "분⁠홍 모⁠자"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "분⁠홍 꽃 후⁠드"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "기⁠본⁠형"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "새⁠싹"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "레⁠서⁠판⁠다"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "해⁠바⁠라⁠기"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "초⁠록 외⁠계⁠인"
+
+msgid "CONTENT_STAGES_1"
+msgstr "겨⁠울 I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "겨⁠울 II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "여⁠름 I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "여⁠름 II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "가⁠을 I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "가⁠을 II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "봄 I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "봄 II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "첫 현⁠상⁠금"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "눈⁠사⁠람(겨⁠울 I 보⁠스)을 10⁠회 처⁠치"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "여⁠름 현⁠상⁠금"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "회⁠색 고⁠양⁠이(여⁠름 I 보⁠스)를 20⁠회 처⁠치"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "가⁠을 현⁠상⁠금"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "사⁠신(가⁠을 II 보⁠스)을 30⁠회 처⁠치"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "겨⁠울 경⁠로"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "겨⁠울 I⁠에⁠서 순⁠서⁠대⁠로: 파⁠란 모⁠자 100⁠마⁠리, 이⁠어⁠서 빨⁠간 목⁠도⁠리 100⁠마⁠리, 그⁠다⁠음 요⁠리⁠사 모⁠자 100⁠마⁠리 처⁠치"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "여⁠름 경⁠로"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "여⁠름 I⁠에⁠서 순⁠서⁠대⁠로: 밀⁠짚⁠모⁠자 150⁠마⁠리, 이⁠어⁠서 선⁠글⁠라⁠스 150⁠마⁠리, 그⁠다⁠음 노⁠란 모⁠자 150⁠마⁠리 처⁠치"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "봄 경⁠로"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "봄 I⁠에⁠서 순⁠서⁠대⁠로: 토⁠끼 귀 200⁠마⁠리, 이⁠어⁠서 고⁠양⁠이 귀 200⁠마⁠리, 그⁠다⁠음 엘⁠프 귀 200⁠마⁠리 처⁠치"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "겨⁠울 컬⁠렉⁠션"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "파⁠란 모⁠자, 빨⁠간 목⁠도⁠리, 요⁠리⁠사 모⁠자 의⁠상(겨⁠울 I 드⁠롭)을 각⁠각 21⁠개 줍⁠기. 제⁠출⁠하⁠면 각⁠각 20⁠개⁠를 넘⁠기⁠고 1⁠개⁠는 남⁠습⁠니⁠다"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "여⁠름 컬⁠렉⁠션"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "밀⁠짚⁠모⁠자, 선⁠글⁠라⁠스, 노⁠란 모⁠자 의⁠상(여⁠름 I 드⁠롭)을 각⁠각 31⁠개 줍⁠기. 제⁠출⁠하⁠면 각⁠각 30⁠개⁠를 넘⁠기⁠고 1⁠개⁠는 남⁠습⁠니⁠다"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "봄 컬⁠렉⁠션"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "토⁠끼 귀, 고⁠양⁠이 귀, 엘⁠프 귀 의⁠상(봄 I 드⁠롭)을 각⁠각 41⁠개 줍⁠기. 제⁠출⁠하⁠면 각⁠각 40⁠개⁠를 넘⁠기⁠고 1⁠개⁠는 남⁠습⁠니⁠다"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "첫 걸⁠작"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "무⁠기, 의⁠상, 스⁠킬 중 하⁠나⁠를 ^100⁠까⁠지 합⁠성"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "2⁠등⁠급"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "2⁠등⁠급 이⁠상 아⁠이⁠템⁠을 ^100⁠까⁠지 합⁠성 (2⁠등⁠급⁠은 여⁠름 I⁠부⁠터 드⁠롭⁠되⁠거⁠나 무⁠기⁠를 진⁠화⁠해 획⁠득)"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "3⁠등⁠급"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "3⁠등⁠급 이⁠상 아⁠이⁠템⁠을 ^100⁠까⁠지 합⁠성 (3⁠등⁠급⁠은 가⁠을 I⁠부⁠터 드⁠롭⁠되⁠거⁠나 무⁠기⁠를 두 번 진⁠화⁠해 획⁠득)"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "짝 장⁠비"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "무⁠기 1⁠개⁠와 의⁠상 1⁠개⁠를 ^50⁠까⁠지 합⁠성"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "다⁠양⁠한 무⁠기⁠고"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "서⁠로 다⁠른 무⁠기 3⁠종⁠과 의⁠상 3⁠종⁠을 ^50⁠까⁠지 합⁠성"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "진⁠화⁠한 무⁠기⁠고"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "2⁠등⁠급 이⁠상⁠의 서⁠로 다⁠른 무⁠기 3⁠종⁠과 2⁠등⁠급 이⁠상⁠의 서⁠로 다⁠른 의⁠상 3⁠종⁠을 ^50⁠까⁠지 합⁠성"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "겨⁠울 정⁠복"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "겨⁠울 I⁠과 겨⁠울 II⁠에⁠서: 각 지⁠도⁠를 90% 탐⁠험⁠하⁠고, 보⁠스 2⁠마⁠리⁠를 처⁠치⁠하⁠고, 모⁠든 캠⁠프 해⁠금"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "여⁠름 정⁠복"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "여⁠름 I⁠과 여⁠름 II⁠에⁠서: 각 지⁠도⁠를 90% 탐⁠험⁠하⁠고, 보⁠스 3⁠마⁠리⁠를 모⁠두 처⁠치⁠하⁠고, 모⁠든 캠⁠프 해⁠금"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "봄 정⁠복"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "봄 I⁠과 봄 II⁠에⁠서: 각 지⁠도⁠를 90% 탐⁠험⁠하⁠고, 보⁠스 5⁠마⁠리⁠를 모⁠두 처⁠치⁠하⁠고, 모⁠든 캠⁠프 해⁠금"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "도⁠움 없⁠는 겨⁠울"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "시⁠안 로⁠봇(겨⁠울 II 보⁠스)을 전⁠투 중 소⁠모⁠품⁠을 전⁠혀 쓰⁠지 않⁠고 처⁠치"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "도⁠움 없⁠는 여⁠름"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "청⁠록 공⁠룡(여⁠름 II 보⁠스)을 전⁠투 중 소⁠모⁠품⁠을 전⁠혀 쓰⁠지 않⁠고 처⁠치"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "도⁠움 없⁠는 가⁠을"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "사⁠신(가⁠을 II 보⁠스)을 전⁠투 중 소⁠모⁠품⁠을 전⁠혀 쓰⁠지 않⁠고 처⁠치"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "작⁠은 공⁠물"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "이⁠번 회⁠차⁠에 적⁠에⁠게⁠서 코⁠인 2K⁠와 보⁠석 30⁠개⁠를 획⁠득⁠한 뒤 제⁠출⁠로 넘⁠기⁠기"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "더 큰 공⁠물"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "이⁠번 회⁠차⁠에 적⁠에⁠게⁠서 코⁠인 20K⁠와 보⁠석 100⁠개⁠를 획⁠득⁠한 뒤 제⁠출⁠로 넘⁠기⁠기"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "거⁠대⁠한 공⁠물"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "이⁠번 회⁠차⁠에 적⁠에⁠게⁠서 코⁠인 100K⁠와 보⁠석 300⁠개⁠를 획⁠득⁠한 뒤 제⁠출⁠로 넘⁠기⁠기"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "짧⁠은 연⁠쇄"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "순⁠서⁠대⁠로: 적 100⁠마⁠리 처⁠치, 무⁠기 또⁠는 의⁠상 드⁠롭 10⁠개 줍⁠기, 이⁠후 10⁠회 합⁠성"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "긴 연⁠쇄"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "순⁠서⁠대⁠로: 적 250⁠마⁠리 처⁠치, 보⁠스 3⁠마⁠리 처⁠치, 25⁠회 합⁠성, 이⁠후 스⁠킬 30⁠회 시⁠전"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "달⁠인⁠의 연⁠쇄"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "순⁠서⁠대⁠로: 적 500⁠마⁠리 처⁠치, 보⁠스 10⁠마⁠리 처⁠치, 50⁠회 합⁠성, 이⁠후 일⁠반 미⁠션 3⁠개 수⁠령"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "겨⁠울 트⁠로⁠피"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "이⁠것⁠을 발⁠견⁠한 뒤 눈⁠사⁠람(겨⁠울 I)과 시⁠안 로⁠봇(겨⁠울 II)을 각⁠각 1⁠회 처⁠치"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "여⁠름 트⁠로⁠피"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "이⁠것⁠을 발⁠견⁠한 뒤 회⁠색 고⁠양⁠이(여⁠름 I), 공⁠룡⁠과 청⁠록 공⁠룡(여⁠름 II)을 각⁠각 1⁠회 처⁠치"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "가⁠을 트⁠로⁠피"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "이⁠것⁠을 발⁠견⁠한 뒤 다⁠람⁠쥐⁠와 붉⁠은⁠여⁠우(가⁠을 I), 검⁠은 고⁠양⁠이⁠와 사⁠신(가⁠을 II)을 각⁠각 1⁠회 처⁠치"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "자⁠리 비⁠움"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "게⁠임⁠에⁠서 총 72⁠시⁠간 떠⁠나 있⁠기"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "긴 휴⁠식"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "한 번⁠에 24⁠시⁠간 동⁠안 게⁠임⁠을 떠⁠나 있⁠기"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "오⁠프⁠라⁠인 수⁠입"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "떠⁠나 있⁠는 동⁠안 코⁠인 10K 획⁠득 (복⁠귀 보⁠상 수⁠령)"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "보⁠스 경⁠험⁠치 +20%"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "이⁠동 속⁠도 +10%"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "자⁠동 수⁠집 범⁠위 +50%"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "장⁠착 장⁠비⁠의 기⁠본 능⁠력⁠치 +10%"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "최⁠대 체⁠력 +10%"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "주⁠변 탐⁠험 반⁠경 +25%"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "보⁠스 대⁠상 피⁠해 +10%"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "모⁠든 적⁠에⁠게⁠서 얻⁠는 코⁠인 +10%"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "미⁠션 코⁠인 +25%"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "보⁠스 보⁠석 +25%"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "시⁠간⁠당 오⁠프⁠라⁠인 코⁠인 +25%"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "2⁠초 더 빨⁠리 부⁠활 (최⁠소 2⁠초)"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "일⁠반 적 코⁠인 +15%"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "합⁠성⁠마⁠다 얻⁠는 능⁠력⁠치 +10%"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "보⁠스 대⁠상 피⁠해 +10%"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "오⁠프⁠라⁠인 아⁠이⁠템 획⁠득⁠률 +25%"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "최⁠대 체⁠력 +10%"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "거⁠인 사⁠냥⁠꾼"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "보⁠스 대⁠상 피⁠해 +25%"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "보⁠스 방⁠어"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "보⁠스⁠에⁠게 받⁠는 피⁠해 20% 감⁠소"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "현⁠상⁠금"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "보⁠스 코⁠인 +100%"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "추⁠적⁠자"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "일⁠반 적 대⁠상 피⁠해 +20%"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "여⁠정⁠의 코⁠인"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "일⁠반 적 코⁠인 +30%"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "여⁠정⁠의 배⁠움"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "일⁠반 적 경⁠험⁠치 +30%"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "꼼⁠꼼⁠한 수⁠집⁠가"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "자⁠동 수⁠집 범⁠위 +100%"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "장⁠비 행⁠운"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "장⁠비 드⁠롭 확⁠률 +3⁠포⁠인⁠트"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "소⁠모⁠품 행⁠운"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "소⁠모⁠품 드⁠롭 확⁠률 +5⁠포⁠인⁠트"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "정⁠교⁠한 솜⁠씨"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "합⁠성⁠마⁠다 얻⁠는 능⁠력⁠치 +25%"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "재⁠설⁠정 솜⁠씨"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "재⁠설⁠정 보⁠석 비⁠용 50% 감⁠소"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "튼⁠튼⁠한 기⁠초"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "장⁠착⁠한 무⁠기⁠와 의⁠상⁠의 기⁠본 능⁠력⁠치 +20%"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "방⁠어⁠구 비⁠축"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "최⁠대 체⁠력 +20%"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "무⁠기 훈⁠련"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "공⁠격 및 스⁠킬 피⁠해 +15%"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "균⁠형 잡⁠힌 장⁠비"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "모⁠든 적⁠에⁠게 받⁠는 피⁠해 10% 감⁠소"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "탐⁠험⁠가"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "이⁠동 속⁠도 +15%"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "천⁠리⁠안"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "주⁠변 탐⁠험 반⁠경 +50%"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "캠⁠프 조⁠사"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "캠⁠프 코⁠인 비⁠용 50% 감⁠소"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "정⁠밀"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "치⁠명⁠타 확⁠률 +15⁠포⁠인⁠트"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "결⁠의"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "입⁠힌 피⁠해⁠의 5%만⁠큼 회⁠복"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "강⁠타"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "치⁠명⁠타 피⁠해 +75% 추⁠가"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "코⁠인⁠의 지⁠혜"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "모⁠든 적⁠에⁠게⁠서 얻⁠는 코⁠인 +25%"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "보⁠석⁠의 지⁠혜"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "보⁠석 드⁠롭 확⁠률 +5⁠포⁠인⁠트"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "현⁠명⁠한 소⁠비"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "코⁠인 강⁠화 비⁠용 15% 감⁠소"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "미⁠션 코⁠인"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "미⁠션 코⁠인 +50%"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "미⁠션 보⁠석"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "미⁠션 보⁠석 +50%"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "집⁠중 연⁠습"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "스⁠킬 피⁠해, 치⁠유⁠량, 집⁠중 +25%"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "트⁠로⁠피 사⁠냥⁠꾼"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "보⁠스 경⁠험⁠치 +50%"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "트⁠로⁠피⁠의 힘"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "보⁠스 대⁠상 피⁠해 +20%"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "트⁠로⁠피 보⁠석"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "보⁠스 보⁠석 +50%"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "조⁠용⁠한 코⁠인"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "시⁠간⁠당 오⁠프⁠라⁠인 코⁠인 +50%"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "조⁠용⁠한 보⁠석"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "시⁠간⁠당 오⁠프⁠라⁠인 보⁠석 +50%"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "조⁠용⁠한 발⁠견"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "오⁠프⁠라⁠인 아⁠이⁠템 획⁠득⁠률 +50%"
+
+msgid "CHAIN_PROGRESS"
+msgstr "%d/%d⁠단⁠계 · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "이⁠번 업⁠데⁠이⁠트⁠를 위⁠해 개⁠발⁠용 저⁠장 데⁠이⁠터⁠를 초⁠기⁠화⁠했⁠습⁠니⁠다. 새 진⁠행 상⁠황⁠은 저⁠장⁠할 수 있⁠습⁠니⁠다."
+
+msgid "HEAL_ROLE"
+msgstr "지⁠속 회⁠복: 지⁠금 체⁠력 %s, %s⁠초⁠마⁠다. 비⁠용 없⁠이 시⁠전⁠하⁠며 최⁠대 체⁠력⁠의 12%%가 상⁠한⁠입⁠니⁠다. 긴⁠급⁠할 때⁠는 물⁠약⁠이 더 크⁠게 회⁠복⁠합⁠니⁠다."
+
+msgid "REGULAR_MISSIONS"
+msgstr "사⁠냥 과⁠제"
+
+msgid "GUIDE_CHOOSE"
+msgstr "안⁠내⁠를 얼⁠마⁠나 받⁠으⁠시⁠겠⁠어⁠요?"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "단⁠계⁠별 안⁠내"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "기⁠본"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "없⁠음"
+
+msgid "GUIDE_REVIEW"
+msgstr "안⁠내 방⁠식 다⁠시 선⁠택"
+
+msgid "GUIDE_GOT_IT"
+msgstr "알⁠겠⁠어⁠요"
+
+msgid "GUIDE_MOVE"
+msgstr "왼⁠쪽 길⁠을 따⁠라⁠가⁠세⁠요."
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "빛⁠나⁠는 조⁠이⁠스⁠틱⁠을 화⁠살⁠표 쪽⁠으⁠로 드⁠래⁠그⁠하⁠세⁠요. 첫 적⁠들⁠이 길⁠을 따⁠라 기⁠다⁠리⁠고 있⁠습⁠니⁠다."
+
+msgid "GUIDE_KILL"
+msgstr "적 옆⁠에 멈⁠추⁠면 공⁠격⁠합⁠니⁠다"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "잠⁠시 멈⁠춰 서⁠면 자⁠동⁠으⁠로 공⁠격⁠합⁠니⁠다. 겨⁠울⁠의 적⁠은 반⁠격⁠만 합⁠니⁠다."
+
+msgid "GUIDE_COLLECT"
+msgstr "떨⁠어⁠진 아⁠이⁠템⁠을 터⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "전⁠리⁠품⁠은 잠⁠시 동⁠안 바⁠닥⁠에 남⁠아 있⁠습⁠니⁠다. 코⁠인⁠과 보⁠석⁠은 자⁠동⁠으⁠로 들⁠어⁠옵⁠니⁠다."
+
+msgid "GUIDE_EQUIP"
+msgstr "새 아⁠이⁠템⁠을 터⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "아⁠이⁠템 정⁠보⁠에⁠서 지⁠금 착⁠용⁠한 장⁠비⁠와 비⁠교⁠합⁠니⁠다."
+
+msgid "GUIDE_MERGE"
+msgstr "2⁠개 가⁠진 아⁠이⁠템⁠을 여⁠세⁠요"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "여⁠분⁠을 합⁠성⁠하⁠면 아⁠이⁠템⁠이 영⁠구⁠히 강⁠해⁠집⁠니⁠다."
+
+msgid "GUIDE_UPGRADE"
+msgstr "이 적⁠의 강⁠화⁠를 터⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "적 종⁠류⁠마⁠다 전⁠리⁠품, 코⁠인, 경⁠험⁠치 강⁠화⁠가 따⁠로 있⁠습⁠니⁠다."
+
+msgid "GUIDE_CAMP"
+msgstr "월⁠드⁠를 열⁠어 캠⁠프⁠를 해⁠금⁠하⁠세⁠요"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "캠⁠프⁠를 발⁠견⁠했⁠고 해⁠금⁠할 코⁠인⁠도 있⁠습⁠니⁠다. 월⁠드⁠를 열⁠거⁠나 캠⁠프⁠까⁠지 걸⁠어⁠가 캠⁠프 보⁠기⁠를 터⁠치⁠하⁠세⁠요."
+
+msgid "GUIDE_OVERVIEW"
+msgstr "걷⁠고, 싸⁠우⁠고, 모⁠으⁠세⁠요"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "지⁠도 아⁠래⁠쪽⁠의 조⁠이⁠스⁠틱⁠을 드⁠래⁠그⁠해 걸⁠으⁠세⁠요. 손⁠을 떼⁠면 영⁠웅⁠이 근⁠처⁠의 적⁠과 싸⁠웁⁠니⁠다. 전⁠리⁠품⁠을 터⁠치⁠해 주⁠우⁠세⁠요."
+
+msgid "GUIDE_AGGRESSION"
+msgstr "이 적⁠들⁠은 가⁠까⁠이 가⁠면 알⁠아⁠챕⁠니⁠다"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "겨⁠울 II⁠의 적⁠은 가⁠까⁠이 가⁠면 공⁠격⁠합⁠니⁠다. 한 번⁠에 하⁠나⁠씩 접⁠근⁠하⁠세⁠요."
+
+msgid "GUIDE_SKILLS"
+msgstr "스⁠킬⁠이 장⁠비⁠를 보⁠조⁠합⁠니⁠다"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "장⁠착⁠한 스⁠킬⁠을 터⁠치⁠해 시⁠전⁠하⁠세⁠요. 치⁠유⁠는 꾸⁠준⁠히 회⁠복⁠하⁠고, 물⁠약⁠은 한 번⁠에 더 많⁠이 회⁠복⁠합⁠니⁠다."
+
+msgid "GUIDE_GROUPS"
+msgstr "이⁠제 동⁠료⁠를 부⁠르⁠는 적⁠이 있⁠습⁠니⁠다"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "여⁠름⁠의 적⁠은 근⁠처⁠의 같⁠은 종⁠류 동⁠료⁠를 돕⁠습⁠니⁠다. 체⁠력⁠에 주⁠의⁠하⁠세⁠요."
+
+msgid "PRESTIGE_GATE"
+msgstr "먼⁠저 겨⁠울⁠을 클⁠리⁠어⁠하⁠세⁠요: 시⁠안 로⁠봇⁠을 처⁠치⁠해 여⁠름 I⁠로 가⁠세⁠요."
+
+msgid "NAV_PRESTIGE"
+msgstr "환⁠생"
+
+msgid "PANEL_WORLD"
+msgstr "월⁠드"
+
+msgid "TAB_OFFLINE"
+msgstr "오⁠프⁠라⁠인"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "이 강⁠화⁠는 강⁠화 버⁠튼⁠을 누⁠르⁠거⁠나 캐⁠릭⁠터⁠를 터⁠치⁠해 열 수 있⁠습⁠니⁠다."
+
+msgid "HUD_RESTING"
+msgstr "· 휴⁠식 중"
+
+msgid "ITEM_PREVIOUS"
+msgstr "이⁠전 아⁠이⁠템"
+
+msgid "ITEM_NEXT"
+msgstr "다⁠음 아⁠이⁠템"
+
+msgid "ITEM_POSITION"
+msgstr "%d / %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "장⁠착 시: %s"
+
+msgid "NO_CHANGE"
+msgstr "변⁠화 없⁠음"
+
+msgid "EQUIPPED_NOW"
+msgstr "현⁠재 장⁠착: %s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "이 슬⁠롯⁠에⁠는 아⁠직 장⁠착⁠한 것⁠이 없⁠습⁠니⁠다."
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "장⁠착: 능⁠력⁠치 전⁠부"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "보⁠관: 능⁠력⁠치⁠의 30%"
+
+msgid "UPGRADE_LEVEL"
+msgstr "레⁠벨 %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "보⁠스"
+
+msgid "ENEMY_KILLS"
+msgstr "처⁠치: %s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "부⁠활 캠⁠프"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "해⁠금⁠됨"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "잠⁠김 · 코⁠인 %s"
+
+msgid "SECTION_CAMPS"
+msgstr "캠⁠프"
+
+msgid "CAMPS_HIDDEN"
+msgstr "탐⁠험⁠으⁠로 발⁠견⁠할 캠⁠프⁠가 %d⁠곳 더 있⁠습⁠니⁠다."
+
+msgid "SECTION_TRAVEL"
+msgstr "다⁠른 스⁠테⁠이⁠지⁠로 이⁠동"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "지⁠도 강⁠화"
+
+msgid "SECTION_DANGER"
+msgstr "위⁠험 설⁠정"
+
+msgid "CAMP_UNLOCK"
+msgstr "해⁠금"
+
+msgid "CAMP_SELECT"
+msgstr "여⁠기⁠서 부⁠활"
+
+msgid "CAMP_TRAVEL"
+msgstr "이⁠동"
+
+msgid "CARD_OWNED"
+msgstr "보⁠유"
+
+msgid "CARD_SELECTED"
+msgstr "선⁠택⁠됨"
+
+msgid "CARD_LOCKED"
+msgstr "미⁠획⁠득"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "준⁠비 완⁠료"
+
+msgid "PRESTIGE_INTRO"
+msgstr "기⁠회⁠를 완⁠료⁠해 영⁠구 카⁠드⁠를 얻⁠으⁠세⁠요. 환⁠생⁠하⁠면 준⁠비⁠된 기⁠회⁠를 한⁠꺼⁠번⁠에 모⁠두 교⁠환⁠하⁠고 새 회⁠차⁠를 시⁠작⁠합⁠니⁠다."
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "준⁠비 완⁠료: %d  ·  보⁠유 카⁠드: %d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "아⁠직 발⁠견⁠한 기⁠회⁠가 없⁠습⁠니⁠다. 보⁠스⁠를 처⁠치⁠하⁠고, 합⁠성⁠하⁠고, 탐⁠험⁠해 찾⁠아⁠보⁠세⁠요."
+
+msgid "NO_CARDS_YET"
+msgstr "아⁠직 카⁠드⁠가 없⁠습⁠니⁠다."
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "준⁠비⁠된 기⁠회 %d⁠개 교⁠환: %s.\n\n각⁠각 영⁠구 카⁠드⁠를 1⁠장⁠씩 고⁠른 뒤 회⁠차⁠가 한 번 다⁠시 시⁠작⁠됩⁠니⁠다.\n\n유⁠지: 카⁠드, 보⁠스 열⁠쇠, 업⁠적, 보⁠석 강⁠화, 자⁠동⁠화, 설⁠정.\n초⁠기⁠화: 코⁠인, 아⁠이⁠템, 레⁠벨, 캠⁠프, 지⁠도 탐⁠험, 코⁠인 강⁠화, 완⁠료⁠하⁠지 않⁠은 도⁠전."
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "보⁠상 선⁠택 · %d / %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "이⁠미 선⁠택: %s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "유⁠지⁠되⁠는 항⁠목"
+
+msgid "PRESTIGE_KEEP"
+msgstr "카⁠드⁠와 세⁠트, 보⁠석, 탐⁠험⁠한 지⁠도 지⁠역, 보⁠석⁠으⁠로 구⁠매⁠한 모⁠든 강⁠화(전 분⁠류), 자⁠동⁠화, 인⁠벤⁠토⁠리 공⁠간, 보⁠스 열⁠쇠, 적 업⁠적, 플⁠레⁠이⁠어 레⁠벨⁠과 경⁠험⁠치, 지⁠도 숙⁠련⁠도, 설⁠정."
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "이⁠번 회⁠차 초⁠기⁠화 항⁠목"
+
+msgid "PRESTIGE_RESET"
+msgstr "코⁠인, 아⁠이⁠템(소⁠모⁠품 재⁠고 포⁠함)과 합⁠성, 소⁠모⁠품 숙⁠련⁠도, 지⁠도 이⁠용 권⁠한⁠과 보⁠유 캠⁠프, 지⁠도 강⁠화⁠와 코⁠인 강⁠화, 완⁠료⁠하⁠지 않⁠은 도⁠전."
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "%s 선⁠택"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "카⁠드⁠를 터⁠치⁠해 선⁠택⁠하⁠세⁠요"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "선⁠택: %s · 영⁠구⁠히 보⁠유⁠할⁠까⁠요? 마⁠지⁠막 선⁠택⁠이⁠며, 곧⁠바⁠로 새 회⁠차⁠가 시⁠작⁠됩⁠니⁠다."
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "환⁠생 기⁠회 발⁠견!"
+
+msgid "MILESTONE_READY"
+msgstr "기⁠회 완⁠료!"
+
+msgid "MILESTONE_CARD"
+msgstr "카⁠드 획⁠득: %s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "새 회⁠차 시⁠작"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "영⁠구 카⁠드 %d⁠장⁠이 컬⁠렉⁠션⁠에 추⁠가⁠되⁠었⁠습⁠니⁠다."
+
+msgid "MILESTONE_STAGE"
+msgstr "새 스⁠테⁠이⁠지 해⁠금"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "보⁠스 사⁠냥⁠꾼 세⁠트"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "원⁠정 세⁠트"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "컬⁠렉⁠션 세⁠트"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "걸⁠작 세⁠트"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "무⁠기⁠고 세⁠트"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "지⁠역 세⁠트"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "도⁠전 세⁠트"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "공⁠물 세⁠트"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "전⁠문⁠가 세⁠트"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "트⁠로⁠피 세⁠트"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "오⁠프⁠라⁠인 세⁠트"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "준⁠비⁠된 탐⁠험⁠가"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "부⁠지⁠런⁠한 농⁠부"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "합⁠성⁠의 여⁠정"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "보⁠스 전⁠문⁠가"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "끈⁠기 있⁠는 수⁠집⁠가"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "균⁠형 성⁠장"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "계⁠속 적⁠을 처⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "몇 마⁠리⁠만 더 처⁠치⁠하⁠면 첫 무⁠기⁠나 의⁠상⁠이 드⁠롭⁠됩⁠니⁠다."
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "장⁠착⁠을 터⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "장⁠착⁠한 장⁠비⁠는 능⁠력⁠치⁠가 전⁠부 반⁠영⁠됩⁠니⁠다. 보⁠관 중⁠인 장⁠비⁠도 30%가 반⁠영⁠됩⁠니⁠다."
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "합⁠성⁠을 터⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "합⁠성⁠할 때⁠마⁠다 여⁠분 1⁠개⁠를 사⁠용⁠해 아⁠이⁠템 레⁠벨⁠이 오⁠릅⁠니⁠다."
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "두 번⁠째 아⁠이⁠템⁠을 모⁠으⁠세⁠요"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "몇 마⁠리 더 처⁠치⁠하⁠면 같⁠은 아⁠이⁠템⁠이 드⁠롭⁠됩⁠니⁠다."
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "먼⁠저 적⁠을 찾⁠으⁠세⁠요"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "적⁠에⁠게 가⁠까⁠이 가⁠면 그 적⁠의 강⁠화⁠를 이⁠용⁠할 수 있⁠습⁠니⁠다."
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "강⁠화⁠에 쓸 코⁠인⁠을 모⁠으⁠세⁠요"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "코⁠인⁠이 %s 더 필⁠요⁠합⁠니⁠다. 처⁠치⁠한 적⁠은 모⁠두 코⁠인⁠을 떨⁠어⁠뜨⁠립⁠니⁠다."
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "강⁠화 탭⁠을 여⁠세⁠요"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "이 적 종⁠류⁠의 강⁠화⁠가 그⁠곳⁠에 있⁠습⁠니⁠다."
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "강⁠화⁠를 구⁠매⁠하⁠세⁠요"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "처⁠음⁠에⁠는 드⁠롭 확⁠률 강⁠화⁠가 좋⁠습⁠니⁠다."
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "탐⁠험⁠해⁠서 다⁠른 캠⁠프⁠를 찾⁠으⁠세⁠요"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "안⁠개 속⁠으⁠로 걸⁠어⁠가⁠세⁠요. 밝⁠혀⁠내⁠면 캠⁠프⁠가 나⁠타⁠납⁠니⁠다."
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "캠⁠프⁠에 쓸 코⁠인⁠을 모⁠으⁠세⁠요"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "코⁠인⁠이 %s 더 필⁠요⁠합⁠니⁠다. 계⁠속 적⁠을 처⁠치⁠하⁠세⁠요."
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "해⁠금⁠을 터⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "캠⁠프⁠가 부⁠활 지⁠점⁠이 되⁠고 주⁠변 지⁠역⁠이 드⁠러⁠납⁠니⁠다."
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "캠⁠프 해⁠금 완⁠료"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "‘여⁠기⁠서 부⁠활’을 사⁠용⁠하⁠면 쓰⁠러⁠진 뒤 그⁠곳⁠으⁠로 돌⁠아⁠갑⁠니⁠다. 캠⁠프 옆⁠에⁠서 쉬⁠면 빠⁠르⁠게 회⁠복⁠합⁠니⁠다."
+
+msgid "GUIDE_PRESTIGE"
+msgstr "환⁠생 기⁠회 발⁠견"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "완⁠료⁠하⁠면 영⁠구 카⁠드⁠를 얻⁠습⁠니⁠다. 먼⁠저 눈⁠사⁠람⁠을 찾⁠으⁠세⁠요. 단⁠계⁠별 안⁠내 모⁠드⁠에⁠서⁠는 튜⁠토⁠리⁠얼⁠도 완⁠료⁠해⁠야 합⁠니⁠다."
+
+msgid "GUIDE_REST"
+msgstr "체⁠력⁠이 부⁠족⁠한⁠가⁠요?"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "전⁠투⁠에⁠서 벗⁠어⁠나⁠세⁠요. 해⁠금⁠한 캠⁠프 옆⁠에⁠서 쉬⁠면 빠⁠르⁠게 회⁠복⁠합⁠니⁠다."
+
+msgid "SECTION_REWARDS"
+msgstr "보⁠상"
+
+msgid "SECTION_AUTOMATION"
+msgstr "자⁠동⁠화"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "잠⁠김"
+
+msgid "PROGRESS_MERGE"
+msgstr "최⁠고 기⁠록: ^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "^50 무⁠기: %d/%d · ^50 의⁠상: %d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "트⁠로⁠피: %d / %d (각 보⁠스⁠는 다⁠음 처⁠치 시 1⁠개⁠를 떨⁠어⁠뜨⁠립⁠니⁠다)"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "진⁠행⁠도: %s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "물⁠약⁠이⁠나 강⁠장⁠제⁠를 쓰⁠지 않⁠고 전⁠투⁠에⁠서 이⁠기⁠세⁠요."
+
+msgid "PROGRESS_REGIONAL"
+msgstr "탐⁠험 %s · 보⁠스 %d/%d · 캠⁠프 %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "금 검"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "다⁠이⁠아⁠몬⁠드 검"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "에⁠메⁠랄⁠드 검"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "흑⁠요⁠석 검"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "나⁠무 도⁠끼"
+
+msgid "ITEM_STONE_AXE"
+msgstr "돌 도⁠끼"
+
+msgid "ITEM_IRON_AXE"
+msgstr "철 도⁠끼"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "금 도⁠끼"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "다⁠이⁠아⁠몬⁠드 도⁠끼"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "에⁠메⁠랄⁠드 도⁠끼"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "흑⁠요⁠석 도⁠끼"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "무⁠기⁠나 의⁠상⁠을 찾⁠으⁠세⁠요"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "방⁠금 얻⁠은 것⁠은 소⁠모⁠품⁠입⁠니⁠다. 계⁠속 적⁠을 처⁠치⁠하⁠세⁠요. 적⁠은 가⁠끔 착⁠용⁠한 무⁠기⁠나 의⁠상⁠을 떨⁠어⁠뜨⁠리⁠며, 빈 장⁠비 슬⁠롯⁠에 들⁠어⁠갑⁠니⁠다."
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "장⁠비⁠를 주⁠우⁠세⁠요"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "무⁠기⁠나 의⁠상⁠이 떨⁠어⁠졌⁠습⁠니⁠다. 터⁠치⁠해 장⁠비 슬⁠롯⁠에 넣⁠으⁠세⁠요."
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "진⁠행 중⁠인 기⁠회⁠만 추⁠적⁠할 수 있⁠습⁠니⁠다."
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "%s 클⁠리⁠어"
+
+msgid "MISSION_STATE_READY"
+msgstr "수⁠령 가⁠능"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ 수⁠령 완⁠료"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "완⁠료⁠한 목⁠표 (%d) · %s"
+
+msgid "SHOW"
+msgstr "보⁠기"
+
+msgid "HIDE"
+msgstr "숨⁠기⁠기"
+
+msgid "PLAYTIME_LINE"
+msgstr "플⁠레⁠이 시⁠간: %s · 이⁠번 회⁠차: %s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "돌⁠아⁠오⁠신 걸 환⁠영⁠합⁠니⁠다!"
+
+msgid "OFFLINE_AWAY"
+msgstr "자⁠리 비⁠움 %s · 보⁠상 %s⁠시⁠간"
+
+msgid "OFFLINE_CLAIM"
+msgstr "오⁠프⁠라⁠인 수⁠익 받⁠기"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "오⁠프⁠라⁠인 수⁠익⁠을 받⁠았⁠습⁠니⁠다"
+
+msgid "OFFLINE_NOTHING"
+msgstr "대⁠기 중⁠인 오⁠프⁠라⁠인 수⁠익⁠이 없⁠습⁠니⁠다."
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "받⁠을 수 있⁠는 오⁠프⁠라⁠인 수⁠익⁠이 있⁠습⁠니⁠다."
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "지⁠난 수⁠령: 보⁠상 %s⁠시⁠간 · 코⁠인 %s · 보⁠석 %s"
+
+msgid "NAV_UPGRADES"
+msgstr "강⁠화"
+
+msgid "STATS_OPEN"
+msgstr "능⁠력⁠치"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "새 강⁠화 해⁠금: %s (플⁠레⁠이⁠어 강⁠화)"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "겨⁠울 I⁠의 눈⁠사⁠람(첫 번⁠째 보⁠스)을 찾⁠으⁠면 환⁠생 초⁠기⁠화⁠가 해⁠금⁠됩⁠니⁠다."
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "눈⁠사⁠람⁠을 찾⁠으⁠세⁠요"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "준⁠비⁠된 기⁠회⁠로 얻⁠을 수 있⁠는 카⁠드⁠를 이⁠미 모⁠두 보⁠유⁠하⁠고 있⁠습⁠니⁠다."
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "먼⁠저 지⁠도⁠에⁠서 이 장⁠소⁠를 찾⁠으⁠세⁠요."
+
+msgid "EQUIPPED_PINNED"
+msgstr "장⁠착 중"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "무⁠기"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "의⁠상"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "빈 슬⁠롯"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "장⁠착 중"
+
+msgid "COMPARE_SELECTED"
+msgstr "선⁠택⁠됨"
+
+msgid "COMPARE_ITEM"
+msgstr "아⁠이⁠템"
+
+msgid "COMPARE_UPGRADE"
+msgstr "상⁠향"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "하⁠향"
+
+msgid "COMPARE_MIXED"
+msgstr "장⁠단⁠점 있⁠음"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "%d⁠등⁠급 · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "같⁠은 아⁠이⁠템⁠을 합⁠성⁠하⁠면 ^%d⁠까⁠지 성⁠장⁠합⁠니⁠다. 다⁠른 아⁠이⁠템⁠으⁠로 바⁠뀌⁠지 않⁠으⁠며, ^100⁠을 넘⁠으⁠면 합⁠성⁠할 때⁠마⁠다 상⁠승⁠량⁠이 조⁠금⁠씩 줄⁠어⁠듭⁠니⁠다."
+
+msgid "FOLLOW_READY"
+msgstr "준⁠비 완⁠료! 환⁠생⁠을 열⁠어 카⁠드⁠를 선⁠택⁠하⁠세⁠요"
+
+msgid "FOLLOW_STEP"
+msgstr "%d/%d⁠단⁠계 · %s: %d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "%s 처⁠치: %d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "전⁠투 중 소⁠모⁠품 없⁠이 %s 처⁠치: 0/1"
+
+msgid "GOAL_MISSION"
+msgstr "미⁠션 수⁠령"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "캐⁠릭⁠터"
+
+msgid "STATS_LEVEL"
+msgstr "레⁠벨"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "스⁠테⁠이⁠지"
+
+msgid "STATS_PRESTIGES"
+msgstr "환⁠생 횟⁠수"
+
+msgid "STATS_CARDS"
+msgstr "환⁠생 카⁠드"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "공⁠격"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "공⁠격 속⁠도"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s⁠회/초 (+%s%%)"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "방⁠어 및 회⁠복"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s (받⁠는 피⁠해 −%s%%)"
+
+msgid "STATS_RESPAWN"
+msgstr "부⁠활 시⁠간"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "부⁠스⁠트"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "환⁠생 배⁠율"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "체⁠력 ×%s · 피⁠해 ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "이⁠동 속⁠도"
+
+msgid "STATS_STORED_SHARE"
+msgstr "보⁠관 장⁠비 반⁠영⁠률"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "장⁠착 장⁠비 보⁠너⁠스"
+
+msgid "STATS_SECTION_TIME"
+msgstr "플⁠레⁠이 시⁠간"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "전⁠체 회⁠차"
+
+msgid "STATS_TIME_RUN"
+msgstr "이⁠번 회⁠차"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "피⁠해"
+
+msgid "STATS_SHORT_HP"
+msgstr "체⁠력"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "방⁠어"
+
+msgid "STATS_SHORT_CRIT"
+msgstr "치⁠명⁠타"
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "치⁠명⁠타 피⁠해"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "공⁠속"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "흡⁠혈"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "HP/초"
+
+msgid "CAMP_SIGHTED"
+msgstr "캠⁠프 발⁠견! 이⁠제 지⁠도⁠와 월⁠드 패⁠널⁠에 표⁠시⁠됩⁠니⁠다."
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "카⁠드 및 숙⁠련⁠도 체⁠력 보⁠너⁠스"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "카⁠드 및 숙⁠련⁠도 피⁠해 보⁠너⁠스"
+
+msgid "STAT_REGEN_PCT"
+msgstr "회⁠복"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "최⁠대 체⁠력/초"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "최⁠대 체⁠력/초"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "최⁠대 체⁠력⁠의 %s%%/초 (%s HP/초)"
+
+msgid "SOURCE_MILESTONE"
+msgstr "의⁠상 마⁠일⁠스⁠톤 (착⁠용 중)"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "무⁠기 %s%% · 의⁠상 %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "수⁠호: 방⁠어 +%s"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "체⁠력 +%s"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "의⁠상 체⁠력 +%s%%"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "회⁠복: 최⁠대 체⁠력⁠의 %s%%/초"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "마⁠일⁠스⁠톤 (착⁠용 시): %s"
+
+msgid "MILESTONES_NONE"
+msgstr "마⁠일⁠스⁠톤: 아⁠직 없⁠음. 첫 마⁠일⁠스⁠톤⁠은 ^100⁠에⁠서 해⁠금⁠됩⁠니⁠다."
+
+msgid "MILESTONES_COMPLETE"
+msgstr "모⁠든 마⁠일⁠스⁠톤 달⁠성 (숙⁠련)."
+
+msgid "MILESTONE_NEXT"
+msgstr "다⁠음 ^%d: %s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "같⁠은 의⁠상⁠을 합⁠성⁠하⁠면 ^%d⁠까⁠지 성⁠장⁠합⁠니⁠다: ^100⁠까⁠지⁠는 1⁠개⁠당 기⁠본 체⁠력 +2%%, 이⁠후 1⁠개⁠당 +1%%. 다⁠른 아⁠이⁠템⁠으⁠로 바⁠뀌⁠지 않⁠습⁠니⁠다. 마⁠일⁠스⁠톤⁠은 착⁠용 중⁠에⁠만 적⁠용⁠되⁠며, 보⁠관 중⁠에⁠는 체⁠력⁠의 %s%%가 반⁠영⁠됩⁠니⁠다."
+
+msgid "PANEL_LEVEL"
+msgstr "플⁠레⁠이⁠어 레⁠벨 및 성⁠장"
+
+msgid "PANEL_FARMING"
+msgstr "파⁠밍 가⁠이⁠드"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "터⁠치⁠하⁠여 레⁠벨 성⁠장⁠과 능⁠력⁠치 출⁠처 보⁠기"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "슬⁠롯 %d → %d / %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "슬⁠롯 %d / %d · 최⁠대"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · 최⁠대"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "보⁠스⁠는 드⁠롭⁠당 보⁠석 %s⁠개"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "파⁠밍 가⁠이⁠드"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "환⁠생 잠⁠김 · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "환⁠생 초⁠기⁠화 조⁠건"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "겨⁠울 I⁠의 눈⁠사⁠람(첫 번⁠째 보⁠스) 찾⁠기"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "카⁠드⁠를 얻⁠을 수 있⁠는 준⁠비⁠된 기⁠회 1⁠개 이⁠상"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "눈⁠사⁠람 찾⁠기"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "준⁠비⁠된 기⁠회 없⁠음"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "남⁠은 카⁠드 없⁠음"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "기⁠타 능⁠력⁠치 출⁠처"
+
+msgid "BREAKDOWN_HP"
+msgstr "체⁠력 출⁠처"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "피⁠해 출⁠처"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "환⁠생 보⁠너⁠스 전"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "카⁠드 및 숙⁠련⁠도"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "합⁠계 (전⁠투 적⁠용)"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "타⁠격⁠당 (합⁠계 미⁠포⁠함)"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "받⁠는 피⁠해"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "플⁠레⁠이⁠어 레⁠벨 (%d × +%s)"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "보⁠관 장⁠비 (의⁠상 %s%%, 무⁠기 %s%%)"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "장⁠착 장⁠비 (카⁠드 +%s%% 포⁠함)"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "%s 대⁠상 처⁠치 업⁠적"
+
+msgid "PER_HIT_NORMAL"
+msgstr "환⁠생: 일⁠반 적 대⁠상"
+
+msgid "PER_HIT_BOSS"
+msgstr "환⁠생: 보⁠스 대⁠상"
+
+msgid "PER_HIT_FOCUS"
+msgstr "집⁠중 (%d⁠초 남⁠음)"
+
+msgid "TAKEN_GUARD"
+msgstr "환⁠생 수⁠호"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "보⁠스 대⁠상 환⁠생 수⁠호"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "레⁠벨 %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "최⁠대 레⁠벨⁠에 도⁠달⁠했⁠습⁠니⁠다. 레⁠벨⁠로 더 얻⁠는 것⁠은 없⁠습⁠니⁠다."
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s EXP · %s 더 모⁠으⁠면 레⁠벨 %d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "레⁠벨 성⁠장"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "레⁠벨⁠당 (기⁠본)"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "체⁠력 +%s · 피⁠해 +%s"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "지⁠금⁠까⁠지 %d⁠레⁠벨⁠에⁠서"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "레⁠벨 %d 체⁠력"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "레⁠벨 %d 피⁠해"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "환⁠생 카⁠드⁠는 모⁠든 출⁠처⁠에 배⁠율⁠을 곱⁠합⁠니⁠다: 체⁠력 ×%s, 피⁠해 ×%s."
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "각 적⁠을 어⁠디⁠서 파⁠밍⁠할 수 있⁠고 무⁠엇⁠을 떨⁠어⁠뜨⁠리⁠는⁠지 보⁠여 줍⁠니⁠다. 지⁠도 항⁠목⁠은 그 지⁠도⁠의 지⁠도 상⁠세⁠도⁠가 최⁠대⁠이⁠고 모⁠든 적 종⁠류⁠의 능⁠력⁠치⁠와 드⁠롭⁠이 공⁠개⁠되⁠면 열⁠립⁠니⁠다. 발⁠견⁠한 지⁠점⁠만 위⁠치⁠가 표⁠시⁠됩⁠니⁠다."
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "현⁠재 위⁠치"
+
+msgid "FARMING_READY"
+msgstr "항⁠목 해⁠금"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "열⁠기"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "지⁠도 상⁠세⁠도 %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "능⁠력⁠치 및 드⁠롭 %d/%d⁠종"
+
+msgid "FARMING_LOCKED"
+msgstr "필⁠요: %s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "아⁠직 도⁠달⁠하⁠지 않⁠은 지⁠도⁠가 %d⁠개 더 있⁠습⁠니⁠다."
+
+msgid "FARMING_MAP_TITLE"
+msgstr "파⁠밍 · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "확⁠률⁠에⁠는 현⁠재 강⁠화⁠가 반⁠영⁠됩⁠니⁠다. 방⁠향⁠은 이 지⁠도⁠에⁠서 가⁠장 가⁠까⁠운 알⁠려⁠진 캠⁠프 기⁠준⁠입⁠니⁠다."
+
+msgid "FARMING_BACK"
+msgstr "전⁠체 지⁠도"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "미⁠발⁠견 적 · 이 지⁠도⁠를 탐⁠험⁠해 찾⁠으⁠세⁠요"
+
+msgid "FARMING_REWARDS"
+msgstr "코⁠인 ×%s · 보⁠석 %s%% ×%s · 경⁠험⁠치 %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "소⁠모⁠품: %s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "미⁠발⁠견 지⁠점"
+
+msgid "FARMING_DETAILS"
+msgstr "상⁠세 정⁠보"
+
+msgid "FARMING_AT_CAMP"
+msgstr "캠⁠프 %d 근⁠처"
+
+msgid "FARMING_LOCATION"
+msgstr "%s (캠⁠프 %d 기⁠준) · %s"
+
+msgid "COMPASS_N"
+msgstr "북⁠쪽"
+
+msgid "COMPASS_NE"
+msgstr "북⁠동⁠쪽"
+
+msgid "COMPASS_E"
+msgstr "동⁠쪽"
+
+msgid "COMPASS_SE"
+msgstr "남⁠동⁠쪽"
+
+msgid "COMPASS_S"
+msgstr "남⁠쪽"
+
+msgid "COMPASS_SW"
+msgstr "남⁠서⁠쪽"
+
+msgid "COMPASS_W"
+msgstr "서⁠쪽"
+
+msgid "COMPASS_NW"
+msgstr "북⁠서⁠쪽"
+
+msgid "DISTANCE_NEAR"
+msgstr "가⁠까⁠움"
+
+msgid "DISTANCE_MID"
+msgstr "조⁠금 걸⁠어⁠야 함"
+
+msgid "DISTANCE_FAR"
+msgstr "멂"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "야! 내 옷!"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "내 무⁠기!"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "내 마⁠법⁠서!"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "내 물⁠건!"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "수⁠호 강⁠장⁠제"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "회⁠복 연⁠고"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "지⁠혜 강⁠장⁠제"
+
+msgid "FOLLOW_COLLECT"
+msgstr "%d/%d⁠단⁠계 · %s 수⁠집 (%s⁠에⁠게⁠서): %d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "모⁠두 찾⁠았⁠습⁠니⁠다! 환⁠생 메⁠뉴⁠에⁠서 제⁠출⁠하⁠세⁠요"
+
+msgid "FILTERS"
+msgstr "필⁠터"
+
+msgid "FILTERS_ACTIVE"
+msgstr "필⁠터 · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "장⁠비 목⁠록⁠을 필⁠터⁠링⁠합⁠니⁠다. 필⁠터⁠를 닫⁠으⁠면 모⁠든 아⁠이⁠템⁠이 다⁠시 표⁠시⁠됩⁠니⁠다."
+
+msgid "PANEL_FILTERS"
+msgstr "필⁠터"
+
+msgid "FILTERS_HINT"
+msgstr "필⁠터⁠가 열⁠려 있⁠는 동⁠안 장⁠비 목⁠록⁠에⁠는 이 분⁠류⁠만 표⁠시⁠됩⁠니⁠다. 닫⁠으⁠면 모⁠든 아⁠이⁠템⁠이 다⁠시 표⁠시⁠됩⁠니⁠다."
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "소⁠모⁠품 슬⁠롯: 종⁠류⁠당 1⁠개 (%d⁠종). 필⁠터⁠는 장⁠비 개⁠수 옆⁠에 있⁠습⁠니⁠다."
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "이 소⁠모⁠품⁠을 실⁠제⁠로 3⁠회 사⁠용⁠할 때⁠마⁠다 숙⁠련⁠도⁠가 1 오⁠릅⁠니⁠다 (최⁠대 ^%d). 구⁠매⁠와 드⁠롭⁠은 재⁠고⁠만 늘⁠립⁠니⁠다. 환⁠생⁠하⁠면 숙⁠련⁠도⁠와 사⁠용 진⁠행⁠도⁠가 초⁠기⁠화⁠됩⁠니⁠다."
+
+msgid "BUY_SUPPLY"
+msgstr "%s 구⁠매 · 코⁠인 %s"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · %d⁠초 남⁠음"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "활⁠성: %s · %d⁠초 남⁠음"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "쿨⁠타⁠임 · %s⁠초"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "사⁠용 가⁠능"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "자⁠동 사⁠용: 체⁠력 %s%% 이⁠하, 쿨⁠타⁠임 후"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "자⁠동 사⁠용: 효⁠과⁠가 없⁠을 때⁠마⁠다"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "자⁠동 사⁠용: 전⁠투 중 효⁠과⁠가 없⁠을 때"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "자⁠동 사⁠용: 체⁠력 %s%% 이⁠하, 효⁠과⁠가 없⁠을 때"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "자⁠동 사⁠용: 효⁠과⁠가 없⁠을 때⁠마⁠다"
+
+msgid "SUPPLY_STOCK"
+msgstr "재⁠고: %s · 사⁠용⁠할 때⁠마⁠다 1⁠개 소⁠모"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "다⁠음 획⁠득: %s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "숙⁠련⁠도 보⁠너⁠스: %s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "지⁠속 시⁠간 %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "쿨⁠타⁠임 %s⁠초"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "최⁠대 체⁠력⁠의 %s%%"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "코⁠인 +%s%%"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "경⁠험⁠치 +%s%%"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "방⁠어 +%s"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "초⁠당 최⁠대 체⁠력⁠의 %s%%"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "최⁠대 체⁠력⁠의 %s%% 회⁠복 (현⁠재 %s HP) · 쿨⁠타⁠임 %s⁠초 · 체⁠력 %s%% 미⁠만⁠에⁠서 사⁠용 가⁠능"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "처⁠치⁠한 적 코⁠인 +%s%% (%s⁠초⁠간)"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "방⁠어 +%s (받⁠는 피⁠해 %s%% 감⁠소), %s⁠초⁠간"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "초⁠당 최⁠대 체⁠력⁠의 %s%%를 %s⁠초⁠간 회⁠복 (총 %s%%) · 체⁠력 %s%% 미⁠만⁠에⁠서 사⁠용 가⁠능"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "처⁠치⁠한 적 경⁠험⁠치 +%s%% (%s⁠초⁠간)"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "숙⁠련⁠도 ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "자⁠동: %s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "체⁠력⁠이 너⁠무 높⁠아 이 소⁠모⁠품⁠을 쓸 수 없⁠습⁠니⁠다."
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "물⁠약⁠이 아⁠직 쿨⁠타⁠임 중⁠입⁠니⁠다."
+
+msgid "SUPPLY_ACTIVE"
+msgstr "이⁠미 활⁠성 상⁠태⁠입⁠니⁠다. 효⁠과⁠가 끝⁠나⁠면 다⁠시 사⁠용⁠하⁠세⁠요."
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "3⁠회 사⁠용⁠할 때⁠마⁠다 소⁠모⁠품 숙⁠련⁠도⁠가 오⁠릅⁠니⁠다. 환⁠생⁠하⁠면 숙⁠련⁠도⁠와 사⁠용 진⁠행⁠도⁠가 초⁠기⁠화⁠됩⁠니⁠다."
+
+msgid "SOURCE_SUPPLY"
+msgstr "활⁠성 소⁠모⁠품"
+
+msgid "CAMP_TELEPORT"
+msgstr "순⁠간⁠이⁠동"
+
+msgid "PANEL_TELEPORT"
+msgstr "순⁠간⁠이⁠동"
+
+msgid "TELEPORT_TITLE"
+msgstr "순⁠간⁠이⁠동"
+
+msgid "TELEPORT_HELP"
+msgstr "보⁠유⁠한 다⁠른 캠⁠프⁠를 이 지⁠도⁠나 도⁠달⁠한 지⁠도⁠에⁠서 선⁠택⁠하⁠세⁠요. 전⁠투 중⁠에⁠는 순⁠간⁠이⁠동⁠할 수 없⁠습⁠니⁠다."
+
+msgid "TELEPORT_HERE"
+msgstr "현⁠재 위⁠치"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "선⁠택⁠한 목⁠적⁠지"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "이 지⁠도"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "다⁠른 지⁠도"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "선⁠택"
+
+msgid "TELEPORT_BACK"
+msgstr "뒤⁠로"
+
+msgid "TELEPORT_GO"
+msgstr "순⁠간⁠이⁠동 · %s · 캠⁠프 %d"
+
+msgid "TELEPORT_PICK"
+msgstr "목⁠적⁠지⁠를 선⁠택⁠하⁠세⁠요"
+
+msgid "TELEPORT_NONE"
+msgstr "아⁠직 다⁠른 캠⁠프⁠가 없⁠습⁠니⁠다. 다⁠른 캠⁠프⁠를 해⁠금⁠하⁠면 그⁠곳⁠으⁠로 순⁠간⁠이⁠동⁠할 수 있⁠습⁠니⁠다."
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · 캠⁠프 %d"
+
+msgid "MAP_EXPLORED"
+msgstr "지⁠도 탐⁠험⁠도: %d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "이 지⁠도⁠를 영⁠구⁠히 탐⁠험⁠한 정⁠도⁠입⁠니⁠다. 일⁠시⁠적⁠인 시⁠야⁠나 카⁠메⁠라 이⁠동⁠은 포⁠함⁠되⁠지 않⁠습⁠니⁠다."
+
+msgid "SECTION_AUDIO"
+msgstr "사⁠운⁠드 및 음⁠악"
+
+msgid "MUSIC_VOLUME"
+msgstr "음⁠악 %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "효⁠과⁠음 %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "게⁠임⁠플⁠레⁠이 소⁠리 음⁠소⁠거: %s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "특⁠수 소⁠리 음⁠소⁠거: %s"
+
+msgid "AUDIO_HINT"
+msgstr "게⁠임⁠플⁠레⁠이 소⁠리: 터⁠치, 구⁠매, 합⁠성, 전⁠투. 특⁠수 소⁠리: 알⁠림(수⁠령 가⁠능⁠한 미⁠션⁠이⁠나 목⁠표, 환⁠생 소⁠식, 새 메⁠뉴, 지⁠도 숙⁠련⁠도 진⁠행, 보⁠스 발⁠견)과 마⁠일⁠스⁠톤(새 지⁠도, 환⁠생). 효⁠과⁠음 볼⁠륨⁠으⁠로 둘 다 조⁠절⁠합⁠니⁠다."
+
+msgid "UP_MERGE_ALL"
+msgstr "일⁠괄 합⁠성"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "1⁠회 해⁠금: 필⁠터⁠의 일⁠괄 합⁠성 버⁠튼⁠으⁠로 모⁠든 여⁠분⁠을 한 번⁠에 합⁠성 · 무⁠료 사⁠용 · 환⁠생 후⁠에⁠도 유⁠지"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "해⁠금⁠됨 · 필⁠터⁠에⁠서 일⁠괄 합⁠성⁠을 사⁠용⁠하⁠세⁠요"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "일⁠괄 합⁠성⁠이 아⁠직 해⁠금⁠되⁠지 않⁠았⁠습⁠니⁠다"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "일⁠괄 합⁠성: 강⁠화 → 인⁠벤⁠토⁠리⁠에⁠서 보⁠석 5K⁠로 한 번 해⁠금⁠하⁠세⁠요."
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "일⁠괄 합⁠성 · 여⁠분 %d⁠개"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "일⁠괄 합⁠성"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "합⁠성⁠할 것⁠이 없⁠습⁠니⁠다"
+
+msgid "MERGE_ALL_DONE"
+msgstr "여⁠분 %d⁠개⁠를 아⁠이⁠템 %d⁠종⁠에 합⁠성⁠했⁠습⁠니⁠다"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "자⁠동 진⁠화 해⁠금"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "여⁠분 합⁠성 대⁠상: %s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "켜⁠짐 · 합⁠성 대⁠상: %s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "^100⁠에⁠서 101⁠개⁠가 모⁠이⁠면 진⁠화: %s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "켜⁠짐 · 진⁠화 대⁠상: %s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "쿨⁠타⁠임: %s⁠초"
+
+msgid "GATE_HUD"
+msgstr "다⁠음 스⁠테⁠이⁠지 · 보⁠스 %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "월⁠드 클⁠리⁠어 · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "다⁠음 지⁠도⁠를 열⁠려⁠면 이 지⁠도⁠에⁠서 처⁠치⁠해⁠야 하⁠는 보⁠스⁠입⁠니⁠다. 발⁠견⁠했⁠고 아⁠직 집⁠계⁠되⁠는 보⁠스⁠에⁠는 금⁠색 배⁠너⁠가 붙⁠습⁠니⁠다."
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "다⁠음 스⁠테⁠이⁠지⁠가 이⁠미 열⁠림"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "미⁠발⁠견 보⁠스"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · 처⁠치⁠함"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · 아⁠직 필⁠요"
+
+msgid "OFFERING_PROGRESS"
+msgstr "코⁠인 %s / %s · 보⁠석 %s / %s"
+
+msgid "SECTION_RESEARCH"
+msgstr "연⁠구"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "집⁠중 파⁠밍 해⁠금"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "아⁠래⁠의 파⁠밍⁠을 터⁠치⁠하⁠세⁠요: 영⁠웅⁠이 이 지⁠점⁠으⁠로 걸⁠어⁠가 스⁠스⁠로 싸⁠웁⁠니⁠다. 다⁠시 터⁠치⁠하⁠거⁠나 이⁠동⁠하⁠면 멈⁠춥⁠니⁠다."
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "파⁠밍⁠을 터⁠치⁠해 시⁠작⁠하⁠세⁠요"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "영⁠웅⁠이 이 지⁠점⁠으⁠로 걸⁠어⁠가 스⁠스⁠로 싸⁠웁⁠니⁠다. 이⁠동⁠하⁠면 멈⁠춥⁠니⁠다."
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "집⁠중 파⁠밍 해⁠금"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "이 적⁠의 강⁠화⁠를 열⁠고 위⁠쪽⁠의 파⁠밍⁠을 터⁠치⁠하⁠세⁠요."
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "집⁠중 파⁠밍 해⁠금"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "월⁠드⁠나 지⁠도⁠에⁠서 그 적⁠을 터⁠치⁠한 뒤 파⁠밍⁠을 터⁠치⁠하⁠세⁠요."
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "먼⁠저 이 지⁠점⁠을 찾⁠으⁠세⁠요"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "파⁠밍⁠은 발⁠견⁠한 지⁠점⁠으⁠로⁠만 이⁠동⁠합⁠니⁠다. 위⁠에⁠서 발⁠견⁠한 지⁠점⁠을 고⁠르⁠세⁠요."
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "새 장⁠비: 터⁠치⁠한 뒤 장⁠착"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "장⁠착⁠한 장⁠비⁠는 능⁠력⁠치⁠가 전⁠부 반⁠영⁠되⁠고, 보⁠관 중⁠인 장⁠비⁠도 일⁠부⁠가 더⁠해⁠집⁠니⁠다."
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "같⁠은 아⁠이⁠템 2⁠개: 열⁠고 합⁠성"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "여⁠분⁠을 합⁠성⁠하⁠면 그 아⁠이⁠템⁠이 영⁠구⁠히 강⁠해⁠집⁠니⁠다."
+
+msgid "GUIDE_MISSIONS"
+msgstr "미⁠션 해⁠금: 미⁠션⁠을 여⁠세⁠요"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "목⁠표⁠와 일⁠일 미⁠션⁠으⁠로 코⁠인⁠과 보⁠석⁠을 받⁠습⁠니⁠다."
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "받⁠기⁠를 터⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "완⁠료⁠한 목⁠표⁠는 보⁠상⁠을 받⁠을 때⁠까⁠지 여⁠기⁠서 기⁠다⁠립⁠니⁠다."
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "아⁠직 받⁠을 것⁠이 없⁠습⁠니⁠다"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "보⁠상⁠이 준⁠비⁠되⁠면 미⁠션 버⁠튼⁠에 !가 표⁠시⁠됩⁠니⁠다."
+
+msgid "GUIDE_SLOTS"
+msgstr "강⁠화 해⁠금: 강⁠화⁠를 여⁠세⁠요"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "플⁠레⁠이⁠어 강⁠화⁠는 이⁠번 회⁠차 동⁠안 유⁠지⁠되⁠고, 보⁠석 강⁠화⁠는 영⁠구⁠히 유⁠지⁠됩⁠니⁠다."
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "인⁠벤⁠토⁠리 탭⁠을 여⁠세⁠요"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "장⁠비 슬⁠롯⁠이 늘⁠어⁠나⁠면 더 많⁠은 종⁠류⁠의 장⁠비⁠를 보⁠관⁠할 수 있⁠습⁠니⁠다."
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "장⁠비 슬⁠롯⁠을 구⁠매⁠하⁠세⁠요"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "아⁠이⁠템 종⁠류⁠마⁠다 슬⁠롯⁠이 하⁠나⁠씩 필⁠요⁠하⁠며, 같⁠은 아⁠이⁠템⁠은 쌓⁠입⁠니⁠다."
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "소⁠모⁠품 탭⁠을 여⁠세⁠요"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "소⁠모⁠품⁠은 어⁠려⁠운 전⁠투⁠에⁠서 도⁠움⁠이 됩⁠니⁠다."
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "체⁠력 물⁠약⁠을 구⁠매⁠하⁠세⁠요"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "전⁠투 중 소⁠모⁠품⁠의 물⁠약⁠을 터⁠치⁠하⁠면 회⁠복⁠합⁠니⁠다."
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "체⁠력 물⁠약⁠에 쓸 코⁠인⁠을 모⁠으⁠세⁠요"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "코⁠인⁠이 %s 더 필⁠요⁠합⁠니⁠다. 처⁠치⁠한 적⁠은 모⁠두 코⁠인⁠을 떨⁠어⁠뜨⁠립⁠니⁠다."
+
+msgid "GUIDE_SNOWMAN"
+msgstr "메⁠인 목⁠표: 눈⁠사⁠람 처⁠치"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "처⁠치⁠하⁠면 겨⁠울 II⁠가 열⁠리⁠고, 발⁠견⁠하⁠면 환⁠생⁠이 열⁠립⁠니⁠다. 먼⁠저 장⁠비⁠를 합⁠성⁠하⁠고 레⁠벨⁠을 올⁠리⁠고 물⁠약⁠을 챙⁠기⁠세⁠요."
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "환⁠생 해⁠금: 환⁠생⁠을 여⁠세⁠요"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "그⁠곳⁠의 기⁠회⁠로 영⁠구 카⁠드⁠를 얻⁠을 수 있⁠습⁠니⁠다."
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "기⁠회⁠의 추⁠적⁠을 터⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "다⁠음 단⁠계⁠가 지⁠도⁠에 표⁠시⁠됩⁠니⁠다. 준⁠비 완⁠료⁠가 되⁠면 환⁠생⁠으⁠로 세⁠계⁠가 다⁠시 시⁠작⁠되⁠고 카⁠드⁠는 유⁠지⁠됩⁠니⁠다."
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "기⁠회⁠를 완⁠료⁠하⁠세⁠요"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "플⁠레⁠이⁠하⁠다 보⁠면 새 기⁠회⁠가 나⁠타⁠납⁠니⁠다. 준⁠비 완⁠료⁠가 되⁠면 환⁠생⁠으⁠로 세⁠계⁠가 다⁠시 시⁠작⁠되⁠고 카⁠드⁠는 유⁠지⁠됩⁠니⁠다."
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "미⁠션 해⁠금"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "목⁠표⁠와 일⁠일 미⁠션⁠으⁠로 코⁠인⁠과 보⁠석⁠을 받⁠습⁠니⁠다. 미⁠션⁠에⁠서 수⁠령⁠하⁠세⁠요."
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "적 강⁠화 해⁠금"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "지⁠도 위⁠의 강⁠화(또⁠는 적)를 터⁠치⁠해 전⁠리⁠품, 코⁠인, 경⁠험⁠치⁠를 올⁠리⁠세⁠요."
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "월⁠드 지⁠도 해⁠금"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "미⁠니⁠맵⁠과 월⁠드⁠에⁠서 가 본 곳⁠을 확⁠인⁠할 수 있⁠습⁠니⁠다. 캠⁠프⁠를 해⁠금⁠하⁠면 그⁠곳⁠에⁠서 부⁠활⁠하⁠고 쉴 수 있⁠습⁠니⁠다."
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "플⁠레⁠이⁠어 강⁠화 해⁠금"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "강⁠화⁠에⁠서 장⁠비 슬⁠롯, 소⁠모⁠품, 영⁠구 보⁠석 강⁠화⁠를 구⁠매⁠하⁠세⁠요."
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "메⁠인 목⁠표: 눈⁠사⁠람 처⁠치"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "처⁠치⁠하⁠면 겨⁠울 II⁠가 열⁠리⁠고, 발⁠견⁠하⁠면 환⁠생⁠이 열⁠립⁠니⁠다. 먼⁠저 장⁠비⁠를 합⁠성⁠하⁠고 레⁠벨⁠을 올⁠리⁠고 물⁠약⁠을 챙⁠기⁠세⁠요."
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "환⁠생 해⁠금"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "기⁠회⁠를 완⁠료⁠한 뒤 환⁠생⁠하⁠면 영⁠구 카⁠드⁠를 가⁠지⁠고 다⁠시 시⁠작⁠합⁠니⁠다."
+
+msgid "GUIDE_SKIP"
+msgstr "건⁠너⁠뛰⁠기"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "장⁠비 장⁠착⁠과 합⁠성"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "인⁠벤⁠토⁠리⁠의 장⁠비⁠를 터⁠치⁠하⁠고 장⁠착⁠하⁠면 능⁠력⁠치⁠가 전⁠부 반⁠영⁠되⁠고, 보⁠관 중⁠인 장⁠비⁠도 일⁠부⁠가 더⁠해⁠집⁠니⁠다. 같⁠은 아⁠이⁠템 2⁠개⁠를 합⁠성⁠하⁠면 영⁠구⁠히 더 강⁠한 1⁠개⁠가 됩⁠니⁠다."
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "강⁠화⁠와 미⁠션"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "적(또⁠는 지⁠도 위⁠의 강⁠화)을 터⁠치⁠해 전⁠리⁠품, 코⁠인, 경⁠험⁠치⁠를 올⁠리⁠세⁠요. 플⁠레⁠이⁠어 강⁠화⁠에⁠서⁠는 장⁠비 슬⁠롯, 소⁠모⁠품, 영⁠구 보⁠석 강⁠화⁠를 판⁠매⁠합⁠니⁠다. 미⁠션⁠을 수⁠령⁠하⁠면 코⁠인⁠과 보⁠석⁠을 받⁠습⁠니⁠다."
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "탐⁠험, 캠⁠프, 스⁠테⁠이⁠지"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "걸⁠으⁠면 안⁠개⁠가 걷⁠히⁠고, 미⁠니⁠맵⁠과 월⁠드⁠에⁠서 가 본 곳⁠을 확⁠인⁠할 수 있⁠습⁠니⁠다. 월⁠드⁠에⁠서 캠⁠프⁠를 해⁠금⁠하⁠면 그⁠곳⁠에⁠서 부⁠활⁠하⁠고 쉴 수 있⁠습⁠니⁠다. 지⁠도⁠의 보⁠스⁠를 처⁠치⁠하⁠면 다⁠음 스⁠테⁠이⁠지⁠가 열⁠립⁠니⁠다."
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "환⁠생⁠과 지⁠도 숙⁠련⁠도"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "겨⁠울 I⁠의 눈⁠사⁠람⁠을 찾⁠으⁠면 환⁠생 초⁠기⁠화⁠가 해⁠금⁠됩⁠니⁠다: 기⁠회⁠를 완⁠료⁠한 뒤 환⁠생⁠하⁠면 영⁠구 카⁠드⁠를 가⁠지⁠고 다⁠시 시⁠작⁠합⁠니⁠다. 지⁠도 숙⁠련⁠도⁠는 각 지⁠도⁠의 장⁠기 목⁠표⁠를 기⁠록⁠합⁠니⁠다."
+
+msgid "EXIT_TITLE"
+msgstr "LootFarmer⁠를 종⁠료⁠할⁠까⁠요?"
+
+msgid "EXIT_CONFIRM"
+msgstr "진⁠행 상⁠황⁠은 저⁠장⁠되⁠었⁠습⁠니⁠다. 언⁠제⁠든⁠지 다⁠시 돌⁠아⁠올 수 있⁠습⁠니⁠다."
+
+msgid "EXIT_ACTION"
+msgstr "종⁠료"
+
+msgid "SECTION_TUTORIAL"
+msgstr "튜⁠토⁠리⁠얼 및 도⁠움⁠말"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "모⁠든 메⁠뉴 지⁠금 표⁠시"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "모⁠든 메⁠뉴⁠를 지⁠금 표⁠시⁠할⁠까⁠요? 새 메⁠뉴⁠는 보⁠통 게⁠임⁠을 익⁠혀 가⁠며 나⁠타⁠납⁠니⁠다. 환⁠생⁠은 여⁠전⁠히 눈⁠사⁠람⁠을 발⁠견⁠해⁠야 하⁠며, 단⁠계⁠별 안⁠내 모⁠드⁠에⁠서⁠는 튜⁠토⁠리⁠얼⁠도 완⁠료⁠해⁠야 합⁠니⁠다."
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "이⁠제 모⁠든 메⁠뉴⁠를 사⁠용⁠할 수 있⁠습⁠니⁠다"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "모⁠든 메⁠뉴⁠를 이⁠미 사⁠용⁠할 수 있⁠습⁠니⁠다"
+
+msgid "PANEL_MASTERY"
+msgstr "지⁠도 숙⁠련⁠도"
+
+msgid "MASTERY_OPEN"
+msgstr "지⁠도 숙⁠련⁠도 · 게⁠임 %d%%"
+
+msgid "MASTERY_INTRO"
+msgstr "100% 완⁠료⁠를 위⁠한 선⁠택 목⁠표⁠입⁠니⁠다. 진⁠행⁠도⁠는 영⁠구⁠적⁠이⁠며 환⁠생 후⁠에⁠도 유⁠지⁠됩⁠니⁠다."
+
+msgid "MASTERY_GAME"
+msgstr "게⁠임 달⁠성⁠도 %d%%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "8⁠개 지⁠도 전⁠체: ‘%s’ 칭⁠호 · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ 획⁠득: ‘%s’ 칭⁠호 · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "보⁠상: %s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ 보⁠상 획⁠득: %s"
+
+msgid "MASTERY_DETAILS"
+msgstr "상⁠세 정⁠보"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "이 지⁠도⁠에 도⁠달⁠하⁠면 시⁠작⁠됩⁠니⁠다"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "숙⁠련⁠도 · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ 전⁠체 지⁠도"
+
+msgid "MASTERY_EXPLORE"
+msgstr "탐⁠험"
+
+msgid "MASTERY_HUNT"
+msgstr "사⁠냥"
+
+msgid "MASTERY_RESEARCH"
+msgstr "연⁠구"
+
+msgid "MASTERY_COLLECT"
+msgstr "수⁠집"
+
+msgid "MASTERY_FORGE"
+msgstr "단⁠련"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "지⁠도 전⁠체⁠를 탐⁠험⁠하⁠고 모⁠든 캠⁠프⁠를 해⁠금⁠하⁠세⁠요."
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "적 종⁠류⁠마⁠다 %s⁠마⁠리, 보⁠스⁠마⁠다 %s⁠마⁠리 처⁠치."
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "이⁠곳⁠의 모⁠든 적⁠의 능⁠력⁠치⁠와 드⁠롭⁠을 공⁠개⁠하⁠세⁠요."
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "이⁠곳⁠에⁠서 드⁠롭⁠되⁠는 모⁠든 무⁠기, 의⁠상, 스⁠킬⁠을 획⁠득⁠하⁠세⁠요."
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "이⁠곳⁠의 의⁠상⁠을 ^%s⁠까⁠지 (보⁠스 의⁠상⁠은 ^%s), 이⁠곳⁠의 무⁠기 1⁠개 진⁠화."
+
+msgid "MASTERY_MORE"
+msgstr "외 %d⁠개"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "지⁠도 탐⁠험 %d%% / 100%%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "캠⁠프 %d 아⁠직 해⁠금 안 됨"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · 능⁠력⁠치 공⁠개"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · 드⁠롭 공⁠개"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "다⁠음 중 하⁠나 진⁠화: %s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "미⁠발⁠견 적"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "미⁠발⁠견 아⁠이⁠템"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "최⁠대 체⁠력 +%s%%"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "피⁠해 +%s%%"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "코⁠인 +%s%%"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "경⁠험⁠치 +%s%%"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "드⁠롭 확⁠률 +%s⁠포⁠인⁠트"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "보⁠석 확⁠률 +%s⁠포⁠인⁠트"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "숙⁠련⁠도 · %s · %s 완⁠료"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "환⁠생 해⁠금"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "기⁠회 %d⁠개 발⁠견 · 터⁠치⁠하⁠여 열⁠기"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "기⁠회⁠를 완⁠료⁠한 뒤 환⁠생⁠해 영⁠구 카⁠드⁠를 얻⁠으⁠세⁠요"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "지⁠도 숙⁠련 완⁠료 · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "100% 완⁠료"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "마⁠스⁠터 파⁠머"
+
+msgid "STATS_COMPLETION"
+msgstr "게⁠임 달⁠성⁠도"
+
+msgid "STATS_TITLE"
+msgstr "칭⁠호"
+
+msgid "STATS_MASTERY"
+msgstr "지⁠도 숙⁠련⁠도"
+
+msgid "MAIN_HINT_0"
+msgstr "적⁠을 처⁠치⁠하⁠세⁠요"
+
+msgid "MAIN_HINT_1"
+msgstr "인⁠벤⁠토⁠리⁠의 무⁠기⁠나 의⁠상⁠을 터⁠치⁠한 뒤 장⁠착"
+
+msgid "MAIN_HINT_2"
+msgstr "2⁠개 가⁠진 아⁠이⁠템⁠을 열⁠고 합⁠성"
+
+msgid "MAIN_HINT_3"
+msgstr "캠⁠프⁠까⁠지 걸⁠어⁠가 캠⁠프 보⁠기⁠를 터⁠치⁠한 뒤 해⁠금"
+
+msgid "MAIN_HINT_4"
+msgstr "겨⁠울 I 보⁠스⁠인 눈⁠사⁠람⁠을 처⁠치⁠하⁠세⁠요"
+
+msgid "MAIN_HINT_5"
+msgstr "치⁠유 스⁠킬⁠을 장⁠착⁠하⁠세⁠요 (겨⁠울 II: 우⁠주 헬⁠멧 정⁠예⁠와 시⁠안 로⁠봇⁠이 드⁠롭)"
+
+msgid "MAIN_HINT_6"
+msgstr "월⁠드⁠에⁠서 지⁠도 상⁠세⁠도⁠를 1⁠단⁠계 구⁠매⁠하⁠세⁠요"
+
+msgid "MAIN_HINT_7"
+msgstr "서⁠리 폭⁠발 스⁠킬⁠을 찾⁠으⁠세⁠요 (여⁠름 I: 밀⁠짚⁠모⁠자 정⁠예⁠가 드⁠롭)"
+
+msgid "MAIN_HINT_8"
+msgstr "겨⁠울 II 보⁠스⁠인 시⁠안 로⁠봇⁠을 처⁠치⁠하⁠고 여⁠름 I⁠로 가⁠세⁠요"
+
+msgid "MAIN_HINT_9"
+msgstr "여⁠분⁠이 101⁠개⁠인 ^100 무⁠기⁠를 진⁠화⁠하⁠세⁠요 (아⁠이⁠템 정⁠보⁠에⁠서 진⁠화)"
+
+msgid "MAIN_HINT_10"
+msgstr "서⁠로 다⁠른 스⁠킬⁠을 보⁠유⁠하⁠세⁠요"
+
+msgid "MAIN_HINT_11"
+msgstr "여⁠름 II 보⁠스 2⁠마⁠리⁠를 처⁠치⁠하⁠고 가⁠을 I⁠로 가⁠세⁠요"
+
+msgid "MAIN_HINT_12"
+msgstr "서⁠로 다⁠른 스⁠킬⁠을 보⁠유⁠하⁠세⁠요"
+
+msgid "MAIN_HINT_13"
+msgstr "가⁠을 II 보⁠스 2⁠마⁠리⁠를 처⁠치⁠하⁠고 봄 I⁠로 가⁠세⁠요"
+
+msgid "MAIN_HINT_14"
+msgstr "환⁠생⁠을 완⁠료⁠하⁠세⁠요"
+
+msgid "MAIN_HINT_15"
+msgstr "봄 II⁠의 모⁠든 적 종⁠류⁠와 보⁠스⁠를 처⁠치⁠하⁠세⁠요"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "준⁠비 완⁠료! 미⁠션⁠에⁠서 수⁠령⁠하⁠세⁠요"
+
+msgid "MISSION_DO_KILL"
+msgstr "%s (%s) 처⁠치"
+
+msgid "MISSION_DO_BOSS"
+msgstr "%s (%s) 처⁠치"
+
+msgid "MISSION_DO_GEAR"
+msgstr "무⁠기⁠나 의⁠상 드⁠롭 줍⁠기"
+
+msgid "MISSION_DO_MERGE"
+msgstr "아⁠이⁠템 합⁠성"
+
+msgid "MISSION_DO_COINS"
+msgstr "적⁠에⁠게⁠서 코⁠인 획⁠득"
+
+msgid "MISSION_DO_CAST"
+msgstr "장⁠착⁠한 스⁠킬 시⁠전"
+
+msgid "NAME_ON_MAP"
+msgstr "%s (%s)"
+
+msgid "FOLLOW_NEXT"
+msgstr "다⁠음: %s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "%s 처⁠치"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "아⁠무 적⁠이⁠나 처⁠치"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "무⁠기⁠나 의⁠상 드⁠롭 줍⁠기"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "아⁠이⁠템 합⁠성"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "아⁠무 보⁠스⁠나 처⁠치"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "스⁠킬 사⁠용"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "일⁠반 미⁠션 수⁠령"
+
+msgid "FOLLOW_TROPHY"
+msgstr "%s 처⁠치⁠로 트⁠로⁠피 획⁠득 · 트⁠로⁠피 %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "무⁠기, 의⁠상, 스⁠킬 중 하⁠나⁠를 ^100⁠까⁠지 합⁠성: 최⁠고 ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "%d⁠등⁠급 이⁠상 아⁠이⁠템⁠을 ^100⁠까⁠지 합⁠성: 최⁠고 ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "^50⁠까⁠지 합⁠성: 무⁠기 %d/%d · 의⁠상 %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "2⁠등⁠급 이⁠상 장⁠비⁠를 ^50⁠까⁠지 합⁠성: 무⁠기 %d/%d · 의⁠상 %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "이⁠번 회⁠차⁠에 적⁠에⁠게⁠서 획⁠득: 코⁠인 %s/%s · 보⁠석 %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "충⁠분⁠합⁠니⁠다! 환⁠생 메⁠뉴⁠에⁠서 제⁠출⁠하⁠세⁠요"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "총 자⁠리 비⁠움: %.1f/72⁠시⁠간"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "최⁠장 연⁠속 부⁠재: %.1f/24⁠시⁠간"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "부⁠재 중 획⁠득⁠한 코⁠인: %s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "%s 탐⁠험: %d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "%s 처⁠치"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "%s⁠의 모⁠든 캠⁠프 해⁠금: %d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "다⁠음: %s (%d⁠개 남⁠음)"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!경⁠고 보⁠스 발⁠견!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · %s 보⁠스"
+
+msgid "MASTERY_CHIP"
+msgstr "숙⁠련⁠도 %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "이 지⁠도⁠의 지⁠도 숙⁠련⁠도: 퍼⁠센⁠트⁠와 완⁠료⁠한 분⁠류. 터⁠치⁠하⁠면 자⁠세⁠히 볼 수 있⁠습⁠니⁠다."
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "보⁠스⁠를 이⁠길 수 있⁠을 때⁠까⁠지 파⁠밍⁠하⁠세⁠요."
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "눈⁠사⁠람⁠이 겨⁠울 II⁠로 가⁠는 길⁠을 지⁠키⁠고 있⁠습⁠니⁠다."
+
+msgid "VIEW_CAMP"
+msgstr "캠⁠프 보⁠기"
+
+msgid "DROP_ALL"
+msgstr "전⁠부 버⁠리⁠기"
+
+msgid "DROP_ALL_TITLE"
+msgstr "묶⁠음 전⁠체⁠를 버⁠릴⁠까⁠요?"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\n모⁠든 개⁠수⁠가 인⁠벤⁠토⁠리⁠에⁠서 빠⁠지⁠고 슬⁠롯⁠이 즉⁠시 비⁠워⁠집⁠니⁠다. 묶⁠음⁠은 5⁠분 동⁠안 바⁠닥⁠에 남⁠아 있⁠으⁠며, 터⁠치⁠하⁠면 다⁠시 주⁠울 수 있⁠습⁠니⁠다(자⁠동 수⁠집⁠으⁠로⁠는 다⁠시 줍⁠지 않⁠습⁠니⁠다). 다⁠시 주⁠워⁠도 미⁠션, 환⁠생, 숙⁠련⁠도 진⁠행⁠에 반⁠영⁠되⁠지 않⁠습⁠니⁠다."
+
+msgid "DROP_ALL_MASTERY"
+msgstr "숙⁠련⁠도 ^%d (유⁠지)"
+
+msgid "DROPPED_NOTICE"
+msgstr "%s × %s 버⁠림"
+
+msgid "DROP_EQUIPPED"
+msgstr "먼⁠저 해⁠제⁠하⁠세⁠요"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "지⁠금 체⁠력 %s 회⁠복 (%s HP, 최⁠대 체⁠력⁠의 %s%%까⁠지), 체⁠력 %s%% 미⁠만⁠일 때"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "공⁠격 피⁠해 +%s%%, 5⁠초⁠간 (현⁠재 타⁠격⁠당 +%s) · 전⁠투 중⁠에⁠만"
+
+msgid "SKILL_DESC_FROST"
+msgstr "공⁠격 피⁠해 %s× (현⁠재 %s) · 반⁠경 %s 안⁠의 모⁠든 적 · 3⁠초⁠간 25%% 감⁠속"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "공⁠격 피⁠해 %s× (현⁠재 %s) · 대⁠상⁠과 그 주⁠변 %s 안⁠의 모⁠든 적"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "공⁠격 피⁠해 %s× (현⁠재 %s) · 현⁠재 대⁠상"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "공⁠격 피⁠해 %s× (현⁠재 %s) · 현⁠재 대⁠상 · 근⁠거⁠리 강⁠력⁠한 일⁠격"
+
+msgid "SKILL_DESC_STATS"
+msgstr "대⁠상: %s · 범⁠위: %s · 쿨⁠타⁠임: %s⁠초"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "자⁠신"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "범⁠위 안⁠의 모⁠든 적"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "적 1⁠마⁠리"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "자⁠신"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "체⁠력 %s"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "피⁠해 %s%%"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "공⁠격 피⁠해 %s×"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "치⁠유⁠는 체⁠력⁠이 줄⁠어 있⁠으⁠면 전⁠투 밖⁠에⁠서⁠도 언⁠제⁠든 쓸 수 있⁠습⁠니⁠다."
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "환⁠생"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "기⁠회 %d⁠개⁠를 교⁠환⁠하⁠고 새 회⁠차 시⁠작"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "각 기⁠회⁠마⁠다 영⁠구 카⁠드⁠를 1⁠장⁠씩 고⁠릅⁠니⁠다:"
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "카⁠드 1⁠장"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "영⁠구 · 유⁠지"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "이⁠번 회⁠차 초⁠기⁠화"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "카⁠드⁠는 한 장⁠씩 고⁠르⁠며 즉⁠시 저⁠장⁠됩⁠니⁠다. 마⁠지⁠막 카⁠드⁠를 고⁠르⁠면 겨⁠울 I⁠에⁠서 회⁠차⁠가 다⁠시 시⁠작⁠됩⁠니⁠다."
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "환⁠생 시⁠작"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "환⁠생 카⁠드⁠와 세⁠트 (%d⁠장 보⁠유) 및 새 카⁠드"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "보⁠유 보⁠석: %s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "탐⁠험⁠한 지⁠도 지⁠역, 발⁠견⁠한 캠⁠프⁠와 보⁠스"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "모⁠든 보⁠석 강⁠화, 자⁠동⁠화, 인⁠벤⁠토⁠리 공⁠간"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "보⁠스 열⁠쇠, 적 업⁠적, 지⁠도 숙⁠련⁠도"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "설⁠정 및 튜⁠토⁠리⁠얼 진⁠행 상⁠황"
+
+msgid "RESET_LINE_COINS"
+msgstr "코⁠인: %s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "플⁠레⁠이⁠어 레⁠벨 %d (1⁠로 돌⁠아⁠감)"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "아⁠이⁠템, 합⁠성, 소⁠모⁠품 재⁠고"
+
+msgid "RESET_LINE_MAPS"
+msgstr "지⁠도 이⁠용 권⁠한 (겨⁠울 I⁠로 돌⁠아⁠감)과 보⁠유 캠⁠프"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "코⁠인 강⁠화⁠와 지⁠도 강⁠화"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "완⁠료⁠하⁠지 않⁠은 기⁠회⁠와 미⁠션"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "캠⁠프 보⁠기⁠를 터⁠치⁠하⁠세⁠요"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "이 캠⁠프 화⁠면⁠이 열⁠리⁠며, 그⁠곳⁠에⁠서 해⁠금⁠할 수 있⁠습⁠니⁠다."
+
+msgid "HELP"
+msgstr "도⁠움⁠말"
+
+msgid "PANEL_HELP"
+msgstr "도⁠움⁠말"
+
+msgid "HELP_INTRO"
+msgstr "LootFarmer 플⁠레⁠이 방⁠법⁠을 간⁠단⁠히 소⁠개⁠합⁠니⁠다. 읽⁠어⁠도 게⁠임⁠에⁠는 아⁠무 변⁠화⁠가 없⁠습⁠니⁠다."
+
+msgid "HELP_BACK"
+msgstr "설⁠정⁠으⁠로 돌⁠아⁠가⁠기"
+
+msgid "SECTION_LANGUAGE"
+msgstr "언⁠어"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "치⁠명⁠타 확⁠률"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "치⁠명⁠타 피⁠해"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "자⁠동 스⁠킬 슬⁠롯"
+
+msgid "SOURCE_UPGRADES"
+msgstr "강⁠화"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "자⁠동 스⁠킬: %d / %d 지⁠정⁠됨"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "먼⁠저 스⁠킬⁠을 장⁠착⁠하⁠고 사⁠용 가⁠능⁠한 자⁠동 슬⁠롯⁠을 구⁠매⁠하⁠세⁠요."
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "자⁠동 합⁠성: %s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "인⁠벤⁠토⁠리 슬⁠롯 크⁠기"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "최⁠대 %s HP (최⁠대 체⁠력⁠의 %s%%) 회⁠복. 체⁠력⁠이 줄⁠어 있⁠으⁠면 전⁠투 밖⁠에⁠서⁠도 언⁠제⁠든 사⁠용⁠할 수 있⁠습⁠니⁠다."
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "시⁠전⁠하⁠려⁠면 전⁠투 중⁠이⁠어⁠야 하⁠며 %s 유⁠닛 안⁠에 적⁠이 있⁠어⁠야 합⁠니⁠다."
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "단⁠일 대⁠상. 공⁠격 속⁠도 %s%% 감⁠소 (%s⁠초⁠간, 보⁠스⁠는 %s⁠초⁠간). 이⁠동 속⁠도⁠는 그⁠대⁠로⁠입⁠니⁠다."
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "보⁠스⁠는 지⁠속 효⁠과 시⁠간⁠을 절⁠반⁠만 받⁠습⁠니⁠다. 효⁠과 강⁠도⁠와 피⁠해⁠는 그⁠대⁠로⁠입⁠니⁠다."
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "다⁠음 숙⁠련⁠도: %d / %d⁠회 사⁠용 · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "자⁠동 사⁠용: 체⁠력⁠이 줄⁠어 있⁠고 쿨⁠타⁠임⁠이 끝⁠났⁠을 때⁠마⁠다, 전⁠투 밖⁠에⁠서⁠도."
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "초⁠록⁠색 캠⁠프⁠를 터⁠치⁠해 이⁠동⁠하⁠세⁠요. 어⁠두⁠운 캠⁠프⁠는 잠⁠겨 있⁠습⁠니⁠다. 전⁠투 중⁠에⁠는 이⁠동⁠할 수 없⁠습⁠니⁠다."
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d⁠초"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "환⁠생⁠을 사⁠용⁠하⁠기 전⁠에 겨⁠울 II⁠에⁠서 단⁠계⁠별 안⁠내⁠를 완⁠료⁠하⁠세⁠요."
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "플⁠레⁠이⁠어 레⁠벨 %d, 획⁠득⁠한 경⁠험⁠치⁠와 레⁠벨 보⁠너⁠스"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "소⁠모⁠품 숙⁠련⁠도⁠와 다⁠음 레⁠벨⁠까⁠지⁠의 진⁠행⁠도"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "캠⁠프 선⁠택"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "이 패⁠널⁠을 닫⁠고 계⁠속⁠하⁠세⁠요."
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "닫⁠기 버⁠튼⁠을 터⁠치⁠하⁠세⁠요. 진⁠행 상⁠황⁠은 저⁠장⁠되⁠었⁠습⁠니⁠다."
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "플⁠레⁠이⁠어 강⁠화⁠를 구⁠매⁠하⁠세⁠요."
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "다⁠음 전⁠투⁠에 도⁠움⁠이 될 전⁠체 강⁠화⁠를 고⁠르⁠세⁠요."
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "장⁠비 인⁠벤⁠토⁠리⁠를 확⁠장⁠하⁠세⁠요."
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "보⁠석⁠으⁠로 슬⁠롯⁠을 하⁠나 더 구⁠매⁠하⁠세⁠요. 부⁠족⁠한 만⁠큼⁠은 튜⁠토⁠리⁠얼⁠에⁠서 한 번 지⁠급⁠됩⁠니⁠다."
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "화⁠살⁠표⁠를 따⁠라 캠⁠프⁠로 가⁠세⁠요."
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "다⁠가⁠가 발⁠견⁠한 뒤 캠⁠프 보⁠기⁠를 터⁠치⁠하⁠고 해⁠금⁠을 구⁠매⁠하⁠세⁠요."
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "첫 번⁠째 보⁠스⁠를 찾⁠으⁠세⁠요."
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "화⁠살⁠표⁠를 따⁠라 눈⁠사⁠람 쪽⁠으⁠로 가⁠세⁠요. 발⁠견⁠만 하⁠면 되⁠고 처⁠치⁠할 필⁠요⁠는 없⁠습⁠니⁠다."
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "보⁠스⁠와 싸⁠우⁠기 전⁠에 준⁠비⁠하⁠세⁠요."
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "보⁠스⁠는 너⁠무 강⁠할 수 있⁠습⁠니⁠다. 레⁠벨⁠을 올⁠려 전⁠체 능⁠력⁠치⁠를 높⁠이⁠고, 장⁠비⁠를 파⁠밍⁠하⁠고, 여⁠분⁠을 합⁠성⁠하⁠고, 강⁠화⁠를 구⁠매⁠하⁠세⁠요."
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "적⁠을 조⁠금 더 파⁠밍⁠하⁠세⁠요."
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "다⁠음⁠으⁠로 넘⁠어⁠가⁠기 전⁠에 힘⁠을 기⁠르⁠고 코⁠인⁠을 모⁠으⁠세⁠요."
+
+msgid "GUIDE_POTION_BUY"
+msgstr "체⁠력 물⁠약⁠을 구⁠매⁠하⁠세⁠요."
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "플⁠레⁠이⁠어 강⁠화⁠를 열⁠고 소⁠모⁠품⁠으⁠로 가⁠세⁠요. 이⁠미 가⁠진 물⁠약⁠도 포⁠함⁠됩⁠니⁠다."
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "체⁠력 물⁠약⁠을 넣⁠을 공⁠간⁠을 만⁠드⁠세⁠요."
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "소⁠모⁠품 슬⁠롯⁠을 구⁠매⁠하⁠거⁠나 가⁠진 소⁠모⁠품⁠을 사⁠용⁠해 슬⁠롯⁠을 비⁠우⁠세⁠요."
+
+msgid "GUIDE_POTION_USE"
+msgstr "체⁠력 물⁠약⁠을 사⁠용⁠하⁠세⁠요."
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "체⁠력⁠이 줄⁠었⁠을 때 인⁠벤⁠토⁠리 슬⁠롯⁠을 터⁠치⁠하⁠세⁠요. 소⁠모⁠품⁠을 사⁠용⁠하⁠면 숙⁠련⁠도⁠가 오⁠릅⁠니⁠다."
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "회⁠복⁠이 필⁠요⁠할 때 물⁠약⁠을 사⁠용⁠하⁠세⁠요."
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "먼⁠저 근⁠처⁠의 적⁠과 싸⁠우⁠세⁠요. 체⁠력⁠이 가⁠득 차 있⁠으⁠면 물⁠약⁠이 낭⁠비⁠되⁠지 않⁠습⁠니⁠다."
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "환⁠생⁠은 영⁠구⁠적⁠인 혜⁠택⁠을 줍⁠니⁠다."
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "기⁠회⁠를 완⁠료⁠해 카⁠드⁠를 얻⁠으⁠세⁠요. 단⁠계⁠별 안⁠내 모⁠드⁠에⁠서⁠는 이 튜⁠토⁠리⁠얼 후⁠에 초⁠기⁠화⁠가 해⁠금⁠됩⁠니⁠다. 환⁠생⁠하⁠지 않⁠고 계⁠속⁠해⁠도 됩⁠니⁠다."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "이⁠미 환⁠생 보⁠상 조⁠건⁠을 충⁠족⁠했⁠습⁠니⁠다."
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "기⁠회⁠가 준⁠비⁠되⁠었⁠습⁠니⁠다. 초⁠기⁠화 여⁠부⁠를 정⁠하⁠기 전⁠에 겨⁠울 II⁠에⁠서 단⁠계⁠별 안⁠내⁠를 마⁠치⁠세⁠요."
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "다⁠음 지⁠도⁠가 열⁠렸⁠습⁠니⁠다."
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "월⁠드⁠를 열⁠어 해⁠금⁠된 스⁠테⁠이⁠지⁠와 캠⁠프⁠를 확⁠인⁠하⁠세⁠요."
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "해⁠금⁠한 캠⁠프 사⁠이⁠를 이⁠동⁠하⁠세⁠요."
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "해⁠금⁠한 캠⁠프⁠가 하⁠나⁠면 월⁠드⁠에⁠서 바⁠로 이⁠동⁠하⁠고, 여⁠러 개⁠면 지⁠도⁠가 표⁠시⁠됩⁠니⁠다. 전⁠투 중⁠에⁠는 순⁠간⁠이⁠동⁠할 수 없⁠습⁠니⁠다."
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "마⁠일⁠스⁠톤⁠은 선⁠택 목⁠표⁠입⁠니⁠다."
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "추⁠가 보⁠상⁠을 원⁠하⁠면 지⁠도 숙⁠련⁠도⁠와 업⁠적⁠을 살⁠펴⁠보⁠세⁠요. 월⁠드⁠를 통⁠해 겨⁠울 II⁠로 계⁠속 나⁠아⁠가⁠세⁠요."
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "겨⁠울 II⁠로 이⁠동⁠하⁠세⁠요."
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "월⁠드⁠를 열⁠고 겨⁠울 II⁠를 선⁠택⁠해 모⁠험⁠을 계⁠속⁠하⁠세⁠요."
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "앞⁠으⁠로⁠의 여⁠정"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "최⁠종 목⁠표⁠는 스⁠테⁠이⁠지 8⁠의 최⁠종 보⁠스⁠를 쓰⁠러⁠뜨⁠리⁠고 게⁠임⁠을 정⁠복⁠하⁠는 것⁠입⁠니⁠다.\n\n더 큰 도⁠전⁠을 원⁠하⁠시⁠나⁠요? 지⁠도 숙⁠련⁠도⁠의 모⁠든 마⁠일⁠스⁠톤⁠을 달⁠성⁠해 100% 완⁠료⁠에 도⁠전⁠하⁠세⁠요.\n\n자⁠신⁠만⁠의 속⁠도⁠로 여⁠정⁠을 즐⁠기⁠세⁠요. 행⁠운⁠을 빕⁠니⁠다!"
+
+msgid "SLOT_SMALL"
+msgstr "작⁠게"
+
+msgid "SLOT_MEDIUM"
+msgstr "보⁠통"
+
+msgid "SLOT_LARGE"
+msgstr "크⁠게"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "일⁠반"
+
+msgid "REVIEW_TITLE"
+msgstr "LootFarmer 재⁠미⁠있⁠게 즐⁠기⁠고 계⁠신⁠가⁠요?"
+
+msgid "REVIEW_LEAD"
+msgstr "모⁠험⁠은 이⁠제 막 시⁠작⁠되⁠었⁠어⁠요!"
+
+msgid "REVIEW_BODY"
+msgstr "멋⁠진 전⁠리⁠품⁠을 찾⁠으⁠셨⁠나⁠요? 여⁠러⁠분⁠의 생⁠각⁠을 꼭 듣⁠고 싶⁠어⁠요. 솔⁠직⁠한 리⁠뷰⁠는 LootFarmer⁠를 개⁠선⁠하⁠는 데 도⁠움⁠이 되⁠고, 다⁠른 플⁠레⁠이⁠어⁠가 이 게⁠임⁠을 발⁠견⁠하⁠는 데⁠도 도⁠움⁠이 됩⁠니⁠다."
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Google Play⁠에⁠서 리⁠뷰⁠하⁠기"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "itch.io⁠에⁠서 리⁠뷰⁠하⁠기"
+
+msgid "REVIEW_LATER"
+msgstr "나⁠중⁠에"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "스⁠토⁠어 페⁠이⁠지⁠를 열 수 없⁠습⁠니⁠다. 연⁠결⁠을 확⁠인⁠하⁠고 다⁠시 시⁠도⁠하⁠세⁠요."
+
+msgid "SECTION_FEEDBACK"
+msgstr "피⁠드⁠백"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "적⁠을 대⁠상⁠으⁠로 지⁠정⁠하⁠세⁠요"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "영⁠웅⁠에⁠서 적⁠까⁠지 드⁠래⁠그⁠한 뒤 손⁠을 떼⁠면 그 적⁠을 대⁠상⁠으⁠로 지⁠정⁠합⁠니⁠다. 선⁠택⁠한 적⁠에⁠게 공⁠격⁠을 집⁠중⁠합⁠니⁠다."
+
+msgid "GUIDE_TARGET"
+msgstr "적⁠을 대⁠상⁠으⁠로 지⁠정⁠하⁠세⁠요"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "영⁠웅⁠에⁠서 적⁠까⁠지 드⁠래⁠그⁠한 뒤 손⁠을 떼⁠면 그 적⁠을 대⁠상⁠으⁠로 지⁠정⁠합⁠니⁠다. 선⁠택⁠한 적⁠에⁠게 공⁠격⁠을 집⁠중⁠합⁠니⁠다."
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "대⁠상⁠으⁠로 지⁠정⁠할 적⁠을 찾⁠으⁠세⁠요"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "적⁠이 보⁠일 때⁠까⁠지 걸⁠은 뒤 영⁠웅⁠에⁠서 적⁠까⁠지 드⁠래⁠그⁠하⁠고 손⁠을 떼⁠세⁠요."
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "%s 사⁠냥"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d⁠포⁠인⁠트"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s⁠초"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d⁠시⁠간 %02d⁠분"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d⁠분 %02d⁠초"
+
+msgid "DURATION_SECONDS"
+msgstr "%d⁠초"
+
+msgid "JOYSTICK_POSITION"
+msgstr "조⁠이⁠스⁠틱 위⁠치"
+
+msgid "JOYSTICK_LEFT"
+msgstr "왼⁠쪽"
+
+msgid "JOYSTICK_CENTER"
+msgstr "가⁠운⁠데"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "오⁠른⁠쪽"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "링⁠크⁠를 열 수 없⁠습⁠니⁠다. 연⁠결⁠을 확⁠인⁠하⁠고 다⁠시 시⁠도⁠하⁠세⁠요."
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "어⁠떤 모⁠드⁠든 게⁠임⁠은 같⁠습⁠니⁠다. 도⁠움⁠의 양⁠만 달⁠라⁠집⁠니⁠다."
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "화⁠살⁠표⁠와 함⁠께⁠하⁠는 단⁠계⁠별 강⁠의. 메⁠뉴⁠는 배⁠우⁠는 대⁠로 열⁠립⁠니⁠다."
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "조⁠작⁠과 목⁠표⁠에 관⁠한 짧⁠은 카⁠드 몇 장. 모⁠든 메⁠뉴⁠가 열⁠려 있⁠습⁠니⁠다."
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "강⁠의⁠나 팁⁠이 없⁠습⁠니⁠다. 처⁠음⁠부⁠터 모⁠든 메⁠뉴⁠가 열⁠려 있⁠습⁠니⁠다."

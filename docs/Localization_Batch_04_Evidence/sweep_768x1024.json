@@ -1,0 +1,14 @@
+{
+  "findings": [],
+  "langs": [
+    "en",
+    "ja_JP",
+    "ko_KR",
+    "zh_CN",
+    "zh_TW"
+  ],
+  "screens": 309,
+  "sizes": [
+    "768x1024"
+  ]
+}

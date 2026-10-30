@@ -43,7 +43,10 @@ func source_checks() -> void:
         check(not shipped.keys().any(func(p):return p.begins_with(retired)),"excluded group absent: %s" % retired)
     var variants: Array=shipped.keys().filter(func(p):return p.begins_with("res://assets/PixelPlains/Items/") and p.get_base_dir().get_file().begins_with("All") and not p.contains("All v3 (Separated Files, Black Outline)"))
     check(variants.is_empty(),"only the Black Outline item variant ships")
-    for path in ["res://scenes/game/main.tscn","res://localization/en.po","res://data/game/catalog.json",str(ProjectSettings.get_setting("application/config/icon")),"res://resources/game/theme.tres","res://assets/Fonts/DejaVuSans.ttf","res://resources/game/fog_veil.gdshader","res://assets/sounds/background_music.wav"]:
+    var icon:=str(ProjectSettings.get_setting("application/config/icon"))
+    # The editor may store the icon as a uid:// reference to the same file (Change 43).
+    if icon.begins_with("uid://"):icon=ResourceUID.get_id_path(ResourceUID.text_to_id(icon))
+    for path in ["res://scenes/game/main.tscn","res://localization/en.po","res://data/game/catalog.json",icon,"res://resources/game/theme.tres","res://assets/Fonts/DejaVuSans.ttf","res://resources/game/fog_veil.gdshader","res://assets/sounds/background_music.wav"]:
         check(ships(path),"core file ships: "+path)
 
 func stage_checks() -> void:

@@ -1,0 +1,5862 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: zh_CN\n"
+"Language-Team: Chinese (Simplified, China)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"X-Localization-Batch: 04 (Change 43); English source SHA-256 d6102fccdbae9721e20d5baa922c9a50d88ec85324c09b9b179832d3d47fe7e3\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Android 启动检查"
+
+msgid "BOOT_DETAIL"
+msgstr "检查点 0 • 尚未实装游戏玩法。"
+
+msgid "BOOT_VERSION"
+msgstr "版本 %s"
+
+msgid "BOOT_TAPS"
+msgstr "已保存的触摸次数：%d"
+
+msgid "BOOT_TAP"
+msgstr "测试触摸并保存"
+
+msgid "BOOT_SAVED"
+msgstr "保存完成"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "无法保存。请查看验证日志。"
+
+msgid "BOOT_PAUSE"
+msgstr "暂停"
+
+msgid "BOOT_RESUME"
+msgstr "继续"
+
+msgid "BOOT_RESET"
+msgstr "彻底重置"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "重置游戏进度？"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "这会清除此存档的全部进度，设置将保留。"
+
+msgid "UI_CONFIRM"
+msgstr "重置"
+
+msgid "UI_CANCEL"
+msgstr "取消"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "语言"
+
+msgid "LANG_AUTOMATIC"
+msgstr "自动"
+
+msgid "LANG_DISABLED"
+msgstr "翻译验证后可用"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "已启用英语。其他语言将在验证后解锁。"
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "已保留无法读取或版本更新的存档。请恢复兼容的备份，或主动重置此存档。"
+
+msgid "LANG_EN_US"
+msgstr "英语"
+
+msgid "LANG_ES_419"
+msgstr "西班牙语（拉丁美洲）"
+
+msgid "LANG_ES_ES"
+msgstr "西班牙语（西班牙）"
+
+msgid "LANG_PT_BR"
+msgstr "葡萄牙语（巴西）"
+
+msgid "LANG_FR_FR"
+msgstr "法语"
+
+msgid "LANG_DE_DE"
+msgstr "德语"
+
+msgid "LANG_IT_IT"
+msgstr "意大利语"
+
+msgid "LANG_NL_NL"
+msgstr "荷兰语"
+
+msgid "LANG_PL_PL"
+msgstr "波兰语"
+
+msgid "LANG_RU_RU"
+msgstr "俄语"
+
+msgid "LANG_UK_UA"
+msgstr "乌克兰语"
+
+msgid "LANG_TR_TR"
+msgstr "土耳其语"
+
+msgid "LANG_ID_ID"
+msgstr "印度尼西亚语"
+
+msgid "LANG_VI_VN"
+msgstr "越南语"
+
+msgid "LANG_TH_TH"
+msgstr "泰语"
+
+msgid "LANG_HI_IN"
+msgstr "印地语"
+
+msgid "LANG_JA_JP"
+msgstr "日语"
+
+msgid "LANG_KO_KR"
+msgstr "韩语"
+
+msgid "LANG_ZH_CN"
+msgstr "简体中文"
+
+msgid "LANG_ZH_TW"
+msgstr "繁体中文"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "金币 %s     宝石 %s"
+
+msgid "PAUSE"
+msgstr "暂停"
+
+msgid "RESUME"
+msgstr "继续"
+
+msgid "PLAYER_STATUS"
+msgstr "HP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "%.1f秒后返回营地"
+
+msgid "BOOST_ACTIVE"
+msgstr "金币加成 %d秒"
+
+msgid "GROUP_0"
+msgstr "嫩芽草地"
+
+msgid "GROUP_1"
+msgstr "机器人路口"
+
+msgid "GROUP_2"
+msgstr "恐龙树林"
+
+msgid "GROUP_3"
+msgstr "死神空地"
+
+msgid "CLOSE"
+msgstr "关闭"
+
+msgid "CONFIRM"
+msgstr "确认"
+
+msgid "CANCEL"
+msgstr "取消"
+
+msgid "LEVEL"
+msgstr "等级"
+
+msgid "INVENTORY_HEADING"
+msgstr "装备"
+
+msgid "SUPPLY_HEADING"
+msgstr "补给品"
+
+msgid "GEAR_CAPACITY"
+msgstr "装备  %d / %d  ·  点击查看"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "补给品  %d / %d  ·  点击使用或设为自动"
+
+msgid "EMPTY_SLOT"
+msgstr "空"
+
+msgid "EQUIPPED"
+msgstr "已装备"
+
+msgid "AUTO"
+msgstr "自动"
+
+msgid "UPGRADES"
+msgstr "强化"
+
+msgid "WORLD"
+msgstr "世界"
+
+msgid "STATS"
+msgstr "属性"
+
+msgid "SETTINGS"
+msgstr "设置"
+
+msgid "PANEL_ITEM"
+msgstr "物品"
+
+msgid "PANEL_UPGRADES"
+msgstr "玩家强化"
+
+msgid "PANEL_TRAVEL"
+msgstr "营地与刷怪"
+
+msgid "PANEL_STATS"
+msgstr "我的配装"
+
+msgid "PANEL_SETTINGS"
+msgstr "设置"
+
+msgid "PANEL_HISTORY"
+msgstr "最近获得"
+
+msgid "PANEL_PRESTIGE"
+msgstr "新的开始"
+
+msgid "HELP_0"
+msgstr "用摇杆向北探索。松开后会自动攻击附近的敌人。"
+
+msgid "HELP_1"
+msgstr "嫩芽会单独作战。待在它们附近刷怪，点击掉落的装备即可拾取。"
+
+msgid "HELP_2"
+msgstr "点击地上的物品。金币和宝石会直接存入钱包。"
+
+msgid "HELP_3"
+msgstr "点击下方的新装备，然后装备它。你可以穿一件服装、拿一把武器。"
+
+msgid "HELP_4"
+msgstr "合成重复的物品可强化该类物品。即使库存归零，进度也会保留。"
+
+msgid "HELP_5"
+msgstr "打开敌人类型并购买自动拾取，刷怪时即可自动收集战利品。"
+
+msgid "HELP_6"
+msgstr "提升配装，向北探索并击败死神。世界从一开始就完全开放。"
+
+msgid "HELP_7"
+msgstr "永久加成会保留。打造更强的一轮，再次挑战死神。"
+
+msgid "HELP_VICTORY"
+msgstr "击败了死神！继续刷怪，或在“世界”中选择一张转生卡。"
+
+msgid "HELP_PAUSED"
+msgstr "已暂停 · 可以管理背包。继续游戏即可接着刷怪。"
+
+msgid "HISTORY_EMPTY"
+msgstr "最近获得的物品会显示在这里。\n点击查看最近十项。"
+
+msgid "HISTORY_CURRENCY"
+msgstr "宝石 +%s"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "出售了 %s 个%s"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "木剑"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "石剑"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "铁剑"
+
+msgid "ITEM_SPROUT"
+msgstr "嫩芽服装"
+
+msgid "ITEM_ROBOT"
+msgstr "机器人服装"
+
+msgid "ITEM_DINOSAUR"
+msgstr "恐龙服装"
+
+msgid "ITEM_POTION"
+msgstr "生命药水"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "金币药剂"
+
+msgid "ITEM_QUANTITY"
+msgstr "拥有：%s"
+
+msgid "NORMAL_STATS"
+msgstr "基础属性 · 合成可提升"
+
+msgid "EXTRA_STATS"
+msgstr "额外属性 · 此类物品共享"
+
+msgid "EQUIP"
+msgstr "装备"
+
+msgid "UNEQUIP"
+msgstr "卸下"
+
+msgid "REROLL"
+msgstr "重随两条额外属性 · %s 宝石"
+
+msgid "REROLL_CONFIRM"
+msgstr "花费 %s 宝石替换两条额外属性？即使更弱，新结果也会取代旧结果。"
+
+msgid "USE"
+msgstr "使用一个"
+
+msgid "MERGE_ONE"
+msgstr "合成 1 件重复品"
+
+msgid "MERGE_ALL"
+msgstr "合成 %d 件重复品"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "达到 ^100 时，消耗 100 件重复品换取 1 件下一阶物品。原物品及其合成等级保留。需要同类别的目标堆叠或空格子。"
+
+msgid "EVOLVE"
+msgstr "进化 → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "切换此格子的自动化"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "自动使用此格子：%s"
+
+msgid "ON"
+msgstr "开"
+
+msgid "OFF"
+msgstr "关"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "此格子为空。新类型的物品需要空格子，已有类型会叠放在一起。"
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "群组强化作用于所有成员。每个敌人单独判定掉落。金币和宝石立即到账。"
+
+msgid "GROUP_SELECT"
+msgstr "敌人群组：%s · 点击更换"
+
+msgid "AUTOMATION_HEADING"
+msgstr "背包与自动化 · 转生后保留"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "金币"
+
+msgid "GEMS"
+msgstr "宝石"
+
+msgid "TRAVEL_HELP"
+msgstr "点击地图上的营地选择复活点。通过营地面板解锁也会选中该营地。无法传送。"
+
+msgid "SPAWN_SELECT"
+msgstr "选择营地 %d"
+
+msgid "SPAWN_BUY"
+msgstr "解锁营地 %d · %s 金币"
+
+msgid "SELECTED"
+msgstr "已选择"
+
+msgid "FOCUS_HELP"
+msgstr "按敌人类型解锁刷怪，然后选择只刷服装、只刷武器或两者都刷。阵亡后返回该营地。手动移动会取消刷怪。"
+
+msgid "FOCUS_GROUP"
+msgstr "刷%s · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "选择一张转生卡"
+
+msgid "PRESTIGE_COUNT"
+msgstr "已转生次数：%d"
+
+msgid "NO_OFFLINE"
+msgstr "进度已保存。离线奖励计划在正式版中推出；此版本在关闭或后台运行时不会模拟进度。"
+
+msgid "SAVE_NOW"
+msgstr "立即保存"
+
+msgid "HARD_RESET"
+msgstr "彻底重置"
+
+msgid "RESET_CONFIRM"
+msgstr "清除所有进度、背包、自动化和转生卡？设置将保留。此操作无法撤销。"
+
+msgid "LANGUAGE_NOTE"
+msgstr "开发期间仅提供英语。其他 19 种语言将在翻译验证后解锁。"
+
+msgid "CREDITS"
+msgstr "角色与世界美术：Pixel Plains（SnowHex）。界面：Kenney Fantasy UI Borders（CC0）。"
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "选择一张永久 +5% 卡。加成会在各轮之间累积。你可以关闭此面板继续刷怪。"
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "使用这张永久卡开始新一轮？将重置货币、背包、物品合成与额外属性、敌人刷怪强化和营地。保留已揭示的敌人信息、自动化等级、背包容量和所有转生卡。"
+
+msgid "CARD_DAMAGE"
+msgstr "伤害 +5% · 永久"
+
+msgid "CARD_HP"
+msgstr "最大生命值 +5% · 永久"
+
+msgid "CARD_COINS"
+msgstr "金币数量 +5% · 永久"
+
+msgid "CARD_GEMS"
+msgstr "宝石概率 +5%（相对） · 永久"
+
+msgid "CARD_LOOT"
+msgstr "装备掉落率 +5%（相对） · 永久"
+
+msgid "CARD_MERGE"
+msgstr "合成基础属性提升 +5% · 永久"
+
+msgid "STAT_HP"
+msgstr "最大生命值"
+
+msgid "STAT_DAMAGE"
+msgstr "伤害"
+
+msgid "STAT_DEFENSE"
+msgstr "防御"
+
+msgid "STAT_CRIT"
+msgstr "暴击率"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "暴击倍率"
+
+msgid "STAT_LIFESTEAL"
+msgstr "吸血"
+
+msgid "STAT_REGEN"
+msgstr "每秒生命回复"
+
+msgid "STAT_SPEED"
+msgstr "攻速加成"
+
+msgid "STAT_HEAL"
+msgstr "治疗量"
+
+msgid "STAT_COIN_BONUS"
+msgstr "金币数量加成"
+
+msgid "NEED_DUPLICATES"
+msgstr "需要一件重复品才能合成。"
+
+msgid "MERGE_MAX"
+msgstr "此物品已达 ^100。"
+
+msgid "EVOLUTION_NEEDS"
+msgstr "进化需要 ^100 以及 101 件原物品。"
+
+msgid "INVENTORY_FULL"
+msgstr "没有空格子。请腾出空间或扩充此背包。"
+
+msgid "AUTOMATION_LOCKED"
+msgstr "请在“强化”中解锁此自动化。"
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "请在“强化”中再解锁一个自动使用格子。"
+
+msgid "CANNOT_USE"
+msgstr "没有可用的补给品，或角色已阵亡。"
+
+msgid "UPGRADE_MAX"
+msgstr "已满"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "金币不足。"
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "宝石不足。"
+
+msgid "SPAWN_BOUGHT"
+msgstr "营地已解锁。选中它即可作为复活点。"
+
+msgid "EVOLVED"
+msgstr "获得了下一阶物品。原物品的进度保留。"
+
+msgid "PLAYER_DIED"
+msgstr "正在返回所选营地。不会有任何损失。"
+
+msgid "BOSS_DEFEATED"
+msgstr "击败了死神！一张永久转生卡正等着你。"
+
+msgid "PRESTIGED"
+msgstr "新的一轮开始了。永久加成保留。"
+
+msgid "SAVED"
+msgstr "进度已保存。"
+
+msgid "SAVE_ERROR"
+msgstr "无法保存。进度仍在内存中，请重试。"
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "无法安全加载存档。在主动执行彻底重置前，保存功能已停用。"
+
+msgid "ACTION_PREVIEW"
+msgstr "操作 · 消耗与效果"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "装备格子 +1（最多 70）"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "补给品格子 +1（每种补给品一格）"
+
+msgid "UP_COLLECT"
+msgstr "解锁自动拾取"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "拾取范围 +50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "单次拾取数量 +1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "拾取间隔 −1秒"
+
+msgid "UP_MERGE_GEAR"
+msgstr "解锁装备自动合成"
+
+msgid "UP_AUTO_USE"
+msgstr "自动补给品格子 +1"
+
+msgid "UP_USE_SPEED"
+msgstr "自动使用间隔 −1秒"
+
+msgid "UP_FOCUS"
+msgstr "解锁专注刷怪"
+
+msgid "UP_RESPAWN"
+msgstr "复活延迟 −1秒"
+
+msgid "UP_LOOT"
+msgstr "装备掉落率 +0.5 个百分点（每件物品）"
+
+msgid "UP_COIN_CHANCE"
+msgstr "金币掉落率"
+
+msgid "UP_GEM_CHANCE"
+msgstr "全局宝石掉落率"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "每个敌人的金币 +50%"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "每次掉落的宝石数（首领 ×3）"
+
+msgid "CHAT_SURPRISE"
+msgstr "喂！小心点！"
+
+msgid "RECENT_HEADER"
+msgstr "最近获得 · 点击查看记录"
+
+msgid "ZOOM_IN"
+msgstr "放大"
+
+msgid "ZOOM_OUT"
+msgstr "缩小"
+
+msgid "CAMERA_ZOOM"
+msgstr "镜头缩放"
+
+msgid "PANEL_ENEMY"
+msgstr "敌人"
+
+msgid "PANEL_CAMP"
+msgstr "复活营地"
+
+msgid "TAB_AUTOMATION"
+msgstr "自动化"
+
+msgid "TAB_INVENTORY"
+msgstr "背包"
+
+msgid "TAB_SUPPLIES"
+msgstr "补给品"
+
+msgid "TAB_OVERVIEW"
+msgstr "概览"
+
+msgid "TAB_UPGRADES"
+msgstr "强化"
+
+msgid "UP_REVEAL_STATS"
+msgstr "揭示属性 · 永久"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "揭示掉落 · 永久"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "敌人属性"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "可能掉落"
+
+msgid "UNKNOWN_STATS"
+msgstr "HP ???   •   伤害 ???\n攻击间隔 ???   •   防御 ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "HP %s   •   伤害 %s\n每 %s秒攻击一次   •   防御 %s"
+
+msgid "DROP_COINS"
+msgstr "金币 ×%s · 必定掉落"
+
+msgid "DROP_GEMS"
+msgstr "宝石 · 概率 %s%% · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "每次装备判定会从两件装备中选出一件。宝石和补给品单独判定。概率已包含你当前的强化。"
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "每级 +1 个百分点 · 最高 +15"
+
+msgid "ENEMY_CAT"
+msgstr "召唤的猫"
+
+msgid "CAT_DETAILS"
+msgstr "死神召唤的爪牙。\n没有掉落，也没有群组强化。"
+
+msgid "CAMP_NAME"
+msgstr "营地 %d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "点击选择"
+
+msgid "CAMP_LOCKED"
+msgstr "未解锁 · 点击解锁"
+
+msgid "CAMP_HELP"
+msgstr "营地是复活点。在已解锁的营地旁休息可快速恢复。解锁、设为复活点和移动是不同的操作。站在营地时会出现“查看营地”按钮。"
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "已选择复活营地。"
+
+msgid "OPEN_PLAYER"
+msgstr "玩家强化"
+
+msgid "OPEN_GROUP"
+msgstr "查看%s"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "黑玛瑙镰刀"
+
+msgid "ITEM_REAPER"
+msgstr "死神服装"
+
+msgid "VARIANT_OUTFIT"
+msgstr "服装"
+
+msgid "VARIANT_WEAPON"
+msgstr "武器"
+
+msgid "VARIANT_BOTH"
+msgstr "两者"
+
+msgid "ITEM_DETAILS"
+msgstr "物品详情"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "升级了！"
+
+msgid "GEAR"
+msgstr "装备"
+
+msgid "CONSUMABLES"
+msgstr "补给品"
+
+msgid "HUD_HP"
+msgstr "HP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "%.1f秒后复活"
+
+msgid "HUD_LEVEL"
+msgstr "等级 %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "装备 %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "补给品 %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "合成 %d"
+
+msgid "ITEM_OWNED"
+msgstr "拥有：%s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "已装备 · 100% 生效"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "存放中 · 30% 生效（每种武器限一次）"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "合成"
+
+msgid "LESS_OPTIONS"
+msgstr "收起选项"
+
+msgid "MORE_OPTIONS"
+msgstr "更多选项"
+
+msgid "LOOT_HISTORY"
+msgstr "战利品记录"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "等级 %d / 1,000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "等级 %d · 生命值和伤害提升"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "点击使用补给品 · 长按查看详情"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "下次合成：+"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "成就"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "该敌人类型的所有营地共享。拾取强化会保留，其他类型强化在转生时重置。"
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "每级 +1 个百分点 · 最高 +15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "每级经验 +10% · 最高 +200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "补给品掉落率 +1 个百分点"
+
+msgid "UP_GROUP_XP"
+msgstr "经验 +10%"
+
+msgid "GROUP_XP_VALUE"
+msgstr "每次击杀经验：%s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "永久击杀里程碑，该敌人类型的所有营地共享。奖励自动生效，转生后保留。"
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "对此类敌人：伤害 +%.0f%% · 宝石概率 +%.1f 个百分点"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · 击杀 %d 次\n奖励：对此类敌人伤害 +%.0f%%，宝石概率 +%.1f 个百分点"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "已完成"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "击杀成就"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "伤害 +%.0f%% · 宝石概率 +%.1f 点"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "自动合成该敌人类型的武器和服装。"
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "每次击杀金币 +%s / 级"
+
+msgid "ACTION_PAUSED"
+msgstr "暂停时不可用"
+
+msgid "ACTION_SUSPENDED"
+msgstr "应用未激活时不可用"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "未满足条件"
+
+msgid "VALUE_MAX"
+msgstr "已满"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s 经验"
+
+msgid "SECONDS_VALUE"
+msgstr "%s秒"
+
+msgid "HP_PER_SECOND"
+msgstr "HP/秒"
+
+msgid "STAT_SOURCES"
+msgstr "属性来源"
+
+msgid "SOURCE_BASE"
+msgstr "基础属性"
+
+msgid "SOURCE_LEVEL"
+msgstr "玩家等级"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "当前装备"
+
+msgid "SOURCE_STORED"
+msgstr "存放的装备"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "永久加成：生命值 ×%s · 伤害 ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "以上总计已计入上限：暴击率 75%，暴击倍率 ×4，吸血 15%，攻速加成 200%。"
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "补给品判定：%s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "药剂：%s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · %d 阶"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "%d 阶 · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · %d 阶 · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "宝石"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "对所有敌人生效。转生时重置。敌人成就加成仍按类型分别计算。"
+
+msgid "FARM_VARIANT"
+msgstr "刷%s · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "刷怪选择：%s。复活后返回此处。"
+
+msgid "MAX_ITEM_TIER"
+msgstr "已达最终阶级。仍可继续合成至 ^100。"
+
+msgid "TAB_PLAYER"
+msgstr "玩家"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "每个刷新点的敌人数"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "敌人刷新间隔"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "首领宝石概率"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "首领每次掉落的额外宝石"
+
+msgid "TRAVEL_COMBAT"
+msgstr "请先结束战斗再移动。"
+
+msgid "TRAVEL_CAMP"
+msgstr "前往 · %s · 营地 %d"
+
+msgid "STAGE_LOCKED"
+msgstr "请先击败本关卡的守关首领。"
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "请先探索此营地。"
+
+msgid "STAGE_UNLOCKED"
+msgstr "下一关卡已解锁！"
+
+msgid "FINAL_DISCOVERED"
+msgstr "最终守护者已被封印。击败其他 13 个首领，收集它们的钥匙。收集到的钥匙在转生后保留。"
+
+msgid "WORLD_COMPLETE"
+msgstr "春季 II 的敌人已全部击败——最终任务完成！"
+
+msgid "UNDISCOVERED"
+msgstr "未探索"
+
+msgid "ENEMY_LEVEL"
+msgstr "等级 %d"
+
+msgid "ALL_ITEMS"
+msgstr "全部"
+
+msgid "WEAPONS"
+msgstr "武器"
+
+msgid "OUTFITS"
+msgstr "服装"
+
+msgid "SKILLS"
+msgstr "技能"
+
+msgid "VARIANT_SKILL"
+msgstr "精英"
+
+msgid "SKILL_EMPTY"
+msgstr "技能栏 %d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "已装备此系列的技能。"
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "请卸下一个技能或解锁另一个技能栏。"
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "装备到技能栏 %d"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "技能栏 %d 自动施放：%s"
+
+msgid "STOCK_BONUS"
+msgstr "重复品加成：固有威力 +%s%%。重复品仍归你所有。"
+
+msgid "CLAIM"
+msgstr "领取"
+
+msgid "CLAIM_REWARD"
+msgstr "领取 · %s 金币 · %s 宝石"
+
+msgid "MISSION_AUTO"
+msgstr "自动领取：%s"
+
+msgid "STATE_ON_CAPS"
+msgstr "开启"
+
+msgid "STATE_OFF_CAPS"
+msgstr "关闭"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "领取已完成的普通任务（包括购买的栏位），不包括主要目标。购买后，请在“任务”中开启自动领取。"
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "自动领取已解锁，但目前处于关闭状态。点击下方开关即可开始领取普通任务。主要目标仍需手动领取。"
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "可以开启自动领取了"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "打开“任务”，然后开启自动领取。购买后默认为关闭。"
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "开启自动领取"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "你已解锁自动领取。点击此处的“自动领取：关闭”即可开启。主要目标始终需手动领取。"
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "展开关卡卡牌"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "收起关卡卡牌"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "请先完成此目标。"
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "新任务将在当地时间午夜到来。"
+
+msgid "MAIN_OBJECTIVES"
+msgstr "主要目标"
+
+msgid "KEY_PROGRESS"
+msgstr "首领钥匙：%d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "已击败守关首领：%d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "金币 %s/小时 · 宝石 %s/小时 · 奖励上限 %s 小时"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "欢迎回来！奖励时长 %s 小时 · %s 金币 · %s 宝石"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "请先完成转生奖励的选择。"
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "发现了新的转生机遇。"
+
+msgid "PRESTIGE_BATCH"
+msgstr "转生 · %d 张卡牌"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "为每个已就绪的机遇各选一张独特卡牌，然后统一重置本轮。物品、金币、营地、迷雾和金币强化将重置。钥匙、成就、卡牌和宝石强化保留。"
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "永久保留 %s？此选择会立即保存且无法更改。"
+
+msgid "PRESTIGE_CHOICES"
+msgstr "选择卡牌（%d / %d）"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "独特卡牌：%d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "请先完成已发现的转生机遇。"
+
+msgid "IN_PROGRESS"
+msgstr "进行中"
+
+msgid "FOLLOW"
+msgstr "追踪"
+
+msgid "UNFOLLOW"
+msgstr "取消追踪"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "提交所需物品或货币"
+
+msgid "CONTRACT_NEEDS"
+msgstr "请先集齐每件服装的所需数量。"
+
+msgid "OFFERING_NEEDS"
+msgstr "需要足够的余额，以及未花费的在线获得货币。"
+
+msgid "OWNED_CARDS"
+msgstr "已拥有的卡牌"
+
+msgid "COMBOS"
+msgstr "卡牌套组"
+
+msgid "PANEL_INVENTORY"
+msgstr "背包"
+
+msgid "PANEL_MAP"
+msgstr "地图"
+
+msgid "PANEL_MISSIONS"
+msgstr "任务"
+
+msgid "PANEL_OFFLINE"
+msgstr "离线奖励"
+
+msgid "GOAL_KILL"
+msgstr "狩猎"
+
+msgid "GOAL_BOSS"
+msgstr "讨伐首领"
+
+msgid "GOAL_GEAR"
+msgstr "收集装备"
+
+msgid "GOAL_MERGE"
+msgstr "合成"
+
+msgid "GOAL_COINS"
+msgstr "赚取金币"
+
+msgid "GOAL_CAST"
+msgstr "施放技能"
+
+msgid "GOAL_WAITING"
+msgstr "探索以发现新目标"
+
+msgid "STAT_POWER"
+msgstr "威力"
+
+msgid "INTRINSIC_POWER"
+msgstr "固有%s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "下一阶的初始值为本阶 ^100 固有威力的 85%（未计库存与外部加成）。"
+
+msgid "MAP_FARMING"
+msgstr "%s · %d 个刷新点 · 每点 %d 只 · %s秒刷新"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "已击败的最终关卡敌人种类：%d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "营地显现半径"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "玩家视野半径"
+
+msgid "UP_MAP_DETAIL"
+msgstr "地图精细度"
+
+msgid "UP_MOVEMENT"
+msgstr "移动速度 +10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "自动合成间隔 −1秒"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "解锁任务自动领取"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "任务栏位"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "技能装备栏"
+
+msgid "UP_SKILL_DROP"
+msgstr "技能掉落率"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "离线奖励时长"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "每小时离线金币"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "每小时离线宝石"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "解锁离线武器掉落"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "解锁离线服装掉落"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "解锁离线补给品"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "每小时离线武器"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "每小时离线服装"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "每小时离线补给品"
+
+msgid "MAP_LEGEND"
+msgstr "已探索的区域会保持清晰；附近区域仅在你身处其中时显示。营地可在更远处发现。"
+
+msgid "MINIMAP"
+msgstr "地图"
+
+msgid "SKILL_TUTORIAL"
+msgstr "精英敌人携带武器、服装和技能，每种掉落单独判定。从背包中装备技能，然后点击其按钮施放。"
+
+msgid "MAIN_0"
+msgstr "击败 5 个普通敌人"
+
+msgid "MAIN_1"
+msgstr "装备第一件物品"
+
+msgid "MAIN_2"
+msgstr "合成一件重复品"
+
+msgid "MAIN_3"
+msgstr "解锁一个额外营地"
+
+msgid "MAIN_4"
+msgstr "击败雪人 · 解锁冬季 II"
+
+msgid "MAIN_5"
+msgstr "装备治疗术"
+
+msgid "MAIN_6"
+msgstr "强化地图精细度"
+
+msgid "MAIN_7"
+msgstr "获得冰霜爆发"
+
+msgid "MAIN_8"
+msgstr "解锁夏季 I"
+
+msgid "MAIN_9"
+msgstr "进化一件物品"
+
+msgid "MAIN_10"
+msgstr "获得 4 个技能系列"
+
+msgid "MAIN_11"
+msgstr "解锁秋季 I"
+
+msgid "MAIN_12"
+msgstr "获得全部 6 个技能系列"
+
+msgid "MAIN_13"
+msgstr "解锁春季 I"
+
+msgid "MAIN_14"
+msgstr "完成一次转生"
+
+msgid "MAIN_15"
+msgstr "集齐所有首领钥匙并通关春季 II"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "治疗术冷却"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "冰霜冷却"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "烈焰冷却"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "雷击冷却"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "专注冷却"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "打击冷却"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "解锁自动施放 · 技能栏 1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "解锁自动施放 · 技能栏 2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "解锁自动施放 · 技能栏 3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "治疗术"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "治疗术"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "治疗术"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "治疗术"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "治疗术"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "治疗术"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "治疗术"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "冰霜爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "冰霜爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "冰霜爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "冰霜爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "冰霜爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "冰霜爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "冰霜爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "烈焰爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "烈焰爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "烈焰爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "烈焰爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "烈焰爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "烈焰爆发"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "烈焰爆发"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "雷击"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "雷击"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "雷击"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "雷击"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "雷击"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "雷击"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "雷击"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "奥术专注"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "奥术专注"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "奥术专注"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "奥术专注"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "奥术专注"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "奥术专注"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "奥术专注"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "奥术打击"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "奥术打击"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "奥术打击"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "奥术打击"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "奥术打击"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "奥术打击"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "奥术打击"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "蓝鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "蓝鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "蓝鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "蓝鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "蓝鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "蓝鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "蓝鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "蓝鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "蓝鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "蓝鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "蓝鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "蓝鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "蓝鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "蓝鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "红围巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "红围巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "红围巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "红围巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "红围巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "红围巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "红围巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "红围巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "红围巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "红围巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "红围巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "红围巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "红围巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "红围巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "厨师帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "厨师帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "厨师帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "厨师帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "厨师帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "厨师帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "厨师帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "厨师帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "厨师帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "厨师帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "厨师帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "厨师帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "厨师帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "厨师帽之剑"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "雪人服装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "雪人服装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "雪人服装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "雪人服装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "雪人服装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "雪人服装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "雪人服装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "狼头兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "狼头兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "狼头兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "狼头兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "狼头兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "狼头兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "狼头兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "狼头兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "狼头兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "狼头兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "狼头兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "狼头兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "狼头兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "狼头兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "三花猫兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "三花猫兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "三花猫兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "三花猫兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "三花猫兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "三花猫兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "三花猫兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "三花猫兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "三花猫兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "三花猫兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "三花猫兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "三花猫兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "三花猫兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "三花猫兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "黄金王冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "黄金王冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "黄金王冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "黄金王冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "黄金王冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "黄金王冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "黄金王冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "黄金王冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "黄金王冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "黄金王冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "黄金王冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "黄金王冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "黄金王冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "黄金王冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "驯鹿角服装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "驯鹿角服装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "驯鹿角服装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "驯鹿角服装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "驯鹿角服装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "驯鹿角服装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "驯鹿角服装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "驯鹿角之剑"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "驯鹿角之剑"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "驯鹿角之剑"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "驯鹿角之剑"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "驯鹿角之剑"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "驯鹿角之剑"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "驯鹿角之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "圣诞帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "圣诞帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "圣诞帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "圣诞帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "圣诞帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "圣诞帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "圣诞帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "圣诞帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "圣诞帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "圣诞帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "圣诞帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "圣诞帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "圣诞帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "圣诞帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "太空头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "太空头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "太空头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "太空头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "太空头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "太空头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "太空头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "太空头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "太空头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "太空头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "太空头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "太空头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "太空头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "太空头盔之剑"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "青色机器人服装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "青色机器人服装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "青色机器人服装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "青色机器人服装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "青色机器人服装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "青色机器人服装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "青色机器人服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "草帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "草帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "草帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "草帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "草帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "草帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "草帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "草帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "草帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "草帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "草帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "草帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "草帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "草帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "墨镜服装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "墨镜服装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "墨镜服装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "墨镜服装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "墨镜服装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "墨镜服装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "墨镜服装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "墨镜之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "墨镜之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "墨镜之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "墨镜之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "墨镜之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "墨镜之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "墨镜之剑"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "黄鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "黄鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "黄鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "黄鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "黄鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "黄鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "黄鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "黄鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "黄鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "黄鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "黄鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "黄鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "黄鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "黄鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "灰猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "灰猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "灰猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "灰猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "灰猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "灰猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "灰猫服装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "牛仔头巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "牛仔头巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "牛仔头巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "牛仔头巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "牛仔头巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "牛仔头巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "牛仔头巾服装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "牛仔头巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "牛仔头巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "牛仔头巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "牛仔头巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "牛仔头巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "牛仔头巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "牛仔头巾之剑"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "小鸭泳圈服装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "小鸭泳圈服装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "小鸭泳圈服装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "小鸭泳圈服装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "小鸭泳圈服装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "小鸭泳圈服装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "小鸭泳圈服装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "小鸭泳圈之剑"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "小鸭泳圈之剑"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "小鸭泳圈之剑"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "小鸭泳圈之剑"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "小鸭泳圈之剑"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "小鸭泳圈之剑"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "小鸭泳圈之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "彩虹小丑服装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "彩虹小丑服装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "彩虹小丑服装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "彩虹小丑服装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "彩虹小丑服装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "彩虹小丑服装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "彩虹小丑服装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "彩虹小丑之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "彩虹小丑之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "彩虹小丑之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "彩虹小丑之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "彩虹小丑之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "彩虹小丑之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "彩虹小丑之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "红泳帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "红泳帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "红泳帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "红泳帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "红泳帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "红泳帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "红泳帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "红泳帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "红泳帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "红泳帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "红泳帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "红泳帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "红泳帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "红泳帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "浮潜者服装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "浮潜者服装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "浮潜者服装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "浮潜者服装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "浮潜者服装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "浮潜者服装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "浮潜者服装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "浮潜者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "浮潜者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "浮潜者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "浮潜者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "浮潜者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "浮潜者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "浮潜者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "草帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "草帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "草帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "草帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "草帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "草帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "草帽泳者服装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "草帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "草帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "草帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "草帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "草帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "草帽泳者之剑"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "草帽泳者之剑"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "蓝绿恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "蓝绿恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "蓝绿恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "蓝绿恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "蓝绿恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "蓝绿恐龙服装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "蓝绿恐龙服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "黑鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "黑鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "黑鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "黑鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "黑鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "黑鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "黑鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "黑鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "黑鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "黑鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "黑鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "黑鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "黑鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "黑鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "蘑菇帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "蘑菇帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "蘑菇帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "蘑菇帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "蘑菇帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "蘑菇帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "蘑菇帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "蘑菇帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "蘑菇帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "蘑菇帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "蘑菇帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "蘑菇帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "蘑菇帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "蘑菇帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "南瓜头服装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "南瓜头服装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "南瓜头服装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "南瓜头服装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "南瓜头服装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "南瓜头服装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "南瓜头服装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "南瓜头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "南瓜头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "南瓜头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "南瓜头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "南瓜头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "南瓜头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "南瓜头之剑"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "松鼠服装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "松鼠服装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "松鼠服装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "松鼠服装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "松鼠服装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "松鼠服装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "松鼠服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "赤狐服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "赤狐服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "赤狐服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "赤狐服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "赤狐服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "赤狐服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "赤狐服装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "犄角兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "犄角兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "犄角兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "犄角兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "犄角兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "犄角兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "犄角兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "犄角兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "犄角兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "犄角兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "犄角兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "犄角兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "犄角兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "犄角兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "橙屏头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "橙屏头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "橙屏头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "橙屏头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "橙屏头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "橙屏头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "橙屏头盔服装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "橙屏头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "橙屏头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "橙屏头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "橙屏头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "橙屏头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "橙屏头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "橙屏头盔之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "电视头服装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "电视头服装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "电视头服装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "电视头服装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "电视头服装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "电视头服装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "电视头服装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "电视头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "电视头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "电视头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "电视头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "电视头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "电视头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "电视头之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "高礼帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "高礼帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "高礼帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "高礼帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "高礼帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "高礼帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "高礼帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "高礼帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "高礼帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "高礼帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "高礼帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "高礼帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "高礼帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "高礼帽之剑"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "黑猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "黑猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "黑猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "黑猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "黑猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "黑猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "黑猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "死神服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "死神服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "死神服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "死神服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "死神服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "死神服装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "死神服装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "兔耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "兔耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "兔耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "兔耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "兔耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "兔耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "兔耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "兔耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "兔耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "兔耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "兔耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "兔耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "兔耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "兔耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "猫耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "猫耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "猫耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "猫耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "猫耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "猫耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "猫耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "猫耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "猫耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "猫耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "猫耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "猫耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "猫耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "猫耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "精灵耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "精灵耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "精灵耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "精灵耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "精灵耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "精灵耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "精灵耳服装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "精灵耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "精灵耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "精灵耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "精灵耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "精灵耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "精灵耳之剑"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "精灵耳之剑"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "蜜蜂服装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "蜜蜂服装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "蜜蜂服装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "蜜蜂服装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "蜜蜂服装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "蜜蜂服装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "蜜蜂服装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "橘猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "橘猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "橘猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "橘猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "橘猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "橘猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "橘猫服装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "花冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "花冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "花冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "花冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "花冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "花冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "花冠服装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "花冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "花冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "花冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "花冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "花冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "花冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "花冠之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "绿鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "绿鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "绿鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "绿鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "绿鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "绿鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "绿鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "绿鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "绿鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "绿鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "绿鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "绿鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "绿鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "绿鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "粉鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "粉鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "粉鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "粉鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "粉鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "粉鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "粉鸭舌帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "粉鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "粉鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "粉鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "粉鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "粉鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "粉鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "粉鸭舌帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "粉色花朵兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "粉色花朵兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "粉色花朵兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "粉色花朵兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "粉色花朵兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "粉色花朵兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "粉色花朵兜帽服装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "粉色花朵兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "粉色花朵兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "粉色花朵兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "粉色花朵兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "粉色花朵兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "粉色花朵兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "粉色花朵兜帽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "普通服装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "普通服装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "普通服装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "普通服装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "普通服装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "普通服装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "普通服装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "普通之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "普通之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "普通之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "普通之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "普通之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "普通之剑"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "普通之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "嫩芽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "嫩芽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "嫩芽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "嫩芽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "嫩芽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "嫩芽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "嫩芽服装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "嫩芽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "嫩芽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "嫩芽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "嫩芽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "嫩芽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "嫩芽之剑"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "嫩芽之剑"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "小熊猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "小熊猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "小熊猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "小熊猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "小熊猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "小熊猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "小熊猫服装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "向日葵服装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "向日葵服装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "向日葵服装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "向日葵服装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "向日葵服装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "向日葵服装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "向日葵服装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "绿色外星人服装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "绿色外星人服装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "绿色外星人服装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "绿色外星人服装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "绿色外星人服装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "绿色外星人服装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "绿色外星人服装"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "治疗术"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "冰霜爆发"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "烈焰爆发"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "雷击"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "奥术专注"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "奥术打击"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "蓝鸭舌帽"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "红围巾"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "厨师帽"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "雪人"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "狼头兜帽"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "三花猫兜帽"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "黄金王冠"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "驯鹿角"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "圣诞帽"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "太空头盔"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "青色机器人"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "草帽"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "墨镜"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "黄鸭舌帽"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "灰猫"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "牛仔头巾"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "小鸭泳圈"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "彩虹小丑"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "红泳帽泳者"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "浮潜者"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "草帽泳者"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "恐龙"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "蓝绿恐龙"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "黑鸭舌帽"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "蘑菇帽"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "南瓜头"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "松鼠"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "赤狐"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "犄角兜帽"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "橙屏头盔"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "电视头"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "高礼帽"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "黑猫"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "死神"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "兔耳"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "猫耳"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "精灵耳"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "蜜蜂"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "橘猫"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "花冠"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "绿鸭舌帽"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "粉鸭舌帽"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "粉色花朵兜帽"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "普通人"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "嫩芽"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "小熊猫"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "向日葵"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "绿色外星人"
+
+msgid "CONTENT_STAGES_1"
+msgstr "冬季 I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "冬季 II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "夏季 I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "夏季 II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "秋季 I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "秋季 II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "春季 I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "春季 II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "首个悬赏"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "击败雪人（冬季 I 首领）10 次"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "夏季悬赏"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "击败灰猫（夏季 I 首领）20 次"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "秋季悬赏"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "击败死神（秋季 II 首领）30 次"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "冬季路线"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "在冬季 I 依次击败 100 个蓝鸭舌帽、100 个红围巾，然后是 100 个厨师帽"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "夏季路线"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "在夏季 I 依次击败 150 个草帽、150 个墨镜，然后是 150 个黄鸭舌帽"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "春季路线"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "在春季 I 依次击败 200 个兔耳、200 个猫耳，然后是 200 个精灵耳"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "冬季收藏"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "拾取蓝鸭舌帽、红围巾和厨师帽服装（冬季 I 掉落）各 21 件。提交时每种交出 20 件，自己保留 1 件"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "夏季收藏"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "拾取草帽、墨镜和黄鸭舌帽服装（夏季 I 掉落）各 31 件。提交时每种交出 30 件，自己保留 1 件"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "春季收藏"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "拾取兔耳、猫耳和精灵耳服装（春季 I 掉落）各 41 件。提交时每种交出 40 件，自己保留 1 件"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "首件杰作"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "将任意武器、服装或技能合成至 ^100"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "第二阶"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "将 2 阶或更高的物品合成至 ^100（2 阶物品自夏季 I 起掉落，或进化一把武器获得）"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "第三阶"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "将 3 阶或更高的物品合成至 ^100（3 阶物品自秋季 I 起掉落，或将一把武器进化两次获得）"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "成对装备"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "将一把武器和一件服装合成至 ^50"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "丰富军械库"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "将 3 种不同武器和 3 种不同服装合成至 ^50"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "进化军械库"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "将 3 种不同的 2 阶以上武器和 3 种不同的 2 阶以上服装合成至 ^50"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "冬季制霸"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "在冬季 I 和冬季 II：每张地图探索 90%，击败两个首领并解锁所有营地"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "夏季制霸"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "在夏季 I 和夏季 II：每张地图探索 90%，击败全部三个首领并解锁所有营地"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "春季制霸"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "在春季 I 和春季 II：每张地图探索 90%，击败全部五个首领并解锁所有营地"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "无援冬季"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "在战斗中不使用任何补给品，击败青色机器人（冬季 II 首领）"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "无援夏季"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "在战斗中不使用任何补给品，击败蓝绿恐龙（夏季 II 首领）"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "无援秋季"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "在战斗中不使用任何补给品，击败死神（秋季 II 首领）"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "小型供奉"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "本轮从敌人身上赚取 2K 金币和 30 宝石，然后通过“提交”上交"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "进阶供奉"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "本轮从敌人身上赚取 20K 金币和 100 宝石，然后通过“提交”上交"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "大型供奉"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "本轮从敌人身上赚取 100K 金币和 300 宝石，然后通过“提交”上交"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "短链任务"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "依次：击败 100 个敌人，拾取 10 件武器或服装掉落，然后合成 10 次"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "长链任务"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "依次：击败 250 个敌人，击败 3 个首领，合成 25 次，然后施放 30 次技能"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "大师链任务"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "依次：击败 500 个敌人，击败 10 个首领，合成 50 次，然后领取 3 个普通任务"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "冬季奖杯"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "发现此项后，击败雪人（冬季 I）和青色机器人（冬季 II）各一次"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "夏季奖杯"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "发现此项后，击败灰猫（夏季 I）、恐龙和蓝绿恐龙（夏季 II）各一次"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "秋季奖杯"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "发现此项后，击败松鼠和赤狐（秋季 I）、黑猫和死神（秋季 II）各一次"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "离开时光"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "累计离开游戏 72 小时"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "长期休息"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "一次离开游戏 24 小时"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "离线收入"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "离开期间赚取 10K 金币（领取“欢迎回来”奖励）"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "首领经验 +20%"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "移动速度 +10%"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "自动拾取范围 +50%"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "当前装备的基础属性 +10%"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "最大生命值 +10%"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "周围探索半径 +25%"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "对首领伤害 +10%"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "所有敌人掉落的金币 +10%"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "任务金币 +25%"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "首领宝石 +25%"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "每小时离线金币 +25%"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "复活提前 2 秒（最短 2 秒）"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "普通敌人金币 +15%"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "每次合成获得的属性 +10%"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "对首领伤害 +10%"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "离线物品获取率 +25%"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "最大生命值 +10%"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "巨人杀手"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "对首领伤害 +25%"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "首领防护"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "受到首领的伤害降低 20%"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "赏金"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "首领金币 +100%"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "追踪者"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "对普通敌人伤害 +20%"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "路途金币"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "普通敌人金币 +30%"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "路途历练"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "普通敌人经验 +30%"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "细心收藏家"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "自动拾取范围 +100%"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "装备好运"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "装备掉落率 +3 个百分点"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "补给好运"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "补给品掉落率 +5 个百分点"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "精工"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "每次合成获得的属性 +25%"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "重随技艺"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "重随消耗的宝石减少 50%"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "坚实基础"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "当前武器和服装的基础属性 +20%"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "护甲储备"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "最大生命值 +20%"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "武器训练"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "攻击和技能伤害 +15%"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "均衡配装"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "受到所有敌人的伤害降低 10%"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "探险家"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "移动速度 +15%"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "千里眼"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "周围探索半径 +50%"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "营地勘察"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "营地所需金币减少 50%"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "精准"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "暴击率 +15 个百分点"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "决心"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "回复所造成伤害的 5%"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "重击"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "暴击伤害额外 +75%"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "金币智慧"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "所有敌人掉落的金币 +25%"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "宝石智慧"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "宝石掉落率 +5 个百分点"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "精打细算"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "金币强化费用降低 15%"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "任务金币"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "任务金币 +50%"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "任务宝石"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "任务宝石 +50%"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "专注练习"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "技能伤害、治疗量与专注 +25%"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "奖杯猎人"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "首领经验 +50%"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "奖杯之力"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "对首领伤害 +20%"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "奖杯宝石"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "首领宝石 +50%"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "静默金币"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "每小时离线金币 +50%"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "静默宝石"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "每小时离线宝石 +50%"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "静默收获"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "离线物品获取率 +50%"
+
+msgid "CHAIN_PROGRESS"
+msgstr "第 %d/%d 步 · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "本次更新已重置开发版存档，可以保存新的进度。"
+
+msgid "HEAL_ROLE"
+msgstr "续航：立即恢复 %s HP，每 %s秒一次。施放无消耗；上限为最大生命值的 12%%。药水可提供更强的紧急治疗。"
+
+msgid "REGULAR_MISSIONS"
+msgstr "狩猎任务"
+
+msgid "GUIDE_CHOOSE"
+msgstr "你需要多少引导？"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "全程引导"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "基础"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "无"
+
+msgid "GUIDE_REVIEW"
+msgstr "重新选择引导"
+
+msgid "GUIDE_GOT_IT"
+msgstr "知道了"
+
+msgid "GUIDE_MOVE"
+msgstr "沿着左边的小路前进。"
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "将发光的摇杆朝箭头方向拖动。第一批敌人就在路边等着。"
+
+msgid "GUIDE_KILL"
+msgstr "停在敌人旁边即可攻击"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "原地停留片刻就会自动攻击。冬季敌人只会反击。"
+
+msgid "GUIDE_COLLECT"
+msgstr "点击掉落的物品"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "掉落物会在地上停留一段时间。金币和宝石会自动加入。"
+
+msgid "GUIDE_EQUIP"
+msgstr "点击你的新物品"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "物品详情会将它与当前装备进行比较。"
+
+msgid "GUIDE_MERGE"
+msgstr "打开你拥有两件的物品"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "合成重复品能让物品永久变强。"
+
+msgid "GUIDE_UPGRADE"
+msgstr "点击此敌人的“强化”"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "每种敌人都有各自的掉落、金币和经验强化。"
+
+msgid "GUIDE_CAMP"
+msgstr "打开“世界”解锁营地"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "你已发现营地，并且有足够的金币。打开“世界”，或走到营地点击“查看营地”。"
+
+msgid "GUIDE_OVERVIEW"
+msgstr "移动、战斗、收集"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "拖动地图底部的摇杆来行走。松开后，英雄会与附近的敌人战斗。点击掉落物即可拾取。"
+
+msgid "GUIDE_AGGRESSION"
+msgstr "这些敌人会察觉附近的你"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "冬季 II 的敌人会在你靠近时发动攻击。一次只接近一个。"
+
+msgid "GUIDE_SKILLS"
+msgstr "技能辅助你的装备"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "点击已装备的技能即可施放。治疗术恢复稳定，药水一次恢复更多。"
+
+msgid "GUIDE_GROUPS"
+msgstr "有些敌人现在会呼叫同伴"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "夏季敌人会帮助附近的同类同伴。注意你的生命值。"
+
+msgid "PRESTIGE_GATE"
+msgstr "先通关冬季：击败青色机器人以前往夏季 I。"
+
+msgid "NAV_PRESTIGE"
+msgstr "转生"
+
+msgid "PANEL_WORLD"
+msgstr "世界"
+
+msgid "TAB_OFFLINE"
+msgstr "离线"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "点击“强化”按钮或你的角色即可打开这些强化。"
+
+msgid "HUD_RESTING"
+msgstr "· 休息中"
+
+msgid "ITEM_PREVIOUS"
+msgstr "上一件物品"
+
+msgid "ITEM_NEXT"
+msgstr "下一件物品"
+
+msgid "ITEM_POSITION"
+msgstr "%d / %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "装备后：%s"
+
+msgid "NO_CHANGE"
+msgstr "无变化"
+
+msgid "EQUIPPED_NOW"
+msgstr "当前装备：%s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "此栏位尚未装备任何物品。"
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "已装备：完整属性"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "存放：30% 属性"
+
+msgid "UPGRADE_LEVEL"
+msgstr "等级 %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "首领"
+
+msgid "ENEMY_KILLS"
+msgstr "已击败：%s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "复活营地"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "已解锁"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "未解锁 · %s 金币"
+
+msgid "SECTION_CAMPS"
+msgstr "营地"
+
+msgid "CAMPS_HIDDEN"
+msgstr "还有 %d 个营地等待探索发现。"
+
+msgid "SECTION_TRAVEL"
+msgstr "前往其他关卡"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "地图强化"
+
+msgid "SECTION_DANGER"
+msgstr "危险操作"
+
+msgid "CAMP_UNLOCK"
+msgstr "解锁"
+
+msgid "CAMP_SELECT"
+msgstr "在此复活"
+
+msgid "CAMP_TRAVEL"
+msgstr "前往"
+
+msgid "CARD_OWNED"
+msgstr "已拥有"
+
+msgid "CARD_SELECTED"
+msgstr "已选择"
+
+msgid "CARD_LOCKED"
+msgstr "尚未获得"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "就绪"
+
+msgid "PRESTIGE_INTRO"
+msgstr "完成机遇即可获得永久卡牌。转生会一次兑换所有已就绪的机遇，并开始新的一轮。"
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "已就绪：%d  ·  已拥有卡牌：%d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "尚未发现任何机遇。击败首领、合成并探索来寻找它们。"
+
+msgid "NO_CARDS_YET"
+msgstr "还没有卡牌。"
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "兑换 %d 个已就绪的机遇：%s。\n\n你将为每个机遇选择一张永久卡牌，然后本轮重新开始一次。\n\n保留：卡牌、首领钥匙、成就、宝石强化、自动化、设置。\n重置：金币、物品、等级、营地、地图探索、金币强化和未完成的挑战。"
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "选择奖励 · %d / %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "已选择：%s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "保留内容"
+
+msgid "PRESTIGE_KEEP"
+msgstr "卡牌和套组、宝石、已探索的地图区域、用宝石购买的所有强化（所有类别）、自动化、背包空间、首领钥匙、敌人成就、玩家等级与经验、地图精通和设置。"
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "本轮重置内容"
+
+msgid "PRESTIGE_RESET"
+msgstr "金币、物品（含补给品库存）与合成、补给精通、地图权限与已拥有的营地、地图强化和金币强化，以及未完成的挑战。"
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "保留%s"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "点击卡牌进行选择"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "永久保留 %s？这是最后一次选择：新一轮将随即开始。"
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "发现转生机遇！"
+
+msgid "MILESTONE_READY"
+msgstr "机遇已完成！"
+
+msgid "MILESTONE_CARD"
+msgstr "获得卡牌：%s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "新一轮开始"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "%d 张永久卡牌已加入你的收藏。"
+
+msgid "MILESTONE_STAGE"
+msgstr "新关卡已解锁"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "首领猎人套组"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "远征套组"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "收藏套组"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "杰作套组"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "军械库套组"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "区域套组"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "挑战套组"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "供奉套组"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "专家套组"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "奖杯套组"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "离线套组"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "有备探险家"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "勤劳农夫"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "合成之旅"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "首领专家"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "耐心收藏家"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "均衡成长"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "继续击败敌人"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "再击败几个敌人，就会掉落你的第一件武器或服装。"
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "点击“装备”"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "已装备的装备提供完整属性。存放的装备仍提供 30%。"
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "点击“合成”"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "每次合成会消耗一件重复品，并提升物品等级。"
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "收集第二件"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "再击败几个敌人，就会掉落相同的物品。"
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "先找到一个敌人"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "靠近敌人，即可使用该敌人的强化。"
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "赚取金币用于强化"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "还需要 %s 金币。每个被击败的敌人都会掉落金币。"
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "打开“强化”标签页"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "此敌人类型的强化都列在那里。"
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "购买一项强化"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "首选提升掉落率。"
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "探索以寻找其他营地"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "走进迷雾中。揭开迷雾后，营地就会出现。"
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "赚取金币来解锁营地"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "还需要 %s 金币。继续击败敌人。"
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "点击“解锁”"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "营地会成为复活点，并揭开周围的区域。"
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "营地已解锁"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "使用“在此复活”，阵亡后即可返回这里。在营地旁休息能快速恢复。"
+
+msgid "GUIDE_PRESTIGE"
+msgstr "发现转生机遇"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "完成后可获得一张永久卡牌。先找到雪人；全程引导模式还需要完成教程。"
+
+msgid "GUIDE_REST"
+msgstr "生命值不足？"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "离开战斗。在已解锁的营地旁休息能快速恢复。"
+
+msgid "SECTION_REWARDS"
+msgstr "奖励"
+
+msgid "SECTION_AUTOMATION"
+msgstr "自动化"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "未解锁"
+
+msgid "PROGRESS_MERGE"
+msgstr "目前最佳：^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "^50 武器：%d/%d · ^50 服装：%d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "奖杯：%d / %d（每个首领下次被击败时掉落一个）"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "进度：%s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "不使用药水或药剂赢得战斗。"
+
+msgid "PROGRESS_REGIONAL"
+msgstr "已探索 %s · 首领 %d/%d · 营地 %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "金剑"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "钻石剑"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "绿宝石剑"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "黑曜石剑"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "木斧"
+
+msgid "ITEM_STONE_AXE"
+msgstr "石斧"
+
+msgid "ITEM_IRON_AXE"
+msgstr "铁斧"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "金斧"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "钻石斧"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "绿宝石斧"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "黑曜石斧"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "寻找武器或服装"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "刚才获得的是补给品。继续击败敌人：它们有时会掉落身上的武器或服装，并放入空的装备格子。"
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "拾取装备"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "掉落了一件武器或服装。点击它放入装备格子。"
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "只能追踪进行中的机遇。"
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "通关%s"
+
+msgid "MISSION_STATE_READY"
+msgstr "可领取"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ 已领取"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "已完成的目标（%d） · %s"
+
+msgid "SHOW"
+msgstr "显示"
+
+msgid "HIDE"
+msgstr "隐藏"
+
+msgid "PLAYTIME_LINE"
+msgstr "游戏时长：%s · 本轮：%s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "欢迎回来！"
+
+msgid "OFFLINE_AWAY"
+msgstr "离开 %s · 奖励 %s 小时"
+
+msgid "OFFLINE_CLAIM"
+msgstr "领取离线收益"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "已领取离线收益"
+
+msgid "OFFLINE_NOTHING"
+msgstr "暂无待领取的离线收益。"
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "有待领取的离线收益。"
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "上次领取：奖励 %s 小时 · %s 金币 · %s 宝石"
+
+msgid "NAV_UPGRADES"
+msgstr "强化"
+
+msgid "STATS_OPEN"
+msgstr "属性"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "新强化已解锁：%s（玩家强化）"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "找到冬季 I 的雪人（第一个首领）即可解锁转生重置。"
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "寻找雪人"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "你已拥有这些就绪机遇可提供的所有卡牌。"
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "请先在地图上找到此地点。"
+
+msgid "EQUIPPED_PINNED"
+msgstr "已装备"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "武器"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "服装"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "空栏位"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "已装备"
+
+msgid "COMPARE_SELECTED"
+msgstr "已选中"
+
+msgid "COMPARE_ITEM"
+msgstr "物品"
+
+msgid "COMPARE_UPGRADE"
+msgstr "提升"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "下降"
+
+msgid "COMPARE_MIXED"
+msgstr "有得有失"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "%d 阶 · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "合成同名物品即可成长，最高 ^%d。它不会变成其他物品；超过 ^100 后，每次合成的提升会略微减少。"
+
+msgid "FOLLOW_READY"
+msgstr "已就绪！打开“转生”选择卡牌"
+
+msgid "FOLLOW_STEP"
+msgstr "第 %d/%d 步 · %s：%d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "击败%s：%d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "战斗中不使用补给品击败%s：0/1"
+
+msgid "GOAL_MISSION"
+msgstr "领取任务"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "角色"
+
+msgid "STATS_LEVEL"
+msgstr "等级"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "关卡"
+
+msgid "STATS_PRESTIGES"
+msgstr "转生次数"
+
+msgid "STATS_CARDS"
+msgstr "转生卡牌"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "攻击"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "攻击速度"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s次/秒（+%s%%）"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "防御与恢复"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s（受到伤害 −%s%%）"
+
+msgid "STATS_RESPAWN"
+msgstr "复活时间"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "增益"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "转生倍率"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "生命值 ×%s · 伤害 ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "移动速度"
+
+msgid "STATS_STORED_SHARE"
+msgstr "存放装备计入比例"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "当前装备加成"
+
+msgid "STATS_SECTION_TIME"
+msgstr "游戏时长"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "所有轮次"
+
+msgid "STATS_TIME_RUN"
+msgstr "本轮"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "伤害"
+
+msgid "STATS_SHORT_HP"
+msgstr "生命"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "防御"
+
+msgid "STATS_SHORT_CRIT"
+msgstr "暴击"
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "暴伤"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "攻速"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "吸血"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "HP/秒"
+
+msgid "CAMP_SIGHTED"
+msgstr "发现营地！它已显示在地图和“世界”面板中。"
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "卡牌与精通生命加成"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "卡牌与精通伤害加成"
+
+msgid "STAT_REGEN_PCT"
+msgstr "恢复"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "最大生命/秒"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "最大生命/秒"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "最大生命 %s%%/秒（%s HP/秒）"
+
+msgid "SOURCE_MILESTONE"
+msgstr "服装里程碑（穿戴中）"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "武器 %s%% · 服装 %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "守护：防御 +%s"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "生命 +%s"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "服装生命 +%s%%"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "恢复：最大生命 %s%%/秒"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "里程碑（穿戴时）：%s"
+
+msgid "MILESTONES_NONE"
+msgstr "里程碑：暂无。第一个在 ^100 时解锁。"
+
+msgid "MILESTONES_COMPLETE"
+msgstr "已达成所有里程碑（精通）。"
+
+msgid "MILESTONE_NEXT"
+msgstr "下一个 ^%d：%s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "合成同名服装即可成长，最高 ^%d：^100 前每件 +2%% 基础生命，之后每件 +1%%。它不会变成其他物品。里程碑仅在穿戴时生效；存放时计入其生命值的 %s%%。"
+
+msgid "PANEL_LEVEL"
+msgstr "玩家等级与成长"
+
+msgid "PANEL_FARMING"
+msgstr "刷怪指南"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "点击查看等级成长与属性来源"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "栏位 %d → %d / %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "栏位 %d / %d · 已满"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · 已满"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "首领每次掉落 %s 宝石"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "刷怪指南"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "转生未解锁 · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "转生重置条件"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "找到冬季 I 的雪人（第一个首领）"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "至少一个可获得卡牌的就绪机遇"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "找到雪人"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "没有就绪的机遇"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "没有可获得的卡牌"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "其他属性来源"
+
+msgid "BREAKDOWN_HP"
+msgstr "生命值来源"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "伤害来源"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "转生加成前"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "卡牌与精通"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "总计（用于战斗）"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "每次命中（不计入总计）"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "受到的伤害"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "玩家等级（%d × +%s）"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "存放的装备（服装 %s%%，武器 %s%%）"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "当前装备（含 +%s%% 卡牌）"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "对%s的击杀里程碑"
+
+msgid "PER_HIT_NORMAL"
+msgstr "转生：对普通敌人"
+
+msgid "PER_HIT_BOSS"
+msgstr "转生：对首领"
+
+msgid "PER_HIT_FOCUS"
+msgstr "专注（剩余 %d秒）"
+
+msgid "TAKEN_GUARD"
+msgstr "转生守护"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "对首领的转生守护"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "等级 %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "已达最高等级。等级不再提供加成。"
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s 经验 · 再获得 %s 即可达到 %d 级"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "等级成长"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "每级（基础）"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "生命 +%s · 伤害 +%s"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "目前 %d 级的累计"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "%d 级时的生命值"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "%d 级时的伤害"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "转生卡牌会对所有来源加乘：生命值 ×%s，伤害 ×%s。"
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "查看每种敌人在哪里刷、会掉落什么。地图的“地图精细度”升满且所有敌人类型的属性与掉落均已揭示后，该地图条目即会开放。只有已发现的地点才会显示位置。"
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "你在这里"
+
+msgid "FARMING_READY"
+msgstr "条目已解锁"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "打开"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "地图精细度 %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "属性与掉落 %d/%d 种"
+
+msgid "FARMING_LOCKED"
+msgstr "需要：%s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "还有 %d 张地图尚未到达。"
+
+msgid "FARMING_MAP_TITLE"
+msgstr "刷怪 · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "概率已包含当前强化。方向以此地图上最近的已知营地为起点。"
+
+msgid "FARMING_BACK"
+msgstr "全部地图"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "未发现的敌人 · 探索此地图来寻找"
+
+msgid "FARMING_REWARDS"
+msgstr "金币 ×%s · 宝石 %s%% ×%s · 经验 %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "补给品：%s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "未发现的地点"
+
+msgid "FARMING_DETAILS"
+msgstr "详情"
+
+msgid "FARMING_AT_CAMP"
+msgstr "在营地 %d 旁"
+
+msgid "FARMING_LOCATION"
+msgstr "%s（相对营地 %d） · %s"
+
+msgid "COMPASS_N"
+msgstr "北方"
+
+msgid "COMPASS_NE"
+msgstr "东北方"
+
+msgid "COMPASS_E"
+msgstr "东方"
+
+msgid "COMPASS_SE"
+msgstr "东南方"
+
+msgid "COMPASS_S"
+msgstr "南方"
+
+msgid "COMPASS_SW"
+msgstr "西南方"
+
+msgid "COMPASS_W"
+msgstr "西方"
+
+msgid "COMPASS_NW"
+msgstr "西北方"
+
+msgid "DISTANCE_NEAR"
+msgstr "很近"
+
+msgid "DISTANCE_MID"
+msgstr "步行片刻"
+
+msgid "DISTANCE_FAR"
+msgstr "较远"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "喂！我的衣服！"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "我的武器！"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "我的法术书！"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "我的补给！"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "守护药剂"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "恢复药膏"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "智慧药剂"
+
+msgid "FOLLOW_COLLECT"
+msgstr "第 %d/%d 步 · 收集%s（来自%s）：%d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "全部找到了！上交：打开“转生”，然后点击“提交”"
+
+msgid "FILTERS"
+msgstr "筛选"
+
+msgid "FILTERS_ACTIVE"
+msgstr "筛选 · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "筛选装备栏。关闭筛选后会重新显示所有物品。"
+
+msgid "PANEL_FILTERS"
+msgstr "筛选"
+
+msgid "FILTERS_HINT"
+msgstr "筛选打开时，装备栏只显示此类别。关闭后会重新显示所有物品。"
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "补给品格子：每种一格（共 %d 种）。筛选按钮位于装备数量旁边。"
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "每实际使用此补给品 3 次，精通等级提升 1 级，最高 ^%d。购买和掉落只会增加库存。转生会重置精通与使用进度。"
+
+msgid "BUY_SUPPLY"
+msgstr "购买%s · %s 金币"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · 剩余 %d秒"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "生效中：%s · 剩余 %d秒"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "冷却中 · %s秒"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "可以使用"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "自动使用：生命值不高于 %s%% 且冷却结束时"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "自动使用：未生效时"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "自动使用：战斗中且未生效时"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "自动使用：生命值不高于 %s%% 且未生效时"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "自动使用：未生效时"
+
+msgid "SUPPLY_STOCK"
+msgstr "库存：%s · 每次使用消耗一个"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "下次获得：%s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "精通加成：%s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "持续时间 %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "冷却 %s秒"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "最大生命 %s%%"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "金币 +%s%%"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "经验 +%s%%"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "防御 +%s"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "每秒最大生命 %s%%"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "恢复最大生命的 %s%%（当前 %s HP） · 冷却 %s秒 · 生命值低于 %s%% 时可用"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "击败敌人获得的金币 +%s%%，持续 %s秒"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "防御 +%s（受到伤害减少 %s%%），持续 %s秒"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "每秒恢复最大生命的 %s%%，持续 %s秒（共 %s%%） · 生命值低于 %s%% 时可用"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "击败敌人获得的经验 +%s%%，持续 %s秒"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "精通 ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "自动：%s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "生命值过高，无法使用此补给品。"
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "药水仍在冷却中。"
+
+msgid "SUPPLY_ACTIVE"
+msgstr "已在生效中。效果结束后再使用。"
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "每使用三次提升补给精通。转生会重置精通与使用进度。"
+
+msgid "SOURCE_SUPPLY"
+msgstr "生效中的补给品"
+
+msgid "CAMP_TELEPORT"
+msgstr "传送"
+
+msgid "PANEL_TELEPORT"
+msgstr "传送"
+
+msgid "TELEPORT_TITLE"
+msgstr "传送"
+
+msgid "TELEPORT_HELP"
+msgstr "选择你拥有的另一个营地，可在此地图或已到达的地图上。战斗中无法传送。"
+
+msgid "TELEPORT_HERE"
+msgstr "你在这里"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "已选目的地"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "此地图"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "其他地图"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "选择"
+
+msgid "TELEPORT_BACK"
+msgstr "返回"
+
+msgid "TELEPORT_GO"
+msgstr "传送 · %s · 营地 %d"
+
+msgid "TELEPORT_PICK"
+msgstr "选择目的地"
+
+msgid "TELEPORT_NONE"
+msgstr "还没有其他营地。解锁另一个营地后即可传送过去。"
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · 营地 %d"
+
+msgid "MAP_EXPLORED"
+msgstr "地图探索度：%d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "此地图已永久探索的比例。临时视野和移动镜头不计入。"
+
+msgid "SECTION_AUDIO"
+msgstr "音效与音乐"
+
+msgid "MUSIC_VOLUME"
+msgstr "音乐 %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "音效 %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "静音游戏音效：%s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "静音特殊音效：%s"
+
+msgid "AUDIO_HINT"
+msgstr "游戏音效：点击、购买、合成和战斗。特殊音效：通知（可领取的任务或目标、转生消息、新菜单、地图精通进度、发现首领）和里程碑（新地图、转生）。音效音量同时控制两者。"
+
+msgid "UP_MERGE_ALL"
+msgstr "全部合成"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "一次性解锁：筛选中的“全部合成”按钮可一键合成所有重复品 · 免费使用 · 转生后保留"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "已解锁 · 在筛选中使用“全部合成”"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "尚未解锁全部合成"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "全部合成：在“强化”→“背包”中花费 5K 宝石一次性解锁。"
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "全部合成 · %d 件重复品"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "全部合成"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "没有可合成的物品"
+
+msgid "MERGE_ALL_DONE"
+msgstr "已合成 %d 件重复品，涉及 %d 种物品"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "解锁自动进化"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "合成以下物品的重复品：%s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "开启 · 合成：%s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "在 ^100 且有 101 件时进化：%s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "开启 · 进化：%s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "冷却：%s秒"
+
+msgid "GATE_HUD"
+msgstr "下一关 · 首领 %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "世界通关 · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "在此地图上需击败这些首领才能开启下一张地图。已发现且仍计入的首领会带有金色旗帜。"
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "下一关卡已开放"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "未发现的首领"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · 已击败"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · 仍需击败"
+
+msgid "OFFERING_PROGRESS"
+msgstr "金币 %s / %s · 宝石 %s / %s"
+
+msgid "SECTION_RESEARCH"
+msgstr "研究"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "专注刷怪已解锁"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "点击下方的“刷怪”：英雄会走到此地点并自动战斗。再次点击或移动即可停止。"
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "点击“刷怪”开始"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "英雄会走到此地点并自动战斗。移动即可停止。"
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "专注刷怪已解锁"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "打开此敌人的“强化”，然后点击顶部的“刷怪”。"
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "专注刷怪已解锁"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "在世界中或地图上点击该敌人，然后点击“刷怪”。"
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "先找到这个地点"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "刷怪只会前往已发现的地点。请在上方选择一个已发现的地点。"
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "新装备：点击它，然后点击“装备”"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "已装备的装备提供完整属性，存放的装备也会提供一部分。"
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "两件相同：打开它，然后点击“合成”"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "合成一件重复品能让物品永久变强。"
+
+msgid "GUIDE_MISSIONS"
+msgstr "任务已解锁：打开“任务”"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "目标和每日任务可获得金币和宝石。"
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "点击“领取”"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "已完成的目标会在这里等你领取奖励。"
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "暂无可领取的奖励"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "奖励就绪时，“任务”按钮上会显示 !。"
+
+msgid "GUIDE_SLOTS"
+msgstr "强化已解锁：打开“强化”"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "玩家强化仅在本轮有效；宝石强化永久保留。"
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "打开“背包”标签页"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "更多装备格子能存放更多种类的装备。"
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "购买一个装备格子"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "每种物品需要一个独立格子；相同物品会叠放。"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "打开“补给品”标签页"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "补给品能在艰难的战斗中帮上忙。"
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "购买一瓶生命药水"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "战斗中点击补给品中的药水即可治疗。"
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "赚取金币购买生命药水"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "还需要 %s 金币。每个被击败的敌人都会掉落金币。"
+
+msgid "GUIDE_SNOWMAN"
+msgstr "主要目标：击败雪人"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "击败它可开启冬季 II；找到它可开启转生。先合成装备、提升等级并准备药水。"
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "转生已解锁：打开“转生”"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "在那里完成机遇可获得永久卡牌。"
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "点击某个机遇的“追踪”"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "它的下一步会显示在地图上。机遇就绪后，转生将重启世界，卡牌会保留。"
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "完成一个机遇"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "游玩过程中会出现新的机遇。机遇就绪后，转生将重启世界，卡牌会保留。"
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "任务已解锁"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "目标和每日任务可获得金币和宝石。请在“任务”中领取。"
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "敌人强化已解锁"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "点击地图上方的“强化”（或敌人）来提升其掉落、金币和经验。"
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "世界地图已解锁"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "小地图和“世界”会显示你去过的地方。解锁营地后可在那里复活和休息。"
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "玩家强化已解锁"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "在“强化”中购买装备格子、补给品和永久宝石强化。"
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "主要目标：击败雪人"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "击败它可开启冬季 II；找到它可开启转生。先合成装备、提升等级并准备药水。"
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "转生已解锁"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "完成一个机遇后转生，即可带着永久卡牌重新开始。"
+
+msgid "GUIDE_SKIP"
+msgstr "跳过"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "装备与合成"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "点击背包中的装备，再点击“装备”即可获得完整属性；存放的装备也会提供一部分。两件相同物品合成后会变成一件永久更强的物品。"
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "强化与任务"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "点击敌人（或地图上方的“强化”）来提升其掉落、金币和经验。“玩家强化”出售装备格子、补给品和永久宝石强化。领取任务可获得金币和宝石。"
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "探索、营地与关卡"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "行走会驱散迷雾；小地图和“世界”会显示你去过的地方。在“世界”中解锁营地，即可在那里复活和休息。击败地图上的首领即可开启下一关卡。"
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "转生与地图精通"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "找到冬季 I 的雪人即可解锁转生重置：完成一个机遇后转生，即可带着永久卡牌重新开始。地图精通记录每张地图的长期目标。"
+
+msgid "EXIT_TITLE"
+msgstr "退出 LootFarmer？"
+
+msgid "EXIT_CONFIRM"
+msgstr "进度已保存。你随时可以回来。"
+
+msgid "EXIT_ACTION"
+msgstr "退出"
+
+msgid "SECTION_TUTORIAL"
+msgstr "教程与帮助"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "立即显示所有菜单"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "立即显示所有菜单？新菜单通常会随着你熟悉游戏而出现。转生仍需先发现雪人；全程引导模式还需要完成教程。"
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "所有菜单现已开放"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "所有菜单均已开放"
+
+msgid "PANEL_MASTERY"
+msgstr "地图精通"
+
+msgid "MASTERY_OPEN"
+msgstr "地图精通 · 游戏 %d%%"
+
+msgid "MASTERY_INTRO"
+msgstr "达成 100% 完成度的可选目标。进度永久保留，转生后也会保留。"
+
+msgid "MASTERY_GAME"
+msgstr "游戏完成度 %d%%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "全部八张地图：“%s”称号 · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ 已获得：“%s”称号 · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "奖励：%s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ 已获得奖励：%s"
+
+msgid "MASTERY_DETAILS"
+msgstr "详情"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "到达此地图后开始"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "精通 · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ 全部地图"
+
+msgid "MASTERY_EXPLORE"
+msgstr "探索"
+
+msgid "MASTERY_HUNT"
+msgstr "狩猎"
+
+msgid "MASTERY_RESEARCH"
+msgstr "研究"
+
+msgid "MASTERY_COLLECT"
+msgstr "收集"
+
+msgid "MASTERY_FORGE"
+msgstr "锻造"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "探索整张地图并解锁所有营地。"
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "每种敌人击败 %s 个，每个首领击败 %s 次。"
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "揭示此处所有敌人的属性与掉落。"
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "获得此处掉落的所有武器、服装和技能。"
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "将此处的服装合成至 ^%s（首领服装 ^%s），并进化一把此处的武器。"
+
+msgid "MASTERY_MORE"
+msgstr "另外 %d 项"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "地图已探索 %d%% / 100%%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "营地 %d 尚未解锁"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · 揭示属性"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · 揭示掉落"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "进化其中之一：%s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "未发现的敌人"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "未发现的物品"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "最大生命值 +%s%%"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "伤害 +%s%%"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "金币 +%s%%"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "经验 +%s%%"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "掉落率 +%s 个百分点"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "宝石概率 +%s 个百分点"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "精通 · %s · %s 已完成"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "转生已解锁"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "发现 %d 个机遇 · 点击打开"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "完成一个机遇后转生，获得永久卡牌"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "地图已精通 · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "100% 完成"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "刷宝大师"
+
+msgid "STATS_COMPLETION"
+msgstr "游戏完成度"
+
+msgid "STATS_TITLE"
+msgstr "称号"
+
+msgid "STATS_MASTERY"
+msgstr "地图精通"
+
+msgid "MAIN_HINT_0"
+msgstr "击败敌人"
+
+msgid "MAIN_HINT_1"
+msgstr "点击背包中的武器或服装，然后点击“装备”"
+
+msgid "MAIN_HINT_2"
+msgstr "打开你拥有两件的物品，然后点击“合成”"
+
+msgid "MAIN_HINT_3"
+msgstr "走到营地点击“查看营地”，然后点击“解锁”"
+
+msgid "MAIN_HINT_4"
+msgstr "击败冬季 I 的首领雪人"
+
+msgid "MAIN_HINT_5"
+msgstr "装备治疗术技能（冬季 II：太空头盔精英和青色机器人会掉落）"
+
+msgid "MAIN_HINT_6"
+msgstr "在“世界”中购买一级地图精细度"
+
+msgid "MAIN_HINT_7"
+msgstr "找到冰霜爆发技能（夏季 I：草帽精英会掉落）"
+
+msgid "MAIN_HINT_8"
+msgstr "击败冬季 II 的首领青色机器人，前往夏季 I"
+
+msgid "MAIN_HINT_9"
+msgstr "进化一把达到 ^100 且拥有 101 件的武器（物品详情中点击“进化”）"
+
+msgid "MAIN_HINT_10"
+msgstr "拥有不同的技能"
+
+msgid "MAIN_HINT_11"
+msgstr "击败夏季 II 的两个首领，前往秋季 I"
+
+msgid "MAIN_HINT_12"
+msgstr "拥有不同的技能"
+
+msgid "MAIN_HINT_13"
+msgstr "击败秋季 II 的两个首领，前往春季 I"
+
+msgid "MAIN_HINT_14"
+msgstr "完成一次转生"
+
+msgid "MAIN_HINT_15"
+msgstr "击败春季 II 的所有敌人类型和首领"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "已就绪！在“任务”中领取"
+
+msgid "MISSION_DO_KILL"
+msgstr "击败%s（%s）"
+
+msgid "MISSION_DO_BOSS"
+msgstr "击败%s（%s）"
+
+msgid "MISSION_DO_GEAR"
+msgstr "拾取武器或服装掉落"
+
+msgid "MISSION_DO_MERGE"
+msgstr "合成物品"
+
+msgid "MISSION_DO_COINS"
+msgstr "从敌人身上赚取金币"
+
+msgid "MISSION_DO_CAST"
+msgstr "施放已装备的技能"
+
+msgid "NAME_ON_MAP"
+msgstr "%s（%s）"
+
+msgid "FOLLOW_NEXT"
+msgstr "下一步：%s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "击败%s"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "击败任意敌人"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "拾取武器或服装掉落"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "合成物品"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "击败任意首领"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "施放技能"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "领取普通任务"
+
+msgid "FOLLOW_TROPHY"
+msgstr "击败%s获得其奖杯 · 奖杯 %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "将任意武器、服装或技能合成至 ^100：最佳 ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "将 %d 阶或更高的物品合成至 ^100：最佳 ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "合成至 ^50：武器 %d/%d · 服装 %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "将 2 阶以上装备合成至 ^50：武器 %d/%d · 服装 %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "本轮从敌人身上赚取：金币 %s/%s · 宝石 %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "足够了！上交：打开“转生”，然后点击“提交”"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "累计离开时间：%.1f/72 小时"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "最长单次离开：%.1f/24 小时"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "离开期间赚取的金币：%s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "探索%s：%d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "击败%s"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "解锁%s的所有营地：%d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "然后：%s（还剩 %d 项）"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!警告 发现首领!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · %s首领"
+
+msgid "MASTERY_CHIP"
+msgstr "精通 %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "此地图的地图精通：百分比与已完成的类别。点击查看详情。"
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "刷怪直到能击败首领。"
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "雪人守着通往冬季 II 的路。"
+
+msgid "VIEW_CAMP"
+msgstr "查看营地"
+
+msgid "DROP_ALL"
+msgstr "全部丢弃"
+
+msgid "DROP_ALL_TITLE"
+msgstr "丢弃整组物品？"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\n所有数量都会离开背包，格子会立即空出。这组物品会在地上停留 5 分钟：点击即可重新拾取（自动拾取不会将其捡回）。重新拾取不会计入任务、转生或精通进度。"
+
+msgid "DROP_ALL_MASTERY"
+msgstr "精通 ^%d（保留）"
+
+msgid "DROPPED_NOTICE"
+msgstr "已丢弃 %s × %s"
+
+msgid "DROP_EQUIPPED"
+msgstr "请先卸下"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "立即为你恢复 %s HP（%s HP，最多为最大生命的 %s%%），在生命值低于 %s%% 时可用"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "攻击伤害 +%s%%，持续 5 秒（当前每次命中 +%s 伤害） · 仅限战斗中"
+
+msgid "SKILL_DESC_FROST"
+msgstr "造成 %s× 攻击伤害（当前 %s），作用于你周围 %s 范围内的所有敌人，并使其减速 25%%，持续 3 秒"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "造成 %s× 攻击伤害（当前 %s），作用于目标及其周围 %s 范围内的所有敌人"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "造成 %s× 攻击伤害（当前 %s），作用于当前目标"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "造成 %s× 攻击伤害（当前 %s），作用于当前目标，近距离重击"
+
+msgid "SKILL_DESC_STATS"
+msgstr "目标：%s · 范围：%s · 冷却：%s秒"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "自身"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "范围内所有敌人"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "1 个敌人"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "自身"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s 点生命"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "%s%% 伤害"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "%s× 攻击伤害"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "只要生命值未满，治疗术随时可用，包括战斗外。"
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "转生"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "兑换 %d 个机遇并开始新一轮"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "你将为每个机遇选择一张永久卡牌："
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "1 张卡牌"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "永久 · 保留"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "本轮重置"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "卡牌逐张选择并立即保存。选完最后一张后，本轮将从冬季 I 重新开始。"
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "开始转生"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "转生卡牌与套组（已拥有 %d）以及新卡牌"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "你的宝石：%s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "已探索的地图区域、已发现的营地与首领"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "所有宝石强化、自动化与背包空间"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "首领钥匙、敌人成就与地图精通"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "设置与教程进度"
+
+msgid "RESET_LINE_COINS"
+msgstr "金币：%s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "玩家等级 %d（重置为 1）"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "物品、合成与补给品库存"
+
+msgid "RESET_LINE_MAPS"
+msgstr "地图权限（返回冬季 I）与已拥有的营地"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "金币强化与地图强化"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "未完成的机遇与任务"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "点击“查看营地”"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "将打开此营地，你可以在其中解锁它。"
+
+msgid "HELP"
+msgstr "帮助"
+
+msgid "PANEL_HELP"
+msgstr "帮助"
+
+msgid "HELP_INTRO"
+msgstr "LootFarmer 玩法简介。阅读此内容不会改变你的游戏。"
+
+msgid "HELP_BACK"
+msgstr "返回设置"
+
+msgid "SECTION_LANGUAGE"
+msgstr "语言"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "暴击率"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "暴击伤害"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "自动技能栏"
+
+msgid "SOURCE_UPGRADES"
+msgstr "强化"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "自动技能：已分配 %d / %d"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "请先装备技能，并购买可用的自动技能栏。"
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "自动合成：%s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "背包格子大小"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "最多恢复 %s HP（最大生命的 %s%%）。只要生命值未满即可使用，包括战斗外。"
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "需在战斗中且 %s 单位内有敌人才能发动。"
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "单体目标。降低攻击速度 %s%%，持续 %s 秒（首领：%s 秒）。移动速度不变。"
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "首领对持续效果的时长有一半抗性；效果强度和伤害不变。"
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "下一精通等级：已使用 %d / %d 次 · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "自动使用：只要生命值未满且冷却结束就会使用，包括战斗外。"
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "点击绿色营地即可前往。暗色营地尚未解锁。战斗中无法移动。"
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d秒"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "使用转生前，请先在冬季 II 完成全程引导教程。"
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "玩家等级 %d、已获得的经验与等级加成"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "补给精通及其下一级的进度"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "选择营地"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "关闭此面板以继续。"
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "点击关闭按钮。你的进度已保存。"
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "购买一项玩家强化。"
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "选择一项有助于后续战斗的全局强化。"
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "扩充你的装备背包。"
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "用宝石再购买一个格子。教程会一次性补足不足的部分。"
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "跟随箭头前往营地。"
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "靠近并发现营地，然后点击“查看营地”购买解锁。"
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "找到第一个首领。"
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "跟随箭头前往雪人所在处。只需发现它，无需击败。"
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "挑战首领前先做好准备。"
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "首领可能太强。提升等级以增加全局属性；刷装备、合成重复品并购买强化。"
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "再多刷几个敌人。"
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "继续前进前，先提升实力并收集金币。"
+
+msgid "GUIDE_POTION_BUY"
+msgstr "购买一瓶生命药水。"
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "打开“玩家强化”，然后进入“补给品”。已有的药水库存也会计入。"
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "为生命药水腾出空间。"
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "购买一个补给品格子，或使用现有补给品来空出格子。"
+
+msgid "GUIDE_POTION_USE"
+msgstr "使用你的生命药水。"
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "生命值未满时点击其背包格子。使用补给品会推进其精通进度。"
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "需要治疗时再使用药水。"
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "先与附近的敌人战斗。生命值满时绝不会浪费药水。"
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "转生可获得永久收益。"
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "完成机遇即可获得卡牌。全程引导模式会在本教程结束后解锁重置；不转生继续游戏也可以。"
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "你已符合转生奖励的条件。"
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "你的机遇已就绪。决定是否重置前，请先在冬季 II 完成全程引导教程。"
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "下一张地图已开放。"
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "打开“世界”查看已解锁的关卡及其营地。"
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "在已解锁的营地之间移动。"
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "只有一个已解锁营地时，“世界”会直接前往；有多个时会显示地图。战斗中无法传送。"
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "里程碑提供可选目标。"
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "想要额外奖励时，可查看地图精通与成就。通过“世界”继续前往冬季 II。"
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "前往冬季 II。"
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "打开“世界”并选择冬季 II，继续冒险。"
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "前方之路"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "你的终极目标是击败第 8 关的最终首领，征服整个游戏。\n\n想要更大的挑战？完成地图精通中的所有里程碑，达成 100% 完成度。\n\n按照自己的节奏游玩，享受旅程，祝你好运！"
+
+msgid "SLOT_SMALL"
+msgstr "小"
+
+msgid "SLOT_MEDIUM"
+msgstr "中"
+
+msgid "SLOT_LARGE"
+msgstr "大"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "通用"
+
+msgid "REVIEW_TITLE"
+msgstr "喜欢 LootFarmer 吗？"
+
+msgid "REVIEW_LEAD"
+msgstr "你的冒险才刚刚开始！"
+
+msgid "REVIEW_BODY"
+msgstr "找到好宝贝了吗？我们很想听听你的想法。真实的评价能帮助我们改进 LootFarmer，也能帮助其他玩家发现这款游戏。"
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "在 Google Play 上评价"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "在 itch.io 上评价"
+
+msgid "REVIEW_LATER"
+msgstr "以后再说"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "无法打开商店页面。请检查网络连接后重试。"
+
+msgid "SECTION_FEEDBACK"
+msgstr "反馈"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "锁定一个敌人"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "从英雄拖动到敌人身上，松开即可锁定。你的攻击会集中在所选的敌人身上。"
+
+msgid "GUIDE_TARGET"
+msgstr "锁定一个敌人"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "从英雄拖动到敌人身上，松开即可锁定。你的攻击会集中在所选的敌人身上。"
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "寻找可锁定的敌人"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "走到能看见敌人的地方，然后从英雄拖动到敌人身上并松开。"
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "狩猎%s"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%d 点"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s秒"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d小时%02d分"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d分%02d秒"
+
+msgid "DURATION_SECONDS"
+msgstr "%d秒"
+
+msgid "JOYSTICK_POSITION"
+msgstr "摇杆位置"
+
+msgid "JOYSTICK_LEFT"
+msgstr "左侧"
+
+msgid "JOYSTICK_CENTER"
+msgstr "居中"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "右侧"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "无法打开链接。请检查网络连接后重试。"
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "所有模式的游戏内容都相同，只有引导程度不同。"
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "带指示的分步教学。菜单会随着学习逐步开放。"
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "几张关于操作与目标的简短卡片。所有菜单都已开放。"
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "没有教学或提示。所有菜单从一开始就已开放。"

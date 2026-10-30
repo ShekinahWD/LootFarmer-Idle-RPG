@@ -1,6 +1,6 @@
-# LootFarmer — Localization Glossary (Batches 01–03)
+# LootFarmer — Localization Glossary (Batches 01–04, all 20 languages)
 
-Game-specific terminology decisions for the runtime catalogs in `localization/`. The English catalog (`localization/en.po`) is the source of truth. Batch 01 (Change 38): es-419, es-ES, pt-BR, fr-FR, de-DE. Batch 02 (Change 39): it-IT, nl-NL, pl-PL, ru-RU, uk-UA. Batches 03–04 add their columns here.
+Game-specific terminology decisions for the runtime catalogs in `localization/`. The English catalog (`localization/en.po`) is the source of truth. Batch 01 (Change 38): es-419, es-ES, pt-BR, fr-FR, de-DE. Batch 02 (Change 39): it-IT, nl-NL, pl-PL, ru-RU, uk-UA. Batch 03 (Change 42): tr-TR, id-ID, vi-VN, th-TH, hi-IN. Batch 04 (Change 43): ja-JP, ko-KR, zh-CN, zh-TW.
 
 ## Not translated (brand and proper nouns)
 
@@ -198,3 +198,67 @@ Written from scratch against the 1,951-key English catalog; the drafts were refe
 - **Item names** are generated from the enemy names: tr *<ad> Kıyafeti / Kılıcı*, id *Kostum / Pedang <nama>*, vi *Trang phục / Kiếm <tên>*, th *ชุด / ดาบ<ชื่อ>*, hi *<नाम> की पोशाक / तलवार*; the Plain enemy gets an adjective (*Sade Kıyafet, Trang phục Thường, ชุดธรรมดา, सादी पोशाक*).
 - **Compass:** tr *%s yönü · Kamp %d çevresi*, id *Sebelah utara Kemah %d*, vi *Phía bắc trại %d*, th *ทางเหนือของค่าย %d*, hi *उत्तर दिशा · कैंप %d से*.
 - **Fonts:** Thai and Hindi draw with the theme font plus Noto Sans Thai / Noto Sans Devanagari (OFL); every other locale keeps plain DejaVu Sans (Turkish and Vietnamese are fully covered by it). The language dropdown always carries both fallbacks so ไทย and हिन्दी render in every locale.
+
+## Batch 04 (Change 43): ja-JP, ko-KR, zh-CN, zh-TW
+
+Written from scratch against the 1,951-key English catalog (unique English texts translated once, item names generated from the enemy names); the drafts were reference only. Reviewed by Claude, **not by native speakers**. Simplified and Traditional Chinese were written separately with regional vocabulary, not converted: 118 of 1,272 distinct English texts have the same Chinese wording in both (short shared words such as 技能, 武器, 精通/熟練度 differ; 傳送/传送 are only glyph variants).
+
+| English | ja-JP | ko-KR | zh-CN | zh-TW |
+|---|---|---|---|---|
+| Coins / Gems | コイン / ジェム | 코인 / 보석 | 金币 / 宝石 | 金幣 / 寶石 |
+| Gear (equipment) | 装備 | 장비 | 装备 | 裝備 |
+| Inventory | 持ち物 | 인벤토리 | 背包 | 背包 |
+| Item | アイテム | 아이템 | 物品 | 道具 |
+| Weapon / Outfit | 武器 / 衣装 | 무기 / 의상 | 武器 / 服装 | 武器 / 服裝 |
+| Supplies (consumables) | 消耗品 | 소모품 | 补给品 | 補給品 |
+| Slot | スロット | 슬롯 | 格子 (inventory) · 栏位 (skill/mission) | 欄位 |
+| Merge | 合成 | 합성 | 合成 | 合成 |
+| Evolve | 進化 | 진화 | 进化 | 進化 |
+| Upgrade (bought) | 強化 | 강화 | 强化 | 強化 |
+| Spare copy | 予備 | 여분 | 重复品 | 重複品 |
+| Supply Mastery | 消耗品熟練度 | 소모품 숙련도 | 补给精通 | 補給熟練度 |
+| Map Mastery | マップ熟練度 | 지도 숙련도 | 地图精通 | 地圖熟練度 |
+| Prestige | 転生 | 환생 | 转生 | 轉生 |
+| Respawn | 復活 | 부활 | 复活 | 復活 |
+| Opportunity / card | チャンス / カード | 기회 / 카드 | 机遇 / 卡牌 | 機會 / 卡片 |
+| Mission / Main objective | ミッション / メイン目標 | 미션 / 메인 목표 | 任务 / 主要目标 | 任務 / 主要目標 |
+| Claim / pick up | 受け取る / 拾う | 받기·수령 / 줍기 | 领取 / 拾取 | 領取 / 撿取 |
+| Camp / View Camp | キャンプ / キャンプを見る | 캠프 / 캠프 보기 | 营地 / 查看营地 | 營地 / 查看營地 |
+| Farm (verb) · Focus Farming | 狩る · 集中狩り | 파밍 · 집중 파밍 | 刷怪 · 专注刷怪 | 刷怪 · 專注刷怪 |
+| Boss | ボス | 보스 | 首领 | 頭目 |
+| Elite | エリート | 정예 | 精英 | 菁英 |
+| Skill / cooldown | スキル / クールダウン | 스킬 / 쿨타임 | 技能 / 冷却 | 技能 / 冷卻 |
+| Cast | 発動 / 使う | 시전 | 施放 | 施放 |
+| Loot / drop | 戦利品 / ドロップ | 전리품 / 드롭 | 战利品 / 掉落 | 戰利品 / 掉落 |
+| Trophy | トロフィー | 트로피 | 奖杯 | 獎盃 |
+| Tier / level | ランク / レベル | 등급 / 레벨 | 阶 / 等级 | 階 / 等級 |
+| Stage (map) / map | ステージ / マップ | 스테이지 / 지도 | 关卡 / 地图 | 關卡 / 地圖 |
+| Run (between Prestiges) | 周回 | 회차 | 轮 | 輪 |
+| HP / XP | HP / EXP·経験値 | 체력 (HP in the HUD) / 경험치 | 生命值 (HP in the HUD) / 经验 | 生命值 (HP in the HUD) / 經驗 |
+| Critical / lifesteal | クリティカル / HP吸収 | 치명타 / 흡혈 | 暴击 / 吸血 | 爆擊 / 吸血 |
+| Defense | 防御 | 방어 | 防御 | 防禦 |
+| Tap | タップ | 터치 | 点击 | 輕觸 |
+| Target (drag from the hero) | ターゲットにする | 대상으로 지정 | 锁定 | 鎖定 |
+| Equip / Unequip | 装備する / 外す | 장착 / 해제 | 装备 / 卸下 | 裝備 / 卸下 |
+| Settings / Save | 設定 / セーブ | 설정 / 저장 | 设置 / 保存 | 設定 / 儲存 |
+| Reset (Hard Reset) | リセット (完全リセット) | 초기화 (완전 초기화) | 重置 (彻底重置) | 重設 (完全重設) |
+| Honest review | 率直なレビュー | 솔직한 리뷰 | 真实的评价 | 真實的評價 |
+| Joystick position: Left / Center / Right | ジョイスティックの位置: 左 / 中央 / 右 | 조이스틱 위치: 왼쪽 / 가운데 / 오른쪽 | 摇杆位置: 左侧 / 居中 / 右侧 | 搖桿位置: 左側 / 置中 / 右側 |
+| Guided / Basic / None | ガイド付き / 基本 / なし | 단계별 안내 / 기본 / 없음 | 全程引导 / 基础 / 无 | 完整引導 / 基本 / 無 |
+| Stages (Winter I …) | 冬 I, 夏, 秋, 春 | 겨울 I, 여름, 가을, 봄 | 冬季 I, 夏季, 秋季, 春季 | 冬季 I, 夏季, 秋季, 春季 |
+| Grim Reaper | 死神 | 사신 | 死神 | 死神 |
+| Skills (Heal, Frost Burst, Fire Burst, Lightning Strike, Arcane Focus, Arcane Strike) | ヒール, フロストバースト, ファイアバースト, ライトニング, 秘術集中, 秘術の一撃 | 치유, 서리 폭발, 화염 폭발, 번개 강타, 비전 집중, 비전 일격 | 治疗术, 冰霜爆发, 烈焰爆发, 雷击, 奥术专注, 奥术打击 | 治癒術, 冰霜爆破, 烈焰爆破, 雷擊, 秘法專注, 秘法打擊 |
+
+### Register and language rules (Batch 04)
+
+- **ja-JP:** friendly direct register for guidance and goals (〜しよう, plain verb goals such as 雪だるまを倒す), です/ます for system messages, confirmations and errors; buttons are nouns or short verbs (装備する, 合成, 受け取る). Full-width punctuation and brackets around Japanese text (「」, （）, ：, 、。); a half-width space only around Latin words and Roman stage numerals (冬 II). No space between a number and its counter or unit (5体, 2.5秒, 1時間05分). Prestige is 転生, the established idle-game term, and stays distinct from respawning (復活). Farming is 狩り, Upgrades 強化 (never used for merging), Tier ランク. MAX is kept as Japanese game UI writes it (allowlisted).
+- **ko-KR:** -하세요 for guidance, -습니다 for system messages, nouns for buttons (장착, 해제, 합성). Spaces between words and before units written as words (1시간 05분, 3초 후); counters attach (3개, 5마리). **No particle whose form depends on the preceding syllable (을/를, 이/가, 은/는, 와/과, (으)로) is ever attached to a placeholder**: a placeholder hides that syllable, so lines use a colon, a noun or an invariant particle instead (선택: %s, %s 처치, %s의, %s에서) — enforced by the validator. Fixed names take their correct particle (눈사람을, 겨울 II가). Prestige is 환생 (distinct from 부활), cooldown 쿨타임, tap 터치. **Word wrapping:** Korean lines break between words; the catalog carries U+2060 WORD JOINERs inside every Korean word (tools/korean_keep_all.py, checked by the validator), because Godot otherwise breaks between any two Hangul syllables.
+- **zh-CN:** Mainland vocabulary and punctuation: “”, full-width ，。：！？（）, 设置, 保存, 默认, 点击, 首领, 暴击, 防御, 物品, 卡牌, 背包格子, 内存, 网络, 应用, 界面, 恢复, 兼容, 标签页. A space separates Chinese from Latin text and numbers inside sentences (击败 5 个普通敌人); units attach (2.5秒). Prestige 转生, Mastery 精通.
+- **zh-TW:** Taiwan vocabulary and punctuation, written independently: 「」, 設定, 儲存, 預設, 輕觸, 頭目, 爆擊, 防禦, 道具, 卡片, 欄位, 記憶體, 網路, 應用程式, 介面, 復原/重設, 相容, 分頁, 菁英, 繳交, 撿取, 品質, 略過, 小貓熊, 太陽眼鏡, 棒球帽, 置中. Arcane is 秘法 (zh-CN 奥术), mastery 熟練度 (zh-CN 精通).
+- **Character sets:** every Japanese CJK character is in CP932, every Simplified Chinese one in GB2312 and every Traditional one in Big5 (validator rule), so no Traditional glyph slips into zh-CN and no Simplified one into zh-TW or Japanese.
+- **"Cap" enemies in Chinese:** 鸭舌帽 (zh-CN) / 棒球帽 (zh-TW) rather than 帽 alone, because 绿帽 (green hat) is an insult in Chinese.
+- **Item names** generated from the enemy names: ja *<名>の衣装 / <名>の剣*, ko *<이름> 의상 / <이름> 검*, zh-CN *<名>服装 / <名>之剑*, zh-TW *<名>服裝 / <名>之劍*; the Plain enemy gets an adjective (プレーンな衣装, 기본 의상, 普通服装, 平凡服裝).
+- **Compass:** the direction word carries no preposition and FARMING_LOCATION supplies the reference: ja *北（キャンプ3から） · 近い*, ko *북쪽 (캠프 3 기준) · 가까움*, zh-CN *北方（相对营地 3） · 很近*, zh-TW *北方（相對營地 3） · 很近*.
+- **Intentional English** (allowlisted per key): all four keep `APP_TITLE`, `GAME_TITLE`, `DISCORD` (brands) and `PLAYER_STATUS`, `HUD_HP` (HP in the HUD); Japanese also `STATS_SHORT_HP`, `SKILL_AMOUNT_HP` (HP) and `UPGRADE_MAX`, `VALUE_MAX` (MAX).
+- **Fonts:** each of the four draws with its own regional Noto Sans subset first (JP, KR, SC, TC; OFL) and DejaVu Sans second, so kana, Hangul, Han and full-width punctuation take the region's forms and Latin letters and digits keep DejaVu's. The language dropdown carries four endonym fonts so 日本語, 한국어, 简体中文 and 繁體中文 keep their own regional forms in every UI language.
+

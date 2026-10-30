@@ -43,7 +43,7 @@ func run() -> void:
     await open_shot("open_settings_top")
     scroll.scroll_vertical=int(scroll.get_v_scroll_bar().max_value);await frames(4)
     await open_shot("open_settings_bottom")
-    # 3. The list scrolled to its last choices (Русский, Українська visible).
+    # 3. The list scrolled to its last choices (since Change 43 the CJK names close the list).
     dropdown().show_popup();await frames(6)
     var bar:=menu_bar()
     if bar!=null:bar.value=bar.max_value
@@ -80,6 +80,24 @@ func run() -> void:
     LocalizationService.select_language("automatic");await frames(10)
     await reveal()
     await open_shot("open_automatic_th")
+    LocalizationService.set_test_device_locale("en_US")
+    # 8. Change 43: Japanese, Korean and both Chinese chosen (regional faces), the 21-row list end, and Automatic
+    # on a Hong Kong device (Traditional Chinese).
+    for lang in ["ja_JP","ko_KR","zh_CN","zh_TW"]:
+        LocalizationService.select_language(lang);await frames(10)
+        await reveal()
+        await shot("closed_"+lang)
+        await open_shot("open_"+lang)
+    dropdown().show_popup();await frames(6)
+    var end_bar:=menu_bar()
+    if end_bar!=null:end_bar.value=end_bar.max_value
+    await frames(4)
+    await shot("open_list_end_zh_TW")
+    dropdown().close_menu();await frames(3)
+    LocalizationService.set_test_device_locale("zh_Hant_HK")
+    LocalizationService.select_language("automatic");await frames(10)
+    await reveal()
+    await open_shot("open_automatic_zh_hk")
     LocalizationService.set_test_device_locale("en_US")
     var f:=FileAccess.open(ProjectSettings.globalize_path(out+shape+"_layout.json"),FileAccess.WRITE)
     f.store_string(JSON.stringify(layout,"  "));f.close()

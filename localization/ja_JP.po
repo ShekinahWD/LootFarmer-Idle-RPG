@@ -1,0 +1,5862 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LootFarmer - Idle RPG\n"
+"Language: ja_JP\n"
+"Language-Team: Japanese (Japan)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"X-Localization-Batch: 04 (Change 43); English source SHA-256 d6102fccdbae9721e20d5baa922c9a50d88ec85324c09b9b179832d3d47fe7e3\n"
+
+msgid "APP_TITLE"
+msgstr "LootFarmer - Idle RPG"
+
+msgid "BOOT_TITLE"
+msgstr "Android 起動チェック"
+
+msgid "BOOT_DETAIL"
+msgstr "チェックポイント0 • ゲームプレイはまだ実装されていません。"
+
+msgid "BOOT_VERSION"
+msgstr "バージョン %s"
+
+msgid "BOOT_TAPS"
+msgstr "保存済みのタッチ回数：%d"
+
+msgid "BOOT_TAP"
+msgstr "タッチしてセーブをテスト"
+
+msgid "BOOT_SAVED"
+msgstr "セーブしました"
+
+msgid "BOOT_SAVE_ERROR"
+msgstr "セーブできません。検証ログを確認してください。"
+
+msgid "BOOT_PAUSE"
+msgstr "一時停止"
+
+msgid "BOOT_RESUME"
+msgstr "再開"
+
+msgid "BOOT_RESET"
+msgstr "完全リセット"
+
+msgid "BOOT_RESET_TITLE"
+msgstr "進行状況をリセットしますか？"
+
+msgid "BOOT_RESET_DETAIL"
+msgstr "このプロフィールの進行状況がすべて消去されます。設定は残ります。"
+
+msgid "UI_CONFIRM"
+msgstr "リセット"
+
+msgid "UI_CANCEL"
+msgstr "キャンセル"
+
+msgid "SETTINGS_LANGUAGES"
+msgstr "言語"
+
+msgid "LANG_AUTOMATIC"
+msgstr "自動"
+
+msgid "LANG_DISABLED"
+msgstr "翻訳の検証後に利用可能"
+
+msgid "BOOT_LANGUAGE_GATE"
+msgstr "英語が有効です。他の言語は検証後に解放されます。"
+
+msgid "BOOT_SAVE_READONLY"
+msgstr "読み込めない、または新しいバージョンのセーブデータを保護しました。互換性のあるバックアップを復元するか、このプロフィールを意図的にリセットしてください。"
+
+msgid "LANG_EN_US"
+msgstr "英語"
+
+msgid "LANG_ES_419"
+msgstr "スペイン語（中南米）"
+
+msgid "LANG_ES_ES"
+msgstr "スペイン語（スペイン）"
+
+msgid "LANG_PT_BR"
+msgstr "ポルトガル語（ブラジル）"
+
+msgid "LANG_FR_FR"
+msgstr "フランス語"
+
+msgid "LANG_DE_DE"
+msgstr "ドイツ語"
+
+msgid "LANG_IT_IT"
+msgstr "イタリア語"
+
+msgid "LANG_NL_NL"
+msgstr "オランダ語"
+
+msgid "LANG_PL_PL"
+msgstr "ポーランド語"
+
+msgid "LANG_RU_RU"
+msgstr "ロシア語"
+
+msgid "LANG_UK_UA"
+msgstr "ウクライナ語"
+
+msgid "LANG_TR_TR"
+msgstr "トルコ語"
+
+msgid "LANG_ID_ID"
+msgstr "インドネシア語"
+
+msgid "LANG_VI_VN"
+msgstr "ベトナム語"
+
+msgid "LANG_TH_TH"
+msgstr "タイ語"
+
+msgid "LANG_HI_IN"
+msgstr "ヒンディー語"
+
+msgid "LANG_JA_JP"
+msgstr "日本語"
+
+msgid "LANG_KO_KR"
+msgstr "韓国語"
+
+msgid "LANG_ZH_CN"
+msgstr "中国語（簡体字）"
+
+msgid "LANG_ZH_TW"
+msgstr "中国語（繁体字）"
+
+msgid "GAME_TITLE"
+msgstr "LOOTFARMER · IDLE RPG"
+
+msgid "WALLET"
+msgstr "コイン %s     ジェム %s"
+
+msgid "PAUSE"
+msgstr "一時停止"
+
+msgid "RESUME"
+msgstr "再開"
+
+msgid "PLAYER_STATUS"
+msgstr "HP %s / %s  ·  %s"
+
+msgid "RESPAWNING"
+msgstr "%.1f秒後にキャンプへ戻ります"
+
+msgid "BOOST_ACTIVE"
+msgstr "コインブースト %d秒"
+
+msgid "GROUP_0"
+msgstr "新芽の草原"
+
+msgid "GROUP_1"
+msgstr "ロボットの交差路"
+
+msgid "GROUP_2"
+msgstr "恐竜の森"
+
+msgid "GROUP_3"
+msgstr "死神の空き地"
+
+msgid "CLOSE"
+msgstr "閉じる"
+
+msgid "CONFIRM"
+msgstr "決定"
+
+msgid "CANCEL"
+msgstr "キャンセル"
+
+msgid "LEVEL"
+msgstr "レベル"
+
+msgid "INVENTORY_HEADING"
+msgstr "装備"
+
+msgid "SUPPLY_HEADING"
+msgstr "消耗品"
+
+msgid "GEAR_CAPACITY"
+msgstr "装備  %d / %d  ·  タップで詳細"
+
+msgid "SUPPLY_CAPACITY"
+msgstr "消耗品  %d / %d  ·  タップで使用・自動化"
+
+msgid "EMPTY_SLOT"
+msgstr "空き"
+
+msgid "EQUIPPED"
+msgstr "装備中"
+
+msgid "AUTO"
+msgstr "オート"
+
+msgid "UPGRADES"
+msgstr "強化"
+
+msgid "WORLD"
+msgstr "ワールド"
+
+msgid "STATS"
+msgstr "ステータス"
+
+msgid "SETTINGS"
+msgstr "設定"
+
+msgid "PANEL_ITEM"
+msgstr "アイテム"
+
+msgid "PANEL_UPGRADES"
+msgstr "プレイヤー強化"
+
+msgid "PANEL_TRAVEL"
+msgstr "キャンプと狩り"
+
+msgid "PANEL_STATS"
+msgstr "現在のビルド"
+
+msgid "PANEL_SETTINGS"
+msgstr "設定"
+
+msgid "PANEL_HISTORY"
+msgstr "最近の入手"
+
+msgid "PANEL_PRESTIGE"
+msgstr "新たな始まり"
+
+msgid "HELP_0"
+msgstr "ジョイスティックで北へ探索しよう。指を離すと近くの敵と自動で戦います。"
+
+msgid "HELP_1"
+msgstr "新芽は単独で戦います。近くにとどまって狩りをし、落ちた装備をタップして回収しよう。"
+
+msgid "HELP_2"
+msgstr "地面のアイテムをタップしよう。コインとジェムはそのまま所持金に入ります。"
+
+msgid "HELP_3"
+msgstr "下の新しい装備をタップして装備しよう。衣装と武器を1つずつ装備できます。"
+
+msgid "HELP_4"
+msgstr "重複したアイテムを合成すると、そのアイテムの種類が強くなります。在庫が0になっても進捗は残ります。"
+
+msgid "HELP_5"
+msgstr "敵の種類を開いて自動回収を購入すると、狩りの最中にドロップを集められます。"
+
+msgid "HELP_6"
+msgstr "ビルドを育て、北へ探索し、死神を倒そう。世界は最初からすべて開放されています。"
+
+msgid "HELP_7"
+msgstr "永続ボーナスは残ります。さらに強い周回を組み立て、もう一度死神に挑もう。"
+
+msgid "HELP_VICTORY"
+msgstr "死神を倒した！狩りを続けるか、「ワールド」で転生カードを選ぼう。"
+
+msgid "HELP_PAUSED"
+msgstr "一時停止中 · 持ち物を整理できます。再開すると狩りを続けます。"
+
+msgid "HISTORY_EMPTY"
+msgstr "最近の入手品がここに表示されます。\nタップで直近10件を表示。"
+
+msgid "HISTORY_CURRENCY"
+msgstr "ジェム +%s"
+
+msgid "HISTORY_ITEM"
+msgstr "+%s %s"
+
+msgid "HISTORY_SOLD"
+msgstr "%s個の%sを売却"
+
+msgid "ITEM_WOOD_SWORD"
+msgstr "木の剣"
+
+msgid "ITEM_STONE_SWORD"
+msgstr "石の剣"
+
+msgid "ITEM_IRON_SWORD"
+msgstr "鉄の剣"
+
+msgid "ITEM_SPROUT"
+msgstr "新芽の衣装"
+
+msgid "ITEM_ROBOT"
+msgstr "ロボットの衣装"
+
+msgid "ITEM_DINOSAUR"
+msgstr "恐竜の衣装"
+
+msgid "ITEM_POTION"
+msgstr "回復ポーション"
+
+msgid "ITEM_COIN_BOOST"
+msgstr "コインの秘薬"
+
+msgid "ITEM_QUANTITY"
+msgstr "所持数：%s"
+
+msgid "NORMAL_STATS"
+msgstr "基本ステータス · 合成で上昇"
+
+msgid "EXTRA_STATS"
+msgstr "追加ステータス · この種類で共通"
+
+msgid "EQUIP"
+msgstr "装備する"
+
+msgid "UNEQUIP"
+msgstr "外す"
+
+msgid "REROLL"
+msgstr "追加ステータスを両方再抽選 · ジェム %s"
+
+msgid "REROLL_CONFIRM"
+msgstr "ジェム%sを使って追加ステータスを2つとも入れ替えますか？弱くなっても新しい結果に置き換わります。"
+
+msgid "USE"
+msgstr "1個使う"
+
+msgid "MERGE_ONE"
+msgstr "予備を1個合成"
+
+msgid "MERGE_ALL"
+msgstr "予備を%d個合成"
+
+msgid "EVOLUTION_EXPLAIN"
+msgstr "^100で予備100個を使い、次のランクのアイテム1個を得ます。元のアイテムと合成レベルは残ります。同じカテゴリーの対象スタックか空きスロットが必要です。"
+
+msgid "EVOLVE"
+msgstr "進化 → %s"
+
+msgid "AUTO_SLOT_TOGGLE"
+msgstr "このスロットの自動化を切り替え"
+
+msgid "AUTO_SLOT_STATUS"
+msgstr "このスロットを自動使用：%s"
+
+msgid "ON"
+msgstr "オン"
+
+msgid "OFF"
+msgstr "オフ"
+
+msgid "EMPTY_SLOT_HELP"
+msgstr "このスロットは空です。新しい種類のアイテムには空きスロットが必要で、既存の種類はまとめて重なります。"
+
+msgid "UPGRADES_EXPLAIN"
+msgstr "グループ強化はすべてのメンバーに効果があります。ドロップは敵ごとに判定されます。コインとジェムは即座に加算されます。"
+
+msgid "GROUP_SELECT"
+msgstr "敵グループ：%s · タップで変更"
+
+msgid "AUTOMATION_HEADING"
+msgstr "持ち物と自動化 · 転生後も維持"
+
+msgid "UPGRADE_COST"
+msgstr "%s %s"
+
+msgid "COINS"
+msgstr "コイン"
+
+msgid "GEMS"
+msgstr "ジェム"
+
+msgid "TRAVEL_HELP"
+msgstr "マップ上のキャンプをタップして復活地点を選びます。キャンプのパネルから解放しても選択されます。テレポートはできません。"
+
+msgid "SPAWN_SELECT"
+msgstr "キャンプ%dを選択"
+
+msgid "SPAWN_BUY"
+msgstr "キャンプ%dを解放 · コイン %s"
+
+msgid "SELECTED"
+msgstr "選択中"
+
+msgid "FOCUS_HELP"
+msgstr "敵の種類ごとに狩りを解放し、衣装のみ・武器のみ・両方から選びます。倒されるとそのキャンプに戻ります。手動で移動すると狩りは中断されます。"
+
+msgid "FOCUS_GROUP"
+msgstr "%sを狩る · %s"
+
+msgid "PRESTIGE_READY"
+msgstr "転生カードを選ぼう"
+
+msgid "PRESTIGE_COUNT"
+msgstr "転生回数：%d"
+
+msgid "NO_OFFLINE"
+msgstr "進行状況はセーブされています。オフライン報酬は製品版で予定されています。このビルドでは終了中やバックグラウンド中の進行はシミュレートされません。"
+
+msgid "SAVE_NOW"
+msgstr "今すぐセーブ"
+
+msgid "HARD_RESET"
+msgstr "完全リセット"
+
+msgid "RESET_CONFIRM"
+msgstr "進行状況、持ち物、自動化、転生カードをすべて消去しますか？設定は残ります。この操作は取り消せません。"
+
+msgid "LANGUAGE_NOTE"
+msgstr "開発中は英語のみ利用できます。他の19言語は翻訳の検証後に解放されます。"
+
+msgid "CREDITS"
+msgstr "キャラクター・ワールドアート：Pixel Plains（SnowHex）。インターフェース：Kenney Fantasy UI Borders（CC0）。"
+
+msgid "PRESTIGE_EXPLAIN"
+msgstr "永続する+5%カードを1枚選びます。ボーナスは周回をまたいで累積します。このパネルを閉じて狩りを続けることもできます。"
+
+msgid "PRESTIGE_CONFIRM"
+msgstr "この永続カードで新しい周回を始めますか？通貨、持ち物、アイテムの合成と追加ステータス、敵の狩り強化、キャンプがリセットされます。判明した敵の情報、自動化レベル、持ち物の容量、すべての転生カードは残ります。"
+
+msgid "CARD_DAMAGE"
+msgstr "ダメージ+5% · 永続"
+
+msgid "CARD_HP"
+msgstr "最大HP+5% · 永続"
+
+msgid "CARD_COINS"
+msgstr "コイン獲得量+5% · 永続"
+
+msgid "CARD_GEMS"
+msgstr "ジェム確率+5%（相対） · 永続"
+
+msgid "CARD_LOOT"
+msgstr "装備ドロップ率+5%（相対） · 永続"
+
+msgid "CARD_MERGE"
+msgstr "合成による基本ステータス上昇+5% · 永続"
+
+msgid "STAT_HP"
+msgstr "最大HP"
+
+msgid "STAT_DAMAGE"
+msgstr "ダメージ"
+
+msgid "STAT_DEFENSE"
+msgstr "防御"
+
+msgid "STAT_CRIT"
+msgstr "クリティカル率"
+
+msgid "STAT_CRIT_DAMAGE"
+msgstr "クリティカル倍率"
+
+msgid "STAT_LIFESTEAL"
+msgstr "HP吸収"
+
+msgid "STAT_REGEN"
+msgstr "毎秒HP回復"
+
+msgid "STAT_SPEED"
+msgstr "攻撃速度ボーナス"
+
+msgid "STAT_HEAL"
+msgstr "回復量"
+
+msgid "STAT_COIN_BONUS"
+msgstr "コイン獲得量ボーナス"
+
+msgid "NEED_DUPLICATES"
+msgstr "合成には予備が1個必要です。"
+
+msgid "MERGE_MAX"
+msgstr "このアイテムは^100に到達しています。"
+
+msgid "EVOLUTION_NEEDS"
+msgstr "進化には^100と元のアイテム101個が必要です。"
+
+msgid "INVENTORY_FULL"
+msgstr "空きスロットがありません。空きを作るか、この持ち物枠を拡張してください。"
+
+msgid "AUTOMATION_LOCKED"
+msgstr "この自動化は「強化」で解放できます。"
+
+msgid "AUTO_SLOTS_FULL"
+msgstr "「強化」で自動使用スロットをもう1つ解放してください。"
+
+msgid "CANNOT_USE"
+msgstr "使える消耗品がないか、キャラクターが倒れています。"
+
+msgid "UPGRADE_MAX"
+msgstr "MAX"
+
+msgid "NOT_ENOUGH_COINS"
+msgstr "コインが足りません。"
+
+msgid "NOT_ENOUGH_GEMS"
+msgstr "ジェムが足りません。"
+
+msgid "SPAWN_BOUGHT"
+msgstr "キャンプを解放しました。復活に使うには選択してください。"
+
+msgid "EVOLVED"
+msgstr "次のランクのアイテムを入手しました。元のアイテムの進捗は残ります。"
+
+msgid "PLAYER_DIED"
+msgstr "選択中のキャンプに戻ります。失うものはありません。"
+
+msgid "BOSS_DEFEATED"
+msgstr "死神を倒した！永続の転生カードが待っています。"
+
+msgid "PRESTIGED"
+msgstr "新しい周回が始まります。永続ボーナスは残ります。"
+
+msgid "SAVED"
+msgstr "セーブしました。"
+
+msgid "SAVE_ERROR"
+msgstr "セーブできませんでした。進行状況はメモリに残っています。もう一度お試しください。"
+
+msgid "SAVE_INCOMPATIBLE"
+msgstr "セーブデータを安全に読み込めませんでした。意図的に完全リセットするまでセーブは無効です。"
+
+msgid "ACTION_PREVIEW"
+msgstr "アクション · コストと効果"
+
+msgid "UP_GEAR_SLOTS"
+msgstr "装備スロット+1（最大70）"
+
+msgid "UP_SUPPLY_SLOTS"
+msgstr "消耗品スロット+1（種類ごとに1つ）"
+
+msgid "UP_COLLECT"
+msgstr "自動回収を解放"
+
+msgid "UP_COLLECT_RANGE"
+msgstr "回収範囲+50"
+
+msgid "UP_COLLECT_BATCH"
+msgstr "一度に回収する数+1"
+
+msgid "UP_COLLECT_SPEED"
+msgstr "回収間隔−1秒"
+
+msgid "UP_MERGE_GEAR"
+msgstr "装備の自動合成を解放"
+
+msgid "UP_AUTO_USE"
+msgstr "自動使用の消耗品スロット+1"
+
+msgid "UP_USE_SPEED"
+msgstr "自動使用の間隔−1秒"
+
+msgid "UP_FOCUS"
+msgstr "集中狩りを解放"
+
+msgid "UP_RESPAWN"
+msgstr "復活までの時間−1秒"
+
+msgid "UP_LOOT"
+msgstr "装備ドロップ率+0.5ポイント（アイテムごと）"
+
+msgid "UP_COIN_CHANCE"
+msgstr "コインドロップ率"
+
+msgid "UP_GEM_CHANCE"
+msgstr "全体のジェムドロップ率"
+
+msgid "UP_COIN_AMOUNT"
+msgstr "敵1体あたりのコイン+50%"
+
+msgid "UP_GEM_AMOUNT"
+msgstr "1回のドロップのジェム数（ボスは×3）"
+
+msgid "CHAT_SURPRISE"
+msgstr "ちょっと！気をつけて！"
+
+msgid "RECENT_HEADER"
+msgstr "最近の入手 · タップで履歴"
+
+msgid "ZOOM_IN"
+msgstr "ズームイン"
+
+msgid "ZOOM_OUT"
+msgstr "ズームアウト"
+
+msgid "CAMERA_ZOOM"
+msgstr "カメラのズーム"
+
+msgid "PANEL_ENEMY"
+msgstr "敵"
+
+msgid "PANEL_CAMP"
+msgstr "復活キャンプ"
+
+msgid "TAB_AUTOMATION"
+msgstr "自動化"
+
+msgid "TAB_INVENTORY"
+msgstr "持ち物"
+
+msgid "TAB_SUPPLIES"
+msgstr "消耗品"
+
+msgid "TAB_OVERVIEW"
+msgstr "概要"
+
+msgid "TAB_UPGRADES"
+msgstr "強化"
+
+msgid "UP_REVEAL_STATS"
+msgstr "ステータスを公開 · 永続"
+
+msgid "UP_REVEAL_DROPS"
+msgstr "ドロップを公開 · 永続"
+
+msgid "ENEMY_STATS_HEADING"
+msgstr "敵のステータス"
+
+msgid "ENEMY_DROPS_HEADING"
+msgstr "ドロップ候補"
+
+msgid "UNKNOWN_STATS"
+msgstr "HP ???   •   ダメージ ???\n攻撃間隔 ???   •   防御 ???"
+
+msgid "UNKNOWN_DROPS"
+msgstr "???   •   ???   •   ???"
+
+msgid "ENEMY_STATS_VALUES"
+msgstr "HP %s   •   ダメージ %s\n攻撃間隔 %s秒   •   防御 %s"
+
+msgid "DROP_COINS"
+msgstr "コイン ×%s · 確定"
+
+msgid "DROP_GEMS"
+msgstr "ジェム · 確率 %s%% · ×%s"
+
+msgid "DROP_ITEM"
+msgstr "%s ×1 · %s%%"
+
+msgid "DROP_ROLL_HELP"
+msgstr "1回の装備判定で、2つの装備アイテムのどちらか1つが選ばれます。ジェムと消耗品は別に判定されます。確率には現在の強化が含まれます。"
+
+msgid "GEAR_UPGRADE_EFFECT"
+msgstr "レベルごとに+1ポイント · 最大+15"
+
+msgid "ENEMY_CAT"
+msgstr "召喚された猫"
+
+msgid "CAT_DETAILS"
+msgstr "死神が召喚した手下。\nドロップもグループ強化もありません。"
+
+msgid "CAMP_NAME"
+msgstr "キャンプ%d"
+
+msgid "CAMP_AVAILABLE"
+msgstr "タップで選択"
+
+msgid "CAMP_LOCKED"
+msgstr "未解放 · タップで解放"
+
+msgid "CAMP_HELP"
+msgstr "キャンプは復活地点です。解放済みのキャンプのそばで休むと素早く回復します。解放、復活地点の選択、移動はそれぞれ別の操作です。キャンプにいると「キャンプを見る」ボタンが表示されます。"
+
+msgid "CAMP_SELECTED_NOTICE"
+msgstr "復活キャンプを選択しました。"
+
+msgid "OPEN_PLAYER"
+msgstr "プレイヤー強化"
+
+msgid "OPEN_GROUP"
+msgstr "%sを調べる"
+
+msgid "ITEM_DEATH_SCYTHE"
+msgstr "オニキスの大鎌"
+
+msgid "ITEM_REAPER"
+msgstr "死神の衣装"
+
+msgid "VARIANT_OUTFIT"
+msgstr "衣装"
+
+msgid "VARIANT_WEAPON"
+msgstr "武器"
+
+msgid "VARIANT_BOTH"
+msgstr "両方"
+
+msgid "ITEM_DETAILS"
+msgstr "アイテム詳細"
+
+msgid "PLAYER_LEVEL_UP"
+msgstr "レベルアップ！"
+
+msgid "GEAR"
+msgstr "装備"
+
+msgid "CONSUMABLES"
+msgstr "消耗品"
+
+msgid "HUD_HP"
+msgstr "HP %s / %s"
+
+msgid "HUD_REVIVE"
+msgstr "%.1f秒後に復活"
+
+msgid "HUD_LEVEL"
+msgstr "レベル %d · %s"
+
+msgid "HUD_GEAR"
+msgstr "装備 %d / %d"
+
+msgid "HUD_SUPPLIES"
+msgstr "消耗品 %d / %d"
+
+msgid "ITEM_MERGE_LEVEL"
+msgstr "合成 %d"
+
+msgid "ITEM_OWNED"
+msgstr "所持数：%s"
+
+msgid "ITEM_EQUIPPED_CONTRIBUTION"
+msgstr "装備中 · 100%反映"
+
+msgid "ITEM_STORED_CONTRIBUTION"
+msgstr "保管中 · 30%反映（武器の種類ごとに1回）"
+
+msgid "ITEM_MERGE_ACTION"
+msgstr "合成"
+
+msgid "LESS_OPTIONS"
+msgstr "表示を減らす"
+
+msgid "MORE_OPTIONS"
+msgstr "その他のオプション"
+
+msgid "LOOT_HISTORY"
+msgstr "ドロップ履歴"
+
+msgid "PLAYER_LEVEL_CAP"
+msgstr "レベル %d / 1,000"
+
+msgid "LEVEL_UP_NOTICE"
+msgstr "レベル %d · HPとダメージが上昇"
+
+msgid "SUPPLY_QUICK_HELP"
+msgstr "タップで使用 · 長押しで詳細"
+
+msgid "NEXT_MERGE_GAIN"
+msgstr "次の合成：+"
+
+msgid "TAB_ACHIEVEMENTS"
+msgstr "実績"
+
+msgid "GROUP_UPGRADES_RESET"
+msgstr "この敵の種類のすべてのキャンプで共通です。回収系の強化は残り、その他の種類別の強化は転生でリセットされます。"
+
+msgid "GROUP_DROP_EFFECT"
+msgstr "レベルごとに+1ポイント · 最大+15"
+
+msgid "GROUP_XP_EFFECT"
+msgstr "レベルごとにEXP+10% · 最大+200%"
+
+msgid "UP_SUPPLY_DROP"
+msgstr "消耗品ドロップ率+1ポイント"
+
+msgid "UP_GROUP_XP"
+msgstr "経験値+10%"
+
+msgid "GROUP_XP_VALUE"
+msgstr "撃破ごとのEXP：%s"
+
+msgid "ACHIEVEMENT_PERMANENT"
+msgstr "永続の撃破実績です。この敵の種類のキャンプ全体で共通です。報酬は自動で適用され、転生後も残ります。"
+
+msgid "ACHIEVEMENT_BONUS"
+msgstr "この種類に対して：ダメージ+%.0f%% · ジェム確率+%.1fポイント"
+
+msgid "ACHIEVEMENT_ROW"
+msgstr "%s · %d体撃破\n報酬：この種類へのダメージ+%.0f%%、ジェム確率+%.1fポイント"
+
+msgid "ACHIEVEMENT_DONE"
+msgstr "達成"
+
+msgid "KILL_ACHIEVEMENTS"
+msgstr "撃破実績"
+
+msgid "ACHIEVEMENT_REWARD_SHORT"
+msgstr "ダメージ+%.0f%% · ジェム確率+%.1fポイント"
+
+msgid "GROUP_AUTO_MERGE_HELP"
+msgstr "この敵の種類の武器と衣装を自動で合成します。"
+
+msgid "COIN_UPGRADE_GAIN"
+msgstr "撃破ごとのコイン+%s / レベル"
+
+msgid "ACTION_PAUSED"
+msgstr "一時停止中は使用できません"
+
+msgid "ACTION_SUSPENDED"
+msgstr "アプリが非アクティブの間は使用できません"
+
+msgid "ACTION_UNAVAILABLE"
+msgstr "条件を満たしていません"
+
+msgid "VALUE_MAX"
+msgstr "MAX"
+
+msgid "XP_PROGRESS"
+msgstr "%s / %s EXP"
+
+msgid "SECONDS_VALUE"
+msgstr "%s秒"
+
+msgid "HP_PER_SECOND"
+msgstr "HP/秒"
+
+msgid "STAT_SOURCES"
+msgstr "ステータスの内訳"
+
+msgid "SOURCE_BASE"
+msgstr "基本ステータス"
+
+msgid "SOURCE_LEVEL"
+msgstr "プレイヤーレベル"
+
+msgid "SOURCE_EQUIPPED"
+msgstr "装備中のアイテム"
+
+msgid "SOURCE_STORED"
+msgstr "保管中の装備"
+
+msgid "PERMANENT_MULTIPLIERS"
+msgstr "永続ボーナス：HP ×%s · ダメージ ×%s"
+
+msgid "STAT_CAPS_NOTE"
+msgstr "上記の合計には上限が含まれます：クリティカル率75%、クリティカル倍率×4、HP吸収15%、攻撃速度ボーナス200%。"
+
+msgid "UPGRADE_TRANSITION"
+msgstr "%s → %s"
+
+msgid "POTION_CHANCE_VALUE"
+msgstr "消耗品の判定：%s"
+
+msgid "TONIC_CHANCE_VALUE"
+msgstr "秘薬：%s"
+
+msgid "ITEM_TIER_NAME"
+msgstr "%s · ランク%d"
+
+msgid "ITEM_TIER_MERGE"
+msgstr "ランク%d · ^%d"
+
+msgid "SLOT_TIER_MERGE"
+msgstr "%s · ランク%d · ^%d"
+
+msgid "TAB_GEMS"
+msgstr "ジェム"
+
+msgid "GLOBAL_GEMS_HELP"
+msgstr "すべての敵に適用されます。転生でリセットされます。敵の実績ボーナスは種類ごとに個別のままです。"
+
+msgid "FARM_VARIANT"
+msgstr "%sを狩る · %s"
+
+msgid "FARM_SELECTED_VARIANT"
+msgstr "狩りの対象：%s。復活後はここに戻ります。"
+
+msgid "MAX_ITEM_TIER"
+msgstr "最終ランクに到達しました。^100までは引き続き合成できます。"
+
+msgid "TAB_PLAYER"
+msgstr "プレイヤー"
+
+msgid "UP_SPAWN_AMOUNT"
+msgstr "1か所あたりの敵の数"
+
+msgid "UP_SPAWN_COOLDOWN"
+msgstr "敵の再出現時間"
+
+msgid "UP_BOSS_GEM_CHANCE"
+msgstr "ボスのジェム確率"
+
+msgid "UP_BOSS_GEM_AMOUNT"
+msgstr "ボスのドロップごとの追加ジェム"
+
+msgid "TRAVEL_COMBAT"
+msgstr "移動する前に戦闘を終えてください。"
+
+msgid "TRAVEL_CAMP"
+msgstr "移動 · %s · キャンプ%d"
+
+msgid "STAGE_LOCKED"
+msgstr "先にステージの関門ボスを倒してください。"
+
+msgid "CAMP_UNDISCOVERED"
+msgstr "先にこのキャンプを探索してください。"
+
+msgid "STAGE_UNLOCKED"
+msgstr "次のステージが解放されました！"
+
+msgid "FINAL_DISCOVERED"
+msgstr "最後の守護者は封印されています。他の13体のボスを倒して鍵を集めよう。集めた鍵は転生後も残ります。"
+
+msgid "WORLD_COMPLETE"
+msgstr "春 II の敵をすべて撃破 — 最終ミッション達成！"
+
+msgid "UNDISCOVERED"
+msgstr "未探索"
+
+msgid "ENEMY_LEVEL"
+msgstr "レベル%d"
+
+msgid "ALL_ITEMS"
+msgstr "すべて"
+
+msgid "WEAPONS"
+msgstr "武器"
+
+msgid "OUTFITS"
+msgstr "衣装"
+
+msgid "SKILLS"
+msgstr "スキル"
+
+msgid "VARIANT_SKILL"
+msgstr "エリート"
+
+msgid "SKILL_EMPTY"
+msgstr "スキルスロット%d"
+
+msgid "SKILL_DUPLICATE"
+msgstr "この系統のスキルはすでに装備しています。"
+
+msgid "SKILL_SLOTS_FULL"
+msgstr "スキルを外すか、別のスロットを解放してください。"
+
+msgid "EQUIP_SKILL_SLOT"
+msgstr "スロット%dに装備"
+
+msgid "SKILL_AUTO_TOGGLE"
+msgstr "スロット%dの自動発動：%s"
+
+msgid "STOCK_BONUS"
+msgstr "予備ボーナス：固有威力+%s%%。予備は手元に残ります。"
+
+msgid "CLAIM"
+msgstr "受け取る"
+
+msgid "CLAIM_REWARD"
+msgstr "受け取る · コイン %s · ジェム %s"
+
+msgid "MISSION_AUTO"
+msgstr "自動受け取り：%s"
+
+msgid "STATE_ON_CAPS"
+msgstr "オン"
+
+msgid "STATE_OFF_CAPS"
+msgstr "オフ"
+
+msgid "MISSION_AUTO_PURCHASE_HINT"
+msgstr "完了した通常ミッション（購入したスロットを含む）を受け取ります。メイン目標は対象外です。購入後、ミッションで「自動受け取り」をオンにしてください。"
+
+msgid "MISSION_AUTO_TOGGLE_HINT"
+msgstr "自動受け取りは解放済みですがオフです。下のスイッチをタップすると通常ミッションの受け取りが始まります。メイン目標は手動のままです。"
+
+msgid "GUIDE_MISSION_AUTO_OPEN"
+msgstr "自動受け取りをオンにできます"
+
+msgid "GUIDE_MISSION_AUTO_OPEN_DETAIL"
+msgstr "ミッションを開き、「自動受け取り」をオンにしよう。購入直後はオフになっています。"
+
+msgid "GUIDE_MISSION_AUTO_HINT"
+msgstr "自動受け取りをオンにしよう"
+
+msgid "GUIDE_MISSION_AUTO_HINT_DETAIL"
+msgstr "自動受け取りが解放されました。ここの「自動受け取り：オフ」をタップしてオンにしよう。メイン目標は常に手動です。"
+
+msgid "PRESTIGE_STAGE_EXPAND"
+msgstr "ステージカードを展開"
+
+msgid "PRESTIGE_STAGE_COLLAPSE"
+msgstr "ステージカードを折りたたむ"
+
+msgid "MISSION_GOAL"
+msgstr "%s %s · %s / %s"
+
+msgid "MISSION_NOT_READY"
+msgstr "先にこの目標を達成してください。"
+
+msgid "MISSION_WAIT_REFRESH"
+msgstr "現地時間の0時に新しいタスクが届きます。"
+
+msgid "MAIN_OBJECTIVES"
+msgstr "メイン目標"
+
+msgid "KEY_PROGRESS"
+msgstr "ボスの鍵：%d / 13"
+
+msgid "GATE_PROGRESS"
+msgstr "撃破した関門ボス：%d / %d"
+
+msgid "OFFLINE_RATES"
+msgstr "コイン %s/時 · ジェム %s/時 · 報酬上限 %s時間"
+
+msgid "OFFLINE_RECEIPT"
+msgstr "おかえりなさい！報酬時間 %s時間 · コイン %s · ジェム %s"
+
+msgid "PRESTIGE_IN_PROGRESS"
+msgstr "先に転生報酬の選択を終えてください。"
+
+msgid "PRESTIGE_DISCOVERED"
+msgstr "新しい転生のチャンスを発見しました。"
+
+msgid "PRESTIGE_BATCH"
+msgstr "転生 · カード%d枚"
+
+msgid "PRESTIGE_CONFIRM_NEW"
+msgstr "準備できたチャンスごとに固有のカードを1枚ずつ選び、周回を1回リセットします。アイテム、コイン、キャンプ、霧、コイン強化はリセットされます。鍵、実績、カード、ジェム強化は残ります。"
+
+msgid "PRESTIGE_CARD_CONFIRM"
+msgstr "%sを永続的に獲得しますか？この選択はすぐに保存され、変更できません。"
+
+msgid "PRESTIGE_CHOICES"
+msgstr "カードを選択（%d / %d）"
+
+msgid "PRESTIGE_COLLECTION"
+msgstr "固有カード：%d / %d"
+
+msgid "NO_READY_PRESTIGE"
+msgstr "先に発見した転生のチャンスを達成してください。"
+
+msgid "IN_PROGRESS"
+msgstr "進行中"
+
+msgid "FOLLOW"
+msgstr "追跡"
+
+msgid "UNFOLLOW"
+msgstr "追跡解除"
+
+msgid "SUBMIT_CONTRACT"
+msgstr "必要なアイテムか通貨を納品"
+
+msgid "CONTRACT_NEEDS"
+msgstr "先に各衣装を必要数そろえてください。"
+
+msgid "OFFERING_NEEDS"
+msgstr "必要な残高と、未使用のオンライン獲得通貨が必要です。"
+
+msgid "OWNED_CARDS"
+msgstr "所持カード"
+
+msgid "COMBOS"
+msgstr "カードセット"
+
+msgid "PANEL_INVENTORY"
+msgstr "持ち物"
+
+msgid "PANEL_MAP"
+msgstr "マップ"
+
+msgid "PANEL_MISSIONS"
+msgstr "ミッション"
+
+msgid "PANEL_OFFLINE"
+msgstr "オフライン報酬"
+
+msgid "GOAL_KILL"
+msgstr "討伐"
+
+msgid "GOAL_BOSS"
+msgstr "ボス討伐"
+
+msgid "GOAL_GEAR"
+msgstr "装備を集める"
+
+msgid "GOAL_MERGE"
+msgstr "合成"
+
+msgid "GOAL_COINS"
+msgstr "コインを稼ぐ"
+
+msgid "GOAL_CAST"
+msgstr "スキルを使う"
+
+msgid "GOAL_WAITING"
+msgstr "探索して次の目標を見つけよう"
+
+msgid "STAT_POWER"
+msgstr "威力"
+
+msgid "INTRINSIC_POWER"
+msgstr "固有の%s · %s"
+
+msgid "EVOLUTION_PREVIEW"
+msgstr "次のランクは、在庫や外部ボーナスを除いたこのランクの^100固有威力の85%から始まります。"
+
+msgid "MAP_FARMING"
+msgstr "%s · 出現地点%dか所 · 1か所に%d体 · 再出現%s秒"
+
+msgid "FINAL_CLEAR_PROGRESS"
+msgstr "撃破した最終ステージの種類：%d / 9"
+
+msgid "UP_CAMP_RADIUS"
+msgstr "キャンプの発見範囲"
+
+msgid "UP_REVEAL_RADIUS"
+msgstr "プレイヤーの視界範囲"
+
+msgid "UP_MAP_DETAIL"
+msgstr "マップの詳細度"
+
+msgid "UP_MOVEMENT"
+msgstr "移動速度+10%"
+
+msgid "UP_GEAR_MERGE_SPEED"
+msgstr "自動合成の間隔−1秒"
+
+msgid "UP_MISSION_CLAIM"
+msgstr "ミッションの自動受け取りを解放"
+
+msgid "UP_MISSION_SLOTS"
+msgstr "ミッション枠"
+
+msgid "UP_SKILL_SLOTS"
+msgstr "装備スキル枠"
+
+msgid "UP_SKILL_DROP"
+msgstr "スキルドロップ率"
+
+msgid "UP_OFFLINE_CAP"
+msgstr "オフライン報酬の上限時間"
+
+msgid "UP_OFFLINE_COINS"
+msgstr "オフライン時の毎時コイン"
+
+msgid "UP_OFFLINE_GEMS"
+msgstr "オフライン時の毎時ジェム"
+
+msgid "UP_OFFLINE_WEAPON"
+msgstr "オフライン時の武器ドロップを解放"
+
+msgid "UP_OFFLINE_OUTFIT"
+msgstr "オフライン時の衣装ドロップを解放"
+
+msgid "UP_OFFLINE_CONSUMABLE"
+msgstr "オフライン時の消耗品を解放"
+
+msgid "UP_OFFLINE_WEAPON_RATE"
+msgstr "オフライン時の毎時武器数"
+
+msgid "UP_OFFLINE_OUTFIT_RATE"
+msgstr "オフライン時の毎時衣装数"
+
+msgid "UP_OFFLINE_CONSUMABLE_RATE"
+msgstr "オフライン時の毎時消耗品数"
+
+msgid "MAP_LEGEND"
+msgstr "探索済みの地面は明るいまま表示され、近くの地面はそこにいる間だけ表示されます。キャンプはより遠くから見つけられます。"
+
+msgid "MINIMAP"
+msgstr "マップ"
+
+msgid "SKILL_TUTORIAL"
+msgstr "エリートの敵は武器・衣装・スキルを持っています。ドロップはそれぞれ個別に判定されます。持ち物からスキルを装備し、そのボタンをタップして発動しよう。"
+
+msgid "MAIN_0"
+msgstr "通常の敵を5体倒す"
+
+msgid "MAIN_1"
+msgstr "最初のアイテムを装備する"
+
+msgid "MAIN_2"
+msgstr "重複アイテムを合成する"
+
+msgid "MAIN_3"
+msgstr "キャンプを1つ追加で解放する"
+
+msgid "MAIN_4"
+msgstr "雪だるまを倒す · 冬 II を解放"
+
+msgid "MAIN_5"
+msgstr "ヒールを装備する"
+
+msgid "MAIN_6"
+msgstr "マップの詳細度を強化する"
+
+msgid "MAIN_7"
+msgstr "フロストバーストを入手する"
+
+msgid "MAIN_8"
+msgstr "夏 I を解放する"
+
+msgid "MAIN_9"
+msgstr "アイテムを進化させる"
+
+msgid "MAIN_10"
+msgstr "スキル系統を4種入手する"
+
+msgid "MAIN_11"
+msgstr "秋 I を解放する"
+
+msgid "MAIN_12"
+msgstr "スキル系統を6種すべて入手する"
+
+msgid "MAIN_13"
+msgstr "春 I を解放する"
+
+msgid "MAIN_14"
+msgstr "転生を1回完了する"
+
+msgid "MAIN_15"
+msgstr "すべてのボスの鍵を集め、春 II をクリアする"
+
+msgid "UP_COOLDOWN_HEAL"
+msgstr "ヒールのクールダウン"
+
+msgid "UP_COOLDOWN_FROST"
+msgstr "フロストのクールダウン"
+
+msgid "UP_COOLDOWN_FIRE"
+msgstr "ファイアのクールダウン"
+
+msgid "UP_COOLDOWN_LIGHTNING"
+msgstr "ライトニングのクールダウン"
+
+msgid "UP_COOLDOWN_FOCUS"
+msgstr "秘術集中のクールダウン"
+
+msgid "UP_COOLDOWN_STRIKE"
+msgstr "秘術の一撃のクールダウン"
+
+msgid "UP_SKILL_AUTO_0"
+msgstr "自動発動を解放 · スロット1"
+
+msgid "UP_SKILL_AUTO_1"
+msgstr "自動発動を解放 · スロット2"
+
+msgid "UP_SKILL_AUTO_2"
+msgstr "自動発動を解放 · スロット3"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL"
+msgstr "ヒール"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T2"
+msgstr "ヒール"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T3"
+msgstr "ヒール"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T4"
+msgstr "ヒール"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T5"
+msgstr "ヒール"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T6"
+msgstr "ヒール"
+
+msgid "CONTENT_ITEMS_SKILL_HEAL_T7"
+msgstr "ヒール"
+
+msgid "CONTENT_ITEMS_SKILL_FROST"
+msgstr "フロストバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T2"
+msgstr "フロストバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T3"
+msgstr "フロストバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T4"
+msgstr "フロストバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T5"
+msgstr "フロストバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T6"
+msgstr "フロストバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FROST_T7"
+msgstr "フロストバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE"
+msgstr "ファイアバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T2"
+msgstr "ファイアバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T3"
+msgstr "ファイアバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T4"
+msgstr "ファイアバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T5"
+msgstr "ファイアバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T6"
+msgstr "ファイアバースト"
+
+msgid "CONTENT_ITEMS_SKILL_FIRE_T7"
+msgstr "ファイアバースト"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING"
+msgstr "ライトニング"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T2"
+msgstr "ライトニング"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T3"
+msgstr "ライトニング"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T4"
+msgstr "ライトニング"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T5"
+msgstr "ライトニング"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T6"
+msgstr "ライトニング"
+
+msgid "CONTENT_ITEMS_SKILL_LIGHTNING_T7"
+msgstr "ライトニング"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS"
+msgstr "秘術集中"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T2"
+msgstr "秘術集中"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T3"
+msgstr "秘術集中"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T4"
+msgstr "秘術集中"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T5"
+msgstr "秘術集中"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T6"
+msgstr "秘術集中"
+
+msgid "CONTENT_ITEMS_SKILL_FOCUS_T7"
+msgstr "秘術集中"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE"
+msgstr "秘術の一撃"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T2"
+msgstr "秘術の一撃"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T3"
+msgstr "秘術の一撃"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T4"
+msgstr "秘術の一撃"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T5"
+msgstr "秘術の一撃"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T6"
+msgstr "秘術の一撃"
+
+msgid "CONTENT_ITEMS_SKILL_STRIKE_T7"
+msgstr "秘術の一撃"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT"
+msgstr "青キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T2"
+msgstr "青キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T3"
+msgstr "青キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T4"
+msgstr "青キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T5"
+msgstr "青キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T6"
+msgstr "青キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_OUTFIT_T7"
+msgstr "青キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON"
+msgstr "青キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T2"
+msgstr "青キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T3"
+msgstr "青キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T4"
+msgstr "青キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T5"
+msgstr "青キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T6"
+msgstr "青キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLUE-CAP_WEAPON_T7"
+msgstr "青キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT"
+msgstr "赤いマフラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T2"
+msgstr "赤いマフラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T3"
+msgstr "赤いマフラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T4"
+msgstr "赤いマフラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T5"
+msgstr "赤いマフラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T6"
+msgstr "赤いマフラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_OUTFIT_T7"
+msgstr "赤いマフラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON"
+msgstr "赤いマフラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T2"
+msgstr "赤いマフラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T3"
+msgstr "赤いマフラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T4"
+msgstr "赤いマフラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T5"
+msgstr "赤いマフラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T6"
+msgstr "赤いマフラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-SCARF_WEAPON_T7"
+msgstr "赤いマフラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT"
+msgstr "コック帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T2"
+msgstr "コック帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T3"
+msgstr "コック帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T4"
+msgstr "コック帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T5"
+msgstr "コック帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T6"
+msgstr "コック帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_OUTFIT_T7"
+msgstr "コック帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON"
+msgstr "コック帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T2"
+msgstr "コック帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T3"
+msgstr "コック帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T4"
+msgstr "コック帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T5"
+msgstr "コック帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T6"
+msgstr "コック帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-CHEF-HAT_WEAPON_T7"
+msgstr "コック帽の剣"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT"
+msgstr "雪だるまの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T2"
+msgstr "雪だるまの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T3"
+msgstr "雪だるまの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T4"
+msgstr "雪だるまの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T5"
+msgstr "雪だるまの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T6"
+msgstr "雪だるまの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SNOWMAN_OUTFIT_T7"
+msgstr "雪だるまの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT"
+msgstr "オオカミずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T2"
+msgstr "オオカミずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T3"
+msgstr "オオカミずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T4"
+msgstr "オオカミずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T5"
+msgstr "オオカミずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T6"
+msgstr "オオカミずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_OUTFIT_T7"
+msgstr "オオカミずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON"
+msgstr "オオカミずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T2"
+msgstr "オオカミずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T3"
+msgstr "オオカミずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T4"
+msgstr "オオカミずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T5"
+msgstr "オオカミずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T6"
+msgstr "オオカミずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-WOLF-HOOD_WEAPON_T7"
+msgstr "オオカミずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT"
+msgstr "三毛猫ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T2"
+msgstr "三毛猫ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T3"
+msgstr "三毛猫ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T4"
+msgstr "三毛猫ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T5"
+msgstr "三毛猫ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T6"
+msgstr "三毛猫ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_OUTFIT_T7"
+msgstr "三毛猫ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON"
+msgstr "三毛猫ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T2"
+msgstr "三毛猫ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T3"
+msgstr "三毛猫ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T4"
+msgstr "三毛猫ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T5"
+msgstr "三毛猫ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T6"
+msgstr "三毛猫ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CALICO-CAT-HOOD_WEAPON_T7"
+msgstr "三毛猫ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT"
+msgstr "黄金の王冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T2"
+msgstr "黄金の王冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T3"
+msgstr "黄金の王冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T4"
+msgstr "黄金の王冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T5"
+msgstr "黄金の王冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T6"
+msgstr "黄金の王冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_OUTFIT_T7"
+msgstr "黄金の王冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON"
+msgstr "黄金の王冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T2"
+msgstr "黄金の王冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T3"
+msgstr "黄金の王冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T4"
+msgstr "黄金の王冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T5"
+msgstr "黄金の王冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T6"
+msgstr "黄金の王冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-GOLDEN-CROWN_WEAPON_T7"
+msgstr "黄金の王冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT"
+msgstr "トナカイの角の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T2"
+msgstr "トナカイの角の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T3"
+msgstr "トナカイの角の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T4"
+msgstr "トナカイの角の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T5"
+msgstr "トナカイの角の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T6"
+msgstr "トナカイの角の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_OUTFIT_T7"
+msgstr "トナカイの角の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON"
+msgstr "トナカイの角の剣"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T2"
+msgstr "トナカイの角の剣"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T3"
+msgstr "トナカイの角の剣"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T4"
+msgstr "トナカイの角の剣"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T5"
+msgstr "トナカイの角の剣"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T6"
+msgstr "トナカイの角の剣"
+
+msgid "CONTENT_ITEMS_UNIT-REINDEER-ANTLERS_WEAPON_T7"
+msgstr "トナカイの角の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT"
+msgstr "サンタ帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T2"
+msgstr "サンタ帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T3"
+msgstr "サンタ帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T4"
+msgstr "サンタ帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T5"
+msgstr "サンタ帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T6"
+msgstr "サンタ帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_OUTFIT_T7"
+msgstr "サンタ帽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON"
+msgstr "サンタ帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T2"
+msgstr "サンタ帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T3"
+msgstr "サンタ帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T4"
+msgstr "サンタ帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T5"
+msgstr "サンタ帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T6"
+msgstr "サンタ帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SANTA-HAT_WEAPON_T7"
+msgstr "サンタ帽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT"
+msgstr "宇宙ヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T2"
+msgstr "宇宙ヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T3"
+msgstr "宇宙ヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T4"
+msgstr "宇宙ヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T5"
+msgstr "宇宙ヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T6"
+msgstr "宇宙ヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_OUTFIT_T7"
+msgstr "宇宙ヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON"
+msgstr "宇宙ヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T2"
+msgstr "宇宙ヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T3"
+msgstr "宇宙ヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T4"
+msgstr "宇宙ヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T5"
+msgstr "宇宙ヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T6"
+msgstr "宇宙ヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPACE-HELMET_WEAPON_T7"
+msgstr "宇宙ヘルメットの剣"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT"
+msgstr "シアンのロボットの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T2"
+msgstr "シアンのロボットの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T3"
+msgstr "シアンのロボットの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T4"
+msgstr "シアンのロボットの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T5"
+msgstr "シアンのロボットの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T6"
+msgstr "シアンのロボットの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-CYAN-ROBOT_OUTFIT_T7"
+msgstr "シアンのロボットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT"
+msgstr "麦わら帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T2"
+msgstr "麦わら帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T3"
+msgstr "麦わら帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T4"
+msgstr "麦わら帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T5"
+msgstr "麦わら帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T6"
+msgstr "麦わら帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_OUTFIT_T7"
+msgstr "麦わら帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON"
+msgstr "麦わら帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T2"
+msgstr "麦わら帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T3"
+msgstr "麦わら帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T4"
+msgstr "麦わら帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T5"
+msgstr "麦わら帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T6"
+msgstr "麦わら帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT_WEAPON_T7"
+msgstr "麦わら帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT"
+msgstr "サングラスの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T2"
+msgstr "サングラスの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T3"
+msgstr "サングラスの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T4"
+msgstr "サングラスの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T5"
+msgstr "サングラスの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T6"
+msgstr "サングラスの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_OUTFIT_T7"
+msgstr "サングラスの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON"
+msgstr "サングラスの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T2"
+msgstr "サングラスの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T3"
+msgstr "サングラスの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T4"
+msgstr "サングラスの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T5"
+msgstr "サングラスの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T6"
+msgstr "サングラスの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SUNGLASSES_WEAPON_T7"
+msgstr "サングラスの剣"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT"
+msgstr "黄キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T2"
+msgstr "黄キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T3"
+msgstr "黄キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T4"
+msgstr "黄キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T5"
+msgstr "黄キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T6"
+msgstr "黄キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_OUTFIT_T7"
+msgstr "黄キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON"
+msgstr "黄キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T2"
+msgstr "黄キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T3"
+msgstr "黄キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T4"
+msgstr "黄キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T5"
+msgstr "黄キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T6"
+msgstr "黄キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-YELLOW-CAP_WEAPON_T7"
+msgstr "黄キャップの剣"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT"
+msgstr "灰色の猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T2"
+msgstr "灰色の猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T3"
+msgstr "灰色の猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T4"
+msgstr "灰色の猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T5"
+msgstr "灰色の猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T6"
+msgstr "灰色の猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRAY-CAT_OUTFIT_T7"
+msgstr "灰色の猫の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT"
+msgstr "カウボーイのバンダナの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T2"
+msgstr "カウボーイのバンダナの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T3"
+msgstr "カウボーイのバンダナの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T4"
+msgstr "カウボーイのバンダナの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T5"
+msgstr "カウボーイのバンダナの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T6"
+msgstr "カウボーイのバンダナの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_OUTFIT_T7"
+msgstr "カウボーイのバンダナの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON"
+msgstr "カウボーイのバンダナの剣"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T2"
+msgstr "カウボーイのバンダナの剣"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T3"
+msgstr "カウボーイのバンダナの剣"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T4"
+msgstr "カウボーイのバンダナの剣"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T5"
+msgstr "カウボーイのバンダナの剣"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T6"
+msgstr "カウボーイのバンダナの剣"
+
+msgid "CONTENT_ITEMS_UNIT-COWBOY-BANDANA_WEAPON_T7"
+msgstr "カウボーイのバンダナの剣"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT"
+msgstr "アヒルの浮き輪の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T2"
+msgstr "アヒルの浮き輪の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T3"
+msgstr "アヒルの浮き輪の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T4"
+msgstr "アヒルの浮き輪の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T5"
+msgstr "アヒルの浮き輪の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T6"
+msgstr "アヒルの浮き輪の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_OUTFIT_T7"
+msgstr "アヒルの浮き輪の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON"
+msgstr "アヒルの浮き輪の剣"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T2"
+msgstr "アヒルの浮き輪の剣"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T3"
+msgstr "アヒルの浮き輪の剣"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T4"
+msgstr "アヒルの浮き輪の剣"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T5"
+msgstr "アヒルの浮き輪の剣"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T6"
+msgstr "アヒルの浮き輪の剣"
+
+msgid "CONTENT_ITEMS_UNIT-DUCK-SWIM-RING_WEAPON_T7"
+msgstr "アヒルの浮き輪の剣"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT"
+msgstr "虹色ピエロの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T2"
+msgstr "虹色ピエロの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T3"
+msgstr "虹色ピエロの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T4"
+msgstr "虹色ピエロの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T5"
+msgstr "虹色ピエロの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T6"
+msgstr "虹色ピエロの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_OUTFIT_T7"
+msgstr "虹色ピエロの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON"
+msgstr "虹色ピエロの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T2"
+msgstr "虹色ピエロの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T3"
+msgstr "虹色ピエロの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T4"
+msgstr "虹色ピエロの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T5"
+msgstr "虹色ピエロの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T6"
+msgstr "虹色ピエロの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RAINBOW-CLOWN_WEAPON_T7"
+msgstr "虹色ピエロの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT"
+msgstr "赤キャップのスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T2"
+msgstr "赤キャップのスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T3"
+msgstr "赤キャップのスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T4"
+msgstr "赤キャップのスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T5"
+msgstr "赤キャップのスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T6"
+msgstr "赤キャップのスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_OUTFIT_T7"
+msgstr "赤キャップのスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON"
+msgstr "赤キャップのスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T2"
+msgstr "赤キャップのスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T3"
+msgstr "赤キャップのスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T4"
+msgstr "赤キャップのスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T5"
+msgstr "赤キャップのスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T6"
+msgstr "赤キャップのスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-RED-CAP-SWIMMER_WEAPON_T7"
+msgstr "赤キャップのスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT"
+msgstr "シュノーケラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T2"
+msgstr "シュノーケラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T3"
+msgstr "シュノーケラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T4"
+msgstr "シュノーケラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T5"
+msgstr "シュノーケラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T6"
+msgstr "シュノーケラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_OUTFIT_T7"
+msgstr "シュノーケラーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON"
+msgstr "シュノーケラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T2"
+msgstr "シュノーケラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T3"
+msgstr "シュノーケラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T4"
+msgstr "シュノーケラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T5"
+msgstr "シュノーケラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T6"
+msgstr "シュノーケラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-SNORKELER_WEAPON_T7"
+msgstr "シュノーケラーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT"
+msgstr "麦わら帽子のスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T2"
+msgstr "麦わら帽子のスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T3"
+msgstr "麦わら帽子のスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T4"
+msgstr "麦わら帽子のスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T5"
+msgstr "麦わら帽子のスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T6"
+msgstr "麦わら帽子のスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_OUTFIT_T7"
+msgstr "麦わら帽子のスイマーの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON"
+msgstr "麦わら帽子のスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T2"
+msgstr "麦わら帽子のスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T3"
+msgstr "麦わら帽子のスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T4"
+msgstr "麦わら帽子のスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T5"
+msgstr "麦わら帽子のスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T6"
+msgstr "麦わら帽子のスイマーの剣"
+
+msgid "CONTENT_ITEMS_UNIT-STRAW-HAT-SWIMMER_WEAPON_T7"
+msgstr "麦わら帽子のスイマーの剣"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT"
+msgstr "恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T2"
+msgstr "恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T3"
+msgstr "恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T4"
+msgstr "恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T5"
+msgstr "恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T6"
+msgstr "恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ELEPHANT_OUTFIT_T7"
+msgstr "恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT"
+msgstr "青緑の恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T2"
+msgstr "青緑の恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T3"
+msgstr "青緑の恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T4"
+msgstr "青緑の恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T5"
+msgstr "青緑の恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T6"
+msgstr "青緑の恐竜の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-TEAL-DINOSAUR_OUTFIT_T7"
+msgstr "青緑の恐竜の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT"
+msgstr "黒キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T2"
+msgstr "黒キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T3"
+msgstr "黒キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T4"
+msgstr "黒キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T5"
+msgstr "黒キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T6"
+msgstr "黒キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_OUTFIT_T7"
+msgstr "黒キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON"
+msgstr "黒キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T2"
+msgstr "黒キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T3"
+msgstr "黒キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T4"
+msgstr "黒キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T5"
+msgstr "黒キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T6"
+msgstr "黒キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BLACK-CAP_WEAPON_T7"
+msgstr "黒キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT"
+msgstr "キノコ帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T2"
+msgstr "キノコ帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T3"
+msgstr "キノコ帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T4"
+msgstr "キノコ帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T5"
+msgstr "キノコ帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T6"
+msgstr "キノコ帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_OUTFIT_T7"
+msgstr "キノコ帽子の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON"
+msgstr "キノコ帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T2"
+msgstr "キノコ帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T3"
+msgstr "キノコ帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T4"
+msgstr "キノコ帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T5"
+msgstr "キノコ帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T6"
+msgstr "キノコ帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-MUSHROOM-CAP_WEAPON_T7"
+msgstr "キノコ帽子の剣"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT"
+msgstr "カボチャ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T2"
+msgstr "カボチャ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T3"
+msgstr "カボチャ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T4"
+msgstr "カボチャ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T5"
+msgstr "カボチャ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T6"
+msgstr "カボチャ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_OUTFIT_T7"
+msgstr "カボチャ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON"
+msgstr "カボチャ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T2"
+msgstr "カボチャ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T3"
+msgstr "カボチャ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T4"
+msgstr "カボチャ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T5"
+msgstr "カボチャ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T6"
+msgstr "カボチャ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-PUMPKIN-HEAD_WEAPON_T7"
+msgstr "カボチャ頭の剣"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT"
+msgstr "リスの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T2"
+msgstr "リスの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T3"
+msgstr "リスの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T4"
+msgstr "リスの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T5"
+msgstr "リスの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T6"
+msgstr "リスの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SQUIRREL_OUTFIT_T7"
+msgstr "リスの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT"
+msgstr "アカギツネの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T2"
+msgstr "アカギツネの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T3"
+msgstr "アカギツネの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T4"
+msgstr "アカギツネの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T5"
+msgstr "アカギツネの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T6"
+msgstr "アカギツネの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-FOX_OUTFIT_T7"
+msgstr "アカギツネの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT"
+msgstr "ツノずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T2"
+msgstr "ツノずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T3"
+msgstr "ツノずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T4"
+msgstr "ツノずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T5"
+msgstr "ツノずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T6"
+msgstr "ツノずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_OUTFIT_T7"
+msgstr "ツノずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON"
+msgstr "ツノずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T2"
+msgstr "ツノずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T3"
+msgstr "ツノずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T4"
+msgstr "ツノずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T5"
+msgstr "ツノずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T6"
+msgstr "ツノずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-HORNED-HOOD_WEAPON_T7"
+msgstr "ツノずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT"
+msgstr "オレンジ画面のヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T2"
+msgstr "オレンジ画面のヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T3"
+msgstr "オレンジ画面のヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T4"
+msgstr "オレンジ画面のヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T5"
+msgstr "オレンジ画面のヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T6"
+msgstr "オレンジ画面のヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_OUTFIT_T7"
+msgstr "オレンジ画面のヘルメットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON"
+msgstr "オレンジ画面のヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T2"
+msgstr "オレンジ画面のヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T3"
+msgstr "オレンジ画面のヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T4"
+msgstr "オレンジ画面のヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T5"
+msgstr "オレンジ画面のヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T6"
+msgstr "オレンジ画面のヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-ORANGE-SCREEN-HELMET_WEAPON_T7"
+msgstr "オレンジ画面のヘルメットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT"
+msgstr "テレビ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T2"
+msgstr "テレビ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T3"
+msgstr "テレビ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T4"
+msgstr "テレビ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T5"
+msgstr "テレビ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T6"
+msgstr "テレビ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_OUTFIT_T7"
+msgstr "テレビ頭の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON"
+msgstr "テレビ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T2"
+msgstr "テレビ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T3"
+msgstr "テレビ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T4"
+msgstr "テレビ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T5"
+msgstr "テレビ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T6"
+msgstr "テレビ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-TELEVISION-HEAD_WEAPON_T7"
+msgstr "テレビ頭の剣"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT"
+msgstr "シルクハットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T2"
+msgstr "シルクハットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T3"
+msgstr "シルクハットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T4"
+msgstr "シルクハットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T5"
+msgstr "シルクハットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T6"
+msgstr "シルクハットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_OUTFIT_T7"
+msgstr "シルクハットの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON"
+msgstr "シルクハットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T2"
+msgstr "シルクハットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T3"
+msgstr "シルクハットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T4"
+msgstr "シルクハットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T5"
+msgstr "シルクハットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T6"
+msgstr "シルクハットの剣"
+
+msgid "CONTENT_ITEMS_UNIT-TOP-HAT_WEAPON_T7"
+msgstr "シルクハットの剣"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT"
+msgstr "黒猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T2"
+msgstr "黒猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T3"
+msgstr "黒猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T4"
+msgstr "黒猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T5"
+msgstr "黒猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T6"
+msgstr "黒猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BLACK-CAT_OUTFIT_T7"
+msgstr "黒猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT"
+msgstr "死神の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T2"
+msgstr "死神の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T3"
+msgstr "死神の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T4"
+msgstr "死神の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T5"
+msgstr "死神の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T6"
+msgstr "死神の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GRIM-REAPER_OUTFIT_T7"
+msgstr "死神の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT"
+msgstr "ウサミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T2"
+msgstr "ウサミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T3"
+msgstr "ウサミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T4"
+msgstr "ウサミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T5"
+msgstr "ウサミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T6"
+msgstr "ウサミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_OUTFIT_T7"
+msgstr "ウサミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON"
+msgstr "ウサミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T2"
+msgstr "ウサミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T3"
+msgstr "ウサミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T4"
+msgstr "ウサミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T5"
+msgstr "ウサミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T6"
+msgstr "ウサミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-BUNNY-EARS_WEAPON_T7"
+msgstr "ウサミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT"
+msgstr "ネコミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T2"
+msgstr "ネコミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T3"
+msgstr "ネコミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T4"
+msgstr "ネコミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T5"
+msgstr "ネコミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T6"
+msgstr "ネコミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_OUTFIT_T7"
+msgstr "ネコミミの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON"
+msgstr "ネコミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T2"
+msgstr "ネコミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T3"
+msgstr "ネコミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T4"
+msgstr "ネコミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T5"
+msgstr "ネコミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T6"
+msgstr "ネコミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-CAT-EARS_WEAPON_T7"
+msgstr "ネコミミの剣"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT"
+msgstr "エルフ耳の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T2"
+msgstr "エルフ耳の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T3"
+msgstr "エルフ耳の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T4"
+msgstr "エルフ耳の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T5"
+msgstr "エルフ耳の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T6"
+msgstr "エルフ耳の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_OUTFIT_T7"
+msgstr "エルフ耳の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON"
+msgstr "エルフ耳の剣"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T2"
+msgstr "エルフ耳の剣"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T3"
+msgstr "エルフ耳の剣"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T4"
+msgstr "エルフ耳の剣"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T5"
+msgstr "エルフ耳の剣"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T6"
+msgstr "エルフ耳の剣"
+
+msgid "CONTENT_ITEMS_UNIT-ELF-EARS_WEAPON_T7"
+msgstr "エルフ耳の剣"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT"
+msgstr "ハチの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T2"
+msgstr "ハチの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T3"
+msgstr "ハチの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T4"
+msgstr "ハチの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T5"
+msgstr "ハチの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T6"
+msgstr "ハチの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-BEE_OUTFIT_T7"
+msgstr "ハチの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT"
+msgstr "茶トラ猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T2"
+msgstr "茶トラ猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T3"
+msgstr "茶トラ猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T4"
+msgstr "茶トラ猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T5"
+msgstr "茶トラ猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T6"
+msgstr "茶トラ猫の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-ORANGE-TABBY-CAT_OUTFIT_T7"
+msgstr "茶トラ猫の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT"
+msgstr "花冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T2"
+msgstr "花冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T3"
+msgstr "花冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T4"
+msgstr "花冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T5"
+msgstr "花冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T6"
+msgstr "花冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_OUTFIT_T7"
+msgstr "花冠の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON"
+msgstr "花冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T2"
+msgstr "花冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T3"
+msgstr "花冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T4"
+msgstr "花冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T5"
+msgstr "花冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T6"
+msgstr "花冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-FLOWER-CROWN_WEAPON_T7"
+msgstr "花冠の剣"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT"
+msgstr "緑キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T2"
+msgstr "緑キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T3"
+msgstr "緑キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T4"
+msgstr "緑キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T5"
+msgstr "緑キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T6"
+msgstr "緑キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_OUTFIT_T7"
+msgstr "緑キャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON"
+msgstr "緑キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T2"
+msgstr "緑キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T3"
+msgstr "緑キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T4"
+msgstr "緑キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T5"
+msgstr "緑キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T6"
+msgstr "緑キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-GREEN-CAP_WEAPON_T7"
+msgstr "緑キャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT"
+msgstr "ピンクキャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T2"
+msgstr "ピンクキャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T3"
+msgstr "ピンクキャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T4"
+msgstr "ピンクキャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T5"
+msgstr "ピンクキャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T6"
+msgstr "ピンクキャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_OUTFIT_T7"
+msgstr "ピンクキャップの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON"
+msgstr "ピンクキャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T2"
+msgstr "ピンクキャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T3"
+msgstr "ピンクキャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T4"
+msgstr "ピンクキャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T5"
+msgstr "ピンクキャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T6"
+msgstr "ピンクキャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-CAP_WEAPON_T7"
+msgstr "ピンクキャップの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT"
+msgstr "ピンクの花ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T2"
+msgstr "ピンクの花ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T3"
+msgstr "ピンクの花ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T4"
+msgstr "ピンクの花ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T5"
+msgstr "ピンクの花ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T6"
+msgstr "ピンクの花ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_OUTFIT_T7"
+msgstr "ピンクの花ずきんの衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON"
+msgstr "ピンクの花ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T2"
+msgstr "ピンクの花ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T3"
+msgstr "ピンクの花ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T4"
+msgstr "ピンクの花ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T5"
+msgstr "ピンクの花ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T6"
+msgstr "ピンクの花ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PINK-FLOWER-HOOD_WEAPON_T7"
+msgstr "ピンクの花ずきんの剣"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT"
+msgstr "プレーンな衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T2"
+msgstr "プレーンな衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T3"
+msgstr "プレーンな衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T4"
+msgstr "プレーンな衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T5"
+msgstr "プレーンな衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T6"
+msgstr "プレーンな衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_OUTFIT_T7"
+msgstr "プレーンな衣装"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON"
+msgstr "プレーンな剣"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T2"
+msgstr "プレーンな剣"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T3"
+msgstr "プレーンな剣"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T4"
+msgstr "プレーンな剣"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T5"
+msgstr "プレーンな剣"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T6"
+msgstr "プレーンな剣"
+
+msgid "CONTENT_ITEMS_UNIT-PLAIN_WEAPON_T7"
+msgstr "プレーンな剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT"
+msgstr "新芽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T2"
+msgstr "新芽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T3"
+msgstr "新芽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T4"
+msgstr "新芽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T5"
+msgstr "新芽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T6"
+msgstr "新芽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_OUTFIT_T7"
+msgstr "新芽の衣装"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON"
+msgstr "新芽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T2"
+msgstr "新芽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T3"
+msgstr "新芽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T4"
+msgstr "新芽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T5"
+msgstr "新芽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T6"
+msgstr "新芽の剣"
+
+msgid "CONTENT_ITEMS_UNIT-SPROUT_WEAPON_T7"
+msgstr "新芽の剣"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT"
+msgstr "レッサーパンダの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T2"
+msgstr "レッサーパンダの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T3"
+msgstr "レッサーパンダの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T4"
+msgstr "レッサーパンダの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T5"
+msgstr "レッサーパンダの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T6"
+msgstr "レッサーパンダの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-RED-PANDA_OUTFIT_T7"
+msgstr "レッサーパンダの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT"
+msgstr "ヒマワリの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T2"
+msgstr "ヒマワリの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T3"
+msgstr "ヒマワリの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T4"
+msgstr "ヒマワリの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T5"
+msgstr "ヒマワリの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T6"
+msgstr "ヒマワリの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-SUNFLOWER_OUTFIT_T7"
+msgstr "ヒマワリの衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT"
+msgstr "緑の宇宙人の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T2"
+msgstr "緑の宇宙人の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T3"
+msgstr "緑の宇宙人の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T4"
+msgstr "緑の宇宙人の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T5"
+msgstr "緑の宇宙人の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T6"
+msgstr "緑の宇宙人の衣装"
+
+msgid "CONTENT_ITEMS_BOSS-GREEN-ALIEN_OUTFIT_T7"
+msgstr "緑の宇宙人の衣装"
+
+msgid "CONTENT_SKILLS_HEAL"
+msgstr "ヒール"
+
+msgid "CONTENT_SKILLS_FROST"
+msgstr "フロストバースト"
+
+msgid "CONTENT_SKILLS_FIRE"
+msgstr "ファイアバースト"
+
+msgid "CONTENT_SKILLS_LIGHTNING"
+msgstr "ライトニング"
+
+msgid "CONTENT_SKILLS_FOCUS"
+msgstr "秘術集中"
+
+msgid "CONTENT_SKILLS_STRIKE"
+msgstr "秘術の一撃"
+
+msgid "CONTENT_GROUPS_UNIT-BLUE-CAP"
+msgstr "青キャップ"
+
+msgid "CONTENT_GROUPS_UNIT-RED-SCARF"
+msgstr "赤いマフラー"
+
+msgid "CONTENT_GROUPS_UNIT-CHEF-HAT"
+msgstr "コック帽"
+
+msgid "CONTENT_GROUPS_BOSS-SNOWMAN"
+msgstr "雪だるま"
+
+msgid "CONTENT_GROUPS_UNIT-WOLF-HOOD"
+msgstr "オオカミずきん"
+
+msgid "CONTENT_GROUPS_UNIT-CALICO-CAT-HOOD"
+msgstr "三毛猫ずきん"
+
+msgid "CONTENT_GROUPS_UNIT-GOLDEN-CROWN"
+msgstr "黄金の王冠"
+
+msgid "CONTENT_GROUPS_UNIT-REINDEER-ANTLERS"
+msgstr "トナカイの角"
+
+msgid "CONTENT_GROUPS_UNIT-SANTA-HAT"
+msgstr "サンタ帽"
+
+msgid "CONTENT_GROUPS_UNIT-SPACE-HELMET"
+msgstr "宇宙ヘルメット"
+
+msgid "CONTENT_GROUPS_BOSS-CYAN-ROBOT"
+msgstr "シアンのロボット"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT"
+msgstr "麦わら帽子"
+
+msgid "CONTENT_GROUPS_UNIT-SUNGLASSES"
+msgstr "サングラス"
+
+msgid "CONTENT_GROUPS_UNIT-YELLOW-CAP"
+msgstr "黄キャップ"
+
+msgid "CONTENT_GROUPS_BOSS-GRAY-CAT"
+msgstr "灰色の猫"
+
+msgid "CONTENT_GROUPS_UNIT-COWBOY-BANDANA"
+msgstr "カウボーイのバンダナ"
+
+msgid "CONTENT_GROUPS_UNIT-DUCK-SWIM-RING"
+msgstr "アヒルの浮き輪"
+
+msgid "CONTENT_GROUPS_UNIT-RAINBOW-CLOWN"
+msgstr "虹色ピエロ"
+
+msgid "CONTENT_GROUPS_UNIT-RED-CAP-SWIMMER"
+msgstr "赤キャップのスイマー"
+
+msgid "CONTENT_GROUPS_UNIT-SNORKELER"
+msgstr "シュノーケラー"
+
+msgid "CONTENT_GROUPS_UNIT-STRAW-HAT-SWIMMER"
+msgstr "麦わら帽子のスイマー"
+
+msgid "CONTENT_GROUPS_BOSS-ELEPHANT"
+msgstr "恐竜"
+
+msgid "CONTENT_GROUPS_BOSS-TEAL-DINOSAUR"
+msgstr "青緑の恐竜"
+
+msgid "CONTENT_GROUPS_UNIT-BLACK-CAP"
+msgstr "黒キャップ"
+
+msgid "CONTENT_GROUPS_UNIT-MUSHROOM-CAP"
+msgstr "キノコ帽子"
+
+msgid "CONTENT_GROUPS_UNIT-PUMPKIN-HEAD"
+msgstr "カボチャ頭"
+
+msgid "CONTENT_GROUPS_BOSS-SQUIRREL"
+msgstr "リス"
+
+msgid "CONTENT_GROUPS_BOSS-RED-FOX"
+msgstr "アカギツネ"
+
+msgid "CONTENT_GROUPS_UNIT-HORNED-HOOD"
+msgstr "ツノずきん"
+
+msgid "CONTENT_GROUPS_UNIT-ORANGE-SCREEN-HELMET"
+msgstr "オレンジ画面のヘルメット"
+
+msgid "CONTENT_GROUPS_UNIT-TELEVISION-HEAD"
+msgstr "テレビ頭"
+
+msgid "CONTENT_GROUPS_UNIT-TOP-HAT"
+msgstr "シルクハット"
+
+msgid "CONTENT_GROUPS_BOSS-BLACK-CAT"
+msgstr "黒猫"
+
+msgid "CONTENT_GROUPS_BOSS-GRIM-REAPER"
+msgstr "死神"
+
+msgid "CONTENT_GROUPS_UNIT-BUNNY-EARS"
+msgstr "ウサミミ"
+
+msgid "CONTENT_GROUPS_UNIT-CAT-EARS"
+msgstr "ネコミミ"
+
+msgid "CONTENT_GROUPS_UNIT-ELF-EARS"
+msgstr "エルフ耳"
+
+msgid "CONTENT_GROUPS_BOSS-BEE"
+msgstr "ハチ"
+
+msgid "CONTENT_GROUPS_BOSS-ORANGE-TABBY-CAT"
+msgstr "茶トラ猫"
+
+msgid "CONTENT_GROUPS_UNIT-FLOWER-CROWN"
+msgstr "花冠"
+
+msgid "CONTENT_GROUPS_UNIT-GREEN-CAP"
+msgstr "緑キャップ"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-CAP"
+msgstr "ピンクキャップ"
+
+msgid "CONTENT_GROUPS_UNIT-PINK-FLOWER-HOOD"
+msgstr "ピンクの花ずきん"
+
+msgid "CONTENT_GROUPS_UNIT-PLAIN"
+msgstr "プレーン"
+
+msgid "CONTENT_GROUPS_UNIT-SPROUT"
+msgstr "新芽"
+
+msgid "CONTENT_GROUPS_BOSS-RED-PANDA"
+msgstr "レッサーパンダ"
+
+msgid "CONTENT_GROUPS_BOSS-SUNFLOWER"
+msgstr "ヒマワリ"
+
+msgid "CONTENT_GROUPS_BOSS-GREEN-ALIEN"
+msgstr "緑の宇宙人"
+
+msgid "CONTENT_STAGES_1"
+msgstr "冬 I"
+
+msgid "CONTENT_STAGES_2"
+msgstr "冬 II"
+
+msgid "CONTENT_STAGES_3"
+msgstr "夏 I"
+
+msgid "CONTENT_STAGES_4"
+msgstr "夏 II"
+
+msgid "CONTENT_STAGES_5"
+msgstr "秋 I"
+
+msgid "CONTENT_STAGES_6"
+msgstr "秋 II"
+
+msgid "CONTENT_STAGES_7"
+msgstr "春 I"
+
+msgid "CONTENT_STAGES_8"
+msgstr "春 II"
+
+msgid "CONTENT_HUNTER_O1_NAME"
+msgstr "最初の賞金首"
+
+msgid "CONTENT_HUNTER_O1_DESCRIPTION"
+msgstr "雪だるま（冬 I のボス）を10回倒す"
+
+msgid "CONTENT_HUNTER_O2_NAME"
+msgstr "夏の賞金首"
+
+msgid "CONTENT_HUNTER_O2_DESCRIPTION"
+msgstr "灰色の猫（夏 I のボス）を20回倒す"
+
+msgid "CONTENT_HUNTER_O3_NAME"
+msgstr "秋の賞金首"
+
+msgid "CONTENT_HUNTER_O3_DESCRIPTION"
+msgstr "死神（秋 II のボス）を30回倒す"
+
+msgid "CONTENT_EXPEDITION_O1_NAME"
+msgstr "冬のルート"
+
+msgid "CONTENT_EXPEDITION_O1_DESCRIPTION"
+msgstr "冬 I で順番に：青キャップを100体、次に赤いマフラーを100体、さらにコック帽を100体倒す"
+
+msgid "CONTENT_EXPEDITION_O2_NAME"
+msgstr "夏のルート"
+
+msgid "CONTENT_EXPEDITION_O2_DESCRIPTION"
+msgstr "夏 I で順番に：麦わら帽子を150体、次にサングラスを150体、さらに黄キャップを150体倒す"
+
+msgid "CONTENT_EXPEDITION_O3_NAME"
+msgstr "春のルート"
+
+msgid "CONTENT_EXPEDITION_O3_DESCRIPTION"
+msgstr "春 I で順番に：ウサミミを200体、次にネコミミを200体、さらにエルフ耳を200体倒す"
+
+msgid "CONTENT_COLLECTION_O1_NAME"
+msgstr "冬のコレクション"
+
+msgid "CONTENT_COLLECTION_O1_DESCRIPTION"
+msgstr "青キャップ、赤いマフラー、コック帽の衣装（冬 I のドロップ）をそれぞれ21個拾う。納品するとそれぞれ20個を渡し、1個は手元に残る"
+
+msgid "CONTENT_COLLECTION_O2_NAME"
+msgstr "夏のコレクション"
+
+msgid "CONTENT_COLLECTION_O2_DESCRIPTION"
+msgstr "麦わら帽子、サングラス、黄キャップの衣装（夏 I のドロップ）をそれぞれ31個拾う。納品するとそれぞれ30個を渡し、1個は手元に残る"
+
+msgid "CONTENT_COLLECTION_O3_NAME"
+msgstr "春のコレクション"
+
+msgid "CONTENT_COLLECTION_O3_DESCRIPTION"
+msgstr "ウサミミ、ネコミミ、エルフ耳の衣装（春 I のドロップ）をそれぞれ41個拾う。納品するとそれぞれ40個を渡し、1個は手元に残る"
+
+msgid "CONTENT_MASTERWORK_O1_NAME"
+msgstr "最初の傑作"
+
+msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
+msgstr "武器・衣装・スキルのいずれかを^100まで合成する"
+
+msgid "CONTENT_MASTERWORK_O2_NAME"
+msgstr "ランク2"
+
+msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
+msgstr "ランク2以上のアイテムを^100まで合成する（ランク2は夏 I 以降でドロップ、または武器を進化させて入手）"
+
+msgid "CONTENT_MASTERWORK_O3_NAME"
+msgstr "ランク3"
+
+msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
+msgstr "ランク3以上のアイテムを^100まで合成する（ランク3は秋 I 以降でドロップ、または武器を2回進化させて入手）"
+
+msgid "CONTENT_ARSENAL_O1_NAME"
+msgstr "そろいの装備"
+
+msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
+msgstr "武器1つと衣装1つを^50まで合成する"
+
+msgid "CONTENT_ARSENAL_O2_NAME"
+msgstr "多彩な武器庫"
+
+msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
+msgstr "異なる武器3種と異なる衣装3種を^50まで合成する"
+
+msgid "CONTENT_ARSENAL_O3_NAME"
+msgstr "進化した武器庫"
+
+msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
+msgstr "ランク2以上の異なる武器3種と、ランク2以上の異なる衣装3種を^50まで合成する"
+
+msgid "CONTENT_REGIONAL_O1_NAME"
+msgstr "冬の制覇"
+
+msgid "CONTENT_REGIONAL_O1_DESCRIPTION"
+msgstr "冬 I と冬 II で：各マップを90%探索し、ボス2体を倒し、すべてのキャンプを解放する"
+
+msgid "CONTENT_REGIONAL_O2_NAME"
+msgstr "夏の制覇"
+
+msgid "CONTENT_REGIONAL_O2_DESCRIPTION"
+msgstr "夏 I と夏 II で：各マップを90%探索し、ボス3体すべてを倒し、すべてのキャンプを解放する"
+
+msgid "CONTENT_REGIONAL_O3_NAME"
+msgstr "春の制覇"
+
+msgid "CONTENT_REGIONAL_O3_DESCRIPTION"
+msgstr "春 I と春 II で：各マップを90%探索し、ボス5体すべてを倒し、すべてのキャンプを解放する"
+
+msgid "CONTENT_CHALLENGE_O1_NAME"
+msgstr "補助なしの冬"
+
+msgid "CONTENT_CHALLENGE_O1_DESCRIPTION"
+msgstr "シアンのロボット（冬 II のボス）を、戦闘中に消耗品を一切使わずに倒す"
+
+msgid "CONTENT_CHALLENGE_O2_NAME"
+msgstr "補助なしの夏"
+
+msgid "CONTENT_CHALLENGE_O2_DESCRIPTION"
+msgstr "青緑の恐竜（夏 II のボス）を、戦闘中に消耗品を一切使わずに倒す"
+
+msgid "CONTENT_CHALLENGE_O3_NAME"
+msgstr "補助なしの秋"
+
+msgid "CONTENT_CHALLENGE_O3_DESCRIPTION"
+msgstr "死神（秋 II のボス）を、戦闘中に消耗品を一切使わずに倒す"
+
+msgid "CONTENT_OFFERING_O1_NAME"
+msgstr "小さな捧げ物"
+
+msgid "CONTENT_OFFERING_O1_DESCRIPTION"
+msgstr "今回の周回で敵からコイン2Kとジェム30を稼ぎ、「納品」で渡す"
+
+msgid "CONTENT_OFFERING_O2_NAME"
+msgstr "大きめの捧げ物"
+
+msgid "CONTENT_OFFERING_O2_DESCRIPTION"
+msgstr "今回の周回で敵からコイン20Kとジェム100を稼ぎ、「納品」で渡す"
+
+msgid "CONTENT_OFFERING_O3_NAME"
+msgstr "盛大な捧げ物"
+
+msgid "CONTENT_OFFERING_O3_DESCRIPTION"
+msgstr "今回の周回で敵からコイン100Kとジェム300を稼ぎ、「納品」で渡す"
+
+msgid "CONTENT_SPECIALIST_O1_NAME"
+msgstr "短い連鎖"
+
+msgid "CONTENT_SPECIALIST_O1_DESCRIPTION"
+msgstr "順番に：敵を100体倒し、武器か衣装のドロップを10個拾い、10回合成する"
+
+msgid "CONTENT_SPECIALIST_O2_NAME"
+msgstr "長い連鎖"
+
+msgid "CONTENT_SPECIALIST_O2_DESCRIPTION"
+msgstr "順番に：敵を250体倒し、ボスを3体倒し、25回合成し、スキルを30回使う"
+
+msgid "CONTENT_SPECIALIST_O3_NAME"
+msgstr "達人の連鎖"
+
+msgid "CONTENT_SPECIALIST_O3_DESCRIPTION"
+msgstr "順番に：敵を500体倒し、ボスを10体倒し、50回合成し、通常ミッションを3つ受け取る"
+
+msgid "CONTENT_TROPHY_O1_NAME"
+msgstr "冬のトロフィー"
+
+msgid "CONTENT_TROPHY_O1_DESCRIPTION"
+msgstr "これを見つけた後、雪だるま（冬 I）とシアンのロボット（冬 II）をそれぞれ1回倒す"
+
+msgid "CONTENT_TROPHY_O2_NAME"
+msgstr "夏のトロフィー"
+
+msgid "CONTENT_TROPHY_O2_DESCRIPTION"
+msgstr "これを見つけた後、灰色の猫（夏 I）、恐竜と青緑の恐竜（夏 II）をそれぞれ1回倒す"
+
+msgid "CONTENT_TROPHY_O3_NAME"
+msgstr "秋のトロフィー"
+
+msgid "CONTENT_TROPHY_O3_DESCRIPTION"
+msgstr "これを見つけた後、リスとアカギツネ（秋 I）、黒猫と死神（秋 II）をそれぞれ1回倒す"
+
+msgid "CONTENT_OFFLINE_O1_NAME"
+msgstr "離れていた時間"
+
+msgid "CONTENT_OFFLINE_O1_DESCRIPTION"
+msgstr "ゲームから離れていた時間が合計72時間になる"
+
+msgid "CONTENT_OFFLINE_O2_NAME"
+msgstr "長い休息"
+
+msgid "CONTENT_OFFLINE_O2_DESCRIPTION"
+msgstr "一度に24時間ゲームから離れる"
+
+msgid "CONTENT_OFFLINE_O3_NAME"
+msgstr "オフライン収入"
+
+msgid "CONTENT_OFFLINE_O3_DESCRIPTION"
+msgstr "離れている間にコイン10Kを稼ぐ（「おかえりなさい」の報酬を受け取る）"
+
+msgid "CONTENT_HUNTER_SET_DESCRIPTION"
+msgstr "ボスからのEXP+20%"
+
+msgid "CONTENT_EXPEDITION_SET_DESCRIPTION"
+msgstr "移動速度+10%"
+
+msgid "CONTENT_COLLECTION_SET_DESCRIPTION"
+msgstr "自動回収範囲+50%"
+
+msgid "CONTENT_MASTERWORK_SET_DESCRIPTION"
+msgstr "装備中のアイテムの基本ステータス+10%"
+
+msgid "CONTENT_ARSENAL_SET_DESCRIPTION"
+msgstr "最大HP+10%"
+
+msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
+msgstr "周囲の探索範囲+25%"
+
+msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
+msgstr "ボスへのダメージ+10%"
+
+msgid "CONTENT_OFFERING_SET_DESCRIPTION"
+msgstr "すべての敵からのコイン+10%"
+
+msgid "CONTENT_SPECIALIST_SET_DESCRIPTION"
+msgstr "ミッションのコイン+25%"
+
+msgid "CONTENT_TROPHY_SET_DESCRIPTION"
+msgstr "ボスからのジェム+25%"
+
+msgid "CONTENT_OFFLINE_SET_DESCRIPTION"
+msgstr "オフライン時の毎時コイン+25%"
+
+msgid "CONTENT_PREPARED_EXPLORER_DESCRIPTION"
+msgstr "復活が2秒早くなる（最短2秒）"
+
+msgid "CONTENT_DEDICATED_FARMER_DESCRIPTION"
+msgstr "通常の敵からのコイン+15%"
+
+msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
+msgstr "合成ごとのステータス上昇+10%"
+
+msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
+msgstr "ボスへのダメージ+10%"
+
+msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
+msgstr "オフライン時のアイテム獲得率+25%"
+
+msgid "CONTENT_BALANCED_GROWTH_DESCRIPTION"
+msgstr "最大HP+10%"
+
+msgid "CONTENT_HUNTER_C1_NAME"
+msgstr "巨人殺し"
+
+msgid "CONTENT_HUNTER_C1_DESCRIPTION"
+msgstr "ボスへのダメージ+25%"
+
+msgid "CONTENT_HUNTER_C2_NAME"
+msgstr "ボスへの備え"
+
+msgid "CONTENT_HUNTER_C2_DESCRIPTION"
+msgstr "ボスから受けるダメージが20%減少"
+
+msgid "CONTENT_HUNTER_C3_NAME"
+msgstr "賞金"
+
+msgid "CONTENT_HUNTER_C3_DESCRIPTION"
+msgstr "ボスからのコイン+100%"
+
+msgid "CONTENT_EXPEDITION_C1_NAME"
+msgstr "追跡者"
+
+msgid "CONTENT_EXPEDITION_C1_DESCRIPTION"
+msgstr "通常の敵へのダメージ+20%"
+
+msgid "CONTENT_EXPEDITION_C2_NAME"
+msgstr "道中のコイン"
+
+msgid "CONTENT_EXPEDITION_C2_DESCRIPTION"
+msgstr "通常の敵からのコイン+30%"
+
+msgid "CONTENT_EXPEDITION_C3_NAME"
+msgstr "道中の学び"
+
+msgid "CONTENT_EXPEDITION_C3_DESCRIPTION"
+msgstr "通常の敵からのEXP+30%"
+
+msgid "CONTENT_COLLECTION_C1_NAME"
+msgstr "丁寧な収集家"
+
+msgid "CONTENT_COLLECTION_C1_DESCRIPTION"
+msgstr "自動回収範囲+100%"
+
+msgid "CONTENT_COLLECTION_C2_NAME"
+msgstr "装備の幸運"
+
+msgid "CONTENT_COLLECTION_C2_DESCRIPTION"
+msgstr "装備ドロップ率+3ポイント"
+
+msgid "CONTENT_COLLECTION_C3_NAME"
+msgstr "消耗品の幸運"
+
+msgid "CONTENT_COLLECTION_C3_DESCRIPTION"
+msgstr "消耗品ドロップ率+5ポイント"
+
+msgid "CONTENT_MASTERWORK_C1_NAME"
+msgstr "匠の技"
+
+msgid "CONTENT_MASTERWORK_C1_DESCRIPTION"
+msgstr "合成ごとのステータス上昇+25%"
+
+msgid "CONTENT_MASTERWORK_C2_NAME"
+msgstr "再抽選の技"
+
+msgid "CONTENT_MASTERWORK_C2_DESCRIPTION"
+msgstr "再抽選に必要なジェムが50%減少"
+
+msgid "CONTENT_MASTERWORK_C3_NAME"
+msgstr "盤石の基礎"
+
+msgid "CONTENT_MASTERWORK_C3_DESCRIPTION"
+msgstr "装備中の武器と衣装の基本ステータス+20%"
+
+msgid "CONTENT_ARSENAL_C1_NAME"
+msgstr "鎧の蓄え"
+
+msgid "CONTENT_ARSENAL_C1_DESCRIPTION"
+msgstr "最大HP+20%"
+
+msgid "CONTENT_ARSENAL_C2_NAME"
+msgstr "武器の鍛錬"
+
+msgid "CONTENT_ARSENAL_C2_DESCRIPTION"
+msgstr "攻撃とスキルのダメージ+15%"
+
+msgid "CONTENT_ARSENAL_C3_NAME"
+msgstr "バランス装備"
+
+msgid "CONTENT_ARSENAL_C3_DESCRIPTION"
+msgstr "すべての敵から受けるダメージが10%減少"
+
+msgid "CONTENT_REGIONAL_C1_NAME"
+msgstr "探検家"
+
+msgid "CONTENT_REGIONAL_C1_DESCRIPTION"
+msgstr "移動速度+15%"
+
+msgid "CONTENT_REGIONAL_C2_NAME"
+msgstr "千里眼"
+
+msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
+msgstr "周囲の探索範囲+50%"
+
+msgid "CONTENT_REGIONAL_C3_NAME"
+msgstr "キャンプ調査"
+
+msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
+msgstr "キャンプに必要なコインが50%減少"
+
+msgid "CONTENT_CHALLENGE_C1_NAME"
+msgstr "精密"
+
+msgid "CONTENT_CHALLENGE_C1_DESCRIPTION"
+msgstr "クリティカル率+15ポイント"
+
+msgid "CONTENT_CHALLENGE_C2_NAME"
+msgstr "不屈"
+
+msgid "CONTENT_CHALLENGE_C2_DESCRIPTION"
+msgstr "与えたダメージの5%を回復"
+
+msgid "CONTENT_CHALLENGE_C3_NAME"
+msgstr "痛打"
+
+msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
+msgstr "クリティカルのダメージがさらに+75%"
+
+msgid "CONTENT_OFFERING_C1_NAME"
+msgstr "コインの知恵"
+
+msgid "CONTENT_OFFERING_C1_DESCRIPTION"
+msgstr "すべての敵からのコイン+25%"
+
+msgid "CONTENT_OFFERING_C2_NAME"
+msgstr "ジェムの知恵"
+
+msgid "CONTENT_OFFERING_C2_DESCRIPTION"
+msgstr "ジェムドロップ率+5ポイント"
+
+msgid "CONTENT_OFFERING_C3_NAME"
+msgstr "賢い使い方"
+
+msgid "CONTENT_OFFERING_C3_DESCRIPTION"
+msgstr "コイン強化の費用が15%減少"
+
+msgid "CONTENT_SPECIALIST_C1_NAME"
+msgstr "ミッションコイン"
+
+msgid "CONTENT_SPECIALIST_C1_DESCRIPTION"
+msgstr "ミッションのコイン+50%"
+
+msgid "CONTENT_SPECIALIST_C2_NAME"
+msgstr "ミッションジェム"
+
+msgid "CONTENT_SPECIALIST_C2_DESCRIPTION"
+msgstr "ミッションのジェム+50%"
+
+msgid "CONTENT_SPECIALIST_C3_NAME"
+msgstr "集中練習"
+
+msgid "CONTENT_SPECIALIST_C3_DESCRIPTION"
+msgstr "スキルのダメージ・回復量・秘術集中+25%"
+
+msgid "CONTENT_TROPHY_C1_NAME"
+msgstr "トロフィーハンター"
+
+msgid "CONTENT_TROPHY_C1_DESCRIPTION"
+msgstr "ボスからのEXP+50%"
+
+msgid "CONTENT_TROPHY_C2_NAME"
+msgstr "トロフィーの力"
+
+msgid "CONTENT_TROPHY_C2_DESCRIPTION"
+msgstr "ボスへのダメージ+20%"
+
+msgid "CONTENT_TROPHY_C3_NAME"
+msgstr "トロフィージェム"
+
+msgid "CONTENT_TROPHY_C3_DESCRIPTION"
+msgstr "ボスからのジェム+50%"
+
+msgid "CONTENT_OFFLINE_C1_NAME"
+msgstr "静かなコイン"
+
+msgid "CONTENT_OFFLINE_C1_DESCRIPTION"
+msgstr "オフライン時の毎時コイン+50%"
+
+msgid "CONTENT_OFFLINE_C2_NAME"
+msgstr "静かなジェム"
+
+msgid "CONTENT_OFFLINE_C2_DESCRIPTION"
+msgstr "オフライン時の毎時ジェム+50%"
+
+msgid "CONTENT_OFFLINE_C3_NAME"
+msgstr "静かな掘り出し物"
+
+msgid "CONTENT_OFFLINE_C3_DESCRIPTION"
+msgstr "オフライン時のアイテム獲得率+50%"
+
+msgid "CHAIN_PROGRESS"
+msgstr "ステップ%d/%d · %s · %d/%d"
+
+msgid "DEVELOPMENT_SAVE_RESET"
+msgstr "このアップデートのため、開発版のセーブデータをリセットしました。新しい進行状況はセーブできます。"
+
+msgid "HEAL_ROLE"
+msgstr "持続回復：今すぐHP%s、%s秒ごと。コストなしで発動でき、上限は最大HPの12%%。緊急時はポーションの方が大きく回復します。"
+
+msgid "REGULAR_MISSIONS"
+msgstr "討伐タスク"
+
+msgid "GUIDE_CHOOSE"
+msgstr "ガイドはどのくらい必要ですか？"
+
+msgid "GUIDE_MODE_GUIDED"
+msgstr "ガイド付き"
+
+msgid "GUIDE_MODE_BASIC"
+msgstr "基本"
+
+msgid "GUIDE_MODE_NONE"
+msgstr "なし"
+
+msgid "GUIDE_REVIEW"
+msgstr "ガイドを選び直す"
+
+msgid "GUIDE_GOT_IT"
+msgstr "了解"
+
+msgid "GUIDE_MOVE"
+msgstr "左の道を進もう。"
+
+msgid "GUIDE_MOVE_DETAIL"
+msgstr "光るジョイスティックを矢印の方へドラッグしよう。最初の敵は道沿いで待っています。"
+
+msgid "GUIDE_KILL"
+msgstr "敵の隣で止まって攻撃しよう"
+
+msgid "GUIDE_KILL_DETAIL"
+msgstr "少し立ち止まると自動で攻撃します。冬の敵は反撃してくるだけです。"
+
+msgid "GUIDE_COLLECT"
+msgstr "落ちたアイテムをタップしよう"
+
+msgid "GUIDE_COLLECT_DETAIL"
+msgstr "ドロップはしばらく地面に残ります。コインとジェムは自動で入手できます。"
+
+msgid "GUIDE_EQUIP"
+msgstr "新しいアイテムをタップしよう"
+
+msgid "GUIDE_EQUIP_DETAIL"
+msgstr "アイテム詳細で、今の装備と比べられます。"
+
+msgid "GUIDE_MERGE"
+msgstr "2個持っているアイテムを開こう"
+
+msgid "GUIDE_MERGE_DETAIL"
+msgstr "予備を合成すると、アイテムが永続的に強くなります。"
+
+msgid "GUIDE_UPGRADE"
+msgstr "この敵の「強化」をタップしよう"
+
+msgid "GUIDE_UPGRADE_DETAIL"
+msgstr "敵の種類ごとに、ドロップ・コイン・経験値の強化があります。"
+
+msgid "GUIDE_CAMP"
+msgstr "「ワールド」を開いてキャンプを解放しよう"
+
+msgid "GUIDE_CAMP_DETAIL"
+msgstr "キャンプを見つけ、解放できるだけのコインもあります。「ワールド」を開くか、キャンプまで歩いて「キャンプを見る」をタップしよう。"
+
+msgid "GUIDE_OVERVIEW"
+msgstr "歩く・戦う・集める"
+
+msgid "GUIDE_OVERVIEW_DETAIL"
+msgstr "マップ下部のジョイスティックをドラッグして歩こう。指を離すとヒーローが近くの敵と戦います。ドロップをタップして拾おう。"
+
+msgid "GUIDE_AGGRESSION"
+msgstr "この敵は近くにいると気づきます"
+
+msgid "GUIDE_AGGRESSION_DETAIL"
+msgstr "冬 II の敵は近づくと攻撃してきます。1体ずつ近づこう。"
+
+msgid "GUIDE_SKILLS"
+msgstr "スキルが装備を支えます"
+
+msgid "GUIDE_SKILLS_DETAIL"
+msgstr "装備したスキルをタップして発動しよう。ヒールは安定して回復し、ポーションは一度に多く回復します。"
+
+msgid "GUIDE_GROUPS"
+msgstr "仲間を呼ぶ敵が現れました"
+
+msgid "GUIDE_GROUPS_DETAIL"
+msgstr "夏の敵は近くにいる同じ種類の仲間を助けます。HPに注意しよう。"
+
+msgid "PRESTIGE_GATE"
+msgstr "先に冬をクリアしよう：シアンのロボットを倒して夏 I へ。"
+
+msgid "NAV_PRESTIGE"
+msgstr "転生"
+
+msgid "PANEL_WORLD"
+msgstr "ワールド"
+
+msgid "TAB_OFFLINE"
+msgstr "オフライン"
+
+msgid "UPGRADES_PLAYER_HINT"
+msgstr "これらの強化は「強化」ボタンか、キャラクターをタップすると開けます。"
+
+msgid "HUD_RESTING"
+msgstr "· 休憩中"
+
+msgid "ITEM_PREVIOUS"
+msgstr "前のアイテム"
+
+msgid "ITEM_NEXT"
+msgstr "次のアイテム"
+
+msgid "ITEM_POSITION"
+msgstr "%d / %d"
+
+msgid "EQUIP_EFFECT"
+msgstr "装備した場合：%s"
+
+msgid "NO_CHANGE"
+msgstr "変化なし"
+
+msgid "EQUIPPED_NOW"
+msgstr "装備中：%s ^%d"
+
+msgid "NOTHING_EQUIPPED"
+msgstr "このスロットにはまだ何も装備していません。"
+
+msgid "ITEM_EQUIPPED_SHORT"
+msgstr "装備中：ステータス100%"
+
+msgid "ITEM_STORED_SHORT"
+msgstr "保管中：ステータスの30%"
+
+msgid "UPGRADE_LEVEL"
+msgstr "レベル %d / %d"
+
+msgid "BOSS_LABEL"
+msgstr "ボス"
+
+msgid "ENEMY_KILLS"
+msgstr "撃破数：%s"
+
+msgid "CAMP_STATE_SELECTED"
+msgstr "復活キャンプ"
+
+msgid "CAMP_STATE_OWNED"
+msgstr "解放済み"
+
+msgid "CAMP_STATE_LOCKED"
+msgstr "未解放 · コイン %s"
+
+msgid "SECTION_CAMPS"
+msgstr "キャンプ"
+
+msgid "CAMPS_HIDDEN"
+msgstr "探索で見つけられるキャンプがあと%dか所あります。"
+
+msgid "SECTION_TRAVEL"
+msgstr "別のステージへ移動"
+
+msgid "SECTION_MAP_UPGRADES"
+msgstr "マップ強化"
+
+msgid "SECTION_DANGER"
+msgstr "危険な操作"
+
+msgid "CAMP_UNLOCK"
+msgstr "解放"
+
+msgid "CAMP_SELECT"
+msgstr "ここで復活"
+
+msgid "CAMP_TRAVEL"
+msgstr "移動"
+
+msgid "CARD_OWNED"
+msgstr "所持"
+
+msgid "CARD_SELECTED"
+msgstr "選択中"
+
+msgid "CARD_LOCKED"
+msgstr "未獲得"
+
+msgid "PRESTIGE_READY_SHORT"
+msgstr "準備完了"
+
+msgid "PRESTIGE_INTRO"
+msgstr "チャンスを達成して永続カードを獲得しよう。転生すると、準備完了のチャンスをすべてまとめて引き換え、新しい周回を始めます。"
+
+msgid "PRESTIGE_READY_COUNT"
+msgstr "準備完了：%d  ·  所持カード：%d / %d"
+
+msgid "PRESTIGE_NONE_DISCOVERED"
+msgstr "まだチャンスは見つかっていません。ボスを倒し、合成し、探索して見つけよう。"
+
+msgid "NO_CARDS_YET"
+msgstr "まだカードはありません。"
+
+msgid "PRESTIGE_CONFIRM_SUMMARY"
+msgstr "準備完了のチャンス%d件を引き換え：%s。\n\nそれぞれ永続カードを1枚選んだ後、周回が1回だけ再スタートします。\n\n残るもの：カード、ボスの鍵、実績、ジェム強化、自動化、設定。\nリセット：コイン、アイテム、レベル、キャンプ、マップ探索、コイン強化、未完了のチャレンジ。"
+
+msgid "PRESTIGE_CHOOSE_TITLE"
+msgstr "報酬を選択 · %d / %d"
+
+msgid "PRESTIGE_EARNED_SO_FAR"
+msgstr "選択済み：%s"
+
+msgid "PRESTIGE_KEEP_TITLE"
+msgstr "残るもの"
+
+msgid "PRESTIGE_KEEP"
+msgstr "カードとセット、ジェム、探索済みのマップエリア、ジェムで購入したすべての強化（全カテゴリー）、自動化、持ち物の容量、ボスの鍵、敵の実績、プレイヤーレベルとEXP、マップ熟練度、設定。"
+
+msgid "PRESTIGE_RESET_TITLE"
+msgstr "この周回でリセット"
+
+msgid "PRESTIGE_RESET"
+msgstr "コイン、アイテム（消耗品の在庫を含む）と合成、消耗品熟練度、マップへのアクセスと所有キャンプ、マップ強化とコイン強化、未完了のチャレンジ。"
+
+msgid "PRESTIGE_KEEP_CARD"
+msgstr "%sを獲得"
+
+msgid "PRESTIGE_PICK_CARD"
+msgstr "カードをタップして選ぼう"
+
+msgid "PRESTIGE_CARD_CONFIRM_FINAL"
+msgstr "%sを永続的に獲得しますか？これが最後の選択です。直後に新しい周回が始まります。"
+
+msgid "MILESTONE_DISCOVERED"
+msgstr "転生のチャンスを発見！"
+
+msgid "MILESTONE_READY"
+msgstr "チャンス達成！"
+
+msgid "MILESTONE_CARD"
+msgstr "カード獲得：%s"
+
+msgid "MILESTONE_PRESTIGED"
+msgstr "新しい周回の始まり"
+
+msgid "MILESTONE_PRESTIGED_DETAIL"
+msgstr "永続カード%d枚がコレクションに追加されました。"
+
+msgid "MILESTONE_STAGE"
+msgstr "新ステージ解放"
+
+msgid "COMBO_HUNTER_SET"
+msgstr "ボスハンターセット"
+
+msgid "COMBO_EXPEDITION_SET"
+msgstr "遠征セット"
+
+msgid "COMBO_COLLECTION_SET"
+msgstr "コレクションセット"
+
+msgid "COMBO_MASTERWORK_SET"
+msgstr "傑作セット"
+
+msgid "COMBO_ARSENAL_SET"
+msgstr "武器庫セット"
+
+msgid "COMBO_REGIONAL_SET"
+msgstr "地域セット"
+
+msgid "COMBO_CHALLENGE_SET"
+msgstr "チャレンジセット"
+
+msgid "COMBO_OFFERING_SET"
+msgstr "捧げ物セット"
+
+msgid "COMBO_SPECIALIST_SET"
+msgstr "スペシャリストセット"
+
+msgid "COMBO_TROPHY_SET"
+msgstr "トロフィーセット"
+
+msgid "COMBO_OFFLINE_SET"
+msgstr "オフラインセット"
+
+msgid "COMBO_PREPARED_EXPLORER"
+msgstr "準備万端の探検家"
+
+msgid "COMBO_DEDICATED_FARMER"
+msgstr "働き者のファーマー"
+
+msgid "COMBO_CRAFTING_JOURNEY"
+msgstr "合成の旅"
+
+msgid "COMBO_BOSS_SPECIALIST"
+msgstr "ボスの専門家"
+
+msgid "COMBO_PATIENT_COLLECTOR"
+msgstr "忍耐強い収集家"
+
+msgid "COMBO_BALANCED_GROWTH"
+msgstr "バランス成長"
+
+msgid "GUIDE_COLLECT_WAIT"
+msgstr "敵を倒し続けよう"
+
+msgid "GUIDE_COLLECT_WAIT_DETAIL"
+msgstr "数体倒すうちに、最初の武器か衣装がドロップします。"
+
+msgid "GUIDE_EQUIP_TAP"
+msgstr "「装備する」をタップ"
+
+msgid "GUIDE_EQUIP_TAP_DETAIL"
+msgstr "装備中の装備はステータスが100%反映されます。保管中の装備も30%反映されます。"
+
+msgid "GUIDE_MERGE_TAP"
+msgstr "「合成」をタップ"
+
+msgid "GUIDE_MERGE_TAP_DETAIL"
+msgstr "合成するたびに予備を1個使い、アイテムのレベルが上がります。"
+
+msgid "GUIDE_MERGE_WAIT"
+msgstr "2個目を集めよう"
+
+msgid "GUIDE_MERGE_WAIT_DETAIL"
+msgstr "あと数体倒すうちに、同じアイテムがドロップします。"
+
+msgid "GUIDE_UPGRADE_FIND"
+msgstr "まず敵を見つけよう"
+
+msgid "GUIDE_UPGRADE_FIND_DETAIL"
+msgstr "敵に近づくと、その敵の強化が利用できるようになります。"
+
+msgid "GUIDE_UPGRADE_EARN"
+msgstr "強化のためにコインを稼ごう"
+
+msgid "GUIDE_UPGRADE_EARN_DETAIL"
+msgstr "あとコイン%sが必要です。倒した敵は必ずコインを落とします。"
+
+msgid "GUIDE_UPGRADE_TAB"
+msgstr "「強化」タブを開こう"
+
+msgid "GUIDE_UPGRADE_TAB_DETAIL"
+msgstr "この敵の種類の強化はそこに並んでいます。"
+
+msgid "GUIDE_UPGRADE_BUY"
+msgstr "強化を購入しよう"
+
+msgid "GUIDE_UPGRADE_BUY_DETAIL"
+msgstr "最初はドロップ率アップがおすすめです。"
+
+msgid "GUIDE_CAMP_EXPLORE"
+msgstr "探索して別のキャンプを見つけよう"
+
+msgid "GUIDE_CAMP_EXPLORE_DETAIL"
+msgstr "霧の中へ進もう。明らかにするとキャンプが現れます。"
+
+msgid "GUIDE_CAMP_EARN"
+msgstr "キャンプのためにコインを稼ごう"
+
+msgid "GUIDE_CAMP_EARN_DETAIL"
+msgstr "あとコイン%sが必要です。敵を倒し続けよう。"
+
+msgid "GUIDE_CAMP_BUY"
+msgstr "「解放」をタップ"
+
+msgid "GUIDE_CAMP_BUY_DETAIL"
+msgstr "キャンプは復活地点になり、周囲の土地が明らかになります。"
+
+msgid "GUIDE_CAMP_DONE"
+msgstr "キャンプを解放しました"
+
+msgid "GUIDE_CAMP_DONE_DETAIL"
+msgstr "「ここで復活」を使うと、倒されたときそこに戻れます。キャンプのそばで休むと素早く回復します。"
+
+msgid "GUIDE_PRESTIGE"
+msgstr "転生のチャンスを発見"
+
+msgid "GUIDE_PRESTIGE_DETAIL"
+msgstr "達成すると永続カードを獲得できます。まず雪だるまを見つけよう。ガイド付きモードではチュートリアルの完了も必要です。"
+
+msgid "GUIDE_REST"
+msgstr "HPが少ない？"
+
+msgid "GUIDE_REST_DETAIL"
+msgstr "戦闘から離れよう。解放済みのキャンプのそばで休むと素早く回復します。"
+
+msgid "SECTION_REWARDS"
+msgstr "報酬"
+
+msgid "SECTION_AUTOMATION"
+msgstr "自動化"
+
+msgid "CAMP_LOCKED_SHORT"
+msgstr "未解放"
+
+msgid "PROGRESS_MERGE"
+msgstr "最高：^%d / ^100"
+
+msgid "PROGRESS_ARSENAL"
+msgstr "^50の武器：%d/%d · ^50の衣装：%d/%d"
+
+msgid "PROGRESS_TROPHY"
+msgstr "トロフィー：%d / %d（各ボスは次に倒したとき1つ落とします）"
+
+msgid "PROGRESS_COLLECTION"
+msgstr "進捗：%s"
+
+msgid "PROGRESS_CHALLENGE"
+msgstr "ポーションや秘薬を使わずに戦いに勝とう。"
+
+msgid "PROGRESS_REGIONAL"
+msgstr "探索 %s · ボス %d/%d · キャンプ %d/%d"
+
+msgid "ITEM_GOLD_SWORD"
+msgstr "金の剣"
+
+msgid "ITEM_DIAMOND_SWORD"
+msgstr "ダイヤの剣"
+
+msgid "ITEM_EMERALD_SWORD"
+msgstr "エメラルドの剣"
+
+msgid "ITEM_OBSIDIAN_SWORD"
+msgstr "黒曜石の剣"
+
+msgid "ITEM_WOOD_AXE"
+msgstr "木の斧"
+
+msgid "ITEM_STONE_AXE"
+msgstr "石の斧"
+
+msgid "ITEM_IRON_AXE"
+msgstr "鉄の斧"
+
+msgid "ITEM_GOLD_AXE"
+msgstr "金の斧"
+
+msgid "ITEM_DIAMOND_AXE"
+msgstr "ダイヤの斧"
+
+msgid "ITEM_EMERALD_AXE"
+msgstr "エメラルドの斧"
+
+msgid "ITEM_OBSIDIAN_AXE"
+msgstr "黒曜石の斧"
+
+msgid "GUIDE_EQUIP_FIND"
+msgstr "武器か衣装を見つけよう"
+
+msgid "GUIDE_EQUIP_FIND_DETAIL"
+msgstr "今のは消耗品でした。敵を倒し続けよう。敵は身に着けている武器や衣装を落とすことがあり、空いている装備スロットに入ります。"
+
+msgid "GUIDE_EQUIP_COLLECT"
+msgstr "装備を拾おう"
+
+msgid "GUIDE_EQUIP_COLLECT_DETAIL"
+msgstr "武器か衣装がドロップしました。タップして装備スロットに入れよう。"
+
+msgid "FOLLOW_UNAVAILABLE"
+msgstr "追跡できるのは進行中のチャンスだけです。"
+
+msgid "NAV_PRESTIGE_GATE"
+msgstr "%sをクリア"
+
+msgid "MISSION_STATE_READY"
+msgstr "受け取り可能"
+
+msgid "MISSION_STATE_CLAIMED"
+msgstr "✓ 受け取り済み"
+
+msgid "MAIN_COMPLETED_TOGGLE"
+msgstr "達成した目標（%d） · %s"
+
+msgid "SHOW"
+msgstr "表示"
+
+msgid "HIDE"
+msgstr "非表示"
+
+msgid "PLAYTIME_LINE"
+msgstr "プレイ時間：%s · 今回の周回：%s"
+
+msgid "OFFLINE_WELCOME"
+msgstr "おかえりなさい！"
+
+msgid "OFFLINE_AWAY"
+msgstr "離れていた時間 %s · 報酬 %s時間"
+
+msgid "OFFLINE_CLAIM"
+msgstr "オフライン報酬を受け取る"
+
+msgid "OFFLINE_CLAIMED"
+msgstr "オフライン報酬を受け取りました"
+
+msgid "OFFLINE_NOTHING"
+msgstr "受け取れるオフライン報酬はありません。"
+
+msgid "OFFLINE_PENDING_NOTE"
+msgstr "オフライン報酬を受け取れます。"
+
+msgid "OFFLINE_CLAIMED_RECEIPT"
+msgstr "前回の受け取り：報酬 %s時間 · コイン %s · ジェム %s"
+
+msgid "NAV_UPGRADES"
+msgstr "強化"
+
+msgid "STATS_OPEN"
+msgstr "ステータス"
+
+msgid "SKILL_UPGRADES_UNLOCKED"
+msgstr "新しい強化を解放：%s（プレイヤー強化）"
+
+msgid "PRESTIGE_LOCKED_FIRST_BOSS"
+msgstr "冬 I の雪だるま（最初のボス）を見つけると、転生リセットが解放されます。"
+
+msgid "NAV_PRESTIGE_LOCKED"
+msgstr "雪だるまを探そう"
+
+msgid "NO_CARD_AVAILABLE"
+msgstr "準備完了のチャンスで得られるカードは、すべて所持しています。"
+
+msgid "SPOT_UNDISCOVERED"
+msgstr "先にマップでこの場所を見つけてください。"
+
+msgid "EQUIPPED_PINNED"
+msgstr "装備中"
+
+msgid "EQUIPPED_WEAPON"
+msgstr "武器"
+
+msgid "EQUIPPED_OUTFIT"
+msgstr "衣装"
+
+msgid "NOTHING_EQUIPPED_SHORT"
+msgstr "空きスロット"
+
+msgid "COMPARE_EQUIPPED"
+msgstr "装備中"
+
+msgid "COMPARE_SELECTED"
+msgstr "選択中"
+
+msgid "COMPARE_ITEM"
+msgstr "アイテム"
+
+msgid "COMPARE_UPGRADE"
+msgstr "性能アップ"
+
+msgid "COMPARE_DOWNGRADE"
+msgstr "性能ダウン"
+
+msgid "COMPARE_MIXED"
+msgstr "一長一短"
+
+msgid "ITEM_TIER_MERGE_CAP"
+msgstr "ランク%d · ^%d / ^%d"
+
+msgid "COPY_GROWTH_EXPLAIN"
+msgstr "同じアイテムを合成すると^%dまで成長します。別のアイテムに変わることはなく、^100を超えると合成ごとの上昇量が少しずつ減ります。"
+
+msgid "FOLLOW_READY"
+msgstr "準備完了！「転生」を開いてカードを選ぼう"
+
+msgid "FOLLOW_STEP"
+msgstr "ステップ%d/%d · %s：%d/%d"
+
+msgid "FOLLOW_HUNT"
+msgstr "%sを倒す：%d/%d"
+
+msgid "FOLLOW_CHALLENGE"
+msgstr "戦闘中に消耗品を使わずに%sを倒す：0/1"
+
+msgid "GOAL_MISSION"
+msgstr "ミッションを受け取る"
+
+msgid "STATS_SECTION_CHARACTER"
+msgstr "キャラクター"
+
+msgid "STATS_LEVEL"
+msgstr "レベル"
+
+msgid "STATS_LEVEL_VALUE"
+msgstr "%d / %d"
+
+msgid "STATS_STAGE"
+msgstr "ステージ"
+
+msgid "STATS_PRESTIGES"
+msgstr "転生回数"
+
+msgid "STATS_CARDS"
+msgstr "転生カード"
+
+msgid "STATS_SECTION_OFFENSE"
+msgstr "攻撃"
+
+msgid "STATS_ATTACK_SPEED"
+msgstr "攻撃速度"
+
+msgid "STATS_ATTACK_SPEED_VALUE"
+msgstr "%s回/秒（+%s%%）"
+
+msgid "STATS_SECTION_DEFENSE"
+msgstr "防御と回復"
+
+msgid "STATS_DEFENSE_VALUE"
+msgstr "%s（被ダメージ−%s%%）"
+
+msgid "STATS_RESPAWN"
+msgstr "復活時間"
+
+msgid "STATS_SECTION_BOOSTS"
+msgstr "ブースト"
+
+msgid "STATS_PRESTIGE_MULT"
+msgstr "転生倍率"
+
+msgid "STATS_PRESTIGE_MULT_VALUE"
+msgstr "HP ×%s · ダメージ ×%s"
+
+msgid "STATS_MOVEMENT"
+msgstr "移動速度"
+
+msgid "STATS_STORED_SHARE"
+msgstr "保管中の装備の反映率"
+
+msgid "STATS_EQUIPPED_BONUS"
+msgstr "装備中の装備ボーナス"
+
+msgid "STATS_SECTION_TIME"
+msgstr "プレイ時間"
+
+msgid "STATS_TIME_TOTAL"
+msgstr "全周回"
+
+msgid "STATS_TIME_RUN"
+msgstr "今回の周回"
+
+msgid "STATS_SHORT_DAMAGE"
+msgstr "ダメージ"
+
+msgid "STATS_SHORT_HP"
+msgstr "HP"
+
+msgid "STATS_SHORT_DEFENSE"
+msgstr "防御"
+
+msgid "STATS_SHORT_CRIT"
+msgstr "クリ率"
+
+msgid "STATS_SHORT_CRIT_DAMAGE"
+msgstr "クリ倍率"
+
+msgid "STATS_SHORT_SPEED"
+msgstr "攻速"
+
+msgid "STATS_SHORT_LIFESTEAL"
+msgstr "HP吸収"
+
+msgid "STATS_SHORT_REGEN"
+msgstr "HP/秒"
+
+msgid "CAMP_SIGHTED"
+msgstr "キャンプを発見！マップと「ワールド」パネルに表示されました。"
+
+msgid "STATS_PRESTIGE_HP"
+msgstr "カードと熟練度のHPボーナス"
+
+msgid "STATS_PRESTIGE_DAMAGE"
+msgstr "カードと熟練度のダメージボーナス"
+
+msgid "STAT_REGEN_PCT"
+msgstr "回復"
+
+msgid "STATS_SHORT_REGEN_PCT"
+msgstr "最大HP/秒"
+
+msgid "MAX_HP_PER_SECOND"
+msgstr "最大HP/秒"
+
+msgid "STATS_RECOVERY_VALUE"
+msgstr "最大HPの%s%%/秒（%s HP/秒）"
+
+msgid "SOURCE_MILESTONE"
+msgstr "衣装のマイルストーン（着用中）"
+
+msgid "STATS_STORED_SHARE_VALUE"
+msgstr "武器 %s%% · 衣装 %s%%"
+
+msgid "MILESTONE_GUARD"
+msgstr "ガード：防御+%s"
+
+msgid "MILESTONE_HP_ACTIVE"
+msgstr "HP+%s"
+
+msgid "MILESTONE_HP_STEP"
+msgstr "衣装HP+%s%%"
+
+msgid "MILESTONE_RECOVERY"
+msgstr "回復：最大HPの%s%%/秒"
+
+msgid "MILESTONES_ACTIVE"
+msgstr "マイルストーン（着用中）：%s"
+
+msgid "MILESTONES_NONE"
+msgstr "マイルストーン：まだありません。最初のマイルストーンは^100で解放されます。"
+
+msgid "MILESTONES_COMPLETE"
+msgstr "すべてのマイルストーンに到達（熟練）。"
+
+msgid "MILESTONE_NEXT"
+msgstr "次は^%d：%s"
+
+msgid "OUTFIT_GROWTH_EXPLAIN"
+msgstr "同じ衣装を合成すると^%dまで成長します：^100までは1個ごとに基本HPの+2%%、その後は1個ごとに+1%%。別のアイテムに変わることはありません。マイルストーンは着用中のみ有効で、保管中はHPの%s%%が反映されます。"
+
+msgid "PANEL_LEVEL"
+msgstr "プレイヤーレベルと成長"
+
+msgid "PANEL_FARMING"
+msgstr "狩りガイド"
+
+msgid "LEVEL_PANEL_HINT"
+msgstr "タップでレベル成長とステータスの内訳"
+
+msgid "EQUIPMENT_SLOTS_NEXT"
+msgstr "スロット %d → %d / %d"
+
+msgid "EQUIPMENT_SLOTS_MAXED"
+msgstr "スロット %d / %d · 最大"
+
+msgid "UPGRADE_MAXED_VALUE"
+msgstr "%s · 最大"
+
+msgid "BOSS_GEMS_PER_DROP"
+msgstr "ボスはドロップごとにジェム%s"
+
+msgid "FARMING_GUIDE_OPEN"
+msgstr "狩りガイド"
+
+msgid "PRESTIGE_ACTION_LOCKED"
+msgstr "転生不可 · %s"
+
+msgid "PRESTIGE_REQUIREMENTS"
+msgstr "転生リセットの条件"
+
+msgid "PRESTIGE_REQ_BOSS"
+msgstr "冬 I の雪だるま（最初のボス）を見つける"
+
+msgid "PRESTIGE_REQ_READY"
+msgstr "カードを獲得できる準備完了のチャンスが1つ以上"
+
+msgid "PRESTIGE_NEEDS_BOSS"
+msgstr "雪だるまを見つける"
+
+msgid "PRESTIGE_NEEDS_READY"
+msgstr "準備完了のチャンスなし"
+
+msgid "PRESTIGE_NEEDS_CARD"
+msgstr "獲得できるカードが残っていない"
+
+msgid "STAT_SOURCES_OTHER"
+msgstr "その他のステータス源"
+
+msgid "BREAKDOWN_HP"
+msgstr "HPの内訳"
+
+msgid "BREAKDOWN_DAMAGE"
+msgstr "ダメージの内訳"
+
+msgid "BREAKDOWN_SUBTOTAL"
+msgstr "転生ボーナス前"
+
+msgid "BREAKDOWN_PRESTIGE"
+msgstr "カードと熟練度"
+
+msgid "BREAKDOWN_TOTAL"
+msgstr "合計（戦闘で使用）"
+
+msgid "BREAKDOWN_PER_HIT"
+msgstr "1ヒットごと（合計に含まず）"
+
+msgid "BREAKDOWN_TAKEN"
+msgstr "被ダメージ"
+
+msgid "SOURCE_LEVEL_DETAIL"
+msgstr "プレイヤーレベル（%d × +%s）"
+
+msgid "SOURCE_STORED_DETAIL"
+msgstr "保管中の装備（衣装 %s%%、武器 %s%%）"
+
+msgid "SOURCE_EQUIPPED_DETAIL"
+msgstr "装備中の装備（カード+%s%%を含む）"
+
+msgid "PER_HIT_MILESTONES"
+msgstr "%sへの撃破実績"
+
+msgid "PER_HIT_NORMAL"
+msgstr "転生：通常の敵へ"
+
+msgid "PER_HIT_BOSS"
+msgstr "転生：ボスへ"
+
+msgid "PER_HIT_FOCUS"
+msgstr "秘術集中（残り%d秒）"
+
+msgid "TAKEN_GUARD"
+msgstr "転生ガード"
+
+msgid "TAKEN_BOSS_GUARD"
+msgstr "対ボスの転生ガード"
+
+msgid "LEVEL_PANEL_LEVEL"
+msgstr "レベル %d / %d"
+
+msgid "LEVEL_PANEL_CAPPED"
+msgstr "最大レベルに到達しました。これ以上レベルによる上昇はありません。"
+
+msgid "LEVEL_PANEL_XP"
+msgstr "%s / %s EXP · あと%sでレベル%d"
+
+msgid "LEVEL_PANEL_GROWTH"
+msgstr "レベル成長"
+
+msgid "LEVEL_PANEL_PER_LEVEL"
+msgstr "1レベルごと（基本）"
+
+msgid "LEVEL_PANEL_GAIN"
+msgstr "HP+%s · ダメージ+%s"
+
+msgid "LEVEL_PANEL_FROM_LEVELS"
+msgstr "これまでの%dレベル分"
+
+msgid "LEVEL_PANEL_NEXT_HP"
+msgstr "レベル%dのHP"
+
+msgid "LEVEL_PANEL_NEXT_DAMAGE"
+msgstr "レベル%dのダメージ"
+
+msgid "LEVEL_PANEL_NEXT_VALUE"
+msgstr "%s → %s (+%s)"
+
+msgid "LEVEL_PANEL_PRESTIGE_NOTE"
+msgstr "転生カードはすべての源に倍率をかけます：HP ×%s、ダメージ ×%s。"
+
+msgid "FARMING_GUIDE_INTRO"
+msgstr "各敵をどこで狩れるか、何を落とすかを確認できます。マップの項目は、そのマップの「マップの詳細度」が最大になり、すべての敵の種類でステータスとドロップが公開されると開きます。場所が表示されるのは発見済みの地点だけです。"
+
+msgid "FARMING_YOU_ARE_HERE"
+msgstr "現在地"
+
+msgid "FARMING_READY"
+msgstr "項目解放"
+
+msgid "FARMING_OPEN_MAP"
+msgstr "開く"
+
+msgid "FARMING_NEED_DETAIL"
+msgstr "マップの詳細度 %d/%d"
+
+msgid "FARMING_NEED_RESEARCH"
+msgstr "ステータスとドロップ %d/%d種"
+
+msgid "FARMING_LOCKED"
+msgstr "必要：%s"
+
+msgid "FARMING_GUIDE_UNREACHED"
+msgstr "未到達のマップがあと%dつあります。"
+
+msgid "FARMING_MAP_TITLE"
+msgstr "狩り · %s"
+
+msgid "FARMING_MAP_HINT"
+msgstr "確率には現在の強化が含まれます。方向はこのマップで最も近い既知のキャンプからです。"
+
+msgid "FARMING_BACK"
+msgstr "すべてのマップ"
+
+msgid "FARMING_UNKNOWN_TYPE"
+msgstr "未発見の敵 · このマップを探索して見つけよう"
+
+msgid "FARMING_REWARDS"
+msgstr "コイン ×%s · ジェム %s%% ×%s · EXP %s"
+
+msgid "FARMING_SUPPLIES"
+msgstr "消耗品：%s"
+
+msgid "FARMING_UNDISCOVERED_SPOT"
+msgstr "未発見の地点"
+
+msgid "FARMING_DETAILS"
+msgstr "詳細"
+
+msgid "FARMING_AT_CAMP"
+msgstr "キャンプ%dのそば"
+
+msgid "FARMING_LOCATION"
+msgstr "%s（キャンプ%dから） · %s"
+
+msgid "COMPASS_N"
+msgstr "北"
+
+msgid "COMPASS_NE"
+msgstr "北東"
+
+msgid "COMPASS_E"
+msgstr "東"
+
+msgid "COMPASS_SE"
+msgstr "南東"
+
+msgid "COMPASS_S"
+msgstr "南"
+
+msgid "COMPASS_SW"
+msgstr "南西"
+
+msgid "COMPASS_W"
+msgstr "西"
+
+msgid "COMPASS_NW"
+msgstr "北西"
+
+msgid "DISTANCE_NEAR"
+msgstr "近い"
+
+msgid "DISTANCE_MID"
+msgstr "少し歩く"
+
+msgid "DISTANCE_FAR"
+msgstr "遠い"
+
+msgid "CHAT_LOOT_OUTFIT"
+msgstr "ちょっと！ぼくの服！"
+
+msgid "CHAT_LOOT_WEAPON"
+msgstr "ぼくの武器！"
+
+msgid "CHAT_LOOT_SKILL"
+msgstr "ぼくの魔導書！"
+
+msgid "CHAT_LOOT_SUPPLY"
+msgstr "ぼくの道具！"
+
+msgid "ITEM_GUARD_TONIC"
+msgstr "守りの秘薬"
+
+msgid "ITEM_RECOVERY_SALVE"
+msgstr "回復の軟膏"
+
+msgid "ITEM_WISDOM_TONIC"
+msgstr "知恵の秘薬"
+
+msgid "FOLLOW_COLLECT"
+msgstr "ステップ%d/%d · %sを%sから集める：%d/%d"
+
+msgid "FOLLOW_COLLECTION_SUBMIT"
+msgstr "すべて見つけた！「転生」から「納品」で渡そう"
+
+msgid "FILTERS"
+msgstr "フィルター"
+
+msgid "FILTERS_ACTIVE"
+msgstr "フィルター · %s"
+
+msgid "FILTERS_TOOLTIP"
+msgstr "装備グリッドを絞り込みます。フィルターを閉じると、すべてのアイテムが再表示されます。"
+
+msgid "PANEL_FILTERS"
+msgstr "フィルター"
+
+msgid "FILTERS_HINT"
+msgstr "フィルターを開いている間、装備グリッドにはこのカテゴリーだけが表示されます。閉じると、すべてのアイテムが再表示されます。"
+
+msgid "SUPPLY_CAPACITY_NOTE"
+msgstr "消耗品スロット：種類ごとに1つ（%d種類）。フィルターは装備数の隣にあります。"
+
+msgid "SUPPLY_MASTERY_EXPLAIN"
+msgstr "この消耗品を実際に3回使うごとに熟練度が1上がります（最大^%d）。購入やドロップでは在庫が増えるだけです。転生すると熟練度と使用回数はリセットされます。"
+
+msgid "BUY_SUPPLY"
+msgstr "%sを購入 · コイン %s"
+
+msgid "STATS_SUPPLY_VALUE"
+msgstr "%s · 残り%d秒"
+
+msgid "SUPPLY_STATUS_ACTIVE"
+msgstr "効果中：%s · 残り%d秒"
+
+msgid "SUPPLY_STATUS_COOLDOWN"
+msgstr "クールダウン中 · %s秒"
+
+msgid "SUPPLY_STATUS_READY"
+msgstr "使用可能"
+
+msgid "SUPPLY_AUTO_RULE_HEAL"
+msgstr "自動使用：HP %s%%以下、クールダウン後"
+
+msgid "SUPPLY_AUTO_RULE_COINS"
+msgstr "自動使用：効果が切れているとき"
+
+msgid "SUPPLY_AUTO_RULE_GUARD"
+msgstr "自動使用：戦闘中、効果が切れているとき"
+
+msgid "SUPPLY_AUTO_RULE_RECOVERY"
+msgstr "自動使用：HP %s%%以下、効果が切れているとき"
+
+msgid "SUPPLY_AUTO_RULE_XP"
+msgstr "自動使用：効果が切れているとき"
+
+msgid "SUPPLY_STOCK"
+msgstr "在庫：%s · 1回の使用で1個消費"
+
+msgid "SUPPLY_NEXT_COPY"
+msgstr "次の入手：%s"
+
+msgid "SUPPLY_MILESTONES_ACTIVE"
+msgstr "熟練度ボーナス：%s"
+
+msgid "SUPPLY_MILESTONE_DURATION"
+msgstr "効果時間 %s"
+
+msgid "SUPPLY_MILESTONE_COOLDOWN"
+msgstr "クールダウン %s秒"
+
+msgid "SUPPLY_AMOUNT_HEAL"
+msgstr "最大HPの%s%%"
+
+msgid "SUPPLY_AMOUNT_COINS"
+msgstr "コイン+%s%%"
+
+msgid "SUPPLY_AMOUNT_XP"
+msgstr "EXP+%s%%"
+
+msgid "SUPPLY_AMOUNT_DEFENSE"
+msgstr "防御+%s"
+
+msgid "SUPPLY_AMOUNT_REGEN"
+msgstr "毎秒 最大HPの%s%%"
+
+msgid "SUPPLY_EFFECT_HEAL"
+msgstr "最大HPの%s%%を回復（現在%s HP） · クールダウン%s秒 · HP %s%%未満で使用可能"
+
+msgid "SUPPLY_EFFECT_COINS"
+msgstr "倒した敵からのコイン+%s%%（%s秒間）"
+
+msgid "SUPPLY_EFFECT_GUARD"
+msgstr "防御+%s（被ダメージ%s%%減少）、%s秒間"
+
+msgid "SUPPLY_EFFECT_RECOVERY"
+msgstr "毎秒 最大HPの%s%%を%s秒間回復（合計%s%%） · HP %s%%未満で使用可能"
+
+msgid "SUPPLY_EFFECT_XP"
+msgstr "倒した敵からのEXP+%s%%（%s秒間）"
+
+msgid "SUPPLY_MASTERY_LEVEL"
+msgstr "熟練度 ^%d / ^%d"
+
+msgid "AUTO_SHORT"
+msgstr "オート：%s"
+
+msgid "SUPPLY_HP_HIGH"
+msgstr "HPが高すぎるため、この消耗品は使えません。"
+
+msgid "SUPPLY_COOLDOWN"
+msgstr "ポーションはまだクールダウン中です。"
+
+msgid "SUPPLY_ACTIVE"
+msgstr "すでに効果中です。切れたらもう一度使おう。"
+
+msgid "SUPPLY_NO_MERGE"
+msgstr "3回使うごとに消耗品熟練度が上がります。転生すると熟練度と使用回数はリセットされます。"
+
+msgid "SOURCE_SUPPLY"
+msgstr "効果中の消耗品"
+
+msgid "CAMP_TELEPORT"
+msgstr "テレポート"
+
+msgid "PANEL_TELEPORT"
+msgstr "テレポート"
+
+msgid "TELEPORT_TITLE"
+msgstr "テレポート"
+
+msgid "TELEPORT_HELP"
+msgstr "所有している別のキャンプを、このマップか到達済みのマップから選びます。戦闘中はテレポートできません。"
+
+msgid "TELEPORT_HERE"
+msgstr "現在地"
+
+msgid "TELEPORT_CHOSEN"
+msgstr "選択した目的地"
+
+msgid "TELEPORT_THIS_MAP"
+msgstr "このマップ"
+
+msgid "TELEPORT_OTHER_MAP"
+msgstr "別のマップ"
+
+msgid "TELEPORT_CHOOSE"
+msgstr "選択"
+
+msgid "TELEPORT_BACK"
+msgstr "戻る"
+
+msgid "TELEPORT_GO"
+msgstr "テレポート · %s · キャンプ%d"
+
+msgid "TELEPORT_PICK"
+msgstr "目的地を選ぼう"
+
+msgid "TELEPORT_NONE"
+msgstr "他のキャンプはまだありません。別のキャンプを解放すると、そこへテレポートできます。"
+
+msgid "TELEPORT_DESTINATION"
+msgstr "%s · キャンプ%d"
+
+msgid "MAP_EXPLORED"
+msgstr "マップ探索率：%d%%"
+
+msgid "MAP_EXPLORED_TOOLTIP"
+msgstr "このマップを恒久的に探索した割合です。一時的な視界やカメラの移動は含まれません。"
+
+msgid "SECTION_AUDIO"
+msgstr "サウンドと音楽"
+
+msgid "MUSIC_VOLUME"
+msgstr "音楽 %d%%"
+
+msgid "SFX_VOLUME"
+msgstr "効果音 %d%%"
+
+msgid "MUTE_GAMEPLAY_STATUS"
+msgstr "ゲームプレイ音をミュート：%s"
+
+msgid "MUTE_SPECIAL_STATUS"
+msgstr "特別な音をミュート：%s"
+
+msgid "AUDIO_HINT"
+msgstr "ゲームプレイ音：タップ、購入、合成、戦闘。特別な音：通知（受け取り可能なミッションや目標、転生の知らせ、新しいメニュー、マップ熟練度の進捗、ボスの発見）とマイルストーン（新しいマップ、転生）。効果音の音量は両方に適用されます。"
+
+msgid "UP_MERGE_ALL"
+msgstr "一括合成"
+
+msgid "MERGE_ALL_BENEFIT"
+msgstr "一度だけの解放：フィルターの「一括合成」ボタンで予備をワンタップですべて合成 · 使用無料 · 転生後も維持"
+
+msgid "MERGE_ALL_UNLOCKED"
+msgstr "解放済み · フィルターで「一括合成」を使おう"
+
+msgid "MERGE_ALL_LOCKED"
+msgstr "一括合成はまだ解放されていません"
+
+msgid "MERGE_ALL_LOCKED_HINT"
+msgstr "一括合成：「強化」→「持ち物」で、ジェム5Kで一度だけ解放できます。"
+
+msgid "MERGE_ALL_BUTTON"
+msgstr "一括合成 · 予備%d個"
+
+msgid "MERGE_ALL_BUTTON_IDLE"
+msgstr "一括合成"
+
+msgid "NOTHING_TO_MERGE"
+msgstr "合成できるものはありません"
+
+msgid "MERGE_ALL_DONE"
+msgstr "予備%d個を%d種類のアイテムに合成しました"
+
+msgid "UP_AUTO_EVOLVE"
+msgstr "自動進化を解放"
+
+msgid "AUTO_MERGE_BENEFIT"
+msgstr "予備を合成する対象：%s"
+
+msgid "AUTO_MERGE_ON"
+msgstr "オン · 合成対象：%s"
+
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "^100で101個そろうと進化：%s"
+
+msgid "AUTO_EVOLVE_ON"
+msgstr "オン · 進化対象：%s"
+
+msgid "SKILL_COOLDOWN_LINE"
+msgstr "クールダウン：%s秒"
+
+msgid "GATE_HUD"
+msgstr "次のステージ · ボス %d/%d"
+
+msgid "GATE_HUD_WORLD"
+msgstr "ワールド制覇 · %d/%d"
+
+msgid "GATE_HUD_TOOLTIP"
+msgstr "このマップで次のマップを開くために倒すボスです。発見済みで、まだ数に入るボスには金色の旗が付きます。"
+
+msgid "GATE_ALREADY_OPEN"
+msgstr "次のステージは解放済み"
+
+msgid "GATE_UNKNOWN_BOSS"
+msgstr "未発見のボス"
+
+msgid "GATE_BOSS_DONE"
+msgstr "✓ %s · 撃破済み"
+
+msgid "GATE_BOSS_NEEDED"
+msgstr "• %s · 未撃破"
+
+msgid "OFFERING_PROGRESS"
+msgstr "コイン %s / %s · ジェム %s / %s"
+
+msgid "SECTION_RESEARCH"
+msgstr "調査"
+
+msgid "FOCUS_UNLOCKED"
+msgstr "集中狩りが解放されました"
+
+msgid "FOCUS_HINT_PANEL"
+msgstr "下の「狩る」をタップ：ヒーローがこの地点まで歩き、自動で戦います。もう一度タップするか移動すると止まります。"
+
+msgid "GUIDE_FOCUS_TAP"
+msgstr "「狩る」をタップして開始"
+
+msgid "GUIDE_FOCUS_TAP_DETAIL"
+msgstr "ヒーローがこの地点まで歩き、自動で戦います。移動すると止まります。"
+
+msgid "GUIDE_FOCUS_OPEN"
+msgstr "集中狩りが解放されました"
+
+msgid "GUIDE_FOCUS_OPEN_DETAIL"
+msgstr "この敵の「強化」を開き、上部の「狩る」をタップしよう。"
+
+msgid "GUIDE_FOCUS_FIND"
+msgstr "集中狩りが解放されました"
+
+msgid "GUIDE_FOCUS_FIND_DETAIL"
+msgstr "ワールドかマップでその敵をタップし、「狩る」をタップしよう。"
+
+msgid "GUIDE_FOCUS_SPOT"
+msgstr "まずこの地点を見つけよう"
+
+msgid "GUIDE_FOCUS_SPOT_DETAIL"
+msgstr "狩りで移動できるのは発見済みの地点だけです。上から発見済みの地点を選ぼう。"
+
+msgid "GUIDE_TIP_EQUIP"
+msgstr "新しい装備：タップして「装備する」"
+
+msgid "GUIDE_TIP_EQUIP_DETAIL"
+msgstr "装備中の装備はステータスが100%反映され、保管中の装備も一部が加算されます。"
+
+msgid "GUIDE_TIP_MERGE"
+msgstr "同じものが2つ：開いて「合成」"
+
+msgid "GUIDE_TIP_MERGE_DETAIL"
+msgstr "予備を合成すると、そのアイテムが永続的に強くなります。"
+
+msgid "GUIDE_MISSIONS"
+msgstr "ミッション解放：「ミッション」を開こう"
+
+msgid "GUIDE_MISSIONS_DETAIL"
+msgstr "目標とデイリーミッションでコインとジェムがもらえます。"
+
+msgid "GUIDE_MISSIONS_CLAIM"
+msgstr "「受け取る」をタップ"
+
+msgid "GUIDE_MISSIONS_CLAIM_DETAIL"
+msgstr "達成した目標は、報酬を受け取るまでここで待っています。"
+
+msgid "GUIDE_MISSIONS_WAIT"
+msgstr "まだ受け取れるものはありません"
+
+msgid "GUIDE_MISSIONS_WAIT_DETAIL"
+msgstr "報酬の準備ができると「ミッション」ボタンに ! が表示されます。"
+
+msgid "GUIDE_SLOTS"
+msgstr "強化解放：「強化」を開こう"
+
+msgid "GUIDE_SLOTS_DETAIL"
+msgstr "プレイヤー強化は今回の周回のみ有効で、ジェム強化はずっと残ります。"
+
+msgid "GUIDE_SLOTS_TAB"
+msgstr "「持ち物」タブを開こう"
+
+msgid "GUIDE_SLOTS_TAB_DETAIL"
+msgstr "装備スロットが増えると、より多くの種類の装備を持てます。"
+
+msgid "GUIDE_SLOTS_BUY"
+msgstr "装備スロットを購入しよう"
+
+msgid "GUIDE_SLOTS_BUY_DETAIL"
+msgstr "アイテムの種類ごとに専用のスロットが必要で、同じものは重なります。"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB"
+msgstr "「消耗品」タブを開こう"
+
+msgid "GUIDE_SLOTS_SUPPLY_TAB_DETAIL"
+msgstr "消耗品は厳しい戦いで役立ちます。"
+
+msgid "GUIDE_SLOTS_POTION"
+msgstr "回復ポーションを購入しよう"
+
+msgid "GUIDE_SLOTS_POTION_DETAIL"
+msgstr "戦闘中に消耗品のポーションをタップすると回復します。"
+
+msgid "GUIDE_SLOTS_EARN"
+msgstr "回復ポーションのためにコインを稼ごう"
+
+msgid "GUIDE_SLOTS_EARN_DETAIL"
+msgstr "あとコイン%sが必要です。倒した敵は必ずコインを落とします。"
+
+msgid "GUIDE_SNOWMAN"
+msgstr "メイン目標：雪だるまを倒そう"
+
+msgid "GUIDE_SNOWMAN_DETAIL"
+msgstr "倒すと冬 II が開き、見つけると転生が開きます。先に装備を合成し、レベルを上げ、ポーションを用意しよう。"
+
+msgid "GUIDE_PRESTIGE_OPEN"
+msgstr "転生解放：「転生」を開こう"
+
+msgid "GUIDE_PRESTIGE_OPEN_DETAIL"
+msgstr "そこにあるチャンスで永続カードを獲得できます。"
+
+msgid "GUIDE_PRESTIGE_FOLLOW"
+msgstr "チャンスの「追跡」をタップしよう"
+
+msgid "GUIDE_PRESTIGE_FOLLOW_DETAIL"
+msgstr "次のステップがマップに表示されます。準備完了になったら、転生で世界が再スタートし、カードは手元に残ります。"
+
+msgid "GUIDE_PRESTIGE_INFO"
+msgstr "チャンスを達成しよう"
+
+msgid "GUIDE_PRESTIGE_INFO_DETAIL"
+msgstr "プレイするうちに新しいチャンスが現れます。準備完了になったら、転生で世界が再スタートし、カードは手元に残ります。"
+
+msgid "GUIDE_FEATURE_MISSIONS"
+msgstr "ミッション解放"
+
+msgid "GUIDE_FEATURE_MISSIONS_DETAIL"
+msgstr "目標とデイリーミッションでコインとジェムがもらえます。「ミッション」で受け取ろう。"
+
+msgid "GUIDE_FEATURE_ENEMY"
+msgstr "敵の強化が解放"
+
+msgid "GUIDE_FEATURE_ENEMY_DETAIL"
+msgstr "マップの上にある「強化」（または敵）をタップすると、ドロップ・コイン・EXPを強化できます。"
+
+msgid "GUIDE_FEATURE_WORLD"
+msgstr "ワールドマップ解放"
+
+msgid "GUIDE_FEATURE_WORLD_DETAIL"
+msgstr "ミニマップと「ワールド」で行った場所がわかります。キャンプを解放すると、そこで復活・休憩できます。"
+
+msgid "GUIDE_FEATURE_UPGRADES"
+msgstr "プレイヤー強化が解放"
+
+msgid "GUIDE_FEATURE_UPGRADES_DETAIL"
+msgstr "「強化」で装備スロット、消耗品、永続のジェム強化を購入できます。"
+
+msgid "GUIDE_FEATURE_OBJECTIVE"
+msgstr "メイン目標：雪だるまを倒そう"
+
+msgid "GUIDE_FEATURE_OBJECTIVE_DETAIL"
+msgstr "倒すと冬 II が開き、見つけると転生が開きます。先に装備を合成し、レベルを上げ、ポーションを用意しよう。"
+
+msgid "GUIDE_FEATURE_PRESTIGE"
+msgstr "転生が解放"
+
+msgid "GUIDE_FEATURE_PRESTIGE_DETAIL"
+msgstr "チャンスを達成してから転生すると、永続カードを持って再スタートできます。"
+
+msgid "GUIDE_SKIP"
+msgstr "スキップ"
+
+msgid "GUIDE_BASIC_GEAR"
+msgstr "装備と合成"
+
+msgid "GUIDE_BASIC_GEAR_DETAIL"
+msgstr "持ち物の装備をタップして「装備する」を選ぶとステータスが100%反映され、保管中の装備も一部が加算されます。同じアイテム2つを合成すると、永続的に強い1つになります。"
+
+msgid "GUIDE_BASIC_GROWTH"
+msgstr "強化とミッション"
+
+msgid "GUIDE_BASIC_GROWTH_DETAIL"
+msgstr "敵（またはマップの上の「強化」）をタップすると、ドロップ・コイン・EXPを強化できます。「プレイヤー強化」では装備スロット、消耗品、永続のジェム強化を販売しています。ミッションを受け取るとコインとジェムがもらえます。"
+
+msgid "GUIDE_BASIC_WORLD"
+msgstr "探索・キャンプ・ステージ"
+
+msgid "GUIDE_BASIC_WORLD_DETAIL"
+msgstr "歩くと霧が晴れ、ミニマップと「ワールド」で行った場所がわかります。「ワールド」でキャンプを解放すると、そこで復活・休憩できます。マップのボスを倒すと次のステージが開きます。"
+
+msgid "GUIDE_BASIC_PRESTIGE"
+msgstr "転生とマップ熟練度"
+
+msgid "GUIDE_BASIC_PRESTIGE_DETAIL"
+msgstr "冬 I の雪だるまを見つけると転生リセットが解放されます：チャンスを達成してから転生すると、永続カードを持って再スタートできます。マップ熟練度は各マップの長期目標を記録します。"
+
+msgid "EXIT_TITLE"
+msgstr "LootFarmerを終了しますか？"
+
+msgid "EXIT_CONFIRM"
+msgstr "進行状況はセーブされています。いつでも戻ってこられます。"
+
+msgid "EXIT_ACTION"
+msgstr "終了"
+
+msgid "SECTION_TUTORIAL"
+msgstr "チュートリアルとヘルプ"
+
+msgid "SHOW_ALL_MENUS"
+msgstr "すべてのメニューを今すぐ表示"
+
+msgid "SHOW_ALL_MENUS_CONFIRM"
+msgstr "すべてのメニューを今すぐ表示しますか？通常、新しいメニューはゲームを覚えるにつれて現れます。転生には引き続き雪だるまの発見が必要で、ガイド付きモードではチュートリアルの完了も必要です。"
+
+msgid "ALL_MENUS_SHOWN"
+msgstr "すべてのメニューが利用可能になりました"
+
+msgid "ALL_MENUS_ALREADY"
+msgstr "すべてのメニューはすでに利用可能です"
+
+msgid "PANEL_MASTERY"
+msgstr "マップ熟練度"
+
+msgid "MASTERY_OPEN"
+msgstr "マップ熟練度 · ゲーム %d%%"
+
+msgid "MASTERY_INTRO"
+msgstr "100%達成のための任意の目標です。進捗は永続し、転生後も残ります。"
+
+msgid "MASTERY_GAME"
+msgstr "ゲーム達成率 %d%%"
+
+msgid "MASTERY_GAME_REWARD"
+msgstr "全8マップ：称号「%s」 · %s"
+
+msgid "MASTERY_GAME_REWARD_EARNED"
+msgstr "✓ 獲得：称号「%s」 · %s"
+
+msgid "MASTERY_REWARD"
+msgstr "報酬：%s"
+
+msgid "MASTERY_REWARD_EARNED"
+msgstr "✓ 報酬獲得：%s"
+
+msgid "MASTERY_DETAILS"
+msgstr "詳細"
+
+msgid "MASTERY_NOT_REACHED"
+msgstr "このマップに到達すると始まります"
+
+msgid "MASTERY_MAP_TITLE"
+msgstr "熟練度 · %s"
+
+msgid "MASTERY_BACK"
+msgstr "‹ すべてのマップ"
+
+msgid "MASTERY_EXPLORE"
+msgstr "探索"
+
+msgid "MASTERY_HUNT"
+msgstr "討伐"
+
+msgid "MASTERY_RESEARCH"
+msgstr "調査"
+
+msgid "MASTERY_COLLECT"
+msgstr "収集"
+
+msgid "MASTERY_FORGE"
+msgstr "鍛錬"
+
+msgid "MASTERY_EXPLORE_RULE"
+msgstr "マップ全体を探索し、すべてのキャンプを解放する。"
+
+msgid "MASTERY_HUNT_RULE"
+msgstr "各種類の敵を%s体、各ボスを%s体倒す。"
+
+msgid "MASTERY_RESEARCH_RULE"
+msgstr "ここにいるすべての敵のステータスとドロップを公開する。"
+
+msgid "MASTERY_COLLECT_RULE"
+msgstr "ここでドロップする武器・衣装・スキルをすべて入手する。"
+
+msgid "MASTERY_FORGE_RULE"
+msgstr "ここの衣装を^%sまで（ボスの衣装は^%s）、ここの武器を1つ進化させる。"
+
+msgid "MASTERY_MORE"
+msgstr "ほか%d件"
+
+msgid "MASTERY_NEED_EXPLORED"
+msgstr "マップ探索 %d%% / 100%%"
+
+msgid "MASTERY_NEED_CAMP"
+msgstr "キャンプ%dは未解放"
+
+msgid "MASTERY_NEED_KILLS"
+msgstr "%s · %s / %s"
+
+msgid "MASTERY_NEED_STATS"
+msgstr "%s · ステータスを公開"
+
+msgid "MASTERY_NEED_DROPS"
+msgstr "%s · ドロップを公開"
+
+msgid "MASTERY_NEED_ITEM"
+msgstr "%s"
+
+msgid "MASTERY_NEED_MERGE"
+msgstr "%s · ^%d / ^%d"
+
+msgid "MASTERY_NEED_EVOLVE"
+msgstr "いずれかを進化：%s"
+
+msgid "MASTERY_UNKNOWN_ENEMY"
+msgstr "未発見の敵"
+
+msgid "MASTERY_UNKNOWN_ITEM"
+msgstr "未発見のアイテム"
+
+msgid "MASTERY_REWARD_HP"
+msgstr "最大HP+%s%%"
+
+msgid "MASTERY_REWARD_DAMAGE"
+msgstr "ダメージ+%s%%"
+
+msgid "MASTERY_REWARD_COINS"
+msgstr "コイン+%s%%"
+
+msgid "MASTERY_REWARD_XP"
+msgstr "EXP+%s%%"
+
+msgid "MASTERY_REWARD_GEAR_CHANCE"
+msgstr "ドロップ率+%sポイント"
+
+msgid "MASTERY_REWARD_GEM_CHANCE"
+msgstr "ジェム確率+%sポイント"
+
+msgid "MASTERY_OBJECTIVE_DONE"
+msgstr "熟練度 · %s · %s達成"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED"
+msgstr "転生が解放"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_DETAIL"
+msgstr "チャンスを%d件発見 · タップで開く"
+
+msgid "MILESTONE_PRESTIGE_UNLOCKED_NONE"
+msgstr "チャンスを達成してから転生し、永続カードを手に入れよう"
+
+msgid "MILESTONE_MASTERY_MAP"
+msgstr "マップ制覇 · %s"
+
+msgid "MILESTONE_MASTERY_GAME"
+msgstr "100%達成"
+
+msgid "MASTER_FARMER_TITLE"
+msgstr "マスターファーマー"
+
+msgid "STATS_COMPLETION"
+msgstr "ゲーム達成率"
+
+msgid "STATS_TITLE"
+msgstr "称号"
+
+msgid "STATS_MASTERY"
+msgstr "マップ熟練度"
+
+msgid "MAIN_HINT_0"
+msgstr "敵を倒そう"
+
+msgid "MAIN_HINT_1"
+msgstr "持ち物の武器か衣装をタップして「装備する」"
+
+msgid "MAIN_HINT_2"
+msgstr "2個持っているアイテムを開いて「合成」"
+
+msgid "MAIN_HINT_3"
+msgstr "キャンプまで歩いて「キャンプを見る」をタップし、「解放」"
+
+msgid "MAIN_HINT_4"
+msgstr "冬 I のボス、雪だるまを倒そう"
+
+msgid "MAIN_HINT_5"
+msgstr "ヒールのスキルを装備しよう（冬 II：宇宙ヘルメットのエリートとシアンのロボットがドロップ）"
+
+msgid "MAIN_HINT_6"
+msgstr "「ワールド」でマップの詳細度を1段階購入しよう"
+
+msgid "MAIN_HINT_7"
+msgstr "フロストバーストのスキルを見つけよう（夏 I：麦わら帽子のエリートがドロップ）"
+
+msgid "MAIN_HINT_8"
+msgstr "冬 II のボス、シアンのロボットを倒して夏 I へ"
+
+msgid "MAIN_HINT_9"
+msgstr "予備が101個ある^100の武器を進化させよう（アイテム詳細で「進化」）"
+
+msgid "MAIN_HINT_10"
+msgstr "異なるスキルを集めよう"
+
+msgid "MAIN_HINT_11"
+msgstr "夏 II のボス2体を倒して秋 I へ"
+
+msgid "MAIN_HINT_12"
+msgstr "異なるスキルを集めよう"
+
+msgid "MAIN_HINT_13"
+msgstr "秋 II のボス2体を倒して春 I へ"
+
+msgid "MAIN_HINT_14"
+msgstr "転生を完了しよう"
+
+msgid "MAIN_HINT_15"
+msgstr "春 II の敵とボスをすべての種類倒そう"
+
+msgid "MISSION_FOLLOW_READY"
+msgstr "準備完了！「ミッション」で受け取ろう"
+
+msgid "MISSION_DO_KILL"
+msgstr "%s（%s）を倒す"
+
+msgid "MISSION_DO_BOSS"
+msgstr "%s（%s）を倒す"
+
+msgid "MISSION_DO_GEAR"
+msgstr "武器か衣装のドロップを拾う"
+
+msgid "MISSION_DO_MERGE"
+msgstr "アイテムを合成する"
+
+msgid "MISSION_DO_COINS"
+msgstr "敵からコインを稼ぐ"
+
+msgid "MISSION_DO_CAST"
+msgstr "装備したスキルを使う"
+
+msgid "NAME_ON_MAP"
+msgstr "%s（%s）"
+
+msgid "FOLLOW_NEXT"
+msgstr "次：%s"
+
+msgid "FOLLOW_GOAL_KILL_TARGET"
+msgstr "%sを倒す"
+
+msgid "FOLLOW_GOAL_KILL"
+msgstr "敵を倒す（種類不問）"
+
+msgid "FOLLOW_GOAL_GEAR"
+msgstr "武器か衣装のドロップを拾う"
+
+msgid "FOLLOW_GOAL_MERGE"
+msgstr "アイテムを合成する"
+
+msgid "FOLLOW_GOAL_BOSS"
+msgstr "ボスを倒す（種類不問）"
+
+msgid "FOLLOW_GOAL_CAST"
+msgstr "スキルを使う"
+
+msgid "FOLLOW_GOAL_MISSION"
+msgstr "通常ミッションを受け取る"
+
+msgid "FOLLOW_TROPHY"
+msgstr "%sを倒してトロフィーを獲得 · トロフィー %d/%d"
+
+msgid "FOLLOW_MASTERWORK_ANY"
+msgstr "武器・衣装・スキルのいずれかを^100まで合成：最高 ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK"
+msgstr "ランク%d以上のアイテムを^100まで合成：最高 ^%d/^100"
+
+msgid "FOLLOW_ARSENAL"
+msgstr "^50まで合成：武器 %d/%d · 衣装 %d/%d"
+
+msgid "FOLLOW_ARSENAL_T2"
+msgstr "ランク2以上の装備を^50まで合成：武器 %d/%d · 衣装 %d/%d"
+
+msgid "FOLLOW_OFFERING"
+msgstr "今回の周回で敵から稼ぐ：コイン %s/%s · ジェム %s/%s"
+
+msgid "FOLLOW_SUBMIT"
+msgstr "十分たまった！「転生」から「納品」で渡そう"
+
+msgid "FOLLOW_OFFLINE_TOTAL"
+msgstr "離れていた合計時間：%.1f/72時間"
+
+msgid "FOLLOW_OFFLINE_LONGEST"
+msgstr "最長の連続不在時間：%.1f/24時間"
+
+msgid "FOLLOW_OFFLINE_INCOME"
+msgstr "離れている間に稼いだコイン：%s/%s"
+
+msgid "FOLLOW_REGIONAL_EXPLORE"
+msgstr "%sを探索：%d%%/90%%"
+
+msgid "FOLLOW_REGIONAL_BOSS"
+msgstr "%sを倒す"
+
+msgid "FOLLOW_REGIONAL_CAMPS"
+msgstr "%sのキャンプをすべて解放：%d/%d"
+
+msgid "FOLLOW_THEN_MORE"
+msgstr "次に：%s（残り%d）"
+
+msgid "BOSS_FOUND_WARNING"
+msgstr "!警告 ボス発見!"
+
+msgid "BOSS_FOUND_DETAIL"
+msgstr "%s · %sのボス"
+
+msgid "MASTERY_CHIP"
+msgstr "熟練度 %d%% · %d/%d"
+
+msgid "MASTERY_CHIP_TOOLTIP"
+msgstr "このマップのマップ熟練度：割合と達成したカテゴリー。タップで詳細。"
+
+msgid "OBJECTIVE_WINTER_BOSS"
+msgstr "ボスに勝てるまで狩りを続けよう。"
+
+msgid "OBJECTIVE_WINTER_TOOLTIP"
+msgstr "雪だるまが冬 II への道を守っています。"
+
+msgid "VIEW_CAMP"
+msgstr "キャンプを見る"
+
+msgid "DROP_ALL"
+msgstr "すべて捨てる"
+
+msgid "DROP_ALL_TITLE"
+msgstr "スタックをすべて捨てますか？"
+
+msgid "DROP_ALL_CONFIRM"
+msgstr "%s %s · ×%s\n\nすべての個数が持ち物から外れ、スロットはすぐに空きます。スタックは5分間地面に残り、タップすると拾い直せます（自動回収では拾いません）。拾い直しても、ミッション・転生・熟練度の進捗にはなりません。"
+
+msgid "DROP_ALL_MASTERY"
+msgstr "熟練度^%d（維持）"
+
+msgid "DROPPED_NOTICE"
+msgstr "%s × %sを捨てました"
+
+msgid "DROP_EQUIPPED"
+msgstr "先に外してください"
+
+msgid "SKILL_DESC_HEAL"
+msgstr "今の回復量 %s HP（%s HP、最大HPの%s%%まで）、HPが%s%%未満のときに使用"
+
+msgid "SKILL_DESC_FOCUS"
+msgstr "攻撃ダメージ+%s%%（5秒間、現在は1ヒットあたり+%s） · 戦闘中のみ"
+
+msgid "SKILL_DESC_FROST"
+msgstr "攻撃ダメージの%s×（現在%s）を自分から%s以内のすべての敵に与え、3秒間25%%減速させる"
+
+msgid "SKILL_DESC_FIRE"
+msgstr "攻撃ダメージの%s×（現在%s）を、ターゲットとその周囲%s以内のすべての敵に与える"
+
+msgid "SKILL_DESC_LIGHTNING"
+msgstr "攻撃ダメージの%s×（現在%s）を現在のターゲットに与える"
+
+msgid "SKILL_DESC_STRIKE"
+msgstr "攻撃ダメージの%s×（現在%s）を現在のターゲットに与える近距離の重い一撃"
+
+msgid "SKILL_DESC_STATS"
+msgstr "対象：%s · 範囲：%s · クールダウン：%s秒"
+
+msgid "SKILL_TARGET_SELF"
+msgstr "自分"
+
+msgid "SKILL_TARGET_AREA"
+msgstr "範囲内のすべての敵"
+
+msgid "SKILL_TARGET_ONE"
+msgstr "敵1体"
+
+msgid "SKILL_RANGE_SELF"
+msgstr "自分"
+
+msgid "SKILL_RANGE"
+msgstr "%s"
+
+msgid "SKILL_AMOUNT_HP"
+msgstr "%s HP"
+
+msgid "SKILL_AMOUNT_FOCUS"
+msgstr "ダメージ%s%%"
+
+msgid "SKILL_AMOUNT_MULTIPLIER"
+msgstr "攻撃ダメージの%s×"
+
+msgid "HEAL_ROLE_SHORT"
+msgstr "ヒールはHPが減っていれば、戦闘外でもいつでも使えます。"
+
+msgid "PRESTIGE_CONFIRM_TITLE"
+msgstr "転生"
+
+msgid "PRESTIGE_CONFIRM_SUBTITLE"
+msgstr "チャンス%d件を引き換えて新しい周回を始める"
+
+msgid "PRESTIGE_CONFIRM_REDEEM"
+msgstr "それぞれ永続カードを1枚選びます："
+
+msgid "PRESTIGE_CONFIRM_CHOOSE_CARD"
+msgstr "カード1枚"
+
+msgid "PRESTIGE_CONFIRM_KEEP_TITLE"
+msgstr "永続 · 残るもの"
+
+msgid "PRESTIGE_CONFIRM_RESET_TITLE"
+msgstr "この周回でリセット"
+
+msgid "PRESTIGE_CONFIRM_NOTE"
+msgstr "カードは1枚ずつ選び、すぐに保存されます。最後のカードの後、冬 I から周回が再スタートします。"
+
+msgid "PRESTIGE_CONFIRM_BEGIN"
+msgstr "転生を開始"
+
+msgid "KEEP_LINE_CARDS"
+msgstr "転生カードとセット（所持%d）と新しいカード"
+
+msgid "KEEP_LINE_GEMS"
+msgstr "所持ジェム：%s"
+
+msgid "KEEP_LINE_MAP"
+msgstr "探索済みのマップエリア、発見したキャンプとボス"
+
+msgid "KEEP_LINE_UPGRADES"
+msgstr "すべてのジェム強化、自動化、持ち物の容量"
+
+msgid "KEEP_LINE_PROGRESS"
+msgstr "ボスの鍵、敵の実績、マップ熟練度"
+
+msgid "KEEP_LINE_SETTINGS"
+msgstr "設定とチュートリアルの進行状況"
+
+msgid "RESET_LINE_COINS"
+msgstr "コイン：%s"
+
+msgid "RESET_LINE_LEVEL"
+msgstr "プレイヤーレベル%d（1に戻る）"
+
+msgid "RESET_LINE_ITEMS"
+msgstr "アイテム、合成、消耗品の在庫"
+
+msgid "RESET_LINE_MAPS"
+msgstr "マップへのアクセス（冬 I に戻る）と所有キャンプ"
+
+msgid "RESET_LINE_UPGRADES"
+msgstr "コイン強化とマップ強化"
+
+msgid "RESET_LINE_CHALLENGES"
+msgstr "未完了のチャンスとミッション"
+
+msgid "GUIDE_CAMP_VIEW"
+msgstr "「キャンプを見る」をタップ"
+
+msgid "GUIDE_CAMP_VIEW_DETAIL"
+msgstr "このキャンプが開き、そこで解放できます。"
+
+msgid "HELP"
+msgstr "ヘルプ"
+
+msgid "PANEL_HELP"
+msgstr "ヘルプ"
+
+msgid "HELP_INTRO"
+msgstr "LootFarmerの遊び方の簡単な概要です。読んでもゲームには何も影響しません。"
+
+msgid "HELP_BACK"
+msgstr "設定に戻る"
+
+msgid "SECTION_LANGUAGE"
+msgstr "言語"
+
+msgid "UP_CRITICAL_CHANCE"
+msgstr "クリティカル率"
+
+msgid "UP_CRITICAL_DAMAGE"
+msgstr "クリティカルダメージ"
+
+msgid "UP_SKILL_AUTO_SLOTS"
+msgstr "自動スキルスロット"
+
+msgid "SOURCE_UPGRADES"
+msgstr "強化"
+
+msgid "AUTO_SKILL_CAPACITY"
+msgstr "自動スキル：%d / %d 割り当て済み"
+
+msgid "AUTO_SKILL_CAPACITY_FULL"
+msgstr "先にスキルを装備し、空いている自動スロットを購入してください。"
+
+msgid "ITEM_AUTO_MERGE"
+msgstr "自動合成：%s"
+
+msgid "INVENTORY_ZOOM"
+msgstr "持ち物スロットの大きさ"
+
+msgid "SKILL_HEAL_CURRENT"
+msgstr "最大%s HP（最大HPの%s%%）を回復。HPが減っていれば、戦闘外でもいつでも使えます。"
+
+msgid "SKILL_ACTIVATION_LIMIT"
+msgstr "発動には、戦闘中であり、%sユニット以内に敵がいる必要があります。"
+
+msgid "LIGHTNING_SLOW_DESCRIPTION"
+msgstr "単体攻撃。攻撃速度を%s%%低下させる（%s秒間、ボスは%s秒間）。移動速度は変わりません。"
+
+msgid "BOSS_STATUS_DESCRIPTION"
+msgstr "ボスは時間効果の持続時間を半分に抑えます。効果の強さとダメージは変わりません。"
+
+msgid "SUPPLY_NEXT_USES"
+msgstr "次の熟練度まで：%d / %d回使用 · %s"
+
+msgid "SUPPLY_HEAL_AUTO_CURRENT"
+msgstr "自動使用：HPが減っていてクールダウンが終わっていれば、戦闘外でもいつでも。"
+
+msgid "TRAVEL_MAP_HELP"
+msgstr "緑のキャンプをタップして移動します。暗いキャンプは未解放です。戦闘中は移動できません。"
+
+msgid "BOSS_RESPAWN_TIME"
+msgstr "%d秒"
+
+msgid "PRESTIGE_TUTORIAL_LOCKED"
+msgstr "転生を使う前に、冬 II でガイド付きチュートリアルを完了してください。"
+
+msgid "KEEP_LINE_LEVEL"
+msgstr "プレイヤーレベル%d、獲得EXP、レベルボーナス"
+
+msgid "RESET_LINE_SUPPLY_MASTERY"
+msgstr "消耗品熟練度と次のレベルへの進捗"
+
+msgid "PANEL_TRAVEL_MAP"
+msgstr "キャンプを選ぶ"
+
+msgid "GUIDE_CLOSE_PANEL"
+msgstr "このパネルを閉じて続けよう。"
+
+msgid "GUIDE_CLOSE_PANEL_DETAIL"
+msgstr "閉じるボタンをタップしよう。進行状況はセーブされています。"
+
+msgid "GUIDE_PLAYER_UPGRADE"
+msgstr "プレイヤー強化を購入しよう。"
+
+msgid "GUIDE_PLAYER_UPGRADE_DETAIL"
+msgstr "次の戦いに役立つ全体強化を選ぼう。"
+
+msgid "GUIDE_EXPAND_INVENTORY"
+msgstr "装備の持ち物枠を広げよう。"
+
+msgid "GUIDE_EXPAND_INVENTORY_DETAIL"
+msgstr "ジェムでスロットを1つ追加購入しよう。足りない分は、チュートリアルで一度だけ補填されます。"
+
+msgid "GUIDE_CAMP_APPROACH"
+msgstr "矢印に従ってキャンプへ向かおう。"
+
+msgid "GUIDE_CAMP_APPROACH_DETAIL"
+msgstr "近づいて発見し、「キャンプを見る」をタップして解放を購入しよう。"
+
+msgid "GUIDE_BOSS_FIND"
+msgstr "最初のボスを見つけよう。"
+
+msgid "GUIDE_BOSS_FIND_DETAIL"
+msgstr "矢印に従って雪だるまの方へ進もう。発見するだけでよく、倒す必要はありません。"
+
+msgid "GUIDE_BOSS_PREPARATION"
+msgstr "ボスと戦う前に準備しよう。"
+
+msgid "GUIDE_BOSS_PREPARATION_DETAIL"
+msgstr "ボスは強すぎることがあります。レベルを上げて全体ステータスを伸ばし、装備を集め、予備を合成し、強化を購入しよう。"
+
+msgid "GUIDE_BOSS_FARM"
+msgstr "もう少し敵を狩ろう。"
+
+msgid "GUIDE_BOSS_FARM_DETAIL"
+msgstr "先へ進む前に力をつけ、コインを集めよう。"
+
+msgid "GUIDE_POTION_BUY"
+msgstr "回復ポーションを購入しよう。"
+
+msgid "GUIDE_POTION_BUY_DETAIL"
+msgstr "「プレイヤー強化」を開き、「消耗品」へ。すでに持っているポーションも数に入ります。"
+
+msgid "GUIDE_POTION_CAPACITY"
+msgstr "回復ポーションの空きを作ろう。"
+
+msgid "GUIDE_POTION_CAPACITY_DETAIL"
+msgstr "消耗品スロットを購入するか、手持ちの消耗品を使ってスロットを空けよう。"
+
+msgid "GUIDE_POTION_USE"
+msgstr "回復ポーションを使おう。"
+
+msgid "GUIDE_POTION_USE_DETAIL"
+msgstr "HPが減っているときに、持ち物のスロットをタップしよう。消耗品を使うと熟練度が進みます。"
+
+msgid "GUIDE_POTION_WAIT_HURT"
+msgstr "回復が必要なときにポーションを使おう。"
+
+msgid "GUIDE_POTION_WAIT_HURT_DETAIL"
+msgstr "まず近くの敵と戦おう。HPが満タンなら、ポーションが無駄になることはありません。"
+
+msgid "GUIDE_PRESTIGE_INTRO"
+msgstr "転生で永続的な恩恵が得られます。"
+
+msgid "GUIDE_PRESTIGE_INTRO_DETAIL"
+msgstr "チャンスを達成してカードを手に入れよう。ガイド付きモードでは、このチュートリアルの後にリセットが解放されます。転生せずに続けても構いません。"
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE"
+msgstr "すでに転生報酬の条件を満たしています。"
+
+msgid "GUIDE_PRESTIGE_ELIGIBLE_DETAIL"
+msgstr "チャンスの準備ができています。リセットするかどうかを決める前に、冬 II でガイド付きチュートリアルを終えよう。"
+
+msgid "GUIDE_WORLD_INTRO"
+msgstr "次のマップが開きました。"
+
+msgid "GUIDE_WORLD_INTRO_DETAIL"
+msgstr "「ワールド」を開くと、解放済みのステージとそのキャンプを確認できます。"
+
+msgid "GUIDE_TRAVEL_INTRO"
+msgstr "解放済みのキャンプ間を移動しよう。"
+
+msgid "GUIDE_TRAVEL_INTRO_DETAIL"
+msgstr "解放済みのキャンプが1つなら「ワールド」から直接移動し、複数あればマップが表示されます。戦闘中はテレポートできません。"
+
+msgid "GUIDE_MILESTONES_INTRO"
+msgstr "マイルストーンは任意の目標です。"
+
+msgid "GUIDE_MILESTONES_INTRO_DETAIL"
+msgstr "追加の報酬が欲しいときは、マップ熟練度と実績を見てみよう。「ワールド」から冬 II へ進もう。"
+
+msgid "GUIDE_WINTER_TWO"
+msgstr "冬 II へ移動しよう。"
+
+msgid "GUIDE_WINTER_TWO_DETAIL"
+msgstr "「ワールド」を開いて冬 II を選び、冒険を続けよう。"
+
+msgid "GUIDE_TUTORIAL_FINAL"
+msgstr "この先の道のり"
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
+msgstr "最終目標は、ステージ8の最終ボスを倒してゲームを制覇することです。\n\nさらに大きな挑戦をお望みですか？マップ熟練度のマイルストーンをすべて達成して、100%コンプリートを目指そう。\n\n自分のペースで旅を楽しんでください。幸運を祈ります！"
+
+msgid "SLOT_SMALL"
+msgstr "小"
+
+msgid "SLOT_MEDIUM"
+msgstr "中"
+
+msgid "SLOT_LARGE"
+msgstr "大"
+
+msgid "PRESTIGE_GENERAL"
+msgstr "一般"
+
+msgid "REVIEW_TITLE"
+msgstr "LootFarmerを楽しんでいますか？"
+
+msgid "REVIEW_LEAD"
+msgstr "冒険はまだ始まったばかり！"
+
+msgid "REVIEW_BODY"
+msgstr "すごいお宝は見つかりましたか？ぜひご感想をお聞かせください。率直なレビューはLootFarmerの改善に役立ち、他のプレイヤーがこのゲームを見つけるきっかけにもなります。"
+
+msgid "REVIEW_CTA_GOOGLE_PLAY"
+msgstr "Google Playでレビュー"
+
+msgid "REVIEW_CTA_ITCH_IO"
+msgstr "itch.ioでレビュー"
+
+msgid "REVIEW_LATER"
+msgstr "あとで"
+
+msgid "REVIEW_OPEN_FAILED"
+msgstr "ストアページを開けませんでした。接続を確認して、もう一度お試しください。"
+
+msgid "SECTION_FEEDBACK"
+msgstr "フィードバック"
+
+msgid "GUIDE_BASIC_TARGET"
+msgstr "敵をターゲットにしよう"
+
+msgid "GUIDE_BASIC_TARGET_DETAIL"
+msgstr "ヒーローから敵までドラッグして指を離すと、その敵をターゲットにします。選んだ敵に攻撃を集中します。"
+
+msgid "GUIDE_TARGET"
+msgstr "敵をターゲットにしよう"
+
+msgid "GUIDE_TARGET_DETAIL"
+msgstr "ヒーローから敵までドラッグして指を離すと、その敵をターゲットにします。選んだ敵に攻撃を集中します。"
+
+msgid "GUIDE_TARGET_FIND"
+msgstr "ターゲットにする敵を見つけよう"
+
+msgid "GUIDE_TARGET_FIND_DETAIL"
+msgstr "敵が見えるまで歩き、ヒーローから敵までドラッグして指を離そう。"
+
+msgid "CHAIN_GOAL_KILL_TARGET"
+msgstr "%sを討伐"
+
+msgid "CARD_VALUE_POINTS"
+msgstr "+%dポイント"
+
+msgid "CARD_VALUE_SECONDS"
+msgstr "−%s秒"
+
+msgid "DURATION_HOURS_MINUTES"
+msgstr "%d時間%02d分"
+
+msgid "DURATION_MINUTES_SECONDS"
+msgstr "%d分%02d秒"
+
+msgid "DURATION_SECONDS"
+msgstr "%d秒"
+
+msgid "JOYSTICK_POSITION"
+msgstr "ジョイスティックの位置"
+
+msgid "JOYSTICK_LEFT"
+msgstr "左"
+
+msgid "JOYSTICK_CENTER"
+msgstr "中央"
+
+msgid "JOYSTICK_RIGHT"
+msgstr "右"
+
+msgid "DISCORD"
+msgstr "Discord"
+
+msgid "LINK_OPEN_FAILED"
+msgstr "リンクを開けませんでした。接続を確認して、もう一度お試しください。"
+
+msgid "GUIDE_CHOOSE_DETAIL"
+msgstr "どのモードでもゲーム内容は同じです。変わるのはサポートの量だけです。"
+
+msgid "GUIDE_MODE_GUIDED_DETAIL"
+msgstr "案内付きのステップ形式のレッスン。メニューは覚えるたびに開きます。"
+
+msgid "GUIDE_MODE_BASIC_DETAIL"
+msgstr "操作と目標を説明する短いカードが数枚。メニューはすべて開いています。"
+
+msgid "GUIDE_MODE_NONE_DETAIL"
+msgstr "レッスンもヒントもありません。最初からすべてのメニューが開いています。"

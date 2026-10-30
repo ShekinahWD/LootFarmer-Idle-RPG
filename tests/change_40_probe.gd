@@ -69,17 +69,18 @@ func readiness() -> void:
     var enabled: Array=service.ENABLED_LANGUAGES
     for pair in [["en_US","en_US"],["en_GB","en_US"],["en","en_US"],["","en_US"],["es_ES","es_ES"],["es-ES","es_ES"],["es_419","es_419"],["es_MX","es_419"],["es","es_419"],["pt_BR","pt_BR"],["pt_PT","pt_BR"],["pt","pt_BR"],["fr_BE","fr_FR"],["de_LI","de_DE"],["it_IT","it_IT"],["nl_NL","nl_NL"],["pl_PL","pl_PL"],["ru_RU","ru_RU"],["ru_BY","ru_RU"],["uk_UA","uk_UA"],["uk","uk_UA"],["sr_Latn_RS","en_US"],["sv_SE","en_US"],["ru_RU.UTF-8","ru_RU"],["de_DE@euro","de_DE"],["ar_EG","en_US"]]:
         check(service.match_device_locale(pair[0],enabled)==pair[1],"Device %s -> %s (got %s)" % [pair[0],pair[1],service.match_device_locale(pair[0],enabled)])
-    # Draft languages are never chosen, whatever the device reports (incl. legacy "in" and script tags).
-    var reached: Array=[]
-    for device in ["ja_JP","ko_KR","zh_CN","zh_TW","zh_Hant_HK","zh_Hans_CN","zh"]:
-        var got: String=service.match_device_locale(device,enabled)
-        if got!="en_US":reached.append(device+"->"+got)
-    check(reached.is_empty(),"No device locale reaches a Batch 04 draft; all fall back to English (%s)" % str(reached))
+    # Since Change 43 the Batch 04 languages are enabled: Japanese, Korean and Chinese devices reach them, Chinese
+    # by script first, then region (Hant/TW/HK/MO Traditional, Hans/CN/SG/generic zh Simplified).
+    var wrong: Array=[]
+    for pair in [["ja_JP","ja_JP"],["ko_KR","ko_KR"],["zh_CN","zh_CN"],["zh_TW","zh_TW"],["zh_Hant_HK","zh_TW"],["zh_Hans_CN","zh_CN"],["zh","zh_CN"],["zh_Hant_CN","zh_TW"],["zh_Hans_HK","zh_CN"]]:
+        var got: String=service.match_device_locale(pair[0],enabled)
+        if got!=pair[1]:wrong.append(pair[0]+"->"+got)
+    check(wrong.is_empty(),"Japanese, Korean and Chinese device locales reach their enabled language (%s)" % str(wrong))
     # The rules for future batches already route correctly once a locale is enabled (pure function, no catalogs).
     var future:=["en_US","id_ID","zh_CN","zh_TW"]
     check(service.match_device_locale("in_ID",future)=="id_ID" and service.match_device_locale("zh_Hant_HK",future)=="zh_TW" and service.match_device_locale("zh_HK",future)=="zh_TW" and service.match_device_locale("zh_SG",future)=="zh_CN" and service.match_device_locale("zh",future)=="zh_CN","Legacy Indonesian and Chinese script/region rules are ready for later batches")
     check(service.ENABLED_LANGUAGES.all(func(l):return l in service.RELEASE_LANGUAGES and service.NATIVE_NAMES.has(l) and service.GODOT_LOCALES.has(l)),"Every enabled language is a target language with a native name and a Godot locale")
-    check(not service.ALL_LANGUAGES_CERTIFIED and service.ENABLED_LANGUAGES.size()<service.RELEASE_LANGUAGES.size(),"Enabled is not certified: the final 20-language QA gate is still open")
+    check(not service.ALL_LANGUAGES_CERTIFIED and service.ENABLED_LANGUAGES==service.RELEASE_LANGUAGES,"All 20 are enabled but not certified: the final real-device 20-language gate is still open")
 
 # ---------------------------------------------------------------- 2. content
 func content() -> void:

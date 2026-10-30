@@ -12,20 +12,22 @@ const RELEASE_LANGUAGES: Array[String] = [
     "pl_PL", "ru_RU", "uk_UA", "tr_TR", "id_ID", "vi_VN", "th_TH", "hi_IN",
     "ja_JP", "ko_KR", "zh_CN", "zh_TW",
 ]
-## Per-locale readiness, the one list a player build reads: English, Batch 01 (Change 38), Batch 02 (Change 39)
-## and Batch 03 (Change 42).
+## Per-locale readiness, the one list a player build reads: English, Batch 01 (Change 38), Batch 02 (Change 39),
+## Batch 03 (Change 42) and Batch 04 (Change 43): all 20 target languages.
 ## Add a locale here only after its batch passed and the developer approved it; keep it on one line
 ## (tools/export_manifest.py and tools/validate_localization.py read it).
-const ENABLED_LANGUAGES: Array[String] = ["en_US", "es_419", "es_ES", "pt_BR", "fr_FR", "de_DE", "it_IT", "nl_NL", "pl_PL", "ru_RU", "uk_UA", "tr_TR", "id_ID", "vi_VN", "th_TH", "hi_IN"]
+const ENABLED_LANGUAGES: Array[String] = ["en_US", "es_419", "es_ES", "pt_BR", "fr_FR", "de_DE", "it_IT", "nl_NL", "pl_PL", "ru_RU", "uk_UA", "tr_TR", "id_ID", "vi_VN", "th_TH", "hi_IN", "ja_JP", "ko_KR", "zh_CN", "zh_TW"]
 ## The final 20-language QA gate (132.5 step 5) is separate from enabling validated locales: it certifies the
-## whole set together and stays false while any target locale is missing from ENABLED_LANGUAGES.
+## whole set together and stays false while any target locale is missing from ENABLED_LANGUAGES. All 20 are enabled
+## since Change 43, but the gate also needs the Playbook 132.6 real-device matrix, which has not been run yet.
 const ALL_LANGUAGES_CERTIFIED: bool = false
-## Validated batches a probe or capture may load by name (--test-languages=batch01). Batches 01-03 are
-## enabled already, so for them the switch changes nothing; a batch under validation is added here first.
+## Validated batches a probe or capture may load by name (--test-languages=batch01). An enabled batch changes
+## nothing; a batch under validation is added here first (Batch 04, Change 43).
 const TEST_BATCHES: Dictionary = {
     "batch01": ["es_419", "es_ES", "pt_BR", "fr_FR", "de_DE"],
     "batch02": ["it_IT", "nl_NL", "pl_PL", "ru_RU", "uk_UA"],
     "batch03": ["tr_TR", "id_ID", "vi_VN", "th_TH", "hi_IN"],
+    "batch04": ["ja_JP", "ko_KR", "zh_CN", "zh_TW"],
 }
 ## Settings language id -> the locale Godot 4.7 resolves. Godot folds es_419 into generic "es", so "es"
 ## serves Latin America while es_ES stays Spain (Playbook 132.6).
@@ -33,6 +35,7 @@ const GODOT_LOCALES: Dictionary = {
     "en_US": "en", "es_419": "es", "es_ES": "es_ES", "pt_BR": "pt_BR", "fr_FR": "fr_FR", "de_DE": "de_DE",
     "it_IT": "it_IT", "nl_NL": "nl_NL", "pl_PL": "pl_PL", "ru_RU": "ru_RU", "uk_UA": "uk_UA",
     "tr_TR": "tr_TR", "id_ID": "id_ID", "vi_VN": "vi_VN", "th_TH": "th_TH", "hi_IN": "hi_IN",
+    "ja_JP": "ja_JP", "ko_KR": "ko_KR", "zh_CN": "zh_CN", "zh_TW": "zh_TW",
 }
 ## Each language's own name in its own language and script. These are proper names: never translated, the same
 ## whatever the current locale.
@@ -41,6 +44,7 @@ const NATIVE_NAMES: Dictionary = {
     "pt_BR": "Português (Brasil)", "fr_FR": "Français", "de_DE": "Deutsch", "it_IT": "Italiano",
     "nl_NL": "Nederlands", "pl_PL": "Polski", "ru_RU": "Русский", "uk_UA": "Українська",
     "tr_TR": "Türkçe", "id_ID": "Bahasa Indonesia", "vi_VN": "Tiếng Việt", "th_TH": "ไทย", "hi_IN": "हिन्दी",
+    "ja_JP": "日本語", "ko_KR": "한국어", "zh_CN": "简体中文", "zh_TW": "繁體中文",
 }
 ## Device language codes older Android versions still report (java.util.Locale legacy codes).
 const LEGACY_LANGUAGE_CODES: Dictionary = {"in": "id", "iw": "he", "ji": "yi"}
@@ -48,14 +52,25 @@ const CATALOG_PATH := "res://localization/%s.po"
 ## The theme font (DejaVu Sans) has no Thai or Devanagari. Those locales draw with the theme font plus an OFL Noto
 ## fallback (Change 42); every other locale keeps the plain theme font, because Godot sizes a line by the tallest
 ## font in the chain and the taller Noto metrics would otherwise change every Latin and Cyrillic layout.
+## Japanese, Korean and both Chinese locales (Change 43) put their own regional Noto Sans face first and DejaVu
+## second: kana, Hangul, Han and full-width punctuation take that region's glyph forms, Latin letters and digits
+## keep DejaVu's. The faces are catalog subsets built by tools/build_cjk_fonts.py.
 const SCRIPT_FONTS: Dictionary = {
     "th_TH": preload("res://resources/game/ui_font_thai.tres"),
     "hi_IN": preload("res://resources/game/ui_font_devanagari.tres"),
+    "ja_JP": preload("res://resources/game/ui_font_japanese.tres"),
+    "ko_KR": preload("res://resources/game/ui_font_korean.tres"),
+    "zh_CN": preload("res://resources/game/ui_font_chinese_simplified.tres"),
+    "zh_TW": preload("res://resources/game/ui_font_chinese_traditional.tres"),
 }
+## The language dropdown: every language name in its own script (the endonym fonts keep 日本語, 简体中文 and 繁體中文
+## in their own regional forms in any locale), plus the current locale's face for "Automatic" in a CJK locale.
+const ALL_SCRIPTS_FONT: FontVariation = preload("res://resources/game/ui_font_all_scripts.tres")
 
-## Probes and captures: locales of a test batch that are not enabled for players (none while Batches 01-03
-## are the test batches).
+## Probes and captures: locales of a test batch that are not enabled for players (none once every batch is enabled).
 var _test_languages: Array[String] = []
+## Dropdown fonts per CJK locale, built on first use.
+var _selector_fonts: Dictionary = {}
 ## Locales whose catalog is registered with the TranslationServer (loaded on first use, not at startup).
 var _loaded: Array[String] = ["en_US"]
 ## Probes only: a locale pinned regardless of the preference (the pseudo-locale sweep).
@@ -143,19 +158,27 @@ static func match_device_locale(device: String, available: Array) -> String:
     language = LEGACY_LANGUAGE_CODES.get(language, language)
     var script := ""
     var region := ""
-    for tag in tags.slice(1):
-        if tag.length() == 4 and script == "" and region == "":
+    # Java's Locale.toString() writes the script last with a '#' (zh_TW_#Hant), BCP 47 before the region.
+    for raw in tags.slice(1):
+        var tag: String = raw.trim_prefix("#")
+        if tag.length() == 4 and script == "" and not tag.is_valid_int():
             script = tag.capitalize()
         elif region == "":
             region = tag.to_upper()
-    if region != "" and (language + "_" + region) in available:
+    # Chinese is chosen by script before region (Change 43): zh_Hant_CN is Traditional text, zh_Hans_HK Simplified.
+    if region != "" and (language + "_" + region) in available and not (language == "zh" and script != ""):
         return language + "_" + region
     var preferred := ""
     match language:
         # Spain is es_ES; every other Spanish (es_419, es_MX, es_US, generic es) reads Latin American Spanish.
         "es": preferred = "es_ES" if region == "ES" else "es_419"
-        # Traditional script or a Traditional region reads zh_TW; everything else Simplified.
-        "zh": preferred = "zh_TW" if script == "Hant" or region in ["TW", "HK", "MO"] else "zh_CN"
+        # A script tag decides (Hant Traditional, Hans Simplified); without one, Taiwan, Hong Kong and Macao read
+        # Traditional and every other Chinese (CN, SG, generic zh) Simplified: the documented generic-zh fallback.
+        "zh":
+            if script == "Hant" or (script == "" and region in ["TW", "HK", "MO"]):
+                preferred = "zh_TW"
+            else:
+                preferred = "zh_CN"
     if preferred in available:
         return preferred
     for candidate in available:
@@ -193,9 +216,24 @@ func apply_language() -> void:
         language_applied.emit(locale)
 
 
-## The font a language draws with: the theme font, plus the Thai or Devanagari fallback for th_TH and hi_IN.
+## The font a language draws with: the theme font, or its script chain (Thai, Devanagari, Japanese, Korean, Chinese).
 func script_font(language: String) -> Font:
     return SCRIPT_FONTS.get(language, _theme_font)
+
+
+## The dropdown's font for a language: the all-scripts chain, with a CJK locale's own face last so the translated
+## "Automatic" draws in that locale's glyph forms (the endonym faces hold no character of those words).
+func selector_font(language: String) -> Font:
+    if not language in ["ja_JP", "ko_KR", "zh_CN", "zh_TW"]:
+        return ALL_SCRIPTS_FONT
+    if not _selector_fonts.has(language):
+        var font := FontVariation.new()
+        font.base_font = ALL_SCRIPTS_FONT.base_font
+        var chain: Array[Font] = ALL_SCRIPTS_FONT.fallbacks.duplicate()
+        chain.append(SCRIPT_FONTS[language].base_font)
+        font.fallbacks = chain
+        _selector_fonts[language] = font
+    return _selector_fonts[language]
 
 
 ## Registers a catalog the first time its locale is used. English ships in project.godot.

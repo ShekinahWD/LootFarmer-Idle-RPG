@@ -47,13 +47,13 @@ func run() -> void:
 func availability_batch03() -> void:
     var drafts: Array=LocalizationService.RELEASE_LANGUAGES.filter(func(l):return not l in LocalizationService.ENABLED_LANGUAGES)
     if enabled_now:
-        check(LocalizationService.ENABLED_LANGUAGES.size()==16 and drafts==BATCH04,"English and 15 translations are enabled; only the four Batch 04 drafts remain (%s)" % str(drafts))
+        check(LocalizationService.ENABLED_LANGUAGES.size()==20 and drafts.is_empty(),"English and 19 translations are enabled; no draft remains since Change 43 (%s)" % str(drafts))
         check(LocalizationService.available_languages()==LocalizationService.ENABLED_LANGUAGES,"Batch 03 is available without any test switch")
     else:
         check(not BATCH3.any(func(l):return l in LocalizationService.available_languages()),"Before activation no Batch 03 locale is offered to a player")
     for lang in BATCH04:
-        check(not LocalizationService.select_language(lang) and SettingsState.selected_language=="automatic","%s (Batch 04 draft) cannot be selected" % lang)
-    check(not LocalizationService.enable_test_batch("batch04"),"An unvalidated batch name (batch04) is refused")
+        check(LocalizationService.is_selectable(lang) and SettingsState.selected_language=="automatic","%s (Batch 04, enabled in Change 43) is selectable" % lang)
+    check(not LocalizationService.enable_test_batch("batch05"),"An unknown batch name (batch05) is refused")
     var was_probe: bool=BootContext.is_probe
     BootContext.is_probe=false
     check(enabled_now or not LocalizationService.enable_test_batch("batch03"),"The batch03 switch is refused outside probes")
@@ -62,7 +62,7 @@ func availability_batch03() -> void:
     check(BATCH3.all(func(l):return l in LocalizationService.available_languages()),"…and the five are selectable")
     game._open("settings");await frames(4)
     var choices:=dropdown_choices()
-    check(choices==["automatic"]+LocalizationService.available_languages() and not BATCH04.any(func(l):return l in choices),"The dropdown lists Automatic and the available languages, no Batch 04 draft (%d choices)" % choices.size())
+    check(choices==["automatic"]+LocalizationService.available_languages() and choices.size()==21,"The dropdown lists Automatic and the 20 available languages (%d choices)" % choices.size())
     for lang in BATCH3:
         var i: int=choices.find(lang)
         check(i>0 and dropdown().get_item_text(i)==LocalizationService.NATIVE_NAMES[lang],"%s is listed by its own name %s" % [lang,LocalizationService.NATIVE_NAMES[lang]])
@@ -188,7 +188,7 @@ func automatic_batch03() -> void:
     LocalizationService.select_language("automatic")
     for pair in [["tr","tr_TR"],["tr_TR","tr_TR"],["tr_CY","tr_TR"],["id","id_ID"],["id_ID","id_ID"],["in_ID","id_ID"],["in","id_ID"],["id-ID","id_ID"],
             ["vi","vi_VN"],["vi_VN","vi_VN"],["th","th_TH"],["th_TH","th_TH"],["hi","hi_IN"],["hi_IN","hi_IN"],
-            ["en_IN","en_US"],["ms_MY","en_US"],["jv_ID","en_US"],["ja_JP","en_US"],["zh_CN","en_US"]]:
+            ["en_IN","en_US"],["ms_MY","en_US"],["jv_ID","en_US"],["bn_IN","en_US"],["ms_ID","en_US"]]:
         LocalizationService.set_test_device_locale(pair[0]);await frames(1)
         var expected: String=catalogs[pair[1]].SETTINGS if catalogs.has(pair[1]) else english.SETTINGS
         check(LocalizationService.resolved_language("automatic")==pair[1] and tr("SETTINGS")==expected,"Automatic on a %s device reads %s (%s)" % [pair[0],pair[1],tr("SETTINGS")])
@@ -275,7 +275,7 @@ func persistence_batch03() -> void:
     SettingsState.from_save_dict({"selected_language":"th_TH"});await frames(1)
     check(SettingsState.selected_language=="th_TH","An older settings record that stored th_TH (a test build) keeps it")
     SettingsState.from_save_dict({"selected_language":"ja_JP"});await frames(1)
-    check(SettingsState.selected_language=="ja_JP" and TranslationServer.get_locale()=="en" and game.get_theme_default_font()==DEJAVU,"A stored Batch 04 draft shows English and stays stored")
+    check(SettingsState.selected_language=="ja_JP" and TranslationServer.get_locale()=="ja_JP" and game.get_theme_default_font()==LocalizationService.script_font("ja_JP"),"A stored ja_JP from a draft-era save is kept and, since Change 43, applies Japanese and its font")
     LocalizationService.select_language("tr_TR");await frames(1)
     SaveService.save_now()
     if enabled_now:

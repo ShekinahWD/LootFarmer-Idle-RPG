@@ -1,0 +1,48 @@
+validate_campaign_source PASS           {"checks": 1588, "failures": 0}
+export_manifest          PASS           EXPORT_MANIFEST PASS files=280 imported=164 stages=8 families=stage_scenes:8,item_art:20,skill_vfx:6,catalog_paths:72,player_bodies:3,language_catalogs:19
+validate_localization    PASS           LOCALIZATION_VALIDATION english_keys=1951 enabled=20 catalogs=19 drafts_hidden=0 problems=0
+change_41_probe          PASS        5s  CHANGE_41_CHECKS 202 FAILURES 0
+change_40_probe          PASS       10s  CHANGE_40_PROBE checks=86 failures=0
+localization_batch01_probe PASS        8s  LOCALIZATION_BATCH01_PROBE checks=79 failures=0
+localization_batch02_probe PASS        7s  LOCALIZATION_BATCH02_PROBE checks=98 failures=0
+localization_batch03_probe PASS       11s  LOCALIZATION_BATCH03_PROBE checks=139 failures=0
+localization_batch04_probe PASS       18s  LOCALIZATION_BATCH04_PROBE checks=172 failures=0
+localization_sweep       PASS      312s  LOCALIZATION_SWEEP checks=3714 findings=0
+change_36_probe          PASS        2s  CHANGE_36_CHECKS 180 FAILURES 0
+change_35_probe          PASS        4s  CHANGE_35_CHECKS 145 FAILURES 0
+change_34_probe          PASS        1s  CHANGE_34_CHECKS 138 FAILURES 0
+change_27_probe          PASS        3s  CHANGE_27_CHECKS 51 FAILURES 0
+change_26_probe          PASS        5s  CHANGE_26_CHECKS 49 FAILURES 0
+change_25_probe          PASS        5s  CHANGE_25_CHECKS 113 FAILURES 0
+change_24_probe          PASS        5s  CHANGE_24_CHECKS 53 FAILURES 0
+change_22_probe          PASS        3s  CHANGE_22_CHECKS 41 FAILURES 0
+change_21_probe          PASS        3s  CHANGE_21_CHECKS 116 FAILURES 0
+change_20_probe          PASS        3s  CHANGE_20_CHECKS 84 FAILURES 0
+skill_proximity_probe    PASS        1s  SKILL_PROXIMITY_CHECKS 133 FAILURES 0
+change_17_probe          PASS        1s  CHANGE_17_CHECKS 659 FAILURES 0
+change_17_weather        PASS        1s  CHANGE_17_WEATHER_CHECKS 60 FAILURES 0
+change_16_probe          PASS        5s  CHANGE_16_CHECKS 198 FAILURES 0
+change_15_probe          PASS        9s  CHANGE_15_CHECKS 151 FAILURES 0
+change_14_probe          PASS        6s  CHANGE_14_CHECKS 203 FAILURES 0
+change_13_probe          PASS        8s  CHANGE_13_CHECKS 154 FAILURES 0
+change_12_probe          PASS        3s  CHANGE_12_CHECKS 149 FAILURES 0
+change_12_smoke          PASS        2s  SMOKE done
+change_11_probe          PASS        5s  CHANGE_11_CHECKS 153 FAILURES 0
+change_11_smoke          PASS        3s  SMOKE done
+change_10_probe          PASS        3s  CHANGE_10_CHECKS 90 FAILURES 0
+change_9_probe           PASS        2s  CHANGE_9_CHECKS 51 FAILURES 0
+change_8_probe           PASS        3s  CHANGE_8_CHECKS 74 FAILURES 0
+change_7_probe           PASS        3s  CHANGE_7_CHECKS 78 FAILURES 0
+change_6_probe           PASS        5s  CHANGE_6_CHECKS 201 FAILURES 0
+change_5_probe           PASS        3s  CHANGE_5_CHECKS 161 FAILURES 0
+campaign_probe           PASS        4s  CAMPAIGN_PROBE checks=262 failures=0
+campaign_content_probe   PASS        2s  CONTENT_PROBE checks=98 failures=0
+gameplay_probe           PASS        4s  GAMEPLAY_PROBE checks=72 failures=0
+ui_probe                 PASS        2s  UI_PROBE checks=24 failures=0
+inventory_probe          PASS        2s  INVENTORY_PROBE checks=119 failures=0
+targeting_probe          PASS        2s  TARGETING_PROBE checks=23 failures=0
+camera_probe             PASS        2s  CAMERA_PROBE checks=17 failures=0
+attack_timing_probe      PASS        1s  ATTACK_TIMING_PROBE checks=49 failures=0
+bootstrap_probe          PASS        0s  BOOTSTRAP_PROBE PASS
+change_8_walk_probe      PASS        3s  CHANGE_8_WALK checks=2178 failures=0
+SUITE 47/47 passed

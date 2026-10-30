@@ -16,7 +16,7 @@ func _ready() -> void:
     LocalizationService.set_test_device_locale("en_US")
     _check(LocalizationService.select_language("automatic"), "automatic allowed")
     _check(TranslationServer.get_locale().begins_with("en"), "automatic English on an English device")
-    _check(not LocalizationService.select_language("ja_JP"), "draft locale blocked")
+    _check(not LocalizationService.select_language("ar_SA"), "locale outside the target set blocked")
     LocalizationService.set_test_device_locale("")
     _check(tr("BOOT_TAP") != "BOOT_TAP", "English catalog loaded")
     SaveService.register_section("probe", _snapshot, _restore, _reset)

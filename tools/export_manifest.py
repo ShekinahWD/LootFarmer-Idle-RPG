@@ -53,6 +53,19 @@ def project_files():
     return found
 
 
+def uid_paths(files):
+    """uid://... -> res:// path, from the .import (uid="...") and .uid sidecars Godot writes next to each file."""
+    out = {}
+    for f in files:
+        if f.endswith('.import'):
+            m = re.search(r'^uid="(uid://[a-z0-9]+)"', fs(f).read_text(encoding='utf-8', errors='replace'), re.M)
+            if m:
+                out[m.group(1)] = f[:-len('.import')]
+        elif f.endswith('.uid'):
+            out[fs(f).read_text(encoding='utf-8', errors='replace').strip()] = f[:-len('.uid')]
+    return out
+
+
 def strip_comment(line):
     """GDScript line without its # comment (a # inside a string literal is kept)."""
     quote = None
@@ -244,6 +257,14 @@ class Manifest:
             self.add(path, 'project.godot autoload ' + name)
         for path in res_strings(text):
             self.add(path, 'project.godot setting')
+        # The editor may rewrite a setting as a uid:// reference (config/icon, Change 43 investigation); it names the
+        # same file, recorded in that file's .import or .uid sidecar.
+        uids = uid_paths(self.files)
+        for uid in re.findall(r'"(uid://[a-z0-9]+)"', text):
+            if uid not in uids:
+                fail('project.godot references unknown %s' % uid)
+            else:
+                self.add(uids[uid], 'project.godot setting')
 
     def families(self):
         fams = self.rules['families']

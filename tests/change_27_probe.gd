@@ -189,7 +189,9 @@ func static_checks() -> void:
         var path:=line.get_slice("\"",1)
         check(path.begins_with("res://assets/branding/") and ResourceLoader.exists(path) and shipped.has(path),"Launcher icon %s is set, loads and ships (%s)" % [key,path])
     var icon:=str(ProjectSettings.get_setting("application/config/icon"))
-    check(icon=="res://assets/branding/launcher_192.png" and shipped.has(icon),"Project icon is the new launcher icon and ships")
+    # The editor may store the icon as a uid:// reference to the same file (Change 43).
+    if icon.begins_with("uid://"):icon=ResourceUID.get_id_path(ResourceUID.text_to_id(icon))
+    check(icon=="res://assets/branding/launcher_192.png" and shipped.has(icon),"Project icon is the new launcher icon and ships (%s)" % icon)
     for prefix in ["res://marketing/","res://store_assets/","res://addons/","res://Godot-Marketing-Toolkit/","res://docs/"]:
         check(not shipped.keys().any(func(k):return str(k).begins_with(prefix)),"Nothing under %s ships" % prefix)
     check(release.contains("marketing/*") and release.contains("addons/marketing_capture/*"),"Release exclude_filter still names the marketing sources and capture addon")

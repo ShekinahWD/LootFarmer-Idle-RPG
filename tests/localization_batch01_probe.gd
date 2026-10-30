@@ -77,13 +77,14 @@ func choose(lang: String) -> bool:
     get_tree().root.push_input(accept);await frames(2)
     return true
 
-const DRAFTS:=["ja_JP","ko_KR","zh_CN","zh_TW"]
-const ENABLED:=["en_US","es_419","es_ES","pt_BR","fr_FR","de_DE","it_IT","nl_NL","pl_PL","ru_RU","uk_UA","tr_TR","id_ID","vi_VN","th_TH","hi_IN"]
+## The Batch 04 drafts were the last unvalidated languages; Change 43 enabled them, so no draft remains.
+const DRAFTS:=[]
+const ENABLED:=["en_US","es_419","es_ES","pt_BR","fr_FR","de_DE","it_IT","nl_NL","pl_PL","ru_RU","uk_UA","tr_TR","id_ID","vi_VN","th_TH","hi_IN","ja_JP","ko_KR","zh_CN","zh_TW"]
 
 # ---------------------------------------------------------------- 1. availability
 func availability() -> void:
-    check(LocalizationService.available_languages()==(ENABLED as Array[String]),"English and Batches 01-03 are available, in release order (%s)" % str(LocalizationService.available_languages()))
-    check(LocalizationService.ENABLED_LANGUAGES==(ENABLED as Array[String]) and not LocalizationService.ALL_LANGUAGES_CERTIFIED,"One readiness list enables the sixteen; the 20-language certification is still separate and open")
+    check(LocalizationService.available_languages()==(ENABLED as Array[String]),"English and Batches 01-04 (all 20 target languages) are available, in release order (%s)" % str(LocalizationService.available_languages()))
+    check(LocalizationService.ENABLED_LANGUAGES==(ENABLED as Array[String]) and not LocalizationService.ALL_LANGUAGES_CERTIFIED,"One readiness list enables all twenty; the 20-language certification is still separate and open")
     check(TranslationServer.get_locale()=="en" and LocalizationService.godot_locale("automatic")=="en","Automatic on an English device resolves to English")
     var early: Array=Array(TranslationServer.get_loaded_locales()).filter(func(l):return l!="en" and l!=startup_locale)
     check(early.is_empty(),"A catalog loads on first use, not at startup (loaded %s; the profile restored %s)" % [str(TranslationServer.get_loaded_locales()),startup_locale])
@@ -94,9 +95,9 @@ func availability() -> void:
     game._open("settings");await frames(4)
     check(game.rows.find_children("*","Button",true,false).filter(func(b):return b.has_meta("language")).is_empty(),"The language button grid is gone")
     var d:=dropdown()
-    check(d!=null and dropdown_choices()==["automatic"]+ENABLED,"Settings has one dropdown: Automatic, English, Batches 01-03 (%s)" % str(dropdown_choices()))
+    check(d!=null and dropdown_choices()==["automatic"]+ENABLED,"Settings has one dropdown: Automatic, English, Batches 01-04 (%s)" % str(dropdown_choices()))
     var names: Array=range(d.item_count).map(func(i):return d.get_item_text(i))
-    check(names==["Automatic (English)","English","Español (Latinoamérica)","Español (España)","Português (Brasil)","Français","Deutsch","Italiano","Nederlands","Polski","Русский","Українська","Türkçe","Bahasa Indonesia","Tiếng Việt","ไทย","हिन्दी"],"Each language is listed in its own name and script: %s" % str(names))
+    check(names==["Automatic (English)","English","Español (Latinoamérica)","Español (España)","Português (Brasil)","Français","Deutsch","Italiano","Nederlands","Polski","Русский","Українська","Türkçe","Bahasa Indonesia","Tiếng Việt","ไทย","हिन्दी","日本語","한국어","简体中文","繁體中文"],"Each language is listed in its own name and script: %s" % str(names))
     check(range(d.item_count).all(func(i):return not d.is_item_disabled(i)),"No item is a disabled placeholder")
     check(d.text=="Automatic (English)" and d.selected==0,"The closed dropdown shows the current choice: %s" % d.text)
     var notice:=false
@@ -104,8 +105,11 @@ func availability() -> void:
         if l.text==tr("LANG_DISABLED") or l.text==tr("LANGUAGE_NOTE"):notice=true
     check(not notice,"No development notice (Change 16)")
     # A test-era save asking for a draft language shows English and keeps the stored choice for later.
+    # A test-era save that stored ja_JP while it was a draft: kept, and since Change 43 it applies.
     SettingsState.from_save_dict({"selected_language":"ja_JP"});await frames(2)
-    check(SettingsState.selected_language=="ja_JP" and TranslationServer.get_locale()=="en" and d.text=="English","A stored draft choice displays English and stays stored (%s, %s)" % [SettingsState.selected_language,d.text])
+    check(SettingsState.selected_language=="ja_JP" and TranslationServer.get_locale()=="ja_JP" and d.text=="日本語","A stored ja_JP choice from a draft-era save is kept and now applies Japanese (%s, %s)" % [SettingsState.selected_language,d.text])
+    SettingsState.from_save_dict({"selected_language":"ar_SA"});await frames(2)
+    check(SettingsState.selected_language=="automatic" and TranslationServer.get_locale()=="en","A stored locale outside the target set resets to Automatic (%s)" % SettingsState.selected_language)
     SettingsState.from_save_dict({"selected_language":"automatic"});await frames(1)
     var was_probe: bool=BootContext.is_probe
     BootContext.is_probe=false

@@ -1,0 +1,227 @@
+{
+  "closed_automatic": {
+    "button": "[P: (32.0, 860.0), S: (642.0, 72.0)]",
+    "locale": "en",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "Automatic (English)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "closed_automatic_de": {
+    "button": "[P: (32.0, 860.0), S: (642.0, 72.0)]",
+    "locale": "de_DE",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "Automatisch (Deutsch)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "closed_focus": {
+    "button": "[P: (32.0, 860.0), S: (642.0, 72.0)]",
+    "locale": "en",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "Automatic (English)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "closed_hi_IN": {
+    "button": "[P: (32.0, 848.0), S: (642.0, 72.0)]",
+    "locale": "hi_IN",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "हिन्दी",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "closed_ja_JP": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "ja_JP",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "日本語",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "closed_ko_KR": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "ko_KR",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "한국어",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "closed_ru": {
+    "button": "[P: (32.0, 860.0), S: (642.0, 72.0)]",
+    "locale": "ru_RU",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "Русский",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "closed_th_TH": {
+    "button": "[P: (32.0, 836.0), S: (642.0, 72.0)]",
+    "locale": "th_TH",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "ไทย",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "closed_zh_CN": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "zh_CN",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "简体中文",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "closed_zh_TW": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "zh_TW",
+    "menu": "",
+    "menu_open": false,
+    "menu_scrolls": false,
+    "text": "繁體中文",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_automatic_de": {
+    "button": "[P: (32.0, 860.0), S: (642.0, 72.0)]",
+    "locale": "de_DE",
+    "menu": "[P: (32.0, 24.0), S: (642.0, 835.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "Automatisch (Deutsch)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_automatic_th": {
+    "button": "[P: (32.0, 836.0), S: (642.0, 72.0)]",
+    "locale": "th_TH",
+    "menu": "[P: (32.0, 56.0), S: (642.0, 779.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "อัตโนมัติ (ไทย)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_automatic_zh_hk": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "zh_TW",
+    "menu": "[P: (32.0, 59.0), S: (642.0, 780.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "自動 (繁體中文)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_hi_IN": {
+    "button": "[P: (32.0, 848.0), S: (642.0, 72.0)]",
+    "locale": "hi_IN",
+    "menu": "[P: (32.0, 70.0), S: (642.0, 777.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "हिन्दी",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_ja_JP": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "ja_JP",
+    "menu": "[P: (32.0, 61.0), S: (642.0, 778.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "日本語",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_keyboard": {
+    "button": "[P: (32.0, 860.0), S: (642.0, 72.0)]",
+    "locale": "en",
+    "menu": "[P: (32.0, 24.0), S: (642.0, 835.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "Automatic (English)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_ko_KR": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "ko_KR",
+    "menu": "[P: (32.0, 61.0), S: (642.0, 778.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "한국어",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_list_end": {
+    "button": "[P: (32.0, 860.0), S: (642.0, 72.0)]",
+    "locale": "en",
+    "menu": "[P: (32.0, 24.0), S: (642.0, 835.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "Automatic (English)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_list_end_zh_TW": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "zh_TW",
+    "menu": "[P: (32.0, 59.0), S: (642.0, 780.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "繁體中文",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_ru": {
+    "button": "[P: (32.0, 860.0), S: (642.0, 72.0)]",
+    "locale": "ru_RU",
+    "menu": "[P: (32.0, 24.0), S: (642.0, 835.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "Русский",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_settings_bottom": {
+    "button": "[P: (32.0, 860.0), S: (642.0, 72.0)]",
+    "locale": "en",
+    "menu": "[P: (32.0, 24.0), S: (642.0, 835.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "Automatic (English)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_settings_top": {
+    "button": "[P: (32.0, 909.0), S: (642.0, 72.0)]",
+    "locale": "en",
+    "menu": "[P: (32.0, 12.0), S: (642.0, 896.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "Automatic (English)",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_th_TH": {
+    "button": "[P: (32.0, 836.0), S: (642.0, 72.0)]",
+    "locale": "th_TH",
+    "menu": "[P: (32.0, 56.0), S: (642.0, 779.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "ไทย",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_zh_CN": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "zh_CN",
+    "menu": "[P: (32.0, 59.0), S: (642.0, 780.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "简体中文",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  },
+  "open_zh_TW": {
+    "button": "[P: (32.0, 840.0), S: (642.0, 72.0)]",
+    "locale": "zh_TW",
+    "menu": "[P: (32.0, 59.0), S: (642.0, 780.0)]",
+    "menu_open": true,
+    "menu_scrolls": true,
+    "text": "繁體中文",
+    "view": "[P: (0.0, 0.0), S: (720.0, 1600.0)]"
+  }
+}

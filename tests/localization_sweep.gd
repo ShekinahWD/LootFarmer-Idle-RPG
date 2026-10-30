@@ -1,5 +1,5 @@
 extends Node
-## Localization Batches 01-03: renders the game's player-visible surfaces in one or more languages and
+## Localization Batches 01-04: renders the game's player-visible surfaces in one or more languages and
 ## checks what is actually on screen (Playbook 132.4, 132.6).
 ## - pseudo: every catalog string is wrapped in ⟦ ⟧; any visible text outside the markers did not come
 ##   from the catalog (hardcoded English, a key built from data, a name derived from an id).
@@ -15,8 +15,9 @@ extends Node
 ## Windowed screenshots: --resolution 540x960 ... --langs=de_DE --shots=res://docs/.../screens/ --shape=540
 var game
 var sim
-## Defaults (the maintained-suite run): pseudo-locale, English, Batches 01-03 at the three portrait shapes.
-var langs: Array=["pseudo","en","es_419","es_ES","pt_BR","fr_FR","de_DE","it_IT","nl_NL","pl_PL","ru_RU","uk_UA","tr_TR","id_ID","vi_VN","th_TH","hi_IN"]
+## Defaults (the maintained-suite run): pseudo-locale, English and all 19 translations (Batches 01-04, Change 43)
+## at the three portrait shapes.
+var langs: Array=["pseudo","en","es_419","es_ES","pt_BR","fr_FR","de_DE","it_IT","nl_NL","pl_PL","ru_RU","uk_UA","tr_TR","id_ID","vi_VN","th_TH","hi_IN","ja_JP","ko_KR","zh_CN","zh_TW"]
 var sizes: Array=[]
 var shots:=""
 var shape:=""
@@ -68,6 +69,7 @@ func run() -> void:
     LocalizationService.enable_test_batch("batch01")
     LocalizationService.enable_test_batch("batch02")
     LocalizationService.enable_test_batch("batch03")
+    LocalizationService.enable_test_batch("batch04")
     TranslationServer.add_translation(pseudo_translation())
     for lang in langs:
         if lang!="pseudo":translations[lang]=read_po("res://localization/%s.po" % lang)
@@ -195,7 +197,8 @@ func inspect(screen: String) -> void:
                 if raw.search(line.strip_edges())!=null:add(screen,"raw_key",line,c)
             var glyph_font: Font=c.get_theme_font("normal_font" if c is RichTextLabel else "font")
             for ch in t:
-                if ch.unicode_at(0)>32 and ch!="\u00a0" and ch!="\u202f" and not glyph_font.has_char(ch.unicode_at(0)):
+                # U+2060 WORD JOINER (Korean keep-all, Change 43) is a format character that draws nothing.
+                if ch.unicode_at(0)>32 and ch!="\u00a0" and ch!="\u202f" and ch!="\u2060" and not glyph_font.has_char(ch.unicode_at(0)):
                     add(screen,"missing_glyph","%s in %s" % [ch,t.left(40)],c)
             if current_lang=="pseudo":
                 # Language names in the language dropdown are proper names, never catalog text (Change 40).

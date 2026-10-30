@@ -56,11 +56,11 @@ func gate_batch02() -> void:
     BootContext.is_probe=false
     check(not LocalizationService.enable_test_batch("batch02") and not LocalizationService.set_test_locale("uk_UA"),"The test switches are refused outside probes and captures")
     BootContext.is_probe=was_probe
-    check(not LocalizationService.enable_test_batch("batch04"),"An unvalidated batch name is refused")
+    check(not LocalizationService.enable_test_batch("batch05"),"An unknown batch name is refused")
     check(LocalizationService.available_languages()==(ENABLED as Array[String]),"…and nothing was added by the refused calls")
     game._open("settings");await frames(4)
     var choices:=dropdown_choices()
-    check(choices.size()==ENABLED.size()+1 and DRAFTS.all(func(l):return not l in choices),"The dropdown lists %d choices and none of the Batch 04 drafts" % choices.size())
+    check(choices.size()==ENABLED.size()+1 and choices.size()==21,"The dropdown lists %d choices: Automatic and all 20 languages" % choices.size())
     game._close()
 
 # ---------------------------------------------------------------- 2. routing, coverage, glyphs

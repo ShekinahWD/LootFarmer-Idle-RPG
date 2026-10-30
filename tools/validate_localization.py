@@ -1,5 +1,5 @@
 """Structural check of LootFarmer's translation catalogs against the canonical English source
-(Localization Batches 01-03, Changes 38, 39 and 42; progressive activation, Change 40; Playbook 132.5).
+(Localization Batches 01-04, Changes 38, 39, 42 and 43; progressive activation, Change 40; Playbook 132.5).
 
 For every catalog a player build enables (ENABLED_LANGUAGES in scripts/autoload/localization_service.gd) and every
 validated test batch (TEST_BATCHES):
@@ -13,6 +13,11 @@ validated test batch (TEST_BATCHES):
   - Polish, Russian, Ukrainian (Batch 02) and Hindi (Batch 03): no number placeholder directly followed by a
     noun whose form depends on the count (the source has no plural forms, so those catalogs use count-neutral
     wording);
+  - Japanese, Simplified and Traditional Chinese (Batch 04): every CJK character belongs to the region's own
+    character set (CP932, GB2312, Big5), so no Traditional glyph slips into zh_CN, no Simplified one into zh_TW
+    or ja_JP; Korean: no particle whose form depends on the preceding syllable (을/를, 이/가, 은/는, 와/과, (으)로)
+    is attached to a placeholder, and every Korean word carries its word joiners (tools/korean_keep_all.py) so
+    lines wrap between words;
   - a Language header naming the catalog's locale.
 It also checks the English catalog itself (unique keys, every scene-text key present), that project.godot
 registers only en.po (LocalizationService loads the enabled catalogs on first use), and the readiness table:
@@ -26,6 +31,8 @@ from pathlib import Path
 import json, re, sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'tools'))
+from korean_keep_all import keep_all
 LOC = ROOT / 'localization'
 PLACEHOLDER = re.compile(r'%(?:[-+0#]*\d*(?:\.\d+)?[sdif]|%)')
 SYMBOLS = ['^', '×', '→', '✓', '•', '‹', '\\n']
@@ -45,6 +52,12 @@ COUNT_FOLLOWERS = {
               'स्थान', 'लेवल', 'बॉस', 'कैंप', 'स्लॉट', 'उपयोग', 'रक्षा', 'डैमेज', 'दिशा', 'उपाधि', 'की', 'का', 'के', 'को',
               'तक', 'पर', 'में', 'या', 'और', 'बाकी', 'अभी', 'पूरा', 'तय', 'चुनें', 'हराएँ', 'अनलॉक', 'स्वचालित'},
 }
+# Batch 04: the region's own character set. A character outside it is a glyph from the other script variant
+# (or a rare form that needs a deliberate decision).
+REGION_CHARSET = {'ja_JP': 'cp932', 'zh_CN': 'gb2312', 'zh_TW': 'big5'}
+# Korean particles choose their form from the final consonant of the word before them, which a placeholder hides.
+# (A word joiner, U+2060, may sit between them: tools/korean_keep_all.py.)
+KOREAN_PARTICLE = re.compile(r'%(?:\.\d)?[sd]\u2060?(을|를|이|가|은|는|와|과|으로|로)(?![가-힣])')
 COUNT_WORD = re.compile(r'%(?:\.\d)?[ds](?: | )([^\s\d%·•()/:,.;!?×\-−→+^—।]+)')
 
 
@@ -158,6 +171,22 @@ def check_catalog(lang, english, allow, problems):
             if word not in COUNT_FOLLOWERS[lang]:
                 report['count_agreement'] = report.get('count_agreement', 0) + 1
                 problems.append(f'{lang} {key}: "{word}" after a number changes form with the count; use count-neutral wording')
+        if lang in REGION_CHARSET:
+            for ch in value:
+                if ord(ch) >= 0x2E80:
+                    try:
+                        ch.encode(REGION_CHARSET[lang])
+                    except UnicodeEncodeError:
+                        report['charset_errors'] = report.get('charset_errors', 0) + 1
+                        problems.append(f'{lang} {key}: "{ch}" is outside {REGION_CHARSET[lang]} (other script variant?)')
+        if lang == 'ko_KR' and KOREAN_PARTICLE.search(value):
+            report['particle_errors'] = report.get('particle_errors', 0) + 1
+            problems.append(f'{lang} {key}: a batchim-dependent particle follows a placeholder in "{value[:60]}"')
+        if lang == 'ko_KR':
+            unescaped = value.replace('\\n', '\n')
+            if keep_all(unescaped) != unescaped:
+                report['keep_all_errors'] = report.get('keep_all_errors', 0) + 1
+                problems.append(f'{lang} {key}: Korean word without word joiners (run python tools/korean_keep_all.py)')
         if ENGLISH_WORDS.search(BRANDS.sub('', value)):
             report['english_words'] += 1
             problems.append(f'{lang} {key}: English word in "{value[:60]}"')

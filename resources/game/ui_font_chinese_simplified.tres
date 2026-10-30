@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=3 format=3]
+
+[ext_resource type="FontFile" path="res://assets/Fonts/NotoSansSC-LootFarmer.ttf" id="regional"]
+[ext_resource type="FontFile" path="res://assets/Fonts/DejaVuSans.ttf" id="base"]
+
+[resource]
+base_font=ExtResource("regional")
+fallbacks=Array[Font]([ExtResource("base")])

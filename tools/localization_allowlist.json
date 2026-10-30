@@ -1,6 +1,6 @@
 {
  "_doc": [
-  "Localization Batches 01 (Change 38), 02 (Change 39) and 03 (Change 42): translations that are deliberately identical to the English source.",
+  "Localization Batches 01 (Change 38), 02 (Change 39) 03 (Change 42) and 04 (Change 43): translations that are deliberately identical to the English source.",
   "A targeted allowlist (Playbook 132.5): one entry per locale and key, with the reason. tools/validate_localization.py",
   "fails on any other msgstr equal to its English text. Reasons: brand (store title kept as the product name),",
   "abbreviation (unit or game abbreviation used unchanged by players of that language), cognate (the correct word",
@@ -220,5 +220,37 @@
   "STATS_SHORT_HP": "abbreviation: HP",
   "SUPPLY_AMOUNT_XP": "abbreviation: XP",
   "MASTERY_REWARD_XP": "abbreviation: XP"
+ },
+ "ja_JP": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "PLAYER_STATUS": "abbreviation: HP",
+  "HUD_HP": "abbreviation: HP",
+  "DISCORD": "brand: Discord (the service's name, Change 41)",
+  "STATS_SHORT_HP": "abbreviation: HP (Japanese games write HP)",
+  "SKILL_AMOUNT_HP": "abbreviation: HP (Japanese games write HP)",
+  "UPGRADE_MAX": "loanword: MAX (Japanese game UI, as in Lv.MAX)",
+  "VALUE_MAX": "loanword: MAX (Japanese game UI, as in Lv.MAX)"
+ },
+ "ko_KR": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "PLAYER_STATUS": "abbreviation: HP",
+  "HUD_HP": "abbreviation: HP",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
+ },
+ "zh_CN": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "PLAYER_STATUS": "abbreviation: HP",
+  "HUD_HP": "abbreviation: HP",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
+ },
+ "zh_TW": {
+  "APP_TITLE": "brand",
+  "GAME_TITLE": "brand",
+  "PLAYER_STATUS": "abbreviation: HP",
+  "HUD_HP": "abbreviation: HP",
+  "DISCORD": "brand: Discord (the service's name, Change 41)"
  }
 }
