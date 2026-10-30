@@ -62,6 +62,7 @@ func prepare_scenario(scenario_id: String,options_: Dictionary,game_root: Node,c
         "trailer_gear":ok=_trailer_gear()
         "trailer_merge":ok=_trailer_merge()
         "trailer_farm":ok=_trailer_farm()
+        "match_boss":ok=_match_boss()
         "shot_gear":ok=_shot_gear()
         "shot_merge":ok=_shot_merge()
         "shot_explore":ok=_shot_explore()
@@ -721,6 +722,33 @@ func _trailer_farm() -> bool:
     print(LOG,"farm drops near=",pickups)
     _hud_clean()
     return most>0
+
+# ---------------------------------------------------------------- Change 44 match-cut experiment
+
+## A genuine boss encounter for the match-cut experiment (marketing/match_cut/): a staged profile at
+## options.stage wearing real drops, the player placed below options.boss (dx/dy from the boss, so the
+## boss stands straight above in portrait) and the boss aggroed. The fight is the real simulation; as
+## boss_sunflower, the only staging is a summon or skill cooldown moved to just before its real event.
+## Every hit on an enemy is logged (HIT target t=) so cut frames can be chosen on real impacts.
+func _match_boss() -> bool:
+    if not _stage_profile(int(options.stage),int(options.get("level",200)),options.get("items",[]),options.get("wear",[]),int(options.get("seed",4401))):return false
+    var boss:=_actor_of(str(options.boss))
+    if boss.is_empty():push_error(LOG+"no boss "+str(options.boss));return false
+    _farm_upgrades([int(boss.group)],false)
+    sim.campaign.reveal_circle(Vector2(boss.home_x,boss.home_y),float(options.get("explored",360.0))) # fixture: walked here
+    _place_player(sim.position_of(boss)+Vector2(float(options.get("dx",0)),float(options.get("dy",30))))
+    boss.aggro=true
+    if options.has("summon_in"):boss.summon_cd=float(options.summon_in)
+    var skill_at: Dictionary=options.get("skill_at",{})
+    for key in skill_at:sim.state.skill_cooldowns[key]=float(skill_at[key])
+    sim.summon_warning.connect(func(id):print(LOG,"SUMMON_WARNING ",id," t=",clock))
+    sim.summoned.connect(func(id,ids):print(LOG,"SUMMON ",id," helpers=",ids.size()," t=",clock))
+    sim.spell_cast.connect(func(id,key,_p):if id=="player":print(LOG,"PLAYER_SKILL ",key," t=",clock))
+    sim.feedback.connect(func(id,amount,healing):if not healing and id!="player":print(LOG,"HIT ",id," ",snappedf(amount,1.0)," t=",clock))
+    _advance(float(options.get("advance",0.0)))
+    print(LOG,"match boss ",options.boss," hp=",float(boss.hp)/float(sim.enemy_definition(int(boss.group)).hp)," weapon=",sim.state.weapon," outfit=",sim.state.outfit)
+    _hud_clean()
+    return true
 
 # ---------------------------------------------------------------- Change 34 store screenshots
 
