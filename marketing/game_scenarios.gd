@@ -71,6 +71,7 @@ func prepare_scenario(scenario_id: String,options_: Dictionary,game_root: Node,c
     # Change 32: every banner raised during a take is logged, so a review can refuse one it should not show.
     if ok:sim.milestone.connect(func(kind,id):print(LOG,"MILESTONE ",kind," ",id," t=",clock))
     if ok and bool(options.get("clean",false)):_clean_view()
+    if ok and options.has("cam"):_camera_track()
     print(LOG,"prepared ",scenario_id," ok=",ok," size=",capture.get("width"),"x",capture.get("height"))
     return ok
 
@@ -86,6 +87,7 @@ func _process(delta: float) -> void:
         x=x*x*(3.0-2.0*x)
         _set_zoom(lerpf(float(zoom_move[0]),float(zoom_move[1]),x))
         if x>=1.0:zoom_move=[]
+    if not cam_keys.is_empty():_camera_step()
 
 # ---------------------------------------------------------------- Change 32: clean, closer shots
 
@@ -893,3 +895,36 @@ func _shot_prestige() -> bool:
             game.selected_card=offered[pick];game._refresh_panel(true)
             print(LOG,"PRESTIGE card selected ",offered[pick])])
     return true
+
+# ---------------------------------------------------------------- Change 45 moving-camera match cut
+
+## Scripted camera for a take (marketing/match_cut_v2/): options.cam is a list of keys
+## [clock, dx, dy, vx, vy, zoom, vzoom]; between keys the camera's offset from the player (world px) and
+## its zoom follow a cubic Hermite curve with the given velocities, so a move can end a take and the next
+## take can start at the same offset, zoom and speed. The view only: the simulation never sees it.
+var cam_keys: Array=[]
+
+func _camera_track() -> void:
+    cam_keys=options.cam
+    game.world.following_player=false
+    if scenario!="match_boss": # match_boss logs its own hits
+        sim.feedback.connect(func(id,amount,healing):if not healing and id!="player":print(LOG,"HIT ",id," ",snappedf(amount,1.0)," t=",clock))
+    _camera_step()
+    print(LOG,"camera keys ",cam_keys.size())
+
+func _camera_step() -> void:
+    var a: Array=cam_keys[cam_keys.size()-1];var b: Array=a;var u:=0.0
+    for i in range(cam_keys.size()-1):
+        if clock<float(cam_keys[i+1][0]):
+            a=cam_keys[i];b=cam_keys[i+1]
+            u=clampf((clock-float(a[0]))/maxf(.001,float(b[0])-float(a[0])),0.0,1.0)
+            break
+    var h:=float(b[0])-float(a[0])
+    var off:=Vector2(_hermite(a[1],b[1],a[3],b[3],u,h),_hermite(a[2],b[2],a[4],b[4],u,h))
+    _settings().camera_zoom=_hermite(a[5],b[5],a[6],b[6],u,h)
+    game.world.following_player=false # a stage refresh re-follows the player
+    game.world.camera_position=sim.position_of(sim.state.player)+off
+
+func _hermite(p0,p1,v0,v1,u: float,h: float) -> float:
+    var u2:=u*u;var u3:=u2*u
+    return (2*u3-3*u2+1)*float(p0)+(u3-2*u2+u)*h*float(v0)+(-2*u3+3*u2)*float(p1)+(u3-u2)*h*float(v1)
