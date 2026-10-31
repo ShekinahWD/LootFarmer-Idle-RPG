@@ -1,0 +1,423 @@
+{
+  "text_renderer": "pillow",
+  "quality": "high",
+  "fonts": {
+    "default": {
+      "file": "../../assets/GUIPackCartoon/Demo/Fonts/LilitaOne - Regular.ttf"
+    }
+  },
+  "strings": {
+    "en-US": {}
+  },
+  "game_scene": "res://scenes/game/main.tscn",
+  "adapter_script": "res://marketing/game_scenarios.gd",
+  "ui_group": "store_screenshot_ui",
+  "godot_user_args": [
+    "--profile=capture-store",
+    "--no-autosave",
+    "--first-run-complete"
+  ],
+  "log_show": [
+    "LOOTFARMER_MARKETING"
+  ],
+  "output_root": "../../store_assets",
+  "capture_jobs": [
+    {
+      "id": "v3_winter",
+      "kind": "video",
+      "scenario": "match_boss",
+      "options": {
+        "stage": 2,
+        "boss": "unit-reindeer-antlers",
+        "pack": true,
+        "zoom": 3.0,
+        "seed": 4501,
+        "level": 45,
+        "dx": 0,
+        "dy": 30,
+        "advance": 0.3,
+        "items": [
+          [
+            "wood_sword",
+            100
+          ],
+          [
+            "boss-snowman_outfit",
+            40
+          ]
+        ],
+        "wear": [
+          "wood_sword",
+          "boss-snowman_outfit"
+        ],
+        "hud": "match",
+        "numbers_gap": 1.5,
+        "cam": [
+          [
+            0,
+            0,
+            -47,
+            0,
+            0,
+            2.0500000000000003,
+            0.0
+          ],
+          [
+            1.9833,
+            0,
+            -47,
+            0,
+            0,
+            2.18,
+            0.15
+          ],
+          [
+            2.4333,
+            0,
+            -47,
+            0,
+            0,
+            2.75,
+            2.6
+          ]
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 4.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/match_cut_v3/v3_winter.avi"
+    },
+    {
+      "id": "v3_summer",
+      "kind": "video",
+      "scenario": "match_boss",
+      "options": {
+        "stage": 4,
+        "boss": "boss-teal-dinosaur",
+        "zoom": 3.0,
+        "seed": 4402,
+        "level": 200,
+        "dx": 0,
+        "dy": 30,
+        "advance": 0.3,
+        "items": [
+          [
+            "iron_sword",
+            100
+          ],
+          [
+            "boss-elephant_outfit_t2",
+            60
+          ]
+        ],
+        "wear": [
+          "iron_sword",
+          "boss-elephant_outfit_t2"
+        ],
+        "boss_history": [
+          "boss-elephant"
+        ],
+        "known_opportunities": [
+          "masterwork_o3",
+          "arsenal_o1"
+        ],
+        "hud": "match",
+        "numbers_gap": 1.5,
+        "cam": [
+          [
+            1.4333,
+            0,
+            -47,
+            0,
+            0,
+            2.75,
+            2.6
+          ],
+          [
+            1.8333,
+            0,
+            -47,
+            0,
+            0,
+            3.3,
+            0.0
+          ],
+          [
+            3.9833,
+            0,
+            -47,
+            0,
+            0,
+            3.3,
+            0.0
+          ],
+          [
+            4.4333,
+            0,
+            -47,
+            0,
+            0,
+            2.8,
+            -2.4
+          ]
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 6.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/match_cut_v3/v3_summer.avi"
+    },
+    {
+      "id": "v3_autumn",
+      "kind": "video",
+      "scenario": "match_boss",
+      "options": {
+        "stage": 6,
+        "boss": "boss-grim-reaper",
+        "zoom": 3.0,
+        "seed": 4403,
+        "level": 700,
+        "dx": 0,
+        "dy": 30,
+        "advance": 0.3,
+        "summon_in": 1.5,
+        "skill_at": {
+          "fire": 2.6
+        },
+        "items": [
+          [
+            "gold_sword",
+            100
+          ],
+          [
+            "boss-red-fox_outfit_t3",
+            80
+          ]
+        ],
+        "wear": [
+          "gold_sword",
+          "boss-red-fox_outfit_t3"
+        ],
+        "skills": [
+          [
+            "skill_fire",
+            60
+          ]
+        ],
+        "boss_history": [
+          "boss-red-fox",
+          "boss-black-cat"
+        ],
+        "hud": "match",
+        "numbers_gap": 1.5,
+        "cam": [
+          [
+            0.4333,
+            0,
+            -52,
+            0,
+            0,
+            2.8,
+            -2.4
+          ],
+          [
+            0.9333,
+            0,
+            -52,
+            0,
+            0,
+            2.25,
+            0.0
+          ],
+          [
+            2.9833,
+            0,
+            -52,
+            0,
+            0,
+            2.35,
+            0.1
+          ],
+          [
+            3.4333,
+            0,
+            -52,
+            0,
+            0,
+            2.7,
+            2.8
+          ]
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 5.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/match_cut_v3/v3_autumn.avi"
+    },
+    {
+      "id": "v3_spring",
+      "kind": "video",
+      "scenario": "match_boss",
+      "options": {
+        "stage": 8,
+        "boss": "boss-red-panda",
+        "zoom": 3.0,
+        "seed": 4404,
+        "level": 238,
+        "dx": 0,
+        "dy": 30,
+        "advance": 0.3,
+        "skill_at": {
+          "lightning": 1.0,
+          "fire": 2.2,
+          "strike": 3.2
+        },
+        "items": [
+          [
+            "emerald_sword",
+            90
+          ],
+          [
+            "boss-sunflower_outfit_t5",
+            500
+          ]
+        ],
+        "wear": [
+          "emerald_sword",
+          "boss-sunflower_outfit_t5"
+        ],
+        "skills": [
+          [
+            "skill_lightning",
+            50
+          ],
+          [
+            "skill_fire",
+            50
+          ],
+          [
+            "skill_strike",
+            50
+          ]
+        ],
+        "boss_history": [
+          "boss-bee",
+          "boss-orange-tabby-cat",
+          "boss-sunflower"
+        ],
+        "hud": "match",
+        "numbers_gap": 1.5,
+        "cam": [
+          [
+            0.4333,
+            0,
+            -52,
+            0,
+            0,
+            2.7,
+            2.8
+          ],
+          [
+            0.8833,
+            0,
+            -52,
+            0,
+            0,
+            3.1,
+            0.0
+          ],
+          [
+            5.6333,
+            0,
+            -52,
+            0,
+            0,
+            3.25,
+            0.0
+          ]
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 6.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/match_cut_v3/v3_spring.avi"
+    }
+  ],
+  "videos": [
+    {
+      "id": "match_cut_v3",
+      "profile": "play_store",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "target_duration": 15.1,
+      "output": "../../store_assets/video/experiments/LootFarmer_MatchCut_Zoom_V3.mp4",
+      "fade_in": 0.0,
+      "fade_out": 0.0,
+      "music": "../../assets/sounds/background_music.wav",
+      "music_start": 60.0,
+      "music_volume": 0.85,
+      "music_fade_in": 0.03,
+      "music_fade_out": 1.5,
+      "game_audio": false,
+      "shots": [
+        {
+          "id": "winter",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/match_cut_v3/v3_winter.avi",
+          "start": 0.43333333333333335,
+          "duration": 2.0
+        },
+        {
+          "id": "summer",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/match_cut_v3/v3_summer.avi",
+          "start": 1.4333333333333333,
+          "duration": 3.0,
+          "transition_in": {
+            "type": "cut"
+          }
+        },
+        {
+          "id": "autumn",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/match_cut_v3/v3_autumn.avi",
+          "start": 0.43333333333333335,
+          "duration": 3.0,
+          "transition_in": {
+            "type": "cut"
+          }
+        },
+        {
+          "id": "spring",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/match_cut_v3/v3_spring.avi",
+          "start": 0.43333333333333335,
+          "duration": 4.2,
+          "transition_in": {
+            "type": "cut"
+          }
+        },
+        {
+          "id": "end_card",
+          "kind": "clip",
+          "source": "../../store_assets/raw/video/trailer_c32/end_card.mkv",
+          "start": 0.0,
+          "duration": 3.3,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        }
+      ]
+    }
+  ]
+}

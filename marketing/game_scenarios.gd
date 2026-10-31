@@ -71,6 +71,7 @@ func prepare_scenario(scenario_id: String,options_: Dictionary,game_root: Node,c
     # Change 32: every banner raised during a take is logged, so a review can refuse one it should not show.
     if ok:sim.milestone.connect(func(kind,id):print(LOG,"MILESTONE ",kind," ",id," t=",clock))
     if ok and bool(options.get("clean",false)):_clean_view()
+    if ok and str(options.get("hud",""))=="match":_match_hud()
     if ok and options.has("cam"):_camera_track()
     print(LOG,"prepared ",scenario_id," ok=",ok," size=",capture.get("width"),"x",capture.get("height"))
     return ok
@@ -88,6 +89,7 @@ func _process(delta: float) -> void:
         _set_zoom(lerpf(float(zoom_move[0]),float(zoom_move[1]),x))
         if x>=1.0:zoom_move=[]
     if not cam_keys.is_empty():_camera_step()
+    if match_hud and game.world.views.has("player"):game.world.views["player"].get_node("HP").modulate.a=0.0
 
 # ---------------------------------------------------------------- Change 32: clean, closer shots
 
@@ -736,6 +738,11 @@ func _match_boss() -> bool:
     if not _stage_profile(int(options.stage),int(options.get("level",200)),options.get("items",[]),options.get("wear",[]),int(options.get("seed",4401))):return false
     var boss:=_actor_of(str(options.boss))
     if boss.is_empty():push_error(LOG+"no boss "+str(options.boss));return false
+    # Change 46: an ordinary pack (options.pack) is fought from below its lowest member, which is then the
+    # hero's nearest enemy and first target, straight above as a boss is.
+    if bool(options.get("pack",false)):
+        for e in sim.state.enemies:
+            if int(e.group)==int(boss.group) and not sim.is_helper(e) and sim.position_of(e).distance_to(sim.position_of(boss))<=140.0 and sim.position_of(e).y>sim.position_of(boss).y:boss=e
     _farm_upgrades([int(boss.group)],false)
     sim.campaign.reveal_circle(Vector2(boss.home_x,boss.home_y),float(options.get("explored",360.0))) # fixture: walked here
     _place_player(sim.position_of(boss)+Vector2(float(options.get("dx",0)),float(options.get("dy",30))))
@@ -928,3 +935,30 @@ func _camera_step() -> void:
 func _hermite(p0,p1,v0,v1,u: float,h: float) -> float:
     var u2:=u*u;var u3:=u2*u
     return (2*u3-3*u2+1)*float(p0)+(u3-2*u2+u)*h*float(v0)+(-2*u3+3*u2)*float(p1)+(u3-u2)*h*float(v1)
+
+# ---------------------------------------------------------------- Change 46 zoom match cut
+
+## The match-cut V3 HUD (marketing/match_cut_v3/), between the full HUD and a clean take: the controls
+## drawn over the map (joystick, minimap, trackers, buttons) and the player's HP (the Top meter and the
+## bar over the hero) are hidden; the Top coins/XP row, the skill row and the compact inventory dock
+## stay, and so does every enemy's and boss's HP bar. Damage numbers are thinned: none over the hero and
+## at most one every numbers_gap seconds over enemies. The view only: HP, damage and combat are untouched.
+var match_hud:=false
+var last_number:=-9.0
+
+func _match_hud() -> void:
+    match_hud=true
+    var group:=str(job.get("ui_group","store_screenshot_ui"))
+    var parts: Array=[game.get_node("Safe/Layout/Top/Content/Meters/HP"),game.get_node("Toast")]
+    for child in game.get_node("Safe/Layout/Map").get_children():
+        if child.name!="ViewportContainer":parts.append(child)
+    for node in parts:
+        if node is CanvasItem:
+            node.add_to_group(group);node.visible=false;hidden_ui.append(node)
+    var gap:=float(options.get("numbers_gap",0.4))
+    sim.feedback.disconnect(game.world._feedback)
+    sim.feedback.connect(func(id,amount,healing):
+        if id=="player" or healing or clock-last_number<gap:return
+        last_number=clock
+        game.world._feedback(id,amount,healing))
+    print(LOG,"match hud: ",hidden_ui.size()," parts hidden, numbers gap ",gap)
