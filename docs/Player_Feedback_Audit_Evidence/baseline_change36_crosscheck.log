@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ENCOUNTER boss boss-green-alien level 250 hp 304514 damage 345.8 interval 2.0s defense 0 final true stage 8
+ENCOUNTER heal below 50%: 4.0% of max (12181 HP), cooldown 20s; action gap 11s; telegraph 0.6s; attack pool ["fire", "strike", "frost", "lightning"] + focus
+ENCOUNTER skill fire power 1.60 (553 damage before Defense), cooldown 20s
+ENCOUNTER skill strike power 2.80 (968 damage before Defense), cooldown 20s
+ENCOUNTER skill frost power 1.20 (415 damage before Defense), cooldown 20s
+ENCOUNTER skill lightning power 1.40 (484 damage before Defense), cooldown 20s
+ENCOUNTER skill focus power 0.15 (0 damage before Defense), cooldown 20s
+ENCOUNTER summons unit-green-cap: first 8s, every 20s, 2 per call, 3 alive max; helper hp 2330 damage 39.5 interval 1.5s
+ENCOUNTER keys required 13: boss-snowman, boss-cyan-robot, boss-gray-cat, boss-elephant, boss-teal-dinosaur, boss-squirrel, boss-red-fox, boss-black-cat, boss-grim-reaper, boss-bee, boss-orange-tabby-cat, boss-red-panda, boss-sunflower
+AUDIT_ROW MIN   seed 1 win       258s | boss left   0.0% min   0.0% | player  48.1% | dmg    966 hp   3919 def    0 crit 0.20 x1.50 ls 0.050 | heals 7 (85264) summons 3 | supplies potion 21/60 recovery_salve 20/30 guard_tonic 11/30 | cast {}
+AUDIT_ROW MIN   seed 2 win       258s | boss left   0.0% min   0.0% | player  67.5% | dmg    966 hp   3919 def    0 crit 0.20 x1.50 ls 0.050 | heals 7 (85264) summons 3 | supplies potion 21/60 recovery_salve 20/30 guard_tonic 11/30 | cast {}
+AUDIT_ROW MIN   seed 3 win       260s | boss left   0.0% min   0.0% | player  65.1% | dmg    966 hp   3919 def    0 crit 0.20 x1.50 ls 0.050 | heals 7 (85264) summons 3 | supplies potion 21/60 recovery_salve 19/30 guard_tonic 11/30 | cast {}
+AUDIT_ROW MIN   seed 4 win       256s | boss left   0.0% min   0.0% | player  58.1% | dmg    966 hp   3919 def    0 crit 0.20 x1.50 ls 0.050 | heals 7 (85264) summons 3 | supplies potion 21/60 recovery_salve 19/30 guard_tonic 11/30 | cast {}
+AUDIT_ROW MIN   seed 5 win       263s | boss left   0.0% min   0.0% | player  53.5% | dmg    966 hp   3919 def    0 crit 0.20 x1.50 ls 0.050 | heals 7 (85264) summons 3 | supplies potion 22/60 recovery_salve 20/30 guard_tonic 11/30 | cast {}
+AUDIT_ROW REC   seed 1 win       158s | boss left   0.0% min   0.0% | player  64.7% | dmg   1130 hp   5052 def    0 crit 0.20 x1.50 ls 0.050 | heals 4 (48722) summons 3 | supplies potion 13/60 recovery_salve 4/30 guard_tonic 7/30 | cast {"focus":8,"lightning":8,"strike":8}
+AUDIT_ROW REC   seed 2 win       157s | boss left   0.0% min   0.0% | player  63.8% | dmg   1130 hp   5052 def    0 crit 0.20 x1.50 ls 0.050 | heals 4 (48722) summons 3 | supplies potion 13/60 recovery_salve 4/30 guard_tonic 7/30 | cast {"focus":8,"lightning":8,"strike":8}
+AUDIT_ROW REC   seed 3 win       159s | boss left   0.0% min   0.0% | player  74.5% | dmg   1130 hp   5052 def    0 crit 0.20 x1.50 ls 0.050 | heals 4 (48722) summons 3 | supplies potion 13/60 recovery_salve 5/30 guard_tonic 7/30 | cast {"focus":8,"lightning":8,"strike":8}
+AUDIT_ROW REC   seed 4 win       156s | boss left   0.0% min   0.0% | player  62.0% | dmg   1130 hp   5052 def    0 crit 0.20 x1.50 ls 0.050 | heals 4 (48722) summons 3 | supplies potion 13/60 recovery_salve 4/30 guard_tonic 7/30 | cast {"focus":8,"lightning":8,"strike":8}
+AUDIT_ROW REC   seed 5 win       160s | boss left   0.0% min   0.0% | player  71.9% | dmg   1130 hp   5052 def    0 crit 0.20 x1.50 ls 0.050 | heals 4 (48722) summons 3 | supplies potion 13/60 recovery_salve 5/30 guard_tonic 7/30 | cast {"focus":9,"lightning":9,"strike":9}
+AUDIT36 wrote C:/Users/Yorkn/AppData/Local/Temp/claude/298c9efa4b1e32cf/9467d4ba-0557-4f48-9312-77512050ef03/scratchpad/audit48/c36_check.csv rows 10
+AUDIT36_CHECKS 20 FAILURES 0

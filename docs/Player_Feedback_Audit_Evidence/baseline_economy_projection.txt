@@ -1,0 +1,97 @@
+Measured farm rates used (v2 spot, 10 simulated minutes, seed 1):
+  FARM_S3      unit-straw-hat             kills/min 15.50 xp/min   108.5 coins/min(no upgrades)  34.88 deaths 0
+  FARM_S3      unit-sunglasses            kills/min 15.00 xp/min   120.0 coins/min(no upgrades)  33.75 deaths 1
+  FARM_S3      unit-yellow-cap            kills/min 14.40 xp/min   129.6 coins/min(no upgrades)  32.40 deaths 2
+  FARM_S4      unit-cowboy-bandana        kills/min 13.50 xp/min   148.5 coins/min(no upgrades)  45.56 deaths 0
+  FARM_S4      unit-duck-swim-ring        kills/min 13.50 xp/min   162.0 coins/min(no upgrades)  45.56 deaths 0
+  FARM_S4      unit-rainbow-clown         kills/min 13.50 xp/min   189.0 coins/min(no upgrades)  45.56 deaths 0
+  FARM_S4      unit-red-cap-swimmer       kills/min 13.20 xp/min   198.0 coins/min(no upgrades)  44.55 deaths 0
+  FARM_S4      unit-snorkeler             kills/min 13.20 xp/min   211.2 coins/min(no upgrades)  44.55 deaths 0
+  FARM_S4      unit-straw-hat-swimmer     kills/min 13.20 xp/min   237.6 coins/min(no upgrades)  44.55 deaths 0
+  FARM_SW_S3   unit-straw-hat             kills/min 14.60 xp/min   102.2 coins/min(no upgrades)  32.85 deaths 2
+  FARM_SW_S3   unit-sunglasses            kills/min 12.00 xp/min    96.0 coins/min(no upgrades)  27.00 deaths 5
+  FARM_SW_S3   unit-yellow-cap            kills/min 10.30 xp/min    92.7 coins/min(no upgrades)  23.18 deaths 7
+  FARM_SW_W2   unit-calico-cat-hood       kills/min 16.00 xp/min    80.0 coins/min(no upgrades)  24.00 deaths 5
+  FARM_SW_W2   unit-golden-crown          kills/min 15.50 xp/min    77.5 coins/min(no upgrades)  23.25 deaths 5
+  FARM_SW_W2   unit-reindeer-antlers      kills/min 14.80 xp/min    74.0 coins/min(no upgrades)  22.20 deaths 6
+  FARM_SW_W2   unit-santa-hat             kills/min 14.40 xp/min    72.0 coins/min(no upgrades)  21.60 deaths 6
+  FARM_SW_W2   unit-space-helmet          kills/min  9.40 xp/min    56.4 coins/min(no upgrades)  14.10 deaths 9
+  FARM_SW_W2   unit-wolf-hood             kills/min 17.10 xp/min    68.4 coins/min(no upgrades)  25.65 deaths 4
+  FARM_W1      unit-blue-cap              kills/min 25.90 xp/min    77.7 coins/min(no upgrades)  25.90 deaths 2
+  FARM_W1      unit-chef-hat              kills/min 16.60 xp/min    66.4 coins/min(no upgrades)  16.60 deaths 4
+  FARM_W1      unit-red-scarf             kills/min 22.60 xp/min    90.4 coins/min(no upgrades)  22.60 deaths 3
+  FARM_W2      unit-calico-cat-hood       kills/min 21.00 xp/min   105.0 coins/min(no upgrades)  31.50 deaths 0
+  FARM_W2      unit-golden-crown          kills/min 21.00 xp/min   105.0 coins/min(no upgrades)  31.50 deaths 0
+  FARM_W2      unit-reindeer-antlers      kills/min 21.00 xp/min   105.0 coins/min(no upgrades)  31.50 deaths 0
+  FARM_W2      unit-santa-hat             kills/min 19.50 xp/min    97.5 coins/min(no upgrades)  29.25 deaths 0
+  FARM_W2      unit-space-helmet          kills/min 16.80 xp/min   100.8 coins/min(no upgrades)  25.20 deaths 2
+  FARM_W2      unit-wolf-hood             kills/min 21.00 xp/min    84.0 coins/min(no upgrades)  31.50 deaths 0
+
+A. Upgrade ladder on one type: kills needed for the NEXT Coin Amount level at that level's income (base-kill units are stage-independent)
+  ^ 0: price       30 x stage factor; income  1.0x base ->     30 kills (x1.033^(stage-1))
+  ^ 1: price       42 x stage factor; income  1.5x base ->     28 kills (x1.033^(stage-1))
+  ^ 2: price       59 x stage factor; income  2.0x base ->     29 kills (x1.033^(stage-1))
+  ^ 3: price       82 x stage factor; income  2.5x base ->     33 kills (x1.033^(stage-1))
+  ^ 5: price      161 x stage factor; income  3.5x base ->     46 kills (x1.033^(stage-1))
+  ^ 8: price      443 x stage factor; income  5.0x base ->     89 kills (x1.033^(stage-1))
+  ^10: price      868 x stage factor; income  6.0x base ->    145 kills (x1.033^(stage-1))
+  ^12: price     1701 x stage factor; income  7.0x base ->    243 kills (x1.033^(stage-1))
+  ^15: price     4667 x stage factor; income  8.5x base ->    549 kills (x1.033^(stage-1))
+  ^19: price    17929 x stage factor; income 10.5x base ->   1708 kills (x1.033^(stage-1))
+
+B. Switching scenarios (PROJECTED from measured kill rates)
+
+B1 Winter II: invested Santa Hat (^10/^5) vs new Space Helmet, same stage
+  stay  unit-santa-hat (^10 coins, ^5 XP):   175.5 coins/min,   146.2 XP/min at minute 0
+  switch unit-space-helmet (no upgrades):             25.2 coins/min,   100.8 XP/min at minute 0  (-86% coins, -31% XP)
+   t= 10 min: stay   175.5 c/min ^10/^9   switch    88.2 c/min ^5/^0
+   t= 30 min: stay   190.1 c/min ^11/^10   switch   138.6 c/min ^9/^0
+   t= 60 min: stay   219.4 c/min ^13/^10   switch   163.8 c/min ^11/^10
+   t=120 min: stay   263.2 c/min ^16/^10   switch   201.6 c/min ^14/^10
+   t=240 min: stay   292.5 c/min ^18/^10   switch   239.4 c/min ^17/^10
+  PROJECTED: switched type reaches the old coin rate after 71.5 min, old XP rate after 36.0 min; cumulative coins catch up: >240 min
+
+B2 Winter II -> Summer I arrival: invested Space Helmet (^10/^5) vs first Summer type Straw Hat
+  stay  unit-space-helmet (^10 coins, ^5 XP):   151.2 coins/min,   151.2 XP/min at minute 0
+  switch unit-straw-hat (no upgrades):             32.9 coins/min,   102.2 XP/min at minute 0  (-78% coins, -32% XP)
+   t= 10 min: stay   151.2 c/min ^10/^9   switch    98.5 c/min ^4/^0
+   t= 30 min: stay   163.8 c/min ^11/^10   switch   164.2 c/min ^8/^0
+   t= 60 min: stay   189.0 c/min ^13/^10   switch   197.1 c/min ^10/^9
+   t=120 min: stay   214.2 c/min ^15/^10   switch   246.4 c/min ^13/^10
+   t=240 min: stay   252.0 c/min ^18/^10   switch   295.6 c/min ^16/^10
+  PROJECTED: switched type reaches the old coin rate after 24.5 min, old XP rate after 42.75 min; cumulative coins catch up: 107.25 min
+
+B3 Summer I: invested Straw Hat (^10/^5) vs Yellow Cap (better XP)
+  stay  unit-straw-hat (^10 coins, ^5 XP):   209.2 coins/min,   162.8 XP/min at minute 0
+  switch unit-yellow-cap (no upgrades):             32.4 coins/min,   129.6 XP/min at minute 0  (-85% coins, -20% XP)
+   t= 10 min: stay   209.2 c/min ^10/^8   switch    97.2 c/min ^4/^0
+   t= 30 min: stay   226.7 c/min ^11/^10   switch   162.0 c/min ^8/^0
+   t= 60 min: stay   261.6 c/min ^13/^10   switch   194.4 c/min ^10/^9
+   t=120 min: stay   296.4 c/min ^15/^10   switch   243.0 c/min ^13/^10
+   t=240 min: stay   331.3 c/min ^17/^10   switch   291.6 c/min ^16/^10
+  PROJECTED: switched type reaches the old coin rate after 72.25 min, old XP rate after 41.25 min; cumulative coins catch up: >240 min
+
+B4 Summer I -> Summer II: invested Yellow Cap (^12/^8) vs Cowboy Bandana
+  stay  unit-yellow-cap (^12 coins, ^8 XP):   226.8 coins/min,   233.3 XP/min at minute 0
+  switch unit-cowboy-bandana (no upgrades):             45.6 coins/min,   148.5 XP/min at minute 0  (-80% coins, -36% XP)
+   t= 10 min: stay   226.8 c/min ^12/^10   switch   136.7 c/min ^4/^0
+   t= 30 min: stay   243.0 c/min ^13/^10   switch   227.8 c/min ^8/^0
+   t= 60 min: stay   259.2 c/min ^14/^10   switch   273.4 c/min ^10/^8
+   t=120 min: stay   275.4 c/min ^15/^10   switch   341.7 c/min ^13/^10
+   t=240 min: stay   307.8 c/min ^17/^10   switch   410.1 c/min ^16/^10
+  PROJECTED: switched type reaches the old coin rate after 27.5 min, old XP rate after 49.5 min; cumulative coins catch up: 122.75 min
+
+C. Alternating among three types of one stage vs one type (same total kills, PROJECTED)
+  t= 30: one type  168.4 c/min (^8/^0) | three types  101.0 c/min (levels [(4, 0), (4, 0), (4, 0)])
+  t= 60: one type  202.1 c/min (^10/^10) | three types  151.5 c/min (levels [(7, 0), (7, 0), (7, 0)])
+  t=120: one type  252.6 c/min (^13/^10) | three types  202.0 c/min (levels [(10, 3), (10, 3), (10, 3)])
+  t=180: one type  286.2 c/min (^15/^10) | three types  202.0 c/min (levels [(10, 10), (10, 10), (10, 10)])
+
+D. Candidate remedies on scenario B2/B3 (PROJECTED)
+  current (start ^0/^0)                                minute-0   32.4 c/min vs old  209.2; parity after 72.25 min; ^ at 60 min 10/9
+  R2 carry 50% of the stage's best level (start ^5/^2) minute-0  113.4 c/min vs old  209.2; parity after 59.5 min; ^ at 60 min 11/10
+  R2 carry 75% (start ^7/^3)                           minute-0  145.8 c/min vs old  209.2; parity after 51.25 min; ^ at 60 min 11/10
+  R1 stage-wide upgrade (start ^10/^5, prices x2.5)    minute-0  194.4 c/min vs old  209.2; parity after 72.5 min; ^ at 60 min 10/10
+
+E. Stage-wide pricing check: buying Coin Amount ^10 for ONE type vs ^10 stage-wide at x2.5 (stage 3 coins)
+  per type 5036 coins (x3 types = 15108); stage-wide x2.5 = 12586 coins; Summer II (6 types) per-type total 46824 vs stage-wide 19504

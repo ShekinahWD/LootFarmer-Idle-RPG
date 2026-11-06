@@ -1,0 +1,868 @@
+rows 4136 invalid 5
+  INVALID FARM_W1 farm boss-snowman focus
+  INVALID FARM_W2 farm boss-cyan-robot focus
+  INVALID FARM_S3 farm boss-gray-cat focus
+  INVALID FARM_S4 farm boss-elephant focus
+  INVALID FARM_S4 farm boss-teal-dinosaur focus
+
+=== STAGE MATRIX (non-ladder builds) ===
+
+[W1_L1_bare] Winter I arrival: level 1, nothing equipped | dmg 5.0 hp 100 def 0 ls 0.000 prestiges 0
+   spot blue-cap outfit-only x3                 3/3  14.9s left  88% min  88% in    0.8/s taken   12%HP pots 0
+   spot blue-cap weapon-only x3                 3/3   9.4s left  92% min  92% in    0.8/s taken    8%HP pots 0
+   spot blue-cap both x3                        3/3  11.6s left  90% min  90% in    0.9/s taken   10%HP pots 0
+   spot red-scarf outfit-only x3                3/3  22.6s left  78% min  73% in    1.2/s taken   27%HP pots 0
+   spot red-scarf weapon-only x3                3/3  14.9s left  81% min  76% in    1.6/s taken   24%HP pots 0
+   spot red-scarf both x3                       3/3  19.3s left  76% min  71% in    1.5/s taken   29%HP pots 0
+   spot chef-hat outfit-only x3                 3/3  25.9s left  74% min  69% in    1.2/s taken   31%HP pots 0
+   spot chef-hat weapon-only x3                 3/3  16.0s left  74% min  69% in    2.0/s taken   31%HP pots 0
+   spot chef-hat both x3                        3/3  22.6s left  63% min  58% in    1.8/s taken   42%HP pots 0
+   spot chef-hat weapon-only x6                 3/3  32.5s left  43% min  43% in    1.9/s taken   62%HP pots 0
+   spot chef-hat both x6                        3/3  42.4s left  30% min  30% in    1.8/s taken   75%HP pots 0
+   single chef-hat weapon-only x1               3/3   5.0s left  90% min  90% in    2.1/s taken   10%HP pots 0
+   BOSS boss-snowman                            0/3  24.4s left   0% min   0% in    4.1/s taken  100%HP pots 0 foeHP 81%
+
+[W1_L5_wood5] Winter I mid: L5, Wood Sword ^5, Red Scarf ^5 | dmg 11.4 hp 129 def 0 ls 0.000 prestiges 0
+   spot blue-cap outfit-only x3                 3/3   6.1s left  97% min  97% in    0.7/s taken    3%HP pots 0
+   spot blue-cap weapon-only x3                 3/3   6.1s left  94% min  94% in    1.2/s taken    6%HP pots 0
+   spot blue-cap both x3                        3/3   6.1s left  95% min  95% in    1.0/s taken    5%HP pots 0
+   spot red-scarf outfit-only x3                3/3   9.4s left  91% min  91% in    1.2/s taken    9%HP pots 0
+   spot red-scarf weapon-only x3                3/3   6.1s left  93% min  93% in    1.5/s taken    7%HP pots 0
+   spot red-scarf both x3                       3/3   9.4s left  89% min  89% in    1.6/s taken   11%HP pots 0
+   spot chef-hat outfit-only x3                 3/3  11.6s left  90% min  90% in    1.1/s taken   10%HP pots 0
+   spot chef-hat weapon-only x3                 3/3   8.3s left  87% min  87% in    2.1/s taken   13%HP pots 0
+   spot chef-hat both x3                        3/3   9.4s left  87% min  87% in    1.8/s taken   13%HP pots 0
+   spot chef-hat weapon-only x6                 3/3  18.2s left  70% min  70% in    2.1/s taken   30%HP pots 0
+   spot chef-hat both x6                        3/3  19.3s left  74% min  74% in    1.7/s taken   26%HP pots 0
+   single chef-hat weapon-only x1               3/3   2.8s left  95% min  95% in    2.5/s taken    5%HP pots 0
+   BOSS boss-snowman                            0/3  38.4s left   0% min   0% in    4.0/s taken  120%HP pots 2 foeHP 33%
+
+[W1_L9_wood20] Winter I boss-ready: L9, Wood Axe ^20, Chef ^20 | dmg 13.5 hp 168 def 0 ls 0.000 prestiges 0
+   spot blue-cap outfit-only x3                 3/3   6.1s left  97% min  97% in    0.7/s taken    3%HP pots 0
+   spot blue-cap weapon-only x3                 3/3   2.8s left 100% min 100% in    0.0/s taken    0%HP pots 0
+   spot blue-cap both x3                        3/3   6.1s left  96% min  96% in    1.0/s taken    4%HP pots 0
+   spot red-scarf outfit-only x3                3/3   9.4s left  93% min  93% in    1.2/s taken    7%HP pots 0
+   spot red-scarf weapon-only x3                3/3   6.1s left  95% min  95% in    1.5/s taken    5%HP pots 0
+   spot red-scarf both x3                       3/3   9.4s left  91% min  91% in    1.6/s taken    9%HP pots 0
+   spot chef-hat outfit-only x3                 3/3   9.4s left  93% min  93% in    1.3/s taken    7%HP pots 0
+   spot chef-hat weapon-only x3                 3/3   6.1s left  94% min  94% in    1.7/s taken    6%HP pots 0
+   spot chef-hat both x3                        3/3   9.4s left  90% min  90% in    1.8/s taken   10%HP pots 0
+   spot chef-hat weapon-only x6                 3/3  12.7s left  88% min  88% in    1.6/s taken   12%HP pots 0
+   spot chef-hat both x6                        3/3  18.2s left  82% min  82% in    1.7/s taken   18%HP pots 0
+   single chef-hat weapon-only x1               3/3   1.7s left  98% min  98% in    2.0/s taken    2%HP pots 0
+   BOSS boss-snowman                            3/3  47.8s left   6% min   6% in    4.0/s taken  114%HP pots 2
+
+[W1_L9_wood20_casual] same, casual (no potions/skills) | dmg 13.5 hp 168 def 0 ls 0.000 prestiges 0
+   spot blue-cap outfit-only x3                 3/3   6.1s left  97% min  97% in    0.7/s taken    3%HP pots 0
+   spot blue-cap weapon-only x3                 3/3   2.8s left 100% min 100% in    0.0/s taken    0%HP pots 0
+   spot blue-cap both x3                        3/3   6.1s left  96% min  96% in    1.0/s taken    4%HP pots 0
+   spot red-scarf outfit-only x3                3/3   9.4s left  93% min  93% in    1.2/s taken    7%HP pots 0
+   spot red-scarf weapon-only x3                3/3   6.1s left  95% min  95% in    1.5/s taken    5%HP pots 0
+   spot red-scarf both x3                       3/3   9.4s left  91% min  91% in    1.6/s taken    9%HP pots 0
+   spot chef-hat outfit-only x3                 3/3   9.4s left  93% min  93% in    1.3/s taken    7%HP pots 0
+   spot chef-hat weapon-only x3                 3/3   6.1s left  94% min  94% in    1.7/s taken    6%HP pots 0
+   spot chef-hat both x3                        3/3   9.4s left  90% min  90% in    1.8/s taken   10%HP pots 0
+   spot chef-hat weapon-only x6                 3/3  12.7s left  88% min  88% in    1.6/s taken   12%HP pots 0
+   spot chef-hat both x6                        3/3  18.2s left  82% min  82% in    1.7/s taken   18%HP pots 0
+   single chef-hat weapon-only x1               3/3   1.7s left  98% min  98% in    2.0/s taken    2%HP pots 0
+   BOSS boss-snowman                            0/3  40.4s left   0% min   0% in    4.2/s taken  100%HP pots 0 foeHP 16%
+
+[W2_L10_arrive] Winter II arrival: L10, Stone Axe ^0 (first Snowman kill), Chef ^20 | dmg 19.0 hp 192 def 0 ls 0.000 prestiges 0
+   spot wolf-hood outfit-only x3                3/3   8.2s left  92% min  92% in    1.8/s taken    8%HP pots 0
+   spot wolf-hood weapon-only x3                3/3   4.9s left  91% min  91% in    3.4/s taken    9%HP pots 0
+   spot wolf-hood both x3                       3/3   6.0s left  93% min  93% in    2.2/s taken    7%HP pots 0
+   spot calico-cat-hood outfit-only x3          3/3   9.3s left  88% min  88% in    2.4/s taken   12%HP pots 0
+   spot calico-cat-hood weapon-only x3          3/3   6.0s left  90% min  90% in    3.1/s taken   10%HP pots 0
+   spot calico-cat-hood both x3                 3/3   8.2s left  88% min  88% in    2.7/s taken   12%HP pots 0
+   spot golden-crown outfit-only x3             3/3   9.3s left  88% min  88% in    2.5/s taken   12%HP pots 0
+   spot golden-crown weapon-only x3             3/3   6.0s left  90% min  90% in    3.2/s taken   10%HP pots 0
+   spot golden-crown both x3                    3/3   8.2s left  88% min  88% in    2.8/s taken   12%HP pots 0
+   spot reindeer-antlers outfit-only x3         3/3  11.5s left  83% min  83% in    2.8/s taken   17%HP pots 0
+   spot reindeer-antlers weapon-only x3         3/3   6.0s left  89% min  89% in    3.6/s taken   11%HP pots 0
+   spot reindeer-antlers both x3                3/3   9.3s left  82% min  82% in    3.7/s taken   18%HP pots 0
+   spot santa-hat outfit-only x3                3/3  11.5s left  82% min  82% in    2.9/s taken   18%HP pots 0
+   spot santa-hat weapon-only x3                3/3   8.2s left  82% min  82% in    4.1/s taken   18%HP pots 0
+   spot santa-hat both x3                       3/3   9.3s left  81% min  81% in    3.9/s taken   19%HP pots 0
+   spot space-helmet outfit-only x3             3/3  12.6s left  79% min  79% in    3.2/s taken   21%HP pots 0
+   spot space-helmet weapon-only x3             3/3   8.2s left  81% min  81% in    4.5/s taken   19%HP pots 0
+   spot space-helmet both x3                    3/3   9.3s left  79% min  79% in    4.2/s taken   21%HP pots 0
+   spot space-helmet skill x3                   3/3  14.8s left  55% min  55% in    5.8/s taken   45%HP pots 0
+   spot space-helmet weapon-only x6             3/3  18.1s left  43% min  39% in    7.2/s taken   67%HP pots 1
+   spot space-helmet skill x6                   0/3  21.8s left   0% min   0% in    9.7/s taken  110%HP pots 1 foeHP 31%
+   single space-helmet weapon-only x1           3/3   1.6s left  97% min  97% in    3.8/s taken    3%HP pots 0
+   BOSS boss-cyan-robot                         0/3  54.4s left   0% min   0% in    4.6/s taken  132%HP pots 3 foeHP 44%
+
+[W2_L16_normal] Winter II farmed normal path: L16, Stone Axe ^0 + stored Wood Axe ^100, Santa Hat ^60, Heal ^0 | dmg 25.7 hp 234 def 0 ls 0.000 prestiges 0
+   spot wolf-hood outfit-only x3                3/3   6.0s left  97% min  97% in    1.7/s taken    4%HP pots 0
+   spot wolf-hood weapon-only x3                3/3   6.0s left  95% min  95% in    2.8/s taken    7%HP pots 0
+   spot wolf-hood both x3                       3/3   6.0s left  96% min  96% in    2.2/s taken    6%HP pots 0
+   spot calico-cat-hood outfit-only x3          3/3   9.3s left  92% min  92% in    2.4/s taken    9%HP pots 0
+   spot calico-cat-hood weapon-only x3          3/3   6.0s left  94% min  94% in    3.1/s taken    8%HP pots 0
+   spot calico-cat-hood both x3                 3/3   6.0s left  95% min  95% in    2.5/s taken    6%HP pots 0
+   spot golden-crown outfit-only x3             3/3   9.3s left  91% min  91% in    2.5/s taken   10%HP pots 0
+   spot golden-crown weapon-only x3             3/3   6.0s left  94% min  94% in    3.2/s taken    8%HP pots 0
+   spot golden-crown both x3                    3/3   6.0s left  95% min  95% in    2.6/s taken    7%HP pots 0
+   spot reindeer-antlers outfit-only x3         3/3   9.3s left  90% min  90% in    2.8/s taken   11%HP pots 0
+   spot reindeer-antlers weapon-only x3         3/3   6.0s left  93% min  93% in    3.6/s taken    9%HP pots 0
+   spot reindeer-antlers both x3                3/3   6.0s left  95% min  95% in    2.9/s taken    7%HP pots 0
+   spot santa-hat outfit-only x3                3/3   9.3s left  90% min  90% in    2.9/s taken   12%HP pots 0
+   spot santa-hat weapon-only x3                3/3   6.0s left  93% min  93% in    3.7/s taken   10%HP pots 0
+   spot santa-hat both x3                       3/3   6.0s left  94% min  94% in    3.0/s taken    8%HP pots 0
+   spot space-helmet outfit-only x3             3/3   9.3s left  89% min  89% in    3.2/s taken   13%HP pots 0
+   spot space-helmet weapon-only x3             3/3   6.0s left  92% min  92% in    4.1/s taken   11%HP pots 0
+   spot space-helmet both x3                    3/3   9.3s left  85% min  85% in    4.2/s taken   17%HP pots 0
+   spot space-helmet skill x3                   3/3  12.6s left  72% min  72% in    5.8/s taken   31%HP pots 0
+   spot space-helmet weapon-only x6             3/3  12.6s left  58% min  58% in    8.3/s taken   45%HP pots 0
+   spot space-helmet skill x6                   3/3  25.8s left  27% min  27% in    8.8/s taken   97%HP pots 1
+   single space-helmet weapon-only x1           3/3   1.6s left 100% min  97% in    3.8/s taken    3%HP pots 0
+   BOSS boss-cyan-robot                         3/3  59.9s left  29% min  29% in    4.5/s taken  116%HP pots 2
+
+[W2_L16_snow] Winter II Snowman carry: L16, Stone Axe ^30, Snowman ^30, Heal ^0 | dmg 27.3 hp 269 def 0 ls 0.000 prestiges 0
+   spot wolf-hood outfit-only x3                3/3   6.0s left  97% min  97% in    1.7/s taken    4%HP pots 0
+   spot wolf-hood weapon-only x3                3/3   4.9s left  95% min  95% in    3.4/s taken    6%HP pots 0
+   spot wolf-hood both x3                       3/3   4.9s left  96% min  96% in    2.7/s taken    5%HP pots 0
+   spot calico-cat-hood outfit-only x3          3/3   6.0s left  97% min  97% in    1.8/s taken    4%HP pots 0
+   spot calico-cat-hood weapon-only x3          3/3   4.9s left  95% min  95% in    3.8/s taken    7%HP pots 0
+   spot calico-cat-hood both x3                 3/3   6.0s left  96% min  96% in    2.5/s taken    5%HP pots 0
+   spot golden-crown outfit-only x3             3/3   8.2s left  95% min  95% in    2.1/s taken    6%HP pots 0
+   spot golden-crown weapon-only x3             3/3   4.9s left  95% min  95% in    4.0/s taken    7%HP pots 0
+   spot golden-crown both x3                    3/3   6.0s left  96% min  96% in    2.6/s taken    6%HP pots 0
+   spot reindeer-antlers outfit-only x3         3/3   8.2s left  94% min  94% in    2.4/s taken    7%HP pots 0
+   spot reindeer-antlers weapon-only x3         3/3   4.9s left  94% min  94% in    4.4/s taken    8%HP pots 0
+   spot reindeer-antlers both x3                3/3   6.0s left  95% min  95% in    2.9/s taken    6%HP pots 0
+   spot santa-hat outfit-only x3                3/3   8.2s left  94% min  94% in    2.5/s taken    8%HP pots 0
+   spot santa-hat weapon-only x3                3/3   4.9s left  94% min  94% in    4.6/s taken    8%HP pots 0
+   spot santa-hat both x3                       3/3   6.0s left  95% min  95% in    3.0/s taken    7%HP pots 0
+   spot space-helmet outfit-only x3             3/3   9.3s left  90% min  90% in    3.2/s taken   11%HP pots 0
+   spot space-helmet weapon-only x3             3/3   6.0s left  93% min  93% in    4.1/s taken    9%HP pots 0
+   spot space-helmet both x3                    3/3   8.2s left  91% min  91% in    3.6/s taken   11%HP pots 0
+   spot space-helmet skill x3                   3/3  11.5s left  78% min  78% in    5.8/s taken   25%HP pots 0
+   spot space-helmet weapon-only x6             3/3  12.6s left  63% min  63% in    8.3/s taken   39%HP pots 0
+   spot space-helmet skill x6                   3/3  23.6s left  44% min  36% in    8.8/s taken   79%HP pots 1
+   single space-helmet weapon-only x1           3/3   1.6s left 100% min  98% in    3.8/s taken    2%HP pots 0
+   BOSS boss-cyan-robot                         3/3  57.7s left  36% min  36% in    4.6/s taken   98%HP pots 1
+
+[W2_L16_snow_casual] same Snowman carry, casual | dmg 27.3 hp 269 def 0 ls 0.000 prestiges 0
+   spot wolf-hood outfit-only x3                3/3   6.0s left  96% min  96% in    1.7/s taken    4%HP pots 0
+   spot wolf-hood weapon-only x3                3/3   4.9s left  94% min  94% in    3.4/s taken    6%HP pots 0
+   spot wolf-hood both x3                       3/3   4.9s left  95% min  95% in    2.7/s taken    5%HP pots 0
+   spot calico-cat-hood outfit-only x3          3/3   6.0s left  96% min  96% in    1.8/s taken    4%HP pots 0
+   spot calico-cat-hood weapon-only x3          3/3   4.9s left  93% min  93% in    3.8/s taken    7%HP pots 0
+   spot calico-cat-hood both x3                 3/3   6.0s left  95% min  95% in    2.5/s taken    5%HP pots 0
+   spot golden-crown outfit-only x3             3/3   8.2s left  94% min  94% in    2.1/s taken    6%HP pots 0
+   spot golden-crown weapon-only x3             3/3   4.9s left  93% min  93% in    4.0/s taken    7%HP pots 0
+   spot golden-crown both x3                    3/3   6.0s left  94% min  94% in    2.6/s taken    6%HP pots 0
+   spot reindeer-antlers outfit-only x3         3/3   8.2s left  93% min  93% in    2.4/s taken    7%HP pots 0
+   spot reindeer-antlers weapon-only x3         3/3   4.9s left  92% min  92% in    4.4/s taken    8%HP pots 0
+   spot reindeer-antlers both x3                3/3   6.0s left  94% min  94% in    2.9/s taken    6%HP pots 0
+   spot santa-hat outfit-only x3                3/3   8.2s left  92% min  92% in    2.5/s taken    8%HP pots 0
+   spot santa-hat weapon-only x3                3/3   4.9s left  92% min  92% in    4.6/s taken    8%HP pots 0
+   spot santa-hat both x3                       3/3   6.0s left  93% min  93% in    3.0/s taken    7%HP pots 0
+   spot space-helmet outfit-only x3             3/3   9.3s left  89% min  89% in    3.2/s taken   11%HP pots 0
+   spot space-helmet weapon-only x3             3/3   6.0s left  91% min  91% in    4.1/s taken    9%HP pots 0
+   spot space-helmet both x3                    3/3   8.2s left  89% min  89% in    3.6/s taken   11%HP pots 0
+   spot space-helmet skill x3                   3/3  11.5s left  75% min  75% in    5.8/s taken   25%HP pots 0
+   spot space-helmet weapon-only x6             3/3  12.6s left  61% min  61% in    8.3/s taken   39%HP pots 0
+   spot space-helmet skill x6                   3/3  23.6s left  21% min  21% in    8.8/s taken   79%HP pots 0
+   single space-helmet weapon-only x1           3/3   1.6s left  98% min  98% in    3.8/s taken    2%HP pots 0
+   BOSS boss-cyan-robot                         3/3  57.7s left   2% min   2% in    4.6/s taken   98%HP pots 0
+
+[W2_L20_snow] Winter II boss-level: L20, Stone Axe ^40, Snowman ^40, Heal ^5 | dmg 30.9 hp 300 def 0 ls 0.000 prestiges 0
+   spot wolf-hood outfit-only x3                3/3   4.9s left  98% min  98% in    2.0/s taken    3%HP pots 0
+   spot wolf-hood weapon-only x3                3/3   2.7s left  99% min  99% in    3.1/s taken    3%HP pots 0
+   spot wolf-hood both x3                       3/3   4.9s left  97% min  97% in    2.7/s taken    4%HP pots 0
+   spot calico-cat-hood outfit-only x3          3/3   6.0s left  97% min  97% in    1.8/s taken    4%HP pots 0
+   spot calico-cat-hood weapon-only x3          3/3   4.9s left  95% min  95% in    3.8/s taken    6%HP pots 0
+   spot calico-cat-hood both x3                 3/3   4.9s left  96% min  96% in    3.0/s taken    5%HP pots 0
+   spot golden-crown outfit-only x3             3/3   6.0s left  97% min  97% in    1.9/s taken    4%HP pots 0
+   spot golden-crown weapon-only x3             3/3   4.9s left  95% min  95% in    4.0/s taken    6%HP pots 0
+   spot golden-crown both x3                    3/3   4.9s left  96% min  96% in    3.2/s taken    5%HP pots 0
+   spot reindeer-antlers outfit-only x3         3/3   6.0s left  97% min  97% in    2.1/s taken    4%HP pots 0
+   spot reindeer-antlers weapon-only x3         3/3   4.9s left  95% min  95% in    4.4/s taken    7%HP pots 0
+   spot reindeer-antlers both x3                3/3   6.0s left  96% min  96% in    2.9/s taken    6%HP pots 0
+   spot santa-hat outfit-only x3                3/3   8.2s left  94% min  94% in    2.5/s taken    7%HP pots 0
+   spot santa-hat weapon-only x3                3/3   4.9s left  94% min  94% in    4.6/s taken    7%HP pots 0
+   spot santa-hat both x3                       3/3   6.0s left  96% min  96% in    3.0/s taken    6%HP pots 0
+   spot space-helmet outfit-only x3             3/3   8.2s left  94% min  94% in    2.7/s taken    7%HP pots 0
+   spot space-helmet weapon-only x3             3/3   4.9s left  94% min  94% in    5.0/s taken    8%HP pots 0
+   spot space-helmet both x3                    3/3   6.0s left  95% min  95% in    3.3/s taken    7%HP pots 0
+   spot space-helmet skill x3                   3/3   9.3s left  84% min  84% in    5.7/s taken   18%HP pots 0
+   spot space-helmet weapon-only x6             3/3  11.5s left  73% min  73% in    7.5/s taken   29%HP pots 0
+   spot space-helmet skill x6                   3/3  19.2s left  49% min  49% in    8.3/s taken   53%HP pots 0
+   single space-helmet weapon-only x1           3/3   0.5s left 100% min 100% in    0.0/s taken    0%HP pots 0
+   BOSS boss-cyan-robot                         3/3  46.7s left  51% min  50% in    4.6/s taken   73%HP pots 0
+
+[W2_L20_snow_P1] same + 1 Prestige (7 boss-leaning cards) | dmg 30.9 hp 360 def 0 ls 0.050 prestiges 1
+   spot wolf-hood outfit-only x3                3/3   4.9s left  99% min  99% in    2.0/s taken    3%HP pots 0
+   spot wolf-hood weapon-only x3                3/3   2.7s left  99% min  99% in    3.1/s taken    2%HP pots 0
+   spot wolf-hood both x3                       3/3   2.7s left 100% min  99% in    2.4/s taken    2%HP pots 0
+   spot calico-cat-hood outfit-only x3          3/3   4.9s left  99% min  98% in    2.3/s taken    3%HP pots 0
+   spot calico-cat-hood weapon-only x3          3/3   2.7s left  99% min  99% in    3.4/s taken    3%HP pots 0
+   spot calico-cat-hood both x3                 3/3   4.9s left  98% min  98% in    3.0/s taken    4%HP pots 0
+   spot golden-crown outfit-only x3             3/3   4.9s left  99% min  98% in    2.4/s taken    3%HP pots 0
+   spot golden-crown weapon-only x3             3/3   2.7s left  99% min  99% in    3.6/s taken    3%HP pots 0
+   spot golden-crown both x3                    3/3   4.9s left  98% min  97% in    3.2/s taken    4%HP pots 0
+   spot reindeer-antlers outfit-only x3         3/3   6.0s left  98% min  98% in    2.7/s taken    4%HP pots 0
+   spot reindeer-antlers weapon-only x3         3/3   2.7s left  99% min  99% in    4.0/s taken    3%HP pots 0
+   spot reindeer-antlers both x3                3/3   4.9s left  97% min  97% in    3.5/s taken    5%HP pots 0
+   spot santa-hat outfit-only x3                3/3   6.0s left  98% min  98% in    2.8/s taken    5%HP pots 0
+   spot santa-hat weapon-only x3                3/3   4.9s left  96% min  96% in    4.6/s taken    6%HP pots 0
+   spot santa-hat both x3                       3/3   4.9s left  97% min  97% in    3.7/s taken    5%HP pots 0
+   spot space-helmet outfit-only x3             3/3   6.0s left  98% min  98% in    3.1/s taken    5%HP pots 0
+   spot space-helmet weapon-only x3             3/3   4.9s left  96% min  96% in    5.0/s taken    7%HP pots 0
+   spot space-helmet both x3                    3/3   6.0s left  96% min  96% in    4.1/s taken    7%HP pots 0
+   spot space-helmet skill x3                   3/3   8.2s left  94% min  93% in    4.9/s taken   11%HP pots 0
+   spot space-helmet weapon-only x6             3/3  11.5s left  84% min  84% in    6.4/s taken   21%HP pots 0
+   spot space-helmet skill x6                   3/3  18.1s left  75% min  75% in    6.6/s taken   33%HP pots 0
+   single space-helmet weapon-only x1           3/3   0.5s left 100% min 100% in    0.0/s taken    0%HP pots 0
+   BOSS boss-cyan-robot                         3/3  30.2s left  91% min  85% in    4.6/s taken   38%HP pots 0
+
+[S3_L22_arrive] Summer I arrival: L22, Stone Axe ^30, Snowman ^30, Heal ^5 | dmg 33.3 hp 299 def 0 ls 0.000 prestiges 0
+   spot straw-hat outfit-only x3                3/3   9.3s left  84% min  84% in    5.6/s taken   18%HP pots 0
+   spot straw-hat weapon-only x3                3/3   6.0s left  84% min  84% in    9.3/s taken   19%HP pots 0
+   spot straw-hat both x3                       3/3   9.3s left  79% min  79% in    7.5/s taken   23%HP pots 0
+   spot straw-hat skill x3                      3/3  12.6s left  51% min  51% in   13.4/s taken   56%HP pots 0
+   spot sunglasses outfit-only x3               3/3  12.6s left  72% min  72% in    7.1/s taken   30%HP pots 0
+   spot sunglasses weapon-only x3               3/3   9.3s left  69% min  69% in   11.0/s taken   34%HP pots 0
+   spot sunglasses both x3                      3/3   9.3s left  75% min  75% in    8.8/s taken   27%HP pots 0
+   spot sunglasses skill x3                     3/3  12.6s left  41% min  41% in   16.6/s taken   70%HP pots 0
+   spot yellow-cap outfit-only x3               3/3  15.9s left  61% min  61% in    7.7/s taken   41%HP pots 0
+   spot yellow-cap weapon-only x3               3/3   9.3s left  64% min  64% in   12.7/s taken   40%HP pots 0
+   spot yellow-cap both x3                      3/3  12.6s left  57% min  57% in   10.9/s taken   46%HP pots 0
+   spot yellow-cap skill x3                     3/3  15.9s left  31% min  31% in   17.0/s taken   90%HP pots 1
+   spot yellow-cap weapon-only x6               0/3  10.4s left   0% min   0% in   32.9/s taken  115%HP pots 1 foeHP 43%
+   spot yellow-cap skill x6                     0/3   6.2s left   0% min   0% in   58.5/s taken  121%HP pots 1 foeHP 79%
+   single yellow-cap weapon-only x1             3/3   2.7s left  96% min  96% in    8.0/s taken    7%HP pots 0
+   BOSS boss-gray-cat                           0/3  50.4s left   0% min   0% in    9.4/s taken  159%HP pots 3 foeHP 25%
+
+[S3_L28_normal] Summer I farmed normal outfit: L28, Stone Axe ^60, Yellow Cap t2 ^40, Heal ^10 | dmg 42.8 hp 347 def 0 ls 0.000 prestiges 0
+   spot straw-hat outfit-only x3                3/3   9.3s left  86% min  86% in    5.6/s taken   15%HP pots 0
+   spot straw-hat weapon-only x3                3/3   6.0s left  86% min  86% in    9.3/s taken   16%HP pots 0
+   spot straw-hat both x3                       3/3   6.0s left  89% min  89% in    7.4/s taken   13%HP pots 0
+   spot straw-hat skill x3                      3/3   9.3s left  70% min  70% in   13.5/s taken   36%HP pots 0
+   spot sunglasses outfit-only x3               3/3   9.3s left  84% min  84% in    6.6/s taken   18%HP pots 0
+   spot sunglasses weapon-only x3               3/3   6.0s left  84% min  84% in   10.8/s taken   19%HP pots 0
+   spot sunglasses both x3                      3/3   9.3s left  79% min  79% in    8.8/s taken   24%HP pots 0
+   spot sunglasses skill x3                     3/3   9.3s left  64% min  64% in   17.0/s taken   46%HP pots 0
+   spot yellow-cap outfit-only x3               3/3  12.6s left  72% min  72% in    8.2/s taken   30%HP pots 0
+   spot yellow-cap weapon-only x3               3/3   6.0s left  81% min  81% in   12.5/s taken   22%HP pots 0
+   spot yellow-cap both x3                      3/3   9.3s left  75% min  75% in   10.2/s taken   27%HP pots 0
+   spot yellow-cap skill x3                     3/3  12.6s left  42% min  42% in   18.6/s taken   68%HP pots 0
+   spot yellow-cap weapon-only x6               3/3  12.6s left  31% min  31% in   23.1/s taken   84%HP pots 1
+   spot yellow-cap skill x6                     0/3   8.4s left   0% min   0% in   50.5/s taken  122%HP pots 1 foeHP 67%
+   single yellow-cap weapon-only x1             3/3   1.6s left 100% min  97% in    6.7/s taken    3%HP pots 0
+   BOSS boss-gray-cat                           3/3  52.2s left  23% min  11% in    9.2/s taken  138%HP pots 3
+
+[S3_L28_snow] Summer I Snowman carry: L28, Stone Axe ^60, Snowman ^60, Heal ^10 | dmg 42.8 hp 363 def 0 ls 0.000 prestiges 0
+   spot straw-hat outfit-only x3                3/3   9.3s left  87% min  87% in    5.6/s taken   14%HP pots 0
+   spot straw-hat weapon-only x3                3/3   6.0s left  87% min  87% in    9.3/s taken   15%HP pots 0
+   spot straw-hat both x3                       3/3   6.0s left  89% min  89% in    7.4/s taken   12%HP pots 0
+   spot straw-hat skill x3                      3/3   9.3s left  71% min  71% in   13.5/s taken   35%HP pots 0
+   spot sunglasses outfit-only x3               3/3   9.3s left  85% min  85% in    6.6/s taken   17%HP pots 0
+   spot sunglasses weapon-only x3               3/3   6.0s left  85% min  85% in   10.8/s taken   18%HP pots 0
+   spot sunglasses both x3                      3/3   9.3s left  80% min  80% in    8.8/s taken   23%HP pots 0
+   spot sunglasses skill x3                     3/3   9.3s left  65% min  65% in   17.0/s taken   44%HP pots 0
+   spot yellow-cap outfit-only x3               3/3  12.6s left  73% min  73% in    8.2/s taken   28%HP pots 0
+   spot yellow-cap weapon-only x3               3/3   6.0s left  82% min  82% in   12.5/s taken   21%HP pots 0
+   spot yellow-cap both x3                      3/3   9.3s left  76% min  76% in   10.2/s taken   26%HP pots 0
+   spot yellow-cap skill x3                     3/3  12.6s left  44% min  44% in   18.6/s taken   65%HP pots 0
+   spot yellow-cap weapon-only x6               3/3  12.6s left  34% min  34% in   23.1/s taken   80%HP pots 1
+   spot yellow-cap skill x6                     0/3   8.9s left   0% min   0% in   49.9/s taken  122%HP pots 1 foeHP 67%
+   single yellow-cap weapon-only x1             3/3   1.6s left 100% min  97% in    6.7/s taken    3%HP pots 0
+   BOSS boss-gray-cat                           3/3  52.2s left  17% min  17% in    9.2/s taken  132%HP pots 2
+
+[S3_L28_snow_casual] same Snowman carry, casual | dmg 42.8 hp 363 def 0 ls 0.000 prestiges 0
+   spot straw-hat outfit-only x3                3/3   9.3s left  86% min  86% in    5.6/s taken   14%HP pots 0
+   spot straw-hat weapon-only x3                3/3   6.0s left  85% min  85% in    9.3/s taken   15%HP pots 0
+   spot straw-hat both x3                       3/3   6.0s left  88% min  88% in    7.4/s taken   12%HP pots 0
+   spot straw-hat skill x3                      3/3   9.3s left  65% min  65% in   13.5/s taken   35%HP pots 0
+   spot sunglasses outfit-only x3               3/3   9.3s left  83% min  83% in    6.6/s taken   17%HP pots 0
+   spot sunglasses weapon-only x3               3/3   6.0s left  82% min  82% in   10.8/s taken   18%HP pots 0
+   spot sunglasses both x3                      3/3   9.3s left  77% min  77% in    8.8/s taken   23%HP pots 0
+   spot sunglasses skill x3                     3/3   9.3s left  56% min  56% in   17.0/s taken   44%HP pots 0
+   spot yellow-cap outfit-only x3               3/3  12.6s left  72% min  72% in    8.2/s taken   28%HP pots 0
+   spot yellow-cap weapon-only x3               3/3   6.0s left  79% min  79% in   12.5/s taken   21%HP pots 0
+   spot yellow-cap both x3                      3/3   9.3s left  74% min  74% in   10.2/s taken   26%HP pots 0
+   spot yellow-cap skill x3                     3/3  12.6s left  35% min  35% in   18.6/s taken   65%HP pots 0
+   spot yellow-cap weapon-only x6               3/3  12.6s left  20% min  20% in   23.1/s taken   80%HP pots 0
+   spot yellow-cap skill x6                     0/3   6.2s left   0% min   0% in   58.6/s taken  100%HP pots 0 foeHP 73%
+   single yellow-cap weapon-only x1             3/3   1.6s left  97% min  97% in    6.7/s taken    3%HP pots 0
+   BOSS boss-gray-cat                           0/3  40.4s left   0% min   0% in    9.0/s taken  100%HP pots 0 foeHP 22%
+
+[S3_L28_snow_P3] Snowman carry + 3 Prestiges (13 cards; reported pattern) | dmg 46.4 hp 464 def 0 ls 0.050 prestiges 3
+   spot straw-hat outfit-only x3                3/3   6.0s left  97% min  96% in    5.6/s taken    7%HP pots 0
+   spot straw-hat weapon-only x3                3/3   6.0s left  91% min  91% in    9.3/s taken   12%HP pots 0
+   spot straw-hat both x3                       3/3   6.0s left  94% min  94% in    7.4/s taken   10%HP pots 0
+   spot straw-hat skill x3                      3/3   6.0s left  88% min  87% in   15.2/s taken   20%HP pots 0
+   spot sunglasses outfit-only x3               3/3   9.3s left  91% min  91% in    6.6/s taken   13%HP pots 0
+   spot sunglasses weapon-only x3               3/3   6.0s left  90% min  90% in   10.8/s taken   14%HP pots 0
+   spot sunglasses both x3                      3/3   6.0s left  93% min  93% in    8.7/s taken   11%HP pots 0
+   spot sunglasses skill x3                     3/3   9.3s left  76% min  76% in   17.0/s taken   34%HP pots 0
+   spot yellow-cap outfit-only x3               3/3   9.3s left  90% min  90% in    7.6/s taken   15%HP pots 0
+   spot yellow-cap weapon-only x3               3/3   6.0s left  88% min  88% in   12.5/s taken   16%HP pots 0
+   spot yellow-cap both x3                      3/3   6.0s left  92% min  91% in   10.0/s taken   13%HP pots 0
+   spot yellow-cap skill x3                     3/3   9.3s left  73% min  73% in   19.0/s taken   38%HP pots 0
+   spot yellow-cap weapon-only x6               3/3  12.6s left  47% min  46% in   22.2/s taken   60%HP pots 0
+   spot yellow-cap skill x6                     3/3  19.2s left  17% min   7% in   30.5/s taken  126%HP pots 2
+   single yellow-cap weapon-only x1             3/3   1.6s left 100% min  98% in    6.7/s taken    2%HP pots 0
+   BOSS boss-gray-cat                           3/3  29.1s left  89% min  84% in    7.8/s taken   49%HP pots 0
+
+[S3_L35_normal] Summer I boss-level normal: L35, Stone Axe ^100, Yellow Cap t2 ^80, Heal ^15 | dmg 54.1 hp 423 def 0 ls 0.000 prestiges 0
+   spot straw-hat outfit-only x3                3/3   6.0s left  93% min  93% in    5.6/s taken    8%HP pots 0
+   spot straw-hat weapon-only x3                3/3   6.0s left  89% min  89% in    9.3/s taken   13%HP pots 0
+   spot straw-hat both x3                       3/3   6.0s left  91% min  91% in    7.4/s taken   11%HP pots 0
+   spot straw-hat skill x3                      3/3   6.0s left  83% min  83% in   15.2/s taken   22%HP pots 0
+   spot sunglasses outfit-only x3               3/3   9.3s left  87% min  87% in    6.6/s taken   15%HP pots 0
+   spot sunglasses weapon-only x3               3/3   6.0s left  87% min  87% in   10.8/s taken   15%HP pots 0
+   spot sunglasses both x3                      3/3   6.0s left  89% min  89% in    8.7/s taken   12%HP pots 0
+   spot sunglasses skill x3                     3/3   9.3s left  70% min  70% in   17.0/s taken   37%HP pots 0
+   spot yellow-cap outfit-only x3               3/3   9.3s left  85% min  85% in    7.6/s taken   17%HP pots 0
+   spot yellow-cap weapon-only x3               3/3   6.0s left  85% min  85% in   12.5/s taken   18%HP pots 0
+   spot yellow-cap both x3                      3/3   6.0s left  88% min  88% in   10.0/s taken   14%HP pots 0
+   spot yellow-cap skill x3                     3/3   9.3s left  66% min  66% in   19.0/s taken   42%HP pots 0
+   spot yellow-cap weapon-only x6               3/3  12.6s left  46% min  39% in   23.1/s taken   69%HP pots 1
+   spot yellow-cap skill x6                     0/3  12.9s left   0% min   0% in   40.4/s taken  123%HP pots 1 foeHP 33%
+   single yellow-cap weapon-only x1             3/3   1.6s left 100% min  97% in    6.7/s taken    3%HP pots 0
+   BOSS boss-gray-cat                           3/3  41.2s left  49% min  37% in    9.2/s taken   89%HP pots 1
+
+[S3_L35_snow] Summer I boss-level Snowman: L35, Stone Axe ^100, Snowman ^80, Heal ^15 | dmg 54.1 hp 432 def 0 ls 0.000 prestiges 0
+   spot straw-hat outfit-only x3                3/3   6.0s left  93% min  93% in    5.6/s taken    8%HP pots 0
+   spot straw-hat weapon-only x3                3/3   6.0s left  89% min  89% in    9.3/s taken   13%HP pots 0
+   spot straw-hat both x3                       3/3   6.0s left  91% min  91% in    7.4/s taken   10%HP pots 0
+   spot straw-hat skill x3                      3/3   6.0s left  84% min  84% in   15.2/s taken   21%HP pots 0
+   spot sunglasses outfit-only x3               3/3   9.3s left  87% min  87% in    6.6/s taken   14%HP pots 0
+   spot sunglasses weapon-only x3               3/3   6.0s left  87% min  87% in   10.8/s taken   15%HP pots 0
+   spot sunglasses both x3                      3/3   6.0s left  90% min  90% in    8.7/s taken   12%HP pots 0
+   spot sunglasses skill x3                     3/3   9.3s left  71% min  71% in   17.0/s taken   37%HP pots 0
+   spot yellow-cap outfit-only x3               3/3   9.3s left  85% min  85% in    7.6/s taken   16%HP pots 0
+   spot yellow-cap weapon-only x3               3/3   6.0s left  85% min  85% in   12.5/s taken   17%HP pots 0
+   spot yellow-cap both x3                      3/3   6.0s left  88% min  88% in   10.0/s taken   14%HP pots 0
+   spot yellow-cap skill x3                     3/3   9.3s left  67% min  67% in   19.0/s taken   41%HP pots 0
+   spot yellow-cap weapon-only x6               3/3  12.6s left  47% min  38% in   23.1/s taken   67%HP pots 1
+   spot yellow-cap skill x6                     0/3  13.7s left   0% min   0% in   38.8/s taken  123%HP pots 1 foeHP 27%
+   single yellow-cap weapon-only x1             3/3   1.6s left 100% min  98% in    6.7/s taken    2%HP pots 0
+   BOSS boss-gray-cat                           3/3  41.2s left  51% min  39% in    9.2/s taken   87%HP pots 1
+
+[S3_L35_snow_P1] same + 1 Prestige | dmg 54.1 hp 519 def 0 ls 0.050 prestiges 1
+   spot straw-hat outfit-only x3                3/3   6.0s left  97% min  96% in    5.6/s taken    6%HP pots 0
+   spot straw-hat weapon-only x3                3/3   2.7s left 100% min  98% in    5.9/s taken    3%HP pots 0
+   spot straw-hat both x3                       3/3   6.0s left  94% min  94% in    7.4/s taken    9%HP pots 0
+   spot straw-hat skill x3                      3/3   6.0s left  89% min  89% in   15.2/s taken   18%HP pots 0
+   spot sunglasses outfit-only x3               3/3   6.0s left  96% min  96% in    6.5/s taken    8%HP pots 0
+   spot sunglasses weapon-only x3               3/3   6.0s left  91% min  91% in   10.8/s taken   13%HP pots 0
+   spot sunglasses both x3                      3/3   6.0s left  94% min  93% in    8.7/s taken   10%HP pots 0
+   spot sunglasses skill x3                     3/3   6.0s left  87% min  86% in   19.7/s taken   23%HP pots 0
+   spot yellow-cap outfit-only x3               3/3   9.3s left  91% min  91% in    7.6/s taken   14%HP pots 0
+   spot yellow-cap weapon-only x3               3/3   6.0s left  89% min  89% in   12.5/s taken   15%HP pots 0
+   spot yellow-cap both x3                      3/3   6.0s left  93% min  92% in   10.0/s taken   12%HP pots 0
+   spot yellow-cap skill x3                     3/3   9.3s left  76% min  76% in   19.0/s taken   34%HP pots 0
+   spot yellow-cap weapon-only x6               3/3  12.6s left  53% min  52% in   22.2/s taken   54%HP pots 0
+   spot yellow-cap skill x6                     3/3  19.2s left  17% min  17% in   30.5/s taken  113%HP pots 1
+   single yellow-cap weapon-only x1             3/3   1.6s left 100% min  98% in    6.7/s taken    2%HP pots 0
+   BOSS boss-gray-cat                           3/3  29.1s left  79% min  79% in    9.7/s taken   54%HP pots 0
+
+[S3_L35_snow_P3] same + 3 Prestiges | dmg 59.0 hp 556 def 0 ls 0.050 prestiges 3
+   spot straw-hat outfit-only x3                3/3   6.0s left  97% min  97% in    5.6/s taken    6%HP pots 0
+   spot straw-hat weapon-only x3                3/3   2.7s left 100% min  99% in    5.9/s taken    3%HP pots 0
+   spot straw-hat both x3                       3/3   6.0s left  95% min  95% in    7.4/s taken    8%HP pots 0
+   spot straw-hat skill x3                      3/3   6.0s left  90% min  89% in   15.2/s taken   16%HP pots 0
+   spot sunglasses outfit-only x3               3/3   6.0s left  97% min  96% in    6.5/s taken    7%HP pots 0
+   spot sunglasses weapon-only x3               3/3   2.7s left 100% min  98% in    6.9/s taken    3%HP pots 0
+   spot sunglasses both x3                      3/3   6.0s left  94% min  94% in    8.7/s taken    9%HP pots 0
+   spot sunglasses skill x3                     3/3   6.0s left  87% min  87% in   19.7/s taken   21%HP pots 0
+   spot yellow-cap outfit-only x3               3/3   6.0s left  96% min  96% in    7.5/s taken    8%HP pots 0
+   spot yellow-cap weapon-only x3               3/3   6.0s left  90% min  90% in   12.5/s taken   14%HP pots 0
+   spot yellow-cap both x3                      3/3   6.0s left  93% min  93% in   10.0/s taken   11%HP pots 0
+   spot yellow-cap skill x3                     3/3   9.3s left  78% min  78% in   19.0/s taken   32%HP pots 0
+   spot yellow-cap weapon-only x6               3/3  12.6s left  56% min  55% in   22.2/s taken   50%HP pots 0
+   spot yellow-cap skill x6                     3/3  19.2s left  23% min  23% in   30.5/s taken  105%HP pots 1
+   single yellow-cap weapon-only x1             3/3   1.6s left 100% min  98% in    6.7/s taken    2%HP pots 0
+   BOSS boss-gray-cat                           3/3  22.5s left  95% min  90% in    8.3/s taken   34%HP pots 0
+
+[S4_L38_arrive] Stage 4 arrival: L38, previous boss gear | dmg 52.6 hp 576 def 0 ls 0.050 prestiges 1
+   spot cowboy-bandana outfit-only x3           3/3   8.2s left  91% min  90% in   10.3/s taken   15%HP pots 0
+   spot cowboy-bandana weapon-only x3           3/3   6.0s left  89% min  89% in   14.1/s taken   15%HP pots 0
+   spot cowboy-bandana both x3                  3/3   6.0s left  93% min  92% in   11.3/s taken   12%HP pots 0
+   spot duck-swim-ring outfit-only x3           3/3  10.4s left 100% min  86% in   10.6/s taken   19%HP pots 1
+   spot duck-swim-ring weapon-only x3           3/3   6.0s left  89% min  88% in   15.3/s taken   16%HP pots 0
+   spot duck-swim-ring both x3                  3/3   9.3s left  80% min  80% in   15.8/s taken   25%HP pots 0
+   spot rainbow-clown outfit-only x3            3/3  10.4s left  99% min  86% in   11.0/s taken   20%HP pots 1
+   spot rainbow-clown weapon-only x3            3/3   6.0s left  88% min  87% in   15.9/s taken   17%HP pots 0
+   spot rainbow-clown both x3                   3/3   9.3s left  79% min  79% in   16.4/s taken   27%HP pots 0
+   spot rainbow-clown skill x3                  3/3  12.6s left  71% min  61% in   23.1/s taken   51%HP pots 1
+   spot red-cap-swimmer outfit-only x3          3/3  11.5s left  94% min  82% in   12.1/s taken   25%HP pots 1
+   spot red-cap-swimmer weapon-only x3          3/3   6.0s left  88% min  87% in   16.4/s taken   17%HP pots 0
+   spot red-cap-swimmer both x3                 3/3   9.3s left  79% min  78% in   16.9/s taken   27%HP pots 0
+   spot snorkeler outfit-only x3                3/3  11.5s left  94% min  81% in   12.7/s taken   26%HP pots 1
+   spot snorkeler weapon-only x3                3/3   6.0s left  88% min  87% in   17.1/s taken   18%HP pots 0
+   spot snorkeler both x3                       3/3  10.4s left  91% min  78% in   15.7/s taken   28%HP pots 1
+   spot snorkeler skill x3                      3/3  13.7s left  59% min  44% in   33.3/s taken   79%HP pots 1
+   spot straw-hat-swimmer outfit-only x3        3/3  13.7s left  90% min  80% in   12.8/s taken   30%HP pots 1
+   spot straw-hat-swimmer weapon-only x3        3/3   6.0s left  87% min  86% in   17.8/s taken   19%HP pots 0
+   spot straw-hat-swimmer both x3               3/3  10.4s left  90% min  77% in   16.4/s taken   30%HP pots 1
+   spot straw-hat-swimmer weapon-only x6        3/3  15.9s left  39% min  35% in   34.4/s taken   95%HP pots 1
+   spot straw-hat-swimmer both x6               3/3  22.5s left  60% min  32% in   28.7/s taken  112%HP pots 2
+   single straw-hat-swimmer weapon-only x1      3/3   1.6s left 100% min 100% in   11.1/s taken    3%HP pots 0
+   BOSS boss-elephant                           3/3  53.3s left  93% min  82% in   11.0/s taken  102%HP pots 3
+   BOSS boss-teal-dinosaur                      3/3  59.9s left  64% min  61% in   13.2/s taken  137%HP pots 3
+
+[S4_L60_ready_P0] Stage 4 boss-level, no Prestige | dmg 80.3 hp 701 def 0 ls 0.000 prestiges 0
+   spot cowboy-bandana outfit-only x3           3/3   6.0s left  94% min  94% in    8.5/s taken    7%HP pots 0
+   spot cowboy-bandana weapon-only x3           3/3   2.7s left  98% min  98% in   10.5/s taken    4%HP pots 0
+   spot cowboy-bandana both x3                  3/3   6.0s left  92% min  92% in   11.3/s taken   10%HP pots 0
+   spot duck-swim-ring outfit-only x3           3/3   8.2s left  88% min  88% in   11.2/s taken   13%HP pots 0
+   spot duck-swim-ring weapon-only x3           3/3   6.0s left  89% min  89% in   15.3/s taken   13%HP pots 0
+   spot duck-swim-ring both x3                  3/3   6.0s left  91% min  91% in   12.2/s taken   10%HP pots 0
+   spot rainbow-clown outfit-only x3            3/3   8.2s left  88% min  88% in   11.6/s taken   14%HP pots 0
+   spot rainbow-clown weapon-only x3            3/3   6.0s left  89% min  89% in   15.9/s taken   14%HP pots 0
+   spot rainbow-clown both x3                   3/3   6.0s left  91% min  91% in   12.7/s taken   11%HP pots 0
+   spot rainbow-clown skill x3                  3/3   9.3s left  70% min  70% in   24.4/s taken   32%HP pots 0
+   spot red-cap-swimmer outfit-only x3          3/3   8.2s left  87% min  87% in   12.0/s taken   14%HP pots 0
+   spot red-cap-swimmer weapon-only x3          3/3   6.0s left  88% min  88% in   16.4/s taken   14%HP pots 0
+   spot red-cap-swimmer both x3                 3/3   6.0s left  91% min  91% in   13.1/s taken   11%HP pots 0
+   spot snorkeler outfit-only x3                3/3  10.4s left  97% min  84% in   11.8/s taken   18%HP pots 1
+   spot snorkeler weapon-only x3                3/3   6.0s left  88% min  88% in   17.1/s taken   15%HP pots 0
+   spot snorkeler both x3                       3/3   6.0s left  90% min  90% in   13.6/s taken   12%HP pots 0
+   spot snorkeler skill x3                      3/3  10.4s left  71% min  58% in   36.1/s taken   54%HP pots 1
+   spot straw-hat-swimmer outfit-only x3        3/3  10.4s left  97% min  83% in   12.3/s taken   18%HP pots 1
+   spot straw-hat-swimmer weapon-only x3        3/3   6.0s left  87% min  87% in   17.8/s taken   15%HP pots 0
+   spot straw-hat-swimmer both x3               3/3   9.3s left  78% min  78% in   18.4/s taken   24%HP pots 0
+   spot straw-hat-swimmer weapon-only x6        3/3  12.6s left  56% min  42% in   36.1/s taken   65%HP pots 1
+   spot straw-hat-swimmer both x6               3/3  19.2s left  54% min  39% in   29.4/s taken   80%HP pots 1
+   single straw-hat-swimmer weapon-only x1      3/3   1.6s left 100% min 100% in   11.1/s taken    3%HP pots 0
+   BOSS boss-elephant                           3/3  51.1s left  87% min  73% in   11.0/s taken   80%HP pots 3
+   BOSS boss-teal-dinosaur                      3/3  56.6s left  59% min  54% in   13.5/s taken  109%HP pots 3
+
+[S4_L60_ready_P1] Stage 4 boss-level, 1 Prestige | dmg 80.3 hp 842 def 0 ls 0.050 prestiges 1
+   spot cowboy-bandana outfit-only x3           3/3   6.0s left  97% min  96% in    8.5/s taken    6%HP pots 0
+   spot cowboy-bandana weapon-only x3           3/3   2.7s left  99% min  98% in   10.5/s taken    3%HP pots 0
+   spot cowboy-bandana both x3                  3/3   6.0s left  95% min  94% in   11.3/s taken    8%HP pots 0
+   spot duck-swim-ring outfit-only x3           3/3   6.0s left  97% min  96% in    9.2/s taken    7%HP pots 0
+   spot duck-swim-ring weapon-only x3           3/3   2.7s left  99% min  98% in   11.3/s taken    4%HP pots 0
+   spot duck-swim-ring both x3                  3/3   6.0s left  94% min  94% in   12.2/s taken    9%HP pots 0
+   spot rainbow-clown outfit-only x3            3/3   6.0s left  97% min  96% in    9.5/s taken    7%HP pots 0
+   spot rainbow-clown weapon-only x3            3/3   2.7s left  99% min  98% in   11.8/s taken    4%HP pots 0
+   spot rainbow-clown both x3                   3/3   6.0s left  94% min  93% in   12.7/s taken    9%HP pots 0
+   spot rainbow-clown skill x3                  3/3   6.0s left  91% min  90% in   19.8/s taken   14%HP pots 0
+   spot red-cap-swimmer outfit-only x3          3/3   6.0s left  97% min  96% in    9.8/s taken    7%HP pots 0
+   spot red-cap-swimmer weapon-only x3          3/3   2.7s left  99% min  98% in   12.1/s taken    4%HP pots 0
+   spot red-cap-swimmer both x3                 3/3   6.0s left  94% min  93% in   13.1/s taken    9%HP pots 0
+   spot snorkeler outfit-only x3                3/3   8.2s left  92% min  92% in   12.5/s taken   12%HP pots 0
+   spot snorkeler weapon-only x3                3/3   6.0s left  91% min  90% in   17.1/s taken   12%HP pots 0
+   spot snorkeler both x3                       3/3   6.0s left  94% min  93% in   13.6/s taken   10%HP pots 0
+   spot snorkeler skill x3                      3/3   9.3s left  71% min  71% in   40.4/s taken   45%HP pots 0
+   spot straw-hat-swimmer outfit-only x3        3/3   8.2s left  92% min  92% in   13.0/s taken   13%HP pots 0
+   spot straw-hat-swimmer weapon-only x3        3/3   6.0s left  91% min  90% in   17.8/s taken   13%HP pots 0
+   spot straw-hat-swimmer both x3               3/3   6.0s left  94% min  93% in   14.2/s taken   10%HP pots 0
+   spot straw-hat-swimmer weapon-only x6        3/3  12.6s left  64% min  52% in   37.5/s taken   56%HP pots 1
+   spot straw-hat-swimmer both x6               3/3  15.9s left  70% min  61% in   27.5/s taken   52%HP pots 1
+   single straw-hat-swimmer weapon-only x1      3/3   1.6s left 100% min 100% in   11.1/s taken    2%HP pots 0
+   BOSS boss-elephant                           3/3  35.7s left  95% min  92% in   10.8/s taken   46%HP pots 2
+   BOSS boss-teal-dinosaur                      3/3  39.0s left  91% min  88% in   13.8/s taken   64%HP pots 2
+
+[S5_L65_arrive] Stage 5 arrival: L65, previous boss gear | dmg 78.6 hp 636 def 0 ls 0.050 prestiges 1
+   spot black-cap outfit-only x3                3/3  10.4s left  95% min  82% in   16.0/s taken   26%HP pots 1
+   spot black-cap weapon-only x3                3/3   6.0s left  82% min  82% in   24.9/s taken   23%HP pots 0
+   spot black-cap both x3                       3/3   9.3s left  75% min  75% in   22.0/s taken   32%HP pots 0
+   spot mushroom-cap outfit-only x3             3/3  12.6s left  91% min  78% in   16.5/s taken   33%HP pots 1
+   spot mushroom-cap weapon-only x3             3/3   6.0s left  81% min  81% in   27.4/s taken   26%HP pots 0
+   spot mushroom-cap both x3                    3/3  10.4s left  84% min  70% in   23.5/s taken   38%HP pots 1
+   spot mushroom-cap skill x3                   3/3  15.9s left  65% min  46% in   29.3/s taken   73%HP pots 1
+   spot pumpkin-head outfit-only x3             3/3  17.0s left  78% min  69% in   17.8/s taken   47%HP pots 1
+   spot pumpkin-head weapon-only x3             3/3   8.2s left  68% min  66% in   32.0/s taken   41%HP pots 0
+   spot pumpkin-head both x3                    3/3  13.7s left  69% min  59% in   25.4/s taken   55%HP pots 1
+   spot pumpkin-head skill x3                   3/3  18.1s left  39% min  36% in   40.0/s taken  114%HP pots 1
+   spot pumpkin-head weapon-only x6             0/3   9.9s left   0% min   0% in   78.8/s taken  123%HP pots 1 foeHP 44%
+   spot pumpkin-head skill x6                   0/3   5.4s left   0% min   0% in  152.0/s taken  129%HP pots 1 foeHP 73%
+   single pumpkin-head weapon-only x1           3/3   2.7s left  96% min  96% in   19.4/s taken    8%HP pots 0
+   BOSS boss-squirrel                           3/3  78.6s left  55% min  53% in   16.5/s taken  204%HP pots 4
+   BOSS boss-red-fox                            3/3  75.3s left  51% min  39% in   21.4/s taken  253%HP pots 4
+
+[S5_L95_ready_P0] Stage 5 boss-level, no Prestige | dmg 114.4 hp 919 def 0 ls 0.000 prestiges 0
+   spot black-cap outfit-only x3                3/3   8.2s left  87% min  87% in   15.6/s taken   14%HP pots 0
+   spot black-cap weapon-only x3                3/3   2.7s left  98% min  98% in   15.8/s taken    5%HP pots 0
+   spot black-cap both x3                       3/3   6.0s left  89% min  89% in   19.9/s taken   13%HP pots 0
+   spot mushroom-cap outfit-only x3             3/3  10.4s left  96% min  82% in   17.6/s taken   20%HP pots 1
+   spot mushroom-cap weapon-only x3             3/3   6.0s left  85% min  85% in   27.4/s taken   18%HP pots 0
+   spot mushroom-cap both x3                    3/3   6.0s left  88% min  88% in   21.9/s taken   14%HP pots 0
+   spot mushroom-cap skill x3                   3/3  12.6s left  73% min  61% in   31.8/s taken   44%HP pots 1
+   spot pumpkin-head outfit-only x3             3/3  12.6s left  90% min  78% in   18.5/s taken   25%HP pots 1
+   spot pumpkin-head weapon-only x3             3/3   6.0s left  83% min  83% in   30.6/s taken   20%HP pots 0
+   spot pumpkin-head both x3                    3/3  10.4s left  87% min  73% in   26.2/s taken   30%HP pots 1
+   spot pumpkin-head skill x3                   3/3  13.7s left  60% min  51% in   44.2/s taken   66%HP pots 1
+   spot pumpkin-head weapon-only x6             3/3  15.9s left  41% min  37% in   51.0/s taken   88%HP pots 1
+   spot pumpkin-head skill x6                   0/3   8.9s left   0% min   0% in  130.3/s taken  126%HP pots 1 foeHP 67%
+   single pumpkin-head weapon-only x1           3/3   1.6s left 100% min 100% in   16.4/s taken    3%HP pots 0
+   BOSS boss-squirrel                           3/3  78.6s left  57% min  56% in   16.3/s taken  140%HP pots 4
+   BOSS boss-red-fox                            3/3  75.3s left  59% min  42% in   21.2/s taken  174%HP pots 4
+
+[S5_L95_ready_P1] Stage 5 boss-level, 1 Prestige | dmg 114.4 hp 1102 def 0 ls 0.050 prestiges 1
+   spot black-cap outfit-only x3                3/3   6.0s left  96% min  95% in   14.9/s taken    8%HP pots 0
+   spot black-cap weapon-only x3                3/3   2.7s left  99% min  98% in   15.8/s taken    4%HP pots 0
+   spot black-cap both x3                       3/3   6.0s left  92% min  92% in   19.9/s taken   11%HP pots 0
+   spot mushroom-cap outfit-only x3             3/3   8.2s left  92% min  91% in   17.2/s taken   13%HP pots 0
+   spot mushroom-cap weapon-only x3             3/3   2.7s left  99% min  98% in   17.4/s taken    4%HP pots 0
+   spot mushroom-cap both x3                    3/3   6.0s left  92% min  92% in   21.9/s taken   12%HP pots 0
+   spot mushroom-cap skill x3                   3/3  10.4s left  91% min  77% in   31.7/s taken   30%HP pots 1
+   spot pumpkin-head outfit-only x3             3/3  10.4s left 100% min  88% in   19.7/s taken   19%HP pots 1
+   spot pumpkin-head weapon-only x3             3/3   6.0s left  88% min  87% in   30.6/s taken   17%HP pots 0
+   spot pumpkin-head both x3                    3/3   6.0s left  92% min  91% in   24.5/s taken   13%HP pots 0
+   spot pumpkin-head skill x3                   3/3  10.4s left  86% min  72% in   48.5/s taken   46%HP pots 1
+   spot pumpkin-head weapon-only x6             3/3  14.8s left  55% min  47% in   49.9/s taken   67%HP pots 1
+   spot pumpkin-head skill x6                   3/3  22.5s left  44% min  15% in   72.0/s taken  147%HP pots 2
+   single pumpkin-head weapon-only x1           3/3   1.6s left 100% min 100% in   16.4/s taken    2%HP pots 0
+   BOSS boss-squirrel                           3/3  50.0s left  94% min  90% in   16.3/s taken   74%HP pots 2
+   BOSS boss-red-fox                            3/3  51.1s left 100% min  85% in   21.4/s taken   99%HP pots 3
+
+[S6_L95_arrive] Stage 6 arrival: L95, previous boss gear | dmg 144.9 hp 984 def 0 ls 0.050 prestiges 1
+   spot horned-hood outfit-only x3              3/3  10.4s left  98% min  84% in   24.2/s taken   26%HP pots 1
+   spot horned-hood weapon-only x3              3/3   6.0s left  83% min  83% in   37.7/s taken   23%HP pots 0
+   spot horned-hood both x3                     3/3   9.3s left  77% min  76% in   33.4/s taken   32%HP pots 0
+   spot horned-hood skill x3                    3/3  13.7s left  54% min  39% in   63.7/s taken   89%HP pots 1
+   spot orange-screen-helmet outfit-only x3     3/3  13.7s left  89% min  76% in   26.2/s taken   37%HP pots 1
+   spot orange-screen-helmet weapon-only x3     3/3   6.0s left  82% min  81% in   42.2/s taken   26%HP pots 0
+   spot orange-screen-helmet both x3            3/3  10.4s left  86% min  72% in   36.1/s taken   38%HP pots 1
+   spot television-head outfit-only x3          3/3  18.1s left  78% min  70% in   28.1/s taken   52%HP pots 1
+   spot television-head weapon-only x3          3/3   8.2s left  69% min  67% in   49.9/s taken   42%HP pots 0
+   spot television-head both x3                 3/3  13.7s left  72% min  60% in   39.6/s taken   55%HP pots 1
+   spot television-head skill x3                3/3  19.2s left  50% min  32% in   63.4/s taken  124%HP pots 2
+   spot top-hat outfit-only x3                  3/3  20.3s left  65% min  63% in   32.6/s taken   67%HP pots 1
+   spot top-hat weapon-only x3                  3/3  11.5s left  61% min  46% in   57.3/s taken   69%HP pots 1
+   spot top-hat both x3                         3/3  17.0s left  59% min  51% in   41.3/s taken   71%HP pots 1
+   spot top-hat weapon-only x6                  0/3   7.4s left   0% min   0% in  163.4/s taken  123%HP pots 1 foeHP 66%
+   spot top-hat both x6                         0/3   9.6s left   0% min   0% in  127.3/s taken  124%HP pots 1 foeHP 69%
+   single top-hat weapon-only x1                3/3   3.8s left  92% min  92% in   36.1/s taken   14%HP pots 0
+   BOSS boss-black-cat                          3/3  98.4s left  57% min  36% in   32.7/s taken  323%HP pots 5
+   BOSS boss-grim-reaper                        0/3  64.4s left   0% min   0% in   50.6/s taken  331%HP pots 5 foeHP 39%
+
+[S6_L140_ready_P0] Stage 6 boss-level, no Prestige | dmg 246.9 hp 1201 def 0 ls 0.000 prestiges 0
+   spot horned-hood outfit-only x3              3/3   4.9s left  94% min  94% in   19.8/s taken    8%HP pots 0
+   spot horned-hood weapon-only x3              3/3   1.8s left  97% min  97% in   35.9/s taken    5%HP pots 0
+   spot horned-hood both x3                     3/3   4.0s left  96% min  96% in   19.4/s taken    6%HP pots 0
+   spot horned-hood skill x3                    3/3   4.9s left  73% min  73% in   95.5/s taken   39%HP pots 0
+   spot orange-screen-helmet outfit-only x3     3/3   7.1s left  91% min  91% in   18.3/s taken   11%HP pots 0
+   spot orange-screen-helmet weapon-only x3     3/3   1.8s left  97% min  97% in   40.1/s taken    6%HP pots 0
+   spot orange-screen-helmet both x3            3/3   4.9s left  90% min  90% in   29.5/s taken   12%HP pots 0
+   spot television-head outfit-only x3          3/3   9.3s left  82% min  82% in   26.4/s taken   20%HP pots 0
+   spot television-head weapon-only x3          3/3   4.9s left  86% min  86% in   41.8/s taken   17%HP pots 0
+   spot television-head both x3                 3/3   7.1s left  86% min  86% in   27.7/s taken   16%HP pots 0
+   spot television-head skill x3                3/3  11.5s left  64% min  53% in   65.3/s taken   63%HP pots 1
+   spot top-hat outfit-only x3                  3/3  12.6s left  88% min  75% in   27.8/s taken   29%HP pots 1
+   spot top-hat weapon-only x3                  3/3   4.9s left  85% min  85% in   46.7/s taken   19%HP pots 0
+   spot top-hat both x3                         3/3   9.3s left  73% min  73% in   39.4/s taken   30%HP pots 0
+   spot top-hat weapon-only x6                  3/3  14.8s left  29% min  26% in   80.7/s taken   99%HP pots 1
+   spot top-hat both x6                         3/3  20.3s left  33% min  15% in   73.7/s taken  125%HP pots 2
+   single top-hat weapon-only x1                3/3   0.5s left 100% min 100% in    0.0/s taken    0%HP pots 0
+   BOSS boss-black-cat                          3/3  76.4s left  56% min  38% in   31.0/s taken  197%HP pots 4
+   BOSS boss-grim-reaper                        3/3  84.1s left  15% min   1% in   46.9/s taken  328%HP pots 7
+
+[S6_L140_ready_P1] Stage 6 boss-level, 1 Prestige | dmg 246.9 hp 1441 def 0 ls 0.050 prestiges 1
+   spot horned-hood outfit-only x3              3/3   4.0s left  99% min  98% in   14.5/s taken    4%HP pots 0
+   spot horned-hood weapon-only x3              3/3   1.8s left  98% min  98% in   35.9/s taken    4%HP pots 0
+   spot horned-hood both x3                     3/3   1.8s left  99% min  98% in   28.7/s taken    4%HP pots 0
+   spot horned-hood skill x3                    3/3   4.9s left  83% min  83% in   95.5/s taken   32%HP pots 0
+   spot orange-screen-helmet outfit-only x3     3/3   4.9s left  98% min  97% in   22.1/s taken    8%HP pots 0
+   spot orange-screen-helmet weapon-only x3     3/3   1.8s left  98% min  97% in   40.1/s taken    5%HP pots 0
+   spot orange-screen-helmet both x3            3/3   4.0s left  98% min  96% in   21.7/s taken    6%HP pots 0
+   spot television-head outfit-only x3          3/3   7.1s left  97% min  95% in   20.8/s taken   10%HP pots 0
+   spot television-head weapon-only x3          3/3   4.0s left  95% min  94% in   30.7/s taken    9%HP pots 0
+   spot television-head both x3                 3/3   4.9s left  95% min  94% in   33.4/s taken   11%HP pots 0
+   spot television-head skill x3                3/3   8.2s left  79% min  77% in   71.2/s taken   41%HP pots 0
+   spot top-hat outfit-only x3                  3/3   9.3s left  90% min  90% in   29.5/s taken   19%HP pots 0
+   spot top-hat weapon-only x3                  3/3   4.0s left  96% min  94% in   34.3/s taken   10%HP pots 0
+   spot top-hat both x3                         3/3   7.1s left  92% min  91% in   30.9/s taken   15%HP pots 0
+   spot top-hat weapon-only x6                  3/3  11.6s left  63% min  50% in   78.0/s taken   63%HP pots 1
+   spot top-hat both x6                         3/3  19.2s left  66% min  44% in   63.3/s taken   86%HP pots 1
+   single top-hat weapon-only x1                3/3   0.1s left 100% min 100% in    0.0/s taken    0%HP pots 0
+   BOSS boss-black-cat                          3/3  52.2s left  98% min  83% in   31.8/s taken  115%HP pots 3
+   BOSS boss-grim-reaper                        3/3  58.8s left  71% min  63% in   41.5/s taken  170%HP pots 3
+
+[S7_L140_arrive] Stage 7 arrival: L140, previous boss gear | dmg 246.9 hp 1366 def 0 ls 0.050 prestiges 1
+   spot bunny-ears outfit-only x3               3/3  18.1s left  80% min  70% in   41.5/s taken   55%HP pots 1
+   spot bunny-ears weapon-only x3               3/3  10.4s left  69% min  55% in   75.5/s taken   58%HP pots 1
+   spot bunny-ears both x3                      3/3  13.7s left  72% min  59% in   58.5/s taken   59%HP pots 1
+   spot bunny-ears skill x3                     3/3  20.3s left  59% min  29% in   91.9/s taken  137%HP pots 2
+   spot cat-ears outfit-only x3                 3/3  25.8s left  70% min  48% in   51.5/s taken   97%HP pots 1
+   spot cat-ears weapon-only x3                 3/3  13.7s left  50% min  37% in   90.0/s taken   90%HP pots 1
+   spot cat-ears both x3                        3/3  20.3s left  54% min  39% in   70.6/s taken  105%HP pots 1
+   spot elf-ears outfit-only x3                 3/3  34.6s left  55% min  36% in   63.0/s taken  159%HP pots 2
+   spot elf-ears weapon-only x3                 0/3  13.4s left   0% min   0% in  143.0/s taken  140%HP pots 1 foeHP 37%
+   spot elf-ears both x3                        3/3  29.1s left  36% min   8% in   83.5/s taken  178%HP pots 3
+   spot elf-ears skill x3                       0/3   8.4s left   0% min   0% in  213.2/s taken  131%HP pots 1 foeHP 74%
+   spot elf-ears weapon-only x6                 0/3   5.0s left   0% min   0% in  342.3/s taken  125%HP pots 1 foeHP 73%
+   spot elf-ears skill x6                       0/3   4.1s left   0% min   0% in  418.9/s taken  126%HP pots 1 foeHP 86%
+   single elf-ears weapon-only x1               3/3   6.0s left  84% min  83% in   61.1/s taken   27%HP pots 0
+   BOSS boss-bee                                0/3  74.4s left   0% min   0% in   73.0/s taken  398%HP pots 6 foeHP 68%
+   BOSS boss-orange-tabby-cat                   0/3  54.4s left   0% min   0% in   79.3/s taken  317%HP pots 4 foeHP 74%
+
+[S7_L195_ready_P0] Stage 7 boss-level, no Prestige | dmg 261.2 hp 1959 def 0 ls 0.000 prestiges 0
+   spot bunny-ears outfit-only x3               3/3  18.1s left  80% min  72% in   39.8/s taken   37%HP pots 1
+   spot bunny-ears weapon-only x3               3/3   9.3s left  75% min  75% in   58.5/s taken   28%HP pots 0
+   spot bunny-ears both x3                      3/3  12.6s left  86% min  73% in   49.0/s taken   32%HP pots 1
+   spot bunny-ears skill x3                     3/3  20.1s left  44% min  44% in   81.1/s taken   83%HP pots 1
+   spot cat-ears outfit-only x3                 3/3  23.6s left  75% min  58% in   52.6/s taken   63%HP pots 1
+   spot cat-ears weapon-only x3                 3/3  14.8s left  57% min  51% in   82.0/s taken   62%HP pots 1
+   spot cat-ears both x3                        3/3  20.1s left  48% min  48% in   67.9/s taken   70%HP pots 1
+   spot elf-ears outfit-only x3                 3/3  33.5s left  75% min  35% in   59.0/s taken  101%HP pots 2
+   spot elf-ears weapon-only x3                 3/3  20.1s left  50% min  32% in  104.6/s taken  107%HP pots 2
+   spot elf-ears both x3                        3/3  26.9s left  62% min  36% in   84.8/s taken  116%HP pots 2
+   spot elf-ears skill x3                       0/3  14.4s left   0% min   0% in  177.5/s taken  130%HP pots 1 foeHP 59%
+   spot elf-ears weapon-only x6                 0/3   7.1s left   0% min   0% in  330.2/s taken  120%HP pots 1 foeHP 78%
+   spot elf-ears skill x6                       0/3   5.4s left   0% min   0% in  438.2/s taken  121%HP pots 1 foeHP 86%
+   single elf-ears weapon-only x1               3/3   4.9s left  91% min  91% in   56.1/s taken   14%HP pots 0
+   BOSS boss-bee                                0/3 256.4s left   0% min   0% in   65.4/s taken  856%HP pots 18 foeHP 27%
+   BOSS boss-orange-tabby-cat                   0/3 250.4s left   0% min   0% in   70.7/s taken  904%HP pots 21 foeHP 1%
+
+[S7_L195_ready_P1] Stage 7 boss-level, 1 Prestige | dmg 261.2 hp 2351 def 0 ls 0.050 prestiges 1
+   spot bunny-ears outfit-only x3               3/3  14.8s left  99% min  85% in   40.0/s taken   25%HP pots 1
+   spot bunny-ears weapon-only x3               3/3   6.2s left  90% min  90% in   58.5/s taken   15%HP pots 0
+   spot bunny-ears both x3                      3/3   9.3s left  87% min  86% in   52.0/s taken   21%HP pots 0
+   spot bunny-ears skill x3                     3/3  17.0s left  74% min  63% in   83.2/s taken   60%HP pots 1
+   spot cat-ears outfit-only x3                 3/3  20.1s left  85% min  77% in   50.9/s taken   44%HP pots 1
+   spot cat-ears weapon-only x3                 3/3  11.5s left  84% min  70% in   82.7/s taken   40%HP pots 1
+   spot cat-ears both x3                        3/3  17.0s left  81% min  70% in   63.3/s taken   46%HP pots 1
+   spot elf-ears outfit-only x3                 3/3  28.0s left  74% min  65% in   62.6/s taken   75%HP pots 1
+   spot elf-ears weapon-only x3                 3/3  17.0s left  55% min  47% in  100.6/s taken   74%HP pots 1
+   spot elf-ears both x3                        3/3  22.5s left  68% min  51% in   85.5/s taken   82%HP pots 1
+   spot elf-ears skill x3                       3/3  32.4s left  58% min  26% in  113.5/s taken  156%HP pots 3
+   spot elf-ears weapon-only x6                 0/3   8.9s left   0% min   0% in  326.6/s taken  124%HP pots 1 foeHP 69%
+   spot elf-ears skill x6                       0/3   6.9s left   0% min   0% in  420.8/s taken  124%HP pots 1 foeHP 86%
+   single elf-ears weapon-only x1               3/3   3.8s left  93% min  93% in   72.4/s taken   12%HP pots 0
+   BOSS boss-bee                                3/3 205.1s left  72% min  40% in   65.1/s taken  568%HP pots 10
+   BOSS boss-orange-tabby-cat                   3/3 174.3s left  49% min  37% in   71.1/s taken  526%HP pots 9
+
+[S8_L195_arrive] Stage 8 arrival: L195, previous boss gear | dmg 318.5 hp 3118 def 0 ls 0.050 prestiges 1
+   spot flower-crown outfit-only x3             3/3  46.7s left  80% min  46% in   88.1/s taken  132%HP pots 2
+   spot flower-crown weapon-only x3             3/3  29.1s left  51% min  30% in  147.3/s taken  137%HP pots 2
+   spot flower-crown both x3                    3/3  37.9s left  66% min  42% in  117.9/s taken  143%HP pots 2
+   spot flower-crown skill x3                   0/3  17.9s left   0% min   0% in  253.9/s taken  146%HP pots 1 foeHP 67%
+   spot green-cap outfit-only x3                3/3  53.3s left  95% min  37% in   94.2/s taken  161%HP pots 3
+   spot green-cap weapon-only x3                3/3  31.3s left  47% min  20% in  159.4/s taken  160%HP pots 3
+   spot green-cap both x3                       3/3  42.3s left  76% min  34% in  128.5/s taken  174%HP pots 3
+   spot green-cap skill x3                      0/3  13.4s left   0% min   0% in  333.9/s taken  143%HP pots 1 foeHP 76%
+   spot pink-cap outfit-only x3                 3/3  60.1s left  73% min  22% in  104.9/s taken  202%HP pots 4
+   spot pink-cap weapon-only x3                 3/3  35.7s left  17% min   4% in  177.2/s taken  203%HP pots 3
+   spot pink-cap both x3                        3/3  48.9s left  52% min  15% in  138.4/s taken  217%HP pots 4
+   spot pink-flower-hood outfit-only x3         3/3  66.5s left  80% min  33% in  111.9/s taken  239%HP pots 4
+   spot pink-flower-hood weapon-only x3         0/3  13.4s left   0% min   0% in  312.4/s taken  134%HP pots 1 foeHP 67%
+   spot pink-flower-hood both x3                0/3  29.7s left   0% min   0% in  199.0/s taken  190%HP pots 2 foeHP 46%
+   spot pink-flower-hood skill x3               0/3   9.5s left   0% min   0% in  441.2/s taken  134%HP pots 1 foeHP 85%
+   spot plain outfit-only x3                    3/3  78.6s left  68% min  17% in  121.1/s taken  305%HP pots 6
+   spot plain weapon-only x3                    0/3  11.4s left   0% min   0% in  353.3/s taken  129%HP pots 1 foeHP 75%
+   spot plain both x3                           0/3  17.4s left   0% min   0% in  259.5/s taken  145%HP pots 1 foeHP 71%
+   spot sprout outfit-only x3                   0/3  29.4s left   0% min   0% in  200.8/s taken  189%HP pots 2 foeHP 67%
+   spot sprout weapon-only x3                   0/3   9.9s left   0% min   0% in  397.6/s taken  126%HP pots 1 foeHP 80%
+   spot sprout both x3                          0/3  14.9s left   0% min   0% in  290.0/s taken  139%HP pots 1 foeHP 78%
+   spot sprout skill x3                         0/3   8.9s left   0% min   0% in  445.3/s taken  127%HP pots 1 foeHP 90%
+   spot sprout weapon-only x6                   0/3   5.1s left   0% min   0% in  753.3/s taken  123%HP pots 1 foeHP 89%
+   spot sprout skill x6                         0/3   4.1s left   0% min   0% in  943.5/s taken  124%HP pots 1 foeHP 94%
+   single sprout weapon-only x1                 3/3  17.0s left  67% min  65% in  117.2/s taken   64%HP pots 1
+   BOSS boss-red-panda                          0/3 158.4s left   0% min   0% in  128.9/s taken  655%HP pots 13 foeHP 75%
+   BOSS boss-sunflower                          0/3  38.4s left   0% min   0% in  175.7/s taken  216%HP pots 3 foeHP 91%
+
+[S8_L240_ready_P0] Stage 8 boss-level, no Prestige | dmg 631.9 hp 2039 def 0 ls 0.000 prestiges 0
+   spot flower-crown outfit-only x3             3/3  23.6s left  74% min  39% in   91.4/s taken  106%HP pots 2
+   spot flower-crown weapon-only x3             3/3  12.6s left  46% min  36% in  131.5/s taken   81%HP pots 1
+   spot flower-crown both x3                    3/3  20.1s left  51% min  33% in  110.3/s taken  109%HP pots 2
+   spot flower-crown skill x3                   0/3   9.9s left   0% min   0% in  252.1/s taken  122%HP pots 1 foeHP 60%
+   spot green-cap outfit-only x3                3/3  26.9s left  53% min  28% in   97.5/s taken  129%HP pots 2
+   spot green-cap weapon-only x3                3/3  15.9s left  23% min  20% in  144.6/s taken  113%HP pots 1
+   spot green-cap both x3                       3/3  20.1s left  33% min  16% in  128.5/s taken  127%HP pots 2
+   spot green-cap skill x3                      0/3   6.9s left   0% min   0% in  382.2/s taken  129%HP pots 1 foeHP 71%
+   spot pink-cap outfit-only x3                 3/3  32.4s left  44% min  17% in   99.5/s taken  158%HP pots 3
+   spot pink-cap weapon-only x3                 1/3  11.4s left   0% min   0% in  225.5/s taken  126%HP pots 1 foeHP 33%
+   spot pink-cap both x3                        0/3  14.9s left   0% min   0% in  181.6/s taken  133%HP pots 1 foeHP 39%
+   spot pink-flower-hood outfit-only x3         3/3  35.7s left  19% min   3% in  109.5/s taken  192%HP pots 3
+   spot pink-flower-hood weapon-only x3         0/3   9.9s left   0% min   0% in  254.7/s taken  124%HP pots 1 foeHP 49%
+   spot pink-flower-hood both x3                0/3  10.2s left   0% min   0% in  244.4/s taken  122%HP pots 1 foeHP 61%
+   spot pink-flower-hood skill x3               0/3   5.0s left   0% min   0% in  527.5/s taken  129%HP pots 1 foeHP 75%
+   spot plain outfit-only x3                    0/3  12.5s left   0% min   0% in  206.2/s taken  126%HP pots 1 foeHP 67%
+   spot plain weapon-only x3                    0/3   7.4s left   0% min   0% in  342.8/s taken  124%HP pots 1 foeHP 63%
+   spot plain both x3                           0/3   8.9s left   0% min   0% in  280.9/s taken  123%HP pots 1 foeHP 67%
+   spot sprout outfit-only x3                   0/3  11.0s left   0% min   0% in  228.7/s taken  123%HP pots 1 foeHP 73%
+   spot sprout weapon-only x3                   0/3   6.5s left   0% min   0% in  392.7/s taken  125%HP pots 1 foeHP 69%
+   spot sprout both x3                          0/3   8.0s left   0% min   0% in  314.1/s taken  123%HP pots 1 foeHP 73%
+   spot sprout skill x3                         0/3   5.4s left   0% min   0% in  481.5/s taken  127%HP pots 1 foeHP 83%
+   spot sprout weapon-only x6                   0/3   3.5s left   0% min   0% in  729.2/s taken  125%HP pots 1 foeHP 81%
+   spot sprout skill x6                         0/3   2.9s left   0% min   0% in  896.5/s taken  127%HP pots 1 foeHP 89%
+   single sprout weapon-only x1                 3/3   7.1s left  61% min  61% in  138.7/s taken   48%HP pots 0
+   BOSS boss-red-panda                          0/3  26.4s left   0% min   0% in  147.6/s taken  191%HP pots 2 foeHP 88%
+   BOSS boss-sunflower                          0/3  18.4s left   0% min   0% in  164.7/s taken  149%HP pots 1 foeHP 93%
+
+[S8_L240_ready_P1] Stage 8 boss-level, 1 Prestige | dmg 631.9 hp 2447 def 0 ls 0.050 prestiges 1
+   spot flower-crown outfit-only x3             3/3  20.1s left  79% min  65% in   82.7/s taken   68%HP pots 1
+   spot flower-crown weapon-only x3             3/3   9.3s left  70% min  69% in  125.6/s taken   48%HP pots 0
+   spot flower-crown both x3                    3/3  17.0s left  64% min  51% in  110.3/s taken   77%HP pots 1
+   spot flower-crown skill x3                   3/3  20.3s left  59% min  34% in  158.0/s taken  131%HP pots 2
+   spot green-cap outfit-only x3                3/3  20.3s left  69% min  61% in   95.4/s taken   79%HP pots 1
+   spot green-cap weapon-only x3                3/3  12.6s left  64% min  49% in  143.0/s taken   74%HP pots 1
+   spot green-cap both x3                       3/3  18.1s left  73% min  43% in  123.6/s taken   91%HP pots 1
+   spot green-cap skill x3                      3/3  23.6s left  20% min   0% in  212.8/s taken  205%HP pots 2
+   spot pink-cap outfit-only x3                 3/3  25.8s left  68% min  43% in  107.8/s taken  114%HP pots 1
+   spot pink-cap weapon-only x3                 3/3  14.8s left  51% min  35% in  168.8/s taken  102%HP pots 1
+   spot pink-cap both x3                        3/3  20.1s left  56% min  37% in  139.6/s taken  115%HP pots 1
+   spot pink-flower-hood outfit-only x3         3/3  29.1s left  64% min  32% in  111.7/s taken  133%HP pots 1
+   spot pink-flower-hood weapon-only x3         3/3  17.0s left  40% min  33% in  177.1/s taken  123%HP pots 1
+   spot pink-flower-hood both x3                3/3  23.6s left  62% min  26% in  156.5/s taken  151%HP pots 2
+   spot pink-flower-hood skill x3               0/3   7.4s left   0% min   0% in  469.9/s taken  142%HP pots 1 foeHP 69%
+   spot plain outfit-only x3                    3/3  33.5s left  72% min  37% in  116.2/s taken  159%HP pots 2
+   spot plain weapon-only x3                    3/3  20.1s left  32% min  11% in  192.5/s taken  158%HP pots 2
+   spot plain both x3                           3/3  26.9s left  38% min  12% in  167.0/s taken  184%HP pots 2
+   spot sprout outfit-only x3                   3/3  39.0s left  52% min  23% in  128.4/s taken  205%HP pots 3
+   spot sprout weapon-only x3                   0/3  11.9s left   0% min   0% in  297.3/s taken  145%HP pots 1 foeHP 43%
+   spot sprout both x3                          0/3  14.9s left   0% min   0% in  254.5/s taken  155%HP pots 1 foeHP 50%
+   spot sprout skill x3                         0/3   6.9s left   0% min   0% in  475.3/s taken  134%HP pots 1 foeHP 79%
+   spot sprout weapon-only x6                   0/3   4.1s left   0% min   0% in  767.9/s taken  129%HP pots 1 foeHP 75%
+   spot sprout skill x6                         0/3   3.5s left   0% min   0% in  901.3/s taken  129%HP pots 1 foeHP 87%
+   single sprout weapon-only x1                 3/3   4.9s left  89% min  86% in  120.6/s taken   24%HP pots 0
+   BOSS boss-red-panda                          3/3 234.8s left  54% min  25% in  119.5/s taken 1147%HP pots 15
+   BOSS boss-sunflower                          0/3  38.4s left   0% min   0% in  170.7/s taken  268%HP pots 3 foeHP 79%
+
+=== LADDERS: minimum level with 3/3 wins (and first level with any win) ===
+
+[LAD_W1_wood] Snowman ladder: Wood Axe ^10, Chef ^10, 5 potions
+   BOSS boss-snowman                        reliable L10 first-win L10 | L3:0 L4:0 L5:0 L6:0 L7:0 L8:0 L9:0 L10:3 L11:3 L12:3 L13:3 L14:3
+   spot chef-hat weapon-only x3             reliable L3 first-win L3 | L3:3 L4:3 L5:3 L6:3 L7:3 L8:3 L9:3 L10:3 L11:3 L12:3 L13:3 L14:3
+   spot chef-hat weapon-only x6             reliable L3 first-win L3 | L3:3 L4:3 L5:3 L6:3 L7:3 L8:3 L9:3 L10:3 L11:3 L12:3 L13:3 L14:3
+
+[LAD_W1_wood_casual] Snowman ladder casual
+   BOSS boss-snowman                        reliable L13 first-win L13 | L3:0 L4:0 L5:0 L6:0 L7:0 L8:0 L9:0 L10:0 L11:0 L12:0 L13:3 L14:3
+   spot chef-hat weapon-only x3             reliable L3 first-win L3 | L3:3 L4:3 L5:3 L6:3 L7:3 L8:3 L9:3 L10:3 L11:3 L12:3 L13:3 L14:3
+   spot chef-hat weapon-only x6             reliable L3 first-win L3 | L3:3 L4:3 L5:3 L6:3 L7:3 L8:3 L9:3 L10:3 L11:3 L12:3 L13:3 L14:3
+
+[LAD_W2_normal] Robot ladder normal path (Stone Axe ^0, Santa ^60, Heal ^0, 10 potions)
+   BOSS boss-cyan-robot                     reliable L10 first-win L10 | L8:0 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet weapon-only x3         reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet skill x3               reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot santa-hat weapon-only x3            reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet weapon-only x6         reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+
+[LAD_W2_snow] Robot ladder Snowman (Stone Axe ^30, Snowman ^30)
+   BOSS boss-cyan-robot                     reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet weapon-only x3         reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet skill x3               reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot santa-hat weapon-only x3            reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet weapon-only x6         reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+
+[LAD_W2_snow_casual] Robot ladder Snowman casual
+   BOSS boss-cyan-robot                     reliable L16 first-win L16 | L8:0 L10:0 L12:0 L14:0 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet weapon-only x3         reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet skill x3               reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot santa-hat weapon-only x3            reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet weapon-only x6         reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+
+[LAD_W2_snow_P1] Robot ladder Snowman + 1 Prestige
+   BOSS boss-cyan-robot                     reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet weapon-only x3         reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet skill x3               reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot santa-hat weapon-only x3            reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+   spot space-helmet weapon-only x6         reliable L8 first-win L8 | L8:3 L10:3 L12:3 L14:3 L16:3 L18:3 L20:3 L22:3 L24:3 L26:3
+
+[LAD_S3_snow] Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0
+   BOSS boss-gray-cat                       reliable L22 first-win L22 | L20:0 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x3           reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot straw-hat skill x3                  reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot sunglasses skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x6           reliable L24 first-win L24 | L20:0 L22:0 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+
+[LAD_S3_snow_P1] Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P1
+   BOSS boss-gray-cat                       reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x3           reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot straw-hat skill x3                  reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot sunglasses skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x6           reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+
+[LAD_S3_snow_P3] Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P3
+   BOSS boss-gray-cat                       reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x3           reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot straw-hat skill x3                  reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot sunglasses skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x6           reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+
+[LAD_S3_normal] Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)
+   BOSS boss-gray-cat                       reliable L26 first-win L24 | L20:0 L22:0 L24:2 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x3           reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot straw-hat skill x3                  reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot sunglasses skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x6           reliable L24 first-win L24 | L20:0 L22:0 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+
+[LAD_S3_snow_casual] Gray Cat ladder Snowman casual
+   BOSS boss-gray-cat                       reliable L42 first-win L42 | L20:0 L22:0 L24:0 L26:0 L28:0 L30:0 L32:0 L34:0 L36:0 L38:0 L40:0 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x3           reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot straw-hat skill x3                  reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot sunglasses skill x3                 reliable L20 first-win L20 | L20:3 L22:3 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+   spot yellow-cap weapon-only x6           reliable L24 first-win L24 | L20:0 L22:0 L24:3 L26:3 L28:3 L30:3 L32:3 L34:3 L36:3 L38:3 L40:3 L42:3 L44:3 L46:3
+
+=== GRAY CAT NEIGHBOURS (L30 base) ===
+   NB_S3_base       Neighbour base: L30 Stone Axe ^60, Snowman ^ BOSS boss-gray-cat                 3/3  51.1s left  20% min  20% in    9.4/s taken  128%HP pots 2
+   NB_S3_base       Neighbour base: L30 Stone Axe ^60, Snowman ^ spot yellow-cap weapon-only x3     3/3   6.0s left  83% min  83% in   12.5/s taken   20%HP pots 0
+   NB_S3_base       Neighbour base: L30 Stone Axe ^60, Snowman ^ spot yellow-cap skill x3           3/3  12.6s left  46% min  46% in   18.6/s taken   63%HP pots 0
+   NB_S3_noheal     minus Heal                                   BOSS boss-gray-cat                 3/3  51.1s left   6% min   3% in    9.4/s taken  128%HP pots 3
+   NB_S3_noheal     minus Heal                                   spot yellow-cap weapon-only x3     3/3   6.0s left  80% min  80% in   12.5/s taken   20%HP pots 0
+   NB_S3_noheal     minus Heal                                   spot yellow-cap skill x3           3/3  12.6s left  49% min  37% in   18.6/s taken   63%HP pots 1
+   NB_S3_nopotion   minus potions                                BOSS boss-gray-cat                 0/3  50.4s left   0% min   0% in    9.3/s taken  126%HP pots 0 foeHP 1%
+   NB_S3_nopotion   minus potions                                spot yellow-cap weapon-only x3     3/3   6.0s left  83% min  83% in   12.5/s taken   20%HP pots 0
+   NB_S3_nopotion   minus potions                                spot yellow-cap skill x3           3/3  12.6s left  46% min  46% in   18.6/s taken   63%HP pots 0
+   NB_S3_axe0       Stone Axe ^0                                 BOSS boss-gray-cat                 0/3  58.4s left   0% min   0% in    9.3/s taken  161%HP pots 3 foeHP 11%
+   NB_S3_axe0       Stone Axe ^0                                 spot yellow-cap weapon-only x3     3/3   9.3s left  68% min  68% in   12.7/s taken   35%HP pots 0
+   NB_S3_axe0       Stone Axe ^0                                 spot yellow-cap skill x3           3/3  15.9s left  41% min  40% in   17.0/s taken   80%HP pots 1
+   NB_S3_snow0      Snowman ^0                                   BOSS boss-gray-cat                 3/3  51.1s left  22% min  10% in    9.4/s taken  139%HP pots 3
+   NB_S3_snow0      Snowman ^0                                   spot yellow-cap weapon-only x3     3/3   6.0s left  81% min  81% in   12.5/s taken   22%HP pots 0
+   NB_S3_snow0      Snowman ^0                                   spot yellow-cap skill x3           3/3  12.6s left  41% min  41% in   18.6/s taken   68%HP pots 0
+   NB_S3_chef       Chef Hat t1 ^20 instead of Snowman           BOSS boss-gray-cat                 3/3  51.1s left  16% min  10% in    9.4/s taken  144%HP pots 3
+   NB_S3_chef       Chef Hat t1 ^20 instead of Snowman           spot yellow-cap weapon-only x3     3/3   6.0s left  81% min  81% in   12.5/s taken   23%HP pots 0
+   NB_S3_chef       Chef Hat t1 ^20 instead of Snowman           spot yellow-cap skill x3           3/3  12.6s left  51% min  39% in   18.6/s taken   71%HP pots 1
+   NB_S3_sword      Stone Sword ^20 instead of Stone Axe         BOSS boss-gray-cat                 3/3  54.4s left   9% min   7% in    9.1/s taken  152%HP pots 3
+   NB_S3_sword      Stone Sword ^20 instead of Stone Axe         spot yellow-cap weapon-only x3     3/3   6.0s left  80% min  80% in   12.5/s taken   23%HP pots 0
+   NB_S3_sword      Stone Sword ^20 instead of Stone Axe         spot yellow-cap skill x3           3/3  12.6s left  49% min  38% in   18.6/s taken   72%HP pots 1
+   NB_S3_L26        level 26                                     BOSS boss-gray-cat                 3/3  53.3s left  20% min  13% in    9.3/s taken  140%HP pots 3
+   NB_S3_L26        level 26                                     spot yellow-cap weapon-only x3     3/3   6.0s left  82% min  82% in   12.5/s taken   21%HP pots 0
+   NB_S3_L26        level 26                                     spot yellow-cap skill x3           3/3  12.6s left  43% min  43% in   18.6/s taken   66%HP pots 0
+   NB_S3_L34        level 34                                     BOSS boss-gray-cat                 3/3  48.9s left  31% min  30% in    9.5/s taken  118%HP pots 2
+   NB_S3_L34        level 34                                     spot yellow-cap weapon-only x3     3/3   6.0s left  84% min  84% in   12.5/s taken   19%HP pots 0
+   NB_S3_L34        level 34                                     spot yellow-cap skill x3           3/3  12.6s left  49% min  49% in   18.6/s taken   60%HP pots 0
+   NB_S3_P1         plus 1 Prestige                              BOSS boss-gray-cat                 3/3  35.7s left  63% min  62% in    9.2/s taken   74%HP pots 0
+   NB_S3_P1         plus 1 Prestige                              spot yellow-cap weapon-only x3     3/3   6.0s left  88% min  88% in   12.5/s taken   17%HP pots 0
+   NB_S3_P1         plus 1 Prestige                              spot yellow-cap skill x3           3/3   9.3s left  72% min  72% in   19.0/s taken   39%HP pots 0
+   NB_S3_P3         plus 3 Prestiges                             BOSS boss-gray-cat                 3/3  28.0s left  92% min  85% in    7.6/s taken   45%HP pots 0
+   NB_S3_P3         plus 3 Prestiges                             spot yellow-cap weapon-only x3     3/3   6.0s left  89% min  88% in   12.5/s taken   16%HP pots 0
+   NB_S3_P3         plus 3 Prestiges                             spot yellow-cap skill x3           3/3   9.3s left  74% min  74% in   19.0/s taken   37%HP pots 0
+
+=== FARM RATES (10 simulated minutes, Focus, real respawns) ===
+   FARM_W1      L9   unit-blue-cap              kills/min 25.90 coins/min   25.90 xp/min     77.7 deaths 2 pots 5 minHP 1%
+   FARM_W1      L9   unit-red-scarf             kills/min 22.60 coins/min   22.60 xp/min     90.4 deaths 3 pots 5 minHP 1%
+   FARM_W1      L9   unit-chef-hat              kills/min 16.60 coins/min   16.60 xp/min     66.4 deaths 4 pots 5 minHP 0%
+   FARM_W1      L9   boss-snowman               kills/min  0.00 coins/min    0.00 xp/min      0.0 deaths 0 pots 0 minHP 100%
+   FARM_W2      L16  unit-wolf-hood             kills/min 21.00 coins/min   31.50 xp/min     84.0 deaths 0 pots 0 minHP 87%
+   FARM_W2      L16  unit-calico-cat-hood       kills/min 21.00 coins/min   31.50 xp/min    105.0 deaths 0 pots 0 minHP 86%
+   FARM_W2      L16  unit-golden-crown          kills/min 21.00 coins/min   31.50 xp/min    105.0 deaths 0 pots 0 minHP 81%
+   FARM_W2      L16  unit-reindeer-antlers      kills/min 21.00 coins/min   31.50 xp/min    105.0 deaths 0 pots 0 minHP 49%
+   FARM_W2      L16  unit-santa-hat             kills/min 19.50 coins/min   29.25 xp/min     97.5 deaths 0 pots 10 minHP 20%
+   FARM_W2      L16  unit-space-helmet          kills/min 16.80 coins/min   25.20 xp/min    100.8 deaths 2 pots 10 minHP 0%
+   FARM_W2      L16  boss-cyan-robot            kills/min  0.00 coins/min    0.00 xp/min      0.0 deaths 0 pots 0 minHP 100%
+   FARM_S3      L30  unit-straw-hat             kills/min 15.50 coins/min   34.88 xp/min    108.5 deaths 0 pots 10 minHP 34%
+   FARM_S3      L30  unit-sunglasses            kills/min 15.00 coins/min   33.75 xp/min    120.0 deaths 1 pots 10 minHP 0%
+   FARM_S3      L30  unit-yellow-cap            kills/min 14.40 coins/min   32.40 xp/min    129.6 deaths 2 pots 10 minHP 1%
+   FARM_S3      L30  boss-gray-cat              kills/min  0.00 coins/min    0.00 xp/min      0.0 deaths 0 pots 0 minHP 100%
+   FARM_S4      L52  unit-cowboy-bandana        kills/min 13.50 coins/min   45.56 xp/min    148.5 deaths 0 pots 2 minHP 38%
+   FARM_S4      L52  unit-duck-swim-ring        kills/min 13.50 coins/min   45.56 xp/min    162.0 deaths 0 pots 5 minHP 39%
+   FARM_S4      L52  unit-rainbow-clown         kills/min 13.50 coins/min   45.56 xp/min    189.0 deaths 0 pots 6 minHP 38%
+   FARM_S4      L52  unit-red-cap-swimmer       kills/min 13.20 coins/min   44.55 xp/min    198.0 deaths 0 pots 11 minHP 38%
+   FARM_S4      L52  unit-snorkeler             kills/min 13.20 coins/min   44.55 xp/min    211.2 deaths 0 pots 12 minHP 38%
+   FARM_S4      L52  unit-straw-hat-swimmer     kills/min 13.20 coins/min   44.55 xp/min    237.6 deaths 0 pots 14 minHP 38%
+   FARM_S4      L52  boss-elephant              kills/min  0.00 coins/min    0.00 xp/min      0.0 deaths 0 pots 0 minHP 100%
+   FARM_S4      L52  boss-teal-dinosaur         kills/min  0.00 coins/min    0.00 xp/min      0.0 deaths 0 pots 0 minHP 100%
+   FARM_SW_W2   L10  unit-wolf-hood             kills/min 17.10 coins/min   25.65 xp/min     68.4 deaths 4 pots 8 minHP 0%
+   FARM_SW_W2   L10  unit-calico-cat-hood       kills/min 16.00 coins/min   24.00 xp/min     80.0 deaths 5 pots 8 minHP 0%
+   FARM_SW_W2   L10  unit-golden-crown          kills/min 15.50 coins/min   23.25 xp/min     77.5 deaths 5 pots 8 minHP 1%
+   FARM_SW_W2   L10  unit-reindeer-antlers      kills/min 14.80 coins/min   22.20 xp/min     74.0 deaths 6 pots 8 minHP 1%
+   FARM_SW_W2   L10  unit-santa-hat             kills/min 14.40 coins/min   21.60 xp/min     72.0 deaths 6 pots 8 minHP 0%
+   FARM_SW_W2   L10  unit-space-helmet          kills/min  9.40 coins/min   14.10 xp/min     56.4 deaths 9 pots 8 minHP 2%
+   FARM_SW_S3   L22  unit-straw-hat             kills/min 14.60 coins/min   32.85 xp/min    102.2 deaths 2 pots 10 minHP 1%
+   FARM_SW_S3   L22  unit-sunglasses            kills/min 12.00 coins/min   27.00 xp/min     96.0 deaths 5 pots 10 minHP 1%
+   FARM_SW_S3   L22  unit-yellow-cap            kills/min 10.30 coins/min   23.18 xp/min     92.7 deaths 7 pots 10 minHP 0%
