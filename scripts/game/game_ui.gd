@@ -1494,7 +1494,8 @@ func _item_panel() -> void:
     var amount:=mini(int(r.qty)-1,cap-int(r.merge))
     if r.merge<cap and amount>1:_game_action(tr("MERGE_ALL") % amount,func()->void:if selected==id:_confirmed(sim.merge(id,true)),true,"",more)
     if def.next!="" and r.merge>=cap:
-        _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:_confirmed(sim.evolve(id)),r.qty>=101,"EVOLUTION_NEEDS",more)
+        var evolve_block:=sim.evolve_block_reason(id)
+        _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:_confirmed(sim.evolve(id)),evolve_block.is_empty(),evolve_block,more)
     if def.kind=="skill":
         for i in range(1+sim.level("skill_slots")):
             _game_action(tr("EQUIP_SKILL_SLOT") % (i+1),func()->void:if selected==id:sim.campaign.equip_skill(id,i),true,"",more)
@@ -1513,15 +1514,17 @@ func _item_panel() -> void:
         _text(tr("OUTFIT_GROWTH_EXPLAIN") % [cap,fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100)],17,Color(.8,.84,.9))
     elif sim.copy_growth(id):
         _text(tr("COPY_GROWTH_EXPLAIN") % cap,17,Color(.8,.84,.9))
+    elif sim.is_legacy(id):
+        _text(tr("LEGACY_ITEM_EXPLAIN"),17,Color(1,.86,.5))
     elif def.next!="" and r.merge>=cap:
-        _text(tr("EVOLUTION_EXPLAIN"),17,Color(.8,.84,.9))
+        _text(tr("EVOLUTION_RULE") % [int(sim.catalog.progression.evolution.required_merge),sim.evolution_spare_cost(id),sim.evolution_spare_cost(id)+1],17,Color(.8,.84,.9))
     elif def.next=="":
         _text(tr("MAX_ITEM_TIER"),17,Color(.8,.84,.9))
     # Pinned: previous, primary, merge, next. Positions never change while browsing.
     var index:=list.find(id)
     _arrow_button(-1,index>0,func()->void:_browse(-1))
     _pinned(tr("UNEQUIP" if sim.equipped(id) else "EQUIP"),func()->void:if selected==id:sim.equip(id),true,"",not sim.equipped(id),"equip")
-    _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:_confirmed(sim.merge(id)),r.qty>1 and r.merge<cap,"NEED_DUPLICATES" if r.qty<2 else "MERGE_MAX",false,"merge")
+    _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:_confirmed(sim.merge(id)),r.qty>1 and r.merge<cap,"NEED_DUPLICATES" if r.qty<2 else "MERGE_AT_CAP",false,"merge")
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
 
 ## Supply details (Change 11): what it does now, whether it can be used, stock (charges spent by use)
@@ -2851,9 +2854,10 @@ func _mastery_missing(st: int,part: Array) -> String:
             return tr("MASTERY_NEED_"+kind.to_upper()) % (sim.catalog.groups[g].name if _type_known(g) else tr("MASTERY_UNKNOWN_ENEMY"))
         "item":return tr("MASTERY_NEED_ITEM") % (sim.catalog.display_name(part[1]) if _item_known(part[1]) else tr("MASTERY_UNKNOWN_ITEM"))
         "merge":return tr("MASTERY_NEED_MERGE") % [sim.catalog.display_name(part[1]) if _item_known(part[1]) else tr("MASTERY_UNKNOWN_ITEM"),int(part[2]),int(part[3])]
-        "evolve":
+        "evolve","weapon_merge":
             var names: Array=[]
             for id in sim.campaign.mastery.content(st).weapons:names.append(sim.catalog.display_name(id) if _item_known(id) else "?")
+            if kind=="weapon_merge":return tr("MASTERY_NEED_WEAPON_MERGE") % [", ".join(names),int(part[3])]
             return tr("MASTERY_NEED_EVOLVE") % ", ".join(names)
     return ""
 

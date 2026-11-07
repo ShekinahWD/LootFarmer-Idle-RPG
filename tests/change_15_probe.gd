@@ -410,6 +410,8 @@ func complete_map(st: int) -> void:
     for id in c.items:sim.state.mastery.found[id]=true
     for id in c.outfits:sim.state.mastery.merge[id]=maxi(int(sim.state.mastery.merge.get(id,0)),m.outfit_target(st,id))
     sim.state.mastery.evolved[c.weapons[0]]=true
+    # Change 51: Spring maps (Obsidian only) ask for one of their weapons at ^20 instead of an evolution.
+    for id in c.weapons:sim.state.mastery.merge[id]=maxi(int(sim.state.mastery.merge.get(id,0)),int(sim.catalog.progression.evolution.required_merge))
 func mastery_checks() -> void:
     print("-- Map Mastery")
     fresh()
@@ -420,7 +422,8 @@ func mastery_checks() -> void:
         for cat in m.CATEGORIES:t.append(int(m.objective(st,cat).total))
         counts.append(t)
     print("    category totals per map ",counts)
-    check(counts[0]==[3,4,8,7,5],"Winter I: Explore 3 (100% + 2 camps), Hunt 4, Research 8, Collect 7, Forge 5 (4 outfits + 1 evolution)")
+    # Change 51: the Snowman drops the Wood Axe (Winter I's own tier), so Winter I collects 6 items.
+    check(counts[0]==[3,4,8,6,5],"Winter I: Explore 3 (100% + 2 camps), Hunt 4, Research 8, Collect 6, Forge 5 (4 outfits + 1 evolution)")
     check(m.hunt_target(0)==100 and m.hunt_target(group("boss-snowman"))==3,"Hunt = second kill achievement: 100 normal, 3 boss")
     check(m.outfit_target(1,"unit-blue-cap_outfit")==25 and m.outfit_target(1,"boss-snowman_outfit")==5,"Forge: normal outfits ^25, boss outfits ^5")
     check(m.map_percent(1)==0 and m.game_percent()==0,"Fresh: 0%")
@@ -429,7 +432,7 @@ func mastery_checks() -> void:
     m.evaluate()
     check(sim.state.mastery.found.has("unit-blue-cap_outfit") and int(sim.state.mastery.merge["unit-blue-cap_outfit"])>=25,"Obtained items and best merge levels are recorded")
     var c1: Dictionary=m.content(1)
-    # Shared weapons: one Wood Sword evolution counts on both winter maps.
+    # Change 51: one weapon tier per map, so a Wood Sword evolution counts on Winter I only.
     sim.state.items["wood_sword"]={"qty":102,"merge":100,"extras":{}} # fixture: evolution-ready
     var slot: int=sim.state.gear.find("")
     if slot>=0:sim.state.gear[slot]="wood_sword"
@@ -437,11 +440,13 @@ func mastery_checks() -> void:
     m.evaluate()
     var evolve_ok: Array=[]
     for st in [1,2]:evolve_ok.append(m.objective(st,"forge").parts[-1][2]==1)
-    check(evolve_ok==[true,true] and sim.state.mastery.found.has("stone_sword"),"Its evolution counts for Winter I and Winter II Forge; the Stone Sword counts as found")
-    var stone_maps: Array=[]
+    check(evolve_ok==[true,false] and sim.state.mastery.found.has("stone_sword"),"Its evolution counts for Winter I Forge (Winter II drops Stone); the Stone Sword counts as found")
+    # Obsidian is shared by Spring I and Spring II.
+    sim.state.mastery.found["obsidian_sword"]=true
+    var shared_maps: Array=[]
     for st in range(1,9):
-        if m.content(st).items.has("stone_sword"):stone_maps.append(st)
-    check(stone_maps.size()>=2 and stone_maps.all(func(st):return m.objective(st,"collect").parts.any(func(p):return p[1]=="stone_sword" and p[2]==1)),"A shared item counts in Collect on every map that drops it: %s" % str(stone_maps))
+        if m.content(st).items.has("obsidian_sword"):shared_maps.append(st)
+    check(shared_maps==[7,8] and shared_maps.all(func(st):return m.objective(st,"collect").parts.any(func(p):return p[1]=="obsidian_sword" and p[2]==1)),"A shared item counts in Collect on every map that drops it: %s" % str(shared_maps))
     # Complete Winter I.
     fresh();notices.clear();milestones.clear()
     var coins_before: float=sim.coin_reward(0)

@@ -70,7 +70,7 @@ check('outfit merge gain is 2% of base',all(abs(i['merge_gain']['hp']-0.02*i['no
 check('outfit milestones ascend ^100..^500',[s_['merge'] for s_ in c['progression']['outfit_milestones']]==[100,200,300,400,500])
 check('stored shares: outfits 15%, weapons 30%',c['progression']['stored_outfit_factor']==0.15 and c['progression']['stored_weapon_factor']==0.3)
 spring=[g for g in c['groups'] if g['stage']==8]
-check('Spring II: Tier 5 normals, Tier 6 boss weapons, Tier 5 outfits',all(c['items'][g['weapon']]['tier']==(6 if g['boss'] else 5) and c['items'][g['loot'][1]]['tier']==5 and not c['items'][g['loot'][1]].get('legacy') for g in spring))
+check('Spring II: Tier 7 (Obsidian) weapons for normals and bosses (Change 51), Tier 5 outfits',all(c['items'][g['weapon']]['tier']==7 and c['items'][g['loot'][1]]['tier']==5 and not c['items'][g['loot'][1]].get('legacy') for g in spring))
 check('final boss dedicated HP factor 18',c['progression']['balance']['final_hp']==18.0)
 check('dropped gear is never legacy',all(not c['items'][i].get('legacy') for g in c['groups'] for i in g['loot']))
 # Change 12: gem chance 5% base, 20 x 0.5-point levels (old 12 prices kept), Gem Wisdom +5, no caps;

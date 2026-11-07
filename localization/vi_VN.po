@@ -325,9 +325,6 @@ msgstr "Ghép một bản sao dư"
 msgid "MERGE_ALL"
 msgstr "Ghép %d bản sao dư"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "Ở ^100, dùng 100 bản sao dư để đổi lấy một vật phẩm bậc kế tiếp. Vật phẩm gốc và cấp ghép được giữ lại. Cần một chồng đích hoặc một ô trống cùng loại."
-
 msgid "EVOLVE"
 msgstr "Tiến hóa → %s"
 
@@ -462,12 +459,6 @@ msgstr "Thưởng lượng xu"
 
 msgid "NEED_DUPLICATES"
 msgstr "Bạn cần một bản sao dư để ghép."
-
-msgid "MERGE_MAX"
-msgstr "Vật phẩm này đã ở ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "Tiến hóa cần ^100 và 101 bản sao gốc."
 
 msgid "INVENTORY_FULL"
 msgstr "Không còn ô trống. Hãy dọn chỗ hoặc mở rộng túi đồ này."
@@ -1086,9 +1077,6 @@ msgstr "Sức mạnh"
 
 msgid "INTRINSIC_POWER"
 msgstr "Nội tại %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "Bậc kế tiếp bắt đầu ở 85% sức mạnh nội tại ^100 của bậc này, trước thưởng số lượng và thưởng bên ngoài."
 
 msgid "MAP_FARMING"
 msgstr "%s · %d điểm · %d mỗi điểm · hồi sinh %s giây"
@@ -3325,38 +3313,20 @@ msgstr "Nhặt mỗi loại 41 trang phục Tai Thỏ, Tai Mèo và Tai Tiên (r
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Kiệt tác đầu tiên"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Ghép bất kỳ vũ khí, trang phục hoặc kỹ năng nào lên ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Bậc hai"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Ghép một vật phẩm bậc 2 trở lên lên ^100 (bậc 2 rơi từ Mùa Hè I, hoặc tiến hóa một vũ khí)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Bậc ba"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Ghép một vật phẩm bậc 3 trở lên lên ^100 (bậc 3 rơi từ Mùa Thu I, hoặc tiến hóa một vũ khí hai lần)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Trang bị đôi"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Ghép một vũ khí và một trang phục lên ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Kho vũ khí rộng"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Ghép 3 vũ khí khác nhau và 3 trang phục khác nhau lên ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Kho vũ khí tiến hóa"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Ghép 3 vũ khí bậc 2+ khác nhau và 3 trang phục bậc 2+ khác nhau lên ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Chinh phục mùa đông"
@@ -4110,9 +4080,6 @@ msgstr "Đã khóa"
 
 msgid "PROGRESS_MERGE"
 msgstr "Tốt nhất đến nay: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Vũ khí ở ^50: %d/%d · Trang phục ở ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Chiến tích: %d / %d (mỗi Boss rơi một cái ở lần bị hạ tiếp theo)"
@@ -4891,9 +4858,6 @@ msgstr "Ghép bản sao dư của: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Bật · ghép: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Tiến hóa ở ^100 với 101 bản sao: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "Bật · tiến hóa: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Hiện Chỉ số và Vật phẩm rơi của mọi kẻ địch ở đ�
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Sở hữu mọi vũ khí, trang phục và kỹ năng rơi ở đây."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Trang phục từ đây đạt ^%s (trang phục Boss ^%s) và một vũ khí từ đây đã tiến hóa."
-
 msgid "MASTERY_MORE"
 msgstr "+%d nữa"
 
@@ -5308,9 +5269,6 @@ msgstr "Tìm kỹ năng Nổ Băng (Mùa Hè I: tinh anh Mũ Rơm làm rơi)"
 msgid "MAIN_HINT_8"
 msgstr "Đánh bại Robot Xanh Lơ, Boss Mùa Đông II, để đến Mùa Hè I"
 
-msgid "MAIN_HINT_9"
-msgstr "Tiến hóa một vũ khí ^100 có 101 bản sao (chi tiết vật phẩm, Tiến hóa)"
-
 msgid "MAIN_HINT_10"
 msgstr "Sở hữu nhiều kỹ năng khác nhau"
 
@@ -5379,18 +5337,6 @@ msgstr "Nhận nhiệm vụ thường"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Đánh bại %s để lấy chiến tích · chiến tích %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Ghép bất kỳ vũ khí, trang phục hoặc kỹ năng nào lên ^100: tốt nhất ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Ghép một vật phẩm bậc %d trở lên lên ^100: tốt nhất ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Ghép lên ^50: vũ khí %d/%d · trang phục %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Ghép trang bị bậc 2+ lên ^50: vũ khí %d/%d · trang phục %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Kiếm từ kẻ địch trong lượt này: xu %s/%s · ngọc %s/%s"

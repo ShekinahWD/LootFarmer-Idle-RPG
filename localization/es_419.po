@@ -325,9 +325,6 @@ msgstr "Fusionar una copia de sobra"
 msgid "MERGE_ALL"
 msgstr "Fusionar %d copias de sobra"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "En ^100, gasta 100 copias de sobra para obtener un objeto del siguiente nivel. Conservas el objeto de origen y su nivel de fusión. Necesitas una pila del objeto destino o un espacio vacío de la misma categoría."
-
 msgid "EVOLVE"
 msgstr "Evolucionar → %s"
 
@@ -462,12 +459,6 @@ msgstr "Bonificación de monedas"
 
 msgid "NEED_DUPLICATES"
 msgstr "Necesitas una copia de sobra para fusionar."
-
-msgid "MERGE_MAX"
-msgstr "Este objeto está en ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "La evolución requiere ^100 y 101 copias de origen."
 
 msgid "INVENTORY_FULL"
 msgstr "No hay espacios vacíos. Libera espacio o amplía este inventario."
@@ -1086,9 +1077,6 @@ msgstr "Poder"
 
 msgid "INTRINSIC_POWER"
 msgstr "Intrínseco %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "El siguiente nivel empieza con el 85 % del poder intrínseco ^100 de este nivel, antes de las bonificaciones por copias y externas."
 
 msgid "MAP_FARMING"
 msgstr "%s · %d puntos · %d por punto · reaparición en %s s"
@@ -3325,38 +3313,20 @@ msgstr "Recolecta 41 atuendos de cada uno: Orejas de Conejo, Orejas de Gato y O
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Primera obra maestra"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Fusiona cualquier arma, atuendo o habilidad hasta ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Segundo nivel"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Fusiona un objeto de nivel 2 o superior hasta ^100 (el nivel 2 aparece desde Verano I, o evoluciona un arma)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Tercer nivel"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Fusiona un objeto de nivel 3 o superior hasta ^100 (el nivel 3 aparece desde Otoño I, o evoluciona un arma dos veces)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Equipo en pareja"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Fusiona un arma y un atuendo hasta ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Arsenal amplio"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Fusiona 3 armas distintas y 3 atuendos distintos hasta ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Arsenal evolucionado"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Fusiona 3 armas distintas de nivel 2+ y 3 atuendos distintos de nivel 2+ hasta ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Dominio del invierno"
@@ -4110,9 +4080,6 @@ msgstr "Bloqueado"
 
 msgid "PROGRESS_MERGE"
 msgstr "Mejor hasta ahora: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Armas en ^50: %d/%d · Atuendos en ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Trofeos: %d / %d (cada jefe suelta uno en su próxima derrota)"
@@ -4891,9 +4858,6 @@ msgstr "Fusiona las copias de sobra de: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Sí · fusiona: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Evoluciona en ^100 con 101 copias: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "Sí · evoluciona: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Revela las estadísticas y el botín de todos los enemigos de aquí."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Consigue todas las armas, atuendos y habilidades que caen aquí."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Atuendos de aquí hasta ^%s (atuendos de jefe ^%s) y un arma de aquí evolucionada."
-
 msgid "MASTERY_MORE"
 msgstr "+%d más"
 
@@ -5308,9 +5269,6 @@ msgstr "Encuentra la habilidad Estallido de Escarcha (en Verano I la sueltan los
 msgid "MAIN_HINT_8"
 msgstr "Derrota al Robot Cian, el jefe de Invierno II, para llegar a Verano I"
 
-msgid "MAIN_HINT_9"
-msgstr "Evoluciona un arma en ^100 que tenga 101 copias (detalles del objeto, Evolucionar)"
-
 msgid "MAIN_HINT_10"
 msgstr "Consigue habilidades distintas"
 
@@ -5379,18 +5337,6 @@ msgstr "Reclama misiones normales"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Derrota a %s para obtener su trofeo · trofeos %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Fusiona cualquier arma, atuendo o habilidad hasta ^100: mejor ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Fusiona un objeto de nivel %d o superior hasta ^100: mejor ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Fusiona hasta ^50: armas %d/%d · atuendos %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Fusiona equipo de nivel 2+ hasta ^50: armas %d/%d · atuendos %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Gana de enemigos en esta partida: monedas %s/%s · gemas %s/%s"

@@ -34,7 +34,10 @@ BATCHES = {
     'tune_A19': ('builds_tuning', 'tiers_A19,s3aggro_individual', '', 3600),
     'lad_H24': ('builds_ladder', 'tiers_H24,s3aggro_individual', H_ONLY, 2000),
     'lad_H28': ('builds_ladder', 'tiers_H28,s3aggro_individual', H_ONLY, 2000),
+    # Change 51: the shipped catalog is H24, so the same ladder without the tier patch must reproduce lad_H24.
+    'live_H24': ('builds_ladder', 's3aggro_individual', H_ONLY, 2000),
 }
+REFERENCE = {'live_H24': 'lad_H24'}
 
 
 def godot(args, timeout, log):
@@ -62,8 +65,22 @@ def run_batch(name, compare):
     ok = errors == 0 and summary != [] and (code == 0 or (name.startswith('s3ctl') and invalid == 1))
     print(f'{name:16s} {"RUN OK" if ok else "RUN FAIL"} {secs:5.0f}s  {summary[-1] if summary else "(no summary)"}  exit {code}  script_errors {errors}')
     if ok and compare:
+        reference = EVIDENCE / f'{REFERENCE.get(name, name)}.csv'
+        if name in REFERENCE:
+            # Same fights, different label: the reference's what-if column names the in-memory tier patch.
+            import csv
+            live = list(csv.DictReader(open(csv_path, encoding='utf-8')))
+            rows = list(csv.DictReader(open(reference, encoding='utf-8')))
+            label = live[0]['whatif'] if live else ''
+            for row in rows:
+                row['whatif'] = label
+            reference = OUT / f'{name}.reference.csv'
+            with open(reference, 'w', encoding='utf-8', newline='') as f:
+                w = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator='
+')
+                w.writeheader(); w.writerows(rows)
         r = subprocess.run([sys.executable, str(ROOT / 'tools/player_feedback_audit_analyze.py'), 'compare',
-                            str(EVIDENCE / f'{name}.csv'), str(csv_path)], capture_output=True, text=True)
+                            str(reference), str(csv_path)], capture_output=True, text=True)
         print('   ' + r.stdout.strip().replace('\n', '\n   '))
         ok = r.returncode == 0
     return ok

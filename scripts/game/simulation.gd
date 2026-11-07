@@ -67,11 +67,14 @@ func touch() -> void:
 ## Schema 8 saves of the released game migrate on load (campaign.migrate_schema9); nothing is reset.
 const SCHEMA:=9
 const MIGRATABLE_SCHEMAS:=[8,9]
+## One-time profile migrations, in order (state.migrations). A new profile starts with all of them.
+## legacy_weapons_h24 (Change 51): owned weapons of the old stat table become legacy-stat copies.
+const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24"]
 
 func new_profile() -> void:
     suspended=false
     clear_target()
-    state = {"schema":SCHEMA,"merge_memory":{},"migrations":[],"group_kills":[0,0,0,0],"player_level":1,"xp":0.0,"coins":0,"gems":0,"items":{},"gear":["","",""],"supplies":[""],
+    state = {"schema":SCHEMA,"merge_memory":{},"migrations":MIGRATIONS.duplicate(),"group_kills":[0,0,0,0],"player_level":1,"xp":0.0,"coins":0,"gems":0,"items":{},"gear":["","",""],"supplies":[""],
         "weapon":"","outfit":"","upgrades":{},"auto_slots":[],
         "spawns":[0],"spawn":0,"cards":{},"prestiges":0,"offer":[],"victory":false,
         "focus":-1,"focus_variant":2,"boost_time":0.0,"boost_power":0.0,"use_cd":0.0,"history":[],
@@ -247,12 +250,12 @@ func record(id: String) -> Dictionary:
 ## Change 50: the permanent merge level of an item identity (kept by Prestige, cleared by Hard Reset).
 ## Supplies grow by use (supply mastery), never by merging, so they are never remembered.
 func remembered_merge(id: String) -> int:
-    if not catalog.items.has(id) or catalog.items[id].kind=="consumable":return 0
+    if not catalog.items.has(id) or catalog.items[id].kind=="consumable" or is_legacy(id):return 0
     return int(state.get("merge_memory",{}).get(id,0))
 
 ## Records a reached merge level (it only ever rises).
 func remember_merge(id: String,merge_level: int) -> void:
-    if not catalog.items.has(id) or catalog.items[id].kind=="consumable":return
+    if not catalog.items.has(id) or catalog.items[id].kind=="consumable" or is_legacy(id):return
     if merge_level>remembered_merge(id):state.merge_memory[id]=merge_level
 
 func quantity(id: String) -> int:
@@ -289,9 +292,25 @@ func merge_validation_cap(id: String) -> int:
     if catalog.items[id].kind=="weapon":return maxi(merge_cap(id),100)
     return merge_cap(id)
 
+## Highest level a new merge may reach. Change 51: a weapon with a next tier stops at ^20 (the evolution
+## requirement), so Merge, Merge All and Auto-Merge never spend the spare copies evolution needs; the
+## final tier (Obsidian) merges to ^100. A legacy-stat copy has its own authored cap. A record above its
+## cap (an older save) keeps its level and its effect but cannot merge further.
 func merge_cap(id: String) -> int:
-    if catalog.items[id].kind=="consumable":return int(catalog.progression.supply_mastery.cap)
-    return int(catalog.progression.merge.copy_cap if copy_growth(id) else catalog.progression.merge.weapon_cap)
+    var d: Dictionary=catalog.items[id]
+    if d.kind=="consumable":return int(catalog.progression.supply_mastery.cap)
+    if copy_growth(id):return int(catalog.progression.merge.copy_cap)
+    if d.has("merge_cap"):return int(d.merge_cap)
+    return int(catalog.progression.merge.evolvable_weapon_cap if str(d.next)!="" else catalog.progression.merge.weapon_cap)
+
+## Change 51: an old-stat weapon copy kept from before the H24 ladder (never dropped, never evolves,
+## leaves with the inventory at the next Prestige).
+func is_legacy(id: String) -> bool:
+    return bool(catalog.items.get(id,{}).get("legacy",false))
+
+## Spare copies one evolution spends (above the copy that stays at ^20).
+func evolution_spare_cost(_id: String="") -> int:
+    return int(catalog.progression.evolution.spare_cost)
 
 ## The ^level shown for an item: a supply's permanent mastery, otherwise its record's merge level.
 func merge_level(id: String) -> int:
@@ -407,7 +426,8 @@ func _roll_supply(group: int) -> String:
 func merge_levels(id: String,merge_level: int) -> float:
     var m: Dictionary=catalog.progression.merge
     var linear: float=float(m.linear_levels)
-    merge_level=clampi(merge_level,0,merge_cap(id))
+    # Change 51: bounded by the validation cap, so a weapon above its new merge cap keeps its full effect.
+    merge_level=clampi(merge_level,0,merge_validation_cap(id))
     if not copy_growth(id) or merge_level<=linear:return float(merge_level)
     if str(catalog.items[id].kind)=="outfit":return linear+float(m.outfit_tail_rate)*(merge_level-linear)
     return linear+float(m.tail_scale)*log(1.0+(merge_level-linear)/float(m.tail_scale))
@@ -648,7 +668,7 @@ func merge(id: String, all: bool = false) -> bool:
     if not all:
         count = mini(1,count)
     if count<1:
-        return fail("MERGE_MAX")
+        return fail("MERGE_AT_CAP")
     _remove(id,count)
     r.merge += count
     remember_merge(id,int(r.merge))
@@ -686,10 +706,10 @@ func merge_all_copies() -> int:
 func evolve_block_reason(id: String) -> String:
     var lock:=action_lock_reason()
     if not lock.is_empty():return lock
-    if not catalog.items.has(id):return "EVOLUTION_NEEDS"
+    if not catalog.items.has(id):return "EVOLUTION_NEEDS_COPIES"
     var target: String = catalog.items[id].next
-    if target=="" or int(state.items.get(id,{}).get("merge",0))<int(catalog.progression.evolution.required_merge) or quantity(id)<int(catalog.progression.evolution.spare_cost)+1:
-        return "EVOLUTION_NEEDS"
+    if target=="" or int(state.items.get(id,{}).get("merge",0))<int(catalog.progression.evolution.required_merge) or quantity(id)<evolution_spare_cost(id)+1:
+        return "EVOLUTION_NEEDS_COPIES"
     if not can_add(target):
         return "INVENTORY_FULL"
     return ""
@@ -699,8 +719,10 @@ func evolve(id: String) -> bool:
     if not reason.is_empty():
         return fail(reason)
     var target: String = catalog.items[id].next
-    # Every validation precedes both mutations; output is committed with its cost.
-    _remove(id,int(catalog.progression.evolution.spare_cost))
+    # Every validation precedes both mutations; output is committed with its cost. Change 51: the source
+    # keeps its ^20 record and its last copy; the target gains exactly one copy and keeps its own record
+    # (or starts at its own remembered level): the source's level is never transferred.
+    _remove(id,evolution_spare_cost(id))
     add_item(target,1,false)
     if auto_merge_excluded(id):record(target).auto_merge_excluded=true
     touch()

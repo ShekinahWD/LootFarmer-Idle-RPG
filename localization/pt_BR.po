@@ -325,9 +325,6 @@ msgstr "Fundir uma cópia extra"
 msgid "MERGE_ALL"
 msgstr "Fundir %d cópias extras"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "Em ^100, gaste 100 cópias extras para obter um item do próximo nível. Você mantém o item de origem e o nível de fusão dele. É preciso ter uma pilha do item resultante ou um espaço vazio da mesma categoria."
-
 msgid "EVOLVE"
 msgstr "Evoluir → %s"
 
@@ -462,12 +459,6 @@ msgstr "Bônus de moedas"
 
 msgid "NEED_DUPLICATES"
 msgstr "Você precisa de uma cópia extra para fundir."
-
-msgid "MERGE_MAX"
-msgstr "Este item está em ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "A evolução exige ^100 e 101 cópias de origem."
 
 msgid "INVENTORY_FULL"
 msgstr "Nenhum espaço vazio. Libere espaço ou amplie este inventário."
@@ -1086,9 +1077,6 @@ msgstr "Poder"
 
 msgid "INTRINSIC_POWER"
 msgstr "Intrínseco %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "O próximo nível começa com 85% do poder intrínseco ^100 deste nível, antes dos bônus de cópias e externos."
 
 msgid "MAP_FARMING"
 msgstr "%s · %d pontos · %d por ponto · renascem em %s s"
@@ -3325,38 +3313,20 @@ msgstr "Pegue 41 trajes de cada: Orelhas de Coelho, Orelhas de Gato e Orelhas d
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Primeira obra-prima"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Funda qualquer arma, traje ou habilidade até ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Segundo nível"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Funda um item de nível 2 ou superior até ^100 (o nível 2 cai a partir de Verão I, ou evolua uma arma)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Terceiro nível"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Funda um item de nível 3 ou superior até ^100 (o nível 3 cai a partir de Outono I, ou evolua uma arma duas vezes)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Equipamento em par"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Funda uma arma e um traje até ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Arsenal amplo"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Funda 3 armas diferentes e 3 trajes diferentes até ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Arsenal evoluído"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Funda 3 armas diferentes de nível 2+ e 3 trajes diferentes de nível 2+ até ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Domínio do inverno"
@@ -4110,9 +4080,6 @@ msgstr "Bloqueado"
 
 msgid "PROGRESS_MERGE"
 msgstr "Melhor até agora: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Armas em ^50: %d/%d · Trajes em ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Troféus: %d / %d (cada chefe deixa um na próxima derrota)"
@@ -4891,9 +4858,6 @@ msgstr "Funde cópias extras de: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Sim · funde: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Evolui em ^100 com 101 cópias: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "Sim · evolui: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Revele Atributos e Drops de todos os inimigos daqui."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Obtenha todas as armas, trajes e habilidades que caem aqui."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Trajes daqui até ^%s (trajes de chefe ^%s) e uma arma daqui evoluída."
-
 msgid "MASTERY_MORE"
 msgstr "+%d a mais"
 
@@ -5308,9 +5269,6 @@ msgstr "Encontre a habilidade Explosão Gélida (em Verão I, os elites Chapéu 
 msgid "MAIN_HINT_8"
 msgstr "Derrote o Robô Ciano, o chefe de Inverno II, para chegar a Verão I"
 
-msgid "MAIN_HINT_9"
-msgstr "Evolua uma arma em ^100 que tenha 101 cópias (detalhes do item, Evoluir)"
-
 msgid "MAIN_HINT_10"
 msgstr "Tenha habilidades diferentes"
 
@@ -5379,18 +5337,6 @@ msgstr "Resgate missões comuns"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Derrote %s para ganhar o troféu · troféus %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Funda qualquer arma, traje ou habilidade até ^100: melhor ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Funda um item de nível %d ou superior até ^100: melhor ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Funda até ^50: armas %d/%d · trajes %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Funda equipamento de nível 2+ até ^50: armas %d/%d · trajes %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Ganhe de inimigos nesta partida: moedas %s/%s · gemas %s/%s"

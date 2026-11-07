@@ -50,13 +50,15 @@ func run() -> void:
     check(sim.campaign.explored_count(1)>before['1'].count(1),"Camp upgrade really reveals larger area")
     fresh();sim.state.gear.resize(20);sim.state.gear.fill("")
     var id="wood_sword"
-    sim.add_item(id,201);sim.merge(id,true)
-    check(sim.quantity(id)==101 and sim.record(id).merge==100,"Merge consumes 100 duplicates")
-    var d=sim.catalog.items[id];var intrinsic=float(d.normal.damage[0])+float(d.merge_gain.damage)*100
-    check(is_equal_approx(sim.normal(id).damage,intrinsic*1.05),"Stock grants derived 5% without consumption")
+    # Change 51: an evolvable weapon merges to ^20; evolution spends 10 spares (31 copies in all) and the
+    # next tier is the H24 table's (x1.9), not a share of this tier's ^100 power.
+    sim.add_item(id,31);sim.merge(id,true)
+    check(sim.quantity(id)==11 and sim.record(id).merge==20,"Merge consumes 20 duplicates and stops at ^20")
+    var d=sim.catalog.items[id];var intrinsic=float(d.normal.damage[0])+float(d.merge_gain.damage)*20
+    check(is_equal_approx(sim.normal(id).damage,intrinsic*1.005),"Stock grants +0.05% per spare at the cap without consumption")
     check(sim.evolve(id),"Evolution succeeds")
-    check(sim.quantity(id)==1 and sim.quantity(d.next)==1,"Evolution consumes only 100 spare copies")
-    check(is_equal_approx(sim.normal(d.next).damage,intrinsic*.85),"Evolution retains 85% intrinsic power")
+    check(sim.quantity(id)==1 and sim.quantity(d.next)==1,"Evolution consumes only 10 spare copies")
+    check(is_equal_approx(sim.normal(d.next).damage,float(d.normal.damage[0])*1.9),"Next tier is the H24 step (x1.9)")
     check(is_equal_approx(sim.normal(id).damage,intrinsic),"Consuming spare copies removes stock bonus")
     var tier7="obsidian_sword";sim.add_item(tier7,201);sim.merge(tier7,true)
     check(not sim.evolve(tier7) and sim.normal(tier7).damage>sim.catalog.items[tier7].normal.damage[0]*3,"Final tier keeps stock growth")

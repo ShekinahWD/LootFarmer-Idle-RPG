@@ -319,9 +319,6 @@ msgstr "Merge one spare copy"
 msgid "MERGE_ALL"
 msgstr "Merge %d spare copies"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "At ^100, spend 100 spare copies for one next-tier item. Keep the source item and its merge level. A target stack or empty slot of the same category is required."
-
 msgid "EVOLVE"
 msgstr "Evolve → %s"
 
@@ -457,12 +454,6 @@ msgstr "Coin amount bonus"
 
 msgid "NEED_DUPLICATES"
 msgstr "You need a spare copy to merge."
-
-msgid "MERGE_MAX"
-msgstr "This item is at ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "Evolution needs ^100 and 101 source copies."
 
 msgid "INVENTORY_FULL"
 msgstr "No empty slot. Make room or expand this inventory."
@@ -1083,9 +1074,6 @@ msgstr "Power"
 
 msgid "INTRINSIC_POWER"
 msgstr "Intrinsic %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "Next tier starts at 85% of this tier’s intrinsic ^100 power, before stock and external bonuses."
 
 msgid "MAP_FARMING"
 msgstr "%s · %d spots · %d per spot · %ss respawn"
@@ -3321,38 +3309,20 @@ msgstr "Pick up 41 each of the Bunny Ears, Cat Ears and Elf Ears outfits (Spring
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "First masterwork"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Merge any weapon, outfit or skill to ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Second tier"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Merge a tier 2 or higher item to ^100 (tier 2 drops from Summer I on, or evolve a weapon)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Third tier"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Merge a tier 3 or higher item to ^100 (tier 3 drops from Autumn I on, or evolve a weapon twice)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Paired gear"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Merge one weapon and one outfit to ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Broad arsenal"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Merge 3 different weapons and 3 different outfits to ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Evolved arsenal"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Merge 3 different tier 2+ weapons and 3 different tier 2+ outfits to ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Winter mastery"
@@ -4108,9 +4078,6 @@ msgstr "Locked"
 
 msgid "PROGRESS_MERGE"
 msgstr "Best so far: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Weapons at ^50: %d/%d · Outfits at ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Trophies: %d / %d (each boss drops one on its next defeat)"
@@ -4890,7 +4857,7 @@ msgid "AUTO_MERGE_ON"
 msgstr "On · merges: %s"
 
 msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Evolves at ^100 with 101 copies: %s"
+msgstr "Evolves at ^20 with 10 spare copies (31 in all): %s"
 
 msgid "AUTO_EVOLVE_ON"
 msgstr "On · evolves: %s"
@@ -5196,7 +5163,7 @@ msgid "MASTERY_COLLECT_RULE"
 msgstr "Obtain every weapon, outfit and skill dropped here."
 
 msgid "MASTERY_FORGE_RULE"
-msgstr "Outfits from here to ^%s (boss outfits ^%s) and one weapon from here evolved."
+msgstr "Outfits from here to ^%s (boss outfits ^%s) and one weapon from here evolved (Spring maps: an Obsidian weapon from here at ^20)."
 
 msgid "MASTERY_MORE"
 msgstr "+%d more"
@@ -5307,7 +5274,7 @@ msgid "MAIN_HINT_8"
 msgstr "Defeat the Cyan Robot, the Winter II boss, to reach Summer I"
 
 msgid "MAIN_HINT_9"
-msgstr "Evolve a ^100 weapon that has 101 copies (item details, Evolve)"
+msgstr "Evolve a ^20 weapon that has 10 spare copies (item details, Evolve)"
 
 msgid "MAIN_HINT_10"
 msgstr "Own different skills"
@@ -5377,18 +5344,6 @@ msgstr "Claim regular missions"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Defeat %s for its trophy · trophies %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Merge any weapon, outfit or skill to ^100: best ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Merge a tier %d or higher item to ^100: best ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Merge to ^50: weapons %d/%d · outfits %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Merge tier 2+ gear to ^50: weapons %d/%d · outfits %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Earn from enemies this run: coins %s/%s · gems %s/%s"
@@ -5863,3 +5818,54 @@ msgstr "Cards and sets, your Coins and Gems, every upgrade you bought with Coins
 
 msgid "PRESTIGE_RESET_RUN"
 msgstr "Every item you carry (supplies included) and its random bonus attributes, Supply Mastery, map access (back to Winter I), owned camps, and unfinished opportunities and missions."
+
+msgid "ITEM_LEGACY_NAME"
+msgstr "%s (old stats)"
+
+msgid "LEGACY_ITEM_EXPLAIN"
+msgstr "An old-stat copy from before the weapon update. It keeps its power until your next Prestige, then leaves with your items. New copies of this weapon use the new stats and keep your merge level."
+
+msgid "EVOLUTION_RULE"
+msgstr "At ^%d, spend %d spare copies for one copy of the next-tier weapon (%d copies in all). This weapon keeps its merge level and one copy; the new weapon uses its own merge level. A target stack or empty slot is required."
+
+msgid "MASTERY_NEED_WEAPON_MERGE"
+msgstr "Merge one of %s to ^%d"
+
+msgid "FOLLOW_MASTERWORK_ANY_GEAR"
+msgstr "Merge an outfit, skill or Obsidian weapon to ^100: best ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK_TIER_GEAR"
+msgstr "Merge a tier %d+ outfit, skill or Obsidian weapon to ^100: best ^%d/^100"
+
+msgid "FOLLOW_ARSENAL_SPLIT"
+msgstr "Weapons at ^20: %d/%d · outfits at ^50: %d/%d"
+
+msgid "FOLLOW_ARSENAL_SPLIT_T2"
+msgstr "Tier 2+ weapons at ^20: %d/%d · tier 2+ outfits at ^50: %d/%d"
+
+msgid "PROGRESS_ARSENAL_SPLIT"
+msgstr "Weapons at ^20: %d/%d · Outfits at ^50: %d/%d"
+
+msgid "CONTENT_MASTERWORK_O1_RULE"
+msgstr "Merge any outfit, skill or Obsidian weapon to ^100"
+
+msgid "CONTENT_MASTERWORK_O2_RULE"
+msgstr "Merge a tier 2 or higher outfit, skill or Obsidian weapon to ^100"
+
+msgid "CONTENT_MASTERWORK_O3_RULE"
+msgstr "Merge a tier 3 or higher outfit, skill or Obsidian weapon to ^100"
+
+msgid "CONTENT_ARSENAL_O1_RULE"
+msgstr "Merge one weapon to ^20 and one outfit to ^50"
+
+msgid "CONTENT_ARSENAL_O2_RULE"
+msgstr "Merge 3 different weapons to ^20 and 3 different outfits to ^50"
+
+msgid "CONTENT_ARSENAL_O3_RULE"
+msgstr "Merge 3 different tier 2+ weapons to ^20 and 3 different tier 2+ outfits to ^50"
+
+msgid "MERGE_AT_CAP"
+msgstr "This item is at its merge cap."
+
+msgid "EVOLUTION_NEEDS_COPIES"
+msgstr "Evolution needs the full merge level and enough spare copies."

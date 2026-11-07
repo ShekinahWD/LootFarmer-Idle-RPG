@@ -325,9 +325,6 @@ msgstr "एक अतिरिक्त प्रति मर्ज करे�
 msgid "MERGE_ALL"
 msgstr "अतिरिक्त प्रतियाँ मर्ज करें: %d"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "^100 पर, अगले टियर के एक आइटम के लिए 100 अतिरिक्त प्रतियाँ खर्च करें। स्रोत आइटम और उसका मर्ज लेवल बने रहते हैं। उसी श्रेणी का लक्ष्य स्टैक या खाली स्लॉट ज़रूरी है।"
-
 msgid "EVOLVE"
 msgstr "इवॉल्व करें → %s"
 
@@ -462,12 +459,6 @@ msgstr "सिक्का मात्रा बोनस"
 
 msgid "NEED_DUPLICATES"
 msgstr "मर्ज करने के लिए एक अतिरिक्त प्रति चाहिए।"
-
-msgid "MERGE_MAX"
-msgstr "यह आइटम ^100 पर है।"
-
-msgid "EVOLUTION_NEEDS"
-msgstr "इवॉल्यूशन के लिए ^100 और 101 स्रोत प्रतियाँ चाहिए।"
 
 msgid "INVENTORY_FULL"
 msgstr "कोई खाली स्लॉट नहीं। जगह बनाएँ या यह इन्वेंटरी बढ़ाएँ।"
@@ -1086,9 +1077,6 @@ msgstr "शक्ति"
 
 msgid "INTRINSIC_POWER"
 msgstr "मूल %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "अगला टियर इस टियर की मूल ^100 शक्ति के 85% से शुरू होता है, स्टॉक और बाहरी बोनस से पहले।"
 
 msgid "MAP_FARMING"
 msgstr "%s · स्थान: %d · प्रति स्थान: %d · पुनर्जीवन %s से."
@@ -3325,38 +3313,20 @@ msgstr "खरगोश कान, बिल्ली कान और एल्
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "पहली उत्कृष्ट कृति"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "कोई भी हथियार, पोशाक या स्किल ^100 तक मर्ज करें"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "दूसरा टियर"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "टियर 2 या ऊपर का कोई आइटम ^100 तक मर्ज करें (टियर 2 गर्मी I से ड्रॉप होता है, या कोई हथियार इवॉल्व करें)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "तीसरा टियर"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "टियर 3 या ऊपर का कोई आइटम ^100 तक मर्ज करें (टियर 3 पतझड़ I से ड्रॉप होता है, या कोई हथियार दो बार इवॉल्व करें)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "जोड़ीदार गियर"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "एक हथियार और एक पोशाक ^50 तक मर्ज करें"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "विस्तृत शस्त्रागार"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "3 अलग हथियार और 3 अलग पोशाकें ^50 तक मर्ज करें"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "विकसित शस्त्रागार"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "टियर 2+ के 3 अलग हथियार और टियर 2+ की 3 अलग पोशाकें ^50 तक मर्ज करें"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "सर्दी पर महारत"
@@ -4110,9 +4080,6 @@ msgstr "लॉक"
 
 msgid "PROGRESS_MERGE"
 msgstr "अब तक का सर्वश्रेष्ठ: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "^50 पर हथियार: %d/%d · ^50 पर पोशाकें: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "ट्रॉफ़ियाँ: %d / %d (हर बॉस अगली हार पर एक गिराता है)"
@@ -4891,9 +4858,6 @@ msgstr "इनकी अतिरिक्त प्रतियाँ मर्
 msgid "AUTO_MERGE_ON"
 msgstr "चालू · मर्ज करता है: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "^100 और 101 प्रतियों पर इवॉल्व करता है: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "चालू · इवॉल्व करता है: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "यहाँ के हर दुश्मन के आँकड़े 
 msgid "MASTERY_COLLECT_RULE"
 msgstr "यहाँ ड्रॉप होने वाला हर हथियार, पोशाक और स्किल पाएँ।"
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "यहाँ की पोशाकें ^%s तक (बॉस पोशाकें ^%s तक) और यहाँ का एक हथियार इवॉल्व किया हुआ।"
-
 msgid "MASTERY_MORE"
 msgstr "+%d और"
 
@@ -5308,9 +5269,6 @@ msgstr "हिम विस्फोट स्किल ढूँढें (ग�
 msgid "MAIN_HINT_8"
 msgstr "गर्मी I तक पहुँचने के लिए सर्दी II के बॉस आसमानी रोबोट को हराएँ"
 
-msgid "MAIN_HINT_9"
-msgstr "101 प्रतियों वाला ^100 का हथियार इवॉल्व करें (आइटम विवरण, इवॉल्व करें)"
-
 msgid "MAIN_HINT_10"
 msgstr "अलग-अलग स्किल पाएँ"
 
@@ -5379,18 +5337,6 @@ msgstr "सामान्य मिशन प्राप्त करें"
 
 msgid "FOLLOW_TROPHY"
 msgstr "ट्रॉफ़ी के लिए हराएँ: %s · ट्रॉफ़ियाँ %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "कोई भी हथियार, पोशाक या स्किल ^100 तक मर्ज करें: सर्वश्रेष्ठ ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "टियर %d या ऊपर का कोई आइटम ^100 तक मर्ज करें: सर्वश्रेष्ठ ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "^50 तक मर्ज करें: हथियार %d/%d · पोशाकें %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "टियर 2+ गियर ^50 तक मर्ज करें: हथियार %d/%d · पोशाकें %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "इस दौर में दुश्मनों से कमाएँ: सिक्के %s/%s · रत्न %s/%s"

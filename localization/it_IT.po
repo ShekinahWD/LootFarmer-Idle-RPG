@@ -325,9 +325,6 @@ msgstr "Fondi una copia extra"
 msgid "MERGE_ALL"
 msgstr "Fondi %d copie extra"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "A ^100, spendi 100 copie extra per un oggetto del grado successivo. L’oggetto di origine e il suo livello di fusione restano. Serve una pila di destinazione o uno slot vuoto della stessa categoria."
-
 msgid "EVOLVE"
 msgstr "Evolvi → %s"
 
@@ -462,12 +459,6 @@ msgstr "Bonus quantità di monete"
 
 msgid "NEED_DUPLICATES"
 msgstr "Ti serve una copia extra per la fusione."
-
-msgid "MERGE_MAX"
-msgstr "Questo oggetto è a ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "L’evoluzione richiede ^100 e 101 copie di origine."
 
 msgid "INVENTORY_FULL"
 msgstr "Nessuno slot vuoto. Fai spazio o espandi questo inventario."
@@ -1086,9 +1077,6 @@ msgstr "Potenza"
 
 msgid "INTRINSIC_POWER"
 msgstr "Intrinseca %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "Il grado successivo parte dall’85% della potenza intrinseca a ^100 di questo grado, prima delle scorte e dei bonus esterni."
 
 msgid "MAP_FARMING"
 msgstr "%s · postazioni: %d · %d per postazione · rinascita %s s"
@@ -3325,38 +3313,20 @@ msgstr "Raccogli 41 costumi ciascuno da Orecchie da Coniglio, Orecchie da Gatto 
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Primo capolavoro"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Fondi un’arma, un costume o un’abilità qualsiasi fino a ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Secondo grado"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Fondi un oggetto di grado 2 o superiore fino a ^100 (il grado 2 cade da Estate I in poi, oppure fai evolvere un’arma)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Terzo grado"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Fondi un oggetto di grado 3 o superiore fino a ^100 (il grado 3 cade da Autunno I in poi, oppure fai evolvere un’arma due volte)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Equipaggiamento in coppia"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Fondi un’arma e un costume fino a ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Arsenale ampio"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Fondi 3 armi diverse e 3 costumi diversi fino a ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Arsenale evoluto"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Fondi 3 armi diverse e 3 costumi diversi di grado 2+ fino a ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Dominio dell’inverno"
@@ -4110,9 +4080,6 @@ msgstr "Bloccato"
 
 msgid "PROGRESS_MERGE"
 msgstr "Miglior risultato: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Armi a ^50: %d/%d · Costumi a ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Trofei: %d / %d (ogni boss ne lascia uno alla prossima sconfitta)"
@@ -4891,9 +4858,6 @@ msgstr "Fonde le copie extra di: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Sì · fonde: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Evolve a ^100 con 101 copie: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "Sì · evolve: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Rivela Statistiche e Drop di ogni nemico qui."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Ottieni ogni arma, costume e abilità che cade qui."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Costumi di qui fino a ^%s (costumi dei boss ^%s) e un’arma di qui evoluta."
-
 msgid "MASTERY_MORE"
 msgstr "+%d altri"
 
@@ -5308,9 +5269,6 @@ msgstr "Trova l’abilità Esplosione di Gelo (Estate I: la lasciano cadere le �
 msgid "MAIN_HINT_8"
 msgstr "Sconfiggi il Robot Ciano, il boss di Inverno II, per raggiungere Estate I"
 
-msgid "MAIN_HINT_9"
-msgstr "Fai evolvere un’arma a ^100 che ha 101 copie (dettagli oggetto, Evolvi)"
-
 msgid "MAIN_HINT_10"
 msgstr "Possiedi abilità diverse"
 
@@ -5379,18 +5337,6 @@ msgstr "Riscuoti missioni normali"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Sconfiggi %s per il suo trofeo · trofei %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Fondi un’arma, un costume o un’abilità qualsiasi fino a ^100: migliore ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Fondi un oggetto di grado %d o superiore fino a ^100: migliore ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Fondi fino a ^50: armi %d/%d · costumi %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Fondi equipaggiamento di grado 2+ fino a ^50: armi %d/%d · costumi %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Guadagna dai nemici in questa partita: monete %s/%s · gemme %s/%s"

@@ -65,10 +65,9 @@ func shared_weapon_checks() -> void:
         var d: Dictionary=c.groups[g]
         var w: Dictionary=c.items[d.weapon]
         families[w.family]=true
-        # Change 8: bosses carry one tier above their stage's normal enemies. Change 9: Spring II is Tier 5.
-        var stage_tier: int=5 if int(d.stage)==8 else 1+(int(d.stage)-1)/2
-        if int(w.tier)!=stage_tier+(1 if d.boss else 0):bad+=1
-    check(bad==0 and families.keys().size()==2,"Every enemy carries a shared Sword or Axe of its stage tier (bosses +1, Change 8; Spring II Tier 5, Change 9)")
+        # Change 51 (supersedes Changes 8-9): one weapon tier per stage (Spring II stays Obsidian), bosses the same.
+        if int(w.tier)!=mini(int(d.stage),7):bad+=1
+    check(bad==0 and families.keys().size()==2,"Every enemy carries a shared Sword or Axe of its stage tier (Change 51: one tier per stage, bosses the same)")
     bad=0
     check(c.groups[sim.campaign.group_id("unit-red-scarf")].weapon=="wood_sword" and c.groups[sim.campaign.group_id("unit-blue-cap")].weapon=="wood_sword","Red Scarf and Blue Cap carry the same Wood Sword")
     var chain: Array=[];var id:="wood_sword"
@@ -78,7 +77,7 @@ func shared_weapon_checks() -> void:
     for w in chain:art[c.items[w].attack+str(c.items[w].icon)]=true
     check(art.size()==7,"Each tier has its own owned icon and swing art")
     var g: int=sim.campaign.group_id("unit-straw-hat")
-    check(sim.enemy_definition(g,1).loot==["stone_sword"] and sim.enemy_definition(g,0).loot==["unit-straw-hat_outfit_t2"] and sim.enemy_definition(g,2).loot.size()==2,"Variants drop the shared weapon or the stage-tier outfit")
+    check(sim.enemy_definition(g,1).loot==["iron_sword"] and sim.enemy_definition(g,0).loot==["unit-straw-hat_outfit_t2"] and sim.enemy_definition(g,2).loot.size()==2,"Variants drop the shared weapon or the stage-tier outfit")
     for legacy in c.legacy_items:
         if not c.items.has(c.legacy_items[legacy]):bad+=1
     check(bad==0 and c.legacy_items.has("unit-red-scarf_weapon"),"Every removed id maps to a current item")
@@ -161,7 +160,8 @@ func prestige_checks() -> void:
     check(sim.campaign.toggle_follow("masterwork_o1") and sim.state.follow=="masterwork_o1","An opportunity in progress can be followed")
     game._open("prestige");await frames(3)
     check(_count_buttons(game.rows,tr("FOLLOW"))+_count_buttons(game.rows,tr("UNFOLLOW"))==1,"Only the in-progress card offers Follow")
-    sim.state.opportunities.masterwork_o1.baseline={};sim.add_item("wood_sword",101);sim.merge("wood_sword",true)
+    # Change 51: Masterwork counts outfits, skills and Obsidian weapons at ^100.
+    sim.state.opportunities.masterwork_o1.baseline={};sim.add_item("unit-blue-cap_outfit",101);sim.merge("unit-blue-cap_outfit",true)
     check(sim.state.opportunities.masterwork_o1.ready and sim.state.follow=="","Becoming ready ends the follow")
     game._close()
     game._refresh_badges()

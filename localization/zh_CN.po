@@ -323,9 +323,6 @@ msgstr "合成 1 件重复品"
 msgid "MERGE_ALL"
 msgstr "合成 %d 件重复品"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "达到 ^100 时，消耗 100 件重复品换取 1 件下一阶物品。原物品及其合成等级保留。需要同类别的目标堆叠或空格子。"
-
 msgid "EVOLVE"
 msgstr "进化 → %s"
 
@@ -460,12 +457,6 @@ msgstr "金币数量加成"
 
 msgid "NEED_DUPLICATES"
 msgstr "需要一件重复品才能合成。"
-
-msgid "MERGE_MAX"
-msgstr "此物品已达 ^100。"
-
-msgid "EVOLUTION_NEEDS"
-msgstr "进化需要 ^100 以及 101 件原物品。"
 
 msgid "INVENTORY_FULL"
 msgstr "没有空格子。请腾出空间或扩充此背包。"
@@ -1084,9 +1075,6 @@ msgstr "威力"
 
 msgid "INTRINSIC_POWER"
 msgstr "固有%s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "下一阶的初始值为本阶 ^100 固有威力的 85%（未计库存与外部加成）。"
 
 msgid "MAP_FARMING"
 msgstr "%s · %d 个刷新点 · 每点 %d 只 · %s秒刷新"
@@ -3323,38 +3311,20 @@ msgstr "拾取兔耳、猫耳和精灵耳服装（春季 I 掉落）各 41 件�
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "首件杰作"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "将任意武器、服装或技能合成至 ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "第二阶"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "将 2 阶或更高的物品合成至 ^100（2 阶物品自夏季 I 起掉落，或进化一把武器获得）"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "第三阶"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "将 3 阶或更高的物品合成至 ^100（3 阶物品自秋季 I 起掉落，或将一把武器进化两次获得）"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "成对装备"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "将一把武器和一件服装合成至 ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "丰富军械库"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "将 3 种不同武器和 3 种不同服装合成至 ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "进化军械库"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "将 3 种不同的 2 阶以上武器和 3 种不同的 2 阶以上服装合成至 ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "冬季制霸"
@@ -4108,9 +4078,6 @@ msgstr "未解锁"
 
 msgid "PROGRESS_MERGE"
 msgstr "目前最佳：^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "^50 武器：%d/%d · ^50 服装：%d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "奖杯：%d / %d（每个首领下次被击败时掉落一个）"
@@ -4889,9 +4856,6 @@ msgstr "合成以下物品的重复品：%s"
 msgid "AUTO_MERGE_ON"
 msgstr "开启 · 合成：%s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "在 ^100 且有 101 件时进化：%s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "开启 · 进化：%s"
 
@@ -5195,9 +5159,6 @@ msgstr "揭示此处所有敌人的属性与掉落。"
 msgid "MASTERY_COLLECT_RULE"
 msgstr "获得此处掉落的所有武器、服装和技能。"
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "将此处的服装合成至 ^%s（首领服装 ^%s），并进化一把此处的武器。"
-
 msgid "MASTERY_MORE"
 msgstr "另外 %d 项"
 
@@ -5306,9 +5267,6 @@ msgstr "找到冰霜爆发技能（夏季 I：草帽精英会掉落）"
 msgid "MAIN_HINT_8"
 msgstr "击败冬季 II 的首领青色机器人，前往夏季 I"
 
-msgid "MAIN_HINT_9"
-msgstr "进化一把达到 ^100 且拥有 101 件的武器（物品详情中点击“进化”）"
-
 msgid "MAIN_HINT_10"
 msgstr "拥有不同的技能"
 
@@ -5377,18 +5335,6 @@ msgstr "领取普通任务"
 
 msgid "FOLLOW_TROPHY"
 msgstr "击败%s获得其奖杯 · 奖杯 %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "将任意武器、服装或技能合成至 ^100：最佳 ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "将 %d 阶或更高的物品合成至 ^100：最佳 ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "合成至 ^50：武器 %d/%d · 服装 %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "将 2 阶以上装备合成至 ^50：武器 %d/%d · 服装 %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "本轮从敌人身上赚取：金币 %s/%s · 宝石 %s/%s"

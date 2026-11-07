@@ -67,7 +67,8 @@ func migration_checks() -> void:
     check(int(m.get("wood_axe",0))==40 and int(m.get("stone_sword",0))==30 and int(m.get("unit-blue-cap_outfit",0))==250 and int(m.get("iron_sword",0))==100,"Merge memory = best of records and Map Mastery %s" % str(m))
     check(not m.has("potion"),"Supplies are never remembered")
     check(sim.quantity("wood_axe")==3 and int(sim.record("wood_axe").merge)==40,"The owned Wood Axe rises to its remembered ^40 without a new copy")
-    check(sim.quantity("iron_sword")==2 and int(sim.record("iron_sword").merge)==100,"Iron Sword keeps its exact ^100")
+    # Change 51 converts the old-stat Iron Sword into its legacy copy (same quantity and level).
+    check(sim.quantity("iron_sword_legacy")==2 and int(sim.record("iron_sword_legacy").merge)==100,"Iron Sword keeps its exact ^100 (as its legacy copy)")
     check(not sim.state.items.has("stone_sword") and not sim.state.items.has("unit-blue-cap_outfit"),"Remembered but unowned items get no inventory record")
     check(FileAccess.file_exists(path("schema8_backup")),"An untouched copy of the schema 8 file is kept")
     var kept=JSON.parse_string(FileAccess.get_file_as_string(path("schema8_backup")))

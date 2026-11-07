@@ -325,9 +325,6 @@ msgstr "Połącz jedną dodatkową kopię"
 msgid "MERGE_ALL"
 msgstr "Połącz dodatkowe kopie: %d"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "Na ^100 wydaj 100 dodatkowych kopii na jeden przedmiot wyższej rangi. Przedmiot źródłowy i jego poziom łączenia zostają. Potrzebny jest stos docelowy lub pusty slot tej samej kategorii."
-
 msgid "EVOLVE"
 msgstr "Ewolucja → %s"
 
@@ -462,12 +459,6 @@ msgstr "Premia do liczby monet"
 
 msgid "NEED_DUPLICATES"
 msgstr "Do połączenia potrzebujesz dodatkowej kopii."
-
-msgid "MERGE_MAX"
-msgstr "Ten przedmiot ma już ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "Ewolucja wymaga ^100 i 101 kopii źródłowych."
 
 msgid "INVENTORY_FULL"
 msgstr "Brak pustego slotu. Zrób miejsce albo powiększ ekwipunek."
@@ -1086,9 +1077,6 @@ msgstr "Moc"
 
 msgid "INTRINSIC_POWER"
 msgstr "Moc własna %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "Następna ranga zaczyna od 85% mocy własnej tej rangi przy ^100, przed premiami z zapasu i zewnętrznymi."
 
 msgid "MAP_FARMING"
 msgstr "%s · miejsc: %d · %d na miejsce · odrodzenie %s s"
@@ -3325,38 +3313,20 @@ msgstr "Zbierz po 41 strojów króliczych uszu, kocich uszu i elfich uszu (dropy
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Pierwsze arcydzieło"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Połącz dowolną broń, strój lub umiejętność do ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Druga ranga"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Połącz przedmiot rangi 2 lub wyższej do ^100 (ranga 2 wypada od Lata I albo przeprowadź ewolucję broni)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Trzecia ranga"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Połącz przedmiot rangi 3 lub wyższej do ^100 (ranga 3 wypada od Jesieni I albo przeprowadź ewolucję broni dwukrotnie)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Sprzęt do pary"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Połącz jedną broń i jeden strój do ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Szeroki arsenał"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Połącz 3 różne bronie i 3 różne stroje do ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Rozwinięty arsenał"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Połącz 3 różne bronie i 3 różne stroje rangi 2+ do ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Podbój zimy"
@@ -4110,9 +4080,6 @@ msgstr "Zablokowany"
 
 msgid "PROGRESS_MERGE"
 msgstr "Najlepszy wynik: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Bronie na ^50: %d/%d · Stroje na ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Trofea: %d / %d (każdy boss upuści jedno przy następnym pokonaniu)"
@@ -4891,9 +4858,6 @@ msgstr "Łączy dodatkowe kopie: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Wł. · łączy: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Ewoluuje przy ^100 i 101 kopiach: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "Wł. · ewoluuje: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Odkryj Statystyki i Łupy każdego wroga tutaj."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Zdobądź każdą broń, strój i umiejętność, które tu wypadają."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Stroje stąd do ^%s (stroje bossów ^%s) i ewolucja jednej broni stąd."
-
 msgid "MASTERY_MORE"
 msgstr "+%d więcej"
 
@@ -5308,9 +5269,6 @@ msgstr "Znajdź umiejętność Lodowy wybuch (Lato I: upuszczają ją elity Sło
 msgid "MAIN_HINT_8"
 msgstr "Pokonaj Błękitnego robota, bossa Zimy II, by dotrzeć do Lata I"
 
-msgid "MAIN_HINT_9"
-msgstr "Przeprowadź ewolucję broni na ^100, która ma 101 kopii (szczegóły przedmiotu, Ewolucja)"
-
 msgid "MAIN_HINT_10"
 msgstr "Zdobądź różne umiejętności"
 
@@ -5379,18 +5337,6 @@ msgstr "Odbieraj zwykłe misje"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Pokonaj: %s — dla trofeum · trofea %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Połącz dowolną broń, strój lub umiejętność do ^100: najlepiej ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Połącz przedmiot rangi %d lub wyższej do ^100: najlepiej ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Połącz do ^50: bronie %d/%d · stroje %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Połącz sprzęt rangi 2+ do ^50: bronie %d/%d · stroje %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Zdobądź na wrogach w tej rozgrywce: monety %s/%s · klejnoty %s/%s"

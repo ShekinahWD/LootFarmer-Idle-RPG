@@ -1,0 +1,19 @@
+{
+  "ITEM_LEGACY_NAME": "%s (old stats)",
+  "LEGACY_ITEM_EXPLAIN": "An old-stat copy from before the weapon update. It keeps its power until your next Prestige, then leaves with your items. New copies of this weapon use the new stats and keep your merge level.",
+  "EVOLUTION_RULE": "At ^%d, spend %d spare copies for one copy of the next-tier weapon (%d copies in all). This weapon keeps its merge level and one copy; the new weapon uses its own merge level. A target stack or empty slot is required.",
+  "MASTERY_NEED_WEAPON_MERGE": "Merge one of %s to ^%d",
+  "FOLLOW_MASTERWORK_ANY_GEAR": "Merge an outfit, skill or Obsidian weapon to ^100: best ^%d/^100",
+  "FOLLOW_MASTERWORK_TIER_GEAR": "Merge a tier %d+ outfit, skill or Obsidian weapon to ^100: best ^%d/^100",
+  "FOLLOW_ARSENAL_SPLIT": "Weapons at ^20: %d/%d · outfits at ^50: %d/%d",
+  "FOLLOW_ARSENAL_SPLIT_T2": "Tier 2+ weapons at ^20: %d/%d · tier 2+ outfits at ^50: %d/%d",
+  "PROGRESS_ARSENAL_SPLIT": "Weapons at ^20: %d/%d · Outfits at ^50: %d/%d",
+  "CONTENT_MASTERWORK_O1_RULE": "Merge any outfit, skill or Obsidian weapon to ^100",
+  "CONTENT_MASTERWORK_O2_RULE": "Merge a tier 2 or higher outfit, skill or Obsidian weapon to ^100",
+  "CONTENT_MASTERWORK_O3_RULE": "Merge a tier 3 or higher outfit, skill or Obsidian weapon to ^100",
+  "CONTENT_ARSENAL_O1_RULE": "Merge one weapon to ^20 and one outfit to ^50",
+  "CONTENT_ARSENAL_O2_RULE": "Merge 3 different weapons to ^20 and 3 different outfits to ^50",
+  "CONTENT_ARSENAL_O3_RULE": "Merge 3 different tier 2+ weapons to ^20 and 3 different tier 2+ outfits to ^50",
+  "MERGE_AT_CAP": "This item is at its merge cap.",
+  "EVOLUTION_NEEDS_COPIES": "Evolution needs the full merge level and enough spare copies."
+}

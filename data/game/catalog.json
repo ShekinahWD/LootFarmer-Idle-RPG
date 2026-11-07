@@ -18848,8 +18848,8 @@
       "tier": 2,
       "normal": {
         "damage": [
-          10.2,
-          0.204
+          7.6,
+          0.152
         ]
       },
       "extras": {
@@ -18884,7 +18884,7 @@
       "name": "ITEM_STONE_SWORD",
       "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png",
       "merge_gain": {
-        "damage": 0.204
+        "damage": 0.152
       },
       "attack_tint": [
         0.9,
@@ -18897,8 +18897,8 @@
       "tier": 3,
       "normal": {
         "damage": [
-          26.009999999999998,
-          0.5202
+          14.44,
+          0.2888
         ]
       },
       "extras": {
@@ -18933,7 +18933,7 @@
       "name": "ITEM_IRON_SWORD",
       "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png",
       "merge_gain": {
-        "damage": 0.5202
+        "damage": 0.2888
       }
     },
     "gold_sword": {
@@ -18941,8 +18941,8 @@
       "tier": 4,
       "normal": {
         "damage": [
-          66.32549999999999,
-          1.3265099999999999
+          27.436,
+          0.54872
         ]
       },
       "extras": {
@@ -18977,7 +18977,7 @@
       "name": "ITEM_GOLD_SWORD",
       "attack": "res://assets/PixelPlainsAnimationPack/Gold set/Sword 3 64x32.png",
       "merge_gain": {
-        "damage": 1.3265099999999999
+        "damage": 0.54872
       }
     },
     "diamond_sword": {
@@ -18985,8 +18985,8 @@
       "tier": 5,
       "normal": {
         "damage": [
-          169.13002499999996,
-          3.3826004999999992
+          52.1284,
+          1.042568
         ]
       },
       "extras": {
@@ -19021,7 +19021,7 @@
       "name": "ITEM_DIAMOND_SWORD",
       "attack": "res://assets/PixelPlainsAnimationPack/Diamond set/Sword 4 64x32.png",
       "merge_gain": {
-        "damage": 3.3826004999999992
+        "damage": 1.042568
       }
     },
     "emerald_sword": {
@@ -19029,8 +19029,8 @@
       "tier": 6,
       "normal": {
         "damage": [
-          431.28156374999986,
-          8.625631274999998
+          99.04396,
+          1.9808792
         ]
       },
       "extras": {
@@ -19065,7 +19065,7 @@
       "name": "ITEM_EMERALD_SWORD",
       "attack": "res://assets/PixelPlainsAnimationPack/Emerald set/Sword 5 64x32.png",
       "merge_gain": {
-        "damage": 8.625631274999998
+        "damage": 1.9808792
       }
     },
     "obsidian_sword": {
@@ -19073,8 +19073,8 @@
       "tier": 7,
       "normal": {
         "damage": [
-          1099.7679875624995,
-          21.99535975124999
+          237.705504,
+          4.75411008
         ]
       },
       "extras": {
@@ -19109,7 +19109,7 @@
       "name": "ITEM_OBSIDIAN_SWORD",
       "attack": "res://assets/PixelPlainsAnimationPack/Ruby set/Sword 6 64x32.png",
       "merge_gain": {
-        "damage": 21.99535975124999
+        "damage": 4.75411008
       }
     },
     "wood_axe": {
@@ -19166,12 +19166,12 @@
       "tier": 2,
       "normal": {
         "damage": [
-          8.16,
-          0.1632
+          6.08,
+          0.1216
         ],
         "hp": [
-          30.599999999999998,
-          0.612
+          22.8,
+          0.456
         ]
       },
       "extras": {
@@ -19206,8 +19206,8 @@
       "name": "ITEM_STONE_AXE",
       "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Axe 2 64x32.png",
       "merge_gain": {
-        "damage": 0.1632,
-        "hp": 0.612
+        "damage": 0.1216,
+        "hp": 0.456
       },
       "attack_tint": [
         0.9,
@@ -19220,12 +19220,12 @@
       "tier": 3,
       "normal": {
         "damage": [
-          20.808,
-          0.41616000000000003
+          11.552,
+          0.23104
         ],
         "hp": [
-          78.03,
-          1.5606
+          43.32,
+          0.8664
         ]
       },
       "extras": {
@@ -19260,8 +19260,8 @@
       "name": "ITEM_IRON_AXE",
       "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Axe 2 64x32.png",
       "merge_gain": {
-        "damage": 0.41616000000000003,
-        "hp": 1.5606
+        "damage": 0.23104,
+        "hp": 0.8664
       }
     },
     "gold_axe": {
@@ -19269,12 +19269,12 @@
       "tier": 4,
       "normal": {
         "damage": [
-          53.060399999999994,
-          1.061208
+          21.9488,
+          0.438976
         ],
         "hp": [
-          198.9765,
-          3.97953
+          82.308,
+          1.64616
         ]
       },
       "extras": {
@@ -19309,8 +19309,8 @@
       "name": "ITEM_GOLD_AXE",
       "attack": "res://assets/PixelPlainsAnimationPack/Gold set/Axe 3 64x32.png",
       "merge_gain": {
-        "damage": 1.061208,
-        "hp": 3.97953
+        "damage": 0.438976,
+        "hp": 1.64616
       }
     },
     "diamond_axe": {
@@ -19318,12 +19318,12 @@
       "tier": 5,
       "normal": {
         "damage": [
-          135.30401999999998,
-          2.7060804
+          41.70272,
+          0.8340544
         ],
         "hp": [
-          507.3900749999999,
-          10.147801499999998
+          156.3852,
+          3.127704
         ]
       },
       "extras": {
@@ -19358,8 +19358,8 @@
       "name": "ITEM_DIAMOND_AXE",
       "attack": "res://assets/PixelPlainsAnimationPack/Diamond set/Axe 4 64x32.png",
       "merge_gain": {
-        "damage": 2.7060804,
-        "hp": 10.147801499999998
+        "damage": 0.8340544,
+        "hp": 3.127704
       }
     },
     "emerald_axe": {
@@ -19367,12 +19367,12 @@
       "tier": 6,
       "normal": {
         "damage": [
-          345.0252509999999,
-          6.900505019999998
+          79.235168,
+          1.58470336
         ],
         "hp": [
-          1293.8446912499996,
-          25.876893824999993
+          297.13188,
+          5.9426376
         ]
       },
       "extras": {
@@ -19407,11 +19407,612 @@
       "name": "ITEM_EMERALD_AXE",
       "attack": "res://assets/PixelPlainsAnimationPack/Emerald set/Axe 5 64x32.png",
       "merge_gain": {
-        "damage": 6.900505019999998,
-        "hp": 25.876893824999993
+        "damage": 1.58470336,
+        "hp": 5.9426376
       }
     },
     "obsidian_axe": {
+      "kind": "weapon",
+      "tier": 7,
+      "normal": {
+        "damage": [
+          190.1644032,
+          3.80328806
+        ],
+        "hp": [
+          713.116512,
+          14.26233024
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 192,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        224,
+        32,
+        32,
+        32
+      ],
+      "art_id": "obsidian_axe",
+      "family": "axe",
+      "name": "ITEM_OBSIDIAN_AXE",
+      "attack": "res://assets/PixelPlainsAnimationPack/Ruby set/Axe 6 64x32.png",
+      "merge_gain": {
+        "damage": 3.80328806,
+        "hp": 14.26233024
+      }
+    },
+    "stone_sword_legacy": {
+      "kind": "weapon",
+      "tier": 2,
+      "normal": {
+        "damage": [
+          10.2,
+          0.204
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 6,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        32,
+        0,
+        32,
+        32
+      ],
+      "art_id": "stone_sword",
+      "family": "sword",
+      "name": "ITEM_STONE_SWORD",
+      "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png",
+      "merge_gain": {
+        "damage": 0.204
+      },
+      "attack_tint": [
+        0.9,
+        0.84,
+        0.84
+      ],
+      "legacy": true,
+      "legacy_of": "stone_sword",
+      "merge_cap": 20
+    },
+    "stone_axe_legacy": {
+      "kind": "weapon",
+      "tier": 2,
+      "normal": {
+        "damage": [
+          8.16,
+          0.1632
+        ],
+        "hp": [
+          30.599999999999998,
+          0.612
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 6,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "art_id": "stone_axe",
+      "family": "axe",
+      "name": "ITEM_STONE_AXE",
+      "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Axe 2 64x32.png",
+      "merge_gain": {
+        "damage": 0.1632,
+        "hp": 0.612
+      },
+      "attack_tint": [
+        0.9,
+        0.84,
+        0.84
+      ],
+      "legacy": true,
+      "legacy_of": "stone_axe",
+      "merge_cap": 20
+    },
+    "iron_sword_legacy": {
+      "kind": "weapon",
+      "tier": 3,
+      "normal": {
+        "damage": [
+          26.009999999999998,
+          0.5202
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 12,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        64,
+        0,
+        32,
+        32
+      ],
+      "art_id": "iron_sword",
+      "family": "sword",
+      "name": "ITEM_IRON_SWORD",
+      "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png",
+      "merge_gain": {
+        "damage": 0.5202
+      },
+      "legacy": true,
+      "legacy_of": "iron_sword",
+      "merge_cap": 20
+    },
+    "iron_axe_legacy": {
+      "kind": "weapon",
+      "tier": 3,
+      "normal": {
+        "damage": [
+          20.808,
+          0.41616000000000003
+        ],
+        "hp": [
+          78.03,
+          1.5606
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 12,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        64,
+        32,
+        32,
+        32
+      ],
+      "art_id": "iron_axe",
+      "family": "axe",
+      "name": "ITEM_IRON_AXE",
+      "attack": "res://assets/PixelPlainsAnimationPack/Iron set/Axe 2 64x32.png",
+      "merge_gain": {
+        "damage": 0.41616000000000003,
+        "hp": 1.5606
+      },
+      "legacy": true,
+      "legacy_of": "iron_axe",
+      "merge_cap": 20
+    },
+    "gold_sword_legacy": {
+      "kind": "weapon",
+      "tier": 4,
+      "normal": {
+        "damage": [
+          66.32549999999999,
+          1.3265099999999999
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 24,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        96,
+        0,
+        32,
+        32
+      ],
+      "art_id": "gold_sword",
+      "family": "sword",
+      "name": "ITEM_GOLD_SWORD",
+      "attack": "res://assets/PixelPlainsAnimationPack/Gold set/Sword 3 64x32.png",
+      "merge_gain": {
+        "damage": 1.3265099999999999
+      },
+      "legacy": true,
+      "legacy_of": "gold_sword",
+      "merge_cap": 20
+    },
+    "gold_axe_legacy": {
+      "kind": "weapon",
+      "tier": 4,
+      "normal": {
+        "damage": [
+          53.060399999999994,
+          1.061208
+        ],
+        "hp": [
+          198.9765,
+          3.97953
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 24,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        96,
+        32,
+        32,
+        32
+      ],
+      "art_id": "gold_axe",
+      "family": "axe",
+      "name": "ITEM_GOLD_AXE",
+      "attack": "res://assets/PixelPlainsAnimationPack/Gold set/Axe 3 64x32.png",
+      "merge_gain": {
+        "damage": 1.061208,
+        "hp": 3.97953
+      },
+      "legacy": true,
+      "legacy_of": "gold_axe",
+      "merge_cap": 20
+    },
+    "diamond_sword_legacy": {
+      "kind": "weapon",
+      "tier": 5,
+      "normal": {
+        "damage": [
+          169.13002499999996,
+          3.3826004999999992
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 48,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        128,
+        0,
+        32,
+        32
+      ],
+      "art_id": "diamond_sword",
+      "family": "sword",
+      "name": "ITEM_DIAMOND_SWORD",
+      "attack": "res://assets/PixelPlainsAnimationPack/Diamond set/Sword 4 64x32.png",
+      "merge_gain": {
+        "damage": 3.3826004999999992
+      },
+      "legacy": true,
+      "legacy_of": "diamond_sword",
+      "merge_cap": 20
+    },
+    "diamond_axe_legacy": {
+      "kind": "weapon",
+      "tier": 5,
+      "normal": {
+        "damage": [
+          135.30401999999998,
+          2.7060804
+        ],
+        "hp": [
+          507.3900749999999,
+          10.147801499999998
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 48,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        128,
+        32,
+        32,
+        32
+      ],
+      "art_id": "diamond_axe",
+      "family": "axe",
+      "name": "ITEM_DIAMOND_AXE",
+      "attack": "res://assets/PixelPlainsAnimationPack/Diamond set/Axe 4 64x32.png",
+      "merge_gain": {
+        "damage": 2.7060804,
+        "hp": 10.147801499999998
+      },
+      "legacy": true,
+      "legacy_of": "diamond_axe",
+      "merge_cap": 20
+    },
+    "emerald_sword_legacy": {
+      "kind": "weapon",
+      "tier": 6,
+      "normal": {
+        "damage": [
+          431.28156374999986,
+          8.625631274999998
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 96,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        192,
+        0,
+        32,
+        32
+      ],
+      "art_id": "emerald_sword",
+      "family": "sword",
+      "name": "ITEM_EMERALD_SWORD",
+      "attack": "res://assets/PixelPlainsAnimationPack/Emerald set/Sword 5 64x32.png",
+      "merge_gain": {
+        "damage": 8.625631274999998
+      },
+      "legacy": true,
+      "legacy_of": "emerald_sword",
+      "merge_cap": 20
+    },
+    "emerald_axe_legacy": {
+      "kind": "weapon",
+      "tier": 6,
+      "normal": {
+        "damage": [
+          345.0252509999999,
+          6.900505019999998
+        ],
+        "hp": [
+          1293.8446912499996,
+          25.876893824999993
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 96,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        192,
+        32,
+        32,
+        32
+      ],
+      "art_id": "emerald_axe",
+      "family": "axe",
+      "name": "ITEM_EMERALD_AXE",
+      "attack": "res://assets/PixelPlainsAnimationPack/Emerald set/Axe 5 64x32.png",
+      "merge_gain": {
+        "damage": 6.900505019999998,
+        "hp": 25.876893824999993
+      },
+      "legacy": true,
+      "legacy_of": "emerald_axe",
+      "merge_cap": 20
+    },
+    "obsidian_sword_legacy": {
+      "kind": "weapon",
+      "tier": 7,
+      "normal": {
+        "damage": [
+          1099.7679875624995,
+          21.99535975124999
+        ]
+      },
+      "extras": {
+        "crit": [
+          0.01,
+          0.03
+        ],
+        "crit_damage": [
+          0.05,
+          0.15
+        ],
+        "speed": [
+          0.02,
+          0.06
+        ],
+        "lifesteal": [
+          0.005,
+          0.015
+        ]
+      },
+      "reroll": 192,
+      "next": "",
+      "texture": "res://assets/PixelPlains/Items/16x16 All Items v1.png",
+      "icon": [
+        224,
+        0,
+        32,
+        32
+      ],
+      "art_id": "obsidian_sword",
+      "family": "sword",
+      "name": "ITEM_OBSIDIAN_SWORD",
+      "attack": "res://assets/PixelPlainsAnimationPack/Ruby set/Sword 6 64x32.png",
+      "merge_gain": {
+        "damage": 21.99535975124999
+      },
+      "legacy": true,
+      "legacy_of": "obsidian_sword",
+      "merge_cap": 100
+    },
+    "obsidian_axe_legacy": {
       "kind": "weapon",
       "tier": 7,
       "normal": {
@@ -19458,7 +20059,10 @@
       "merge_gain": {
         "damage": 17.596287800999992,
         "hp": 65.98607925374996
-      }
+      },
+      "legacy": true,
+      "legacy_of": "obsidian_axe",
+      "merge_cap": 100
     }
   },
   "groups": [
@@ -19566,7 +20170,7 @@
       "final": false,
       "level": 7,
       "body": "boss-snowman_outfit",
-      "weapon": "stone_axe",
+      "weapon": "wood_axe",
       "skills": [],
       "center": [
         800.0,
@@ -19582,7 +20186,7 @@
       "xp": 40,
       "gear_chance": 0.3,
       "loot": [
-        "stone_axe",
+        "wood_axe",
         "boss-snowman_outfit"
       ],
       "aggro_mode": "passive",
@@ -19598,7 +20202,7 @@
       "final": false,
       "level": 8,
       "body": "unit-wolf-hood_outfit",
-      "weapon": "wood_axe",
+      "weapon": "stone_axe",
       "skills": [],
       "center": [
         704.0,
@@ -19614,7 +20218,7 @@
       "xp": 4,
       "gear_chance": 0.05,
       "loot": [
-        "wood_axe",
+        "stone_axe",
         "unit-wolf-hood_outfit"
       ],
       "aggro_mode": "individual",
@@ -19630,7 +20234,7 @@
       "final": false,
       "level": 10,
       "body": "unit-calico-cat-hood_outfit",
-      "weapon": "wood_sword",
+      "weapon": "stone_sword",
       "skills": [],
       "center": [
         1232.0,
@@ -19646,7 +20250,7 @@
       "xp": 5,
       "gear_chance": 0.05,
       "loot": [
-        "wood_sword",
+        "stone_sword",
         "unit-calico-cat-hood_outfit"
       ],
       "aggro_mode": "individual",
@@ -19662,7 +20266,7 @@
       "final": false,
       "level": 11,
       "body": "unit-golden-crown_outfit",
-      "weapon": "wood_sword",
+      "weapon": "stone_sword",
       "skills": [],
       "center": [
         192.0,
@@ -19678,7 +20282,7 @@
       "xp": 5,
       "gear_chance": 0.05,
       "loot": [
-        "wood_sword",
+        "stone_sword",
         "unit-golden-crown_outfit"
       ],
       "aggro_mode": "individual",
@@ -19694,7 +20298,7 @@
       "final": false,
       "level": 13,
       "body": "unit-reindeer-antlers_outfit",
-      "weapon": "wood_axe",
+      "weapon": "stone_axe",
       "skills": [],
       "center": [
         528.0,
@@ -19710,7 +20314,7 @@
       "xp": 5,
       "gear_chance": 0.05,
       "loot": [
-        "wood_axe",
+        "stone_axe",
         "unit-reindeer-antlers_outfit"
       ],
       "aggro_mode": "individual",
@@ -19726,7 +20330,7 @@
       "final": false,
       "level": 14,
       "body": "unit-santa-hat_outfit",
-      "weapon": "wood_axe",
+      "weapon": "stone_axe",
       "skills": [],
       "center": [
         1008.0,
@@ -19742,7 +20346,7 @@
       "xp": 5,
       "gear_chance": 0.05,
       "loot": [
-        "wood_axe",
+        "stone_axe",
         "unit-santa-hat_outfit"
       ],
       "aggro_mode": "individual",
@@ -19758,7 +20362,7 @@
       "final": false,
       "level": 16,
       "body": "unit-space-helmet_outfit",
-      "weapon": "wood_sword",
+      "weapon": "stone_sword",
       "skills": [
         "heal"
       ],
@@ -19776,7 +20380,7 @@
       "xp": 6,
       "gear_chance": 0.05,
       "loot": [
-        "wood_sword",
+        "stone_sword",
         "unit-space-helmet_outfit"
       ],
       "aggro_mode": "individual",
@@ -19826,7 +20430,7 @@
       "final": false,
       "level": 22,
       "body": "unit-straw-hat_outfit",
-      "weapon": "stone_sword",
+      "weapon": "iron_sword",
       "skills": [
         "frost"
       ],
@@ -19844,7 +20448,7 @@
       "xp": 7,
       "gear_chance": 0.05,
       "loot": [
-        "stone_sword",
+        "iron_sword",
         "unit-straw-hat_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -19860,7 +20464,7 @@
       "final": false,
       "level": 26,
       "body": "unit-sunglasses_outfit",
-      "weapon": "stone_axe",
+      "weapon": "iron_axe",
       "skills": [
         "fire"
       ],
@@ -19878,7 +20482,7 @@
       "xp": 8,
       "gear_chance": 0.05,
       "loot": [
-        "stone_axe",
+        "iron_axe",
         "unit-sunglasses_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -19894,7 +20498,7 @@
       "final": false,
       "level": 30,
       "body": "unit-yellow-cap_outfit",
-      "weapon": "stone_axe",
+      "weapon": "iron_axe",
       "skills": [
         "lightning"
       ],
@@ -19912,7 +20516,7 @@
       "xp": 9,
       "gear_chance": 0.05,
       "loot": [
-        "stone_axe",
+        "iron_axe",
         "unit-yellow-cap_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -19962,7 +20566,7 @@
       "final": false,
       "level": 38,
       "body": "unit-cowboy-bandana_outfit",
-      "weapon": "stone_sword",
+      "weapon": "gold_sword",
       "skills": [],
       "center": [
         576.0,
@@ -19978,7 +20582,7 @@
       "xp": 11,
       "gear_chance": 0.05,
       "loot": [
-        "stone_sword",
+        "gold_sword",
         "unit-cowboy-bandana_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -19994,7 +20598,7 @@
       "final": false,
       "level": 41,
       "body": "unit-duck-swim-ring_outfit",
-      "weapon": "stone_sword",
+      "weapon": "gold_sword",
       "skills": [],
       "center": [
         1328.0,
@@ -20010,7 +20614,7 @@
       "xp": 12,
       "gear_chance": 0.05,
       "loot": [
-        "stone_sword",
+        "gold_sword",
         "unit-duck-swim-ring_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -20026,7 +20630,7 @@
       "final": false,
       "level": 44,
       "body": "unit-rainbow-clown_outfit",
-      "weapon": "stone_axe",
+      "weapon": "gold_axe",
       "skills": [
         "focus"
       ],
@@ -20044,7 +20648,7 @@
       "xp": 14,
       "gear_chance": 0.05,
       "loot": [
-        "stone_axe",
+        "gold_axe",
         "unit-rainbow-clown_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -20060,7 +20664,7 @@
       "final": false,
       "level": 46,
       "body": "unit-red-cap-swimmer_outfit",
-      "weapon": "stone_axe",
+      "weapon": "gold_axe",
       "skills": [],
       "center": [
         1440.0,
@@ -20076,7 +20680,7 @@
       "xp": 15,
       "gear_chance": 0.05,
       "loot": [
-        "stone_axe",
+        "gold_axe",
         "unit-red-cap-swimmer_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -20092,7 +20696,7 @@
       "final": false,
       "level": 49,
       "body": "unit-snorkeler_outfit",
-      "weapon": "stone_sword",
+      "weapon": "gold_sword",
       "skills": [
         "strike"
       ],
@@ -20110,7 +20714,7 @@
       "xp": 16,
       "gear_chance": 0.05,
       "loot": [
-        "stone_sword",
+        "gold_sword",
         "unit-snorkeler_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -20126,7 +20730,7 @@
       "final": false,
       "level": 52,
       "body": "unit-straw-hat-swimmer_outfit",
-      "weapon": "stone_sword",
+      "weapon": "gold_sword",
       "skills": [],
       "center": [
         224.0,
@@ -20142,7 +20746,7 @@
       "xp": 18,
       "gear_chance": 0.05,
       "loot": [
-        "stone_sword",
+        "gold_sword",
         "unit-straw-hat-swimmer_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -20158,7 +20762,7 @@
       "final": false,
       "level": 60,
       "body": "boss-elephant_outfit",
-      "weapon": "iron_sword",
+      "weapon": "gold_sword",
       "skills": [
         "focus"
       ],
@@ -20176,7 +20780,7 @@
       "xp": 230,
       "gear_chance": 0.3,
       "loot": [
-        "iron_sword",
+        "gold_sword",
         "boss-elephant_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -20192,7 +20796,7 @@
       "final": false,
       "level": 65,
       "body": "boss-teal-dinosaur_outfit",
-      "weapon": "iron_sword",
+      "weapon": "gold_sword",
       "skills": [
         "fire"
       ],
@@ -20210,7 +20814,7 @@
       "xp": 280,
       "gear_chance": 0.3,
       "loot": [
-        "iron_sword",
+        "gold_sword",
         "boss-teal-dinosaur_outfit_t2"
       ],
       "aggro_mode": "group",
@@ -20226,7 +20830,7 @@
       "final": false,
       "level": 65,
       "body": "unit-black-cap_outfit",
-      "weapon": "iron_axe",
+      "weapon": "diamond_axe",
       "skills": [],
       "center": [
         528.0,
@@ -20242,7 +20846,7 @@
       "xp": 28,
       "gear_chance": 0.05,
       "loot": [
-        "iron_axe",
+        "diamond_axe",
         "unit-black-cap_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20258,7 +20862,7 @@
       "final": false,
       "level": 72,
       "body": "unit-mushroom-cap_outfit",
-      "weapon": "iron_axe",
+      "weapon": "diamond_axe",
       "skills": [
         "heal"
       ],
@@ -20276,7 +20880,7 @@
       "xp": 35,
       "gear_chance": 0.05,
       "loot": [
-        "iron_axe",
+        "diamond_axe",
         "unit-mushroom-cap_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20292,7 +20896,7 @@
       "final": false,
       "level": 80,
       "body": "unit-pumpkin-head_outfit",
-      "weapon": "iron_sword",
+      "weapon": "diamond_sword",
       "skills": [
         "fire"
       ],
@@ -20310,7 +20914,7 @@
       "xp": 46,
       "gear_chance": 0.05,
       "loot": [
-        "iron_sword",
+        "diamond_sword",
         "unit-pumpkin-head_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20326,7 +20930,7 @@
       "final": false,
       "level": 90,
       "body": "boss-squirrel_outfit",
-      "weapon": "gold_sword",
+      "weapon": "diamond_sword",
       "skills": [
         "heal",
         "focus"
@@ -20345,7 +20949,7 @@
       "xp": 650,
       "gear_chance": 0.3,
       "loot": [
-        "gold_sword",
+        "diamond_sword",
         "boss-squirrel_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20361,7 +20965,7 @@
       "final": false,
       "level": 95,
       "body": "boss-red-fox_outfit",
-      "weapon": "gold_sword",
+      "weapon": "diamond_sword",
       "skills": [
         "fire",
         "strike"
@@ -20380,7 +20984,7 @@
       "xp": 770,
       "gear_chance": 0.3,
       "loot": [
-        "gold_sword",
+        "diamond_sword",
         "boss-red-fox_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20396,7 +21000,7 @@
       "final": false,
       "level": 95,
       "body": "unit-horned-hood_outfit",
-      "weapon": "iron_sword",
+      "weapon": "emerald_sword",
       "skills": [
         "strike"
       ],
@@ -20414,7 +21018,7 @@
       "xp": 77,
       "gear_chance": 0.05,
       "loot": [
-        "iron_sword",
+        "emerald_sword",
         "unit-horned-hood_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20430,7 +21034,7 @@
       "final": false,
       "level": 103,
       "body": "unit-orange-screen-helmet_outfit",
-      "weapon": "iron_axe",
+      "weapon": "emerald_axe",
       "skills": [],
       "center": [
         1232.0,
@@ -20446,7 +21050,7 @@
       "xp": 101,
       "gear_chance": 0.05,
       "loot": [
-        "iron_axe",
+        "emerald_axe",
         "unit-orange-screen-helmet_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20462,7 +21066,7 @@
       "final": false,
       "level": 112,
       "body": "unit-television-head_outfit",
-      "weapon": "iron_axe",
+      "weapon": "emerald_axe",
       "skills": [
         "lightning"
       ],
@@ -20480,7 +21084,7 @@
       "xp": 137,
       "gear_chance": 0.05,
       "loot": [
-        "iron_axe",
+        "emerald_axe",
         "unit-television-head_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20496,7 +21100,7 @@
       "final": false,
       "level": 120,
       "body": "unit-top-hat_outfit",
-      "weapon": "iron_sword",
+      "weapon": "emerald_sword",
       "skills": [],
       "center": [
         448.0,
@@ -20512,7 +21116,7 @@
       "xp": 180,
       "gear_chance": 0.05,
       "loot": [
-        "iron_sword",
+        "emerald_sword",
         "unit-top-hat_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20528,7 +21132,7 @@
       "final": false,
       "level": 135,
       "body": "boss-black-cat_outfit",
-      "weapon": "gold_sword",
+      "weapon": "emerald_sword",
       "skills": [
         "lightning",
         "focus"
@@ -20547,7 +21151,7 @@
       "xp": 3020,
       "gear_chance": 0.3,
       "loot": [
-        "gold_sword",
+        "emerald_sword",
         "boss-black-cat_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20563,7 +21167,7 @@
       "final": false,
       "level": 140,
       "body": "boss-grim-reaper_outfit",
-      "weapon": "gold_sword",
+      "weapon": "emerald_sword",
       "skills": [
         "frost",
         "strike"
@@ -20582,7 +21186,7 @@
       "xp": 3580,
       "gear_chance": 0.3,
       "loot": [
-        "gold_sword",
+        "emerald_sword",
         "boss-grim-reaper_outfit_t3"
       ],
       "aggro_mode": "group",
@@ -20598,7 +21202,7 @@
       "final": false,
       "level": 140,
       "body": "unit-bunny-ears_outfit",
-      "weapon": "gold_sword",
+      "weapon": "obsidian_sword",
       "skills": [
         "frost"
       ],
@@ -20616,7 +21220,7 @@
       "xp": 358,
       "gear_chance": 0.05,
       "loot": [
-        "gold_sword",
+        "obsidian_sword",
         "unit-bunny-ears_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20632,7 +21236,7 @@
       "final": false,
       "level": 155,
       "body": "unit-cat-ears_outfit",
-      "weapon": "gold_axe",
+      "weapon": "obsidian_axe",
       "skills": [],
       "center": [
         1168.0,
@@ -20648,7 +21252,7 @@
       "xp": 600,
       "gear_chance": 0.05,
       "loot": [
-        "gold_axe",
+        "obsidian_axe",
         "unit-cat-ears_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20664,7 +21268,7 @@
       "final": false,
       "level": 170,
       "body": "unit-elf-ears_outfit",
-      "weapon": "gold_axe",
+      "weapon": "obsidian_axe",
       "skills": [
         "focus"
       ],
@@ -20682,7 +21286,7 @@
       "xp": 1005,
       "gear_chance": 0.05,
       "loot": [
-        "gold_axe",
+        "obsidian_axe",
         "unit-elf-ears_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20698,7 +21302,7 @@
       "final": false,
       "level": 190,
       "body": "boss-bee_outfit",
-      "weapon": "diamond_axe",
+      "weapon": "obsidian_axe",
       "skills": [
         "lightning",
         "heal"
@@ -20717,7 +21321,7 @@
       "xp": 20000,
       "gear_chance": 0.3,
       "loot": [
-        "diamond_axe",
+        "obsidian_axe",
         "boss-bee_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20733,7 +21337,7 @@
       "final": false,
       "level": 195,
       "body": "boss-orange-tabby-cat_outfit",
-      "weapon": "diamond_axe",
+      "weapon": "obsidian_axe",
       "skills": [
         "fire",
         "focus"
@@ -20752,7 +21356,7 @@
       "xp": 23750,
       "gear_chance": 0.3,
       "loot": [
-        "diamond_axe",
+        "obsidian_axe",
         "boss-orange-tabby-cat_outfit_t4"
       ],
       "aggro_mode": "group",
@@ -20768,7 +21372,7 @@
       "final": false,
       "level": 195,
       "body": "unit-flower-crown_outfit",
-      "weapon": "diamond_sword",
+      "weapon": "obsidian_sword",
       "skills": [
         "heal"
       ],
@@ -20786,7 +21390,7 @@
       "xp": 2821,
       "gear_chance": 0.05,
       "loot": [
-        "diamond_sword",
+        "obsidian_sword",
         "unit-flower-crown_outfit_t5"
       ],
       "aggro_mode": "group",
@@ -20802,7 +21406,7 @@
       "final": false,
       "level": 201,
       "body": "unit-green-cap_outfit",
-      "weapon": "diamond_sword",
+      "weapon": "obsidian_sword",
       "skills": [
         "lightning"
       ],
@@ -20820,7 +21424,7 @@
       "xp": 3978,
       "gear_chance": 0.05,
       "loot": [
-        "diamond_sword",
+        "obsidian_sword",
         "unit-green-cap_outfit_t5"
       ],
       "aggro_mode": "group",
@@ -20836,7 +21440,7 @@
       "final": false,
       "level": 207,
       "body": "unit-pink-cap_outfit",
-      "weapon": "diamond_axe",
+      "weapon": "obsidian_axe",
       "skills": [],
       "center": [
         880.0,
@@ -20852,7 +21456,7 @@
       "xp": 5612,
       "gear_chance": 0.05,
       "loot": [
-        "diamond_axe",
+        "obsidian_axe",
         "unit-pink-cap_outfit_t5"
       ],
       "aggro_mode": "group",
@@ -20868,7 +21472,7 @@
       "final": false,
       "level": 213,
       "body": "unit-pink-flower-hood_outfit",
-      "weapon": "diamond_axe",
+      "weapon": "obsidian_axe",
       "skills": [
         "fire"
       ],
@@ -20886,7 +21490,7 @@
       "xp": 7916,
       "gear_chance": 0.05,
       "loot": [
-        "diamond_axe",
+        "obsidian_axe",
         "unit-pink-flower-hood_outfit_t5"
       ],
       "aggro_mode": "group",
@@ -20902,7 +21506,7 @@
       "final": false,
       "level": 219,
       "body": "unit-plain_outfit",
-      "weapon": "diamond_sword",
+      "weapon": "obsidian_sword",
       "skills": [],
       "center": [
         1280.0,
@@ -20918,7 +21522,7 @@
       "xp": 11166,
       "gear_chance": 0.05,
       "loot": [
-        "diamond_sword",
+        "obsidian_sword",
         "unit-plain_outfit_t5"
       ],
       "aggro_mode": "group",
@@ -20934,7 +21538,7 @@
       "final": false,
       "level": 225,
       "body": "unit-sprout_outfit",
-      "weapon": "diamond_sword",
+      "weapon": "obsidian_sword",
       "skills": [
         "focus"
       ],
@@ -20952,7 +21556,7 @@
       "xp": 15750,
       "gear_chance": 0.05,
       "loot": [
-        "diamond_sword",
+        "obsidian_sword",
         "unit-sprout_outfit_t5"
       ],
       "aggro_mode": "group",
@@ -20968,7 +21572,7 @@
       "final": false,
       "level": 235,
       "body": "boss-red-panda_outfit",
-      "weapon": "emerald_sword",
+      "weapon": "obsidian_sword",
       "skills": [
         "frost",
         "heal"
@@ -20987,7 +21591,7 @@
       "xp": 879610,
       "gear_chance": 0.3,
       "loot": [
-        "emerald_sword",
+        "obsidian_sword",
         "boss-red-panda_outfit_t5"
       ],
       "aggro_mode": "group",
@@ -21003,7 +21607,7 @@
       "final": false,
       "level": 240,
       "body": "boss-sunflower_outfit",
-      "weapon": "emerald_sword",
+      "weapon": "obsidian_sword",
       "skills": [
         "heal",
         "focus"
@@ -21022,7 +21626,7 @@
       "xp": 1044700,
       "gear_chance": 0.3,
       "loot": [
-        "emerald_sword",
+        "obsidian_sword",
         "boss-sunflower_outfit_t5"
       ],
       "aggro_mode": "group",
@@ -21038,7 +21642,7 @@
       "final": true,
       "level": 250,
       "body": "boss-green-alien_outfit",
-      "weapon": "emerald_sword",
+      "weapon": "obsidian_sword",
       "skills": [
         "focus",
         "fire",
@@ -21058,7 +21662,7 @@
       "xp": 4912510,
       "gear_chance": 0.3,
       "loot": [
-        "emerald_sword",
+        "obsidian_sword",
         "boss-green-alien_outfit_t5"
       ],
       "aggro_mode": "group",
@@ -21764,9 +22368,8 @@
     ],
     "evolution": {
       "max_tier": 7,
-      "required_merge": 100,
-      "spare_cost": 100,
-      "base_multiplier": 0.85,
+      "required_merge": 20,
+      "spare_cost": 10,
       "merge_gain_multiplier": 1
     },
     "tier_colors": [
@@ -21822,7 +22425,8 @@
       "linear_levels": 100,
       "tail_scale": 100.0,
       "outfit_tail_rate": 0.5,
-      "stock_bonus_per_copy": 0.0005
+      "stock_bonus_per_copy": 0.0005,
+      "evolvable_weapon_cap": 20
     },
     "prestige_unlock_boss": "boss-snowman",
     "outfit_milestones": [
@@ -22578,7 +23182,7 @@
         "path": "masterwork",
         "name": "CONTENT_MASTERWORK_O1_NAME",
         "discovery": "Merge any item to ^10",
-        "description": "CONTENT_MASTERWORK_O1_DESCRIPTION",
+        "description": "CONTENT_MASTERWORK_O1_RULE",
         "lifetime": false
       },
       {
@@ -22586,7 +23190,7 @@
         "path": "masterwork",
         "name": "CONTENT_MASTERWORK_O2_NAME",
         "discovery": "Evolve any item once",
-        "description": "CONTENT_MASTERWORK_O2_DESCRIPTION",
+        "description": "CONTENT_MASTERWORK_O2_RULE",
         "lifetime": false
       },
       {
@@ -22594,7 +23198,7 @@
         "path": "masterwork",
         "name": "CONTENT_MASTERWORK_O3_NAME",
         "discovery": "Own a tier-3 item",
-        "description": "CONTENT_MASTERWORK_O3_DESCRIPTION",
+        "description": "CONTENT_MASTERWORK_O3_RULE",
         "lifetime": false
       },
       {
@@ -22602,7 +23206,7 @@
         "path": "arsenal",
         "name": "CONTENT_ARSENAL_O1_NAME",
         "discovery": "Equip weapon and outfit",
-        "description": "CONTENT_ARSENAL_O1_DESCRIPTION",
+        "description": "CONTENT_ARSENAL_O1_RULE",
         "lifetime": false
       },
       {
@@ -22610,7 +23214,7 @@
         "path": "arsenal",
         "name": "CONTENT_ARSENAL_O2_NAME",
         "discovery": "Own 4 distinct gear families",
-        "description": "CONTENT_ARSENAL_O2_DESCRIPTION",
+        "description": "CONTENT_ARSENAL_O2_RULE",
         "lifetime": false
       },
       {
@@ -22618,7 +23222,7 @@
         "path": "arsenal",
         "name": "CONTENT_ARSENAL_O3_NAME",
         "discovery": "Evolve two different gear families",
-        "description": "CONTENT_ARSENAL_O3_DESCRIPTION",
+        "description": "CONTENT_ARSENAL_O3_RULE",
         "lifetime": false
       },
       {

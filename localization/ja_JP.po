@@ -323,9 +323,6 @@ msgstr "予備を1個合成"
 msgid "MERGE_ALL"
 msgstr "予備を%d個合成"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "^100で予備100個を使い、次のランクのアイテム1個を得ます。元のアイテムと合成レベルは残ります。同じカテゴリーの対象スタックか空きスロットが必要です。"
-
 msgid "EVOLVE"
 msgstr "進化 → %s"
 
@@ -460,12 +457,6 @@ msgstr "コイン獲得量ボーナス"
 
 msgid "NEED_DUPLICATES"
 msgstr "合成には予備が1個必要です。"
-
-msgid "MERGE_MAX"
-msgstr "このアイテムは^100に到達しています。"
-
-msgid "EVOLUTION_NEEDS"
-msgstr "進化には^100と元のアイテム101個が必要です。"
 
 msgid "INVENTORY_FULL"
 msgstr "空きスロットがありません。空きを作るか、この持ち物枠を拡張してください。"
@@ -1084,9 +1075,6 @@ msgstr "威力"
 
 msgid "INTRINSIC_POWER"
 msgstr "固有の%s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "次のランクは、在庫や外部ボーナスを除いたこのランクの^100固有威力の85%から始まります。"
 
 msgid "MAP_FARMING"
 msgstr "%s · 出現地点%dか所 · 1か所に%d体 · 再出現%s秒"
@@ -3323,38 +3311,20 @@ msgstr "ウサミミ、ネコミミ、エルフ耳の衣装（春 I のドロッ
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "最初の傑作"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "武器・衣装・スキルのいずれかを^100まで合成する"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "ランク2"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "ランク2以上のアイテムを^100まで合成する（ランク2は夏 I 以降でドロップ、または武器を進化させて入手）"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "ランク3"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "ランク3以上のアイテムを^100まで合成する（ランク3は秋 I 以降でドロップ、または武器を2回進化させて入手）"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "そろいの装備"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "武器1つと衣装1つを^50まで合成する"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "多彩な武器庫"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "異なる武器3種と異なる衣装3種を^50まで合成する"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "進化した武器庫"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "ランク2以上の異なる武器3種と、ランク2以上の異なる衣装3種を^50まで合成する"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "冬の制覇"
@@ -4108,9 +4078,6 @@ msgstr "未解放"
 
 msgid "PROGRESS_MERGE"
 msgstr "最高：^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "^50の武器：%d/%d · ^50の衣装：%d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "トロフィー：%d / %d（各ボスは次に倒したとき1つ落とします）"
@@ -4889,9 +4856,6 @@ msgstr "予備を合成する対象：%s"
 msgid "AUTO_MERGE_ON"
 msgstr "オン · 合成対象：%s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "^100で101個そろうと進化：%s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "オン · 進化対象：%s"
 
@@ -5195,9 +5159,6 @@ msgstr "ここにいるすべての敵のステータスとドロップを公開
 msgid "MASTERY_COLLECT_RULE"
 msgstr "ここでドロップする武器・衣装・スキルをすべて入手する。"
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "ここの衣装を^%sまで（ボスの衣装は^%s）、ここの武器を1つ進化させる。"
-
 msgid "MASTERY_MORE"
 msgstr "ほか%d件"
 
@@ -5306,9 +5267,6 @@ msgstr "フロストバーストのスキルを見つけよう（夏 I：麦わ�
 msgid "MAIN_HINT_8"
 msgstr "冬 II のボス、シアンのロボットを倒して夏 I へ"
 
-msgid "MAIN_HINT_9"
-msgstr "予備が101個ある^100の武器を進化させよう（アイテム詳細で「進化」）"
-
 msgid "MAIN_HINT_10"
 msgstr "異なるスキルを集めよう"
 
@@ -5377,18 +5335,6 @@ msgstr "通常ミッションを受け取る"
 
 msgid "FOLLOW_TROPHY"
 msgstr "%sを倒してトロフィーを獲得 · トロフィー %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "武器・衣装・スキルのいずれかを^100まで合成：最高 ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "ランク%d以上のアイテムを^100まで合成：最高 ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "^50まで合成：武器 %d/%d · 衣装 %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "ランク2以上の装備を^50まで合成：武器 %d/%d · 衣装 %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "今回の周回で敵から稼ぐ：コイン %s/%s · ジェム %s/%s"

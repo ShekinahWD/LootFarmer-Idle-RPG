@@ -23,7 +23,7 @@ NORMAL_GEAR_CHANCE = 0.05
 BOSS_GEAR_CHANCE = 0.3
 # Change 9: outfits grow linearly past ^100 at outfit_tail_rate merge levels per copy (2% then 1% of
 # base per copy); skills keep the logarithmic tail (tail_scale).
-MERGE = {'weapon_cap': 100, 'copy_cap': 500, 'linear_levels': 100, 'tail_scale': 100.0,
+MERGE = {'weapon_cap': 100, 'evolvable_weapon_cap': 20, 'copy_cap': 500, 'linear_levels': 100, 'tail_scale': 100.0,
          'outfit_tail_rate': 0.5, 'stock_bonus_per_copy': 0.0005}
 # id -> fields replaced on the upgrade definition. "step" = linear price (base + step * level);
 # "sequence" = price grows with every purchase of this upgrade on any stage this run.
@@ -75,7 +75,8 @@ def apply(data):
             continue
         normal_tier = max(int(items[n['weapon']]['tier']) for n in groups if not n['boss'] and n['stage'] == g['stage'])
         family = items[g['weapon']]['family']
-        weapon = '%s_%s' % (MATERIALS[normal_tier], family)
+        # Change 51 supersedes "one tier above": a boss drops its stage's normal tier (boss-enhanced).
+        weapon = '%s_%s' % (MATERIALS[normal_tier - 1], family)
         old = g['weapon']
         if old != weapon:
             g['loot'] = [weapon if i == old else i for i in g['loot']]

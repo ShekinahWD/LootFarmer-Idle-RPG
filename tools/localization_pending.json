@@ -42,6 +42,143 @@
    "en": "Every item you carry (supplies included) and its random bonus attributes, Supply Mastery, map access (back to Winter I), owned camps, and unfinished opportunities and missions.",
    "placeholders": [],
    "change": "change-50"
+  },
+  "ITEM_LEGACY_NAME": {
+   "en": "%s (old stats)",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-51"
+  },
+  "LEGACY_ITEM_EXPLAIN": {
+   "en": "An old-stat copy from before the weapon update. It keeps its power until your next Prestige, then leaves with your items. New copies of this weapon use the new stats and keep your merge level.",
+   "placeholders": [],
+   "change": "change-51"
+  },
+  "EVOLUTION_RULE": {
+   "en": "At ^%d, spend %d spare copies for one copy of the next-tier weapon (%d copies in all). This weapon keeps its merge level and one copy; the new weapon uses its own merge level. A target stack or empty slot is required.",
+   "placeholders": [
+    "%d",
+    "%d",
+    "%d"
+   ],
+   "change": "change-51"
+  },
+  "MASTERY_NEED_WEAPON_MERGE": {
+   "en": "Merge one of %s to ^%d",
+   "placeholders": [
+    "%s",
+    "%d"
+   ],
+   "change": "change-51"
+  },
+  "FOLLOW_MASTERWORK_ANY_GEAR": {
+   "en": "Merge an outfit, skill or Obsidian weapon to ^100: best ^%d/^100",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-51"
+  },
+  "FOLLOW_MASTERWORK_TIER_GEAR": {
+   "en": "Merge a tier %d+ outfit, skill or Obsidian weapon to ^100: best ^%d/^100",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-51"
+  },
+  "FOLLOW_ARSENAL_SPLIT": {
+   "en": "Weapons at ^20: %d/%d · outfits at ^50: %d/%d",
+   "placeholders": [
+    "%d",
+    "%d",
+    "%d",
+    "%d"
+   ],
+   "change": "change-51"
+  },
+  "FOLLOW_ARSENAL_SPLIT_T2": {
+   "en": "Tier 2+ weapons at ^20: %d/%d · tier 2+ outfits at ^50: %d/%d",
+   "placeholders": [
+    "%d",
+    "%d",
+    "%d",
+    "%d"
+   ],
+   "change": "change-51"
+  },
+  "PROGRESS_ARSENAL_SPLIT": {
+   "en": "Weapons at ^20: %d/%d · Outfits at ^50: %d/%d",
+   "placeholders": [
+    "%d",
+    "%d",
+    "%d",
+    "%d"
+   ],
+   "change": "change-51"
+  },
+  "CONTENT_MASTERWORK_O1_RULE": {
+   "en": "Merge any outfit, skill or Obsidian weapon to ^100",
+   "placeholders": [],
+   "change": "change-51"
+  },
+  "CONTENT_MASTERWORK_O2_RULE": {
+   "en": "Merge a tier 2 or higher outfit, skill or Obsidian weapon to ^100",
+   "placeholders": [],
+   "change": "change-51"
+  },
+  "CONTENT_MASTERWORK_O3_RULE": {
+   "en": "Merge a tier 3 or higher outfit, skill or Obsidian weapon to ^100",
+   "placeholders": [],
+   "change": "change-51"
+  },
+  "CONTENT_ARSENAL_O1_RULE": {
+   "en": "Merge one weapon to ^20 and one outfit to ^50",
+   "placeholders": [],
+   "change": "change-51"
+  },
+  "CONTENT_ARSENAL_O2_RULE": {
+   "en": "Merge 3 different weapons to ^20 and 3 different outfits to ^50",
+   "placeholders": [],
+   "change": "change-51"
+  },
+  "CONTENT_ARSENAL_O3_RULE": {
+   "en": "Merge 3 different tier 2+ weapons to ^20 and 3 different tier 2+ outfits to ^50",
+   "placeholders": [],
+   "change": "change-51"
+  },
+  "MERGE_AT_CAP": {
+   "en": "This item is at its merge cap.",
+   "placeholders": [],
+   "change": "change-51"
+  },
+  "EVOLUTION_NEEDS_COPIES": {
+   "en": "Evolution needs the full merge level and enough spare copies.",
+   "placeholders": [],
+   "change": "change-51"
+  },
+  "AUTO_EVOLVE_BENEFIT": {
+   "en": "Evolves at ^20 with 10 spare copies (31 in all): %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-51",
+   "status": "changed"
+  },
+  "MAIN_HINT_9": {
+   "en": "Evolve a ^20 weapon that has 10 spare copies (item details, Evolve)",
+   "placeholders": [],
+   "change": "change-51",
+   "status": "changed"
+  },
+  "MASTERY_FORGE_RULE": {
+   "en": "Outfits from here to ^%s (boss outfits ^%s) and one weapon from here evolved (Spring maps: an Obsidian weapon from here at ^20).",
+   "placeholders": [
+    "%s",
+    "%s"
+   ],
+   "change": "change-51",
+   "status": "changed"
   }
  },
  "retired": {
@@ -51,6 +188,21 @@
   "RESET_LINE_ITEMS": "change-50",
   "RESET_LINE_CHALLENGES": "change-50",
   "PRESTIGE_KEEP": "change-50",
-  "PRESTIGE_RESET": "change-50"
+  "PRESTIGE_RESET": "change-50",
+  "EVOLUTION_EXPLAIN": "change-51",
+  "FOLLOW_MASTERWORK_ANY": "change-51",
+  "FOLLOW_MASTERWORK": "change-51",
+  "FOLLOW_ARSENAL": "change-51",
+  "FOLLOW_ARSENAL_T2": "change-51",
+  "PROGRESS_ARSENAL": "change-51",
+  "CONTENT_MASTERWORK_O1_DESCRIPTION": "change-51",
+  "CONTENT_MASTERWORK_O2_DESCRIPTION": "change-51",
+  "CONTENT_MASTERWORK_O3_DESCRIPTION": "change-51",
+  "CONTENT_ARSENAL_O1_DESCRIPTION": "change-51",
+  "CONTENT_ARSENAL_O2_DESCRIPTION": "change-51",
+  "CONTENT_ARSENAL_O3_DESCRIPTION": "change-51",
+  "MERGE_MAX": "change-51",
+  "EVOLUTION_NEEDS": "change-51",
+  "EVOLUTION_PREVIEW": "change-51"
  }
 }

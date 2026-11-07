@@ -325,9 +325,6 @@ msgstr "Gabungkan satu salinan cadangan"
 msgid "MERGE_ALL"
 msgstr "Gabungkan %d salinan cadangan"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "Di ^100, habiskan 100 salinan cadangan untuk satu item tingkat berikutnya. Item sumber dan level gabungannya tetap. Diperlukan tumpukan tujuan atau slot kosong dari kategori yang sama."
-
 msgid "EVOLVE"
 msgstr "Evolusikan → %s"
 
@@ -462,12 +459,6 @@ msgstr "Bonus jumlah koin"
 
 msgid "NEED_DUPLICATES"
 msgstr "Kamu perlu salinan cadangan untuk menggabungkan."
-
-msgid "MERGE_MAX"
-msgstr "Item ini sudah di ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "Evolusi butuh ^100 dan 101 salinan sumber."
 
 msgid "INVENTORY_FULL"
 msgstr "Tidak ada slot kosong. Kosongkan tempat atau perluas inventaris ini."
@@ -1086,9 +1077,6 @@ msgstr "Kekuatan"
 
 msgid "INTRINSIC_POWER"
 msgstr "Intrinsik %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "Tingkat berikutnya dimulai dari 85% kekuatan intrinsik ^100 tingkat ini, sebelum bonus stok dan bonus luar."
 
 msgid "MAP_FARMING"
 msgstr "%s · %d titik · %d per titik · muncul ulang %s dtk"
@@ -3325,38 +3313,20 @@ msgstr "Ambil masing-masing 41 kostum Telinga Kelinci, Telinga Kucing, dan Telin
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Mahakarya pertama"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Gabungkan senjata, kostum, atau skill apa pun sampai ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Tingkat kedua"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Gabungkan item tingkat 2 atau lebih tinggi sampai ^100 (tingkat 2 jatuh mulai Musim Panas I, atau evolusikan senjata)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Tingkat ketiga"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Gabungkan item tingkat 3 atau lebih tinggi sampai ^100 (tingkat 3 jatuh mulai Musim Gugur I, atau evolusikan senjata dua kali)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Perlengkapan berpasangan"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Gabungkan satu senjata dan satu kostum sampai ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Gudang senjata luas"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Gabungkan 3 senjata berbeda dan 3 kostum berbeda sampai ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Gudang senjata berevolusi"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Gabungkan 3 senjata tingkat 2+ berbeda dan 3 kostum tingkat 2+ berbeda sampai ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Penguasaan musim dingin"
@@ -4110,9 +4080,6 @@ msgstr "Terkunci"
 
 msgid "PROGRESS_MERGE"
 msgstr "Terbaik sejauh ini: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Senjata di ^50: %d/%d · Kostum di ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Trofi: %d / %d (setiap bos menjatuhkan satu saat dikalahkan berikutnya)"
@@ -4891,9 +4858,6 @@ msgstr "Menggabungkan salinan cadangan dari: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Aktif · menggabungkan: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Berevolusi di ^100 dengan 101 salinan: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "Aktif · mengevolusikan: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Ungkap Statistik dan Drop setiap musuh di sini."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Dapatkan setiap senjata, kostum, dan skill yang jatuh di sini."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Kostum dari sini sampai ^%s (kostum bos ^%s) dan satu senjata dari sini berevolusi."
-
 msgid "MASTERY_MORE"
 msgstr "+%d lagi"
 
@@ -5308,9 +5269,6 @@ msgstr "Temukan skill Ledakan Es (Musim Panas I: elit Topi Jerami menjatuhkannya
 msgid "MAIN_HINT_8"
 msgstr "Kalahkan Robot Sian, bos Musim Dingin II, untuk mencapai Musim Panas I"
 
-msgid "MAIN_HINT_9"
-msgstr "Evolusikan senjata ^100 yang punya 101 salinan (detail item, Evolusikan)"
-
 msgid "MAIN_HINT_10"
 msgstr "Miliki skill yang berbeda-beda"
 
@@ -5379,18 +5337,6 @@ msgstr "Klaim misi biasa"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Kalahkan %s untuk trofinya · trofi %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Gabungkan senjata, kostum, atau skill apa pun sampai ^100: terbaik ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Gabungkan item tingkat %d atau lebih tinggi sampai ^100: terbaik ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Gabungkan sampai ^50: senjata %d/%d · kostum %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Gabungkan perlengkapan tingkat 2+ sampai ^50: senjata %d/%d · kostum %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Dapatkan dari musuh di putaran ini: koin %s/%s · permata %s/%s"

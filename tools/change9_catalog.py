@@ -64,7 +64,8 @@ def apply(data):
             # The weapon comes from change8_catalog.apply (normal tier + 1).
             put(g, 'loot', [g['weapon'], outfit], g['id'] + '.loot')
         else:
-            weapon = '%s_%s' % (MATERIALS[SPRING_II_TIER - 1], items[g['weapon']]['family'])
+            # Change 51 supersedes the Diamond (Tier 5) Spring II weapons: Obsidian (Tier 7) on Spring II.
+            weapon = '%s_%s' % (MATERIALS[6], items[g['weapon']]['family'])
             put(g, 'weapon', weapon, g['id'] + '.weapon')
             put(g, 'loot', [weapon, outfit], g['id'] + '.loot')
     changes += change8_catalog.apply(data)

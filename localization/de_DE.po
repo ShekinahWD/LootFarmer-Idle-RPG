@@ -325,9 +325,6 @@ msgstr "Eine übrige Kopie verschmelzen"
 msgid "MERGE_ALL"
 msgstr "%d übrige Kopien verschmelzen"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "Bei ^100 gibst du 100 übrige Kopien für einen Gegenstand der nächsten Stufe aus. Der Ausgangsgegenstand und seine Verschmelzungsstufe bleiben erhalten. Nötig ist ein Stapel des Zielgegenstands oder ein freier Platz derselben Kategorie."
-
 msgid "EVOLVE"
 msgstr "Weiterentwickeln → %s"
 
@@ -462,12 +459,6 @@ msgstr "Münzbonus"
 
 msgid "NEED_DUPLICATES"
 msgstr "Zum Verschmelzen brauchst du eine übrige Kopie."
-
-msgid "MERGE_MAX"
-msgstr "Dieser Gegenstand ist auf ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "Die Weiterentwicklung erfordert ^100 und 101 Ausgangskopien."
 
 msgid "INVENTORY_FULL"
 msgstr "Kein freier Platz. Schaffe Platz oder erweitere dieses Inventar."
@@ -1086,9 +1077,6 @@ msgstr "Kraft"
 
 msgid "INTRINSIC_POWER"
 msgstr "Grundkraft %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "Der nächste Rang beginnt mit 85 % der ^100-Grundkraft dieses Rangs, vor Bestands- und externen Boni."
 
 msgid "MAP_FARMING"
 msgstr "%s · %d Fundorte · %d pro Fundort · Respawn %s s"
@@ -3325,38 +3313,20 @@ msgstr "Sammle je 41 Kostüme Hasenohren, Katzenohren und Elfenohren (Drops aus
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Erstes Meisterstück"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Verschmelze eine beliebige Waffe, ein Kostüm oder eine Fähigkeit bis ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Zweiter Rang"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Verschmelze einen Gegenstand ab Rang 2 bis ^100 (Rang 2 droppt ab Sommer I, oder entwickle eine Waffe weiter)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Dritter Rang"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Verschmelze einen Gegenstand ab Rang 3 bis ^100 (Rang 3 droppt ab Herbst I, oder entwickle eine Waffe zweimal weiter)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Passendes Paar"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Verschmelze eine Waffe und ein Kostüm bis ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Breites Arsenal"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Verschmelze 3 verschiedene Waffen und 3 verschiedene Kostüme bis ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Weiterentwickeltes Arsenal"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Verschmelze 3 verschiedene Waffen ab Rang 2 und 3 verschiedene Kostüme ab Rang 2 bis ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Wintermeisterschaft"
@@ -4110,9 +4080,6 @@ msgstr "Gesperrt"
 
 msgid "PROGRESS_MERGE"
 msgstr "Bisher bestes: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Waffen auf ^50: %d/%d · Kostüme auf ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Trophäen: %d / %d (jeder Boss lässt bei seiner nächsten Niederlage eine fallen)"
@@ -4891,9 +4858,6 @@ msgstr "Verschmilzt übrige Kopien von: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "An · verschmilzt: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Entwickelt bei ^100 mit 101 Kopien weiter: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "An · entwickelt weiter: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Decke Werte und Drops aller Gegner hier auf."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Erhalte jede Waffe, jedes Kostüm und jede Fähigkeit, die hier droppen."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Kostüme von hier bis ^%s (Boss-Kostüme ^%s) und eine Waffe von hier weiterentwickelt."
-
 msgid "MASTERY_MORE"
 msgstr "+%d weitere"
 
@@ -5308,9 +5269,6 @@ msgstr "Finde die Fähigkeit Frostexplosion (in Sommer I droppen sie Strohhut-El
 msgid "MAIN_HINT_8"
 msgstr "Besiege den Cyan-Roboter, den Boss von Winter II, um Sommer I zu erreichen"
 
-msgid "MAIN_HINT_9"
-msgstr "Entwickle eine Waffe auf ^100 mit 101 Kopien weiter (Gegenstandsdetails, Weiterentwickeln)"
-
 msgid "MAIN_HINT_10"
 msgstr "Besitze verschiedene Fähigkeiten"
 
@@ -5379,18 +5337,6 @@ msgstr "Hole normale Missionen ab"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Besiege %s für seine Trophäe · Trophäen %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Verschmelze eine beliebige Waffe, ein Kostüm oder eine Fähigkeit bis ^100: bestes ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Verschmelze einen Gegenstand ab Rang %d bis ^100: bestes ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Verschmelze bis ^50: Waffen %d/%d · Kostüme %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Verschmelze Ausrüstung ab Rang 2 bis ^50: Waffen %d/%d · Kostüme %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Verdiene in diesem Durchlauf von Gegnern: Münzen %s/%s · Edelsteine %s/%s"

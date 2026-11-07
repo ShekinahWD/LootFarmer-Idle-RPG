@@ -55,8 +55,15 @@ def tiered(base, tier):
 
 
 def weapon_normal(spec, tier):
-    scale = TIER_GROWTH ** (tier - 1)
-    return {k: [v * scale, v * scale * MERGE_SHARE] for k, v in spec['normal'].items()}
+    # Change 51 supersedes the x2.55 growth: the approved H24 table (tools/change51_catalog.py) is the one
+    # source of weapon stats; this replay check follows it.
+    sys.path.insert(0, str(ROOT / 'tools'))
+    import change51_catalog
+    b = change51_catalog.H24[tier - 1]
+    if spec['row'] == 0:
+        return {'damage': [b, round(b * MERGE_SHARE, 8)]}
+    d, hp = round(b * 0.8, 8), round(b * 3.0, 8)
+    return {'damage': [d, round(d * MERGE_SHARE, 8)], 'hp': [hp, round(hp * MERGE_SHARE, 8)]}
 
 
 def retune(data):

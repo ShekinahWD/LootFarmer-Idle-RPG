@@ -1058,19 +1058,10 @@ func evaluate() -> void:
                 ready=counter(k)-float(o.baseline.get(k,0))>=(hunter_goal(n) if op.path=="hunter" else 1)
             "expedition","specialist":ready=int(o.get("step",0))>=chain_for(op.id).size()
             "offline":ready=sim.state.offline_total>=72*3600 if n==1 else (sim.state.offline_longest>=24*3600 if n==2 else sim.state.offline_income>=10000)
-            "masterwork":
-                for key in o:
-                    if key.begins_with("merge_") and int(o[key])>=100 and int(sim.catalog.items[key.trim_prefix("merge_")].tier)>=n:ready=true
+            "masterwork":ready=masterwork_best(o,n)>=MASTERWORK_MERGE
             "arsenal":
-                var weapons: Dictionary={};var outfits: Dictionary={}
-                for key in o:
-                    if key.begins_with("merge_") and int(o[key])>=50:
-                        var item: Dictionary=sim.catalog.items[key.trim_prefix("merge_")]
-                        # Weapons are shared families since Change 7: distinct weapons count by item.
-                        if int(item.tier)>=(2 if n==3 else 1):
-                            if item.kind=="weapon":weapons[key]=true
-                            elif item.kind=="outfit":outfits[item.family]=true
-                ready=weapons.size()>=(1 if n==1 else 3) and outfits.size()>=(1 if n==1 else 3)
+                var counts:=arsenal_counts(o,n)
+                ready=counts[0]>=arsenal_need(n) and counts[1]>=arsenal_need(n)
             "regional":
                 ready=true
                 for st in ([1,2] if n==1 else ([3,4] if n==2 else [7,8])):
@@ -1338,7 +1329,7 @@ func offline_snapshot() -> Dictionary:
     var eligible: Dictionary={"weapon":[],"outfit":[],"consumable":[]}
     for id in sim.state.items:
         var kind: String=sim.catalog.items[id].kind
-        if eligible.has(kind) and sim.quantity(id)>0:eligible[kind].append(id)
+        if eligible.has(kind) and sim.quantity(id)>0 and not sim.is_legacy(id):eligible[kind].append(id)
     return {"time":maxf(Time.get_unix_time_from_system(),float(sim.state.get("offline_snapshot",{}).get("time",0))),"cap":[5,8,12,18,24,36,48][sim.level("offline_cap")]*3600,"coins":(120+60*sim.level("offline_coins"))*(1+bonus("offline_coins")),"gems":(2+.5*sim.level("offline_gems"))*(1+bonus("offline_gems")),"eligible":eligible,"rates":{"weapon":(1+.5*sim.level("offline_weapon_rate"))*sim.level("offline_weapon"),"outfit":(1+.5*sim.level("offline_outfit_rate"))*sim.level("offline_outfit"),"consumable":(2+sim.level("offline_consumable_rate"))*sim.level("offline_consumable")},"items_bonus":1+bonus("offline_items"),"eligible_time":sim.state.prestige_batch.is_empty()}
 ## Background settlement only records what was earned: rewards wait in offline_pending (saved, merged
 ## across several absences, each interval capped as before) until the player claims them in game.
@@ -1470,7 +1461,37 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
             if not mask.is_empty():out.explored[key]=mask
     migrate_change8(out,change8)
     normalize_skill_assignments(out)
+    migrate_legacy_weapons(out)
     return out
+## Change 51 (once, state.migrations "legacy_weapons_h24"): every owned weapon of the previous stat table
+## whose new stats are lower (tiers 2-7) becomes its "<id>_legacy" copy: the same quantity, merge level,
+## rolled attributes, equip slot and Auto-Merge choice, the old stats, no evolution. It leaves with the
+## inventory at the next Prestige. The canonical id's merge memory keeps the copy's level, so finding that
+## weapon again gives the new stats at the original merge level. A spent stack's record (no copy) stays
+## canonical. Offline snapshots stop offering converted ids (offline grants copy owned canonical gear only).
+func migrate_legacy_weapons(out: Dictionary) -> void:
+    if not out.get("migrations") is Array or out.migrations.has("legacy_weapons_h24"):return
+    out.migrations.append("legacy_weapons_h24")
+    if not out.get("items") is Dictionary:return
+    if not out.get("merge_memory") is Dictionary:out.merge_memory={}
+    var moved: Dictionary={}
+    for id in out.items.keys():
+        var r=out.items[id]
+        var legacy_id: String=str(id)+"_legacy"
+        if not sim.catalog.items.has(legacy_id) or not r is Dictionary or not number(r.get("qty")) or int(r.qty)<1:continue
+        var level:=int(r.get("merge",0)) if number(r.get("merge")) else 0
+        out.merge_memory[id]=maxi(int(out.merge_memory.get(id,0)),mini(level,sim.merge_validation_cap(id)))
+        out.items.erase(id);out.items[legacy_id]=r
+        moved[id]=legacy_id
+    if moved.is_empty():return
+    for field in ["weapon","outfit"]:
+        if moved.has(str(out.get(field,""))):out[field]=moved[out[field]]
+    if out.get("gear") is Array:
+        for i in range(out.gear.size()):
+            if moved.has(str(out.gear[i])):out.gear[i]=moved[out.gear[i]]
+    var snap=out.get("offline_snapshot",{})
+    if snap is Dictionary and snap.get("eligible") is Dictionary and snap.eligible.get("weapon") is Array:
+        snap.eligible.weapon=snap.eligible.weapon.filter(func(i):return not moved.has(str(i)))
 ## Change 50 (schema 9): a schema 8 save gains the permanent merge memory. Each item identity remembers
 ## the highest valid merge level seen in its current record and in Map Mastery's best-merge record
 ## (mastery.merge, kept by every earlier Prestige), so levels lost to older Prestiges are restored. No
@@ -1841,21 +1862,10 @@ func opportunity_progress(id: String) -> String:
         if n==3:return "%s / %s" % [NumberFormat.currency(value),NumberFormat.currency(10000,true)]
         return "%.1f / %d" % [value,[72,24,10000][n-1]]
     if path=="offering":return sim.tr("OFFERING_PROGRESS") % [NumberFormat.currency(minf(sim.state.online_coins,sim.state.coins)),NumberFormat.currency([2000,20000,100000][n-1],true),NumberFormat.currency(minf(sim.state.online_gems,sim.state.gems)),NumberFormat.currency([30,100,300][n-1],true)]
-    if path=="masterwork":
-        var best:=0
-        for key in o:
-            if key.begins_with("merge_") and int(sim.catalog.items[key.trim_prefix("merge_")].tier)>=n:best=maxi(best,int(o[key]))
-        return sim.tr("PROGRESS_MERGE") % best
+    if path=="masterwork":return sim.tr("PROGRESS_MERGE") % masterwork_best(o,n)
     if path=="arsenal":
-        var weapons: Dictionary={};var outfits: Dictionary={}
-        for key in o:
-            if key.begins_with("merge_") and int(o[key])>=50:
-                var item: Dictionary=sim.catalog.items[key.trim_prefix("merge_")]
-                if int(item.tier)>=(2 if n==3 else 1):
-                    if item.kind=="weapon":weapons[key]=true
-                    else:outfits[item.family]=true
-        var need:=1 if n==1 else 3
-        return sim.tr("PROGRESS_ARSENAL") % [mini(weapons.size(),need),need,mini(outfits.size(),need),need]
+        var counts:=arsenal_counts(o,n);var need:=arsenal_need(n)
+        return sim.tr("PROGRESS_ARSENAL_SPLIT") % [mini(counts[0],need),need,mini(counts[1],need),need]
     if path=="trophy":
         var bosses: Array=[["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"]][n-1]
         var got:=0
@@ -1919,22 +1929,12 @@ func follow_summary(id: String) -> String:
             if open.size()>1:line+="\n"+sim.tr("FOLLOW_NEXT") % _group_place(group_id("boss-"+str(open[1])))
             return line
         "masterwork":
-            var best:=0
-            for key in o:
-                if key.begins_with("merge_") and int(sim.catalog.items[key.trim_prefix("merge_")].tier)>=n:best=maxi(best,int(o[key]))
-            return sim.tr("FOLLOW_MASTERWORK_ANY" if n==1 else "FOLLOW_MASTERWORK") % ([best] if n==1 else [n,best])
+            var best:=masterwork_best(o,n)
+            return sim.tr("FOLLOW_MASTERWORK_ANY_GEAR" if n==1 else "FOLLOW_MASTERWORK_TIER_GEAR") % ([best] if n==1 else [n,best])
         "arsenal":
-            var weapons: Dictionary={};var outfits: Dictionary={}
-            for key in o:
-                if key.begins_with("merge_") and int(o[key])>=50:
-                    var item: Dictionary=sim.catalog.items[key.trim_prefix("merge_")]
-                    if int(item.tier)>=(2 if n==3 else 1):
-                        if item.kind=="weapon":weapons[key]=true
-                        elif item.kind=="outfit":outfits[item.family]=true
-            var need:=1 if n==1 else 3
-            var key:="FOLLOW_ARSENAL_T2" if n==3 else "FOLLOW_ARSENAL"
-            var line: String=sim.tr(key) % [mini(weapons.size(),need),need,mini(outfits.size(),need),need]
-            return line
+            var counts:=arsenal_counts(o,n);var need:=arsenal_need(n)
+            var key:="FOLLOW_ARSENAL_SPLIT_T2" if n==3 else "FOLLOW_ARSENAL_SPLIT"
+            return sim.tr(key) % [mini(counts[0],need),need,mini(counts[1],need),need]
         "regional":return _regional_follow(n)
         "offering":
             var coins: int=[2000,20000,100000][n-1];var gems: int=[30,100,300][n-1]
@@ -1967,6 +1967,40 @@ func follow_focus(id: String) -> Dictionary:
             for boss in trophy_bosses(n):
                 if not o.get("trophy_boss-"+boss,false):return {"group":group_id("boss-"+str(boss))}
     return {}
+
+## Change 51 (approved brief §3, audit §7.3): Masterwork and Arsenal thresholds that evolvable weapons can
+## still reach once they stop merging at ^20. Masterwork I-III: an outfit, skill or final-tier (Obsidian)
+## weapon of tier n or higher merged to ^100 after discovery. Arsenal: weapons count at ^20 (their
+## evolution point), outfits at ^50; Arsenal III wants tier 2+ for both. Legacy-stat copies never count.
+const MASTERWORK_MERGE:=100
+const ARSENAL_WEAPON_MERGE:=20
+const ARSENAL_OUTFIT_MERGE:=50
+func masterwork_best(o: Dictionary,n: int) -> int:
+    var best:=0
+    for key in o:
+        if not str(key).begins_with("merge_"):continue
+        var id: String=str(key).trim_prefix("merge_")
+        # Legacy-stat weapons (Change 51) never count; older outfit tiers flagged legacy still do, as before.
+        if not sim.catalog.items.has(id) or (sim.is_legacy(id) and str(sim.catalog.items[id].kind)=="weapon"):continue
+        var item: Dictionary=sim.catalog.items[id]
+        if item.kind=="weapon" and str(item.next)!="":continue
+        if int(item.tier)>=n:best=maxi(best,int(o[key]))
+    return best
+func arsenal_need(n: int) -> int:return 1 if n==1 else 3
+## [distinct weapons at ^20, distinct outfit families at ^50] merged since discovery.
+func arsenal_counts(o: Dictionary,n: int) -> Array:
+    var weapons: Dictionary={};var outfits: Dictionary={}
+    for key in o:
+        if not str(key).begins_with("merge_"):continue
+        var id: String=str(key).trim_prefix("merge_")
+        # Legacy-stat weapons (Change 51) never count; older outfit tiers flagged legacy still do, as before.
+        if not sim.catalog.items.has(id) or (sim.is_legacy(id) and str(sim.catalog.items[id].kind)=="weapon"):continue
+        var item: Dictionary=sim.catalog.items[id]
+        if int(item.tier)<(2 if n==3 else 1):continue
+        # Weapons are shared families since Change 7: distinct weapons count by item.
+        if item.kind=="weapon" and int(o[key])>=ARSENAL_WEAPON_MERGE:weapons[id]=true
+        elif item.kind=="outfit" and int(o[key])>=ARSENAL_OUTFIT_MERGE:outfits[item.family]=true
+    return [weapons.size(),outfits.size()]
 
 ## "Blue Cap (Winter I)": an enemy with the map it lives on.
 func _group_place(g: int) -> String:

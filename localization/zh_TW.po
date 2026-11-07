@@ -323,9 +323,6 @@ msgstr "合成 1 件重複品"
 msgid "MERGE_ALL"
 msgstr "合成 %d 件重複品"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "達到 ^100 時，消耗 100 件重複品換取 1 件下一階道具。原道具與其合成等級保留。需要同類別的目標堆疊或空欄位。"
-
 msgid "EVOLVE"
 msgstr "進化 → %s"
 
@@ -460,12 +457,6 @@ msgstr "金幣數量加成"
 
 msgid "NEED_DUPLICATES"
 msgstr "需要一件重複品才能合成。"
-
-msgid "MERGE_MAX"
-msgstr "此道具已達 ^100。"
-
-msgid "EVOLUTION_NEEDS"
-msgstr "進化需要 ^100 以及 101 件原道具。"
 
 msgid "INVENTORY_FULL"
 msgstr "沒有空欄位。請騰出空間或擴充此背包。"
@@ -1084,9 +1075,6 @@ msgstr "威力"
 
 msgid "INTRINSIC_POWER"
 msgstr "固有%s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "下一階的起始值為本階 ^100 固有威力的 85%（不含庫存與外部加成）。"
 
 msgid "MAP_FARMING"
 msgstr "%s · %d 個重生點 · 每點 %d 隻 · %s秒重生"
@@ -3323,38 +3311,20 @@ msgstr "撿取兔耳、貓耳與精靈耳服裝（春季 I 掉落）各 41 件�
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "首件傑作"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "將任一武器、服裝或技能合成至 ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "第二階"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "將 2 階以上的道具合成至 ^100（2 階道具從夏季 I 開始掉落，或進化一把武器取得）"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "第三階"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "將 3 階以上的道具合成至 ^100（3 階道具從秋季 I 開始掉落，或將一把武器進化兩次取得）"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "成對裝備"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "將一把武器與一件服裝合成至 ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "豐富軍械庫"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "將 3 種不同武器與 3 種不同服裝合成至 ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "進化軍械庫"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "將 3 種不同的 2 階以上武器與 3 種不同的 2 階以上服裝合成至 ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "冬季制霸"
@@ -4108,9 +4078,6 @@ msgstr "未解鎖"
 
 msgid "PROGRESS_MERGE"
 msgstr "目前最佳：^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "^50 武器：%d/%d · ^50 服裝：%d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "獎盃：%d / %d（每個頭目下次被擊敗時掉落一個）"
@@ -4889,9 +4856,6 @@ msgstr "合成以下道具的重複品：%s"
 msgid "AUTO_MERGE_ON"
 msgstr "開啟 · 合成：%s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "在 ^100 且有 101 件時進化：%s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "開啟 · 進化：%s"
 
@@ -5195,9 +5159,6 @@ msgstr "揭露此處所有敵人的能力值與掉落。"
 msgid "MASTERY_COLLECT_RULE"
 msgstr "取得此處掉落的所有武器、服裝與技能。"
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "將此處的服裝合成至 ^%s（頭目服裝 ^%s），並進化一把此處的武器。"
-
 msgid "MASTERY_MORE"
 msgstr "另外 %d 項"
 
@@ -5306,9 +5267,6 @@ msgstr "找到冰霜爆破技能（夏季 I：草帽菁英會掉落）"
 msgid "MAIN_HINT_8"
 msgstr "擊敗冬季 II 的頭目青色機器人，前往夏季 I"
 
-msgid "MAIN_HINT_9"
-msgstr "進化一把達到 ^100 且擁有 101 件的武器（道具資訊中點「進化」）"
-
 msgid "MAIN_HINT_10"
 msgstr "擁有不同的技能"
 
@@ -5377,18 +5335,6 @@ msgstr "領取一般任務"
 
 msgid "FOLLOW_TROPHY"
 msgstr "擊敗%s以獲得其獎盃 · 獎盃 %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "將任一武器、服裝或技能合成至 ^100：最佳 ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "將 %d 階以上的道具合成至 ^100：最佳 ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "合成至 ^50：武器 %d/%d · 服裝 %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "將 2 階以上裝備合成至 ^50：武器 %d/%d · 服裝 %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "本輪從敵人身上賺取：金幣 %s/%s · 寶石 %s/%s"

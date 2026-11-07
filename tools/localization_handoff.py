@@ -1,6 +1,7 @@
 """English-first strings for a gameplay batch after the 19 catalogs were delivered (Playbook 132.3-132.4).
 
   python tools/localization_handoff.py add <strings.json> --change=change-N
+  python tools/localization_handoff.py change <strings.json> --change=change-N
   python tools/localization_handoff.py retire KEY [KEY ...] --change=change-N
   python tools/localization_handoff.py export <out.json>
 
@@ -9,6 +10,9 @@ add     writes every {key: English} entry into localization/en.po (tools/po_set.
         placeholders and the change that introduced it. Non-English catalogs are not touched: players see the
         English fallback until the translations are delivered. A key whose English meaning changes gets a
         NEW key (never an edit of a translated key), so no catalog keeps a stale, now-false translation.
+change  for a key whose English meaning changed and whose key is fixed by code (e.g. built from an index):
+        writes the new English, removes the now-false translation from every non-English catalog (players
+        see the correct English until the new translation arrives) and records it as pending ("changed").
 retire  removes obsolete keys from en.po and from every non-English catalog (a removal, not a translation),
         and from the manifest; the manifest keeps a retired list for the handoff.
 export  writes the translator handoff: every pending key with English text, placeholders and change.
@@ -60,6 +64,16 @@ def main():
         for key, english in entries.items():
             data['keys'][key] = {'en': english, 'placeholders': PLACEHOLDER.findall(english),
                                  'change': options.get('change', '')}
+        save(data)
+    elif args[0] == 'change':
+        entries = json.loads(Path(args[1]).read_text(encoding='utf-8'))
+        print('en.po', write(LOC / 'en.po', entries))
+        for po in sorted(LOC.glob('*.po')):
+            if po.name != 'en.po':
+                remove(po, list(entries))
+        for key, english in entries.items():
+            data['keys'][key] = {'en': english, 'placeholders': PLACEHOLDER.findall(english),
+                                 'change': options.get('change', ''), 'status': 'changed'}
         save(data)
     elif args[0] == 'retire':
         for po in sorted(LOC.glob('*.po')):

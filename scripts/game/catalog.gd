@@ -75,6 +75,8 @@ func art_id(id: String) -> String:
 
 func display_name(id: String) -> String:
     var title: String=tr(items[art_id(id)].get("name",name_of(art_id(id))))
+    # Change 51: an old-stat copy kept from before the weapon ladder update.
+    if bool(items[id].get("legacy",false)):return tr("ITEM_LEGACY_NAME") % title
     if id!=art_id(id):
         return tr("ITEM_TIER_NAME") % [title,int(items[id].tier)]
     return title

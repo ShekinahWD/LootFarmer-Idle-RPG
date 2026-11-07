@@ -112,10 +112,18 @@ func objective(st: int,category: String) -> Dictionary:
             for id in c.items:parts.append(["item",id,1 if m.found.has(id) else 0,1])
         "forge":
             for id in c.outfits:parts.append(["merge",id,mini(int(m.merge.get(id,0)),outfit_target(st,id)),outfit_target(st,id)])
-            var evolved:=0
-            for id in c.weapons:
-                if m.evolved.has(id):evolved=1
-            parts.append(["evolve","",evolved,1])
+            # Change 51: a map whose weapons are all final tier (Spring I and II: Obsidian) cannot ask for
+            # an evolution; it asks for one of its weapons at the evolution requirement (^20) instead.
+            if c.weapons.any(func(id):return str(sim.catalog.items[id].next)!=""):
+                var evolved:=0
+                for id in c.weapons:
+                    if m.evolved.has(id):evolved=1
+                parts.append(["evolve","",evolved,1])
+            else:
+                var need:=int(sim.catalog.progression.evolution.required_merge)
+                var best:=0
+                for id in c.weapons:best=maxi(best,int(m.merge.get(id,0)))
+                parts.append(["weapon_merge","",mini(best,need),need])
     var done:=0;var fraction:=0.0
     for p in parts:
         if int(p[2])>=int(p[3]):done+=1

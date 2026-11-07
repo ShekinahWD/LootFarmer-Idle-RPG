@@ -325,9 +325,6 @@ msgstr "Eén extra exemplaar samenvoegen"
 msgid "MERGE_ALL"
 msgstr "%d extra exemplaren samenvoegen"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "Op ^100 besteed je 100 extra exemplaren aan één voorwerp van de volgende rang. Je houdt het bronvoorwerp en zijn samenvoegniveau. Je hebt een doelstapel of leeg vak van dezelfde categorie nodig."
-
 msgid "EVOLVE"
 msgstr "Evolueren → %s"
 
@@ -462,12 +459,6 @@ msgstr "Bonus muntopbrengst"
 
 msgid "NEED_DUPLICATES"
 msgstr "Je hebt een extra exemplaar nodig om samen te voegen."
-
-msgid "MERGE_MAX"
-msgstr "Dit voorwerp staat op ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "Evolutie vereist ^100 en 101 bronexemplaren."
 
 msgid "INVENTORY_FULL"
 msgstr "Geen leeg vak. Maak ruimte of breid deze inventaris uit."
@@ -1086,9 +1077,6 @@ msgstr "Kracht"
 
 msgid "INTRINSIC_POWER"
 msgstr "Intrinsiek %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "De volgende rang begint op 85% van de intrinsieke ^100-kracht van deze rang, vóór voorraad- en externe bonussen."
 
 msgid "MAP_FARMING"
 msgstr "%s · plekken: %d · %d per plek · respawn %s s"
@@ -3325,38 +3313,20 @@ msgstr "Raap van elk 41 Konijnenoren-, Kattenoren- en Elfenoren-outfits op (drop
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Eerste meesterwerk"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Voeg een willekeurig wapen, outfit of vaardigheid samen tot ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Tweede rang"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Voeg een voorwerp van rang 2 of hoger samen tot ^100 (rang 2 valt vanaf Zomer I, of laat een wapen evolueren)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Derde rang"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Voeg een voorwerp van rang 3 of hoger samen tot ^100 (rang 3 valt vanaf Herfst I, of laat een wapen twee keer evolueren)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Uitrusting als paar"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Voeg één wapen en één outfit samen tot ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Breed arsenaal"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Voeg 3 verschillende wapens en 3 verschillende outfits samen tot ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Geëvolueerd arsenaal"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Voeg 3 verschillende wapens en 3 verschillende outfits van rang 2+ samen tot ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Winter bedwongen"
@@ -4110,9 +4080,6 @@ msgstr "Vergrendeld"
 
 msgid "PROGRESS_MERGE"
 msgstr "Beste tot nu toe: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Wapens op ^50: %d/%d · Outfits op ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Trofeeën: %d / %d (elke baas laat er een vallen bij de volgende nederlaag)"
@@ -4891,9 +4858,6 @@ msgstr "Voegt extra exemplaren samen van: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Aan · voegt samen: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Evolueert op ^100 met 101 exemplaren: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "Aan · evolueert: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Onthul Statistieken en Drops van elke vijand hier."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Verkrijg elk wapen, elke outfit en elke vaardigheid die hier valt."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Outfits van hier tot ^%s (baasoutfits ^%s) en één wapen van hier geëvolueerd."
-
 msgid "MASTERY_MORE"
 msgstr "+%d meer"
 
@@ -5308,9 +5269,6 @@ msgstr "Vind de vaardigheid IJsstoot (Zomer I: Strohoed-elites laten die vallen)
 msgid "MAIN_HINT_8"
 msgstr "Versla de Cyaanrobot, de baas van Winter II, om Zomer I te bereiken"
 
-msgid "MAIN_HINT_9"
-msgstr "Laat een wapen op ^100 met 101 exemplaren evolueren (voorwerpdetails, Evolueren)"
-
 msgid "MAIN_HINT_10"
 msgstr "Verzamel verschillende vaardigheden"
 
@@ -5379,18 +5337,6 @@ msgstr "Haal gewone missies op"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Versla %s voor zijn trofee · trofeeën %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Voeg een willekeurig wapen, outfit of vaardigheid samen tot ^100: beste ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Voeg een voorwerp van rang %d of hoger samen tot ^100: beste ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Voeg samen tot ^50: wapens %d/%d · outfits %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Voeg uitrusting van rang 2+ samen tot ^50: wapens %d/%d · outfits %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Verdien deze run van vijanden: munten %s/%s · edelstenen %s/%s"

@@ -325,9 +325,6 @@ msgstr "ผสานชิ้นสำรองหนึ่งชิ้น"
 msgid "MERGE_ALL"
 msgstr "ผสานชิ้นสำรอง %d ชิ้น"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "เมื่อถึง ^100 ใช้ชิ้นสำรอง 100 ชิ้นแลกไอเทมขั้นถัดไปหนึ่งชิ้น ไอเทมต้นทางและเลเวลการผสานยังอยู่ ต้องมีกองปลายทางหรือช่องว่างในหมวดเดียวกัน"
-
 msgid "EVOLVE"
 msgstr "วิวัฒนาการ → %s"
 
@@ -462,12 +459,6 @@ msgstr "โบนัสจำนวนเหรียญ"
 
 msgid "NEED_DUPLICATES"
 msgstr "ต้องมีชิ้นสำรองจึงจะผสานได้"
-
-msgid "MERGE_MAX"
-msgstr "ไอเทมนี้อยู่ที่ ^100 แล้ว"
-
-msgid "EVOLUTION_NEEDS"
-msgstr "การวิวัฒนาการต้องมี ^100 และชิ้นต้นทาง 101 ชิ้น"
 
 msgid "INVENTORY_FULL"
 msgstr "ไม่มีช่องว่าง เคลียร์ที่หรือขยายกระเป๋านี้"
@@ -1086,9 +1077,6 @@ msgstr "พลัง"
 
 msgid "INTRINSIC_POWER"
 msgstr "พื้นฐาน %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "ขั้นถัดไปเริ่มที่ 85% ของพลังพื้นฐาน ^100 ของขั้นนี้ ก่อนรวมโบนัสจากจำนวนและโบนัสภายนอก"
 
 msgid "MAP_FARMING"
 msgstr "%s · %d จุด · จุดละ %d · เกิดใหม่ %s วินาที"
@@ -3325,38 +3313,20 @@ msgstr "เก็บชุดหูกระต่าย ชุดหูแม�
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "ผลงานชิ้นเอกแรก"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "ผสานอาวุธ ชุด หรือสกิลใดก็ได้จนถึง ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "ขั้นที่สอง"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "ผสานไอเทมขั้น 2 ขึ้นไปจนถึง ^100 (ขั้น 2 ดรอปตั้งแต่ฤดูร้อน I หรือวิวัฒนาการอาวุธ)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "ขั้นที่สาม"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "ผสานไอเทมขั้น 3 ขึ้นไปจนถึง ^100 (ขั้น 3 ดรอปตั้งแต่ฤดูใบไม้ร่วง I หรือวิวัฒนาการอาวุธสองครั้ง)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "อุปกรณ์คู่"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "ผสานอาวุธหนึ่งชิ้นและชุดหนึ่งชุดจนถึง ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "คลังอาวุธกว้างขวาง"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "ผสานอาวุธต่างกัน 3 ชิ้นและชุดต่างกัน 3 ชุดจนถึง ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "คลังอาวุธวิวัฒน์"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "ผสานอาวุธขั้น 2+ ต่างกัน 3 ชิ้นและชุดขั้น 2+ ต่างกัน 3 ชุดจนถึง ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "พิชิตฤดูหนาว"
@@ -4110,9 +4080,6 @@ msgstr "ล็อกอยู่"
 
 msgid "PROGRESS_MERGE"
 msgstr "ดีที่สุดตอนนี้: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "อาวุธที่ ^50: %d/%d · ชุดที่ ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "ถ้วยรางวัล: %d / %d (บอสแต่ละตัวดรอปหนึ่งใบเมื่อถูกปราบครั้งถัดไป)"
@@ -4891,9 +4858,6 @@ msgstr "ผสานชิ้นสำรองของ: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "เปิด · ผสาน: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "วิวัฒนาการที่ ^100 เมื่อมี 101 ชิ้น: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "เปิด · วิวัฒนาการ: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "เปิดเผยค่าสถานะและของดรอ
 msgid "MASTERY_COLLECT_RULE"
 msgstr "ครอบครองอาวุธ ชุด และสกิลทุกอย่างที่ดรอปที่นี่"
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "ชุดจากที่นี่ถึง ^%s (ชุดบอส ^%s) และวิวัฒนาการอาวุธจากที่นี่หนึ่งชิ้น"
-
 msgid "MASTERY_MORE"
 msgstr "+อีก %d"
 
@@ -5308,9 +5269,6 @@ msgstr "หาสกิลระเบิดน้ำแข็ง (ฤดูร�
 msgid "MAIN_HINT_8"
 msgstr "ปราบหุ่นยนต์ฟ้า บอสของฤดูหนาว II เพื่อไปฤดูร้อน I"
 
-msgid "MAIN_HINT_9"
-msgstr "วิวัฒนาการอาวุธ ^100 ที่มี 101 ชิ้น (รายละเอียดไอเทม แล้ววิวัฒนาการ)"
-
 msgid "MAIN_HINT_10"
 msgstr "มีสกิลหลายแบบ"
 
@@ -5379,18 +5337,6 @@ msgstr "รับภารกิจทั่วไป"
 
 msgid "FOLLOW_TROPHY"
 msgstr "ปราบ %s เพื่อรับถ้วยรางวัล · ถ้วยรางวัล %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "ผสานอาวุธ ชุด หรือสกิลใดก็ได้จนถึง ^100: ดีที่สุด ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "ผสานไอเทมขั้น %d ขึ้นไปจนถึง ^100: ดีที่สุด ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "ผสานจนถึง ^50: อาวุธ %d/%d · ชุด %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "ผสานอุปกรณ์ขั้น 2+ จนถึง ^50: อาวุธ %d/%d · ชุด %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "หาจากศัตรูในรอบนี้: เหรียญ %s/%s · อัญมณี %s/%s"

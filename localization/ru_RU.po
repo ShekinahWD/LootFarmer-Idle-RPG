@@ -325,9 +325,6 @@ msgstr "Объединить одну лишнюю копию"
 msgid "MERGE_ALL"
 msgstr "Объединить лишние копии: %d"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "На ^100 потрать 100 лишних копий на один предмет следующего ранга. Исходный предмет и его уровень объединения сохраняются. Нужна стопка цели или пустая ячейка той же категории."
-
 msgid "EVOLVE"
 msgstr "Эволюция → %s"
 
@@ -462,12 +459,6 @@ msgstr "Бонус к количеству монет"
 
 msgid "NEED_DUPLICATES"
 msgstr "Для объединения нужна лишняя копия."
-
-msgid "MERGE_MAX"
-msgstr "Этот предмет уже на ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "Для эволюции нужны ^100 и 101 копия исходного предмета."
 
 msgid "INVENTORY_FULL"
 msgstr "Нет пустой ячейки. Освободи место или расширь инвентарь."
@@ -1086,9 +1077,6 @@ msgstr "Сила"
 
 msgid "INTRINSIC_POWER"
 msgstr "Собственная сила %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "Следующий ранг начинается с 85% собственной силы этого ранга на ^100, без учёта запаса и внешних бонусов."
 
 msgid "MAP_FARMING"
 msgstr "%s · точек: %d · по %d на точку · возрождение %s с"
@@ -3325,38 +3313,20 @@ msgstr "Подбери по 41 костюму заячьих ушек, коша�
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Первый шедевр"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Объедини любое оружие, костюм или навык до ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Второй ранг"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Объедини предмет 2-го ранга или выше до ^100 (2-й ранг выпадает начиная с Лета I, или проведи эволюцию оружия)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Третий ранг"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Объедини предмет 3-го ранга или выше до ^100 (3-й ранг выпадает начиная с Осени I, или проведи эволюцию оружия дважды)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Парное снаряжение"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Объедини одно оружие и один костюм до ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Широкий арсенал"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Объедини 3 разных оружия и 3 разных костюма до ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Развитый арсенал"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Объедини 3 разных оружия и 3 разных костюма 2-го ранга или выше до ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Покорение зимы"
@@ -4110,9 +4080,6 @@ msgstr "Закрыт"
 
 msgid "PROGRESS_MERGE"
 msgstr "Лучший результат: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Оружие на ^50: %d/%d · Костюмы на ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Трофеи: %d / %d (каждый босс оставит трофей при следующей победе)"
@@ -4891,9 +4858,6 @@ msgstr "Объединяет лишние копии: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Вкл. · объединяет: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Эволюция на ^100 при 101 копии: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "Вкл. · эволюция: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Раскрой характеристики и добычу всех в�
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Получи всё оружие, все костюмы и навыки, которые здесь выпадают."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Костюмы отсюда до ^%s (костюмы боссов до ^%s) и эволюция одного оружия отсюда."
-
 msgid "MASTERY_MORE"
 msgstr "+ещё %d"
 
@@ -5308,9 +5269,6 @@ msgstr "Найди навык «Ледяной взрыв» (Лето I: его 
 msgid "MAIN_HINT_8"
 msgstr "Победи Голубого робота, босса Зимы II, чтобы попасть в Лето I"
 
-msgid "MAIN_HINT_9"
-msgstr "Проведи эволюцию оружия на ^100, у которого 101 копия (сведения о предмете, «Эволюция»)"
-
 msgid "MAIN_HINT_10"
 msgstr "Собери разные навыки"
 
@@ -5379,18 +5337,6 @@ msgstr "Забирай обычные задания"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Победи: %s — ради трофея · трофеи %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Объедини любое оружие, костюм или навык до ^100: лучший ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Объедини предмет %d-го ранга или выше до ^100: лучший ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Объедини до ^50: оружие %d/%d · костюмы %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Объедини снаряжение 2-го ранга и выше до ^50: оружие %d/%d · костюмы %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Заработай на врагах за этот забег: монеты %s/%s · самоцветы %s/%s"

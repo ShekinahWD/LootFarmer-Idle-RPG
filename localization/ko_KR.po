@@ -323,9 +323,6 @@ msgstr "여⁠분 1⁠개 합⁠성"
 msgid "MERGE_ALL"
 msgstr "여⁠분 %d⁠개 합⁠성"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "^100⁠에⁠서 여⁠분 100⁠개⁠를 사⁠용⁠해 다⁠음 등⁠급 아⁠이⁠템 1⁠개⁠를 얻⁠습⁠니⁠다. 원⁠래 아⁠이⁠템⁠과 합⁠성 레⁠벨⁠은 유⁠지⁠됩⁠니⁠다. 같⁠은 분⁠류⁠의 대⁠상 묶⁠음⁠이⁠나 빈 슬⁠롯⁠이 필⁠요⁠합⁠니⁠다."
-
 msgid "EVOLVE"
 msgstr "진⁠화 → %s"
 
@@ -460,12 +457,6 @@ msgstr "코⁠인 획⁠득⁠량 보⁠너⁠스"
 
 msgid "NEED_DUPLICATES"
 msgstr "합⁠성⁠하⁠려⁠면 여⁠분⁠이 1⁠개 필⁠요⁠합⁠니⁠다."
-
-msgid "MERGE_MAX"
-msgstr "이 아⁠이⁠템⁠은 이⁠미 ^100⁠입⁠니⁠다."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "진⁠화⁠하⁠려⁠면 ^100⁠과 원⁠본 101⁠개⁠가 필⁠요⁠합⁠니⁠다."
 
 msgid "INVENTORY_FULL"
 msgstr "빈 슬⁠롯⁠이 없⁠습⁠니⁠다. 공⁠간⁠을 비⁠우⁠거⁠나 이 인⁠벤⁠토⁠리⁠를 확⁠장⁠하⁠세⁠요."
@@ -1084,9 +1075,6 @@ msgstr "위⁠력"
 
 msgid "INTRINSIC_POWER"
 msgstr "고⁠유 %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "다⁠음 등⁠급⁠은 재⁠고 및 외⁠부 보⁠너⁠스⁠를 제⁠외⁠한 이 등⁠급 ^100 고⁠유 위⁠력⁠의 85%에⁠서 시⁠작⁠합⁠니⁠다."
 
 msgid "MAP_FARMING"
 msgstr "%s · 출⁠현 지⁠점 %d⁠곳 · 지⁠점⁠당 %d⁠마⁠리 · 재⁠출⁠현 %s⁠초"
@@ -3323,38 +3311,20 @@ msgstr "토⁠끼 귀, 고⁠양⁠이 귀, 엘⁠프 귀 의⁠상(봄 I 드⁠
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "첫 걸⁠작"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "무⁠기, 의⁠상, 스⁠킬 중 하⁠나⁠를 ^100⁠까⁠지 합⁠성"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "2⁠등⁠급"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "2⁠등⁠급 이⁠상 아⁠이⁠템⁠을 ^100⁠까⁠지 합⁠성 (2⁠등⁠급⁠은 여⁠름 I⁠부⁠터 드⁠롭⁠되⁠거⁠나 무⁠기⁠를 진⁠화⁠해 획⁠득)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "3⁠등⁠급"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "3⁠등⁠급 이⁠상 아⁠이⁠템⁠을 ^100⁠까⁠지 합⁠성 (3⁠등⁠급⁠은 가⁠을 I⁠부⁠터 드⁠롭⁠되⁠거⁠나 무⁠기⁠를 두 번 진⁠화⁠해 획⁠득)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "짝 장⁠비"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "무⁠기 1⁠개⁠와 의⁠상 1⁠개⁠를 ^50⁠까⁠지 합⁠성"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "다⁠양⁠한 무⁠기⁠고"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "서⁠로 다⁠른 무⁠기 3⁠종⁠과 의⁠상 3⁠종⁠을 ^50⁠까⁠지 합⁠성"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "진⁠화⁠한 무⁠기⁠고"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "2⁠등⁠급 이⁠상⁠의 서⁠로 다⁠른 무⁠기 3⁠종⁠과 2⁠등⁠급 이⁠상⁠의 서⁠로 다⁠른 의⁠상 3⁠종⁠을 ^50⁠까⁠지 합⁠성"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "겨⁠울 정⁠복"
@@ -4108,9 +4078,6 @@ msgstr "잠⁠김"
 
 msgid "PROGRESS_MERGE"
 msgstr "최⁠고 기⁠록: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "^50 무⁠기: %d/%d · ^50 의⁠상: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "트⁠로⁠피: %d / %d (각 보⁠스⁠는 다⁠음 처⁠치 시 1⁠개⁠를 떨⁠어⁠뜨⁠립⁠니⁠다)"
@@ -4889,9 +4856,6 @@ msgstr "여⁠분 합⁠성 대⁠상: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "켜⁠짐 · 합⁠성 대⁠상: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "^100⁠에⁠서 101⁠개⁠가 모⁠이⁠면 진⁠화: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "켜⁠짐 · 진⁠화 대⁠상: %s"
 
@@ -5195,9 +5159,6 @@ msgstr "이⁠곳⁠의 모⁠든 적⁠의 능⁠력⁠치⁠와 드⁠롭⁠�
 msgid "MASTERY_COLLECT_RULE"
 msgstr "이⁠곳⁠에⁠서 드⁠롭⁠되⁠는 모⁠든 무⁠기, 의⁠상, 스⁠킬⁠을 획⁠득⁠하⁠세⁠요."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "이⁠곳⁠의 의⁠상⁠을 ^%s⁠까⁠지 (보⁠스 의⁠상⁠은 ^%s), 이⁠곳⁠의 무⁠기 1⁠개 진⁠화."
-
 msgid "MASTERY_MORE"
 msgstr "외 %d⁠개"
 
@@ -5306,9 +5267,6 @@ msgstr "서⁠리 폭⁠발 스⁠킬⁠을 찾⁠으⁠세⁠요 (여⁠름 I: 
 msgid "MAIN_HINT_8"
 msgstr "겨⁠울 II 보⁠스⁠인 시⁠안 로⁠봇⁠을 처⁠치⁠하⁠고 여⁠름 I⁠로 가⁠세⁠요"
 
-msgid "MAIN_HINT_9"
-msgstr "여⁠분⁠이 101⁠개⁠인 ^100 무⁠기⁠를 진⁠화⁠하⁠세⁠요 (아⁠이⁠템 정⁠보⁠에⁠서 진⁠화)"
-
 msgid "MAIN_HINT_10"
 msgstr "서⁠로 다⁠른 스⁠킬⁠을 보⁠유⁠하⁠세⁠요"
 
@@ -5377,18 +5335,6 @@ msgstr "일⁠반 미⁠션 수⁠령"
 
 msgid "FOLLOW_TROPHY"
 msgstr "%s 처⁠치⁠로 트⁠로⁠피 획⁠득 · 트⁠로⁠피 %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "무⁠기, 의⁠상, 스⁠킬 중 하⁠나⁠를 ^100⁠까⁠지 합⁠성: 최⁠고 ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "%d⁠등⁠급 이⁠상 아⁠이⁠템⁠을 ^100⁠까⁠지 합⁠성: 최⁠고 ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "^50⁠까⁠지 합⁠성: 무⁠기 %d/%d · 의⁠상 %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "2⁠등⁠급 이⁠상 장⁠비⁠를 ^50⁠까⁠지 합⁠성: 무⁠기 %d/%d · 의⁠상 %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "이⁠번 회⁠차⁠에 적⁠에⁠게⁠서 획⁠득: 코⁠인 %s/%s · 보⁠석 %s/%s"

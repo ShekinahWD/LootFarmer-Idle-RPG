@@ -343,7 +343,7 @@ func merge_all_checks() -> void:
     for id in reference:
         var q: int=int(reference[id].qty);var m: int=int(reference[id].merge)
         if sim.catalog.items[id].kind!="consumable" and q>1:
-            var n: int=mini(q-1,sim.merge_cap(id)-m);expect[id]=[q-n,m+n]
+            var n: int=maxi(0,mini(q-1,sim.merge_cap(id)-m));expect[id]=[q-n,m+n] # Change 51: above-cap levels merge nothing
         else:expect[id]=[q,m]
     var merge_counter: float=sim.campaign.counter("merge")
     game._nav("filters");await frames(2)
@@ -399,7 +399,8 @@ func swing_checks() -> void:
     fresh()
     var snowman: int=sim.campaign.group_id("boss-snowman")
     var weapon: String=sim.catalog.groups[snowman].weapon
-    check(weapon=="stone_axe" and sim.catalog.groups[snowman].loot.has("stone_axe") and sim.catalog.display_name(weapon)=="Stone Axe","The Winter I Snowman carries and drops the Stone Axe (the live id, not Iron Axe)")
+    # Change 51: bosses drop their stage's tier, so the Snowman carries and drops the Wood Axe.
+    check(weapon=="wood_axe" and sim.catalog.groups[snowman].loot.has("wood_axe") and sim.catalog.display_name(weapon)=="Wood Axe","The Winter I Snowman carries and drops the Wood Axe (Change 51)")
     var item: Dictionary=sim.catalog.items.stone_axe
     check(str(item.attack).ends_with("Iron set/Axe 2 64x32.png") and item.attack_tint.size()==3,"Stone Axe swings with the Iron set sheet and a warm-gray tint (was the dark Onix sheet)")
     var icon: Array=item.icon
@@ -425,7 +426,7 @@ func swing_checks() -> void:
     var boss_view: LootActorView=null
     for e in sim.state.enemies:
         if int(e.group)==snowman and game.world.views.has(e.id):boss_view=game.world.views[e.id]
-    check(boss_view!=null and boss_view.attack_texture.resource_path==item.attack and boss_view.attack_tint==expected,"Snowman: the same swing sheet and tint")
+    check(boss_view!=null and boss_view.attack_texture.resource_path==str(sim.catalog.items.wood_axe.attack) and boss_view.attack_tint==game.world.attack_tint("wood_axe"),"Snowman: its Wood Axe's own swing sheet and tint")
     sim.equip("stone_axe");sim.add_item("iron_axe",1);sim.equip("iron_axe");await frames(2)
     check(view.attack_tint==Color.WHITE and view.attack_texture.resource_path.ends_with("Iron set/Axe 2 64x32.png"),"Iron Axe keeps the untinted Iron set swing")
     check(near(float(sim.catalog.items.stone_axe.normal.damage[0]),float(sim.catalog.items.stone_axe.normal.damage[0])) and not sim.catalog.items.stone_axe.has("attack_contact"),"Presentation only: no timing or damage fields added")

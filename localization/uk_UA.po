@@ -325,9 +325,6 @@ msgstr "Поєднати одну зайву копію"
 msgid "MERGE_ALL"
 msgstr "Поєднати зайві копії: %d"
 
-msgid "EVOLUTION_EXPLAIN"
-msgstr "На ^100 витрать 100 зайвих копій, щоб отримати один предмет наступного рангу. Вихідний предмет і його рівень поєднання залишаються. Потрібен стос цільового предмета або порожня комірка тієї ж категорії."
-
 msgid "EVOLVE"
 msgstr "Еволюція → %s"
 
@@ -462,12 +459,6 @@ msgstr "Бонус до кількості монет"
 
 msgid "NEED_DUPLICATES"
 msgstr "Для поєднання потрібна зайва копія."
-
-msgid "MERGE_MAX"
-msgstr "Цей предмет уже на ^100."
-
-msgid "EVOLUTION_NEEDS"
-msgstr "Для еволюції потрібні ^100 і 101 копія вихідного предмета."
 
 msgid "INVENTORY_FULL"
 msgstr "Немає порожньої комірки. Звільни місце або розшир інвентар."
@@ -1086,9 +1077,6 @@ msgstr "Сила"
 
 msgid "INTRINSIC_POWER"
 msgstr "Власна сила %s · %s"
-
-msgid "EVOLUTION_PREVIEW"
-msgstr "Наступний ранг починається з 85% власної сили цього рангу на ^100, без урахування запасу й зовнішніх бонусів."
 
 msgid "MAP_FARMING"
 msgstr "%s · точок: %d · по %d на точку · відродження %s с"
@@ -3325,38 +3313,20 @@ msgstr "Підбери по 41 вбранню заячих вушок, котя�
 msgid "CONTENT_MASTERWORK_O1_NAME"
 msgstr "Перший шедевр"
 
-msgid "CONTENT_MASTERWORK_O1_DESCRIPTION"
-msgstr "Поєднай будь-яку зброю, вбрання чи навичку до ^100"
-
 msgid "CONTENT_MASTERWORK_O2_NAME"
 msgstr "Другий ранг"
-
-msgid "CONTENT_MASTERWORK_O2_DESCRIPTION"
-msgstr "Поєднай предмет 2-го рангу або вище до ^100 (2-й ранг випадає від Літа I, або проведи еволюцію зброї)"
 
 msgid "CONTENT_MASTERWORK_O3_NAME"
 msgstr "Третій ранг"
 
-msgid "CONTENT_MASTERWORK_O3_DESCRIPTION"
-msgstr "Поєднай предмет 3-го рангу або вище до ^100 (3-й ранг випадає від Осені I, або проведи еволюцію зброї двічі)"
-
 msgid "CONTENT_ARSENAL_O1_NAME"
 msgstr "Парне спорядження"
-
-msgid "CONTENT_ARSENAL_O1_DESCRIPTION"
-msgstr "Поєднай одну зброю та одне вбрання до ^50"
 
 msgid "CONTENT_ARSENAL_O2_NAME"
 msgstr "Широкий арсенал"
 
-msgid "CONTENT_ARSENAL_O2_DESCRIPTION"
-msgstr "Поєднай 3 різні види зброї та 3 різні вбрання до ^50"
-
 msgid "CONTENT_ARSENAL_O3_NAME"
 msgstr "Розвинений арсенал"
-
-msgid "CONTENT_ARSENAL_O3_DESCRIPTION"
-msgstr "Поєднай 3 різні види зброї та 3 різні вбрання 2-го рангу або вище до ^50"
 
 msgid "CONTENT_REGIONAL_O1_NAME"
 msgstr "Підкорення зими"
@@ -4110,9 +4080,6 @@ msgstr "Закрито"
 
 msgid "PROGRESS_MERGE"
 msgstr "Найкращий результат: ^%d / ^100"
-
-msgid "PROGRESS_ARSENAL"
-msgstr "Зброя на ^50: %d/%d · Вбрання на ^50: %d/%d"
 
 msgid "PROGRESS_TROPHY"
 msgstr "Трофеї: %d / %d (кожен бос залишить трофей після наступної перемоги)"
@@ -4891,9 +4858,6 @@ msgstr "Поєднує зайві копії: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Увімк. · поєднує: %s"
 
-msgid "AUTO_EVOLVE_BENEFIT"
-msgstr "Еволюція на ^100 зі 101 копією: %s"
-
 msgid "AUTO_EVOLVE_ON"
 msgstr "Увімк. · еволюція: %s"
 
@@ -5197,9 +5161,6 @@ msgstr "Розкрий характеристики й здобич усіх в�
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Здобудь усю зброю, усі вбрання й навички, що тут випадають."
 
-msgid "MASTERY_FORGE_RULE"
-msgstr "Вбрання звідси до ^%s (вбрання босів до ^%s) та еволюція однієї зброї звідси."
-
 msgid "MASTERY_MORE"
 msgstr "+ще %d"
 
@@ -5308,9 +5269,6 @@ msgstr "Знайди навичку «Крижаний вибух» (Літо I:
 msgid "MAIN_HINT_8"
 msgstr "Переможи Блакитного робота, боса Зими II, щоб потрапити в Літо I"
 
-msgid "MAIN_HINT_9"
-msgstr "Проведи еволюцію зброї на ^100, яка має 101 копію (відомості про предмет, «Еволюція»)"
-
 msgid "MAIN_HINT_10"
 msgstr "Збери різні навички"
 
@@ -5379,18 +5337,6 @@ msgstr "Отримуй звичайні місії"
 
 msgid "FOLLOW_TROPHY"
 msgstr "Переможи: %s — заради трофея · трофеї %d/%d"
-
-msgid "FOLLOW_MASTERWORK_ANY"
-msgstr "Поєднай будь-яку зброю, вбрання чи навичку до ^100: найкраще ^%d/^100"
-
-msgid "FOLLOW_MASTERWORK"
-msgstr "Поєднай предмет %d-го рангу або вище до ^100: найкраще ^%d/^100"
-
-msgid "FOLLOW_ARSENAL"
-msgstr "Поєднай до ^50: зброя %d/%d · вбрання %d/%d"
-
-msgid "FOLLOW_ARSENAL_T2"
-msgstr "Поєднай спорядження 2-го рангу й вище до ^50: зброя %d/%d · вбрання %d/%d"
 
 msgid "FOLLOW_OFFERING"
 msgstr "Зароби на ворогах за цей забіг: монети %s/%s · самоцвіти %s/%s"

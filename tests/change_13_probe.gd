@@ -139,15 +139,15 @@ func evolve_checks() -> void:
     check(sim.buy_upgrade("auto_evolve",g_wood) and sim.state.gems==500 and sim.level("auto_evolve",g_wood)==1,"Bought once for 2,000 gems")
     check(sim.upgrade_block_reason("auto_evolve",g_wood)=="UPGRADE_MAX","…then shows as owned")
     check(sim.level("merge_gear",g_wood)==0,"Independent of Auto-Merge (not granted with it)")
-    # Prepared by hand: ^100 and 101 copies.
-    sim.add_item("wood_sword",101);sim.record("wood_sword").merge=100 # fixture
+    # Prepared by hand (Change 51 rule): ^20 and 11 copies (10 spares).
+    sim.add_item("wood_sword",11);sim.record("wood_sword").merge=20 # fixture
     events.clear()
     automate(1.2)
-    check(sim.quantity("stone_sword")==1 and sim.quantity("wood_sword")==1 and int(sim.record("wood_sword").merge)==100,"Evolves by the manual rule: 100 copies spent, one kept with its ^100, one Stone Sword")
+    check(sim.quantity("stone_sword")==1 and sim.quantity("wood_sword")==1 and int(sim.record("wood_sword").merge)==20,"Evolves by the manual rule: 10 copies spent, one kept with its ^20, one Stone Sword")
     check(events.count("EVOLVED")==1,"Exactly one evolution")
-    sim.add_item("stone_sword",100);sim.record("stone_sword").merge=100 # fixture: Stone ready too
+    sim.add_item("stone_sword",10);sim.record("stone_sword").merge=20 # fixture: Stone ready too
     automate(3)
-    check(sim.quantity("iron_sword")==0 and sim.quantity("stone_sword")==101,"Stone is not evolved: the Wood type's unlock does not manage the Stone tier")
+    check(sim.quantity("iron_sword")==0 and sim.quantity("stone_sword")==11,"Stone is not evolved: the Wood type's unlock does not manage the Stone tier")
     var g_stone: int=sim.droppers("stone_sword")[0]
     sim.state.upgrades["auto_evolve:%d" % g_stone]=1 # fixture
     automate(1.2)
@@ -157,9 +157,9 @@ func evolve_checks() -> void:
     # Not ready, not a weapon, last tier, full inventory: nothing happens, no notices.
     fresh()
     sim.state.upgrades["auto_evolve:%d" % g_wood]=1
-    sim.add_item("wood_sword",100);sim.record("wood_sword").merge=100 # 100 copies: one short
+    sim.add_item("wood_sword",10);sim.record("wood_sword").merge=20 # 10 copies: one short
     automate(3)
-    check(sim.quantity("stone_sword")==0,"100 copies (needs 101) do not evolve")
+    check(sim.quantity("stone_sword")==0,"10 copies (needs 11) do not evolve")
     sim.add_item("wood_sword",1)
     while sim.state.gear.has(""):sim.state.gear[sim.state.gear.find("")]="__full__" # fixture: no free slot
     events.clear()
@@ -173,7 +173,9 @@ func evolve_checks() -> void:
     for g in range(sim.catalog.groups.size()):
         if sim.evolvable_drops(g).is_empty():obs_g=g
     check(sim.evolve_group("obsidian_sword")==-1 and sim.evolve_group(sim.catalog.groups[0].loot[1])==-1,"The last tier and outfits never auto-evolve")
-    check(obs_g==-1 or sim.upgrade_block_reason("auto_evolve",obs_g)=="ACTION_UNAVAILABLE","Types without an evolvable weapon cannot buy it")
+    # Change 51: Spring types drop only Obsidian (final tier). Reached and discovered, they still cannot buy it.
+    if obs_g>=0:sim.state.discovered[str(obs_g)]=true;sim.state.unlocked_stage=int(sim.catalog.groups[obs_g].stage)
+    check(obs_g>=0 and sim.upgrade_block_reason("auto_evolve",obs_g)=="ACTION_UNAVAILABLE","Types without an evolvable weapon cannot buy it (%d)" % obs_g)
     # Enemy panel: the card sits beside Auto-Merge and names the weapons.
     fresh()
     sim.state.discovered["0"]=true;game.group=0;game.enemy_tab=1;game._open("enemy");await frames(3)

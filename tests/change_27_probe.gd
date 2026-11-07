@@ -20,7 +20,7 @@ func run() -> void:
     await frames()
     for i in range(sim.catalog.groups.size()):
         if str(sim.catalog.groups[i].id)=="boss-snowman":snow=i
-    check(snow>=0 and str(sim.catalog.groups[snow].weapon)=="stone_axe","Snowman carries the Stone Axe in the catalog")
+    check(snow>=0 and str(sim.catalog.groups[snow].weapon)=="wood_axe","Snowman carries the Wood Axe in the catalog")
     check(sim.campaign.onboarding.rules.first_kill_weapon_bosses==PackedStringArray(["boss-snowman"]),"Only the Snowman is listed (onboarding_rules.tres)")
     sim.milestone.connect(func(k,id):signals.append("milestone:%s:%s" % [k,id]))
     sim.notice.connect(func(k,id):signals.append("notice:%s:%s" % [k,id]))
@@ -66,19 +66,19 @@ func first_kill_checks() -> void:
     fresh("none");chance(-100.0)
     check(int(sim.state.group_kills[snow])==0,"Fresh profile: no Snowman defeats yet")
     var items:=defeat()
-    check(items.count("stone_axe")==1,"First defeat at gear chance 0 drops one Stone Axe (%s)" % [items])
+    check(items.count("wood_axe")==1,"First defeat at gear chance 0 drops one Wood Axe (%s)" % [items])
     check(not items.has("boss-snowman_outfit"),"…and no outfit (the natural roll still applies)")
-    var ground: Array=sim.state.pickups.filter(func(p):return str(p.item)=="stone_axe")
+    var ground: Array=sim.state.pickups.filter(func(p):return str(p.item)=="wood_axe")
     check(ground.size()==1 and int(ground[0].group)==snow and float(ground[0].ttl)==300.0,"…as an ordinary ground pickup from the Snowman")
-    check(sim.quantity("stone_axe")==0,"…not inserted into the inventory")
+    check(sim.quantity("wood_axe")==0,"…not inserted into the inventory")
     revive()
     items=defeat()
-    check(not items.has("stone_axe") and int(sim.state.group_kills[snow])==2,"Second defeat: no guaranteed weapon (%s)" % [items])
+    check(not items.has("wood_axe") and int(sim.state.group_kills[snow])==2,"Second defeat: no guaranteed weapon (%s)" % [items])
 
 func natural_checks() -> void:
     fresh("none");chance(100.0)
     var items:=defeat()
-    check(items.count("stone_axe")==1 and items.has("boss-snowman_outfit"),"Natural Stone Axe on the first defeat is not duplicated (%s)" % [items])
+    check(items.count("wood_axe")==1 and items.has("boss-snowman_outfit"),"Natural Wood Axe on the first defeat is not duplicated (%s)" % [items])
 
 ## The same RNG state, first defeat vs an ordinary (second lifetime) defeat: identical rewards apart
 ## from the one added weapon.
@@ -93,8 +93,8 @@ func equivalence_checks() -> void:
         results.append({"items":items,"coins":float(sim.state.coins),"xp":float(sim.state.xp),"level":int(sim.state.player_level),"gems":float(sim.state.gems),"signals":signals.duplicate(),"rng":sim.rng.state})
     var first: Array=results[0].items.duplicate()
     var ordinary: Array=results[1].items
-    check(not ordinary.has("stone_axe") or first.count("stone_axe")==ordinary.count("stone_axe"),"Seeded fixture is meaningful (%s / %s)" % [first,ordinary])
-    if not ordinary.has("stone_axe"):first.erase("stone_axe")
+    check(not ordinary.has("wood_axe") or first.count("wood_axe")==ordinary.count("wood_axe"),"Seeded fixture is meaningful (%s / %s)" % [first,ordinary])
+    if not ordinary.has("wood_axe"):first.erase("wood_axe")
     check(first==ordinary,"Other drops identical to an ordinary defeat (%s vs %s)" % [results[0].items,ordinary])
     for key in ["coins","xp","level","gems"]:
         check(results[0][key]==results[1][key],"%s identical to an ordinary defeat" % key)
@@ -103,18 +103,18 @@ func equivalence_checks() -> void:
 func persistence_checks() -> void:
     # Save -> disk reload, then the respawned Snowman: no second grant.
     fresh("none");chance(-100.0)
-    check(defeat().has("stone_axe"),"Persistence fixture: first defeat drops the axe")
+    check(defeat().has("wood_axe"),"Persistence fixture: first defeat drops the axe")
     check(SaveService.save_now(),"Save after the first defeat succeeds")
     SaveService.load_and_apply()
     check(int(sim.state.group_kills[snow])==1,"Lifetime defeat survives a disk reload")
     revive()
-    check(not defeat().has("stone_axe"),"After reload the next defeat grants nothing extra")
+    check(not defeat().has("wood_axe"),"After reload the next defeat grants nothing extra")
     # JSON round trip of the save snapshot.
     fresh("none");chance(-100.0)
     defeat()
     sim.restore(JSON.parse_string(JSON.stringify(sim.snapshot())))
     revive()
-    check(not defeat().has("stone_axe"),"After a snapshot round trip the next defeat grants nothing extra")
+    check(not defeat().has("wood_axe"),"After a snapshot round trip the next defeat grants nothing extra")
     # Prestige keeps the lifetime record: a new run's first Snowman defeat is ordinary.
     fresh("none");chance(-100.0)
     defeat()
@@ -124,18 +124,18 @@ func persistence_checks() -> void:
     check(int(sim.state.group_kills[snow])==1 and int(sim.state.run_kills.get("boss-snowman",0))==0,"Prestige keeps the lifetime defeat, clears the run's")
     sim.suspended=false
     var after:=defeat()
-    check(not after.has("stone_axe"),"First defeat after Prestige is ordinary (%s)" % [after])
+    check(not after.has("wood_axe"),"First defeat after Prestige is ordinary (%s)" % [after])
     # Hard Reset makes a new profile: the guarantee is back.
     check(SaveService.hard_reset(),"Hard Reset succeeds")
     sim.suspended=false;sim.state.tutorial.mode="none"
     check(int(sim.state.group_kills[snow])==0,"Hard Reset clears lifetime defeats")
-    check(defeat().count("stone_axe")==1,"After Hard Reset the first defeat drops the axe again")
+    check(defeat().count("wood_axe")==1,"After Hard Reset the first defeat drops the axe again")
 
 func mode_checks() -> void:
     for mode in ["guided","basic","none"]:
         fresh(mode);chance(-100.0)
         if mode!="none":sim.campaign.onboarding.choose_mode(mode)
-        check(defeat().count("stone_axe")==1,"%s: first defeat drops the Stone Axe" % mode)
+        check(defeat().count("wood_axe")==1,"%s: first defeat drops the Wood Axe" % mode)
     # The Change 15 normal-enemy guarantee is untouched: a boss never counts as one of its kills.
     fresh("none");chance(-100.0)
     var o: Dictionary=sim.state.onboarding
@@ -149,7 +149,7 @@ func catalog_weapon_checks() -> void:
     sim._definitions.clear()
     fresh("none");chance(-100.0)
     var items:=defeat()
-    check(items.count("wood_sword")==1 and not items.has("stone_axe"),"A changed catalog weapon is the one guaranteed (%s)" % [items])
+    check(items.count("wood_sword")==1 and not items.has("wood_axe"),"A changed catalog weapon is the one guaranteed (%s)" % [items])
     sim.catalog.groups[snow].weapon=original
     sim._definitions.clear()
     # Other bosses are not listed: a first Cyan Robot defeat at gear chance 0 drops no weapon.

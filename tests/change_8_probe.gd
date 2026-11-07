@@ -62,7 +62,7 @@ func prestige_gate_checks() -> void:
 func merge_cap_checks() -> void:
     fresh()
     sim.add_item("unit-blue-cap_outfit",600)
-    check(sim.merge_cap("unit-blue-cap_outfit")==500 and sim.merge_cap("wood_sword")==100,"Copy cap 500, weapon cap 100")
+    check(sim.merge_cap("unit-blue-cap_outfit")==500 and sim.merge_cap("wood_sword")==20 and sim.merge_cap("obsidian_sword")==100,"Copy cap 500; weapon cap ^20 to evolve, Obsidian ^100 (Change 51)")
     check(sim.merge("unit-blue-cap_outfit",true) and int(sim.record("unit-blue-cap_outfit").merge)==500,"Merge all reaches ^500")
     check(not sim.merge("unit-blue-cap_outfit"),"No merge past the cap")
     var hp: float=sim.normal("unit-blue-cap_outfit").hp
@@ -202,10 +202,11 @@ func loot_checks() -> void:
             if not sim.catalog.groups[g].boss:normal_tier=int(sim.catalog.items[sim.catalog.groups[g].weapon].tier)
         for g in st.groups:
             var d: Dictionary=sim.catalog.groups[g]
-            if d.boss and (int(sim.catalog.items[d.weapon].tier)!=normal_tier+1 or not d.loot.has(d.weapon)):bad+=1
+            # Change 51 supersedes "+1 tier": a boss drops its stage's tier (boss-enhanced, Change 52).
+            if d.boss and (int(sim.catalog.items[d.weapon].tier)!=normal_tier or not d.loot.has(d.weapon)):bad+=1
             if not d.boss and not is_equal_approx(sim.gear_chance(g),.05):bad+=1
             if d.boss and not is_equal_approx(sim.gear_chance(g),.3):bad+=1
-    check(bad==0,"Bosses carry and drop +1 tier; normals 5%, bosses 30% per item on every stage")
+    check(bad==0,"Bosses carry and drop their stage's tier (Change 51); normals 5%, bosses 30% per item on every stage")
     sim.state.upgrades["loot:0"]=15
     check(is_equal_approx(sim.gear_chance(0),.125) and int(sim.catalog.upgrades.loot.cap)==15,"Loot Chance 15 levels reach 12.5% per item")
     var g: int=sim.campaign.group_id("unit-blue-cap")

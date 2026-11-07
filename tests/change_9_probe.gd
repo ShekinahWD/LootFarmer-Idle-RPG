@@ -56,7 +56,7 @@ func merge_curve_checks() -> void:
     sim.add_item("unit-blue-cap_outfit",700)
     check(sim.merge("unit-blue-cap_outfit",true) and int(sim.record("unit-blue-cap_outfit").merge)==500 and not sim.merge("unit-blue-cap_outfit"),"Merging stops at ^500")
     check(near(sim.merge_levels("skill_frost",500),100+100*log(5.0),.0001),"Skills keep the Change 8 logarithmic tail")
-    check(sim.merge_levels("wood_sword",60)==60.0 and sim.merge_cap("wood_sword")==100,"Weapons unchanged: linear to ^100")
+    check(sim.merge_levels("wood_sword",60)==60.0 and sim.merge_cap("wood_sword")==20 and sim.merge_levels("obsidian_sword",100)==100.0,"Weapons linear; evolvable weapons merge to ^20, Obsidian to ^100 (Change 51; older levels keep their effect)")
     check(sim.catalog.items.values().all(func(e):return e.kind!="outfit" or near(float(e.merge_gain.hp),float(e.normal.hp[0])*.02,.0001)),"Every outfit's merge gain is 2% of its base (the formula's premise)")
 
 ## §3 Milestones: tier-scaled, replacing, equipped-only.
@@ -143,8 +143,8 @@ func spring_two_checks() -> void:
         ok=ok and int(g.level)==levels[g.id]
         var weapon_tier:=int(c.items[g.weapon].tier)
         var outfit: String=g.loot[1]
-        ok=ok and weapon_tier==(6 if g.boss else 5) and g.loot[0]==g.weapon and int(c.items[outfit].tier)==5 and not c.items[outfit].get("legacy",false) and c.art_id(outfit)==g.body
-    check(ok,"Spring II: levels 195-225 / 235 / 240 / 250, normals carry and drop Diamond + Tier 5 outfits, bosses Emerald + Tier 5 boss outfits")
+        ok=ok and weapon_tier==7 and g.loot[0]==g.weapon and int(c.items[outfit].tier)==5 and not c.items[outfit].get("legacy",false) and c.art_id(outfit)==g.body
+    check(ok,"Spring II: levels 195-225 / 235 / 240 / 250, everyone carries and drops Obsidian (Change 51) + Tier 5 outfits")
     var b: Dictionary=c.progression.balance
     var final: Dictionary=c.groups[-1]
     var at_level:=func(L: int)->float:return float(b.hp_base)*pow(float(b.hp_growth),L-1)*(1+minf(L,float(b.ramp_cap))/float(b.ramp_hp_div))
@@ -155,7 +155,7 @@ func spring_two_checks() -> void:
     var g8:=-1
     for i in range(c.groups.size()):
         if c.groups[i].id=="unit-sprout":g8=i
-    check(sim.enemy_definition(g8,0).loot==[T5] and sim.enemy_definition(g8,1).loot==["diamond_sword"],"Variants: outfit-only and weapon-only spots drop what they wear")
+    check(sim.enemy_definition(g8,0).loot==[T5] and sim.enemy_definition(g8,1).loot==["obsidian_sword"],"Variants: outfit-only and weapon-only spots drop what they wear")
     # Real drop path: forced gear rolls (fixture: max Loot Chance and a large prestige gear bonus).
     sim.state.upgrades["loot:%d" % g8]=15
     sim.state.owned_cards=[];sim.state.pickups=[]
@@ -163,11 +163,12 @@ func spring_two_checks() -> void:
     for i in range(80):
         sim._reward({"group":g8,"variant":2,"x":0.0,"y":0.0})
     for d in sim.state.pickups:seen[d.item]=true
-    check(seen.has("diamond_sword") and seen.has(T5) and not seen.has("gold_sword") and not seen.has("unit-sprout_outfit_t4"),"Sprout kills drop Diamond Swords and Tier 5 outfits only")
+    check(seen.has("obsidian_sword") and seen.has(T5) and not seen.has("diamond_sword") and not seen.has("unit-sprout_outfit_t4"),"Sprout kills drop Obsidian Swords and Tier 5 outfits only (Change 51)")
 
 func earlier_stage_checks() -> void:
     # Pre-Change 9 values (Change 8 catalog) for a sample of Stage 1-7 groups.
-    var before:={"boss-snowman":[7,600.0,"stone_axe"],"unit-straw-hat":[22,83.0,"stone_sword"],"boss-black-cat":[135,20084.0,"gold_sword"],"unit-elf-ears":[170,2967.0,"gold_axe"],"boss-bee":[190,66474.0,"diamond_axe"],"boss-orange-tabby-cat":[195,74114.0,"diamond_axe"]}
+    # Weapons: the Change 51 one-tier-per-stage ladder (levels, HP and outfits stay the Change 8 values).
+    var before:={"boss-snowman":[7,600.0,"wood_axe"],"unit-straw-hat":[22,83.0,"iron_sword"],"boss-black-cat":[135,20084.0,"emerald_sword"],"unit-elf-ears":[170,2967.0,"obsidian_axe"],"boss-bee":[190,66474.0,"obsidian_axe"],"boss-orange-tabby-cat":[195,74114.0,"obsidian_axe"]}
     var ok:=true
     for g in sim.catalog.groups:
         if before.has(g.id):ok=ok and int(g.level)==before[g.id][0] and absf(float(g.hp)-before[g.id][1])<1.0 and g.weapon==before[g.id][2]
