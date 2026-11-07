@@ -1157,9 +1157,6 @@ msgstr "擊敗雪人 · 解鎖冬季 II"
 msgid "MAIN_5"
 msgstr "裝備治癒術"
 
-msgid "MAIN_6"
-msgstr "強化地圖精細度"
-
 msgid "MAIN_7"
 msgstr "取得冰霜爆破"
 

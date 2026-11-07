@@ -1157,9 +1157,6 @@ msgstr "눈⁠사⁠람 처⁠치 · 겨⁠울 II 해⁠금"
 msgid "MAIN_5"
 msgstr "치⁠유 장⁠착"
 
-msgid "MAIN_6"
-msgstr "지⁠도 상⁠세⁠도 강⁠화"
-
 msgid "MAIN_7"
 msgstr "서⁠리 폭⁠발 획⁠득"
 

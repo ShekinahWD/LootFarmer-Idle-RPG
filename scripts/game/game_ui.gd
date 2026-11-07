@@ -894,6 +894,7 @@ func _set_panel_processing(on: bool) -> void:
         root.process_mode=Node.PROCESS_MODE_INHERIT if on else Node.PROCESS_MODE_DISABLED
 
 func _close() -> void:
+    _hints_this_opening.clear()
     sim.campaign.guided.panel_closed(panel)
     sheet.hide()
     _clear_filters()
@@ -958,6 +959,58 @@ func _notice(kind: String,_id: String) -> void:
         # Change 14: the first Focused Farming purchase confirms itself on the panel's notice line
         # (or as a toast); the guide then points at the Farm button once.
         "focus_unlocked":_say(tr("FOCUS_UNLOCKED"))
+        # Change 55 E1: the first evolvable weapon at its cap explains the 10 spares, once per profile.
+        "evolve_ready":
+            if sim.catalog.items.has(_id) and not hint_retired("evolve_ready") and not sim.campaign.guided.active() and sim.state.prestige_batch.is_empty():
+                retire_hint("evolve_ready")
+                _say(tr("EVOLVE_READY_HINT") % [sim.catalog.display_name(_id),sim.evolution_spare_cost(_id),sim.catalog.display_name(str(sim.catalog.items[_id].next))])
+
+# ---------------------------------------------------------------- contextual hints (Change 55)
+## Approved hints M1 (Map Detail), O1 (offline gear) and E1 (evolution): state-driven, inline in the panel
+## they explain (never a modal, never over a card choice or Prestige, never pausing), only once the Guided
+## tutorial is over, at most HINT_SHOWS panel openings each, retired for good by the demonstrated action.
+## Records live in state.tutorial.seen ("hint_<id>" once per opening that showed it, "hint_<id>_done").
+const HINT_SHOWS:=3
+var _hints_this_opening: Dictionary={}
+func hint_retired(id: String) -> bool:
+    var seen: Array=sim.state.tutorial.seen
+    return seen.has("hint_"+id+"_done") or seen.count("hint_"+id)>=HINT_SHOWS
+func retire_hint(id: String) -> void:
+    if not sim.state.tutorial.seen.has("hint_"+id+"_done"):sim.state.tutorial.seen.append("hint_"+id+"_done");SaveService.mark_dirty()
+## True when the hint may show in the panel now; counts one show per panel opening.
+func hint_allowed(id: String) -> bool:
+    if hint_retired(id) or sim.campaign.guided.active() or not sim.state.prestige_batch.is_empty():return false
+    if not _hints_this_opening.has(id):
+        _hints_this_opening[id]=true
+        sim.state.tutorial.seen.append("hint_"+id);SaveService.mark_dirty()
+    return true
+## M1: a map with found enemies but no Map Detail rank yet, until any Map Detail is bought.
+func map_detail_hint_due() -> bool:
+    var st:=int(sim.state.stage)
+    if sim.level("map_detail",st)>0 or sim.campaign.sequence_count("map_detail")>0:
+        retire_hint("map_detail")
+        return false
+    return sim.campaign.stage().groups.any(func(g):return sim.campaign.discovered(g))
+## O1: an offline gear unlock is missing, the player owns gear it could copy and can afford it.
+func offline_gear_hint_due() -> bool:
+    var missing: Array=["offline_weapon","offline_outfit"].filter(func(u):return sim.level(u)==0)
+    if missing.is_empty():
+        retire_hint("offline_gear")
+        return false
+    var owns:=false
+    for id in sim.state.items:
+        if sim.quantity(id)>0 and sim.catalog.items[id].kind in ["weapon","outfit"] and not sim.is_legacy(id):owns=true;break
+    var cheapest:=INF
+    for u in missing:cheapest=minf(cheapest,float(sim.upgrade_cost(u)))
+    return owns and float(sim.state.gems)>=cheapest
+## Scrolls the open panel so a section heading is at the top (M1 route).
+func _scroll_to_section(title: String) -> void:
+    await get_tree().process_frame
+    var scroll: ScrollContainer=$Sheet/Margin/Content/Scroll
+    for l in rows.find_children("*","Label",true,false):
+        if str(l.text)==title:
+            scroll.scroll_vertical=int(l.get_global_rect().position.y-scroll.get_global_rect().position.y+scroll.scroll_vertical)
+            return
 
 ## A deliberate manual action that succeeded gets the shared confirm (it replaces the click).
 func _confirmed(ok: bool) -> bool:
@@ -1454,9 +1507,11 @@ func _item_panel() -> void:
     for key in r.extras:
         _stat_line(details,"+ "+_stat_text(key,r.extras[key],true),0.0 if shown.has(key) else deltas.get(key,0.0),key,19,Color(.75,.8,.87))
         shown[key]=true
-    # Change 52: boss bonus attributes, gold, each on its own line.
+    # Change 52: boss bonus attributes in gold under one "★ Boss bonus" heading (Change 55: a heading line
+    # instead of a prefix on each line, so the card keeps its phone width at 432 px).
+    if not sim.boss_extras(id).is_empty():_card_line(details,"★ "+tr("ITEM_BOSS_BONUS"),17,Color(1,.84,.45))
     for e in sim.boss_extras(id):
-        _stat_line(details,"★ "+tr("ITEM_BOSS_BONUS")+": "+_stat_text(str(e.stat),float(e.value),true),0.0 if shown.has(str(e.stat)) else deltas.get(str(e.stat),0.0),str(e.stat),19,Color(1,.84,.45))
+        _stat_line(details,"+ "+_stat_text(str(e.stat),float(e.value),true),0.0 if shown.has(str(e.stat)) else deltas.get(str(e.stat),0.0),str(e.stat),19,Color(1,.84,.45))
         shown[str(e.stat)]=true
     # Stats only the equipped item gives: shown as what equipping this one would lose.
     for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen","regen_pct"]:
@@ -1763,6 +1818,9 @@ func _stat_line(parent: Control,text: String,delta: float,key: String,font_size:
     label.text=text
     label.add_theme_font_size_override("font_size",font_size)
     label.add_theme_color_override("font_color",color)
+    # Change 55: a long stat name wraps instead of widening the sheet past a 432/540 px phone screen.
+    label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+    label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     line.add_child(label)
     if absf(delta)>=.005:
         var change:=Label.new()
@@ -1954,6 +2012,13 @@ func _upgrade_benefit(id: String,g: int) -> String:
         return tr("AUTO_MERGE_ON" if sim.level(id,g)>0 else "AUTO_MERGE_BENEFIT") % _item_names(drops)
     if id=="auto_evolve" and g>=0:
         return tr("AUTO_EVOLVE_ON" if sim.level(id,g)>0 else "AUTO_EVOLVE_BENEFIT") % _item_names(sim.evolvable_drops(g))
+    # Change 55 M2: Map Detail names its next rank's real benefit (1 markers, 2 names, 3 loadouts).
+    if id=="map_detail" and g>=0:
+        if next==0:return tr("UPGRADE_MAXED_VALUE") % str(sim.level(id,g))
+        return tr("MAP_DETAIL_NEXT_%d" % (sim.level(id,g)+1))
+    # Change 55 O2: offline gear copies only gear already owned.
+    if id in ["offline_weapon","offline_outfit"]:
+        return tr("OFFLINE_GEAR_BENEFIT") if sim.level(id)==0 else tr("UPGRADE_TRANSITION") % [tr("ON"),tr("ON")]
     if int(sim.catalog.upgrades[id].cap)==1:
         return tr("UPGRADE_TRANSITION") % [tr("ON" if sim.level(id,g)>0 else "OFF"),tr("ON")]
     var current:=sim.group_upgrade_value(id,g,enemy_variant) if g>=0 else sim.player_upgrade_value(id)
@@ -2159,6 +2224,9 @@ func _world_panel() -> void:
             if sim.campaign.discovered(g):
                 var b:=_action(sim.catalog.groups[g].name,func()->void:group=g;enemy_variant=2;enemy_tab=0;_open("enemy"),true,"",known)
                 b.size_flags_horizontal=0;b.custom_minimum_size=Vector2(0,56);b.add_theme_font_size_override("font_size",17)
+    elif map_detail_hint_due() and hint_allowed("map_detail"):
+        _text(tr("MAP_MARKERS_HINT"),17,Color(1,.86,.5))
+        _action(tr("SECTION_MAP_UPGRADES"),func()->void:_scroll_to_section(tr("SECTION_MAP_UPGRADES"))).set_meta("guide","map_upgrades_jump")
     else:_text(tr("MAP_LEGEND"),17,Color(.7,.75,.82))
     # Change 10: the map-by-map Farming Guide (opens per map once its research is complete).
     _action(tr("FARMING_GUIDE_OPEN"),func()->void:guide_stage=0;_open("farming")).set_meta("guide","farming_guide")
@@ -2646,6 +2714,11 @@ func _offline_panel() -> void:
         _card_line(reward,fmt_currency(pair[1]),22,Color(1,.88,.55))
     for id in pending.items:
         if sim.catalog.items.has(id):_loot_row(id,-1,int(pending.items[id]))
+    if offline_gear_hint_due() and hint_allowed("offline_gear"):
+        _text(tr("OFFLINE_GEAR_HINT"),17,Color(1,.86,.5))
+        _action(tr("OFFLINE_UPGRADES_JUMP"),func()->void:
+            if sim.campaign.claim_offline():
+                player_tab=4;_open("upgrades")).set_meta("guide","offline_upgrades_jump")
     _pinned(tr("OFFLINE_CLAIM"),func()->void:
         if sim.campaign.claim_offline():
             _close()

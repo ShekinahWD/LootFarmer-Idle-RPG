@@ -1159,9 +1159,6 @@ msgstr "Победи Снеговика · открывает Зиму II"
 msgid "MAIN_5"
 msgstr "Надень «Лечение»"
 
-msgid "MAIN_6"
-msgstr "Улучши детали карты"
-
 msgid "MAIN_7"
 msgstr "Получи «Ледяной взрыв»"
 

@@ -124,5 +124,5 @@ func ui_checks() -> void:
     var gold:=0
     for l in game.rows.find_children("*","Label",true,false):
         if str(l.text).contains(tr("ITEM_BOSS_BONUS")):gold+=1
-    check(gold>=2,"Boss attributes are listed (%d)" % gold)
+    check(gold==1,"Boss attributes are listed under one Boss bonus heading (%d)" % gold)
     game._close()

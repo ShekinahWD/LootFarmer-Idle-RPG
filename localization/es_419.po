@@ -1159,9 +1159,6 @@ msgstr "Derrota al Muñeco de Nieve · desbloquea Invierno II"
 msgid "MAIN_5"
 msgstr "Equipa Curación"
 
-msgid "MAIN_6"
-msgstr "Mejora el detalle del mapa"
-
 msgid "MAIN_7"
 msgstr "Consigue Estallido de Escarcha"
 

@@ -734,8 +734,11 @@ func merge(id: String, all: bool = false) -> bool:
     if count<1:
         return fail("MERGE_AT_CAP")
     _remove(id,count)
+    var reached_cap: bool=int(r.merge)<merge_cap(id) and int(r.merge)+count>=merge_cap(id)
     r.merge += count
     remember_merge(id,int(r.merge))
+    # Change 55 (hint E1): an evolvable weapon just reached its merge cap.
+    if reached_cap and catalog.items[id].kind=="weapon" and str(catalog.items[id].next)!="":notice.emit("evolve_ready",id)
     campaign.progress("merge",id,count)
     touch()
     return true

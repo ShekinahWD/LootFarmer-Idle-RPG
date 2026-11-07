@@ -1159,9 +1159,6 @@ msgstr "Besiege den Schneemann · schaltet Winter II frei"
 msgid "MAIN_5"
 msgstr "Rüste Heilung aus"
 
-msgid "MAIN_6"
-msgstr "Verbessere die Kartendetails"
-
 msgid "MAIN_7"
 msgstr "Erhalte Frostexplosion"
 

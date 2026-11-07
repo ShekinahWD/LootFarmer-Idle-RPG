@@ -1159,9 +1159,6 @@ msgstr "Pokonaj Bałwana · odblokowuje Zimę II"
 msgid "MAIN_5"
 msgstr "Załóż Leczenie"
 
-msgid "MAIN_6"
-msgstr "Ulepsz szczegóły mapy"
-
 msgid "MAIN_7"
 msgstr "Zdobądź Lodowy wybuch"
 

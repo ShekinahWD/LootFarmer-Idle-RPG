@@ -1159,9 +1159,6 @@ msgstr "Đánh bại Người Tuyết · mở Mùa Đông II"
 msgid "MAIN_5"
 msgstr "Trang bị Hồi Máu"
 
-msgid "MAIN_6"
-msgstr "Nâng cấp chi tiết bản đồ"
-
 msgid "MAIN_7"
 msgstr "Có được Nổ Băng"
 

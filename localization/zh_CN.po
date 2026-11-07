@@ -1157,9 +1157,6 @@ msgstr "击败雪人 · 解锁冬季 II"
 msgid "MAIN_5"
 msgstr "装备治疗术"
 
-msgid "MAIN_6"
-msgstr "强化地图精细度"
-
 msgid "MAIN_7"
 msgstr "获得冰霜爆发"
 

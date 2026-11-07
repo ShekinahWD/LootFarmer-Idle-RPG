@@ -1159,9 +1159,6 @@ msgstr "Kalahkan Manusia Salju · membuka Musim Dingin II"
 msgid "MAIN_5"
 msgstr "Pasang Penyembuhan"
 
-msgid "MAIN_6"
-msgstr "Tingkatkan detail peta"
-
 msgid "MAIN_7"
 msgstr "Dapatkan Ledakan Es"
 

@@ -522,6 +522,56 @@
     "%d"
    ],
    "change": "change-54"
+  },
+  "MAP_MARKERS_HINT": {
+   "en": "Enemies and bosses you have found can be marked on this map. Buy Map Detail in Map upgrades below: it stays bought after Prestige.",
+   "placeholders": [],
+   "change": "change-55"
+  },
+  "MAP_DETAIL_NEXT_1": {
+   "en": "Next: markers for the enemies and bosses you have found",
+   "placeholders": [],
+   "change": "change-55"
+  },
+  "MAP_DETAIL_NEXT_2": {
+   "en": "Next: enemy names; tap a marker to inspect it",
+   "placeholders": [],
+   "change": "change-55"
+  },
+  "MAP_DETAIL_NEXT_3": {
+   "en": "Next: loadout icons (weapon, outfit, skill)",
+   "placeholders": [],
+   "change": "change-55"
+  },
+  "OFFLINE_GEAR_HINT": {
+   "en": "While you are away you can also receive copies of weapons and outfits you already own. Unlock it in Upgrades → Offline.",
+   "placeholders": [],
+   "change": "change-55"
+  },
+  "OFFLINE_UPGRADES_JUMP": {
+   "en": "Claim and open Offline upgrades",
+   "placeholders": [],
+   "change": "change-55"
+  },
+  "OFFLINE_GEAR_BENEFIT": {
+   "en": "Off → On · copies of gear you own, about 1 per hour",
+   "placeholders": [],
+   "change": "change-55"
+  },
+  "EVOLVE_READY_HINT": {
+   "en": "%s is fully merged. Collect %d more copies to evolve it into %s.",
+   "placeholders": [
+    "%s",
+    "%d",
+    "%s"
+   ],
+   "change": "change-55"
+  },
+  "MAIN_6": {
+   "en": "Upgrade Map Detail (World → Map upgrades)",
+   "placeholders": [],
+   "change": "change-55",
+   "status": "changed"
   }
  },
  "retired": {
@@ -548,6 +598,7 @@
   "EVOLUTION_NEEDS": "change-51",
   "EVOLUTION_PREVIEW": "change-51",
   "REROLL": "change-52",
-  "REROLL_CONFIRM": "change-52"
+  "REROLL_CONFIRM": "change-52",
+  "MAP_UPGRADES_JUMP": "change-55"
  }
 }

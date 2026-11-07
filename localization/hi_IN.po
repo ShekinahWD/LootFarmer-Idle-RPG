@@ -1159,9 +1159,6 @@ msgstr "हिममानव को हराएँ · सर्दी II ख�
 msgid "MAIN_5"
 msgstr "उपचार लैस करें"
 
-msgid "MAIN_6"
-msgstr "नक्शा विवरण अपग्रेड करें"
-
 msgid "MAIN_7"
 msgstr "हिम विस्फोट पाएँ"
 

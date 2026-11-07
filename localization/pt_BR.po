@@ -1159,9 +1159,6 @@ msgstr "Derrote o Boneco de Neve · libera Inverno II"
 msgid "MAIN_5"
 msgstr "Equipe Cura"
 
-msgid "MAIN_6"
-msgstr "Melhore o detalhe do mapa"
-
 msgid "MAIN_7"
 msgstr "Obtenha Explosão Gélida"
 

@@ -1157,7 +1157,7 @@ msgid "MAIN_5"
 msgstr "Equip Heal"
 
 msgid "MAIN_6"
-msgstr "Upgrade map detail"
+msgstr "Upgrade Map Detail (World → Map upgrades)"
 
 msgid "MAIN_7"
 msgstr "Acquire Frost Burst"
@@ -6064,3 +6064,27 @@ msgstr "+15% stats gained from every Obsidian weapon merge"
 
 msgid "FOLLOW_MASTERWORK_OBSIDIAN"
 msgstr "Merge an Obsidian weapon to ^100: best ^%d/^100"
+
+msgid "MAP_MARKERS_HINT"
+msgstr "Enemies and bosses you have found can be marked on this map. Buy Map Detail in Map upgrades below: it stays bought after Prestige."
+
+msgid "MAP_DETAIL_NEXT_1"
+msgstr "Next: markers for the enemies and bosses you have found"
+
+msgid "MAP_DETAIL_NEXT_2"
+msgstr "Next: enemy names; tap a marker to inspect it"
+
+msgid "MAP_DETAIL_NEXT_3"
+msgstr "Next: loadout icons (weapon, outfit, skill)"
+
+msgid "OFFLINE_GEAR_HINT"
+msgstr "While you are away you can also receive copies of weapons and outfits you already own. Unlock it in Upgrades → Offline."
+
+msgid "OFFLINE_UPGRADES_JUMP"
+msgstr "Claim and open Offline upgrades"
+
+msgid "OFFLINE_GEAR_BENEFIT"
+msgstr "Off → On · copies of gear you own, about 1 per hour"
+
+msgid "EVOLVE_READY_HINT"
+msgstr "%s is fully merged. Collect %d more copies to evolve it into %s."

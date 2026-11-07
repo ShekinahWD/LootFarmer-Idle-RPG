@@ -1159,9 +1159,6 @@ msgstr "Vaincre le Bonhomme de Neige · débloque Hiver II"
 msgid "MAIN_5"
 msgstr "Équiper Soin"
 
-msgid "MAIN_6"
-msgstr "Améliorer le détail de la carte"
-
 msgid "MAIN_7"
 msgstr "Obtenir Explosion de Givre"
 

@@ -1159,9 +1159,6 @@ msgstr "Sconfiggi il Pupazzo di Neve · sblocca Inverno II"
 msgid "MAIN_5"
 msgstr "Equipaggia Cura"
 
-msgid "MAIN_6"
-msgstr "Potenzia i dettagli mappa"
-
 msgid "MAIN_7"
 msgstr "Ottieni Esplosione di Gelo"
 

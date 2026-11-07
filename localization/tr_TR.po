@@ -1159,9 +1159,6 @@ msgstr "Kardan Adam'ı yen · Kış II'yi açar"
 msgid "MAIN_5"
 msgstr "Şifa'yı kuşan"
 
-msgid "MAIN_6"
-msgstr "Harita ayrıntısını geliştir"
-
 msgid "MAIN_7"
 msgstr "Buz Patlaması edin"
 

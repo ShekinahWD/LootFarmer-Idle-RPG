@@ -1157,9 +1157,6 @@ msgstr "雪だるまを倒す · 冬 II を解放"
 msgid "MAIN_5"
 msgstr "ヒールを装備する"
 
-msgid "MAIN_6"
-msgstr "マップの詳細度を強化する"
-
 msgid "MAIN_7"
 msgstr "フロストバーストを入手する"
 

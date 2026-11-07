@@ -1159,9 +1159,6 @@ msgstr "Versla de Sneeuwpop · ontgrendelt Winter II"
 msgid "MAIN_5"
 msgstr "Rust Genezen uit"
 
-msgid "MAIN_6"
-msgstr "Upgrade de kaartdetails"
-
 msgid "MAIN_7"
 msgstr "Verkrijg IJsstoot"
 
