@@ -36,6 +36,9 @@ BATCHES = {
     'lad_H28': ('builds_ladder', 'tiers_H28,s3aggro_individual', H_ONLY, 2000),
     # Change 51: the shipped catalog is H24, so the same ladder without the tier patch must reproduce lad_H24.
     'live_H24': ('builds_ladder', 's3aggro_individual', H_ONLY, 2000),
+    # Change 53: the whole 40-build ladder on the shipped game (H24, Summer I individual, skill variant x1.15,
+    # Spring normals x0.60): measures the approved combat; compared by hand with lad_A19 / lad_H24 (bosses).
+    'live_ladder': ('builds_ladder', '', '', 2400),
 }
 REFERENCE = {'live_H24': 'lad_H24'}
 
@@ -76,8 +79,7 @@ def run_batch(name, compare):
                 row['whatif'] = label
             reference = OUT / f'{name}.reference.csv'
             with open(reference, 'w', encoding='utf-8', newline='') as f:
-                w = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator='
-')
+                w = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator=chr(10))
                 w.writeheader(); w.writerows(rows)
         r = subprocess.run([sys.executable, str(ROOT / 'tools/player_feedback_audit_analyze.py'), 'compare',
                             str(reference), str(csv_path)], capture_output=True, text=True)

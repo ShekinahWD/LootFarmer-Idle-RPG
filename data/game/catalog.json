@@ -20451,7 +20451,7 @@
         "iron_sword",
         "unit-straw-hat_outfit_t2"
       ],
-      "aggro_mode": "group",
+      "aggro_mode": "individual",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20485,7 +20485,7 @@
         "iron_axe",
         "unit-sunglasses_outfit_t2"
       ],
-      "aggro_mode": "group",
+      "aggro_mode": "individual",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20519,7 +20519,7 @@
         "iron_axe",
         "unit-yellow-cap_outfit_t2"
       ],
-      "aggro_mode": "group",
+      "aggro_mode": "individual",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -22537,6 +22537,14 @@
       "upgrade_delay": 15.0,
       "post_boss_kills": 10,
       "final_delay": 5.0
+    },
+    "combat": {
+      "skill_variant_damage": 1.15,
+      "skill_variant_hp": 1.35,
+      "normal_damage_scale": {
+        "7": 0.6,
+        "8": 0.6
+      }
     }
   },
   "skills": {

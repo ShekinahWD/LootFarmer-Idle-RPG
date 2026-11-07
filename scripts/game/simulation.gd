@@ -631,8 +631,13 @@ func _build_definition(group: int,variant: int) -> Dictionary:
         def.loot=[];def.skills=[];def.coins=0.0;def.xp=0.0;def.gear_chance=0.0
         return def
     if not def.boss:
-        def.hp*=1.25 if variant==0 else (.75 if variant==1 else (1.35 if variant==3 else 1.0))
-        def.damage*=.75 if variant==0 else (1.25 if variant==1 else (1.35 if variant==3 else 1.0))
+        # Change 53: the skill variant's damage multiplier and the per-stage normal damage scale are catalog
+        # data (progression.combat): skill variant x1.15 damage (HP x1.35), Spring I/II normals x0.60; the two
+        # multiply. Bosses and summoned helpers (above) are exempt.
+        var combat: Dictionary=catalog.progression.get("combat",{})
+        def.hp*=1.25 if variant==0 else (.75 if variant==1 else (float(combat.get("skill_variant_hp",1.35)) if variant==3 else 1.0))
+        def.damage*=.75 if variant==0 else (1.25 if variant==1 else (float(combat.get("skill_variant_damage",1.35)) if variant==3 else 1.0))
+        def.damage*=float(combat.get("normal_damage_scale",{}).get(str(int(def.stage)),1.0))
         # Loot is [shared weapon, stage-tier outfit]; one-piece variants drop only what they wear.
         if variant==0:
             def.weapon=""
