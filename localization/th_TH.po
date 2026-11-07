@@ -3934,14 +3934,8 @@ msgstr "เลือกแล้ว: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "สิ่งที่คุณเก็บไว้"
 
-msgid "PRESTIGE_KEEP"
-msgstr "การ์ดและชุดการ์ด อัญมณีของคุณ พื้นที่แผนที่ที่สำรวจแล้ว อัปเกรดทุกอย่างที่ซื้อด้วยอัญมณี (ทุกหมวด) ระบบอัตโนมัติ พื้นที่กระเป๋า กุญแจบอส ความสำเร็จของศัตรู เลเวลและ EXP ของผู้เล่น ความชำนาญแผนที่ และการตั้งค่า"
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "สิ่งที่รีเซ็ตในรอบนี้"
-
-msgid "PRESTIGE_RESET"
-msgstr "เหรียญ ไอเทม (รวมเสบียงในคลัง) และการผสาน ความชำนาญเสบียง การเข้าถึงแผนที่และค่ายที่มี อัปเกรดแผนที่และอัปเกรดด้วยเหรียญ และความท้าทายที่ยังไม่จบ"
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "เก็บ %s"
@@ -5545,32 +5539,17 @@ msgstr "อัญมณีของคุณ: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "พื้นที่แผนที่ที่สำรวจแล้ว ค่ายที่มองเห็น และบอสที่พบ"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "อัปเกรดอัญมณีทุกอย่าง ระบบอัตโนมัติ และพื้นที่กระเป๋า"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "กุญแจบอส ความสำเร็จของศัตรู และความชำนาญแผนที่"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "การตั้งค่าและความคืบหน้าบทสอน"
 
-msgid "RESET_LINE_COINS"
-msgstr "เหรียญ: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "เลเวลผู้เล่น %d (กลับเป็น 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "ไอเทม การผสาน และเสบียงในคลัง"
-
 msgid "RESET_LINE_MAPS"
 msgstr "การเข้าถึงแผนที่ (กลับไปฤดูหนาว I) และค่ายที่มี"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "อัปเกรดด้วยเหรียญและอัปเกรดแผนที่"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "โอกาสและภารกิจที่ยังไม่จบ"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "แตะดูค่าย"

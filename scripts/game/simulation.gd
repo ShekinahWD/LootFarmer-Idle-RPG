@@ -62,10 +62,16 @@ func touch() -> void:
     SaveService.mark_dirty()
     changed.emit()
 
+## Change 50 (approved progression brief, B1): schema 9 adds the permanent per-item merge memory
+## (state.merge_memory) and the list of one-time migrations applied to the profile (state.migrations).
+## Schema 8 saves of the released game migrate on load (campaign.migrate_schema9); nothing is reset.
+const SCHEMA:=9
+const MIGRATABLE_SCHEMAS:=[8,9]
+
 func new_profile() -> void:
     suspended=false
     clear_target()
-    state = {"schema":8,"group_kills":[0,0,0,0],"player_level":1,"xp":0.0,"coins":0,"gems":0,"items":{},"gear":["","",""],"supplies":[""],
+    state = {"schema":SCHEMA,"merge_memory":{},"migrations":[],"group_kills":[0,0,0,0],"player_level":1,"xp":0.0,"coins":0,"gems":0,"items":{},"gear":["","",""],"supplies":[""],
         "weapon":"","outfit":"","upgrades":{},"auto_slots":[],
         "spawns":[0],"spawn":0,"cards":{},"prestiges":0,"offer":[],"victory":false,
         "focus":-1,"focus_variant":2,"boost_time":0.0,"boost_power":0.0,"use_cd":0.0,"history":[],
@@ -151,15 +157,21 @@ func save_snapshot() -> Dictionary:
     return result
 
 func restore(data: Dictionary) -> void:
-    # Development profiles may reset. Current snapshots still validate before use.
-    # Change 15: schema 8 adds the onboarding and Map Mastery records (development saves reset).
-    if int(data.get("schema",0))!=8:
+    # Change 50: the game is released, so player saves are a compatibility obligation (Playbook 61.2).
+    # A schema 8 save migrates to schema 9 after an untouched copy of the file it came from is kept
+    # (SaveService.preserve_copy). A save this build cannot read (an unknown or newer schema, or one that
+    # fails validation) is also copied aside before the fresh profile replaces it, so it stays restorable.
+    var schema:=int(data.get("schema",0)) if campaign.number(data.get("schema")) else 0
+    if not MIGRATABLE_SCHEMAS.has(schema):
+        SaveService.preserve_copy("rejected_schema_%d" % schema)
         new_profile()
         SaveService.write_blocked=false
         SaveService.last_load_result="development_reset"
         return
+    if schema<SCHEMA:SaveService.preserve_copy("schema%d_backup" % schema)
     data=campaign.normalize_snapshot(data)
     if not _valid_snapshot(data):
+        SaveService.preserve_copy("rejected_invalid")
         new_profile()
         SaveService.write_blocked=false
         SaveService.last_load_result="invalid_profile_reset"
@@ -226,8 +238,22 @@ func record(id: String) -> Dictionary:
             var key: String = pool.pop_at(at)
             var span: Array = catalog.items[id].extras[key]
             extras[key] = rng.randf_range(span[0],span[1])
-        state.items[id] = {"qty":0,"merge":0,"extras":extras}
+        # Change 50: a new record starts at the item's remembered merge level (0 if never merged), so
+        # finding an item again restores its progress. A record exists only for an item obtained this
+        # run (add_item); owning no copy grants nothing (stat_sources and normal skip quantity < 1).
+        state.items[id] = {"qty":0,"merge":remembered_merge(id),"extras":extras}
     return state.items[id]
+
+## Change 50: the permanent merge level of an item identity (kept by Prestige, cleared by Hard Reset).
+## Supplies grow by use (supply mastery), never by merging, so they are never remembered.
+func remembered_merge(id: String) -> int:
+    if not catalog.items.has(id) or catalog.items[id].kind=="consumable":return 0
+    return int(state.get("merge_memory",{}).get(id,0))
+
+## Records a reached merge level (it only ever rises).
+func remember_merge(id: String,merge_level: int) -> void:
+    if not catalog.items.has(id) or catalog.items[id].kind=="consumable":return
+    if merge_level>remembered_merge(id):state.merge_memory[id]=merge_level
 
 func quantity(id: String) -> int:
     return int(state.items.get(id,{}).get("qty",0))
@@ -255,6 +281,13 @@ func normal(id: String) -> Dictionary:
 ## keep ^100 and evolve. Caps and the curve live in catalog.progression.merge.
 func copy_growth(id: String) -> bool:
     return str(catalog.items[id].kind) in ["outfit","skill"]
+
+## The highest merge level a saved record may hold. Weapons keep the ^100 bound of every earlier build
+## even where new merging stops lower (Change 51), so an older weapon above its new cap stays valid and
+## keeps its exact level (Change 50 brief: never clamp or reject earned progression).
+func merge_validation_cap(id: String) -> int:
+    if catalog.items[id].kind=="weapon":return maxi(merge_cap(id),100)
+    return merge_cap(id)
 
 func merge_cap(id: String) -> int:
     if catalog.items[id].kind=="consumable":return int(catalog.progression.supply_mastery.cap)
@@ -618,6 +651,7 @@ func merge(id: String, all: bool = false) -> bool:
         return fail("MERGE_MAX")
     _remove(id,count)
     r.merge += count
+    remember_merge(id,int(r.merge))
     campaign.progress("merge",id,count)
     touch()
     return true
@@ -796,12 +830,12 @@ func buy_upgrade(id: String, group: int = -1) -> bool:
     touch()
     return true
 
-## Prestige keeps every upgrade bought with Gems, whatever its category (Change 11), plus the coin
-## upgrades the catalog marks `keep`. Every upgrade has one currency, so levels never need splitting.
-## Hard Reset clears all of them.
+## Change 50 (approved Prestige rule): Prestige keeps every purchased upgrade at its level, whether it
+## was bought with Coins or Gems and whatever its scope. A camp-scoped upgrade (camp reveal radius) stays
+## bought but only acts while its camp is owned again (campaign.reveal reads state.spawns). The catalog's
+## old per-upgrade `keep` flag is no longer read. Hard Reset clears all of them.
 func upgrade_kept(id: String) -> bool:
-    if not catalog.upgrades.has(id):return false
-    return str(catalog.upgrades[id].currency)=="gems" or bool(catalog.upgrades[id].get("keep",false))
+    return catalog.upgrades.has(id)
 
 func pay(currency: String, cost: int) -> bool:
     if cost<0 or state[currency]<cost:

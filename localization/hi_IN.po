@@ -3934,14 +3934,8 @@ msgstr "अब तक चुने गए: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "आपके पास रहेगा"
 
-msgid "PRESTIGE_KEEP"
-msgstr "कार्ड और सेट, आपके रत्न, खोजे गए नक्शा क्षेत्र, रत्नों से खरीदा हर अपग्रेड (सभी श्रेणियाँ), स्वचालन, इन्वेंटरी जगह, बॉस चाबियाँ, दुश्मन उपलब्धियाँ, खिलाड़ी लेवल और XP, नक्शा महारत और सेटिंग्स।"
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "इस दौर में रीसेट होगा"
-
-msgid "PRESTIGE_RESET"
-msgstr "सिक्के, आइटम (रसद स्टॉक सहित) और मर्ज, रसद महारत, नक्शा पहुँच और आपके कैंप, नक्शा और सिक्का अपग्रेड और अधूरी चुनौतियाँ।"
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "रखें: %s"
@@ -5545,32 +5539,17 @@ msgstr "आपके रत्न: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "खोजे गए नक्शा क्षेत्र, दिखे कैंप और मिले बॉस"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "हर रत्न अपग्रेड, स्वचालन और इन्वेंटरी जगह"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "बॉस चाबियाँ, दुश्मन उपलब्धियाँ और नक्शा महारत"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "सेटिंग्स और ट्यूटोरियल प्रगति"
 
-msgid "RESET_LINE_COINS"
-msgstr "सिक्के: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "खिलाड़ी लेवल %d (वापस 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "आइटम, मर्ज और रसद स्टॉक"
-
 msgid "RESET_LINE_MAPS"
 msgstr "नक्शा पहुँच (वापस सर्दी I) और आपके कैंप"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "सिक्का अपग्रेड और नक्शा अपग्रेड"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "अधूरे अवसर और मिशन"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "कैंप देखें पर टैप करें"

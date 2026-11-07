@@ -1257,13 +1257,19 @@ func choose_card(id: String) -> bool:
     var granted: Array=sim.state.prestige_batch.choices.duplicate()
     var final: bool=granted.size()==sim.state.prestige_batch.ids.size()
     if final:
-        sim.state.reward_stage=reward_stage()
+        # Change 50: settle what the ending run already earned, inside this same transaction (one
+        # write; a failed write restores `before`): finished missions and pending offline Coins and
+        # Gems are paid once, and the run's merge levels are folded into the permanent memory.
+        settle_run_for_prestige()
         var keep: Dictionary={}
         # Change 16: Prestige also keeps the Gem balance, every explored map area (fog cells, sighted
-        # camps and found encounter spots) and the bosses found. Map upgrades, camps owned, coins and
-        # the run's online Gem credit (Offering opportunities) still reset.
+        # camps and found encounter spots) and the bosses found.
         # Change 35: the review invitation record is per profile, so Prestige keeps it too.
-        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","offline_pending","skills_seen","supply_found","player_level","xp","reward_stage","onboarding","mastery","gems","explored","camps_known","discovered","discovered_spots","bosses_found","review"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        # Change 50 (approved rules): also the Coin balance, every purchased upgrade, the per-item merge
+        # memory and earned-but-unclaimed main objectives. Items, loadout, rolled attributes, map access,
+        # owned camps, missions, Supply Mastery and transient run state reset. Mission rewards are
+        # priced from the new run's own map access (reward_stage), not the highest map ever reached.
+        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1284,6 +1290,22 @@ func choose_card(id: String) -> bool:
     sim.milestone.emit("card",id)
     if final:sim.event.emit("PRESTIGED");sim.milestone.emit("prestiged",",".join(granted))
     return true
+## Change 50: the ending run's earned rewards, applied in memory by the final card choice before the
+## reset (never on their own): every finished, unclaimed regular mission pays its reward once at the
+## ending run's price; pending offline Coins and Gems are paid once with their offline counters (the
+## pending item copies would join an inventory that is about to reset, so they end with it); the run's
+## merge levels join the merge memory. Main objectives are not claimed: they stay claimable.
+func settle_run_for_prestige() -> void:
+    for m in sim.state.missions:
+        if str(m.kind)=="waiting" or m.claimed or m.progress<m.goal:continue
+        price_mission(m)
+        m.claimed=true;sim.state.coins+=m.coins;sim.state.gems+=m.gems
+    var pending: Dictionary=sim.state.get("offline_pending",{})
+    if not pending.is_empty():
+        sim.state.coins+=float(pending.coins);sim.state.gems+=float(pending.gems);sim.state.offline_income+=float(pending.coins)
+        sim.state.offline_total+=float(pending.seconds);sim.state.offline_longest=maxf(sim.state.offline_longest,float(pending.longest))
+        sim.state.offline_pending={}
+    for id in sim.state.items:sim.remember_merge(id,int(sim.state.items[id].merge))
 func get_tree_paused() -> bool:return sim.get_tree().paused
 func cancel_prestige() -> bool:
     if sim.state.prestige_batch.is_empty() or not sim.state.prestige_batch.choices.is_empty():return false
@@ -1375,6 +1397,7 @@ func claim_offline() -> bool:
     return true
 func normalize_snapshot(data: Dictionary) -> Dictionary:
     var out: Dictionary=data.duplicate(true)
+    migrate_schema9(out)
     normalize_change17(out)
     guided.normalize(out)
     review.normalize(out)
@@ -1397,6 +1420,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     for key in out.prestige_collapsed.keys():
         if not str(key).is_valid_int() or int(key)<0 or int(key)>sim.catalog.stages.size() or not out.prestige_collapsed[key] is bool:
             out.prestige_collapsed.erase(key)
+    normalize_merge_memory(out)
     for field in ["schema","stage","unlocked_stage","spawn","player_level","prestiges","focus","focus_variant","next_pickup","next_cat","help","consumable_uses","fog_layout_revision"]:
         if number(out.get(field)):out[field]=int(out[field])
     # JSON decodes numbers as floats; Array.has uses strict Variant types.
@@ -1447,6 +1471,45 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     migrate_change8(out,change8)
     normalize_skill_assignments(out)
     return out
+## Change 50 (schema 9): a schema 8 save gains the permanent merge memory. Each item identity remembers
+## the highest valid merge level seen in its current record and in Map Mastery's best-merge record
+## (mastery.merge, kept by every earlier Prestige), so levels lost to older Prestiges are restored. No
+## copy is added: an item the player does not own still grants nothing. Records the player holds now
+## (owned, or a spent stack's record) rise to their remembered level. Runs once (state.migrations).
+func migrate_schema9(out: Dictionary) -> void:
+    if not number(out.get("schema")) or int(out.schema)!=8:return
+    var memory: Dictionary={}
+    var sources: Array=[]
+    if out.get("items") is Dictionary:
+        for id in out.items:
+            if out.items[id] is Dictionary:sources.append([id,out.items[id].get("merge")])
+    if out.get("mastery") is Dictionary and out.mastery.get("merge") is Dictionary:
+        for id in out.mastery.merge:sources.append([id,out.mastery.merge[id]])
+    var legacy: Dictionary=sim.catalog.legacy_items
+    for pair in sources:
+        var id: String=str(legacy.get(pair[0],pair[0]))
+        if not sim.catalog.items.has(id) or sim.catalog.items[id].kind=="consumable" or bool(sim.catalog.items[id].get("legacy",false)):continue
+        if not number(pair[1]) or float(pair[1])<=0:continue
+        var level:=mini(int(pair[1]),sim.merge_validation_cap(id))
+        memory[id]=maxi(int(memory.get(id,0)),level)
+    if out.get("items") is Dictionary:
+        for id in out.items:
+            var r=out.items[id]
+            if r is Dictionary and memory.has(id) and number(r.get("merge")) and int(r.merge)<int(memory[id]):r.merge=memory[id]
+    out.merge_memory=memory
+    out.migrations=["schema9_merge_memory"]
+    out.schema=9
+## Current-schema bounds for the merge memory: known, non-supply, non-legacy ids with whole levels
+## inside the validation cap; anything else is dropped (never the profile).
+func normalize_merge_memory(out: Dictionary) -> void:
+    if not out.get("merge_memory") is Dictionary:out.merge_memory={}
+    for id in out.merge_memory.keys():
+        var v=out.merge_memory[id]
+        if not sim.catalog.items.has(id) or sim.catalog.items[id].kind=="consumable" or bool(sim.catalog.items[id].get("legacy",false)) or not number(v) or float(v)<=0:
+            out.merge_memory.erase(id)
+        else:out.merge_memory[id]=mini(int(v),sim.merge_validation_cap(id))
+    if not out.get("migrations") is Array:out.migrations=[]
+    out.migrations=out.migrations.filter(func(m):return m is String)
 ## Change 10 bound: the equipment row has exactly 3 + purchased slots (at most 70). Surplus empty
 ## slots go first (from the end); items still beyond the bound are dropped with their record.
 func clamp_equipment_slots(out: Dictionary) -> void:
@@ -1603,7 +1666,7 @@ func _remap_keys(source: Dictionary,legacy: Dictionary,prefixed: bool) -> Dictio
         else:result[renamed]=value
     return result
 func valid_snapshot(data: Dictionary) -> bool:
-    if int(data.get("schema",0))!=8 or not finite_tree(data):return false
+    if int(data.get("schema",0))!=sim.SCHEMA or not finite_tree(data):return false
     for key in sim.state:
         if not data.has(key):return false
         var a: int=typeof(sim.state[key]);var b: int=typeof(data[key])
@@ -1629,7 +1692,9 @@ func valid_snapshot(data: Dictionary) -> bool:
     for id in data.items:
         if not sim.catalog.items.has(id) or not data.items[id] is Dictionary:return false
         var r: Dictionary=data.items[id]
-        if not r.has_all(["qty","merge","extras"]) or r.qty<0 or r.qty!=floor(r.qty) or r.merge<0 or r.merge>sim.merge_cap(id):return false
+        if not r.has_all(["qty","merge","extras"]) or r.qty<0 or r.qty!=floor(r.qty) or r.merge<0 or r.merge>sim.merge_validation_cap(id):return false
+    for id in data.merge_memory:
+        if not sim.catalog.items.has(id) or not number(data.merge_memory[id]) or data.merge_memory[id]<0 or data.merge_memory[id]>sim.merge_validation_cap(id):return false
     for id in data.gear+data.supplies:
         if id!="" and (not data.items.has(id) or data.items[id].qty<=0):return false
     for key in data.upgrades:
@@ -2086,9 +2151,11 @@ func effective_skill_multiplier(a: Dictionary,b: Dictionary,key: String,power: f
     if a.id=="player" and key=="fire":value=minf(value,float(sim.catalog.progression.change17.fire_effective_cap))
     return value
 
-## Reward stage survives Prestige; travel never lowers it. Getter has no mutation side effects.
+## Change 50: missions are priced from the current run's map access (highest unlocked stage), so a new
+## run's Winter I missions pay Winter I rewards even with every map reached before (Coins are kept by
+## Prestige since Change 50). Travel never lowers it within a run. The saved field mirrors this value.
 func reward_stage() -> int:
-    return clampi(maxi(int(sim.state.reward_stage),int(sim.state.unlocked_stage)),1,sim.catalog.stages.size())
+    return clampi(int(sim.state.unlocked_stage),1,sim.catalog.stages.size())
 
 ## Mean current normal-enemy kill payout at the highest unlocked stage. Includes Coin Amount,
 ## normal/coin Prestige and active Coin Tonic exactly as killing those enemies would.

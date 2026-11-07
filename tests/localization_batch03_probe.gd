@@ -21,7 +21,7 @@ var enabled_now:=false
 func run() -> void:
     startup_locale=TranslationServer.get_locale()
     SettingsState.mute_all_sfx()
-    english=preload("res://tests/localization_sweep.gd").read_po("res://localization/en.po")
+    english=preload("res://tests/localization_sweep.gd").translated_english() # Change 50: pending keys excluded
     for lang in BATCH3:catalogs[lang]=preload("res://tests/localization_sweep.gd").read_po("res://localization/%s.po" % lang)
     enabled_now=BATCH3.all(func(l):return l in LocalizationService.ENABLED_LANGUAGES)
     game=load("res://scenes/game/main.tscn").instantiate();add_child(game);sim=game.sim

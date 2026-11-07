@@ -221,7 +221,9 @@ func migration_checks() -> void:
     sim.state.upgrades["gear_slots"]=4;sim.state.gear.append_array(["","","",""]);sim.state.upgrades["focus:0"]=1
     var snap: Dictionary=JSON.parse_string(JSON.stringify(sim.snapshot()))
     snap.erase("bosses_found");snap.erase("follow_mission")
-    check(int(snap.schema)==8,"Save schema stays 8 (no reset of existing saves)")
+    # Change 50: an existing schema-8 profile (as released) migrates to schema 9 instead of resetting.
+    check(int(snap.schema)==sim.SCHEMA,"Current save schema %d" % int(snap.schema))
+    snap.schema=8;snap.erase("merge_memory");snap.erase("migrations")
     SaveService.last_load_result="" # fixture: judge this restore, not the boot-time load of the probe profile
     sim.restore(snap)
     check(SaveService.last_load_result not in ["development_reset","invalid_profile_reset"] and sim.state.bosses_found.has("boss-snowman") and sim.state.bosses_found.has("boss-cyan-robot") and sim.state.bosses_found.size()==2,"A save without the new records loads: defeated bosses count as found %s" % str(sim.state.bosses_found))
@@ -499,7 +501,9 @@ func prestige_keep_checks() -> void:
     check(int(sim.state.gems)==345,"Gems kept: %s" % str(sim.state.gems))
     check(sim.campaign.explored_count(1)>=explored["1"].count(1) and sim.campaign.explored_count(2)==2 and sim.campaign.explored_percent(1)>=pct,"Explored cells kept on both maps (Winter I %d%%)" % sim.campaign.explored_percent(1))
     check(sim.state.camps_known.get("1",[]).has(1) and sim.state.discovered_spots.size()>=spots.size(),"Sighted camps and found spots kept")
-    check(int(sim.state.coins)==0 and sim.state.camps.get("1",[])==[0] and sim.level("map_detail",1)==0 and sim.level("reveal_radius",1)==0 and float(sim.state.online_gems)==0.0,"Coins, owned camps, map upgrades and the run's online Gem credit still reset")
+    # Change 50 (approved): Coins and every upgrade (map upgrades included) are kept; owned camps and the
+    # run's online Gem credit still reset.
+    check(int(sim.state.coins)>=999 and sim.state.camps.get("1",[])==[0] and sim.level("map_detail",1)==2 and sim.level("reveal_radius",1)==1 and float(sim.state.online_gems)==0.0,"Coins and map upgrades kept; owned camps and the run's online Gem credit reset")
     check(sim.state.prestiges==1 and sim.state.owned_cards.size()==1 and int(sim.state.unlocked_stage)==1,"Other Prestige rules unchanged (card granted, back to Winter I)")
 
 # ---------------------------------------------------------------- 8. Health Potion
@@ -735,8 +739,9 @@ func confirm_checks() -> void:
     check(screen.get_node("Plate/Frame").visible and screen.get_node("Plate/Sparks").get_child_count()==4 and screen.get_node("Plate/Margin/Content/Header/Art").texture!=null,"Milestone look: gold frame, sparks and the star, like the discovery banner")
     var keep: String=screen.get_node("Plate/Margin/Content/Scroll/Body/Keep/Box/List").text
     var reset: String=screen.get_node("Plate/Margin/Content/Scroll/Body/Reset/Box/List").text
-    check(keep.contains("Your Gems: 77") and keep.contains("Explored map areas") and keep.contains("Every Gem upgrade"),"Permanent card lists Gems, exploration and Gem upgrades")
-    check(reset.contains("Coins: 1.23K") and reset.contains("Items, merges") and reset.contains("owned camps"),"Reset card lists coins, items and camps")
+    # Change 50: the approved lists (Coins, every upgrade and merge levels are kept).
+    check(keep.contains("Your Gems: 77") and keep.contains("Your Coins: 1.23K") and keep.contains("Explored map areas") and keep.contains("Every upgrade you bought") and keep.contains("Merge levels"),"Permanent card lists Coins, Gems, exploration, every upgrade and merge levels")
+    check(reset.contains("Every item you carry") and reset.contains("random bonus attributes") and reset.contains("owned camps") and not reset.contains("Coins:"),"Reset card lists items and their attributes, camps; not Coins")
     check(screen.get_node("Plate/Margin/Content/Scroll/Body/Keep/Box/Title").get_theme_color("font_color").g>.9 and screen.get_node("Plate/Margin/Content/Scroll/Body/Reset/Box/Title").get_theme_color("font_color").r>.9,"Kept and reset read apart (green, orange)")
     check(screen.get_node("Plate/Margin/Content/Scroll/Body/Opportunities").get_child_count()==1,"It lists the one opportunity redeemed")
     var cancel: Button=screen.get_node("Plate/Margin/Content/Actions/Cancel")

@@ -3934,14 +3934,8 @@ msgstr "Ya elegidas: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Conservas"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Cartas y conjuntos, tus gemas, las zonas exploradas del mapa, todas las mejoras compradas con gemas (de todas las categorías), la automatización, el espacio de inventario, las llaves de jefe, los logros de enemigos, el nivel y la EXP del jugador, la Maestría del mapa y la configuración."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "Se reinicia en esta partida"
-
-msgid "PRESTIGE_RESET"
-msgstr "Monedas, objetos (incluidas las existencias de suministros) y fusiones, Maestría de suministros, acceso a mapas y campamentos obtenidos, mejoras de mapa y de monedas, y desafíos sin terminar."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Quedarse con %s"
@@ -5545,32 +5539,17 @@ msgstr "Tus gemas: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Zonas exploradas del mapa, campamentos avistados y jefes encontrados"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Todas las mejoras de gemas, la automatización y el espacio de inventario"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Llaves de jefe, logros de enemigos y Maestría del mapa"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Configuración y progreso del tutorial"
 
-msgid "RESET_LINE_COINS"
-msgstr "Monedas: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Nivel del jugador %d (vuelve a 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Objetos, fusiones y existencias de suministros"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Acceso a mapas (vuelve a Invierno I) y campamentos obtenidos"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Mejoras de monedas y mejoras de mapa"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Oportunidades y misiones sin terminar"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Toca Ver campamento"

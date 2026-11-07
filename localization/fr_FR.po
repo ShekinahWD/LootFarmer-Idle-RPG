@@ -3934,14 +3934,8 @@ msgstr "Déjà choisies : %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Vous conservez"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Cartes et ensembles, vos gemmes, les zones explorées de la carte, toutes les améliorations achetées avec des gemmes (toutes catégories), l’automatisation, l’espace d’inventaire, les clés de boss, les succès d’ennemis, le niveau et l’XP du joueur, la Maîtrise des cartes et les paramètres."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "Réinitialisé pour cette partie"
-
-msgid "PRESTIGE_RESET"
-msgstr "Pièces, objets (stock de consommables compris) et fusions, Maîtrise des consommables, accès aux cartes et camps possédés, améliorations de carte et en pièces, et défis non terminés."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Garder %s"
@@ -5545,32 +5539,17 @@ msgstr "Vos gemmes : %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Zones explorées, camps repérés et boss trouvés"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Toutes les améliorations en gemmes, l’automatisation et l’espace d’inventaire"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Clés de boss, succès d’ennemis et Maîtrise des cartes"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Paramètres et progression du tutoriel"
 
-msgid "RESET_LINE_COINS"
-msgstr "Pièces : %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Niveau du joueur %d (retour au niveau 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Objets, fusions et stock de consommables"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Accès aux cartes (retour à Hiver I) et camps possédés"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Améliorations en pièces et améliorations de carte"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Opportunités et missions non terminées"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Touchez Voir le camp"

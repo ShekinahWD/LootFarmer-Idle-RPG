@@ -24,6 +24,12 @@ registers only en.po (LocalizationService loads the enabled catalogs on first us
 every enabled locale is a target locale with a Godot locale and a native name, and the 20-language certification
 flag stays false while any target locale is not enabled. Draft catalogs are not checked (they are not shipped).
 
+Pending translations (Change 50+, Playbook 132.3-132.4): English keys added during gameplay batches after the
+19 catalogs were delivered are listed in tools/localization_pending.json with their frozen English text and
+placeholders. A non-English catalog may omit a pending key (players see the English fallback); a catalog that
+already has it is checked normally. Every pending key must exist in en.po with exactly the listed text and
+placeholders, so a later English edit without a handoff update fails. The summary line counts them.
+
 This proves structure only. It cannot judge wording; the batch report records the linguistic review separately.
 Usage: python tools/validate_localization.py [--json report.json]
 """
@@ -127,8 +133,32 @@ def check_english(problems):
     return entries
 
 
-def check_catalog(lang, english, allow, problems):
+PENDING = ROOT / 'tools/localization_pending.json'
+
+
+def pending_keys(english, problems):
+    """Keys awaiting translation: listed in the handoff manifest, frozen against the current English text."""
+    if not PENDING.exists():
+        return {}
+    data = json.loads(PENDING.read_text(encoding='utf-8'))
+    source = {k: v for k, v, _ in english}
+    keys = data.get('keys', {})
+    for key, entry in keys.items():
+        if key not in source:
+            problems.append(f'pending {key}: not in en.po')
+            continue
+        if entry.get('en') != source[key]:
+            problems.append(f'pending {key}: English text changed since the handoff manifest was written')
+        if entry.get('placeholders') != [p for p in PLACEHOLDER.findall(source[key])]:
+            problems.append(f'pending {key}: placeholder record {entry.get("placeholders")} != {PLACEHOLDER.findall(source[key])}')
+    return keys
+
+
+def check_catalog(lang, english, allow, problems, pending=()):
     entries, header = read_po(LOC / f'{lang}.po')
+    present = {k for k, _, _ in entries}
+    # A pending key (tools/localization_pending.json) may be absent until its translation is delivered.
+    english = [e for e in english if e[0] not in pending or e[0] in present]
     report = {'keys': len(entries), 'fuzzy': 0, 'empty': 0, 'placeholder_errors': 0, 'symbol_errors': 0,
               'english_copies': 0, 'allowlisted_copies': 0, 'english_words': 0, 'raw_keys': 0}
     m = re.search(r'Language: ([\w-]+)\\n', header)
@@ -203,7 +233,10 @@ def main():
     ready = readiness()
     validated = [lang for lang in ready['enabled'] if lang != 'en_US']
     validated += [lang for langs in batches().values() for lang in langs if lang not in validated]
-    reports = {lang: check_catalog(lang, english, allow, problems) for lang in validated}
+    pending = pending_keys(english, problems)
+    reports = {lang: check_catalog(lang, english, allow, problems, pending) for lang in validated}
+    for lang, r in reports.items():
+        r['pending_missing'] = len(pending) - (r['keys'] - (len(english) - len(pending)))
     registered = re.findall(r'res://localization/(\w+)\.po', (ROOT / 'project.godot').read_text(encoding='utf-8'))
     if registered != ['en']:
         problems.append(f'project.godot registers {registered}; only en.po (LocalizationService loads the enabled catalogs)')
@@ -219,7 +252,7 @@ def main():
     if ready['certified'] and ready['enabled'] != ready['target']:
         problems.append('ALL_LANGUAGES_CERTIFIED is true while target languages are not enabled')
     drafts = [lang for lang in ready['target'] if lang not in ready['enabled']]
-    summary = {'english_keys': len(english), 'enabled': ready['enabled'], 'drafts_hidden': drafts,
+    summary = {'english_keys': len(english), 'pending_translation': len(pending), 'enabled': ready['enabled'], 'drafts_hidden': drafts,
                'certified': ready['certified'], 'catalogs': reports, 'problems': problems}
     if '--json' in sys.argv:
         out = Path(sys.argv[sys.argv.index('--json') + 1])
@@ -228,8 +261,8 @@ def main():
         print(lang, json.dumps(r))
     for p in problems:
         print('PROBLEM', p)
-    print('LOCALIZATION_VALIDATION english_keys=%d enabled=%d catalogs=%d drafts_hidden=%d problems=%d' % (
-        len(english), len(ready['enabled']), len(reports), len(drafts), len(problems)))
+    print('LOCALIZATION_VALIDATION english_keys=%d pending_translation=%d enabled=%d catalogs=%d drafts_hidden=%d problems=%d' % (
+        len(english), len(pending), len(ready['enabled']), len(reports), len(drafts), len(problems)))
     sys.exit(1 if problems else 0)
 
 

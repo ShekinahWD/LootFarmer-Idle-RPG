@@ -3934,14 +3934,8 @@ msgstr "Bereits gewählt: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Das behältst du"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Karten und Sets, deine Edelsteine, erkundete Kartenbereiche, alle mit Edelsteinen gekauften Upgrades (aller Kategorien), Automatik, Inventarplatz, Boss-Schlüssel, Gegnererfolge, Spielerstufe und EP, Kartenmeisterschaft und Einstellungen."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "In diesem Durchlauf zurückgesetzt"
-
-msgid "PRESTIGE_RESET"
-msgstr "Münzen, Gegenstände (inklusive Vorratsbestand) und Verschmelzungen, Vorratsmeisterschaft, Kartenzugang und eigene Lager, Karten- und Münz-Upgrades sowie unvollendete Herausforderungen."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "%s behalten"
@@ -5545,32 +5539,17 @@ msgstr "Deine Edelsteine: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Erkundete Kartenbereiche, entdeckte Lager und gefundene Bosse"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Alle Edelstein-Upgrades, Automatik und Inventarplatz"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Boss-Schlüssel, Gegnererfolge und Kartenmeisterschaft"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Einstellungen und Tutorialfortschritt"
 
-msgid "RESET_LINE_COINS"
-msgstr "Münzen: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Spielerstufe %d (zurück auf 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Gegenstände, Verschmelzungen und Vorratsbestand"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Kartenzugang (zurück nach Winter I) und eigene Lager"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Münz-Upgrades und Karten-Upgrades"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Unvollendete Gelegenheiten und Missionen"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Tippe auf Lager ansehen"

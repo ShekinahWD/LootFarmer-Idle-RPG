@@ -38,6 +38,21 @@ func _ready() -> void:call_deferred("run")
 func frames(n:=4) -> void:
     for i in range(n):await get_tree().process_frame
 
+## Change 50: English keys awaiting translation (tools/localization_pending.json, Playbook 132.4 handoff).
+## Players see their English fallback until the catalogs are delivered; probes of translated content
+## leave them out and report the count.
+static func pending_keys() -> Array:
+    var path:="res://tools/localization_pending.json"
+    if not FileAccess.file_exists(path):return []
+    var data=JSON.parse_string(FileAccess.get_file_as_string(path))
+    return (data.get("keys",{}) as Dictionary).keys() if data is Dictionary else []
+
+## The English catalog without the pending keys (what every enabled catalog must translate today).
+static func translated_english() -> Dictionary:
+    var out:=read_po("res://localization/en.po")
+    for key in pending_keys():out.erase(key)
+    return out
+
 ## Minimal PO reader (the catalogs use single-line msgid/msgstr, the project convention).
 static func read_po(path: String) -> Dictionary:
     var out: Dictionary={}

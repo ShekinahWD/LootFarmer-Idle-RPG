@@ -60,7 +60,7 @@ func run() -> void:
     check(sim.state.tutorial.done==expected.tutorial.done and sim.snapshot().explored==expected.explored,"Disk reload preserves guidance and exploration")
     check(sim.state.spawns.has(0) and sim.state.camps["1"].has(0) and sim.state.main_claimed.has(0) and sim.state.auto_slots.has(0),"JSON round trip preserves integer membership")
     var old=sim.snapshot();old.schema=6;sim.restore(old)
-    check(sim.state.schema==8 and sim.state.coins==0 and not SaveService.write_blocked and SaveService.save_now(),"Obsolete profile resets to writable state")
+    check(sim.state.schema==sim.SCHEMA and sim.state.coins==0 and not SaveService.write_blocked and SaveService.save_now(),"Obsolete profile resets to writable state")
     # Change 24: a saved fog mask must hold exactly one 0/1 byte per cell of its map.
     var bad=sim.snapshot();bad.explored['1']=Marshalls.raw_to_base64(PackedByteArray([1,1,1]).compress(FileAccess.COMPRESSION_DEFLATE))
     check(not sim._valid_snapshot(bad),"A fog mask of the wrong size is rejected")

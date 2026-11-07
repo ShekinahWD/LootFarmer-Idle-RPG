@@ -1,0 +1,56 @@
+{
+ "_about": "English keys awaiting translation into the 19 enabled non-English catalogs (Playbook 132.4 handoff). Written by tools/localization_handoff.py; read by tools/validate_localization.py.",
+ "keys": {
+  "KEEP_LINE_COINS": {
+   "en": "Your Coins: %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-50"
+  },
+  "KEEP_LINE_ALL_UPGRADES": {
+   "en": "Every upgrade you bought, with Coins or Gems (a camp's own upgrades work again once you buy that camp again)",
+   "placeholders": [],
+   "change": "change-50"
+  },
+  "KEEP_LINE_MERGES": {
+   "en": "Merge levels of every weapon, outfit and skill, restored when you find that item again",
+   "placeholders": [],
+   "change": "change-50"
+  },
+  "KEEP_LINE_MAIN_OBJECTIVES": {
+   "en": "Main objectives you completed but have not claimed yet",
+   "placeholders": [],
+   "change": "change-50"
+  },
+  "RESET_LINE_CARRIED_ITEMS": {
+   "en": "Every item you carry (weapons, outfits, skills and supplies) and its random bonus attributes",
+   "placeholders": [],
+   "change": "change-50"
+  },
+  "RESET_LINE_RUN_PROGRESS": {
+   "en": "Unfinished opportunities and missions. Finished missions and unclaimed offline Coins and Gems are paid first; unclaimed offline item copies are lost",
+   "placeholders": [],
+   "change": "change-50"
+  },
+  "PRESTIGE_KEEP_ALL": {
+   "en": "Cards and sets, your Coins and Gems, every upgrade you bought with Coins or Gems, the merge level of every weapon, outfit and skill, explored map areas, player level and XP, boss keys, enemy achievements, Map Mastery, unclaimed main objectives and settings.",
+   "placeholders": [],
+   "change": "change-50"
+  },
+  "PRESTIGE_RESET_RUN": {
+   "en": "Every item you carry (supplies included) and its random bonus attributes, Supply Mastery, map access (back to Winter I), owned camps, and unfinished opportunities and missions.",
+   "placeholders": [],
+   "change": "change-50"
+  }
+ },
+ "retired": {
+  "KEEP_LINE_UPGRADES": "change-50",
+  "RESET_LINE_COINS": "change-50",
+  "RESET_LINE_UPGRADES": "change-50",
+  "RESET_LINE_ITEMS": "change-50",
+  "RESET_LINE_CHALLENGES": "change-50",
+  "PRESTIGE_KEEP": "change-50",
+  "PRESTIGE_RESET": "change-50"
+ }
+}

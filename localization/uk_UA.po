@@ -3934,14 +3934,8 @@ msgstr "Уже вибрано: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Лишається"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Картки й набори, твої самоцвіти, досліджені ділянки мап, усі покращення за самоцвіти (усі категорії), автоматизація, місце в інвентарі, ключі босів, досягнення за ворогів, рівень героя й досвід, майстерність мап і налаштування."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "Цей забіг скидає"
-
-msgid "PRESTIGE_RESET"
-msgstr "Монети, предмети (разом із запасом припасів) і поєднання, майстерність припасів, доступ до мап і відкриті табори, покращення мап і за монети, а також незавершені випробування."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Залишити «%s»"
@@ -5545,32 +5539,17 @@ msgstr "Твої самоцвіти: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Досліджені ділянки мап, помічені табори й знайдені боси"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Усі покращення за самоцвіти, автоматизація й місце в інвентарі"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Ключі босів, досягнення за ворогів і майстерність мап"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Налаштування й прогрес навчання"
 
-msgid "RESET_LINE_COINS"
-msgstr "Монети: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Рівень героя %d (знову 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Предмети, поєднання й запас припасів"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Доступ до мап (знову Зима I) і відкриті табори"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Покращення за монети й покращення мап"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Незавершені нагоди й місії"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Торкнись «Переглянути табір»"

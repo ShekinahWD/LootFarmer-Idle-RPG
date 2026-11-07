@@ -3934,14 +3934,8 @@ msgstr "Уже выбрано: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Остаётся"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Карточки и наборы, твои самоцветы, исследованные области карт, все улучшения за самоцветы (все категории), автоматизация, место в инвентаре, ключи боссов, достижения за врагов, уровень героя и опыт, мастерство карт и настройки."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "Этот забег сбрасывает"
-
-msgid "PRESTIGE_RESET"
-msgstr "Монеты, предметы (включая запас припасов) и объединения, мастерство припасов, доступ к картам и открытые лагеря, улучшения карт и за монеты, а также незавершённые испытания."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Оставить «%s»"
@@ -5545,32 +5539,17 @@ msgstr "Твои самоцветы: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Исследованные области карт, замеченные лагеря и найденные боссы"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Все улучшения за самоцветы, автоматизация и место в инвентаре"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Ключи боссов, достижения за врагов и мастерство карт"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Настройки и прогресс обучения"
 
-msgid "RESET_LINE_COINS"
-msgstr "Монеты: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Уровень героя %d (снова 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Предметы, объединения и запас припасов"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Доступ к картам (снова Зима I) и открытые лагеря"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Улучшения за монеты и улучшения карт"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Незавершённые возможности и задания"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Нажми «Осмотреть лагерь»"

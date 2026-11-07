@@ -3238,8 +3238,9 @@ func _open_prestige_confirm(ready: Array) -> void:
     for id in ready:
         var op: Dictionary=_opportunity(id)
         rows_.append({"icon":_path_art(str(op.path)),"text":str(op.name)+"  ·  "+tr("PRESTIGE_CONFIRM_CHOOSE_CARD")})
-    var keep: Array=[tr("KEEP_LINE_CARDS") % sim.state.owned_cards.size(),tr("KEEP_LINE_GEMS") % fmt_currency(sim.state.gems),tr("KEEP_LINE_MAP"),tr("KEEP_LINE_UPGRADES"),tr("KEEP_LINE_PROGRESS"),tr("KEEP_LINE_SETTINGS"),tr("KEEP_LINE_LEVEL") % int(sim.state.player_level)]
-    var reset: Array=[tr("RESET_LINE_COINS") % fmt_currency(sim.state.coins),tr("RESET_LINE_SUPPLY_MASTERY"),tr("RESET_LINE_ITEMS"),tr("RESET_LINE_MAPS"),tr("RESET_LINE_UPGRADES"),tr("RESET_LINE_CHALLENGES")]
+    # Change 50: the approved Prestige rules (Coins, every upgrade and every merge level are kept).
+    var keep: Array=[tr("KEEP_LINE_CARDS") % sim.state.owned_cards.size(),tr("KEEP_LINE_COINS") % fmt_currency(sim.state.coins),tr("KEEP_LINE_GEMS") % fmt_currency(sim.state.gems),tr("KEEP_LINE_ALL_UPGRADES"),tr("KEEP_LINE_MERGES"),tr("KEEP_LINE_MAP"),tr("KEEP_LINE_PROGRESS"),tr("KEEP_LINE_MAIN_OBJECTIVES"),tr("KEEP_LINE_SETTINGS"),tr("KEEP_LINE_LEVEL") % int(sim.state.player_level)]
+    var reset: Array=[tr("RESET_LINE_CARRIED_ITEMS"),tr("RESET_LINE_SUPPLY_MASTERY"),tr("RESET_LINE_MAPS"),tr("RESET_LINE_RUN_PROGRESS")]
     $PrestigeConfirm.open(tr("PRESTIGE_CONFIRM_SUBTITLE") % ready.size(),rows_,keep,reset)
 
 ## The batch: one card per ready opportunity, chosen in order. Tap a card to select it, then keep it.
@@ -3262,9 +3263,9 @@ func _prestige_choice(batch: Dictionary) -> void:
     for id in batch.choices:earned.append(sim.catalog.campaign.cards[id].name)
     if not earned.is_empty():_text(tr("PRESTIGE_EARNED_SO_FAR") % ", ".join(earned),17,Color(.6,1,.75))
     _section(tr("PRESTIGE_KEEP_TITLE"))
-    _text(tr("PRESTIGE_KEEP"),17,Color(.6,1,.75))
+    _text(tr("PRESTIGE_KEEP_ALL"),17,Color(.6,1,.75))
     _section(tr("PRESTIGE_RESET_TITLE"))
-    _text(tr("PRESTIGE_RESET"),17,Color(1,.72,.45))
+    _text(tr("PRESTIGE_RESET_RUN"),17,Color(1,.72,.45))
     if batch.choices.is_empty():
         _pinned(tr("CANCEL"),func()->void:sim.campaign.cancel_prestige();selected_card="",true,"",false,"",false)
     var card_name: String=sim.catalog.campaign.cards[selected_card].name if selected_card!="" else ""

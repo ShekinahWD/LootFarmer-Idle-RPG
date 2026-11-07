@@ -3934,14 +3934,8 @@ msgstr "Già scelte: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Mantieni"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Carte e set, le tue gemme, le aree esplorate delle mappe, ogni potenziamento acquistato con gemme (tutte le categorie), automazione, spazio inventario, chiavi dei boss, imprese sui nemici, livello ed esperienza dell’eroe, Maestria delle mappe e impostazioni."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "Questa partita azzera"
-
-msgid "PRESTIGE_RESET"
-msgstr "Monete, oggetti (provviste comprese) e fusioni, Maestria delle provviste, accesso alle mappe e campi posseduti, potenziamenti di mappa e in monete, sfide incomplete."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Tieni %s"
@@ -5545,32 +5539,17 @@ msgstr "Le tue gemme: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Aree esplorate delle mappe, campi avvistati e boss trovati"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Ogni potenziamento in gemme, automazione e spazio inventario"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Chiavi dei boss, imprese sui nemici e Maestria delle mappe"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Impostazioni e progressi del tutorial"
 
-msgid "RESET_LINE_COINS"
-msgstr "Monete: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Livello dell’eroe %d (torna a 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Oggetti, fusioni e scorte di provviste"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Accesso alle mappe (torna a Inverno I) e campi posseduti"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Potenziamenti in monete e potenziamenti di mappa"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Opportunità e missioni incomplete"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Tocca Vedi campo"

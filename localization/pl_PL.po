@@ -3934,14 +3934,8 @@ msgstr "Już wybrane: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Zostaje"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Karty i zestawy, twoje klejnoty, odkryte obszary map, wszystkie ulepszenia kupione za klejnoty (każda kategoria), automatyzacja, miejsce w ekwipunku, klucze bossów, osiągnięcia za wrogów, poziom bohatera i PD, Mistrzostwo map oraz ustawienia."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "Ta rozgrywka resetuje"
-
-msgid "PRESTIGE_RESET"
-msgstr "Monety, przedmioty (wraz z zapasami) i połączenia, Mistrzostwo zapasów, dostęp do map i posiadane obozy, ulepszenia map i za monety oraz nieukończone wyzwania."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Zachowaj „%s”"
@@ -5545,32 +5539,17 @@ msgstr "Twoje klejnoty: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Odkryte obszary map, dostrzeżone obozy i znalezieni bossowie"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Każde ulepszenie za klejnoty, automatyzacja i miejsce w ekwipunku"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Klucze bossów, osiągnięcia za wrogów i Mistrzostwo map"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Ustawienia i postęp samouczka"
 
-msgid "RESET_LINE_COINS"
-msgstr "Monety: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Poziom bohatera %d (z powrotem 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Przedmioty, połączenia i posiadane zapasy"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Dostęp do map (z powrotem Zima I) i posiadane obozy"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Ulepszenia za monety i ulepszenia map"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Nieukończone okazje i misje"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Dotknij „Pokaż obóz”"

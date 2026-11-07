@@ -87,10 +87,10 @@ func run() -> void:
     fresh();sim.add_item("wood_sword",4)
     var legacy=sim.snapshot();legacy.schema=5
     sim.restore(legacy)
-    check(sim.state.schema==8 and sim.quantity("wood_sword")==0,"Old development saves reset explicitly")
+    check(sim.state.schema==sim.SCHEMA and sim.quantity("wood_sword")==0,"Old development saves reset explicitly")
     check(not SaveService.write_blocked and SaveService.save_now(),"Reset profile can save")
     var roundtrip=JSON.parse_string(JSON.stringify(sim.snapshot()));sim.restore(roundtrip)
-    check(sim.state.schema==8 and not SaveService.write_blocked,"Current profile survives JSON round trip")
+    check(sim.state.schema==sim.SCHEMA and not SaveService.write_blocked,"Current profile survives JSON round trip")
     # Change 9: realistic ceiling fixture. The old one equipped a legacy tier-7 outfit it never owned
     # (the equip failed silently, so no outfit was worn) and obsidian weapons no enemy drops. Every item
     # here must be dropped by an enemy (or be at most the best dropped weapon tier) and every equip must

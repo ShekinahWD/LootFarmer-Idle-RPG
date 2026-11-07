@@ -30,6 +30,9 @@ var _periodic_timer: Timer
 ## parsed again before a save.
 var _primary_valid: bool = false
 var _primary_bytes: int = -1
+## Change 50: the file the last load read (primary or backup), so a migration or a rejected profile can
+## be copied aside untouched before anything replaces it (preserve_copy).
+var _loaded_path: String = ""
 
 
 func _ready() -> void:
@@ -114,10 +117,11 @@ func load_and_apply() -> void:
     write_blocked = false
     _primary_valid = int(data.get("version", -1)) == SAVE_VERSION
     _primary_bytes = _file_length(ProjectSettings.globalize_path(save_path())) if _primary_valid else -1
+    _loaded_path = save_path() if _primary_valid else ""
     if not _primary_valid:
         var backup:=_read(save_path()+".bak")
         if int(backup.get("version",-1))==SAVE_VERSION:
-            data=backup;last_load_result="backup"
+            data=backup;last_load_result="backup";_loaded_path=save_path()+".bak"
         else:
             # Development-only policy: obsolete or unreadable profiles start fresh.
             _loaded_sections={}
@@ -133,6 +137,22 @@ func load_and_apply() -> void:
             var restore: Callable = _providers[key]["load"]
             if restore.is_valid():
                 restore.call(_loaded_sections[key].duplicate(true))
+
+
+## Change 50: copies the file the current load came from to "<save>.<tag>.json" once (an existing copy
+## is never overwritten, so the first, untouched pre-migration file is the one kept). These copies are
+## never loaded or rotated by the game; they let support restore a profile an update could not read,
+## or one an older build would reject. Returns the copy's path, or "" when there was nothing to copy.
+func preserve_copy(tag: String) -> String:
+    if _loaded_path == "" or not FileAccess.file_exists(_loaded_path):
+        return ""
+    var target := save_path().trim_suffix(".json") + "." + tag + ".json"
+    if FileAccess.file_exists(target):
+        return target
+    if DirAccess.copy_absolute(ProjectSettings.globalize_path(_loaded_path), ProjectSettings.globalize_path(target)) != OK:
+        push_warning("SaveService: could not preserve " + tag)
+        return ""
+    return target
 
 
 func _file_length(path: String) -> int:

@@ -3934,14 +3934,8 @@ msgstr "Al gekozen: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Je houdt"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Kaarten en sets, je edelstenen, verkende kaartgebieden, elke upgrade gekocht met edelstenen (alle categorieën), automatisering, inventarisruimte, baassleutels, vijandprestaties, spelerniveau en XP, Kaartmeesterschap en instellingen."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "Deze run reset"
-
-msgid "PRESTIGE_RESET"
-msgstr "Munten, voorwerpen (inclusief voorraad) en samenvoegingen, Voorraadmeesterschap, toegang tot kaarten en eigen kampen, kaart- en muntupgrades en onvoltooide uitdagingen."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "%s houden"
@@ -5545,32 +5539,17 @@ msgstr "Je edelstenen: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Verkende kaartgebieden, geziene kampen en gevonden bazen"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Elke edelsteenupgrade, automatisering en inventarisruimte"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Baassleutels, vijandprestaties en Kaartmeesterschap"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Instellingen en tutorialvoortgang"
 
-msgid "RESET_LINE_COINS"
-msgstr "Munten: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Spelerniveau %d (terug naar 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Voorwerpen, samenvoegingen en voorraad"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Toegang tot kaarten (terug naar Winter I) en eigen kampen"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Muntupgrades en kaartupgrades"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Onvoltooide kansen en missies"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Tik op Kamp bekijken"

@@ -458,15 +458,12 @@ func prestige_upgrade_checks() -> void:
         var id: String=str(key).get_slice(":",0)
         var gem: bool=str(sim.catalog.upgrades[id].currency)=="gems"
         var now:=int(sim.state.upgrades.get(key,0))
-        if gem:
-            if now==int(before[key]):kept_gems+=1
-            else:wrong.append(key)
-        elif bool(sim.catalog.upgrades[id].keep):
-            if now!=int(before[key]):wrong.append(key)
-        else:
-            if now==0:reset_coins+=1
-            else:wrong.append(key)
-    check(wrong.is_empty() and kept_gems>0 and reset_coins>0,"Every gem upgrade kept (%d), coin upgrades follow their rule (%d reset) %s" % [kept_gems,reset_coins,wrong])
+        # Change 50 (approved): every purchased upgrade is kept, Coin- or Gem-funded.
+        if now==int(before[key]):
+            if gem:kept_gems+=1
+            else:reset_coins+=1
+        else:wrong.append(key)
+    check(wrong.is_empty() and kept_gems>0 and reset_coins>0,"Every gem upgrade kept (%d) and every coin upgrade kept (%d) %s" % [kept_gems,reset_coins,wrong])
     for id in ["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount","spawn_amount","spawn_cooldown"]:
         check(sim.upgrade_kept(id),"%s is kept by Prestige" % id)
     check(near(sim.gem_base_chance(),float(sim.catalog.progression.gem_limits.base_chance)+float(sim.catalog.upgrades.gem_chance.effect)+sim.campaign.bonus("gem_chance")),"Kept Gem Chance still applies")
@@ -474,7 +471,7 @@ func prestige_upgrade_checks() -> void:
     check(count==sim.spawn_amount(0) and count==5,"Kept Spawn Amount (2) spawns 5 per spot right after Prestige (%d)" % count)
     check(near(sim.spawn_cooldown(0),float(sim.catalog.groups[0].respawn)*.9),"Kept Spawn Cooldown still applies")
     # Change 16: Prestige keeps the Gem balance; coins still reset.
-    check(sim.state.gems==500.0 and sim.state.coins==0,"Gems kept, coins reset (Change 16)")
+    check(sim.state.gems==500.0 and sim.state.coins==900.0,"Gems and Coins kept (Change 50)")
     check(sim.state.supply_found.is_empty() or true,"(supply mastery checked below)")
     fresh()
     sim.add_item("potion",21)

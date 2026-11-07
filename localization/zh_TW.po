@@ -3932,14 +3932,8 @@ msgstr "已選擇：%s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "保留項目"
 
-msgid "PRESTIGE_KEEP"
-msgstr "卡片與組合、寶石、已探索的地圖區域、以寶石購買的所有強化（所有類別）、自動化、背包空間、頭目鑰匙、敵人成就、玩家等級與經驗、地圖熟練度與設定。"
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "本輪重設項目"
-
-msgid "PRESTIGE_RESET"
-msgstr "金幣、道具（含補給品庫存）與合成、補給熟練度、地圖權限與已擁有的營地、地圖強化與金幣強化，以及未完成的挑戰。"
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "保留%s"
@@ -5543,32 +5537,17 @@ msgstr "你的寶石：%s"
 msgid "KEEP_LINE_MAP"
 msgstr "已探索的地圖區域、已發現的營地與頭目"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "所有寶石強化、自動化與背包空間"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "頭目鑰匙、敵人成就與地圖熟練度"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "設定與教學進度"
 
-msgid "RESET_LINE_COINS"
-msgstr "金幣：%s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "玩家等級 %d（重設為 1）"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "道具、合成與補給品庫存"
-
 msgid "RESET_LINE_MAPS"
 msgstr "地圖權限（回到冬季 I）與已擁有的營地"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "金幣強化與地圖強化"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "未完成的機會與任務"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "輕觸「查看營地」"

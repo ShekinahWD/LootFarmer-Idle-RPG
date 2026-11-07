@@ -3932,14 +3932,8 @@ msgstr "選択済み：%s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "残るもの"
 
-msgid "PRESTIGE_KEEP"
-msgstr "カードとセット、ジェム、探索済みのマップエリア、ジェムで購入したすべての強化（全カテゴリー）、自動化、持ち物の容量、ボスの鍵、敵の実績、プレイヤーレベルとEXP、マップ熟練度、設定。"
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "この周回でリセット"
-
-msgid "PRESTIGE_RESET"
-msgstr "コイン、アイテム（消耗品の在庫を含む）と合成、消耗品熟練度、マップへのアクセスと所有キャンプ、マップ強化とコイン強化、未完了のチャレンジ。"
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "%sを獲得"
@@ -5543,32 +5537,17 @@ msgstr "所持ジェム：%s"
 msgid "KEEP_LINE_MAP"
 msgstr "探索済みのマップエリア、発見したキャンプとボス"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "すべてのジェム強化、自動化、持ち物の容量"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "ボスの鍵、敵の実績、マップ熟練度"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "設定とチュートリアルの進行状況"
 
-msgid "RESET_LINE_COINS"
-msgstr "コイン：%s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "プレイヤーレベル%d（1に戻る）"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "アイテム、合成、消耗品の在庫"
-
 msgid "RESET_LINE_MAPS"
 msgstr "マップへのアクセス（冬 I に戻る）と所有キャンプ"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "コイン強化とマップ強化"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "未完了のチャンスとミッション"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "「キャンプを見る」をタップ"

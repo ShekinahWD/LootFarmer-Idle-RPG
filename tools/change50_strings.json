@@ -1,0 +1,10 @@
+{
+  "KEEP_LINE_COINS": "Your Coins: %s",
+  "KEEP_LINE_ALL_UPGRADES": "Every upgrade you bought, with Coins or Gems (a camp's own upgrades work again once you buy that camp again)",
+  "KEEP_LINE_MERGES": "Merge levels of every weapon, outfit and skill, restored when you find that item again",
+  "KEEP_LINE_MAIN_OBJECTIVES": "Main objectives you completed but have not claimed yet",
+  "RESET_LINE_CARRIED_ITEMS": "Every item you carry (weapons, outfits, skills and supplies) and its random bonus attributes",
+  "RESET_LINE_RUN_PROGRESS": "Unfinished opportunities and missions. Finished missions and unclaimed offline Coins and Gems are paid first; unclaimed offline item copies are lost",
+  "PRESTIGE_KEEP_ALL": "Cards and sets, your Coins and Gems, every upgrade you bought with Coins or Gems, the merge level of every weapon, outfit and skill, explored map areas, player level and XP, boss keys, enemy achievements, Map Mastery, unclaimed main objectives and settings.",
+  "PRESTIGE_RESET_RUN": "Every item you carry (supplies included) and its random bonus attributes, Supply Mastery, map access (back to Winter I), owned camps, and unfinished opportunities and missions."
+}

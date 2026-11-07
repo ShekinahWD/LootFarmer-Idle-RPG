@@ -3934,14 +3934,8 @@ msgstr "Şimdiye kadar seçilenler: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Korudukların"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Kartlar ve setler, Mücevherlerin, keşfedilmiş harita alanları, mücevherle alınan her geliştirme (tüm kategoriler), otomasyon, envanter alanı, boss anahtarları, düşman başarımları, oyuncu seviyesi ve TP, Harita Ustalığı ve ayarlar."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "Bu turda sıfırlananlar"
-
-msgid "PRESTIGE_RESET"
-msgstr "Altın, eşyalar (malzeme stoku dahil) ve birleştirmeler, Malzeme Ustalığı, harita erişimi ve sahip olunan kamplar, harita ve altın geliştirmeleri ve bitmemiş meydan okumalar."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Koru: %s"
@@ -5545,32 +5539,17 @@ msgstr "Mücevherlerin: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Keşfedilmiş harita alanları, görülen kamplar ve bulunan boss'lar"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Her Mücevher geliştirmesi, otomasyon ve envanter alanı"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Boss anahtarları, düşman başarımları ve Harita Ustalığı"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Ayarlar ve öğretici ilerlemesi"
 
-msgid "RESET_LINE_COINS"
-msgstr "Altın: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Oyuncu seviyesi %d (1'e döner)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Eşyalar, birleştirmeler ve malzeme stoku"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Harita erişimi (Kış I'e döner) ve sahip olunan kamplar"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Altın geliştirmeleri ve harita geliştirmeleri"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Bitmemiş fırsatlar ve görevler"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Kampı Gör'e dokun"

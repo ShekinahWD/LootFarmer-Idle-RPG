@@ -29,7 +29,7 @@ var enabled4:=false
 func run() -> void:
     startup_locale=TranslationServer.get_locale()
     SettingsState.mute_all_sfx()
-    english=preload("res://tests/localization_sweep.gd").read_po("res://localization/en.po")
+    english=preload("res://tests/localization_sweep.gd").translated_english() # Change 50: pending keys excluded
     for lang in BATCH4:catalogs[lang]=preload("res://tests/localization_sweep.gd").read_po("res://localization/%s.po" % lang)
     for lang in ["th_TH","hi_IN","de_DE"]:catalogs[lang]=preload("res://tests/localization_sweep.gd").read_po("res://localization/%s.po" % lang)
     enabled4=BATCH4.all(func(l):return l in LocalizationService.ENABLED_LANGUAGES)

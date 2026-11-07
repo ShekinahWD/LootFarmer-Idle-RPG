@@ -3932,14 +3932,8 @@ msgstr "已选择：%s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "保留内容"
 
-msgid "PRESTIGE_KEEP"
-msgstr "卡牌和套组、宝石、已探索的地图区域、用宝石购买的所有强化（所有类别）、自动化、背包空间、首领钥匙、敌人成就、玩家等级与经验、地图精通和设置。"
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "本轮重置内容"
-
-msgid "PRESTIGE_RESET"
-msgstr "金币、物品（含补给品库存）与合成、补给精通、地图权限与已拥有的营地、地图强化和金币强化，以及未完成的挑战。"
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "保留%s"
@@ -5543,32 +5537,17 @@ msgstr "你的宝石：%s"
 msgid "KEEP_LINE_MAP"
 msgstr "已探索的地图区域、已发现的营地与首领"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "所有宝石强化、自动化与背包空间"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "首领钥匙、敌人成就与地图精通"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "设置与教程进度"
 
-msgid "RESET_LINE_COINS"
-msgstr "金币：%s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "玩家等级 %d（重置为 1）"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "物品、合成与补给品库存"
-
 msgid "RESET_LINE_MAPS"
 msgstr "地图权限（返回冬季 I）与已拥有的营地"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "金币强化与地图强化"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "未完成的机遇与任务"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "点击“查看营地”"

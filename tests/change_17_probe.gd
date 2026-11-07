@@ -190,7 +190,9 @@ func rewards() -> void:
         for i in range(5):sim.campaign.price_mission(regular)
         check(near(first,regular.gems),"No repeat scaling")
     sim.state.reward_stage=8;sim.state.unlocked_stage=1
-    check(sim.campaign.reward_stage()==8,"Prestige-independent reward stage")
+    # Change 50 (approved): missions are priced from the current run's map access, not the highest ever.
+    check(sim.campaign.reward_stage()==1,"Run-scoped reward stage (Change 50)")
+    sim.state.unlocked_stage=8
     sim.state.cards={"mission_coins":2,"mission_gems":3,"coins":4};sim.touch()
     var boosted: Dictionary=sim.campaign.mission_rewards({"kind":"gear","base_gems":3.0})
     check(near(boosted.coins,40*sim.campaign.mission_coin_income()*1.1) and near(boosted.gems,3*25*1.15),"Mission bonuses applied once")
@@ -235,7 +237,7 @@ func persistence() -> void:
             guard+=1
             sim.campaign.choose_card(str(sim.campaign.offered_cards()[0]))
         check(sim.state.prestiges==1 and sim.supply_mastery("potion")==0 and sim.automatic_skill_capacity()==1,"Prestige resets mastery and retains automation")
-        check(sim.level("critical_chance")==1 and sim.level("critical_damage")==1 and sim.level("use_speed")==1 and sim.campaign.reward_stage()==8,"Prestige retains Gem upgrades and reward stage")
+        check(sim.level("critical_chance")==1 and sim.level("critical_damage")==1 and sim.level("use_speed")==1 and sim.campaign.reward_stage()==1,"Prestige retains Gem upgrades; the new run's missions are priced from Winter I (Change 50)")
     else:check(false,"Prestige fixture must earn an opportunity")
     check(SaveService.hard_reset(),"Hard Reset committed to disk")
     SaveService.load_and_apply()

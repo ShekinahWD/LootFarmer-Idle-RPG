@@ -3934,14 +3934,8 @@ msgstr "Đã chọn: %s"
 msgid "PRESTIGE_KEEP_TITLE"
 msgstr "Bạn giữ lại"
 
-msgid "PRESTIGE_KEEP"
-msgstr "Thẻ và bộ thẻ, Ngọc của bạn, vùng bản đồ đã khám phá, mọi nâng cấp mua bằng ngọc (mọi loại), tự động hóa, sức chứa túi đồ, chìa khóa Boss, thành tựu kẻ địch, cấp nhân vật và EXP, Thành thạo bản đồ và cài đặt."
-
 msgid "PRESTIGE_RESET_TITLE"
 msgstr "Lượt này đặt lại"
-
-msgid "PRESTIGE_RESET"
-msgstr "Xu, vật phẩm (kể cả đồ tiêu hao) và các lần ghép, Thành thạo đồ tiêu hao, quyền vào bản đồ và trại đã sở hữu, nâng cấp bản đồ và nâng cấp bằng xu, cùng thử thách chưa hoàn thành."
 
 msgid "PRESTIGE_KEEP_CARD"
 msgstr "Giữ %s"
@@ -5545,32 +5539,17 @@ msgstr "Ngọc của bạn: %s"
 msgid "KEEP_LINE_MAP"
 msgstr "Vùng bản đồ đã khám phá, trại đã thấy và Boss đã tìm thấy"
 
-msgid "KEEP_LINE_UPGRADES"
-msgstr "Mọi nâng cấp Ngọc, tự động hóa và sức chứa túi đồ"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Chìa khóa Boss, thành tựu kẻ địch và Thành thạo bản đồ"
 
 msgid "KEEP_LINE_SETTINGS"
 msgstr "Cài đặt và tiến độ hướng dẫn"
 
-msgid "RESET_LINE_COINS"
-msgstr "Xu: %s"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Cấp nhân vật %d (về cấp 1)"
 
-msgid "RESET_LINE_ITEMS"
-msgstr "Vật phẩm, các lần ghép và đồ tiêu hao"
-
 msgid "RESET_LINE_MAPS"
 msgstr "Quyền vào bản đồ (về Mùa Đông I) và trại đã sở hữu"
-
-msgid "RESET_LINE_UPGRADES"
-msgstr "Nâng cấp bằng xu và nâng cấp bản đồ"
-
-msgid "RESET_LINE_CHALLENGES"
-msgstr "Cơ hội và nhiệm vụ chưa hoàn thành"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Chạm Xem trại"

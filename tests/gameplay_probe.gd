@@ -181,9 +181,10 @@ func prestige_rules() -> void:
     var card: String=sim.campaign.offered_cards()[0]
     check(sim.prestige(card),"Prestige commits a durable new run")
     # Change 16: Prestige keeps the Gem balance; coins and items reset.
-    check(sim.state.coins==0 and sim.state.gems==45 and sim.state.items.is_empty(),"Prestige resets coins and items and keeps Gems")
+    # Change 50 (approved): Coins, Gems and every upgrade are kept; items and camps reset.
+    check(sim.state.coins==123 and sim.state.gems==45 and sim.state.items.is_empty(),"Prestige keeps Coins and Gems and resets items")
     check(sim.level("collect",0)==1 and sim.level("collect_range",0)==2 and sim.level("auto_use")==1 and sim.state.gear.size()==4,"Prestige keeps automation levels and capacity")
-    check(sim.level("respawn")==0 and sim.level("loot",0)==0 and sim.state.spawn==0 and sim.state.camps["1"]==[0],"Prestige clears coin run upgrades and camps")
+    check(sim.level("respawn")==3 and sim.level("loot",0)==2 and sim.state.spawn==0 and sim.state.camps["1"]==[0],"Prestige keeps coin upgrades and resets camps")
     check(sim.state.auto_slots.is_empty() and sim.state.focus==-1,"Prestige clears unsafe automation bindings")
     check(sim.state.owned_cards.count(card)==1 and sim.state.prestiges==1,"The card is owned exactly once")
     check(not sim.campaign.begin_prestige(),"The same opportunity cannot prestige again")
