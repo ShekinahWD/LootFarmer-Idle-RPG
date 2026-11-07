@@ -1,0 +1,58 @@
+extends Node
+## Prestige field diff (promoted in Change 49 from the consolidated audit's tests/tmp copy): populate every run/profile field, run the REAL
+## Prestige transaction (begin_prestige + choose_card), and classify each top-level state field as
+## KEPT (unchanged), RESET (equals a fresh profile) or OTHER. Read-only with respect to the project.
+var sim
+func _ready() -> void:call_deferred("run")
+func gi(id: String) -> int:
+    for g in range(sim.catalog.groups.size()):
+        if sim.catalog.groups[g].id==id:return g
+    return -1
+func run() -> void:
+    sim=load("res://scripts/game/simulation.gd").new();add_child(sim);sim.set_physics_process(false)
+    sim.new_profile();sim.state.tutorial.mode="none";SaveService.write_blocked=false
+    var fresh: Dictionary=sim.state.duplicate(true)
+    var s: Dictionary=sim.state
+    s.player_level=30;s.xp=55.0;s.coins=1000000.0;s.gems=100000.0
+    s.unlocked_stage=3;s.reward_stage=3
+    for g in [0,1,2,4,5]:sim.campaign.discover_spot(g,2);s.discovered[str(g)]=true
+    s.group_kills[gi("boss-snowman")]=3;s.group_kills[0]=300
+    if not s.bosses_found.has("boss-snowman"):s.bosses_found.append("boss-snowman")
+    sim.add_item("wood_axe",30);sim.record("wood_axe").merge=0
+    for i in range(20):sim.merge("wood_axe")
+    sim.add_item("stone_axe",2);sim.add_item("unit-blue-cap_outfit",3);sim.add_item("skill_heal",2);sim.add_item("potion",5,false)
+    sim.equip("wood_axe");sim.equip("unit-blue-cap_outfit");sim.campaign.equip_skill("skill_heal",0)
+    for up in [["coin_amount",0],["loot",0],["group_xp",0],["supply_drop",0],["reveal_stats",0],["reveal_drops",0],["focus",0],["spawn_amount",0],["respawn",-1],["movement",-1],["cooldown_heal",-1],["gem_chance",-1],["critical_chance",-1],["offline_coins",-1],["offline_weapon",-1],["offline_weapon_rate",-1],["map_detail",1],["reveal_radius",1],["gear_slots",-1],["collect",0],["collect_range",0]]:
+        var ok: bool=sim.buy_upgrade(str(up[0]),int(up[1]))
+        if not ok:print("C49P buy failed ",up," ",sim.upgrade_block_reason(str(up[0]),int(up[1])))
+    s.camps_known["1"]=[0,1];sim.campaign.camp_action(1,1,false)
+    print("C49P camps ",s.camps," camp_radius buy ",sim.buy_upgrade("camp_radius",11))
+    s.supply_uses["potion"]=9;s.supply_mastery_credit["potion"]=2
+    s.skill_cooldowns["0"]=7.5;s.buffs["guard_tonic"]={"time":20.0,"power":5.0};s.boost_time=30.0;s.boost_power=.5
+    s.counters["kill"]=500.0;s.run_kills["unit-blue-cap"]=40
+    s.pickups.append({"uid":999,"item":"wood_sword","x":100.0,"y":100.0,"ttl":200.0,"group":0})
+    s.offline_pending={"id":"x","seconds":3600.0,"longest":3600.0,"rewarded_hours":1.0,"coins":100.0,"gems":2.0,"items":{"wood_axe":2}}
+    s.offline_snapshot=sim.campaign.offline_snapshot()
+    s.follow_mission="kill:0";s.history.append({"key":"HISTORY_ITEM","id":"wood_axe","amount":1,"coins":0,"time":0})
+    s.merge_timers["0"]=3.0;s.stage_worlds["2"]={"enemies":[],"pickups":[]}
+    s.boss_respawns["g3_v2_0"]={"group":3,"stage":1,"remaining":30.0,"x":0.0,"y":0.0}
+    if s.missions.size()>0:s.missions[0].progress=float(s.missions[0].goal)*.5
+    sim.campaign.evaluate()
+    # one ready opportunity (fixture) so the real transaction can run
+    s.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
+    s.opportunities["expedition_o1"]={"ready":false,"baseline":{},"step":1,"count":20}
+    var before: Dictionary=s.duplicate(true)
+    print("C49P begin ",sim.campaign.begin_prestige()," ",sim.campaign.prestige_block_reason())
+    var offered: Array=sim.campaign.offered_cards()
+    print("C49P choose ",sim.campaign.choose_card(str(offered[0])))
+    var after: Dictionary=sim.state
+    var keys: Array=before.keys();keys.sort()
+    for k in keys:
+        var b=before[k];var a=after.get(k,"<missing>");var f=fresh.get(k,"<none>")
+        var cls:="KEPT" if var_to_str(a)==var_to_str(b) else ("RESET" if var_to_str(a)==var_to_str(f) else "OTHER")
+        var bs:=var_to_str(b).replace("\n"," ");var as_:=var_to_str(a).replace("\n"," ")
+        print("C49P FIELD %s %s | before=%s | after=%s" % [k,cls,bs.substr(0,160),as_.substr(0,160)])
+    print("C49P upgrades_after ",after.upgrades)
+    print("C49P items_after ",after.items)
+    print("C49P DONE")
+    get_tree().quit(0)

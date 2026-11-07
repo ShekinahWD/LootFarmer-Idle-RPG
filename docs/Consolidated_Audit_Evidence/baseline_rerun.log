@@ -1,0 +1,19 @@
+EXIT 0
+main           RUN OK   844s  PFA_AUDIT rows 4136 failures 5 runtime 842s  exit 1  script_errors 0
+   compare baseline_trials_main.csv vs trials_main.csv: baseline 4136 rows, new 4136 rows, missing 0, extra 0, differing fields 0
+   COMPARE PASS
+supplementary  RUN OK   178s  PFA_AUDIT rows 690 failures 0 runtime 177s  exit 0  script_errors 0
+   compare baseline_trials_supplementary.csv vs trials_supplementary.csv: baseline 690 rows, new 690 rows, missing 0, extra 0, differing fields 0
+   COMPARE PASS
+whatif         RUN OK   131s  PFA_AUDIT rows 360 failures 0 runtime 130s  exit 0  script_errors 0
+   compare baseline_trials_whatif.csv vs trials_whatif.csv: baseline 360 rows, new 360 rows, missing 0, extra 0, differing fields 0
+   COMPARE PASS
+whatif_spring  RUN OK    49s  PFA_AUDIT rows 63 failures 0 runtime 48s  exit 0  script_errors 0
+   compare baseline_trials_whatif_spring.csv vs trials_whatif_spring.csv: baseline 63 rows, new 63 rows, missing 0, extra 0, differing fields 0
+   COMPARE PASS
+change36 MIN: 5/5 wins, times [258, 258, 260, 256, 263] PASS
+change36 REC: 5/5 wins, times [158, 157, 159, 156, 160] PASS
+change36 AUDIT36_CHECKS 20 FAILURES 0 exit 0 script_errors 0 27s
+PLAYER_FEEDBACK_AUDIT PASS
+
+[exited with code 0]

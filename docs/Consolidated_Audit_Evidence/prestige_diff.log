@@ -1,0 +1,104 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+C49P buy failed ["cooldown_heal", -1] UNDISCOVERED
+C49P camps { "1": [0, 1] } camp_radius buy true
+C49P begin true PRESTIGE_IN_PROGRESS
+C49P choose true
+C49P FIELD auto_slots KEPT | before=[] | after=[]
+C49P FIELD boost_power RESET | before=0.5 | after=0.0
+C49P FIELD boost_time RESET | before=30.0 | after=0.0
+C49P FIELD boss_respawns RESET | before={ "g3_v2_0": { "group": 3, "remaining": 30.0, "stage": 1, "x": 0.0, "y": 0.0 } } | after={}
+C49P FIELD boss_saved_at KEPT | before=0.0 | after=0.0
+C49P FIELD bosses_found KEPT | before=["boss-snowman"] | after=["boss-snowman"]
+C49P FIELD buffs RESET | before={ "guard_tonic": { "power": 5.0, "time": 20.0 } } | after={}
+C49P FIELD camps RESET | before={ "1": [0, 1] } | after={ "1": [0] }
+C49P FIELD camps_known KEPT | before={ "1": [0, 1] } | after={ "1": [0, 1] }
+C49P FIELD cards KEPT | before={} | after={}
+C49P FIELD clock KEPT | before=0.0 | after=0.0
+C49P FIELD coins RESET | before=999375.0 | after=0
+C49P FIELD collect_clock KEPT | before=0.0 | after=0.0
+C49P FIELD collect_clocks KEPT | before=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, | after=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+C49P FIELD consumable_uses KEPT | before=0 | after=0
+C49P FIELD consumed OTHER | before=[] | after=["hunter_o1"]
+C49P FIELD counters RESET | before={ "camp": 1.0, "camp:": 1.0, "equip": 2.0, "equip:unit-blue-cap_outfit": 1.0, "equip:wood_axe": 1.0, "kill": 500.0, "merge": 20.0, "merge:wood_axe": 20.0, "upgr | after={}
+C49P FIELD discovered KEPT | before={ "0": true, "1": true, "2": true, "3": true, "4": true, "5": true } | after={ "0": true, "1": true, "2": true, "3": true, "4": true, "5": true }
+C49P FIELD discovered_spots KEPT | before={ "0:0": true, "0:2": true, "1:2": true, "2:2": true, "3:2": true, "4:2": true, "5:2": true } | after={ "0:0": true, "0:2": true, "1:2": true, "2:2": true, "3:2": true, "4:2": true, "5:2": true }
+C49P FIELD explored KEPT | before={ "1": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, | after={ "1": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+C49P FIELD final_complete KEPT | before=false | after=false
+C49P FIELD final_discovered KEPT | before=false | after=false
+C49P FIELD focus KEPT | before=-1 | after=-1
+C49P FIELD focus_variant KEPT | before=2 | after=2
+C49P FIELD fog_layout_revision KEPT | before=2 | after=2
+C49P FIELD follow KEPT | before="" | after=""
+C49P FIELD follow_mission RESET | before="kill:0" | after=""
+C49P FIELD gear OTHER | before=["wood_axe", "stone_axe", "unit-blue-cap_outfit", ""] | after=["", "", "", ""]
+C49P FIELD gems KEPT | before=99550.0 | after=99550.0
+C49P FIELD group_kills KEPT | before=[300, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] | after=[300, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+C49P FIELD help KEPT | before=0 | after=0
+C49P FIELD history RESET | before=[{ "amount": 5.0, "coins": 0.0, "id": "potion", "key": "HISTORY_ITEM", "time": 0.0 }, { "amount": 3.0, "coins": 0.0, "id": "unit-blue-cap_outfit", "key": "HISTO | after=[]
+C49P FIELD items RESET | before={ "potion": { "extras": {}, "merge": 0, "qty": 5 }, "stone_axe": { "extras": { "lifesteal": 0.009662344 }, "merge": 0, "qty": 2 }, "unit-blue-cap_outfit": { "ex | after={}
+C49P FIELD keys KEPT | before=[] | after=[]
+C49P FIELD main_claimed KEPT | before=[] | after=[]
+C49P FIELD main_ready RESET | before={ "0": true, "1": true, "2": true, "3": true, "4": true, "6": true, "8": true } | after={}
+C49P FIELD mastery KEPT | before={ "camps": {}, "done": [], "evolved": {}, "explored": {}, "found": { "stone_axe": true, "unit-blue-cap_outfit": true, "wood_axe": true }, "merge": {} } | after={ "camps": {}, "done": [], "evolved": {}, "explored": {}, "found": { "stone_axe": true, "unit-blue-cap_outfit": true, "wood_axe": true }, "merge": {} }
+C49P FIELD merge_clock KEPT | before=0.0 | after=0.0
+C49P FIELD merge_cursors KEPT | before={} | after={}
+C49P FIELD merge_timers RESET | before={ "0": 3.0 } | after={}
+C49P FIELD mission_auto KEPT | before=false | after=false
+C49P FIELD mission_day KEPT | before="2026-11-07" | after="2026-11-07"
+C49P FIELD missions OTHER | before=[{ "base_gems": 0.0, "claimed": false, "coins": 40.0, "day": "2026-11-07", "gems": 0.0, "goal": 120.0, "kind": "kill", "progress": 60.0, &"reward_stage": 1, "ta | after=[{ "base_gems": 0.0, "claimed": false, "coins": 90.0, "day": "2026-11-07", "gems": 0.0, "goal": 120.0, "kind": "kill", "progress": 0.0, &"reward_stage": 3, "tar
+C49P FIELD next_cat KEPT | before=0 | after=0
+C49P FIELD next_pickup KEPT | before=0 | after=0
+C49P FIELD offer KEPT | before=[] | after=[]
+C49P FIELD offline_income KEPT | before=0.0 | after=0.0
+C49P FIELD offline_longest KEPT | before=0.0 | after=0.0
+C49P FIELD offline_pending KEPT | before={ "coins": 100.0, "gems": 2.0, "id": "x", "items": { "wood_axe": 2 }, "longest": 3600.0, "rewarded_hours": 1.0, "seconds": 3600.0 } | after={ "coins": 100.0, "gems": 2.0, "id": "x", "items": { "wood_axe": 2 }, "longest": 3600.0, "rewarded_hours": 1.0, "seconds": 3600.0 }
+C49P FIELD offline_remainders KEPT | before={} | after={}
+C49P FIELD offline_snapshot RESET | before={ "cap": 18000, "coins": 180.0, "eligible": { "consumable": ["potion"], "outfit": ["unit-blue-cap_outfit"], "weapon": ["wood_axe", "stone_axe"] }, "eligible_tim | after={}
+C49P FIELD offline_total KEPT | before=0.0 | after=0.0
+C49P FIELD onboarding KEPT | before={ "loot_kills": 0, "loot_phase": 3, "reveal": ["missions", "enemy", "world", "upgrades", "objective", "prestige"] } | after={ "loot_kills": 0, "loot_phase": 3, "reveal": ["missions", "enemy", "world", "upgrades", "objective", "prestige"] }
+C49P FIELD online_coins KEPT | before=0.0 | after=0.0
+C49P FIELD online_gems KEPT | before=0.0 | after=0.0
+C49P FIELD online_items RESET | before={ "wood_axe": 0.0 } | after={}
+C49P FIELD opportunities OTHER | before={ "arsenal_o1": { "baseline": { "equip": 1.0, "equip:unit-blue-cap_outfit": 0.0, "equip:wood_axe": 1.0, "merge": 20.0, "merge:wood_axe": 20.0 }, "count": 0, "re | after={ "arsenal_o1": { "baseline": {}, "count": 0, "ready": false, "step": 0 }, "collection_o2": { "baseline": {}, "count": 0, "ready": false, "step": 0 }, "expediti
+C49P FIELD outfit RESET | before="unit-blue-cap_outfit" | after=""
+C49P FIELD owned_cards OTHER | before=[] | after=["hunter_c1"]
+C49P FIELD paused KEPT | before=false | after=false
+C49P FIELD pickups RESET | before=[{ "group": 0, "item": "wood_sword", "ttl": 200.0, "uid": 999, "x": 100.0, "y": 100.0 }] | after=[]
+C49P FIELD player_level KEPT | before=30 | after=30
+C49P FIELD playtime_run KEPT | before=0.0 | after=0.0
+C49P FIELD playtime_total KEPT | before=0.0 | after=0.0
+C49P FIELD prestige_batch KEPT | before={} | after={}
+C49P FIELD prestige_collapsed KEPT | before={} | after={}
+C49P FIELD prestiges OTHER | before=0 | after=1
+C49P FIELD review KEPT | before={ "answered_at": -1.0, "channel": "", "eligible_at": -1.0, "open_failures": 0, "status": "none" } | after={ "answered_at": -1.0, "channel": "", "eligible_at": -1.0, "open_failures": 0, "status": "none" }
+C49P FIELD reward_stage KEPT | before=3 | after=3
+C49P FIELD run_kills RESET | before={ "unit-blue-cap": 40 } | after={}
+C49P FIELD enemies KEPT | before=[{ "aggro": false, "attack_age": 9.0, "cooldown": 0.0, "dead_age": 0.0, "facing": 1.0, "group": 0, "home_x": 68.0, "home_y": 700.0, "hp": 22.5, "hurt": 0.0, "id | after=[{ "aggro": false, "attack_age": 9.0, "cooldown": 0.0, "dead_age": 0.0, "facing": 1.0, "group": 0, "home_x": 68.0, "home_y": 700.0, "hp": 22.5, "hurt": 0.0, "id
+C49P FIELD player OTHER | before={ "aggro": false, "attack_age": 9.0, "cooldown": 0.0, "dead_age": 0.0, "facing": 1.0, "group": -1, "home_x": 480.0, "home_y": 883.2, "hp": 100.0, "hurt": 0.0, " | after={ "aggro": false, "attack_age": 9.0, "cooldown": 0.0, "dead_age": 0.0, "facing": 1.0, "group": -1, "home_x": 480.0, "home_y": 883.2, "hp": 245.0, "hurt": 0.0, "
+C49P FIELD schema KEPT | before=8 | after=8
+C49P FIELD skill_auto KEPT | before=[false, false, false] | after=[false, false, false]
+C49P FIELD skill_cooldowns RESET | before={ "0": 7.5 } | after={}
+C49P FIELD skills KEPT | before=["", "", ""] | after=["", "", ""]
+C49P FIELD skills_seen KEPT | before=[] | after=[]
+C49P FIELD spawn KEPT | before=0 | after=0
+C49P FIELD spawns RESET | before=[0, 1] | after=[0]
+C49P FIELD stage KEPT | before=1 | after=1
+C49P FIELD stage_worlds RESET | before={ "2": { "enemies": [], "pickups": [] } } | after={}
+C49P FIELD summon_clock KEPT | before=0.0 | after=0.0
+C49P FIELD supplies RESET | before=["potion"] | after=[""]
+C49P FIELD supply_found KEPT | before={} | after={}
+C49P FIELD supply_mastery_credit RESET | before={ "potion": 2 } | after={}
+C49P FIELD supply_uses RESET | before={ "potion": 9 } | after={}
+C49P FIELD tutorial KEPT | before={ "done": [], "mode": "none", "seen": ["opened:missions", "opened:enemy", "opened:world", "opened:upgrades", "opened:objective", "opened:prestige", "announced:p | after={ "done": [], "mode": "none", "seen": ["opened:missions", "opened:enemy", "opened:world", "opened:upgrades", "opened:objective", "opened:prestige", "announced:p
+C49P FIELD unlocked_stage RESET | before=3 | after=1
+C49P FIELD upgrades OTHER | before={ "camp_radius:11": 1, "coin_amount:0": 1, "collect:0": 1, "collect_range:0": 1, "critical_chance": 1, "focus:0": 1, "gear_slots": 1, "gem_chance": 1, "group_xp | after={ "collect:0": 1, "collect_range:0": 1, "critical_chance": 1, "focus:0": 1, "gear_slots": 1, "gem_chance": 1, "offline_coins": 1, "offline_weapon": 1, "offline_
+C49P FIELD use_cd KEPT | before=0.0 | after=0.0
+C49P FIELD use_clock KEPT | before=0.0 | after=0.0
+C49P FIELD victory KEPT | before=false | after=false
+C49P FIELD weapon RESET | before="wood_axe" | after=""
+C49P FIELD world_complete KEPT | before=false | after=false
+C49P FIELD xp KEPT | before=55.0 | after=55.0
+C49P upgrades_after { "reveal_stats:0": 1, "reveal_drops:0": 1, "focus:0": 1, "spawn_amount:0": 1, "gem_chance": 1, "critical_chance": 1, "offline_coins": 1, "offline_weapon": 1, "offline_weapon_rate": 1, "gear_slots": 1, "collect:0": 1, "collect_range:0": 1 }
+C49P items_after {  }
+C49P DONE

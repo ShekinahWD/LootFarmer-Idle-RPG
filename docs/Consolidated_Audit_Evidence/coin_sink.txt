@@ -1,0 +1,44 @@
+Total finite Coin sink (every Coin upgrade to cap, all scopes): 5.45e+07 coins
+  coin_amount                25043838
+  group_xp                   20869865
+  skill_drop                  3954740
+  loot                        2035742
+  supply_drop                 2035742
+  collect_speed                158082
+  map_detail                   108360
+  collect_range                 97396
+  offline_coins                 63017
+  camp_radius                   26961
+  reveal_radius                 16315
+  reveal_drops                  15983
+  offline_weapon_rate           11333
+  offline_outfit_rate           11333
+  reveal_stats                   9989
+  movement                       9143
+  offline_consumable_rate         8500
+  cooldown_heal                  2951
+  cooldown_frost                 2951
+  cooldown_fire                  2951
+  cooldown_lightning             2951
+  cooldown_focus                 2951
+  cooldown_strike                2951
+  respawn                        1716
+By map (type/stage/camp scopes; 0 = global):
+  map 0:       122745
+  map 1:       503950
+  map 2:      1408533
+  map 3:      1341848
+  map 4:      3954469
+  map 5:      3952710
+  map 6:      7255795
+  map 7:      9509908
+  map 8:     26445804
+Camps per run (re-bought every Prestige): 11601 coins total, all maps
+  map 1 normal coins/kill: ^0 1.0, ^10 6.0, ^20 11.0
+  map 2 normal coins/kill: ^0 1.5, ^10 9.0, ^20 16.5
+  map 3 normal coins/kill: ^0 2.2, ^10 13.5, ^20 24.8
+  map 4 normal coins/kill: ^0 3.4, ^10 20.2, ^20 37.1
+  map 5 normal coins/kill: ^0 5.1, ^10 30.4, ^20 55.7
+  map 6 normal coins/kill: ^0 7.6, ^10 45.6, ^20 83.5
+  map 7 normal coins/kill: ^0 11.4, ^10 68.3, ^20 125.3
+  map 8 normal coins/kill: ^0 17.1, ^10 102.5, ^20 187.9

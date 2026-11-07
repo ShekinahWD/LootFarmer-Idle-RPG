@@ -1,0 +1,5835 @@
+{
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "card_sets": {
+  "p1": {
+   "ready": [
+    "hunter_o1",
+    "trophy_o1",
+    "challenge_o1",
+    "expedition_o1",
+    "arsenal_o1",
+    "regional_o1",
+    "offering_o1"
+   ],
+   "picks": [
+    "hunter_c1",
+    "trophy_c2",
+    "challenge_c2",
+    "expedition_c1",
+    "arsenal_c1",
+    "regional_c1",
+    "offering_c1"
+   ]
+  },
+  "p2": {
+   "ready": [
+    "hunter_o2",
+    "expedition_o2",
+    "specialist_o1",
+    "masterwork_o1"
+   ],
+   "picks": [
+    "hunter_c2",
+    "expedition_c3",
+    "specialist_c3",
+    "masterwork_c3"
+   ]
+  },
+  "p3": {
+   "ready": [
+    "specialist_o2",
+    "collection_o1"
+   ],
+   "picks": [
+    "specialist_c1",
+    "collection_c2"
+   ]
+  }
+ },
+ "builds": [
+  {
+   "id": "S3_L22_arrive",
+   "label": "Summer I arrival: L22, Stone Axe ^30, Snowman ^30, Heal ^5",
+   "stage": 3,
+   "level": 22,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    30
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    30
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     40
+    ],
+    [
+     "stone_sword",
+     0
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     5
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     10,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "S3_L28_normal",
+   "label": "Summer I farmed normal outfit: L28, Stone Axe ^60, Yellow Cap t2 ^40, Heal ^10",
+   "stage": 3,
+   "level": 28,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "S3_L28_snow",
+   "label": "Summer I Snowman carry: L28, Stone Axe ^60, Snowman ^60, Heal ^10",
+   "stage": 3,
+   "level": 28,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "S3_L28_snow_casual",
+   "label": "same Snowman carry, casual",
+   "stage": 3,
+   "level": 28,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.0,
+   "cast": "none",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "casual",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "S3_L28_snow_P3",
+   "label": "Snowman carry + 3 Prestiges (13 cards; reported pattern)",
+   "stage": 3,
+   "level": 28,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 12,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100,
+    "boss-gray-cat": 21
+   },
+   "policy": "attentive",
+   "prestiges": 3,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "S3_L35_normal",
+   "label": "Summer I boss-level normal: L35, Stone Axe ^100, Yellow Cap t2 ^80, Heal ^15",
+   "stage": 3,
+   "level": 35,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    100
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    80
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     40
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     15
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     20,
+     12
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "S3_L35_snow",
+   "label": "Summer I boss-level Snowman: L35, Stone Axe ^100, Snowman ^80, Heal ^15",
+   "stage": 3,
+   "level": 35,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    100
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    80
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     40
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     15
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     20,
+     12
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "S3_L35_snow_P1",
+   "label": "same + 1 Prestige",
+   "stage": 3,
+   "level": 35,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "stone_axe",
+    100
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    80
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     40
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     15
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     20,
+     12
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 12,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 1,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "S3_L35_snow_P3",
+   "label": "same + 3 Prestiges",
+   "stage": 3,
+   "level": 35,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "stone_axe",
+    100
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    80
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     40
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     15
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     20,
+     12
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 12,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100,
+    "boss-gray-cat": 21
+   },
+   "policy": "attentive",
+   "prestiges": 3,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "LAD_S3_snow_L20",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 20,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L22",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 22,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L24",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 24,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L26",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 26,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L28",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 28,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L30",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L32",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 32,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L34",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 34,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L36",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 36,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L38",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 38,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L40",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 40,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L42",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 42,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L44",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 44,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_snow_L46",
+   "label": "Gray Cat ladder Snowman (Stone Axe ^60, Snowman ^60, Heal ^10) P0",
+   "stage": 3,
+   "level": 46,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_snow"
+  },
+  {
+   "id": "LAD_S3_normal_L20",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 20,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L22",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 22,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L24",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 24,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L26",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 26,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L28",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 28,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L30",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L32",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 32,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L34",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 34,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L36",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 36,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L38",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 38,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L40",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 40,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L42",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 42,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L44",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 44,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "LAD_S3_normal_L46",
+   "label": "Gray Cat ladder normal outfit (Stone Axe ^60, Yellow Cap ^40)",
+   "stage": 3,
+   "level": 46,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-yellow-cap_outfit_t2",
+    40
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    }
+   ],
+   "ladder": "LAD_S3_normal"
+  },
+  {
+   "id": "NB_S3_base",
+   "label": "Neighbour base: L30 Stone Axe ^60, Snowman ^60, Heal ^10, 15 potions ^10",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_noheal",
+   "label": "minus Heal",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_nopotion",
+   "label": "minus potions",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {},
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_axe0",
+   "label": "Stone Axe ^0",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    0
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_snow0",
+   "label": "Snowman ^0",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    0
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_chef",
+   "label": "Chef Hat t1 ^20 instead of Snowman",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "unit-chef-hat_outfit",
+    20
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_sword",
+   "label": "Stone Sword ^20 instead of Stone Axe",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_sword",
+    20
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_L26",
+   "label": "level 26",
+   "stage": 3,
+   "level": 26,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_L34",
+   "label": "level 34",
+   "stage": 3,
+   "level": 34,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_P1",
+   "label": "plus 1 Prestige",
+   "stage": 3,
+   "level": 30,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 12,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 1,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "NB_S3_P3",
+   "label": "plus 3 Prestiges",
+   "stage": 3,
+   "level": 30,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     60
+    ],
+    [
+     "stone_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     15,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 12,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100,
+    "boss-gray-cat": 21
+   },
+   "policy": "attentive",
+   "prestiges": 3,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    }
+   ]
+  },
+  {
+   "id": "FARM_S3",
+   "label": "Farm rates stage 3",
+   "stage": 3,
+   "level": 30,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     40,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "farm",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "minutes": 10,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "minutes": 10,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "minutes": 10,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "boss-gray-cat",
+     "variant": 2,
+     "minutes": 10,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "FARM_SW_S3",
+   "label": "Switch farm, stage 3 arrival",
+   "stage": 3,
+   "level": 22,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    30
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    30
+   ],
+   "stored": [],
+   "skills": [
+    [
+     "skill_heal",
+     5
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     40,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "farm",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "minutes": 10,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "minutes": 10,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "minutes": 10,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S3_L22_guaranteed",
+   "label": "Summer I arrival, guaranteed gear only: L22 Stone Axe ^0, Chef ^20, Heal ^5",
+   "stage": 3,
+   "level": 22,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    0
+   ],
+   "outfit": [
+    "unit-chef-hat_outfit",
+    20
+   ],
+   "stored": [
+    [
+     "wood_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     5
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     10,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    }
+   ]
+  },
+  {
+   "id": "FARM_S3v6_L28",
+   "label": "Summer I sustained farm L28, 6 actors (spawn upgrades)",
+   "stage": 3,
+   "level": 28,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    60
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    60
+   ],
+   "stored": [],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     10,
+     40
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "farm",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "minutes": 5,
+     "seeds": [
+      1,
+      2
+     ],
+     "count": 6
+    },
+    {
+     "kind": "farm",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1,
+      2
+     ],
+     "count": 6
+    },
+    {
+     "kind": "farm",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "minutes": 5,
+     "seeds": [
+      1,
+      2
+     ],
+     "count": 6
+    }
+   ],
+   "spawn6": true
+  },
+  {
+   "id": "FARM_S3v6_L35",
+   "label": "Summer I sustained farm L35, 6 actors (spawn upgrades)",
+   "stage": 3,
+   "level": 35,
+   "prestige": [],
+   "weapon": [
+    "stone_axe",
+    100
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    80
+   ],
+   "stored": [],
+   "skills": [
+    [
+     "skill_heal",
+     10
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     10,
+     40
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "farm",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "minutes": 5,
+     "seeds": [
+      1,
+      2
+     ],
+     "count": 6
+    },
+    {
+     "kind": "farm",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1,
+      2
+     ],
+     "count": 6
+    },
+    {
+     "kind": "farm",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "minutes": 5,
+     "seeds": [
+      1,
+      2
+     ],
+     "count": 6
+    }
+   ],
+   "spawn6": true
+  }
+ ]
+}

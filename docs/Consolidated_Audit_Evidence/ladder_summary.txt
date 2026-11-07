@@ -1,0 +1,230 @@
+## N1_rdy  [[C49 ladder] W1 ready: Wood Axe ^20 (unchanged) (from W1_L9_wood20)]
+  baseline twin W1_L9_wood20               dmg    13.5 hp     168 | 3-spots 9/9 worst 3/3 90% chef-hat v2 | x6 3/3 81% chef-hat v2 | snowman 3/3 6% 48s
+  lad_CUR                                  dmg    13.5 hp     168 | 3-spots 9/9 worst 3/3 90% chef-hat v2 | x6 3/3 81% chef-hat v2 | snowman 3/3 6% 48s | FARM blue-capv2 k/m 26.8 xp/m 80 d/10m 0; chef-hatv1 k/m 24.6 xp/m 98 d/10m 2
+  lad_A19                                  dmg    13.5 hp     168 | 3-spots 9/9 worst 3/3 90% chef-hat v2 | x6 3/3 81% chef-hat v2 | snowman 3/3 6% 48s | FARM blue-capv2 k/m 26.8 xp/m 80 d/10m 0; chef-hatv1 k/m 24.6 xp/m 98 d/10m 2
+  lad_B22                                  dmg    13.5 hp     168 | 3-spots 9/9 worst 3/3 90% chef-hat v2 | x6 3/3 81% chef-hat v2 | snowman 3/3 6% 48s | FARM blue-capv2 k/m 26.8 xp/m 80 d/10m 0; chef-hatv1 k/m 24.6 xp/m 98 d/10m 2
+## N2_arr  [[C49 ladder] S2 arrival: wood_axe ^20 (from W2_L10_arrive)]
+  baseline twin W2_L10_arrive              dmg    19.0 hp     192 | 3-spots 19/19 worst 3/3 54% space-helmet sk | x6 0/3 0% space-helmet sk | cyan-robot 0/3 0% 54s
+  lad_CUR                                  dmg    14.0 hp     173 | 3-spots 19/19 worst 3/3 48% space-helmet sk | x6 0/3 0% space-helmet v1 | cyan-robot 0/3 0% 46s
+  lad_A19                                  dmg    14.0 hp     173 | 3-spots 19/19 worst 3/3 48% space-helmet sk | x6 0/3 0% space-helmet v1 | cyan-robot 0/3 0% 46s
+  lad_B22                                  dmg    14.0 hp     173 | 3-spots 19/19 worst 3/3 48% space-helmet sk | x6 0/3 0% space-helmet v1 | cyan-robot 0/3 0% 46s
+## N2_mid  [[C49 ladder] S2 mid: stone_axe ^10 (from W2_L16_snow)]
+  baseline twin W2_L16_snow                dmg    27.3 hp     269 | 3-spots 19/19 worst 3/3 77% space-helmet sk | x6 3/3 44% space-helmet sk | cyan-robot 3/3 36% 58s
+  lad_CUR                                  dmg    23.6 hp     255 | 3-spots 19/19 worst 3/3 76% space-helmet sk | x6 3/3 40% space-helmet sk | cyan-robot 3/3 41% 70s
+  lad_A19                                  dmg    21.1 hp     246 | 3-spots 19/19 worst 3/3 72% space-helmet sk | x6 3/3 31% space-helmet sk | cyan-robot 3/3 32% 83s
+  lad_B22                                  dmg    22.3 hp     250 | 3-spots 19/19 worst 3/3 73% space-helmet sk | x6 3/3 33% space-helmet sk | cyan-robot 3/3 32% 74s
+## N2_rdy  [[C49 ladder] S2 ready: stone_axe ^20 (from W2_L20_snow)]
+  baseline twin W2_L20_snow                dmg    30.9 hp     300 | 3-spots 19/19 worst 3/3 84% space-helmet sk | x6 3/3 48% space-helmet sk | cyan-robot 3/3 51% 47s
+  lad_CUR                                  dmg    27.3 hp     286 | 3-spots 19/19 worst 3/3 79% space-helmet sk | x6 3/3 49% space-helmet sk | cyan-robot 3/3 43% 58s | FARM wolf-hoodv2 k/m 21.2 xp/m 85 d/10m 0; space-helmetv1 k/m 21.0 xp/m 126 d/10m 0
+  lad_A19                                  dmg    24.4 hp     275 | 3-spots 19/19 worst 3/3 78% space-helmet sk | x6 3/3 46% space-helmet sk | cyan-robot 3/3 41% 69s | FARM wolf-hoodv2 k/m 21.0 xp/m 84 d/10m 0; space-helmetv1 k/m 21.0 xp/m 126 d/10m 0
+  lad_B22                                  dmg    25.7 hp     280 | 3-spots 19/19 worst 3/3 78% space-helmet sk | x6 3/3 47% space-helmet sk | cyan-robot 3/3 45% 61s | FARM wolf-hoodv2 k/m 21.2 xp/m 85 d/10m 0; space-helmetv1 k/m 21.0 xp/m 126 d/10m 0
+## N2_rdy_P1  [[C49 ladder] S2 ready P1: stone_axe ^20 (from W2_L20_snow_P1)]
+  baseline twin W2_L20_snow_P1             dmg    30.9 hp     360 | 3-spots 19/19 worst 3/3 93% space-helmet sk | x6 3/3 75% space-helmet sk | cyan-robot 3/3 91% 30s
+  lad_CUR                                  dmg    27.3 hp     343 | 3-spots 19/19 worst 3/3 89% space-helmet sk | x6 3/3 70% space-helmet sk | cyan-robot 3/3 81% 37s
+  lad_A19                                  dmg    24.4 hp     330 | 3-spots 19/19 worst 3/3 89% space-helmet sk | x6 3/3 69% space-helmet sk | cyan-robot 3/3 84% 41s
+  lad_B22                                  dmg    25.7 hp     336 | 3-spots 19/19 worst 3/3 89% space-helmet sk | x6 3/3 69% space-helmet sk | cyan-robot 3/3 78% 39s
+## N2_evo  [[C49 ladder] S2 evolved: iron_axe ^0 + stone_axe ^20 stored (from W2_L20_snow)]
+  baseline twin W2_L20_snow                dmg    30.9 hp     300 | 3-spots 19/19 worst 3/3 84% space-helmet sk | x6 3/3 48% space-helmet sk | cyan-robot 3/3 51% 47s
+  lad_CUR                                  dmg    40.1 hp     334 | 3-spots 19/19 worst 3/3 86% space-helmet sk | x6 3/3 54% space-helmet sk | cyan-robot 3/3 61% 37s
+  lad_A19                                  dmg    29.9 hp     296 | 3-spots 19/19 worst 3/3 84% space-helmet sk | x6 3/3 48% space-helmet sk | cyan-robot 3/3 44% 52s
+  lad_B22                                  dmg    34.3 hp     312 | 3-spots 19/19 worst 3/3 85% space-helmet sk | x6 3/3 51% space-helmet sk | cyan-robot 3/3 62% 42s
+## N3_arr  [[C49 ladder] S3 arrival: stone_axe ^20 (from S3_L22_arrive)]
+  baseline twin S3_L22_arrive              dmg    33.3 hp     299 | 3-spots 12/12 worst 3/3 31% yellow-cap sk | x6 0/3 0% yellow-cap v1 | gray-cat 0/3 0% 50s
+  lad_CUR                                  dmg    28.3 hp     291 | 3-spots 12/12 worst 3/3 44% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 0/3 0% 50s
+  lad_A19                                  dmg    25.4 hp     280 | 3-spots 12/12 worst 3/3 37% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 0/3 0% 44s
+  lad_B22                                  dmg    26.7 hp     285 | 3-spots 12/12 worst 3/3 43% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 0/3 0% 44s
+  lad_A19_s3group                          dmg    25.4 hp     280 | 3-spots 12/12 worst 3/3 11% yellow-cap sk | x6 0/3 0% yellow-cap v1 | gray-cat 0/3 0% 44s
+## N3_mid  [[C49 ladder] S3 mid: iron_axe ^10 (from S3_L28_snow)]
+  baseline twin S3_L28_snow                dmg    42.8 hp     363 | 3-spots 12/12 worst 3/3 44% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 17% 52s
+  lad_CUR                                  dmg    46.9 hp     394 | 3-spots 12/12 worst 3/3 66% yellow-cap sk | x6 3/3 19% yellow-cap sk | gray-cat 3/3 35% 48s
+  lad_A19                                  dmg    34.9 hp     349 | 3-spots 12/12 worst 3/3 52% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 11% 64s
+  lad_B22                                  dmg    40.0 hp     369 | 3-spots 12/12 worst 3/3 60% yellow-cap sk | x6 3/3 10% yellow-cap sk | gray-cat 3/3 17% 57s
+  lad_A19_s3group                          dmg    34.9 hp     349 | 3-spots 12/12 worst 3/3 43% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 11% 64s
+## N3_rdy  [[C49 ladder] S3 ready: iron_axe ^20 (from S3_L35_snow)]
+  baseline twin S3_L35_snow                dmg    54.1 hp     432 | 3-spots 12/12 worst 3/3 66% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 50% 41s
+  lad_CUR                                  dmg    54.6 hp     454 | 3-spots 12/12 worst 3/3 75% yellow-cap sk | x6 3/3 39% yellow-cap sk | gray-cat 3/3 49% 41s | FARM straw-hatv2 k/m 17.2 xp/m 120 d/10m 0; yellow-capv1 k/m 17.2 xp/m 155 d/10m 0
+  lad_A19                                  dmg    40.7 hp     403 | 3-spots 12/12 worst 3/3 64% yellow-cap sk | x6 3/3 23% yellow-cap sk | gray-cat 3/3 23% 56s | FARM straw-hatv2 k/m 17.0 xp/m 119 d/10m 0; yellow-capv1 k/m 17.0 xp/m 153 d/10m 0
+  lad_B22                                  dmg    46.6 hp     425 | 3-spots 12/12 worst 3/3 68% yellow-cap sk | x6 3/3 29% yellow-cap sk | gray-cat 3/3 44% 48s | FARM straw-hatv2 k/m 17.0 xp/m 119 d/10m 0; yellow-capv1 k/m 17.0 xp/m 153 d/10m 0
+  lad_A19_s3group                          dmg    40.7 hp     403 | 3-spots 12/12 worst 3/3 49% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 23% 56s | FARM straw-hatv2 k/m 17.0 xp/m 119 d/10m 0; yellow-capv1 k/m 17.0 xp/m 153 d/10m 0
+## N3_rdy_P1  [[C49 ladder] S3 ready P1: iron_axe ^20 (from S3_L35_snow_P1)]
+  baseline twin S3_L35_snow_P1             dmg    54.1 hp     519 | 3-spots 12/12 worst 3/3 76% yellow-cap sk | x6 3/3 16% yellow-cap sk | gray-cat 3/3 79% 29s
+  lad_CUR                                  dmg    54.6 hp     545 | 3-spots 12/12 worst 3/3 87% yellow-cap sk | x6 3/3 60% yellow-cap sk | gray-cat 3/3 83% 28s
+  lad_A19                                  dmg    40.7 hp     483 | 3-spots 12/12 worst 3/3 81% yellow-cap sk | x6 3/3 50% yellow-cap sk | gray-cat 3/3 63% 38s
+  lad_B22                                  dmg    46.6 hp     510 | 3-spots 12/12 worst 3/3 82% yellow-cap sk | x6 3/3 53% yellow-cap sk | gray-cat 3/3 75% 32s
+  lad_A19_s3group                          dmg    40.7 hp     483 | 3-spots 12/12 worst 3/3 74% yellow-cap sk | x6 3/3 21% yellow-cap sk | gray-cat 3/3 63% 38s
+## N3_evo  [[C49 ladder] S3 evolved: gold_axe ^0 + iron_axe ^20 stored (from S3_L35_snow)]
+  baseline twin S3_L35_snow                dmg    54.1 hp     432 | 3-spots 12/12 worst 3/3 66% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 50% 41s
+  lad_CUR                                  dmg    87.2 hp     577 | 3-spots 12/12 worst 3/3 89% yellow-cap sk | x6 3/3 57% yellow-cap sk | gray-cat 3/3 70% 26s
+  lad_A19                                  dmg    51.4 hp     442 | 3-spots 12/12 worst 3/3 75% yellow-cap sk | x6 3/3 37% yellow-cap sk | gray-cat 3/3 44% 43s
+  lad_B22                                  dmg    65.5 hp     496 | 3-spots 12/12 worst 3/3 77% yellow-cap sk | x6 3/3 45% yellow-cap sk | gray-cat 3/3 47% 35s
+  lad_A19_s3group                          dmg    51.4 hp     442 | 3-spots 12/12 worst 3/3 67% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 44% 43s
+## N4_arr  [[C49 ladder] S4 arrival: iron_axe ^20 (from S4_L38_arrive_manual_P0)]
+  baseline twin S4_L38_arrive_manual_P0    dmg    52.6 hp     480 | 3-spots 20/20 worst 3/3 18% snorkeler sk | x6 0/3 0% straw-hat-swimmer v1 | elephant 0/3 0% 76s; teal-dinosaur 0/3 0% 50s
+  lad_CUR                                  dmg    56.1 hp     493 | 3-spots 20/20 worst 3/3 21% snorkeler sk | x6 0/3 0% straw-hat-swimmer v1 | elephant 3/3 9% 76s; teal-dinosaur 0/3 0% 52s
+  lad_A19                                  dmg    42.2 hp     441 | 3-spots 19/20 worst 0/3 0% snorkeler sk | x6 0/3 0% straw-hat-swimmer v1 | elephant 0/3 0% 58s; teal-dinosaur 0/3 0% 46s
+  lad_B22                                  dmg    48.1 hp     463 | 3-spots 19/20 worst 2/3 15% snorkeler sk | x6 0/3 0% straw-hat-swimmer v1 | elephant 0/3 0% 60s; teal-dinosaur 0/3 0% 48s
+## N4_mid  [[C49 ladder] S4 mid: gold_axe ^10 (from S4_L38_arrive_manual_P1)]
+  baseline twin S4_L38_arrive_manual_P1    dmg    52.6 hp     576 | 3-spots 20/20 worst 3/3 44% snorkeler sk | x6 1/3 0% straw-hat-swimmer v2 | elephant 3/3 50% 56s; teal-dinosaur 3/3 50% 61s
+  lad_CUR                                  dmg    95.9 hp     771 | 3-spots 20/20 worst 3/3 75% snorkeler sk | x6 3/3 57% straw-hat-swimmer v1 | elephant 3/3 89% 30s; teal-dinosaur 3/3 72% 34s
+  lad_A19                                  dmg    54.7 hp     585 | 3-spots 20/20 worst 3/3 42% snorkeler sk | x6 2/3 17% straw-hat-swimmer v1 | elephant 3/3 43% 53s; teal-dinosaur 3/3 44% 60s
+  lad_B22                                  dmg    70.9 hp     658 | 3-spots 20/20 worst 3/3 55% snorkeler sk | x6 3/3 44% straw-hat-swimmer v2 | elephant 3/3 74% 41s; teal-dinosaur 3/3 47% 46s
+## N4_rdy  [[C49 ladder] S4 ready: gold_axe ^20 (from S4_L60_ready_P0)]
+  baseline twin S4_L60_ready_P0            dmg    80.3 hp     701 | 3-spots 20/20 worst 3/3 70% rainbow-clown sk | x6 3/3 53% straw-hat-swimmer v2 | elephant 3/3 86% 51s; teal-dinosaur 3/3 58% 57s
+  lad_CUR                                  dmg   117.5 hp     841 | 3-spots 20/20 worst 3/3 80% snorkeler sk | x6 3/3 76% straw-hat-swimmer v2 | elephant 3/3 92% 35s; teal-dinosaur 3/3 77% 39s | FARM cowboy-bandanav2 k/m 14.8 xp/m 163 d/10m 0; straw-hat-swimmerv1 k/m 14.8 xp/m 266 d/10m 0
+  lad_A19                                  dmg    70.1 hp     663 | 3-spots 20/20 worst 3/3 63% snorkeler sk | x6 3/3 48% straw-hat-swimmer v1 | elephant 3/3 70% 59s; teal-dinosaur 3/3 69% 65s | FARM cowboy-bandanav2 k/m 13.4 xp/m 147 d/10m 0; straw-hat-swimmerv1 k/m 13.4 xp/m 241 d/10m 0
+  lad_B22                                  dmg    88.7 hp     733 | 3-spots 20/20 worst 3/3 67% snorkeler sk | x6 3/3 57% straw-hat-swimmer v2 | elephant 3/3 84% 46s; teal-dinosaur 3/3 71% 51s | FARM cowboy-bandanav2 k/m 14.4 xp/m 158 d/10m 0; straw-hat-swimmerv1 k/m 14.4 xp/m 259 d/10m 0
+## N4_rdy_P1  [[C49 ladder] S4 ready P1: gold_axe ^20 (from S4_L60_ready_P1)]
+  baseline twin S4_L60_ready_P1            dmg    80.3 hp     842 | 3-spots 20/20 worst 3/3 71% snorkeler sk | x6 3/3 63% straw-hat-swimmer v1 | elephant 3/3 95% 36s; teal-dinosaur 3/3 91% 39s
+  lad_CUR                                  dmg   117.5 hp    1009 | 3-spots 20/20 worst 3/3 90% snorkeler sk | x6 3/3 82% straw-hat-swimmer v1 | elephant 3/3 98% 24s; teal-dinosaur 3/3 94% 27s
+  lad_A19                                  dmg    70.1 hp     796 | 3-spots 20/20 worst 3/3 82% snorkeler sk | x6 3/3 67% straw-hat-swimmer v2 | elephant 3/3 91% 40s; teal-dinosaur 3/3 92% 44s
+  lad_B22                                  dmg    88.7 hp     880 | 3-spots 20/20 worst 3/3 85% snorkeler sk | x6 3/3 81% straw-hat-swimmer v1 | elephant 3/3 98% 31s; teal-dinosaur 3/3 95% 35s
+## N4_evo  [[C49 ladder] S4 evolved: diamond_axe ^0 + gold_axe ^20 stored (from S4_L60_ready_P0)]
+  baseline twin S4_L60_ready_P0            dmg    80.3 hp     701 | 3-spots 20/20 worst 3/3 70% rainbow-clown sk | x6 3/3 53% straw-hat-swimmer v2 | elephant 3/3 86% 51s; teal-dinosaur 3/3 58% 57s
+  lad_CUR                                  dmg   200.8 hp    1153 | 3-spots 20/20 worst 3/3 94% snorkeler sk | x6 3/3 86% straw-hat-swimmer v1 | elephant 3/3 91% 20s; teal-dinosaur 3/3 95% 22s
+  lad_A19                                  dmg    90.3 hp     739 | 3-spots 20/20 worst 3/3 60% snorkeler sk | x6 3/3 58% straw-hat-swimmer v2 | elephant 3/3 84% 44s; teal-dinosaur 3/3 61% 50s
+  lad_B22                                  dmg   130.3 hp     889 | 3-spots 20/20 worst 3/3 81% snorkeler sk | x6 3/3 74% straw-hat-swimmer v2 | elephant 3/3 97% 31s; teal-dinosaur 3/3 87% 35s
+## N5_arr  [[C49 ladder] S5 arrival: gold_axe ^20 (from S5_L65_arrive_manual_P0)]
+  baseline twin S5_L65_arrive_manual_P0    dmg    78.6 hp     530 | 3-spots 10/11 worst 0/3 0% pumpkin-head sk | x6 0/3 0% pumpkin-head v1 | squirrel 0/3 0% 46s; red-fox 0/3 0% 28s
+  lad_CUR                                  dmg   120.0 hp     841 | 3-spots 11/11 worst 3/3 43% pumpkin-head sk | x6 0/3 0% pumpkin-head sk | squirrel 3/3 27% 79s; red-fox 0/3 0% 63s
+  lad_A19                                  dmg    72.6 hp     664 | 3-spots 10/11 worst 0/3 0% pumpkin-head sk | x6 0/3 0% pumpkin-head v1 | squirrel 0/3 0% 58s; red-fox 0/3 0% 38s
+  lad_B22                                  dmg    91.2 hp     733 | 3-spots 11/11 worst 3/3 23% pumpkin-head sk | x6 0/3 0% pumpkin-head v1 | squirrel 0/3 0% 80s; red-fox 0/3 0% 48s
+## N5_mid  [[C49 ladder] S5 mid: diamond_axe ^10 (from S5_L65_arrive_manual_P1)]
+  baseline twin S5_L65_arrive_manual_P1    dmg    78.6 hp     636 | 3-spots 11/11 worst 3/3 18% pumpkin-head sk | x6 0/3 0% pumpkin-head v1 | squirrel 3/3 38% 83s; red-fox 0/3 0% 60s
+  lad_CUR                                  dmg   221.7 hp    1467 | 3-spots 11/11 worst 3/3 87% pumpkin-head sk | x6 3/3 50% pumpkin-head sk | squirrel 3/3 98% 27s; red-fox 3/3 89% 28s
+  lad_A19                                  dmg    96.3 hp     903 | 3-spots 11/11 worst 3/3 43% pumpkin-head sk | x6 0/3 0% pumpkin-head sk | squirrel 3/3 50% 63s; red-fox 3/3 40% 65s
+  lad_B22                                  dmg   141.3 hp    1105 | 3-spots 11/11 worst 3/3 66% pumpkin-head sk | x6 0/3 0% pumpkin-head sk | squirrel 3/3 90% 42s; red-fox 3/3 60% 44s
+## N5_rdy  [[C49 ladder] S5 ready: diamond_axe ^20 (from S5_L95_ready_P0)]
+  baseline twin S5_L95_ready_P0            dmg   114.4 hp     919 | 3-spots 11/11 worst 3/3 60% pumpkin-head sk | x6 0/3 0% pumpkin-head sk | squirrel 3/3 57% 79s; red-fox 3/3 58% 75s
+  lad_CUR                                  dmg   263.7 hp    1478 | 3-spots 11/11 worst 3/3 90% pumpkin-head sk | x6 3/3 66% pumpkin-head sk | squirrel 3/3 98% 31s; red-fox 3/3 95% 32s | FARM black-capv2 k/m 12.8 xp/m 358 d/10m 0; pumpkin-headv1 k/m 12.8 xp/m 589 d/10m 0
+  lad_A19                                  dmg   119.6 hp     938 | 3-spots 11/11 worst 3/3 70% pumpkin-head sk | x6 0/3 0% pumpkin-head sk | squirrel 3/3 66% 75s; red-fox 3/3 60% 72s | FARM black-capv2 k/m 12.0 xp/m 336 d/10m 0; pumpkin-headv1 k/m 11.8 xp/m 543 d/10m 0
+  lad_B22                                  dmg   171.3 hp    1132 | 3-spots 11/11 worst 3/3 77% pumpkin-head sk | x6 3/3 42% pumpkin-head sk | squirrel 3/3 85% 48s; red-fox 3/3 62% 50s | FARM black-capv2 k/m 12.6 xp/m 353 d/10m 0; pumpkin-headv1 k/m 12.6 xp/m 580 d/10m 0
+## N5_rdy_P1  [[C49 ladder] S5 ready P1: diamond_axe ^20 (from S5_L95_ready_P1)]
+  baseline twin S5_L95_ready_P1            dmg   114.4 hp    1102 | 3-spots 11/11 worst 3/3 86% pumpkin-head sk | x6 3/3 44% pumpkin-head sk | squirrel 3/3 94% 50s; red-fox 3/3 100% 51s
+  lad_CUR                                  dmg   263.7 hp    1774 | 3-spots 11/11 worst 3/3 98% pumpkin-head sk | x6 3/3 84% pumpkin-head sk | squirrel 3/3 99% 20s; red-fox 3/3 100% 21s
+  lad_A19                                  dmg   119.6 hp    1126 | 3-spots 11/11 worst 3/3 86% mushroom-cap sk | x6 3/3 47% pumpkin-head sk | squirrel 3/3 95% 48s; red-fox 3/3 90% 49s
+  lad_B22                                  dmg   171.3 hp    1358 | 3-spots 11/11 worst 3/3 88% pumpkin-head sk | x6 3/3 64% pumpkin-head sk | squirrel 3/3 99% 32s; red-fox 3/3 96% 35s
+## N5_evo  [[C49 ladder] S5 evolved: emerald_axe ^0 + diamond_axe ^20 stored (from S5_L95_ready_P0)]
+  baseline twin S5_L95_ready_P0            dmg   114.4 hp     919 | 3-spots 11/11 worst 3/3 60% pumpkin-head sk | x6 0/3 0% pumpkin-head sk | squirrel 3/3 57% 79s; red-fox 3/3 58% 75s
+  lad_CUR                                  dmg   476.1 hp    2275 | 3-spots 11/11 worst 3/3 97% pumpkin-head sk | x6 3/3 86% pumpkin-head sk | squirrel 3/3 96% 16s; red-fox 3/3 94% 18s
+  lad_A19                                  dmg   158.0 hp    1082 | 3-spots 11/11 worst 3/3 74% mushroom-cap sk | x6 3/3 28% pumpkin-head sk | squirrel 3/3 92% 52s; red-fox 3/3 66% 54s
+  lad_B22                                  dmg   262.7 hp    1475 | 3-spots 11/11 worst 3/3 86% pumpkin-head sk | x6 3/3 60% pumpkin-head sk | squirrel 3/3 98% 31s; red-fox 3/3 95% 32s
+## N6_arr  [[C49 ladder] S6 arrival: diamond_axe ^20 (from S6_L95_arrive_manual_P0)]
+  baseline twin S6_L95_arrive_manual_P0    dmg   144.9 hp     820 | 3-spots 13/14 worst 0/3 0% television-head sk | x6 0/3 0% top-hat v1 | black-cat 0/3 0% 30s; grim-reaper 0/3 0% 18s
+  lad_CUR                                  dmg   263.7 hp    1614 | 3-spots 14/14 worst 3/3 52% television-head sk | x6 0/3 0% top-hat v1 | black-cat 3/3 25% 83s; grim-reaper 0/3 0% 40s
+  lad_A19                                  dmg   119.6 hp    1073 | 3-spots 13/14 worst 0/3 0% television-head sk | x6 0/3 0% top-hat v1 | black-cat 0/3 0% 46s; grim-reaper 0/3 0% 23s
+  lad_B22                                  dmg   171.3 hp    1267 | 3-spots 14/14 worst 3/3 38% television-head sk | x6 0/3 0% top-hat v1 | black-cat 0/3 0% 60s; grim-reaper 0/3 0% 31s
+## N6_mid  [[C49 ladder] S6 mid: emerald_axe ^10 (from S6_L95_arrive_manual_P1)]
+  baseline twin S6_L95_arrive_manual_P1    dmg   144.9 hp     984 | 3-spots 14/14 worst 3/3 24% television-head sk | x6 0/3 0% top-hat v1 | black-cat 0/3 0% 72s; grim-reaper 0/3 0% 28s
+  lad_CUR                                  dmg   522.9 hp    3102 | 3-spots 14/14 worst 3/3 91% television-head sk | x6 3/3 75% top-hat v1 | black-cat 3/3 98% 28s; grim-reaper 3/3 87% 31s
+  lad_A19                                  dmg   164.6 hp    1490 | 3-spots 14/14 worst 3/3 40% television-head sk | x6 0/3 0% top-hat v1 | black-cat 3/3 50% 91s; grim-reaper 0/3 0% 54s
+  lad_B22                                  dmg   281.4 hp    2016 | 3-spots 14/14 worst 3/3 73% television-head sk | x6 3/3 39% top-hat v1 | black-cat 3/3 73% 53s; grim-reaper 3/3 42% 59s
+## N6_rdy  [[C49 ladder] S6 ready: emerald_axe ^20 (from S6_L140_ready_P0)]
+  baseline twin S6_L140_ready_P0           dmg   246.9 hp    1201 | 3-spots 14/14 worst 3/3 64% television-head sk | x6 3/3 29% top-hat v1 | black-cat 3/3 55% 76s; grim-reaper 3/3 14% 84s
+  lad_CUR                                  dmg   614.4 hp    3225 | 3-spots 14/14 worst 3/3 97% television-head sk | x6 3/3 90% top-hat v1 | black-cat 3/3 91% 30s; grim-reaper 3/3 97% 34s | FARM horned-hoodv2 k/m 12.0 xp/m 924 d/10m 0; top-hatv1 k/m 11.4 xp/m 2052 d/10m 0
+  lad_A19                                  dmg   202.9 hp    1682 | 3-spots 14/14 worst 3/3 74% television-head sk | x6 3/3 44% top-hat v1 | black-cat 3/3 59% 93s; grim-reaper 3/3 71% 103s | FARM horned-hoodv2 k/m 10.6 xp/m 816 d/10m 0; top-hatv1 k/m 10.2 xp/m 1836 d/10m 0
+  lad_H24                                  dmg   202.9 hp    1682 | 3-spots 14/14 worst 3/3 74% television-head sk | x6 3/3 44% top-hat v1 | black-cat 3/3 59% 93s; grim-reaper 3/3 71% 103s | FARM horned-hoodv2 k/m 10.6 xp/m 816 d/10m 0; top-hatv1 k/m 10.2 xp/m 1836 d/10m 0
+  lad_H28                                  dmg   202.9 hp    1682 | 3-spots 14/14 worst 3/3 74% television-head sk | x6 3/3 44% top-hat v1 | black-cat 3/3 59% 93s; grim-reaper 3/3 71% 103s | FARM horned-hoodv2 k/m 10.6 xp/m 816 d/10m 0; top-hatv1 k/m 10.2 xp/m 1836 d/10m 0
+  lad_B22                                  dmg   336.9 hp    2185 | 3-spots 14/14 worst 3/3 87% television-head sk | x6 3/3 75% top-hat v2 | black-cat 3/3 90% 56s; grim-reaper 3/3 69% 61s | FARM horned-hoodv2 k/m 11.4 xp/m 878 d/10m 0; top-hatv1 k/m 10.8 xp/m 1944 d/10m 0
+## N6_rdy_P1  [[C49 ladder] S6 ready P1: emerald_axe ^20 (from S6_L140_ready_P1)]
+  baseline twin S6_L140_ready_P1           dmg   246.9 hp    1441 | 3-spots 14/14 worst 3/3 78% television-head sk | x6 3/3 63% top-hat v1 | black-cat 3/3 98% 52s; grim-reaper 3/3 70% 59s
+  lad_CUR                                  dmg   614.4 hp    3870 | 3-spots 14/14 worst 3/3 98% horned-hood sk | x6 3/3 91% top-hat v1 | black-cat 3/3 98% 20s; grim-reaper 3/3 100% 21s
+  lad_A19                                  dmg   202.9 hp    2019 | 3-spots 14/14 worst 3/3 90% horned-hood sk | x6 3/3 63% top-hat v2 | black-cat 3/3 98% 63s; grim-reaper 3/3 74% 71s
+  lad_B22                                  dmg   336.9 hp    2622 | 3-spots 14/14 worst 3/3 94% television-head sk | x6 3/3 90% top-hat v1 | black-cat 3/3 96% 39s; grim-reaper 3/3 97% 41s
+## N6_evo  [[C49 ladder] S6 evolved: obsidian_axe ^0 + emerald_axe ^20 stored (from S6_L140_ready_P0)]
+  baseline twin S6_L140_ready_P0           dmg   246.9 hp    1201 | 3-spots 14/14 worst 3/3 64% television-head sk | x6 3/3 29% top-hat v1 | black-cat 3/3 55% 76s; grim-reaper 3/3 14% 84s
+  lad_CUR                                  dmg  1156.1 hp    5257 | 3-spots 14/14 worst 3/3 99% top-hat v0 | x6 3/3 100% top-hat v1 | black-cat 3/3 96% 16s; grim-reaper 3/3 94% 18s
+  lad_A19                                  dmg   275.8 hp    1956 | 3-spots 14/14 worst 3/3 77% television-head sk | x6 3/3 51% top-hat v2 | black-cat 3/3 78% 68s; grim-reaper 3/3 65% 76s
+  lad_H24                                  dmg   315.5 hp    2104 | 3-spots 14/14 worst 3/3 87% television-head sk | x6 3/3 70% top-hat v2 | black-cat 3/3 82% 60s; grim-reaper 3/3 77% 65s
+  lad_H28                                  dmg   347.2 hp    2223 | 3-spots 14/14 worst 3/3 88% television-head sk | x6 3/3 76% top-hat v2 | black-cat 3/3 94% 54s; grim-reaper 3/3 58% 60s
+  lad_B22                                  dmg   538.1 hp    2939 | 3-spots 14/14 worst 3/3 96% television-head sk | x6 3/3 89% top-hat v1 | black-cat 3/3 96% 35s; grim-reaper 3/3 81% 40s
+## N7_arr  [[C49 ladder] S7 arrival: emerald_axe ^20 (from S7_L140_arrive_manual_P0)]
+  baseline twin S7_L140_arrive_manual_P0   dmg   246.9 hp    1138 | 3-spots 3/11 worst 0/3 0% bunny-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 16s; orange-tabby-cat 0/3 0% 14s
+  lad_CUR                                  dmg   614.4 hp    3163 | 3-spots 11/11 worst 3/3 34% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 80s; orange-tabby-cat 0/3 0% 76s
+  lad_A19                                  dmg   202.9 hp    1620 | 3-spots 4/11 worst 0/3 0% bunny-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 23s; orange-tabby-cat 0/3 0% 20s
+  lad_H24                                  dmg   202.9 hp    1620 | 3-spots 4/11 worst 0/3 0% bunny-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 23s; orange-tabby-cat 0/3 0% 20s
+  lad_H28                                  dmg   202.9 hp    1620 | 3-spots 4/11 worst 0/3 0% bunny-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 23s; orange-tabby-cat 0/3 0% 20s
+  lad_B22                                  dmg   336.9 hp    2122 | 3-spots 10/11 worst 0/3 0% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 36s; orange-tabby-cat 0/3 0% 34s
+## N7_mid  [[C49 ladder] S7 mid: obsidian_axe ^10 (from S7_L140_arrive)]
+  baseline twin S7_L140_arrive             dmg   246.9 hp    1366 | 3-spots 9/11 worst 0/3 0% elf-ears v1 | x6 0/3 0% elf-ears v1 | bee 0/3 0% 74s; orange-tabby-cat 0/3 0% 54s
+  lad_CUR                                  dmg  1275.2 hp    6769 | 3-spots 11/11 worst 3/3 96% elf-ears sk | x6 3/3 88% elf-ears v1 | bee 3/3 98% 39s; orange-tabby-cat 3/3 100% 40s
+  lad_A19                                  dmg   288.4 hp    2329 | 3-spots 11/11 worst 3/3 43% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 3/3 49% 224s; orange-tabby-cat 3/3 57% 180s
+  lad_H24                                  dmg   336.0 hp    2543 | 3-spots 11/11 worst 3/3 53% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 3/3 76% 182s; orange-tabby-cat 3/3 74% 153s
+  lad_H28                                  dmg   374.0 hp    2714 | 3-spots 11/11 worst 3/3 63% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 3/3 61% 153s; orange-tabby-cat 3/3 54% 138s
+  lad_B22                                  dmg   579.1 hp    3637 | 3-spots 11/11 worst 3/3 76% elf-ears sk | x6 3/3 31% elf-ears sk | bee 3/3 98% 93s; orange-tabby-cat 3/3 88% 90s
+## N7_rdy  [[C49 ladder] S7 ready: obsidian_axe ^20 (from S7_L195_ready_P0)]
+  baseline twin S7_L195_ready_P0           dmg   261.2 hp    1959 | 3-spots 10/11 worst 0/3 0% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 256s; orange-tabby-cat 0/3 0% 250s
+  lad_CUR                                  dmg  1478.7 hp    6524 | 3-spots 11/11 worst 3/3 96% elf-ears sk | x6 3/3 84% elf-ears sk | bee 3/3 90% 40s; orange-tabby-cat 3/3 100% 41s | FARM bunny-earsv2 k/m 10.8 xp/m 3866 d/10m 0; elf-earsv1 k/m 10.2 xp/m 10251 d/10m 0
+  lad_A19                                  dmg   346.0 hp    2277 | 3-spots 11/11 worst 3/3 39% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 3/3 53% 239s; orange-tabby-cat 3/3 57% 189s | FARM bunny-earsv2 k/m 8.6 xp/m 3079 d/10m 0; elf-earsv1 k/m 8.2 xp/m 8241 d/10m 0
+  lad_H24                                  dmg   401.5 hp    2485 | 3-spots 11/11 worst 3/3 59% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 3/3 63% 193s; orange-tabby-cat 3/3 67% 161s | FARM bunny-earsv2 k/m 9.0 xp/m 3222 d/10m 0; elf-earsv1 k/m 8.4 xp/m 8442 d/10m 0
+  lad_H28                                  dmg   445.9 hp    2651 | 3-spots 11/11 worst 3/3 51% elf-ears sk | x6 0/3 0% elf-ears sk | bee 3/3 61% 161s; orange-tabby-cat 3/3 85% 146s | FARM bunny-earsv2 k/m 9.2 xp/m 3294 d/10m 0; elf-earsv1 k/m 8.8 xp/m 8844 d/10m 0
+  lad_B22                                  dmg   679.2 hp    3526 | 3-spots 11/11 worst 3/3 77% elf-ears sk | x6 3/3 31% elf-ears sk | bee 3/3 64% 100s; orange-tabby-cat 3/3 62% 97s | FARM bunny-earsv2 k/m 9.6 xp/m 3437 d/10m 0; elf-earsv1 k/m 9.6 xp/m 9648 d/10m 0
+## N7_rdy_P1  [[C49 ladder] S7 ready P1: obsidian_axe ^20 (from S7_L195_ready_P1)]
+  baseline twin S7_L195_ready_P1           dmg   261.2 hp    2351 | 3-spots 11/11 worst 3/3 54% elf-ears v1 | x6 0/3 0% elf-ears v1 | bee 3/3 71% 205s; orange-tabby-cat 3/3 49% 174s
+  lad_CUR                                  dmg  1478.7 hp    7829 | 3-spots 11/11 worst 3/3 98% elf-ears sk | x6 3/3 92% elf-ears v1 | bee 3/3 100% 28s; orange-tabby-cat 3/3 99% 29s
+  lad_A19                                  dmg   346.0 hp    2732 | 3-spots 11/11 worst 3/3 46% elf-ears sk | x6 0/3 0% elf-ears sk | bee 3/3 80% 144s; orange-tabby-cat 3/3 63% 130s
+  lad_H24                                  dmg   401.5 hp    2982 | 3-spots 11/11 worst 3/3 57% elf-ears sk | x6 0/3 0% elf-ears sk | bee 3/3 96% 124s; orange-tabby-cat 3/3 88% 113s
+  lad_H28                                  dmg   445.9 hp    3182 | 3-spots 11/11 worst 3/3 71% elf-ears sk | x6 0/3 0% elf-ears sk | bee 3/3 98% 104s; orange-tabby-cat 3/3 90% 100s
+  lad_B22                                  dmg   679.2 hp    4232 | 3-spots 11/11 worst 3/3 87% elf-ears sk | x6 3/3 82% elf-ears v1 | bee 3/3 98% 62s; orange-tabby-cat 3/3 96% 65s
+## N7_obs50  [[C49 ladder] S7 ready: Obsidian Axe ^50 (from S7_L195_ready_P0)]
+  baseline twin S7_L195_ready_P0           dmg   261.2 hp    1959 | 3-spots 10/11 worst 0/3 0% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 256s; orange-tabby-cat 0/3 0% 250s
+  lad_CUR                                  dmg  2006.5 hp    8504 | 3-spots 11/11 worst 3/3 98% elf-ears sk | x6 3/3 90% elf-ears sk | bee 3/3 94% 30s; orange-tabby-cat 3/3 98% 31s
+  lad_A19                                  dmg   436.4 hp    2616 | 3-spots 11/11 worst 3/3 65% elf-ears sk | x6 0/3 0% elf-ears sk | bee 3/3 57% 166s; orange-tabby-cat 3/3 69% 150s
+  lad_H24                                  dmg   515.6 hp    2913 | 3-spots 11/11 worst 3/3 64% elf-ears sk | x6 0/3 0% elf-ears sk | bee 3/3 57% 140s; orange-tabby-cat 3/3 71% 126s
+  lad_H28                                  dmg   579.0 hp    3151 | 3-spots 11/11 worst 3/3 58% elf-ears sk | x6 0/3 0% elf-ears sk | bee 3/3 77% 125s; orange-tabby-cat 3/3 64% 114s
+  lad_B22                                  dmg   896.9 hp    4343 | 3-spots 11/11 worst 3/3 80% elf-ears sk | x6 3/3 57% elf-ears sk | bee 3/3 86% 76s; orange-tabby-cat 3/3 78% 73s
+## N8_arr  [[C49 ladder] S8 arrival: obsidian_axe ^20 (from S8_L195_arrive_manual_P0)]
+  baseline twin S8_L195_arrive_manual_P0   dmg   318.5 hp    2598 | 3-spots 0/22 worst 0/3 0% flower-crown v0 | x6 0/3 0% sprout v1 | red-panda 0/3 0% 20s; sunflower 0/3 0% 17s
+  lad_CUR                                  dmg  1478.7 hp    6949 | 3-spots 22/22 worst 3/3 32% sprout sk | x6 0/3 0% sprout v1 | red-panda 3/3 29% 159s; sunflower 0/3 0% 58s
+  lad_A19                                  dmg   346.0 hp    2701 | 3-spots 0/22 worst 0/3 0% flower-crown v0 | x6 0/3 0% sprout v1 | red-panda 0/3 0% 20s; sunflower 0/3 0% 18s
+  lad_H24                                  dmg   401.5 hp    2909 | 3-spots 0/22 worst 0/3 0% flower-crown v1 | x6 0/3 0% sprout v1 | red-panda 0/3 0% 23s; sunflower 0/3 0% 18s
+  lad_H28                                  dmg   445.9 hp    3076 | 3-spots 1/22 worst 0/3 0% flower-crown v1 | x6 0/3 0% sprout v1 | red-panda 0/3 0% 28s; sunflower 0/3 0% 20s
+  lad_B22                                  dmg   679.2 hp    3951 | 3-spots 10/22 worst 0/3 0% green-cap sk | x6 0/3 0% sprout v1 | red-panda 0/3 0% 36s; sunflower 0/3 0% 29s
+## N8_obs60  [[C49 ladder] S8 mid: Obsidian Axe ^60 (from S8_L240_ready_P0)]
+  baseline twin S8_L240_ready_P0           dmg   631.9 hp    2039 | 3-spots 8/22 worst 0/3 0% flower-crown sk | x6 0/3 0% sprout v1 | red-panda 0/3 0% 26s; sunflower 0/3 0% 18s
+  lad_CUR                                  dmg  2205.0 hp    9841 | 3-spots 22/22 worst 3/3 83% pink-flower-hood sk | x6 3/3 56% sprout sk | red-panda 3/3 93% 80s; sunflower 3/3 68% 88s | FARM flower-crownv2 k/m 8.8 xp/m 24825 d/10m 0; sproutv1 k/m 8.8 xp/m 138600 d/10m 0
+  lad_A19                                  dmg   489.0 hp    3406 | 3-spots 17/22 worst 0/3 0% pink-flower-hood sk | x6 0/3 0% sprout v1 | red-panda 0/3 0% 260s; sunflower 0/3 0% 40s | FARM flower-crownv2 k/m 6.6 xp/m 18619 d/10m 0; sproutv1 k/m 2.0 xp/m 31500 d/10m 12
+  lad_H24                                  dmg   576.1 hp    3733 | 3-spots 19/22 worst 0/3 0% pink-flower-hood sk | x6 0/3 0% sprout v1 | red-panda 0/3 0% 320s; sunflower 0/3 0% 78s | FARM flower-crownv2 k/m 7.0 xp/m 19747 d/10m 0; sproutv1 k/m 4.6 xp/m 72450 d/10m 4
+  lad_H28                                  dmg   645.9 hp    3994 | 3-spots 20/22 worst 0/3 0% sprout sk | x6 0/3 0% sprout v1 | red-panda 0/3 0% 320s; sunflower 0/3 0% 98s | FARM flower-crownv2 k/m 7.2 xp/m 20311 d/10m 0; sproutv1 k/m 6.2 xp/m 97650 d/10m 0
+  lad_B22                                  dmg   992.0 hp    5292 | 3-spots 22/22 worst 3/3 52% sprout v1 | x6 0/3 0% sprout v1 | red-panda 3/3 78% 201s; sunflower 3/3 50% 240s | FARM flower-crownv2 k/m 8.2 xp/m 23132 d/10m 0; sproutv1 k/m 7.4 xp/m 116550 d/10m 0
+## N8_obs100  [[C49 ladder] S8 ready: Obsidian Axe ^100 (from S8_L240_ready_P0)]
+  baseline twin S8_L240_ready_P0           dmg   631.9 hp    2039 | 3-spots 8/22 worst 0/3 0% flower-crown sk | x6 0/3 0% sprout v1 | red-panda 0/3 0% 26s; sunflower 0/3 0% 18s
+  lad_CUR                                  dmg  2908.9 hp   12480 | 3-spots 22/22 worst 3/3 85% sprout sk | x6 3/3 47% sprout sk | red-panda 3/3 96% 57s; sunflower 3/3 90% 60s | FARM flower-crownv2 k/m 9.4 xp/m 26517 d/10m 0; sproutv1 k/m 8.8 xp/m 138600 d/10m 0
+  lad_A19                                  dmg   609.4 hp    3858 | 3-spots 20/22 worst 0/3 0% pink-flower-hood sk | x6 0/3 0% sprout v1 | red-panda 0/3 0% 316s; sunflower 0/3 0% 96s | FARM flower-crownv2 k/m 7.0 xp/m 19747 d/10m 0; sproutv1 k/m 6.0 xp/m 94500 d/10m 0
+  lad_H24                                  dmg   728.3 hp    4303 | 3-spots 21/22 worst 0/3 0% sprout sk | x6 0/3 0% sprout v1 | red-panda 3/3 55% 325s; sunflower 0/3 0% 236s | FARM flower-crownv2 k/m 7.4 xp/m 20875 d/10m 0; sproutv1 k/m 6.6 xp/m 103950 d/10m 0
+  lad_H28                                  dmg   823.4 hp    4660 | 3-spots 22/22 worst 3/3 30% sprout sk | x6 0/3 0% sprout v1 | red-panda 3/3 58% 274s; sunflower 0/3 0% 254s | FARM flower-crownv2 k/m 7.8 xp/m 22004 d/10m 0; sproutv1 k/m 6.8 xp/m 107100 d/10m 0
+  lad_B22                                  dmg  1282.2 hp    6381 | 3-spots 22/22 worst 3/3 60% pink-flower-hood sk | x6 0/3 0% sprout sk | red-panda 3/3 67% 158s; sunflower 3/3 64% 162s | FARM flower-crownv2 k/m 8.6 xp/m 24261 d/10m 0; sproutv1 k/m 7.8 xp/m 122850 d/10m 0
+## N8_obs100_P1  [[C49 ladder] S8 ready P1: Obsidian Axe ^100 (from S8_L240_ready_P1)]
+  baseline twin S8_L240_ready_P1           dmg   631.9 hp    2447 | 3-spots 18/22 worst 0/3 0% pink-flower-hood sk | x6 0/3 0% sprout v1 | red-panda 3/3 53% 235s; sunflower 0/3 0% 38s
+  lad_CUR                                  dmg  2908.9 hp   14977 | 3-spots 22/22 worst 3/3 96% sprout sk | x6 3/3 83% sprout sk | red-panda 3/3 100% 39s; sunflower 3/3 101% 40s
+  lad_A19                                  dmg   609.4 hp    4629 | 3-spots 22/22 worst 3/3 50% plain v1 | x6 0/3 0% sprout v1 | red-panda 3/3 81% 240s; sunflower 3/3 66% 282s
+  lad_H24                                  dmg   728.3 hp    5164 | 3-spots 22/22 worst 3/3 53% sprout v1 | x6 0/3 0% sprout v1 | red-panda 3/3 86% 191s; sunflower 3/3 91% 225s
+  lad_H28                                  dmg   823.4 hp    5592 | 3-spots 22/22 worst 3/3 65% sprout sk | x6 0/3 0% sprout v1 | red-panda 3/3 96% 160s; sunflower 3/3 62% 188s
+  lad_B22                                  dmg  1282.2 hp    7657 | 3-spots 22/22 worst 3/3 74% sprout sk | x6 3/3 49% sprout sk | red-panda 3/3 101% 96s; sunflower 3/3 99% 105s
+## N3_rdy_sword  [[C49 ladder] S3 ready: Iron Sword ^20 (from S3_L35_snow)]
+  baseline twin S3_L35_snow                dmg    54.1 hp     432 | 3-spots 12/12 worst 3/3 66% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 50% 41s
+  lad_CUR                                  dmg    61.8 hp     345 | 3-spots 12/12 worst 3/3 75% yellow-cap sk | x6 3/3 24% yellow-cap sk | gray-cat 3/3 32% 36s
+  lad_A19                                  dmg    44.8 hp     342 | 3-spots 12/12 worst 3/3 61% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 15% 50s
+  lad_B22                                  dmg    52.1 hp     343 | 3-spots 12/12 worst 3/3 68% yellow-cap sk | x6 3/3 13% yellow-cap sk | gray-cat 3/3 30% 43s
+  lad_A19_s3group                          dmg    44.8 hp     342 | 3-spots 12/12 worst 3/3 47% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 15% 50s
+## N7_rdy_sword  [[C49 ladder] S7 ready: Obsidian Sword ^20 (from S7_L195_ready_P0)]
+  baseline twin S7_L195_ready_P0           dmg   261.2 hp    1959 | 3-spots 10/11 worst 0/3 0% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 256s; orange-tabby-cat 0/3 0% 250s
+  lad_CUR                                  dmg  1786.6 hp    1905 | 3-spots 11/11 worst 3/3 88% elf-ears sk | x6 3/3 13% elf-ears sk | bee 3/3 53% 35s; orange-tabby-cat 3/3 42% 36s
+  lad_A19                                  dmg   398.7 hp    1487 | 3-spots 10/11 worst 0/3 0% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 40s; orange-tabby-cat 0/3 0% 56s
+  lad_H24                                  dmg   468.1 hp    1487 | 3-spots 10/11 worst 0/3 0% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 40s; orange-tabby-cat 0/3 0% 56s
+  lad_H28                                  dmg   523.5 hp    1487 | 3-spots 11/11 worst 3/3 14% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 58s; orange-tabby-cat 0/3 0% 56s
+  lad_B22                                  dmg   806.2 hp    1622 | 3-spots 11/11 worst 3/3 46% elf-ears sk | x6 0/3 0% elf-ears sk | bee 3/3 40% 83s; orange-tabby-cat 0/3 0% 76s
+## N3_rdy_enh_mean  [[C49 ladder] S3 ready, 3 extras at mean roll (from S3_L35_snow)]
+  baseline twin S3_L35_snow                dmg    54.1 hp     432 | 3-spots 12/12 worst 3/3 66% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 50% 41s
+  lad_CUR                                  dmg    54.6 hp     454 | 3-spots 12/12 worst 3/3 75% yellow-cap sk | x6 3/3 39% yellow-cap sk | gray-cat 3/3 50% 36s
+  lad_A19                                  dmg    40.7 hp     403 | 3-spots 12/12 worst 3/3 69% yellow-cap sk | x6 3/3 29% yellow-cap sk | gray-cat 3/3 35% 48s
+  lad_B22                                  dmg    46.6 hp     425 | 3-spots 12/12 worst 3/3 71% yellow-cap sk | x6 3/3 34% yellow-cap sk | gray-cat 3/3 40% 42s
+## N3_rdy_enh_max  [[C49 ladder] S3 ready, 3 extras at max roll (from S3_L35_snow)]
+  baseline twin S3_L35_snow                dmg    54.1 hp     432 | 3-spots 12/12 worst 3/3 66% yellow-cap sk | x6 0/3 0% yellow-cap sk | gray-cat 3/3 50% 41s
+  lad_CUR                                  dmg    54.6 hp     454 | 3-spots 12/12 worst 3/3 77% yellow-cap sk | x6 3/3 42% yellow-cap sk | gray-cat 3/3 45% 36s
+  lad_A19                                  dmg    40.7 hp     403 | 3-spots 12/12 worst 3/3 68% yellow-cap sk | x6 3/3 24% yellow-cap sk | gray-cat 3/3 42% 50s
+  lad_B22                                  dmg    46.6 hp     425 | 3-spots 12/12 worst 3/3 72% yellow-cap sk | x6 3/3 37% yellow-cap sk | gray-cat 3/3 47% 42s
+## N7_rdy_enh_max  [[C49 ladder] S7 ready, 3 extras at max roll (from S7_L195_ready_P0)]
+  baseline twin S7_L195_ready_P0           dmg   261.2 hp    1959 | 3-spots 10/11 worst 0/3 0% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 0/3 0% 256s; orange-tabby-cat 0/3 0% 250s
+  lad_CUR                                  dmg  1478.7 hp    6524 | 3-spots 11/11 worst 3/3 97% elf-ears sk | x6 3/3 74% elf-ears sk | bee 3/3 94% 38s; orange-tabby-cat 3/3 93% 40s
+  lad_A19                                  dmg   346.0 hp    2277 | 3-spots 11/11 worst 3/3 55% elf-ears sk | x6 0/3 0% elf-ears v1 | bee 3/3 60% 202s; orange-tabby-cat 3/3 51% 172s
+  lad_B22                                  dmg   679.2 hp    3526 | 3-spots 11/11 worst 3/3 82% elf-ears sk | x6 3/3 43% elf-ears sk | bee 3/3 80% 92s; orange-tabby-cat 3/3 59% 88s

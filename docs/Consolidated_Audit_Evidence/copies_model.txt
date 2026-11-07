@@ -1,0 +1,36 @@
+Copies needed (exact): total acquired = 1 + merge + spares
+  current ^100+100   merge 100 spares 100 total 201  (repeat evolution after the first: +100 copies each)
+  ^30+10             merge  30 spares  10 total  41  (repeat evolution after the first: +10 copies each)
+  preferred ^20+10   merge  20 spares  10 total  31  (repeat evolution after the first: +10 copies each)
+  ^10+10             merge  10 spares  10 total  21  (repeat evolution after the first: +10 copies each)
+
+Kills of weapon-carrying actors (v1/v2) for N copies of ONE weapon id; P10 / P50 / P90 (Monte Carlo 4000)
+  base 5%                           21 copies:   297 /   396 /   517 kills
+  base 5%                           31 copies:   470 /   594 /   738 kills
+  base 5%                           41 copies:   643 /   793 /   962 kills
+  base 5%                          201 copies:  3656 /  3999 /  4360 kills
+  Loot ^5 7.5%                      21 copies:   195 /   260 /   341 kills
+  Loot ^5 7.5%                      31 copies:   312 /   394 /   489 kills
+  Loot ^5 7.5%                      41 copies:   433 /   527 /   637 kills
+  Loot ^5 7.5%                     201 copies:  2439 /  2661 /  2919 kills
+  Loot ^15 12.5%                    21 copies:   120 /   159 /   205 kills
+  Loot ^15 12.5%                    31 copies:   190 /   239 /   297 kills
+  Loot ^15 12.5%                    41 copies:   260 /   318 /   382 kills
+  Loot ^15 12.5%                   201 copies:  1468 /  1596 /  1732 kills
+  Loot ^15 + Collection II 15.5%    21 copies:    96 /   126 /   164 kills
+  Loot ^15 + Collection II 15.5%    31 copies:   153 /   191 /   238 kills
+  Loot ^15 + Collection II 15.5%    41 copies:   211 /   256 /   308 kills
+  Loot ^15 + Collection II 15.5%   201 copies:  1180 /  1286 /  1398 kills
+
+Minutes of focus farming one weapon spot (P50, P90) at the stage kill rate (first copy included in count)
+  stage kills/min | 21 copies base / Loot15 | 31 copies base / Loot15 | 41 copies base / Loot15 | 201 copies base / Loot15
+  S1  22.0       |    19 /     8 |    28 /    11 |    37 /    15 |   183 /    73
+  S2  20.0       |    21 /     8 |    31 /    12 |    41 /    16 |   201 /    80
+  S3  15.0       |    28 /    11 |    41 /    17 |    55 /    22 |   268 /   107
+  S4  13.3       |    32 /    13 |    47 /    19 |    62 /    25 |   302 /   121
+  S5  12.0       |    35 /    14 |    52 /    21 |    68 /    27 |   335 /   134
+  S6  11.0       |    38 /    15 |    56 /    23 |    75 /    30 |   365 /   146
+  S7   9.0       |    47 /    19 |    69 /    28 |    91 /    36 |   447 /   179
+  S8   7.0       |    60 /    24 |    89 /    35 |   117 /    47 |   574 /   230
+
+  (mean minutes = copies / p / kills per minute; P90 is ~1.25x (31 copies) to ~1.1x (201) the mean at these counts)
