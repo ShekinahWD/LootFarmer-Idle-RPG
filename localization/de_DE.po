@@ -310,12 +310,6 @@ msgstr "Ausrüsten"
 msgid "UNEQUIP"
 msgstr "Ablegen"
 
-msgid "REROLL"
-msgstr "Beide Zusatzwerte neu würfeln · %s Edelsteine"
-
-msgid "REROLL_CONFIRM"
-msgstr "%s Edelsteine ausgeben, um beide Zusatzwerte zu ersetzen? Der neue Wurf ersetzt den alten, auch wenn er schwächer ist."
-
 msgid "USE"
 msgstr "Einen benutzen"
 

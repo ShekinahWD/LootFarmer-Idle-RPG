@@ -247,6 +247,61 @@ func record(id: String) -> Dictionary:
         state.items[id] = {"qty":0,"merge":remembered_merge(id),"extras":extras}
     return state.items[id]
 
+## Change 52 (approved brief §4): boss-enhanced weapons. The first boss-origin copy of a weapon id this run
+## (a pickup marked "enhanced", or a boss drop collected while the stack has none) adds exactly two bonus
+## attributes to the id's record (record.boss_extras: [{stat, value}, ...]) from the item's own pool and
+## ranges, never a stat another slot already holds. Later boss copies are ordinary copies. Merging never
+## changes attributes; each slot rerolls on its own (reroll). Attributes belong to the run's inventory and
+## reset with it at Prestige; offline grants and evolutions are never enhanced. Returns true if enhanced.
+const BOSS_EXTRA_SLOTS:=2
+func enhance(id: String) -> bool:
+    if not catalog.items.has(id) or catalog.items[id].kind!="weapon" or is_legacy(id) or quantity(id)<1:return false
+    var r:=record(id)
+    if not (r.get("boss_extras",[]) as Array).is_empty():return false
+    var slots: Array=[]
+    for i in range(BOSS_EXTRA_SLOTS):
+        var stat:=_free_stat(id,_held_stats(r)+slots.map(func(e):return e.stat))
+        if stat=="":break
+        slots.append({"stat":stat,"value":_roll_value(id,stat,true)})
+    if slots.is_empty():return false
+    r["boss_extras"]=slots
+    touch()
+    return true
+
+func boss_extras(id: String) -> Array:
+    return state.items.get(id,{}).get("boss_extras",[])
+
+## Every rolled attribute of the record as one {stat: total} (base slots and boss slots).
+func bonus_attributes(id: String) -> Dictionary:
+    var out: Dictionary=state.items.get(id,{}).get("extras",{}).duplicate()
+    for e in boss_extras(id):out[str(e.stat)]=float(out.get(str(e.stat),0.0))+float(e.value)
+    return out
+
+## Reroll slots in display order: ["base", stat] for each base attribute, then ["boss", index].
+func reroll_slots(id: String) -> Array:
+    var out: Array=[]
+    for stat in state.items.get(id,{}).get("extras",{}):out.append(["base",str(stat)])
+    for i in range(boss_extras(id).size()):out.append(["boss",i])
+    return out
+
+func _held_stats(r: Dictionary) -> Array:
+    var held: Array=r.get("extras",{}).keys()
+    for e in r.get("boss_extras",[]):held.append(str(e.stat))
+    return held
+
+## A stat from the item's pool that none of `taken` holds ("" when the pool is exhausted).
+func _free_stat(id: String,taken: Array) -> String:
+    var pool: Array=catalog.items[id].extras.keys().filter(func(k):return not taken.has(k))
+    if pool.is_empty():return ""
+    return str(pool[rng.randi_range(0,pool.size()-1)])
+
+func _roll_value(id: String,stat: String,_boss: bool) -> float:
+    var span: Array=catalog.items[id].extras[stat]
+    return rng.randf_range(float(span[0]),float(span[1]))
+
+func reroll_cost(id: String) -> int:
+    return ceili(float(catalog.items[id].get("reroll",0))*(1-campaign.bonus("reroll_discount")))
+
 ## Change 50: the permanent merge level of an item identity (kept by Prestige, cleared by Hard Reset).
 ## Supplies grow by use (supply mastery), never by merging, so they are never remembered.
 func remembered_merge(id: String) -> int:
@@ -745,21 +800,35 @@ func equip(id: String) -> bool:
     return true
 
 
-func reroll(id: String) -> bool:
+## Change 52: rerolls one attribute slot (reroll_slots order; slot 0 is the base attribute) at the item's
+## reroll price. The slot draws a stat that no other slot of this weapon holds, then a value in its range;
+## every other slot, the quantity, the merge level and the Auto-Merge choice stay as they were.
+func reroll(id: String,slot: int=0) -> bool:
     if not action_lock_reason().is_empty():
         return fail(action_lock_reason())
-    var cost: int = ceili(float(catalog.items[id].get("reroll",0))*(1-campaign.bonus("reroll_discount")))
-    if quantity(id)<1 or cost==0 or catalog.items[id].extras.is_empty():
+    var cost:=reroll_cost(id)
+    var slots:=reroll_slots(id)
+    if quantity(id)<1 or cost==0 or catalog.items[id].extras.is_empty() or slot<0 or slot>=slots.size():
         return false
     if not pay("gems",cost):
         return false
     var r := record(id)
-    var old_qty: int = r.qty
-    var old_merge: int = r.merge
-    state.items.erase(id)
-    r = record(id)
-    r.qty = old_qty
-    r.merge = old_merge
+    var entry: Array=slots[slot]
+    var taken:=_held_stats(r)
+    var own: String=str(entry[1]) if entry[0]=="base" else str(r.boss_extras[int(entry[1])].stat)
+    taken.erase(own)
+    var stat:=_free_stat(id,taken)
+    if stat=="":stat=own
+    var value:=_roll_value(id,stat,entry[0]=="boss")
+    if entry[0]=="base":
+        # Rebuild the base attributes in their order with this slot replaced.
+        var rebuilt: Dictionary={}
+        for key in r.extras:
+            if key==own:rebuilt[stat]=value
+            else:rebuilt[key]=r.extras[key]
+        r.extras=rebuilt
+    else:
+        r.boss_extras[int(entry[1])]={"stat":stat,"value":value}
     touch()
     return true
 
@@ -908,6 +977,7 @@ func collect(uid: int) -> bool:
                 touch()
                 return true
             if add_item(pickup.item):
+                if bool(pickup.get("enhanced",false)) and enhance(str(pickup.item)):event.emit("ITEM_ENHANCED")
                 campaign.progress("collect",pickup.item,1)
                 if catalog.items[pickup.item].kind in ["weapon","outfit"]:campaign.progress("gear",pickup.item,1)
                 state.pickups.erase(pickup)
@@ -1132,7 +1202,11 @@ func _loot_speech(a: Dictionary,dropped: Array) -> void:
 
 func _drop(id: String,a: Dictionary) -> String:
     state.next_pickup+=1
-    state.pickups.append({"uid":state.next_pickup,"item":id,"x":a.x+rng.randf_range(-10,10),"y":a.y+rng.randf_range(-8,8),"ttl":300.0,"group":int(a.group)})
+    var pickup:={"uid":state.next_pickup,"item":id,"x":a.x+rng.randf_range(-10,10),"y":a.y+rng.randf_range(-8,8),"ttl":300.0,"group":int(a.group)}
+    # Change 52: a boss's weapon drop carries its origin, so it still enhances when collected later
+    # (after a reload, from another map's saved world or by Auto-Collect).
+    if int(a.group) in range(catalog.groups.size()) and catalog.groups[int(a.group)].boss and catalog.items[id].kind=="weapon":pickup["enhanced"]=true
+    state.pickups.append(pickup)
     return id
 
 func step(dt: float) -> void:
@@ -1528,7 +1602,7 @@ func stat_sources() -> Dictionary:
         if weight==0:continue
         var bucket: Dictionary=result["SOURCE_EQUIPPED" if equipped(id) else "SOURCE_STORED"]
         for intrinsic in [true,false]:
-            var values: Dictionary=normal(id) if intrinsic else state.items[id].extras
+            var values: Dictionary=normal(id) if intrinsic else bonus_attributes(id)
             for key in values:bucket[key]=float(bucket.get(key,0))+float(values[key])*weight*(1.0+campaign.bonus("equipped") if intrinsic and equipped(id) else 1.0)
     # Milestones of the equipped outfit only; stored outfits never add Guard, Recovery or milestone HP.
     if state.outfit!="" and quantity(state.outfit)>0:

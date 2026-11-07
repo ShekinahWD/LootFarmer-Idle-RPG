@@ -179,6 +179,42 @@
    ],
    "change": "change-51",
    "status": "changed"
+  },
+  "ITEM_BOSS_BONUS": {
+   "en": "Boss bonus",
+   "placeholders": [],
+   "change": "change-52"
+  },
+  "ITEM_ENHANCED": {
+   "en": "Boss weapon: two bonus attributes added",
+   "placeholders": [],
+   "change": "change-52"
+  },
+  "ITEM_BOSS_BONUS_EXPLAIN": {
+   "en": "Boss-enhanced: your first copy of this weapon from a boss added two bonus attributes. Later boss copies count as normal copies. Bonus attributes reset at Prestige; merge levels stay.",
+   "placeholders": [],
+   "change": "change-52"
+  },
+  "ITEM_BOSS_BONUS_HINT": {
+   "en": "The first copy of this weapon you get from a boss adds two bonus attributes (once per run).",
+   "placeholders": [],
+   "change": "change-52"
+  },
+  "REROLL_ATTRIBUTE": {
+   "en": "Reroll %s · %s gems",
+   "placeholders": [
+    "%s",
+    "%s"
+   ],
+   "change": "change-52"
+  },
+  "REROLL_ATTRIBUTE_CONFIRM": {
+   "en": "Spend %s gems to reroll %s? The new roll replaces this attribute, even if weaker. Your other attributes stay as they are.",
+   "placeholders": [
+    "%s",
+    "%s"
+   ],
+   "change": "change-52"
   }
  },
  "retired": {
@@ -203,6 +239,8 @@
   "CONTENT_ARSENAL_O3_DESCRIPTION": "change-51",
   "MERGE_MAX": "change-51",
   "EVOLUTION_NEEDS": "change-51",
-  "EVOLUTION_PREVIEW": "change-51"
+  "EVOLUTION_PREVIEW": "change-51",
+  "REROLL": "change-52",
+  "REROLL_CONFIRM": "change-52"
  }
 }

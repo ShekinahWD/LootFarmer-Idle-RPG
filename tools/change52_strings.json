@@ -1,0 +1,8 @@
+{
+  "ITEM_BOSS_BONUS": "Boss bonus",
+  "ITEM_ENHANCED": "Boss weapon: two bonus attributes added",
+  "ITEM_BOSS_BONUS_EXPLAIN": "Boss-enhanced: your first copy of this weapon from a boss added two bonus attributes. Later boss copies count as normal copies. Bonus attributes reset at Prestige; merge levels stay.",
+  "ITEM_BOSS_BONUS_HINT": "The first copy of this weapon you get from a boss adds two bonus attributes (once per run).",
+  "REROLL_ATTRIBUTE": "Reroll %s · %s gems",
+  "REROLL_ATTRIBUTE_CONFIRM": "Spend %s gems to reroll %s? The new roll replaces this attribute, even if weaker. Your other attributes stay as they are."
+}

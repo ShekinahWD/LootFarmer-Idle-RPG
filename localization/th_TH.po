@@ -310,12 +310,6 @@ msgstr "สวมใส่"
 msgid "UNEQUIP"
 msgstr "ถอด"
 
-msgid "REROLL"
-msgstr "สุ่มค่าพิเศษใหม่ทั้งสอง · %s อัญมณี"
-
-msgid "REROLL_CONFIRM"
-msgstr "ใช้ %s อัญมณีเพื่อเปลี่ยนค่าสถานะพิเศษทั้งสองไหม ผลใหม่จะแทนที่ผลเดิมแม้จะอ่อนกว่า"
-
 msgid "USE"
 msgstr "ใช้หนึ่งชิ้น"
 

@@ -310,12 +310,6 @@ msgstr "Equipar"
 msgid "UNEQUIP"
 msgstr "Desequipar"
 
-msgid "REROLL"
-msgstr "Rerrolar os dois extras · %s gemas"
-
-msgid "REROLL_CONFIRM"
-msgstr "Gastar %s gemas para substituir os dois atributos extras? A nova rolagem substitui a antiga, mesmo que seja mais fraca."
-
 msgid "USE"
 msgstr "Usar um"
 

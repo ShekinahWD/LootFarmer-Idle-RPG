@@ -308,12 +308,6 @@ msgstr "装备"
 msgid "UNEQUIP"
 msgstr "卸下"
 
-msgid "REROLL"
-msgstr "重随两条额外属性 · %s 宝石"
-
-msgid "REROLL_CONFIRM"
-msgstr "花费 %s 宝石替换两条额外属性？即使更弱，新结果也会取代旧结果。"
-
 msgid "USE"
 msgstr "使用一个"
 

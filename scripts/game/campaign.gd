@@ -1713,6 +1713,7 @@ func valid_snapshot(data: Dictionary) -> bool:
     for id in data.items:
         if not sim.catalog.items.has(id) or not data.items[id] is Dictionary:return false
         var r: Dictionary=data.items[id]
+        if r.has("boss_extras") and not boss_extras_valid(id,r.boss_extras):return false
         if not r.has_all(["qty","merge","extras"]) or r.qty<0 or r.qty!=floor(r.qty) or r.merge<0 or r.merge>sim.merge_validation_cap(id):return false
     for id in data.merge_memory:
         if not sim.catalog.items.has(id) or not number(data.merge_memory[id]) or data.merge_memory[id]<0 or data.merge_memory[id]>sim.merge_validation_cap(id):return false
@@ -1825,6 +1826,14 @@ func actor_valid(a,player: bool) -> bool:
         if not number(a[key]):return false
     if player:return a.id=="player" and a.has("idle")
     return int(a.group) in range(sim.catalog.groups.size()) and int(a.get("variant",-1)) in variants(int(a.group))
+## Change 52: at most two boss slots, each a stat of the item's pool held by no other slot.
+func boss_extras_valid(id: String,slots) -> bool:
+    if not slots is Array or slots.size()>sim.BOSS_EXTRA_SLOTS:return false
+    var seen: Array=[]
+    for e in slots:
+        if not e is Dictionary or not sim.catalog.items[id].extras.has(str(e.get("stat",""))) or not number(e.get("value")) or seen.has(str(e.stat)):return false
+        seen.append(str(e.stat))
+    return true
 func drops_valid(drops) -> bool:
     if not drops is Array:return false
     for d in drops:
@@ -1835,6 +1844,7 @@ func drops_valid(drops) -> bool:
         if dropped and (not d.dropped is Dictionary or not number(d.dropped.get("online")) or not d.dropped.get("ops") is Dictionary):return false
         if not sim.catalog.items.has(d.item) or not number(d.group) or int(d.group) not in (range(-1,0) if dropped else range(sim.catalog.groups.size())):return false
         if d.has("qty") and (not number(d.qty) or int(d.qty)<1):return false
+        if d.has("enhanced") and not d.enhanced is bool:return false
         for key in ["uid","x","y","ttl"]:
             if not number(d[key]):return false
     return true

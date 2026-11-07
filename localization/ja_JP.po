@@ -308,12 +308,6 @@ msgstr "装備する"
 msgid "UNEQUIP"
 msgstr "外す"
 
-msgid "REROLL"
-msgstr "追加ステータスを両方再抽選 · ジェム %s"
-
-msgid "REROLL_CONFIRM"
-msgstr "ジェム%sを使って追加ステータスを2つとも入れ替えますか？弱くなっても新しい結果に置き換わります。"
-
 msgid "USE"
 msgstr "1個使う"
 

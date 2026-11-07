@@ -1454,6 +1454,10 @@ func _item_panel() -> void:
     for key in r.extras:
         _stat_line(details,"+ "+_stat_text(key,r.extras[key],true),0.0 if shown.has(key) else deltas.get(key,0.0),key,19,Color(.75,.8,.87))
         shown[key]=true
+    # Change 52: boss bonus attributes, gold, each on its own line.
+    for e in sim.boss_extras(id):
+        _stat_line(details,"★ "+tr("ITEM_BOSS_BONUS")+": "+_stat_text(str(e.stat),float(e.value),true),0.0 if shown.has(str(e.stat)) else deltas.get(str(e.stat),0.0),str(e.stat),19,Color(1,.84,.45))
+        shown[str(e.stat)]=true
     # Stats only the equipped item gives: shown as what equipping this one would lose.
     for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen","regen_pct"]:
         if not shown.has(key) and _meaningful(key,deltas.get(key,0.0)):
@@ -1499,9 +1503,16 @@ func _item_panel() -> void:
     if def.kind=="skill":
         for i in range(1+sim.level("skill_slots")):
             _game_action(tr("EQUIP_SKILL_SLOT") % (i+1),func()->void:if selected==id:sim.campaign.equip_skill(id,i),true,"",more)
-    if not def.extras.is_empty():
-        var cost:=ceili(float(def.reroll)*(1-sim.campaign.bonus("reroll_discount")))
-        _game_action(tr("REROLL") % fmt_cost(cost),func()->void:_confirm(tr("REROLL_CONFIRM") % fmt_cost(cost),func()->void:if selected==id:sim.reroll(id)),true,"",more)
+    if not def.extras.is_empty() and r.qty>0:
+        # Change 52: one Reroll per attribute slot; the others stay as they are.
+        var cost:=sim.reroll_cost(id)
+        var slots:=sim.reroll_slots(id)
+        for i in range(slots.size()):
+            var slot: int=i
+            var stat: String=str(slots[i][1]) if slots[i][0]=="base" else str(sim.boss_extras(id)[int(slots[i][1])].stat)
+            var label: String=tr("STAT_"+stat.to_upper())
+            if slots[i][0]=="boss":label="★ "+label
+            _game_action(tr("REROLL_ATTRIBUTE") % [label,fmt_cost(cost)],func()->void:_confirm(tr("REROLL_ATTRIBUTE_CONFIRM") % [fmt_cost(cost),label],func()->void:if selected==id:sim.reroll(id,slot)),true,"",more)
     if sim.gear_group(id)>=0:_game_action(tr("ITEM_AUTO_MERGE") % tr("OFF" if sim.auto_merge_excluded(id) else "ON"),func()->void:sim.set_auto_merge_excluded(id,not sim.auto_merge_excluded(id)),true,"",more).set_meta("guide","item_auto_merge")
     _drop_action(id,more)
     for button in more.get_children():
@@ -1520,6 +1531,10 @@ func _item_panel() -> void:
         _text(tr("EVOLUTION_RULE") % [int(sim.catalog.progression.evolution.required_merge),sim.evolution_spare_cost(id),sim.evolution_spare_cost(id)+1],17,Color(.8,.84,.9))
     elif def.next=="":
         _text(tr("MAX_ITEM_TIER"),17,Color(.8,.84,.9))
+    # Change 52: what boss copies add to this weapon (or have added this run).
+    if def.kind=="weapon" and not sim.is_legacy(id):
+        var enhanced: bool=not sim.boss_extras(id).is_empty()
+        _text(tr("ITEM_BOSS_BONUS_EXPLAIN" if enhanced else "ITEM_BOSS_BONUS_HINT"),16,Color(1,.84,.45) if enhanced else Color(.7,.75,.82))
     # Pinned: previous, primary, merge, next. Positions never change while browsing.
     var index:=list.find(id)
     _arrow_button(-1,index>0,func()->void:_browse(-1))

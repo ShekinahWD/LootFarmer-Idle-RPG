@@ -308,12 +308,6 @@ msgstr "장⁠착"
 msgid "UNEQUIP"
 msgstr "해⁠제"
 
-msgid "REROLL"
-msgstr "추⁠가 능⁠력⁠치 2⁠개 재⁠설⁠정 · 보⁠석 %s"
-
-msgid "REROLL_CONFIRM"
-msgstr "보⁠석 %s⁠개⁠를 사⁠용⁠해 추⁠가 능⁠력⁠치 2⁠개⁠를 모⁠두 교⁠체⁠할⁠까⁠요? 더 약⁠하⁠더⁠라⁠도 새 결⁠과⁠가 기⁠존 결⁠과⁠를 대⁠체⁠합⁠니⁠다."
-
 msgid "USE"
 msgstr "1⁠개 사⁠용"
 

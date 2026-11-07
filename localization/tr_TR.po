@@ -310,12 +310,6 @@ msgstr "Kuşan"
 msgid "UNEQUIP"
 msgstr "Çıkar"
 
-msgid "REROLL"
-msgstr "İki eki yeniden belirle · %s mücevher"
-
-msgid "REROLL_CONFIRM"
-msgstr "İki ek istatistiği değiştirmek için %s mücevher harcansın mı? Yeni sonuç, daha zayıf olsa bile eskisinin yerini alır."
-
 msgid "USE"
 msgstr "Bir tane kullan"
 

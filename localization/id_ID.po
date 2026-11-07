@@ -310,12 +310,6 @@ msgstr "Pakai"
 msgid "UNEQUIP"
 msgstr "Lepas"
 
-msgid "REROLL"
-msgstr "Acak ulang kedua tambahan · %s permata"
-
-msgid "REROLL_CONFIRM"
-msgstr "Habiskan %s permata untuk mengganti kedua statistik tambahan? Hasil baru menggantikan yang lama, meski lebih lemah."
-
 msgid "USE"
 msgstr "Pakai satu"
 

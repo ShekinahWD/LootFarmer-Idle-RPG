@@ -310,12 +310,6 @@ msgstr "Załóż"
 msgid "UNEQUIP"
 msgstr "Zdejmij"
 
-msgid "REROLL"
-msgstr "Przelosuj oba dodatki · klejnoty: %s"
-
-msgid "REROLL_CONFIRM"
-msgstr "Wydać klejnoty (%s), by wymienić obie statystyki dodatkowe? Nowe losowanie zastąpi stare, nawet jeśli będzie słabsze."
-
 msgid "USE"
 msgstr "Użyj jednego"
 

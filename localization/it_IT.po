@@ -310,12 +310,6 @@ msgstr "Equipaggia"
 msgid "UNEQUIP"
 msgstr "Rimuovi"
 
-msgid "REROLL"
-msgstr "Rilancia entrambi gli extra · %s gemme"
-
-msgid "REROLL_CONFIRM"
-msgstr "Spendere %s gemme per sostituire entrambe le statistiche extra? Il nuovo tiro sostituisce il precedente, anche se è peggiore."
-
 msgid "USE"
 msgstr "Usane uno"
 

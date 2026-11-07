@@ -304,12 +304,6 @@ msgstr "Equip"
 msgid "UNEQUIP"
 msgstr "Unequip"
 
-msgid "REROLL"
-msgstr "Reroll both extras · %s gems"
-
-msgid "REROLL_CONFIRM"
-msgstr "Spend %s gems to replace both extra stats? The new roll replaces the old one, even if weaker."
-
 msgid "USE"
 msgstr "Use one"
 
@@ -5869,3 +5863,21 @@ msgstr "This item is at its merge cap."
 
 msgid "EVOLUTION_NEEDS_COPIES"
 msgstr "Evolution needs the full merge level and enough spare copies."
+
+msgid "ITEM_BOSS_BONUS"
+msgstr "Boss bonus"
+
+msgid "ITEM_ENHANCED"
+msgstr "Boss weapon: two bonus attributes added"
+
+msgid "ITEM_BOSS_BONUS_EXPLAIN"
+msgstr "Boss-enhanced: your first copy of this weapon from a boss added two bonus attributes. Later boss copies count as normal copies. Bonus attributes reset at Prestige; merge levels stay."
+
+msgid "ITEM_BOSS_BONUS_HINT"
+msgstr "The first copy of this weapon you get from a boss adds two bonus attributes (once per run)."
+
+msgid "REROLL_ATTRIBUTE"
+msgstr "Reroll %s · %s gems"
+
+msgid "REROLL_ATTRIBUTE_CONFIRM"
+msgstr "Spend %s gems to reroll %s? The new roll replaces this attribute, even if weaker. Your other attributes stay as they are."

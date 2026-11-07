@@ -308,12 +308,6 @@ msgstr "裝備"
 msgid "UNEQUIP"
 msgstr "卸下"
 
-msgid "REROLL"
-msgstr "重洗兩項額外能力值 · %s 寶石"
-
-msgid "REROLL_CONFIRM"
-msgstr "要花費 %s 寶石替換兩項額外能力值嗎？即使比較弱，新結果也會取代舊結果。"
-
 msgid "USE"
 msgstr "使用一個"
 

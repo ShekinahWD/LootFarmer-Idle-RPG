@@ -310,12 +310,6 @@ msgstr "Uitrusten"
 msgid "UNEQUIP"
 msgstr "Afleggen"
 
-msgid "REROLL"
-msgstr "Beide extra's opnieuw rollen · %s edelstenen"
-
-msgid "REROLL_CONFIRM"
-msgstr "%s edelstenen uitgeven om beide extra statistieken te vervangen? De nieuwe rol vervangt de oude, ook als die zwakker is."
-
 msgid "USE"
 msgstr "Eén gebruiken"
 

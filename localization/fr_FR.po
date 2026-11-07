@@ -310,12 +310,6 @@ msgstr "Équiper"
 msgid "UNEQUIP"
 msgstr "Retirer"
 
-msgid "REROLL"
-msgstr "Relancer les deux bonus · %s gemmes"
-
-msgid "REROLL_CONFIRM"
-msgstr "Dépenser %s gemmes pour remplacer les deux statistiques bonus ? Le nouveau tirage remplace l’ancien, même s’il est plus faible."
-
 msgid "USE"
 msgstr "En utiliser un"
 

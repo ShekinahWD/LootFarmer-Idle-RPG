@@ -310,12 +310,6 @@ msgstr "लैस करें"
 msgid "UNEQUIP"
 msgstr "हटाएँ"
 
-msgid "REROLL"
-msgstr "दोनों अतिरिक्त फिर से रोल करें · %s रत्न"
-
-msgid "REROLL_CONFIRM"
-msgstr "दोनों अतिरिक्त आँकड़े बदलने के लिए %s रत्न खर्च करें? नया रोल पुराने की जगह ले लेगा, भले ही वह कमज़ोर हो।"
-
 msgid "USE"
 msgstr "एक उपयोग करें"
 

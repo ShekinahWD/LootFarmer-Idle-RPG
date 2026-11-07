@@ -310,12 +310,6 @@ msgstr "Trang bị"
 msgid "UNEQUIP"
 msgstr "Tháo"
 
-msgid "REROLL"
-msgstr "Đổi cả hai chỉ số phụ · %s ngọc"
-
-msgid "REROLL_CONFIRM"
-msgstr "Tiêu %s ngọc để thay cả hai chỉ số phụ? Kết quả mới sẽ thay kết quả cũ, kể cả khi yếu hơn."
-
 msgid "USE"
 msgstr "Dùng một cái"
 
