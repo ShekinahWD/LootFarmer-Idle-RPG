@@ -3120,18 +3120,12 @@ func _prestige_panel() -> void:
 
 ## Objectives spanning several maps appear under each relevant unlocked map.
 ## Counters describe consumed / authored opportunities, not the shared reward-card pool.
+## Change 54: the maps where the requirement is performed are catalog data (opportunity "stages", written by
+## tools/change54_catalog.py), which also fixes Trophy II/III appearing under the wrong maps.
 func prestige_stages(op: Dictionary) -> Array:
-    var n:=int(str(op.id).right(1))-1
-    match str(op.path):
-        "hunter","challenge":
-            var boss: String=sim.campaign.boss_goal(str(op.path),n+1)
-            for st in sim.catalog.stages:
-                for g in st.groups:
-                    if str(sim.catalog.groups[g].id)==boss:return [int(st.id)]
-        "expedition","collection":return [[1],[3],[7]][n]
-        "regional":return [[1,2],[3,4],[7,8]][n]
-        "trophy":return [[1,2],[3,4,5],[6,7,8]][n]
-    return [0]
+    var out: Array=[]
+    for st in op.get("stages",[0]):out.append(int(st))
+    return out
 
 ## Stage headings are touch-sized controls. Unchanged stages default open while a stage whose
 ## every objective has been consumed defaults closed; a manual choice overrides that default.
@@ -3270,8 +3264,10 @@ func _prestige_choice(batch: Dictionary) -> void:
     _text(op.name+"  ·  "+op.description,18,Color(.8,.84,.9))
     var offered: Array=sim.campaign.offered_cards()
     if not offered.has(selected_card):selected_card=""
-    var row:=HBoxContainer.new()
-    row.add_theme_constant_override("separation",10)
+    # Change 54: an expanded path can offer up to eight cards, so the row wraps on a phone.
+    var row:=HFlowContainer.new()
+    row.add_theme_constant_override("h_separation",10)
+    row.add_theme_constant_override("v_separation",10)
     rows.add_child(row)
     for id in offered:
         var node:=_card_node(id,"selected" if id==selected_card else "offered")

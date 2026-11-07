@@ -1,0 +1,2886 @@
+{
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "card_sets": {
+  "p1": {
+   "ready": [
+    "hunter_o1",
+    "trophy_o1",
+    "challenge_o1",
+    "expedition_o1",
+    "arsenal_o1",
+    "regional_o1",
+    "offering_o1"
+   ],
+   "picks": [
+    "hunter_c1",
+    "trophy_c2",
+    "challenge_c2",
+    "expedition_c1",
+    "arsenal_c1",
+    "regional_c1",
+    "offering_c1"
+   ]
+  },
+  "p2": {
+   "ready": [
+    "hunter_o2",
+    "expedition_o2",
+    "specialist_o1",
+    "masterwork_o1"
+   ],
+   "picks": [
+    "hunter_c2",
+    "expedition_c3",
+    "specialist_c3",
+    "masterwork_c3"
+   ]
+  },
+  "p3": {
+   "ready": [
+    "specialist_o2",
+    "collection_o1"
+   ],
+   "picks": [
+    "specialist_c1",
+    "collection_c2"
+   ]
+  },
+  "pfarm": {
+   "ready": [
+    "expedition_o1",
+    "expedition_o2",
+    "expedition_o3",
+    "expedition_o4",
+    "expedition_o5",
+    "collection_o1"
+   ],
+   "picks": [
+    "expedition_c4",
+    "expedition_c5",
+    "expedition_c6",
+    "expedition_c7",
+    "expedition_c8",
+    "collection_c6"
+   ]
+  },
+  "pboss": {
+   "ready": [
+    "hunter_o1",
+    "challenge_o1"
+   ],
+   "picks": [
+    "hunter_c4",
+    "challenge_c4"
+   ]
+  }
+ },
+ "builds": [
+  {
+   "id": "N3_rdy",
+   "label": "[C49 ladder] S3 ready: iron_axe ^20 (from S3_L35_snow)",
+   "stage": 3,
+   "level": 35,
+   "prestige": [],
+   "weapon": [
+    "iron_axe",
+    20
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    80
+   ],
+   "stored": [
+    [
+     "stone_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     15
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     20,
+     12
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N3_rdy_pfarm",
+   "label": "[C49 ladder] S3 ready: iron_axe ^20 (from S3_L35_snow) + pfarm (expedition_c4, expedition_c5, expedition_c6, expedition_c7, expedition_c8, collection_c6)",
+   "stage": 3,
+   "level": 35,
+   "prestige": [
+    "pfarm"
+   ],
+   "weapon": [
+    "iron_axe",
+    20
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    80
+   ],
+   "stored": [
+    [
+     "stone_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     15
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     20,
+     12
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N3_rdy_pboss",
+   "label": "[C49 ladder] S3 ready: iron_axe ^20 (from S3_L35_snow) + pboss (hunter_c4, challenge_c4)",
+   "stage": 3,
+   "level": 35,
+   "prestige": [
+    "pboss"
+   ],
+   "weapon": [
+    "iron_axe",
+    20
+   ],
+   "outfit": [
+    "boss-snowman_outfit",
+    80
+   ],
+   "stored": [
+    [
+     "stone_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     15
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     20,
+     12
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "manual",
+   "auto": [],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 100,
+    "unit-sunglasses": 100,
+    "unit-yellow-cap": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-straw-hat",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sunglasses",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-yellow-cap",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-gray-cat",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-straw-hat",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-yellow-cap",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N5_rdy",
+   "label": "[C49 ladder] S5 ready: diamond_axe ^20 (from S5_L95_ready_P0)",
+   "stage": 5,
+   "level": 95,
+   "prestige": [],
+   "weapon": [
+    "diamond_axe",
+    20
+   ],
+   "outfit": [
+    "unit-mushroom-cap_outfit_t3",
+    60
+   ],
+   "stored": [
+    [
+     "gold_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     30
+    ],
+    [
+     "skill_fire",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     40,
+     30
+    ],
+    "guard_tonic": [
+     40,
+     10
+    ],
+    "recovery_salve": [
+     40,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-black-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-black-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-black-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-black-cap",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N5_rdy_pfarm",
+   "label": "[C49 ladder] S5 ready: diamond_axe ^20 (from S5_L95_ready_P0) + pfarm (expedition_c4, expedition_c5, expedition_c6, expedition_c7, expedition_c8, collection_c6)",
+   "stage": 5,
+   "level": 95,
+   "prestige": [
+    "pfarm"
+   ],
+   "weapon": [
+    "diamond_axe",
+    20
+   ],
+   "outfit": [
+    "unit-mushroom-cap_outfit_t3",
+    60
+   ],
+   "stored": [
+    [
+     "gold_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     30
+    ],
+    [
+     "skill_fire",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     40,
+     30
+    ],
+    "guard_tonic": [
+     40,
+     10
+    ],
+    "recovery_salve": [
+     40,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-black-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-black-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-black-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-black-cap",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N5_rdy_pboss",
+   "label": "[C49 ladder] S5 ready: diamond_axe ^20 (from S5_L95_ready_P0) + pboss (hunter_c4, challenge_c4)",
+   "stage": 5,
+   "level": 95,
+   "prestige": [
+    "pboss"
+   ],
+   "weapon": [
+    "diamond_axe",
+    20
+   ],
+   "outfit": [
+    "unit-mushroom-cap_outfit_t3",
+    60
+   ],
+   "stored": [
+    [
+     "gold_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     30
+    ],
+    [
+     "skill_fire",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     40,
+     30
+    ],
+    "guard_tonic": [
+     40,
+     10
+    ],
+    "recovery_salve": [
+     40,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-black-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-black-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-black-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-mushroom-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pumpkin-head",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-black-cap",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-pumpkin-head",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N7_rdy",
+   "label": "[C49 ladder] S7 ready: obsidian_axe ^20 (from S7_L195_ready_P0)",
+   "stage": 7,
+   "level": 195,
+   "prestige": [],
+   "weapon": [
+    "obsidian_axe",
+    20
+   ],
+   "outfit": [
+    "unit-elf-ears_outfit_t4",
+    60
+   ],
+   "stored": [
+    [
+     "emerald_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_strike",
+     30
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     50,
+     30
+    ],
+    "guard_tonic": [
+     50,
+     10
+    ],
+    "recovery_salve": [
+     50,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-cat-ears",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-cat-ears",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-cat-ears",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-bunny-ears",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N7_rdy_pfarm",
+   "label": "[C49 ladder] S7 ready: obsidian_axe ^20 (from S7_L195_ready_P0) + pfarm (expedition_c4, expedition_c5, expedition_c6, expedition_c7, expedition_c8, collection_c6)",
+   "stage": 7,
+   "level": 195,
+   "prestige": [
+    "pfarm"
+   ],
+   "weapon": [
+    "obsidian_axe",
+    20
+   ],
+   "outfit": [
+    "unit-elf-ears_outfit_t4",
+    60
+   ],
+   "stored": [
+    [
+     "emerald_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_strike",
+     30
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     50,
+     30
+    ],
+    "guard_tonic": [
+     50,
+     10
+    ],
+    "recovery_salve": [
+     50,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-cat-ears",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-cat-ears",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-cat-ears",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-bunny-ears",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N7_rdy_pboss",
+   "label": "[C49 ladder] S7 ready: obsidian_axe ^20 (from S7_L195_ready_P0) + pboss (hunter_c4, challenge_c4)",
+   "stage": 7,
+   "level": 195,
+   "prestige": [
+    "pboss"
+   ],
+   "weapon": [
+    "obsidian_axe",
+    20
+   ],
+   "outfit": [
+    "unit-elf-ears_outfit_t4",
+    60
+   ],
+   "stored": [
+    [
+     "emerald_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_strike",
+     30
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     50,
+     30
+    ],
+    "guard_tonic": [
+     50,
+     10
+    ],
+    "recovery_salve": [
+     50,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-bunny-ears",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-cat-ears",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-cat-ears",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-cat-ears",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-elf-ears",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-bunny-ears",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-elf-ears",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N8_obs100",
+   "label": "[C49 ladder] S8 ready: Obsidian Axe ^100 (from S8_L240_ready_P0)",
+   "stage": 8,
+   "level": 240,
+   "prestige": [],
+   "weapon": [
+    "obsidian_axe",
+    100
+   ],
+   "outfit": [
+    "unit-pink-cap_outfit_t5",
+    60
+   ],
+   "stored": [
+    [
+     "emerald_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     50
+    ],
+    [
+     "skill_fire",
+     50
+    ],
+    [
+     "skill_strike",
+     50
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     55,
+     30
+    ],
+    "guard_tonic": [
+     55,
+     10
+    ],
+    "recovery_salve": [
+     55,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-plain",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-plain",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-plain",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-sprout",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-flower-crown",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-sprout",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N8_obs100_pfarm",
+   "label": "[C49 ladder] S8 ready: Obsidian Axe ^100 (from S8_L240_ready_P0) + pfarm (expedition_c4, expedition_c5, expedition_c6, expedition_c7, expedition_c8, collection_c6)",
+   "stage": 8,
+   "level": 240,
+   "prestige": [
+    "pfarm"
+   ],
+   "weapon": [
+    "obsidian_axe",
+    100
+   ],
+   "outfit": [
+    "unit-pink-cap_outfit_t5",
+    60
+   ],
+   "stored": [
+    [
+     "emerald_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     50
+    ],
+    [
+     "skill_fire",
+     50
+    ],
+    [
+     "skill_strike",
+     50
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     55,
+     30
+    ],
+    "guard_tonic": [
+     55,
+     10
+    ],
+    "recovery_salve": [
+     55,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-plain",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-plain",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-plain",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-sprout",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-flower-crown",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-sprout",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N8_obs100_pboss",
+   "label": "[C49 ladder] S8 ready: Obsidian Axe ^100 (from S8_L240_ready_P0) + pboss (hunter_c4, challenge_c4)",
+   "stage": 8,
+   "level": 240,
+   "prestige": [
+    "pboss"
+   ],
+   "weapon": [
+    "obsidian_axe",
+    100
+   ],
+   "outfit": [
+    "unit-pink-cap_outfit_t5",
+    60
+   ],
+   "stored": [
+    [
+     "emerald_axe",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     50
+    ],
+    [
+     "skill_fire",
+     50
+    ],
+    [
+     "skill_strike",
+     50
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     55,
+     30
+    ],
+    "guard_tonic": [
+     55,
+     10
+    ],
+    "recovery_salve": [
+     55,
+     10
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-flower-crown",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-green-cap",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-cap",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-cap",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-cap",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-pink-flower-hood",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-plain",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-plain",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-plain",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 0,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 1,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 2,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 3,
+     "count": 3,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 1,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "spot",
+     "group": "unit-sprout",
+     "variant": 3,
+     "count": 6,
+     "limit": 300
+    },
+    {
+     "kind": "single",
+     "group": "unit-sprout",
+     "variant": 1,
+     "limit": 300
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600
+    },
+    {
+     "kind": "farm",
+     "group": "unit-flower-crown",
+     "variant": 2,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    },
+    {
+     "kind": "farm",
+     "group": "unit-sprout",
+     "variant": 1,
+     "minutes": 5,
+     "seeds": [
+      1
+     ]
+    }
+   ]
+  }
+ ]
+}

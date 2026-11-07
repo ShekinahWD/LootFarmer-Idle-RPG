@@ -203,7 +203,7 @@ func in_combat() -> bool:
 func rest_rate() -> float:
     if in_combat():return 0.0
     var r: Dictionary=sim.catalog.progression.rest
-    return float(r.camp) if resting_camp()>=0 else float(r.field)
+    return float(r.camp) if resting_camp()>=0 else float(r.field)*(1+bonus("field_rest"))
 func resting_camp() -> int:
     var p: Vector2=sim.position_of(sim.state.player)
     for camp in sim.state.spawns:
@@ -443,9 +443,43 @@ func target_allowed(e: Dictionary,view: Sight=null) -> bool:
 func damage_multiplier(a: Dictionary,b: Dictionary) -> float:
     var n=1.0
     if a.id=="player":n+=bonus("boss_damage" if sim.catalog.groups[int(b.group)].boss else "normal_damage")
-    elif b.id=="player":n*=1-bonus("guard")- (bonus("boss_guard") if sim.catalog.groups[int(a.group)].boss else 0.0)
+    elif b.id=="player":
+        n*=1-bonus("guard")- (bonus("boss_guard") if sim.catalog.groups[int(a.group)].boss else 0.0)
+        # Change 54 Crowd Guard: -4% per normal attacker beyond the first, at most -20%.
+        if bonus("crowd_guard")>0 and not sim.catalog.groups[int(a.group)].boss:n*=1-minf(CROWD_GUARD_MAX,bonus("crowd_guard")*maxf(0,normal_attackers()-1))
     if float(a.get("focus_time",0))>0:n*=1+float(a.get("focus_power",.15))
     return maxf(.1,n)
+# ---------------------------------------------------------------- Change 54 card effects
+const CROWD_GUARD_MAX:=.2
+const SECOND_WIND_BELOW:=.3
+const SECOND_WIND_COOLDOWN:=90.0
+const CLEAVE_RADIUS:=32.0
+const LAST_STAND_BELOW:=.25
+const BOSS_BREAKER_TELEGRAPH:=.3
+## Living normal enemies (no summoned helper) currently attacking the player.
+func normal_attackers() -> int:
+    var n:=0
+    for e in sim.state.enemies:
+        if float(e.hp)>0 and bool(e.aggro) and not bool(e.get("returning",false)) and not sim.is_helper(e) and not sim.catalog.groups[int(e.group)].boss:n+=1
+    return n
+## Second Wind: called after the player loses HP to an enemy. Heals once when HP first drops below 30%,
+## then waits 90 s of active time (player.second_wind, a run-transient actor timer).
+func after_player_hit() -> void:
+    var p: Dictionary=sim.state.player
+    if bonus("second_wind")<=0 or float(p.hp)<=0 or float(p.get("second_wind",0))>0:return
+    var maxhp: float=sim.stats().hp
+    if float(p.hp)>=maxhp*SECOND_WIND_BELOW:return
+    var gain:=minf(maxhp*bonus("second_wind"),maxhp-float(p.hp))
+    p.hp=float(p.hp)+gain;p.second_wind=SECOND_WIND_COOLDOWN
+    sim.feedback.emit("player",gain,true)
+## Last Stand: extra attack speed below 25% HP.
+func last_stand_speed() -> float:
+    if bonus("last_stand")<=0 or float(sim.state.player.hp)>=sim.stats().hp*LAST_STAND_BELOW:return 0.0
+    return bonus("last_stand")
+func telegraph_time(a: Dictionary) -> float:
+    var t: float=float(sim.abilities.telegraph)
+    if a.id!="player" and sim.catalog.groups[int(a.group)].boss and bonus("boss_breaker")>0:t+=BOSS_BREAKER_TELEGRAPH
+    return t
 func upgrade_cost(id: String,g: int) -> int:
     var d: Dictionary=sim.catalog.upgrades[id]
     var n: int=sim.level(id,g)
@@ -580,6 +614,8 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
         var maxhp:=actor_max_hp(a)
         var fraction: float=float(sim.abilities.final_heal_fraction) if not player and bool(sim.catalog.groups[int(a.group)].final) else float(sim.catalog.skills.heal.enemy_hp_fraction)
         var gain=minf(minf(power,maxhp*float(sim.catalog.skills.heal.player_hp_cap)) if player else maxhp*fraction,maxhp-a.hp)
+        # Change 54 Boss Breaker: boss heals restore 25% less.
+        if not player and sim.catalog.groups[int(a.group)].boss:gain*=1-bonus("boss_breaker")
         if gain<=0:return false
         a.hp+=gain;sim.feedback.emit(a.id,gain,true)
     elif key=="focus":
@@ -604,6 +640,7 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
             begin_encounter(b if player else a)
             sim.state.player.quiet=0
             b.hp=maxf(0,b.hp-damage);b.quiet=0;b.aggro=true;b.hurt=.16
+            if b.id=="player":after_player_hit()
             if key=="frost":apply_timed_status(b,"slow",FROST_SLOW_SECONDS)
             if key=="lightning" and player:
                 apply_timed_status(b,"attack_slow",float(sim.catalog.progression.change17.lightning_duration))
@@ -618,6 +655,7 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
     return true
 func step(dt: float) -> void:
     for key in sim.state.skill_cooldowns:sim.state.skill_cooldowns[key]=maxf(0,sim.state.skill_cooldowns[key]-dt)
+    sim.state.player.second_wind=maxf(0,float(sim.state.player.get("second_wind",0))-dt)
     for a in [sim.state.player]+sim.state.enemies:
         a.focus_time=maxf(0,float(a.get("focus_time",0))-dt);a.slow=maxf(0,float(a.get("slow",0))-dt)
         if a.id=="player" or a.hp<=0:continue
@@ -668,7 +706,7 @@ func enemy_skill_cooldown(d: Dictionary,key: String) -> float:
 ## A boss announces a skill for the telegraph time before it resolves. Self effects play once, on
 ## success (apply_skill); attacks show their aim as a warning.
 func _begin_telegraph(a: Dictionary,key: String) -> void:
-    a.telegraph=true;a.skill_timer=float(sim.abilities.telegraph);a.pending=key
+    a.telegraph=true;a.skill_timer=telegraph_time(a);a.pending=key
     var aim: Vector2=sim.position_of(a) if key in ["heal","focus","frost"] else sim.position_of(sim.state.player)
     a.aim_x=aim.x;a.aim_y=aim.y
     # Change 14: the wind-up is a warning marker; the skill's own effect and sound play once, on the hit.
@@ -693,7 +731,7 @@ func _summon_step(a: Dictionary,d: Dictionary,rule: SummonRule,dt: float) -> boo
         a.summon_cd=rule.cooldown
         return false
     if d.final and heal_first(a):return false
-    a.summon_cast=float(sim.abilities.telegraph)
+    a.summon_cast=telegraph_time(a)
     sim.summon_warning.emit(str(a.id))
     return true
 
@@ -999,11 +1037,43 @@ func claim_mission(i: int) -> bool:
     progress("mission","",1);refresh_missions();check_follow_mission();sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     return true
+## Change 54 (approved Design A): the per-path requirement tables, indexed by the opportunity number - 1.
+## Opportunities 1-3 are unchanged; 4-8 are the expansion (audit §7.3). Enemy and boss ids are real content.
+const EXPEDITION_TYPES:=[["blue-cap","red-scarf","chef-hat"],["straw-hat","sunglasses","yellow-cap"],["bunny-ears","cat-ears","elf-ears"],
+    ["wolf-hood","calico-cat-hood","golden-crown","reindeer-antlers","santa-hat","space-helmet"],
+    ["cowboy-bandana","duck-swim-ring","rainbow-clown","red-cap-swimmer","snorkeler","straw-hat-swimmer"],
+    ["black-cap","mushroom-cap","pumpkin-head"],["horned-hood","orange-screen-helmet","television-head","top-hat"],
+    ["flower-crown","green-cap","pink-cap","pink-flower-hood","plain","sprout"]]
+const EXPEDITION_KILLS:=[100,150,200,50,60,120,100,60]
+const COLLECTION_TYPES:=[["blue-cap","red-scarf","chef-hat"],["straw-hat","sunglasses","yellow-cap"],["bunny-ears","cat-ears","elf-ears"],
+    ["santa-hat","reindeer-antlers","space-helmet"],["snorkeler","red-cap-swimmer","straw-hat-swimmer"],
+    ["black-cap","mushroom-cap","pumpkin-head"],["television-head","top-hat","orange-screen-helmet"],["pink-cap","plain","sprout"]]
+const COLLECTION_GOALS:=[20,30,40,15,25,30,30,40]
+## Map access that discovers Collection 2-8 (Collection 1 is discovered by gear families).
+const COLLECTION_DISCOVER_STAGE:=[0,3,7,2,4,5,6,8]
+const HUNTER_BOSSES:=[["boss-snowman"],["boss-gray-cat"],["boss-grim-reaper"],["boss-bee","boss-orange-tabby-cat"]]
+## Boss Hunter kill targets per boss after discovery (Change 6: 10 / 20 / 30; Change 54: IV 10 each).
+const HUNTER_KILLS:=[10,20,30,10]
+const CHALLENGE_BOSSES:=["boss-cyan-robot","boss-teal-dinosaur","boss-grim-reaper","boss-red-panda"]
+const TROPHY_BOSSES:=[["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"],["bee","orange-tabby-cat","red-panda","sunflower"]]
+const REGIONAL_STAGES:=[[1,2],[3,4],[7,8],[5,6]]
+const REGIONAL_DISCOVER_STAGE:=[2,4,8,6]
+func regional_stages(n: int) -> Array:return REGIONAL_STAGES[n-1]
+func hunter_bosses(n: int) -> Array:return HUNTER_BOSSES[n-1]
+## Kills of `boss` since this Hunter opportunity was discovered.
+func hunter_count(o: Dictionary,boss: String) -> int:
+    var k:="boss:"+boss
+    return int(counter(k)-float(o.get("baseline",{}).get(k,0)))
+func hunter_done(o: Dictionary,n: int) -> bool:
+    for boss in hunter_bosses(n):
+        if hunter_count(o,boss)<hunter_goal(n):return false
+    return true
 func chain_for(id: String) -> Array:
     var n=int(id.right(1))
     if id.begins_with("expedition"):
-        var names: Array=[['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
-        return [["kill","unit-"+names[0],50+50*n],["kill","unit-"+names[1],50+50*n],["kill","unit-"+names[2],50+50*n]]
+        var chain: Array=[]
+        for name in EXPEDITION_TYPES[n-1]:chain.append(["kill","unit-"+name,EXPEDITION_KILLS[n-1]])
+        return chain
     return [["kill","",100],["gear","",10],["merge","",10]] if n==1 else ([["kill","",250],["boss","",3],["merge","",25],["cast","",30]] if n==2 else [["kill","",500],["boss","",10],["merge","",50],["mission","",3]])
 func online_gear_families() -> int:
     var families={}
@@ -1023,25 +1093,31 @@ func discoverable(op: Dictionary) -> bool:
         "offline":return sim.state.offline_total>0
         "hunter","challenge":return counter("boss:"+boss_goal(path,n))>=1
         "expedition":return counter("kill:"+str(chain_for(op.id)[0][1]))>=10
-        "regional":return sim.state.unlocked_stage>=[2,4,8][n-1]
+        "regional":return sim.state.unlocked_stage>=REGIONAL_DISCOVER_STAGE[n-1]
         "offering":return counter("coins")>=1000 if n==1 else sim.state.unlocked_stage>=(5 if n==2 else 8)
         "specialist":return counter("mission")>=(1 if n==1 else 5) if n<3 else sim.state.unlocked_stage>=6
-        "trophy":return counter("boss:"+[['boss-snowman'],['boss-gray-cat'],['boss-squirrel']][n-1][0])>0
-        "collection":return online_gear_families()>=3 if n==1 else sim.state.unlocked_stage>=(3 if n==2 else 7)
+        "trophy":return counter("boss:boss-"+str(TROPHY_BOSSES[n-1][0]))>0
+        "collection":return online_gear_families()>=3 if n==1 else sim.state.unlocked_stage>=COLLECTION_DISCOVER_STAGE[n-1]
         "masterwork":
-            if n==1:
+            if n==4:
+                for id in sim.state.items:
+                    if sim.quantity(id)>0 and _obsidian_weapon(id):return true
+            elif n==1:
                 for r in sim.state.items.values():
                     if r.merge>=10:return true
             elif n==2:return counter("evolve")>0
-            else:
+            elif n==3:
                 for id in sim.state.items:
                     if sim.quantity(id)>0 and sim.catalog.items[id].tier>=3:return true
         "arsenal":return sim.state.weapon!="" and sim.state.outfit!="" if n==1 else (online_gear_families()>=4 if n==2 else evolved_families()>=2)
     return false
+## The (first) boss a Hunter or Challenge opportunity names.
 func boss_goal(path: String,n: int) -> String:
-    return ["boss-snowman","boss-gray-cat","boss-grim-reaper"][n-1] if path=="hunter" else ["boss-cyan-robot","boss-teal-dinosaur","boss-grim-reaper"][n-1]
-## Boss Hunter kill targets after discovery (Change 6: 10 / 20 / 30, was 30 / 40 / 50).
-func hunter_goal(n: int) -> int:return 10*n
+    return str(HUNTER_BOSSES[n-1][0]) if path=="hunter" else str(CHALLENGE_BOSSES[n-1])
+func hunter_goal(n: int) -> int:return HUNTER_KILLS[n-1]
+func _obsidian_weapon(id: String) -> bool:
+    var d: Dictionary=sim.catalog.items.get(id,{})
+    return str(d.get("kind",""))=="weapon" and str(d.get("next","x"))=="" and int(d.get("tier",0))==7 and not sim.is_legacy(id)
 func evaluate() -> void:
     for op in sim.catalog.campaign.opportunities:
         if sim.state.consumed.has(op.id):continue
@@ -1053,9 +1129,10 @@ func evaluate() -> void:
         if o.ready:continue
         var n=int(op.id.right(1));var ready=false
         match op.path:
-            "hunter","challenge":
-                var k: String=("boss:" if op.path=="hunter" else "restricted:")+boss_goal(op.path,n)
-                ready=counter(k)-float(o.baseline.get(k,0))>=(hunter_goal(n) if op.path=="hunter" else 1)
+            "hunter":ready=hunter_done(o,n)
+            "challenge":
+                var k: String="restricted:"+boss_goal(op.path,n)
+                ready=counter(k)-float(o.baseline.get(k,0))>=1
             "expedition","specialist":ready=int(o.get("step",0))>=chain_for(op.id).size()
             "offline":ready=sim.state.offline_total>=72*3600 if n==1 else (sim.state.offline_longest>=24*3600 if n==2 else sim.state.offline_income>=10000)
             "masterwork":ready=masterwork_best(o,n)>=MASTERWORK_MERGE
@@ -1064,7 +1141,7 @@ func evaluate() -> void:
                 ready=counts[0]>=arsenal_need(n) and counts[1]>=arsenal_need(n)
             "regional":
                 ready=true
-                for st in ([1,2] if n==1 else ([3,4] if n==2 else [7,8])):
+                for st in regional_stages(n):
                     var d: Dictionary=sim.catalog.stages[st-1]
                     if explored_fraction(st)<.9 or sim.state.camps.get(str(st),[]).size()!=d.spawns.size():ready=false
                     for g in d.groups:
@@ -1072,8 +1149,7 @@ func evaluate() -> void:
             "collection","offering":ready=bool(o.get("submitted",false))
             "trophy":
                 ready=true
-                var bosses: Array=[["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"]][n-1]
-                for boss in bosses:
+                for boss in trophy_bosses(n):
                     if not o.get("trophy_boss-"+boss,false):ready=false
         if ready:
             o.ready=true
@@ -1100,7 +1176,7 @@ func follow_steps_done(id: String) -> int:
             return done
         "trophy":
             var got:=0
-            for boss in [["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"]][n-1]:
+            for boss in trophy_bosses(n):
                 if o.get("trophy_boss-"+boss,false):got+=1
             return got
     return 0
@@ -1864,8 +1940,9 @@ func opportunity_progress(id: String) -> String:
             var goal: String=sim.tr("CHAIN_GOAL_KILL_TARGET") % str(sim.catalog.groups[g].name) if g>=0 else sim.tr("GOAL_"+str(q[0]).to_upper())
             return sim.tr("CHAIN_PROGRESS") % [index+1,chain.size(),goal,int(o.get("count",0)),int(q[2])]
     if path=="hunter":
-        var k="boss:"+boss_goal(path,n)
-        return "%d / %d" % [counter(k)-float(o.baseline.get(k,0)),hunter_goal(n)]
+        var got:=0
+        for boss in hunter_bosses(n):got+=mini(hunter_count(o,boss),hunter_goal(n))
+        return "%d / %d" % [got,hunter_goal(n)*hunter_bosses(n).size()]
     if path=="offline":
         var value=sim.state.offline_total/3600 if n==1 else (sim.state.offline_longest/3600 if n==2 else sim.state.offline_income)
         # Change 13: the offline-income milestone counts coins, so it uses the currency format.
@@ -1877,13 +1954,13 @@ func opportunity_progress(id: String) -> String:
         var counts:=arsenal_counts(o,n);var need:=arsenal_need(n)
         return sim.tr("PROGRESS_ARSENAL_SPLIT") % [mini(counts[0],need),need,mini(counts[1],need),need]
     if path=="trophy":
-        var bosses: Array=[["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"]][n-1]
+        var bosses:=trophy_bosses(n)
         var got:=0
         for boss in bosses:
             if o.get("trophy_boss-"+boss,false):got+=1
         return sim.tr("PROGRESS_TROPHY") % [got,bosses.size()]
     if path=="collection":
-        var names: Array=[['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
+        var names:=collection_names(n)
         # The full panel is the detailed reference: each required outfit by name with its count.
         var parts: Array=[]
         var counts:=collection_counts(id)
@@ -1925,9 +2002,10 @@ func follow_summary(id: String) -> String:
             if open.size()>1:line+="\n"+sim.tr("FOLLOW_NEXT") % sim.catalog.display_name(contract_outfit(names[open[1]]))
             return line
         "hunter":
-            var g:=group_id(boss_goal(path,n))
-            var k="boss:"+boss_goal(path,n)
-            return sim.tr("FOLLOW_HUNT") % [_group_place(g),int(counter(k)-float(o.baseline.get(k,0))),hunter_goal(n)]
+            # The first boss still short of its count (Hunter IV names two).
+            for boss in hunter_bosses(n):
+                if hunter_count(o,boss)<hunter_goal(n) or boss==hunter_bosses(n).back():
+                    return sim.tr("FOLLOW_HUNT") % [_group_place(group_id(boss)),mini(hunter_count(o,boss),hunter_goal(n)),hunter_goal(n)]
         "challenge":
             return sim.tr("FOLLOW_CHALLENGE") % _group_place(group_id(boss_goal(path,n)))
         "trophy":
@@ -1940,6 +2018,7 @@ func follow_summary(id: String) -> String:
             return line
         "masterwork":
             var best:=masterwork_best(o,n)
+            if n==4:return sim.tr("FOLLOW_MASTERWORK_OBSIDIAN") % best
             return sim.tr("FOLLOW_MASTERWORK_ANY_GEAR" if n==1 else "FOLLOW_MASTERWORK_TIER_GEAR") % ([best] if n==1 else [n,best])
         "arsenal":
             var counts:=arsenal_counts(o,n);var need:=arsenal_need(n)
@@ -1972,7 +2051,11 @@ func follow_focus(id: String) -> Dictionary:
         "expedition":
             var chain=chain_for(id);var index=int(o.get("step",0))
             if index<chain.size():return {"group":group_id(str(chain[index][1]))}
-        "hunter","challenge":return {"group":group_id(boss_goal(path,n))}
+        "hunter":
+            for boss in hunter_bosses(n):
+                if hunter_count(o,boss)<hunter_goal(n):return {"group":group_id(boss)}
+            return {"group":group_id(boss_goal(path,n))}
+        "challenge":return {"group":group_id(boss_goal(path,n))}
         "trophy":
             for boss in trophy_bosses(n):
                 if not o.get("trophy_boss-"+boss,false):return {"group":group_id("boss-"+str(boss))}
@@ -1992,6 +2075,10 @@ func masterwork_best(o: Dictionary,n: int) -> int:
         var id: String=str(key).trim_prefix("merge_")
         # Legacy-stat weapons (Change 51) never count; older outfit tiers flagged legacy still do, as before.
         if not sim.catalog.items.has(id) or (sim.is_legacy(id) and str(sim.catalog.items[id].kind)=="weapon"):continue
+        # Change 54: Masterwork IV counts Obsidian weapons only.
+        if n==4:
+            if _obsidian_weapon(id):best=maxi(best,int(o[key]))
+            continue
         var item: Dictionary=sim.catalog.items[id]
         if item.kind=="weapon" and str(item.next)!="":continue
         if int(item.tier)>=n:best=maxi(best,int(o[key]))
@@ -2025,14 +2112,14 @@ func _chain_goal(q: Array) -> String:
     return sim.tr("FOLLOW_GOAL_"+str(q[0]).to_upper())
 
 func collection_names(n: int) -> Array:
-    return [['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
+    return COLLECTION_TYPES[n-1]
 
 func trophy_bosses(n: int) -> Array:
-    return [["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"]][n-1]
+    return TROPHY_BOSSES[n-1]
 
 ## Regional mastery, first unmet requirement first: explore a map to 90%, defeat a boss, unlock camps.
 func _regional_follow(n: int) -> String:
-    var stages: Array=[1,2] if n==1 else ([3,4] if n==2 else [7,8])
+    var stages:=regional_stages(n)
     var todo: Array=[]
     for st in stages:
         if explored_fraction(st)<.9:todo.append(sim.tr("FOLLOW_REGIONAL_EXPLORE") % [sim.catalog.stages[st-1].name,explored_percent(st)])
@@ -2053,7 +2140,7 @@ func _regional_follow(n: int) -> String:
 ## panel and tracker counted to 20 while Submit also wanted a 21st copy, and players met that only when
 ## submitting. The retained copy is intentional (as for merges): equipping or wearing the outfit never
 ## leaves the player without it.
-func collection_goal(n: int) -> int:return 10+10*n
+func collection_goal(n: int) -> int:return COLLECTION_GOALS[n-1]
 func collection_required(n: int) -> int:return collection_goal(n)+1
 
 ## Progress per required outfit toward collection_required(n): copies picked up online this run since the
@@ -2173,7 +2260,7 @@ func gate_required(g: int) -> bool:
 
 func _regional_progress(n: int) -> String:
     var explored: Array=[];var bosses:=0;var killed:=0;var camps:=0;var owned:=0
-    for st in ([1,2] if n==1 else ([3,4] if n==2 else [7,8])):
+    for st in regional_stages(n):
         var d: Dictionary=sim.catalog.stages[st-1]
         explored.append("%d%%" % explored_percent(st))
         camps+=d.spawns.size();owned+=sim.state.camps.get(str(st),[]).size()

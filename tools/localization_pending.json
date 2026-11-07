@@ -215,6 +215,313 @@
     "%s"
    ],
    "change": "change-52"
+  },
+  "CONTENT_EXPEDITION_O4_NAME": {
+   "en": "Deep winter route",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_O4_DESCRIPTION": {
+   "en": "On Winter II, in order, defeat 50 of each: Wolf Hood, Calico Cat Hood, Golden Crown, Reindeer Antlers, Santa Hat, Space Helmet",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_O5_NAME": {
+   "en": "Beach route",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_O5_DESCRIPTION": {
+   "en": "On Summer II, in order, defeat 60 of each: Cowboy Bandana, Duck Swim Ring, Rainbow Clown, Red Cap Swimmer, Snorkeler, Straw Hat Swimmer",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_O6_NAME": {
+   "en": "Autumn route",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_O6_DESCRIPTION": {
+   "en": "On Autumn I, in order, defeat 120 of each: Black Cap, Mushroom Cap, Pumpkin Head",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_O7_NAME": {
+   "en": "Late autumn route",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_O7_DESCRIPTION": {
+   "en": "On Autumn II, in order, defeat 100 of each: Horned Hood, Orange Screen Helmet, Television Head, Top Hat",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_O8_NAME": {
+   "en": "Bloom route",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_O8_DESCRIPTION": {
+   "en": "On Spring II, in order, defeat 60 of each: Flower Crown, Green Cap, Pink Cap, Pink Flower Hood, Plain, Sprout",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O4_NAME": {
+   "en": "Holiday collection",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O4_DESCRIPTION": {
+   "en": "Pick up 16 each of the Santa Hat, Reindeer Antlers and Space Helmet outfits (Winter II drops). Submit hands in 15 of each and you keep one",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O5_NAME": {
+   "en": "Swimwear collection",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O5_DESCRIPTION": {
+   "en": "Pick up 26 each of the Snorkeler, Red Cap Swimmer and Straw Hat Swimmer outfits (Summer II drops). Submit hands in 25 of each and you keep one",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O6_NAME": {
+   "en": "Harvest collection",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O6_DESCRIPTION": {
+   "en": "Pick up 31 each of the Black Cap, Mushroom Cap and Pumpkin Head outfits (Autumn I drops). Submit hands in 30 of each and you keep one",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O7_NAME": {
+   "en": "Screen collection",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O7_DESCRIPTION": {
+   "en": "Pick up 31 each of the Television Head, Top Hat and Orange Screen Helmet outfits (Autumn II drops). Submit hands in 30 of each and you keep one",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O8_NAME": {
+   "en": "Garden collection",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_O8_DESCRIPTION": {
+   "en": "Pick up 41 each of the Pink Cap, Plain and Sprout outfits (Spring II drops). Submit hands in 40 of each and you keep one",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_HUNTER_O4_NAME": {
+   "en": "Spring bounty",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_HUNTER_O4_DESCRIPTION": {
+   "en": "Defeat the Bee and the Orange Tabby Cat (Spring I bosses) 10 times each",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_CHALLENGE_O4_NAME": {
+   "en": "Unassisted spring",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_CHALLENGE_O4_DESCRIPTION": {
+   "en": "Defeat the Red Panda (Spring II boss) without using any supply during the fight",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_TROPHY_O4_NAME": {
+   "en": "Spring trophies",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_TROPHY_O4_DESCRIPTION": {
+   "en": "After finding this, defeat the Bee, the Orange Tabby Cat (Spring I), the Red Panda and the Sunflower (Spring II) once each",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_REGIONAL_O4_NAME": {
+   "en": "Autumn mastery",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_REGIONAL_O4_DESCRIPTION": {
+   "en": "On Autumn I and Autumn II: explore 90% of each map, defeat all four bosses and unlock every camp",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_MASTERWORK_O4_NAME": {
+   "en": "Obsidian masterwork",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_MASTERWORK_O4_DESCRIPTION": {
+   "en": "Merge an Obsidian weapon (Spring I and Spring II drops) to ^100",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C4_NAME": {
+   "en": "Crowd Guard",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C4_DESCRIPTION": {
+   "en": "-4% damage taken for each normal enemy attacking you beyond the first (up to -20%)",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C5_NAME": {
+   "en": "Second Wind",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C5_DESCRIPTION": {
+   "en": "When you drop below 30% HP, heal 25% of your maximum HP (once every 90 s)",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C6_NAME": {
+   "en": "Cleave",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C6_DESCRIPTION": {
+   "en": "Basic attacks also deal 30% damage to other enemies close to your target",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C7_NAME": {
+   "en": "Broken Rally",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C7_DESCRIPTION": {
+   "en": "Enemies called into a group fight start attacking 0.5 s later",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C8_NAME": {
+   "en": "Field Rest",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_EXPEDITION_C8_DESCRIPTION": {
+   "en": "Out of combat away from camps, you recover HP three times as fast",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C4_NAME": {
+   "en": "Twin Find",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C4_DESCRIPTION": {
+   "en": "Weapons and outfits dropped by normal enemies have a 10% chance to be 2 copies",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C5_NAME": {
+   "en": "Thrifty Evolution",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C5_DESCRIPTION": {
+   "en": "Evolution needs 8 spare copies instead of 10",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C6_NAME": {
+   "en": "Steady Supplies",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C6_DESCRIPTION": {
+   "en": "Supply cooldowns -15%",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C7_NAME": {
+   "en": "Precise Reroll",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C7_DESCRIPTION": {
+   "en": "Rerolls cost 25% fewer gems and never return the same stat",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C8_NAME": {
+   "en": "Treasure Sense",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_COLLECTION_C8_DESCRIPTION": {
+   "en": "Boss bonus attributes roll in the upper half of their range",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_HUNTER_C4_NAME": {
+   "en": "Boss Breaker",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_HUNTER_C4_DESCRIPTION": {
+   "en": "Boss skill warnings last 0.3 s longer and boss heals restore 25% less",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_CHALLENGE_C4_NAME": {
+   "en": "Last Stand",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_CHALLENGE_C4_DESCRIPTION": {
+   "en": "Below 25% HP: +20% attack speed",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_TROPHY_C4_NAME": {
+   "en": "Champion's Spoils",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_TROPHY_C4_DESCRIPTION": {
+   "en": "Defeating a boss for the first time in a run rolls its loot twice",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_REGIONAL_C4_NAME": {
+   "en": "Veteran Traveler",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_REGIONAL_C4_DESCRIPTION": {
+   "en": "+25% XP from normal enemies on maps before your furthest unlocked map",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_MASTERWORK_C4_NAME": {
+   "en": "Obsidian Temper",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "CONTENT_MASTERWORK_C4_DESCRIPTION": {
+   "en": "+15% stats gained from every Obsidian weapon merge",
+   "placeholders": [],
+   "change": "change-54"
+  },
+  "FOLLOW_MASTERWORK_OBSIDIAN": {
+   "en": "Merge an Obsidian weapon to ^100: best ^%d/^100",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-54"
   }
  },
  "retired": {

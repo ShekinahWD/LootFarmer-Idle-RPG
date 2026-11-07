@@ -83,7 +83,8 @@ func run() -> void:
     for op in sim.catalog.campaign.opportunities:
         var stages: Array=game.prestige_stages(op)
         check(not stages.is_empty(),"Every opportunity grouped: "+str(op.id))
-        if op.path in ["offline","masterwork","arsenal","offering","specialist"]:check(stages==[0],"Global objective in General")
+        # Change 54: Masterwork IV (Obsidian, Spring I-II) is grouped on the maps that drop Obsidian.
+        if op.path in ["offline","masterwork","arsenal","offering","specialist"] and op.id!="masterwork_o4":check(stages==[0],"Global objective in General")
     # Expanded map camps work even with zero Map Details; touch drag never travels.
     fresh();sim.state.player.quiet=20
     for e in sim.state.enemies:e.aggro=false

@@ -86,12 +86,14 @@ func prestige_checks() -> void:
 ## Card values are substantial, effects distinct inside a path, and the new effects apply.
 func card_checks() -> void:
     var cards: Dictionary=sim.catalog.campaign.cards
-    check(cards.size()==33 and sim.catalog.campaign.combos.size()==17,"33 cards and 17 combos")
+    check(cards.size()==48 and sim.catalog.campaign.combos.size()==17,"48 cards (Change 54) and 17 combos")
     var effects: Dictionary={}
     for id in cards:
         var d: Dictionary=cards[id]
         effects[d.path+":"+d.effect]=int(effects.get(d.path+":"+d.effect,0))+1
         var floor_value: float=.03 if d.effect in ["crit","gear_chance","gem_chance"] else (.05 if d.effect=="lifesteal" or d.effect=="supply_chance" else .1)
+        # Change 54: Crowd Guard is per attacker (-4% each beyond the first, up to -20%).
+        if d.effect=="crowd_guard":floor_value=.03
         check(float(d.value)>=floor_value,"Card %s is substantial (%s %s)" % [id,d.effect,d.value])
         check(sim.catalog.campaign.paths.has(d.path),"Card %s has path art" % id)
     for key in effects:check(effects[key]==1,"Distinct effect within path "+key)

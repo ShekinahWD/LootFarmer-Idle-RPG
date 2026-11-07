@@ -9,13 +9,15 @@ func _ready() -> void:call_deferred("run")
 func fresh() -> void:sim.new_profile();sim.rng.seed=456;SaveService.write_blocked=false
 func run() -> void:
     sim=LootSimulation.new();add_child(sim);sim.set_physics_process(false)
-    check(sim.catalog.campaign.cards.size()==33 and sim.catalog.campaign.opportunities.size()==33 and sim.catalog.campaign.combos.size()==17,"Complete unique prestige catalog")
+    # Change 54 (Design A): 48 opportunities and 48 cards; the 17 Sets are unchanged.
+    check(sim.catalog.campaign.cards.size()==48 and sim.catalog.campaign.opportunities.size()==48 and sim.catalog.campaign.combos.size()==17,"Complete unique prestige catalog")
     for op in sim.catalog.campaign.opportunities:
         fresh()
         sim.state.opportunities[op.id]={"ready":false,"baseline":{},"step":0,"count":0}
         var n=int(op.id.right(1));var o=sim.state.opportunities[op.id]
         match op.path:
-            "hunter":sim.campaign.progress("boss",sim.campaign.boss_goal(op.path,n),20+10*n)
+            "hunter":
+                for boss in sim.campaign.hunter_bosses(n):sim.campaign.progress("boss",boss,sim.campaign.hunter_goal(n))
             "challenge":sim.campaign.progress("restricted",sim.campaign.boss_goal(op.path,n),1)
             "expedition","specialist":
                 for q in sim.campaign.chain_for(op.id):
@@ -27,7 +29,7 @@ func run() -> void:
             "offline":sim.state.offline_total=72*3600;sim.state.offline_longest=24*3600;sim.state.offline_income=10000
             "masterwork":
                 # Change 51: Masterwork counts outfits, skills and Obsidian weapons (evolvable weapons cap at ^20).
-                var id=["unit-blue-cap_outfit","unit-straw-hat_outfit_t2","unit-black-cap_outfit_t3"][n-1]
+                var id=["unit-blue-cap_outfit","unit-straw-hat_outfit_t2","unit-black-cap_outfit_t3","obsidian_sword"][n-1]
                 sim.add_item(id,101);sim.merge(id,true)
             "arsenal":
                 sim.state.gear.resize(30);sim.state.gear.fill("")
@@ -38,17 +40,17 @@ func run() -> void:
                     var id=family+"_outfit"+("_t2" if n==3 else "")
                     sim.add_item(id,51);sim.merge(id,true)
             "regional":
-                for st in ([1,2] if n==1 else ([3,4] if n==2 else [7,8])):
+                for st in sim.campaign.regional_stages(n):
                     sim.state.stage=st;sim.campaign.configure_stage()
                     sim.state.camps[str(st)]=range(sim.campaign.stage().spawns.size())
                     sim.campaign.reveal_circle(Vector2.ZERO,5000)
                     for g in sim.campaign.stage().groups:sim.state.run_kills[sim.catalog.groups[g].id]=1
             "collection":
                 sim.state.gear.resize(20);sim.state.gear.fill("")
-                var names=[['blue-cap','red-scarf','chef-hat'],['straw-hat','sunglasses','yellow-cap'],['bunny-ears','cat-ears','elf-ears']][n-1]
-                for name in names:
-                    var id=sim.campaign.contract_outfit(name);sim.add_item(id,11+10*n)
-                    sim.campaign.progress("collect",id,11+10*n);sim.campaign.progress("gear",id,11+10*n)
+                var need: int=sim.campaign.collection_required(n)
+                for name in sim.campaign.collection_names(n):
+                    var id=sim.campaign.contract_outfit(name);sim.add_item(id,need)
+                    sim.campaign.progress("collect",id,need);sim.campaign.progress("gear",id,need)
                 check(sim.campaign.submit(op.id),"Collection transaction: "+op.id)
             "offering":
                 sim.state.coins=1000000;sim.state.online_coins=1000000;sim.state.gems=1000;sim.state.online_gems=1000

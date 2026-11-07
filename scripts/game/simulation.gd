@@ -295,12 +295,14 @@ func _free_stat(id: String,taken: Array) -> String:
     if pool.is_empty():return ""
     return str(pool[rng.randi_range(0,pool.size()-1)])
 
-func _roll_value(id: String,stat: String,_boss: bool) -> float:
+func _roll_value(id: String,stat: String,boss: bool) -> float:
     var span: Array=catalog.items[id].extras[stat]
-    return rng.randf_range(float(span[0]),float(span[1]))
+    # Change 54 Treasure Sense: boss attributes roll in the upper half of their range.
+    var low: float=float(span[0]) if not (boss and campaign.bonus("treasure_sense")>0) else (float(span[0])+float(span[1]))*.5
+    return rng.randf_range(low,float(span[1]))
 
 func reroll_cost(id: String) -> int:
-    return ceili(float(catalog.items[id].get("reroll",0))*(1-campaign.bonus("reroll_discount")))
+    return ceili(float(catalog.items[id].get("reroll",0))*maxf(0,1-campaign.bonus("reroll_discount")-campaign.bonus("precise_reroll")))
 
 ## Change 50: the permanent merge level of an item identity (kept by Prestige, cleared by Hard Reset).
 ## Supplies grow by use (supply mastery), never by merging, so they are never remembered.
@@ -365,7 +367,8 @@ func is_legacy(id: String) -> bool:
 
 ## Spare copies one evolution spends (above the copy that stays at ^20).
 func evolution_spare_cost(_id: String="") -> int:
-    return int(catalog.progression.evolution.spare_cost)
+    # Change 54 Thrifty Evolution: 2 fewer spares (8).
+    return maxi(1,int(catalog.progression.evolution.spare_cost)-int(campaign.bonus("thrifty_evolution")))
 
 ## The ^level shown for an item: a supply's permanent mastery, otherwise its record's merge level.
 func merge_level(id: String) -> int:
@@ -419,7 +422,8 @@ func supply_cooldown_with(id: String,multiplier: float) -> float:
     var s:=supply(id)
     var base:=float(s.get("cooldown",0))
     if base<=0:return 0.0
-    return maxf(float(s.get("cooldown_floor",0)),base*multiplier)
+    # Change 54 Steady Supplies: -15% before the authored floor.
+    return maxf(float(s.get("cooldown_floor",0)),base*multiplier*(1-campaign.bonus("steady_supplies")))
 
 func buff_time(id: String) -> float:
     if id=="coin_boost":return float(state.boost_time)
@@ -821,7 +825,8 @@ func reroll(id: String,slot: int=0) -> bool:
     var entry: Array=slots[slot]
     var taken:=_held_stats(r)
     var own: String=str(entry[1]) if entry[0]=="base" else str(r.boss_extras[int(entry[1])].stat)
-    taken.erase(own)
+    # Change 54 Precise Reroll: never the same stat again (when the pool has another free one).
+    if campaign.bonus("precise_reroll")<=0:taken.erase(own)
     var stat:=_free_stat(id,taken)
     if stat=="":stat=own
     var value:=_roll_value(id,stat,entry[0]=="boss")
@@ -981,10 +986,10 @@ func collect(uid: int) -> bool:
                 state.pickups.erase(pickup)
                 touch()
                 return true
-            if add_item(pickup.item):
+            if add_item(pickup.item,int(pickup.get("qty",1))):
                 if bool(pickup.get("enhanced",false)) and enhance(str(pickup.item)):event.emit("ITEM_ENHANCED")
-                campaign.progress("collect",pickup.item,1)
-                if catalog.items[pickup.item].kind in ["weapon","outfit"]:campaign.progress("gear",pickup.item,1)
+                campaign.progress("collect",pickup.item,int(pickup.get("qty",1)))
+                if catalog.items[pickup.item].kind in ["weapon","outfit"]:campaign.progress("gear",pickup.item,int(pickup.get("qty",1)))
                 state.pickups.erase(pickup)
                 return true
             return fail("INVENTORY_FULL")
@@ -1109,6 +1114,7 @@ func _resolve_attack(a: Dictionary, dt: float) -> void:
     damage=maxf(1,damage*100.0/(100.0+defense))
     var actual := minf(damage,target.hp)
     target.hp=maxf(0,target.hp-damage)
+    if target.id=="player":campaign.after_player_hit()
     target.hurt=.16
     if is_player and not target.aggro:
         chatter.emit(target.id,"CHAT_SURPRISE")
@@ -1121,9 +1127,25 @@ func _resolve_attack(a: Dictionary, dt: float) -> void:
         if target_def.aggro_mode=="group":
             for other in state.enemies:
                 if int(other.group)==int(target.group) and other.get("variant",2)==target.get("variant",2) and not is_helper(other) and other.hp>0 and not other.returning and position_of(other).distance_to(position_of(target))<=float(target_def.assist_radius):
+                    # Change 54 Broken Rally: an enemy called into the fight starts attacking later.
+                    if not other.aggro and campaign.bonus("broken_rally")>0:other.cooldown=maxf(float(other.cooldown),campaign.bonus("broken_rally"))
                     other.aggro=true
+        # Change 54 Cleave: a basic attack also hits other enemies close to its target for a share.
+        if campaign.bonus("cleave")>0:_cleave(target,damage)
     if target.hp<=0:
         _kill(target)
+
+func _cleave(target: Dictionary,damage: float) -> void:
+    var view:=campaign.sight()
+    for other in state.enemies.duplicate():
+        if other.id==target.id or float(other.hp)<=0 or not campaign.target_allowed(other,view):continue
+        if position_of(other).distance_to(position_of(target))>campaign.CLEAVE_RADIUS:continue
+        var defense: float=float(enemy_definition(int(other.group),int(other.get("variant",2))).defense)
+        var hit:=maxf(1,damage*campaign.bonus("cleave")*100.0/(100.0+defense))
+        other.hp=maxf(0,float(other.hp)-hit);other.hurt=.16;other.quiet=0.0
+        other.aggro=not bool(other.get("returning",false))
+        feedback.emit(other.id,hit,false)
+        if float(other.hp)<=0:_kill(other)
 
 func _kill(a: Dictionary) -> void:
     if a.id==locked_target or a.id=="player":clear_target()
@@ -1183,8 +1205,14 @@ func _reward(a: Dictionary) -> void:
         state.online_gems+=gems
         history("HISTORY_CURRENCY","",gems,0)
     var dropped: Array=[]
-    for id in def.loot:
-        if rng.randf()<gear_chance(group):dropped.append(_drop(id,a))
+    # Change 54 Champion's Spoils: a boss's first defeat this run (run_kills counts it after _reward) rolls
+    # its loot twice. Twin Find: a normal enemy's gear drop can be a pile of two copies.
+    var rolls:=2 if def.boss and campaign.bonus("champions_spoils")>0 and int(state.run_kills.get(str(def.id),0))==0 else 1
+    for roll in range(rolls):
+        for id in def.loot:
+            if rng.randf()<gear_chance(group):
+                dropped.append(_drop(id,a))
+                if not def.boss and campaign.bonus("twin_find")>0 and rng.randf()<campaign.bonus("twin_find"):state.pickups.back()["qty"]=2
     if rng.randf()<consumable_chance(group,"supply"):dropped.append(_drop(_roll_supply(group),a))
     if not def.skills.is_empty() and rng.randf()<(.1 if def.boss else .05)+.01*level("skill_drop",group):
         dropped.append(_drop("skill_"+str(def.skills[rng.randi_range(0,def.skills.size()-1)]),a))
@@ -1280,7 +1308,7 @@ func step(dt: float) -> void:
                     if distance>float(catalog.world.reach):
                         _move(p,position_of(target),campaign.move_speed(),dt)
                     elif p.cooldown<=0:
-                        _start_attack(p,target,1.0/(1.0+stats().speed))
+                        _start_attack(p,target,1.0/(1.0+stats().speed+campaign.last_stand_speed()))
                 elif int(state.focus)>=0:
                     _move(p,farming_position(),campaign.move_speed(),dt)
     # Iterate a stable copy. Change 24: membership is re-checked (a linear scan per actor) only once
@@ -1451,6 +1479,8 @@ func group_xp(group: int,variant: int=2) -> float:
 func merge_gain(id: String,stat: String) -> float:
     var definition: Dictionary=catalog.items[id]
     var gain: float=float(definition.get("merge_gain",{}).get(stat,float(definition.normal[stat][1])*3.0))
+    # Change 54 Obsidian Temper: +15% merge gain on Obsidian (final-tier) weapons.
+    if str(definition.kind)=="weapon" and int(definition.tier)==7 and not bool(definition.get("legacy",false)):gain*=1+campaign.bonus("obsidian_temper")
     return gain*card("merge")
 
 ## Change 13: the enemy types that actually drop this exact item (their loot weapon and outfit, and
@@ -1629,7 +1659,10 @@ func group_upgrade_value(id: String,g: int,variant: int=2,extra: int=0) -> float
         "loot":return float(catalog.groups[g].gear_chance)+float(catalog.upgrades.loot.effect)*mini(n,int(catalog.upgrades.loot.cap))+campaign.bonus("gear_chance")
         "supply_drop":return (.15 if catalog.groups[g].boss else .05)+minf(.15,.01*n)
         "skill_drop":return (.1 if catalog.groups[g].boss else .05)+minf(.15,.01*n)
-        "group_xp":return float(enemy_definition(g,variant).xp)*(1.0+n*.1)*(1+campaign.bonus("boss_xp" if catalog.groups[g].boss else "normal_xp")+campaign.bonus("xp"))
+        "group_xp":
+            # Change 54 Veteran Traveler: +25% XP from normal enemies on maps before the furthest unlocked one.
+            var veteran: float=campaign.bonus("veteran_traveler") if not catalog.groups[g].boss and int(catalog.groups[g].stage)<int(state.unlocked_stage) else 0.0
+            return float(enemy_definition(g,variant).xp)*(1.0+n*.1)*(1+campaign.bonus("boss_xp" if catalog.groups[g].boss else "normal_xp")+campaign.bonus("xp")+veteran)
         "coin_amount":return float(catalog.groups[g].coins)*(1.0+.5*n)*card("coins")*(1.0+float(state.boost_power))*(1+campaign.bonus("boss_coins" if catalog.groups[g].boss else "normal_coins"))
         "spawn_amount":return spawn_amount(g,extra)
         "spawn_cooldown":return spawn_cooldown(g,extra)

@@ -23110,6 +23110,111 @@
         "description": "CONTENT_OFFLINE_C3_DESCRIPTION",
         "effect": "offline_items",
         "value": 0.5
+      },
+      "expedition_c4": {
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_C4_NAME",
+        "description": "CONTENT_EXPEDITION_C4_DESCRIPTION",
+        "effect": "crowd_guard",
+        "value": 0.04
+      },
+      "expedition_c5": {
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_C5_NAME",
+        "description": "CONTENT_EXPEDITION_C5_DESCRIPTION",
+        "effect": "second_wind",
+        "value": 0.25
+      },
+      "expedition_c6": {
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_C6_NAME",
+        "description": "CONTENT_EXPEDITION_C6_DESCRIPTION",
+        "effect": "cleave",
+        "value": 0.3
+      },
+      "expedition_c7": {
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_C7_NAME",
+        "description": "CONTENT_EXPEDITION_C7_DESCRIPTION",
+        "effect": "broken_rally",
+        "value": 0.5
+      },
+      "expedition_c8": {
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_C8_NAME",
+        "description": "CONTENT_EXPEDITION_C8_DESCRIPTION",
+        "effect": "field_rest",
+        "value": 2.0
+      },
+      "collection_c4": {
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_C4_NAME",
+        "description": "CONTENT_COLLECTION_C4_DESCRIPTION",
+        "effect": "twin_find",
+        "value": 0.1
+      },
+      "collection_c5": {
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_C5_NAME",
+        "description": "CONTENT_COLLECTION_C5_DESCRIPTION",
+        "effect": "thrifty_evolution",
+        "value": 2.0
+      },
+      "collection_c6": {
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_C6_NAME",
+        "description": "CONTENT_COLLECTION_C6_DESCRIPTION",
+        "effect": "steady_supplies",
+        "value": 0.15
+      },
+      "collection_c7": {
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_C7_NAME",
+        "description": "CONTENT_COLLECTION_C7_DESCRIPTION",
+        "effect": "precise_reroll",
+        "value": 0.25
+      },
+      "collection_c8": {
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_C8_NAME",
+        "description": "CONTENT_COLLECTION_C8_DESCRIPTION",
+        "effect": "treasure_sense",
+        "value": 1.0
+      },
+      "hunter_c4": {
+        "path": "hunter",
+        "name": "CONTENT_HUNTER_C4_NAME",
+        "description": "CONTENT_HUNTER_C4_DESCRIPTION",
+        "effect": "boss_breaker",
+        "value": 0.25
+      },
+      "challenge_c4": {
+        "path": "challenge",
+        "name": "CONTENT_CHALLENGE_C4_NAME",
+        "description": "CONTENT_CHALLENGE_C4_DESCRIPTION",
+        "effect": "last_stand",
+        "value": 0.2
+      },
+      "trophy_c4": {
+        "path": "trophy",
+        "name": "CONTENT_TROPHY_C4_NAME",
+        "description": "CONTENT_TROPHY_C4_DESCRIPTION",
+        "effect": "champions_spoils",
+        "value": 1.0
+      },
+      "regional_c4": {
+        "path": "regional",
+        "name": "CONTENT_REGIONAL_C4_NAME",
+        "description": "CONTENT_REGIONAL_C4_DESCRIPTION",
+        "effect": "veteran_traveler",
+        "value": 0.25
+      },
+      "masterwork_c4": {
+        "path": "masterwork",
+        "name": "CONTENT_MASTERWORK_C4_NAME",
+        "description": "CONTENT_MASTERWORK_C4_DESCRIPTION",
+        "effect": "obsidian_temper",
+        "value": 0.15
       }
     },
     "opportunities": [
@@ -23119,7 +23224,10 @@
         "name": "CONTENT_HUNTER_O1_NAME",
         "discovery": "Defeat boss-snowman once",
         "description": "CONTENT_HUNTER_O1_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          1
+        ]
       },
       {
         "id": "hunter_o2",
@@ -23127,7 +23235,10 @@
         "name": "CONTENT_HUNTER_O2_NAME",
         "discovery": "Defeat boss-gray-cat once",
         "description": "CONTENT_HUNTER_O2_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          3
+        ]
       },
       {
         "id": "hunter_o3",
@@ -23135,7 +23246,10 @@
         "name": "CONTENT_HUNTER_O3_NAME",
         "discovery": "Defeat boss-grim-reaper once",
         "description": "CONTENT_HUNTER_O3_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          6
+        ]
       },
       {
         "id": "expedition_o1",
@@ -23143,7 +23257,10 @@
         "name": "CONTENT_EXPEDITION_O1_NAME",
         "discovery": "Kill 10 blue-cap enemies",
         "description": "CONTENT_EXPEDITION_O1_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          1
+        ]
       },
       {
         "id": "expedition_o2",
@@ -23151,7 +23268,10 @@
         "name": "CONTENT_EXPEDITION_O2_NAME",
         "discovery": "Kill 10 straw-hat enemies",
         "description": "CONTENT_EXPEDITION_O2_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          3
+        ]
       },
       {
         "id": "expedition_o3",
@@ -23159,7 +23279,10 @@
         "name": "CONTENT_EXPEDITION_O3_NAME",
         "discovery": "Kill 10 bunny-ears enemies",
         "description": "CONTENT_EXPEDITION_O3_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          7
+        ]
       },
       {
         "id": "collection_o1",
@@ -23167,7 +23290,10 @@
         "name": "CONTENT_COLLECTION_O1_NAME",
         "discovery": "Own 3 distinct online-acquired gear ids",
         "description": "CONTENT_COLLECTION_O1_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          1
+        ]
       },
       {
         "id": "collection_o2",
@@ -23175,7 +23301,10 @@
         "name": "CONTENT_COLLECTION_O2_NAME",
         "discovery": "Reach Summer I",
         "description": "CONTENT_COLLECTION_O2_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          3
+        ]
       },
       {
         "id": "collection_o3",
@@ -23183,7 +23312,10 @@
         "name": "CONTENT_COLLECTION_O3_NAME",
         "discovery": "Reach Spring I",
         "description": "CONTENT_COLLECTION_O3_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          7
+        ]
       },
       {
         "id": "masterwork_o1",
@@ -23191,7 +23323,10 @@
         "name": "CONTENT_MASTERWORK_O1_NAME",
         "discovery": "Merge any item to ^10",
         "description": "CONTENT_MASTERWORK_O1_RULE",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "masterwork_o2",
@@ -23199,7 +23334,10 @@
         "name": "CONTENT_MASTERWORK_O2_NAME",
         "discovery": "Evolve any item once",
         "description": "CONTENT_MASTERWORK_O2_RULE",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "masterwork_o3",
@@ -23207,7 +23345,10 @@
         "name": "CONTENT_MASTERWORK_O3_NAME",
         "discovery": "Own a tier-3 item",
         "description": "CONTENT_MASTERWORK_O3_RULE",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "arsenal_o1",
@@ -23215,7 +23356,10 @@
         "name": "CONTENT_ARSENAL_O1_NAME",
         "discovery": "Equip weapon and outfit",
         "description": "CONTENT_ARSENAL_O1_RULE",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "arsenal_o2",
@@ -23223,7 +23367,10 @@
         "name": "CONTENT_ARSENAL_O2_NAME",
         "discovery": "Own 4 distinct gear families",
         "description": "CONTENT_ARSENAL_O2_RULE",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "arsenal_o3",
@@ -23231,7 +23378,10 @@
         "name": "CONTENT_ARSENAL_O3_NAME",
         "discovery": "Evolve two different gear families",
         "description": "CONTENT_ARSENAL_O3_RULE",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "regional_o1",
@@ -23239,7 +23389,11 @@
         "name": "CONTENT_REGIONAL_O1_NAME",
         "discovery": "Enter Winter II",
         "description": "CONTENT_REGIONAL_O1_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          1,
+          2
+        ]
       },
       {
         "id": "regional_o2",
@@ -23247,7 +23401,11 @@
         "name": "CONTENT_REGIONAL_O2_NAME",
         "discovery": "Enter Summer II",
         "description": "CONTENT_REGIONAL_O2_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          3,
+          4
+        ]
       },
       {
         "id": "regional_o3",
@@ -23255,7 +23413,11 @@
         "name": "CONTENT_REGIONAL_O3_NAME",
         "discovery": "Enter Spring II",
         "description": "CONTENT_REGIONAL_O3_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          7,
+          8
+        ]
       },
       {
         "id": "challenge_o1",
@@ -23263,7 +23425,10 @@
         "name": "CONTENT_CHALLENGE_O1_NAME",
         "discovery": "Defeat boss-snowman once",
         "description": "CONTENT_CHALLENGE_O1_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          2
+        ]
       },
       {
         "id": "challenge_o2",
@@ -23271,7 +23436,10 @@
         "name": "CONTENT_CHALLENGE_O2_NAME",
         "discovery": "Defeat boss-teal-dinosaur once",
         "description": "CONTENT_CHALLENGE_O2_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          4
+        ]
       },
       {
         "id": "challenge_o3",
@@ -23279,7 +23447,10 @@
         "name": "CONTENT_CHALLENGE_O3_NAME",
         "discovery": "Defeat boss-grim-reaper once",
         "description": "CONTENT_CHALLENGE_O3_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          6
+        ]
       },
       {
         "id": "offering_o1",
@@ -23287,7 +23458,10 @@
         "name": "CONTENT_OFFERING_O1_NAME",
         "discovery": "Earn 1,000 online-kill coins this run",
         "description": "CONTENT_OFFERING_O1_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "offering_o2",
@@ -23295,7 +23469,10 @@
         "name": "CONTENT_OFFERING_O2_NAME",
         "discovery": "Reach Autumn I",
         "description": "CONTENT_OFFERING_O2_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "offering_o3",
@@ -23303,7 +23480,10 @@
         "name": "CONTENT_OFFERING_O3_NAME",
         "discovery": "Reach Spring II",
         "description": "CONTENT_OFFERING_O3_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "specialist_o1",
@@ -23311,7 +23491,10 @@
         "name": "CONTENT_SPECIALIST_O1_NAME",
         "discovery": "Complete one regular mission",
         "description": "CONTENT_SPECIALIST_O1_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "specialist_o2",
@@ -23319,7 +23502,10 @@
         "name": "CONTENT_SPECIALIST_O2_NAME",
         "discovery": "Complete five regular missions this run",
         "description": "CONTENT_SPECIALIST_O2_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "specialist_o3",
@@ -23327,7 +23513,10 @@
         "name": "CONTENT_SPECIALIST_O3_NAME",
         "discovery": "Reach Autumn II",
         "description": "CONTENT_SPECIALIST_O3_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "trophy_o1",
@@ -23335,7 +23524,11 @@
         "name": "CONTENT_TROPHY_O1_NAME",
         "discovery": "Defeat boss-snowman once",
         "description": "CONTENT_TROPHY_O1_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          1,
+          2
+        ]
       },
       {
         "id": "trophy_o2",
@@ -23343,7 +23536,11 @@
         "name": "CONTENT_TROPHY_O2_NAME",
         "discovery": "Defeat boss-gray-cat once",
         "description": "CONTENT_TROPHY_O2_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          3,
+          4
+        ]
       },
       {
         "id": "trophy_o3",
@@ -23351,7 +23548,11 @@
         "name": "CONTENT_TROPHY_O3_NAME",
         "discovery": "Defeat boss-squirrel once",
         "description": "CONTENT_TROPHY_O3_DESCRIPTION",
-        "lifetime": false
+        "lifetime": false,
+        "stages": [
+          5,
+          6
+        ]
       },
       {
         "id": "offline_o1",
@@ -23359,7 +23560,10 @@
         "name": "CONTENT_OFFLINE_O1_NAME",
         "discovery": "First positive offline interval",
         "description": "CONTENT_OFFLINE_O1_DESCRIPTION",
-        "lifetime": true
+        "lifetime": true,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "offline_o2",
@@ -23367,7 +23571,10 @@
         "name": "CONTENT_OFFLINE_O2_NAME",
         "discovery": "First positive offline interval",
         "description": "CONTENT_OFFLINE_O2_DESCRIPTION",
-        "lifetime": true
+        "lifetime": true,
+        "stages": [
+          0
+        ]
       },
       {
         "id": "offline_o3",
@@ -23375,7 +23582,178 @@
         "name": "CONTENT_OFFLINE_O3_NAME",
         "discovery": "First positive offline coin settlement",
         "description": "CONTENT_OFFLINE_O3_DESCRIPTION",
-        "lifetime": true
+        "lifetime": true,
+        "stages": [
+          0
+        ]
+      },
+      {
+        "id": "expedition_o4",
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_O4_NAME",
+        "discovery": "Kill 10 wolf-hood enemies",
+        "description": "CONTENT_EXPEDITION_O4_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          2
+        ]
+      },
+      {
+        "id": "expedition_o5",
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_O5_NAME",
+        "discovery": "Kill 10 cowboy-bandana enemies",
+        "description": "CONTENT_EXPEDITION_O5_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          4
+        ]
+      },
+      {
+        "id": "expedition_o6",
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_O6_NAME",
+        "discovery": "Kill 10 black-cap enemies",
+        "description": "CONTENT_EXPEDITION_O6_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          5
+        ]
+      },
+      {
+        "id": "expedition_o7",
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_O7_NAME",
+        "discovery": "Kill 10 horned-hood enemies",
+        "description": "CONTENT_EXPEDITION_O7_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          6
+        ]
+      },
+      {
+        "id": "expedition_o8",
+        "path": "expedition",
+        "name": "CONTENT_EXPEDITION_O8_NAME",
+        "discovery": "Kill 10 flower-crown enemies",
+        "description": "CONTENT_EXPEDITION_O8_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          8
+        ]
+      },
+      {
+        "id": "collection_o4",
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_O4_NAME",
+        "discovery": "Reach Winter II",
+        "description": "CONTENT_COLLECTION_O4_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          2
+        ]
+      },
+      {
+        "id": "collection_o5",
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_O5_NAME",
+        "discovery": "Reach Summer II",
+        "description": "CONTENT_COLLECTION_O5_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          4
+        ]
+      },
+      {
+        "id": "collection_o6",
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_O6_NAME",
+        "discovery": "Reach Autumn I",
+        "description": "CONTENT_COLLECTION_O6_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          5
+        ]
+      },
+      {
+        "id": "collection_o7",
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_O7_NAME",
+        "discovery": "Reach Autumn II",
+        "description": "CONTENT_COLLECTION_O7_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          6
+        ]
+      },
+      {
+        "id": "collection_o8",
+        "path": "collection",
+        "name": "CONTENT_COLLECTION_O8_NAME",
+        "discovery": "Reach Spring II",
+        "description": "CONTENT_COLLECTION_O8_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          8
+        ]
+      },
+      {
+        "id": "hunter_o4",
+        "path": "hunter",
+        "name": "CONTENT_HUNTER_O4_NAME",
+        "discovery": "Defeat boss-bee once",
+        "description": "CONTENT_HUNTER_O4_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          7
+        ]
+      },
+      {
+        "id": "challenge_o4",
+        "path": "challenge",
+        "name": "CONTENT_CHALLENGE_O4_NAME",
+        "discovery": "Defeat boss-red-panda once",
+        "description": "CONTENT_CHALLENGE_O4_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          8
+        ]
+      },
+      {
+        "id": "trophy_o4",
+        "path": "trophy",
+        "name": "CONTENT_TROPHY_O4_NAME",
+        "discovery": "Defeat boss-bee once",
+        "description": "CONTENT_TROPHY_O4_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          7,
+          8
+        ]
+      },
+      {
+        "id": "regional_o4",
+        "path": "regional",
+        "name": "CONTENT_REGIONAL_O4_NAME",
+        "discovery": "Reach Autumn II",
+        "description": "CONTENT_REGIONAL_O4_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          5,
+          6
+        ]
+      },
+      {
+        "id": "masterwork_o4",
+        "path": "masterwork",
+        "name": "CONTENT_MASTERWORK_O4_NAME",
+        "discovery": "Own an Obsidian weapon",
+        "description": "CONTENT_MASTERWORK_O4_DESCRIPTION",
+        "lifetime": false,
+        "stages": [
+          7,
+          8
+        ]
       }
     ],
     "combos": [

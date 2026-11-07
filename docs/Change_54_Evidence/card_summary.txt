@@ -1,0 +1,12 @@
+N3_rdy         gray-cat 3/3 23% 56s | 3-actor 12/12 worst yellow-cap v3 3/3 70% | 6-actor 2/2 worst yellow-cap v3 3/3 29% | farm straw-hat 0 d/10m, yellow-cap 0 d/10m
+N3_rdy_pfarm   gray-cat 3/3 48% 56s | 3-actor 12/12 worst yellow-cap v3 3/3 70% | 6-actor 2/2 worst yellow-cap v3 3/3 38% | farm straw-hat 0 d/10m, yellow-cap 0 d/10m
+N3_rdy_pboss   gray-cat 3/3 23% 56s | 3-actor 12/12 worst yellow-cap v3 3/3 70% | 6-actor 2/2 worst yellow-cap v3 3/3 29% | farm straw-hat 0 d/10m, yellow-cap 0 d/10m
+N5_rdy         red-fox 3/3 61% 72s; squirrel 3/3 66% 75s | 3-actor 11/11 worst pumpkin-head v3 3/3 78% | 6-actor 1/2 worst pumpkin-head v3 2/3 13% | farm black-cap 0 d/10m, pumpkin-head 0 d/10m
+N5_rdy_pfarm   red-fox 3/3 73% 72s; squirrel 3/3 89% 75s | 3-actor 11/11 worst pumpkin-head v3 3/3 73% | 6-actor 2/2 worst pumpkin-head v3 3/3 42% | farm black-cap 0 d/10m, pumpkin-head 0 d/10m
+N5_rdy_pboss   red-fox 3/3 61% 72s; squirrel 3/3 68% 72s | 3-actor 11/11 worst pumpkin-head v3 3/3 78% | 6-actor 1/2 worst pumpkin-head v3 2/3 23% | farm black-cap 0 d/10m, pumpkin-head 0 d/10m
+N7_rdy         bee 3/3 64% 193s; orange-tabby-cat 3/3 67% 161s | 3-actor 11/11 worst elf-ears v3 3/3 70% | 6-actor 2/2 worst elf-ears v3 3/3 50% | farm bunny-ears 0 d/10m, elf-ears 0 d/10m
+N7_rdy_pfarm   bee 3/3 67% 193s; orange-tabby-cat 3/3 64% 161s | 3-actor 11/11 worst elf-ears v3 3/3 68% | 6-actor 2/2 worst elf-ears v1 3/3 60% | farm bunny-ears 0 d/10m, elf-ears 0 d/10m
+N7_rdy_pboss   bee 3/3 51% 180s; orange-tabby-cat 3/3 65% 161s | 3-actor 11/11 worst elf-ears v3 3/3 70% | 6-actor 2/2 worst elf-ears v3 3/3 51% | farm bunny-ears 0 d/10m, elf-ears 0 d/10m
+N8_obs100      red-panda 3/3 55% 325s; sunflower 0/3 0% 236s | 3-actor 22/22 worst plain v1 3/3 64% | 6-actor 0/2 worst sprout v1 0/3 0% | farm flower-crown 0 d/10m, sprout 0 d/10m
+N8_obs100_pfarm red-panda 3/3 64% 325s; sunflower 0/3 0% 318s | 3-actor 22/22 worst sprout v1 3/3 63% | 6-actor 2/2 worst sprout v3 3/3 43% | farm flower-crown 0 d/10m, sprout 0 d/10m
+N8_obs100_pboss red-panda 3/3 58% 282s; sunflower 0/3 0% 234s | 3-actor 22/22 worst plain v1 3/3 64% | 6-actor 0/2 worst sprout v1 0/3 0% | farm flower-crown 0 d/10m, sprout 0 d/10m

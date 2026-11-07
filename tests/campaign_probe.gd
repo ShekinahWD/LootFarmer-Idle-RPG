@@ -96,11 +96,12 @@ func run() -> void:
     for i in range(1,4):sim.state.opportunities["hunter_o"+str(i)]={"ready":true,"baseline":{}}
     var fog_before: Dictionary=sim.state.explored.duplicate(true)
     check(sim.campaign.begin_prestige(),"Prestige batch begins")
-    check(sim.campaign.offered_cards().size()==3,"First choice three cards")
+    # Change 54: a path offers all of its unowned cards (Hunter has 4); each choice removes one.
+    check(sim.campaign.offered_cards().size()==4,"First choice: the path's four cards")
     check(sim.prestige(sim.campaign.offered_cards()[0]) and sim.state.prestiges==0,"First choice saved without reset")
     var mid=sim.snapshot();sim.restore(mid)
-    check(sim.campaign.offered_cards().size()==2,"Batch resumes with two unique remaining cards")
-    sim.prestige(sim.campaign.offered_cards()[0]);check(sim.campaign.offered_cards().size()==1,"Last choice one remaining card")
+    check(sim.campaign.offered_cards().size()==3,"Batch resumes with three unique remaining cards")
+    sim.prestige(sim.campaign.offered_cards()[0]);check(sim.campaign.offered_cards().size()==2,"Last choice two remaining cards")
     sim.prestige(sim.campaign.offered_cards()[0])
     check(sim.state.prestiges==1 and sim.state.owned_cards.size()==3,"Exactly one reset for whole batch")
     check(sim.state.keys.size()==13 and sim.state.final_complete and sim.state.main_claimed.has(15),"Keys and claimed final reward persist")

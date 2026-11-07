@@ -5881,3 +5881,186 @@ msgstr "Reroll %s · %s gems"
 
 msgid "REROLL_ATTRIBUTE_CONFIRM"
 msgstr "Spend %s gems to reroll %s? The new roll replaces this attribute, even if weaker. Your other attributes stay as they are."
+
+msgid "CONTENT_EXPEDITION_O4_NAME"
+msgstr "Deep winter route"
+
+msgid "CONTENT_EXPEDITION_O4_DESCRIPTION"
+msgstr "On Winter II, in order, defeat 50 of each: Wolf Hood, Calico Cat Hood, Golden Crown, Reindeer Antlers, Santa Hat, Space Helmet"
+
+msgid "CONTENT_EXPEDITION_O5_NAME"
+msgstr "Beach route"
+
+msgid "CONTENT_EXPEDITION_O5_DESCRIPTION"
+msgstr "On Summer II, in order, defeat 60 of each: Cowboy Bandana, Duck Swim Ring, Rainbow Clown, Red Cap Swimmer, Snorkeler, Straw Hat Swimmer"
+
+msgid "CONTENT_EXPEDITION_O6_NAME"
+msgstr "Autumn route"
+
+msgid "CONTENT_EXPEDITION_O6_DESCRIPTION"
+msgstr "On Autumn I, in order, defeat 120 of each: Black Cap, Mushroom Cap, Pumpkin Head"
+
+msgid "CONTENT_EXPEDITION_O7_NAME"
+msgstr "Late autumn route"
+
+msgid "CONTENT_EXPEDITION_O7_DESCRIPTION"
+msgstr "On Autumn II, in order, defeat 100 of each: Horned Hood, Orange Screen Helmet, Television Head, Top Hat"
+
+msgid "CONTENT_EXPEDITION_O8_NAME"
+msgstr "Bloom route"
+
+msgid "CONTENT_EXPEDITION_O8_DESCRIPTION"
+msgstr "On Spring II, in order, defeat 60 of each: Flower Crown, Green Cap, Pink Cap, Pink Flower Hood, Plain, Sprout"
+
+msgid "CONTENT_COLLECTION_O4_NAME"
+msgstr "Holiday collection"
+
+msgid "CONTENT_COLLECTION_O4_DESCRIPTION"
+msgstr "Pick up 16 each of the Santa Hat, Reindeer Antlers and Space Helmet outfits (Winter II drops). Submit hands in 15 of each and you keep one"
+
+msgid "CONTENT_COLLECTION_O5_NAME"
+msgstr "Swimwear collection"
+
+msgid "CONTENT_COLLECTION_O5_DESCRIPTION"
+msgstr "Pick up 26 each of the Snorkeler, Red Cap Swimmer and Straw Hat Swimmer outfits (Summer II drops). Submit hands in 25 of each and you keep one"
+
+msgid "CONTENT_COLLECTION_O6_NAME"
+msgstr "Harvest collection"
+
+msgid "CONTENT_COLLECTION_O6_DESCRIPTION"
+msgstr "Pick up 31 each of the Black Cap, Mushroom Cap and Pumpkin Head outfits (Autumn I drops). Submit hands in 30 of each and you keep one"
+
+msgid "CONTENT_COLLECTION_O7_NAME"
+msgstr "Screen collection"
+
+msgid "CONTENT_COLLECTION_O7_DESCRIPTION"
+msgstr "Pick up 31 each of the Television Head, Top Hat and Orange Screen Helmet outfits (Autumn II drops). Submit hands in 30 of each and you keep one"
+
+msgid "CONTENT_COLLECTION_O8_NAME"
+msgstr "Garden collection"
+
+msgid "CONTENT_COLLECTION_O8_DESCRIPTION"
+msgstr "Pick up 41 each of the Pink Cap, Plain and Sprout outfits (Spring II drops). Submit hands in 40 of each and you keep one"
+
+msgid "CONTENT_HUNTER_O4_NAME"
+msgstr "Spring bounty"
+
+msgid "CONTENT_HUNTER_O4_DESCRIPTION"
+msgstr "Defeat the Bee and the Orange Tabby Cat (Spring I bosses) 10 times each"
+
+msgid "CONTENT_CHALLENGE_O4_NAME"
+msgstr "Unassisted spring"
+
+msgid "CONTENT_CHALLENGE_O4_DESCRIPTION"
+msgstr "Defeat the Red Panda (Spring II boss) without using any supply during the fight"
+
+msgid "CONTENT_TROPHY_O4_NAME"
+msgstr "Spring trophies"
+
+msgid "CONTENT_TROPHY_O4_DESCRIPTION"
+msgstr "After finding this, defeat the Bee, the Orange Tabby Cat (Spring I), the Red Panda and the Sunflower (Spring II) once each"
+
+msgid "CONTENT_REGIONAL_O4_NAME"
+msgstr "Autumn mastery"
+
+msgid "CONTENT_REGIONAL_O4_DESCRIPTION"
+msgstr "On Autumn I and Autumn II: explore 90% of each map, defeat all four bosses and unlock every camp"
+
+msgid "CONTENT_MASTERWORK_O4_NAME"
+msgstr "Obsidian masterwork"
+
+msgid "CONTENT_MASTERWORK_O4_DESCRIPTION"
+msgstr "Merge an Obsidian weapon (Spring I and Spring II drops) to ^100"
+
+msgid "CONTENT_EXPEDITION_C4_NAME"
+msgstr "Crowd Guard"
+
+msgid "CONTENT_EXPEDITION_C4_DESCRIPTION"
+msgstr "-4% damage taken for each normal enemy attacking you beyond the first (up to -20%)"
+
+msgid "CONTENT_EXPEDITION_C5_NAME"
+msgstr "Second Wind"
+
+msgid "CONTENT_EXPEDITION_C5_DESCRIPTION"
+msgstr "When you drop below 30% HP, heal 25% of your maximum HP (once every 90 s)"
+
+msgid "CONTENT_EXPEDITION_C6_NAME"
+msgstr "Cleave"
+
+msgid "CONTENT_EXPEDITION_C6_DESCRIPTION"
+msgstr "Basic attacks also deal 30% damage to other enemies close to your target"
+
+msgid "CONTENT_EXPEDITION_C7_NAME"
+msgstr "Broken Rally"
+
+msgid "CONTENT_EXPEDITION_C7_DESCRIPTION"
+msgstr "Enemies called into a group fight start attacking 0.5 s later"
+
+msgid "CONTENT_EXPEDITION_C8_NAME"
+msgstr "Field Rest"
+
+msgid "CONTENT_EXPEDITION_C8_DESCRIPTION"
+msgstr "Out of combat away from camps, you recover HP three times as fast"
+
+msgid "CONTENT_COLLECTION_C4_NAME"
+msgstr "Twin Find"
+
+msgid "CONTENT_COLLECTION_C4_DESCRIPTION"
+msgstr "Weapons and outfits dropped by normal enemies have a 10% chance to be 2 copies"
+
+msgid "CONTENT_COLLECTION_C5_NAME"
+msgstr "Thrifty Evolution"
+
+msgid "CONTENT_COLLECTION_C5_DESCRIPTION"
+msgstr "Evolution needs 8 spare copies instead of 10"
+
+msgid "CONTENT_COLLECTION_C6_NAME"
+msgstr "Steady Supplies"
+
+msgid "CONTENT_COLLECTION_C6_DESCRIPTION"
+msgstr "Supply cooldowns -15%"
+
+msgid "CONTENT_COLLECTION_C7_NAME"
+msgstr "Precise Reroll"
+
+msgid "CONTENT_COLLECTION_C7_DESCRIPTION"
+msgstr "Rerolls cost 25% fewer gems and never return the same stat"
+
+msgid "CONTENT_COLLECTION_C8_NAME"
+msgstr "Treasure Sense"
+
+msgid "CONTENT_COLLECTION_C8_DESCRIPTION"
+msgstr "Boss bonus attributes roll in the upper half of their range"
+
+msgid "CONTENT_HUNTER_C4_NAME"
+msgstr "Boss Breaker"
+
+msgid "CONTENT_HUNTER_C4_DESCRIPTION"
+msgstr "Boss skill warnings last 0.3 s longer and boss heals restore 25% less"
+
+msgid "CONTENT_CHALLENGE_C4_NAME"
+msgstr "Last Stand"
+
+msgid "CONTENT_CHALLENGE_C4_DESCRIPTION"
+msgstr "Below 25% HP: +20% attack speed"
+
+msgid "CONTENT_TROPHY_C4_NAME"
+msgstr "Champion's Spoils"
+
+msgid "CONTENT_TROPHY_C4_DESCRIPTION"
+msgstr "Defeating a boss for the first time in a run rolls its loot twice"
+
+msgid "CONTENT_REGIONAL_C4_NAME"
+msgstr "Veteran Traveler"
+
+msgid "CONTENT_REGIONAL_C4_DESCRIPTION"
+msgstr "+25% XP from normal enemies on maps before your furthest unlocked map"
+
+msgid "CONTENT_MASTERWORK_C4_NAME"
+msgstr "Obsidian Temper"
+
+msgid "CONTENT_MASTERWORK_C4_DESCRIPTION"
+msgstr "+15% stats gained from every Obsidian weapon merge"
+
+msgid "FOLLOW_MASTERWORK_OBSIDIAN"
+msgstr "Merge an Obsidian weapon to ^100: best ^%d/^100"
