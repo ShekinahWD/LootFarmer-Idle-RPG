@@ -4,7 +4,7 @@ export manifest check, Change 27 the change_27 probe, Change 34 the change_34 sc
 the change_35 review-invitation and targeting-lesson probe, Change 36 the change_36 supply-mastery probe, Change 38
 the Localization Batch 01 probe and the rendered-text localization sweep, Change 40 the change_40 language
 dropdown and progressive-activation probe, Change 41 the change_41 playtest-corrections probe, Change 42 the
-Localization Batch 03 probe, Change 43 the Localization Batch 04 probe, Change 50 the change_50 save-migration and Prestige probe, Change 51 the change_51 weapon ladder and evolution probe, Change 52 the change_52 boss-enhanced weapon probe, Change 53 the change_53 combat probe, Change 54 the change_54 Prestige expansion probe, Change 55 the change_55 contextual hints and layout probe). Runs each probe headless, one at a time
+Localization Batch 03 probe, Change 43 the Localization Batch 04 probe, Change 50 the change_50 save-migration and Prestige probe, Change 51 the change_51 weapon ladder and evolution probe, Change 52 the change_52 boss-enhanced weapon probe, Change 53 the change_53 combat probe, Change 54 the change_54 Prestige expansion probe, Change 55 the change_55 contextual hints and layout probe, Change 56 the change_56 economy probe). Runs each probe headless, one at a time
 (playbook 60.1), with a hard timeout, and counts a run as failed when it exits non-zero, times out
 or prints any SCRIPT ERROR (a script error aborts a probe's coroutine before it can quit).
 
@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GODOT = os.environ.get('GODOT', 'D:/Programs/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe')
 # name -> timeout in seconds
 SUITE = {
+    'change_56_probe': 180,
     'change_55_probe': 300,
     'change_54_probe': 300,
     'change_53_probe': 300,

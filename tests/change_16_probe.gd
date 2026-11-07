@@ -149,7 +149,9 @@ func economy_checks() -> void:
                     var u: Dictionary=sim.catalog.upgrades[id]
                     if level>=int(u.cap):continue
                     sim.state.upgrades["%s:%d" % [id,g]]=level # fixture: owned levels
-                    var want:=maxi(1,ceili(float(u.base)*pow(float(u.growth),level)*factor))
+                    # Change 56: levels 1-5 of Coin Amount, Enemy XP and Loot Chance cost x0.25 ("cheap first five").
+                    var cheap: float=.25 if id in ["coin_amount","group_xp","loot"] and level<5 else 1.0
+                    var want:=maxi(1,ceili(float(u.base)*pow(float(u.growth),level)*cheap*factor))
                     if sim.upgrade_cost(id,g)!=want:all_ok=false;bad.append("%s s%d L%d %d!=%d" % [id,st,level,sim.upgrade_cost(id,g),want])
                     sim.state.upgrades.erase("%s:%d" % [id,g])
         for id in stage_ids:
@@ -178,10 +180,13 @@ func economy_checks() -> void:
         if sim.upgrade_cost("merge_gear",g)!=ceili(30*(1+.25*(st-1))) or sim.upgrade_cost("auto_evolve",g)!=2000 or sim.upgrade_cost("spawn_amount",g)!=ceili(75*(1+.25*(st-1))):gem_ok=false
     check(gem_ok,"Gem upgrades unchanged: ×(1 + 0.25 × (map−1)), Auto Evolution flat 2,000, Spawn Amount 75 base")
     var rising:=true
+    # Compared at level 6, past Change 56's discounted first five levels (the per-map growth rule itself).
+    for st in range(1,9):sim.state.upgrades["loot:%d" % first_normal(st)]=5
     for st in range(2,9):
         var prev: float=float(sim.upgrade_cost("loot",first_normal(st-1)))/incomes[st-2]
         var now: float=float(sim.upgrade_cost("loot",first_normal(st)))/incomes[st-1]
         if now<=prev:rising=false
+    for st in range(1,9):sim.state.upgrades.erase("loot:%d" % first_normal(st))
     check(rising,"Every new map costs slightly more relative to its base income (Loot Chance price ÷ income rises map by map)")
 
 # ---------------------------------------------------------------- 2. Gem Auto-Collect and Collect Batch

@@ -111,7 +111,7 @@ for scene in ['scenes/game/main.tscn','scenes/game/prestige_confirm.tscn','scene
 for key in ['MAIN_HINT_%d' % i for i in range(16)]+['MISSION_DO_'+k.upper() for k in ['kill','boss','gear','merge','coins','cast']]+['FOLLOW_GOAL_'+k.upper() for k in ['kill','gear','merge','boss','cast','mission']]+['SKILL_DESC_'+k.upper() for k in c['skills']]:check('Change 16 translation '+key,key in strings)
 check('no double dashes in the English strings (Playbook 74)','--' not in ''.join(re.findall(r'^msgstr "(.*)"$',(ROOT/'localization/en.po').read_text(encoding='utf-8'),re.M)))
 for w in ['rain','leaves','blue_leaves']:check('weather style '+w,(ROOT/f'resources/game/weather_{w}.tres').is_file())
-for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py','tools/change10_catalog.py','tools/change11_catalog.py','tools/change12_catalog.py','tools/change13_catalog.py','tools/change16_catalog.py','tools/change53_catalog.py','tools/change54_catalog.py']:
+for tool in ['tools/layout_campaign_groups.py','tools/tune_campaign.py','tools/share_weapons.py','tools/change8_catalog.py','tools/change9_catalog.py','tools/change10_catalog.py','tools/change11_catalog.py','tools/change12_catalog.py','tools/change13_catalog.py','tools/change16_catalog.py','tools/change53_catalog.py','tools/change54_catalog.py','tools/change56_catalog.py']:
     r=subprocess.run([sys.executable,str(ROOT/tool),'--check'],capture_output=True,text=True)
     check(tool+' --check',r.returncode==0)
 report={'checks':len(checks),'failures':sum(not x['pass'] for x in checks),'results':checks}

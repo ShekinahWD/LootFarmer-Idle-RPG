@@ -1,0 +1,11 @@
+First five levels of one type (Coin Amount + Enemy XP + Loot Chance), coins:
+map | before | after | first normal coins/kill (^0)
+1 | 801 | 200 | 1.0
+2 | 1,242 | 310 | 1.5
+3 | 1,925 | 481 | 2.25
+4 | 2,983 | 746 | 3.375
+5 | 4,624 | 1,156 | 5.0625
+6 | 7,167 | 1,792 | 7.59375
+7 | 11,109 | 2,777 | 11.390625
+8 | 17,219 | 4,305 | 17.085938
+Sink of these three upgrades, every type to cap: 47,949,446 -> 47,709,372 coins (0.50% less)

@@ -499,6 +499,11 @@ func upgrade_cost(id: String,g: int) -> int:
     if d.get("sequence",false):
         factor=1.0
         price=maxf(float(d.base)*pow(float(d.growth),sequence_count(id)),float(d.get("floor",0))*map_cost_factor(st))
+    # Change 56 (approved "cheap first five"): the first levels of each enemy type's Coin Amount, Enemy XP and
+    # Loot Chance cost x0.25, so a newly farmed type is quick to start investing in; later levels are unchanged.
+    var economy: Dictionary=sim.catalog.progression.get("economy",{})
+    if d.currency=="coins" and d.scope in ["type","normal_type"] and economy.get("cheap_first_upgrades",[]).has(id) and n<int(economy.get("cheap_first_levels",0)):
+        price*=float(economy.get("cheap_first_factor",1.0))
     return maxi(1,ceili(price*factor*(1-bonus("coin_discount") if d.currency=="coins" else 1)))
 func sequence_count(id: String) -> int:
     var total:=0

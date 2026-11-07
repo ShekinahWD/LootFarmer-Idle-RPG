@@ -22545,6 +22545,15 @@
         "7": 0.6,
         "8": 0.6
       }
+    },
+    "economy": {
+      "cheap_first_upgrades": [
+        "coin_amount",
+        "group_xp",
+        "loot"
+      ],
+      "cheap_first_levels": 5,
+      "cheap_first_factor": 0.25
     }
   },
   "skills": {
