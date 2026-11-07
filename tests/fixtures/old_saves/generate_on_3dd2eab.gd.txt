@@ -1,0 +1,64 @@
+extends Node
+## Runs on the released pre-update build (commit 3dd2eab, schema 8): writes real save files for the
+## Change 57 compatibility probe. Every value is set through the old build's own state and APIs.
+var sim
+func _ready() -> void:call_deferred("run")
+func write(name: String) -> void:
+    var data:={"version":SaveService.SAVE_VERSION,"settings":SettingsState.to_save_dict(),"sections":{"lootfarmer":sim.snapshot()},"last_seen_unix":int(Time.get_unix_time_from_system()),"_old_build_stats":sim.stats().duplicate()}
+    var f:=FileAccess.open("user://oldsave_%s.json" % name,FileAccess.WRITE);f.store_string(JSON.stringify(data));f.close()
+    print("OLDSAVE ",name," schema ",sim.state.schema," items ",sim.state.items.size()," -> ",ProjectSettings.globalize_path("user://oldsave_%s.json" % name))
+func base() -> void:
+    sim.new_profile();sim.state.tutorial.mode="none";sim.campaign.onboarding.reveal_all(true)
+func gi(id: String) -> int:return sim.campaign.group_id(id)
+func run() -> void:
+    sim=load("res://scripts/game/simulation.gd").new();add_child(sim);sim.set_physics_process(false)
+    base();write("fresh")
+    # Mid game: Summer I reached, merges, Coin and Gem upgrades, a finished unclaimed mission, earned main
+    # objectives, a pending offline claim with gear, an owned extra camp, Map Mastery from an earlier run.
+    base()
+    var s: Dictionary=sim.state
+    s.unlocked_stage=3;s.player_level=32;s.xp=10.0;s.coins=5400.0;s.gems=320.0
+    for g in [0,1,2,3,4,5,11,12]:sim.campaign.discover_spot(g,2)
+    s.group_kills[gi("boss-snowman")]=4;s.group_kills[gi("boss-cyan-robot")]=2
+    s.bosses_found=["boss-snowman","boss-cyan-robot"]
+    sim.add_item("wood_sword",6);sim.record("wood_sword").merge=40
+    sim.add_item("stone_axe",3);sim.record("stone_axe").merge=60;sim.equip("stone_axe")
+    sim.add_item("unit-blue-cap_outfit",2);sim.record("unit-blue-cap_outfit").merge=120;sim.equip("unit-blue-cap_outfit")
+    sim.add_item("skill_heal",2);sim.campaign.equip_skill("skill_heal",0)
+    sim.add_item("potion",4)
+    s.mastery.merge["iron_sword"]=70;s.mastery.merge["unit-straw-hat_outfit_t2"]=150
+    for up in [["coin_amount",0],["coin_amount",0],["loot",4],["group_xp",1],["movement",-1],["gem_chance",-1],["map_detail",1]]:
+        s.coins+=500;sim.buy_upgrade(str(up[0]),int(up[1]))
+    s.camps_known["1"]=[0,1];sim.campaign.camp_action(1,1,false)
+    sim.campaign.refresh_missions();s.missions[0].progress=float(s.missions[0].goal)
+    s.main_ready["3"]=true
+    s.offline_pending={"id":"old","seconds":5400.0,"longest":5400.0,"rewarded_hours":1.5,"coins":180.0,"gems":3.0,"items":{"wood_sword":1}}
+    write("mid")
+    # Late game: Spring II reached, old-stat Diamond Sword ^100 equipped, Gold Axe ^35 stored, 20 cards owned,
+    # a one-tier-above boss weapon, skills, Prestiges done.
+    base();s=sim.state
+    s.unlocked_stage=8;s.stage=1;s.player_level=240;s.coins=2.0e6;s.gems=9000.0;s.prestiges=3
+    for g in range(48):s.discovered[str(g)]=true
+    s.upgrades["gear_slots"]=10;s.gear.resize(13);s.gear.fill("")
+    sim.add_item("diamond_sword",2);sim.record("diamond_sword").merge=100;sim.equip("diamond_sword")
+    sim.add_item("gold_axe",4);sim.record("gold_axe").merge=35
+    sim.add_item("emerald_sword",1);sim.record("emerald_sword").merge=12
+    sim.add_item("boss-red-panda_outfit_t5",1);sim.record("boss-red-panda_outfit_t5").merge=25;sim.equip("boss-red-panda_outfit_t5")
+    sim.add_item("skill_strike",3);sim.record("skill_strike").merge=10
+    s.mastery.merge["obsidian_sword"]=5;s.mastery.merge["diamond_sword"]=100
+    var cards: Array=[];var consumed: Array=[]
+    for path in ["hunter","trophy","challenge","expedition","arsenal","regional","offering"]:
+        for i in [1,2,3]:
+            if cards.size()<20:cards.append("%s_c%d" % [path,i]);consumed.append("%s_o%d" % [path,i])
+    s.owned_cards=cards;s.consumed=consumed
+    for id in consumed:s.opportunities[id]={"ready":false,"baseline":{},"step":0,"count":0}
+    write("late")
+    # Open Prestige batch: a ready opportunity and a begun reset (one card still to choose).
+    base();s=sim.state
+    s.coins=777.0;s.bosses_found=["boss-snowman"];s.group_kills[gi("boss-snowman")]=1
+    sim.add_item("wood_axe",5);sim.record("wood_axe").merge=12
+    s.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
+    SaveService.write_blocked=false
+    print("OLDSAVE begin ",sim.campaign.begin_prestige())
+    write("batch")
+    get_tree().quit(0)
