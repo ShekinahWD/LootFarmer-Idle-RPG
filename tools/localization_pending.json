@@ -6,54 +6,124 @@
    "placeholders": [
     "%s"
    ],
-   "change": "change-50"
+   "change": "change-50",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "KEEP_LINE_ALL_UPGRADES": {
    "en": "Every upgrade you bought, with Coins or Gems (a camp's own upgrades work again once you buy that camp again)",
    "placeholders": [],
-   "change": "change-50"
+   "change": "change-50",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "KEEP_LINE_MERGES": {
    "en": "Merge levels of every weapon, outfit and skill, restored when you find that item again",
    "placeholders": [],
-   "change": "change-50"
+   "change": "change-50",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "KEEP_LINE_MAIN_OBJECTIVES": {
    "en": "Main objectives you completed but have not claimed yet",
    "placeholders": [],
-   "change": "change-50"
+   "change": "change-50",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "RESET_LINE_CARRIED_ITEMS": {
    "en": "Every item you carry (weapons, outfits, skills and supplies) and its random bonus attributes",
    "placeholders": [],
-   "change": "change-50"
+   "change": "change-50",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "RESET_LINE_RUN_PROGRESS": {
    "en": "Unfinished opportunities and missions. Finished missions and unclaimed offline Coins and Gems are paid first; unclaimed offline item copies are lost",
    "placeholders": [],
-   "change": "change-50"
+   "change": "change-50",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "PRESTIGE_KEEP_ALL": {
    "en": "Cards and sets, your Coins and Gems, every upgrade you bought with Coins or Gems, the merge level of every weapon, outfit and skill, explored map areas, player level and XP, boss keys, enemy achievements, Map Mastery, unclaimed main objectives and settings.",
    "placeholders": [],
-   "change": "change-50"
+   "change": "change-50",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "PRESTIGE_RESET_RUN": {
    "en": "Every item you carry (supplies included) and its random bonus attributes, Supply Mastery, map access (back to Winter I), owned camps, and unfinished opportunities and missions.",
    "placeholders": [],
-   "change": "change-50"
+   "change": "change-50",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "ITEM_LEGACY_NAME": {
    "en": "%s (old stats)",
    "placeholders": [
     "%s"
    ],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "LEGACY_ITEM_EXPLAIN": {
    "en": "An old-stat copy from before the weapon update. It keeps its power until your next Prestige, then leaves with your items. New copies of this weapon use the new stats and keep your merge level.",
    "placeholders": [],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "EVOLUTION_RULE": {
    "en": "At ^%d, spend %d spare copies for one copy of the next-tier weapon (%d copies in all). This weapon keeps its merge level and one copy; the new weapon uses its own merge level. A target stack or empty slot is required.",
@@ -62,7 +132,14 @@
     "%d",
     "%d"
    ],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "MASTERY_NEED_WEAPON_MERGE": {
    "en": "Merge one of %s to ^%d",
@@ -70,14 +147,28 @@
     "%s",
     "%d"
    ],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "FOLLOW_MASTERWORK_ANY_GEAR": {
    "en": "Merge an outfit, skill or Obsidian weapon to ^100: best ^%d/^100",
    "placeholders": [
     "%d"
    ],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "FOLLOW_MASTERWORK_TIER_GEAR": {
    "en": "Merge a tier %d+ outfit, skill or Obsidian weapon to ^100: best ^%d/^100",
@@ -85,7 +176,14 @@
     "%d",
     "%d"
    ],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "FOLLOW_ARSENAL_SPLIT": {
    "en": "Weapons at ^20: %d/%d · outfits at ^50: %d/%d",
@@ -95,7 +193,14 @@
     "%d",
     "%d"
    ],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "FOLLOW_ARSENAL_SPLIT_T2": {
    "en": "Tier 2+ weapons at ^20: %d/%d · tier 2+ outfits at ^50: %d/%d",
@@ -105,7 +210,14 @@
     "%d",
     "%d"
    ],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "PROGRESS_ARSENAL_SPLIT": {
    "en": "Weapons at ^20: %d/%d · Outfits at ^50: %d/%d",
@@ -115,47 +227,110 @@
     "%d",
     "%d"
    ],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_MASTERWORK_O1_RULE": {
    "en": "Merge any outfit, skill or Obsidian weapon to ^100",
    "placeholders": [],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_MASTERWORK_O2_RULE": {
    "en": "Merge a tier 2 or higher outfit, skill or Obsidian weapon to ^100",
    "placeholders": [],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_MASTERWORK_O3_RULE": {
    "en": "Merge a tier 3 or higher outfit, skill or Obsidian weapon to ^100",
    "placeholders": [],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_ARSENAL_O1_RULE": {
    "en": "Merge one weapon to ^20 and one outfit to ^50",
    "placeholders": [],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_ARSENAL_O2_RULE": {
    "en": "Merge 3 different weapons to ^20 and 3 different outfits to ^50",
    "placeholders": [],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_ARSENAL_O3_RULE": {
    "en": "Merge 3 different tier 2+ weapons to ^20 and 3 different tier 2+ outfits to ^50",
    "placeholders": [],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "MERGE_AT_CAP": {
    "en": "This item is at its merge cap.",
    "placeholders": [],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "EVOLUTION_NEEDS_COPIES": {
    "en": "Evolution needs the full merge level and enough spare copies.",
    "placeholders": [],
-   "change": "change-51"
+   "change": "change-51",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "AUTO_EVOLVE_BENEFIT": {
    "en": "Evolves at ^20 with 10 spare copies (31 in all): %s",
@@ -163,13 +338,27 @@
     "%s"
    ],
    "change": "change-51",
-   "status": "changed"
+   "status": "changed",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "MAIN_HINT_9": {
    "en": "Evolve a ^20 weapon that has 10 spare copies (item details, Evolve)",
    "placeholders": [],
    "change": "change-51",
-   "status": "changed"
+   "status": "changed",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "MASTERY_FORGE_RULE": {
    "en": "Outfits from here to ^%s (boss outfits ^%s) and one weapon from here evolved (Spring maps: an Obsidian weapon from here at ^20).",
@@ -178,27 +367,62 @@
     "%s"
    ],
    "change": "change-51",
-   "status": "changed"
+   "status": "changed",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "ITEM_BOSS_BONUS": {
    "en": "Boss bonus",
    "placeholders": [],
-   "change": "change-52"
+   "change": "change-52",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "ITEM_ENHANCED": {
    "en": "Boss weapon: two bonus attributes added",
    "placeholders": [],
-   "change": "change-52"
+   "change": "change-52",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "ITEM_BOSS_BONUS_EXPLAIN": {
    "en": "Boss-enhanced: your first copy of this weapon from a boss added two bonus attributes. Later boss copies count as normal copies. Bonus attributes reset at Prestige; merge levels stay.",
    "placeholders": [],
-   "change": "change-52"
+   "change": "change-52",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "ITEM_BOSS_BONUS_HINT": {
    "en": "The first copy of this weapon you get from a boss adds two bonus attributes (once per run).",
    "placeholders": [],
-   "change": "change-52"
+   "change": "change-52",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "REROLL_ATTRIBUTE": {
    "en": "Reroll %s · %s gems",
@@ -206,7 +430,14 @@
     "%s",
     "%s"
    ],
-   "change": "change-52"
+   "change": "change-52",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "REROLL_ATTRIBUTE_CONFIRM": {
    "en": "Spend %s gems to reroll %s? The new roll replaces this attribute, even if weaker. Your other attributes stay as they are.",
@@ -214,349 +445,832 @@
     "%s",
     "%s"
    ],
-   "change": "change-52"
+   "change": "change-52",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O4_NAME": {
    "en": "Deep winter route",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O4_DESCRIPTION": {
    "en": "On Winter II, in order, defeat 50 of each: Wolf Hood, Calico Cat Hood, Golden Crown, Reindeer Antlers, Santa Hat, Space Helmet",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O5_NAME": {
    "en": "Beach route",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O5_DESCRIPTION": {
    "en": "On Summer II, in order, defeat 60 of each: Cowboy Bandana, Duck Swim Ring, Rainbow Clown, Red Cap Swimmer, Snorkeler, Straw Hat Swimmer",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O6_NAME": {
    "en": "Autumn route",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O6_DESCRIPTION": {
    "en": "On Autumn I, in order, defeat 120 of each: Black Cap, Mushroom Cap, Pumpkin Head",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O7_NAME": {
    "en": "Late autumn route",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O7_DESCRIPTION": {
    "en": "On Autumn II, in order, defeat 100 of each: Horned Hood, Orange Screen Helmet, Television Head, Top Hat",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O8_NAME": {
    "en": "Bloom route",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_O8_DESCRIPTION": {
    "en": "On Spring II, in order, defeat 60 of each: Flower Crown, Green Cap, Pink Cap, Pink Flower Hood, Plain, Sprout",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O4_NAME": {
    "en": "Holiday collection",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O4_DESCRIPTION": {
    "en": "Pick up 16 each of the Santa Hat, Reindeer Antlers and Space Helmet outfits (Winter II drops). Submit hands in 15 of each and you keep one",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O5_NAME": {
    "en": "Swimwear collection",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O5_DESCRIPTION": {
    "en": "Pick up 26 each of the Snorkeler, Red Cap Swimmer and Straw Hat Swimmer outfits (Summer II drops). Submit hands in 25 of each and you keep one",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O6_NAME": {
    "en": "Harvest collection",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O6_DESCRIPTION": {
    "en": "Pick up 31 each of the Black Cap, Mushroom Cap and Pumpkin Head outfits (Autumn I drops). Submit hands in 30 of each and you keep one",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O7_NAME": {
    "en": "Screen collection",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O7_DESCRIPTION": {
    "en": "Pick up 31 each of the Television Head, Top Hat and Orange Screen Helmet outfits (Autumn II drops). Submit hands in 30 of each and you keep one",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O8_NAME": {
    "en": "Garden collection",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_O8_DESCRIPTION": {
    "en": "Pick up 41 each of the Pink Cap, Plain and Sprout outfits (Spring II drops). Submit hands in 40 of each and you keep one",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_HUNTER_O4_NAME": {
    "en": "Spring bounty",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_HUNTER_O4_DESCRIPTION": {
    "en": "Defeat the Bee and the Orange Tabby Cat (Spring I bosses) 10 times each",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_CHALLENGE_O4_NAME": {
    "en": "Unassisted spring",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_CHALLENGE_O4_DESCRIPTION": {
    "en": "Defeat the Red Panda (Spring II boss) without using any supply during the fight",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_TROPHY_O4_NAME": {
    "en": "Spring trophies",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_TROPHY_O4_DESCRIPTION": {
    "en": "After finding this, defeat the Bee, the Orange Tabby Cat (Spring I), the Red Panda and the Sunflower (Spring II) once each",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_REGIONAL_O4_NAME": {
    "en": "Autumn mastery",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_REGIONAL_O4_DESCRIPTION": {
    "en": "On Autumn I and Autumn II: explore 90% of each map, defeat all four bosses and unlock every camp",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_MASTERWORK_O4_NAME": {
    "en": "Obsidian masterwork",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_MASTERWORK_O4_DESCRIPTION": {
    "en": "Merge an Obsidian weapon (Spring I and Spring II drops) to ^100",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C4_NAME": {
    "en": "Crowd Guard",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C4_DESCRIPTION": {
    "en": "-4% damage taken for each normal enemy attacking you beyond the first (up to -20%)",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C5_NAME": {
    "en": "Second Wind",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C5_DESCRIPTION": {
    "en": "When you drop below 30% HP, heal 25% of your maximum HP (once every 90 s)",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C6_NAME": {
    "en": "Cleave",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C6_DESCRIPTION": {
    "en": "Basic attacks also deal 30% damage to other enemies close to your target",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C7_NAME": {
    "en": "Broken Rally",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C7_DESCRIPTION": {
    "en": "Enemies called into a group fight start attacking 0.5 s later",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C8_NAME": {
    "en": "Field Rest",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_EXPEDITION_C8_DESCRIPTION": {
    "en": "Out of combat away from camps, you recover HP three times as fast",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C4_NAME": {
    "en": "Twin Find",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C4_DESCRIPTION": {
    "en": "Weapons and outfits dropped by normal enemies have a 10% chance to be 2 copies",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C5_NAME": {
    "en": "Thrifty Evolution",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C5_DESCRIPTION": {
    "en": "Evolution needs 8 spare copies instead of 10",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C6_NAME": {
    "en": "Steady Supplies",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C6_DESCRIPTION": {
    "en": "Supply cooldowns -15%",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C7_NAME": {
    "en": "Precise Reroll",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C7_DESCRIPTION": {
    "en": "Rerolls cost 25% fewer gems and never return the same stat",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C8_NAME": {
    "en": "Treasure Sense",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_COLLECTION_C8_DESCRIPTION": {
    "en": "Boss bonus attributes roll in the upper half of their range",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_HUNTER_C4_NAME": {
    "en": "Boss Breaker",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_HUNTER_C4_DESCRIPTION": {
    "en": "Boss skill warnings last 0.3 s longer and boss heals restore 25% less",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_CHALLENGE_C4_NAME": {
    "en": "Last Stand",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_CHALLENGE_C4_DESCRIPTION": {
    "en": "Below 25% HP: +20% attack speed",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_TROPHY_C4_NAME": {
    "en": "Champion's Spoils",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_TROPHY_C4_DESCRIPTION": {
    "en": "Defeating a boss for the first time in a run rolls its loot twice",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_REGIONAL_C4_NAME": {
    "en": "Veteran Traveler",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_REGIONAL_C4_DESCRIPTION": {
    "en": "+25% XP from normal enemies on maps before your furthest unlocked map",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_MASTERWORK_C4_NAME": {
    "en": "Obsidian Temper",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "CONTENT_MASTERWORK_C4_DESCRIPTION": {
    "en": "+15% stats gained from every Obsidian weapon merge",
    "placeholders": [],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "FOLLOW_MASTERWORK_OBSIDIAN": {
    "en": "Merge an Obsidian weapon to ^100: best ^%d/^100",
    "placeholders": [
     "%d"
    ],
-   "change": "change-54"
+   "change": "change-54",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "MAP_MARKERS_HINT": {
    "en": "Enemies and bosses you have found can be marked on this map. Buy Map Detail in Map upgrades below: it stays bought after Prestige.",
    "placeholders": [],
-   "change": "change-55"
+   "change": "change-55",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "MAP_DETAIL_NEXT_1": {
    "en": "Next: markers for the enemies and bosses you have found",
    "placeholders": [],
-   "change": "change-55"
+   "change": "change-55",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "MAP_DETAIL_NEXT_2": {
    "en": "Next: enemy names; tap a marker to inspect it",
    "placeholders": [],
-   "change": "change-55"
+   "change": "change-55",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "MAP_DETAIL_NEXT_3": {
    "en": "Next: loadout icons (weapon, outfit, skill)",
    "placeholders": [],
-   "change": "change-55"
+   "change": "change-55",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "OFFLINE_GEAR_HINT": {
    "en": "While you are away you can also receive copies of weapons and outfits you already own. Unlock it in Upgrades → Offline.",
    "placeholders": [],
-   "change": "change-55"
+   "change": "change-55",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "OFFLINE_UPGRADES_JUMP": {
    "en": "Claim and open Offline upgrades",
    "placeholders": [],
-   "change": "change-55"
+   "change": "change-55",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "OFFLINE_GEAR_BENEFIT": {
    "en": "Off → On · copies of gear you own, about 1 per hour",
    "placeholders": [],
-   "change": "change-55"
+   "change": "change-55",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "EVOLVE_READY_HINT": {
    "en": "%s is fully merged. Collect %d more copies to evolve it into %s.",
@@ -565,13 +1279,27 @@
     "%d",
     "%s"
    ],
-   "change": "change-55"
+   "change": "change-55",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   },
   "MAIN_6": {
    "en": "Upgrade Map Detail (World → Map upgrades)",
    "placeholders": [],
    "change": "change-55",
-   "status": "changed"
+   "status": "changed",
+   "translated": [
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+   ]
   }
  },
  "retired": {

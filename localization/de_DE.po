@@ -1159,6 +1159,9 @@ msgstr "Besiege den Schneemann · schaltet Winter II frei"
 msgid "MAIN_5"
 msgstr "Rüste Heilung aus"
 
+msgid "MAIN_6"
+msgstr "Verbessere Kartendetails (Welt → Karten-Upgrades)"
+
 msgid "MAIN_7"
 msgstr "Erhalte Frostexplosion"
 
@@ -4849,6 +4852,9 @@ msgstr "Verschmilzt übrige Kopien von: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "An · verschmilzt: %s"
 
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Wird auf ^20 mit 10 übrigen Kopien weiterentwickelt (insgesamt 31): %s"
+
 msgid "AUTO_EVOLVE_ON"
 msgstr "An · entwickelt weiter: %s"
 
@@ -5152,6 +5158,9 @@ msgstr "Decke Werte und Drops aller Gegner hier auf."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Erhalte jede Waffe, jedes Kostüm und jede Fähigkeit, die hier droppen."
 
+msgid "MASTERY_FORGE_RULE"
+msgstr "Kostüme dieser Karte auf ^%s (Boss-Kostüme auf ^%s) und eine Waffe dieser Karte weiterentwickelt (Frühlingskarten: eine Obsidianwaffe dieser Karte auf ^20)."
+
 msgid "MASTERY_MORE"
 msgstr "+%d weitere"
 
@@ -5259,6 +5268,9 @@ msgstr "Finde die Fähigkeit Frostexplosion (in Sommer I droppen sie Strohhut-El
 
 msgid "MAIN_HINT_8"
 msgstr "Besiege den Cyan-Roboter, den Boss von Winter II, um Sommer I zu erreichen"
+
+msgid "MAIN_HINT_9"
+msgstr "Entwickle eine Waffe auf ^20 mit 10 übrigen Kopien weiter (Gegenstandsdetails, Weiterentwickeln)"
 
 msgid "MAIN_HINT_10"
 msgstr "Besitze verschiedene Fähigkeiten"
@@ -5778,3 +5790,303 @@ msgstr "Ein paar kurze Karten zu Steuerung und Zielen. Alle Menüs sind offen."
 
 msgid "GUIDE_MODE_NONE_DETAIL"
 msgstr "Keine Lektionen oder Tipps. Alle Menüs sind von Anfang an offen."
+
+msgid "KEEP_LINE_COINS"
+msgstr "Deine Münzen: %s"
+
+msgid "KEEP_LINE_ALL_UPGRADES"
+msgstr "Alle Upgrades, die du mit Münzen oder Edelsteinen gekauft hast (die Upgrades eines Lagers wirken wieder, sobald du dieses Lager erneut kaufst)"
+
+msgid "KEEP_LINE_MERGES"
+msgstr "Verschmelzungsstufen aller Waffen, Kostüme und Fähigkeiten; sie werden wiederhergestellt, sobald du den Gegenstand erneut findest"
+
+msgid "KEEP_LINE_MAIN_OBJECTIVES"
+msgstr "Abgeschlossene, aber noch nicht abgeholte Hauptziele"
+
+msgid "RESET_LINE_CARRIED_ITEMS"
+msgstr "Alle mitgeführten Gegenstände (Waffen, Kostüme, Fähigkeiten und Vorräte) samt ihren zufälligen Bonusattributen"
+
+msgid "RESET_LINE_RUN_PROGRESS"
+msgstr "Unvollständige Gelegenheiten und Missionen. Abgeschlossene Missionen sowie nicht abgeholte Offline-Münzen und -Edelsteine werden zuerst ausgezahlt; nicht abgeholte Offline-Kopien von Gegenständen verfallen"
+
+msgid "PRESTIGE_KEEP_ALL"
+msgstr "Karten und Sets, deine Münzen und Edelsteine, alle mit Münzen oder Edelsteinen gekauften Upgrades, die Verschmelzungsstufe aller Waffen, Kostüme und Fähigkeiten, erkundete Kartenbereiche, Spielerstufe und EP, Boss-Schlüssel, Gegnererfolge, Kartenmeisterschaft, nicht abgeholte Hauptziele und Einstellungen."
+
+msgid "PRESTIGE_RESET_RUN"
+msgstr "Alle mitgeführten Gegenstände (einschließlich Vorräte) und ihre zufälligen Bonusattribute, Vorratsmeisterschaft, Kartenzugang (zurück nach Winter I), eigene Lager sowie unvollständige Gelegenheiten und Missionen."
+
+msgid "ITEM_LEGACY_NAME"
+msgstr "%s (alte Werte)"
+
+msgid "LEGACY_ITEM_EXPLAIN"
+msgstr "Eine Kopie mit den Werten von vor dem Waffen-Update. Sie behält ihre Stärke bis zu deinem nächsten Prestige und verschwindet dann mit deinen Gegenständen. Neue Kopien dieser Waffe haben die neuen Werte und behalten deine Verschmelzungsstufe."
+
+msgid "EVOLUTION_RULE"
+msgstr "Auf ^%d tauschst du %d übrige Kopien gegen eine Kopie der Waffe des nächsten Rangs (insgesamt %d Kopien). Diese Waffe behält ihre Verschmelzungsstufe und eine Kopie; die neue Waffe hat ihre eigene Verschmelzungsstufe. Ein Zielstapel oder ein freier Platz ist nötig."
+
+msgid "MASTERY_NEED_WEAPON_MERGE"
+msgstr "Verschmelze eine von %s bis ^%d"
+
+msgid "FOLLOW_MASTERWORK_ANY_GEAR"
+msgstr "Verschmelze ein Kostüm, eine Fähigkeit oder eine Obsidianwaffe bis ^100: Bestwert ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK_TIER_GEAR"
+msgstr "Verschmelze ein Kostüm, eine Fähigkeit oder eine Obsidianwaffe ab Rang %d bis ^100: Bestwert ^%d/^100"
+
+msgid "FOLLOW_ARSENAL_SPLIT"
+msgstr "Waffen auf ^20: %d/%d · Kostüme auf ^50: %d/%d"
+
+msgid "FOLLOW_ARSENAL_SPLIT_T2"
+msgstr "Waffen ab Rang 2 auf ^20: %d/%d · Kostüme ab Rang 2 auf ^50: %d/%d"
+
+msgid "PROGRESS_ARSENAL_SPLIT"
+msgstr "Waffen auf ^20: %d/%d · Kostüme auf ^50: %d/%d"
+
+msgid "CONTENT_MASTERWORK_O1_RULE"
+msgstr "Verschmelze ein beliebiges Kostüm, eine Fähigkeit oder eine Obsidianwaffe bis ^100"
+
+msgid "CONTENT_MASTERWORK_O2_RULE"
+msgstr "Verschmelze ein Kostüm, eine Fähigkeit oder eine Obsidianwaffe ab Rang 2 bis ^100"
+
+msgid "CONTENT_MASTERWORK_O3_RULE"
+msgstr "Verschmelze ein Kostüm, eine Fähigkeit oder eine Obsidianwaffe ab Rang 3 bis ^100"
+
+msgid "CONTENT_ARSENAL_O1_RULE"
+msgstr "Verschmelze eine Waffe bis ^20 und ein Kostüm bis ^50"
+
+msgid "CONTENT_ARSENAL_O2_RULE"
+msgstr "Verschmelze 3 verschiedene Waffen bis ^20 und 3 verschiedene Kostüme bis ^50"
+
+msgid "CONTENT_ARSENAL_O3_RULE"
+msgstr "Verschmelze 3 verschiedene Waffen ab Rang 2 bis ^20 und 3 verschiedene Kostüme ab Rang 2 bis ^50"
+
+msgid "MERGE_AT_CAP"
+msgstr "Dieser Gegenstand hat seine maximale Verschmelzungsstufe erreicht."
+
+msgid "EVOLUTION_NEEDS_COPIES"
+msgstr "Zum Weiterentwickeln brauchst du die volle Verschmelzungsstufe und genug übrige Kopien."
+
+msgid "ITEM_BOSS_BONUS"
+msgstr "Bossbonus"
+
+msgid "ITEM_ENHANCED"
+msgstr "Bosswaffe: zwei zusätzliche Bonusattribute"
+
+msgid "ITEM_BOSS_BONUS_EXPLAIN"
+msgstr "Bossverstärkt: Deine erste Kopie dieser Waffe von einem Boss hat zwei Bonusattribute erhalten. Spätere Boss-Kopien zählen als normale Kopien. Bonusattribute werden beim Prestige zurückgesetzt; Verschmelzungsstufen bleiben."
+
+msgid "ITEM_BOSS_BONUS_HINT"
+msgstr "Die erste Kopie dieser Waffe, die du von einem Boss erhältst, bekommt zwei Bonusattribute (einmal pro Durchlauf)."
+
+msgid "REROLL_ATTRIBUTE"
+msgstr "%s neu würfeln · %s Edelsteine"
+
+msgid "REROLL_ATTRIBUTE_CONFIRM"
+msgstr "%s Edelsteine ausgeben, um %s neu zu würfeln? Der neue Wurf ersetzt dieses Attribut, auch wenn er schlechter ist. Deine anderen Attribute bleiben bestehen."
+
+msgid "CONTENT_EXPEDITION_O4_NAME"
+msgstr "Route durch den tiefen Winter"
+
+msgid "CONTENT_EXPEDITION_O4_DESCRIPTION"
+msgstr "Besiege in Winter II der Reihe nach je 50 Gegner dieser Typen: Wolfskapuze, Glückskatzenkapuze, Goldkrone, Rentiergeweih, Weihnachtsmütze, Raumhelm"
+
+msgid "CONTENT_EXPEDITION_O5_NAME"
+msgstr "Strandroute"
+
+msgid "CONTENT_EXPEDITION_O5_DESCRIPTION"
+msgstr "Besiege in Sommer II der Reihe nach je 60 Gegner dieser Typen: Cowboy-Halstuch, Entenschwimmring, Regenbogenclown, Rotkappen-Schwimmer, Schnorchler, Strohhut-Schwimmer"
+
+msgid "CONTENT_EXPEDITION_O6_NAME"
+msgstr "Herbstroute"
+
+msgid "CONTENT_EXPEDITION_O6_DESCRIPTION"
+msgstr "Besiege in Herbst I der Reihe nach je 120 Gegner dieser Typen: Schwarzkappe, Pilzhut, Kürbiskopf"
+
+msgid "CONTENT_EXPEDITION_O7_NAME"
+msgstr "Spätherbstroute"
+
+msgid "CONTENT_EXPEDITION_O7_DESCRIPTION"
+msgstr "Besiege in Herbst II der Reihe nach je 100 Gegner dieser Typen: Hörnerkapuze, Oranger Bildschirmhelm, Fernsehkopf, Zylinder"
+
+msgid "CONTENT_EXPEDITION_O8_NAME"
+msgstr "Blütenroute"
+
+msgid "CONTENT_EXPEDITION_O8_DESCRIPTION"
+msgstr "Besiege in Frühling II der Reihe nach je 60 Gegner dieser Typen: Blumenkranz, Grünkappe, Rosakappe, Rosablütenkapuze, Schlichtling, Spross"
+
+msgid "CONTENT_COLLECTION_O4_NAME"
+msgstr "Festtagskollektion"
+
+msgid "CONTENT_COLLECTION_O4_DESCRIPTION"
+msgstr "Sammle je 16 Kostüme Weihnachtsmütze, Rentiergeweih und Raumhelm (Drops aus Winter II). Mit Abgeben gibst du je 15 ab und behältst eines"
+
+msgid "CONTENT_COLLECTION_O5_NAME"
+msgstr "Strandkollektion"
+
+msgid "CONTENT_COLLECTION_O5_DESCRIPTION"
+msgstr "Sammle je 26 Kostüme Schnorchler, Rotkappen-Schwimmer und Strohhut-Schwimmer (Drops aus Sommer II). Mit Abgeben gibst du je 25 ab und behältst eines"
+
+msgid "CONTENT_COLLECTION_O6_NAME"
+msgstr "Erntekollektion"
+
+msgid "CONTENT_COLLECTION_O6_DESCRIPTION"
+msgstr "Sammle je 31 Kostüme Schwarzkappe, Pilzhut und Kürbiskopf (Drops aus Herbst I). Mit Abgeben gibst du je 30 ab und behältst eines"
+
+msgid "CONTENT_COLLECTION_O7_NAME"
+msgstr "Bildschirmkollektion"
+
+msgid "CONTENT_COLLECTION_O7_DESCRIPTION"
+msgstr "Sammle je 31 Kostüme Fernsehkopf, Zylinder und Oranger Bildschirmhelm (Drops aus Herbst II). Mit Abgeben gibst du je 30 ab und behältst eines"
+
+msgid "CONTENT_COLLECTION_O8_NAME"
+msgstr "Gartenkollektion"
+
+msgid "CONTENT_COLLECTION_O8_DESCRIPTION"
+msgstr "Sammle je 41 Kostüme Rosakappe, Schlichtling und Spross (Drops aus Frühling II). Mit Abgeben gibst du je 40 ab und behältst eines"
+
+msgid "CONTENT_HUNTER_O4_NAME"
+msgstr "Frühlingskopfgeld"
+
+msgid "CONTENT_HUNTER_O4_DESCRIPTION"
+msgstr "Besiege die Biene und die Rote Tigerkatze (Bosse in Frühling I) je 10-mal"
+
+msgid "CONTENT_CHALLENGE_O4_NAME"
+msgstr "Frühling ohne Hilfe"
+
+msgid "CONTENT_CHALLENGE_O4_DESCRIPTION"
+msgstr "Besiege den Roten Panda (Boss in Frühling II), ohne im Kampf Vorräte zu benutzen"
+
+msgid "CONTENT_TROPHY_O4_NAME"
+msgstr "Frühlingstrophäen"
+
+msgid "CONTENT_TROPHY_O4_DESCRIPTION"
+msgstr "Besiege nach der Entdeckung je einmal die Biene, die Rote Tigerkatze (Frühling I), den Roten Panda und die Sonnenblume (Frühling II)"
+
+msgid "CONTENT_REGIONAL_O4_NAME"
+msgstr "Herbstmeisterschaft"
+
+msgid "CONTENT_REGIONAL_O4_DESCRIPTION"
+msgstr "In Herbst I und Herbst II: Erkunde 90 % jeder Karte, besiege alle vier Bosse und schalte alle Lager frei"
+
+msgid "CONTENT_MASTERWORK_O4_NAME"
+msgstr "Obsidian-Meisterwerk"
+
+msgid "CONTENT_MASTERWORK_O4_DESCRIPTION"
+msgstr "Verschmelze eine Obsidianwaffe (Drops aus Frühling I und Frühling II) bis ^100"
+
+msgid "CONTENT_EXPEDITION_C4_NAME"
+msgstr "Schutz vor Horden"
+
+msgid "CONTENT_EXPEDITION_C4_DESCRIPTION"
+msgstr "−4 % erlittener Schaden je weiterem angreifenden normalen Gegner (maximal −20 %)"
+
+msgid "CONTENT_EXPEDITION_C5_NAME"
+msgstr "Zweiter Atem"
+
+msgid "CONTENT_EXPEDITION_C5_DESCRIPTION"
+msgstr "Sinken deine LP unter 30 %, heilst du 25 % deiner maximalen LP (einmal alle 90 s)"
+
+msgid "CONTENT_EXPEDITION_C6_NAME"
+msgstr "Rundumschlag"
+
+msgid "CONTENT_EXPEDITION_C6_DESCRIPTION"
+msgstr "Standardangriffe verursachen auch 30 % Schaden an anderen Gegnern nahe deinem Ziel"
+
+msgid "CONTENT_EXPEDITION_C7_NAME"
+msgstr "Gestörter Angriff"
+
+msgid "CONTENT_EXPEDITION_C7_DESCRIPTION"
+msgstr "Gegner, die in einen Gruppenkampf gerufen werden, greifen 0,5 s später an"
+
+msgid "CONTENT_EXPEDITION_C8_NAME"
+msgstr "Feldrast"
+
+msgid "CONTENT_EXPEDITION_C8_DESCRIPTION"
+msgstr "Außerhalb von Kämpfen und fern von Lagern regenerierst du LP dreimal so schnell"
+
+msgid "CONTENT_COLLECTION_C4_NAME"
+msgstr "Doppelfund"
+
+msgid "CONTENT_COLLECTION_C4_DESCRIPTION"
+msgstr "Von normalen Gegnern gedroppte Waffen und Kostüme sind mit 10 % Chance 2 Kopien"
+
+msgid "CONTENT_COLLECTION_C5_NAME"
+msgstr "Sparsame Weiterentwicklung"
+
+msgid "CONTENT_COLLECTION_C5_DESCRIPTION"
+msgstr "Weiterentwicklung braucht 8 statt 10 übrige Kopien"
+
+msgid "CONTENT_COLLECTION_C6_NAME"
+msgstr "Stetiger Vorrat"
+
+msgid "CONTENT_COLLECTION_C6_DESCRIPTION"
+msgstr "Abklingzeiten für Vorräte −15 %"
+
+msgid "CONTENT_COLLECTION_C7_NAME"
+msgstr "Präziser Neuwurf"
+
+msgid "CONTENT_COLLECTION_C7_DESCRIPTION"
+msgstr "Neuwürfe kosten 25 % weniger Edelsteine und liefern nie dasselbe Attribut"
+
+msgid "CONTENT_COLLECTION_C8_NAME"
+msgstr "Schatzgespür"
+
+msgid "CONTENT_COLLECTION_C8_DESCRIPTION"
+msgstr "Boss-Bonusattribute werden in der oberen Hälfte ihres Wertebereichs gewürfelt"
+
+msgid "CONTENT_HUNTER_C4_NAME"
+msgstr "Bossbrecher"
+
+msgid "CONTENT_HUNTER_C4_DESCRIPTION"
+msgstr "Warnungen vor Bossfähigkeiten dauern 0,3 s länger und Bossheilung stellt 25 % weniger wieder her"
+
+msgid "CONTENT_CHALLENGE_C4_NAME"
+msgstr "Letztes Aufgebot"
+
+msgid "CONTENT_CHALLENGE_C4_DESCRIPTION"
+msgstr "Unter 25 % LP: +20 % Angriffsgeschwindigkeit"
+
+msgid "CONTENT_TROPHY_C4_NAME"
+msgstr "Beute des Champions"
+
+msgid "CONTENT_TROPHY_C4_DESCRIPTION"
+msgstr "Beim ersten Sieg über einen Boss pro Durchlauf wird die Beute zweimal ausgewürfelt"
+
+msgid "CONTENT_REGIONAL_C4_NAME"
+msgstr "Erfahrener Reisender"
+
+msgid "CONTENT_REGIONAL_C4_DESCRIPTION"
+msgstr "+25 % EP von normalen Gegnern auf Karten vor deiner am weitesten freigeschalteten Karte"
+
+msgid "CONTENT_MASTERWORK_C4_NAME"
+msgstr "Obsidianhärtung"
+
+msgid "CONTENT_MASTERWORK_C4_DESCRIPTION"
+msgstr "+15 % auf Werte, die jede Verschmelzung einer Obsidianwaffe hinzufügt"
+
+msgid "FOLLOW_MASTERWORK_OBSIDIAN"
+msgstr "Verschmelze eine Obsidianwaffe bis ^100: Bestwert ^%d/^100"
+
+msgid "MAP_MARKERS_HINT"
+msgstr "Bereits entdeckte Gegner und Bosse lassen sich auf dieser Karte markieren. Kaufe Kartendetails unten bei den Karten-Upgrades; sie bleiben nach Prestige erhalten."
+
+msgid "MAP_DETAIL_NEXT_1"
+msgstr "Als Nächstes: Markierungen für entdeckte Gegner und Bosse"
+
+msgid "MAP_DETAIL_NEXT_2"
+msgstr "Als Nächstes: Gegnernamen; tippe auf eine Markierung für Details"
+
+msgid "MAP_DETAIL_NEXT_3"
+msgstr "Als Nächstes: Ausrüstungssymbole (Waffe, Kostüm, Fähigkeit)"
+
+msgid "OFFLINE_GEAR_HINT"
+msgstr "Während du offline bist, kannst du auch Kopien von Waffen und Kostümen erhalten, die du bereits besitzt. Schalte das unter Upgrades → Offline frei."
+
+msgid "OFFLINE_UPGRADES_JUMP"
+msgstr "Abholen und Offline-Upgrades öffnen"
+
+msgid "OFFLINE_GEAR_BENEFIT"
+msgstr "Aus → An · Kopien deiner Ausrüstung, etwa 1 pro Stunde"
+
+msgid "EVOLVE_READY_HINT"
+msgstr "%s hat die maximale Verschmelzungsstufe erreicht. Sammle %d weitere Kopien, um den Gegenstand zu %s weiterzuentwickeln."

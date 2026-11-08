@@ -26,9 +26,12 @@ flag stays false while any target locale is not enabled. Draft catalogs are not 
 
 Pending translations (Change 50+, Playbook 132.3-132.4): English keys added during gameplay batches after the
 19 catalogs were delivered are listed in tools/localization_pending.json with their frozen English text and
-placeholders. A non-English catalog may omit a pending key (players see the English fallback); a catalog that
-already has it is checked normally. Every pending key must exist in en.po with exactly the listed text and
-placeholders, so a later English edit without a handoff update fails. The summary line counts them.
+placeholders. A non-English catalog may omit a pending key (players see the English fallback) until a batch delivers
+it: tools/integrate_translation_batch.py records the locale in the key's "translated" list, and from then on that
+catalog must have it (Localization Batch 01 of the progression update). A catalog that already has it is checked
+normally. Every pending key must exist in en.po with exactly the listed text and placeholders, so a later English
+edit without a handoff update fails (localization_handoff.py change rewrites the entry and clears "translated").
+The summary line counts them.
 
 This proves structure only. It cannot judge wording; the batch report records the linguistic review separately.
 Usage: python tools/validate_localization.py [--json report.json]
@@ -157,8 +160,13 @@ def pending_keys(english, problems):
 def check_catalog(lang, english, allow, problems, pending=()):
     entries, header = read_po(LOC / f'{lang}.po')
     present = {k for k, _, _ in entries}
-    # A pending key (tools/localization_pending.json) may be absent until its translation is delivered.
-    english = [e for e in english if e[0] not in pending or e[0] in present]
+    # A pending key (tools/localization_pending.json) may be absent until its translation is delivered. Once a
+    # batch integrated it (tools/integrate_translation_batch.py records the locale in the key's "translated"
+    # list), the catalog must have it: the exemption is per locale, not per key.
+    delivered = {k for k, entry in pending.items() if lang in entry.get('translated', [])}
+    for k in sorted(delivered - present):
+        problems.append(f'{lang} {k}: delivered translation missing (tools/localization_pending.json lists {lang} as translated)')
+    english = [e for e in english if e[0] not in pending or e[0] in present or e[0] in delivered]
     report = {'keys': len(entries), 'fuzzy': 0, 'empty': 0, 'placeholder_errors': 0, 'symbol_errors': 0,
               'english_copies': 0, 'allowlisted_copies': 0, 'english_words': 0, 'raw_keys': 0}
     m = re.search(r'Language: ([\w-]+)\\n', header)

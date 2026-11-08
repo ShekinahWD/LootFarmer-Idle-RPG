@@ -143,6 +143,25 @@ Enemy, boss, stage, skill and item names are translated descriptively. Each item
 - Collection contracts state both numbers: the count to collect (21 / 31 / 41) and the count handed in (20 / 30 / 40), with "you keep one". pl/ru/uk use the literal numbers with the correct case (pl „po 21 strojów”, ru «по 21 костюму», uk «по 21 вбранню»); no number placeholder is involved.
 - `PROGRESS_COLLECTION` is "Progress: %s" (was "Found this run"), because the kept copy can be an older one.
 
+## Progression update, Batch 01 (Change 58, 7 November 2026): es-419, es-ES, pt-BR, fr-FR, de-DE
+
+The 104 keys of Changes 50-55 (`tools/localization_pending.json`), integrated with `tools/integrate_translation_batch.py`; corrections and their reasons: `docs/changeDocs/localization/Progression_Batch01_Corrections.json`. New terms:
+
+| English | es-419 | es-ES | pt-BR | fr-FR | de-DE |
+|---|---|---|---|---|---|
+| Reroll (an attribute) | volver a sortear | volver a tirar | rerrolar | relancer | neu würfeln |
+| Boss bonus / bonus attribute | bonificación de jefe / atributo adicional | bonificación de jefe / atributo adicional | bônus de chefe / atributo bônus | bonus de boss / attribut bonus | Bossbonus / Bonusattribut |
+| Merge level | nivel de fusión | nivel de fusión | nível de fusão | niveau de fusion | Verschmelzungsstufe |
+| Spare copies | copias de sobra | copias de sobra | cópias extras | copies en trop | übrige Kopien |
+| Old stats (legacy copy) | estadísticas anteriores | estadísticas anteriores | atributos antigos | anciennes statistiques | alte Werte |
+| Obsidian weapon | arma de obsidiana | arma de obsidiana | arma de obsidiana | arme en obsidienne | Obsidianwaffe |
+
+- **The approved catalogs decide, not the package.** The package drifted from in-game terms; corrected to the approved words: de *Kostüm* (not Outfit), *Lager* (not Camp), *Gelegenheit* (not Aufgabe), *Kopie* (not Exemplar), *Upgrades* / *Karten-Upgrades* (not Verbesserungen), *weiterentwickeln* (not entwickeln), *Spielerstufe*; fr *rang* for tier (not palier), *copies en trop*, *Maîtrise des cartes*, *récupérer* for claim; es *EXP*, *PV*, *reclamar*, *enfriamiento*, *Mejoras del mapa*, *Maestría del mapa*, *jugador*; pt *PV*, *Detalhe do mapa*, *Melhorias do mapa*, *inimigos comuns*.
+- **Mood follows the approved siblings:** fr Prestige objectives, rules and follow lines use the infinitive (*Vaincre*, *Fusionner*, *Ramasser*, main objective *Améliorer*), hints the imperative (*Faites évoluer*); fr places maps with *En Hiver II*, *boss de Printemps I*, *butin d’Automne I*.
+- **Collection O4-O8 descriptions** reuse the approved O1 sentence (Submit button, item names, map) with their own numbers. Bosses take their article as in the approved O1-O3 lines (*a la Abeja y al Gato Atigrado Naranja*, *die Biene*, *l’Abeille*).
+- **es-ES** keeps the present perfect for recent events (*has comprado*, *ha alcanzado*, *se han añadido*) and *por partida*; es-419 the preterite.
+- **Typography of the approved catalogs (applied to all 104):** no-break space between a number or numeric placeholder and the next word (`10 copias`, `%s gemas`) and before `%` in es/fr/de (`25 %`; pt `25%`); decimal comma except es-419 (`0,5 s`); U+2212 minus; fr narrow no-break space before `: ; ? !` and the typographic apostrophe `’`.
+
 ## Batch 03 (Change 42): tr-TR, id-ID, vi-VN, th-TH, hi-IN
 
 Written from scratch against the 1,951-key English catalog; the drafts were reference only. Reviewed by Claude, not by native speakers.

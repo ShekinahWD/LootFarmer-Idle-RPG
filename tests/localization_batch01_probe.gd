@@ -34,7 +34,8 @@ func frames(n:=4) -> void:
 func run() -> void:
     startup_locale=TranslationServer.get_locale()
     SettingsState.mute_all_sfx()
-    english=preload("res://tests/localization_sweep.gd").translated_english() # Change 50: pending keys excluded
+    # Progression update Batch 01: the 104 Change 50-55 keys are delivered to these five, so nothing is excluded.
+    english=preload("res://tests/localization_sweep.gd").translated_english(BATCH)
     for lang in BATCH:catalogs[lang]=preload("res://tests/localization_sweep.gd").read_po("res://localization/%s.po" % lang)
     game=load("res://scenes/game/main.tscn").instantiate();add_child(game);sim=game.sim
     sim.set_physics_process(false)
@@ -139,6 +140,12 @@ func routing_and_coverage() -> void:
         for c in chars:
             if not font.has_char(c.unicode_at(0)):missing.append(c)
         check(missing.is_empty(),"%s: the theme font has all %d glyphs the catalog uses (missing %s)" % [lang,chars.size(),str(missing)])
+    var full: Dictionary=preload("res://tests/localization_sweep.gd").read_po("res://localization/en.po")
+    check(english.size()==full.size(),"Batch 01 translates every English key, the progression update's included (%d/%d)" % [english.size(),full.size()])
+    LocalizationService.select_language("es_419");await frames(1)
+    var latam_reroll:=tr("REROLL_ATTRIBUTE")
+    LocalizationService.select_language("es_ES");await frames(1)
+    check(latam_reroll.begins_with("Volver a sortear") and tr("REROLL_ATTRIBUTE").begins_with("Volver a tirar"),"The progression keys stay regional too (sortear / tirar)")
     LocalizationService.select_language("es_419");await frames(1)
     var latam:=tr("SETTINGS")
     LocalizationService.select_language("es_ES");await frames(1)

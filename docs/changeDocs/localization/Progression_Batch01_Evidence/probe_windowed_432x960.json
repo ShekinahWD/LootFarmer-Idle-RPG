@@ -1,0 +1,21 @@
+{
+  "coverage_checks": 156,
+  "findings": [],
+  "known": {
+    "history_feed_button_40": 48,
+    "prestige_card_chip_ellipsis": 4623
+  },
+  "langs": [
+    "en",
+    "es_419",
+    "es_ES",
+    "pt_BR",
+    "fr_FR",
+    "de_DE"
+  ],
+  "screens": 84,
+  "sizes": [
+    "432x960"
+  ],
+  "switch_checks": 6
+}

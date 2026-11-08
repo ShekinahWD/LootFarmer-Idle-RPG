@@ -17,6 +17,8 @@ retire  removes obsolete keys from en.po and from every non-English catalog (a r
         and from the manifest; the manifest keeps a retired list for the handoff.
 export  writes the translator handoff: every pending key with English text, placeholders and change.
 tools/validate_localization.py lets a catalog omit a pending key and fails if the English text drifts.
+tools/integrate_translation_batch.py records each locale a batch delivered in the key's "translated" list (the
+validator then requires the key in that catalog); add and change rewrite the entry, so "translated" starts empty.
 """
 from pathlib import Path
 import json, re, sys

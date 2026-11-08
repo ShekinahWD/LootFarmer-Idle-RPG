@@ -1159,6 +1159,9 @@ msgstr "Derrote o Boneco de Neve · libera Inverno II"
 msgid "MAIN_5"
 msgstr "Equipe Cura"
 
+msgid "MAIN_6"
+msgstr "Melhore Detalhe do mapa (Mundo → Melhorias do mapa)"
+
 msgid "MAIN_7"
 msgstr "Obtenha Explosão Gélida"
 
@@ -4849,6 +4852,9 @@ msgstr "Funde cópias extras de: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Sim · funde: %s"
 
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Evolui em ^20 com 10 cópias extras (31 ao todo): %s"
+
 msgid "AUTO_EVOLVE_ON"
 msgstr "Sim · evolui: %s"
 
@@ -5152,6 +5158,9 @@ msgstr "Revele Atributos e Drops de todos os inimigos daqui."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Obtenha todas as armas, trajes e habilidades que caem aqui."
 
+msgid "MASTERY_FORGE_RULE"
+msgstr "Trajes daqui em ^%s (trajes de chefe em ^%s) e uma arma daqui evoluída (mapas de primavera: uma arma de obsidiana daqui em ^20)."
+
 msgid "MASTERY_MORE"
 msgstr "+%d a mais"
 
@@ -5259,6 +5268,9 @@ msgstr "Encontre a habilidade Explosão Gélida (em Verão I, os elites Chapéu 
 
 msgid "MAIN_HINT_8"
 msgstr "Derrote o Robô Ciano, o chefe de Inverno II, para chegar a Verão I"
+
+msgid "MAIN_HINT_9"
+msgstr "Evolua uma arma ^20 que tenha 10 cópias extras (detalhes do item, Evoluir)"
 
 msgid "MAIN_HINT_10"
 msgstr "Tenha habilidades diferentes"
@@ -5778,3 +5790,303 @@ msgstr "Alguns cartões curtos sobre controles e objetivos. Todos os menus ficam
 
 msgid "GUIDE_MODE_NONE_DETAIL"
 msgstr "Sem lições nem dicas. Todos os menus ficam abertos desde o início."
+
+msgid "KEEP_LINE_COINS"
+msgstr "Suas moedas: %s"
+
+msgid "KEEP_LINE_ALL_UPGRADES"
+msgstr "Todas as melhorias compradas com moedas ou gemas (as melhorias de cada acampamento voltam a funcionar quando você o compra novamente)"
+
+msgid "KEEP_LINE_MERGES"
+msgstr "Níveis de fusão de todas as armas, trajes e habilidades, restaurados quando você encontra o item de novo"
+
+msgid "KEEP_LINE_MAIN_OBJECTIVES"
+msgstr "Objetivos principais concluídos, mas ainda não resgatados"
+
+msgid "RESET_LINE_CARRIED_ITEMS"
+msgstr "Todos os itens que você carrega (armas, trajes, habilidades e suprimentos) e seus atributos bônus aleatórios"
+
+msgid "RESET_LINE_RUN_PROGRESS"
+msgstr "Oportunidades e missões inacabadas. Missões concluídas e moedas e gemas offline não resgatadas são creditadas primeiro; cópias de itens offline não resgatadas são perdidas"
+
+msgid "PRESTIGE_KEEP_ALL"
+msgstr "Cartas e conjuntos, suas moedas e gemas, todas as melhorias compradas com moedas ou gemas, o nível de fusão de cada arma, traje e habilidade, as áreas exploradas do mapa, o nível e o XP do jogador, as chaves de chefe, as conquistas de inimigos, a Maestria do Mapa, os objetivos principais não resgatados e as configurações."
+
+msgid "PRESTIGE_RESET_RUN"
+msgstr "Todos os itens que você carrega (incluindo suprimentos) e seus atributos bônus aleatórios, a Maestria de Suprimentos, o acesso aos mapas (volta para Inverno I), os acampamentos obtidos e as oportunidades e missões inacabadas."
+
+msgid "ITEM_LEGACY_NAME"
+msgstr "%s (atributos antigos)"
+
+msgid "LEGACY_ITEM_EXPLAIN"
+msgstr "Uma cópia com os atributos anteriores à atualização das armas. Ela mantém seu poder até o próximo Prestígio, quando sai junto com seus itens. Novas cópias dessa arma usam os atributos atualizados e mantêm seu nível de fusão."
+
+msgid "EVOLUTION_RULE"
+msgstr "Ao chegar a ^%d, gaste %d cópias extras para obter uma cópia da arma do próximo nível (%d cópias ao todo). Esta arma mantém seu nível de fusão e uma cópia; a nova usa seu próprio nível. É necessário ter a pilha de destino ou um espaço livre."
+
+msgid "MASTERY_NEED_WEAPON_MERGE"
+msgstr "Funda uma das %s até ^%d"
+
+msgid "FOLLOW_MASTERWORK_ANY_GEAR"
+msgstr "Funda um traje, habilidade ou arma de obsidiana até ^100: melhor ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK_TIER_GEAR"
+msgstr "Funda um traje, habilidade ou arma de obsidiana de nível %d+ até ^100: melhor ^%d/^100"
+
+msgid "FOLLOW_ARSENAL_SPLIT"
+msgstr "Armas em ^20: %d/%d · trajes em ^50: %d/%d"
+
+msgid "FOLLOW_ARSENAL_SPLIT_T2"
+msgstr "Armas de nível 2+ em ^20: %d/%d · trajes de nível 2+ em ^50: %d/%d"
+
+msgid "PROGRESS_ARSENAL_SPLIT"
+msgstr "Armas em ^20: %d/%d · trajes em ^50: %d/%d"
+
+msgid "CONTENT_MASTERWORK_O1_RULE"
+msgstr "Funda qualquer traje, habilidade ou arma de obsidiana até ^100"
+
+msgid "CONTENT_MASTERWORK_O2_RULE"
+msgstr "Funda um traje, habilidade ou arma de obsidiana de nível 2 ou superior até ^100"
+
+msgid "CONTENT_MASTERWORK_O3_RULE"
+msgstr "Funda um traje, habilidade ou arma de obsidiana de nível 3 ou superior até ^100"
+
+msgid "CONTENT_ARSENAL_O1_RULE"
+msgstr "Funda uma arma até ^20 e um traje até ^50"
+
+msgid "CONTENT_ARSENAL_O2_RULE"
+msgstr "Funda 3 armas diferentes até ^20 e 3 trajes diferentes até ^50"
+
+msgid "CONTENT_ARSENAL_O3_RULE"
+msgstr "Funda 3 armas diferentes de nível 2+ até ^20 e 3 trajes diferentes de nível 2+ até ^50"
+
+msgid "MERGE_AT_CAP"
+msgstr "Este item atingiu o limite de fusão."
+
+msgid "EVOLUTION_NEEDS_COPIES"
+msgstr "Para evoluir, é preciso o nível de fusão completo e cópias extras suficientes."
+
+msgid "ITEM_BOSS_BONUS"
+msgstr "Bônus de chefe"
+
+msgid "ITEM_ENHANCED"
+msgstr "Arma de chefe: dois atributos bônus adicionados"
+
+msgid "ITEM_BOSS_BONUS_EXPLAIN"
+msgstr "Aprimorada por chefe: sua primeira cópia desta arma obtida de um chefe ganhou dois atributos bônus. Cópias posteriores de chefes contam como cópias normais. Os atributos bônus são redefinidos no Prestígio; os níveis de fusão permanecem."
+
+msgid "ITEM_BOSS_BONUS_HINT"
+msgstr "A primeira cópia desta arma obtida de um chefe ganha dois atributos bônus (uma vez por partida)."
+
+msgid "REROLL_ATTRIBUTE"
+msgstr "Rerrolar %s · %s gemas"
+
+msgid "REROLL_ATTRIBUTE_CONFIRM"
+msgstr "Gastar %s gemas para rerrolar %s? O novo resultado substitui este atributo, mesmo se for pior. Seus outros atributos não mudam."
+
+msgid "CONTENT_EXPEDITION_O4_NAME"
+msgstr "Rota do inverno profundo"
+
+msgid "CONTENT_EXPEDITION_O4_DESCRIPTION"
+msgstr "Em Inverno II, derrote em ordem 50 de cada tipo: Capuz de Lobo, Capuz de Gato Malhado, Coroa Dourada, Chifres de Rena, Gorro de Papai Noel, Capacete Espacial"
+
+msgid "CONTENT_EXPEDITION_O5_NAME"
+msgstr "Rota da praia"
+
+msgid "CONTENT_EXPEDITION_O5_DESCRIPTION"
+msgstr "Em Verão II, derrote em ordem 60 de cada tipo: Bandana de Caubói, Boia de Pato, Palhaço Arco-Íris, Nadador de Touca Vermelha, Mergulhador, Nadador de Chapéu de Palha"
+
+msgid "CONTENT_EXPEDITION_O6_NAME"
+msgstr "Rota do outono"
+
+msgid "CONTENT_EXPEDITION_O6_DESCRIPTION"
+msgstr "Em Outono I, derrote em ordem 120 de cada tipo: Boné Preto, Chapéu de Cogumelo, Cabeça de Abóbora"
+
+msgid "CONTENT_EXPEDITION_O7_NAME"
+msgstr "Rota do fim do outono"
+
+msgid "CONTENT_EXPEDITION_O7_DESCRIPTION"
+msgstr "Em Outono II, derrote em ordem 100 de cada tipo: Capuz com Chifres, Capacete de Tela Laranja, Cabeça de TV, Cartola"
+
+msgid "CONTENT_EXPEDITION_O8_NAME"
+msgstr "Rota das flores"
+
+msgid "CONTENT_EXPEDITION_O8_DESCRIPTION"
+msgstr "Em Primavera II, derrote em ordem 60 de cada tipo: Coroa de Flores, Boné Verde, Boné Rosa, Capuz de Flor Rosa, Simples, Broto"
+
+msgid "CONTENT_COLLECTION_O4_NAME"
+msgstr "Coleção festiva"
+
+msgid "CONTENT_COLLECTION_O4_DESCRIPTION"
+msgstr "Pegue 16 trajes de cada: Gorro de Papai Noel, Chifres de Rena e Capacete Espacial (drops de Inverno II). Ao tocar em Entregar, você entrega 15 de cada e fica com um"
+
+msgid "CONTENT_COLLECTION_O5_NAME"
+msgstr "Coleção de praia"
+
+msgid "CONTENT_COLLECTION_O5_DESCRIPTION"
+msgstr "Pegue 26 trajes de cada: Mergulhador, Nadador de Touca Vermelha e Nadador de Chapéu de Palha (drops de Verão II). Ao tocar em Entregar, você entrega 25 de cada e fica com um"
+
+msgid "CONTENT_COLLECTION_O6_NAME"
+msgstr "Coleção da colheita"
+
+msgid "CONTENT_COLLECTION_O6_DESCRIPTION"
+msgstr "Pegue 31 trajes de cada: Boné Preto, Chapéu de Cogumelo e Cabeça de Abóbora (drops de Outono I). Ao tocar em Entregar, você entrega 30 de cada e fica com um"
+
+msgid "CONTENT_COLLECTION_O7_NAME"
+msgstr "Coleção de telas"
+
+msgid "CONTENT_COLLECTION_O7_DESCRIPTION"
+msgstr "Pegue 31 trajes de cada: Cabeça de TV, Cartola e Capacete de Tela Laranja (drops de Outono II). Ao tocar em Entregar, você entrega 30 de cada e fica com um"
+
+msgid "CONTENT_COLLECTION_O8_NAME"
+msgstr "Coleção do jardim"
+
+msgid "CONTENT_COLLECTION_O8_DESCRIPTION"
+msgstr "Pegue 41 trajes de cada: Boné Rosa, Simples e Broto (drops de Primavera II). Ao tocar em Entregar, você entrega 40 de cada e fica com um"
+
+msgid "CONTENT_HUNTER_O4_NAME"
+msgstr "Recompensa da primavera"
+
+msgid "CONTENT_HUNTER_O4_DESCRIPTION"
+msgstr "Derrote a Abelha e o Gato Laranja Rajado (chefes de Primavera I) 10 vezes cada"
+
+msgid "CONTENT_CHALLENGE_O4_NAME"
+msgstr "Primavera sem ajuda"
+
+msgid "CONTENT_CHALLENGE_O4_DESCRIPTION"
+msgstr "Derrote o Panda-Vermelho (chefe de Primavera II) sem usar nenhum suprimento durante a luta"
+
+msgid "CONTENT_TROPHY_O4_NAME"
+msgstr "Troféus da primavera"
+
+msgid "CONTENT_TROPHY_O4_DESCRIPTION"
+msgstr "Depois de encontrar isto, derrote uma vez a Abelha, o Gato Laranja Rajado (Primavera I), o Panda-Vermelho e o Girassol (Primavera II)"
+
+msgid "CONTENT_REGIONAL_O4_NAME"
+msgstr "Maestria do outono"
+
+msgid "CONTENT_REGIONAL_O4_DESCRIPTION"
+msgstr "Em Outono I e Outono II: explore 90% de cada mapa, derrote os quatro chefes e desbloqueie todos os acampamentos"
+
+msgid "CONTENT_MASTERWORK_O4_NAME"
+msgstr "Obra-prima de obsidiana"
+
+msgid "CONTENT_MASTERWORK_O4_DESCRIPTION"
+msgstr "Funda uma arma de obsidiana (drops de Primavera I e Primavera II) até ^100"
+
+msgid "CONTENT_EXPEDITION_C4_NAME"
+msgstr "Defesa contra multidões"
+
+msgid "CONTENT_EXPEDITION_C4_DESCRIPTION"
+msgstr "−4% de dano recebido para cada inimigo comum que ataca você além do primeiro (até −20%)"
+
+msgid "CONTENT_EXPEDITION_C5_NAME"
+msgstr "Segunda chance"
+
+msgid "CONTENT_EXPEDITION_C5_DESCRIPTION"
+msgstr "Ao ficar abaixo de 30% de PV, você recupera 25% dos PV máximos (uma vez a cada 90 s)"
+
+msgid "CONTENT_EXPEDITION_C6_NAME"
+msgstr "Golpe em área"
+
+msgid "CONTENT_EXPEDITION_C6_DESCRIPTION"
+msgstr "Ataques básicos também causam 30% de dano a outros inimigos próximos ao alvo"
+
+msgid "CONTENT_EXPEDITION_C7_NAME"
+msgstr "Formação quebrada"
+
+msgid "CONTENT_EXPEDITION_C7_DESCRIPTION"
+msgstr "Inimigos chamados para um combate em grupo começam a atacar 0,5 s depois"
+
+msgid "CONTENT_EXPEDITION_C8_NAME"
+msgstr "Descanso de campo"
+
+msgid "CONTENT_EXPEDITION_C8_DESCRIPTION"
+msgstr "Fora de combate e longe dos acampamentos, você recupera PV três vezes mais rápido"
+
+msgid "CONTENT_COLLECTION_C4_NAME"
+msgstr "Achado em dobro"
+
+msgid "CONTENT_COLLECTION_C4_DESCRIPTION"
+msgstr "Armas e trajes que caem de inimigos comuns têm 10% de chance de vir em 2 cópias"
+
+msgid "CONTENT_COLLECTION_C5_NAME"
+msgstr "Evolução econômica"
+
+msgid "CONTENT_COLLECTION_C5_DESCRIPTION"
+msgstr "Evoluir exige 8 cópias extras em vez de 10"
+
+msgid "CONTENT_COLLECTION_C6_NAME"
+msgstr "Suprimentos constantes"
+
+msgid "CONTENT_COLLECTION_C6_DESCRIPTION"
+msgstr "Recarga dos suprimentos −15%"
+
+msgid "CONTENT_COLLECTION_C7_NAME"
+msgstr "Rerrolagem precisa"
+
+msgid "CONTENT_COLLECTION_C7_DESCRIPTION"
+msgstr "Rerrolagens custam 25% menos gemas e nunca retornam o mesmo atributo"
+
+msgid "CONTENT_COLLECTION_C8_NAME"
+msgstr "Olho para tesouros"
+
+msgid "CONTENT_COLLECTION_C8_DESCRIPTION"
+msgstr "Atributos bônus de chefe são sorteados na metade superior do intervalo"
+
+msgid "CONTENT_HUNTER_C4_NAME"
+msgstr "Quebra-chefes"
+
+msgid "CONTENT_HUNTER_C4_DESCRIPTION"
+msgstr "Avisos de habilidades dos chefes duram 0,3 s a mais e as curas deles restauram 25% menos"
+
+msgid "CONTENT_CHALLENGE_C4_NAME"
+msgstr "Última resistência"
+
+msgid "CONTENT_CHALLENGE_C4_DESCRIPTION"
+msgstr "Abaixo de 25% de PV: +20% de velocidade de ataque"
+
+msgid "CONTENT_TROPHY_C4_NAME"
+msgstr "Espólios do campeão"
+
+msgid "CONTENT_TROPHY_C4_DESCRIPTION"
+msgstr "Na primeira vez que você derrota um chefe em uma partida, o saque é sorteado duas vezes"
+
+msgid "CONTENT_REGIONAL_C4_NAME"
+msgstr "Viajante veterano"
+
+msgid "CONTENT_REGIONAL_C4_DESCRIPTION"
+msgstr "+25% de XP de inimigos comuns nos mapas anteriores ao seu mapa desbloqueado mais distante"
+
+msgid "CONTENT_MASTERWORK_C4_NAME"
+msgstr "Forja de obsidiana"
+
+msgid "CONTENT_MASTERWORK_C4_DESCRIPTION"
+msgstr "+15% nos atributos ganhos em cada fusão de arma de obsidiana"
+
+msgid "FOLLOW_MASTERWORK_OBSIDIAN"
+msgstr "Funda uma arma de obsidiana até ^100: melhor ^%d/^100"
+
+msgid "MAP_MARKERS_HINT"
+msgstr "Inimigos e chefes que você encontrou podem ser marcados neste mapa. Compre Detalhe do mapa em Melhorias do mapa, abaixo: a compra continua após o Prestígio."
+
+msgid "MAP_DETAIL_NEXT_1"
+msgstr "Próximo: marcadores dos inimigos e chefes encontrados"
+
+msgid "MAP_DETAIL_NEXT_2"
+msgstr "Próximo: nomes dos inimigos; toque em um marcador para inspecionar"
+
+msgid "MAP_DETAIL_NEXT_3"
+msgstr "Próximo: ícones de equipamento (arma, traje, habilidade)"
+
+msgid "OFFLINE_GEAR_HINT"
+msgstr "Enquanto estiver fora, você também pode receber cópias das armas e dos trajes que já possui. Desbloqueie em Melhorias → Offline."
+
+msgid "OFFLINE_UPGRADES_JUMP"
+msgstr "Resgatar e abrir melhorias offline"
+
+msgid "OFFLINE_GEAR_BENEFIT"
+msgstr "Desligado → Ligado · cópias de equipamento que você possui, cerca de 1 por hora"
+
+msgid "EVOLVE_READY_HINT"
+msgstr "%s atingiu o nível máximo de fusão. Consiga mais %d cópias para evoluir para %s."

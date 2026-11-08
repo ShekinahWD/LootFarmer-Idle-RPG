@@ -1,0 +1,7 @@
+english sha256 8212766e4a508781d1567b34f3ac1864f510890e09ff7a0898707dc736fab02f keys 2027; scope 104 (100 new, 4 changed meaning); retired 25; batch batch01 es_419,es_ES,pt_BR,fr_FR,de_DE
+es_419 baseline=1923 unchanged=1923 changed=0 removed=0 added=104 corrected=55 total=2027
+es_ES baseline=1923 unchanged=1923 changed=0 removed=0 added=104 corrected=57 total=2027
+pt_BR baseline=1923 unchanged=1923 changed=0 removed=0 added=104 corrected=44 total=2027
+fr_FR baseline=1923 unchanged=1923 changed=0 removed=0 added=104 corrected=71 total=2027
+de_DE baseline=1923 unchanged=1923 changed=0 removed=0 added=104 corrected=66 total=2027
+INTEGRATE_TRANSLATION_BATCH batch01 locales=5 problems=0

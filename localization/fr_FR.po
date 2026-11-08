@@ -1159,6 +1159,9 @@ msgstr "Vaincre le Bonhomme de Neige · débloque Hiver II"
 msgid "MAIN_5"
 msgstr "Équiper Soin"
 
+msgid "MAIN_6"
+msgstr "Améliorer Détail de la carte (Monde → Améliorations de la carte)"
+
 msgid "MAIN_7"
 msgstr "Obtenir Explosion de Givre"
 
@@ -4849,6 +4852,9 @@ msgstr "Fusionne les copies en trop de : %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Oui · fusionne : %s"
 
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Évolue à ^20 avec 10 copies en trop (31 au total) : %s"
+
 msgid "AUTO_EVOLVE_ON"
 msgstr "Oui · fait évoluer : %s"
 
@@ -5152,6 +5158,9 @@ msgstr "Révélez les statistiques et le butin de chaque ennemi d’ici."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Obtenez chaque arme, tenue et compétence lâchée ici."
 
+msgid "MASTERY_FORGE_RULE"
+msgstr "Tenues d’ici à ^%s (tenues de boss ^%s) et une arme d’ici évoluée (cartes de printemps : une arme en obsidienne d’ici à ^20)."
+
 msgid "MASTERY_MORE"
 msgstr "+%d de plus"
 
@@ -5259,6 +5268,9 @@ msgstr "Trouvez la compétence Explosion de Givre (en Été I, les élites Chape
 
 msgid "MAIN_HINT_8"
 msgstr "Vainquez le Robot Cyan, le boss d’Hiver II, pour atteindre Été I"
+
+msgid "MAIN_HINT_9"
+msgstr "Faites évoluer une arme ^20 qui a 10 copies en trop (détails de l’objet, Faire évoluer)"
 
 msgid "MAIN_HINT_10"
 msgstr "Possédez des compétences différentes"
@@ -5778,3 +5790,303 @@ msgstr "Quelques courtes cartes sur les commandes et les objectifs. Tous les men
 
 msgid "GUIDE_MODE_NONE_DETAIL"
 msgstr "Ni leçons ni conseils. Tous les menus sont ouverts dès le départ."
+
+msgid "KEEP_LINE_COINS"
+msgstr "Vos pièces : %s"
+
+msgid "KEEP_LINE_ALL_UPGRADES"
+msgstr "Toutes les améliorations achetées avec des pièces ou des gemmes (les améliorations propres à un camp se réactivent quand vous rachetez ce camp)"
+
+msgid "KEEP_LINE_MERGES"
+msgstr "Niveaux de fusion de chaque arme, tenue et compétence, rétablis lorsque vous retrouvez l’objet"
+
+msgid "KEEP_LINE_MAIN_OBJECTIVES"
+msgstr "Objectifs principaux terminés mais pas encore récupérés"
+
+msgid "RESET_LINE_CARRIED_ITEMS"
+msgstr "Tous les objets transportés (armes, tenues, compétences et consommables) ainsi que leurs attributs bonus aléatoires"
+
+msgid "RESET_LINE_RUN_PROGRESS"
+msgstr "Opportunités et missions inachevées. Les missions terminées et les pièces et gemmes hors ligne non récupérées sont créditées d’abord ; les copies d’objets hors ligne non récupérées sont perdues"
+
+msgid "PRESTIGE_KEEP_ALL"
+msgstr "Cartes et ensembles, vos pièces et gemmes, toutes les améliorations achetées avec des pièces ou des gemmes, le niveau de fusion de chaque arme, tenue et compétence, les zones explorées, le niveau et l’XP du joueur, les clés de boss, les succès d’ennemis, la Maîtrise des cartes, les objectifs principaux non récupérés et les paramètres."
+
+msgid "PRESTIGE_RESET_RUN"
+msgstr "Tous les objets transportés (consommables compris) et leurs attributs bonus aléatoires, la Maîtrise des consommables, l’accès aux cartes (retour à Hiver I), les camps possédés ainsi que les opportunités et missions inachevées."
+
+msgid "ITEM_LEGACY_NAME"
+msgstr "%s (anciennes statistiques)"
+
+msgid "LEGACY_ITEM_EXPLAIN"
+msgstr "Une copie aux statistiques d’avant la mise à jour des armes. Elle conserve sa puissance jusqu’au prochain Prestige, puis disparaît avec votre inventaire. Les nouvelles copies utilisent les nouvelles statistiques et conservent votre niveau de fusion."
+
+msgid "EVOLUTION_RULE"
+msgstr "À ^%d, dépensez %d copies en trop pour obtenir une copie de l’arme du rang suivant (%d copies au total). Cette arme conserve son niveau de fusion et une copie ; la nouvelle arme a son propre niveau de fusion. Il faut une pile de destination ou un emplacement libre."
+
+msgid "MASTERY_NEED_WEAPON_MERGE"
+msgstr "Fusionner l’une de ces armes : %s, jusqu’à ^%d"
+
+msgid "FOLLOW_MASTERWORK_ANY_GEAR"
+msgstr "Fusionner une tenue, une compétence ou une arme en obsidienne jusqu’à ^100 : record ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK_TIER_GEAR"
+msgstr "Fusionner une tenue, une compétence ou une arme en obsidienne de rang %d+ jusqu’à ^100 : record ^%d/^100"
+
+msgid "FOLLOW_ARSENAL_SPLIT"
+msgstr "Armes à ^20 : %d/%d · tenues à ^50 : %d/%d"
+
+msgid "FOLLOW_ARSENAL_SPLIT_T2"
+msgstr "Armes de rang 2+ à ^20 : %d/%d · tenues de rang 2+ à ^50 : %d/%d"
+
+msgid "PROGRESS_ARSENAL_SPLIT"
+msgstr "Armes à ^20 : %d/%d · tenues à ^50 : %d/%d"
+
+msgid "CONTENT_MASTERWORK_O1_RULE"
+msgstr "Fusionner n’importe quelle tenue, compétence ou arme en obsidienne jusqu’à ^100"
+
+msgid "CONTENT_MASTERWORK_O2_RULE"
+msgstr "Fusionner une tenue, une compétence ou une arme en obsidienne de rang 2 ou plus jusqu’à ^100"
+
+msgid "CONTENT_MASTERWORK_O3_RULE"
+msgstr "Fusionner une tenue, une compétence ou une arme en obsidienne de rang 3 ou plus jusqu’à ^100"
+
+msgid "CONTENT_ARSENAL_O1_RULE"
+msgstr "Fusionner une arme à ^20 et une tenue à ^50"
+
+msgid "CONTENT_ARSENAL_O2_RULE"
+msgstr "Fusionner 3 armes différentes à ^20 et 3 tenues différentes à ^50"
+
+msgid "CONTENT_ARSENAL_O3_RULE"
+msgstr "Fusionner 3 armes différentes de rang 2+ à ^20 et 3 tenues différentes de rang 2+ à ^50"
+
+msgid "MERGE_AT_CAP"
+msgstr "Cet objet a atteint son niveau maximal de fusion."
+
+msgid "EVOLUTION_NEEDS_COPIES"
+msgstr "L’évolution exige le niveau de fusion maximal et assez de copies en trop."
+
+msgid "ITEM_BOSS_BONUS"
+msgstr "Bonus de boss"
+
+msgid "ITEM_ENHANCED"
+msgstr "Arme de boss : deux attributs bonus ajoutés"
+
+msgid "ITEM_BOSS_BONUS_EXPLAIN"
+msgstr "Améliorée par un boss : votre première copie de cette arme obtenue sur un boss a ajouté deux attributs bonus. Les copies obtenues ensuite sur un boss comptent comme des copies normales. Les attributs bonus sont réinitialisés au Prestige ; les niveaux de fusion restent."
+
+msgid "ITEM_BOSS_BONUS_HINT"
+msgstr "La première copie de cette arme obtenue sur un boss ajoute deux attributs bonus (une fois par partie)."
+
+msgid "REROLL_ATTRIBUTE"
+msgstr "Relancer %s · %s gemmes"
+
+msgid "REROLL_ATTRIBUTE_CONFIRM"
+msgstr "Dépenser %s gemmes pour relancer %s ? Le nouveau tirage remplace cet attribut, même s’il est moins bon. Les autres attributs restent inchangés."
+
+msgid "CONTENT_EXPEDITION_O4_NAME"
+msgstr "Route du grand froid"
+
+msgid "CONTENT_EXPEDITION_O4_DESCRIPTION"
+msgstr "En Hiver II, vaincre dans l’ordre 50 ennemis de chaque type : Capuche de Loup, Capuche de Chat Calico, Couronne Dorée, Bois de Renne, Bonnet de Père Noël, Casque Spatial"
+
+msgid "CONTENT_EXPEDITION_O5_NAME"
+msgstr "Route des plages"
+
+msgid "CONTENT_EXPEDITION_O5_DESCRIPTION"
+msgstr "En Été II, vaincre dans l’ordre 60 ennemis de chaque type : Bandana de Cow-boy, Bouée Canard, Clown Arc-en-ciel, Nageur au Bonnet Rouge, Plongeur à Tuba, Nageur au Chapeau de Paille"
+
+msgid "CONTENT_EXPEDITION_O6_NAME"
+msgstr "Route d’automne"
+
+msgid "CONTENT_EXPEDITION_O6_DESCRIPTION"
+msgstr "En Automne I, vaincre dans l’ordre 120 ennemis de chaque type : Casquette Noire, Chapeau Champignon, Tête de Citrouille"
+
+msgid "CONTENT_EXPEDITION_O7_NAME"
+msgstr "Route de fin d’automne"
+
+msgid "CONTENT_EXPEDITION_O7_DESCRIPTION"
+msgstr "En Automne II, vaincre dans l’ordre 100 ennemis de chaque type : Capuche à Cornes, Casque à Écran Orange, Tête de Télé, Haut-de-Forme"
+
+msgid "CONTENT_EXPEDITION_O8_NAME"
+msgstr "Route des fleurs"
+
+msgid "CONTENT_EXPEDITION_O8_DESCRIPTION"
+msgstr "En Printemps II, vaincre dans l’ordre 60 ennemis de chaque type : Couronne de Fleurs, Casquette Verte, Casquette Rose, Capuche Fleur Rose, Sobre, Pousse"
+
+msgid "CONTENT_COLLECTION_O4_NAME"
+msgstr "Collection festive"
+
+msgid "CONTENT_COLLECTION_O4_DESCRIPTION"
+msgstr "Ramasser 16 tenues de chaque type : Bonnet de Père Noël, Bois de Renne et Casque Spatial (butin d’Hiver II). Remettre en cède 15 de chaque et vous en gardez une"
+
+msgid "CONTENT_COLLECTION_O5_NAME"
+msgstr "Collection de plage"
+
+msgid "CONTENT_COLLECTION_O5_DESCRIPTION"
+msgstr "Ramasser 26 tenues de chaque type : Plongeur à Tuba, Nageur au Bonnet Rouge et Nageur au Chapeau de Paille (butin d’Été II). Remettre en cède 25 de chaque et vous en gardez une"
+
+msgid "CONTENT_COLLECTION_O6_NAME"
+msgstr "Collection des récoltes"
+
+msgid "CONTENT_COLLECTION_O6_DESCRIPTION"
+msgstr "Ramasser 31 tenues de chaque type : Casquette Noire, Chapeau Champignon et Tête de Citrouille (butin d’Automne I). Remettre en cède 30 de chaque et vous en gardez une"
+
+msgid "CONTENT_COLLECTION_O7_NAME"
+msgstr "Collection des écrans"
+
+msgid "CONTENT_COLLECTION_O7_DESCRIPTION"
+msgstr "Ramasser 31 tenues de chaque type : Tête de Télé, Haut-de-Forme et Casque à Écran Orange (butin d’Automne II). Remettre en cède 30 de chaque et vous en gardez une"
+
+msgid "CONTENT_COLLECTION_O8_NAME"
+msgstr "Collection du jardin"
+
+msgid "CONTENT_COLLECTION_O8_DESCRIPTION"
+msgstr "Ramasser 41 tenues de chaque type : Casquette Rose, Sobre et Pousse (butin de Printemps II). Remettre en cède 40 de chaque et vous en gardez une"
+
+msgid "CONTENT_HUNTER_O4_NAME"
+msgstr "Prime printanière"
+
+msgid "CONTENT_HUNTER_O4_DESCRIPTION"
+msgstr "Vaincre l’Abeille et le Chat Tigré Roux (boss de Printemps I) 10 fois chacun"
+
+msgid "CONTENT_CHALLENGE_O4_NAME"
+msgstr "Printemps sans aide"
+
+msgid "CONTENT_CHALLENGE_O4_DESCRIPTION"
+msgstr "Vaincre le Panda Roux (boss de Printemps II) sans utiliser de consommable pendant le combat"
+
+msgid "CONTENT_TROPHY_O4_NAME"
+msgstr "Trophées du printemps"
+
+msgid "CONTENT_TROPHY_O4_DESCRIPTION"
+msgstr "Après l’avoir découvert, vaincre une fois l’Abeille, le Chat Tigré Roux (Printemps I), le Panda Roux et le Tournesol (Printemps II)"
+
+msgid "CONTENT_REGIONAL_O4_NAME"
+msgstr "Maîtrise de l’automne"
+
+msgid "CONTENT_REGIONAL_O4_DESCRIPTION"
+msgstr "En Automne I et Automne II : explorer 90 % de chaque carte, vaincre les quatre boss et débloquer tous les camps"
+
+msgid "CONTENT_MASTERWORK_O4_NAME"
+msgstr "Chef-d’œuvre d’obsidienne"
+
+msgid "CONTENT_MASTERWORK_O4_DESCRIPTION"
+msgstr "Fusionner une arme en obsidienne (butin de Printemps I et Printemps II) jusqu’à ^100"
+
+msgid "CONTENT_EXPEDITION_C4_NAME"
+msgstr "Protection contre la foule"
+
+msgid "CONTENT_EXPEDITION_C4_DESCRIPTION"
+msgstr "−4 % de dégâts subis par ennemi normal supplémentaire qui vous attaque (maximum −20 %)"
+
+msgid "CONTENT_EXPEDITION_C5_NAME"
+msgstr "Second souffle"
+
+msgid "CONTENT_EXPEDITION_C5_DESCRIPTION"
+msgstr "En dessous de 30 % de PV, récupérez 25 % de vos PV max (une fois toutes les 90 s)"
+
+msgid "CONTENT_EXPEDITION_C6_NAME"
+msgstr "Frappe balayante"
+
+msgid "CONTENT_EXPEDITION_C6_DESCRIPTION"
+msgstr "Les attaques de base infligent aussi 30 % de dégâts aux autres ennemis proches de la cible"
+
+msgid "CONTENT_EXPEDITION_C7_NAME"
+msgstr "Ralliement brisé"
+
+msgid "CONTENT_EXPEDITION_C7_DESCRIPTION"
+msgstr "Les ennemis appelés dans un combat de groupe commencent à attaquer 0,5 s plus tard"
+
+msgid "CONTENT_EXPEDITION_C8_NAME"
+msgstr "Repos en pleine nature"
+
+msgid "CONTENT_EXPEDITION_C8_DESCRIPTION"
+msgstr "Hors combat et loin des camps, vous récupérez vos PV trois fois plus vite"
+
+msgid "CONTENT_COLLECTION_C4_NAME"
+msgstr "Double trouvaille"
+
+msgid "CONTENT_COLLECTION_C4_DESCRIPTION"
+msgstr "Les armes et tenues lâchées par les ennemis normaux ont 10 % de chances de tomber en 2 copies"
+
+msgid "CONTENT_COLLECTION_C5_NAME"
+msgstr "Évolution économe"
+
+msgid "CONTENT_COLLECTION_C5_DESCRIPTION"
+msgstr "L’évolution demande 8 copies en trop au lieu de 10"
+
+msgid "CONTENT_COLLECTION_C6_NAME"
+msgstr "Consommables réguliers"
+
+msgid "CONTENT_COLLECTION_C6_DESCRIPTION"
+msgstr "Temps de recharge des consommables −15 %"
+
+msgid "CONTENT_COLLECTION_C7_NAME"
+msgstr "Relance précise"
+
+msgid "CONTENT_COLLECTION_C7_DESCRIPTION"
+msgstr "Les relances coûtent 25 % de gemmes en moins et ne rendent jamais le même attribut"
+
+msgid "CONTENT_COLLECTION_C8_NAME"
+msgstr "Flair du trésor"
+
+msgid "CONTENT_COLLECTION_C8_DESCRIPTION"
+msgstr "Les attributs bonus de boss sont tirés dans la moitié supérieure de leur plage"
+
+msgid "CONTENT_HUNTER_C4_NAME"
+msgstr "Briseur de boss"
+
+msgid "CONTENT_HUNTER_C4_DESCRIPTION"
+msgstr "Les avertissements des compétences de boss durent 0,3 s de plus et leurs soins rendent 25 % de PV en moins"
+
+msgid "CONTENT_CHALLENGE_C4_NAME"
+msgstr "Dernier rempart"
+
+msgid "CONTENT_CHALLENGE_C4_DESCRIPTION"
+msgstr "En dessous de 25 % de PV : +20 % de vitesse d’attaque"
+
+msgid "CONTENT_TROPHY_C4_NAME"
+msgstr "Butin du champion"
+
+msgid "CONTENT_TROPHY_C4_DESCRIPTION"
+msgstr "La première défaite d’un boss dans une partie déclenche deux tirages de butin"
+
+msgid "CONTENT_REGIONAL_C4_NAME"
+msgstr "Voyageur aguerri"
+
+msgid "CONTENT_REGIONAL_C4_DESCRIPTION"
+msgstr "+25 % d’XP des ennemis normaux sur les cartes précédant la plus avancée que vous avez débloquée"
+
+msgid "CONTENT_MASTERWORK_C4_NAME"
+msgstr "Trempe d’obsidienne"
+
+msgid "CONTENT_MASTERWORK_C4_DESCRIPTION"
+msgstr "+15 % aux statistiques gagnées à chaque fusion d’arme en obsidienne"
+
+msgid "FOLLOW_MASTERWORK_OBSIDIAN"
+msgstr "Fusionner une arme en obsidienne jusqu’à ^100 : record ^%d/^100"
+
+msgid "MAP_MARKERS_HINT"
+msgstr "Les ennemis et boss déjà trouvés peuvent être signalés sur cette carte. Achetez Détail de la carte dans Améliorations de la carte, plus bas : l’achat est conservé après le Prestige."
+
+msgid "MAP_DETAIL_NEXT_1"
+msgstr "Suivant : marqueurs des ennemis et boss découverts"
+
+msgid "MAP_DETAIL_NEXT_2"
+msgstr "Suivant : noms des ennemis ; touchez un marqueur pour l’examiner"
+
+msgid "MAP_DETAIL_NEXT_3"
+msgstr "Suivant : icônes d’équipement (arme, tenue, compétence)"
+
+msgid "OFFLINE_GEAR_HINT"
+msgstr "Pendant votre absence, vous pouvez aussi recevoir des copies des armes et tenues que vous possédez déjà. Débloquez cette option dans Améliorations → Hors ligne."
+
+msgid "OFFLINE_UPGRADES_JUMP"
+msgstr "Récupérer et ouvrir les améliorations hors ligne"
+
+msgid "OFFLINE_GEAR_BENEFIT"
+msgstr "Désactivé → Activé · copies d’équipement possédé, environ 1 par heure"
+
+msgid "EVOLVE_READY_HINT"
+msgstr "%s a atteint son niveau de fusion maximal. Obtenez encore %d copies pour le faire évoluer en %s."

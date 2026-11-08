@@ -1,4 +1,16 @@
-# LootFarmer — Test Suite (current, 2026-10-29, Change 42)
+# LootFarmer — Test Suite (current, 2026-11-07, Change 58)
+
+## Change 58 — Progression update localization, Batch 01 (7 November 2026)
+
+Command: `python tools/run_probes.py`. Details: [batch report](changeDocs/localization/Progression_Batch01_Report.md).
+
+- **Registered** `localization_progression_probe` (extends `localization_sweep`; 492 checks by default: en + es_419/es_ES/pt_BR/fr_FR/de_DE × 432x960/540x960). It covers 14 screens that show the Change 50–55 keys: the World Map Detail hint, welcome-back offline hint, Upgrades > Offline, boss-enhanced weapon + reroll confirmation, boss bonus hint, evolution rule, legacy copy, evolution-ready toast, Prestige with 48 opportunities, Prestige confirmation and the eight-card choice. On top of the sweep's checks it verifies that each listed progression key is actually on screen in the current language, adds a new `word_split` check (a wrapping label narrower than one of its words), checks the plate and sheet stay inside the screen, and switches language live with the card choice and item panel open. Pre-existing language-independent patterns (Prestige card-chip ellipsis, 40-unit History feed buttons) are counted as `known`, not failed. Windowed: `--resolution 432x960 ... --shots=<dir>/ --shape=432`.
+- **Updated** `localization_batch01_probe`: `translated_english(BATCH)` now covers all 2,027 keys (delivered pending keys are no longer excluded), plus an es_419/es_ES regional check on the new keys. `localization_sweep.translated_english/pending_keys` take the languages and exclude only keys not yet delivered to them.
+- **`validate_localization`**: a pending key is exempt only for locales not in its `translated` list; a delivered key that goes missing fails.
+- **Outside the suite:** `tools/integrate_translation_batch.py --check --baseline-rev=<rev>` (approved-entry integrity against a git revision).
+
+**Final run in the working tree:** **56/56 passed**, no script errors or timeouts (57 entries incl. the 3 Python checks; the developer's uncommitted `project.godot` / `export_presets.cfg` edits no longer break `export_manifest`, `change_26_probe`, `change_27_probe`).
+
 
 ## Change 42 — Localization Batch 03 (29 October 2026)
 

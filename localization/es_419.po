@@ -1159,6 +1159,9 @@ msgstr "Derrota al Muñeco de Nieve · desbloquea Invierno II"
 msgid "MAIN_5"
 msgstr "Equipa Curación"
 
+msgid "MAIN_6"
+msgstr "Mejora Detalle del mapa (Mundo → Mejoras del mapa)"
+
 msgid "MAIN_7"
 msgstr "Consigue Estallido de Escarcha"
 
@@ -4849,6 +4852,9 @@ msgstr "Fusiona las copias de sobra de: %s"
 msgid "AUTO_MERGE_ON"
 msgstr "Sí · fusiona: %s"
 
+msgid "AUTO_EVOLVE_BENEFIT"
+msgstr "Evoluciona en ^20 con 10 copias de sobra (31 en total): %s"
+
 msgid "AUTO_EVOLVE_ON"
 msgstr "Sí · evoluciona: %s"
 
@@ -5152,6 +5158,9 @@ msgstr "Revela las estadísticas y el botín de todos los enemigos de aquí."
 msgid "MASTERY_COLLECT_RULE"
 msgstr "Consigue todas las armas, atuendos y habilidades que caen aquí."
 
+msgid "MASTERY_FORGE_RULE"
+msgstr "Atuendos de este mapa a ^%s (atuendos de jefe a ^%s) y un arma de este mapa evolucionada (mapas de primavera: un arma de obsidiana de este mapa a ^20)."
+
 msgid "MASTERY_MORE"
 msgstr "+%d más"
 
@@ -5259,6 +5268,9 @@ msgstr "Encuentra la habilidad Estallido de Escarcha (en Verano I la sueltan los
 
 msgid "MAIN_HINT_8"
 msgstr "Derrota al Robot Cian, el jefe de Invierno II, para llegar a Verano I"
+
+msgid "MAIN_HINT_9"
+msgstr "Evoluciona un arma ^20 que tenga 10 copias de sobra (detalles del objeto, Evolucionar)"
 
 msgid "MAIN_HINT_10"
 msgstr "Consigue habilidades distintas"
@@ -5778,3 +5790,303 @@ msgstr "Unas pocas tarjetas breves sobre controles y objetivos. Todos los menús
 
 msgid "GUIDE_MODE_NONE_DETAIL"
 msgstr "Sin lecciones ni consejos. Todos los menús están abiertos desde el inicio."
+
+msgid "KEEP_LINE_COINS"
+msgstr "Tus monedas: %s"
+
+msgid "KEEP_LINE_ALL_UPGRADES"
+msgstr "Todas las mejoras que compraste con monedas o gemas (las mejoras de un campamento vuelven a funcionar cuando vuelves a comprar ese campamento)"
+
+msgid "KEEP_LINE_MERGES"
+msgstr "Niveles de fusión de todas tus armas, atuendos y habilidades; se restauran al volver a conseguir cada objeto"
+
+msgid "KEEP_LINE_MAIN_OBJECTIVES"
+msgstr "Objetivos principales que completaste pero aún no reclamaste"
+
+msgid "RESET_LINE_CARRIED_ITEMS"
+msgstr "Todos los objetos que llevas (armas, atuendos, habilidades y suministros) y sus atributos adicionales aleatorios"
+
+msgid "RESET_LINE_RUN_PROGRESS"
+msgstr "Oportunidades y misiones sin terminar. Primero se pagan las misiones completadas y las monedas y gemas sin conexión sin reclamar; las copias de objetos sin conexión sin reclamar se pierden"
+
+msgid "PRESTIGE_KEEP_ALL"
+msgstr "Cartas y conjuntos, tus monedas y gemas, todas las mejoras compradas con monedas o gemas, el nivel de fusión de cada arma, atuendo y habilidad, las zonas exploradas del mapa, el nivel y la EXP del jugador, las llaves de jefe, los logros de enemigos, la Maestría del mapa, los objetivos principales sin reclamar y la configuración."
+
+msgid "PRESTIGE_RESET_RUN"
+msgstr "Todos los objetos que llevas (incluidos los suministros) y sus atributos adicionales aleatorios, la Maestría de suministros, el acceso a mapas (vuelve a Invierno I), los campamentos obtenidos y las oportunidades y misiones sin terminar."
+
+msgid "ITEM_LEGACY_NAME"
+msgstr "%s (estadísticas anteriores)"
+
+msgid "LEGACY_ITEM_EXPLAIN"
+msgstr "Una copia con las estadísticas anteriores a la actualización de armas. Conserva su poder hasta tu próximo Prestigio, cuando desaparecerá junto con tu inventario. Las copias nuevas usan las estadísticas actuales y conservan tu nivel de fusión."
+
+msgid "EVOLUTION_RULE"
+msgstr "Al llegar a ^%d, gasta %d copias de sobra para obtener una copia del arma del siguiente nivel (%d copias en total). Esta arma conserva su nivel de fusión y una copia; la nueva arma usa su propio nivel de fusión. Necesitas una pila de destino o un espacio vacío."
+
+msgid "MASTERY_NEED_WEAPON_MERGE"
+msgstr "Fusiona una de %s hasta ^%d"
+
+msgid "FOLLOW_MASTERWORK_ANY_GEAR"
+msgstr "Fusiona un atuendo, una habilidad o un arma de obsidiana hasta ^100: mejor ^%d/^100"
+
+msgid "FOLLOW_MASTERWORK_TIER_GEAR"
+msgstr "Fusiona un atuendo, una habilidad o un arma de obsidiana de nivel %d+ hasta ^100: mejor ^%d/^100"
+
+msgid "FOLLOW_ARSENAL_SPLIT"
+msgstr "Armas en ^20: %d/%d · atuendos en ^50: %d/%d"
+
+msgid "FOLLOW_ARSENAL_SPLIT_T2"
+msgstr "Armas de nivel 2+ en ^20: %d/%d · atuendos de nivel 2+ en ^50: %d/%d"
+
+msgid "PROGRESS_ARSENAL_SPLIT"
+msgstr "Armas en ^20: %d/%d · atuendos en ^50: %d/%d"
+
+msgid "CONTENT_MASTERWORK_O1_RULE"
+msgstr "Fusiona cualquier atuendo, habilidad o arma de obsidiana hasta ^100"
+
+msgid "CONTENT_MASTERWORK_O2_RULE"
+msgstr "Fusiona un atuendo, habilidad o arma de obsidiana de nivel 2 o superior hasta ^100"
+
+msgid "CONTENT_MASTERWORK_O3_RULE"
+msgstr "Fusiona un atuendo, habilidad o arma de obsidiana de nivel 3 o superior hasta ^100"
+
+msgid "CONTENT_ARSENAL_O1_RULE"
+msgstr "Fusiona un arma hasta ^20 y un atuendo hasta ^50"
+
+msgid "CONTENT_ARSENAL_O2_RULE"
+msgstr "Fusiona 3 armas distintas hasta ^20 y 3 atuendos distintos hasta ^50"
+
+msgid "CONTENT_ARSENAL_O3_RULE"
+msgstr "Fusiona 3 armas distintas de nivel 2+ hasta ^20 y 3 atuendos distintos de nivel 2+ hasta ^50"
+
+msgid "MERGE_AT_CAP"
+msgstr "Este objeto alcanzó su nivel máximo de fusión."
+
+msgid "EVOLUTION_NEEDS_COPIES"
+msgstr "Para evolucionar necesitas el nivel de fusión completo y suficientes copias de sobra."
+
+msgid "ITEM_BOSS_BONUS"
+msgstr "Bonificación de jefe"
+
+msgid "ITEM_ENHANCED"
+msgstr "Arma de jefe: se agregaron dos atributos adicionales"
+
+msgid "ITEM_BOSS_BONUS_EXPLAIN"
+msgstr "Mejorada por jefe: la primera copia de esta arma que obtuviste de un jefe agregó dos atributos adicionales. Las copias posteriores de jefes cuentan como copias normales. Los atributos adicionales se reinician con el Prestigio; los niveles de fusión se mantienen."
+
+msgid "ITEM_BOSS_BONUS_HINT"
+msgstr "La primera copia de esta arma que consigas de un jefe añade dos atributos adicionales (una vez por partida)."
+
+msgid "REROLL_ATTRIBUTE"
+msgstr "Volver a sortear %s · %s gemas"
+
+msgid "REROLL_ATTRIBUTE_CONFIRM"
+msgstr "¿Gastar %s gemas para volver a sortear %s? El nuevo resultado reemplaza este atributo aunque sea peor. Los demás atributos no cambian."
+
+msgid "CONTENT_EXPEDITION_O4_NAME"
+msgstr "Ruta del invierno profundo"
+
+msgid "CONTENT_EXPEDITION_O4_DESCRIPTION"
+msgstr "En Invierno II, derrota en orden a 50 de cada tipo: Capucha de Lobo, Capucha de Gato Calicó, Corona Dorada, Astas de Reno, Gorro de Santa, Casco Espacial"
+
+msgid "CONTENT_EXPEDITION_O5_NAME"
+msgstr "Ruta de playa"
+
+msgid "CONTENT_EXPEDITION_O5_DESCRIPTION"
+msgstr "En Verano II, derrota en orden a 60 de cada tipo: Pañuelo Vaquero, Flotador de Pato, Payaso Arcoíris, Nadador de Gorra Roja, Buceador, Nadador de Sombrero de Paja"
+
+msgid "CONTENT_EXPEDITION_O6_NAME"
+msgstr "Ruta de otoño"
+
+msgid "CONTENT_EXPEDITION_O6_DESCRIPTION"
+msgstr "En Otoño I, derrota en orden a 120 de cada tipo: Gorra Negra, Gorro de Hongo, Cabeza de Calabaza"
+
+msgid "CONTENT_EXPEDITION_O7_NAME"
+msgstr "Ruta del otoño tardío"
+
+msgid "CONTENT_EXPEDITION_O7_DESCRIPTION"
+msgstr "En Otoño II, derrota en orden a 100 de cada tipo: Capucha con Cuernos, Casco de Pantalla Naranja, Cabeza de Tele, Sombrero de Copa"
+
+msgid "CONTENT_EXPEDITION_O8_NAME"
+msgstr "Ruta de flores"
+
+msgid "CONTENT_EXPEDITION_O8_DESCRIPTION"
+msgstr "En Primavera II, derrota en orden a 60 de cada tipo: Corona de Flores, Gorra Verde, Gorra Rosa, Capucha de Flor Rosa, Sencillo, Brote"
+
+msgid "CONTENT_COLLECTION_O4_NAME"
+msgstr "Colección festiva"
+
+msgid "CONTENT_COLLECTION_O4_DESCRIPTION"
+msgstr "Recolecta 16 atuendos de cada uno: Gorro de Santa, Astas de Reno y Casco Espacial (botín de Invierno II). Con Entregar das 15 de cada uno y te quedas con uno"
+
+msgid "CONTENT_COLLECTION_O5_NAME"
+msgstr "Colección de playa"
+
+msgid "CONTENT_COLLECTION_O5_DESCRIPTION"
+msgstr "Recolecta 26 atuendos de cada uno: Buceador, Nadador de Gorra Roja y Nadador de Sombrero de Paja (botín de Verano II). Con Entregar das 25 de cada uno y te quedas con uno"
+
+msgid "CONTENT_COLLECTION_O6_NAME"
+msgstr "Colección de cosecha"
+
+msgid "CONTENT_COLLECTION_O6_DESCRIPTION"
+msgstr "Recolecta 31 atuendos de cada uno: Gorra Negra, Gorro de Hongo y Cabeza de Calabaza (botín de Otoño I). Con Entregar das 30 de cada uno y te quedas con uno"
+
+msgid "CONTENT_COLLECTION_O7_NAME"
+msgstr "Colección de pantallas"
+
+msgid "CONTENT_COLLECTION_O7_DESCRIPTION"
+msgstr "Recolecta 31 atuendos de cada uno: Cabeza de Tele, Sombrero de Copa y Casco de Pantalla Naranja (botín de Otoño II). Con Entregar das 30 de cada uno y te quedas con uno"
+
+msgid "CONTENT_COLLECTION_O8_NAME"
+msgstr "Colección del jardín"
+
+msgid "CONTENT_COLLECTION_O8_DESCRIPTION"
+msgstr "Recolecta 41 atuendos de cada uno: Gorra Rosa, Sencillo y Brote (botín de Primavera II). Con Entregar das 40 de cada uno y te quedas con uno"
+
+msgid "CONTENT_HUNTER_O4_NAME"
+msgstr "Recompensa primaveral"
+
+msgid "CONTENT_HUNTER_O4_DESCRIPTION"
+msgstr "Derrota a la Abeja y al Gato Atigrado Naranja (jefes de Primavera I) 10 veces cada uno"
+
+msgid "CONTENT_CHALLENGE_O4_NAME"
+msgstr "Primavera sin ayuda"
+
+msgid "CONTENT_CHALLENGE_O4_DESCRIPTION"
+msgstr "Derrota al Panda Rojo (jefe de Primavera II) sin usar ningún suministro durante la pelea"
+
+msgid "CONTENT_TROPHY_O4_NAME"
+msgstr "Trofeos de primavera"
+
+msgid "CONTENT_TROPHY_O4_DESCRIPTION"
+msgstr "Después de descubrir esto, derrota una vez a la Abeja, al Gato Atigrado Naranja (Primavera I), al Panda Rojo y al Girasol (Primavera II)"
+
+msgid "CONTENT_REGIONAL_O4_NAME"
+msgstr "Maestría de otoño"
+
+msgid "CONTENT_REGIONAL_O4_DESCRIPTION"
+msgstr "En Otoño I y Otoño II: explora el 90 % de cada mapa, derrota a los cuatro jefes y desbloquea todos los campamentos"
+
+msgid "CONTENT_MASTERWORK_O4_NAME"
+msgstr "Maestría de obsidiana"
+
+msgid "CONTENT_MASTERWORK_O4_DESCRIPTION"
+msgstr "Fusiona un arma de obsidiana (se obtiene en Primavera I y Primavera II) hasta ^100"
+
+msgid "CONTENT_EXPEDITION_C4_NAME"
+msgstr "Defensa de multitudes"
+
+msgid "CONTENT_EXPEDITION_C4_DESCRIPTION"
+msgstr "−4 % de daño recibido por cada enemigo normal adicional que te ataque (máximo −20 %)"
+
+msgid "CONTENT_EXPEDITION_C5_NAME"
+msgstr "Segunda oportunidad"
+
+msgid "CONTENT_EXPEDITION_C5_DESCRIPTION"
+msgstr "Cuando bajas del 30 % de PV, recuperas el 25 % de tus PV máximos (una vez cada 90 s)"
+
+msgid "CONTENT_EXPEDITION_C6_NAME"
+msgstr "Barrido"
+
+msgid "CONTENT_EXPEDITION_C6_DESCRIPTION"
+msgstr "Los ataques básicos también infligen un 30 % de daño a otros enemigos cercanos al objetivo"
+
+msgid "CONTENT_EXPEDITION_C7_NAME"
+msgstr "Formación rota"
+
+msgid "CONTENT_EXPEDITION_C7_DESCRIPTION"
+msgstr "Los enemigos llamados a un combate grupal empiezan a atacar 0.5 s más tarde"
+
+msgid "CONTENT_EXPEDITION_C8_NAME"
+msgstr "Descanso de campo"
+
+msgid "CONTENT_EXPEDITION_C8_DESCRIPTION"
+msgstr "Fuera de combate y lejos de los campamentos, recuperas PV tres veces más rápido"
+
+msgid "CONTENT_COLLECTION_C4_NAME"
+msgstr "Hallazgo doble"
+
+msgid "CONTENT_COLLECTION_C4_DESCRIPTION"
+msgstr "Las armas y atuendos de enemigos normales tienen un 10 % de probabilidad de aparecer por duplicado"
+
+msgid "CONTENT_COLLECTION_C5_NAME"
+msgstr "Evolución ahorradora"
+
+msgid "CONTENT_COLLECTION_C5_DESCRIPTION"
+msgstr "Evolucionar requiere 8 copias de sobra en lugar de 10"
+
+msgid "CONTENT_COLLECTION_C6_NAME"
+msgstr "Suministros constantes"
+
+msgid "CONTENT_COLLECTION_C6_DESCRIPTION"
+msgstr "Enfriamiento de suministros −15 %"
+
+msgid "CONTENT_COLLECTION_C7_NAME"
+msgstr "Tirada precisa"
+
+msgid "CONTENT_COLLECTION_C7_DESCRIPTION"
+msgstr "Volver a sortear cuesta un 25 % menos de gemas y nunca repite el mismo atributo"
+
+msgid "CONTENT_COLLECTION_C8_NAME"
+msgstr "Ojo para tesoros"
+
+msgid "CONTENT_COLLECTION_C8_DESCRIPTION"
+msgstr "Los atributos adicionales de jefe se generan en la mitad superior de su rango"
+
+msgid "CONTENT_HUNTER_C4_NAME"
+msgstr "Rompejefes"
+
+msgid "CONTENT_HUNTER_C4_DESCRIPTION"
+msgstr "Las advertencias de habilidades de jefes duran 0.3 s más y su curación restaura un 25 % menos"
+
+msgid "CONTENT_CHALLENGE_C4_NAME"
+msgstr "Última resistencia"
+
+msgid "CONTENT_CHALLENGE_C4_DESCRIPTION"
+msgstr "Por debajo del 25 % de PV: +20 % de velocidad de ataque"
+
+msgid "CONTENT_TROPHY_C4_NAME"
+msgstr "Botín del campeón"
+
+msgid "CONTENT_TROPHY_C4_DESCRIPTION"
+msgstr "La primera vez que derrotas a un jefe en una partida, su botín se sortea dos veces"
+
+msgid "CONTENT_REGIONAL_C4_NAME"
+msgstr "Viajero veterano"
+
+msgid "CONTENT_REGIONAL_C4_DESCRIPTION"
+msgstr "+25 % de EXP de enemigos normales en los mapas anteriores a tu mapa desbloqueado más lejano"
+
+msgid "CONTENT_MASTERWORK_C4_NAME"
+msgstr "Templado de obsidiana"
+
+msgid "CONTENT_MASTERWORK_C4_DESCRIPTION"
+msgstr "+15 % a las estadísticas obtenidas con cada fusión de arma de obsidiana"
+
+msgid "FOLLOW_MASTERWORK_OBSIDIAN"
+msgstr "Fusiona un arma de obsidiana hasta ^100: mejor ^%d/^100"
+
+msgid "MAP_MARKERS_HINT"
+msgstr "Los enemigos y jefes que encontraste se pueden marcar en este mapa. Compra Detalle del mapa en Mejoras del mapa, más abajo: se conserva después del Prestigio."
+
+msgid "MAP_DETAIL_NEXT_1"
+msgstr "Siguiente: marcadores de enemigos y jefes descubiertos"
+
+msgid "MAP_DETAIL_NEXT_2"
+msgstr "Siguiente: nombres de enemigos; toca un marcador para inspeccionarlo"
+
+msgid "MAP_DETAIL_NEXT_3"
+msgstr "Siguiente: iconos de equipo (arma, atuendo, habilidad)"
+
+msgid "OFFLINE_GEAR_HINT"
+msgstr "Mientras estás ausente también puedes recibir copias de armas y atuendos que ya posees. Desbloquéalo en Mejoras → Sin conexión."
+
+msgid "OFFLINE_UPGRADES_JUMP"
+msgstr "Reclamar y abrir mejoras sin conexión"
+
+msgid "OFFLINE_GEAR_BENEFIT"
+msgstr "Desactivado → Activado · copias de equipo que posees, aproximadamente 1 por hora"
+
+msgid "EVOLVE_READY_HINT"
+msgstr "%s alcanzó su nivel máximo de fusión. Consigue %d copias más para evolucionarlo a %s."

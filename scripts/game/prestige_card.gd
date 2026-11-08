@@ -24,6 +24,18 @@ func setup(id: String,definition: Dictionary,path_info: Dictionary,state: String
     $Selected.visible=state=="selected"
     $Content/Art.modulate=Color(1,1,1,.35) if state=="locked" else Color.WHITE
 
+## Change 58 (localization): the card grows to its text. A Button does not take its anchored Content's size, so a
+## longer translated description ran past the card's bottom edge (German Crowd Guard, Second Wind at 432x960).
+## Height only, never below the designed size; the width (and so the wrapping) does not change, so it settles.
+func _ready() -> void:
+    $Content.minimum_size_changed.connect(_fit_content)
+    resized.connect(_fit_content)
+
+func _fit_content() -> void:
+    var pad: float=-$Content.offset_top+$Content.offset_bottom
+    var need: float=maxf(190.0 if compact else 300.0,$Content.get_combined_minimum_size().y-pad)
+    if not is_equal_approx(custom_minimum_size.y,need):custom_minimum_size.y=need
+
 ## Large decision value derived from the effect, never authored twice.
 static func headline(definition: Dictionary) -> String:
     var value: float=float(definition.value)

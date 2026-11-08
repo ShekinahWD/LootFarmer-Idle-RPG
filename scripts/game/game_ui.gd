@@ -1554,7 +1554,10 @@ func _item_panel() -> void:
     if r.merge<cap and amount>1:_game_action(tr("MERGE_ALL") % amount,func()->void:if selected==id:_confirmed(sim.merge(id,true)),true,"",more)
     if def.next!="" and r.merge>=cap:
         var evolve_block:=sim.evolve_block_reason(id)
-        _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:_confirmed(sim.evolve(id)),evolve_block.is_empty(),evolve_block,more)
+        # Change 58 (localization): a blocked Evolve carries its reason as a second line. Inside the flow row a
+        # button keeps its unwrapped width, so a long translated reason widened the sheet past the screen; blocked,
+        # it is a full-width row that wraps (as other panel rows do).
+        _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:_confirmed(sim.evolve(id)),evolve_block.is_empty(),evolve_block,more if evolve_block.is_empty() else null)
     if def.kind=="skill":
         for i in range(1+sim.level("skill_slots")):
             _game_action(tr("EQUIP_SKILL_SLOT") % (i+1),func()->void:if selected==id:sim.campaign.equip_skill(id,i),true,"",more)
@@ -1828,6 +1831,13 @@ func _stat_line(parent: Control,text: String,delta: float,key: String,font_size:
         change.add_theme_font_size_override("font_size",font_size-3)
         change.add_theme_color_override("font_color",Color(.45,1,.55) if delta>0 else Color(1,.5,.45))
         change.add_theme_constant_override("outline_size",3)
+        # Change 58 (localization): the delta repeats the stat name, so it shares the row and wraps too. Unwrapped,
+        # "▲ +2.57% Bonificación de velocidad de ataque" squeezed the name beside it to one word per line (and
+        # split "Bonificació|n") on a boss-enhanced weapon at 432x960.
+        change.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+        change.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
+        change.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        change.size_flags_stretch_ratio=0.8
         line.add_child(change)
 
 ## Smallest change worth showing; Recovery is a fraction of max HP per second (0.0025 = 0.25%).
@@ -3274,7 +3284,12 @@ func _opportunity_card(op: Dictionary) -> void:
         follow.custom_minimum_size=Vector2(150,64)
         if sim.state.follow!=op.id:follow.set_meta("guide","follow")
     if op.path in ["offering","collection"] and not ready:
-        _inline_button(tr("SUBMIT_CONTRACT"),func()->void:sim.campaign.submit(op.id),true,"",row,true).custom_minimum_size=Vector2(200,64)
+        var submit:=_inline_button(tr("SUBMIT_CONTRACT"),func()->void:sim.campaign.submit(op.id),true,"",row,true)
+        submit.custom_minimum_size=Vector2(200,64)
+        # Change 58 (localization): the label wraps in the space beside Follow; unwrapped, German "Geforderte
+        # Gegenstände oder Währung abgeben" widened the Prestige sheet past a 432-wide screen.
+        submit.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+        submit.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     if row.get_child_count()>0:content.add_child(row)
     else:row.free()
 
@@ -3358,11 +3373,14 @@ func _prestige_choice(batch: Dictionary) -> void:
         _pinned(tr("CANCEL"),func()->void:sim.campaign.cancel_prestige();selected_card="",true,"",false,"",false)
     var card_name: String=sim.catalog.campaign.cards[selected_card].name if selected_card!="" else ""
     var last: bool=index==batch.ids.size()-1
-    _pinned(tr("PRESTIGE_KEEP_CARD") % card_name if selected_card!="" else tr("PRESTIGE_PICK_CARD"),func()->void:
+    var keep:=_pinned(tr("PRESTIGE_KEEP_CARD") % card_name if selected_card!="" else tr("PRESTIGE_PICK_CARD"),func()->void:
         var chosen:=selected_card
         _confirm(tr("PRESTIGE_CARD_CONFIRM_FINAL" if last else "PRESTIGE_CARD_CONFIRM") % sim.catalog.campaign.cards[chosen].name,func()->void:
             selected_card=""
             _confirmed(sim.prestige(chosen))),selected_card!="","PRESTIGE_PICK_CARD",true,"keep_card",false)
+    # Change 58 (localization): the only instruction on this screen, and "Keep <card name>", may take two lines
+    # inside the bar's 76-unit height ("Tippe auf eine Karte, um sie zu wählen" was cut to "um si…").
+    keep.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 
 # ---------------------------------------------------------------- HUD helpers
 

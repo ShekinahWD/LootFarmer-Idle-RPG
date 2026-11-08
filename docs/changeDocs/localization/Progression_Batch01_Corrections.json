@@ -1,0 +1,1933 @@
+{
+ "_about": "Localization Batch 01 of the progression update (Changes 50-55): corrections to the translator package values of the 104 scoped keys, applied by tools/integrate_translation_batch.py --corrections. Only scoped keys; the 1,923 approved entries per locale are untouched. Each entry: final value and the reasons it differs from the package.",
+ "batch": "batch01",
+ "digit_exceptions": {
+  "es_419": {
+   "CONTENT_COLLECTION_C4_DESCRIPTION": "\"aparecer por duplicado\" states the 2 copies in words (natural Spanish for a doubled drop)"
+  },
+  "es_ES": {
+   "CONTENT_COLLECTION_C4_DESCRIPTION": "\"aparecer por duplicado\" states the 2 copies in words (natural Spanish for a doubled drop)"
+  }
+ },
+ "corrections": {
+  "es_419": {
+   "KEEP_LINE_ALL_UPGRADES": {
+    "value": "Todas las mejoras que compraste con monedas o gemas (las mejoras de un campamento vuelven a funcionar cuando vuelves a comprar ese campamento)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "KEEP_LINE_MAIN_OBJECTIVES": {
+    "value": "Objetivos principales que completaste pero aún no reclamaste",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "RESET_LINE_RUN_PROGRESS": {
+    "value": "Oportunidades y misiones sin terminar. Primero se pagan las misiones completadas y las monedas y gemas sin conexión sin reclamar; las copias de objetos sin conexión sin reclamar se pierden",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "PRESTIGE_KEEP_ALL": {
+    "value": "Cartas y conjuntos, tus monedas y gemas, todas las mejoras compradas con monedas o gemas, el nivel de fusión de cada arma, atuendo y habilidad, las zonas exploradas del mapa, el nivel y la EXP del jugador, las llaves de jefe, los logros de enemigos, la Maestría del mapa, los objetivos principales sin reclamar y la configuración.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "PRESTIGE_RESET_RUN": {
+    "value": "Todos los objetos que llevas (incluidos los suministros) y sus atributos adicionales aleatorios, la Maestría de suministros, el acceso a mapas (vuelve a Invierno I), los campamentos obtenidos y las oportunidades y misiones sin terminar.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "EVOLUTION_RULE": {
+    "value": "Al llegar a ^%d, gasta %d copias de sobra para obtener una copia del arma del siguiente nivel (%d copias en total). Esta arma conserva su nivel de fusión y una copia; la nueva arma usa su propio nivel de fusión. Necesitas una pila de destino o un espacio vacío.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MASTERY_NEED_WEAPON_MERGE": {
+    "value": "Fusiona una de %s hasta ^%d",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "FOLLOW_MASTERWORK_ANY_GEAR": {
+    "value": "Fusiona un atuendo, una habilidad o un arma de obsidiana hasta ^100: mejor ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "FOLLOW_MASTERWORK_TIER_GEAR": {
+    "value": "Fusiona un atuendo, una habilidad o un arma de obsidiana de nivel %d+ hasta ^100: mejor ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_MASTERWORK_O2_RULE": {
+    "value": "Fusiona un atuendo, habilidad o arma de obsidiana de nivel 2 o superior hasta ^100",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_MASTERWORK_O3_RULE": {
+    "value": "Fusiona un atuendo, habilidad o arma de obsidiana de nivel 3 o superior hasta ^100",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_ARSENAL_O1_RULE": {
+    "value": "Fusiona un arma hasta ^20 y un atuendo hasta ^50",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_ARSENAL_O2_RULE": {
+    "value": "Fusiona 3 armas distintas hasta ^20 y 3 atuendos distintos hasta ^50",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_ARSENAL_O3_RULE": {
+    "value": "Fusiona 3 armas distintas de nivel 2+ hasta ^20 y 3 atuendos distintos de nivel 2+ hasta ^50",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "ITEM_BOSS_BONUS": {
+    "value": "Bonificación de jefe",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "ITEM_BOSS_BONUS_EXPLAIN": {
+    "value": "Mejorada por jefe: la primera copia de esta arma que obtuviste de un jefe agregó dos atributos adicionales. Las copias posteriores de jefes cuentan como copias normales. Los atributos adicionales se reinician con el Prestigio; los niveles de fusión se mantienen.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "REROLL_ATTRIBUTE": {
+    "value": "Volver a sortear %s · %s gemas",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "REROLL_ATTRIBUTE_CONFIRM": {
+    "value": "¿Gastar %s gemas para volver a sortear %s? El nuevo resultado reemplaza este atributo aunque sea peor. Los demás atributos no cambian.",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O4_DESCRIPTION": {
+    "value": "En Invierno II, derrota en orden a 50 de cada tipo: Capucha de Lobo, Capucha de Gato Calicó, Corona Dorada, Astas de Reno, Gorro de Santa, Casco Espacial",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O5_DESCRIPTION": {
+    "value": "En Verano II, derrota en orden a 60 de cada tipo: Pañuelo Vaquero, Flotador de Pato, Payaso Arcoíris, Nadador de Gorra Roja, Buceador, Nadador de Sombrero de Paja",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O6 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O6_DESCRIPTION": {
+    "value": "En Otoño I, derrota en orden a 120 de cada tipo: Gorra Negra, Gorro de Hongo, Cabeza de Calabaza",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O8 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O7_DESCRIPTION": {
+    "value": "En Otoño II, derrota en orden a 100 de cada tipo: Capucha con Cuernos, Casco de Pantalla Naranja, Cabeza de Tele, Sombrero de Copa",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O5 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O8_DESCRIPTION": {
+    "value": "En Primavera II, derrota en orden a 60 de cada tipo: Corona de Flores, Gorra Verde, Gorra Rosa, Capucha de Flor Rosa, Sencillo, Brote",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O7 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O4_DESCRIPTION": {
+    "value": "Recolecta 16 atuendos de cada uno: Gorro de Santa, Astas de Reno y Casco Espacial (botín de Invierno II). Con Entregar das 15 de cada uno y te quedas con uno",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O5 text under this key",
+     "terminology: recoge",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O5_DESCRIPTION": {
+    "value": "Recolecta 26 atuendos de cada uno: Buceador, Nadador de Gorra Roja y Nadador de Sombrero de Paja (botín de Verano II). Con Entregar das 25 de cada uno y te quedas con uno",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O7 text under this key",
+     "terminology: recoge",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O6_DESCRIPTION": {
+    "value": "Recolecta 31 atuendos de cada uno: Gorra Negra, Gorro de Hongo y Cabeza de Calabaza (botín de Otoño I). Con Entregar das 30 de cada uno y te quedas con uno",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O4 text under this key",
+     "terminology: recoge",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O7_DESCRIPTION": {
+    "value": "Recolecta 31 atuendos de cada uno: Cabeza de Tele, Sombrero de Copa y Casco de Pantalla Naranja (botín de Otoño II). Con Entregar das 30 de cada uno y te quedas con uno",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O6 text under this key",
+     "terminology: recoge",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O8_DESCRIPTION": {
+    "value": "Recolecta 41 atuendos de cada uno: Gorra Rosa, Sencillo y Brote (botín de Primavera II). Con Entregar das 40 de cada uno y te quedas con uno",
+    "reasons": [
+     "terminology: recoge",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_HUNTER_O4_DESCRIPTION": {
+    "value": "Derrota a la Abeja y al Gato Atigrado Naranja (jefes de Primavera I) 10 veces cada uno",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_CHALLENGE_O4_DESCRIPTION": {
+    "value": "Derrota al Panda Rojo (jefe de Primavera II) sin usar ningún suministro durante la pelea",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_TROPHY_O4_DESCRIPTION": {
+    "value": "Después de descubrir esto, derrota una vez a la Abeja, al Gato Atigrado Naranja (Primavera I), al Panda Rojo y al Girasol (Primavera II)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_REGIONAL_O4_DESCRIPTION": {
+    "value": "En Otoño I y Otoño II: explora el 90 % de cada mapa, derrota a los cuatro jefes y desbloquea todos los campamentos",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C4_DESCRIPTION": {
+    "value": "−4 % de daño recibido por cada enemigo normal adicional que te ataque (máximo −20 %)",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C5_DESCRIPTION": {
+    "value": "Cuando bajas del 30 % de PV, recuperas el 25 % de tus PV máximos (una vez cada 90 s)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_C6_DESCRIPTION": {
+    "value": "Los ataques básicos también infligen un 30 % de daño a otros enemigos cercanos al objetivo",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C7_DESCRIPTION": {
+    "value": "Los enemigos llamados a un combate grupal empiezan a atacar 0.5 s más tarde",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_C8_DESCRIPTION": {
+    "value": "Fuera de combate y lejos de los campamentos, recuperas PV tres veces más rápido",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_COLLECTION_C4_DESCRIPTION": {
+    "value": "Las armas y atuendos de enemigos normales tienen un 10 % de probabilidad de aparecer por duplicado",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_COLLECTION_C5_DESCRIPTION": {
+    "value": "Evolucionar requiere 8 copias de sobra en lugar de 10",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_C6_DESCRIPTION": {
+    "value": "Enfriamiento de suministros −15 %",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_C7_DESCRIPTION": {
+    "value": "Volver a sortear cuesta un 25 % menos de gemas y nunca repite el mismo atributo",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_COLLECTION_C8_DESCRIPTION": {
+    "value": "Los atributos adicionales de jefe se generan en la mitad superior de su rango",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_HUNTER_C4_DESCRIPTION": {
+    "value": "Las advertencias de habilidades de jefes duran 0.3 s más y su curación restaura un 25 % menos",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_CHALLENGE_C4_DESCRIPTION": {
+    "value": "Por debajo del 25 % de PV: +20 % de velocidad de ataque",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_REGIONAL_C4_DESCRIPTION": {
+    "value": "+25 % de EXP de enemigos normales en los mapas anteriores a tu mapa desbloqueado más lejano",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_MASTERWORK_C4_DESCRIPTION": {
+    "value": "+15 % a las estadísticas obtenidas con cada fusión de arma de obsidiana",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "FOLLOW_MASTERWORK_OBSIDIAN": {
+    "value": "Fusiona un arma de obsidiana hasta ^100: mejor ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "MAP_MARKERS_HINT": {
+    "value": "Los enemigos y jefes que encontraste se pueden marcar en este mapa. Compra Detalle del mapa en Mejoras del mapa, más abajo: se conserva después del Prestigio.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "OFFLINE_UPGRADES_JUMP": {
+    "value": "Reclamar y abrir mejoras sin conexión",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "OFFLINE_GEAR_BENEFIT": {
+    "value": "Desactivado → Activado · copias de equipo que posees, aproximadamente 1 por hora",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "EVOLVE_READY_HINT": {
+    "value": "%s alcanzó su nivel máximo de fusión. Consigue %d copias más para evolucionarlo a %s.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "AUTO_EVOLVE_BENEFIT": {
+    "value": "Evoluciona en ^20 con 10 copias de sobra (31 en total): %s",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MAIN_HINT_9": {
+    "value": "Evoluciona un arma ^20 que tenga 10 copias de sobra (detalles del objeto, Evolucionar)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MASTERY_FORGE_RULE": {
+    "value": "Atuendos de este mapa a ^%s (atuendos de jefe a ^%s) y un arma de este mapa evolucionada (mapas de primavera: un arma de obsidiana de este mapa a ^20).",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "MAIN_6": {
+    "value": "Mejora Detalle del mapa (Mundo → Mejoras del mapa)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   }
+  },
+  "es_ES": {
+   "KEEP_LINE_ALL_UPGRADES": {
+    "value": "Todas las mejoras que has comprado con monedas o gemas (las mejoras de un campamento vuelven a funcionar cuando vuelves a comprar ese campamento)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "KEEP_LINE_MERGES": {
+    "value": "Niveles de fusión de todas tus armas, atuendos y habilidades; se restauran cuando vuelves a encontrar ese objeto",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "KEEP_LINE_MAIN_OBJECTIVES": {
+    "value": "Objetivos principales que has completado pero aún no has reclamado",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "RESET_LINE_RUN_PROGRESS": {
+    "value": "Oportunidades y misiones pendientes. Primero se pagan las misiones completadas y las monedas y gemas sin conexión sin reclamar; las copias de objetos sin conexión sin reclamar se pierden",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "PRESTIGE_KEEP_ALL": {
+    "value": "Cartas y conjuntos, tus monedas y gemas, todas las mejoras compradas con monedas o gemas, el nivel de fusión de cada arma, atuendo y habilidad, las zonas exploradas del mapa, el nivel y la EXP del jugador, las llaves de jefe, los logros de enemigos, la Maestría del mapa, los objetivos principales sin reclamar y los ajustes.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "PRESTIGE_RESET_RUN": {
+    "value": "Todos los objetos que llevas (incluidos los suministros) y sus atributos adicionales aleatorios, la Maestría de suministros, el acceso a mapas (vuelve a Invierno I), los campamentos obtenidos y las oportunidades y misiones pendientes.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "EVOLUTION_RULE": {
+    "value": "Al llegar a ^%d, gasta %d copias de sobra para obtener una copia del arma del siguiente nivel (%d copias en total). Esta arma conserva su nivel de fusión y una copia; la nueva arma usa su propio nivel de fusión. Necesitas una pila de destino o un espacio vacío.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MASTERY_NEED_WEAPON_MERGE": {
+    "value": "Fusiona una de %s hasta ^%d",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "FOLLOW_MASTERWORK_ANY_GEAR": {
+    "value": "Fusiona un atuendo, una habilidad o un arma de obsidiana hasta ^100: mejor ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "FOLLOW_MASTERWORK_TIER_GEAR": {
+    "value": "Fusiona un atuendo, una habilidad o un arma de obsidiana de nivel %d+ hasta ^100: mejor ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_MASTERWORK_O2_RULE": {
+    "value": "Fusiona un atuendo, habilidad o arma de obsidiana de nivel 2 o superior hasta ^100",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_MASTERWORK_O3_RULE": {
+    "value": "Fusiona un atuendo, habilidad o arma de obsidiana de nivel 3 o superior hasta ^100",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_ARSENAL_O1_RULE": {
+    "value": "Fusiona un arma hasta ^20 y un atuendo hasta ^50",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_ARSENAL_O2_RULE": {
+    "value": "Fusiona 3 armas distintas hasta ^20 y 3 atuendos distintos hasta ^50",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_ARSENAL_O3_RULE": {
+    "value": "Fusiona 3 armas distintas de nivel 2+ hasta ^20 y 3 atuendos distintos de nivel 2+ hasta ^50",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "MERGE_AT_CAP": {
+    "value": "Este objeto ha alcanzado su nivel máximo de fusión.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "EVOLUTION_NEEDS_COPIES": {
+    "value": "Para evolucionar necesitas el nivel de fusión completo y suficientes copias de sobra.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "ITEM_ENHANCED": {
+    "value": "Arma de jefe: se han añadido dos atributos adicionales",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "ITEM_BOSS_BONUS_EXPLAIN": {
+    "value": "Mejorada por jefe: la primera copia de esta arma que has obtenido de un jefe ha añadido dos atributos adicionales. Las copias posteriores de jefes cuentan como copias normales. Los atributos adicionales se reinician con el Prestigio; los niveles de fusión se mantienen.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "ITEM_BOSS_BONUS_HINT": {
+    "value": "La primera copia de esta arma que obtengas de un jefe añade dos atributos adicionales (una vez por partida).",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "REROLL_ATTRIBUTE": {
+    "value": "Volver a tirar %s · %s gemas",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "REROLL_ATTRIBUTE_CONFIRM": {
+    "value": "¿Gastar %s gemas para volver a tirar %s? El nuevo resultado reemplaza este atributo aunque sea peor. Los demás atributos no cambian.",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O4_DESCRIPTION": {
+    "value": "En Invierno II, derrota por orden a 50 de cada tipo: Capucha de Lobo, Capucha de Gato Calicó, Corona Dorada, Astas de Reno, Gorro de Papá Noel, Casco Espacial",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O5_DESCRIPTION": {
+    "value": "En Verano II, derrota por orden a 60 de cada tipo: Pañuelo Vaquero, Flotador de Pato, Payaso Arcoíris, Nadador de Gorra Roja, Buceador, Nadador de Sombrero de Paja",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O6 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O6_DESCRIPTION": {
+    "value": "En Otoño I, derrota por orden a 120 de cada tipo: Gorra Negra, Gorro de Seta, Cabeza de Calabaza",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O8 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O7_DESCRIPTION": {
+    "value": "En Otoño II, derrota por orden a 100 de cada tipo: Capucha con Cuernos, Casco de Pantalla Naranja, Cabeza de Tele, Sombrero de Copa",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O5 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O8_DESCRIPTION": {
+    "value": "En Primavera II, derrota por orden a 60 de cada tipo: Corona de Flores, Gorra Verde, Gorra Rosa, Capucha de Flor Rosa, Sencillo, Brote",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O7 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O4_DESCRIPTION": {
+    "value": "Recoge 16 atuendos de cada uno: Gorro de Papá Noel, Astas de Reno y Casco Espacial (botín de Invierno II). Al pulsar Entregar das 15 de cada uno y te quedas con uno",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O5 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O5_DESCRIPTION": {
+    "value": "Recoge 26 atuendos de cada uno: Buceador, Nadador de Gorra Roja y Nadador de Sombrero de Paja (botín de Verano II). Al pulsar Entregar das 25 de cada uno y te quedas con uno",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O7 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O6_DESCRIPTION": {
+    "value": "Recoge 31 atuendos de cada uno: Gorra Negra, Gorro de Seta y Cabeza de Calabaza (botín de Otoño I). Al pulsar Entregar das 30 de cada uno y te quedas con uno",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O4 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O7_DESCRIPTION": {
+    "value": "Recoge 31 atuendos de cada uno: Cabeza de Tele, Sombrero de Copa y Casco de Pantalla Naranja (botín de Otoño II). Al pulsar Entregar das 30 de cada uno y te quedas con uno",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O6 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O8_DESCRIPTION": {
+    "value": "Recoge 41 atuendos de cada uno: Gorra Rosa, Sencillo y Brote (botín de Primavera II). Al pulsar Entregar das 40 de cada uno y te quedas con uno",
+    "reasons": [
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_HUNTER_O4_DESCRIPTION": {
+    "value": "Derrota a la Abeja y al Gato Atigrado Naranja (jefes de Primavera I) 10 veces cada uno",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_CHALLENGE_O4_DESCRIPTION": {
+    "value": "Derrota al Panda Rojo (jefe de Primavera II) sin usar ningún suministro durante la pelea",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_TROPHY_O4_DESCRIPTION": {
+    "value": "Después de descubrir esto, derrota una vez a la Abeja, al Gato Atigrado Naranja (Primavera I), al Panda Rojo y al Girasol (Primavera II)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_REGIONAL_O4_DESCRIPTION": {
+    "value": "En Otoño I y Otoño II: explora el 90 % de cada mapa, derrota a los cuatro jefes y desbloquea todos los campamentos",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C4_DESCRIPTION": {
+    "value": "−4 % de daño recibido por cada enemigo normal adicional que te ataque (máximo −20 %)",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C5_DESCRIPTION": {
+    "value": "Cuando bajas del 30 % de PV, recuperas el 25 % de tus PV máximos (una vez cada 90 s)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_C6_DESCRIPTION": {
+    "value": "Los ataques básicos también infligen un 30 % de daño a otros enemigos cercanos al objetivo",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C7_DESCRIPTION": {
+    "value": "Los enemigos llamados a un combate grupal empiezan a atacar 0,5 s más tarde",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_C8_DESCRIPTION": {
+    "value": "Fuera de combate y lejos de los campamentos, recuperas PV tres veces más rápido",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_COLLECTION_C4_DESCRIPTION": {
+    "value": "Las armas y atuendos de enemigos normales tienen un 10 % de probabilidad de aparecer por duplicado",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_COLLECTION_C5_DESCRIPTION": {
+    "value": "Evolucionar requiere 8 copias de sobra en lugar de 10",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_C6_DESCRIPTION": {
+    "value": "Enfriamiento de suministros −15 %",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_C7_DESCRIPTION": {
+    "value": "Volver a tirar cuesta un 25 % menos de gemas y nunca repite el mismo atributo",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_COLLECTION_C8_DESCRIPTION": {
+    "value": "Los atributos adicionales de jefe se generan en la mitad superior de su rango",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_HUNTER_C4_DESCRIPTION": {
+    "value": "Las advertencias de habilidades de jefes duran 0,3 s más y su curación restaura un 25 % menos",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_CHALLENGE_C4_DESCRIPTION": {
+    "value": "Por debajo del 25 % de PV: +20 % de velocidad de ataque",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_REGIONAL_C4_DESCRIPTION": {
+    "value": "+25 % de EXP de enemigos normales en los mapas anteriores a tu mapa desbloqueado más lejano",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_MASTERWORK_C4_DESCRIPTION": {
+    "value": "+15 % a las estadísticas obtenidas con cada fusión de arma de obsidiana",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "MAP_MARKERS_HINT": {
+    "value": "Los enemigos y jefes que has encontrado se pueden marcar en este mapa. Compra Detalle del mapa en Mejoras del mapa, más abajo: se conserva después del Prestigio.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "OFFLINE_GEAR_BENEFIT": {
+    "value": "Desactivado → Activado · copias de equipo que tengas, aproximadamente 1 por hora",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "EVOLVE_READY_HINT": {
+    "value": "%s ha alcanzado su nivel máximo de fusión. Consigue %d copias más para evolucionarlo a %s.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "AUTO_EVOLVE_BENEFIT": {
+    "value": "Evoluciona en ^20 con 10 copias de sobra (31 en total): %s",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MAIN_HINT_9": {
+    "value": "Evoluciona un arma ^20 que tenga 10 copias de sobra (detalles del objeto, Evolucionar)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MASTERY_FORGE_RULE": {
+    "value": "Atuendos de este mapa a ^%s (atuendos de jefe a ^%s) y un arma de este mapa evolucionada (mapas de primavera: un arma de obsidiana de este mapa a ^20).",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "MAIN_6": {
+    "value": "Mejora Detalle del mapa (Mundo → Mejoras del mapa)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   }
+  },
+  "pt_BR": {
+   "PRESTIGE_KEEP_ALL": {
+    "value": "Cartas e conjuntos, suas moedas e gemas, todas as melhorias compradas com moedas ou gemas, o nível de fusão de cada arma, traje e habilidade, as áreas exploradas do mapa, o nível e o XP do jogador, as chaves de chefe, as conquistas de inimigos, a Maestria do Mapa, os objetivos principais não resgatados e as configurações.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "PRESTIGE_RESET_RUN": {
+    "value": "Todos os itens que você carrega (incluindo suprimentos) e seus atributos bônus aleatórios, a Maestria de Suprimentos, o acesso aos mapas (volta para Inverno I), os acampamentos obtidos e as oportunidades e missões inacabadas.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "EVOLUTION_RULE": {
+    "value": "Ao chegar a ^%d, gaste %d cópias extras para obter uma cópia da arma do próximo nível (%d cópias ao todo). Esta arma mantém seu nível de fusão e uma cópia; a nova usa seu próprio nível. É necessário ter a pilha de destino ou um espaço livre.",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "MASTERY_NEED_WEAPON_MERGE": {
+    "value": "Funda uma das %s até ^%d",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_MASTERWORK_O2_RULE": {
+    "value": "Funda um traje, habilidade ou arma de obsidiana de nível 2 ou superior até ^100",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_MASTERWORK_O3_RULE": {
+    "value": "Funda um traje, habilidade ou arma de obsidiana de nível 3 ou superior até ^100",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_ARSENAL_O1_RULE": {
+    "value": "Funda uma arma até ^20 e um traje até ^50",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_ARSENAL_O2_RULE": {
+    "value": "Funda 3 armas diferentes até ^20 e 3 trajes diferentes até ^50",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_ARSENAL_O3_RULE": {
+    "value": "Funda 3 armas diferentes de nível 2+ até ^20 e 3 trajes diferentes de nível 2+ até ^50",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "EVOLUTION_NEEDS_COPIES": {
+    "value": "Para evoluir, é preciso o nível de fusão completo e cópias extras suficientes.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "ITEM_BOSS_BONUS_EXPLAIN": {
+    "value": "Aprimorada por chefe: sua primeira cópia desta arma obtida de um chefe ganhou dois atributos bônus. Cópias posteriores de chefes contam como cópias normais. Os atributos bônus são redefinidos no Prestígio; os níveis de fusão permanecem.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "REROLL_ATTRIBUTE": {
+    "value": "Rerrolar %s · %s gemas",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "REROLL_ATTRIBUTE_CONFIRM": {
+    "value": "Gastar %s gemas para rerrolar %s? O novo resultado substitui este atributo, mesmo se for pior. Seus outros atributos não mudam.",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O4_DESCRIPTION": {
+    "value": "Em Inverno II, derrote em ordem 50 de cada tipo: Capuz de Lobo, Capuz de Gato Malhado, Coroa Dourada, Chifres de Rena, Gorro de Papai Noel, Capacete Espacial",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O5_DESCRIPTION": {
+    "value": "Em Verão II, derrote em ordem 60 de cada tipo: Bandana de Caubói, Boia de Pato, Palhaço Arco-Íris, Nadador de Touca Vermelha, Mergulhador, Nadador de Chapéu de Palha",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O6 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O6_DESCRIPTION": {
+    "value": "Em Outono I, derrote em ordem 120 de cada tipo: Boné Preto, Chapéu de Cogumelo, Cabeça de Abóbora",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O8 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O7_DESCRIPTION": {
+    "value": "Em Outono II, derrote em ordem 100 de cada tipo: Capuz com Chifres, Capacete de Tela Laranja, Cabeça de TV, Cartola",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O5 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O8_DESCRIPTION": {
+    "value": "Em Primavera II, derrote em ordem 60 de cada tipo: Coroa de Flores, Boné Verde, Boné Rosa, Capuz de Flor Rosa, Simples, Broto",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O7 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O4_DESCRIPTION": {
+    "value": "Pegue 16 trajes de cada: Gorro de Papai Noel, Chifres de Rena e Capacete Espacial (drops de Inverno II). Ao tocar em Entregar, você entrega 15 de cada e fica com um",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O5 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O5_DESCRIPTION": {
+    "value": "Pegue 26 trajes de cada: Mergulhador, Nadador de Touca Vermelha e Nadador de Chapéu de Palha (drops de Verão II). Ao tocar em Entregar, você entrega 25 de cada e fica com um",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O7 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O6_DESCRIPTION": {
+    "value": "Pegue 31 trajes de cada: Boné Preto, Chapéu de Cogumelo e Cabeça de Abóbora (drops de Outono I). Ao tocar em Entregar, você entrega 30 de cada e fica com um",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O4 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O7_DESCRIPTION": {
+    "value": "Pegue 31 trajes de cada: Cabeça de TV, Cartola e Capacete de Tela Laranja (drops de Outono II). Ao tocar em Entregar, você entrega 30 de cada e fica com um",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O6 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O8_DESCRIPTION": {
+    "value": "Pegue 41 trajes de cada: Boné Rosa, Simples e Broto (drops de Primavera II). Ao tocar em Entregar, você entrega 40 de cada e fica com um",
+    "reasons": [
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_HUNTER_O4_DESCRIPTION": {
+    "value": "Derrote a Abelha e o Gato Laranja Rajado (chefes de Primavera I) 10 vezes cada",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_CHALLENGE_O4_DESCRIPTION": {
+    "value": "Derrote o Panda-Vermelho (chefe de Primavera II) sem usar nenhum suprimento durante a luta",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_TROPHY_O4_DESCRIPTION": {
+    "value": "Depois de encontrar isto, derrote uma vez a Abelha, o Gato Laranja Rajado (Primavera I), o Panda-Vermelho e o Girassol (Primavera II)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_MASTERWORK_O4_DESCRIPTION": {
+    "value": "Funda uma arma de obsidiana (drops de Primavera I e Primavera II) até ^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_EXPEDITION_C4_DESCRIPTION": {
+    "value": "−4% de dano recebido para cada inimigo comum que ataca você além do primeiro (até −20%)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_EXPEDITION_C5_DESCRIPTION": {
+    "value": "Ao ficar abaixo de 30% de PV, você recupera 25% dos PV máximos (uma vez a cada 90 s)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_C7_DESCRIPTION": {
+    "value": "Inimigos chamados para um combate em grupo começam a atacar 0,5 s depois",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_C8_DESCRIPTION": {
+    "value": "Fora de combate e longe dos acampamentos, você recupera PV três vezes mais rápido",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_COLLECTION_C4_DESCRIPTION": {
+    "value": "Armas e trajes que caem de inimigos comuns têm 10% de chance de vir em 2 cópias",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_C5_DESCRIPTION": {
+    "value": "Evoluir exige 8 cópias extras em vez de 10",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_COLLECTION_C8_DESCRIPTION": {
+    "value": "Atributos bônus de chefe são sorteados na metade superior do intervalo",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_HUNTER_C4_DESCRIPTION": {
+    "value": "Avisos de habilidades dos chefes duram 0,3 s a mais e as curas deles restauram 25% menos",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_CHALLENGE_C4_DESCRIPTION": {
+    "value": "Abaixo de 25% de PV: +20% de velocidade de ataque",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_REGIONAL_C4_DESCRIPTION": {
+    "value": "+25% de XP de inimigos comuns nos mapas anteriores ao seu mapa desbloqueado mais distante",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "MAP_MARKERS_HINT": {
+    "value": "Inimigos e chefes que você encontrou podem ser marcados neste mapa. Compre Detalhe do mapa em Melhorias do mapa, abaixo: a compra continua após o Prestígio.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "OFFLINE_GEAR_BENEFIT": {
+    "value": "Desligado → Ligado · cópias de equipamento que você possui, cerca de 1 por hora",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "EVOLVE_READY_HINT": {
+    "value": "%s atingiu o nível máximo de fusão. Consiga mais %d cópias para evoluir para %s.",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "AUTO_EVOLVE_BENEFIT": {
+    "value": "Evolui em ^20 com 10 cópias extras (31 ao todo): %s",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "MAIN_HINT_9": {
+    "value": "Evolua uma arma ^20 que tenha 10 cópias extras (detalhes do item, Evoluir)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MASTERY_FORGE_RULE": {
+    "value": "Trajes daqui em ^%s (trajes de chefe em ^%s) e uma arma daqui evoluída (mapas de primavera: uma arma de obsidiana daqui em ^20).",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "MAIN_6": {
+    "value": "Melhore Detalhe do mapa (Mundo → Melhorias do mapa)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   }
+  },
+  "fr_FR": {
+   "KEEP_LINE_COINS": {
+    "value": "Vos pièces : %s",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "KEEP_LINE_MERGES": {
+    "value": "Niveaux de fusion de chaque arme, tenue et compétence, rétablis lorsque vous retrouvez l’objet",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "KEEP_LINE_MAIN_OBJECTIVES": {
+    "value": "Objectifs principaux terminés mais pas encore récupérés",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "RESET_LINE_RUN_PROGRESS": {
+    "value": "Opportunités et missions inachevées. Les missions terminées et les pièces et gemmes hors ligne non récupérées sont créditées d’abord ; les copies d’objets hors ligne non récupérées sont perdues",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "PRESTIGE_KEEP_ALL": {
+    "value": "Cartes et ensembles, vos pièces et gemmes, toutes les améliorations achetées avec des pièces ou des gemmes, le niveau de fusion de chaque arme, tenue et compétence, les zones explorées, le niveau et l’XP du joueur, les clés de boss, les succès d’ennemis, la Maîtrise des cartes, les objectifs principaux non récupérés et les paramètres.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "PRESTIGE_RESET_RUN": {
+    "value": "Tous les objets transportés (consommables compris) et leurs attributs bonus aléatoires, la Maîtrise des consommables, l’accès aux cartes (retour à Hiver I), les camps possédés ainsi que les opportunités et missions inachevées.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "LEGACY_ITEM_EXPLAIN": {
+    "value": "Une copie aux statistiques d’avant la mise à jour des armes. Elle conserve sa puissance jusqu’au prochain Prestige, puis disparaît avec votre inventaire. Les nouvelles copies utilisent les nouvelles statistiques et conservent votre niveau de fusion.",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "EVOLUTION_RULE": {
+    "value": "À ^%d, dépensez %d copies en trop pour obtenir une copie de l’arme du rang suivant (%d copies au total). Cette arme conserve son niveau de fusion et une copie ; la nouvelle arme a son propre niveau de fusion. Il faut une pile de destination ou un emplacement libre.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MASTERY_NEED_WEAPON_MERGE": {
+    "value": "Fusionner l’une de ces armes : %s, jusqu’à ^%d",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "FOLLOW_MASTERWORK_ANY_GEAR": {
+    "value": "Fusionner une tenue, une compétence ou une arme en obsidienne jusqu’à ^100 : record ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "FOLLOW_MASTERWORK_TIER_GEAR": {
+    "value": "Fusionner une tenue, une compétence ou une arme en obsidienne de rang %d+ jusqu’à ^100 : record ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "FOLLOW_ARSENAL_SPLIT": {
+    "value": "Armes à ^20 : %d/%d · tenues à ^50 : %d/%d",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "FOLLOW_ARSENAL_SPLIT_T2": {
+    "value": "Armes de rang 2+ à ^20 : %d/%d · tenues de rang 2+ à ^50 : %d/%d",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "PROGRESS_ARSENAL_SPLIT": {
+    "value": "Armes à ^20 : %d/%d · tenues à ^50 : %d/%d",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_MASTERWORK_O1_RULE": {
+    "value": "Fusionner n’importe quelle tenue, compétence ou arme en obsidienne jusqu’à ^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_MASTERWORK_O2_RULE": {
+    "value": "Fusionner une tenue, une compétence ou une arme en obsidienne de rang 2 ou plus jusqu’à ^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_MASTERWORK_O3_RULE": {
+    "value": "Fusionner une tenue, une compétence ou une arme en obsidienne de rang 3 ou plus jusqu’à ^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_ARSENAL_O1_RULE": {
+    "value": "Fusionner une arme à ^20 et une tenue à ^50",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_ARSENAL_O2_RULE": {
+    "value": "Fusionner 3 armes différentes à ^20 et 3 tenues différentes à ^50",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_ARSENAL_O3_RULE": {
+    "value": "Fusionner 3 armes différentes de rang 2+ à ^20 et 3 tenues différentes de rang 2+ à ^50",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "EVOLUTION_NEEDS_COPIES": {
+    "value": "L’évolution exige le niveau de fusion maximal et assez de copies en trop.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "ITEM_ENHANCED": {
+    "value": "Arme de boss : deux attributs bonus ajoutés",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "ITEM_BOSS_BONUS_EXPLAIN": {
+    "value": "Améliorée par un boss : votre première copie de cette arme obtenue sur un boss a ajouté deux attributs bonus. Les copies obtenues ensuite sur un boss comptent comme des copies normales. Les attributs bonus sont réinitialisés au Prestige ; les niveaux de fusion restent.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "REROLL_ATTRIBUTE": {
+    "value": "Relancer %s · %s gemmes",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "REROLL_ATTRIBUTE_CONFIRM": {
+    "value": "Dépenser %s gemmes pour relancer %s ? Le nouveau tirage remplace cet attribut, même s’il est moins bon. Les autres attributs restent inchangés.",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O4_DESCRIPTION": {
+    "value": "En Hiver II, vaincre dans l’ordre 50 ennemis de chaque type : Capuche de Loup, Capuche de Chat Calico, Couronne Dorée, Bois de Renne, Bonnet de Père Noël, Casque Spatial",
+    "reasons": [
+     "terminology: Dans (.+?), battez dans l'ordre",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O5_DESCRIPTION": {
+    "value": "En Été II, vaincre dans l’ordre 60 ennemis de chaque type : Bandana de Cow-boy, Bouée Canard, Clown Arc-en-ciel, Nageur au Bonnet Rouge, Plongeur à Tuba, Nageur au Chapeau de Paille",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O6 text under this key",
+     "terminology: Dans (.+?), battez dans l'ordre",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O6_NAME": {
+    "value": "Route d’automne",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O6_DESCRIPTION": {
+    "value": "En Automne I, vaincre dans l’ordre 120 ennemis de chaque type : Casquette Noire, Chapeau Champignon, Tête de Citrouille",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O8 text under this key",
+     "terminology: Dans (.+?), battez dans l'ordre",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O7_NAME": {
+    "value": "Route de fin d’automne",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O7_DESCRIPTION": {
+    "value": "En Automne II, vaincre dans l’ordre 100 ennemis de chaque type : Capuche à Cornes, Casque à Écran Orange, Tête de Télé, Haut-de-Forme",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O5 text under this key",
+     "terminology: Dans (.+?), battez dans l'ordre",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O8_DESCRIPTION": {
+    "value": "En Printemps II, vaincre dans l’ordre 60 ennemis de chaque type : Couronne de Fleurs, Casquette Verte, Casquette Rose, Capuche Fleur Rose, Sobre, Pousse",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O7 text under this key",
+     "terminology: Dans (.+?), battez dans l'ordre",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O4_DESCRIPTION": {
+    "value": "Ramasser 16 tenues de chaque type : Bonnet de Père Noël, Bois de Renne et Casque Spatial (butin d’Hiver II). Remettre en cède 15 de chaque et vous en gardez une",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O5 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O5_DESCRIPTION": {
+    "value": "Ramasser 26 tenues de chaque type : Plongeur à Tuba, Nageur au Bonnet Rouge et Nageur au Chapeau de Paille (butin d’Été II). Remettre en cède 25 de chaque et vous en gardez une",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O7 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O6_DESCRIPTION": {
+    "value": "Ramasser 31 tenues de chaque type : Casquette Noire, Chapeau Champignon et Tête de Citrouille (butin d’Automne I). Remettre en cède 30 de chaque et vous en gardez une",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O4 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O7_DESCRIPTION": {
+    "value": "Ramasser 31 tenues de chaque type : Tête de Télé, Haut-de-Forme et Casque à Écran Orange (butin d’Automne II). Remettre en cède 30 de chaque et vous en gardez une",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O6 text under this key",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O8_DESCRIPTION": {
+    "value": "Ramasser 41 tenues de chaque type : Casquette Rose, Sobre et Pousse (butin de Printemps II). Remettre en cède 40 de chaque et vous en gardez une",
+    "reasons": [
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_HUNTER_O4_DESCRIPTION": {
+    "value": "Vaincre l’Abeille et le Chat Tigré Roux (boss de Printemps I) 10 fois chacun",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_CHALLENGE_O4_DESCRIPTION": {
+    "value": "Vaincre le Panda Roux (boss de Printemps II) sans utiliser de consommable pendant le combat",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_TROPHY_O4_DESCRIPTION": {
+    "value": "Après l’avoir découvert, vaincre une fois l’Abeille, le Chat Tigré Roux (Printemps I), le Panda Roux et le Tournesol (Printemps II)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_REGIONAL_O4_NAME": {
+    "value": "Maîtrise de l’automne",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_REGIONAL_O4_DESCRIPTION": {
+    "value": "En Automne I et Automne II : explorer 90 % de chaque carte, vaincre les quatre boss et débloquer tous les camps",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_MASTERWORK_O4_NAME": {
+    "value": "Chef-d’œuvre d’obsidienne",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_MASTERWORK_O4_DESCRIPTION": {
+    "value": "Fusionner une arme en obsidienne (butin de Printemps I et Printemps II) jusqu’à ^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_C4_DESCRIPTION": {
+    "value": "−4 % de dégâts subis par ennemi normal supplémentaire qui vous attaque (maximum −20 %)",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C5_DESCRIPTION": {
+    "value": "En dessous de 30 % de PV, récupérez 25 % de vos PV max (une fois toutes les 90 s)",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C6_DESCRIPTION": {
+    "value": "Les attaques de base infligent aussi 30 % de dégâts aux autres ennemis proches de la cible",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C7_DESCRIPTION": {
+    "value": "Les ennemis appelés dans un combat de groupe commencent à attaquer 0,5 s plus tard",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_COLLECTION_C4_DESCRIPTION": {
+    "value": "Les armes et tenues lâchées par les ennemis normaux ont 10 % de chances de tomber en 2 copies",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_C5_DESCRIPTION": {
+    "value": "L’évolution demande 8 copies en trop au lieu de 10",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_C6_DESCRIPTION": {
+    "value": "Temps de recharge des consommables −15 %",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_COLLECTION_C7_DESCRIPTION": {
+    "value": "Les relances coûtent 25 % de gemmes en moins et ne rendent jamais le même attribut",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_COLLECTION_C8_DESCRIPTION": {
+    "value": "Les attributs bonus de boss sont tirés dans la moitié supérieure de leur plage",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_HUNTER_C4_DESCRIPTION": {
+    "value": "Les avertissements des compétences de boss durent 0,3 s de plus et leurs soins rendent 25 % de PV en moins",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_CHALLENGE_C4_DESCRIPTION": {
+    "value": "En dessous de 25 % de PV : +20 % de vitesse d’attaque",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_TROPHY_C4_DESCRIPTION": {
+    "value": "La première défaite d’un boss dans une partie déclenche deux tirages de butin",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_REGIONAL_C4_DESCRIPTION": {
+    "value": "+25 % d’XP des ennemis normaux sur les cartes précédant la plus avancée que vous avez débloquée",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_MASTERWORK_C4_NAME": {
+    "value": "Trempe d’obsidienne",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_MASTERWORK_C4_DESCRIPTION": {
+    "value": "+15 % aux statistiques gagnées à chaque fusion d’arme en obsidienne",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "FOLLOW_MASTERWORK_OBSIDIAN": {
+    "value": "Fusionner une arme en obsidienne jusqu’à ^100 : record ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MAP_MARKERS_HINT": {
+    "value": "Les ennemis et boss déjà trouvés peuvent être signalés sur cette carte. Achetez Détail de la carte dans Améliorations de la carte, plus bas : l’achat est conservé après le Prestige.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MAP_DETAIL_NEXT_1": {
+    "value": "Suivant : marqueurs des ennemis et boss découverts",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "MAP_DETAIL_NEXT_2": {
+    "value": "Suivant : noms des ennemis ; touchez un marqueur pour l’examiner",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MAP_DETAIL_NEXT_3": {
+    "value": "Suivant : icônes d’équipement (arme, tenue, compétence)",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "OFFLINE_GEAR_HINT": {
+    "value": "Pendant votre absence, vous pouvez aussi recevoir des copies des armes et tenues que vous possédez déjà. Débloquez cette option dans Améliorations → Hors ligne.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "OFFLINE_GEAR_BENEFIT": {
+    "value": "Désactivé → Activé · copies d’équipement possédé, environ 1 par heure",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "EVOLVE_READY_HINT": {
+    "value": "%s a atteint son niveau de fusion maximal. Obtenez encore %d copies pour le faire évoluer en %s.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "AUTO_EVOLVE_BENEFIT": {
+    "value": "Évolue à ^20 avec 10 copies en trop (31 au total) : %s",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MAIN_HINT_9": {
+    "value": "Faites évoluer une arme ^20 qui a 10 copies en trop (détails de l’objet, Faire évoluer)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MASTERY_FORGE_RULE": {
+    "value": "Tenues d’ici à ^%s (tenues de boss ^%s) et une arme d’ici évoluée (cartes de printemps : une arme en obsidienne d’ici à ^20).",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MAIN_6": {
+    "value": "Améliorer Détail de la carte (Monde → Améliorations de la carte)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   }
+  },
+  "de_DE": {
+   "KEEP_LINE_ALL_UPGRADES": {
+    "value": "Alle Upgrades, die du mit Münzen oder Edelsteinen gekauft hast (die Upgrades eines Lagers wirken wieder, sobald du dieses Lager erneut kaufst)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "KEEP_LINE_MERGES": {
+    "value": "Verschmelzungsstufen aller Waffen, Kostüme und Fähigkeiten; sie werden wiederhergestellt, sobald du den Gegenstand erneut findest",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "KEEP_LINE_MAIN_OBJECTIVES": {
+    "value": "Abgeschlossene, aber noch nicht abgeholte Hauptziele",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "RESET_LINE_CARRIED_ITEMS": {
+    "value": "Alle mitgeführten Gegenstände (Waffen, Kostüme, Fähigkeiten und Vorräte) samt ihren zufälligen Bonusattributen",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "RESET_LINE_RUN_PROGRESS": {
+    "value": "Unvollständige Gelegenheiten und Missionen. Abgeschlossene Missionen sowie nicht abgeholte Offline-Münzen und -Edelsteine werden zuerst ausgezahlt; nicht abgeholte Offline-Kopien von Gegenständen verfallen",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "PRESTIGE_KEEP_ALL": {
+    "value": "Karten und Sets, deine Münzen und Edelsteine, alle mit Münzen oder Edelsteinen gekauften Upgrades, die Verschmelzungsstufe aller Waffen, Kostüme und Fähigkeiten, erkundete Kartenbereiche, Spielerstufe und EP, Boss-Schlüssel, Gegnererfolge, Kartenmeisterschaft, nicht abgeholte Hauptziele und Einstellungen.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "PRESTIGE_RESET_RUN": {
+    "value": "Alle mitgeführten Gegenstände (einschließlich Vorräte) und ihre zufälligen Bonusattribute, Vorratsmeisterschaft, Kartenzugang (zurück nach Winter I), eigene Lager sowie unvollständige Gelegenheiten und Missionen.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "LEGACY_ITEM_EXPLAIN": {
+    "value": "Eine Kopie mit den Werten von vor dem Waffen-Update. Sie behält ihre Stärke bis zu deinem nächsten Prestige und verschwindet dann mit deinen Gegenständen. Neue Kopien dieser Waffe haben die neuen Werte und behalten deine Verschmelzungsstufe.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "EVOLUTION_RULE": {
+    "value": "Auf ^%d tauschst du %d übrige Kopien gegen eine Kopie der Waffe des nächsten Rangs (insgesamt %d Kopien). Diese Waffe behält ihre Verschmelzungsstufe und eine Kopie; die neue Waffe hat ihre eigene Verschmelzungsstufe. Ein Zielstapel oder ein freier Platz ist nötig.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MASTERY_NEED_WEAPON_MERGE": {
+    "value": "Verschmelze eine von %s bis ^%d",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "FOLLOW_MASTERWORK_ANY_GEAR": {
+    "value": "Verschmelze ein Kostüm, eine Fähigkeit oder eine Obsidianwaffe bis ^100: Bestwert ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "FOLLOW_MASTERWORK_TIER_GEAR": {
+    "value": "Verschmelze ein Kostüm, eine Fähigkeit oder eine Obsidianwaffe ab Rang %d bis ^100: Bestwert ^%d/^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "FOLLOW_ARSENAL_SPLIT": {
+    "value": "Waffen auf ^20: %d/%d · Kostüme auf ^50: %d/%d",
+    "reasons": [
+     "terminology: Outfits"
+    ]
+   },
+   "FOLLOW_ARSENAL_SPLIT_T2": {
+    "value": "Waffen ab Rang 2 auf ^20: %d/%d · Kostüme ab Rang 2 auf ^50: %d/%d",
+    "reasons": [
+     "terminology: Outfits",
+     "typography"
+    ]
+   },
+   "PROGRESS_ARSENAL_SPLIT": {
+    "value": "Waffen auf ^20: %d/%d · Kostüme auf ^50: %d/%d",
+    "reasons": [
+     "terminology: Outfits"
+    ]
+   },
+   "CONTENT_MASTERWORK_O1_RULE": {
+    "value": "Verschmelze ein beliebiges Kostüm, eine Fähigkeit oder eine Obsidianwaffe bis ^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_MASTERWORK_O2_RULE": {
+    "value": "Verschmelze ein Kostüm, eine Fähigkeit oder eine Obsidianwaffe ab Rang 2 bis ^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_MASTERWORK_O3_RULE": {
+    "value": "Verschmelze ein Kostüm, eine Fähigkeit oder eine Obsidianwaffe ab Rang 3 bis ^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_ARSENAL_O1_RULE": {
+    "value": "Verschmelze eine Waffe bis ^20 und ein Kostüm bis ^50",
+    "reasons": [
+     "terminology: Outfit",
+     "typography"
+    ]
+   },
+   "CONTENT_ARSENAL_O2_RULE": {
+    "value": "Verschmelze 3 verschiedene Waffen bis ^20 und 3 verschiedene Kostüme bis ^50",
+    "reasons": [
+     "terminology: Outfits",
+     "typography"
+    ]
+   },
+   "CONTENT_ARSENAL_O3_RULE": {
+    "value": "Verschmelze 3 verschiedene Waffen ab Rang 2 bis ^20 und 3 verschiedene Kostüme ab Rang 2 bis ^50",
+    "reasons": [
+     "terminology: Outfits",
+     "typography"
+    ]
+   },
+   "MERGE_AT_CAP": {
+    "value": "Dieser Gegenstand hat seine maximale Verschmelzungsstufe erreicht.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "EVOLUTION_NEEDS_COPIES": {
+    "value": "Zum Weiterentwickeln brauchst du die volle Verschmelzungsstufe und genug übrige Kopien.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "ITEM_BOSS_BONUS_EXPLAIN": {
+    "value": "Bossverstärkt: Deine erste Kopie dieser Waffe von einem Boss hat zwei Bonusattribute erhalten. Spätere Boss-Kopien zählen als normale Kopien. Bonusattribute werden beim Prestige zurückgesetzt; Verschmelzungsstufen bleiben.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "ITEM_BOSS_BONUS_HINT": {
+    "value": "Die erste Kopie dieser Waffe, die du von einem Boss erhältst, bekommt zwei Bonusattribute (einmal pro Durchlauf).",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "REROLL_ATTRIBUTE": {
+    "value": "%s neu würfeln · %s Edelsteine",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "REROLL_ATTRIBUTE_CONFIRM": {
+    "value": "%s Edelsteine ausgeben, um %s neu zu würfeln? Der neue Wurf ersetzt dieses Attribut, auch wenn er schlechter ist. Deine anderen Attribute bleiben bestehen.",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O4_DESCRIPTION": {
+    "value": "Besiege in Winter II der Reihe nach je 50 Gegner dieser Typen: Wolfskapuze, Glückskatzenkapuze, Goldkrone, Rentiergeweih, Weihnachtsmütze, Raumhelm",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_O5_DESCRIPTION": {
+    "value": "Besiege in Sommer II der Reihe nach je 60 Gegner dieser Typen: Cowboy-Halstuch, Entenschwimmring, Regenbogenclown, Rotkappen-Schwimmer, Schnorchler, Strohhut-Schwimmer",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O6 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O6_DESCRIPTION": {
+    "value": "Besiege in Herbst I der Reihe nach je 120 Gegner dieser Typen: Schwarzkappe, Pilzhut, Kürbiskopf",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O8 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O7_DESCRIPTION": {
+    "value": "Besiege in Herbst II der Reihe nach je 100 Gegner dieser Typen: Hörnerkapuze, Oranger Bildschirmhelm, Fernsehkopf, Zylinder",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O5 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_O8_DESCRIPTION": {
+    "value": "Besiege in Frühling II der Reihe nach je 60 Gegner dieser Typen: Blumenkranz, Grünkappe, Rosakappe, Rosablütenkapuze, Schlichtling, Spross",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O7 text under this key",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O4_DESCRIPTION": {
+    "value": "Sammle je 16 Kostüme Weihnachtsmütze, Rentiergeweih und Raumhelm (Drops aus Winter II). Mit Abgeben gibst du je 15 ab und behältst eines",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O5 text under this key",
+     "terminology: Outfits",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O5_DESCRIPTION": {
+    "value": "Sammle je 26 Kostüme Schnorchler, Rotkappen-Schwimmer und Strohhut-Schwimmer (Drops aus Sommer II). Mit Abgeben gibst du je 25 ab und behältst eines",
+    "reasons": [
+     "misaligned: the package put EXPEDITION_O7 text under this key",
+     "terminology: Outfits",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O6_DESCRIPTION": {
+    "value": "Sammle je 31 Kostüme Schwarzkappe, Pilzhut und Kürbiskopf (Drops aus Herbst I). Mit Abgeben gibst du je 30 ab und behältst eines",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O4 text under this key",
+     "terminology: Outfits",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O7_DESCRIPTION": {
+    "value": "Sammle je 31 Kostüme Fernsehkopf, Zylinder und Oranger Bildschirmhelm (Drops aus Herbst II). Mit Abgeben gibst du je 30 ab und behältst eines",
+    "reasons": [
+     "misaligned: the package put COLLECTION_O6 text under this key",
+     "terminology: Outfits",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_O8_DESCRIPTION": {
+    "value": "Sammle je 41 Kostüme Rosakappe, Schlichtling und Spross (Drops aus Frühling II). Mit Abgeben gibst du je 40 ab und behältst eines",
+    "reasons": [
+     "terminology: Outfits",
+     "wording: the approved Collection O1 sentence (Submit button, item names, map) with this opportunity's values",
+     "typography"
+    ]
+   },
+   "CONTENT_HUNTER_O4_DESCRIPTION": {
+    "value": "Besiege die Biene und die Rote Tigerkatze (Bosse in Frühling I) je 10-mal",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_CHALLENGE_O4_DESCRIPTION": {
+    "value": "Besiege den Roten Panda (Boss in Frühling II), ohne im Kampf Vorräte zu benutzen",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_TROPHY_O4_DESCRIPTION": {
+    "value": "Besiege nach der Entdeckung je einmal die Biene, die Rote Tigerkatze (Frühling I), den Roten Panda und die Sonnenblume (Frühling II)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_REGIONAL_O4_DESCRIPTION": {
+    "value": "In Herbst I und Herbst II: Erkunde 90 % jeder Karte, besiege alle vier Bosse und schalte alle Lager frei",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_MASTERWORK_O4_DESCRIPTION": {
+    "value": "Verschmelze eine Obsidianwaffe (Drops aus Frühling I und Frühling II) bis ^100",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_EXPEDITION_C4_DESCRIPTION": {
+    "value": "−4 % erlittener Schaden je weiterem angreifenden normalen Gegner (maximal −20 %)",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C5_DESCRIPTION": {
+    "value": "Sinken deine LP unter 30 %, heilst du 25 % deiner maximalen LP (einmal alle 90 s)",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C6_DESCRIPTION": {
+    "value": "Standardangriffe verursachen auch 30 % Schaden an anderen Gegnern nahe deinem Ziel",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_EXPEDITION_C7_DESCRIPTION": {
+    "value": "Gegner, die in einen Gruppenkampf gerufen werden, greifen 0,5 s später an",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_EXPEDITION_C8_DESCRIPTION": {
+    "value": "Außerhalb von Kämpfen und fern von Lagern regenerierst du LP dreimal so schnell",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_COLLECTION_C4_DESCRIPTION": {
+    "value": "Von normalen Gegnern gedroppte Waffen und Kostüme sind mit 10 % Chance 2 Kopien",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_C5_NAME": {
+    "value": "Sparsame Weiterentwicklung",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "CONTENT_COLLECTION_C5_DESCRIPTION": {
+    "value": "Weiterentwicklung braucht 8 statt 10 übrige Kopien",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "CONTENT_COLLECTION_C6_DESCRIPTION": {
+    "value": "Abklingzeiten für Vorräte −15 %",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_COLLECTION_C7_DESCRIPTION": {
+    "value": "Neuwürfe kosten 25 % weniger Edelsteine und liefern nie dasselbe Attribut",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_HUNTER_C4_DESCRIPTION": {
+    "value": "Warnungen vor Bossfähigkeiten dauern 0,3 s länger und Bossheilung stellt 25 % weniger wieder her",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_CHALLENGE_C4_DESCRIPTION": {
+    "value": "Unter 25 % LP: +20 % Angriffsgeschwindigkeit",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_REGIONAL_C4_DESCRIPTION": {
+    "value": "+25 % EP von normalen Gegnern auf Karten vor deiner am weitesten freigeschalteten Karte",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "CONTENT_MASTERWORK_C4_DESCRIPTION": {
+    "value": "+15 % auf Werte, die jede Verschmelzung einer Obsidianwaffe hinzufügt",
+    "reasons": [
+     "typography: locale spacing, decimal and punctuation rules of the approved catalog"
+    ]
+   },
+   "MAP_MARKERS_HINT": {
+    "value": "Bereits entdeckte Gegner und Bosse lassen sich auf dieser Karte markieren. Kaufe Kartendetails unten bei den Karten-Upgrades; sie bleiben nach Prestige erhalten.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "MAP_DETAIL_NEXT_3": {
+    "value": "Als Nächstes: Ausrüstungssymbole (Waffe, Kostüm, Fähigkeit)",
+    "reasons": [
+     "terminology: Outfit"
+    ]
+   },
+   "OFFLINE_GEAR_HINT": {
+    "value": "Während du offline bist, kannst du auch Kopien von Waffen und Kostümen erhalten, die du bereits besitzt. Schalte das unter Upgrades → Offline frei.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "OFFLINE_UPGRADES_JUMP": {
+    "value": "Abholen und Offline-Upgrades öffnen",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "OFFLINE_GEAR_BENEFIT": {
+    "value": "Aus → An · Kopien deiner Ausrüstung, etwa 1 pro Stunde",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "EVOLVE_READY_HINT": {
+    "value": "%s hat die maximale Verschmelzungsstufe erreicht. Sammle %d weitere Kopien, um den Gegenstand zu %s weiterzuentwickeln.",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "AUTO_EVOLVE_BENEFIT": {
+    "value": "Wird auf ^20 mit 10 übrigen Kopien weiterentwickelt (insgesamt 31): %s",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MAIN_HINT_9": {
+    "value": "Entwickle eine Waffe auf ^20 mit 10 übrigen Kopien weiter (Gegenstandsdetails, Weiterentwickeln)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage",
+     "typography"
+    ]
+   },
+   "MASTERY_FORGE_RULE": {
+    "value": "Kostüme dieser Karte auf ^%s (Boss-Kostüme auf ^%s) und eine Waffe dieser Karte weiterentwickelt (Frühlingskarten: eine Obsidianwaffe dieser Karte auf ^20).",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   },
+   "MAIN_6": {
+    "value": "Verbessere Kartendetails (Welt → Karten-Upgrades)",
+    "reasons": [
+     "terminology/wording: approved in-game terms, register or regional usage"
+    ]
+   }
+  }
+ }
+}

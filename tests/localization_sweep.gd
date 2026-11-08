@@ -41,16 +41,26 @@ func frames(n:=4) -> void:
 ## Change 50: English keys awaiting translation (tools/localization_pending.json, Playbook 132.4 handoff).
 ## Players see their English fallback until the catalogs are delivered; probes of translated content
 ## leave them out and report the count.
-static func pending_keys() -> Array:
+static func pending_keys(langs: Array=[]) -> Array:
     var path:="res://tools/localization_pending.json"
     if not FileAccess.file_exists(path):return []
     var data=JSON.parse_string(FileAccess.get_file_as_string(path))
-    return (data.get("keys",{}) as Dictionary).keys() if data is Dictionary else []
+    if not data is Dictionary:return []
+    var out: Array=[]
+    var keys: Dictionary=data.get("keys",{})
+    for key in keys:
+        # Delivered (tools/integrate_translation_batch.py records the locales): no longer pending for those.
+        var done: Array=keys[key].get("translated",[])
+        var delivered:=not langs.is_empty()
+        for lang in langs:delivered=delivered and lang in done
+        if not delivered:out.append(key)
+    return out
 
-## The English catalog without the pending keys (what every enabled catalog must translate today).
-static func translated_english() -> Dictionary:
+## The English catalog without the keys still pending for these languages (what their catalogs must translate
+## today). With no languages: without every pending key.
+static func translated_english(langs: Array=[]) -> Dictionary:
     var out:=read_po("res://localization/en.po")
-    for key in pending_keys():out.erase(key)
+    for key in pending_keys(langs):out.erase(key)
     return out
 
 ## Minimal PO reader (the catalogs use single-line msgid/msgstr, the project convention).
