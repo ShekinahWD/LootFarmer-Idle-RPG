@@ -16,9 +16,9 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 280,
+  "files": 281,
   "stages": 8,
-  "imported": 164
+  "imported": 165
  },
  "families": {
   "stage_scenes": {
@@ -519,6 +519,7 @@
   "res://assets/sounds/mission_ready.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/sounds/stage_clear.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/sounds/ui_confirm.wav": "dependency of res://resources/game/audio_cues.tres",
+  "res://assets/ui/Hand.png": "dependency of res://resources/game/pickup_style.tres",
   "res://data/game/catalog.json": "root: campaign data, read with FileAccess by catalog.gd (not a resource dependency)",
   "res://localization/de_DE.po": "family language_catalogs",
   "res://localization/en.po": "project.godot setting",
@@ -552,7 +553,7 @@
   "res://resources/game/mastery_rules.tres": "literal in res://scripts/game/mastery.gd",
   "res://resources/game/onboarding_rules.tres": "literal in res://scripts/game/onboarding.gd",
   "res://resources/game/outfit_slot_styles.tres": "literal in res://scripts/game/game_ui.gd",
-  "res://resources/game/pickup_style.tres": "literal in res://scripts/game/pickup_spark.gd",
+  "res://resources/game/pickup_style.tres": "literal in res://scripts/game/world.gd",
   "res://resources/game/review_rules.tres": "literal in res://scripts/game/review_invitation.gd",
   "res://resources/game/skill_effects.tres": "literal in res://scripts/game/world.gd",
   "res://resources/game/theme.tres": "literal in res://scripts/autoload/localization_service.gd",

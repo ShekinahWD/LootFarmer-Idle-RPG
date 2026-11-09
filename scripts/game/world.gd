@@ -13,6 +13,7 @@ const ATTACKS={
     "iron_sword": preload("res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png")
 }
 const PICKUP=preload("res://scenes/game/pickup.tscn")
+const PICKUP_STYLE=preload("res://resources/game/pickup_style.tres")
 ## Change 14: placement, scale and layer of every skill effect, per skill (inspector resource).
 @export var effects: SkillEffectSet=preload("res://resources/game/skill_effects.tres")
 var following_player:=true
@@ -47,6 +48,10 @@ func setup(value: LootSimulation) -> void:
         if views.has(id) and views[id].disclosed:views[id].say(key))
     for id in sim.catalog.items:
         textures[id]=sim.catalog.icon(id)
+    reminder=Sprite2D.new()
+    reminder.centered=false
+    reminder.visible=false
+    add_child(reminder)
 
 ## Change 24 (Playbook 44): presentation work scales with what is on screen, not with the map.
 ## - Views whose actor is outside the camera (plus CULL_MARGIN world units) are hidden and skip their
@@ -134,6 +139,74 @@ func _process(_delta: float) -> void:
             pickups[id].queue_free()
             pickups.erase(id)
     update_camera()
+
+## Change 59: one pointing hand (the existing GUI pack Hand, copied to assets/ui) reminds the player
+## of uncollected loot. Its target is the oldest drop with at least reminder_delay seconds of ground
+## time that is sighted and on screen (ties by uid); it shows for reminder_seconds every
+## reminder_interval seconds. Ground time is 300 - ttl: pausable play time, never offline time.
+## Presentation only: a Sprite2D in the world never takes input, and nothing here touches the sim.
+## game_ui calls this every frame (it keeps running while paused) with blocked set while a panel,
+## confirmation, Prestige choice or guide surface is in front of the game.
+const GROUND_TTL:=300.0
+var reminder: Sprite2D
+var reminder_uid:=-1
+func update_reminder(blocked: bool) -> void:
+    if reminder==null:return
+    var target: Dictionary={}
+    var since:=0.0
+    if not (blocked or get_tree().paused or sim.suspended or sim.held):
+        var style=PICKUP_STYLE
+        var view:=_cull_rect().grow(-CULL_MARGIN-4.0)
+        var best_age:=-1.0
+        for drop in sim.state.pickups:
+            var age: float=GROUND_TTL-float(drop.ttl)
+            if age<style.reminder_delay or float(drop.ttl)<=0:continue
+            var node=pickups.get(int(drop.uid))
+            if node==null or not node.visible or not view.has_point(Vector2(drop.x,drop.y)):continue
+            if age>best_age or (age==best_age and int(drop.uid)<int(target.uid)):
+                target=drop;best_age=age
+        if not target.is_empty():
+            since=fmod(best_age-style.reminder_delay,maxf(style.reminder_interval,.1))
+            if since>=style.reminder_seconds:target={}
+    if target.is_empty():
+        if reminder.visible:reminder.visible=false
+        reminder_uid=-1
+        return
+    _place_reminder(target,since,_cull_rect().grow(-CULL_MARGIN-2.0))
+
+## The hand sits off one corner of the icon with its fingertip just outside that corner, so it points
+## at the loot without covering it. Its visible art is at most the icon's size. The default side is
+## below-right (the art points up-left); near a screen edge it mirrors to a side that fits.
+func _place_reminder(drop: Dictionary,since: float,view: Rect2) -> void:
+    var style=PICKUP_STYLE
+    var node=pickups[int(drop.uid)]
+    if reminder.texture!=style.reminder_texture:reminder.texture=style.reminder_texture
+    var art: Rect2=style.reminder_art_rect
+    var size: float=node.icon_size()
+    var k: float=size*style.reminder_size_ratio/maxf(art.size.x,art.size.y)
+    var center: Vector2=Vector2(drop.x,drop.y)+node.icon_offset()
+    var tex_size: Vector2=reminder.texture.get_size()
+    var poke: float=style.reminder_poke*(.5+.5*sin(since*style.reminder_poke_speed))
+    var chosen:=Vector2.ONE
+    for side in [Vector2(1,1),Vector2(-1,1),Vector2(1,-1),Vector2(-1,-1)]:
+        chosen=side
+        var tip: Vector2=center+side*(size*.5+style.reminder_gap)
+        var near: Vector2=tip+side*(art.position-style.reminder_tip)*k
+        var far: Vector2=tip+side*(art.end-style.reminder_tip)*k
+        if view.has_point(near) and view.has_point(far):break
+    var tip_tex: Vector2=style.reminder_tip
+    if chosen.x<0:tip_tex.x=tex_size.x-tip_tex.x
+    if chosen.y<0:tip_tex.y=tex_size.y-tip_tex.y
+    reminder.flip_h=chosen.x<0
+    reminder.flip_v=chosen.y<0
+    reminder.scale=Vector2.ONE*k
+    reminder.offset=-tip_tex
+    reminder.position=center+chosen*(size*.5+style.reminder_gap+poke*.7071)
+    reminder.z_index=style.reminder_z
+    var fade: float=maxf(style.reminder_fade,.01)
+    reminder.modulate.a=clampf(minf(since,style.reminder_seconds-since)/fade,0.0,1.0)*node.modulate.a
+    reminder.visible=true
+    reminder_uid=int(drop.uid)
 
 ## A drop whose remaining ground time is at least this was made within the last half second.
 const FRESH_DROP_TTL:=299.5

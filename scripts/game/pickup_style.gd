@@ -42,3 +42,33 @@ extends Resource
 @export var spark_interval:=4.0
 @export var landing_spark_scale_gear:=1.35
 @export var landing_spark_scale_supply:=1.0
+
+@export_group("Idle float")
+## Change 59: once landed, the icon floats gently up and down around its real spot (the icon child
+## only; the drop's position, ring, sparkle and pickup radius stay put). float_height is the whole
+## travel in world pixels, float_period one full cycle in seconds; each drop has its own phase from
+## its uid. A freshly landed drop eases into the float over float_ease_in seconds.
+@export var float_height:=2.5
+@export var float_period:=1.8
+@export var float_ease_in:=0.4
+
+@export_group("Reminder hand")
+## Change 59: one pointing hand at a time points at the oldest uncollected drop on screen. It shows
+## from reminder_delay seconds of ground time (pausable play time, from the drop's ttl) for
+## reminder_seconds, then again every reminder_interval seconds while the drop remains.
+@export var reminder_delay:=10.0
+@export var reminder_interval:=10.0
+@export var reminder_seconds:=3.0
+@export var reminder_fade:=0.15
+@export var reminder_texture: Texture2D=preload("res://assets/ui/Hand.png")
+## The visible (non-transparent) part of the texture and the fingertip inside it, in texture pixels.
+## The hand's visible size is reminder_size_ratio times the drop's icon size (1.0 = never larger).
+@export var reminder_art_rect:=Rect2(11,10,234,236)
+@export var reminder_tip:=Vector2(51,12)
+@export_range(0.3,1.0) var reminder_size_ratio:=1.0
+## World pixels between the icon's corner and the fingertip, and a small poke toward the loot.
+@export var reminder_gap:=1.0
+@export var reminder_poke:=1.0
+@export var reminder_poke_speed:=7.0
+## Draw order: above ground loot and actors, below fog and weather.
+@export var reminder_z:=3

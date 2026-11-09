@@ -273,6 +273,8 @@ func _process(dt: float) -> void:
     # The View Camp button follows the camp on screen every frame (camera moves and pans).
     _refresh_view_camp()
     banner.held=sheet.visible or modal_open() or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending"
+    # Change 59: the loot reminder hand stands down under the same surfaces and the guide's card/chooser.
+    world.update_reminder(banner.held or guide.card.visible or guide.chooser.visible)
     if settle_frames>0:
         settle_frames-=1
         _layout_sheet()

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=3]
+[gd_resource type="Resource" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/pickup_style.gd" id="style"]
+[ext_resource type="Texture2D" path="res://assets/ui/Hand.png" id="hand"]
 
 [resource]
 script = ExtResource("style")
@@ -23,3 +24,18 @@ spark_seconds = 1.2
 spark_interval = 4.0
 landing_spark_scale_gear = 1.35
 landing_spark_scale_supply = 1.0
+float_height = 2.5
+float_period = 1.8
+float_ease_in = 0.4
+reminder_delay = 10.0
+reminder_interval = 10.0
+reminder_seconds = 3.0
+reminder_fade = 0.15
+reminder_texture = ExtResource("hand")
+reminder_art_rect = Rect2(11, 10, 234, 236)
+reminder_tip = Vector2(51, 12)
+reminder_size_ratio = 1.0
+reminder_gap = 1.0
+reminder_poke = 1.0
+reminder_poke_speed = 7.0
+reminder_z = 3
