@@ -47,7 +47,7 @@ STAGES = {
 NEW_CARDS = {
     'expedition_c4': ('crowd_guard', 0.04),        # -4% damage taken per normal attacker beyond the first, max -20%
     'expedition_c5': ('second_wind', 0.25),        # first drop below 30% HP heals 25% max HP, once per 90 s
-    'expedition_c6': ('cleave', 0.30),             # basic attacks hit other enemies within 32 units for 30%
+    'expedition_c6': ('cleave', 0.10),             # basic attacks hit other enemies within 32 units for 10% (Change 60; was 30%)
     'expedition_c7': ('broken_rally', 0.5),        # enemies pulled into a group fight start 0.5 s later
     'expedition_c8': ('field_rest', 2.0),          # out-of-combat recovery outside camps x3
     'collection_c4': ('twin_find', 0.10),          # normal gear drops: 10% chance of 2 copies

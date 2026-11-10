@@ -875,16 +875,11 @@
    ]
   },
   "CONTENT_EXPEDITION_C6_DESCRIPTION": {
-   "en": "Basic attacks also deal 30% damage to other enemies close to your target",
+   "en": "Basic attacks also deal 10% damage to other enemies close to your target",
    "placeholders": [],
-   "change": "change-54",
-   "translated": [
-    "es_419",
-    "es_ES",
-    "pt_BR",
-    "fr_FR",
-    "de_DE"
-   ]
+   "change": "change-60",
+   "status": "changed",
+   "note": "Cleave 30% -> 10%. Non-English catalogs were deliberately left unchanged in Change 60 and still say 30% (es-419, es-ES, pt-BR, fr-FR, de-DE translated it; the other 14 show English until delivered); all 19 need this key in the next localization pass."
   },
   "CONTENT_EXPEDITION_C7_NAME": {
    "en": "Broken Rally",

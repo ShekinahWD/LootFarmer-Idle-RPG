@@ -16,7 +16,7 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 281,
+  "files": 282,
   "stages": 8,
   "imported": 165
  },
@@ -630,6 +630,7 @@
   "res://scripts/game/skill_effect_set.gd": "class_name SkillEffectSet used by res://scripts/game/world.gd",
   "res://scripts/game/skill_effect_style.gd": "class_name SkillEffectStyle used by res://scripts/game/world.gd",
   "res://scripts/game/stage_scenes.gd": "literal in res://scripts/game/campaign.gd",
+  "res://scripts/game/stat_feedback.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/summon_rule.gd": "class_name SummonRule used by res://scripts/game/simulation.gd",
   "res://scripts/game/touch_scroll.gd": "dependency of res://scenes/game/main.tscn",
   "res://scripts/game/tutorial_guide.gd": "literal in res://scripts/game/game_ui.gd",

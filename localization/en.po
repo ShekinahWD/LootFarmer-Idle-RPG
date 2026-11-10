@@ -5988,7 +5988,7 @@ msgid "CONTENT_EXPEDITION_C6_NAME"
 msgstr "Cleave"
 
 msgid "CONTENT_EXPEDITION_C6_DESCRIPTION"
-msgstr "Basic attacks also deal 30% damage to other enemies close to your target"
+msgstr "Basic attacks also deal 10% damage to other enemies close to your target"
 
 msgid "CONTENT_EXPEDITION_C7_NAME"
 msgstr "Broken Rally"

@@ -23139,7 +23139,7 @@
         "name": "CONTENT_EXPEDITION_C6_NAME",
         "description": "CONTENT_EXPEDITION_C6_DESCRIPTION",
         "effect": "cleave",
-        "value": 0.3
+        "value": 0.1
       },
       "expedition_c7": {
         "path": "expedition",

@@ -50,6 +50,9 @@ var _save_clock := 0.0
 var _roster_removals := 0
 var _stats: Dictionary = {}
 var _stats_revision := -1
+## Change 60: bumped whenever the whole profile is replaced (new profile, load, Prestige), so the stat
+## feedback takes a fresh baseline instead of announcing the replacement as stat gains or losses.
+var profile_epoch := 0
 
 func _ready() -> void:
     rng.randomize()
@@ -72,6 +75,7 @@ const MIGRATABLE_SCHEMAS:=[8,9]
 const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24"]
 
 func new_profile() -> void:
+    profile_epoch+=1
     suspended=false
     clear_target()
     state = {"schema":SCHEMA,"merge_memory":{},"migrations":MIGRATIONS.duplicate(),"group_kills":[0,0,0,0],"player_level":1,"xp":0.0,"coins":0,"gems":0,"items":{},"gear":["","",""],"supplies":[""],
@@ -201,6 +205,7 @@ func restore(data: Dictionary) -> void:
     campaign.mastery.evaluate(false)
     settle_boss_respawns()
     campaign.settle_offline()
+    profile_epoch+=1
     touch()
 
 func _valid_snapshot(data: Dictionary) -> bool:

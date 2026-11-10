@@ -86,6 +86,8 @@ var inventory_filter:=0
 var slot_signatures: Dictionary={}
 var tier_styles: Dictionary={}
 var arrow_art: Texture2D
+## Change 60: floating effective-stat deltas over the player (scripts/game/stat_feedback.gd).
+var stat_feedback: Control
 ## Offline claim already offered for this pending settlement id (the panel opens once per return).
 var offline_prompted:=""
 var show_completed_main:=false
@@ -120,6 +122,10 @@ func _ready() -> void:
     $Toast.z_index=25
     banner.z_index=15
     world.setup(sim)
+    stat_feedback=preload("res://scripts/game/stat_feedback.gd").new()
+    stat_feedback.name="StatFeedback"
+    $Safe/Layout/Map.add_child(stat_feedback)
+    stat_feedback.setup(self)
     $Safe/Layout/Map/MiniMap.sim=sim
     $Safe/Layout/Map/MiniMap.open_map.connect(func()->void:_open("world"))
     world.actor_selected.connect(func(index: int,variant: int)->void:
@@ -145,7 +151,7 @@ func _ready() -> void:
     # Shape the panel type scale once at load: the first panel open otherwise pays the per-size
     # glyph cache (measured ~25 ms on the first Upgrades open).
     var font: Font=get_theme_default_font()
-    var sample:="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,:;%+−→▲▼✓·/()^"
+    var sample:="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,:;%+−→▲▼↑↓✓·/()^"
     for font_size in [17,18,20,24,34]:font.get_string_size(sample,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size)
     # Crop the fixed UI art at load with the item icons, so no panel pays the readback on first open.
     for index in [1,42,57,60,94,97,147,171,208,209,211,212,216,249,264,266,269,12,44]:_art(index)
@@ -275,6 +281,9 @@ func _process(dt: float) -> void:
     banner.held=sheet.visible or modal_open() or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending"
     # Change 59: the loot reminder hand stands down under the same surfaces and the guide's card/chooser.
     world.update_reminder(banner.held or guide.card.visible or guide.chooser.visible)
+    # Change 60: stat popups wait (and freeze) while the game is paused or something covers the map
+    # (as the Change 59 hand, also under the guide's card and chooser).
+    stat_feedback.update(dt,get_tree().paused or sim.suspended or sim.held or sheet.visible or modal_open() or not sim.state.prestige_batch.is_empty() or guide.card.visible or guide.chooser.visible)
     if settle_frames>0:
         settle_frames-=1
         _layout_sheet()
