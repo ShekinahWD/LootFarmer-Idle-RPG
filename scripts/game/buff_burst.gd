@@ -24,6 +24,9 @@ const TINTS:={
 const EMIT:=.85
 ## Body centre above the feet, and the emission rectangle's half extents (world units).
 const BODY:=Vector2(0,-13)
+## Centre of the visible character (its 24x24 frame is padded on top: the pixels span about -15..+2),
+## where the rings expand so they enclose the whole character.
+const RING_CENTER:=Vector2(0,-7)
 const AREA:=Vector2(11,9)
 const AURA_HEIGHT:=58.0
 const AURA_WIDTH:=34.0
@@ -53,6 +56,7 @@ func setup(is_positive: bool) -> void:
     # Rings: a few expanding outlines on the body.
     var rings:=_layer(front,RING,tint.main,3,.55)
     rings.emission_shape=CPUParticles2D.EMISSION_SHAPE_POINT
+    rings.position=RING_CENTER
     rings.initial_velocity_min=0;rings.initial_velocity_max=0
     rings.scale_amount_min=.24;rings.scale_amount_max=.3
     rings.scale_amount_curve=_curve([[0,.3],[.35,1],[1,1]])
@@ -62,7 +66,7 @@ func setup(is_positive: bool) -> void:
     arrows.initial_velocity_min=8;arrows.initial_velocity_max=13
     # Arrow_006 points left; CPUParticles2D turns it -90 degrees to point up (positive), +90 down.
     arrows.angle_min=90.0*up;arrows.angle_max=90.0*up
-    arrows.scale_amount_min=.11;arrows.scale_amount_max=.14
+    arrows.scale_amount_min=.22;arrows.scale_amount_max=.28
     arrows.scale_amount_curve=_curve([[0,.3],[.3,1],[.75,1],[1,0]])
     # Glow dots.
     var dots:=_layer(front,GLOW,tint.bright,12,.8)
