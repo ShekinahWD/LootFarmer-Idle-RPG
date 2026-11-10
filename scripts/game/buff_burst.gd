@@ -27,6 +27,10 @@ const BODY:=Vector2(0,-13)
 ## Centre of the visible character (its 24x24 frame is padded on top: the pixels span about -15..+2),
 ## where the rings expand so they enclose the whole character.
 const RING_CENTER:=Vector2(0,-7)
+## Arrow spawn points, relative to BODY: two columns on each side of the character (its pixels are about
+## 14 wide), at staggered heights, so the arrows stay off the body and apart from each other.
+const ARROW_POINTS:=[Vector2(-14,-6),Vector2(-21,4),Vector2(-14,12),Vector2(-21,-2),
+    Vector2(14,0),Vector2(21,-6),Vector2(14,8),Vector2(21,6)]
 const AREA:=Vector2(11,9)
 const AURA_HEIGHT:=58.0
 const AURA_WIDTH:=34.0
@@ -61,7 +65,9 @@ func setup(is_positive: bool) -> void:
     rings.scale_amount_min=.24;rings.scale_amount_max=.3
     rings.scale_amount_curve=_curve([[0,.3],[.35,1],[1,1]])
     # Arrows: rise (or fall), pointing the way they move.
-    var arrows:=_layer(front,ARROW,tint.bright,10,1.0)
+    var arrows:=_layer(front,ARROW,tint.bright,7,1.0)
+    arrows.emission_shape=CPUParticles2D.EMISSION_SHAPE_POINTS
+    arrows.emission_points=PackedVector2Array(ARROW_POINTS)
     arrows.direction=Vector2(0,up)
     arrows.initial_velocity_min=8;arrows.initial_velocity_max=13
     # Arrow_006 points left; CPUParticles2D turns it -90 degrees to point up (positive), +90 down.
