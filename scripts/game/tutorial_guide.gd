@@ -51,6 +51,8 @@ var world_target:=Vector2.INF
 ## Change 16: the opening lesson's direction arrow, from the player toward this world point (INF: none).
 var path_point:=Vector2.INF
 var scrolled_for: String=""
+var scroll_retries:=0
+const SCROLL_RETRY_FRAMES:=20
 var pulse: float=0
 ## Change 14: seconds the Focused Farming pointer has been on screen; it retires after FOCUS_HINT_SECONDS.
 const ROAD_AHEAD_ID:="road_ahead"
@@ -240,6 +242,7 @@ func _process(dt: float) -> void:
                 data["road_ahead_seconds"]=minf(delay,elapsed+dt)
                 SaveService.mark_dirty()
     if pending=="focus" and (card.visible or pointer.visible):focus_shown+=dt
+    if card.visible and pending in LONG_STEPS:long_shown[pending]=float(long_shown.get(pending,0.0))+dt
     # Basic overview cards retire on their own after a readable time on screen.
     if data.mode=="basic" and BASIC_DECK.has(intro_id) and card.visible:
         if card_for!=intro_id:card_for=intro_id;card_shown=0
@@ -274,7 +277,7 @@ func _path_followed() -> bool:
     return at.distance_to(Vector2(arrival[0],arrival[1]))>48
 
 func evaluate() -> void:
-    pending="";step="";surfaces=[""];target=null;world_target=Vector2.INF;intro_id="";path_point=Vector2.INF
+    pending="";step="";surfaces=[""];target=null;world_target=Vector2.INF;intro_id="";path_point=Vector2.INF;screen_target=Rect2()
     var data: Dictionary=sim.state.tutorial
     # Change 24 (UI-05): None shows no guide at all; The Road Ahead is its only exception. Auto Claim
     # is explained by the Missions panel's own text there, without a pointer.
@@ -431,10 +434,10 @@ func _guided_lesson() -> void:
         if world_target==Vector2.INF:world_target=_nearest_enemy()
         if world_target==Vector2.INF:step="target_find";target=ui.stick
         return
-    if current in ["boss_preparation","prestige_intro","world_intro","travel_intro","milestones_intro","tutorial_final"]:
+    if current=="tutorial_final":
         intro_id="flow:"+current
-        if current=="prestige_intro" and not sim.campaign.ready_ids().is_empty():step="prestige_eligible"
         return
+    if _guided_change61(current):return
     if current in ["player_upgrade","expand_inventory"]:
         surfaces=["","upgrades"]
         var upgrade: String="respawn" if current=="player_upgrade" else "gear_slots"
@@ -472,10 +475,6 @@ func _guided_lesson() -> void:
         var g: int=sim.campaign.prestige_unlock_group()
         path_point=sim.campaign.spot(g,2)
         return
-    if current in ["boss_farm","boss_win"]:
-        if current=="boss_farm":world_target=_nearest_enemy()
-        else:pending=""
-        return
     if current=="potion_buy":
         surfaces=["","upgrades","item"]
         if not sim.can_add("potion"):
@@ -505,10 +504,132 @@ func _guided_lesson() -> void:
         return
     if current=="winter_two":
         surfaces=["","world","travel_map"]
-        if ui.sheet.visible and ui.panel=="world":target=_panel_control("travel_stage_2")
+        if ui.sheet.visible and ui.panel=="world":
+            step="winter_two_travel";target=_panel_control("travel_stage_2")
+        elif ui.sheet.visible and ui.panel=="travel_map":step="winter_two_travel"
         else:target=ui.dock.get_node("Navigation/World")
 
+## Change 61 lessons. Each names the live control of the next real tap (or the world / a map marker);
+## the step itself finishes only through guided_progress (real action or real screen).
+func _guided_change61(current: String) -> bool:
+    var nav: Node=ui.dock.get_node("Navigation")
+    var open: String=ui.panel if ui.sheet.visible else ""
+    match current:
+        "gear_bonus":
+            # Stats opens from the level bar's Player Level & Growth (or from Settings).
+            surfaces=["","level","settings","stats"]
+            if open=="stats":step="gear_bonus_stats";target=_panel_row("stored_share")
+            elif open in ["level","settings"]:step="gear_bonus_open";target=_panel_control("open_stats")
+            else:target=ui.top.get_node("Meters/XP/Open")
+        "offline_rewards":
+            surfaces=["","upgrades"]
+            if open=="upgrades":target=_panel_control("tab_tab_offline")
+            else:target=nav.get_node("Upgrades")
+        "respawn_select":
+            surfaces=["","world","camp"]
+            var camp:=_additional_camp()
+            if open in ["world","camp"]:
+                step="respawn_select_tap";target=_panel_control("camp_select_%d" % camp)
+            elif camp>=0 and ui.view_camp==camp:target=ui.get_node("Safe/Layout/Map/ViewCamp")
+            else:target=nav.get_node("World")
+        "camp_travel":
+            surfaces=["","world","camp","teleport"]
+            var here: int=ui._camp_at_player()
+            var goal:=-1
+            for camp in sim.state.spawns:
+                if int(camp)==here:continue
+                if goal<0 or (int(goal)==int(sim.state.spawn) and int(camp)!=int(sim.state.spawn)):goal=int(camp)
+            if goal<0:return true
+            if sim.campaign.in_combat() or sim.state.player.hp<=0:
+                step="camp_travel_wait";world_target=Vector2.INF
+                return true
+            if open=="world":step="camp_travel_tap";target=_panel_control("camp_travel_%d" % goal,true)
+            elif open=="camp":step="camp_travel_tap";target=_panel_control("camp_teleport",true)
+            elif open=="teleport":
+                step="camp_travel_tap"
+                target=_panel_control("teleport_go",true) if ui.teleport_target==[1,goal] else _panel_control("teleport_1_%d" % goal)
+            else:target=nav.get_node("World")
+        "map_details":
+            surfaces=["","world"]
+            var price: int=sim.upgrade_cost("map_detail",int(sim.state.stage))
+            if sim.state.coins<price:
+                step="map_details_earn";support_value=price-sim.state.coins
+                if open=="":world_target=_nearest_enemy()
+                return true
+            if open=="world":target=_panel_control("buy_map_detail",true)
+            else:step="boss_found";target=nav.get_node("World")
+        "enemy_pins":
+            surfaces=["","world"]
+            if open=="world":
+                step="enemy_pins_tap"
+                var map: Control=_panel_row("",true)
+                var points: Array=map.enemy_marker_points() if map!=null else []
+                if points.is_empty():step="enemy_pins_explore";return true
+                var best: Vector2=points[0]
+                var player: Vector2=map.player_dot.position+map.player_dot.size*.5
+                for point in points:
+                    if point.distance_to(player)<best.distance_to(player):best=point
+                target=map
+                screen_target=Rect2(map.global_position+best-Vector2.ONE*14,Vector2.ONE*28)
+            else:target=nav.get_node("World")
+        "hunt_follow","hunt_claim":
+            surfaces=["","missions"]
+            if open=="missions":target=_panel_control("follow_hunt" if current=="hunt_follow" else "claim_hunt",true)
+            else:target=nav.get_node("Missions")
+        "hunt_farm":
+            # Following again if the player unfollowed it keeps the 0/30 tracker on screen.
+            if sim.campaign.followed_mission().get("kind","")!="hunt":
+                step="hunt_follow";surfaces=["","missions"]
+                if open=="missions":target=_panel_control("follow_hunt",true)
+                else:target=nav.get_node("Missions")
+            elif float(long_shown.get(current,0.0))>=LONG_CARD_SECONDS:pending=""
+        "prestige_follow":
+            surfaces=["","prestige"]
+            step="boss_prestige_follow"
+            if open=="prestige":
+                target=_panel_control("follow_"+sim.campaign.guided.FIRST_BOSS_OPPORTUNITY,true)
+                # Its stage section may be collapsed: the Winter I heading opens it.
+                if target==null:target=_panel_control("prestige_stage_1")
+            else:target=nav.get_node("Prestige")
+        "boss_win":
+            if float(long_shown.get(current,0.0))>=LONG_CARD_SECONDS:pending=""
+        "world_open":
+            surfaces=[""]
+            target=nav.get_node("World")
+        "prestige_optional":
+            surfaces=["","prestige"]
+            if open=="prestige":
+                step="prestige_optional_panel"
+                target=_panel_row("opportunity_"+sim.campaign.guided.FIRST_BOSS_OPPORTUNITY)
+            else:target=nav.get_node("Prestige")
+        _:return false
+    return true
+
+## The first owned camp of the current map other than its arrival camp (-1 when none).
+func _additional_camp() -> int:
+    var owned: Array=sim.state.spawns.duplicate()
+    owned.sort()
+    for camp in owned:
+        if int(camp)!=0:return int(camp)
+    return -1
+
+## A non-button control of the open panel by its guide_row tag (Stats rows, opportunity cards); with
+## map=true, the World panel's map view.
+func _panel_row(key: String,map:=false) -> Control:
+    for node in ui.rows.find_children("*","Control",true,false):
+        if node.is_queued_for_deletion() or not node.is_visible_in_tree():continue
+        if map and node.has_meta("guide_map"):return node
+        if not map and str(node.get_meta("guide_row",""))==key:return node
+    return null
+
 var support_value:=0.0
+## Change 61: a screen-space pointer target (a World map marker) when the target is not a control.
+var screen_target:=Rect2()
+## Long farming lessons (hunt_farm, boss_win) keep their card on screen this many seconds per session,
+## then let the player play with the tracker alone (the step stays pending and its gate unchanged).
+const LONG_CARD_SECONDS:=20.0
+const LONG_STEPS:=["hunt_farm","boss_win"]
+var long_shown: Dictionary={}
 
 ## Change 14: right after the first Focused Farming purchase (campaign.focus_hint), point at the next
 ## real tap toward that type's Farm button: the button itself in its enemy panel (both tabs show it),
@@ -581,7 +702,7 @@ func _slot(id: String) -> Control:
 func _panel_control(key: String,enabled_only:=false) -> Control:
     for root in [ui.actions,ui.rows]:
         for node in root.find_children("*","Button",true,false):
-            if node.get_meta("guide","")==key and node.is_visible_in_tree() and not node.is_queued_for_deletion() and (not enabled_only or not node.disabled):return node
+            if (node.get_meta("guide","")==key or node.get_meta("guide_alt","")==key) and node.is_visible_in_tree() and not node.is_queued_for_deletion() and (not enabled_only or not node.disabled):return node
     return null
 
 func _hide_all() -> void:
@@ -627,7 +748,11 @@ func _present() -> void:
     _point()
 
 func _picture() -> Texture2D:
-    if step in ["snowman","feature_objective"]:return ui.icon_cache.get("boss-snowman_outfit")
+    if step in ["snowman","feature_objective","boss_found","boss_win","world_open","boss_prestige_follow"]:return ui.icon_cache.get("boss-snowman_outfit")
+    if step.begins_with("gear_bonus"):return ui._art(211)
+    if step.begins_with("offline"):return ui._art(147)
+    if step.begins_with("respawn") or step.begins_with("camp_travel") or step.begins_with("winter_two"):return ui._art(249)
+    if step.begins_with("map_details") or step.begins_with("enemy_pins") or step.begins_with("hunt"):return ui._art(1)
     if BASIC_DECK.has(step):return ui._art(int(ui.HELP_ART.get(step,60)))
     if step.begins_with("focus") or step.begins_with("slots") or step=="feature_upgrades":return ui._art(147)
     if step in ["skills","rest"]:return ui._art(212)
@@ -692,12 +817,16 @@ func _point() -> void:
         var scroll: ScrollContainer=ui.get_node("Sheet/Margin/Content/Scroll")
         if scrolled_for!=key and scroll.is_ancestor_of(target):
             scroll.ensure_control_visible(target)
-            scrolled_for=key
-        rect=target.get_global_rect()
+            scrolled_for=key;scroll_retries=SCROLL_RETRY_FRAMES
+        rect=target.get_global_rect() if screen_target.size==Vector2.ZERO else screen_target
         # Inside the scroll list only the visible part counts; never point at off-screen controls.
         if scroll.is_ancestor_of(target):
             var visible_rect:=scroll.get_global_rect()
             have=visible_rect.encloses(rect.grow(-4))
+            # Change 61: a list still settling (rows growing after the first layout) can leave the target
+            # cut off; scrolling is retried for a few frames, never after that (the player may scroll away).
+            if not have and scroll_retries>0:
+                scroll_retries-=1;scroll.ensure_control_visible(target)
         else:have=ui.get_global_rect().encloses(rect)
     elif world_target!=Vector2.INF:
         var map: Control=ui.get_node("Safe/Layout/Map")

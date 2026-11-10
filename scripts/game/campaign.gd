@@ -21,7 +21,7 @@ func _init(owner) -> void:
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={}
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"bosses_found":[],"follow_mission":"","review":review.initial()},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"bosses_found":[],"follow_mission":"","review":review.initial(),"respawns":{},"hunt":hunt_initial()},true)
     mastery.reset_cache()
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
@@ -150,6 +150,8 @@ func configure_stage() -> void:
     if not sim.state.camps.has(key):sim.state.camps[key]=[0]
     sim.state.spawns=sim.state.camps[key]
     sim.state.spawn=clampi(int(sim.state.spawn),0,d.spawns.size()-1)
+    # Change 61: the respawn camp is always an owned camp of this stage (arrival camp as the fallback).
+    if not sim.state.spawns.has(int(sim.state.spawn)):sim.state.spawn=0
 func camp_price(index: int) -> int:
     if index==0:return 0
     return maxi(1,ceili([0,50,150][index]*map_cost_factor(int(sim.state.stage))*(1-bonus("camp_discount"))))
@@ -219,25 +221,34 @@ func travel_reason(st: int,camp: int) -> String:
     if camp<0 or camp>=sim.catalog.stages[st-1].spawns.size():return "CAMP_LOCKED"
     if not sim.state.camps.get(str(st),[0]).has(camp):return "CAMP_LOCKED"
     return ""
+## Change 61 (approved separation): Select chooses the respawn camp; Travel / Teleport only moves the
+## player. The selected respawn camp is kept per stage (state.respawns, stage key -> camp; reset with
+## the camps by Prestige): leaving a stage records its choice and arriving restores the destination
+## stage's own choice (its arrival camp when none was made or that camp is no longer owned). Travel
+## never changes it, so a trip to another camp still respawns the player at the camp they selected.
 func camp_action(st: int,camp: int,teleport: bool) -> bool:
     if not sim.action_lock_reason().is_empty():return sim.fail(sim.action_lock_reason())
     if teleport:
         var reason=travel_reason(st,camp)
         if reason!="":return sim.fail(reason)
+        var before_camp:=-1
+        var before_stage:=int(sim.state.stage)
+        if st==before_stage:before_camp=resting_camp()
         if st!=int(sim.state.stage):
             sim.clear_helpers()
             sim.state.stage_worlds[str(sim.state.stage)]={"enemies":sim.state.enemies.duplicate(true),"pickups":sim.state.pickups.duplicate(true)}
-            sim.state.stage=st;sim.state.spawn=camp
+            sim.state.respawns[str(sim.state.stage)]=int(sim.state.spawn)
+            sim.state.stage=st;sim.state.spawn=int(sim.state.respawns.get(str(st),0))
             configure_stage()
             var saved: Dictionary=sim.state.stage_worlds.get(str(st),{})
             sim.state.enemies=saved.get("enemies",[]).duplicate(true)
             sim.state.pickups=saved.get("pickups",[]).duplicate(true)
             sim._sync_spawn_counts()
-        sim.state.spawn=camp
         var pos: Array=stage().spawns[camp]
         sim.state.player.x=pos[0];sim.state.player.y=pos[1]
         sim.state.player.windup=0;sim.state.player.target="";sim.state.player.idle=0
         sim.state.focus=-1;sim.clear_target();reveal()
+        if st==before_stage and camp!=before_camp:guided.action("camp_travel",str(camp))
         sim.touch();SaveService.save_now();return true
     if st!=int(sim.state.stage) or camp<0 or camp>=stage().spawns.size():return false
     if not sim.state.spawns.has(camp):
@@ -246,7 +257,9 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
         sim.state.spawns.append(camp)
         sim.state.camps[str(st)]=sim.state.spawns
         progress("camp","",1);reveal()
-    else:sim.state.spawn=camp
+    else:
+        sim.state.spawn=camp;sim.state.respawns[str(st)]=camp
+        guided.action("respawn",str(camp))
     sim.touch();SaveService.save_now();return true
 func cell_key(pos: Vector2) -> String:
     return "%d,%d" % [floori(pos.x/fog_rules.cell_size),floori(pos.y/fog_rules.cell_size)]
@@ -421,6 +434,9 @@ func sight_bosses() -> void:
         SaveService.mark_dirty()
         sim.notice.emit("boss_found",str(d.id))
         sim.milestone.emit("boss_found",str(d.id))
+        # Change 61: the campaign's next one-second tick (evaluate) then discovers the Snowman's first
+        # Prestige opportunity (hunter_o1) and unlocks the one-time 30-defeat mission, so the boss cue
+        # plays first and the discovery announces itself just after (Change 16 sound rule).
         # The Snowman's warning comes first, then the Prestige reveal it causes.
         onboarding.evaluate()
 func boss_found(id: String) -> bool:
@@ -832,6 +848,7 @@ func killed(a: Dictionary) -> void:
     discover_spot(int(a.group),int(a.get("variant",2)))
     sim.state.run_kills[d.id]=int(sim.state.run_kills.get(d.id,0))+1
     var prior: Array=sim.state.opportunities.keys()
+    hunt_kill()
     progress("kill" if not d.boss else "boss_kill",d.id,1)
     if d.boss:
         progress("boss",d.id,1)
@@ -964,6 +981,7 @@ func main_shown() -> Array:
         else:waiting.append(i)
     return (ready+waiting).slice(0,3)
 func has_claimable() -> bool:
+    if hunt_claimable():return true
     for i in range(sim.state.missions.size()):
         if mission_claimable(i):return true
     for i in main_shown():
@@ -975,11 +993,13 @@ func has_claimable() -> bool:
 ## identified by its slot and its assignment ("daily:<slot>:<kind>:<target>:<day>"), so a refresh that
 ## replaces it ends the follow; "main:<index>" names a main objective. A claim ends the follow.
 func mission_follow_key(kind: String,i: int) -> String:
+    if kind=="hunt":return HUNT_ID
     if kind=="main":return "main:%d" % i
     if i<0 or i>=sim.state.missions.size():return ""
     var m: Dictionary=sim.state.missions[i]
     return "daily:%d:%s:%s:%s" % [i,m.kind,m.target,m.day]
 func can_follow_mission(kind: String,i: int) -> bool:
+    if kind=="hunt":return hunt_open()
     if kind=="main":return i>=0 and i<16 and not sim.state.main_claimed.has(i) and (i!=15 or sim.state.final_discovered)
     if i<0 or i>=sim.state.missions.size():return false
     var m: Dictionary=sim.state.missions[i]
@@ -996,6 +1016,7 @@ func toggle_follow_mission(kind: String,i: int) -> bool:
 func followed_mission() -> Dictionary:
     var key: String=str(sim.state.get("follow_mission",""))
     if key=="":return {}
+    if key==HUNT_ID:return {"kind":"hunt","index":0} if hunt_open() else {}
     var bits:=key.split(":")
     var kind: String=bits[0]
     var i:=int(bits[1]) if bits.size()>1 else -1
@@ -1018,6 +1039,9 @@ func main_progress(i: int) -> Array:
 func mission_follow_summary() -> String:
     var f:=followed_mission()
     if f.is_empty():return ""
+    if f.kind=="hunt":
+        if hunt_ready():return sim.tr("MISSION_FOLLOW_READY")
+        return "%s: %d/%d" % [sim.tr("HUNT_MISSION_HINT"),int(hunt_progress()),HUNT_GOAL]
     if f.kind=="main":
         var i: int=f.index
         if main_claimable(i):return sim.tr("MISSION_FOLLOW_READY")
@@ -1042,6 +1066,43 @@ func claim_mission(i: int) -> bool:
     progress("mission","",1);refresh_missions();check_follow_mission();sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     return true
+# ---------------------------------------------------------------- one-time 30-defeat mission (Change 61)
+## A stable one-time mission (state.hunt, kept by Prestige, cleared by Hard Reset), in every mode: it
+## unlocks the moment the Snowman is first found (prestige_unlocked) and counts HUNT_GOAL real defeats of
+## any enemy or boss from then on (hunt_kill, from killed(): summoned helpers never get there and offline
+## time defeats nothing). It is not a daily slot: no refresh replaces it and Auto Claim never takes it;
+## the player follows it like any mission and claims it by hand, once. Reward: the established
+## main-objective scale (catalog main_rewards[HUNT_REWARD_INDEX], the "unlock a camp" objective's).
+const HUNT_ID:="hunt"
+const HUNT_GOAL:=30
+const HUNT_REWARD_INDEX:=3
+func hunt_initial() -> Dictionary:return {"unlocked":false,"progress":0.0,"claimed":false}
+func hunt_state() -> Dictionary:return sim.state.get("hunt",hunt_initial())
+func hunt_progress() -> float:return float(hunt_state().progress)
+func hunt_ready() -> bool:return bool(hunt_state().unlocked) and hunt_progress()>=HUNT_GOAL
+## Unlocked and not claimed yet: shown in Missions, followable.
+func hunt_open() -> bool:return bool(hunt_state().unlocked) and not bool(hunt_state().claimed)
+func hunt_claimable() -> bool:return hunt_open() and hunt_ready()
+func hunt_rewards() -> Array:return sim.catalog.campaign.main_rewards[HUNT_REWARD_INDEX]
+func unlock_hunt() -> void:
+    var h: Dictionary=sim.state.get("hunt",{})
+    if h.is_empty() or bool(h.unlocked) or not prestige_unlocked():return
+    h.unlocked=true;h.progress=0.0
+    sim.touch();SaveService.mark_committed()
+func hunt_kill() -> void:
+    var h: Dictionary=sim.state.get("hunt",{})
+    if h.is_empty() or not bool(h.unlocked) or bool(h.claimed) or float(h.progress)>=HUNT_GOAL:return
+    h.progress=minf(HUNT_GOAL,float(h.progress)+1.0)
+    if float(h.progress)>=HUNT_GOAL:sim.notice.emit("mission_ready","hunt")
+func claim_hunt() -> bool:
+    if not sim.action_lock_reason().is_empty() or not hunt_claimable():return false
+    var before: Dictionary=sim.state.duplicate(true)
+    var rewards:=hunt_rewards()
+    sim.state.hunt.claimed=true;sim.state.coins+=rewards[0];sim.state.gems+=rewards[1]
+    guided.action("hunt_claim","")
+    check_follow_mission();sim.touch()
+    if not SaveService.save_now():sim.state=before;sim.touch();return false
+    return true
 ## Change 54 (approved Design A): the per-path requirement tables, indexed by the opportunity number - 1.
 ## Opportunities 1-3 are unchanged; 4-8 are the expansion (audit §7.3). Enemy and boss ids are real content.
 const EXPEDITION_TYPES:=[["blue-cap","red-scarf","chef-hat"],["straw-hat","sunglasses","yellow-cap"],["bunny-ears","cat-ears","elf-ears"],
@@ -1058,7 +1119,9 @@ const COLLECTION_GOALS:=[20,30,40,15,25,30,30,40]
 const COLLECTION_DISCOVER_STAGE:=[0,3,7,2,4,5,6,8]
 const HUNTER_BOSSES:=[["boss-snowman"],["boss-gray-cat"],["boss-grim-reaper"],["boss-bee","boss-orange-tabby-cat"]]
 ## Boss Hunter kill targets per boss after discovery (Change 6: 10 / 20 / 30; Change 54: IV 10 each).
-const HUNTER_KILLS:=[10,20,30,10]
+## Change 61 (approved first-boss flow): Hunter I is discovered by finding the Snowman and is ready on its
+## first defeat (1). Hunter II-IV keep their discovery (a first defeat) and their counts.
+const HUNTER_KILLS:=[1,20,30,10]
 const CHALLENGE_BOSSES:=["boss-cyan-robot","boss-teal-dinosaur","boss-grim-reaper","boss-red-panda"]
 const TROPHY_BOSSES:=[["snowman","cyan-robot"],["gray-cat","elephant","teal-dinosaur"],["squirrel","red-fox","black-cat","grim-reaper"],["bee","orange-tabby-cat","red-panda","sunflower"]]
 const REGIONAL_STAGES:=[[1,2],[3,4],[7,8],[5,6]]
@@ -1096,7 +1159,9 @@ func discoverable(op: Dictionary) -> bool:
     var n=int(op.id.right(1));var path: String=op.path
     match path:
         "offline":return sim.state.offline_total>0
-        "hunter","challenge":return counter("boss:"+boss_goal(path,n))>=1
+        "hunter","challenge":
+            if path=="hunter" and n==1 and prestige_unlocked():return true
+            return counter("boss:"+boss_goal(path,n))>=1
         "expedition":return counter("kill:"+str(chain_for(op.id)[0][1]))>=10
         "regional":return sim.state.unlocked_stage>=REGIONAL_DISCOVER_STAGE[n-1]
         "offering":return counter("coins")>=1000 if n==1 else sim.state.unlocked_stage>=(5 if n==2 else 8)
@@ -1124,6 +1189,7 @@ func _obsidian_weapon(id: String) -> bool:
     var d: Dictionary=sim.catalog.items.get(id,{})
     return str(d.get("kind",""))=="weapon" and str(d.get("next","x"))=="" and int(d.get("tier",0))==7 and not sim.is_legacy(id)
 func evaluate() -> void:
+    unlock_hunt()
     for op in sim.catalog.campaign.opportunities:
         if sim.state.consumed.has(op.id):continue
         if not sim.state.opportunities.has(op.id):
@@ -1283,7 +1349,7 @@ func first_boss_defeated() -> bool:
     var g:=prestige_unlock_group()
     return g>=0 and int(sim.state.group_kills[g])>0
 func prestige_gate_reason() -> String:
-    if guided.active():return "PRESTIGE_TUTORIAL_LOCKED"
+    if guided.active() and not guided.prestige_allowed():return "PRESTIGE_TUTORIAL_LOCKED"
     if not prestige_unlocked():return "PRESTIGE_LOCKED_FIRST_BOSS"
     return ""
 ## Ready opportunities that can still award a card, in batch order: each path offers its cards that
@@ -1312,6 +1378,9 @@ func begin_prestige() -> bool:
     if not prestige_block_reason().is_empty():return sim.fail(prestige_block_reason())
     var before: Dictionary=sim.state.duplicate(true)
     sim.state.prestige_batch={"ids":awardable_ids(),"choices":[],"transaction":str(Time.get_unix_time_from_system())+"-"+str(sim.rng.randi())}
+    # Change 61: an optional Prestige taken at the Guided Prestige lesson completes that lesson before
+    # the reset (the tutorial record is kept), so The Road Ahead follows on the new run's first map.
+    guided.prestige_started()
     sim.clear_target();sim.movement=Vector2.ZERO;sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     return true
@@ -1341,7 +1410,7 @@ func choose_card(id: String) -> bool:
         # memory and earned-but-unclaimed main objectives. Items, loadout, rolled attributes, map access,
         # owned camps, missions, Supply Mastery and transient run state reset. Mission rewards are
         # priced from the new run's own map access (reward_stage), not the highest map ever reached.
-        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1485,6 +1554,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
             for g in range(mini(out.group_kills.size(),sim.catalog.groups.size())):
                 if sim.catalog.groups[g].boss and number(out.group_kills[g]) and float(out.group_kills[g])>0:found.append(str(sim.catalog.groups[g].id))
         out["bosses_found"]=found
+    normalize_change61(out)
     for key in sim.state:
         if not out.has(key):out[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
     # Older schema-8 profiles have no expansion preferences. Ignore malformed/unknown keys.
@@ -1544,6 +1614,24 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     normalize_skill_assignments(out)
     migrate_legacy_weapons(out)
     return out
+## Change 61 (same schema 9): the per-stage respawn choice and the one-time 30-defeat mission. A save from
+## before has neither: respawns starts empty (the current stage keeps its "spawn"), the mission starts
+## locked and unlocks on the next tick if the Snowman was already found (counting defeats from then on).
+## Malformed values are repaired here, so a valid save is never rejected for them.
+func normalize_change61(out: Dictionary) -> void:
+    var respawns: Dictionary={}
+    if out.get("respawns") is Dictionary:
+        for key in out.respawns:
+            if str(key).is_valid_int() and int(key) in range(1,sim.catalog.stages.size()+1) and number(out.respawns[key]):
+                var camp:=int(out.respawns[key])
+                if camp in range(sim.catalog.stages[int(key)-1].spawns.size()):respawns[str(int(key))]=camp
+    out["respawns"]=respawns
+    var h: Dictionary=hunt_initial()
+    if out.get("hunt") is Dictionary:
+        h.unlocked=out.hunt.get("unlocked",false)==true
+        h.claimed=out.hunt.get("claimed",false)==true and h.unlocked
+        h.progress=clampf(float(out.hunt.progress),0.0,HUNT_GOAL) if number(out.hunt.get("progress")) and h.unlocked else 0.0
+    out["hunt"]=h
 ## Change 51 (once, state.migrations "legacy_weapons_h24"): every owned weapon of the previous stat table
 ## whose new stats are lower (tiers 2-7) becomes its "<id>_legacy" copy: the same quantity, merge level,
 ## rolled attributes, equip slot and Auto-Merge choice, the old stats, no evolution. It leaves with the

@@ -81,7 +81,7 @@ func prestige_checks() -> void:
     sim.state.prestige_batch={};sim.touch()
     fresh();sim.campaign.progress("boss","boss-snowman",1);sim.state.counters["boss:boss-snowman"]=1;sim.campaign.evaluate()
     check(sim.state.opportunities.has("hunter_o1") and not sim.state.opportunities.has("challenge_o1"),"Snowman discovers the bounty; the unassisted challenge moved to the Cyan Robot")
-    check(sim.campaign.hunter_goal(1)==10,"First bounty asks 10 Snowman defeats")
+    check(sim.campaign.hunter_goal(1)==1,"First bounty asks one Snowman defeat (Change 61; it was 10)")
 
 ## Card values are substantial, effects distinct inside a path, and the new effects apply.
 func card_checks() -> void:
@@ -224,7 +224,7 @@ func count(node: Node) -> int:
 
 ## Physical camp route: approach, discover, open the visible camp control and buy manually.
 func tutorial_checks() -> void:
-    fresh();sim.state.tutorial.mode="guided";sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("close_upgrade")+1)
+    fresh();sim.state.tutorial.mode="guided";sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("potion_use")+1) # Change 61: camp follows the potion lessons
     await frames(3)
     check(game.guide.pending=="camp" and game.guide.step=="camp_approach","Undiscovered camp asks for a physical approach")
     check(game.guide.path_point!=Vector2.INF,"Camp direction guides movement toward the first camp")

@@ -23231,8 +23231,8 @@
         "id": "hunter_o1",
         "path": "hunter",
         "name": "CONTENT_HUNTER_O1_NAME",
-        "discovery": "Defeat boss-snowman once",
-        "description": "CONTENT_HUNTER_O1_DESCRIPTION",
+        "discovery": "Find boss-snowman",
+        "description": "CONTENT_HUNTER_O1_FIRST_DESCRIPTION",
         "lifetime": false,
         "stages": [
           1

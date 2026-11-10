@@ -9,6 +9,8 @@ extends Control
 ## carries a weapon, a skill badge (top right) on skill spots, and a dimmed portrait on weapon-only
 ## spots, whose enemies do not wear (or drop) the outfit.
 signal selected(group: int,variant: int)
+## Change 61: any drawn enemy marker was tapped (every Map Details rank; selected still needs rank 2).
+signal marker_tapped(group: int,variant: int)
 signal camp_selected(camp: int)
 signal open_map
 @export var mini: bool=false
@@ -229,10 +231,29 @@ func _choose_at(point: Vector2) -> void:
     if nearest>=0:
         if sim.campaign.travel_reason(int(sim.state.stage),nearest).is_empty():camp_selected.emit(nearest)
         accept_event();return
-    if not rect.has_point(point) or sim.level("map_detail",int(sim.state.stage))<2:return
+    if not rect.has_point(point) or sim.level("map_detail",int(sim.state.stage))<1:return
+    var best:=marker_at(point)
+    if best.is_empty():return
+    marker_tapped.emit(best[0],best[1])
+    if sim.level("map_detail",int(sim.state.stage))>=2:selected.emit(best[0],best[1])
+    accept_event()
+## The drawn marker under a local point ([group, variant, position]) or [].
+func marker_at(point: Vector2) -> Array:
+    var rect:=transform_rect()
+    var factor: float=rect.size.x/float(sim.catalog.world.size[0])
     var reach:=maxf(20.0,marker_side(factor)*.75)
     var best: Array=[]
     for entry in spots(rect,factor):
         var d: float=entry[2].distance_to(point)
         if d<reach and (best.is_empty() or d<best[2].distance_to(point)):best=entry
-    if not best.is_empty():selected.emit(best[0],best[1]);accept_event()
+    return best
+## Change 61: local positions of the drawn markers of normal (non-boss) enemies, for the Guided
+## enemy-marker lesson. Empty without Map Details: nothing hidden is ever pointed at.
+func enemy_marker_points() -> Array:
+    if sim==null or sim.level("map_detail",int(sim.state.stage))<1:return []
+    var rect:=transform_rect()
+    var factor: float=rect.size.x/float(sim.catalog.world.size[0])
+    var points: Array=[]
+    for entry in spots(rect,factor):
+        if not sim.catalog.groups[entry[0]].boss:points.append(entry[2])
+    return points

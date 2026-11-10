@@ -19,7 +19,7 @@ const PROGRESSION_LANGS:=["en","es_419","es_ES","pt_BR","fr_FR","de_DE"]
 ## Keys whose text must be visible on each screen (format keys: their longest literal fragment).
 const EXPECT:={
     "world_map_hint":["MAP_MARKERS_HINT"],
-    "offline_gear_hint":["OFFLINE_GEAR_HINT","OFFLINE_UPGRADES_JUMP"],
+    "offline_gear_hint":["OFFLINE_ITEMS_HINT","OFFLINE_UPGRADES_JUMP"],
     "upgrades_offline":["OFFLINE_GEAR_BENEFIT"],
     "item_boss_enhanced":["ITEM_BOSS_BONUS","ITEM_BOSS_BONUS_EXPLAIN","REROLL_ATTRIBUTE"],
     "confirm_reroll":["REROLL_ATTRIBUTE_CONFIRM"],
@@ -111,9 +111,17 @@ func expect(screen: String) -> void:
     for key in EXPECT.get(screen,[]):
         coverage_checks+=1
         var want:=literal(key)
-        if current_lang!="en" and tr(key)==english.get(key,""):add(screen,"untranslated",key)
+        # A key awaiting translation (tools/localization_pending.json) may show its English fallback in a
+        # locale its batch has not delivered yet (Change 61: OFFLINE_ITEMS_HINT), as the validator allows.
+        if current_lang!="en" and tr(key)==english.get(key,"") and not awaiting_translation(key):add(screen,"untranslated",key)
         elif want=="" or not text.contains(want):
             add(screen,"not_shown","%s: '%s'" % [key,want.left(50)])
+
+var _pending: Dictionary={}
+func awaiting_translation(key: String) -> bool:
+    if _pending.is_empty():
+        _pending=JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization_pending.json")).get("keys",{})
+    return _pending.has(key) and not _pending[key].get("translated",[]).has(current_lang)
 
 ## The sweep's checks, plus: a wrapping label narrower than one of its own words breaks inside that word
 ## ("Bonificació|n" on a boss-enhanced weapon before Change 58).

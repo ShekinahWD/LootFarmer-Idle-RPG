@@ -59,22 +59,24 @@ func offline_hint_checks() -> void:
     sim.add_item("wood_sword",1);sim.state.gems=200
     sim.state.offline_pending={"id":"p","seconds":3600.0,"longest":3600.0,"rewarded_hours":1.0,"coins":120.0,"gems":2.0,"items":{}}
     game._open("offline");await frames(2)
-    check(panel_text().contains(tr("OFFLINE_GEAR_HINT")) and button("offline_upgrades_jump")!=null,"O1 shows on the welcome-back panel")
+    check(panel_text().contains(tr("OFFLINE_ITEMS_HINT")) and button("offline_upgrades_jump")!=null,"O1 shows on the welcome-back panel")
     check(not game.get_node("Confirm").visible,"…inline, no modal")
     button("offline_upgrades_jump").pressed.emit();await frames(3)
     check(sim.state.offline_pending.is_empty() and game.panel=="upgrades" and game.player_tab==4,"O1 claims first, then opens Upgrades > Offline")
     check(game._upgrade_benefit("offline_weapon",-1)==tr("OFFLINE_GEAR_BENEFIT"),"O2: the unlock says it copies owned gear")
     game._close()
-    sim.state.upgrades["offline_weapon"]=1;sim.state.upgrades["offline_outfit"]=1
+    # Change 61: supplies are an offline unlock too; the hint retires once all three are owned.
+    sim.state.upgrades["offline_weapon"]=1;sim.state.upgrades["offline_outfit"]=1;sim.state.upgrades["offline_consumable"]=1
     sim.state.offline_pending={"id":"q","seconds":3600.0,"longest":3600.0,"rewarded_hours":1.0,"coins":120.0,"gems":2.0,"items":{}}
     game._open("offline");await frames(2)
-    check(not panel_text().contains(tr("OFFLINE_GEAR_HINT")) and game.hint_retired("offline_gear"),"O1 retired once both unlocks are owned")
+    check(not panel_text().contains(tr("OFFLINE_ITEMS_HINT")) and game.hint_retired("offline_gear"),"O1 retired once all three unlocks are owned")
     game._close()
     fresh()
     sim.add_item("wood_sword",1);sim.state.gems=10
     sim.state.offline_pending={"id":"r","seconds":3600.0,"longest":3600.0,"rewarded_hours":1.0,"coins":120.0,"gems":2.0,"items":{}}
     game._open("offline");await frames(2)
-    check(not panel_text().contains(tr("OFFLINE_GEAR_HINT")),"O1 waits until the player can afford an unlock")
+    # Change 61 (approved): affordability no longer suppresses the hint; a player short of Gems still learns it.
+    check(panel_text().contains(tr("OFFLINE_ITEMS_HINT")),"O1 shows even when the player cannot afford an unlock yet")
     game._close()
 
 func evolve_hint_checks() -> void:

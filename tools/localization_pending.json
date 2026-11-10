@@ -1295,6 +1295,289 @@
     "fr_FR",
     "de_DE"
    ]
+  },
+  "GUIDE_GEAR_BONUS": {
+   "en": "Your gear makes you stronger.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_GEAR_BONUS_DETAIL": {
+   "en": "Equipped weapons and outfits give 100% of their stats. Stored weapons still give 30%, and stored outfits give 15%. Tap your level bar, then Stats, to see how your gear helps you.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_GEAR_BONUS_OPEN": {
+   "en": "Tap Stats",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_GEAR_BONUS_OPEN_DETAIL": {
+   "en": "Stats lists everything that makes your hero stronger.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_GEAR_BONUS_STATS": {
+   "en": "Stored gear counts too",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_GEAR_BONUS_STATS_DETAIL": {
+   "en": "This line shows the share stored gear gives. Close Stats to continue.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_OFFLINE_REWARDS": {
+   "en": "Earn rewards while you're away.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_OFFLINE_REWARDS_DETAIL": {
+   "en": "You earn Coins and Gems while offline. In Upgrades → Offline, you can also unlock Weapons, Outfits and Supplies from items you own, then improve their reward rates. Take a look; you don't need to buy anything now.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_RESPAWN_SELECT": {
+   "en": "Choose where you'll respawn.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_RESPAWN_SELECT_DETAIL": {
+   "en": "Open World and choose your newly unlocked camp. This is where you'll return after being defeated.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_RESPAWN_SELECT_TAP": {
+   "en": "Tap Respawn here",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_RESPAWN_SELECT_TAP_DETAIL": {
+   "en": "Select your newly unlocked camp. This is where you'll return after being defeated.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_CAMP_TRAVEL": {
+   "en": "Travel between your camps.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_CAMP_TRAVEL_DETAIL": {
+   "en": "You now have two unlocked camps in Winter I. Open World, choose a different camp and tap Travel. Traveling does not change your selected respawn camp.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_CAMP_TRAVEL_TAP": {
+   "en": "Tap Travel",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_CAMP_TRAVEL_TAP_DETAIL": {
+   "en": "Travel to your other camp. Traveling does not change your selected respawn camp.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_CAMP_TRAVEL_WAIT": {
+   "en": "Finish the fight first",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_CAMP_TRAVEL_WAIT_DETAIL": {
+   "en": "You can't travel during combat. Step away from enemies, then travel to your other camp.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_BOSS_FOUND": {
+   "en": "You've found the Snowman!",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_BOSS_FOUND_DETAIL": {
+   "en": "Finding a boss unlocks Prestige opportunities. First, let's make the World map more useful. Open World.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_MAP_DETAILS": {
+   "en": "Reveal enemy locations.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_MAP_DETAILS_DETAIL": {
+   "en": "In Map upgrades, buy the first Map detail rank. It reveals enemy and boss markers for places you've discovered.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_MAP_DETAILS_EARN": {
+   "en": "Earn Coins for Map detail",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_MAP_DETAILS_EARN_DETAIL": {
+   "en": "%s more Coins needed. Keep defeating enemies.",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-61"
+  },
+  "GUIDE_ENEMY_PINS": {
+   "en": "Find enemies on your map.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_ENEMY_PINS_DETAIL": {
+   "en": "Open World and look for the new enemy markers. Use them to find places to farm.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_ENEMY_PINS_TAP": {
+   "en": "Tap an enemy marker",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_ENEMY_PINS_TAP_DETAIL": {
+   "en": "Markers show enemies you've discovered. Use them to find places to farm.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_ENEMY_PINS_EXPLORE": {
+   "en": "Explore to find enemies",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_ENEMY_PINS_EXPLORE_DETAIL": {
+   "en": "Markers appear only for enemies you've discovered. Walk into the fog to find more.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_HUNT_FOLLOW": {
+   "en": "Follow your new mission.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_HUNT_FOLLOW_DETAIL": {
+   "en": "A mission to defeat 30 enemies is now available. Open Missions and tap Follow to pin its progress to your screen. Any enemy counts.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_HUNT_FARM": {
+   "en": "Defeat 30 enemies.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_HUNT_FARM_DETAIL": {
+   "en": "Farm any enemies you can beat. Check their locations using the markers on your World map. Follow your mission's progress until it reaches 30/30.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_HUNT_CLAIM": {
+   "en": "Claim your mission reward.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_HUNT_CLAIM_DETAIL": {
+   "en": "Your 30-enemy mission is complete! Open Missions and tap Claim.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_BOSS_PRESTIGE_FOLLOW": {
+   "en": "Follow your first Prestige opportunity.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_BOSS_PRESTIGE_FOLLOW_DETAIL": {
+   "en": "Open Prestige and follow the Snowman opportunity. Defeat the Snowman once to complete it.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_BOSS_WIN": {
+   "en": "Get stronger, then defeat the Snowman.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_BOSS_WIN_DETAIL": {
+   "en": "The Snowman may be too strong now. Keep farming, merging equipment and buying upgrades until you can win. Your followed Prestige opportunity will update when you defeat it.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_WORLD_OPEN": {
+   "en": "You defeated the Snowman!",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_WORLD_OPEN_DETAIL": {
+   "en": "Winter II is unlocked. Open World to choose your next stage.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_WINTER_TWO_TRAVEL": {
+   "en": "Travel to Winter II.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_WINTER_TWO_TRAVEL_DETAIL": {
+   "en": "Select Winter II and travel to its arrival camp.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_PRESTIGE_OPTIONAL": {
+   "en": "Prestige is your choice.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_PRESTIGE_OPTIONAL_DETAIL": {
+   "en": "You've completed your first Prestige opportunity. You can Prestige now, or keep playing and complete more opportunities to redeem together in one reset. Open Prestige to see your choices; you don't have to reset.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_PRESTIGE_OPTIONAL_PANEL": {
+   "en": "Prestige now or later",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_PRESTIGE_OPTIONAL_PANEL_DETAIL": {
+   "en": "Your Snowman opportunity is ready. Prestige now, or close this panel and keep playing to collect more opportunities first.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "HUNT_MISSION_TITLE": {
+   "en": "Defeat 30 enemies",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "HUNT_MISSION_HINT": {
+   "en": "Defeat any enemies",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "MAP_MARKER_RANK1": {
+   "en": "You've found enemies here. Map detail rank 2 shows who they are.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "STATS_STORED_EXPLAIN": {
+   "en": "Equipped weapons and outfits give 100%% of their stats. Gear you only store still helps: weapons give %s%% and outfits %s%%. The HP and Damage breakdowns below show what your stored gear adds.",
+   "placeholders": [
+    "%%",
+    "%s",
+    "%%",
+    "%s",
+    "%%"
+   ],
+   "change": "change-61"
+  },
+  "OFFLINE_TAB_EXPLAIN": {
+   "en": "Coins and Gems build up while you're away. Unlock Weapons, Outfits and Supplies below to also receive copies of items you own, then raise their reward rates. Nothing here is required.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "OFFLINE_ITEMS_HINT": {
+   "en": "While you're away you can also receive copies of weapons, outfits and supplies you own. Unlock them in Upgrades → Offline.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "CONTENT_HUNTER_O1_FIRST_DESCRIPTION": {
+   "en": "Defeat the Snowman (Winter I boss) once",
+   "placeholders": [],
+   "change": "change-61"
   }
  },
  "retired": {

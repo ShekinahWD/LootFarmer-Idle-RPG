@@ -91,7 +91,7 @@ func follower_checks() -> void:
     sim.state.opportunities["expedition_o1"]={"ready":false,"baseline":{},"step":0,"count":4}
     var hunt: String=sim.campaign.follow_summary("hunter_o1")
     var route: String=sim.campaign.follow_summary("expedition_o1")
-    check(hunt.contains(sim.catalog.groups[sim.campaign.group_id("boss-snowman")].name) and hunt.contains("0/10"),"Boss hunt follower keeps its target and progress (%s)" % hunt)
+    check(hunt.contains(sim.catalog.groups[sim.campaign.group_id("boss-snowman")].name) and hunt.contains("0/1"),"Boss hunt follower keeps its target and progress (Change 61: one defeat) (%s)" % hunt)
     check(route.begins_with("Step 1/3") and route.contains("4/100") and not route.contains(tr("GOAL_GEAR")),"Expedition follower keeps its own step guidance (%s)" % route)
     sim.campaign.toggle_follow(id);game._refresh_follow_tracker()
     check(not tracker.visible,"Unfollow hides the tracker")
@@ -189,7 +189,8 @@ func teleport_checks() -> void:
     check(go!=null and not go.disabled,"Out of combat the teleport action is enabled")
     go.pressed.emit();await frames(8)
     var camp1: Array=sim.campaign.stage().spawns[1]
-    check(sim.position_of(sim.state.player).distance_to(Vector2(camp1[0],camp1[1]))<1 and int(sim.state.spawn)==1,"Arrived at camp 2, which is now the respawn camp")
+    # Change 61 (approved separation): travel moves the player only; Respawn here alone selects a camp.
+    check(sim.position_of(sim.state.player).distance_to(Vector2(camp1[0],camp1[1]))<1 and int(sim.state.spawn)==0,"Arrived at camp 2; the respawn camp is unchanged")
     check(not game.sheet.visible and game.camp_inside==1,"Arrival closes the picker and does not pop the camp menu")
     check(game.world.following_player,"Camera follows the player after arrival")
     game.selected_camp=1;game._open("camp");await frames(2)

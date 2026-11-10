@@ -176,7 +176,15 @@ func run() -> void:
     sim.add_item(id,2);sim.equip(id);flow.next_step()
     check(flow.next_step()=="close_equip","Equip requires panel close")
     flow.panel_closed("missions");check(flow.next_step()=="close_equip","Wrong panel cannot finish close step")
-    flow.panel_closed("item");sim.merge(id);flow.next_step()
+    flow.panel_closed("item")
+    # Change 61: the stored-gear lesson needs the real Stats screen, opened and closed again.
+    check(flow.next_step()=="gear_bonus","Equipment bonus lesson follows the first equip")
+    flow.panel_closed("stats");check(flow.next_step()=="gear_bonus","Closing Stats unseen does not finish the gear lesson")
+    game._open("stats");await frames(2)
+    check(flow.next_step()=="gear_bonus" and game.guide._panel_row("stored_share")!=null,"Stats shows the tagged stored-gear row while open")
+    game._close()
+    check(flow.next_step()=="merge","Visiting Stats completes the equipment bonus lesson")
+    sim.merge(id);flow.next_step()
     check(flow.next_step()=="close_merge","Merge requires panel close")
     # Change 22/23 (Change 24 fixture): the Guided waits accumulate real active seconds in
     # TutorialGuide._process (saved in tutorial.flow.wait_seconds); the simulation's playtime no
@@ -199,28 +207,72 @@ func run() -> void:
     flow.advance_waits(1.0)
     check(flow.next_step()=="player_upgrade","Player Upgrades timing boundary")
     sim.state.coins=100000;sim.buy_upgrade("respawn")
-    check(flow.next_step()=="close_upgrade","Player Upgrade waits for actual close")
-    flow.panel_closed("upgrades");flow.mark("camp")
-    check(flow.next_step()=="boss_find","Boss discovery follows camp lesson")
-    sim.state.bosses_found.append("boss-snowman")
-    check(flow.next_step()=="boss_preparation","Boss explanation required")
-    flow.acknowledge("boss_preparation")
-    check(sim.state.tutorial.seen.has("boss_preparation"),"Objective enabled only after acknowledgement")
-    flow.next_step();sim.state.counters.kill=20
-    check(flow.next_step()=="expand_inventory","Additional farming before inventory lesson")
+    # Change 61: Offline is inspected (no purchase) before Upgrades closes.
+    check(flow.next_step()=="offline_rewards","Offline lesson follows the first global upgrade")
+    flow.panel_closed("upgrades");check(flow.next_step()=="offline_rewards","Closing Upgrades does not skip the Offline lesson")
+    var gems_before: float=sim.state.gems
+    game.player_tab=0;game._open("upgrades")
+    check(flow.next_step()=="offline_rewards","Another Upgrades tab is not the Offline lesson")
+    game.player_tab=4;game._refresh_panel(true)
+    check(flow.next_step()=="close_upgrade" and sim.state.gems==gems_before and sim.level("offline_weapon")==0,"Opening Offline completes the lesson without spending Gems")
+    game._close()
+    # Inventory and potion lessons now come before the Snowman.
+    check(flow.next_step()=="expand_inventory" and not sim.campaign.prestige_unlocked(),"Inventory lesson precedes boss discovery")
     var gems: float=sim.state.gems;flow.next_step();flow.next_step()
     check(sim.state.gems==gems and gems>=sim.upgrade_cost("gear_slots"),"Controlled inventory grant only once")
     sim.buy_upgrade("gear_slots");flow.next_step();flow.panel_closed("upgrades");sim.purchase_consumable("potion");flow.next_step()
     sim.state.player.hp=sim.stats().hp*.5;sim.use_item("potion")
-    check(flow.next_step()=="prestige_intro","Potion lesson precedes Prestige introduction")
+    check(flow.next_step()=="camp","Potion lesson precedes the camp lesson")
+    # Camp: unlock, then Select (respawn), then Travel (position only).
+    sim.state.coins=100000;sim.state.camps_known["1"]=[1]
+    check(sim.select_spawn(1) and sim.state.spawns.has(1) and int(sim.state.spawn)==0,"Unlocking a camp does not select it")
+    check(flow.next_step()=="respawn_select","Respawn lesson follows the camp unlock")
+    check(sim.select_spawn(1) and int(sim.state.spawn)==1,"Respawn here selects the new camp")
+    check(flow.next_step()=="camp_travel","Camp travel lesson follows the respawn choice")
+    var camp1: Array=sim.campaign.stage().spawns[1]
+    sim.state.player.x=camp1[0];sim.state.player.y=camp1[1];sim.state.player.quiet=20
+    for e in sim.state.enemies:e.aggro=false
+    check(game._travel_to(1,0) and int(sim.state.spawn)==1,"Travel to the arrival camp keeps the selected respawn camp")
+    check(flow.next_step()=="boss_find","Boss discovery follows camp travel")
+    # Finding the Snowman: Prestige, hunter_o1 and the 30-defeat mission appear at once.
+    var snowman:={}
+    for e in sim.state.enemies:
+        if sim.catalog.groups[int(e.group)].id=="boss-snowman":snowman=e
+    sim.state.player.x=snowman.x;sim.state.player.y=snowman.y+40;sim.campaign.reveal();sim.campaign.evaluate()
+    check(sim.campaign.prestige_unlocked() and flow.feature_allowed("prestige") and sim.state.opportunities.has("hunter_o1") and sim.campaign.hunt_open(),"Finding the Snowman reveals Prestige, the first opportunity and the mission")
+    check(flow.next_step()=="map_details","Map Details lesson follows the Snowman's discovery")
+    sim.state.player.x=camp1[0];sim.state.player.y=camp1[1]
+    check(sim.buy_upgrade("map_detail",1) and flow.next_step()=="enemy_pins","Buying Map detail rank 1 starts the enemy-marker lesson")
+    sim.campaign.discover_spot(0,0)
+    game._open("world");await frames(4)
+    var map: Control=game.guide._panel_row("",true)
+    var points: Array=map.enemy_marker_points() if map!=null else []
+    check(not points.is_empty(),"A discovered enemy spot has a real marker on the World map")
+    if not points.is_empty():map._choose_at(points[0])
+    check(flow.next_step()=="hunt_follow","Tapping a real enemy marker completes the marker lesson")
+    game._close()
+    check(sim.campaign.toggle_follow_mission("hunt",0) and flow.next_step()=="hunt_farm","Following the 30-defeat mission")
+    var normal:={}
+    for e in sim.state.enemies:
+        if not sim.catalog.groups[int(e.group)].boss:normal=e;break
+    for i in range(30):sim.campaign.killed(normal)
+    check(flow.next_step()=="hunt_claim" and sim.campaign.hunt_claimable(),"Thirty defeats complete the mission")
+    var coins_before: float=sim.state.coins
+    check(sim.campaign.claim_hunt() and is_equal_approx(sim.state.coins-coins_before,float(sim.campaign.hunt_rewards()[0])) and not sim.campaign.claim_hunt(),"The mission pays once")
+    check(flow.next_step()=="prestige_follow","Prestige follow lesson follows the claim")
+    check(sim.campaign.toggle_follow("hunter_o1") and flow.next_step()=="boss_win","Following the Snowman opportunity")
     check(sim.campaign.prestige_gate_reason()=="PRESTIGE_TUTORIAL_LOCKED","Guided cannot Prestige early")
-    flow.acknowledge("prestige_intro");sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1
-    for step in ["world_intro","travel_intro","milestones_intro"]:
-        check(flow.next_step()==step,"World lesson "+step);flow.acknowledge(step)
-    sim.state.unlocked_stage=2;sim.state.player.quiet=20
+    sim._kill(snowman)
+    check(sim.state.opportunities.hunter_o1.ready and int(sim.state.unlocked_stage)==2,"One Snowman defeat readies hunter_o1 and opens Winter II")
+    check(flow.next_step()=="world_open","Open World lesson after the boss")
+    game._open("world");game._close()
+    check(flow.next_step()=="winter_two","Opening World leads to Winter II travel")
+    sim.state.player.quiet=20
     for e in sim.state.enemies:e.aggro=false
     check(game._travel_to(2,0),"Tutorial travels to Winter II through real action")
-    check(flow.next_step()=="tutorial_final","Winter II final message")
+    check(flow.next_step()=="prestige_optional" and sim.campaign.prestige_gate_reason()=="","Optional Prestige lesson in Winter II, reset allowed")
+    game._open("prestige");game._close()
+    check(flow.next_step()=="tutorial_final","Opening and closing Prestige without a reset reaches the final message")
     flow.acknowledge("tutorial_final");check(not flow.complete(),"Cannot confirm before five visible seconds")
     game.guide.evaluate();game.guide._present()
     check(not game.guide.intro_button.visible,"Final confirmation hidden before five seconds")
@@ -231,7 +283,7 @@ func run() -> void:
     flow.acknowledge("tutorial_final")
     check(flow.complete() and sim.campaign.prestige_gate_reason()=="","Final acknowledgement removes Guided restrictions")
     var missing: Array=flow.STEPS.filter(func(s):return not flow.data().done.has(s))
-    check(missing.is_empty(),"Every Guided step from move to tutorial_final was completed in order (missing %s)" % str(missing))
+    check(missing.is_empty(),"Every Guided step from move to tutorial_final was completed (missing %s)" % str(missing))
     check(SaveService.save_now(),"Completed tutorial saved")
     SaveService.load_and_apply();check(flow.complete(),"Completed tutorial persists")
     SaveService.hard_reset()

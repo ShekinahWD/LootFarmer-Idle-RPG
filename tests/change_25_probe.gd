@@ -226,9 +226,9 @@ func guided_checks() -> void:
     var flow=sim.campaign.guided
     check(not usable(nav("World")) and not usable(nav("Missions")) and not usable(nav("Prestige")) and not usable(nav("Upgrades")),"Guided: menus still appear one at a time")
     check(guide.pending=="move" and guide.pointer.visible,"Guided: the first lesson points")
-    # Change 35 adds the targeting step ("target", after "move"): 29 steps.
-    check(flow.STEPS.size()==29 and is_equal_approx(float(flow.rules().mission_delay),15.0) and is_equal_approx(float(flow.rules().upgrade_delay),15.0),"Guided: 29 steps and two 15 s active waits")
-    for step in ["move","kill","collect","equip","close_equip","merge","close_merge"]:flow.mark(step)
+    # Change 35 adds the targeting step ("target", after "move"): 29 steps. Change 61 restructures: 35.
+    check(flow.STEPS.size()==35 and is_equal_approx(float(flow.rules().mission_delay),15.0) and is_equal_approx(float(flow.rules().upgrade_delay),15.0),"Guided: 35 steps and two 15 s active waits")
+    for step in ["move","kill","collect","equip","close_equip","gear_bonus","merge","close_merge"]:flow.mark(step)
     flow.advance_waits(14.9)
     check(flow.next_step()=="mission_wait" and not sim.campaign.onboarding.revealed("missions"),"Missions wait the full 15 s")
     flow.advance_waits(.1)

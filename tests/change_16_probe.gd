@@ -473,7 +473,7 @@ func follow_text_checks() -> void:
     check(col.begins_with("Step 2/3") and col.contains(sim.catalog.display_name(sim.campaign.contract_outfit("red-scarf"))),"After 21 Blue Caps the next outfit is named: \"%s\"" % col.replace("\n"," / "))
     var exp: String=sim.campaign.follow_summary("expedition_o1")
     check(exp.begins_with("Step 1/3 · Defeat Blue Cap (Winter I): 0/100") and exp.contains("Next: Defeat Red Scarf (Winter I) ×100"),"Winter route: \"%s\"" % exp.replace("\n"," / "))
-    check(sim.campaign.follow_summary("hunter_o1")=="Defeat Snowman (Winter I): 0/10","First bounty: \"%s\"" % sim.campaign.follow_summary("hunter_o1"))
+    check(sim.campaign.follow_summary("hunter_o1")=="Defeat Snowman (Winter I): 0/1","First bounty: \"%s\"" % sim.campaign.follow_summary("hunter_o1"))
     var spec: String=sim.campaign.follow_summary("specialist_o2")
     check(spec.begins_with("Step 1/4 · Defeat any enemies: 0/250") and spec.contains("Next: Defeat any bosses ×3"),"Long chain: \"%s\"" % spec.replace("\n"," / "))
     var tro: String=sim.campaign.follow_summary("trophy_o1")
@@ -828,7 +828,8 @@ func guide_checks() -> void:
     check(not view.visible,"Walking away hides the button")
     # Guided camp lesson points at View Camp when standing there.
     fresh("guided")
-    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("close_upgrade")+1)
+    # Change 61: the camp lesson now follows the inventory and potion lessons.
+    sim.campaign.guided.data().done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.find("potion_use")+1)
     sim.state.camps_known["1"]=[1];sim.state.coins=1000
     sim.state.player.x=float(camp[0]);sim.state.player.y=float(camp[1])+20
     await frames(3)

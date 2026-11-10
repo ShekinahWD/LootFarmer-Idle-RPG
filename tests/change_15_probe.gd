@@ -254,12 +254,12 @@ func reveal_checks() -> void:
 
 # ---------------------------------------------------------------- 3. Guided
 func guided_checks() -> void:
-    print("-- Guided (Change 20 sequence)")
+    print("-- Guided (Change 20 sequence, Change 61 order)")
     fresh("guided");await frames(4)
     var guide=game.guide
     var flow=sim.campaign.guided
     check(guide.pending=="move" and guide.pointer.visible,"Guided starts with movement")
-    for step in ["move","kill","collect","equip","close_equip","merge","close_merge"]:flow.mark(step)
+    for step in ["move","kill","collect","equip","close_equip","gear_bonus","merge","close_merge"]:flow.mark(step)
     sim.state.counters.kill=5;sim.campaign.evaluate_main()
     # Change 22/23 (Change 24 fixture): Guided waits count real active seconds in TutorialGuide._process
     # (tutorial.flow.wait_seconds), not the simulation's playtime. The probe drives that clock directly.
@@ -281,19 +281,28 @@ func guided_checks() -> void:
     check(buy!=null,"Player Upgrade has a real purchase target")
     if buy!=null:buy.pressed.emit()
     await frames(4)
+    # Change 61: the Offline tab (inspected, nothing bought) comes before closing Upgrades.
+    var offline_tab: Button=guide._panel_control("tab_tab_offline")
+    check(guide.pending=="offline_rewards" and guide.target==offline_tab and offline_tab!=null,"Offline lesson points at the real Offline tab")
+    if offline_tab!=null:offline_tab.pressed.emit()
+    await frames(4)
     check(guide.step=="close_panel","Upgrade requires close")
     game._close();await frames(4)
+    # Inventory and potion lessons (change_20_probe walks them) now precede the camp.
+    check(guide.pending=="expand_inventory","Inventory lesson follows Player Upgrades")
+    for step in ["expand_inventory","close_inventory","potion_buy","potion_use"]:flow.mark(step)
+    await frames(4)
     check(guide.pending=="camp" and guide.path_point!=Vector2.INF,"Camp lesson directs physical approach")
     # An unrelated panel hides guidance without changing its pending outcome.
     game._open("settings");await frames(4)
     check(guide.pending=="camp" and not guide.pointer.visible and not guide.card.visible,"Unrelated panel suspends presentation")
     game._close();await frames(4)
     check(guide.pending=="camp" and guide.pointer.visible,"Closing unrelated panel restores live direction")
-    flow.mark("camp");sim.state.bosses_found.append("boss-snowman");await frames(4)
-    check(guide.pending=="boss_preparation" and not flow.data().done.has("boss_preparation"),"Boss preparation waits for acknowledgement")
-    guide.intro_button.pressed.emit();await frames(4)
-    check(flow.data().done.has("boss_preparation") and guide.pending=="boss_farm","Acknowledged boss lesson advances to additional farming")
-    check(sim.campaign.prestige_gate_reason()=="PRESTIGE_TUTORIAL_LOCKED","Guided Prestige remains blocked until final acknowledgement")
+    flow.mark("camp");await frames(4)
+    check(guide.pending=="respawn_select","Choosing the respawn camp follows the camp unlock")
+    flow.mark("respawn_select");flow.mark("camp_travel");sim.state.bosses_found.append("boss-snowman");await frames(4)
+    check(guide.pending=="map_details" and guide.step=="boss_found" and guide.target==nav("World") and not guide.intro_button.visible,"Finding the Snowman leads to Map detail through World, with no acknowledgement card")
+    check(sim.campaign.prestige_gate_reason()=="PRESTIGE_TUTORIAL_LOCKED","Guided Prestige remains blocked until the optional Prestige lesson")
 
 # ---------------------------------------------------------------- 4. Basic
 ## Change 25: a short up-front overview deck, then The Road Ahead; nothing after (change_25_probe).

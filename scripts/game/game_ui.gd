@@ -467,7 +467,10 @@ func _refresh_mission_tracker() -> void:
     if tracker.visible!=show:tracker.visible=show
     if not show:return
     var title:="";var art: Texture2D=_art(211);var ready:=false
-    if f.kind=="main":
+    if f.kind=="hunt":
+        title=tr("HUNT_MISSION_TITLE");art=_art(1)
+        ready=sim.campaign.hunt_ready()
+    elif f.kind=="main":
         title=tr("MAIN_%d" % int(f.index))
         ready=sim.campaign.main_claimable(int(f.index))
     else:
@@ -527,7 +530,7 @@ func _refresh_mastery_chip() -> void:
 ## when that shows, else in the cluster's first free place; it never takes touches.
 func _refresh_objective() -> void:
     var node: Control=$Safe/Layout/Map/Objective
-    var show: bool=int(sim.state.stage)==1 and sim.campaign.prestige_unlocked() and not sim.campaign.first_boss_defeated() and sim.state.tutorial.mode!="pending" and (sim.state.tutorial.mode!="guided" or sim.state.tutorial.seen.has("boss_preparation"))
+    var show: bool=int(sim.state.stage)==1 and sim.campaign.prestige_unlocked() and not sim.campaign.first_boss_defeated() and sim.state.tutorial.mode!="pending" and (sim.state.tutorial.mode!="guided" or revealed("objective"))
     if node.visible!=show:node.visible=show
     var gate: Control=$Safe/Layout/Map/Gate
     var start: float=$Safe/Layout/Map/MiniMap.offset_bottom+8.0
@@ -1002,18 +1005,19 @@ func map_detail_hint_due() -> bool:
         retire_hint("map_detail")
         return false
     return sim.campaign.stage().groups.any(func(g):return sim.campaign.discovered(g))
-## O1: an offline gear unlock is missing, the player owns gear it could copy and can afford it.
+## O1: an offline item unlock (weapons, outfits or supplies) is missing and the player owns an item of
+## that kind it could copy. Change 61: affordability no longer decides it (a player short of Gems still
+## learns the feature exists); it retires once all three are unlocked or after its HINT_SHOWS openings.
+const OFFLINE_ITEM_UNLOCKS:={"offline_weapon":"weapon","offline_outfit":"outfit","offline_consumable":"consumable"}
 func offline_gear_hint_due() -> bool:
-    var missing: Array=["offline_weapon","offline_outfit"].filter(func(u):return sim.level(u)==0)
+    var missing: Array=OFFLINE_ITEM_UNLOCKS.keys().filter(func(u):return sim.level(u)==0)
     if missing.is_empty():
         retire_hint("offline_gear")
         return false
-    var owns:=false
+    var kinds: Array=missing.map(func(u):return OFFLINE_ITEM_UNLOCKS[u])
     for id in sim.state.items:
-        if sim.quantity(id)>0 and sim.catalog.items[id].kind in ["weapon","outfit"] and not sim.is_legacy(id):owns=true;break
-    var cheapest:=INF
-    for u in missing:cheapest=minf(cheapest,float(sim.upgrade_cost(u)))
-    return owns and float(sim.state.gems)>=cheapest
+        if sim.quantity(id)>0 and sim.catalog.items[id].kind in kinds and not sim.is_legacy(id):return true
+    return false
 ## Scrolls the open panel so a section heading is at the top (M1 route).
 func _scroll_to_section(title: String) -> void:
     await get_tree().process_frame
@@ -1292,6 +1296,8 @@ func _language_changed() -> void:
     elapsed=1.0
     slot_signatures.clear()
     $Safe/Layout/Map/ViewCamp.text=tr("VIEW_CAMP")
+    # Change 61: the Snowman objective chip (built once in _ready) also follows the language.
+    $Safe/Layout/Map/Objective/Text.text=tr("OBJECTIVE_WINTER_BOSS")
     if sheet.visible:_refresh_panel(true)
     _refresh_slots()
 
@@ -1339,6 +1345,9 @@ func _refresh_panel(force_layout:=false) -> void:
         "mastery":_mastery_panel()
         "travel_map":_travel_map_panel()
         "help":_help_panel()
+    # Change 61: the Guided lessons that ask the player to look at a screen (Stats, Upgrades -> Offline,
+    # World, Prestige) are finished by that screen being shown, never by an acknowledgement.
+    sim.campaign.guided.panel_opened(panel,player_tab if panel=="upgrades" else -1)
     var context:=_panel_context()
     var replace:=context!=panel_context
     var mapping: Dictionary={}
@@ -1923,6 +1932,8 @@ func _upgrades_panel() -> void:
                 for id in r.items:_text(sim.catalog.display_name(id)+" ×"+fmt(r.items[id]),18)
         var snap: Dictionary=sim.campaign.offline_snapshot()
         _text(tr("OFFLINE_RATES") % [fmt_currency(snap.coins),fmt_currency(snap.gems),fmt(snap.cap/3600)],18,Color(.8,.84,.9))
+        # Change 61: what the item unlocks below do, in every mode (no purchase is ever required).
+        _text(tr("OFFLINE_TAB_EXPLAIN"),17,Color(.75,.8,.87))
     for id in sections[player_tab]:
         # Skill slots and auto-cast appear with the first skill found (Change 8).
         if id.begins_with("skill_") and sim.state.skills_seen.is_empty():continue
@@ -1994,7 +2005,7 @@ func _group_upgrade_card(id: String,g: int) -> void:
     buy.theme_type_variation=&"Primary" if reason.is_empty() else &""
     buy.tooltip_text=tr(reason) if not reason.is_empty() else tr("UP_"+id.to_upper())
     buy.set_meta("upgrade",id)
-    buy.set_meta("guide","buy_"+id if id in ["loot","gear_slots","supply_slots"] else "buy_upgrade")
+    buy.set_meta("guide","buy_"+id if id in ["loot","gear_slots","supply_slots","map_detail"] else "buy_upgrade")
     buy.pressed.connect(func()->void:
         if not _confirmed(sim.buy_upgrade(id,g)):AudioService.play("ui_click"))
     line.add_child(buy)
@@ -2236,6 +2247,12 @@ func _world_panel() -> void:
     map.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     map.selected.connect(func(g: int,v: int)->void:group=g;enemy_variant=v;enemy_tab=0;_open("enemy"))
     map.camp_selected.connect(func(camp: int)->void:_travel_to(int(sim.state.stage),camp))
+    # Change 61: any drawn marker reports its tap (the Guided enemy-marker lesson). With Map Details
+    # rank 1 a marker only says that enemies were found there (rank 2 opens the enemy, as before).
+    map.marker_tapped.connect(func(g: int,_v: int)->void:
+        sim.campaign.guided.action("pin",str(g))
+        if sim.level("map_detail",int(sim.state.stage))<2:_say(tr("MAP_MARKER_RANK1")))
+    map.set_meta("guide_map",true)
     rows.add_child(map)
     if sim.level("map_detail",int(sim.state.stage))>=2:
         var known:=HFlowContainer.new()
@@ -2375,7 +2392,7 @@ func _camp_row(i: int,picker:=false) -> void:
         else:
             var reason: String=sim.campaign.travel_reason(st,i)
             if i==_camp_at_player():reason="TELEPORT_HERE"
-            _inline_button(tr("CAMP_TRAVEL"),func()->void:_travel_to(st,i),reason=="",reason,line,false)
+            _inline_button(tr("CAMP_TRAVEL"),func()->void:_travel_to(st,i),reason=="",reason,line,false).set_meta("guide","camp_travel_%d" % i)
 
 func _inline_button(text: String,callback: Callable,enabled: bool,reason: String,parent: Node,primary: bool) -> Button:
     var button:=Button.new()
@@ -2428,13 +2445,16 @@ func _stats_panel() -> void:
         [tr("STATS_PRESTIGE_HP"),"×"+fmt_value(sim.card("hp"))],
         [tr("STATS_PRESTIGE_DAMAGE"),"×"+fmt_value(sim.card("damage"))],
         [tr("STATS_MOVEMENT"),"+"+fmt_value((sim.campaign.move_speed()/90.0-1.0)*100)+"%"],
-        [tr("STATS_STORED_SHARE"),tr("STATS_STORED_SHARE_VALUE") % [fmt_value(float(sim.catalog.progression.stored_weapon_factor)*100),fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100)]]]
+        [tr("STATS_STORED_SHARE"),tr("STATS_STORED_SHARE_VALUE") % [fmt_value(float(sim.catalog.progression.stored_weapon_factor)*100),fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100)],"stored_share"]]
     if sim.campaign.bonus("equipped")>0:boosts.append([tr("STATS_EQUIPPED_BONUS"),"+"+fmt(sim.campaign.bonus("equipped")*100)+"%"])
     var mastery: Dictionary=sim.campaign.mastery.rewards()
     if not mastery.is_empty():boosts.append([tr("STATS_MASTERY"),mastery_reward_text(mastery)])
     for id in sim.supply_ids():
         if sim.buff_time(id)>0:boosts.append([sim.catalog.display_name(id),tr("STATS_SUPPLY_VALUE") % [_supply_amount(id,sim.buff_power(id)),ceili(sim.buff_time(id))]])
     _stat_section(tr("STATS_SECTION_BOOSTS"),boosts)
+    # Change 61: what the stored share means, always here (the Guided gear lesson points at it). The
+    # HP and Damage breakdowns below list the stored gear's actual contribution (sim.stat_breakdown).
+    _text(tr("STATS_STORED_EXPLAIN") % [fmt_value(float(sim.catalog.progression.stored_weapon_factor)*100),fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100)],16,Color(.8,.84,.9))
     # Change 10: HP and damage built up source by source (playbook 17.2), from the same parts and
     # multiplier stats() uses; the other stats list what each source adds before caps.
     _breakdown_section("hp")
@@ -2521,6 +2541,7 @@ func _stat_section(title: String,entries: Array) -> void:
     for entry in entries:
         var name_label:=Label.new()
         name_label.text=str(entry[0])
+        if entry.size()>2:name_label.set_meta("guide_row",str(entry[2]))
         name_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
         name_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
         name_label.add_theme_font_size_override("font_size",18)
@@ -2736,7 +2757,7 @@ func _offline_panel() -> void:
     for id in pending.items:
         if sim.catalog.items.has(id):_loot_row(id,-1,int(pending.items[id]))
     if offline_gear_hint_due() and hint_allowed("offline_gear"):
-        _text(tr("OFFLINE_GEAR_HINT"),17,Color(1,.86,.5))
+        _text(tr("OFFLINE_ITEMS_HINT"),17,Color(1,.86,.5))
         _action(tr("OFFLINE_UPGRADES_JUMP"),func()->void:
             if sim.campaign.claim_offline():
                 player_tab=4;_open("upgrades")).set_meta("guide","offline_upgrades_jump")
@@ -3052,6 +3073,13 @@ func _missions_panel() -> void:
         var ready: bool=not m.claimed and m.progress>=m.goal
         _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),("%s / %s" % [fmt_currency(m.progress),fmt_cost(m.goal)] if str(m.kind)=="coins" else "%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)]),m.progress,m.goal,m.coins,m.gems,func()->void:_confirmed(sim.campaign.claim_mission(i)),ready,"MISSION_NOT_READY",bool(m.claimed),["daily",i])
     _section(tr("MAIN_OBJECTIVES"))
+    # Change 61: the one-time 30-defeat mission, from the Snowman's discovery until it is claimed. It is
+    # listed above (not inside) the three main objectives, so their display limit never hides it.
+    if sim.campaign.hunt_open():
+        var hunt_rewards: Array=sim.campaign.hunt_rewards()
+        var hunt_ready: bool=sim.campaign.hunt_ready()
+        var hunt_value:=tr("MISSION_STATE_READY") if hunt_ready else "%s: %d/%d" % [tr("HUNT_MISSION_HINT"),int(sim.campaign.hunt_progress()),sim.campaign.HUNT_GOAL]
+        _task_card(_art(1),tr("HUNT_MISSION_TITLE"),hunt_value,sim.campaign.hunt_progress(),float(sim.campaign.HUNT_GOAL),hunt_rewards[0],hunt_rewards[1],func()->void:_confirmed(sim.campaign.claim_hunt()),hunt_ready,"MISSION_NOT_READY",false,["hunt",0])
     for i in sim.campaign.main_shown():
         var rewards: Array=sim.catalog.campaign.main_rewards[i]
         var done: bool=sim.state.main_ready.has(str(i))
@@ -3126,12 +3154,12 @@ func _task_card(art: Texture2D,title: String,value: String,progress: float,goal:
         pin.custom_minimum_size=Vector2(132,52)
         pin.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
         pin.add_theme_font_size_override("font_size",17)
-        pin.set_meta("guide","follow_mission")
+        pin.set_meta("guide","follow_hunt" if follow[0]=="hunt" else "follow_mission")
     if ready:
         var button:=_inline_button(tr("CLAIM"),claim,true,reason,line,true)
         button.custom_minimum_size=Vector2(112,64)
         button.size_flags_vertical=Control.SIZE_SHRINK_CENTER
-        button.set_meta("guide","claim")
+        button.set_meta("guide","claim_hunt" if not follow.is_empty() and follow[0]=="hunt" else "claim")
         return
     var chip:=Label.new()
     chip.text=tr("MISSION_STATE_CLAIMED") if claimed else tr("IN_PROGRESS")
@@ -3245,6 +3273,7 @@ func _prestige_stage_section(st: int,order: Array) -> void:
     header.theme_type_variation=&"Primary" if collapsed and completed<total else &""
     header.tooltip_text=tr("PRESTIGE_STAGE_EXPAND" if collapsed else "PRESTIGE_STAGE_COLLAPSE")
     header.set_meta("prestige_stage",st)
+    header.set_meta("guide","prestige_stage_%d" % st)
     if collapsed:return
     for op in order:
         if prestige_stages(op).has(st):_opportunity_card(op)
@@ -3255,6 +3284,8 @@ func _opportunity_card(op: Dictionary) -> void:
     var ready: bool=o.ready and not done
     var card:=PanelContainer.new()
     card.theme_type_variation=&"Card"
+    # Change 61: the Guided Prestige lessons point at a specific opportunity (hunter_o1).
+    card.set_meta("guide_row","opportunity_"+str(op.id))
     rows.add_child(card)
     var content:=VBoxContainer.new()
     content.add_theme_constant_override("separation",6)
@@ -3293,7 +3324,8 @@ func _opportunity_card(op: Dictionary) -> void:
     if sim.campaign.can_follow(op.id) or sim.state.follow==op.id:
         var follow:=_inline_button(tr("UNFOLLOW" if sim.state.follow==op.id else "FOLLOW"),func()->void:sim.campaign.toggle_follow(op.id),true,"",row,false)
         follow.custom_minimum_size=Vector2(150,64)
-        if sim.state.follow!=op.id:follow.set_meta("guide","follow")
+        follow.set_meta("guide","follow" if sim.state.follow!=op.id else "unfollow")
+        follow.set_meta("guide_alt","follow_"+str(op.id) if sim.state.follow!=op.id else "")
     if op.path in ["offering","collection"] and not ready:
         var submit:=_inline_button(tr("SUBMIT_CONTRACT"),func()->void:sim.campaign.submit(op.id),true,"",row,true)
         submit.custom_minimum_size=Vector2(200,64)
