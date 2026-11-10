@@ -10,6 +10,7 @@ extends Control
 ## While `blocked` (pause, a modal, an open sheet, a held world) nothing starts and live popups freeze.
 ## A replaced profile (new, loaded, Prestige: sim.profile_epoch) takes a fresh baseline and clears all.
 ## Session-only: nothing is saved. Lives in the Map control, above the world, and ignores input.
+## Each popup also plays the matching green/red buff burst on the character (world.buff_burst).
 
 const ORDER:=["hp","damage","defense","crit","crit_damage","lifesteal","regen","regen_pct","speed"]
 ## Percentage stats are fractions internally (0.005 = 0.5 points).
@@ -86,6 +87,7 @@ func clear() -> void:
     queue.clear()
     wait=0.0
     for entry in live.duplicate():_release(entry)
+    if ui!=null and ui.world.has_method("stop_buff_bursts"):ui.world.stop_buff_bursts()
 
 func _rebaseline() -> void:
     epoch=sim.profile_epoch
@@ -126,6 +128,8 @@ func _show(key: String,delta: float) -> void:
     live.append(entry)
     _place(entry,_anchor())
     label.visible=true
+    # The Cartoon Coffee buff burst (buff_burst.gd) on the character, in the popup's colour.
+    ui.world.buff_burst(delta>0)
 
 ## "↑ +15 Maximum health", "↓ −5.43 Damage", "↑ +0.5% Critical chance": the existing localized stat
 ## names; percentage stats in percentage points; whole numbers bare, otherwise up to two decimals.

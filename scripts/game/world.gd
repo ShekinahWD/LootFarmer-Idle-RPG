@@ -25,6 +25,23 @@ var textures: Dictionary={}
 var boss_labels: Dictionary={}
 var countdown_clock:=0.0
 var weather: Node2D
+## Change 60 follow-up: the positive (green) and negative (red) buff bursts on the player (buff_burst.gd).
+var buff_bursts: Dictionary={}
+
+## Change 60 follow-up: a stat popup's burst on the player, green for an increase, red for a decrease.
+func buff_burst(is_positive: bool) -> void:
+    if sim==null:return
+    _place_bursts()
+    buff_bursts[is_positive].play()
+
+func stop_buff_bursts() -> void:
+    for burst in buff_bursts.values():burst.stop()
+
+func _place_bursts() -> void:
+    var at: Vector2=views["player"].position if views.has("player") else sim.position_of(sim.state.player)
+    for burst in buff_bursts.values():
+        if burst.running() or burst.position!=at:burst.position=at
+
 ## Change 13 summoning: the existing cast effect, tinted like the helpers, on the summoner (warning)
 ## and where each helper appears ("summon" and "summon_appear" styles; the sheet is the cast one).
 
@@ -52,6 +69,11 @@ func setup(value: LootSimulation) -> void:
     reminder.centered=false
     reminder.visible=false
     add_child(reminder)
+    for is_positive in [true,false]:
+        var burst: Node2D=preload("res://scripts/game/buff_burst.gd").new()
+        add_child(burst)
+        burst.setup(is_positive)
+        buff_bursts[is_positive]=burst
 
 ## Change 24 (Playbook 44): presentation work scales with what is on screen, not with the map.
 ## - Views whose actor is outside the camera (plus CULL_MARGIN world units) are hidden and skip their
@@ -82,6 +104,7 @@ func _process(_delta: float) -> void:
     _dispose_retired()
     _prepare_cached_obstacles()
     countdown_clock+=_delta
+    if buff_bursts.values().any(func(b):return b.running()):_place_bursts()
     if countdown_clock>=.2:
         countdown_clock=0
         _boss_countdowns()

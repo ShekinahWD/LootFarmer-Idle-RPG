@@ -16,9 +16,9 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 282,
+  "files": 287,
   "stages": 8,
-  "imported": 165
+  "imported": 169
  },
  "families": {
   "stage_scenes": {
@@ -520,6 +520,10 @@
   "res://assets/sounds/stage_clear.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/sounds/ui_confirm.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/ui/Hand.png": "dependency of res://resources/game/pickup_style.tres",
+  "res://assets/vfx/buff/Arrow_006.png": "literal in res://scripts/game/buff_burst.gd",
+  "res://assets/vfx/buff/Circle_Outline_003.png": "literal in res://scripts/game/buff_burst.gd",
+  "res://assets/vfx/buff/Glow_001.png": "literal in res://scripts/game/buff_burst.gd",
+  "res://assets/vfx/buff/Light_Ray_007.png": "literal in res://scripts/game/buff_burst.gd",
   "res://data/game/catalog.json": "root: campaign data, read with FileAccess by catalog.gd (not a resource dependency)",
   "res://localization/de_DE.po": "family language_catalogs",
   "res://localization/en.po": "project.godot setting",
@@ -597,6 +601,7 @@
   "res://scripts/game/actor_view.gd": "class_name LootActorView used by res://scripts/game/world.gd",
   "res://scripts/game/audio_cue.gd": "class_name AudioCue used by res://scripts/game/audio_cue_set.gd",
   "res://scripts/game/audio_cue_set.gd": "class_name AudioCueSet used by res://scripts/game/game_ui.gd",
+  "res://scripts/game/buff_burst.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/camp_picker.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/campaign.gd": "literal in res://scripts/game/simulation.gd",
   "res://scripts/game/catalog.gd": "class_name LootCatalog used by res://scripts/game/simulation.gd",
