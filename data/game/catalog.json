@@ -20221,7 +20221,7 @@
         "stone_axe",
         "unit-wolf-hood_outfit"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20253,7 +20253,7 @@
         "stone_sword",
         "unit-calico-cat-hood_outfit"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20285,7 +20285,7 @@
         "stone_sword",
         "unit-golden-crown_outfit"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20317,7 +20317,7 @@
         "stone_axe",
         "unit-reindeer-antlers_outfit"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20349,7 +20349,7 @@
         "stone_axe",
         "unit-santa-hat_outfit"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20383,7 +20383,7 @@
         "stone_sword",
         "unit-space-helmet_outfit"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20406,9 +20406,9 @@
       ],
       "count": 1,
       "hp": 1096.2384,
-      "damage": 9.0838,
+      "damage": 13.3043,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.9,
       "respawn": 60,
       "coins": 12.0,
       "xp": 60,
@@ -20417,7 +20417,7 @@
         "stone_sword",
         "boss-cyan-robot_outfit"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 2.0
@@ -20451,7 +20451,7 @@
         "iron_sword",
         "unit-straw-hat_outfit_t2"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20485,7 +20485,7 @@
         "iron_axe",
         "unit-sunglasses_outfit_t2"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20519,7 +20519,7 @@
         "iron_axe",
         "unit-yellow-cap_outfit_t2"
       ],
-      "aggro_mode": "individual",
+      "aggro_mode": "passive",
       "aggro_radius": 58,
       "assist_radius": 110,
       "visual_scale": 1.0
@@ -20542,9 +20542,9 @@
       ],
       "count": 1,
       "hp": 2089.1574,
-      "damage": 15.8527,
+      "damage": 23.2346,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.8,
       "respawn": 60,
       "coins": 18.0,
       "xp": 100,
@@ -20772,9 +20772,9 @@
       ],
       "count": 1,
       "hp": 3926.7397,
-      "damage": 24.6416,
+      "damage": 38.4059,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.7,
       "respawn": 60,
       "coins": 27.0,
       "xp": 230,
@@ -20806,9 +20806,9 @@
       ],
       "count": 1,
       "hp": 4378.1093,
-      "damage": 26.4155,
+      "damage": 38.4059,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.65,
       "respawn": 60,
       "coins": 27.0,
       "xp": 280,
@@ -20941,9 +20941,9 @@
       ],
       "count": 1,
       "hp": 7543.2585,
-      "damage": 37.3945,
+      "damage": 56.6841,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.6,
       "respawn": 60,
       "coins": 40.5,
       "xp": 650,
@@ -20976,9 +20976,9 @@
       ],
       "count": 1,
       "hp": 8410.3384,
-      "damage": 40.0864,
+      "damage": 56.6841,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.55,
       "respawn": 60,
       "coins": 40.5,
       "xp": 770,
@@ -21143,9 +21143,9 @@
       ],
       "count": 1,
       "hp": 20083.9579,
-      "damage": 69.9062,
+      "damage": 98.8506,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.5,
       "respawn": 60,
       "coins": 60.75,
       "xp": 3020,
@@ -21178,9 +21178,9 @@
       ],
       "count": 1,
       "hp": 22392.5618,
-      "damage": 74.9386,
+      "damage": 98.8506,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.45,
       "respawn": 60,
       "coins": 60.75,
       "xp": 3580,
@@ -21315,7 +21315,7 @@
       "hp": 66473.5039,
       "damage": 150.1769,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.4,
       "respawn": 60,
       "coins": 91.125,
       "xp": 20000,
@@ -21350,7 +21350,7 @@
       "hp": 74114.4774,
       "damage": 160.9878,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.35,
       "respawn": 60,
       "coins": 91.125,
       "xp": 23750,
@@ -21585,7 +21585,7 @@
       "hp": 176985.9872,
       "damage": 280.7445,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.33,
       "respawn": 60,
       "coins": 136.6875,
       "xp": 879610,
@@ -21620,7 +21620,7 @@
       "hp": 197330.1116,
       "damage": 300.9546,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.32,
       "respawn": 60,
       "coins": 136.6875,
       "xp": 1044700,
@@ -21656,7 +21656,7 @@
       "hp": 304513.6903,
       "damage": 345.8442,
       "defense": 0,
-      "interval": 2,
+      "interval": 1.3,
       "respawn": 120,
       "coins": 136.6875,
       "xp": 4912510,
@@ -22412,7 +22412,8 @@
           15.6,
           2.56
         ]
-      }
+      },
+      "boss_spot_share": 0.9
     },
     "rest": {
       "field": 0.01,

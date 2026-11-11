@@ -83,9 +83,9 @@ func heal_checks() -> void:
     campaign_steps(.7)
     check(heals.size()==1 and heals[0][0]==robot.id and near(heals[0][1],expected) and near(robot.hp,maxhp*.5+expected),"Heal restores exactly 8%% of max HP (%.1f) and reports that amount" % expected)
     check(casts.size()==1 and casts[0]==[robot.id,"heal"],"One Heal effect plays, at the moment HP is restored")
-    # Change 16: the Cyan Robot heals every 12 s (EnemyAbilityRules.skill_cooldowns); others keep 18 s.
-    check(near(float(robot.skill_timer),sim.campaign.enemy_skill_cooldown(sim.catalog.groups[int(robot.group)],"heal"),.01) and near(float(robot.skill_timer),12.0,.01),"Heal goes on its cooldown (12 s for the Cyan Robot since Change 16)")
-    campaign_steps(10.0)
+    # Change 62: every boss skill waits the standard 10 s (EnemyAbilityRules.boss_skill_cooldown).
+    check(near(float(robot.skill_timer),sim.campaign.enemy_skill_cooldown(sim.catalog.groups[int(robot.group)],"heal"),.01) and near(float(robot.skill_timer),10.0,.01),"Heal goes on its cooldown (10 s for every boss since Change 62)")
+    campaign_steps(8.0)
     check(heals.size()==1 and casts.size()==1,"No second heal during the cooldown")
     # Death during the telegraph interrupts the heal.
     robot.hp=maxhp*.3;robot.skill_timer=0.0;heals.clear();casts.clear()

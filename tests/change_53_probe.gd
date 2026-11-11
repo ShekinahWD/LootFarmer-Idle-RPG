@@ -19,10 +19,11 @@ func run() -> void:
 func near(a: float,b: float) -> bool:return absf(a-b)<=1e-6*maxf(1.0,absf(b))
 
 func aggro_checks() -> void:
-    var want:={1:"passive",2:"individual",3:"individual",4:"group",5:"group",6:"group",7:"group",8:"group"}
+    # Change 62: normals passive through stage 3, bosses passive through stage 2; proximity from there on.
+    var want:={1:"passive",2:"passive",3:"passive",4:"group",5:"group",6:"group",7:"group",8:"group"}
     for d in sim.catalog.groups:
-        if d.boss:continue
-        check(str(d.aggro_mode)==want[int(d.stage)],"%s (stage %d) aggression %s" % [d.id,int(d.stage),d.aggro_mode])
+        var mode: String=("passive" if int(d.stage)<=2 else "group") if d.boss else want[int(d.stage)]
+        check(str(d.aggro_mode)==mode,"%s (stage %d) aggression %s" % [d.id,int(d.stage),d.aggro_mode])
     check(str(sim.catalog.groups[sim.campaign.group_id("boss-gray-cat")].aggro_mode)=="group","The Summer I boss keeps its own rule")
 
 func damage_checks() -> void:

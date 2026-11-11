@@ -720,10 +720,10 @@ func step(dt: float) -> void:
     if reveal_clock>=fog_rules.update_interval:reveal_clock=0;reveal()
     if objective_clock>=1:
         objective_clock=0;refresh_missions();evaluate();onboarding.evaluate();mastery.evaluate();check_follow_mission();sim.touch()
-## Seconds before an enemy of this type casts again after a successful skill: the catalog skill's
-## cooldown unless EnemyAbilityRules overrides it for the type (Change 16: Cyan Robot Heal 12 s).
+## Seconds before an enemy of this type casts again after a successful skill: a per-type override in
+## EnemyAbilityRules, else the boss standard cooldown (Change 62: 10 s), else the catalog skill's.
 func enemy_skill_cooldown(d: Dictionary,key: String) -> float:
-    return sim.abilities.skill_cooldown(str(d.id),key,float(sim.catalog.skills[key].cooldown))
+    return sim.abilities.skill_cooldown(str(d.id),key,float(sim.catalog.skills[key].cooldown),bool(d.get("boss",false)))
 ## A boss announces a skill for the telegraph time before it resolves. Self effects play once, on
 ## success (apply_skill); attacks show their aim as a warning.
 func _begin_telegraph(a: Dictionary,key: String) -> void:

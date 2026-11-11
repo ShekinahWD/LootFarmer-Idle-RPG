@@ -666,14 +666,13 @@ func robot_checks() -> void:
     print("-- Cyan Robot Heal")
     fresh()
     var robot_def: Dictionary=sim.catalog.groups[group("boss-cyan-robot")]
-    check(near(sim.campaign.enemy_skill_cooldown(robot_def,"heal"),12.0) and near(float(sim.catalog.skills.heal.cooldown),20.0),"Configured: catalog Heal 20 s, Cyan Robot 12 s (50% more often)")
+    check(near(sim.campaign.enemy_skill_cooldown(robot_def,"heal"),10.0) and near(float(sim.catalog.skills.heal.cooldown),20.0),"Configured: catalog Heal 20 s, Cyan Robot 10 s (Change 62 boss standard)")
     var others_ok:=true
     for g in range(sim.catalog.groups.size()):
         var d: Dictionary=sim.catalog.groups[g]
-        if d.id=="boss-cyan-robot":continue
         for key in d.skills:
-            if not near(sim.campaign.enemy_skill_cooldown(d,key),float(sim.catalog.skills[key].cooldown)):others_ok=false
-    check(others_ok,"Every other enemy keeps the catalog cooldowns (Space Helmet, Squirrel, Bee, Red Panda and Sunflower Heal 18 s)")
+            if not near(sim.campaign.enemy_skill_cooldown(d,key),10.0 if d.boss else float(sim.catalog.skills[key].cooldown)):others_ok=false
+    check(others_ok,"Change 62: every boss skill 10 s, every normal enemy keeps the catalog cooldowns")
     stage(2)
     var robot:=actor_of("boss-cyan-robot")
     var maxhp: float=float(sim.enemy_definition(int(robot.group),2).hp)
@@ -686,7 +685,7 @@ func robot_checks() -> void:
     var times: Array=heals.filter(func(h):return h[0]==str(robot.id)).map(func(h):return h[2])
     var gaps: Array=[]
     for k in range(1,times.size()):gaps.append(snappedf(times[k]-times[k-1],.1))
-    check(times.size()>=3 and gaps.all(func(gap):return gap>=12.0 and gap<=13.0),"In combat below 80%% HP it heals every %s s (12 s + the 0.6 s wind-up; was 18.6)" % str(gaps))
+    check(times.size()>=3 and gaps.all(func(gap):return gap>=10.0 and gap<=11.0),"In combat below 80%% HP it heals every %s s (Change 62: 10 s + the 0.6 s wind-up; was 12.6)" % str(gaps))
 
 # ---------------------------------------------------------------- 12. skill descriptions
 func skill_text_checks() -> void:

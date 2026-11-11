@@ -34,12 +34,30 @@ def compute(group, b):
     return round(hp, 4), round(dmg, 4)
 
 
+def spot_reference(data, stage):
+    """Change 62: (type id, pre-Defense damage) of the stage's strongest normal type in its standard full
+    loadout, on the game's own basis (catalog damage x progression.combat.normal_damage_scale)."""
+    b = data['progression']['balance']
+    scale = float(data['progression'].get('combat', {}).get('normal_damage_scale', {}).get(str(stage), 1.0))
+    rows = [(g['id'], compute(g, b)[1] * scale) for g in data['groups'] if not g['boss'] and int(g['stage']) == stage]
+    return max(rows, key=lambda r: r[1])
+
+
+def boss_floor(data, stage):
+    """Change 62: a boss's basic attack is at least boss_spot_share (0.90) of a three-enemy spot of that
+    reference type, rounded up to 4 decimals. 0 when the balance has no share."""
+    share = float(data['progression']['balance'].get('boss_spot_share', 0))
+    return math.ceil(share * 3 * spot_reference(data, stage)[1] * 10000 - 1e-6) / 10000 if share > 0 else 0.0
+
+
 def main():
     data = json.loads(CATALOG.read_text())
     b = data['progression']['balance']
     mismatch = 0
     for g in data['groups']:
         hp, dmg = compute(g, b)
+        if g['boss']:
+            dmg = max(dmg, boss_floor(data, int(g['stage'])))
         if abs(g['hp'] - hp) > 1e-3 or abs(g['damage'] - dmg) > 1e-3:
             mismatch += 1
             g['hp'], g['damage'] = hp, dmg
