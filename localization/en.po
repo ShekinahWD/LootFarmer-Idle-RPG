@@ -6562,3 +6562,15 @@ msgstr "Five Mastery goals"
 
 msgid "GUIDE_MAP_MASTERY_CLOSE_DETAIL"
 msgstr "Explore, Hunt, Research, Collect and Forge: each card shows its progress and what remains. Complete all five for this map's permanent reward. No rush: tap Close to keep playing."
+
+msgid "EVOLUTION_SKIP_HINT"
+msgstr "Tap to skip"
+
+msgid "EVOLUTION_CONTINUE"
+msgstr "Continue"
+
+msgid "EVOLUTION_TIER_CHANGE"
+msgstr "Tier %d → Tier %d"
+
+msgid "AUTO_EVOLVED_NOTICE"
+msgstr "Auto Evolution: %s → %s"

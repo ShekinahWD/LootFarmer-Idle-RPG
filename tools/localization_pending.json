@@ -2116,6 +2116,32 @@
    "en": "Explore, Hunt, Research, Collect and Forge: each card shows its progress and what remains. Complete all five for this map's permanent reward. No rush: tap Close to keep playing.",
    "placeholders": [],
    "change": "change-66"
+  },
+  "EVOLUTION_SKIP_HINT": {
+   "en": "Tap to skip",
+   "placeholders": [],
+   "change": "change-67"
+  },
+  "EVOLUTION_CONTINUE": {
+   "en": "Continue",
+   "placeholders": [],
+   "change": "change-67"
+  },
+  "EVOLUTION_TIER_CHANGE": {
+   "en": "Tier %d → Tier %d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-67"
+  },
+  "AUTO_EVOLVED_NOTICE": {
+   "en": "Auto Evolution: %s → %s",
+   "placeholders": [
+    "%s",
+    "%s"
+   ],
+   "change": "change-67"
   }
  },
  "retired": {

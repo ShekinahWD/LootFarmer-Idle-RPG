@@ -106,6 +106,19 @@ var tier_styles: Dictionary={}
 var arrow_art: Texture2D
 ## Change 60: floating effective-stat deltas over the player (scripts/game/stat_feedback.gd).
 var stat_feedback: Control
+## Change 67: merge feedback (card burst, Merge All flash, dock glints) and the manual evolution panel.
+## Both only present results the simulation has already committed.
+var merge_fx: Control
+var evolution_show: Control
+## While a manual merge or evolution runs, the simulation's merged / evolved signals are collected
+## here instead of being shown as automatic ones.
+var fx_manual:=false
+var fx_merges: Array=[]
+var fx_evolutions: Array=[]
+## Dock glints waiting for the slots to be laid out this frame: [id, strong, delay].
+var pending_glints: Array=[]
+## Merge All glints on at most this many slots (the pool bounds it as well).
+const MERGE_ALL_GLINTS:=8
 ## Offline claim already offered for this pending settlement id (the panel opens once per return).
 var offline_prompted:=""
 var show_completed_main:=false
@@ -266,6 +279,16 @@ func _ready() -> void:
     guide=preload("res://scripts/game/tutorial_guide.gd").new()
     guide.z_index=15
     add_child(guide);guide.setup(self)
+    # Change 67: merge feedback above the panel (never takes input) and the evolution panel above all
+    # panels and the guide (it holds the world while open, like the card viewer).
+    merge_fx=preload("res://scripts/game/merge_fx.gd").new()
+    merge_fx.z_index=12
+    add_child(merge_fx)
+    evolution_show=preload("res://scripts/game/evolution_show.gd").new()
+    evolution_show.z_index=19
+    add_child(evolution_show)
+    sim.merged.connect(_on_merged)
+    sim.evolved.connect(_on_evolved)
     # Change 65: the one tutorial-card viewer (Basic opening and Help), above the panel and the guide.
     help_viewer=preload("res://scripts/game/help_viewer.gd").new()
     help_viewer.z_index=18
@@ -294,7 +317,7 @@ func _safe_area() -> void:
 
 func _process(dt: float) -> void:
     # Change 35: the review invitation holds the world while it is open (and only then).
-    sim.held=$ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible)
+    sim.held=$ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible) or (evolution_show!=null and evolution_show.visible)
     _offer_review(dt)
     gem_pickup_time=maxf(0,gem_pickup_time-dt)
     $Safe/Layout/Map/GemPickup.visible=gem_pickup_time>0
@@ -367,6 +390,7 @@ func _process(dt: float) -> void:
         # Cheap when nothing changed; follows a resized dock without waiting for a state change.
         _layout_inventory()
     previous_pause=get_tree().paused
+    _flush_glints()
 
 ## Change 63: the reserve is measured while the panel settles (the guide already knows its lesson then)
 ## and kept for that opening; it is released when the panel closes or another panel replaces it.
@@ -440,7 +464,7 @@ func _settle_camp() -> void:
 ## A confirmation is in front of the game (the ordinary one, the Prestige confirmation or, since
 ## Change 35, the review invitation).
 func modal_open() -> bool:
-    return $Confirm.visible or $PrestigeConfirm.visible or $ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible)
+    return $Confirm.visible or $PrestigeConfirm.visible or $ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible) or (evolution_show!=null and evolution_show.visible)
 
 ## Change 35: the review invitation (review_invitation.gd owns its state and the world-side rules).
 ## Once pending on a build with a configured storefront, it waits for a quiet moment: the world safe
@@ -1008,6 +1032,8 @@ func _pause() -> void:
 ## backed toast. Major milestones go to the banner instead (see _milestone).
 func _event(key: String) -> void:
     if key in ["PRESTIGE_DISCOVERED","PRESTIGE_READY","STAGE_UNLOCKED"]:return
+    # Change 67: an evolution is announced by _manual_evolve or _on_evolved (which knows whether it was automatic).
+    if key=="EVOLVED":return
     var text:=tr(key)
     if key=="PLAYER_LEVEL_UP":text=tr("LEVEL_UP_NOTICE") % sim.state.player_level
     if key=="PRESTIGED":
@@ -1374,6 +1400,9 @@ func back() -> void:
         if dropdown.is_menu_open():
             dropdown.close_menu();return
         if dropdown.closed_frame>=frame-1:return
+    # Change 67: the evolution panel skips to its result first, then closes.
+    if evolution_show.visible:
+        evolution_show.back();return
     if $ReviewInvitation.is_open():
         _review_later();return
     if $PrestigeConfirm.visible:$PrestigeConfirm.close()
@@ -1681,13 +1710,13 @@ func _item_panel() -> void:
     more.add_theme_constant_override("h_separation",8)
     more.add_theme_constant_override("v_separation",8)
     var amount:=mini(int(r.qty)-1,cap-int(r.merge))
-    if r.merge<cap and amount>1:_game_action(tr("MERGE_ALL") % amount,func()->void:if selected==id:_confirmed(sim.merge(id,true)),true,"",more)
+    if r.merge<cap and amount>1:_game_action(tr("MERGE_ALL") % amount,func()->void:if selected==id:_manual_merge(id,true),true,"",more)
     if def.next!="" and r.merge>=cap:
         var evolve_block:=sim.evolve_block_reason(id)
         # Change 58 (localization): a blocked Evolve carries its reason as a second line. Inside the flow row a
         # button keeps its unwrapped width, so a long translated reason widened the sheet past the screen; blocked,
         # it is a full-width row that wraps (as other panel rows do).
-        _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:_confirmed(sim.evolve(id)),evolve_block.is_empty(),evolve_block,more if evolve_block.is_empty() else null)
+        _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:_manual_evolve(id),evolve_block.is_empty(),evolve_block,more if evolve_block.is_empty() else null)
     if def.kind=="skill":
         for i in range(1+sim.level("skill_slots")):
             _game_action(tr("EQUIP_SKILL_SLOT") % (i+1),func()->void:if selected==id:sim.campaign.equip_skill(id,i),true,"",more)
@@ -1727,7 +1756,7 @@ func _item_panel() -> void:
     var index:=list.find(id)
     _arrow_button(-1,index>0,func()->void:_browse(-1))
     _pinned(tr("UNEQUIP" if sim.equipped(id) else "EQUIP"),func()->void:if selected==id:sim.equip(id),true,"",not sim.equipped(id),"equip")
-    _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:_confirmed(sim.merge(id)),r.qty>1 and r.merge<cap,"NEED_DUPLICATES" if r.qty<2 else "MERGE_AT_CAP",false,"merge")
+    _pinned(tr("ITEM_MERGE_ACTION"),func()->void:if selected==id:_manual_merge(id),r.qty>1 and r.merge<cap,"NEED_DUPLICATES" if r.qty<2 else "MERGE_AT_CAP",false,"merge")
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
 
 ## Supply details (Change 11): what it does now, whether it can be used, stock (charges spent by use)
@@ -2906,10 +2935,18 @@ func _merge_all_action() -> void:
     var copies:=sim.merge_all_copies()
     var lock:=sim.action_lock_reason()
     var b:=_action(tr("MERGE_ALL_BUTTON") % copies if copies>0 else tr("MERGE_ALL_BUTTON_IDLE"),func()->void:
+        var button:=_guide_button("merge_all")
+        var rect:=button.get_global_rect() if button!=null else Rect2()
+        fx_manual=true;fx_merges.clear()
         var result: Dictionary=sim.merge_all()
+        fx_manual=false
         if int(result.copies)>0:
-            AudioService.play("ui_confirm")
+            # Change 67: one aggregate flash on the button and a short glint on the merged slots.
+            AudioService.play("item_merge")
             _say(tr("MERGE_ALL_DONE") % [int(result.copies),int(result.items)])
+            if button!=null:merge_fx.play_button(rect,Color(.55,1,.6))
+            for i in range(mini(fx_merges.size(),MERGE_ALL_GLINTS)):pending_glints.append([fx_merges[i][0],false,i*.06])
+        fx_merges.clear()
         _refresh_slots(),copies>0 and lock.is_empty(),lock if not lock.is_empty() else "NOTHING_TO_MERGE")
     if not b.disabled:b.theme_type_variation=&"Primary"
     b.set_meta("guide","merge_all")
@@ -3763,6 +3800,93 @@ func _refresh_badges() -> void:
     badge.visible=(ready or unseen) and revealed("prestige")
     badge.text="!" if ready else "✦"
     badge.add_theme_color_override("font_color",Color(.45,1,.55) if ready else Color(1,.84,.34))
+
+# ---------------------------------------------------------------- merge and evolution feedback (Change 67)
+## A manual merge from the item card. The simulation performs it (same rules as before); the burst
+## plays only when it reports a merge, from the levels it reports.
+func _manual_merge(id: String,all:=false) -> bool:
+    var frame:=_item_icon_frame(id)
+    var rect:=frame.get_global_rect() if frame!=null else Rect2()
+    fx_manual=true;fx_merges.clear()
+    var ok:=sim.merge(id,all)
+    fx_manual=false
+    var done: Array=fx_merges.duplicate()
+    fx_merges.clear()
+    if not ok or done.is_empty():return false
+    AudioService.play("item_merge")
+    if frame!=null:merge_fx.play_item(rect,icon_cache.get(id),_tier_color(id),int(done[-1][1]),int(done[-1][2]))
+    return true
+
+## A manual weapon evolution. Everything the panel shows is read before the transaction; the panel
+## opens only when the simulation reports the evolution, and never performs it.
+func _manual_evolve(id: String) -> bool:
+    if not sim.catalog.items.has(id):return false
+    var target: String=str(sim.catalog.items[id].next)
+    if target=="" or not sim.catalog.items.has(target):return false
+    var snapshot:={"source":id,"target":target,
+        "source_name":sim.catalog.display_name(id),"target_name":sim.catalog.display_name(target),
+        "source_tier":int(sim.catalog.items[id].tier),"target_tier":int(sim.catalog.items[target].tier),
+        "source_merge":int(sim.record(id).merge),
+        "source_color":_tier_color(id),"target_color":_tier_color(target),
+        "source_icon":icon_cache.get(id),"target_icon":icon_cache.get(target)}
+    fx_manual=true;fx_evolutions.clear()
+    var ok:=sim.evolve(id)
+    fx_manual=false
+    var done: Array=fx_evolutions.duplicate()
+    fx_evolutions.clear()
+    if not ok or done.is_empty():return false
+    _say(tr("EVOLVED"))
+    evolution_show.present(snapshot)
+    return true
+
+func _on_merged(id: String,before: int,after: int) -> void:
+    if fx_manual:
+        fx_merges.append([id,before,after])
+        return
+    # Auto-Merge: a silent glint on the slot, once per item per frame.
+    if not pending_glints.any(func(g):return g[0]==id):pending_glints.append([id,false,0.0])
+
+func _on_evolved(source: String,target: String) -> void:
+    if fx_manual:
+        fx_evolutions.append([source,target])
+        return
+    # Auto Evolution: a named notice, a quiet chime and a gold glint on the new weapon; never a panel.
+    AudioService.play("evolve_auto")
+    _say(tr("AUTO_EVOLVED_NOTICE") % [sim.catalog.display_name(source),sim.catalog.display_name(target)])
+    pending_glints=pending_glints.filter(func(g):return g[0]!=target)
+    pending_glints.append([target,true,0.0])
+
+## Plays the queued dock glints once the slots show this frame's state. A slot that is hidden by a
+## filter, scrolled out of view or covered by a full-screen panel gets none; nothing is kept for later.
+func _flush_glints() -> void:
+    if pending_glints.is_empty():return
+    var queued:=pending_glints
+    pending_glints=[]
+    if evolution_show.visible or (help_viewer!=null and help_viewer.visible):return
+    var grid: Control=dock.get_node("Inventory/GearColumn/GearScroll/Gear")
+    var view: Rect2=dock.get_node("Inventory/GearColumn/GearScroll").get_global_rect()
+    for g in queued:
+        var index: int=sim.state.gear.find(str(g[0]))
+        if index<0 or index>=grid.get_child_count():continue
+        var slot: Control=grid.get_child(index)
+        if not slot.is_visible_in_tree():continue
+        var rect:=slot.get_global_rect()
+        if not view.intersects(rect):continue
+        merge_fx.glint(rect,_tier_color(str(g[0])),bool(g[1]),float(g[2]))
+
+## The selected item's icon frame on the open item card (the last card showing this item's icon).
+func _item_icon_frame(id: String) -> Control:
+    if not sheet.visible or panel!="item":return null
+    var found: Control=null
+    for frame in rows.find_children("*","Panel",true,false):
+        if frame.get_child_count()>0 and frame.get_child(0) is TextureRect and frame.get_child(0).texture==icon_cache.get(id) and frame.is_visible_in_tree():found=frame
+    return found
+
+## A panel button by its guide key (rows first, then the pinned actions).
+func _guide_button(key: String) -> Control:
+    for node in rows.find_children("*","Button",true,false)+actions.find_children("*","Button",true,false):
+        if node.get_meta("guide","")==key:return node
+    return null
 
 func _tier_color(id: String) -> Color:
     if id=="":

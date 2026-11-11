@@ -362,7 +362,8 @@ func merge_all_checks() -> void:
     check(sim.quantity("potion")==10 and sim.supply_mastery("potion")==mastery,"Supplies: stock and mastery untouched")
     check(sim.state.gems==9000.0,"Using it costs nothing")
     check(near(sim.campaign.counter("merge"),merge_counter+11),"Merge progress counts the 11 merged copies once")
-    check(game.notice.text==tr("MERGE_ALL_DONE") % [11,3] and AudioService.played_log==["ui_confirm"],"One aggregate notice and one confirm sound")
+    # Change 67: the one confirm sound of a Merge All is the merge cue (item_merge).
+    check(game.notice.text==tr("MERGE_ALL_DONE") % [11,3] and AudioService.played_log==["item_merge"],"One aggregate notice and one confirm sound")
     var idle: Button=button_containing(game.rows,tr("MERGE_ALL_BUTTON_IDLE"))
     check(idle!=null and idle.disabled and idle.text.contains(tr("NOTHING_TO_MERGE")),"With nothing left the button is disabled: Nothing to merge")
     game._close()

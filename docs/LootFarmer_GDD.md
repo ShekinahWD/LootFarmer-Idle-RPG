@@ -1,4 +1,16 @@
-# LootFarmer — Game Design Document — current (2026-11-11, Change 66)
+# LootFarmer — Game Design Document — current (2026-11-11, Change 67)
+
+## Change 67 — merge and evolution presentation (11 November 2026)
+
+Presentation only: merge and evolution rules, costs, caps, copy requirements, capacity checks, tiers and save schema 9 are unchanged. `LootSimulation.merge()` / `evolve()` stay the only transactions; they now also emit `merged(id, before, after)` and `evolved(source, target)` after committing. `game_ui` tells manual from automatic by who called.
+
+- **Manual merge** (item card Merge, Merge all copies): two copies of the item's icon converge on the card's icon (0.24 s), then a white icon punch, additive glow, expanding ring, four-point star flash and ten sparks, and the reached level rises from the icon ("^5", or "^3 → ^5" for several copies). About 1 s, takes no input, restarts cleanly on a quick second tap (`scripts/game/merge_fx.gd`). Cue `item_merge` replaces the old `ui_confirm` for merges. A refused merge (one copy, at the cap, locked) shows and plays nothing.
+- **Merge All** (inventory): one flash on its button, the merge cue once, the existing aggregate notice, and a staggered glint on up to 8 merged dock slots.
+- **Auto-Merge**: a small silent glint on the merged item's dock slot; skipped while the slot is filtered out or scrolled away, one per slot at a time, from a fixed pool of 8.
+- **Manual weapon evolution** opens a full-screen presentation (`scripts/game/evolution_show.gd`) from a snapshot taken before the transaction: the real source weapon, name and "Tier n · ^20"; charge (warm glow, converging streaks, contracting rings, rising smoke, the weapon shaking harder and turning white, cue `evolve_charge`); release at 1.35 s (white flash, 0.42 s decaying shake up to 9 px, shockwave, rainbow ring, light lines, rainbow star shower, embers, cue `evolve_burst`) as the weapon becomes the evolved one; reveal (new name, "Tier n → Tier n+1", the existing EVOLVED line, slow counter-rotating rays behind the weapon, two small firework bursts, cue `evolve_reveal`); Continue from 2.45 s. A tap or Back before then skips to the result (jumped-over sounds are not played late); a tap, Continue or Back afterwards closes. It holds the world (`sim.held`) while open, like the help viewer; it never performs or repeats the evolution, so closing, skipping, backgrounding or save/load cannot lose or duplicate the result. It runs in real time at any game speed. No replay.
+- **Auto Evolution** never opens the panel: a named notice "Auto Evolution: A → B", the quiet `evolve_auto` cue and a gold glint on the new weapon's slot.
+- New English keys (pending translation): EVOLUTION_SKIP_HINT, EVOLUTION_CONTINUE, EVOLUTION_TIER_CHANGE, AUTO_EVOLVED_NOTICE; the title reuses HELP_CARD_WEAPON_EVOLUTION_TITLE.
+
 
 ## Change 66 — enemy kill achievements without Gem Chance, Guided Map Mastery lesson, Gem Chance 10 Gems, Focused Farming copy (11 November 2026)
 

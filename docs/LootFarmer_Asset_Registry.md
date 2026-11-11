@@ -185,3 +185,21 @@ DejaVu Sans has no kana, Hangul or Han. Four regional Noto Sans faces were subse
 - **Import settings:** like the Thai/Devanagari fonts but **without MSDF** (plain antialiased rasterisation per size), so dense Han glyphs stay sharp at small sizes. The endonym imports declare their script (`script_support` Hani or Hang): Godot 4.7 prefers a fallback that declares the run's script over an earlier one that does not, and a 3–4 glyph subset loses its OpenType script records.
 - **Use:** `resources/game/ui_font_{japanese,korean,chinese_simplified,chinese_traditional}.tres` (regional face first, DejaVu Sans second) become the theme font only while that locale is active (`LocalizationService.SCRIPT_FONTS`); `ui_font_all_scripts.tres` gained the four endonym fonts (its line height is unchanged: the Thai face is still the tallest); in a CJK locale `LocalizationService.selector_font` appends that locale's face for the translated "Automatic".
 - **Size:** 0.85 MB of TTF in total (the full variable sources are 49.7 MB).
+
+## Change 67 merge and evolution effects
+
+Source: Cartoon Coffee "2D Deluxe VFX" (Unity Asset Store pack under the untracked `assets/Cartoon Coffee/`, 381 MB; it ships Unity prefabs, materials and HDR shaders and **no licence file**; licence/release clearance is not verified here, same status as the Change 60 buff textures). The prefabs were inspected (layer textures resolved through material GUIDs, start colours, gradients, lifetimes, counts, timing) and rebuilt with Godot CPUParticles2D, Sprite2D and a one-line flash shader, additive `CanvasItemMaterial`, no Unity code. Runtime copies are white masks resampled with premultiplied alpha (no dark fringes), tinted in code, in `assets/vfx/celebration/` (≈228 KB):
+
+| Runtime file | Size | Source texture | Used for (prefab it adapts) |
+|---|---|---|---|
+| Circle_Outline_002.png | 256 | Textures/Circle_Outline_002 | merge ring, glint ring, evolution contracting rings (Star_Flash_V1, Charge_Light Burst_Ring) |
+| Star_003.png | 256 | Textures/Star_003 | merge star flash, slot glints, evolution star shower (Star_Flash_V1, Impact_Shine_V3, Impact_Light_Lv3 Star_Burst) |
+| Star_004.png | 96 | Textures/Star_004 | merge sparks (Star_Bursts_Center_V3) |
+| Light_Ray_001.png | 256 | Textures/Light_Ray_001 | release light lines (Impact_Light_Lv3 Impact_Lines) |
+| Radial_Glow_006.png | 512 | Textures/Radial_Glow_006 | rotating rays behind the evolved weapon (Radial_Loop_V2) |
+| Shockwave_001.png | 256 | Textures/Shockwave_001 | release shockwave (Charge_Light / Impact_Light_Lv3 Impact_Burst) |
+| Rainbow_Ring_001.png | 256 | Textures/Rainbow_Ring_001 (colour kept) | release rainbow ring (Impact_Light_Lv3 Rainbow_Burst) |
+| Impact_006.png | 256 | Textures/Impact_006 | release centre flash (Impact_Light_Lv3 Impact_Center) |
+| Smoke_Cloud_002.png | 128 | Textures/Smoke_Cloud_002 | rising charge smoke (Aura_V14/V15, white half-alpha smoke, tinted here) |
+
+Glow is the existing `assets/vfx/buff/Glow_001.png`. Fireworks_V1 (Empty_001 trails + embers + purple glow) is approximated by velocity-aligned stretched glows; Unity trails and the distortion shaders are not reproduced. Sounds (licensed Magic Spells SFX Lite OGGs, gameplay category, `resources/game/audio_cues.tres`): `item_merge` enchant_01 (−3 dB), `evolve_charge` charge_01 (its swell peaks near the 1.35 s release), `evolve_burst` arcane_blast_01, `evolve_reveal` holy_01 (−2 dB), `evolve_auto` spell_ready_01 (−8 dB, 1.5 s cooldown). The unlicensed-provenance `assets/sounds/reveal_unlock.wav` was deliberately not used.

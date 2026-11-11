@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AudioCueSet" load_steps=37 format=3]
+[gd_resource type="Resource" script_class="AudioCueSet" load_steps=47 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/audio_cue_set.gd" id="set"]
 [ext_resource type="Script" path="res://scripts/game/audio_cue.gd" id="cue"]
@@ -15,6 +15,11 @@
 [ext_resource type="AudioStream" path="res://assets/sounds/stage_clear.wav" id="s11"]
 [ext_resource type="AudioStream" path="res://assets/sounds/background_music.wav" id="s12"]
 [ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/summon_01.ogg" id="s13"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/enchant_01.ogg" id="s14"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/charge_01.ogg" id="s15"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/arcane_blast_01.ogg" id="s16"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/holy_01.ogg" id="s17"]
+[ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/spell_ready_01.ogg" id="s18"]
 
 [sub_resource type="Resource" id="ui_click"]
 script = ExtResource("cue")
@@ -205,8 +210,53 @@ priority = 58
 cooldown = 1.0
 volume_db = 0.0
 
+[sub_resource type="Resource" id="item_merge"]
+script = ExtResource("cue")
+id = "item_merge"
+stream = ExtResource("s14")
+category = "gameplay"
+priority = 25
+cooldown = 0.08
+volume_db = -3.0
+
+[sub_resource type="Resource" id="evolve_charge"]
+script = ExtResource("cue")
+id = "evolve_charge"
+stream = ExtResource("s15")
+category = "gameplay"
+priority = 30
+cooldown = 1.0
+volume_db = 0.0
+
+[sub_resource type="Resource" id="evolve_burst"]
+script = ExtResource("cue")
+id = "evolve_burst"
+stream = ExtResource("s16")
+category = "gameplay"
+priority = 35
+cooldown = 1.0
+volume_db = 0.0
+
+[sub_resource type="Resource" id="evolve_reveal"]
+script = ExtResource("cue")
+id = "evolve_reveal"
+stream = ExtResource("s17")
+category = "gameplay"
+priority = 32
+cooldown = 1.0
+volume_db = -2.0
+
+[sub_resource type="Resource" id="evolve_auto"]
+script = ExtResource("cue")
+id = "evolve_auto"
+stream = ExtResource("s18")
+category = "gameplay"
+priority = 15
+cooldown = 1.5
+volume_db = -8.0
+
 [resource]
 script = ExtResource("set")
 music = ExtResource("s12")
 music_volume_db = -8.0
-cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("spell_summon"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged"), SubResource("main_ready"), SubResource("feature_unlocked"), SubResource("mastery_objective"), SubResource("mastery_map"), SubResource("game_complete"), SubResource("boss_found")])
+cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("spell_summon"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged"), SubResource("main_ready"), SubResource("feature_unlocked"), SubResource("mastery_objective"), SubResource("mastery_map"), SubResource("game_complete"), SubResource("boss_found"), SubResource("item_merge"), SubResource("evolve_charge"), SubResource("evolve_burst"), SubResource("evolve_reveal"), SubResource("evolve_auto")])

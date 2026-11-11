@@ -1,0 +1,6 @@
+{
+ "EVOLUTION_SKIP_HINT": "Tap to skip",
+ "EVOLUTION_CONTINUE": "Continue",
+ "EVOLUTION_TIER_CHANGE": "Tier %d → Tier %d",
+ "AUTO_EVOLVED_NOTICE": "Auto Evolution: %s → %s"
+}

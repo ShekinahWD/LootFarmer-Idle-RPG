@@ -20,6 +20,10 @@ signal skill_discovered(family: String)
 ## "mission_ready" (a manually claimed mission reaches its goal), "follow_step" (a step of the
 ## followed Prestige opportunity is completed). Emitted once per transition, never on load.
 signal notice(kind: String, id: String)
+## Change 67: presentation hooks, emitted after the transaction is committed (never on load). Manual,
+## Merge All and automatic merges all emit merged; the UI tells them apart by who called.
+signal merged(id: String, before: int, after: int)
+signal evolved(source: String, target: String)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 ## Change 13: summoning and final-boss action rules (inspector-editable resource).
@@ -748,12 +752,14 @@ func merge(id: String, all: bool = false) -> bool:
         return fail("MERGE_AT_CAP")
     _remove(id,count)
     var reached_cap: bool=int(r.merge)<merge_cap(id) and int(r.merge)+count>=merge_cap(id)
+    var before:=int(r.merge)
     r.merge += count
     remember_merge(id,int(r.merge))
     # Change 55 (hint E1): an evolvable weapon just reached its merge cap.
     if reached_cap and catalog.items[id].kind=="weapon" and str(catalog.items[id].next)!="":notice.emit("evolve_ready",id)
     campaign.progress("merge",id,count)
     touch()
+    merged.emit(id,before,int(r.merge))
     return true
 
 ## Merge All (Change 12, a one-time 5,000-Gem unlock): one deliberate action that performs every
@@ -808,6 +814,7 @@ func evolve(id: String) -> bool:
     touch()
     campaign.progress("evolve",id,1)
     event.emit("EVOLVED")
+    evolved.emit(id,target)
     return true
 
 func equip(id: String) -> bool:
