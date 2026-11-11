@@ -2147,6 +2147,11 @@
    "en": "CRIT!",
    "placeholders": [],
    "change": "change-67"
+  },
+  "BOSS_DEFEATED_TITLE": {
+   "en": "Boss defeated!",
+   "placeholders": [],
+   "change": "change-67"
   }
  },
  "retired": {

@@ -31,6 +31,9 @@ func run() -> void:
     if only in ["","revive"]:await revive()
     if only in ["","crit"]:await crit()
     if only in ["","supply"]:await supplies()
+    if only in ["","teleport"]:await teleport()
+    if only in ["","travel"]:await travel()
+    if only in ["","beacon"]:await beacon()
     print("CHANGE_67_VFX_CAPTURE ",ProjectSettings.globalize_path(out))
     get_tree().quit(0)
 
@@ -149,3 +152,39 @@ func supplies() -> void:
         sim.use_item(id)
         await record("supply_"+id,1.3,.1)
     await record("supply_auras",2.0,.25)
+
+## Owns every camp of the current map (fixture) and returns the camp farthest from camp 0 (on screen
+## after the camera follows the hero there).
+func own_camps() -> int:
+    var st: int=int(sim.state.stage)
+    var n: int=sim.campaign.stage().spawns.size()
+    sim.state.spawns=range(n)
+    sim.state.camps[str(st)]=sim.state.spawns
+    for i in range(n):sim.campaign.reveal_circle(Vector2(sim.campaign.stage().spawns[i][0],sim.campaign.stage().spawns[i][1]),120)
+    return 1 if n>1 else 0
+
+## The real Teleport path (game_ui._travel_to) between two camps of the same map.
+func teleport() -> void:
+    await fresh()
+    var camp:=own_camps()
+    await wait(.3)
+    game._travel_to(int(sim.state.stage),camp)
+    await record("teleport",1.0,.05)
+
+## The real Teleport path to camp 0 of the next map (fixture: that map is unlocked).
+func travel() -> void:
+    await fresh()
+    sim.state.unlocked_stage=2;sim.state.camps["2"]=[0]
+    await wait(.3)
+    game._travel_to(2,0)
+    await record("travel",1.5,.05)
+
+## Selecting an owned camp of this map as the respawn point (the real rule), seen from beside it.
+func beacon() -> void:
+    await fresh()
+    var camp:=own_camps()
+    var spot: Array=sim.campaign.stage().spawns[camp]
+    sim.state.player.x=float(spot[0])+30;sim.state.player.y=float(spot[1])+30 # fixture: standing near it (camp left of the minimap)
+    await wait(.3)
+    sim.select_spawn(camp)
+    await record("beacon",1.3,.05)

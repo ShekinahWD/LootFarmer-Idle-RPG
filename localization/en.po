@@ -6577,3 +6577,6 @@ msgstr "Auto Evolution: %s → %s"
 
 msgid "CRIT_TAG"
 msgstr "CRIT!"
+
+msgid "BOSS_DEFEATED_TITLE"
+msgstr "Boss defeated!"

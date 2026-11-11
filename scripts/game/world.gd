@@ -36,8 +36,15 @@ var collected_uids: Dictionary={}
 var crit_fx: Node2D
 var supply_fx: Node2D
 var kick_start:=-1
+var kick_time:=.16
+var kick_amount:=2.5
 const KICK_TIME:=.16
 const KICK:=2.5
+## Change 67 follow-up: teleport, map travel, respawn selection and boss defeat (world_moments.gd).
+var moments: Node2D
+## A boss defeat shakes the camera harder and longer than a crit.
+const BOSS_SHAKE:=6.0
+const BOSS_SHAKE_TIME:=.45
 ## Seconds a collected pickup takes to fly into the hero.
 const COLLECT_FLIGHT:=.22
 
@@ -100,6 +107,11 @@ func setup(value: LootSimulation) -> void:
     supply_fx.setup(sim)
     add_child(supply_fx)
     sim.supply_used.connect(func(id: String)->void:supply_fx.play(id,_player_feet()))
+    moments=preload("res://scripts/game/world_moments.gd").new()
+    add_child(moments)
+    sim.traveled.connect(_traveled)
+    sim.respawn_selected.connect(_respawn_selected)
+    sim.boss_defeated.connect(_boss_defeated)
 
 ## Change 24 (Playbook 44): presentation work scales with what is on screen, not with the map.
 ## - Views whose actor is outside the camera (plus CULL_MARGIN world units) are hidden and skip their
@@ -492,8 +504,8 @@ func update_camera() -> void:
     # Change 67 follow-up: a critical hit kicks the camera a little (real time, decaying, offset only).
     var kick:=Vector2.ZERO
     if kick_start>=0:
-        var u:=(Time.get_ticks_msec()-kick_start)/1000.0/KICK_TIME
-        if u<1 and not get_tree().paused:kick=Vector2(randf_range(-1,1),randf_range(-1,1))*KICK*(1.0-u)
+        var u:=(Time.get_ticks_msec()-kick_start)/1000.0/kick_time
+        if u<1 and not get_tree().paused:kick=Vector2(randf_range(-1,1),randf_range(-1,1))*kick_amount*(1.0-u)
         elif u>=1:kick_start=-1
     $Camera.offset=kick
     $Camera.force_update_scroll()
@@ -552,8 +564,41 @@ func _feedback(id: String,amount: float,healing: bool) -> void:
             var v: LootActorView=views[id]
             var facing:=signf(v.position.x-_player_feet().x)
             crit_fx.play(v.position+Vector2(0,-10*v.visual_scale),v.visual_scale,facing if facing!=0 else 1.0)
-            kick_start=Time.get_ticks_msec()
+            shake(KICK,KICK_TIME)
             AudioService.play("crit_hit")
+
+## A camera shake of up to amount world units for seconds (real time, decaying, offset only). A
+## stronger shake already running is never cut short by a weaker one.
+func shake(amount: float,seconds: float) -> void:
+    if kick_start>=0 and (Time.get_ticks_msec()-kick_start)/1000.0<kick_time and amount<kick_amount:return
+    kick_start=Time.get_ticks_msec()
+    kick_amount=amount
+    kick_time=seconds
+
+## Change 67 follow-up: a Teleport. Within the map: the cyan blink (where the hero left, then where they
+## arrived). To another map: the violet portal at the arrival (game_ui opens the iris over the map).
+func _traveled(map_changed: bool,from: Vector2,to: Vector2) -> void:
+    if map_changed:
+        moments.play("portal",to)
+        AudioService.play("travel_map")
+    else:
+        moments.play("teleport",to,from)
+        AudioService.play("travel_camp")
+
+## The respawn camp of this map was chosen: a gold beacon at that camp.
+func _respawn_selected(camp: int) -> void:
+    var node: Node2D=scenery.get_node_or_null("Camps/Camp%d" % camp) if scenery!=null else null
+    var at: Vector2=node.position if node!=null else Vector2(sim.campaign.stage().spawns[camp][0],sim.campaign.stage().spawns[camp][1])
+    moments.play("beacon",at)
+    AudioService.play("respawn_select")
+
+## A boss fell: the triumph at its body, a strong shake and its cue (only when the player can see it).
+func _boss_defeated(id: String,_group: int,at: Vector2) -> void:
+    if not (views.has(id) and views[id].disclosed and views[id].visible):return
+    var v: LootActorView=views[id]
+    moments.play("boss",at+Vector2(0,-10*v.visual_scale),Vector2.INF,clampf(v.visual_scale,1.0,1.6))
+    shake(BOSS_SHAKE,BOSS_SHAKE_TIME)
+    AudioService.play("boss_defeated")
 
 ## The hero's feet: the drawn view when there is one, else the simulation position.
 func _player_feet() -> Vector2:

@@ -235,6 +235,7 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
         if reason!="":return sim.fail(reason)
         var before_camp:=-1
         var before_stage:=int(sim.state.stage)
+        var from: Vector2=sim.position_of(sim.state.player)
         if st==before_stage:before_camp=resting_camp()
         if st!=int(sim.state.stage):
             sim.clear_helpers()
@@ -251,7 +252,9 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
         sim.state.player.windup=0;sim.state.player.target="";sim.state.player.idle=0
         sim.state.focus=-1;sim.clear_target();reveal()
         if st==before_stage and camp!=before_camp:guided.action("camp_travel",str(camp))
-        sim.touch();SaveService.save_now();return true
+        sim.touch();SaveService.save_now()
+        sim.traveled.emit(st!=before_stage,from,sim.position_of(sim.state.player))
+        return true
     if st!=int(sim.state.stage) or camp<0 or camp>=stage().spawns.size():return false
     if not sim.state.spawns.has(camp):
         if not camp_known(camp):return sim.fail("CAMP_UNDISCOVERED")
@@ -262,6 +265,7 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
     else:
         sim.state.spawn=camp;sim.state.respawns[str(st)]=camp
         guided.action("respawn",str(camp))
+        sim.respawn_selected.emit(camp)
     sim.touch();SaveService.save_now();return true
 func cell_key(pos: Vector2) -> String:
     return "%d,%d" % [floori(pos.x/fog_rules.cell_size),floori(pos.y/fog_rules.cell_size)]

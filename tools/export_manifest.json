@@ -16,9 +16,9 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 322,
+  "files": 331,
   "stages": 8,
-  "imported": 196
+  "imported": 204
  },
  "families": {
   "stage_scenes": {
@@ -511,10 +511,14 @@
   "res://assets/magic-spells-sfx-lite/ogg/holy_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-sfx-lite/ogg/ice_shatter_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-sfx-lite/ogg/impact_01.ogg": "dependency of res://resources/game/audio_cues.tres",
+  "res://assets/magic-spells-sfx-lite/ogg/portal_01.ogg": "dependency of res://resources/game/audio_cues.tres",
+  "res://assets/magic-spells-sfx-lite/ogg/rune_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-sfx-lite/ogg/shield_break_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-sfx-lite/ogg/shield_up_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-sfx-lite/ogg/spell_ready_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-sfx-lite/ogg/summon_01.ogg": "dependency of res://resources/game/audio_cues.tres",
+  "res://assets/magic-spells-sfx-lite/ogg/teleport_01.ogg": "dependency of res://resources/game/audio_cues.tres",
+  "res://assets/magic-spells-sfx-lite/ogg/thunder_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-sfx-lite/ogg/zap_01.ogg": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/magic-spells-vfx-lite/cast/cast_sheet.png": "dependency of res://data/game/catalog.json",
   "res://assets/magic-spells-vfx-lite/fire_impact/fire_impact_sheet.png": "dependency of res://data/game/catalog.json",
@@ -528,9 +532,9 @@
   "res://assets/sounds/ui_confirm.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/ui/Hand.png": "dependency of res://resources/game/pickup_style.tres",
   "res://assets/vfx/buff/Arrow_006.png": "literal in res://scripts/game/buff_burst.gd",
-  "res://assets/vfx/buff/Circle_Outline_003.png": "literal in res://scripts/game/supply_fx.gd",
+  "res://assets/vfx/buff/Circle_Outline_003.png": "literal in res://scripts/game/world_moments.gd",
   "res://assets/vfx/buff/Glow_001.png": "literal in res://scripts/game/evolution_show.gd",
-  "res://assets/vfx/buff/Light_Ray_007.png": "literal in res://scripts/game/respawn_fx.gd",
+  "res://assets/vfx/buff/Light_Ray_007.png": "literal in res://scripts/game/world_moments.gd",
   "res://assets/vfx/celebration/Circle_Outline_002.png": "literal in res://scripts/game/evolution_show.gd",
   "res://assets/vfx/celebration/Impact_006.png": "literal in res://scripts/game/evolution_show.gd",
   "res://assets/vfx/celebration/Light_Ray_001.png": "literal in res://scripts/game/evolution_show.gd",
@@ -544,7 +548,11 @@
   "res://assets/vfx/combat/Impact_001.png": "literal in res://scripts/game/crit_fx.gd",
   "res://assets/vfx/combat/Impact_008.png": "literal in res://scripts/game/crit_fx.gd",
   "res://assets/vfx/combat/Light_Ray_006.png": "literal in res://scripts/game/crit_fx.gd",
-  "res://assets/vfx/supply/Coin_Spin_Sheet.png": "literal in res://scripts/game/supply_fx.gd",
+  "res://assets/vfx/moments/Circle_Wind_004.png": "literal in res://scripts/game/world_moments.gd",
+  "res://assets/vfx/moments/Confetti_Sheet.png": "literal in res://scripts/game/world_moments.gd",
+  "res://assets/vfx/moments/Radial_Glow_002.png": "literal in res://scripts/game/world_moments.gd",
+  "res://assets/vfx/moments/Wind_Shard_002.png": "literal in res://scripts/game/world_moments.gd",
+  "res://assets/vfx/supply/Coin_Spin_Sheet.png": "literal in res://scripts/game/world_moments.gd",
   "res://assets/vfx/supply/Heal_001.png": "literal in res://scripts/game/supply_fx.gd",
   "res://assets/vfx/supply/Heart_001.png": "literal in res://scripts/game/supply_fx.gd",
   "res://assets/vfx/supply/Hexagon_001.png": "literal in res://scripts/game/supply_fx.gd",
@@ -675,6 +683,7 @@
   "res://scripts/game/tutorial_guide.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/ui_art.gd": "class_name UiArt used by res://scripts/game/map_view.gd",
   "res://scripts/game/weather_style.gd": "class_name WeatherStyle used by res://scripts/game/season_weather.gd",
-  "res://scripts/game/world.gd": "dependency of res://scenes/game/world.tscn"
+  "res://scripts/game/world.gd": "dependency of res://scenes/game/world.tscn",
+  "res://scripts/game/world_moments.gd": "literal in res://scripts/game/world.gd"
  }
 }

@@ -44,6 +44,7 @@ func run() -> void:
     await respawn_checks()
     await crit_checks()
     await supply_checks()
+    await moment_checks()
     print("CHANGE_67_CHECKS %d FAILURES %d" % [checks,failures])
     get_tree().quit(1 if failures>0 else 0)
 
@@ -380,3 +381,71 @@ func supply_checks() -> void:
     sim.state.stage=2;await frames(3) # fixture: a map change
     check(not fx.bursts["coins"].node.visible and not fx.label.visible,"A map change clears the supply effects")
     sim.state.stage=1;await frames(3)
+
+# ---------------------------------------------------------------- teleport, travel, respawn camp, boss
+func moment_checks() -> void:
+    fresh()
+    var w=game.world
+    var mo=w.moments
+    var st: int=int(sim.state.stage)
+    var n: int=sim.campaign.stage().spawns.size()
+    sim.state.spawns=range(n);sim.state.camps[str(st)]=sim.state.spawns # fixture: every camp owned
+    AudioService.reset_history()
+    check(game._travel_to(st,1),"Teleport to another camp of this map (the real UI path)")
+    check(mo.running("teleport") and mo.moments["teleport"].node_from.visible and not mo.running("portal"),"Camp teleport: the cyan blink at both places, not the portal")
+    check(requested("travel_camp") and not game.iris.visible,"Its own cue; no map iris")
+    var at_camp: Vector2=sim.position_of(sim.state.player)
+    check(mo.moments["teleport"].node_to.position.distance_to(at_camp)<1,"It lands where the hero arrived")
+    await wait(1.5)
+    check(not mo.running("teleport"),"It ends by itself")
+    # Refused teleport (in combat): nothing plays.
+    var foe: Dictionary=sim.state.enemies[0]
+    foe.aggro=true;foe.x=at_camp.x+10;foe.y=at_camp.y # fixture: in combat
+    var reason: String=sim.campaign.travel_reason(st,0)
+    check(not sim.campaign.camp_action(st,0,true) and not mo.running("teleport"),"A refused teleport (%s) shows nothing" % reason)
+    foe.aggro=false;foe.x+=600
+    # Map travel.
+    sim.state.unlocked_stage=2;sim.state.camps["2"]=[0] # fixture: the next map is open
+    AudioService.reset_history()
+    check(game._travel_to(2,0),"Teleport to the next map")
+    check(mo.running("portal") and not mo.running("teleport"),"Map travel: the violet portal, not the camp blink")
+    check(requested("travel_map") and game.iris.visible,"Its own cue and the iris over the map")
+    await wait(1.2)
+    check(not game.iris.visible,"The iris has opened fully and hides")
+    await wait(1.0)
+    check(not mo.running("portal"),"The portal ends by itself")
+    # Respawn camp selection.
+    st=int(sim.state.stage)
+    sim.state.spawns=range(sim.campaign.stage().spawns.size());sim.state.camps[str(st)]=sim.state.spawns
+    var target_camp: int=sim.state.spawns.size()-1
+    AudioService.reset_history()
+    check(sim.select_spawn(target_camp) and int(sim.state.spawn)==target_camp,"Select a respawn camp (rule unchanged)")
+    var camp_node: Node2D=w.scenery.get_node("Camps/Camp%d" % target_camp)
+    check(mo.running("beacon") and mo.moments["beacon"].node_to.position.distance_to(camp_node.position)<1,"A gold beacon at that camp")
+    check(requested("respawn_select"),"Its own cue")
+    # Boss defeat.
+    fresh()
+    var boss: Dictionary={}
+    for e in sim.state.enemies:
+        if bool(sim.catalog.groups[int(e.group)].boss):boss=e;break
+    var p: Vector2=sim.position_of(sim.state.player)
+    boss.x=p.x+14;boss.y=p.y;boss.hp=.5 # fixture: one hit from defeat, beside the hero
+    sim.campaign.reveal_circle(p,100)
+    await frames(4)
+    AudioService.reset_history()
+    sim._kill(boss) # the simulation's own kill (it pays and records as usual)
+    check(mo.running("boss") and game.boss_title.visible,"Boss defeated: the triumph and the title")
+    check(game.boss_title.get_child(1).text==sim.catalog.groups[int(boss.group)].name,"The title names the boss (%s)" % game.boss_title.get_child(1).text)
+    check(requested("boss_defeated") and w.kick_amount>=w.BOSS_SHAKE-.01,"Its cue and the strong shake")
+    await wait(.4)
+    var title_rect: Rect2=game.boss_title.get_global_rect()
+    var map_rect: Rect2=game.get_node("Safe/Layout/Map").get_global_rect()
+    check(map_rect.encloses(title_rect),"The title box sits inside the map (%s in %s)" % [title_rect,map_rect])
+    await wait(2.8)
+    check(not mo.running("boss") and not game.boss_title.visible,"Both end by themselves")
+    # A normal enemy's death: no triumph.
+    var normal: Dictionary={}
+    for e in sim.state.enemies:
+        if not bool(sim.catalog.groups[int(e.group)].boss) and e.hp>0:normal=e;break
+    sim._kill(normal)
+    check(not mo.running("boss") and not game.boss_title.visible,"An ordinary enemy's death shows no triumph")

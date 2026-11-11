@@ -29,6 +29,13 @@ signal evolved(source: String, target: String)
 signal collected(uid: int)
 ## A supply was used (tap or auto-use), emitted after its effect was applied.
 signal supply_used(id: String)
+## Change 67 follow-up: presentation hooks for moving and milestones, emitted after the state changed.
+## traveled: a Teleport moved the hero (map_changed when it arrived on another map; from is the old
+## position on the old map). respawn_selected: the respawn camp of this map is now that camp.
+## boss_defeated: a boss (never a summoned helper) fell at that position.
+signal traveled(map_changed: bool, from: Vector2, to: Vector2)
+signal respawn_selected(camp: int)
+signal boss_defeated(actor_id: String, group: int, at: Vector2)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 ## Change 13: summoning and final-boss action rules (inspector-editable resource).
@@ -1205,6 +1212,7 @@ func _kill(a: Dictionary) -> void:
     else:
         a.respawn=spawn_cooldown(int(a.group))
         if catalog.groups[int(a.group)].boss:
+            boss_defeated.emit(str(a.id),int(a.group),position_of(a))
             state.boss_respawns[str(a.id)]={"group":int(a.group),"stage":int(catalog.groups[int(a.group)].stage),"remaining":a.respawn,"x":a.home_x,"y":a.home_y}
             boss_respawns_changed.emit()
         state.group_kills[int(a.group)]+=1

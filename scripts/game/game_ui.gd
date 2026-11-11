@@ -289,6 +289,10 @@ func _ready() -> void:
     add_child(evolution_show)
     sim.merged.connect(_on_merged)
     sim.evolved.connect(_on_evolved)
+    # Change 67 follow-up: the map-travel iris and the boss-defeated title over the map.
+    _build_moment_overlays()
+    sim.traveled.connect(func(map_changed: bool,_from: Vector2,_to: Vector2)->void:if map_changed:_open_iris())
+    sim.boss_defeated.connect(_boss_title)
     # Change 65: the one tutorial-card viewer (Basic opening and Help), above the panel and the guide.
     help_viewer=preload("res://scripts/game/help_viewer.gd").new()
     help_viewer.z_index=18
@@ -331,6 +335,7 @@ func _process(dt: float) -> void:
         world.follow_player()
     # Change 63: the guide's caption room above a panel of the current lesson, fixed per opening.
     _update_sheet_reserve()
+    _update_iris(dt)
     _update_toast(dt)
     _layout_banner()
     # The View Camp button follows the camp on screen every frame (camera moves and pans).
@@ -3800,6 +3805,100 @@ func _refresh_badges() -> void:
     badge.visible=(ready or unseen) and revealed("prestige")
     badge.text="!" if ready else "✦"
     badge.add_theme_color_override("font_color",Color(.45,1,.55) if ready else Color(1,.84,.34))
+
+# ---------------------------------------------------------------- travel iris and boss title (Change 67)
+## Arriving on another map: the map opens from the hero like an iris (dark violet, 0.7 s, real time),
+## so the new map is clearly a different place. The Teleport has already happened; this only reveals it.
+## A boss defeat: "Boss defeated!" and the boss's name punch in over the map, then fade (2.4 s). Both
+## sit over the map only (under the HUD chips, the panel and the guide) and never take input.
+var iris: ColorRect
+var iris_age:=INF
+const IRIS_TIME:=.85
+var boss_title: VBoxContainer
+const BOSS_TITLE_HEIGHT:=120.0
+var boss_title_tween: Tween
+
+func _build_moment_overlays() -> void:
+    var map: Control=$Safe/Layout/Map
+    iris=ColorRect.new()
+    iris.name="TravelIris"
+    iris.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    iris.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    var shader:=Shader.new()
+    shader.code="shader_type canvas_item;\nuniform vec2 center = vec2(0.5);\nuniform float radius = 0.0;\nuniform vec2 size = vec2(1.0);\nuniform vec4 tint : source_color = vec4(0.08, 0.03, 0.14, 1.0);\nuniform vec4 rim : source_color = vec4(0.75, 0.5, 1.0, 1.0);\nvoid fragment() {\n\tfloat d = distance(UV * size, center * size);\n\tfloat edge = smoothstep(radius - 3.0, radius + 3.0, d);\n\tfloat glow = exp(-abs(d - radius) / 6.0) * step(0.5, radius);\n\tCOLOR = vec4(mix(rim.rgb, tint.rgb, edge * (1.0 - glow * 0.8)), max(edge * tint.a, glow * 0.9));\n}\n"
+    var mat:=ShaderMaterial.new()
+    mat.shader=shader
+    iris.material=mat
+    iris.visible=false
+    map.add_child(iris)
+    map.move_child(iris,map.get_node("ViewportContainer").get_index()+1)
+    boss_title=VBoxContainer.new()
+    boss_title.name="BossTitle"
+    boss_title.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    boss_title.alignment=BoxContainer.ALIGNMENT_BEGIN
+    for i in range(2):
+        var l:=Label.new()
+        l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+        # One line each: a wrapping label reports a page-tall minimum until laid out, which pushed the
+        # title off the map. A long translated name is trimmed with an ellipsis instead.
+        l.autowrap_mode=TextServer.AUTOWRAP_OFF
+        l.clip_text=true
+        l.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+        l.add_theme_font_size_override("font_size",42 if i==0 else 26)
+        l.add_theme_color_override("font_color",Color(1,.84,.3) if i==0 else Color(1,.95,.85))
+        l.add_theme_color_override("font_outline_color",Color(.32,.12,.02) if i==0 else Color(.05,.04,.06))
+        l.add_theme_constant_override("outline_size",12 if i==0 else 8)
+        l.mouse_filter=Control.MOUSE_FILTER_IGNORE
+        boss_title.add_child(l)
+    boss_title.visible=false
+    # Above every map chip (the minimap, trackers), still under the panel, banners and guide.
+    map.add_child(boss_title)
+
+func _open_iris() -> void:
+    iris_age=0.0
+    iris.visible=true
+    _update_iris(0.0)
+
+func _update_iris(dt: float) -> void:
+    if iris_age==INF:return
+    iris_age+=dt/maxf(Engine.time_scale,.01)
+    var u:=clampf(iris_age/IRIS_TIME,0,1)
+    var size: Vector2=iris.size
+    var screen: Vector2=world.player_screen_position()
+    var container: Control=$Safe/Layout/Map/ViewportContainer
+    var local: Vector2=iris.get_global_transform().affine_inverse()*(container.get_global_transform()*screen)
+    var mat: ShaderMaterial=iris.material
+    mat.set_shader_parameter("size",size)
+    mat.set_shader_parameter("center",local/size)
+    # Eased open from a closed point to past the farthest corner.
+    var far: float=maxf(maxf(local.length(),(size-local).length()),maxf(Vector2(local.x,size.y-local.y).length(),Vector2(size.x-local.x,local.y).length()))
+    # Opens slowly from the hero first (the new map is a reveal), then sweeps out to the corners.
+    mat.set_shader_parameter("radius",far*u*u*(3.0-2.0*u)*1.05)
+    if u>=1:
+        iris_age=INF
+        iris.visible=false
+
+func _boss_title(id: String,group: int,_at: Vector2) -> void:
+    if not (world.views.has(id) and world.views[id].disclosed and world.views[id].visible):return
+    var map: Control=$Safe/Layout/Map
+    boss_title.get_child(0).text=tr("BOSS_DEFEATED_TITLE")
+    boss_title.get_child(1).text=sim.catalog.groups[group].name
+    boss_title.size=Vector2(map.size.x-48,BOSS_TITLE_HEIGHT)
+    # Under the hero (centred on the map) and below the toast band: above it are the stat popups and banners.
+    boss_title.position=Vector2(24,minf(map.size.y*.71,map.size.y-BOSS_TITLE_HEIGHT-8))
+    boss_title.pivot_offset=boss_title.size*.5
+    boss_title.scale=Vector2.ONE*1.8
+    boss_title.modulate=Color(1,1,1,0)
+    boss_title.visible=true
+    if boss_title_tween!=null and boss_title_tween.is_valid():boss_title_tween.kill()
+    var t:=create_tween().set_ignore_time_scale(true)
+    boss_title_tween=t
+    t.set_parallel(true)
+    t.tween_property(boss_title,"scale",Vector2.ONE,.28).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+    t.tween_property(boss_title,"modulate:a",1.0,.12)
+    t.chain().tween_interval(1.6)
+    t.chain().tween_property(boss_title,"modulate:a",0.0,.5)
+    t.chain().tween_callback(func()->void:boss_title.visible=false)
 
 # ---------------------------------------------------------------- merge and evolution feedback (Change 67)
 ## A manual merge from the item card. The simulation performs it (same rules as before); the burst
