@@ -22,6 +22,8 @@ const WORLD_BG:=Color(.16,.23,.19)
 const UI_BG:=Color(.1,.12,.16)
 ## Map Mastery's five category icons (explore, hunt, research, collect, forge), as game_ui.MASTERY_ART.
 const MASTERY_ICONS:=[249,1,60,147,211]
+## Change 66: the five Map Mastery goals, named as on the real Mastery page (MASTERY_<CATEGORY>).
+const MASTERY_CATEGORIES:=["explore","hunt","research","collect","forge"]
 ## Seconds into the loop drawn as the single frame when motion is reduced (the card's key moment).
 const KEY_TIMES:={"movement_combat":3.4,"manual_target":1.8,"collect_equip":5.4,"merge_gear":3.6,"player_upgrades":5.0,
     "enemy_automation":1.4,"missions":5.4,"explore_camps":5.2,"skills_supplies":4.8,"offline_rewards":6.4,
@@ -186,6 +188,18 @@ func _label(text: String,rect: Rect2,font_size:=14,color:=Color.WHITE,align:=HOR
     draw_string_outline(font,Vector2(rect.position.x,y),text,align,rect.size.x,s,3,Color(0,0,0,.8*color.a))
     draw_string(font,Vector2(rect.position.x,y),text,align,rect.size.x,s,color)
 
+## Change 66: a word-wrapped label (at most max_lines lines inside rect), stepping its size down until it fits.
+func _wrapped(text: String,rect: Rect2,font_size:=12,color:=Color.WHITE,max_lines:=4) -> void:
+    var font: Font=get_theme_default_font()
+    var s:=font_size
+    while s>8 and (font.get_multiline_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x,s,max_lines).y>rect.size.y or _line_count(font,text,rect.size.x,s)>max_lines):s-=1
+    var y:=rect.position.y+font.get_ascent(s)
+    draw_multiline_string_outline(font,Vector2(rect.position.x,y),text,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x,s,max_lines,3,Color(0,0,0,.8*color.a))
+    draw_multiline_string(font,Vector2(rect.position.x,y),text,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x,s,max_lines,color)
+
+func _line_count(font: Font,text: String,width: float,size: int) -> int:
+    return roundi(font.get_multiline_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,width,size).y/font.get_height(size))
+
 func _panel(rect: Rect2,border:=Color(.45,.52,.62)) -> void:
     draw_rect(rect,Color(.15,.18,.24,.97))
     draw_rect(rect,border,false,2)
@@ -339,12 +353,13 @@ func _demo_player_upgrades(s: float) -> void:
         _panel(row1)
         _label(tr("UP_RESPAWN"),Rect2(70,70,180,20),13,Color(.8,.84,.9),HORIZONTAL_ALIGNMENT_LEFT)
         _button(Rect2(280,74,88,36),"30",false,false,COIN)
-        var row2:=Rect2(20,130,360,64)
+        # Change 66: the row is taller so the whole unlock description (the return after respawning) reads.
+        var row2:=Rect2(20,128,360,100)
         _panel(row2,Color(1,.86,.5) if not bought else Color(.45,.52,.62))
-        _tex(ui._art(147),Vector2(44,162),30)
-        _label(tr("UP_FOCUS"),Rect2(70,136,200,20),14,Color.WHITE,HORIZONTAL_ALIGNMENT_LEFT)
-        _label(tr("FOCUS_GLOBAL_OWNED") if bought else tr("FOCUS_GLOBAL_BENEFIT"),Rect2(70,156,200,30),11,GOOD,HORIZONTAL_ALIGNMENT_LEFT)
-        var buy:=Rect2(280,144,88,38)
+        _tex(ui._art(147),Vector2(44,178),30)
+        _label(tr("UP_FOCUS"),Rect2(70,132,200,20),14,Color.WHITE,HORIZONTAL_ALIGNMENT_LEFT)
+        _wrapped(tr("FOCUS_GLOBAL_OWNED") if bought else tr("FOCUS_GLOBAL_BENEFIT"),Rect2(70,154,202,70),12,GOOD,5)
+        var buy:=Rect2(280,159,88,38)
         _button(buy,tr("UPGRADE_MAX") if bought else str(price),not bought,s>=1.8 and s<2.2,null if bought else GEM)
         if not bought:_glow(buy,s)
         else:_sparkle(buy.get_center(),_p(s,2.2,3.0))
@@ -611,7 +626,8 @@ func _demo_map_details_mastery(s: float) -> void:
     for i in range(MASTERY_ICONS.size()):
         var y:=42+i*32
         _tex(ui._art(MASTERY_ICONS[i]),Vector2(46,y+12),22)
-        _bar(Rect2(70,y+6,240,12),_p(s,4.9+i*.35,5.9+i*.35),GOOD)
+        _label(tr("MASTERY_"+MASTERY_CATEGORIES[i].to_upper()),Rect2(66,y,96,24),13,Color.WHITE,HORIZONTAL_ALIGNMENT_LEFT)
+        _bar(Rect2(166,y+6,150,12),_p(s,4.9+i*.35,5.9+i*.35),GOOD)
     var done:=_p(s,6.8,7.6)
     if done>0:
         _tex(GEM,Vector2(350,120),30*(.6+.4*done))

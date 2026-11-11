@@ -77,7 +77,7 @@ check('dropped gear is never legacy',all(not c['items'][i].get('legacy') for g i
 # Merge All unlock; stone-tier swing sheet.
 g12=c['upgrades']['gem_chance']
 check('gem chance: base 5%, 20 levels of +0.5 points, no game caps',c['progression']['gem_limits']['base_chance']==0.05 and g12['cap']==20 and g12['effect']==0.005 and 'normal_cap' not in c['progression']['gem_limits'] and 'boss_cap' not in c['progression']['gem_limits'])
-check('gem chance prices 1-12 unchanged, 13-20 rising',g12['prices'][:12]==[25,40,58,80,105,135,170,210,260,320,390,470] and all(b>a for a,b in zip(g12['prices'],g12['prices'][1:])) and len(g12['prices'])==20)
+check('gem chance prices: level 1 = 10 (Change 66), 2-12 unchanged, 13-20 rising',g12['prices'][:12]==[10,40,58,80,105,135,170,210,260,320,390,470] and all(b>a for a,b in zip(g12['prices'],g12['prices'][1:])) and len(g12['prices'])==20)
 check('Gem Wisdom +5 points',c['campaign']['cards']['offering_c2']['effect']=='gem_chance' and c['campaign']['cards']['offering_c2']['value']==0.05)
 check('Merge All: one-time 5,000-gem global unlock',c['upgrades']['merge_all']=={'currency':'gems','base':5000,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'global'})
 check('stone-tier weapons swing with the tinted Iron set',all(c['items'][i]['attack'].endswith('Iron set/%s 2 64x32.png' % k) and len(c['items'][i]['attack_tint'])==3 for i,k in [('stone_axe','Axe'),('stone_sword','Sword')]))
@@ -88,6 +88,8 @@ check('all six skill base cooldowns 20 seconds',sk=={k:20 for k in c['skills']})
 check('auto-cast 100/250/500 gems, skill slots 300/600 gems',[c['upgrades']['skill_auto_%d' % i]['base'] for i in range(3)]==[100,250,500] and c['upgrades']['skill_slots']['prices']==[300,600] and c['upgrades']['skill_slots']['cap']==2)
 check('potion 12 s cooldown with a 10 s mastery floor',c['items']['potion']['supply']['cooldown']==12 and c['items']['potion']['supply']['cooldown_floor']==10)
 check('Change 65 Focused Farming: one-time global 25-gem Player upgrade',c['upgrades']['focus']=={'currency':'gems','base':25,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'global'})
+# Change 66: kill achievements reward damage only (no Gem Chance part); Gem Chance level 1 costs 10 Gems.
+check('Change 66 kill achievements: +5% damage per milestone, no gem chance',c['progression']['achievements']['damage_per_milestone']==0.05 and 'gems_per_milestone' not in c['progression']['achievements'])
 check('Auto Evolution: one-time flat 2,000-gem per-type unlock',c['upgrades']['auto_evolve']=={'currency':'gems','base':2000,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'type','flat':True})
 ab=(ROOT/'resources/game/enemy_abilities.tres').read_text(encoding='utf-8')
 ids={g['id']:g for g in c['groups']}

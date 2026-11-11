@@ -1200,12 +1200,12 @@ func _kill(a: Dictionary) -> void:
 func gear_chance(group: int) -> float:
     return group_upgrade_value("loot",group)
 
-## The one Gem drop probability (Change 12): base 5% + Gem Chance levels + Gem Wisdom + this type's
-## kill achievements, plus Boss Gem Chance on bosses. Only the probability range clamps it; there is
-## no game-specific ceiling, so every earned bonus counts.
+## The one Gem drop probability (Change 12): base 5% + Gem Chance levels + Gem Wisdom (and other
+## campaign.bonus("gem_chance") sources), plus Boss Gem Chance on bosses. Change 66: enemy kill
+## achievements no longer add Gem Chance (they keep their damage reward only); the bonus was always derived
+## from kill counts, never saved, so old profiles simply stop receiving it. Only the probability range clamps it.
 func gem_chance(group: int) -> float:
-    var base:=boss_gem_chance() if catalog.groups[group].boss else gem_base_chance()
-    return clampf(base+achievement_gems(group),0.0,1.0)
+    return boss_gem_chance() if catalog.groups[group].boss else gem_base_chance()
 
 func coin_reward(group: int) -> float:
     return group_upgrade_value("coin_amount",group)
@@ -1488,9 +1488,6 @@ func achievement_level(group: int) -> int:
 func achievement_damage(group: int) -> float:
     return achievement_level(group)*float(catalog.progression.achievements.damage_per_milestone)
 
-func achievement_gems(group: int) -> float:
-    return achievement_level(group)*float(catalog.progression.achievements.gems_per_milestone)
-
 ## Chance that a kill rolls a supply at all; _roll_supply then picks which one (supply_drop_chance).
 func consumable_chance(group: int,_id: String) -> float:
     return (.15 if catalog.groups[group].boss else .05)+minf(.15,.01*level("supply_drop",group))+campaign.bonus("supply_chance")
@@ -1718,12 +1715,12 @@ func player_upgrade_value(id: String,extra: int=0) -> float:
 func farming_position() -> Vector2:
     return campaign.spot(int(state.focus),int(state.focus_variant)) if int(state.focus)>=0 else position_of(state.player)
 
-## Base 5% + Gem Chance upgrade levels (+0.5 points each) + Gem Wisdom, before per-type bonuses.
+## Base 5% + Gem Chance upgrade levels (+0.5 points each) + Gem Wisdom: a normal enemy's whole Gem chance.
 func gem_base_chance(extra: int=0) -> float:
     return clampf(float(catalog.progression.gem_limits.base_chance)+campaign.bonus("gem_chance")+float(catalog.upgrades.gem_chance.effect)*(level("gem_chance")+extra),0.0,1.0)
 
 ## Total shared boss probability, including the existing base exactly once. Upgrade previews use
-## extra=1. For a specific boss, gem_chance(group) additionally includes that type's achievements.
+## extra=1. Every boss uses this chance (Change 66: kill achievements add no Gem Chance).
 func boss_gem_chance(extra: int=0) -> float:
     return clampf(gem_base_chance()+float(catalog.upgrades.boss_gem_chance.effect)*(level("boss_gem_chance")+extra),0.0,1.0)
 

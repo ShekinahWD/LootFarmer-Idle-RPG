@@ -1,4 +1,10 @@
-# LootFarmer — Test Suite (current, 2026-11-07, Change 58)
+# LootFarmer — Test Suite (current, 2026-11-11, Change 66)
+
+## Change 66 — Enemy achievements, Gem Chance price, Guided Map Mastery, Focused Farming copy (11 November 2026)
+
+- **Registered** `change_66_probe` (77 checks): kill achievements at 0 / intermediate / full progress for a normal type and a boss (damage unchanged and type-specific, zero achievement Gem Chance, 3,000 real reward rolls at the 5% base, other sources intact, the Achievements tab text), save/load and Prestige of an earned profile (no refund or drift); Gem Chance 10 → 40 → 58, refusals without spending, an owned level 1 kept, the Gems tab button; the Guided `map_mastery` lesson (position, chip arrow, the five goals, Close arrow, World → Map Mastery → Details route, early close, reload, other panels, version-61 migration at / past / finished, the old hint record, Prestige, Hard Reset, 100% explored with no hint and the Explore goal still counting, Basic/None); the Focused Farming copy (Player Upgrades locked/owned, Help cards, 25 Gems) and a death → respawn → walk-back run.
+- **Not in the suite:** `tests/change_66_capture.tscn` (extends the Change 65 capture: same bounds / truncation / clipped-line audit; 0 problems at 432×960 and 540×960).
+- **Updated:** change_63 (the optional hint checks become "never shown"; the banner-vs-chip checks use the Guided lesson), change_12 (level 1 price 10, no achievement Gem Chance: 20% / 60% fully stacked), change_25 (36 Guided steps), `tools/validate_campaign_source.py`.
 
 ## Change 65 — Global Focused Farming, tutorial cards, Guided first attack (11 November 2026)
 

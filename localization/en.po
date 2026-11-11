@@ -6278,12 +6278,6 @@ msgstr "Stored gear counts too"
 msgid "GUIDE_GEAR_BONUS_CLOSE_DETAIL"
 msgstr "The Stored gear counts line shows the share your stored weapons and outfits give. Tap Close to continue."
 
-msgid "GUIDE_MASTERY_INTRO"
-msgstr "Map fully explored!"
-
-msgid "GUIDE_MASTERY_INTRO_DETAIL"
-msgstr "Tap the Mastery button on the map to see your remaining Map Mastery goals and rewards. This is optional: you can keep adventuring."
-
 msgid "TELEPORT_CONFIRM"
 msgstr "Confirm Teleport"
 
@@ -6324,7 +6318,7 @@ msgid "FOCUS_OPEN_PLAYER_UPGRADES"
 msgstr "Open Player Upgrades"
 
 msgid "FOCUS_GLOBAL_BENEFIT"
-msgstr "Farm any discovered enemy spot, on every map."
+msgstr "Select an enemy to farm automatically. If your hero dies, they'll return to that enemy and continue farming after respawning."
 
 msgid "FOCUS_GLOBAL_OWNED"
 msgstr "Owned: tap Farm on any discovered enemy."
@@ -6516,7 +6510,7 @@ msgid "HELP_CARD_MAP_DETAILS_MASTERY_ACTION"
 msgstr "Explore maps and purchase Map Details to learn more."
 
 msgid "HELP_CARD_MAP_DETAILS_MASTERY_SUPPORT"
-msgstr "Map Mastery tracks lasting exploration and achievements."
+msgstr "Map Mastery: each map's Explore, Hunt, Research, Collect and Forge goals earn permanent rewards."
 
 msgid "HELP_CARD_ADVANCED_FARMING_TITLE"
 msgstr "Advanced Farming"
@@ -6525,7 +6519,7 @@ msgid "HELP_CARD_ADVANCED_FARMING_ACTION"
 msgstr "Choose a discovered spot and tap Farm."
 
 msgid "HELP_CARD_ADVANCED_FARMING_SUPPORT"
-msgstr "Move manually to stop farming or choose another spot."
+msgstr "After a respawn, your hero returns to that enemy and keeps farming. Move manually to stop."
 
 msgid "GUIDE_TARGET_STRIKE"
 msgstr "Good choice!"
@@ -6538,3 +6532,33 @@ msgstr "Auto-Attack Enabled!"
 
 msgid "GUIDE_AUTO_ATTACK_DETAIL"
 msgstr "Your hero now attacks nearby enemies automatically. Drag from your hero to an enemy whenever you want to change targets."
+
+msgid "ACHIEVEMENT_DAMAGE_BONUS"
+msgstr "Damage against %s: +%.0f%%"
+
+msgid "ACHIEVEMENT_DAMAGE_REWARD"
+msgstr "Each milestone: +%.0f%% damage against this enemy type"
+
+msgid "GUIDE_MAP_MASTERY"
+msgstr "Open Map Mastery"
+
+msgid "GUIDE_MAP_MASTERY_DETAIL"
+msgstr "Every map has Mastery goals with permanent rewards. Tap the Mastery button on the map to see this map's goals."
+
+msgid "GUIDE_MAP_MASTERY_WORLD"
+msgstr "Open Map Mastery"
+
+msgid "GUIDE_MAP_MASTERY_WORLD_DETAIL"
+msgstr "Map Mastery is also in World. Tap it to see every map's goals and permanent rewards."
+
+msgid "GUIDE_MAP_MASTERY_DETAILS"
+msgstr "See this map's goals"
+
+msgid "GUIDE_MAP_MASTERY_DETAILS_DETAIL"
+msgstr "Each map shows its Mastery progress and permanent reward. Tap Details to see its five goals."
+
+msgid "GUIDE_MAP_MASTERY_CLOSE"
+msgstr "Five Mastery goals"
+
+msgid "GUIDE_MAP_MASTERY_CLOSE_DETAIL"
+msgstr "Explore, Hunt, Research, Collect and Forge: each card shows its progress and what remains. Complete all five for this map's permanent reward. No rush: tap Close to keep playing."

@@ -21,14 +21,25 @@ var sim
 ##   mission, campaign.hunt_*) -> prestige_follow (follow hunter_o1, ready on the first Snowman defeat)
 ##   -> boss_win -> world_open (open World) -> winter_two (travel) -> prestige_optional (open Prestige
 ##   and close it, or Prestige) -> tutorial_final (unchanged).
+## Change 66 (approved): map_mastery, after enemy_pins and before the hunt lessons. Map Mastery's HUD chip
+## exists from boss_find on (Prestige and World revealed), so this is the first point it can be used, and
+## it keeps the map lessons (Map Details, enemy markers, Mastery) together before the Snowman chain. Open
+## Map Mastery (the HUD chip, or World -> Map Mastery -> this map's Details), see a map's five goals
+## (mastery_viewed, a real screen), then Close. No objective, exploration or purchase is required. It
+## replaces the Change 63 optional "100% explored" hint (removed).
 ## The old acknowledgement cards (boss_preparation, prestige_intro, world_intro, travel_intro,
 ## milestones_intro) and the fixed boss_farm kill count are gone; normalize() migrates saves.
-const STEPS:=["move","target","kill","collect","equip","close_equip","gear_bonus","merge","close_merge","mission_wait","missions","close_missions","upgrade_wait","player_upgrade","offline_rewards","close_upgrade","expand_inventory","close_inventory","potion_buy","potion_use","camp","respawn_select","camp_travel","boss_find","map_details","enemy_pins","hunt_follow","hunt_farm","hunt_claim","prestige_follow","boss_win","world_open","winter_two","prestige_optional","tutorial_final"]
+const STEPS:=["move","target","kill","collect","equip","close_equip","gear_bonus","merge","close_merge","mission_wait","missions","close_missions","upgrade_wait","player_upgrade","offline_rewards","close_upgrade","expand_inventory","close_inventory","potion_buy","potion_use","camp","respawn_select","camp_travel","boss_find","map_details","enemy_pins","map_mastery","hunt_follow","hunt_farm","hunt_claim","prestige_follow","boss_win","world_open","winter_two","prestige_optional","tutorial_final"]
 ## Steps a Change 61 save records as passed when a pre-Change 61 Guided save had already defeated the
 ## Snowman: its first-boss lessons are behind it, so it never goes back to them (the mission and the
 ## Prestige card stay ordinary content in Missions and Prestige).
 const PRE_BOSS_NEW:=["gear_bonus","offline_rewards","respawn_select","camp_travel","map_details","enemy_pins","hunt_follow","hunt_farm","hunt_claim","prestige_follow"]
-const FLOW_VERSION:=61
+## Change 66: every step after map_mastery. A saved flow (version < 66) that already passed one of them,
+## or finished the tutorial, records map_mastery as passed (ordered step migration, Playbook 18); one
+## still before it meets the lesson at its designed place. The old optional hint id (tutorial.seen
+## "mastery_intro") is never read as having done this lesson.
+const AFTER_MAP_MASTERY:=["hunt_follow","hunt_farm","hunt_claim","prestige_follow","boss_win","world_open","winter_two","prestige_optional","tutorial_final"]
+const FLOW_VERSION:=66
 const FIRST_BOSS_OPPORTUNITY:="hunter_o1"
 
 func _init(owner) -> void:sim=owner
@@ -101,6 +112,11 @@ func panel_opened(panel: String,tab:=-1) -> void:
             if f.done.has("boss_win") and sim.campaign.first_boss_defeated():mark("world_open")
         "prestige":
             if f.done.has("winter_two") and not f.get("prestige_viewed",false):f.prestige_viewed=true;SaveService.mark_dirty()
+        # Change 66: tab is the shown Mastery map (0: the all-maps overview). One map's page lists its five
+        # goals, which is what the lesson asks the player to see.
+        "mastery":
+            if tab>0 and f.done.has("enemy_pins") and not f.done.has("map_mastery") and not f.get("mastery_viewed",false):
+                f.mastery_viewed=true;SaveService.mark_dirty()
 
 func panel_closed(panel: String) -> void:
     if not active():return
@@ -109,6 +125,7 @@ func panel_closed(panel: String) -> void:
         if panel==pair[0] and f.done.has(pair[1]):mark(pair[2])
     if panel=="stats" and f.get("stats_viewed",false):mark("gear_bonus")
     if panel=="prestige" and f.get("prestige_viewed",false) and f.done.has("winter_two"):mark("prestige_optional")
+    if panel=="mastery" and f.get("mastery_viewed",false) and f.done.has("enemy_pins"):mark("map_mastery")
 
 ## The Prestige reset is held back in Guided until its optional-Prestige lesson in Winter II.
 func prestige_allowed() -> bool:
@@ -249,7 +266,8 @@ func normalize(out: Dictionary) -> void:
     # id and real state, never by list position). A finished tutorial stays finished; one that had
     # already defeated the Snowman skips the new first-boss lessons; any other continues into the new
     # lessons in order (each skips itself when its real state already holds, e.g. a bought Map Details).
-    if int(f.get("version",0))<FLOW_VERSION:
+    var version:=int(f.get("version",0)) if sim.campaign.number(f.get("version",0)) else 0
+    if version<61:
         var boss_defeated: bool=old.has("boss_win")
         if out.get("group_kills") is Array:
             var g: int=sim.campaign.prestige_unlock_group()
@@ -258,7 +276,10 @@ func normalize(out: Dictionary) -> void:
             for id in PRE_BOSS_NEW:
                 if not done.has(id):done.append(id)
             if (old.has("world_intro") or old.has("winter_two")) and not done.has("world_open"):done.append("world_open")
-        f.version=FLOW_VERSION
+    # Change 66: a flow already past the new Map Mastery lesson keeps its place (never sent back to it).
+    if version<66 and not done.has("map_mastery") and AFTER_MAP_MASTERY.any(func(id):return done.has(id)):
+        done.append("map_mastery")
+    f.version=FLOW_VERSION
     f.done=done
     if not f.get("times") is Dictionary:f.times={}
     for id in f.times.keys():
@@ -286,5 +307,6 @@ func normalize(out: Dictionary) -> void:
     f.gem_grant=f.get("gem_grant",false)==true
     f.stats_viewed=f.get("stats_viewed",false)==true
     f.prestige_viewed=f.get("prestige_viewed",false)==true
+    f.mastery_viewed=f.get("mastery_viewed",false)==true
     f.erase("boss_kills")
     f.final_seconds=clampf(float(f.get("final_seconds",0)),0,float(rules().final_delay)) if sim.campaign.number(f.get("final_seconds",0)) else 0.0

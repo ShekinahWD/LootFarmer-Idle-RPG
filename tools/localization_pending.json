@@ -1619,16 +1619,6 @@
    "placeholders": [],
    "change": "change-63"
   },
-  "GUIDE_MASTERY_INTRO": {
-   "en": "Map fully explored!",
-   "placeholders": [],
-   "change": "change-63"
-  },
-  "GUIDE_MASTERY_INTRO_DETAIL": {
-   "en": "Tap the Mastery button on the map to see your remaining Map Mastery goals and rewards. This is optional: you can keep adventuring.",
-   "placeholders": [],
-   "change": "change-63"
-  },
   "TELEPORT_CONFIRM": {
    "en": "Confirm Teleport",
    "placeholders": [],
@@ -1698,9 +1688,9 @@
    "change": "change-65"
   },
   "FOCUS_GLOBAL_BENEFIT": {
-   "en": "Farm any discovered enemy spot, on every map.",
+   "en": "Select an enemy to farm automatically. If your hero dies, they'll return to that enemy and continue farming after respawning.",
    "placeholders": [],
-   "change": "change-65"
+   "change": "change-66"
   },
   "FOCUS_GLOBAL_OWNED": {
    "en": "Owned: tap Farm on any discovered enemy.",
@@ -2031,9 +2021,9 @@
    "change": "change-65"
   },
   "HELP_CARD_MAP_DETAILS_MASTERY_SUPPORT": {
-   "en": "Map Mastery tracks lasting exploration and achievements.",
+   "en": "Map Mastery: each map's Explore, Hunt, Research, Collect and Forge goals earn permanent rewards.",
    "placeholders": [],
-   "change": "change-65"
+   "change": "change-66"
   },
   "HELP_CARD_ADVANCED_FARMING_TITLE": {
    "en": "Advanced Farming",
@@ -2046,9 +2036,9 @@
    "change": "change-65"
   },
   "HELP_CARD_ADVANCED_FARMING_SUPPORT": {
-   "en": "Move manually to stop farming or choose another spot.",
+   "en": "After a respawn, your hero returns to that enemy and keeps farming. Move manually to stop.",
    "placeholders": [],
-   "change": "change-65"
+   "change": "change-66"
   },
   "GUIDE_TARGET_STRIKE": {
    "en": "Good choice!",
@@ -2069,6 +2059,63 @@
    "en": "Your hero now attacks nearby enemies automatically. Drag from your hero to an enemy whenever you want to change targets.",
    "placeholders": [],
    "change": "change-65"
+  },
+  "ACHIEVEMENT_DAMAGE_BONUS": {
+   "en": "Damage against %s: +%.0f%%",
+   "placeholders": [
+    "%s",
+    "%.0f",
+    "%%"
+   ],
+   "change": "change-66"
+  },
+  "ACHIEVEMENT_DAMAGE_REWARD": {
+   "en": "Each milestone: +%.0f%% damage against this enemy type",
+   "placeholders": [
+    "%.0f",
+    "%%"
+   ],
+   "change": "change-66"
+  },
+  "GUIDE_MAP_MASTERY": {
+   "en": "Open Map Mastery",
+   "placeholders": [],
+   "change": "change-66"
+  },
+  "GUIDE_MAP_MASTERY_DETAIL": {
+   "en": "Every map has Mastery goals with permanent rewards. Tap the Mastery button on the map to see this map's goals.",
+   "placeholders": [],
+   "change": "change-66"
+  },
+  "GUIDE_MAP_MASTERY_WORLD": {
+   "en": "Open Map Mastery",
+   "placeholders": [],
+   "change": "change-66"
+  },
+  "GUIDE_MAP_MASTERY_WORLD_DETAIL": {
+   "en": "Map Mastery is also in World. Tap it to see every map's goals and permanent rewards.",
+   "placeholders": [],
+   "change": "change-66"
+  },
+  "GUIDE_MAP_MASTERY_DETAILS": {
+   "en": "See this map's goals",
+   "placeholders": [],
+   "change": "change-66"
+  },
+  "GUIDE_MAP_MASTERY_DETAILS_DETAIL": {
+   "en": "Each map shows its Mastery progress and permanent reward. Tap Details to see its five goals.",
+   "placeholders": [],
+   "change": "change-66"
+  },
+  "GUIDE_MAP_MASTERY_CLOSE": {
+   "en": "Five Mastery goals",
+   "placeholders": [],
+   "change": "change-66"
+  },
+  "GUIDE_MAP_MASTERY_CLOSE_DETAIL": {
+   "en": "Explore, Hunt, Research, Collect and Forge: each card shows its progress and what remains. Complete all five for this map's permanent reward. No rush: tap Close to keep playing.",
+   "placeholders": [],
+   "change": "change-66"
   }
  },
  "retired": {
@@ -2096,6 +2143,8 @@
   "EVOLUTION_PREVIEW": "change-51",
   "REROLL": "change-52",
   "REROLL_CONFIRM": "change-52",
-  "MAP_UPGRADES_JUMP": "change-55"
+  "MAP_UPGRADES_JUMP": "change-55",
+  "GUIDE_MASTERY_INTRO": "change-66",
+  "GUIDE_MASTERY_INTRO_DETAIL": "change-66"
  }
 }

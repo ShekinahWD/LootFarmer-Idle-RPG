@@ -1,4 +1,14 @@
-# LootFarmer — Upgrade Catalog — Change 65
+# LootFarmer — Upgrade Catalog — Change 66
+
+## Change 66 — Gem Chance level 1 costs 10 Gems; kill achievements give damage only (11 November 2026)
+
+| Id | Scope | Currency | Cap | Prestige | Price |
+|---|---|---|---:|---|---|
+| gem_chance | global | gems | 20 | Keep | [**10**, 40, 58, 80, 105, 135, 170, 210, 260, 320, 390, 470, 560, 660, 770, 890, 1020, 1160, 1310, 1470] (+0.5 points per level; level 1 was 25) |
+
+- Only the first price changed (`catalog.json` `upgrades.gem_chance.prices[0]` and `base`; source `tools/change8_catalog.py`, checked by `tools/validate_campaign_source.py`). An owned level 1 stays owned; no refund.
+- **Enemy kill achievements** (not an upgrade, listed because the gem-chance rule below named them): +5% damage per milestone against that enemy type, thresholds unchanged; **no Gem Chance** (`progression.achievements.gems_per_milestone` removed). Gem chance = 5% + Gem Chance ranks + Gem Wisdom (+ Mastery Gem Chance), + Boss Gem Chance on bosses. Fully stacked (upgrades + Gem Wisdom): 20% normal, 60% boss.
+- Player Upgrades → Player: Focused Farming (`focus`, 25 once, unchanged) now reads "Select an enemy to farm automatically. If your hero dies, they'll return to that enemy and continue farming after respawning."
 
 ## Change 65 — Focused Farming is one global Player upgrade (11 November 2026)
 
@@ -6,7 +16,7 @@
 |---|---|---|---:|---|---|
 | focus | **global** (was type) | gems | 1 | Keep (Hard Reset clears) | **25 once** |
 
-- Listed in **Player Upgrades → Player** (after Movement); benefit "Farm any discovered enemy spot, on every map."; owned reads "Owned: tap Farm on any discovered enemy." and MAX. A per-enemy purchase call is refused and charges nothing; any caller naming an enemy type reads the one global rank (`sim._upgrade_key` ignores the group for global upgrades).
+- Listed in **Player Upgrades → Player** (after Movement); benefit "Farm any discovered enemy spot, on every map." *(Change 66: "Select an enemy to farm automatically. If your hero dies, they'll return to that enemy and continue farming after respawning.")*; owned reads "Owned: tap Farm on any discovered enemy." and MAX. A per-enemy purchase call is refused and charges nothing; any caller naming an enemy type reads the one global rank (`sim._upgrade_key` ignores the group for global upgrades).
 - The enemy panel keeps Farm / Stop; it lists no Focused Farming purchase. Locked Farm says why and offers **Open Player Upgrades**.
 - **Unchanged and still per enemy type:** `collect`, `collect_range`, `collect_batch`, `collect_speed`, `merge_gear`, `gear_merge_speed`, `auto_evolve`, and every reward/research/spawn upgrade, at the prices below.
 - **Save migration (schema 9, on load):** any legacy `focus:<type>` record with level ≥ 1 → global `focus` = 1; none → 0; global already present → stays 1; the legacy records are deleted (repeat loads change nothing). No Gem refund or compensation (the number of legacy records found is reported by `campaign.legacy_focus_records` for the developer's decision). `tools/validate_campaign_source.py` checks the definition.
@@ -38,7 +48,7 @@ Guided onboarding follows saved action outcomes and 60/60-second active-play del
 
 **Change 11 retention rule:** Prestige keeps **every upgrade bought with Gems**, whatever its category (player, enemy type, automation, inventory, map/camp, spawn, offline, missions). Coin upgrades keep their own Keep/Reset column below. Every upgrade has exactly one currency, so no level is ever split between currencies. The rule is enforced in code from the currency (`simulation.upgrade_kept`) and mirrored by `keep: true` on every gem row in catalog.json (`tools/change11_catalog.py`, checked by `tools/validate_campaign_source.py`). Hard Reset clears every upgrade. Before Change 11, Gem Chance, Gem Amount, Boss Gem Chance, Boss Gem Amount, Spawn Amount and Spawn Cooldown were gem-funded yet reset; kept Spawn levels now re-spawn the extra actors immediately after the reset.
 
-**Change 12:** Gem Chance has 20 levels of +0.5 points (+10 points in all; it was 12 × +1). Levels 1–12 keep their prices exactly; levels 13–20 cost 560, 660, 770, 890, 1,020, 1,160, 1,310 and 1,470 gems (each step 10 gems larger than the one before). Base gem chance is 5% (was 8%) and the 20% normal / 60% boss caps are gone: the chance is base + Gem Chance + Gem Wisdom + the type's kill achievements (+ Boss Gem Chance on bosses), clamped only to 0–100%. New **Merge All** (`merge_all`): global, gems, 1 rank, 5,000 gems, kept by Prestige; it adds a free Merge All button to Filters (Upgrades → Inventory).
+**Change 12:** Gem Chance has 20 levels of +0.5 points (+10 points in all; it was 12 × +1). Levels 1–12 keep their prices exactly; levels 13–20 cost 560, 660, 770, 890, 1,020, 1,160, 1,310 and 1,470 gems (each step 10 gems larger than the one before). Base gem chance is 5% (was 8%) and the 20% normal / 60% boss caps are gone: the chance is base + Gem Chance + Gem Wisdom + the type's kill achievements *(not since Change 66)* (+ Boss Gem Chance on bosses), clamped only to 0–100%. New **Merge All** (`merge_all`): global, gems, 1 rank, 5,000 gems, kept by Prestige; it adds a free Merge All button to Filters (Upgrades → Inventory).
 
 **Change 11 supplies:** supply capacity is 1 initial slot + 4 purchases = 5, one per supply type (Health Potion, Coin Tonic, Guard Tonic, Recovery Salve, Wisdom Tonic). Supply auto-merge (`merge_supplies`, `merge_speed`) is removed: supplies grow permanent mastery from every copy found.
 
@@ -63,7 +73,7 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | focus | type → **global (Change 65)** | gems | 1 | Keep | 25 / 1 → **25 once (Change 65)** |
 | respawn | global | coins | 7 | Reset | 30 / 1.7 |
 | loot | type | coins | 15 | Reset | 20 / 1.35 |
-| gem_chance | global | gems | 20 (Change 12; was 12) | Keep (Change 11) | [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, 390, 470, 560, 660, 770, 890, 1020, 1160, 1310, 1470] (+0.5 points per level) |
+| gem_chance | global | gems | 20 (Change 12; was 12) | Keep (Change 11) | [**10 (Change 66; was 25)**, 40, 58, 80, 105, 135, 170, 210, 260, 320, 390, 470, 560, 660, 770, 890, 1020, 1160, 1310, 1470] (+0.5 points per level) |
 | coin_amount | type | coins | 20 | Reset | 30 / 1.4 |
 | gem_amount | global | gems | 10 | Keep (Change 11) | [50, 75, 105, 140, 180, 220, 265, 320, 400, 500] |
 | reveal_stats | type | coins | 1 | Keep | 25 / 1 |
@@ -113,7 +123,7 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 - Gear, supply and skill drop tracks use 15×1 percentage point. Normals start at 5% skill chance, bosses 10%, maximum 20%/25%. One boss skill roll then uniform choice.
 - Normal spawn count 3→6 per variant spot; cooldown five×−10% to half. Bosses have no spawn-count/cooldown purchases.
 - Collection radius 100→300, batch 1→6, interval 10→5 seconds. Coin amount +50% base per rank; XP +10% base per rank.
-- Global gem chance 5% base + 20 × 0.5 points (Change 12; was 8→20%), Boss Gem Chance +5 points × 8 on bosses, Gem Wisdom +5 points, kill achievements up to +4 points per type. No game-specific cap (the old 20% / 60% caps are removed); only 0–100% clamping. Fully stacked: 24% normal, 64% boss. Normal amount 1→6, boss extra up to +10.
+- Global gem chance 5% base + 20 × 0.5 points (Change 12; was 8→20%), Boss Gem Chance +5 points × 8 on bosses, Gem Wisdom +5 points, kill achievements up to +4 points per type *(removed in Change 66)*. No game-specific cap (the old 20% / 60% caps are removed); only 0–100% clamping. Fully stacked: 24% normal, 64% boss *(20% / 60% since Change 66)*. Normal amount 1→6, boss extra up to +10.
 - Map detail three ranks: generic sites, identities, farming details. Player reveal 144→288 per stage, camp reveal 192→384 per camp before cards. No rank reveals undiscovered enemy identities.
 - Missions 3→8 slots; automatic claim separate unlock and toggle.
 - Offline reward cap hours [5,8,12,18,24,36,48]; coins 120+60/rank per hour, gems 2+0.5/rank. Owned-only category unlocks; weapons/outfits 1+0.5/rank per hour, consumables 2+1/rank. Skills excluded.

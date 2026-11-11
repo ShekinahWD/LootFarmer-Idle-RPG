@@ -21793,13 +21793,13 @@
     },
     "gem_chance": {
       "currency": "gems",
-      "base": 25,
+      "base": 10,
       "growth": 1,
       "cap": 20,
       "keep": true,
       "effect": 0.005,
       "prices": [
-        25,
+        10,
         40,
         58,
         80,
@@ -22339,8 +22339,7 @@
         250,
         500
       ],
-      "damage_per_milestone": 0.05,
-      "gems_per_milestone": 0.005
+      "damage_per_milestone": 0.05
     },
     "group_cost_multipliers": [
       1,

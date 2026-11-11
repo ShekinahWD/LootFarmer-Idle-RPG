@@ -3,10 +3,10 @@ extends Node
 ## - Winter II optional Prestige: inside Prestige the arrow is on the live Close button and the caption
 ##   says closing continues; Close finishes the lesson, and so does a real Prestige (through the UI).
 ## - Stats (gear_bonus): the arrow is on Close, not on the passive Stored gear line.
-## - A pass over the 35 Guided steps (HUD state and the panels they use): every arrow sits on a visible,
+## - A pass over the 36 Guided steps (Change 66) (HUD state and the panels they use): every arrow sits on a visible,
 ##   enabled button, a real World map enemy marker, or a world / path cue; never on a passive control.
-## - Optional Map Mastery hint: nothing at 99%, one hint at 100% on any map, Guided only, once per profile
-##   (save/load and Prestige), dismiss / ignore / open all retire it, never blocks a lesson.
+## - Change 66: the optional Map Mastery hint is gone (Map Mastery is the Guided map_mastery lesson, see
+##   change_66_probe): 100% explored shows nothing, in any mode, during or after the tutorial.
 ## - Toasts and banners never cover the guide's caption or arrow at 432x960 and 540x960, and an open
 ##   lesson panel keeps room for its caption above it.
 ## The Prestige unlock rules themselves are checked by change_16_probe and change_61_probe.
@@ -31,7 +31,7 @@ func fresh(mode:="guided") -> void:
     if mode!="guided":sim.campaign.onboarding.reveal_all(true)
     game._close();game.banner.queue.clear();game.banner._finish();game.toast_queue.clear();game.toast_time=0.0;game.toast_resume={};game.get_node("Toast").hide()
     game.get_node("PrestigeConfirm").close();game._cancel_confirm()
-    guide.long_shown.clear();guide.mastery_live=false;guide.mastery_shown=0.0
+    guide.long_shown.clear()
     calm()
 func calm() -> void:
     sim.state.player.quiet=1e9
@@ -49,6 +49,9 @@ func find_snowman() -> void:
 func done_until(step: String) -> void:
     var flow=sim.campaign.guided
     flow.data().done=flow.STEPS.slice(0,flow.STEPS.find(step))
+## Change 66: nothing about Map Mastery is on screen (no removed hint, no lesson substate).
+func no_mastery_guide() -> bool:
+    return guide.pending!="mastery_intro" and not guide.step.begins_with("map_mastery") and not str(guide.intro_id).contains("mastery")
 func close_button() -> Button:return game.get_node("Sheet/Margin/Content/Header/Close")
 ## A tap arrow may only sit on a visible, enabled button, a World map marker (screen_target), the stick,
 ## or come from a world / path cue (no control target).
@@ -118,7 +121,7 @@ func run() -> void:
     check(guide.card.visible and guide.support.text.contains("Tap Close"),"…and the caption says Close continues")
     close_button().pressed.emit();await frames(3)
     check(flow.data().done.has("gear_bonus"),"Closing Stats finishes the lesson")
-    # ---------------------------------------------------------------- C. pointer pass over the 35 steps
+    # ---------------------------------------------------------------- C. pointer pass over the Guided steps
     print("-- pointer pass")
     var bad: Array=[]
     var seen_steps: Array=[]
@@ -130,59 +133,28 @@ func run() -> void:
         seen_steps.append(guide.step)
         if not legit_target():bad.append(step+"/"+guide.step+":"+str(guide.target))
         for panel in guide.surfaces:
-            if panel in ["stats","upgrades","missions","world","prestige","level","settings"]:
+            if panel in ["stats","upgrades","missions","world","prestige","level","settings","mastery"]:
                 game._open(panel);await frames(8)
                 if not legit_target():bad.append(step+"/"+panel+"/"+guide.step+":"+str(guide.target))
                 if guide.card.visible and guide.card.get_global_rect().intersects(game.sheet.get_global_rect()):bad.append(step+"/"+panel+": caption over panel")
                 game._close();await frames(2)
     check(bad.is_empty(),"Every arrow over the Guided steps is on a real tap target %s" % str(bad))
     print("     substates seen: ",seen_steps)
-    # ---------------------------------------------------------------- D. optional Map Mastery hint
-    print("-- Map Mastery hint")
-    fresh("guided");flow.data().done=flow.STEPS.duplicate();sim.campaign.onboarding.reveal_all(true)
-    var m: Dictionary=sim.campaign.mastery.data()
-    m.explored["1"]=99;await frames(4)
-    check(guide.pending!="mastery_intro" and not sim.state.tutorial.seen.has("mastery_intro"),"99% explored: nothing")
-    m.explored["1"]=100;await frames(4)
+    # ---------------------------------------------------------------- D. removed Map Mastery hint (Change 66)
+    print("-- no Map Mastery hint")
     var chip: Control=game.get_node("Safe/Layout/Map/Mastery")
-    check(guide.pending=="mastery_intro" and guide.card.visible and guide.target==chip and guide.pointer.visible,"100%: one optional hint pointing at the live Mastery chip")
-    check(guide.title.text==tr("GUIDE_MASTERY_INTRO") and guide.support.text.contains("optional") and guide.intro_button.visible,"…saying it is optional, with Got it")
-    check(sim.state.tutorial.seen.has("mastery_intro"),"Shown once is recorded in the profile")
-    guide.intro_button.pressed.emit();await frames(3)
-    check(guide.pending!="mastery_intro","Got it dismisses it")
-    sim.restore(JSON.parse_string(JSON.stringify(sim.snapshot())));guide.mastery_live=false;await frames(4)
-    check(guide.pending!="mastery_intro" and sim.state.tutorial.seen.has("mastery_intro"),"Save/load does not repeat it")
-    sim.state.bosses_found=["boss-snowman"];sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1
-    sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
-    check(sim.campaign.begin_prestige(),"Prestige (fixture: ready opportunity)")
-    while not sim.state.prestige_batch.is_empty():sim.campaign.choose_card(sim.campaign.offered_cards()[0])
-    m=sim.campaign.mastery.data();await frames(4)
-    check(int(m.explored.get("1",0))>=100 and guide.pending!="mastery_intro","Prestige does not repeat it (record kept: %s)" % str(m.explored.get("1",0)))
-    # Late 100% on another map, after the tutorial; ignoring it retires it after its time on screen.
+    check(not guide.has_method("_mastery_hint") and not guide.POINTING_INTROS.has("mastery_intro"),"The Change 63 hint code is removed")
     fresh("guided");flow.data().done=flow.STEPS.duplicate();sim.campaign.onboarding.reveal_all(true)
+    sim.campaign.mastery.data().explored["1"]=100;await frames(6)
+    check(no_mastery_guide() and not sim.state.tutorial.seen.has("mastery_intro"),"Finished tutorial, 100%% explored: no hint (%s)" % guide.pending)
     sim.campaign.mastery.data().explored["3"]=100;await frames(4)
-    check(guide.pending=="mastery_intro","Any map at 100% (Summer I record) after the tutorial: the hint shows")
-    guide._process(guide.MASTERY_HINT_SECONDS+1);await frames(3)
-    check(guide.pending!="mastery_intro","Ignored: it retires on its own")
-    # Opening Map Mastery retires it.
-    fresh("guided");flow.data().done=flow.STEPS.duplicate();sim.campaign.onboarding.reveal_all(true)
-    sim.campaign.mastery.data().explored["1"]=100;await frames(4)
-    chip.pressed.emit();await frames(4)
-    check(game.panel=="mastery" and game.sheet.visible,"The chip opens Map Mastery")
-    game._close();await frames(3)
-    check(guide.pending!="mastery_intro" and sim.state.tutorial.seen.has("mastery_intro"),"Opening Map Mastery retires the hint")
-    # During the first-run tutorial: never over a mandatory lesson, never blocking.
-    fresh("guided");done_until("boss_win");find_snowman();sim.campaign.mastery.data().explored["1"]=100;await frames(4)
-    check(flow.next_step()=="boss_win" and guide.pending=="boss_win","A mandatory lesson on screen keeps the guide (%s)" % guide.pending)
+    check(no_mastery_guide(),"Another map at 100%: still nothing")
+    fresh("guided");done_until("boss_win");find_snowman();sim.campaign.mastery.data().explored["1"]=100
     guide.long_shown["boss_win"]=guide.LONG_CARD_SECONDS+1;await frames(4)
-    check(guide.pending=="mastery_intro" and flow.next_step()=="boss_win","With its card retired, the optional hint shows; the lesson stays pending")
-    check(not flow.STEPS.has("mastery_intro"),"Map Mastery is not a step of the Guided tutorial")
-    # Not before Map Mastery is revealed (no arrow at hidden content).
-    fresh("guided");done_until("camp");sim.campaign.mastery.data().explored["1"]=100;await frames(4)
-    check(guide.pending!="mastery_intro" and not sim.state.tutorial.seen.has("mastery_intro"),"Before Map Mastery is revealed it waits")
+    check(no_mastery_guide() and flow.next_step()=="boss_win","A retired long lesson card is not followed by a Mastery hint")
     for mode in ["basic","none"]:
         fresh(mode);sim.state.tutorial.seen.append(guide.ROAD_AHEAD_ID);game.help_viewer.hide();game.help_viewer.HelpCards.progress(sim.state.tutorial).basic_done=true;sim.held=false;sim.campaign.mastery.data().explored["1"]=100;await frames(4)
-        check(guide.pending!="mastery_intro","%s: no Guided hint" % mode)
+        check(no_mastery_guide(),"%s: nothing at 100%%" % mode)
     # ---------------------------------------------------------------- E. notifications vs the guide
     for size in [Vector2i(432,960),Vector2i(540,960)]:
         get_window().size=size;await frames(6)
@@ -211,19 +183,18 @@ func run() -> void:
         for node in [guide.card,guide.pointer]:
             if node.visible and toast.visible and node.get_global_rect().intersects(toast.get_global_rect()):clear=false
         check(guide.pointer.visible and guide.card.visible and clear and (toast.visible or not game.toast_queue.is_empty()),"Path arrow + caption: the toast shows clear of both or waits queued (toast %s %s, arrow %s)" % [toast.visible,toast.get_global_rect(),guide.pointer.get_global_rect()])
-        # Correction: the Map Mastery hint's chip sits in the banner's usual place. The banner moves to free
-        # space below it; the hint keeps its caption, arrow and a tappable chip.
-        fresh("guided");flow.data().done=flow.STEPS.duplicate();sim.campaign.onboarding.reveal_all(true)
-        sim.campaign.mastery.data().explored["1"]=100
+        # Correction: the Mastery chip sits in the banner's usual place. The banner moves to free space below
+        # it; the lesson keeps its caption, arrow and a tappable chip. Change 66: the Guided map_mastery lesson.
+        fresh("guided");done_until("map_mastery");find_snowman();await frames(2);game._close();game.banner.queue.clear();game.banner._finish()
         for i in range(120): # the HUD refreshes the chip every 0.15 s
-            if guide.pending=="mastery_intro" and guide.pointer.visible:break
+            if guide.pending=="map_mastery" and guide.pointer.visible:break
             await get_tree().process_frame
         chip=game.get_node("Safe/Layout/Map/Mastery")
-        check(guide.pending=="mastery_intro" and guide.pointer.visible and game._banner_rect().intersects(chip.get_global_rect()),"Mastery hint: its chip is inside the banner usual place (%s %s %s %s)" % [guide.pending,guide.pointer.visible,game._banner_rect(),chip.get_global_rect()])
+        check(guide.pending=="map_mastery" and guide.target==chip and guide.pointer.visible and game._banner_rect().intersects(chip.get_global_rect()),"Mastery lesson: its chip is inside the banner usual place (%s %s %s %s %s)" % [guide.pending,guide.target,guide.pointer.visible,game._banner_rect(),chip.get_global_rect()])
         game.banner.push("stage",tr("MILESTONE_STAGE"),"Spring I");await frames(30)
         var br: Rect2=game.banner.get_global_rect()
         check(game.banner.visible and clear_of_guide(br) and not br.intersects(chip.get_global_rect()),"...the banner shows clear of the chip, caption and arrow (banner %s, chip %s)" % [br,chip.get_global_rect()])
-        check(guide.card.visible and guide.pointer.visible and guide.suspended_by=="","...and the hint stays on screen")
+        check(guide.card.visible and guide.pointer.visible and guide.suspended_by=="","...and the lesson stays on screen")
         check(game.get_node("Safe/Layout/Map").get_global_rect().encloses(br),"...over the map")
         var steady:=true
         for i in range(30):
@@ -232,8 +203,7 @@ func run() -> void:
         check(steady and clear_of_guide(game.banner.get_global_rect()),"...and keeps its place while the arrow bobs (no wobble)")
         game.banner._finish();game.banner.queue.clear();await frames(2)
         # No free place: the banner waits in its queue (held, not dropped) and shows once there is room.
-        fresh("guided");flow.data().done=flow.STEPS.duplicate();sim.campaign.onboarding.reveal_all(true)
-        sim.campaign.mastery.data().explored["1"]=100;await frames(6)
+        fresh("guided");done_until("map_mastery");find_snowman();await frames(2);game._close();game.banner.queue.clear();game.banner._finish();await frames(6)
         var hold_before: float=guide.card.custom_minimum_size.y
         guide.card.custom_minimum_size.y=game.get_node("Safe/Layout/Map").size.y # fixture: a caption filling the map
         await frames(4)

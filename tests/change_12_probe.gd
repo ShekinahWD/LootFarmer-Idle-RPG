@@ -456,8 +456,9 @@ func camera_checks() -> void:
 func gem_checks() -> void:
     fresh()
     var up: Dictionary=sim.catalog.upgrades.gem_chance
-    var old_prices:=[25,40,58,80,105,135,170,210,260,320,390,470]
-    check(up.prices.slice(0,12).map(func(v):return int(v))==old_prices,"Gem Chance prices for levels 1–12 unchanged")
+    # Change 66: level 1 costs 10 Gems (was 25); levels 2-12 keep their Change 12 prices.
+    var old_prices:=[10,40,58,80,105,135,170,210,260,320,390,470]
+    check(up.prices.slice(0,12).map(func(v):return int(v))==old_prices,"Gem Chance prices: level 1 is 10 (Change 66), levels 2–12 unchanged")
     check(up.prices.slice(12).map(func(v):return int(v))==[560,660,770,890,1020,1160,1310,1470],"Levels 13–20 cost 560, 660, 770, 890, 1,020, 1,160, 1,310, 1,470")
     var mono:=true
     for i in range(1,up.prices.size()):mono=mono and up.prices[i]>up.prices[i-1]
@@ -481,18 +482,19 @@ func gem_checks() -> void:
     check(near(sim.gem_base_chance(),.20),"Gem Wisdom still adds +5 points with the upgrade maxed (20%)")
     var thresholds: Array=sim.achievement_thresholds(normal)
     sim.state.group_kills[normal]=int(thresholds.back());sim.state.group_kills[boss]=int(sim.achievement_thresholds(boss).back())
-    check(sim.achievement_level(normal)==8 and near(sim.achievement_gems(normal),.04),"Kill achievements: 8 milestones, +4 points (unchanged)")
-    check(near(sim.gem_chance(normal),.24),"Fully stacked normal enemy: 24% (old cap 20% would have hidden 4 points)")
+    # Change 66: kill achievements no longer add Gem Chance (damage only).
+    check(sim.achievement_level(normal)==8 and not sim.has_method("achievement_gems"),"Kill achievements: 8 milestones, no Gem Chance part (Change 66)")
+    check(near(sim.gem_chance(normal),.20),"Fully stacked normal enemy: 20% (upgrades + Gem Wisdom; achievements add nothing)")
     sim.state.upgrades["boss_gem_chance"]=8
     check(int(sim.catalog.upgrades.boss_gem_chance.cap)==8 and near(float(sim.catalog.upgrades.boss_gem_chance.effect),.05) and sim.catalog.upgrades.boss_gem_chance.prices.map(func(v):return int(v))==[50,80,120,170,230,310,410,530],"Boss Gem Chance unchanged: 8 × +5 points, same prices")
-    check(near(sim.gem_chance(boss),.64),"Fully stacked boss: 64% (old cap 60%)")
+    check(near(sim.gem_chance(boss),.60),"Fully stacked boss: 60% (achievements add nothing since Change 66)")
     var hits:=0
     sim.rng.seed=7
     for i in range(4000):
         if sim.rng.randf()<sim.gem_chance(normal):hits+=1
-    check(absf(hits/4000.0-.24)<.03,"The drop roll uses the same value (%.3f observed)" % (hits/4000.0))
+    check(absf(hits/4000.0-.20)<.03,"The drop roll uses the same value (%.3f observed)" % (hits/4000.0))
     sim.state.owned_cards.append("trophy_c3");sim.state.owned_cards.append("offering_c2")
-    check(near(sim.gem_chance(boss),.69) or near(sim.gem_chance(boss),.74),"Gem chance stacks further cards without a ceiling (%.2f)" % sim.gem_chance(boss))
+    check(near(sim.gem_chance(boss),.65) or near(sim.gem_chance(boss),.70),"Gem chance stacks further cards without a ceiling (%.2f)" % sim.gem_chance(boss))
     check(sim.gem_chance(boss)<=1.0,"Probability stays within 0–100%")
     sim.state.owned_cards=["offering_c2"]
     check(near(sim.gem_amount(0,boss),3.0*sim.gem_amount(0,normal)),"Boss gem amount still 3× the normal amount")

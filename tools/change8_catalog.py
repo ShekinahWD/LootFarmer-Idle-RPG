@@ -37,8 +37,9 @@ UPGRADES = {
     'merge_supplies': {'base': 10},
     'merge_speed': {'base': 12, 'growth': 1.7},
     'auto_use': {'base': 100, 'growth': 2.6},
-    # Change 12 extends the 12 original prices through level 20 (tools/change12_catalog.py).
-    'gem_chance': {'base': 25, 'prices': [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, 390, 470, 560, 660, 770, 890, 1020, 1160, 1310, 1470]},
+    # Change 12 extends the 12 original prices through level 20 (tools/change12_catalog.py); Change 66 makes
+    # level 1 cost 10 Gems (was 25). Levels 2-20 keep their prices.
+    'gem_chance': {'base': 10, 'prices': [10, 40, 58, 80, 105, 135, 170, 210, 260, 320, 390, 470, 560, 660, 770, 890, 1020, 1160, 1310, 1470]},
     'gem_amount': {'base': 25, 'prices': [25, 40, 58, 80, 105, 135, 170, 210, 260, 320]},
     'boss_gem_chance': {'base': 50, 'prices': [50, 80, 120, 170, 230, 310, 410, 530]},
     'boss_gem_amount': {'base': 25, 'prices': [25, 40, 58, 80, 105, 135, 170, 210, 260, 320]},

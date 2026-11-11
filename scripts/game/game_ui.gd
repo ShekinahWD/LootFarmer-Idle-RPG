@@ -1455,7 +1455,8 @@ func _refresh_panel(force_layout:=false) -> void:
         "help":_help_panel()
     # Change 61: the Guided lessons that ask the player to look at a screen (Stats, Upgrades -> Offline,
     # World, Prestige) are finished by that screen being shown, never by an acknowledgement.
-    sim.campaign.guided.panel_opened(panel,player_tab if panel=="upgrades" else -1)
+    # Change 66: for Map Mastery the tab is the map page shown (0: the all-maps overview).
+    sim.campaign.guided.panel_opened(panel,player_tab if panel=="upgrades" else (mastery_stage if panel=="mastery" else -1))
     var context:=_panel_context()
     var replace:=context!=panel_context
     var mapping: Dictionary={}
@@ -2148,6 +2149,7 @@ func _upgrade_benefit(id: String,g: int) -> String:
         if next==0:return tr("EQUIPMENT_SLOTS_MAXED") % [sim.equipment_slot_count(),sim.equipment_slot_max()]
         return tr("EQUIPMENT_SLOTS_NEXT") % [sim.equipment_slot_count(),int(sim.player_upgrade_value(id,1)),sim.equipment_slot_max()]
     if id=="merge_all":return tr("MERGE_ALL_UNLOCKED") if sim.level(id)>0 else tr("MERGE_ALL_BENEFIT")
+    # Change 66: the unlock's description says what it does, including the return after a respawn.
     if id=="focus":return tr("FOCUS_GLOBAL_OWNED") if sim.focus_owned() else tr("FOCUS_GLOBAL_BENEFIT")
     # Change 13: each per-type unlock names the exact items it covers (what this type drops; never
     # the tiers evolved from them, which follow their own droppers).
@@ -2271,7 +2273,8 @@ func _loot_row(id: String,chance: float,count:=0) -> void:
     rows.add_child(row)
 
 func _group_achievements_panel() -> void:
-    _text(tr("ACHIEVEMENT_BONUS") % [sim.achievement_damage(group)*100,sim.achievement_gems(group)*100],20,Color(.6,1,.75))
+    # Change 66: kill milestones reward damage against this enemy type only (no Gem Chance).
+    _text(tr("ACHIEVEMENT_DAMAGE_BONUS") % [sim.catalog.groups[group].name,sim.achievement_damage(group)*100],20,Color(.6,1,.75))
     var kills: int=sim.state.group_kills[group]
     for threshold in sim.achievement_thresholds(group):
         var line:=HBoxContainer.new()
@@ -2292,7 +2295,7 @@ func _group_achievements_panel() -> void:
         bar.value=minf(kills,threshold)
         bar.show_percentage=false
         line.add_child(bar)
-    _text(tr("ACHIEVEMENT_REWARD_SHORT") % [sim.catalog.progression.achievements.damage_per_milestone*100,sim.catalog.progression.achievements.gems_per_milestone*100]+"  ·  "+tr("ACHIEVEMENT_PERMANENT"),17,Color(.75,.8,.87))
+    _text(tr("ACHIEVEMENT_DAMAGE_REWARD") % (sim.catalog.progression.achievements.damage_per_milestone*100)+"  ·  "+tr("ACHIEVEMENT_PERMANENT"),17,Color(.75,.8,.87))
 
 func _refresh_combat_achievement() -> void:
     var target: Dictionary=sim._find_actor(sim.locked_target)

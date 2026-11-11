@@ -1,0 +1,15 @@
+{
+ "ACHIEVEMENT_DAMAGE_BONUS": "Damage against %s: +%.0f%%",
+ "ACHIEVEMENT_DAMAGE_REWARD": "Each milestone: +%.0f%% damage against this enemy type",
+ "FOCUS_GLOBAL_BENEFIT": "Select an enemy to farm automatically. If your hero dies, they'll return to that enemy and continue farming after respawning.",
+ "HELP_CARD_ADVANCED_FARMING_SUPPORT": "After a respawn, your hero returns to that enemy and keeps farming. Move manually to stop.",
+ "HELP_CARD_MAP_DETAILS_MASTERY_SUPPORT": "Map Mastery: each map's Explore, Hunt, Research, Collect and Forge goals earn permanent rewards.",
+ "GUIDE_MAP_MASTERY": "Open Map Mastery",
+ "GUIDE_MAP_MASTERY_DETAIL": "Every map has Mastery goals with permanent rewards. Tap the Mastery button on the map to see this map's goals.",
+ "GUIDE_MAP_MASTERY_WORLD": "Open Map Mastery",
+ "GUIDE_MAP_MASTERY_WORLD_DETAIL": "Map Mastery is also in World. Tap it to see every map's goals and permanent rewards.",
+ "GUIDE_MAP_MASTERY_DETAILS": "See this map's goals",
+ "GUIDE_MAP_MASTERY_DETAILS_DETAIL": "Each map shows its Mastery progress and permanent reward. Tap Details to see its five goals.",
+ "GUIDE_MAP_MASTERY_CLOSE": "Five Mastery goals",
+ "GUIDE_MAP_MASTERY_CLOSE_DETAIL": "Explore, Hunt, Research, Collect and Forge: each card shows its progress and what remains. Complete all five for this map's permanent reward. No rush: tap Close to keep playing."
+}

@@ -21,7 +21,7 @@ const LESSONS=["move","kill","collect","equip","merge","missions","upgrade","cam
 ## also uses. It replaces the Change 25/35 six-card caption deck; progress is tutorial.help.basic_done.
 const HelpCards=preload("res://scripts/game/help_cards.gd")
 ## Guided introduction cards that also point (the Next Stage chip, the Follow button).
-const POINTING_INTROS:=["snowman","prestige_follow","prestige_info","mastery_intro"]
+const POINTING_INTROS:=["snowman","prestige_follow","prestige_info"]
 ## The cropped arrow art points up-left; its tip sits about 0.45 of the pointer size from the center.
 const ARROW_BASE_ANGLE:=-PI*.75
 const POINTER_SIZE:=64.0
@@ -131,7 +131,6 @@ func setup(owner_ui) -> void:
             return
         if intro_id=="focus":sim.campaign.focus_hint=-1;return
         if intro_id==AUTO_ATTACK_ID:_retire_auto_attack();return
-        if intro_id==MASTERY_HINT_ID:_retire_mastery_hint();return
         if intro_id!="" and not sim.state.tutorial.seen.has(intro_id):sim.state.tutorial.seen.append(intro_id);sim.touch())
     shade=_frame(Color(0,0,0,.85));highlight=_frame(Color(1,.85,.4))
     pointer=TextureRect.new();pointer.texture=ui.cropped(ARROW);pointer.custom_minimum_size=Vector2.ONE*POINTER_SIZE;pointer.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;pointer.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
@@ -246,11 +245,6 @@ func _process(dt: float) -> void:
                 data["road_ahead_seconds"]=minf(delay,elapsed+dt)
                 SaveService.mark_dirty()
     if pending=="focus" and (card.visible or pointer.visible):focus_shown+=dt
-    # Change 63: the Map Mastery hint counts as shown (once per profile) when it is really on screen.
-    if pending==MASTERY_HINT_ID and card.visible:
-        if not data.seen.has(MASTERY_HINT_ID):data.seen.append(MASTERY_HINT_ID);sim.touch();SaveService.mark_dirty()
-        mastery_live=true;mastery_shown+=dt
-        if mastery_shown>=MASTERY_HINT_SECONDS:_retire_mastery_hint()
     if card.visible and pending in LONG_STEPS:long_shown[pending]=float(long_shown.get(pending,0.0))+dt
     # Change 65: the autoattack explanation retires after a readable time on screen (or on Got it).
     if intro_id==AUTO_ATTACK_ID and card.visible and running:
@@ -293,11 +287,9 @@ func evaluate() -> void:
         return
     if data.mode=="guided":
         if sim.campaign.guided.complete():
-            if not _mission_auto_hint() and not _mastery_hint():_focus_hint()
-        else:
-            _guided_lesson()
-            # Change 63: the optional Map Mastery hint waits for a moment with no mandatory lesson shown.
-            if pending=="":_mastery_hint()
+            if not _mission_auto_hint():_focus_hint()
+        # Change 66: Map Mastery is a Guided lesson (map_mastery); the Change 63 optional hint is gone.
+        else:_guided_lesson()
         return
     # Basic: the overview deck, then The Road Ahead; nothing after that (no tips or pointers).
     if data.mode=="basic" and not _basic_card():_road_ahead_if_ready(data)
@@ -635,6 +627,23 @@ func _guided_change61(current: String) -> bool:
             else:target=nav.get_node("Prestige")
         "boss_win":
             if float(long_shown.get(current,0.0))>=LONG_CARD_SECONDS:pending=""
+        "map_mastery":
+            # Change 66: open Map Mastery (the HUD chip opens this map's page; World's Map Mastery button
+            # opens the all-maps overview, where this map's Details opens the same page), see the five
+            # goals there, then Close. Arrows only at live buttons: the goal cards are read, not tapped.
+            surfaces=["","world","mastery"]
+            var flow=sim.campaign.guided
+            if open=="mastery":
+                if bool(flow.data().get("mastery_viewed",false)) or int(ui.mastery_stage)>0:
+                    step="map_mastery_close";target=_sheet_close()
+                else:
+                    step="map_mastery_details";target=_panel_control("mastery_map_%d" % int(sim.state.stage))
+            elif open=="world":
+                step="map_mastery_world";target=_panel_control("mastery")
+            else:
+                var chip: Control=ui.get_node("Safe/Layout/Map/Mastery")
+                target=chip if chip.is_visible_in_tree() else nav.get_node("World")
+                if target!=chip:step="map_mastery_world"
         "world_open":
             surfaces=[""]
             target=nav.get_node("World")
@@ -653,38 +662,6 @@ func _guided_change61(current: String) -> bool:
 func _sheet_close() -> Control:
     var close: Button=ui.get_node("Sheet/Margin/Content/Header/Close")
     return close if close.is_visible_in_tree() and not close.disabled else null
-
-## Change 63: optional Map Mastery introduction, Guided players only, once per profile (state.tutorial.seen,
-## kept by Prestige, cleared by Hard Reset). Due once any map's Map Mastery explore record reached 100%
-## (mastery.data().explored, the same record the Explore objective uses), Map Mastery is revealed and its
-## HUD chip can be tapped. It never blocks a lesson: during the first-run tutorial it is offered only while
-## no mandatory lesson is on screen. Got it, opening Map Mastery or MASTERY_HINT_SECONDS on screen end it.
-const MASTERY_HINT_ID:="mastery_intro"
-const MASTERY_HINT_SECONDS:=30.0
-var mastery_live:=false
-var mastery_shown:=0.0
-func mastery_hint_due() -> bool:
-    if sim.state.tutorial.mode!="guided" or not sim.state.prestige_batch.is_empty():return false
-    if sim.state.tutorial.seen.has(MASTERY_HINT_ID) and not mastery_live:return false
-    if not ui.revealed("prestige") or not ui.revealed("world"):return false
-    var explored: Dictionary=sim.campaign.mastery.data().explored
-    for key in explored:
-        if int(explored[key])>=100:return true
-    return false
-func _retire_mastery_hint() -> void:
-    mastery_live=false;mastery_shown=0.0
-    if not sim.state.tutorial.seen.has(MASTERY_HINT_ID):sim.state.tutorial.seen.append(MASTERY_HINT_ID);sim.touch();SaveService.mark_dirty()
-func _mastery_hint() -> bool:
-    if not mastery_hint_due():return false
-    # Opening Map Mastery (the chip, or World's Map Mastery button) is the action it teaches.
-    if ui.sheet.visible and ui.panel=="mastery":
-        if mastery_live:_retire_mastery_hint()
-        return false
-    var chip: Control=ui.get_node("Safe/Layout/Map/Mastery")
-    # Only with the real chip on screen (never an arrow at hidden content); otherwise it waits.
-    if not chip.visible:return false
-    pending=MASTERY_HINT_ID;step=MASTERY_HINT_ID;intro_id=MASTERY_HINT_ID;surfaces=[""];target=chip
-    return true
 
 ## Change 63 arbitration (Playbook 18.8): the screen rectangles the active guide occupies (caption card,
 ## arrow and target frame). Toasts and milestone banners are placed or deferred so they never cover them.
@@ -864,6 +841,7 @@ func _picture() -> Texture2D:
     if step.begins_with("gear_bonus"):return ui._art(211)
     if step.begins_with("offline"):return ui._art(147)
     if step.begins_with("respawn") or step.begins_with("camp_travel") or step.begins_with("winter_two"):return ui._art(249)
+    if step.begins_with("map_mastery"):return ui._art(249)
     if step.begins_with("map_details") or step.begins_with("enemy_pins") or step.begins_with("hunt"):return ui._art(1)
     if step.begins_with("focus") or step.begins_with("slots") or step=="feature_upgrades":return ui._art(147)
     if step in ["skills","rest"]:return ui._art(212)
