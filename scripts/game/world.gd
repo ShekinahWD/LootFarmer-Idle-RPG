@@ -27,6 +27,12 @@ var countdown_clock:=0.0
 var weather: Node2D
 ## Change 60 follow-up: the positive (green) and negative (red) buff bursts on the player (buff_burst.gd).
 var buff_bursts: Dictionary={}
+## Change 67 (Phase 2): the hero's arrival effect after a revive (respawn_fx.gd), and the pickups the
+## player collected since the last frame (uid -> true), which fly into the hero instead of vanishing.
+var respawn_fx: Node2D
+var collected_uids: Dictionary={}
+## Seconds a collected pickup takes to fly into the hero.
+const COLLECT_FLIGHT:=.22
 
 ## Change 60 follow-up: a stat popup's burst on the player, green for an increase, red for a decrease.
 func buff_burst(is_positive: bool) -> void:
@@ -74,6 +80,10 @@ func setup(value: LootSimulation) -> void:
         add_child(burst)
         burst.setup(is_positive)
         buff_bursts[is_positive]=burst
+    respawn_fx=preload("res://scripts/game/respawn_fx.gd").new()
+    add_child(respawn_fx)
+    sim.revived.connect(func()->void:respawn_fx.play(sim.position_of(sim.state.player)))
+    sim.collected.connect(func(uid: int)->void:collected_uids[uid]=true)
 
 ## Change 24 (Playbook 44): presentation work scales with what is on screen, not with the map.
 ## - Views whose actor is outside the camera (plus CULL_MARGIN world units) are hidden and skip their
@@ -112,6 +122,8 @@ func _process(_delta: float) -> void:
         active_stage=int(sim.state.stage)
         for effect in get_children():
             if effect is AnimatedSprite2D:effect.queue_free()
+        respawn_fx.stop()
+        collected_uids.clear()
         if scenery:_retire(scenery)
         scenery=STAGE_SCENES.scene(active_stage).instantiate()
         scenery.z_index=-2
@@ -159,8 +171,12 @@ func _process(_delta: float) -> void:
         if amount>1 and count.text!="×"+NumberFormat.count(amount):count.text="×"+NumberFormat.count(amount)
     for id in pickups.keys():
         if not seen.has(id):
-            pickups[id].queue_free()
+            # Change 67 (Phase 2): a collected pickup flies into the hero; an expired one (or one left
+            # behind by a map change) still disappears at once.
+            if collected_uids.has(id) and pickups[id].visible:_fly_to_player(pickups[id])
+            else:pickups[id].queue_free()
             pickups.erase(id)
+    collected_uids.clear()
     update_camera()
 
 ## Change 59: one pointing hand (the existing GUI pack Hand, copied to assets/ui) reminds the player
@@ -233,6 +249,18 @@ func _place_reminder(drop: Dictionary,since: float,view: Rect2) -> void:
 
 ## A drop whose remaining ground time is at least this was made within the last half second.
 const FRESH_DROP_TTL:=299.5
+## The pickup's own node (already drawn, nothing new allocated) moves to the hero's chest, shrinking
+## and fading, then frees itself. Game time: it pauses with the world and speeds up with it.
+func _fly_to_player(node: Node2D) -> void:
+    var target: Vector2=(views["player"].position if views.has("player") else sim.position_of(sim.state.player))+Vector2(0,-9)
+    node.set_process(false)
+    node.z_index=3
+    var t:=node.create_tween().set_parallel(true)
+    t.tween_property(node,"position",target,COLLECT_FLIGHT).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+    t.tween_property(node,"scale",Vector2.ONE*.35,COLLECT_FLIGHT).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+    t.tween_property(node,"modulate:a",0.0,COLLECT_FLIGHT*.5).set_delay(COLLECT_FLIGHT*.5)
+    t.chain().tween_callback(node.queue_free)
+
 func _tier_color(item: Dictionary) -> Color:
     var colors: Array=sim.catalog.progression.tier_colors
     return Color(colors[clampi(int(item.get("tier",1))-1,0,colors.size()-1)])

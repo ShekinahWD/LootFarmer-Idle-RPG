@@ -24,6 +24,9 @@ signal notice(kind: String, id: String)
 ## Merge All and automatic merges all emit merged; the UI tells them apart by who called.
 signal merged(id: String, before: int, after: int)
 signal evolved(source: String, target: String)
+## Change 67 (Phase 2): a ground pickup the player collected (tap or Auto-Collect), emitted after it left
+## state.pickups, so the world can tell a collection from an expiry or a map change.
+signal collected(uid: int)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 ## Change 13: summoning and final-boss action rules (inspector-editable resource).
@@ -1008,12 +1011,14 @@ func collect(uid: int) -> bool:
                 _restore_credit(str(pickup.item),pickup.dropped)
                 state.pickups.erase(pickup)
                 touch()
+                collected.emit(uid)
                 return true
             if add_item(pickup.item,int(pickup.get("qty",1))):
                 if bool(pickup.get("enhanced",false)) and enhance(str(pickup.item)):event.emit("ITEM_ENHANCED")
                 campaign.progress("collect",pickup.item,int(pickup.get("qty",1)))
                 if catalog.items[pickup.item].kind in ["weapon","outfit"]:campaign.progress("gear",pickup.item,int(pickup.get("qty",1)))
                 state.pickups.erase(pickup)
+                collected.emit(uid)
                 return true
             return fail("INVENTORY_FULL")
     return false

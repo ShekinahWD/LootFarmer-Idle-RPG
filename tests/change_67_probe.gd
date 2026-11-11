@@ -40,6 +40,8 @@ func run() -> void:
     await evolution_checks()
     await auto_evolution_checks()
     await time_scale_checks()
+    await collect_checks()
+    await respawn_checks()
     print("CHANGE_67_CHECKS %d FAILURES %d" % [checks,failures])
     get_tree().quit(1 if failures>0 else 0)
 
@@ -264,3 +266,53 @@ func time_scale_checks() -> void:
     game._close()
     await frames(4)
     check(not show.visible and not fx.busy(),"Leaving the panel: nothing persists")
+
+# ---------------------------------------------------------------- Phase 2: collection and respawn
+func collect_checks() -> void:
+    fresh()
+    var w=game.world
+    var at: Vector2=sim.position_of(sim.state.player)+Vector2(14,0)
+    sim.state.pickups.clear()
+    var foe: Dictionary=sim.state.enemies[0]
+    foe.x=at.x;foe.y=at.y # fixture: the drop lies beside the hero
+    sim._drop("wood_sword",foe)
+    sim._drop("potion",foe)
+    sim.campaign.reveal_circle(at,80)
+    await frames(4)
+    var uids: Array=w.pickups.keys()
+    check(uids.size()==2,"Two drops on the ground")
+    var node: Node2D=w.pickups[uids[0]]
+    var emitted: Array=[]
+    sim.collected.connect(func(u):emitted.append(u))
+    var have: int=sim.quantity("wood_sword")+sim.quantity("potion")
+    check(sim.collect(int(uids[0])),"Collect succeeds (the rule is unchanged)")
+    check(emitted==[uids[0]],"collected is emitted once, with the pickup's uid")
+    await frames(2)
+    check(is_instance_valid(node) and not w.pickups.has(uids[0]) and node.z_index==3,"The collected drop flies into the hero instead of vanishing")
+    await wait(.4)
+    check(not is_instance_valid(node),"…and frees itself after the flight")
+    # Expiry: no flight, gone at once.
+    var other: Node2D=w.pickups[uids[1]]
+    for d in sim.state.pickups:d.ttl=0.0
+    sim.state.pickups.clear() # fixture: the drop expired
+    await frames(2)
+    check(not is_instance_valid(other) or other.is_queued_for_deletion(),"An expired drop disappears at once (no flight)")
+    check(emitted.size()==1,"Expiry emits nothing")
+    check(sim.quantity("wood_sword")+sim.quantity("potion")==have+1,"Inventory gained exactly the collected copy")
+
+func respawn_checks() -> void:
+    fresh()
+    var fx=game.world.respawn_fx
+    check(not fx.running(),"No arrival effect before a revive")
+    sim.set_physics_process(true)
+    sim.state.player.hp=0.0;sim.state.player.respawn=.05 # fixture: about to revive
+    await wait(.3)
+    sim.set_physics_process(false)
+    check(sim.state.player.hp>0,"The hero revived (simulation rule)")
+    check(fx.running() and fx.position.distance_to(sim.position_of(sim.state.player))<1.0,"The arrival effect plays at the respawn point")
+    await wait(1.2)
+    check(not fx.running(),"It ends by itself (under a second)")
+    fx.play(Vector2.ZERO)
+    sim.state.stage=2;await frames(3) # fixture: a map change
+    check(not fx.running(),"A map change stops it")
+    sim.state.stage=1;await frames(3)

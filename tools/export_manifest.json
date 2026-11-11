@@ -16,7 +16,7 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 306,
+  "files": 307,
   "stages": 8,
   "imported": 183
  },
@@ -527,7 +527,7 @@
   "res://assets/vfx/buff/Arrow_006.png": "literal in res://scripts/game/buff_burst.gd",
   "res://assets/vfx/buff/Circle_Outline_003.png": "literal in res://scripts/game/buff_burst.gd",
   "res://assets/vfx/buff/Glow_001.png": "literal in res://scripts/game/evolution_show.gd",
-  "res://assets/vfx/buff/Light_Ray_007.png": "literal in res://scripts/game/buff_burst.gd",
+  "res://assets/vfx/buff/Light_Ray_007.png": "literal in res://scripts/game/respawn_fx.gd",
   "res://assets/vfx/celebration/Circle_Outline_002.png": "literal in res://scripts/game/evolution_show.gd",
   "res://assets/vfx/celebration/Impact_006.png": "literal in res://scripts/game/evolution_show.gd",
   "res://assets/vfx/celebration/Light_Ray_001.png": "literal in res://scripts/game/evolution_show.gd",
@@ -645,6 +645,7 @@
   "res://scripts/game/pickup_style.gd": "dependency of res://resources/game/pickup_style.tres",
   "res://scripts/game/prestige_card.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/prestige_confirm.gd": "dependency of res://scenes/game/prestige_confirm.tscn",
+  "res://scripts/game/respawn_fx.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/review_dialog.gd": "dependency of res://scenes/game/review_invitation.tscn",
   "res://scripts/game/review_invitation.gd": "literal in res://scripts/game/campaign.gd",
   "res://scripts/game/review_rules.gd": "dependency of res://resources/game/review_rules.tres",
