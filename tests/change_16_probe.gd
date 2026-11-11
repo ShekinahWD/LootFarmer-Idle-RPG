@@ -104,6 +104,8 @@ const SNOW:=Color(.93,.95,.98)
 func do_prestige() -> bool:
     var g: int=sim.campaign.prestige_unlock_group()
     if not sim.state.bosses_found.has("boss-snowman"):sim.state.bosses_found.append("boss-snowman") # fixture: found
+    # Change 61 correction (6d247d9): the reset needs the Snowman defeated once (lifetime group kills).
+    if int(sim.state.group_kills[g])<1:sim.state.group_kills[g]=1 # fixture: defeated once
     sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0} # fixture: ready
     return sim.campaign.begin_prestige() and sim.prestige(sim.campaign.offered_cards()[0])
 func refresh_hud() -> void:
@@ -262,7 +264,12 @@ func boss_checks() -> void:
     check(kinds.has("boss_found") and kinds.has("prestige_unlocked") and kinds.find("boss_found")<kinds.find("prestige_unlocked"),"Milestones: the warning first, then Prestige unlocked %s" % str(kinds))
     var first: Dictionary=game.banner.current if not game.banner.current.is_empty() else (game.banner.queue[0] if not game.banner.queue.is_empty() else {})
     check(str(first.get("title",""))=="!WARNING BOSS FOUND!" and bool(first.get("warning",false)) and str(first.get("subtitle","")).contains("Snowman"),"Banner: \"%s\" in red, naming the Snowman" % str(first.get("title","")))
-    check(sim.campaign.prestige_unlocked() and sim.campaign.onboarding.revealed("prestige") and sim.campaign.prestige_gate_reason()=="","Finding the Snowman opens Prestige (button and reset gate)")
+    # Change 61 correction (6d247d9, approved): finding opens the Prestige menu; the reset waits for one defeat.
+    check(sim.campaign.prestige_unlocked() and sim.campaign.onboarding.revealed("prestige") and sim.campaign.prestige_gate_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT","Finding the Snowman opens the Prestige menu; the reset stays locked until it is defeated (%s)" % sim.campaign.prestige_gate_reason())
+    check(not sim.campaign.begin_prestige() and sim.state.prestige_batch.is_empty(),"…so a found-only Snowman cannot start a Prestige")
+    sim.state.group_kills[group("boss-snowman")]=1 # fixture: one defeat
+    check(sim.campaign.prestige_gate_reason()=="","One Snowman defeat unlocks the reset in None")
+    sim.state.group_kills[group("boss-snowman")]=0 # restore: found only
     check(int(sim.state.group_kills[group("boss-snowman")])==0 and float(snow.hp)>0 and int(sim.state.unlocked_stage)==1 and int(sim.state.run_kills.get("boss-snowman",0))==0,"…without defeating it or opening Winter II")
     notices.clear();milestones.clear()
     for i in range(5):sim.campaign.reveal()
@@ -277,7 +284,7 @@ func boss_checks() -> void:
     sim.state.bosses_found.append("boss-snowman") # fixture
     check(do_prestige() and sim.state.bosses_found==["boss-snowman"] and sim.campaign.prestige_unlocked(),"Prestige keeps the bosses found and the unlock")
     game._open("prestige");await frames(2)
-    check(labels_text(game.rows).contains("✓ Find the Winter I Snowman"),"The Prestige checklist reads \"Find the Winter I Snowman\"")
+    check(labels_text(game.rows).contains("✓ "+tr("PRESTIGE_REQ_BOSS_DEFEAT")),"The Prestige checklist reads \"%s\" (done)" % tr("PRESTIGE_REQ_BOSS_DEFEAT"))
     game._close()
     SaveService.hard_reset();sim.state.tutorial.mode="none";sim.suspended=false
     check(sim.state.bosses_found.is_empty() and not sim.campaign.prestige_unlocked(),"Hard Reset clears the found bosses")
@@ -728,6 +735,7 @@ func confirm_checks() -> void:
     print("-- Prestige confirmation")
     fresh()
     sim.state.bosses_found.append("boss-snowman")
+    sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1 # fixture: Snowman defeated once (Change 61 correction)
     sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0} # fixture: ready
     sim.state.gems=77;sim.state.coins=1234
     game._open("prestige");await frames(2)

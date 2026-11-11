@@ -1598,6 +1598,36 @@
    "en": "Finding the Winter I Snowman opens Prestige and its first opportunity; defeating it once unlocks the reset. Complete opportunities, then Prestige when you choose to restart with permanent cards. Map Mastery tracks each map's long-term goals.",
    "placeholders": [],
    "change": "change-61"
+  },
+  "GUIDE_PRESTIGE_OPTIONAL_CLOSE": {
+   "en": "Prestige is optional.",
+   "placeholders": [],
+   "change": "change-63"
+  },
+  "GUIDE_PRESTIGE_OPTIONAL_CLOSE_DETAIL": {
+   "en": "You can Prestige now to claim your ready opportunities, or keep playing to earn more and redeem them together. To continue without resetting, tap Close.",
+   "placeholders": [],
+   "change": "change-63"
+  },
+  "GUIDE_GEAR_BONUS_CLOSE": {
+   "en": "Stored gear counts too",
+   "placeholders": [],
+   "change": "change-63"
+  },
+  "GUIDE_GEAR_BONUS_CLOSE_DETAIL": {
+   "en": "The Stored gear counts line shows the share your stored weapons and outfits give. Tap Close to continue.",
+   "placeholders": [],
+   "change": "change-63"
+  },
+  "GUIDE_MASTERY_INTRO": {
+   "en": "Map fully explored!",
+   "placeholders": [],
+   "change": "change-63"
+  },
+  "GUIDE_MASTERY_INTRO_DETAIL": {
+   "en": "Tap the Mastery button on the map to see your remaining Map Mastery goals and rewards. This is optional: you can keep adventuring.",
+   "placeholders": [],
+   "change": "change-63"
   }
  },
  "retired": {

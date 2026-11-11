@@ -22,7 +22,7 @@ const LESSONS=["move","kill","collect","equip","merge","missions","upgrade","cam
 const BASIC_DECK:=["overview","basic_target","basic_gear","basic_growth","basic_world","basic_prestige"]
 const DECK_FEATURE:={"basic_growth":"upgrades","basic_world":"world","basic_prestige":"prestige"}
 ## Guided introduction cards that also point (the Next Stage chip, the Follow button).
-const POINTING_INTROS:=["snowman","prestige_follow","prestige_info"]
+const POINTING_INTROS:=["snowman","prestige_follow","prestige_info","mastery_intro"]
 ## The cropped arrow art points up-left; its tip sits about 0.45 of the pointer size from the center.
 const ARROW_BASE_ANGLE:=-PI*.75
 const POINTER_SIZE:=64.0
@@ -129,6 +129,7 @@ func setup(owner_ui) -> void:
                 sim.state.tutorial.seen.append(ROAD_AHEAD_ID);sim.touch();SaveService.mark_dirty()
             return
         if intro_id=="focus":sim.campaign.focus_hint=-1;return
+        if intro_id==MASTERY_HINT_ID:_retire_mastery_hint();return
         if intro_id!="" and not sim.state.tutorial.seen.has(intro_id):sim.state.tutorial.seen.append(intro_id);sim.touch())
     shade=_frame(Color(0,0,0,.85));highlight=_frame(Color(1,.85,.4))
     pointer=TextureRect.new();pointer.texture=ui.cropped(ARROW);pointer.custom_minimum_size=Vector2.ONE*POINTER_SIZE;pointer.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;pointer.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
@@ -242,6 +243,11 @@ func _process(dt: float) -> void:
                 data["road_ahead_seconds"]=minf(delay,elapsed+dt)
                 SaveService.mark_dirty()
     if pending=="focus" and (card.visible or pointer.visible):focus_shown+=dt
+    # Change 63: the Map Mastery hint counts as shown (once per profile) when it is really on screen.
+    if pending==MASTERY_HINT_ID and card.visible:
+        if not data.seen.has(MASTERY_HINT_ID):data.seen.append(MASTERY_HINT_ID);sim.touch();SaveService.mark_dirty()
+        mastery_live=true;mastery_shown+=dt
+        if mastery_shown>=MASTERY_HINT_SECONDS:_retire_mastery_hint()
     if card.visible and pending in LONG_STEPS:long_shown[pending]=float(long_shown.get(pending,0.0))+dt
     # Basic overview cards retire on their own after a readable time on screen.
     if data.mode=="basic" and BASIC_DECK.has(intro_id) and card.visible:
@@ -286,8 +292,11 @@ func evaluate() -> void:
         return
     if data.mode=="guided":
         if sim.campaign.guided.complete():
-            if not _mission_auto_hint():_focus_hint()
-        else:_guided_lesson()
+            if not _mission_auto_hint() and not _mastery_hint():_focus_hint()
+        else:
+            _guided_lesson()
+            # Change 63: the optional Map Mastery hint waits for a moment with no mandatory lesson shown.
+            if pending=="":_mastery_hint()
         return
     # Basic: the overview deck, then The Road Ahead; nothing after that (no tips or pointers).
     if data.mode=="basic" and not _basic_card():_road_ahead_if_ready(data)
@@ -332,8 +341,9 @@ func _lesson(lesson: String) -> void:
             if id=="":
                 var drop:=_nearest_pickup(true)
                 if drop!=Vector2.INF:step="equip_collect";world_target=drop;return
+                # Change 63: with no enemy in sight the caption alone asks for farming (an empty gear
+                # slot is not a tap target, so it gets no arrow).
                 step="equip_find";world_target=_nearest_enemy()
-                if world_target==Vector2.INF:target=_slot("")
                 return
             if ui.sheet.visible and ui.panel=="item" and ui.selected!="" and sim.catalog.items[ui.selected].kind in ["weapon","outfit"]:
                 step="equip_tap";target=_panel_control("equip")
@@ -518,7 +528,9 @@ func _guided_change61(current: String) -> bool:
         "gear_bonus":
             # Stats opens from the level bar's Player Level & Growth (or from Settings).
             surfaces=["","level","settings","stats"]
-            if open=="stats":step="gear_bonus_stats";target=_panel_row("stored_share")
+            # Change 63: the Stored gear line is read, not tapped; closing Stats finishes the lesson, so
+            # the arrow is on the panel's real Close button and the caption says so.
+            if open=="stats":step="gear_bonus_close";target=_sheet_close()
             elif open in ["level","settings"]:step="gear_bonus_open";target=_panel_control("open_stats")
             else:target=ui.top.get_node("Meters/XP/Open")
         "offline_rewards":
@@ -598,12 +610,64 @@ func _guided_change61(current: String) -> bool:
             target=nav.get_node("World")
         "prestige_optional":
             surfaces=["","prestige"]
+            # Change 63: the opportunity card is not a tap target. Closing the panel (or a real Prestige)
+            # finishes the lesson, so the arrow is on the live Close button and the caption names both.
             if open=="prestige":
-                step="prestige_optional_panel"
-                target=_panel_row("opportunity_"+sim.campaign.guided.FIRST_BOSS_OPPORTUNITY)
+                step="prestige_optional_close"
+                target=_sheet_close()
             else:target=nav.get_node("Prestige")
         _:return false
     return true
+
+## The open panel's Close button, when it can be tapped.
+func _sheet_close() -> Control:
+    var close: Button=ui.get_node("Sheet/Margin/Content/Header/Close")
+    return close if close.is_visible_in_tree() and not close.disabled else null
+
+## Change 63: optional Map Mastery introduction, Guided players only, once per profile (state.tutorial.seen,
+## kept by Prestige, cleared by Hard Reset). Due once any map's Map Mastery explore record reached 100%
+## (mastery.data().explored, the same record the Explore objective uses), Map Mastery is revealed and its
+## HUD chip can be tapped. It never blocks a lesson: during the first-run tutorial it is offered only while
+## no mandatory lesson is on screen. Got it, opening Map Mastery or MASTERY_HINT_SECONDS on screen end it.
+const MASTERY_HINT_ID:="mastery_intro"
+const MASTERY_HINT_SECONDS:=30.0
+var mastery_live:=false
+var mastery_shown:=0.0
+func mastery_hint_due() -> bool:
+    if sim.state.tutorial.mode!="guided" or not sim.state.prestige_batch.is_empty():return false
+    if sim.state.tutorial.seen.has(MASTERY_HINT_ID) and not mastery_live:return false
+    if not ui.revealed("prestige") or not ui.revealed("world"):return false
+    var explored: Dictionary=sim.campaign.mastery.data().explored
+    for key in explored:
+        if int(explored[key])>=100:return true
+    return false
+func _retire_mastery_hint() -> void:
+    mastery_live=false;mastery_shown=0.0
+    if not sim.state.tutorial.seen.has(MASTERY_HINT_ID):sim.state.tutorial.seen.append(MASTERY_HINT_ID);sim.touch();SaveService.mark_dirty()
+func _mastery_hint() -> bool:
+    if not mastery_hint_due():return false
+    # Opening Map Mastery (the chip, or World's Map Mastery button) is the action it teaches.
+    if ui.sheet.visible and ui.panel=="mastery":
+        if mastery_live:_retire_mastery_hint()
+        return false
+    var chip: Control=ui.get_node("Safe/Layout/Map/Mastery")
+    # Only with the real chip on screen (never an arrow at hidden content); otherwise it waits.
+    if not chip.visible:return false
+    pending=MASTERY_HINT_ID;step=MASTERY_HINT_ID;intro_id=MASTERY_HINT_ID;surfaces=[""];target=chip
+    return true
+
+## Change 63 arbitration (Playbook 18.8): the screen rectangles the active guide occupies (caption card,
+## arrow and target frame). Toasts and milestone banners are placed or deferred so they never cover them.
+func occupied_rects() -> Array:
+    var out: Array=[]
+    for node in [card,pointer,highlight]:
+        # The arrow bobs 6 px each way along its direction: its whole travel is kept clear.
+        if node.visible:out.append(node.get_global_rect().grow(14 if node==pointer else 6))
+    return out
+func covers(rect: Rect2) -> bool:
+    for r in occupied_rects():
+        if r.intersects(rect):return true
+    return false
 
 ## The first owned camp of the current map other than its arrival camp (-1 when none).
 func _additional_camp() -> int:
@@ -719,10 +783,12 @@ func _present() -> void:
     if get_tree().paused:suspended_by="pause"
     elif ui.modal_open():suspended_by="confirmation"
     elif not sim.state.prestige_batch.is_empty():suspended_by="prestige"
-    elif not ui.banner.current.is_empty():suspended_by="milestone"
+    # Change 63: a milestone banner (top of the screen) suspends the guide only when it would cover it;
+    # game_ui holds overlapping banners back first (banner_guide_hold), so this is rare.
+    elif not ui.banner.current.is_empty() and ui.banner.visible and covers(ui.banner.get_global_rect()):suspended_by="milestone"
     elif ui.sheet.visible and not surfaces.has(ui.panel):suspended_by=ui.panel
     elif not ui.sheet.visible and not surfaces.has(""):suspended_by="closed"
-    if pending=="" or suspended_by!="" or (ui.sheet.visible and ui.sheet.modulate.a<1.0):
+    if pending=="" or suspended_by!="":
         _hide_all();return
     title.text=tr("GUIDE_"+step.to_upper())
     var deck_index:=BASIC_DECK.find(intro_id) if data.mode=="basic" else -1
@@ -732,6 +798,9 @@ func _present() -> void:
     support.text=tr(detail_key(step))
     # Coins still needed, in the shared currency format rounded up (Change 13).
     if "%s" in support.text:support.text=support.text % NumberFormat.currency(support_value,true)
+    # Texts are set first so game_ui's panel reserve (sheet_reserve) measures them while a panel settles.
+    if ui.sheet.visible and ui.sheet.modulate.a<1.0:
+        _hide_all();return
     picture.texture=_picture()
     var is_final:=intro_id in ["flow:tutorial_final",ROAD_AHEAD_ID]
     var final_ready:=true
@@ -765,6 +834,13 @@ func _picture() -> Texture2D:
     if step.begins_with("prestige") or step.begins_with("missions") or step in ["feature_prestige","feature_missions"]:return ui._art(211)
     if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect","feature_enemy","target","target_find"]:return ui._art(1)
     return ui._art(60)
+
+## Change 63: height game_ui keeps free above an open panel that belongs to the current lesson, so the
+## caption (e.g. "close this panel to continue") stays readable above it instead of being hidden.
+func sheet_reserve() -> float:
+    if pending=="" or suspended_by!="" or not ui.sheet.visible or not surfaces.has(ui.panel) or intro_id in ["flow:tutorial_final",ROAD_AHEAD_ID]:return 0.0
+    var map: Control=ui.get_node("Safe/Layout/Map")
+    return roundf(minf(card.get_combined_minimum_size().y+20,map.size.y*.4))
 
 ## The caption never covers the open panel: above it when there is room, otherwise hidden
 ## (the pointer alone continues the lesson). Without a panel it sits above the joystick.
@@ -817,7 +893,10 @@ func _point() -> void:
         return
     var rect:=Rect2()
     var have:=false
-    if is_instance_valid(target) and target.is_visible_in_tree() and not target.is_queued_for_deletion():
+    # Change 63: a disabled button is never a tap target (e.g. a menu button for the moment before its
+    # reveal refresh); the arrow waits until it can be pressed.
+    if is_instance_valid(target) and target is BaseButton and target.disabled:pass
+    elif is_instance_valid(target) and target.is_visible_in_tree() and not target.is_queued_for_deletion():
         var key:=step+":"+str(target.get_instance_id())
         var scroll: ScrollContainer=ui.get_node("Sheet/Margin/Content/Scroll")
         if scrolled_for!=key and scroll.is_ancestor_of(target):

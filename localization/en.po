@@ -6265,3 +6265,21 @@ msgstr "defeat the Snowman"
 
 msgid "GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL"
 msgstr "Finding the Winter I Snowman opens Prestige and its first opportunity; defeating it once unlocks the reset. Complete opportunities, then Prestige when you choose to restart with permanent cards. Map Mastery tracks each map's long-term goals."
+
+msgid "GUIDE_PRESTIGE_OPTIONAL_CLOSE"
+msgstr "Prestige is optional."
+
+msgid "GUIDE_PRESTIGE_OPTIONAL_CLOSE_DETAIL"
+msgstr "You can Prestige now to claim your ready opportunities, or keep playing to earn more and redeem them together. To continue without resetting, tap Close."
+
+msgid "GUIDE_GEAR_BONUS_CLOSE"
+msgstr "Stored gear counts too"
+
+msgid "GUIDE_GEAR_BONUS_CLOSE_DETAIL"
+msgstr "The Stored gear counts line shows the share your stored weapons and outfits give. Tap Close to continue."
+
+msgid "GUIDE_MASTERY_INTRO"
+msgstr "Map fully explored!"
+
+msgid "GUIDE_MASTERY_INTRO_DETAIL"
+msgstr "Tap the Mastery button on the map to see your remaining Map Mastery goals and rewards. This is optional: you can keep adventuring."

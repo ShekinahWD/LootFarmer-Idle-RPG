@@ -69,6 +69,14 @@ var elapsed:=0.0
 var last_revision: int=-1
 var toast_time:=0.0
 var toast_queue: Array=[]
+## Change 63 (Playbook 18.8 arbitration): blocking modals first, the active Guided instruction next,
+## ordinary notices after. sheet_reserved is the room kept above an open panel for the guide's caption;
+## a banner that would cover the guide waits up to BANNER_GUIDE_HOLD_SECONDS, then shows anyway (the
+## guide steps aside for it briefly) so an alert is never held forever.
+var sheet_reserved:=0.0
+const BANNER_GUIDE_HOLD_SECONDS:=12.0
+var banner_guide_hold:=0.0
+var banner_hold_key:=""
 var confirm_action: Callable
 ## Only the active confirmation may finish its deferred layout. Never resize it per frame.
 var confirm_generation:=0
@@ -274,11 +282,16 @@ func _process(dt: float) -> void:
     if stick_input.length()>.1 or keys.length()>.1:
         $Safe/Layout/Map/GestureSurface.cancel_gesture()
         world.follow_player()
+    # Change 63: keep the guide's caption room above a panel of the current lesson (relayout on change).
+    var reserve: float=guide.sheet_reserve() if sheet.visible else 0.0
+    if reserve!=sheet_reserved:
+        sheet_reserved=reserve
+        if sheet.visible:_layout_sheet()
     _update_toast(dt)
     _layout_banner()
     # The View Camp button follows the camp on screen every frame (camera moves and pans).
     _refresh_view_camp()
-    banner.held=sheet.visible or modal_open() or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending"
+    banner.held=sheet.visible or modal_open() or not sim.state.prestige_batch.is_empty() or sim.state.tutorial.mode=="pending" or _banner_waits_for_guide(dt)
     # Change 59: the loot reminder hand stands down under the same surfaces and the guide's card/chooser.
     world.update_reminder(banner.held or guide.card.visible or guide.chooser.visible)
     # Change 60: stat popups wait (and freeze) while the game is paused or something covers the map
@@ -333,6 +346,24 @@ func _process(dt: float) -> void:
         # Cheap when nothing changed; follows a resized dock without waiting for a state change.
         _layout_inventory()
     previous_pause=get_tree().paused
+
+## Change 63: a banner about to show (or showing) where it would cover the guide's caption, arrow or
+## target waits while the guide is on screen, at most BANNER_GUIDE_HOLD_SECONDS per banner.
+func _banner_waits_for_guide(dt: float) -> bool:
+    var next: Dictionary=banner.current if not banner.current.is_empty() else (banner.queue[0] if not banner.queue.is_empty() else {})
+    if next.is_empty():
+        banner_guide_hold=0.0;banner_hold_key="";return false
+    var key:=str(next.get("title",""))+"|"+str(next.get("subtitle",""))
+    if key!=banner_hold_key:banner_hold_key=key;banner_guide_hold=0.0
+    if banner_guide_hold>=BANNER_GUIDE_HOLD_SECONDS or not guide.covers(_banner_rect()):return false
+    banner_guide_hold+=dt
+    return true
+func _banner_rect() -> Rect2:
+    var insets:=LayoutService.get_safe_area_insets_canvas()
+    var available:=size.x-insets.x-insets.z-24
+    var width:=minf(banner_max_width,available)
+    var height:=maxf(maxf(banner.size.y,banner.get_node("Plate").get_combined_minimum_size().y),96)
+    return Rect2(Vector2(insets.x+12+(available-width)*.5,insets.y+banner_top_gap),Vector2(width,height))
 
 ## Prestige discovery banner: horizontally centred at the top of the safe area (Change 8).
 func _layout_banner() -> void:
@@ -1060,7 +1091,23 @@ func _update_toast(dt: float) -> void:
     if $Toast/Text.custom_minimum_size.x!=width-28:$Toast/Text.custom_minimum_size.x=width-28
     var wanted:=Vector2(width,$Toast.get_combined_minimum_size().y)
     if not $Toast.size.is_equal_approx(wanted):$Toast.size=wanted
-    $Toast.position=Vector2(map.global_position.x+(map.size.x-width)*.5,map.global_position.y+map.size.y-212-$Toast.get_combined_minimum_size().y)
+    # Change 63: never over the active guide (caption, arrow, target frame). The toast climbs above what
+    # it would cover; with no free place in the map it waits in its queue (it is not dropped) and shows
+    # as soon as there is room.
+    var x: float=map.global_position.x+(map.size.x-width)*.5
+    var y: float=map.global_position.y+map.size.y-212-wanted.y
+    var blocked: Array=guide.occupied_rects()
+    for i in range(blocked.size()+1):
+        var hit:=Rect2()
+        for r in blocked:
+            if r.intersects(Rect2(x,y,width,wanted.y)) and (hit.size==Vector2.ZERO or r.position.y<hit.position.y):hit=r
+        if hit.size==Vector2.ZERO:break
+        y=hit.position.y-8-wanted.y
+    if y<map.global_position.y+8 or guide.covers(Rect2(x,y,width,wanted.y)):
+        if $Toast.visible:
+            toast_queue.push_front($Toast/Text.text);$Toast.hide();toast_time=0.0
+        return
+    $Toast.position=Vector2(x,y)
 
 func _milestone(kind: String,id: String) -> void:
     var cards: Array=[]
@@ -1381,7 +1428,7 @@ func _set_title(text: String,color:=Color(.94,.95,.97)) -> void:
 func _layout_sheet() -> void:
     var map: Control=$Safe/Layout/Map
     var width:=map.size.x-sheet_inset.x*2
-    var available:=map.size.y-sheet_inset.y*2
+    var available:=map.size.y-sheet_inset.y*2-sheet_reserved
     sheet.set_anchors_preset(Control.PRESET_TOP_LEFT)
     if sheet.size.x!=width:sheet.size.x=width
     var chrome: float=sheet.get_combined_minimum_size().y
