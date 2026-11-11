@@ -12,7 +12,12 @@ signal topics_requested(category: String)
 const HelpCards=preload("res://scripts/game/help_cards.gd")
 const HelpDemo=preload("res://scripts/game/help_demo.gd")
 const VIEW_SECONDS:=1.0
-const BUTTON_HEIGHT:=68.0
+const BUTTON_HEIGHT:=72.0
+## Text sizes (canvas units). The panel is only as tall as its content (no empty band).
+const TITLE_SIZE:=36
+const ACTION_SIZE:=31
+const SUPPORT_SIZE:=25
+const NOTE_SIZE:=22
 var ui
 var sim
 ## "basic" (the Basic opening), "help_all" (Read All Tutorials) or "help_topic" (a card chosen by topic).
@@ -54,16 +59,15 @@ func setup(owner_ui) -> void:
     panel.add_child(margin)
     var box:=VBoxContainer.new();box.name="Content";box.add_theme_constant_override("separation",8);margin.add_child(box)
     var head:=HBoxContainer.new();head.add_theme_constant_override("separation",10);box.add_child(head)
-    category_label=_label(17,Color(.72,.88,1));category_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL;category_label.autowrap_mode=TextServer.AUTOWRAP_OFF
+    category_label=_label(20,Color(.72,.88,1));category_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL;category_label.autowrap_mode=TextServer.AUTOWRAP_OFF
     category_label.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS;head.add_child(category_label)
-    position_label=_label(18,Color(1,.88,.5));position_label.autowrap_mode=TextServer.AUTOWRAP_OFF;position_label.name="Position";head.add_child(position_label)
-    title_label=_label(30,Color(1,.88,.5));title_label.name="Title";title_label.add_theme_constant_override("outline_size",4);box.add_child(title_label)
+    position_label=_label(21,Color(1,.88,.5));position_label.autowrap_mode=TextServer.AUTOWRAP_OFF;position_label.name="Position";head.add_child(position_label)
+    title_label=_label(TITLE_SIZE,Color(1,.88,.5));title_label.name="Title";title_label.add_theme_constant_override("outline_size",4);box.add_child(title_label)
     demo=HelpDemo.new();demo.name="Demo";demo.size_flags_horizontal=Control.SIZE_EXPAND_FILL;box.add_child(demo);demo.setup(ui)
     auto_bar=ProgressBar.new();auto_bar.show_percentage=false;auto_bar.custom_minimum_size=Vector2(0,6);auto_bar.max_value=1.0;auto_bar.mouse_filter=Control.MOUSE_FILTER_IGNORE;box.add_child(auto_bar)
-    action_label=_label(25,Color.WHITE);action_label.name="Action";box.add_child(action_label)
-    support_label=_label(20,Color(.8,.84,.9));support_label.name="Support";box.add_child(support_label)
-    note_label=_label(18,Color(.6,1,.75));note_label.name="Note";box.add_child(note_label)
-    var spacer:=Control.new();spacer.size_flags_vertical=Control.SIZE_EXPAND_FILL;box.add_child(spacer)
+    action_label=_label(ACTION_SIZE,Color.WHITE);action_label.name="Action";box.add_child(action_label)
+    support_label=_label(SUPPORT_SIZE,Color(.85,.88,.93));support_label.name="Support";box.add_child(support_label)
+    note_label=_label(NOTE_SIZE,Color(.6,1,.75));note_label.name="Note";box.add_child(note_label)
     var nav:=HBoxContainer.new();nav.add_theme_constant_override("separation",10);box.add_child(nav)
     prev_button=_button(nav,"Previous",func()->void:step(-1))
     next_button=_button(nav,"Next",func()->void:step(1));next_button.theme_type_variation=&"Primary"
@@ -83,7 +87,7 @@ func _button(parent: Node,label: String,callback: Callable) -> Button:
     var b:=Button.new();b.name=label;b.custom_minimum_size=Vector2(0,BUTTON_HEIGHT);b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     # Longer languages wrap to a second line inside the fixed button height rather than being cut.
     b.focus_mode=Control.FOCUS_NONE;b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-    b.add_theme_font_size_override("font_size",19)
+    b.add_theme_font_size_override("font_size",22)
     b.pressed.connect(func()->void:
         callback.call()
         AudioService.play("ui_click"))
@@ -99,11 +103,12 @@ func tutorial() -> Dictionary:
 func current() -> String:
     return str(sequence[index]) if index>=0 and index<sequence.size() else ""
 
-## The Basic opening: the first ESSENTIAL_COUNT cards, from the card it was last on, Auto-Advance on.
+## The Basic opening: the first ESSENTIAL_COUNT cards, from the card it was last on. Auto-Advance starts
+## off (the player reads at their own pace and can turn it on).
 func open_basic() -> void:
     var deck:=HelpCards.essential()
     var start:=maxi(0,deck.find(str(HelpCards.progress(tutorial()).get("basic_last",""))))
-    open("basic",deck,start,true)
+    open("basic",deck,start,false)
 
 ## Help: all cards in Read All order from start_index, with the saved Auto-Advance preference.
 func open_help(ctx: String,start_index: int) -> void:
@@ -141,7 +146,7 @@ func _refresh_texts() -> void:
     # The Basic opening's last card says where the full library lives (no extra forced cards).
     var last:=index==sequence.size()-1
     note_label.text=tr("HELP_DISCOVERY_BASIC") if context=="basic" and last else ""
-    note_label.visible=note_label.text!=""
+    note_label.visible=context=="basic"
     prev_button.disabled=index==0
     next_button.text=tr("HELP_FINISH") if last and context=="basic" else tr("HELP_NEXT")
     next_button.disabled=last and context!="basic"
@@ -223,26 +228,51 @@ func _process(dt: float) -> void:
             if context=="basic":close_viewer()
             else:auto=false;_refresh_texts()
 
-## One fixed size per screen size (Playbook 16.3, 19): the panel fills the safe area up to a cap and the
-## demo keeps the stage's 5:3 shape; the text blocks below keep their own reserved height.
-var _fitted:=Vector2.ZERO
+## One size per screen size, sequence and language (Playbook 16.3, 19): the panel is as wide as the safe
+## area allows (up to a cap) and only as tall as its content. The action, support and note lines reserve
+## the height of the longest card of the open sequence in the current language, so moving between cards
+## never resizes or moves the panel, and no card leaves an empty band. The demo keeps the 5:3 stage.
+var _fitted:=""
+var _demo_full:=240.0
 func _layout() -> void:
     var insets:=LayoutService.get_safe_area_insets_canvas()
     var avail:=Vector2(ui.size.x-insets.x-insets.z,ui.size.y-insets.y-insets.w)
     var width:=minf(680.0,avail.x-24)
-    var height:=minf(1160.0,avail.y-32)
-    var wanted:=Vector2(width,height)
-    if not wanted.is_equal_approx(_fitted):
-        _fitted=wanted
+    var key:="%s:%s:%s:%d" % [str(avail),context,TranslationServer.get_locale(),sequence.size()]
+    if key!=_fitted:
+        _fitted=key
         var inner:=width-28-panel.get_theme_stylebox("panel").get_minimum_size().x
         # Wrapped labels measure their height at the panel's inner width (a zero width measures one
         # word per line and would stretch the panel far beyond the screen).
         for l in [title_label,action_label,support_label,note_label]:l.custom_minimum_size.x=inner
-        demo.custom_minimum_size=Vector2(0,roundf(minf(inner*.6,height*.42)))
-        # Reserve three action lines and four support lines so a longer card never pushes the controls.
-        action_label.custom_minimum_size.y=roundf(25*1.35*3)
-        support_label.custom_minimum_size.y=roundf(20*1.35*4)
-    # A container only grows to its contents, so the fixed size is re-applied whenever it drifted.
+        var tallest:={"title":0.0,"action":0.0,"support":0.0}
+        for id in sequence:
+            tallest.title=maxf(tallest.title,_text_height(tr(HelpCards.title_key(id)),TITLE_SIZE,inner))
+            tallest.action=maxf(tallest.action,_text_height(tr(HelpCards.action_key(id)),ACTION_SIZE,inner))
+            tallest.support=maxf(tallest.support,_text_height(tr(HelpCards.support_key(id)),SUPPORT_SIZE,inner))
+        title_label.custom_minimum_size.y=tallest.title
+        action_label.custom_minimum_size.y=tallest.action
+        support_label.custom_minimum_size.y=tallest.support
+        # The Basic note shows on its last card only; its room is kept on every card of the opening.
+        note_label.custom_minimum_size.y=_text_height(tr("HELP_DISCOVERY_BASIC"),NOTE_SIZE,inner) if context=="basic" else 0.0
+        _demo_full=roundf(inner*.6)
+        panel.size=Vector2(width,0)
+    # The demo keeps the 5:3 stage at full width; on a screen shorter than the content it gives way first
+    # (never the text or the controls). Recomputed from the full height each pass, so it never sticks small.
+    var others: float=panel.get_combined_minimum_size().y-demo.custom_minimum_size.y
+    var demo_h: float=clampf(avail.y-16-others,120.0,_demo_full)
+    if demo.custom_minimum_size.y!=demo_h:demo.custom_minimum_size=Vector2(0,demo_h)
+    var height:=minf(others+demo_h,avail.y-16)
+    var wanted:=Vector2(width,height)
+    # A container only grows to its contents, so the size is re-applied whenever it drifted.
     if not panel.size.is_equal_approx(wanted):panel.size=wanted
     var at:=Vector2(ui.centered_x(width,insets),insets.y+(avail.y-height)*.5)
     if not panel.position.is_equal_approx(at):panel.position=at
+
+## The height a wrapped Label of this size needs for text at width: the wrapped lines times the Label's
+## own line height (font height plus the theme's line spacing), plus its outline.
+func _text_height(text: String,font_size: int,width: float) -> float:
+    var font: Font=title_label.get_theme_font("font")
+    var line: float=font.get_height(font_size)
+    var lines: int=maxi(1,roundi(font.get_multiline_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,width,font_size).y/line))
+    return ceilf(lines*(line+title_label.get_theme_constant("line_spacing")))

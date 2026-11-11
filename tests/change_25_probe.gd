@@ -192,8 +192,10 @@ func basic_checks() -> void:
     check(guide.pending=="" and not guide.card.visible,"No repeat after save/load")
     check(do_prestige(),"Prestige");await frames(3)
     check(guide.pending=="" and not guide.card.visible and sim.state.tutorial.mode=="basic","No repeat after Prestige")
-    # Each card also advances on its own (Auto-Advance, on in the opening) after its loop and reading time.
+    # Each card also advances on its own once the player turns Auto-Advance on (off by default).
     await choose("basic")
+    check(not viewer.auto,"Auto-Advance starts off in the Basic opening")
+    viewer.toggle_auto()
     for k in range(60):viewer._process(.25)
     check(viewer.index>=1 and viewer.HelpCards.viewed(sim.state.tutorial,deck[0]),"A card advances on its own after its demonstration and reading time")
     # The last card offers Finish only (no Skip); The Road Ahead still follows.

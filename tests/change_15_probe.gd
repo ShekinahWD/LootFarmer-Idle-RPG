@@ -317,6 +317,7 @@ func basic_checks() -> void:
     var deck: Array=viewer.HelpCards.essential()
     check(viewer.visible and viewer.context=="basic" and viewer.current()=="movement_combat" and not guide.pointer.visible,"Basic: a concrete opening card (Movement & Combat), no pointer")
     check(tr(viewer.HelpCards.action_key("movement_combat")).contains("joystick") and tr("GUIDE_MODE_BASIC").begins_with("Basic"),"The opening says how to walk and fight; the mode is named Basic")
+    viewer.toggle_auto() # Auto-Advance is off by default; the player may turn it on
     for k in range(60):viewer._process(.25)
     check(viewer.index>=1 and viewer.HelpCards.viewed(sim.state.tutorial,deck[0]),"A card advances on its own after its demonstration and reading time")
     var titles: Array=[viewer.current()]
