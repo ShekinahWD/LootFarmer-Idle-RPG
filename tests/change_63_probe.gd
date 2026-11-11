@@ -27,7 +27,7 @@ func fresh(mode:="guided") -> void:
     sim.new_profile();sim.set_physics_process(false);sim.suspended=false
     sim.state.tutorial.mode=mode
     if mode!="guided":sim.campaign.onboarding.reveal_all(true)
-    game._close();game.banner.queue.clear();game.banner._finish();game.toast_queue.clear();game.toast_time=0.0;game.get_node("Toast").hide()
+    game._close();game.banner.queue.clear();game.banner._finish();game.toast_queue.clear();game.toast_time=0.0;game.toast_resume={};game.get_node("Toast").hide()
     game.get_node("PrestigeConfirm").close();game._cancel_confirm()
     guide.long_shown.clear();guide.mastery_live=false;guide.mastery_shown=0.0
     calm()
@@ -57,6 +57,11 @@ func legit_target() -> bool:
     if t==game.stick:return true
     if t.has_meta("guide_map"):return guide.screen_target.size!=Vector2.ZERO
     return t is BaseButton and not t.disabled and t.is_visible_in_tree()
+## The guide's caption, arrow and target frame as drawn (no margins): what a notice must never cover.
+func clear_of_guide(r: Rect2) -> bool:
+    for node in [guide.card,guide.pointer,guide.highlight]:
+        if node.visible and node.get_global_rect().intersects(r):return false
+    return true
 func winter_two_lesson() -> void:
     fresh("guided")
     var flow=sim.campaign.guided
@@ -204,21 +209,90 @@ func run() -> void:
         for node in [guide.card,guide.pointer]:
             if node.visible and toast.visible and node.get_global_rect().intersects(toast.get_global_rect()):clear=false
         check(guide.pointer.visible and guide.card.visible and clear and (toast.visible or not game.toast_queue.is_empty()),"Path arrow + caption: the toast shows clear of both or waits queued (toast %s %s, arrow %s)" % [toast.visible,toast.get_global_rect(),guide.pointer.get_global_rect()])
-        # Banner over a top target: it waits, at most BANNER_GUIDE_HOLD_SECONDS.
-        fresh("guided");done_until("gear_bonus");await frames(6)
-        game.banner.push("stage",tr("MILESTONE_STAGE"),"Spring I");await frames(4)
-        var top_target: bool=guide.covers(game._banner_rect())
-        check(not top_target or not game.banner.visible,"A banner that would cover the Level target waits (covers=%s)" % top_target)
-        if top_target:
-            game.banner_guide_hold=game.BANNER_GUIDE_HOLD_SECONDS;await frames(4)
-            check(game.banner.visible and not guide.card.visible,"…but not forever: it shows and the guide steps aside")
+        # Correction: the Map Mastery hint's chip sits in the banner's usual place. The banner moves to free
+        # space below it; the hint keeps its caption, arrow and a tappable chip.
+        fresh("guided");flow.data().done=flow.STEPS.duplicate();sim.campaign.onboarding.reveal_all(true)
+        sim.campaign.mastery.data().explored["1"]=100
+        for i in range(120): # the HUD refreshes the chip every 0.15 s
+            if guide.pending=="mastery_intro" and guide.pointer.visible:break
+            await get_tree().process_frame
+        chip=game.get_node("Safe/Layout/Map/Mastery")
+        check(guide.pending=="mastery_intro" and guide.pointer.visible and game._banner_rect().intersects(chip.get_global_rect()),"Mastery hint: its chip is inside the banner usual place (%s %s %s %s)" % [guide.pending,guide.pointer.visible,game._banner_rect(),chip.get_global_rect()])
+        game.banner.push("stage",tr("MILESTONE_STAGE"),"Spring I");await frames(30)
+        var br: Rect2=game.banner.get_global_rect()
+        check(game.banner.visible and clear_of_guide(br) and not br.intersects(chip.get_global_rect()),"...the banner shows clear of the chip, caption and arrow (banner %s, chip %s)" % [br,chip.get_global_rect()])
+        check(guide.card.visible and guide.pointer.visible and guide.suspended_by=="","...and the hint stays on screen")
+        check(game.get_node("Safe/Layout/Map").get_global_rect().encloses(br),"...over the map")
+        var steady:=true
+        for i in range(30):
+            await get_tree().process_frame
+            if game.banner.visible and not is_equal_approx(game.banner.position.y,br.position.y):steady=false
+        check(steady and clear_of_guide(game.banner.get_global_rect()),"...and keeps its place while the arrow bobs (no wobble)")
+        game.banner._finish();game.banner.queue.clear();await frames(2)
+        # No free place: the banner waits in its queue (held, not dropped) and shows once there is room.
+        fresh("guided");flow.data().done=flow.STEPS.duplicate();sim.campaign.onboarding.reveal_all(true)
+        sim.campaign.mastery.data().explored["1"]=100;await frames(6)
+        var hold_before: float=guide.card.custom_minimum_size.y
+        guide.card.custom_minimum_size.y=game.get_node("Safe/Layout/Map").size.y # fixture: a caption filling the map
+        await frames(4)
+        game.banner.push("stage",tr("MILESTONE_STAGE"),"Summer I");await frames(6)
+        check(not game.banner.visible and game.banner.pending()==1 and game._banner_slot()==Vector2.INF,"No free place: the banner waits queued")
+        guide.card.custom_minimum_size.y=hold_before;await frames(8)
+        check(game.banner.visible and str(game.banner.current.get("subtitle",""))=="Summer I" and clear_of_guide(game.banner.get_global_rect()),"...and shows clear of the guide as soon as there is room")
         game.banner._finish();game.banner.queue.clear();await frames(2)
         # Open lesson panel: the caption keeps room above it; the notice line replaces toasts.
         fresh("guided");done_until("gear_bonus");await frames(3);game._open("stats");await frames(12)
         check(guide.card.visible and not guide.card.get_global_rect().intersects(game.sheet.get_global_rect()) and game.get_global_rect().encloses(guide.card.get_global_rect()),"Open panel: caption above it (%s / %s)" % [guide.card.get_global_rect(),game.sheet.get_global_rect()])
         game._toast("probe");await frames(2)
-        check(not game.get_node("Toast").visible,"…and no toast over the panel")
+        check(not game.get_node("Toast").visible,"...and no toast over the panel")
         game._close();await frames(2)
         check(game.sheet_reserved==0.0 or not game.sheet.visible,"Closing the panel drops the reserve")
+        # Correction: the panel keeps its size while a lesson finishes inside it (Follow on the 30-defeat
+        # mission), and stays scrollable with Close reachable.
+        fresh("guided");done_until("hunt_follow");find_snowman();await frames(4);game._open("missions");await frames(16)
+        var sheet_before: Rect2=game.sheet.get_global_rect()
+        var follow: Button=guide._panel_control("follow_hunt",true)
+        check(follow!=null and guide.target==follow and game.sheet_reserved>0,"Missions: the arrow is on Follow with the caption room kept (%s)" % game.sheet_reserved)
+        follow.pressed.emit()
+        var stable:=true
+        for i in range(20):
+            await get_tree().process_frame
+            if not game.sheet.get_global_rect().is_equal_approx(sheet_before):stable=false
+        check(flow.next_step()=="hunt_farm" and stable,"After Follow (lesson done) the panel keeps its size for 20 frames (%s -> %s)" % [sheet_before,game.sheet.get_global_rect()])
+        var bar:=(game.get_node("Sheet/Margin/Content/Scroll") as ScrollContainer).get_v_scroll_bar()
+        check(bar.max_value>bar.page and close_button().is_visible_in_tree() and game.get_global_rect().encloses(close_button().get_global_rect()),"...it still scrolls and Close is reachable")
+        game._close();await frames(2);game._open("missions");await frames(16)
+        check(game.sheet_reserved==0.0,"Reopened with no lesson in it: no reserve (full height)")
+        game._close();await frames(2)
+        # Correction: a toast on screen when a panel opens returns with its remaining time, once.
+        fresh("guided");flow.data().done=flow.STEPS.duplicate();sim.campaign.onboarding.reveal_all(true);await frames(4)
+        var toast_node: Control=game.get_node("Toast")
+        game._toast("Probe notice A");await frames(3)
+        check(toast_node.visible and toast_node.get_node("Text").text=="Probe notice A","A toast is on screen")
+        var left: float=game.toast_time
+        game._open("settings");await frames(6)
+        check(not toast_node.visible and game.toast_queue.count("Probe notice A")==1,"A panel opens: the toast waits in its queue (once)")
+        game._toast("Probe notice A");await frames(1)
+        check(game.toast_queue.count("Probe notice A")==1,"...the same notice is not queued twice")
+        game._close();await frames(3)
+        check(toast_node.visible and toast_node.get_node("Text").text=="Probe notice A" and game.toast_time>left-0.3,"Closed: it returns with its remaining time (%.2f of %.2f)" % [game.toast_time,left])
+        # More than four waiting notices: none dropped, all eventually shown.
+        game._open("settings");await frames(4)
+        for i in range(6):game._toast("Queued notice %d" % i)
+        game.banner.hold_seconds=.05
+        for i in range(6):game.banner.push("stage","Probe banner %d" % i,"")
+        check(game.toast_queue.size()>=6 and game.banner.pending()==6,"Six toasts and six banners wait while a panel is open (none dropped: %d / %d)" % [game.toast_queue.size(),game.banner.pending()])
+        game._close()
+        var toasts_seen: Dictionary={}
+        var banners_seen: Dictionary={}
+        var start: int=Time.get_ticks_msec()
+        while Time.get_ticks_msec()-start<20000 and (toasts_seen.size()<7 or banners_seen.size()<6):
+            await get_tree().process_frame
+            if toast_node.visible:toasts_seen[toast_node.get_node("Text").text]=true
+            if game.banner.visible:banners_seen[str(game.banner.current.get("title",""))]=true
+        var t_all:=range(6).all(func(i):return toasts_seen.has("Queued notice %d" % i))
+        var b_all:=range(6).all(func(i):return banners_seen.has("Probe banner %d" % i))
+        check(t_all and b_all,"...every one of them is shown afterwards (toasts %s, banners %d/6)" % [str(toasts_seen.keys()),banners_seen.size()])
+        game.banner.hold_seconds=3.2;game.banner._finish();game.banner.queue.clear()
     print("CHANGE_63_CHECKS ",checks," FAILURES ",failures)
     get_tree().quit(1 if failures else 0)

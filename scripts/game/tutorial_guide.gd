@@ -658,11 +658,15 @@ func _mastery_hint() -> bool:
 
 ## Change 63 arbitration (Playbook 18.8): the screen rectangles the active guide occupies (caption card,
 ## arrow and target frame). Toasts and milestone banners are placed or deferred so they never cover them.
+## pointer_zone: the arrow's whole travel (its rest place plus the 6 px bob each way, or the targeting
+## demo's whole drag path), so notices placed beside it never need to move while it animates.
+var pointer_zone:=Rect2()
 func occupied_rects() -> Array:
     var out: Array=[]
-    for node in [card,pointer,highlight]:
-        # The arrow bobs 6 px each way along its direction: its whole travel is kept clear.
-        if node.visible:out.append(node.get_global_rect().grow(14 if node==pointer else 6))
+    for node in [card,highlight]:
+        if node.visible:out.append(node.get_global_rect().grow(6))
+    if pointer.visible:
+        out.append(pointer_zone.grow(6) if pointer_zone.size!=Vector2.ZERO else pointer.get_global_rect().grow(14))
     return out
 func covers(rect: Rect2) -> bool:
     for r in occupied_rects():
@@ -783,9 +787,7 @@ func _present() -> void:
     if get_tree().paused:suspended_by="pause"
     elif ui.modal_open():suspended_by="confirmation"
     elif not sim.state.prestige_batch.is_empty():suspended_by="prestige"
-    # Change 63: a milestone banner (top of the screen) suspends the guide only when it would cover it;
-    # game_ui holds overlapping banners back first (banner_guide_hold), so this is rare.
-    elif not ui.banner.current.is_empty() and ui.banner.visible and covers(ui.banner.get_global_rect()):suspended_by="milestone"
+    # Change 63: a milestone banner never suspends the guide; game_ui places banners clear of it.
     elif ui.sheet.visible and not surfaces.has(ui.panel):suspended_by=ui.panel
     elif not ui.sheet.visible and not surfaces.has(""):suspended_by="closed"
     if pending=="" or suspended_by!="":
@@ -879,6 +881,8 @@ func _point_path() -> void:
     pointer.rotation=direction.angle()-ARROW_BASE_ANGLE
     var center:=from+direction*(PATH_ARROW_DISTANCE+bob)
     pointer.position=(center-pointer.size*.5).clamp(map.global_position+Vector2(4,4),map.global_position+map.size-pointer.size-Vector2(4,4))
+    var rest:=(from+direction*PATH_ARROW_DISTANCE-pointer.size*.5).clamp(map.global_position+Vector2(4,4),map.global_position+map.size-pointer.size-Vector2(4,4))
+    pointer_zone=Rect2(rest,pointer.size).grow(6)
     pointer.show()
 
 func _point() -> void:
@@ -935,6 +939,9 @@ func _point() -> void:
     var bob:=6.0*sin(pulse*5)
     pointer.rotation=direction.angle()-ARROW_BASE_ANGLE
     pointer.position=tip-direction*(POINTER_SIZE*.45+6+bob)-pointer.size*.5
+    var rest:=tip-direction*(POINTER_SIZE*.45+6)-pointer.size*.5
+    rest.x=clampf(rest.x,4,ui.size.x-POINTER_SIZE-4)
+    pointer_zone=Rect2(rest,pointer.size).grow(6)
     pointer.position.x=clampf(pointer.position.x,4,ui.size.x-POINTER_SIZE-4)
     pointer.show()
 
@@ -999,6 +1006,7 @@ func _point_aim() -> void:
     var direction:=(aim_to-aim_from).normalized()
     pointer.rotation=direction.angle()-ARROW_BASE_ANGLE
     pointer.position=finger-direction*POINTER_SIZE*.45-pointer.size*.5
+    pointer_zone=Rect2(aim_from,Vector2.ZERO).expand(aim_to).grow(POINTER_SIZE*.5+4)
     pointer.show();aim.show();aim.queue_redraw()
 
 func _draw_aim() -> void:

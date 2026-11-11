@@ -40,15 +40,14 @@ func _ready() -> void:
 func push(kind: String,title: String,subtitle: String,cards: Array=[]) -> void:
     for entry in queue+[current]:
         if entry.get("title","")==title and entry.get("subtitle","")==subtitle:return
+    # Change 63: no fixed cap; a waiting banner is never dropped (duplicates are refused above).
     queue.append({"kind":kind,"title":title,"subtitle":subtitle,"cards":cards})
-    while queue.size()>4:queue.pop_front()
 
 ## A warning shown next, ahead of queued celebrations, in warning_color with its own art.
 func push_warning(kind: String,title: String,subtitle: String,art: Texture2D=null) -> void:
     for entry in queue+[current]:
         if entry.get("title","")==title and entry.get("subtitle","")==subtitle:return
     queue.push_front({"kind":kind,"title":title,"subtitle":subtitle,"cards":[],"warning":true,"art":art})
-    while queue.size()>4:queue.pop_back()
 
 func pending() -> int:
     return queue.size()+(0 if current.is_empty() else 1)
