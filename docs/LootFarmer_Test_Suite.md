@@ -1,5 +1,11 @@
 # LootFarmer — Test Suite (current, 2026-11-07, Change 58)
 
+## Change 65 — Global Focused Farming, tutorial cards, Guided first attack (11 November 2026)
+
+- **Registered** `change_65_probe` (143 checks): the global 25-Gem Focus purchase and its locked/owned enemy panel, migration of 0 / 1 / 3 / hybrid legacy records (repeat load, Prestige keeps, Hard Reset clears), the 14-card registry (keys, word caps, categories, loops), all 14 demonstrations (animate, restart, stop when hidden, no game-state change), Help navigation / Auto-Advance / Viewed / reload, the three modes, and the Guided first manual attack (no unattended attack, real hit completes, dead target, movement, reload, death, escape, older saves, Basic/None ungated).
+- **Not in the suite:** `tests/change_65_capture.tscn`, windowed (`--resolution 432x960` / `540x960`, `--out=<dir>`, `--only=`), with a bounds / truncation / clipped-line audit (0 problems at both sizes). Evidence: `docs/Change_65_Evidence/`.
+- **Updated for the approved behaviour:** change_14 (the Focus purchase is in Player Upgrades), change_15 / change_16 / change_21 / change_25 / change_35 / change_63 / localization_sweep (the Basic opening and Help are the card viewer; the targeting lesson completes on the first real hit), change_8 / change_16 / change_25 / change_41 / gameplay (global `focus` fixtures). Pre-existing failures left as they were: change_41 (Winter II is all passive since Change 62, so its stranger fixture cannot be built), change_57 (2), localization_progression `prestige_cards8`, localization_batch01 (pending-key count), export_manifest (the developer's version-code bump).
+
 ## Change 58 — Progression update localization, Batch 01 (7 November 2026)
 
 Command: `python tools/run_probes.py`. Details: [batch report](changeDocs/localization/Progression_Batch01_Report.md).

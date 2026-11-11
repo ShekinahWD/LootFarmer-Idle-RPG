@@ -3,8 +3,13 @@ extends RefCounted
 ## Presentation asks next_step(); only successful actions and explicit acknowledgements finish steps.
 var sim
 ## Change 35: "target" (drag from the hero to an enemy and release) follows the path walk and comes
-## before the first kill. Only a successful manual selection completes it (action "target", from
-## sim.select_target); see target_unavailable() for the one escape.
+## before the first kill; see target_unavailable() for the one escape.
+## Change 65 (approved): the first attack is manual. Until "target" is done, a fresh Guided profile's hero
+## acquires no target by itself (auto_attack_gated, read by sim._combat_target); enemies, damage, drops and
+## HP are unchanged. The step completes on the hero's first real hit on the enemy the player selected
+## with the gesture (manual_attack, from sim._resolve_attack), not on the release; a selection is never
+## saved, so a reload, a dead or vanished target, death or moving returns to the gesture. Then one
+## dismissible explanation (auto_attack_notice) says autoattack is on. The empty-map escape also ends it.
 ## Change 61 (approved interactive Guided flow): every lesson is finished by its real action or state.
 ## - gear_bonus: open Stats (where stored gear's share is listed) and close it again.
 ## - offline_rewards: open Player Upgrades -> Offline (no purchase, no offline wait).
@@ -73,7 +78,8 @@ func action(kind: String,id: String) -> void:
             if sim.catalog.upgrades.has(id) and sim.catalog.upgrades[id].scope=="global":mark("player_upgrade")
         "supply_buy":
             if id=="potion":mark("potion_buy")
-        "target":mark("target")
+        # Change 65: a manual selection alone no longer completes the lesson (manual_attack does).
+        "target":pass
         # Change 61: travel to another owned camp of the same map, once the respawn camp is chosen.
         "camp_travel":
             if f.done.has("respawn_select") and int(sim.state.stage)==1:mark("camp_travel")
@@ -130,7 +136,22 @@ func target_unavailable(seconds: float) -> void:
     f.target_unavailable=minf(limit,float(f.get("target_unavailable",0.0))+seconds)
     SaveService.mark_dirty()
     if f.target_unavailable>=limit:
-        f.target_skipped=true;mark("target")
+        f.target_skipped=true;mark("target");f.auto_attack_notice=true
+
+## Change 65: true while a Guided profile is before its first manual attack (move and target lessons).
+## Basic, None, a finished tutorial, a profile past "target" or past its first defeat are never gated.
+func auto_attack_gated() -> bool:
+    if sim.state.tutorial.mode!="guided" or sim.campaign.counter("kill")>0:return false
+    var f:=data()
+    return not f.done.has("target") and not f.done.has("kill") and not f.done.has("tutorial_final")
+
+## Change 65: the hero's first real hit on the enemy chosen by the gesture finishes the targeting lesson
+## and turns ordinary autoattack on (the gate reads the same step).
+func manual_attack() -> void:
+    if not auto_attack_gated():return
+    var f:=data()
+    f.auto_attack_notice=true
+    mark("target")
 
 func shown(seconds: float) -> void:
     if active() and next_step()=="tutorial_final":
@@ -259,6 +280,8 @@ func normalize(out: Dictionary) -> void:
             f.wait_seconds[id]=clampf(float(f.wait_seconds[id]),0.0,float(rules().mission_delay if id=="mission_wait" else rules().upgrade_delay))
     f.target_unavailable=clampf(float(f.get("target_unavailable",0)),0,float(sim.campaign.onboarding.rules.target_escape_seconds)) if sim.campaign.number(f.get("target_unavailable",0)) else 0.0
     f.target_skipped=f.get("target_skipped",false)==true
+    # Change 65: the one-time autoattack explanation (absent in older saves: never shown to them).
+    f.auto_attack_notice=f.get("auto_attack_notice") is bool and f.auto_attack_notice and done.has("target")
     f.supply_grant=f.get("supply_grant",false)==true
     f.gem_grant=f.get("gem_grant",false)==true
     f.stats_viewed=f.get("stats_viewed",false)==true

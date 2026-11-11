@@ -20,6 +20,8 @@ func frames(n:=4) -> void:
     for i in range(n):await get_tree().process_frame
 func fresh(mode:="none") -> void:
     get_tree().paused=false
+    if game.help_viewer.visible:game.help_viewer.hide() # Change 65: a Basic opening left by an earlier step
+    sim.held=false
     sim.new_profile();sim.state.tutorial.mode=mode;sim.suspended=false;SaveService.write_blocked=false;sim.rng.seed=15015;game._close()
     sim.campaign.focus_hint=-1
     game.banner.queue.clear();game.banner.current={};game.toast_queue.clear()
@@ -246,7 +248,7 @@ func reveal_checks() -> void:
     check(not sim.campaign.valid_snapshot(bad),"Validation rejects a duplicated reveal")
     fresh();notices.clear()
     game._open("settings");await frames(2)
-    check(labels_text(game.rows).contains(tr("SECTION_TUTORIAL")) and game.guide._panel_control("show_all_menus")==null and buttons_text(game.rows).contains(tr("HELP")),"Settings → Tutorial and help offers Help, no Show all menus (Change 16)")
+    check(labels_text(game.rows).contains(tr("SECTION_HELP_TUTORIALS")) and game.guide._panel_control("show_all_menus")==null and buttons_text(game.rows).contains(tr("HELP")),"Settings → Help & Tutorials offers Help, no Show all menus (Change 16, 65)")
     game._close()
     fresh("pending");sim.campaign.onboarding.reveal_all(true)
     check(sim.campaign.onboarding.all_revealed() and not notices.any(func(n):return n[0]=="feature_unlocked"),"reveal_all(silent) records every menu, silently (probe use)")
@@ -310,19 +312,24 @@ func basic_checks() -> void:
     print("-- Basic")
     fresh("basic");await frames(4)
     var guide=game.guide
-    check(guide.pending=="overview" and guide.card.visible and not guide.pointer.visible,"Basic: a concrete opening card, no pointer")
-    check(tr("GUIDE_OVERVIEW_DETAIL").contains("joystick") and tr("GUIDE_MODE_BASIC").begins_with("Basic"),"The opening says how to walk, fight and collect; the mode is named Basic")
-    guide._process(sim.campaign.onboarding.rules.card_seconds+1.0);await frames(2)
-    check(sim.state.tutorial.seen.has("overview") and guide.pending==guide.BASIC_DECK[1],"A card retires on its own after %d s on screen; the next one follows" % int(sim.campaign.onboarding.rules.card_seconds))
-    var titles: Array=[]
+    # Change 65: the opening is the shared card viewer with the 8 essential cards (change_65_probe).
+    var viewer=game.help_viewer
+    var deck: Array=viewer.HelpCards.essential()
+    check(viewer.visible and viewer.context=="basic" and viewer.current()=="movement_combat" and not guide.pointer.visible,"Basic: a concrete opening card (Movement & Combat), no pointer")
+    check(tr(viewer.HelpCards.action_key("movement_combat")).contains("joystick") and tr("GUIDE_MODE_BASIC").begins_with("Basic"),"The opening says how to walk and fight; the mode is named Basic")
+    for k in range(60):viewer._process(.25)
+    check(viewer.index>=1 and viewer.HelpCards.viewed(sim.state.tutorial,deck[0]),"A card advances on its own after its demonstration and reading time")
+    var titles: Array=[viewer.current()]
     for i in range(10):
-        if guide.pending=="":break
-        titles.append(guide.pending)
-        check(not guide.pointer.visible,"No pointer on %s" % guide.pending)
-        if guide.pending==guide.ROAD_AHEAD_ID:
-            game.banner.queue.clear();game.banner.current={};guide._process(float(sim.campaign.guided.rules().final_delay)+.1)
-        guide.intro_button.pressed.emit();await frames(3)
-    check(titles==guide.BASIC_DECK.slice(1)+[guide.ROAD_AHEAD_ID],"The rest of the overview, then The Road Ahead once: %s" % str(titles))
+        if not viewer.visible:break
+        check(not guide.pointer.visible,"No pointer on %s" % viewer.current())
+        viewer.step(1)
+        if viewer.visible:titles.append(viewer.current())
+    await frames(3)
+    check(titles==deck.slice(viewer.HelpCards.essential().find(titles[0])) and guide.pending==guide.ROAD_AHEAD_ID,"The rest of the overview, then The Road Ahead once: %s" % str(titles))
+    game.banner.queue.clear();game.banner.current={};guide._process(float(sim.campaign.guided.rules().final_delay)+.1)
+    guide.intro_button.pressed.emit();await frames(3)
+    check(guide.pending=="","…which closes for good")
 
 # ---------------------------------------------------------------- 5. None
 func none_checks() -> void:

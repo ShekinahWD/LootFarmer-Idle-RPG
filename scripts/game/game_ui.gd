@@ -266,6 +266,15 @@ func _ready() -> void:
     guide=preload("res://scripts/game/tutorial_guide.gd").new()
     guide.z_index=15
     add_child(guide);guide.setup(self)
+    # Change 65: the one tutorial-card viewer (Basic opening and Help), above the panel and the guide.
+    help_viewer=preload("res://scripts/game/help_viewer.gd").new()
+    help_viewer.z_index=18
+    add_child(help_viewer);help_viewer.setup(self)
+    help_viewer.finished.connect(_help_finished)
+    help_viewer.topics_requested.connect(func(category: String)->void:
+        help_page=category if category!="" else "topics"
+        if sheet.visible and panel=="help":_refresh_panel(true)
+        else:_open("help"))
     _refresh_reveal()
     # Change 16: no development notice on a profile reset (the internal load result stays for probes).
     if SaveService.write_blocked:
@@ -285,7 +294,7 @@ func _safe_area() -> void:
 
 func _process(dt: float) -> void:
     # Change 35: the review invitation holds the world while it is open (and only then).
-    sim.held=$ReviewInvitation.is_open()
+    sim.held=$ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible)
     _offer_review(dt)
     gem_pickup_time=maxf(0,gem_pickup_time-dt)
     $Safe/Layout/Map/GemPickup.visible=gem_pickup_time>0
@@ -431,7 +440,7 @@ func _settle_camp() -> void:
 ## A confirmation is in front of the game (the ordinary one, the Prestige confirmation or, since
 ## Change 35, the review invitation).
 func modal_open() -> bool:
-    return $Confirm.visible or $PrestigeConfirm.visible or $ReviewInvitation.is_open()
+    return $Confirm.visible or $PrestigeConfirm.visible or $ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible)
 
 ## Change 35: the review invitation (review_invitation.gd owns its state and the world-side rules).
 ## Once pending on a build with a configured storefront, it waits for a quiet moment: the world safe
@@ -1369,6 +1378,8 @@ func back() -> void:
         _review_later();return
     if $PrestigeConfirm.visible:$PrestigeConfirm.close()
     elif $Confirm.visible:_cancel_confirm()
+    # Change 65: the card viewer goes back to its topics (Help) or skips the overview (Basic).
+    elif help_viewer!=null and help_viewer.visible:help_viewer.back()
     elif sheet.visible:_close()
     else:
         SaveService.save_now()
@@ -1404,7 +1415,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
-    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target)+":"+str(travel_stage)+":"+str(teleport_stage),sim.campaign.focus_hint,mastery_stage]
+    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target)+":"+str(travel_stage)+":"+str(teleport_stage),sim.campaign.focus_hint,mastery_stage]+":"+help_page
 
 func _refresh_panel(force_layout:=false) -> void:
     panel_clock=0.0
@@ -2017,7 +2028,8 @@ static func cropped(source: Texture2D) -> Texture2D:
 
 func _upgrades_panel() -> void:
     _tabs(UPGRADE_TABS,player_tab,func(i: int)->void:player_tab=i)
-    var sections: Array=[["respawn","movement","skill_slots","skill_auto_slots","critical_chance","critical_damage"],["gear_slots","supply_slots","merge_all"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
+    # Change 65: the one global Focused Farming unlock sits with the Player upgrades.
+    var sections: Array=[["respawn","movement","focus","skill_slots","skill_auto_slots","critical_chance","critical_damage"],["gear_slots","supply_slots","merge_all"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
     if player_tab==0:_text(tr("UPGRADES_PLAYER_HINT"),17,Color(.75,.8,.87))
     if player_tab==4:
         if not sim.state.offline_pending.is_empty():
@@ -2105,7 +2117,7 @@ func _group_upgrade_card(id: String,g: int) -> void:
     buy.theme_type_variation=&"Primary" if reason.is_empty() else &""
     buy.tooltip_text=tr(reason) if not reason.is_empty() else tr("UP_"+id.to_upper())
     buy.set_meta("upgrade",id)
-    buy.set_meta("guide","buy_"+id if id in ["loot","gear_slots","supply_slots","map_detail"] else "buy_upgrade")
+    buy.set_meta("guide","buy_"+id if id in ["loot","gear_slots","supply_slots","map_detail","focus"] else "buy_upgrade")
     buy.pressed.connect(func()->void:
         if not _confirmed(sim.buy_upgrade(id,g)):AudioService.play("ui_click"))
     line.add_child(buy)
@@ -2136,6 +2148,7 @@ func _upgrade_benefit(id: String,g: int) -> String:
         if next==0:return tr("EQUIPMENT_SLOTS_MAXED") % [sim.equipment_slot_count(),sim.equipment_slot_max()]
         return tr("EQUIPMENT_SLOTS_NEXT") % [sim.equipment_slot_count(),int(sim.player_upgrade_value(id,1)),sim.equipment_slot_max()]
     if id=="merge_all":return tr("MERGE_ALL_UNLOCKED") if sim.level(id)>0 else tr("MERGE_ALL_BENEFIT")
+    if id=="focus":return tr("FOCUS_GLOBAL_OWNED") if sim.focus_owned() else tr("FOCUS_GLOBAL_BENEFIT")
     # Change 13: each per-type unlock names the exact items it covers (what this type drops; never
     # the tiers evolved from them, which follow their own droppers).
     if id=="merge_gear" and g>=0:
@@ -2198,11 +2211,19 @@ func _enemy_panel() -> void:
     if not d.boss:_tabs(["VARIANT_OUTFIT","VARIANT_WEAPON","VARIANT_BOTH","VARIANT_SKILL"].slice(0,variants.size()),enemy_variant,func(i: int)->void:enemy_variant=i)
     _tabs(["TAB_OVERVIEW","TAB_UPGRADES","TAB_ACHIEVEMENTS"],enemy_tab,func(i: int)->void:enemy_tab=i)
     if enemy_tab==2:_group_achievements_panel();return
-    if sim.level("focus",group)>0:
+    if sim.focus_owned():
         # Change 14: right after the first Focused Farming purchase, one line above the button says
         # what it does (above it, because the guide's arrow points at the button from below here).
         if sim.campaign.focus_hint==group and int(sim.state.focus)<0:_text(tr("FOCUS_HINT_PANEL"),17,Color(1,.86,.5))
         _game_action(tr("FOCUS_GROUP") % [d.name,tr("ON" if sim.state.focus==group and sim.state.focus_variant==enemy_variant else "OFF")],func()->void:sim.focus(group,enemy_variant),sim.campaign.spot_discovered(group,enemy_variant),"SPOT_UNDISCOVERED").set_meta("guide","focus_toggle")
+    else:
+        # Change 65: Focused Farming is one global Player upgrade. Before it is owned, the Farm action is
+        # shown locked with its reason and a way to the Player upgrade (never a purchase here).
+        _game_action(tr("FOCUS_GROUP") % [d.name,tr("OFF")],func()->void:pass,false,"FOCUS_LOCKED_GLOBAL").set_meta("guide","focus_locked")
+        if revealed("upgrades"):
+            _action(tr("FOCUS_OPEN_PLAYER_UPGRADES"),func()->void:
+                player_tab=0
+                _open("upgrades"),true,"").set_meta("guide","focus_open_upgrades")
     if enemy_tab==1:
         _section(tr("SECTION_REWARDS"))
         for id in ["loot","coin_amount","group_xp","supply_drop"]:_group_upgrade_card(id,group)
@@ -2212,7 +2233,8 @@ func _enemy_panel() -> void:
         # Automation refinements appear once their automation is unlocked.
         _section(tr("SECTION_AUTOMATION"))
         # Change 13: Auto Evolution sits beside Auto-Merge, on types that drop an evolvable weapon.
-        for pair in [["focus",""],["collect",""],["collect_range","collect"],["collect_batch","collect"],["collect_speed","collect"],["merge_gear",""],["auto_evolve",""],["gear_merge_speed","merge_gear"]]:
+        # Change 65: Focused Farming left this list (one global Player upgrade); automation stays per type.
+        for pair in [["collect",""],["collect_range","collect"],["collect_batch","collect"],["collect_speed","collect"],["merge_gear",""],["auto_evolve",""],["gear_merge_speed","merge_gear"]]:
             if pair[0]=="auto_evolve" and sim.evolvable_drops(group).is_empty():continue
             if pair[1]=="" or sim.level(pair[1],group)>0:_group_upgrade_card(pair[0],group)
         # Change 14: the same two research upgrades as Overview (same card, same purchase, same
@@ -2746,8 +2768,11 @@ func _settings_panel() -> void:
     # Change 16: Help opens the Basic tutorial as a page to read (it changes no progress, discovery or
     # revealed menu). "Choose guidance again" and "Show all menus now" are gone from the player's
     # Settings; onboarding.reveal_all stays for probes.
-    _section(tr("SECTION_TUTORIAL"))
-    _action(tr("HELP"),func()->void:_open("help"),true,"").set_meta("guide","help")
+    # Change 65: Help & Tutorials, the 14-card library (choose a topic or read all), in every mode.
+    _section(tr("SECTION_HELP_TUTORIALS"))
+    _action(tr("HELP"),func()->void:
+        help_page="home"
+        _open("help"),true,"").set_meta("guide","help")
     # Change 35: a permanent, unprompted review action for the build's storefront (absent when the
     # build declares none). Opening it also settles the automatic invitation.
     var store: String=sim.campaign.review.channel()
@@ -2804,17 +2829,46 @@ func _volume_row(key: String,value: float,setter: Callable) -> void:
         setter.call(v/100.0))
     line.add_child(slider)
 
-## Help (Settings → Tutorial and help): the Basic overview deck (tutorial_guide.BASIC_DECK) as one
-## page to read, so Basic and Help never describe the game differently (Change 25). Reading it changes
-## nothing: no progress, discovery or menu reveal, and the guidance mode stays as chosen. In Guided, a
-## card about a system its staged reveal has not opened yet is left out (no spoilers).
-const HELP_ART:={"overview":60,"basic_target":1,"basic_gear":211,"basic_growth":147,"basic_world":249,"basic_prestige":212}
+## Change 65: Settings → Help & Tutorials. One library of tutorial cards (help_cards.gd), the same cards,
+## texts and animations the Basic opening shows. The landing offers Read All Tutorials (all cards in order,
+## or Continue where you left off) and Choose a Topic (categories, then their cards with Viewed / New).
+## A card opens in help_viewer.gd. Reading changes no gameplay, discovery, menu reveal or Guided lesson,
+## in any mode; a card about a system not reached yet explains it without unlocking it.
+const HelpCards=preload("res://scripts/game/help_cards.gd")
+var help_viewer
+## "home", "topics" or a category id (help_cards.CATEGORIES).
+var help_page:="home"
 func _help_panel() -> void:
-    _text(tr("HELP_INTRO"),17,Color(.8,.84,.9))
-    for card in guide.BASIC_DECK:
-        if guide.DECK_FEATURE.has(card) and not revealed(guide.DECK_FEATURE[card]):continue
-        _info_card(tr("GUIDE_"+card.to_upper()),tr(guide.detail_key(card)),_art(int(HELP_ART.get(card,60))))
-    _pinned(tr("HELP_BACK"),func()->void:_open("settings"),true,"",false,"help_back",false)
+    var t: Dictionary=sim.state.tutorial
+    var all: Array=HelpCards.ids()
+    if help_page=="home":
+        _set_title(tr("SECTION_HELP_TUTORIALS"))
+        _text(tr("HELP_LANDING_INTRO"),17,Color(.8,.84,.9))
+        _text(tr("HELP_PROGRESS") % [HelpCards.viewed_count(t),all.size()],18,Color(1,.86,.5))
+        var last: String=str(HelpCards.progress(t).last)
+        if last!="" and all.find(last)>0:
+            _action(tr("HELP_CONTINUE") % tr(HelpCards.title_key(last)),func()->void:help_viewer.open_help("help_all",all.find(last)),true,"").set_meta("guide","help_continue")
+        _action(tr("HELP_READ_ALL") % all.size(),func()->void:help_viewer.open_help("help_all",0),true,"").set_meta("guide","help_read_all")
+        _action(tr("HELP_CHOOSE_TOPIC"),func()->void:help_page="topics",true,"").set_meta("guide","help_topics")
+        _pinned(tr("HELP_BACK"),func()->void:_open("settings"),true,"",false,"help_back",false)
+        return
+    if help_page=="topics":
+        _set_title(tr("HELP_CHOOSE_TOPIC"))
+        for category in HelpCards.CATEGORIES:
+            var ids: Array=HelpCards.in_category(category)
+            _action(tr("HELP_TOPIC_ROW") % [tr(HelpCards.category_key(category)),HelpCards.viewed_count(t,ids),ids.size()],func()->void:help_page=category,true,"").set_meta("guide","help_cat_"+category)
+        _pinned(tr("HELP_BACK_HOME"),func()->void:help_page="home",true,"",false,"help_home",false)
+        return
+    _set_title(tr(HelpCards.category_key(help_page)))
+    for id in HelpCards.in_category(help_page):
+        var seen: bool=HelpCards.viewed(t,id)
+        var row:=_action(("✓ " if seen else "● ")+tr(HelpCards.title_key(id))+"  ·  "+tr("HELP_VIEWED" if seen else "HELP_NOT_VIEWED"),func()->void:help_viewer.open_help("help_topic",all.find(id)),true,"")
+        row.set_meta("guide","help_card_"+id)
+    _pinned(tr("HELP_BACK_TO_TOPICS"),func()->void:help_page="topics",true,"",false,"help_topics_back",false)
+
+## The viewer closed: Close in Help also closes the Help panel; the Basic opening returns to the game.
+func _help_finished(ctx: String) -> void:
+    if ctx!="basic" and sheet.visible and panel=="help":_close()
 
 func _history_panel() -> void:
     for entry in sim.state.history:

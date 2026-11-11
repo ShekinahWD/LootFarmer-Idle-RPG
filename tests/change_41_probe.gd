@@ -150,7 +150,7 @@ func focus_scene() -> void:
     for e in sim.state.enemies:
         if int(e.group)==focused:focused_variant=int(e.get("variant",2));break
     sim.campaign.discover_spot(focused,focused_variant)
-    sim.state.upgrades["focus:%d" % focused]=1
+    sim.state.upgrades["focus"]=1 # Change 65: one global unlock
     check(sim.focus(focused,focused_variant) and int(sim.state.focus)==focused,"Fixture: Focus on one type")
     sim.movement=Vector2.ZERO
     sim.clear_target()

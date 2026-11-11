@@ -8,19 +8,18 @@ extends Control
 ## step stays pending and returns when that surface closes.
 ## Change 25: the three modes differ in what is open and how much is explained (campaign.onboarding).
 ## Guided keeps its staged reveal and pointer lessons (guided_progress.gd). Basic opens every menu and
-## shows only BASIC_DECK, a short up-front overview (the same cards Help shows), each card retired by
-## Got it or after OnboardingRules.card_seconds on screen, the whole deck by Skip; no later cards,
+## shows only a short up-front overview (Change 65: the first eight shared tutorial cards in the card
+## viewer, the same cards Help shows), finished by Finish, Skip Overview or Auto-Advance; no later cards,
 ## tips or pointers. None opens every menu and explains nothing. All modes share one game-goals
 ## announcement, The Road Ahead: Guided at its end, Basic after the overview, None at once.
 const FRAME=preload("res://assets/KenneyFantasyUI/PNG/Default/Transparent center/panel-transparent-center-000.png")
 const ARROW=preload("res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-273.png")
 const ITEM_ROOT="res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png"
 const LESSONS=["move","kill","collect","equip","merge","missions","upgrade","camp","slots","snowman","prestige"]
-## Change 25 Basic overview, in order (texts GUIDE_<ID>/_DETAIL). Help shows the same deck; in Guided,
-## a card about a system the staged reveal has not opened yet is left out of Help (no spoilers).
-## Change 35: basic_target (drag from the hero to an enemy, release to target it) follows the overview.
-const BASIC_DECK:=["overview","basic_target","basic_gear","basic_growth","basic_world","basic_prestige"]
-const DECK_FEATURE:={"basic_growth":"upgrades","basic_world":"world","basic_prestige":"prestige"}
+## Change 65: the Basic overview is the first HelpCards.ESSENTIAL_COUNT cards of the shared tutorial-card
+## registry (help_cards.gd), shown by the one card viewer (help_viewer.gd) that Settings → Help & Tutorials
+## also uses. It replaces the Change 25/35 six-card caption deck; progress is tutorial.help.basic_done.
+const HelpCards=preload("res://scripts/game/help_cards.gd")
 ## Guided introduction cards that also point (the Next Stage chip, the Follow button).
 const POINTING_INTROS:=["snowman","prestige_follow","prestige_info","mastery_intro"]
 ## The cropped arrow art points up-left; its tip sits about 0.45 of the pointer size from the center.
@@ -58,9 +57,6 @@ var pulse: float=0
 const ROAD_AHEAD_ID:="road_ahead"
 const FOCUS_HINT_SECONDS:=45.0
 var focus_shown: float=0
-## Change 15: seconds the current Basic card has been on screen, and which card that is.
-var card_shown: float=0
-var card_for:=""
 ## Change 35: the Guided targeting demonstration, drawn over the map from the player to the enemy it
 ## suggests: a dashed path, a ring on the hero (start here) and on the enemy (release here), and the
 ## pointer travelling along it. Drawn only; it never takes input, so the real drag reaches the map.
@@ -82,6 +78,7 @@ const MODE_MIN_HEIGHT:=112.0
 ## held for two frames, never longer than CHOOSER_SETTLE_CAP frames.
 const CHOOSER_SETTLE_CAP:=12
 var chooser_detail: Label
+var chooser_help: Label
 var chooser_settled:=0
 var chooser_frames:=0
 var chooser_wanted:=Vector2.ZERO
@@ -105,6 +102,10 @@ func setup(owner_ui) -> void:
     chooser_heading=Label.new();chooser_heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;chooser_heading.add_theme_font_size_override("font_size",26);chooser_heading.add_theme_color_override("font_color",Color(1,.88,.5));list.add_child(chooser_heading)
     chooser_detail=Label.new();chooser_detail.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;chooser_detail.add_theme_font_size_override("font_size",18);chooser_detail.add_theme_color_override("font_color",Color(.8,.84,.9));list.add_child(chooser_detail)
     for mode in MODES:list.add_child(_mode_button(mode))
+    # Change 65: one quiet, persistent line on the chooser only: Help & Tutorials is always in Settings
+    # (None then receives no instructional overlay of any kind).
+    chooser_help=Label.new();chooser_help.name="HelpNote";chooser_help.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;chooser_help.add_theme_font_size_override("font_size",17)
+    chooser_help.add_theme_color_override("font_color",Color(.72,.78,.86));chooser_help.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;list.add_child(chooser_help)
     aim=Control.new();aim.mouse_filter=Control.MOUSE_FILTER_IGNORE;aim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(aim);aim.hide()
     aim.draw.connect(_draw_aim)
     stick_demo=Control.new();stick_demo.mouse_filter=Control.MOUSE_FILTER_IGNORE;stick_demo.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(stick_demo);stick_demo.hide()
@@ -129,6 +130,7 @@ func setup(owner_ui) -> void:
                 sim.state.tutorial.seen.append(ROAD_AHEAD_ID);sim.touch();SaveService.mark_dirty()
             return
         if intro_id=="focus":sim.campaign.focus_hint=-1;return
+        if intro_id==AUTO_ATTACK_ID:_retire_auto_attack();return
         if intro_id==MASTERY_HINT_ID:_retire_mastery_hint();return
         if intro_id!="" and not sim.state.tutorial.seen.has(intro_id):sim.state.tutorial.seen.append(intro_id);sim.touch())
     shade=_frame(Color(0,0,0,.85));highlight=_frame(Color(1,.85,.4))
@@ -142,6 +144,7 @@ func setup(owner_ui) -> void:
 func _localize() -> void:
     chooser_heading.text=tr("GUIDE_CHOOSE")
     chooser_detail.text=tr("GUIDE_CHOOSE_DETAIL")
+    chooser_help.text=tr("HELP_DISCOVERY_CHOOSER")
     for button in chooser_heading.get_parent().get_children():
         if button is Button:
             var key:="GUIDE_MODE_"+str(button.get_meta("mode")).to_upper()
@@ -179,7 +182,7 @@ func _fit_chooser() -> void:
     var insets:=LayoutService.get_safe_area_insets_canvas()
     var width:=minf(640,ui.size.x-insets.x-insets.z-32)
     var inner:=width-chooser.get_theme_stylebox("panel").get_minimum_size().x
-    if chooser_heading.custom_minimum_size.x!=inner:chooser_heading.custom_minimum_size.x=inner;chooser_detail.custom_minimum_size.x=inner
+    if chooser_heading.custom_minimum_size.x!=inner:chooser_heading.custom_minimum_size.x=inner;chooser_detail.custom_minimum_size.x=inner;chooser_help.custom_minimum_size.x=inner
     for button in chooser_heading.get_parent().get_children():
         if not button is Button:continue
         var row: Control=button.get_node("Row")
@@ -207,11 +210,11 @@ func _frame(color: Color) -> NinePatchRect:
 func choose(mode: String) -> void:
     sim.campaign.onboarding.choose_mode(mode);sim.suspended=false;SaveService.save_now()
 
-## Basic: Skip retires the rest of the overview at once; The Road Ahead follows.
+## Basic: Skip Overview retires the rest of the opening at once; The Road Ahead follows.
 func skip_overview() -> void:
-    var seen: Array=sim.state.tutorial.seen
-    for id in BASIC_DECK:
-        if not seen.has(id):seen.append(id)
+    if ui.help_viewer!=null and ui.help_viewer.visible and ui.help_viewer.context=="basic":
+        ui.help_viewer.close_viewer();return
+    HelpCards.progress(sim.state.tutorial).basic_done=true
     sim.touch();SaveService.mark_committed()
 
 func _process(dt: float) -> void:
@@ -249,12 +252,10 @@ func _process(dt: float) -> void:
         mastery_live=true;mastery_shown+=dt
         if mastery_shown>=MASTERY_HINT_SECONDS:_retire_mastery_hint()
     if card.visible and pending in LONG_STEPS:long_shown[pending]=float(long_shown.get(pending,0.0))+dt
-    # Basic overview cards retire on their own after a readable time on screen.
-    if data.mode=="basic" and BASIC_DECK.has(intro_id) and card.visible:
-        if card_for!=intro_id:card_for=intro_id;card_shown=0
-        card_shown+=dt
-        if card_shown>=sim.campaign.onboarding.rules.card_seconds and not data.seen.has(intro_id):
-            data.seen.append(intro_id);card_shown=0;sim.touch()
+    # Change 65: the autoattack explanation retires after a readable time on screen (or on Got it).
+    if intro_id==AUTO_ATTACK_ID and card.visible and running:
+        auto_attack_shown+=dt
+        if auto_attack_shown>=AUTO_ATTACK_SECONDS:_retire_auto_attack()
 
 ## A lesson completes when its learned state exists, however and whenever the player reached it.
 func _complete_lessons() -> void:
@@ -305,20 +306,21 @@ func evaluate() -> void:
 ## Basic finishes its overview deck first (or skips it); None receives goals immediately.
 func _road_ahead_if_ready(data: Dictionary) -> bool:
     if data.seen.has(ROAD_AHEAD_ID):return false
-    if data.mode=="none" or (data.mode=="basic" and BASIC_DECK.all(func(id):return data.seen.has(id))):
+    if data.mode=="none" or (data.mode=="basic" and HelpCards.basic_done(data)):
         pending=ROAD_AHEAD_ID;step="tutorial_final";intro_id=ROAD_AHEAD_ID
         return true
     return false
 
-## Basic (Change 25): the next overview card not seen yet, whatever the player has done meanwhile.
+## Basic (Change 65): while the opening is unfinished, the shared card viewer shows it (from the card it
+## was last on), at a quiet moment: no panel, confirmation, pause or Prestige choice in front. Nothing
+## else of the guide shows meanwhile; The Road Ahead follows once it is finished or skipped.
 func _basic_card() -> bool:
     var data: Dictionary=sim.state.tutorial
-    if data.seen.has(ROAD_AHEAD_ID):return false
-    for id in BASIC_DECK:
-        if not data.seen.has(id):
-            pending=id;intro_id=id;step=id
-            return true
-    return false
+    if data.seen.has(ROAD_AHEAD_ID) or HelpCards.basic_done(data):return false
+    var viewer=ui.help_viewer
+    if viewer!=null and not viewer.visible and not ui.sheet.visible and not ui.modal_open() and not get_tree().paused and sim.state.prestige_batch.is_empty():
+        viewer.open_basic()
+    return true
 
 func _lesson(lesson: String) -> void:
     step=lesson
@@ -419,11 +421,27 @@ func _lesson(lesson: String) -> void:
                 step="prestige_follow" if target!=null else "prestige_info"
             else:step="prestige_open";target=ui.dock.get_node("Navigation/Prestige")
 
+## Change 65: the one-time "Auto-Attack Enabled!" explanation (guided flow auto_attack_notice).
+const AUTO_ATTACK_ID:="auto_attack"
+const AUTO_ATTACK_SECONDS:=10.0
+var auto_attack_shown:=0.0
+func _retire_auto_attack() -> void:
+    auto_attack_shown=0.0
+    var f: Dictionary=sim.campaign.guided.data()
+    if bool(f.get("auto_attack_notice",false)):
+        f.auto_attack_notice=false;sim.touch();SaveService.mark_dirty()
+
 ## The current brief supersedes the historical reveal/lesson order for Guided only.
 func _guided_lesson() -> void:
     var flow=sim.campaign.guided
     var current: String=flow.next_step()
     if current=="":return
+    # Change 65: right after the first manual attack (or the empty-map escape), one short dismissible
+    # explanation that autoattack is on. Text only, placed like every caption (above the joystick, never
+    # over the hero or its target), and it never stops combat.
+    if bool(flow.data().get("auto_attack_notice",false)):
+        pending=AUTO_ATTACK_ID;step=AUTO_ATTACK_ID;intro_id=AUTO_ATTACK_ID;surfaces=[""]
+        return
     pending=current;step=current
     if current in ["mission_wait","upgrade_wait"]:
         pending="";return
@@ -438,6 +456,11 @@ func _guided_lesson() -> void:
     if current in ["move","kill","collect","equip","merge","missions"]:
         _lesson(current);return
     if current=="target":
+        # Change 65: a valid manual target is chosen; the lesson waits for the hero's real attack on it
+        # (guided_progress.manual_attack). The demonstration steps aside meanwhile.
+        var chosen: Dictionary=sim._find_actor(sim.manual_target) if sim.manual_target!="" else {}
+        if not chosen.is_empty() and float(chosen.hp)>0:
+            step="target_strike";return
         # Change 35: demonstrate the real gesture toward the nearest enemy that can be targeted; with
         # none in sight, ask the player to walk until one is (the escape timer runs only then).
         world_target=_nearest_enemy(true)
@@ -738,7 +761,7 @@ func _focus_hint() -> bool:
     var g: int=sim.campaign.focus_hint
     if g<0:
         focus_shown=0;return false
-    if int(sim.state.focus)>=0 or g>=sim.catalog.groups.size() or sim.level("focus",g)==0 or not sim.campaign.stage().groups.has(g) or focus_shown>=FOCUS_HINT_SECONDS:
+    if int(sim.state.focus)>=0 or g>=sim.catalog.groups.size() or not sim.focus_owned() or not sim.campaign.stage().groups.has(g) or focus_shown>=FOCUS_HINT_SECONDS:
         sim.campaign.focus_hint=-1;focus_shown=0;return false
     pending="focus";intro_id="focus";surfaces=["","enemy"]
     if ui.sheet.visible and ui.panel=="enemy":
@@ -806,11 +829,11 @@ func _present() -> void:
     if pending=="" or suspended_by!="":
         _hide_all();return
     title.text=tr("GUIDE_"+step.to_upper())
-    var deck_index:=BASIC_DECK.find(intro_id) if data.mode=="basic" else -1
-    if deck_index>=0:title.text+="  %d/%d" % [deck_index+1,BASIC_DECK.size()]
-    var skippable:=deck_index>=0 and deck_index<BASIC_DECK.size()-1
-    if skip_button.visible!=skippable:skip_button.visible=skippable
+    # Change 65: the Basic overview moved to the card viewer, so the caption never shows Skip.
+    if skip_button.visible:skip_button.visible=false
     support.text=tr(detail_key(step))
+    # Change 65: the Guided finale keeps its title, text and action, plus where reference help lives.
+    if intro_id=="flow:tutorial_final":support.text+="\n\n"+tr("HELP_DISCOVERY_GUIDED")
     # Coins still needed, in the shared currency format rounded up (Change 13).
     if "%s" in support.text:support.text=support.text % NumberFormat.currency(support_value,true)
     # Texts are set first so game_ui's panel reserve (sheet_reserve) measures them while a panel settles.
@@ -842,12 +865,11 @@ func _picture() -> Texture2D:
     if step.begins_with("offline"):return ui._art(147)
     if step.begins_with("respawn") or step.begins_with("camp_travel") or step.begins_with("winter_two"):return ui._art(249)
     if step.begins_with("map_details") or step.begins_with("enemy_pins") or step.begins_with("hunt"):return ui._art(1)
-    if BASIC_DECK.has(step):return ui._art(int(ui.HELP_ART.get(step,60)))
     if step.begins_with("focus") or step.begins_with("slots") or step=="feature_upgrades":return ui._art(147)
     if step in ["skills","rest"]:return ui._art(212)
     if step.begins_with("camp") or step=="feature_world":return ui._art(249)
     if step.begins_with("prestige") or step.begins_with("missions") or step in ["feature_prestige","feature_missions"]:return ui._art(211)
-    if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect","feature_enemy","target","target_find"]:return ui._art(1)
+    if step in ["kill","aggression","groups","collect_wait","merge_wait","upgrade_find","equip_find","equip_collect","feature_enemy","target","target_find","target_strike","auto_attack"]:return ui._art(1)
     return ui._art(60)
 
 ## Change 63: height game_ui keeps free above an open panel that belongs to the current lesson, so the

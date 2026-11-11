@@ -279,7 +279,7 @@ func discovery_checks() -> void:
     check(found.size()==1 and found[0][0]==g and found[0][1]==1,"Exactly one marker for the one found spot (not the whole type)")
     check(sim.enemy_definition(g,1).body=="" and sim.enemy_definition(g,1).weapon!="","That spot's loadout is weapon-only")
     map.free()
-    sim.state.upgrades["focus:%d" % g]=1
+    sim.state.upgrades["focus"]=1 # Change 65: one global unlock
     var refused: bool=not sim.focus(g,0)
     var accepted: bool=sim.focus(g,1)
     check(refused and accepted,"Focus refuses an unfound spot and accepts a found one")

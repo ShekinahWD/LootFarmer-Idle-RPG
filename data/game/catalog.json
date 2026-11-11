@@ -21762,7 +21762,7 @@
       "cap": 1,
       "keep": true,
       "effect": 1,
-      "scope": "type"
+      "scope": "global"
     },
     "respawn": {
       "currency": "coins",

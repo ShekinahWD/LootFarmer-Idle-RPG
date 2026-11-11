@@ -78,11 +78,10 @@
     {"file": "res://scripts/game/game_ui.gd", "literal": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png", "family": "item_art"},
     {"file": "res://scripts/game/game_ui.gd", "arg": "ITEM_ART % index", "family": "item_art"},
     {"file": "res://scripts/game/game_ui.gd", "call": "_art", "arg": "index", "family": "item_art", "values": "line_ints", "why": "load-time prewarm list"},
-    {"file": "res://scripts/game/game_ui.gd", "call": "_art", "arg": "int(HELP_ART.get(card,60))", "family": "item_art", "values": "arg_ints", "consts": ["res://scripts/game/game_ui.gd:HELP_ART"]},
     {"file": "res://scripts/game/game_ui.gd", "call": "_art", "arg": "MASTERY_ART[category]", "family": "item_art", "consts": ["res://scripts/game/game_ui.gd:MASTERY_ART"]},
     {"file": "res://scripts/game/game_ui.gd", "call": "_art", "arg": "int(sim.catalog.campaign.paths.get(path,{}).get(\"icon\",211))", "family": "item_art", "values": "arg_ints"},
     {"file": "res://scripts/game/tutorial_guide.gd", "literal": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png", "family": "item_art"},
-    {"file": "res://scripts/game/tutorial_guide.gd", "call": "_art", "arg": "int(ui.HELP_ART.get(step,60))", "family": "item_art", "values": "arg_ints", "consts": ["res://scripts/game/game_ui.gd:HELP_ART"]},
+    {"file": "res://scripts/game/help_demo.gd", "call": "_art", "arg": "MASTERY_ICONS[i]", "family": "item_art", "consts": ["res://scripts/game/help_demo.gd:MASTERY_ICONS"]},
     {"file": "res://scripts/game/tutorial_guide.gd", "call": "_art", "arg": "int(MODE_ART[mode])", "family": "item_art", "consts": ["res://scripts/game/tutorial_guide.gd:MODE_ART"]},
     {"file": "res://scripts/game/prestige_card.gd", "literal": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png", "family": "item_art"},
     {"file": "res://scripts/game/prestige_card.gd", "arg": "ITEM_ART % int(path_info.get(\"icon\",211))", "family": "item_art", "values": "arg_ints"}

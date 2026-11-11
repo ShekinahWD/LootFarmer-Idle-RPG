@@ -1686,6 +1686,389 @@
    "en": "Go to Upgrades",
    "placeholders": [],
    "change": "change-64"
+  },
+  "FOCUS_LOCKED_GLOBAL": {
+   "en": "Buy Focused Farming once in Player Upgrades to farm any discovered enemy.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "FOCUS_OPEN_PLAYER_UPGRADES": {
+   "en": "Open Player Upgrades",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "FOCUS_GLOBAL_BENEFIT": {
+   "en": "Farm any discovered enemy spot, on every map.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "FOCUS_GLOBAL_OWNED": {
+   "en": "Owned: tap Farm on any discovered enemy.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "SECTION_HELP_TUTORIALS": {
+   "en": "Help & Tutorials",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_LANDING_INTRO": {
+   "en": "Pick a topic or read every guide in order. Reading changes nothing in your game.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_PROGRESS": {
+   "en": "Viewed %d / %d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-65"
+  },
+  "HELP_CONTINUE": {
+   "en": "Continue: %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-65"
+  },
+  "HELP_READ_ALL": {
+   "en": "Read All Tutorials (%d)",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-65"
+  },
+  "HELP_CHOOSE_TOPIC": {
+   "en": "Choose a Topic",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_TOPIC_ROW": {
+   "en": "%s  ·  %d/%d viewed",
+   "placeholders": [
+    "%s",
+    "%d",
+    "%d"
+   ],
+   "change": "change-65"
+  },
+  "HELP_BACK_HOME": {
+   "en": "Back to Help",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_BACK_TO_TOPICS": {
+   "en": "Back to Topics",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_VIEWED": {
+   "en": "Viewed",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_NOT_VIEWED": {
+   "en": "Not viewed",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_PREVIOUS": {
+   "en": "Previous",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_NEXT": {
+   "en": "Next",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_FINISH": {
+   "en": "Finish",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_AUTO_ADVANCE": {
+   "en": "Auto-Advance: %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-65"
+  },
+  "HELP_SKIP_OVERVIEW": {
+   "en": "Skip Overview",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_DISCOVERY_BASIC": {
+   "en": "Want more help? Open Settings → Help & Tutorials. Pick a topic or read all 14 guides.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_DISCOVERY_GUIDED": {
+   "en": "Need a reminder later? Open Settings → Help & Tutorials for a guide to every system.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_DISCOVERY_CHOOSER": {
+   "en": "You can explore Help & Tutorials anytime in Settings.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CAT_COMBAT": {
+   "en": "Combat",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CAT_EQUIPMENT": {
+   "en": "Equipment",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CAT_FARMING": {
+   "en": "Farming",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CAT_PROGRESSION": {
+   "en": "Progression",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CAT_PERMANENT": {
+   "en": "Permanent Progression",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MOVEMENT_COMBAT_TITLE": {
+   "en": "Movement & Combat",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MOVEMENT_COMBAT_ACTION": {
+   "en": "Drag the joystick to approach an enemy.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MOVEMENT_COMBAT_SUPPORT": {
+   "en": "Your hero automatically attacks enemies within reach.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MANUAL_TARGET_TITLE": {
+   "en": "Choose Your Target",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MANUAL_TARGET_ACTION": {
+   "en": "Drag from your hero to an enemy, then release.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MANUAL_TARGET_SUPPORT": {
+   "en": "Use this gesture to change who your hero attacks.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_COLLECT_EQUIP_TITLE": {
+   "en": "Collect & Equip",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_COLLECT_EQUIP_ACTION": {
+   "en": "Collect dropped gear, then equip it.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_COLLECT_EQUIP_SUPPORT": {
+   "en": "Equipment strengthens you; stored gear also grants bonuses.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MERGE_GEAR_TITLE": {
+   "en": "Merge Equipment",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MERGE_GEAR_ACTION": {
+   "en": "Merge two copies of the same item.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MERGE_GEAR_SUPPORT": {
+   "en": "Merging increases the item's strength and merge rank.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_PLAYER_UPGRADES_TITLE": {
+   "en": "Player Upgrades",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_PLAYER_UPGRADES_ACTION": {
+   "en": "Buy upgrades to strengthen your hero.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_PLAYER_UPGRADES_SUPPORT": {
+   "en": "Focused Farming unlocks globally for 25 Gems here.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_ENEMY_AUTOMATION_TITLE": {
+   "en": "Enemy Automation",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_ENEMY_AUTOMATION_ACTION": {
+   "en": "Upgrade each enemy type to automate its loot.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_ENEMY_AUTOMATION_SUPPORT": {
+   "en": "Auto-Collect, Auto-Merge and Auto-Evolution are type-specific.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MISSIONS_TITLE": {
+   "en": "Missions & Rewards",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MISSIONS_ACTION": {
+   "en": "Follow a mission and claim its completed reward.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MISSIONS_SUPPORT": {
+   "en": "Missions give you goals and additional resources.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_EXPLORE_CAMPS_TITLE": {
+   "en": "Explore & Teleport",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_EXPLORE_CAMPS_ACTION": {
+   "en": "Discover camps, then select your destination on the map.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_EXPLORE_CAMPS_SUPPORT": {
+   "en": "Unlock camps to travel and choose where you respawn.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_SKILLS_SUPPLIES_TITLE": {
+   "en": "Skills & Supplies",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_SKILLS_SUPPLIES_ACTION": {
+   "en": "Equip skills and supplies before tougher fights.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_SKILLS_SUPPLIES_SUPPORT": {
+   "en": "Skills assist combat; supplies can heal or grant boosts.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_OFFLINE_REWARDS_TITLE": {
+   "en": "Offline Rewards",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_OFFLINE_REWARDS_ACTION": {
+   "en": "Claim rewards when you return to the game.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_OFFLINE_REWARDS_SUPPORT": {
+   "en": "Offline upgrades unlock more reward categories.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_WEAPON_EVOLUTION_TITLE": {
+   "en": "Weapon Evolution",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_WEAPON_EVOLUTION_ACTION": {
+   "en": "Meet the merge and copy requirements to evolve a weapon.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_WEAPON_EVOLUTION_SUPPORT": {
+   "en": "Evolution advances a weapon to a stronger tier.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_PRESTIGE_TITLE": {
+   "en": "Prestige",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_PRESTIGE_ACTION": {
+   "en": "Defeat the Snowman and complete Prestige opportunities.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_PRESTIGE_SUPPORT": {
+   "en": "Prestige grants permanent cards when you reset your run.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MAP_DETAILS_MASTERY_TITLE": {
+   "en": "Map Details & Mastery",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MAP_DETAILS_MASTERY_ACTION": {
+   "en": "Explore maps and purchase Map Details to learn more.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_MAP_DETAILS_MASTERY_SUPPORT": {
+   "en": "Map Mastery tracks lasting exploration and achievements.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_ADVANCED_FARMING_TITLE": {
+   "en": "Advanced Farming",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_ADVANCED_FARMING_ACTION": {
+   "en": "Choose a discovered spot and tap Farm.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "HELP_CARD_ADVANCED_FARMING_SUPPORT": {
+   "en": "Move manually to stop farming or choose another spot.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "GUIDE_TARGET_STRIKE": {
+   "en": "Good choice!",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "GUIDE_TARGET_STRIKE_DETAIL": {
+   "en": "Your hero walks to the enemy you chose and attacks it.",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "GUIDE_AUTO_ATTACK": {
+   "en": "Auto-Attack Enabled!",
+   "placeholders": [],
+   "change": "change-65"
+  },
+  "GUIDE_AUTO_ATTACK_DETAIL": {
+   "en": "Your hero now attacks nearby enemies automatically. Drag from your hero to an enemy whenever you want to change targets.",
+   "placeholders": [],
+   "change": "change-65"
   }
  },
  "retired": {

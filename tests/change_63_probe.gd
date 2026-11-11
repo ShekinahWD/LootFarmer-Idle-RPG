@@ -24,6 +24,8 @@ func frames(n:=4) -> void:
 func _ready() -> void:call_deferred("run")
 func fresh(mode:="guided") -> void:
     get_tree().paused=false
+    if game.help_viewer.visible:game.help_viewer.hide() # Change 65: a Basic opening left by an earlier step
+    sim.held=false
     sim.new_profile();sim.set_physics_process(false);sim.suspended=false
     sim.state.tutorial.mode=mode
     if mode!="guided":sim.campaign.onboarding.reveal_all(true)
@@ -179,7 +181,7 @@ func run() -> void:
     fresh("guided");done_until("camp");sim.campaign.mastery.data().explored["1"]=100;await frames(4)
     check(guide.pending!="mastery_intro" and not sim.state.tutorial.seen.has("mastery_intro"),"Before Map Mastery is revealed it waits")
     for mode in ["basic","none"]:
-        fresh(mode);sim.state.tutorial.seen.append_array(guide.BASIC_DECK+[guide.ROAD_AHEAD_ID]);sim.campaign.mastery.data().explored["1"]=100;await frames(4)
+        fresh(mode);sim.state.tutorial.seen.append(guide.ROAD_AHEAD_ID);game.help_viewer.hide();game.help_viewer.HelpCards.progress(sim.state.tutorial).basic_done=true;sim.held=false;sim.campaign.mastery.data().explored["1"]=100;await frames(4)
         check(guide.pending!="mastery_intro","%s: no Guided hint" % mode)
     # ---------------------------------------------------------------- E. notifications vs the guide
     for size in [Vector2i(432,960),Vector2i(540,960)]:

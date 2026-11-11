@@ -25,6 +25,8 @@ func frames(n:=4) -> void:
     for i in range(n):await get_tree().process_frame
 func fresh(mode:="none") -> void:
     get_tree().paused=false
+    if game.help_viewer.visible:game.help_viewer.hide() # Change 65: a Basic opening left by an earlier step
+    sim.held=false
     sim.new_profile();sim.state.tutorial.mode=mode;sim.suspended=false;SaveService.write_blocked=false;sim.rng.seed=16016;game._close()
     if mode!="none":sim.state.tutorial.seen.append_array(["overview","aggression","skills","groups","prestige","rest","camp_done"]) # fixture: intros seen
     game._cancel_confirm();game.get_node("PrestigeConfirm").close()
@@ -225,7 +227,7 @@ func migration_checks() -> void:
     fresh()
     var snow:=group("boss-snowman");var robot:=group("boss-cyan-robot")
     sim.state.group_kills[snow]=3;sim.state.group_kills[robot]=1 # fixture: an existing schema-8 profile
-    sim.state.upgrades["gear_slots"]=4;sim.state.gear.append_array(["","","",""]);sim.state.upgrades["focus:0"]=1
+    sim.state.upgrades["gear_slots"]=4;sim.state.gear.append_array(["","","",""]);sim.state.upgrades["focus"]=1
     var snap: Dictionary=JSON.parse_string(JSON.stringify(sim.snapshot()))
     snap.erase("bosses_found");snap.erase("follow_mission")
     # Change 50: an existing schema-8 profile (as released) migrates to schema 9 instead of resetting.
@@ -862,10 +864,16 @@ func settings_checks() -> void:
     check(not labels.contains("during development") and not all.contains("during development") and not labels.contains("translation validation") and not all.contains("Available after"),"No development notices (Change 40: languages not enabled yet are not listed, and nothing says why)")
     var before: Dictionary={"tutorial":sim.state.tutorial.duplicate(true),"reveal":sim.state.onboarding.reveal.duplicate(),"explored":sim.state.explored.duplicate(true),"counters":sim.state.counters.duplicate(true)}
     button_with(game.rows,"Help").pressed.emit();await frames(2)
-    var text: String=labels_text(game.rows)
-    check(game.panel=="help" and text.contains("Walk, fight, collect") and text.contains(tr("GUIDE_BASIC_WORLD")) and text.contains(tr("GUIDE_BASIC_GEAR")),"Help opens the Basic overview deck (Change 25: the same cards Basic shows)")
-    check(not text.contains(tr("GUIDE_BASIC_PRESTIGE")) and text.contains(tr("GUIDE_BASIC_GROWTH")),"Guided: Help includes revealed upgrades and hides unrevealed Prestige")
-    check(sim.state.tutorial==before.tutorial and sim.state.onboarding.reveal==before.reveal and sim.state.explored==before.explored and sim.state.counters==before.counters and sim.state.tutorial.mode=="guided","Reading it changes no progress, discovery, menu or guidance mode")
+    # Change 65: Help & Tutorials is the 14-card library (Read All / Choose a Topic), the same cards the
+    # Basic opening shows; every card can be read in every mode (it explains, never unlocks).
+    var all_help: String=" | ".join(buttons(game.rows).map(func(b):return b.text))
+    check(game.panel=="help" and all_help.contains(tr("HELP_READ_ALL") % 14) and all_help.contains(tr("HELP_CHOOSE_TOPIC")),"Help opens the tutorial library (Read All, Choose a Topic)")
+    game.help_viewer.open_help("help_all",game.HelpCards.ids().find("prestige"));await frames(2)
+    check(game.help_viewer.current()=="prestige","Guided: a card about a system not reached yet can still be read (Change 65)")
+    game.help_viewer.step(1);game.help_viewer.close_viewer();await frames(2)
+    var after_tutorial: Dictionary=sim.state.tutorial.duplicate(true);after_tutorial.erase("help")
+    var before_tutorial: Dictionary=before.tutorial.duplicate(true);before_tutorial.erase("help")
+    check(after_tutorial==before_tutorial and sim.state.onboarding.reveal==before.reveal and sim.state.explored==before.explored and sim.state.counters==before.counters and sim.state.tutorial.mode=="guided","Reading it changes no progress, discovery, menu or guidance mode (only Help's own reading record)")
     guide_button("help_back").pressed.emit();await frames(1)
     check(game.panel=="settings","Back returns to Settings")
     game._close()

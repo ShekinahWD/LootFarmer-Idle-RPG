@@ -221,7 +221,7 @@ func world_rules() -> void:
     advance(.3)
     check(guard.hp>half,"An enemy regenerates after five seconds without a hit")
     reset()
-    sim.state.upgrades={"focus:1":1}
+    sim.state.upgrades={"focus":1} # Change 65: one global unlock
     sim.campaign.discover_spot(1,2) # fixture: auto-farm only walks to found spots
     check(sim.focus(1),"Focus on a found spot")
     sim.state.player.hp=0

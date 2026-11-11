@@ -135,7 +135,8 @@ func fresh(mode:="none") -> void:
     get_tree().paused=false
     if game.get_node("ReviewInvitation").visible:game.get_node("ReviewInvitation").close()
     if game.get_node("PrestigeConfirm").visible:game.get_node("PrestigeConfirm").close()
-    sim.new_profile();sim.set_physics_process(false);sim.suspended=false
+    if game.help_viewer.visible:game.help_viewer.hide() # Change 65: a Basic opening left by an earlier step
+    sim.new_profile();sim.set_physics_process(false);sim.suspended=false;sim.held=false
     sim.state.tutorial.mode=mode;sim.campaign.onboarding.reveal_all(true)
     sim.state.tutorial.seen.append("road_ahead")
     game._close();game._cancel_confirm()
@@ -330,10 +331,13 @@ func sweep() -> void:
     # Onboarding: the chooser, every Basic card, the Road Ahead.
     fresh("pending");sim.state.tutorial.seen=[];await frames(6);await inspect("chooser")
     game.guide.choose("basic");await frames(4)
-    for i in range(game.guide.BASIC_DECK.size()):
-        await frames(4);await inspect("basic_%d_%s" % [i+1,game.guide.BASIC_DECK[i]])
-        if game.guide.intro_button.visible:game.guide.intro_button.pressed.emit()
-        else:sim.state.tutorial.seen.append(game.guide.BASIC_DECK[i])
+    # Change 65: the Basic opening is the shared card viewer (8 cards); every card is inspected.
+    var viewer=game.help_viewer
+    var deck: Array=viewer.HelpCards.essential()
+    for i in range(deck.size()):
+        await frames(4);await inspect("basic_%d_%s" % [i+1,deck[i]])
+        if viewer.visible:viewer.step(1)
+    if viewer.visible:viewer.close_viewer()
     await frames(4)
     sim.state.tutorial["road_ahead_seconds"]=999.0;await frames(4);await inspect("road_ahead")
     await guide_cards()

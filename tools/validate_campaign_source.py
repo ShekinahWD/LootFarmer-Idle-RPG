@@ -87,6 +87,7 @@ sk={k:v['cooldown'] for k,v in c['skills'].items()}
 check('all six skill base cooldowns 20 seconds',sk=={k:20 for k in c['skills']})
 check('auto-cast 100/250/500 gems, skill slots 300/600 gems',[c['upgrades']['skill_auto_%d' % i]['base'] for i in range(3)]==[100,250,500] and c['upgrades']['skill_slots']['prices']==[300,600] and c['upgrades']['skill_slots']['cap']==2)
 check('potion 12 s cooldown with a 10 s mastery floor',c['items']['potion']['supply']['cooldown']==12 and c['items']['potion']['supply']['cooldown_floor']==10)
+check('Change 65 Focused Farming: one-time global 25-gem Player upgrade',c['upgrades']['focus']=={'currency':'gems','base':25,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'global'})
 check('Auto Evolution: one-time flat 2,000-gem per-type unlock',c['upgrades']['auto_evolve']=={'currency':'gems','base':2000,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'type','flat':True})
 ab=(ROOT/'resources/game/enemy_abilities.tres').read_text(encoding='utf-8')
 ids={g['id']:g for g in c['groups']}

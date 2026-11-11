@@ -57,7 +57,7 @@ func run() -> void:
     check(game.get_node("Safe/Layout/Map/GemPickup/Amount").text=="+1.10","Gem pickup displays fractions")
     sim.new_profile()
     sim.state.gems=1000
-    sim.buy_upgrade("focus",0)
+    sim.buy_upgrade("focus") # Change 65: one global unlock
     for variant in range(3):
         sim.state.focus=-1
         check(sim.focus(0,variant),"Select specific farm variant")

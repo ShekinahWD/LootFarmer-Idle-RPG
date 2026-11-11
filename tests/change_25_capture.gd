@@ -32,7 +32,7 @@ func run() -> void:
     await frames(10)
     chooser();await shot("01_chooser")
     game.guide.choose("basic");await shot("02_basic_card_1")
-    for id in game.guide.BASIC_DECK.slice(0,game.guide.BASIC_DECK.size()-1):sim.state.tutorial.seen.append(id)
+    game.help_viewer.close_viewer() # Change 65: the Basic opening is the card viewer (change_65_capture)
     await shot("03_basic_card_last")
     chooser();game.guide.choose("none");await shot("04_none_road_ahead")
     sim.state.tutorial.seen.append("road_ahead");await shot("05_none_hud_all_menus")

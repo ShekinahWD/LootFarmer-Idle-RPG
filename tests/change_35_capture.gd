@@ -67,7 +67,7 @@ func run() -> void:
     game.guide.choose("basic");await frames(4)
     game.guide.intro_button.pressed.emit();await frames(4)
     await shot("03_basic_target_card")
-    sim.state.tutorial.seen.append_array(game.guide.BASIC_DECK);sim.state.tutorial.seen.append("road_ahead")
+    game.help_viewer.hide();game.help_viewer.HelpCards.progress(sim.state.tutorial).basic_done=true;sim.held=false;sim.state.tutorial.seen.append("road_ahead")
     game._open("settings");await frames(3);game._open("help");await frames(6)
     await shot("04_help_target_card")
     game._close()

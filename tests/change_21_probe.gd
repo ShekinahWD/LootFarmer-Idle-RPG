@@ -71,7 +71,7 @@ func run() -> void:
     check(game.guide.intro_id=="","None goal announcement does not repeat on restored save")
     fresh("basic");game.guide.evaluate()
     check(game.guide.intro_id!="road_ahead","Basic does not show final goals before its overview cards")
-    sim.state.tutorial.seen.append_array(game.guide.BASIC_DECK) # fixture: Change 25 overview read
+    game.help_viewer.hide();game.help_viewer.HelpCards.progress(sim.state.tutorial).basic_done=true;sim.held=false # fixture: Basic opening finished (Change 65)
     game.guide._process(1.0)
     check(game.guide.intro_id=="road_ahead" and game.guide.final_backdrop.visible,"Basic ends with shared goals announcement")
     game.guide._process(60.0);game.guide.evaluate();game.guide._present()

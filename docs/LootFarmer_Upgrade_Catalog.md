@@ -1,4 +1,16 @@
-# LootFarmer — Upgrade Catalog — Change 21
+# LootFarmer — Upgrade Catalog — Change 65
+
+## Change 65 — Focused Farming is one global Player upgrade (11 November 2026)
+
+| Id | Scope | Currency | Cap | Prestige | Price |
+|---|---|---|---:|---|---|
+| focus | **global** (was type) | gems | 1 | Keep (Hard Reset clears) | **25 once** |
+
+- Listed in **Player Upgrades → Player** (after Movement); benefit "Farm any discovered enemy spot, on every map."; owned reads "Owned: tap Farm on any discovered enemy." and MAX. A per-enemy purchase call is refused and charges nothing; any caller naming an enemy type reads the one global rank (`sim._upgrade_key` ignores the group for global upgrades).
+- The enemy panel keeps Farm / Stop; it lists no Focused Farming purchase. Locked Farm says why and offers **Open Player Upgrades**.
+- **Unchanged and still per enemy type:** `collect`, `collect_range`, `collect_batch`, `collect_speed`, `merge_gear`, `gear_merge_speed`, `auto_evolve`, and every reward/research/spawn upgrade, at the prices below.
+- **Save migration (schema 9, on load):** any legacy `focus:<type>` record with level ≥ 1 → global `focus` = 1; none → 0; global already present → stays 1; the legacy records are deleted (repeat loads change nothing). No Gem refund or compensation (the number of legacy records found is reported by `campaign.legacy_focus_records` for the developer's decision). `tools/validate_campaign_source.py` checks the definition.
+
 
 > **Correction (production audit, 2026-10-28):** the Guided wait values below are superseded. Since the Change 22 notes (commit "Change 23") Missions unlock **15 active real seconds** after the first merge and Player Upgrades 15 seconds after closing Missions (`tutorial.flow.wait_seconds`; GDD "Current status"). Auto Claim (`mission_claim`) stays OFF after purchase until the player enables it. Prices in this catalog are unchanged.
 
@@ -48,7 +60,7 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | auto_evolve | type | gems | 1 | Keep | 2,000 on every map (`flat`, Change 13) |
 | auto_use | global | gems | 3 | Keep | 100 / 2.6 |
 | use_speed | global | gems | 8 | Keep | 100 / 1.6; interval 10 → 2 s |
-| focus | type | gems | 1 | Keep | 25 / 1 |
+| focus | type → **global (Change 65)** | gems | 1 | Keep | 25 / 1 → **25 once (Change 65)** |
 | respawn | global | coins | 7 | Reset | 30 / 1.7 |
 | loot | type | coins | 15 | Reset | 20 / 1.35 |
 | gem_chance | global | gems | 20 (Change 12; was 12) | Keep (Change 11) | [25, 40, 58, 80, 105, 135, 170, 210, 260, 320, 390, 470, 560, 660, 770, 890, 1020, 1160, 1310, 1470] (+0.5 points per level) |

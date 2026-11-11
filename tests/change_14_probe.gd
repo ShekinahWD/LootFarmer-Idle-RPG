@@ -423,10 +423,21 @@ func focus_setup(mode: String) -> int:
     sim.state.gems=500.0;sim.state.coins=1000.0 # fixture
     return g
 ## Press the Focused Farming buy button; the panel's periodic refresh (0.25 s) is applied at once.
+## Change 65: the purchase is the one global Player upgrade (Player Upgrades → Player); the enemy panel that
+## was open is shown again afterwards. focus_notice keeps the confirmation the purchase panel showed.
+var focus_notice:=""
 func buy_focus() -> void:
-    research_buttons("focus")[0].node.pressed.emit()
+    var reopen: bool=game.sheet.visible and game.panel=="enemy"
+    var keep:=[game.group,game.enemy_tab,game.enemy_variant]
+    game.player_tab=0;game._open("upgrades");await frames(4)
+    for b in game.rows.find_children("*","Button",true,false):
+        if b.get_meta("guide","")=="buy_focus" and not b.disabled:b.pressed.emit();break
     game._refresh_panel()
     await frames(6)
+    focus_notice=game.notice.text
+    if reopen:
+        game.group=keep[0];game.enemy_tab=keep[1];game.enemy_variant=keep[2];game._open("enemy")
+        await frames(6)
 func open_upgrades(g: int) -> void:
     game.group=g;game.enemy_variant=2;game.enemy_tab=1;game._open("enemy")
     await frames(10)
@@ -434,10 +445,10 @@ func focus_checks() -> void:
     var g:=await focus_setup("guided")
     var guide=game.guide
     await open_upgrades(g)
-    check(research_buttons("focus").size()==1 and guide._panel_control("focus_toggle")==null,"Before the purchase: the Focused Farming card, no Farm button")
+    check(research_buttons("focus").is_empty() and guide._panel_control("focus_toggle")==null and guide._panel_control("focus_locked")!=null,"Before the purchase: Farm shown locked, no purchase in the enemy panel (Change 65)")
     await buy_focus()
     check(sim.level("focus",g)==1 and sim.campaign.focus_hint==g and sim.state.tutorial.seen.has("focus_unlocked"),"First purchase starts the hint (session) and records it in the profile")
-    check(game.notice.text==tr("FOCUS_UNLOCKED") and tr("FOCUS_UNLOCKED")=="Focused Farming unlocked","Confirmation on the panel: \"%s\"" % game.notice.text)
+    check(focus_notice==tr("FOCUS_UNLOCKED") and tr("FOCUS_UNLOCKED")=="Focused Farming unlocked","Confirmation on the panel: \"%s\"" % focus_notice)
     var toggle: Button=guide._panel_control("focus_toggle",true)
     check(toggle!=null and toggle.text.begins_with(tr("FOCUS_GROUP").split(" ")[0]),"The Farm button appears in the same panel")
     check(labels_text(game.rows).contains(tr("FOCUS_HINT_PANEL")),"One line under it says how to use it")
@@ -477,8 +488,7 @@ func focus_checks() -> void:
     # Once per profile: a second type's purchase, a reload and a Prestige never repeat it.
     sim.state.focus=-1
     await open_upgrades(other)
-    await buy_focus()
-    check(sim.level("focus",other)==1 and sim.campaign.focus_hint==-1,"Buying Focused Farming on another type shows nothing new")
+    check(not sim.buy_upgrade("focus") and sim.focus_owned() and sim.campaign.focus_hint==-1 and guide._panel_control("focus_toggle")!=null,"Another type needs no purchase (Change 65: global) and shows nothing new")
     game._close()
     check(not sim.state.has("focus_hint") and sim.state.tutorial.seen.has("focus_unlocked"),"Only the seen flag is saved; the hint itself never is")
     # Got it dismisses it.
@@ -514,12 +524,12 @@ func focus_checks() -> void:
     g=await focus_setup("basic")
     await open_upgrades(g)
     await buy_focus()
-    check(game.notice.text==tr("FOCUS_UNLOCKED") and sim.campaign.focus_hint==-1 and not guide.pointer.visible,"Onboarding Basic: the confirmation, no pointer (Change 25)")
+    check(focus_notice==tr("FOCUS_UNLOCKED") and sim.campaign.focus_hint==-1 and not guide.pointer.visible,"Onboarding Basic: the confirmation, no pointer (Change 25)")
     game._close()
     g=await focus_setup("none")
     await open_upgrades(g)
     await buy_focus()
-    check(game.notice.text==tr("FOCUS_UNLOCKED") and sim.campaign.focus_hint==-1 and not guide.pointer.visible and not labels_text(game.rows).contains(tr("FOCUS_HINT_PANEL")),"Onboarding None: the confirmation, no pointer and no hint line")
+    check(focus_notice==tr("FOCUS_UNLOCKED") and sim.campaign.focus_hint==-1 and not guide.pointer.visible and not labels_text(game.rows).contains(tr("FOCUS_HINT_PANEL")),"Onboarding None: the confirmation, no pointer and no hint line")
     game._close()
     # Focus mechanics unchanged: the toggle still farms the chosen spot and movement stops it.
     sim.focus(g,2)

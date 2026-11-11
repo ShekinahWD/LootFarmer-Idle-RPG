@@ -6316,3 +6316,225 @@ msgstr "Unlock Offline upgrades to earn weapons, outfits, and supplies while awa
 
 msgid "OFFLINE_GO_UPGRADES"
 msgstr "Go to Upgrades"
+
+msgid "FOCUS_LOCKED_GLOBAL"
+msgstr "Buy Focused Farming once in Player Upgrades to farm any discovered enemy."
+
+msgid "FOCUS_OPEN_PLAYER_UPGRADES"
+msgstr "Open Player Upgrades"
+
+msgid "FOCUS_GLOBAL_BENEFIT"
+msgstr "Farm any discovered enemy spot, on every map."
+
+msgid "FOCUS_GLOBAL_OWNED"
+msgstr "Owned: tap Farm on any discovered enemy."
+
+msgid "SECTION_HELP_TUTORIALS"
+msgstr "Help & Tutorials"
+
+msgid "HELP_LANDING_INTRO"
+msgstr "Pick a topic or read every guide in order. Reading changes nothing in your game."
+
+msgid "HELP_PROGRESS"
+msgstr "Viewed %d / %d"
+
+msgid "HELP_CONTINUE"
+msgstr "Continue: %s"
+
+msgid "HELP_READ_ALL"
+msgstr "Read All Tutorials (%d)"
+
+msgid "HELP_CHOOSE_TOPIC"
+msgstr "Choose a Topic"
+
+msgid "HELP_TOPIC_ROW"
+msgstr "%s  ·  %d/%d viewed"
+
+msgid "HELP_BACK_HOME"
+msgstr "Back to Help"
+
+msgid "HELP_BACK_TO_TOPICS"
+msgstr "Back to Topics"
+
+msgid "HELP_VIEWED"
+msgstr "Viewed"
+
+msgid "HELP_NOT_VIEWED"
+msgstr "Not viewed"
+
+msgid "HELP_PREVIOUS"
+msgstr "Previous"
+
+msgid "HELP_NEXT"
+msgstr "Next"
+
+msgid "HELP_FINISH"
+msgstr "Finish"
+
+msgid "HELP_AUTO_ADVANCE"
+msgstr "Auto-Advance: %s"
+
+msgid "HELP_SKIP_OVERVIEW"
+msgstr "Skip Overview"
+
+msgid "HELP_DISCOVERY_BASIC"
+msgstr "Want more help? Open Settings → Help & Tutorials. Pick a topic or read all 14 guides."
+
+msgid "HELP_DISCOVERY_GUIDED"
+msgstr "Need a reminder later? Open Settings → Help & Tutorials for a guide to every system."
+
+msgid "HELP_DISCOVERY_CHOOSER"
+msgstr "You can explore Help & Tutorials anytime in Settings."
+
+msgid "HELP_CAT_COMBAT"
+msgstr "Combat"
+
+msgid "HELP_CAT_EQUIPMENT"
+msgstr "Equipment"
+
+msgid "HELP_CAT_FARMING"
+msgstr "Farming"
+
+msgid "HELP_CAT_PROGRESSION"
+msgstr "Progression"
+
+msgid "HELP_CAT_PERMANENT"
+msgstr "Permanent Progression"
+
+msgid "HELP_CARD_MOVEMENT_COMBAT_TITLE"
+msgstr "Movement & Combat"
+
+msgid "HELP_CARD_MOVEMENT_COMBAT_ACTION"
+msgstr "Drag the joystick to approach an enemy."
+
+msgid "HELP_CARD_MOVEMENT_COMBAT_SUPPORT"
+msgstr "Your hero automatically attacks enemies within reach."
+
+msgid "HELP_CARD_MANUAL_TARGET_TITLE"
+msgstr "Choose Your Target"
+
+msgid "HELP_CARD_MANUAL_TARGET_ACTION"
+msgstr "Drag from your hero to an enemy, then release."
+
+msgid "HELP_CARD_MANUAL_TARGET_SUPPORT"
+msgstr "Use this gesture to change who your hero attacks."
+
+msgid "HELP_CARD_COLLECT_EQUIP_TITLE"
+msgstr "Collect & Equip"
+
+msgid "HELP_CARD_COLLECT_EQUIP_ACTION"
+msgstr "Collect dropped gear, then equip it."
+
+msgid "HELP_CARD_COLLECT_EQUIP_SUPPORT"
+msgstr "Equipment strengthens you; stored gear also grants bonuses."
+
+msgid "HELP_CARD_MERGE_GEAR_TITLE"
+msgstr "Merge Equipment"
+
+msgid "HELP_CARD_MERGE_GEAR_ACTION"
+msgstr "Merge two copies of the same item."
+
+msgid "HELP_CARD_MERGE_GEAR_SUPPORT"
+msgstr "Merging increases the item's strength and merge rank."
+
+msgid "HELP_CARD_PLAYER_UPGRADES_TITLE"
+msgstr "Player Upgrades"
+
+msgid "HELP_CARD_PLAYER_UPGRADES_ACTION"
+msgstr "Buy upgrades to strengthen your hero."
+
+msgid "HELP_CARD_PLAYER_UPGRADES_SUPPORT"
+msgstr "Focused Farming unlocks globally for 25 Gems here."
+
+msgid "HELP_CARD_ENEMY_AUTOMATION_TITLE"
+msgstr "Enemy Automation"
+
+msgid "HELP_CARD_ENEMY_AUTOMATION_ACTION"
+msgstr "Upgrade each enemy type to automate its loot."
+
+msgid "HELP_CARD_ENEMY_AUTOMATION_SUPPORT"
+msgstr "Auto-Collect, Auto-Merge and Auto-Evolution are type-specific."
+
+msgid "HELP_CARD_MISSIONS_TITLE"
+msgstr "Missions & Rewards"
+
+msgid "HELP_CARD_MISSIONS_ACTION"
+msgstr "Follow a mission and claim its completed reward."
+
+msgid "HELP_CARD_MISSIONS_SUPPORT"
+msgstr "Missions give you goals and additional resources."
+
+msgid "HELP_CARD_EXPLORE_CAMPS_TITLE"
+msgstr "Explore & Teleport"
+
+msgid "HELP_CARD_EXPLORE_CAMPS_ACTION"
+msgstr "Discover camps, then select your destination on the map."
+
+msgid "HELP_CARD_EXPLORE_CAMPS_SUPPORT"
+msgstr "Unlock camps to travel and choose where you respawn."
+
+msgid "HELP_CARD_SKILLS_SUPPLIES_TITLE"
+msgstr "Skills & Supplies"
+
+msgid "HELP_CARD_SKILLS_SUPPLIES_ACTION"
+msgstr "Equip skills and supplies before tougher fights."
+
+msgid "HELP_CARD_SKILLS_SUPPLIES_SUPPORT"
+msgstr "Skills assist combat; supplies can heal or grant boosts."
+
+msgid "HELP_CARD_OFFLINE_REWARDS_TITLE"
+msgstr "Offline Rewards"
+
+msgid "HELP_CARD_OFFLINE_REWARDS_ACTION"
+msgstr "Claim rewards when you return to the game."
+
+msgid "HELP_CARD_OFFLINE_REWARDS_SUPPORT"
+msgstr "Offline upgrades unlock more reward categories."
+
+msgid "HELP_CARD_WEAPON_EVOLUTION_TITLE"
+msgstr "Weapon Evolution"
+
+msgid "HELP_CARD_WEAPON_EVOLUTION_ACTION"
+msgstr "Meet the merge and copy requirements to evolve a weapon."
+
+msgid "HELP_CARD_WEAPON_EVOLUTION_SUPPORT"
+msgstr "Evolution advances a weapon to a stronger tier."
+
+msgid "HELP_CARD_PRESTIGE_TITLE"
+msgstr "Prestige"
+
+msgid "HELP_CARD_PRESTIGE_ACTION"
+msgstr "Defeat the Snowman and complete Prestige opportunities."
+
+msgid "HELP_CARD_PRESTIGE_SUPPORT"
+msgstr "Prestige grants permanent cards when you reset your run."
+
+msgid "HELP_CARD_MAP_DETAILS_MASTERY_TITLE"
+msgstr "Map Details & Mastery"
+
+msgid "HELP_CARD_MAP_DETAILS_MASTERY_ACTION"
+msgstr "Explore maps and purchase Map Details to learn more."
+
+msgid "HELP_CARD_MAP_DETAILS_MASTERY_SUPPORT"
+msgstr "Map Mastery tracks lasting exploration and achievements."
+
+msgid "HELP_CARD_ADVANCED_FARMING_TITLE"
+msgstr "Advanced Farming"
+
+msgid "HELP_CARD_ADVANCED_FARMING_ACTION"
+msgstr "Choose a discovered spot and tap Farm."
+
+msgid "HELP_CARD_ADVANCED_FARMING_SUPPORT"
+msgstr "Move manually to stop farming or choose another spot."
+
+msgid "GUIDE_TARGET_STRIKE"
+msgstr "Good choice!"
+
+msgid "GUIDE_TARGET_STRIKE_DETAIL"
+msgstr "Your hero walks to the enemy you chose and attacks it."
+
+msgid "GUIDE_AUTO_ATTACK"
+msgstr "Auto-Attack Enabled!"
+
+msgid "GUIDE_AUTO_ATTACK_DETAIL"
+msgstr "Your hero now attacks nearby enemies automatically. Drag from your hero to an enemy whenever you want to change targets."

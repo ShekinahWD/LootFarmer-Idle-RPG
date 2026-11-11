@@ -31,6 +31,8 @@ var milestones: Array=[]
 ## A profile at the guide chooser, exactly as a first launch (no probe reveal fixture).
 func chooser() -> void:
     get_tree().paused=false
+    if game.help_viewer.visible:game.help_viewer.hide()
+    sim.held=false
     sim.new_profile();sim.set_physics_process(false)
     sim.state.onboarding.reveal=[];sim.state.tutorial.seen=[];sim.state.tutorial.mode="pending"
     game._close();game._cancel_confirm();game.banner.queue.clear();game.banner._finish();game.toast_queue.clear()
@@ -147,24 +149,23 @@ func zoom_checks() -> void:
 func basic_checks() -> void:
     await choose("basic")
     var guide=game.guide
-    var deck: Array=guide.BASIC_DECK
-    # Change 35 adds the targeting card (basic_target): six cards.
-    check(deck.size()>=3 and deck.size()<=6,"Basic: an overview of %d cards (3-6)" % deck.size())
+    # Change 65: the Basic overview is the first 8 cards of the shared tutorial-card registry, shown in
+    # the one card viewer that Help also uses (help_viewer.gd), each card with its demonstration.
+    var viewer=game.help_viewer
+    var deck: Array=viewer.HelpCards.essential()
+    check(deck.size()==8 and deck==viewer.HelpCards.ids().slice(0,8),"Basic: the 8 essential cards of the shared library")
     var texts_ok:=true
     for id in deck:
-        var t: String=tr("GUIDE_"+id.to_upper());var d: String=tr("GUIDE_"+id.to_upper()+"_DETAIL")
-        if t.begins_with("GUIDE_") or d.begins_with("GUIDE_") or d.length()>220:texts_ok=false
-    check(texts_ok,"Every overview card has a short title and text (≤220 characters)")
-    check(guide.pending==deck[0] and guide.card.visible and not guide.pointer.visible and not guide.highlight.visible,"The first card shows, text only")
-    check(guide.title.text.ends_with("1/%d" % deck.size()) and guide.skip_button.visible and guide.intro_button.visible,"It counts the deck and offers Skip and Got it")
-    check(guide.card.mouse_filter==Control.MOUSE_FILTER_IGNORE and not guide.blocker.visible and not sim.suspended,"The card blocks nothing (no modal, the game runs)")
-    game._open("missions");await frames(2)
-    check(game.panel=="missions" and not guide.card.visible,"A menu opens while it is pending (the card waits)")
-    game._close();await frames(2)
-    guide.intro_button.pressed.emit();await frames(3)
-    check(guide.pending==deck[1] and sim.state.tutorial.seen.has(deck[0]),"Got it: the next card")
-    guide.skip_button.pressed.emit();await frames(3)
-    check(deck.all(func(id):return sim.state.tutorial.seen.has(id)) and guide.pending==guide.ROAD_AHEAD_ID,"Skip: the rest of the deck retires; The Road Ahead follows")
+        for key in [viewer.HelpCards.title_key(id),viewer.HelpCards.action_key(id),viewer.HelpCards.support_key(id)]:
+            if tr(key)==key or tr(key).length()>120:texts_ok=false
+    check(texts_ok,"Every card has a short title, action and support line")
+    check(viewer.visible and viewer.context=="basic" and viewer.current()==deck[0] and not guide.pointer.visible and not guide.highlight.visible,"The first card shows in the card viewer, no pointer")
+    check(viewer.position_label.text=="1/%d" % deck.size() and viewer.skip_button.visible and viewer.next_button.visible,"It counts the deck (1/8) and offers Skip Overview and Next")
+    check(sim.held and not guide.blocker.visible,"While it is read the world waits (Change 65); no chooser blocker")
+    viewer.step(1);await frames(3)
+    check(viewer.current()==deck[1] and viewer.position_label.text=="2/%d" % deck.size(),"Next: the next card")
+    viewer.skip_button.pressed.emit();await frames(3)
+    check(not viewer.visible and viewer.HelpCards.basic_done(sim.state.tutorial) and guide.pending==guide.ROAD_AHEAD_ID,"Skip: the rest of the overview retires; The Road Ahead follows")
     check(not guide.skip_button.visible and not guide.pointer.visible and guide.final_backdrop.visible,"The Road Ahead: centred, no Skip, no pointer")
     guide.intro_button.pressed.emit()
     check(not sim.state.tutorial.seen.has(guide.ROAD_AHEAD_ID),"…which keeps its non-auto-dismiss delay")
@@ -175,30 +176,30 @@ func basic_checks() -> void:
     var shown:=false
     var events: Array=[func():sim.add_item("wood_sword",2),func():sim.merge("wood_sword"),func():sim.state.counters["camp"]=1,
         func():sim.state.player.hp=1,func():sim.state.upgrades["mission_claim"]=1,func():sim.state.bosses_found.append("boss-snowman"),
-        func():sim.state.upgrades["focus:0"]=1;sim.campaign.focus_hint=0]
+        func():sim.state.upgrades["focus"]=1;sim.campaign.focus_hint=0]
     for e in events:
         e.call();sim.campaign.onboarding.evaluate();await frames(3)
         if guide.card.visible or guide.pointer.visible or guide.highlight.visible:shown=true
     check(not shown,"Basic: no later cards, tips or pointers (gear, merge, camp, low health, Auto Claim, Snowman, Focus)")
     sim.state.player.hp=sim.stats().hp
     var seen: Array=sim.state.tutorial.seen.duplicate()
-    game._open("settings");await frames(2);game._open("help");await frames(2)
-    var text: String=labels_text(game.rows)
-    check(deck.all(func(id):return text.contains(tr("GUIDE_"+id.to_upper()))),"Help shows the same overview cards")
-    game._close();await frames(2)
-    check(sim.state.tutorial.seen==seen and guide.pending=="","Reading Help repeats nothing")
+    game._open("settings");await frames(2);game.help_page="home";game._open("help");await frames(2)
+    viewer.open_help("help_all",0);await frames(2)
+    check(viewer.current()==deck[0] and viewer.position_label.text=="1/14","Help shows the same cards (the library of 14)")
+    viewer.close_viewer();game._close();await frames(2)
+    check(sim.state.tutorial.seen==seen and guide.pending=="" and not viewer.visible,"Reading Help repeats nothing")
     sim.restore(JSON.parse_string(JSON.stringify(sim.snapshot())));await frames(3)
     check(guide.pending=="" and not guide.card.visible,"No repeat after save/load")
     check(do_prestige(),"Prestige");await frames(3)
     check(guide.pending=="" and not guide.card.visible and sim.state.tutorial.mode=="basic","No repeat after Prestige")
-    # Each card also retires on its own after its time on screen.
+    # Each card also advances on its own (Auto-Advance, on in the opening) after its loop and reading time.
     await choose("basic")
-    guide._process(sim.campaign.onboarding.rules.card_seconds+.5);await frames(2)
-    check(sim.state.tutorial.seen.has(deck[0]) and guide.pending==deck[1],"A card advances after %d s on screen" % int(sim.campaign.onboarding.rules.card_seconds))
-    # A skip on the last card is Got it (no Skip shown there); The Road Ahead still follows.
-    for id in deck.slice(0,deck.size()-1):sim.state.tutorial.seen.append(id)
-    await frames(2)
-    check(guide.pending==deck.back() and not guide.skip_button.visible,"The last card offers Got it only")
+    for k in range(60):viewer._process(.25)
+    check(viewer.index>=1 and viewer.HelpCards.viewed(sim.state.tutorial,deck[0]),"A card advances on its own after its demonstration and reading time")
+    # The last card offers Finish only (no Skip); The Road Ahead still follows.
+    viewer.index=deck.size()-1;viewer._show_card();await frames(2)
+    check(viewer.next_button.text==tr("HELP_FINISH") and not viewer.skip_button.visible,"The last card offers Finish only")
+    viewer.close_viewer();await frames(2)
 
 # ---------------------------------------------------------------- 4. None
 func none_checks() -> void:
@@ -275,7 +276,7 @@ func back_checks() -> void:
 func layout_checks() -> void:
     for shape in [Vector2i(540,960),Vector2i(432,960),Vector2i(360,640)]:
         get_window().size=shape
-        await choose("basic");sim.state.tutorial.seen.append_array(game.guide.BASIC_DECK);sim.state.tutorial.seen.append("road_ahead")
+        await choose("basic");game.help_viewer.close_viewer();sim.state.tutorial.seen.append("road_ahead")
         sim.state.follow_mission="main:0" # fixture: a followed objective
         sim.state.opportunities["hunter_o1"]={"ready":false,"baseline":{},"step":0,"count":0};sim.state.follow="hunter_o1" # fixture: a followed opportunity
         await frames(6);refresh_hud();await frames(2)
@@ -304,8 +305,13 @@ func layout_checks() -> void:
         check(view.encloses(game.get_node("Confirm/Panel").get_global_rect()),"%s: a confirmation fits the screen" % str(shape))
         game._cancel_confirm()
         await choose("basic");await frames(4)
-        var card: Rect2=game.guide.card.get_global_rect()
-        check(game.guide.card.visible and map.grow(1).encloses(card) and not card.intersects(stick),"%s: the Basic card fits the map above the joystick" % str(shape))
+        # Change 65: the Basic opening is the card viewer; it fits the screen with every control on it.
+        var viewer=game.help_viewer
+        var card: Rect2=viewer.panel.get_global_rect()
+        var inside:=view.encloses(card)
+        for b in [viewer.prev_button,viewer.next_button,viewer.auto_button,viewer.skip_button]:inside=inside and card.encloses(b.get_global_rect())
+        check(viewer.visible and inside,"%s: the Basic card viewer fits the screen with its controls" % str(shape))
+        viewer.close_viewer()
     get_window().size=Vector2i(720,1280);await frames(4)
 
 func version_checks() -> void:

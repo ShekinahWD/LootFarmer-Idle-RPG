@@ -231,8 +231,16 @@ func _physics_process(delta: float) -> void:
 func level(id: String, group: int = -1) -> int:
     return int(state.upgrades.get(_upgrade_key(id,group),0))
 
+## Change 65: a global-scope upgrade has one record whatever group a caller passes (Focused Farming
+## became one Player upgrade; a caller still naming an enemy type reads the same global rank).
 func _upgrade_key(id: String, group: int) -> String:
+    if group>=0 and str(catalog.upgrades.get(id,{}).get("scope",""))=="global":return id
     return id if group < 0 else "%s:%d" % [id,group]
+
+## Change 65: Focused Farming is one global Player upgrade (25 Gems, kept by Prestige). This is the only
+## ownership test: sim.focus(), the enemy panel's Farm button and the guide's Farm hint all read it.
+func focus_owned() -> bool:
+    return level("focus")>0
 
 func card(id: String) -> float:
     return 1.0+campaign.bonus(id)
@@ -967,8 +975,8 @@ func focus(group: int,variant: int=2) -> bool:
     # Auto-farm never walks to a spot the player has not found (no hidden coordinates).
     if not campaign.spot_discovered(group,variant):
         return fail("SPOT_UNDISCOVERED")
-    if level("focus",group)==0:
-        return fail("AUTOMATION_LOCKED")
+    if not focus_owned():
+        return fail("FOCUS_LOCKED_GLOBAL")
     clear_target()
     var same:=int(state.focus)==group and int(state.focus_variant)==variant
     state.focus = -1 if same else group
@@ -1130,6 +1138,8 @@ func _resolve_attack(a: Dictionary, dt: float) -> void:
     target.aggro=not bool(target.get("returning",false))
     feedback.emit(target.id,actual,false)
     if is_player:
+        # Change 65: a real hit on the enemy the player chose by hand (the Guided first-attack lesson).
+        if manual_target!="" and str(target.id)==manual_target:campaign.guided.manual_attack()
         a.hp=minf(stats().hp,a.hp+actual*stats().lifesteal)
         var target_def: Dictionary=catalog.groups[int(target.group)]
         if target_def.aggro_mode=="group":
@@ -1400,8 +1410,8 @@ func select_target(id: String) -> bool:
     state.player.target=""
     state.player.attack_age=9.0
     state.player.idle=1.0
-    # Change 35: the Guided targeting lesson completes on this successful manual selection only (the
-    # map gesture's release on an enemy is its one caller); automatic acquisition never comes here.
+    # Change 35/65: the map gesture's release on an enemy is this function's one caller. Since Change 65
+    # the Guided lesson completes on the first real hit on this target (_resolve_attack), not here.
     campaign.guided.action("target",id)
     touch()
     return true
@@ -1441,9 +1451,13 @@ func threatens_player(enemy: Dictionary) -> bool:
 
 func _combat_target() -> Dictionary:
     var target:=_find_actor(locked_target)
-    if not target.is_empty() and target.hp>0 and campaign.target_allowed(target) and _keeps_lock(target):
+    # Change 65: before a fresh Guided profile's first manual attack, only the gesture's target counts and
+    # nothing is acquired automatically (guided_progress.auto_attack_gated). Enemies still attack.
+    var gated: bool=campaign.guided.auto_attack_gated()
+    if not target.is_empty() and target.hp>0 and campaign.target_allowed(target) and _keeps_lock(target) and (not gated or manual_target==str(target.id)):
         return target
     clear_target()
+    if gated:return {}
     target=auto_target(float(catalog.world.acquisition))
     if not target.is_empty():
         locked_target=target.id

@@ -46,6 +46,7 @@ func quiet(channel:="google_play",playtime:=3600.0) -> void:
     BootContext.store_channel_override=channel
     get_tree().paused=false
     if dialog.visible:dialog.close()
+    if game.help_viewer.visible:game.help_viewer.hide() # Change 65: a Basic opening left by an earlier step
     fresh("none");sim.suspended=false;sim.held=false
     sim.state.tutorial.seen.append("road_ahead")
     sim.state.playtime_total=playtime
@@ -306,12 +307,13 @@ func basic_target_checks() -> void:
     BootContext.store_channel_override=""
     await choose("basic")
     var guide=game.guide
-    check(guide.BASIC_DECK[1]=="basic_target" and guide.BASIC_DECK.size()==6,"Basic deck: the targeting card right after the overview (6 cards)")
-    guide.intro_button.pressed.emit();await frames(3)
-    check(guide.pending=="basic_target" and guide.card.visible and guide.title.text=="Target an enemy  2/6" and guide.support.text.begins_with("Drag from your hero to an enemy, then release to target it."),"Basic shows \"%s\": %s" % [guide.title.text,guide.support.text])
-    check(not guide.pointer.visible and not guide.aim.visible and guide.skip_button.visible and guide.intro_button.visible,"…text only (no pointer or demo), with Skip and Got it")
-    guide._process(sim.campaign.onboarding.rules.card_seconds+.5);await frames(2)
-    check(sim.state.tutorial.seen.has("basic_target") and guide.pending=="basic_gear","…and retires on its own after %d s" % int(sim.campaign.onboarding.rules.card_seconds))
+    # Change 65: the shared card registry; its targeting card follows Movement & Combat.
+    var viewer=game.help_viewer
+    check(viewer.HelpCards.essential()[1]=="manual_target" and viewer.HelpCards.essential().size()==8,"Basic opening: the targeting card right after movement (8 shared cards)")
+    viewer.step(1);await frames(3)
+    check(viewer.visible and viewer.current()=="manual_target" and viewer.title_label.text=="Choose Your Target" and viewer.position_label.text=="2/8" and viewer.action_label.text=="Drag from your hero to an enemy, then release.","Basic shows the targeting card: %s" % viewer.action_label.text)
+    check(not guide.pointer.visible and not guide.aim.visible and viewer.skip_button.visible and viewer.demo.card_id=="manual_target","…its own demonstration (no world pointer), with Skip Overview")
+    viewer.close_viewer();await frames(2)
     var none_shown:=false
     await choose("none")
     for i in range(5):
@@ -319,9 +321,9 @@ func basic_target_checks() -> void:
         if guide.pending in ["basic_target","target"] or guide.aim.visible:none_shown=true
     check(not none_shown,"None never shows the targeting lesson")
     sim.state.tutorial.seen.append("road_ahead")
-    game._open("settings");await frames(2);game._open("help");await frames(2)
-    var text: String=labels_text(game.rows)
-    check(text.contains("Target an enemy") and text.contains("Drag from your hero to an enemy"),"Help includes the targeting card")
+    game._open("settings");await frames(2);game.help_page="combat";game._open("help");await frames(2)
+    var text: String=" | ".join(game.rows.find_children("*","Button",true,false).map(func(b):return b.text))
+    check(text.contains("Choose Your Target"),"Help includes the targeting card")
     game._close()
 
 # ---------------------------------------------------------------- 8. Guided: the real gesture
@@ -376,7 +378,8 @@ func guided_target_checks() -> void:
     check(target_count()==0,"Joystick movement does not count")
     sim.state.player.x=at.x;sim.state.player.y=at.y
     sim.state.player.idle=1.0;sim._combat_target();sim.step(.1)
-    check(target_count()==0 and sim.locked_target!="" and sim.manual_target=="","Automatic acquisition (locked, not manual) does not count")
+    # Change 65: before the first manual attack nothing is acquired automatically at all.
+    check(target_count()==0 and sim.locked_target=="" and sim.manual_target=="","No automatic acquisition before the first manual attack (Change 65)")
     check(not sim.select_target("player") and target_count()==0,"A refused selection does not count")
     sim.state.counters["kill"]=1.0;await frames(2)
     check(guide.pending=="target" and target_count()==0,"An automatic kill does not skip it")
@@ -388,8 +391,14 @@ func guided_target_checks() -> void:
     await frames(1)
     check(surface.aiming and not guide.aim.visible,"While the player aims, the demo steps aside for the real aim line")
     surface.end_pointer(0,foe_point);await frames(2)
-    check(sim.manual_target==foe.id and target_count()==1,"Drag from the hero, release on the enemy: selected and the step completes")
-    check(guide.pending=="kill" and not guide.aim.visible,"The tutorial continues (%s), demo gone" % guide.pending)
+    # Change 65: the release selects; the lesson completes on the hero's first real hit on that enemy.
+    check(sim.manual_target==foe.id and target_count()==0 and guide.step=="target_strike" and not guide.aim.visible,"Drag from the hero, release on the enemy: selected, the demo steps aside")
+    var waited:=0.0
+    while waited<5.0 and target_count()==0:
+        sim.step(.05);waited+=.05
+    await frames(2)
+    check(target_count()==1,"The hero's first real attack on it completes the step")
+    check(guide.pending=="auto_attack" and not guide.aim.visible,"The tutorial continues (%s: autoattack explained), demo gone" % guide.pending)
     sim.clear_target();game.world.follow_player();game.world.update_camera();await frames(2)
     hero_point=game.world.player_screen_position()*surface.size/game.world.get_viewport_rect().size;foe_point=screen_of(sim.position_of(foe)+Vector2(0,-10))
     drag(hero_point,foe_point)

@@ -12,6 +12,8 @@ var mastery
 var guided
 ## Change 35: the one automatic review invitation (state.review) and its storefront routing.
 var review
+## Change 65: the shared tutorial-card registry (its reading progress is normalized on load).
+const HelpCards=preload("res://scripts/game/help_cards.gd")
 func _init(owner) -> void:
     sim=owner
     guided=preload("res://scripts/game/guided_progress.gd").new(owner)
@@ -530,13 +532,30 @@ func sequence_count(id: String) -> int:
 ## Farming purchase (-1 when none). Session only, never saved: "focus_unlocked" in tutorial.seen is
 ## written at that purchase, so a reload, Prestige or a later purchase never shows it again.
 var focus_hint: int=-1
+## Change 65: the nearest discovered enemy type of the current map with a found farming spot (-1: none).
+func farm_hint_group() -> int:
+    var best:=-1
+    var best_d:=INF
+    var at: Vector2=sim.position_of(sim.state.player)
+    for g in stage().groups:
+        g=int(g)
+        if not discovered(g) or sim.catalog.groups[g].boss:continue
+        var found:=false
+        for v in variants(g):
+            if spot_discovered(g,int(v)):found=true;break
+        if not found:continue
+        var d: float=at.distance_to(spot(g,2))
+        if d<best_d:best_d=d;best=g
+    return best
 func upgrade_bought(id: String,g: int) -> void:
     if id in ["map_detail","reveal_radius","camp_radius"]:reveal()
     if id=="mission_slots":refresh_missions()
     if id=="focus" and not sim.state.tutorial.seen.has("focus_unlocked"):
         sim.state.tutorial.seen.append("focus_unlocked")
-        # The confirmation shows in every mode; the pointer is Guided only (Change 25).
-        if str(sim.state.tutorial.mode)=="guided":focus_hint=g
+        # The confirmation shows in every mode; the pointer is Guided only (Change 25). Change 65: the
+        # purchase is global, so the hint names the nearest enemy type on this map whose farming spot the
+        # player has found (the next actionable Farm), or none (the confirmation alone).
+        if str(sim.state.tutorial.mode)=="guided":focus_hint=farm_hint_group()
         sim.notice.emit("focus_unlocked",str(g))
     progress("upgrade",id,1)
 func equip_skill(id: String,slot: int=-1) -> bool:
@@ -1588,6 +1607,8 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
                 if actor is Dictionary:
                     for field in ["group","variant"]:
                         if number(actor.get(field)):actor[field]=int(actor[field])
+    migrate_focus_global(out)
+    HelpCards.normalize(out)
     if out.get("upgrades") is Dictionary:
         for key in out.upgrades.keys():
             var parts: PackedStringArray=str(key).split(":")
@@ -1618,6 +1639,28 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     normalize_skill_assignments(out)
     migrate_legacy_weapons(out)
     return out
+## Change 65 (same schema 9): Focused Farming moved from one purchase per enemy type ("focus:<g>") to one
+## global Player upgrade ("focus"). A profile that owned it for at least one type owns the global rank
+## (never charged again, no Gem refund); one that owned none stays at 0. The legacy per-type records are
+## removed here, so no lookup can charge or unlock twice, and repeated loads are a no-op (an existing
+## "focus" record is kept). Such a profile never replays the first-purchase Farm hint ("focus_unlocked").
+## focus/focus_variant (the current farming choice) are not touched. legacy_focus_records reports how
+## many per-type records the last migrated snapshot held (for probes and the implementation report).
+var legacy_focus_records:=0
+func migrate_focus_global(out: Dictionary) -> void:
+    legacy_focus_records=0
+    if not out.get("upgrades") is Dictionary:return
+    var owned:=false
+    for key in out.upgrades.keys():
+        var parts: PackedStringArray=str(key).split(":")
+        if parts.size()!=2 or parts[0]!="focus":continue
+        if number(out.upgrades[key]) and int(out.upgrades[key])>0:owned=true;legacy_focus_records+=1
+        out.upgrades.erase(key)
+    if not owned:return
+    out.upgrades["focus"]=1
+    if out.get("tutorial") is Dictionary and out.tutorial.get("seen") is Array and not out.tutorial.seen.has("focus_unlocked"):
+        out.tutorial.seen.append("focus_unlocked")
+    if out.get("migrations") is Array and not out.migrations.has("focus_global"):out.migrations.append("focus_global")
 ## Change 61 (same schema 9): the per-stage respawn choice and the one-time 30-defeat mission. A save from
 ## before has neither: respawns starts empty (the current stage keeps its "spawn"), the mission starts
 ## locked and unlocks on the next tick if the Snowman was already found (counting defeats from then on).
