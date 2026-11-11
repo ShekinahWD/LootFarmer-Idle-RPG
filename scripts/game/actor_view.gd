@@ -115,7 +115,8 @@ func _process(dt: float) -> void:
                 _hp_text.text=text
                 # A longer number may have grown the label; keep it the bar's width as before.
                 _hp_text.size=Vector2(hp_bar_width*visual_scale,hp_bar_height)/hp_text_scale
-        _visual.modulate=Color(2,1.4,1.4) if actor.hurt>0 else Color.WHITE
+        # Change 67 follow-up: a critical hit flashes the target near white (an ordinary hit stays pink).
+        _visual.modulate=(Color(3.2,2.8,2.2) if bool(actor.get("critical_hit",false)) else Color(2,1.4,1.4)) if actor.hurt>0 else Color.WHITE
     if walking:
         row=walk_row
         col=int(elapsed*walk_fps)%walk_frames
@@ -136,7 +137,9 @@ func _process(dt: float) -> void:
     _marker.position=Vector2(-8,top-16 if _stack_used else -38*visual_scale)
     _speech.position.y=minf(-52*visual_scale,top-14)
     if not dead and actor.get("hurt",0)>0:
-        _visual.position.x=-facing*2.0*sin(float(actor.hurt)/.16*PI)
+        # Recoil away from the blow; a critical hit knocks the target back more than twice as far.
+        var recoil:=5.0 if bool(actor.get("critical_hit",false)) else 2.0
+        _visual.position.x=-facing*recoil*sin(float(actor.hurt)/.16*PI)
     if dead:
         _visual.modulate.a=clampf((float(death_frames)/death_fps+.2-float(actor.dead_age))/.2,0,1)
     _body.self_modulate=body_tint
@@ -257,11 +260,49 @@ func show_hit(value: float, healing: bool, critical: bool=false, on_player: bool
     # Sign and "!" carry the meaning; colour reinforces it (outlined for snow and bright effects).
     label.modulate=Color(.45,1,.55) if healing else (Color(1,.78,.2) if critical else (Color(1,.42,.38) if on_player else Color.WHITE))
     label.z_index=100
+    if critical and not on_player:
+        _critical_number(label)
+        return
     var tween:=label.create_tween()
     tween.set_parallel()
     tween.tween_property(label,"position:y",label.position.y-22,1.8)
     tween.tween_property(label,"modulate:a",0.0,.7).set_delay(1.1)
     tween.chain().tween_callback(label.queue_free)
+
+## Change 67 follow-up: the hero's critical hit. The number slams in large (gold, orange outline),
+## shakes, settles bigger than an ordinary hit and stays a little longer, under a "CRIT!" tag.
+func _critical_number(label: Label) -> void:
+    label.position=position+Vector2(-22,-35*visual_scale-8)
+    label.add_theme_color_override("font_outline_color",Color(.55,.16,.02))
+    label.add_theme_constant_override("outline_size",5)
+    label.modulate=Color(1,.86,.25)
+    label.pivot_offset=label.size*.5
+    label.scale=Vector2.ONE*2.3
+    var tag: Label=label.duplicate()
+    get_parent().add_child(tag)
+    tag.text=tr("CRIT_TAG")
+    tag.add_theme_font_size_override("font_size",8)
+    tag.add_theme_color_override("font_outline_color",Color(.3,.03,.03))
+    tag.add_theme_constant_override("outline_size",4)
+    tag.modulate=Color(1,.38,.25)
+    tag.position=label.position+Vector2(0,-11)
+    tag.scale=Vector2.ONE*.4
+    tag.pivot_offset=tag.size*.5
+    var base_x:=label.position.x
+    var t:=label.create_tween()
+    t.tween_property(label,"scale",Vector2.ONE*1.45,.14).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+    for i in range(3):t.tween_property(label,"position:x",base_x+(2.0 if i%2==0 else -2.0)*(1.0-i*.3),.03)
+    t.tween_property(label,"position:x",base_x,.03)
+    t.set_parallel()
+    t.tween_property(label,"position:y",label.position.y-20,1.9)
+    t.tween_property(label,"modulate:a",0.0,.6).set_delay(1.4)
+    t.chain().tween_callback(label.queue_free)
+    var tt:=tag.create_tween()
+    tt.tween_property(tag,"scale",Vector2.ONE*1.1,.16).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+    tt.set_parallel()
+    tt.tween_property(tag,"position:y",tag.position.y-20,1.9)
+    tt.tween_property(tag,"modulate:a",0.0,.6).set_delay(1.4)
+    tt.chain().tween_callback(tag.queue_free)
 
 func say(key: String) -> void:
     if speech_tween and speech_tween.is_valid():

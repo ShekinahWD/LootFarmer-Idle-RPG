@@ -42,6 +42,8 @@ func run() -> void:
     await time_scale_checks()
     await collect_checks()
     await respawn_checks()
+    await crit_checks()
+    await supply_checks()
     print("CHANGE_67_CHECKS %d FAILURES %d" % [checks,failures])
     get_tree().quit(1 if failures>0 else 0)
 
@@ -315,4 +317,66 @@ func respawn_checks() -> void:
     fx.play(Vector2.ZERO)
     sim.state.stage=2;await frames(3) # fixture: a map change
     check(not fx.running(),"A map change stops it")
+    sim.state.stage=1;await frames(3)
+
+# ---------------------------------------------------------------- critical hits and supplies
+func crit_checks() -> void:
+    fresh()
+    var w=game.world
+    var p: Vector2=sim.position_of(sim.state.player)
+    var f: Dictionary=sim.state.enemies[0]
+    f.x=p.x+16;f.y=p.y;f.hp=1e6 # fixture: a sturdy enemy beside the hero
+    sim.campaign.reveal_circle(p,80)
+    await frames(4)
+    var before: float=f.hp
+    f.critical_hit=false
+    AudioService.reset_history()
+    sim.feedback.emit(f.id,5.0,false) # an ordinary hit's feedback
+    check(w.crit_fx.active()==0 and not requested("crit_hit"),"An ordinary hit: no crit impact, no crit cue")
+    f.critical_hit=true;f.hurt=.16 # fixture: the simulation marked this hit critical
+    sim.feedback.emit(f.id,15.0,false)
+    check(w.crit_fx.active()==1 and requested("crit_hit") and w.kick_start>=0,"A crit: impact on the target, its cue and a camera kick")
+    var tags: Array=w.get_children().filter(func(n):return n is Label and n.text==tr("CRIT_TAG"))
+    check(tags.size()>=1 or w.views[f.id].get_parent().get_children().any(func(n):return n is Label and n.text==tr("CRIT_TAG")),"The number carries a CRIT! tag")
+    for i in range(6):
+        f.critical_hit=true;sim.feedback.emit(f.id,15.0,false)
+    check(w.crit_fx.active()<=w.crit_fx.SLOTS,"Rapid crits reuse a fixed pool (%d of %d)" % [w.crit_fx.active(),w.crit_fx.SLOTS])
+    check(f.hp==before,"Presentation never changes HP")
+    sim.state.player.critical_hit=true
+    w.crit_fx.stop()
+    sim.feedback.emit("player",3.0,false)
+    check(w.crit_fx.active()==0,"The hero being hit never shows the hero's crit impact")
+    await wait(.6)
+    check(w.crit_fx.active()==0,"The impact ends by itself")
+    check(not w.get_node("Camera").offset.length()>0.01,"The camera kick ends")
+
+func supply_checks() -> void:
+    fresh()
+    var w=game.world
+    var fx=w.supply_fx
+    sim.state.supplies=["","","","",""] # fixture: five supply slots
+    for id in ["potion","coin_boost","guard_tonic","recovery_salve","wisdom_tonic"]:sim.add_item(id,2)
+    var seen: Array=[]
+    sim.supply_used.connect(func(id):seen.append(id))
+    for id in ["potion","coin_boost","guard_tonic","recovery_salve","wisdom_tonic"]:
+        sim.state.player.hp=sim.stats().hp*.4 # fixture: hurt, so every supply's use rule allows it
+        AudioService.reset_history()
+        var kind: String=str(sim.supply(id).effect)
+        check(sim.use_item(id),"%s used (the rule is unchanged)" % id)
+        check(fx.bursts[kind].node.visible and fx.label.text==sim.catalog.display_name(id),"%s: its own burst and its name (%s)" % [id,fx.label.text])
+        check(requested(fx.THEMES[kind].cue),"%s: its cue (%s)" % [id,fx.THEMES[kind].cue])
+    check(seen==["potion","coin_boost","guard_tonic","recovery_salve","wisdom_tonic"],"supply_used once per use")
+    check(not fx.bursts.has("") and fx.since_burst()<.1,"The generic stat burst is held back right after a supply burst")
+    await wait(.5)
+    for kind in ["coins","guard","recovery","xp"]:
+        check(fx.auras[kind].node.visible,"%s aura shows while it lasts" % kind)
+    check(fx.auras["guard"].shield.modulate.a>.2,"Guard Tonic: the shield bubble is visible")
+    sim.state.boost_time=0.0;sim.state.buffs.clear() # fixture: every timed supply ran out
+    await wait(.6)
+    for kind in ["coins","guard","recovery","xp"]:
+        check(not fx.auras[kind].node.visible,"%s aura ends with its supply" % kind)
+    sim.state.supplies=["","","","",""]
+    sim.add_item("coin_boost",1);sim.use_item("coin_boost")
+    sim.state.stage=2;await frames(3) # fixture: a map change
+    check(not fx.bursts["coins"].node.visible and not fx.label.visible,"A map change clears the supply effects")
     sim.state.stage=1;await frames(3)

@@ -29,6 +29,8 @@ func run() -> void:
     if only in ["","collect"]:await collect()
     if only in ["","boss"]:await boss()
     if only in ["","revive"]:await revive()
+    if only in ["","crit"]:await crit()
+    if only in ["","supply"]:await supplies()
     print("CHANGE_67_VFX_CAPTURE ",ProjectSettings.globalize_path(out))
     get_tree().quit(0)
 
@@ -120,3 +122,30 @@ func revive() -> void:
     sim.state.player.hp=0.0 # fixture: the player has just fallen
     sim.state.player.respawn=1.0
     await record("revive",2.6,.1)
+
+## A hero's critical hit on an enemy beside them. The hit itself is the simulation's: the hero's crit
+## chance is raised for the clip (fixture) and the enemy is struck by the real attack.
+func crit() -> void:
+    await fresh()
+    var foes:=gather(1)
+    var f: Dictionary=foes[0]
+    var p: Vector2=sim.position_of(sim.state.player)
+    f.x=p.x+16;f.y=p.y;f.aggro=false;f.hp=1e6 # fixture: a sturdy target beside the hero
+    sim.state.upgrades["critical_chance"]=1000 # fixture: every hit crits during the clip
+    sim.profile_epoch+=1 # the stat popups take the raised chance as their new baseline (no popup)
+    sim.select_target(str(f.id))
+    await record("crit",2.0,.05)
+    sim.state.upgrades.erase("critical_chance")
+
+## Each supply used by the hero (the real use_item), then the auras still running.
+func supplies() -> void:
+    await fresh()
+    sim.state.supplies=["","","","",""] # fixture: five supply slots
+    for id in ["potion","coin_boost","guard_tonic","recovery_salve","wisdom_tonic"]:sim.add_item(id,2)
+    sim.state.player.hp=sim.stats().hp*.4 # fixture: hurt, so the potion heals
+    for e in sim.state.enemies:e.aggro=false
+    for id in ["potion","coin_boost","guard_tonic","recovery_salve","wisdom_tonic"]:
+        if id=="recovery_salve":sim.state.player.hp=sim.stats().hp*.4 # fixture: hurt again (its own use rule)
+        sim.use_item(id)
+        await record("supply_"+id,1.3,.1)
+    await record("supply_auras",2.0,.25)

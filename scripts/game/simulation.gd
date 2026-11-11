@@ -27,6 +27,8 @@ signal evolved(source: String, target: String)
 ## Change 67 (Phase 2): a ground pickup the player collected (tap or Auto-Collect), emitted after it left
 ## state.pickups, so the world can tell a collection from an expiry or a map change.
 signal collected(uid: int)
+## A supply was used (tap or auto-use), emitted after its effect was applied.
+signal supply_used(id: String)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 ## Change 13: summoning and final-boss action rules (inspector-editable resource).
@@ -903,6 +905,7 @@ func use_item(id: String) -> bool:
     _remove(id,1)
     state.supply_uses[id]=mini(int(catalog.progression.supply_mastery.cap)*int(catalog.progression.change17.supply_uses_per_level),int(state.supply_uses.get(id,0))+1)
     touch()
+    supply_used.emit(id)
     return true
 
 ## Real Coin Tonic duration in seconds at its current mastery.

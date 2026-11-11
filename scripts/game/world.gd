@@ -31,12 +31,22 @@ var buff_bursts: Dictionary={}
 ## player collected since the last frame (uid -> true), which fly into the hero instead of vanishing.
 var respawn_fx: Node2D
 var collected_uids: Dictionary={}
+## Change 67 follow-up: the critical-hit impact (crit_fx.gd), the supply bursts and auras (supply_fx.gd)
+## and the small camera kick of a crit (world units, decaying over KICK_TIME real seconds).
+var crit_fx: Node2D
+var supply_fx: Node2D
+var kick_start:=-1
+const KICK_TIME:=.16
+const KICK:=2.5
 ## Seconds a collected pickup takes to fly into the hero.
 const COLLECT_FLIGHT:=.22
 
 ## Change 60 follow-up: a stat popup's burst on the player, green for an increase, red for a decrease.
 func buff_burst(is_positive: bool) -> void:
     if sim==null:return
+    # Change 67 follow-up: a supply that just started shows its own burst (the shield, the coins); the
+    # generic green burst of its stat change would only repeat it. Its stat popup still shows.
+    if is_positive and supply_fx!=null and supply_fx.since_burst()<1.2:return
     _place_bursts()
     buff_bursts[is_positive].play()
 
@@ -84,6 +94,12 @@ func setup(value: LootSimulation) -> void:
     add_child(respawn_fx)
     sim.revived.connect(func()->void:respawn_fx.play(sim.position_of(sim.state.player)))
     sim.collected.connect(func(uid: int)->void:collected_uids[uid]=true)
+    crit_fx=preload("res://scripts/game/crit_fx.gd").new()
+    add_child(crit_fx)
+    supply_fx=preload("res://scripts/game/supply_fx.gd").new()
+    supply_fx.setup(sim)
+    add_child(supply_fx)
+    sim.supply_used.connect(func(id: String)->void:supply_fx.play(id,_player_feet()))
 
 ## Change 24 (Playbook 44): presentation work scales with what is on screen, not with the map.
 ## - Views whose actor is outside the camera (plus CULL_MARGIN world units) are hidden and skip their
@@ -115,6 +131,7 @@ func _process(_delta: float) -> void:
     _prepare_cached_obstacles()
     countdown_clock+=_delta
     if buff_bursts.values().any(func(b):return b.running()):_place_bursts()
+    supply_fx.follow(_player_feet(),_delta)
     if countdown_clock>=.2:
         countdown_clock=0
         _boss_countdowns()
@@ -123,6 +140,8 @@ func _process(_delta: float) -> void:
         for effect in get_children():
             if effect is AnimatedSprite2D:effect.queue_free()
         respawn_fx.stop()
+        crit_fx.stop()
+        supply_fx.stop()
         collected_uids.clear()
         if scenery:_retire(scenery)
         scenery=STAGE_SCENES.scene(active_stage).instantiate()
@@ -470,6 +489,13 @@ func update_camera() -> void:
     if following_player:
         camera_position=sim.position_of(sim.state.player)
     $Camera.position=camera_position
+    # Change 67 follow-up: a critical hit kicks the camera a little (real time, decaying, offset only).
+    var kick:=Vector2.ZERO
+    if kick_start>=0:
+        var u:=(Time.get_ticks_msec()-kick_start)/1000.0/KICK_TIME
+        if u<1 and not get_tree().paused:kick=Vector2(randf_range(-1,1),randf_range(-1,1))*KICK*(1.0-u)
+        elif u>=1:kick_start=-1
+    $Camera.offset=kick
     $Camera.force_update_scroll()
 
 func follow_player() -> void:
@@ -519,7 +545,19 @@ func collect_at(screen_point: Vector2) -> void:
 
 func _feedback(id: String,amount: float,healing: bool) -> void:
     if views.has(id) and views[id].disclosed:
-        views[id].show_hit(amount,healing,bool(sim._find_actor(id).get("critical_hit",false)) and not healing,id=="player")
+        var critical: bool=bool(sim._find_actor(id).get("critical_hit",false)) and not healing
+        views[id].show_hit(amount,healing,critical,id=="player")
+        # Change 67 follow-up: a crit lands visibly harder (impact, camera kick, its own cue).
+        if critical and id!="player" and views[id].visible:
+            var v: LootActorView=views[id]
+            var facing:=signf(v.position.x-_player_feet().x)
+            crit_fx.play(v.position+Vector2(0,-10*v.visual_scale),v.visual_scale,facing if facing!=0 else 1.0)
+            kick_start=Time.get_ticks_msec()
+            AudioService.play("crit_hit")
+
+## The hero's feet: the drawn view when there is one, else the simulation position.
+func _player_feet() -> Vector2:
+    return views["player"].position if views.has("player") else sim.position_of(sim.state.player)
 
 func actor_pick_rect(actor: Dictionary) -> Rect2:
     var factor: float=1.0 if actor.id=="player" else float(sim.catalog.groups[int(actor.group)].visual_scale)

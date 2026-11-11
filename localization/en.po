@@ -6574,3 +6574,6 @@ msgstr "Tier %d → Tier %d"
 
 msgid "AUTO_EVOLVED_NOTICE"
 msgstr "Auto Evolution: %s → %s"
+
+msgid "CRIT_TAG"
+msgstr "CRIT!"
