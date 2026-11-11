@@ -1578,6 +1578,26 @@
    "en": "Defeat the Snowman (Winter I boss) once",
    "placeholders": [],
    "change": "change-61"
+  },
+  "PRESTIGE_LOCKED_BOSS_DEFEAT": {
+   "en": "Defeat the Winter I Snowman (the first boss) once to unlock the Prestige reset.",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "PRESTIGE_REQ_BOSS_DEFEAT": {
+   "en": "Defeat the Winter I Snowman (first boss) once",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "PRESTIGE_NEEDS_BOSS_DEFEAT": {
+   "en": "defeat the Snowman",
+   "placeholders": [],
+   "change": "change-61"
+  },
+  "GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL": {
+   "en": "Finding the Winter I Snowman opens Prestige and its first opportunity; defeating it once unlocks the reset. Complete opportunities, then Prestige when you choose to restart with permanent cards. Map Mastery tracks each map's long-term goals.",
+   "placeholders": [],
+   "change": "change-61"
   }
  },
  "retired": {

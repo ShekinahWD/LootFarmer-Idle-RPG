@@ -80,7 +80,8 @@ func evaluate() -> void:
         "basic","none":_announce_prestige()
 
 ## Basic/None: the Prestige menu was open all along; finding the Snowman (a lifetime record, so a
-## Prestige never repeats it) is what makes the reset possible, announced once with one banner.
+## Prestige never repeats it) reveals its first opportunity, announced once with one banner. The reset
+## itself needs the Snowman defeated once (campaign.prestige_gate_reason, Change 61 correction).
 func _announce_prestige() -> void:
     var seen: Array=sim.state.tutorial.seen
     if seen.has(PRESTIGE_ANNOUNCED) or not sim.campaign.prestige_unlocked():return

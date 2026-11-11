@@ -93,10 +93,10 @@ func access_checks() -> void:
         # Opening is not granting.
         var after:=progress_record()
         check(JSON.stringify(after)==JSON.stringify(before),"%s: choosing the mode and opening every menu changed no progress, currency, discovery or reward" % mode)
-        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS","%s: the Prestige reset still needs the Snowman found" % mode)
+        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT","%s: the Prestige reset still needs the Snowman defeated" % mode)
         game._open("prestige");await frames(2)
         var begin: Button=button("begin_prestige")
-        check(begin!=null and begin.disabled and labels_text(game.rows).contains("✗ "+tr("PRESTIGE_REQ_BOSS")),"%s: Prestige shows the locked reset and its missing requirement" % mode)
+        check(begin!=null and begin.disabled and labels_text(game.rows).contains("✗ "+tr("PRESTIGE_REQ_BOSS_DEFEAT")),"%s: Prestige shows the locked reset and its missing requirement" % mode)
         game._close();game._open("world");await frames(2)
         check(button("travel_stage_2")==null and int(sim.state.unlocked_stage)==1,"%s: World offers no travel to an unopened stage" % mode)
         game._close()
@@ -106,9 +106,10 @@ func access_checks() -> void:
         # Undiscovered enemies stay unknown: the enemy chips need a discovered type.
         var g: int=game.combat_group
         check(map_node("EnemyUpgrades").visible==sim.campaign.discovered(g),"%s: enemy chips follow discovery, not the open menus" % mode)
-        # Finding the Snowman: the reset becomes available, announced once.
+        # Finding the Snowman: Prestige announced once (the reset waits for a defeat).
         sim.state.bosses_found.append("boss-snowman");sim.campaign.onboarding.evaluate();sim.campaign.onboarding.evaluate()
-        check(milestones.filter(func(m):return m[0]=="prestige_unlocked").size()==1 and sim.campaign.prestige_gate_reason()=="","%s: finding the Snowman announces the Prestige reset once" % mode)
+        # Change 61 correction: finding it opens Prestige (announced once); only a defeat unlocks the reset.
+        check(milestones.filter(func(m):return m[0]=="prestige_unlocked").size()==1 and sim.campaign.prestige_gate_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT","%s: finding the Snowman announces Prestige once; the reset still needs a defeat" % mode)
         # Saved and reloaded.
         sim.restore(JSON.parse_string(JSON.stringify(sim.snapshot())));await frames(2);game._process(.2)
         check(sim.state.tutorial.mode==mode and usable(nav("World")) and usable(nav("Prestige")) and sim.campaign.onboarding.all_revealed(),"%s: still fully open after a JSON save/load" % mode)

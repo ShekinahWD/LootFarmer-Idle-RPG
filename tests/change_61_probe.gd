@@ -8,6 +8,7 @@ extends Node
 ##   still before the boss continues into the new lessons.
 ## - Optional Prestige at the Winter II lesson leads to the unchanged final card after the reset.
 ## - The offline item hint is not suppressed by a lack of Gems and mentions supplies.
+## - Correction: in every mode the reset needs one Snowman defeat (finding it only opens Prestige).
 ## The full Guided walk (every step by its real action) is in change_20_probe.
 var checks:=0
 var failures:=0
@@ -73,7 +74,7 @@ func run() -> void:
     check(sim.campaign.hunt_open() and sim.campaign.hunt_progress()==0,"Finding the Snowman unlocks the mission at 0/30 (earlier kills never count)")
     check(sim.state.opportunities.has("hunter_o1") and sim.campaign.can_follow("hunter_o1"),"hunter_o1 is discovered and followable before the first defeat")
     check(sim.campaign.opportunity_progress("hunter_o1")=="0 / 1","hunter_o1 needs one Snowman defeat")
-    check(sim.campaign.guided.next_step()=="" and sim.campaign.prestige_gate_reason()=="","Basic receives no Guided step or Guided Prestige lock")
+    check(sim.campaign.guided.next_step()=="" and sim.campaign.prestige_gate_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT","Basic receives no Guided step or Guided Prestige lock (only the defeat rule)")
     check(sim.campaign.toggle_follow_mission("hunt",0) and sim.campaign.followed_mission().get("kind","")=="hunt","Basic can follow the mission")
     game._open("missions");await frames(2)
     var follow_button: Button=null;var claim_button: Button=null
@@ -135,5 +136,37 @@ func run() -> void:
     sim.add_item("potion",1)
     check(game.offline_gear_hint_due(),"Supplies count for the hint")
     check("supplies" in tr("OFFLINE_ITEMS_HINT"),"The hint mentions supplies")
+    # ---------------------------------------------------------------- Prestige gate (Change 61 correction)
+    # Every mode: finding the Snowman opens Prestige and hunter_o1; one defeat unlocks the reset; Guided
+    # also waits for its Winter II lesson. The state survives a real save and load.
+    for mode in ["basic","none"]:
+        fresh(mode)
+        find_snowman()
+        check(sim.campaign.prestige_unlocked() and sim.state.opportunities.has("hunter_o1") and game.panel_allowed("prestige"),"%s: found, undefeated: Prestige menu and hunter_o1 available" % mode)
+        check(sim.campaign.prestige_gate_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT","%s: found, undefeated: the reset is locked" % mode)
+        game._open("prestige");await frames(2)
+        var begin: Button=null
+        for node in game.actions.find_children("*","Button",true,false):
+            if node.get_meta("guide","")=="begin_prestige":begin=node
+        check(begin!=null and begin.disabled and begin.text.contains(tr("PRESTIGE_NEEDS_BOSS_DEFEAT")) and game.rows.find_children("*","Label",true,false).any(func(l):return l.text=="✗ "+tr("PRESTIGE_REQ_BOSS_DEFEAT")),"%s: the locked reset names the missing Snowman defeat" % mode)
+        game._close()
+        check(SaveService.save_now(),"%s: saved while locked" % mode)
+        SaveService.load_and_apply();sim.suspended=false
+        check(sim.campaign.prestige_unlocked() and sim.campaign.prestige_gate_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT","%s: still menu-open and reset-locked after load" % mode)
+        sim._kill(enemy(true))
+        check(sim.campaign.prestige_gate_reason()=="" and sim.campaign.prestige_block_reason()=="" and sim.state.opportunities.hunter_o1.ready,"%s: one Snowman defeat readies hunter_o1 and unlocks the reset" % mode)
+        check(SaveService.save_now(),"%s: saved after the defeat" % mode)
+        SaveService.load_and_apply();sim.suspended=false
+        check(sim.campaign.prestige_block_reason()=="","%s: the reset stays available after load" % mode)
+    fresh("guided")
+    var gflow=sim.campaign.guided
+    gflow.data().done=gflow.STEPS.slice(0,gflow.STEPS.find("boss_win"))
+    find_snowman()
+    check(sim.campaign.prestige_gate_reason()=="PRESTIGE_TUTORIAL_LOCKED","guided: found, undefeated: reset locked")
+    sim._kill(enemy(true))
+    check(sim.campaign.first_boss_defeated() and sim.campaign.prestige_gate_reason()=="PRESTIGE_TUTORIAL_LOCKED","guided: defeated but before the Winter II lesson: still locked by the tutorial")
+    gflow.data().done=gflow.STEPS.slice(0,gflow.STEPS.find("winter_two")+1)
+    check(sim.campaign.prestige_gate_reason()=="","guided: the Winter II optional lesson allows the reset")
+    check(game.guide.detail_key("basic_prestige")=="GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL" and tr("GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL").contains("defeating it once"),"Basic/Help Prestige card explains the defeat requirement")
     print("CHANGE_61_CHECKS ",checks," FAILURES ",failures)
     get_tree().quit(1 if failures else 0)

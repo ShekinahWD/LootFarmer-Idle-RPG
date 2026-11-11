@@ -78,7 +78,7 @@ func run() -> void:
     fresh()
     sim.state.player_level=12;sim.state.xp=17
     sim.state.supply_uses.potion=103;sim.state.supply_mastery_credit.potion=7
-    sim.state.bosses_found.append("boss-snowman")
+    sim.state.bosses_found.append("boss-snowman");sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1 # Change 61: reset needs a defeat
     sim.state.opportunities.hunter_o1={"ready":true,"baseline":{},"step":0,"count":0}
     check(sim.campaign.begin_prestige(),"Prestige begins")
     var guard:=0
@@ -166,7 +166,7 @@ func run() -> void:
     picker.queue_free()
     # Guided progression and its timers survive interruption; None and Basic have no tutorial gate.
     for mode in ["none","basic"]:
-        fresh(mode);sim.state.bosses_found.append("boss-snowman")
+        fresh(mode);sim.state.bosses_found.append("boss-snowman");sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1
         check(sim.campaign.prestige_gate_reason()=="",mode+" has no tutorial Prestige restriction")
     fresh("guided")
     var flow=sim.campaign.guided

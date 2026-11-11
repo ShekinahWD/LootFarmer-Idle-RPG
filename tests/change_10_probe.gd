@@ -304,12 +304,12 @@ func prestige_checks() -> void:
     game._nav("prestige");await frames(2)
     check(game.sheet.visible and game.panel=="prestige","Prestige panel opens before the Snowman")
     var action: Button=game.actions.get_child(game.actions.get_child_count()-1)
-    check(action.disabled and action.text.contains(tr("PRESTIGE_NEEDS_BOSS")),"Reset action locked and names the missing boss: "+action.text)
-    check(label_containing("✗ "+tr("PRESTIGE_REQ_BOSS"))!=null and label_containing("✗ "+tr("PRESTIGE_REQ_READY"))!=null,"Checklist shows both missing conditions")
+    check(action.disabled and action.text.contains(tr("PRESTIGE_NEEDS_BOSS_DEFEAT")),"Reset action locked and names the missing boss: "+action.text)
+    check(label_containing("✗ "+tr("PRESTIGE_REQ_BOSS_DEFEAT"))!=null and label_containing("✗ "+tr("PRESTIGE_REQ_READY"))!=null,"Checklist shows both missing conditions")
     sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1;sim.touch() # fixture: Snowman defeated
     game._refresh_panel(true);await frames(2)
     action=game.actions.get_child(game.actions.get_child_count()-1)
-    check(action.disabled and action.text.contains(tr("PRESTIGE_NEEDS_READY")) and label_containing("✓ "+tr("PRESTIGE_REQ_BOSS"))!=null,"After the Snowman only the ready opportunity is missing")
+    check(action.disabled and action.text.contains(tr("PRESTIGE_NEEDS_READY")) and label_containing("✓ "+tr("PRESTIGE_REQ_BOSS_DEFEAT"))!=null,"After the Snowman only the ready opportunity is missing")
     sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0};sim.touch() # fixture: ready opportunity
     game._refresh_panel(true);await frames(2)
     action=game.actions.get_child(game.actions.get_child_count()-1)

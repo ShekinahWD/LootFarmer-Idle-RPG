@@ -42,7 +42,7 @@ func run() -> void:
 ## a card left; the card is chosen inside the reset.
 func prestige_gate_checks() -> void:
     fresh()
-    check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS","New profile: prestige locked until the first boss")
+    check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT","New profile: prestige locked until the first boss")
     sim.state.group_kills[0]=1 # labelled: one regular kill
     check(not sim.campaign.prestige_unlocked(),"A regular kill does not unlock Prestige")
     sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1 # labelled: Snowman defeated

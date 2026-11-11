@@ -229,7 +229,7 @@ func reveal_checks() -> void:
         check(open_nav and is_equal_approx(nav("Settings").get_global_rect().position.x,settings_x),"%s: every navigation button usable at once; Settings keeps its place" % mode)
         check(sim.campaign.onboarding.all_revealed() and sim.state.onboarding.reveal.size()==sim.campaign.onboarding.FEATURES.size(),"%s: every menu recorded as revealed" % mode)
         check(not notices.any(func(n):return n[0]=="feature_unlocked") and not nav("World/Badge").visible and not nav("Upgrades/Badge").visible,"%s: opened silently (no unlock sound, no ✦ cascade)" % mode)
-        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS" and int(sim.state.unlocked_stage)==1,"%s: the Prestige reset and Winter II keep their game rules" % mode)
+        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT" and int(sim.state.unlocked_stage)==1,"%s: the Prestige reset and Winter II keep their game rules" % mode)
     # Basic/None: finding the Snowman announces the Prestige reset once (the menu was already open).
     fresh();milestones.clear()
     var boss: Dictionary=enemy(group("boss-snowman"))
@@ -250,7 +250,7 @@ func reveal_checks() -> void:
     game._close()
     fresh("pending");sim.campaign.onboarding.reveal_all(true)
     check(sim.campaign.onboarding.all_revealed() and not notices.any(func(n):return n[0]=="feature_unlocked"),"reveal_all(silent) records every menu, silently (probe use)")
-    check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS","…the Prestige reset still needs the Snowman found")
+    check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT","…the Prestige reset still needs the Snowman defeated")
 
 # ---------------------------------------------------------------- 3. Guided
 func guided_checks() -> void:

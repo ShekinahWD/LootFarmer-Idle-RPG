@@ -2665,7 +2665,7 @@ func _help_panel() -> void:
     _text(tr("HELP_INTRO"),17,Color(.8,.84,.9))
     for card in guide.BASIC_DECK:
         if guide.DECK_FEATURE.has(card) and not revealed(guide.DECK_FEATURE[card]):continue
-        _info_card(tr("GUIDE_"+card.to_upper()),tr("GUIDE_"+card.to_upper()+"_DETAIL"),_art(int(HELP_ART.get(card,60))))
+        _info_card(tr("GUIDE_"+card.to_upper()),tr(guide.detail_key(card)),_art(int(HELP_ART.get(card,60))))
     _pinned(tr("HELP_BACK"),func()->void:_open("settings"),true,"",false,"help_back",false)
 
 func _history_panel() -> void:
@@ -3346,8 +3346,8 @@ func _prestige_requirements(ready: Array) -> void:
     box.add_theme_constant_override("separation",4)
     card.add_child(box)
     _card_line(box,tr("PRESTIGE_REQUIREMENTS"),18,Color(1,.86,.5))
-    var boss_done: bool=sim.campaign.prestige_unlocked()
-    _card_line(box,("✓ " if boss_done else "✗ ")+tr("PRESTIGE_REQ_BOSS"),18,Color(.5,1,.65) if boss_done else Color(1,.72,.45))
+    var boss_done: bool=sim.campaign.first_boss_defeated()
+    _card_line(box,("✓ " if boss_done else "✗ ")+tr("PRESTIGE_REQ_BOSS_DEFEAT"),18,Color(.5,1,.65) if boss_done else Color(1,.72,.45))
     var any_ready: bool=not sim.campaign.ready_ids().is_empty()
     var ready_text:=tr("PRESTIGE_REQ_READY")
     if any_ready and ready.is_empty():ready_text+="\n"+tr("NO_CARD_AVAILABLE")
@@ -3356,7 +3356,7 @@ func _prestige_requirements(ready: Array) -> void:
 ## Short reason shown on the locked reset button itself.
 func _prestige_block_short(reason: String) -> String:
     match reason:
-        "PRESTIGE_LOCKED_FIRST_BOSS":return "PRESTIGE_NEEDS_BOSS"
+        "PRESTIGE_LOCKED_BOSS_DEFEAT":return "PRESTIGE_NEEDS_BOSS_DEFEAT"
         "NO_READY_PRESTIGE":return "PRESTIGE_NEEDS_READY"
         "NO_CARD_AVAILABLE":return "PRESTIGE_NEEDS_CARD"
     return reason

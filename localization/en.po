@@ -6253,3 +6253,15 @@ msgstr "While you're away you can also receive copies of weapons, outfits and su
 
 msgid "CONTENT_HUNTER_O1_FIRST_DESCRIPTION"
 msgstr "Defeat the Snowman (Winter I boss) once"
+
+msgid "PRESTIGE_LOCKED_BOSS_DEFEAT"
+msgstr "Defeat the Winter I Snowman (the first boss) once to unlock the Prestige reset."
+
+msgid "PRESTIGE_REQ_BOSS_DEFEAT"
+msgstr "Defeat the Winter I Snowman (first boss) once"
+
+msgid "PRESTIGE_NEEDS_BOSS_DEFEAT"
+msgstr "defeat the Snowman"
+
+msgid "GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL"
+msgstr "Finding the Winter I Snowman opens Prestige and its first opportunity; defeating it once unlocks the reset. Complete opportunities, then Prestige when you choose to restart with permanent cards. Map Mastery tracks each map's long-term goals."

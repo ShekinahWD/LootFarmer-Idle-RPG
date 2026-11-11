@@ -70,7 +70,7 @@ func prestige_checks() -> void:
     for route in ["challenge_o1","specialist_o1","offline_o2","trophy_o1"]:
         fresh()
         sim.state.opportunities[route]={"ready":true,"baseline":{},"step":0,"count":0}   # fixture: readiness
-        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_FIRST_BOSS","Early %s waits for the first boss" % route)
+        check(sim.campaign.prestige_block_reason()=="PRESTIGE_LOCKED_BOSS_DEFEAT","Early %s waits for the first boss" % route)
         check(not sim.campaign.begin_prestige() and sim.state.prestige_batch.is_empty(),"Begin refused before the first boss: "+route)
         sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1   # fixture: Snowman defeated
         check(sim.campaign.prestige_block_reason()=="","Early %s may reset after the first boss" % route)

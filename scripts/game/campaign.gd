@@ -1348,9 +1348,13 @@ func prestige_unlocked() -> bool:
 func first_boss_defeated() -> bool:
     var g:=prestige_unlock_group()
     return g>=0 and int(sim.state.group_kills[g])>0
+## Change 61 correction (approved, every mode): finding the Snowman opens the Prestige menu and reveals
+## hunter_o1 (prestige_unlocked); the reset itself needs the Snowman defeated once (first_boss_defeated,
+## lifetime kills kept by Prestige, so an existing save that already beat it keeps its reset). Guided
+## also holds the reset until its optional-Prestige lesson in Winter II.
 func prestige_gate_reason() -> String:
     if guided.active() and not guided.prestige_allowed():return "PRESTIGE_TUTORIAL_LOCKED"
-    if not prestige_unlocked():return "PRESTIGE_LOCKED_FIRST_BOSS"
+    if not first_boss_defeated():return "PRESTIGE_LOCKED_BOSS_DEFEAT"
     return ""
 ## Ready opportunities that can still award a card, in batch order: each path offers its cards that
 ## are not owned yet, and every opportunity of the batch takes one of them.

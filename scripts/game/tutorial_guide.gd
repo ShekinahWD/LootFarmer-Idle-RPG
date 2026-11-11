@@ -623,6 +623,11 @@ func _panel_row(key: String,map:=false) -> Control:
     return null
 
 var support_value:=0.0
+## Change 61 correction: a card whose explanation changed meaning reads a new key (the old translated
+## key would now be false). basic_prestige: the reset needs the Snowman defeated, not just found.
+const DETAIL_KEYS:={"basic_prestige":"GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL"}
+static func detail_key(id: String) -> String:
+    return DETAIL_KEYS.get(id,"GUIDE_"+id.to_upper()+"_DETAIL")
 ## Change 61: a screen-space pointer target (a World map marker) when the target is not a control.
 var screen_target:=Rect2()
 ## Long farming lessons (hunt_farm, boss_win) keep their card on screen this many seconds per session,
@@ -724,7 +729,7 @@ func _present() -> void:
     if deck_index>=0:title.text+="  %d/%d" % [deck_index+1,BASIC_DECK.size()]
     var skippable:=deck_index>=0 and deck_index<BASIC_DECK.size()-1
     if skip_button.visible!=skippable:skip_button.visible=skippable
-    support.text=tr("GUIDE_"+step.to_upper()+"_DETAIL")
+    support.text=tr(detail_key(step))
     # Coins still needed, in the shared currency format rounded up (Change 13).
     if "%s" in support.text:support.text=support.text % NumberFormat.currency(support_value,true)
     picture.texture=_picture()
