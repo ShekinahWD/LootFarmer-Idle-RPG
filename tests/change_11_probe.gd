@@ -49,6 +49,16 @@ func button_containing(root: Node,text: String) -> Button:
     for b in root.find_children("*","Button",true,false):
         if b.text.contains(text):return b
     return null
+func teleport_map() -> Control:
+    for node in game.rows.get_children():
+        if node.has_meta("teleport_map") and not node.is_queued_for_deletion():return node
+    return null
+## A real tap (press and release on the marker) through the picker's own input handler.
+func tap_map(map: Control,camp: int) -> void:
+    var at: Vector2=map.camp_point(camp)
+    for pressed in [true,false]:
+        var e:=InputEventMouseButton.new();e.button_index=MOUSE_BUTTON_LEFT;e.pressed=pressed;e.position=at
+        map._gui_input(e)
 func stand_at_camp(camp: int) -> void:
     var a: Array=sim.campaign.stage().spawns[camp]
     sim.state.player.x=a[0];sim.state.player.y=a[1];sim.state.player.quiet=9.0
@@ -165,19 +175,20 @@ func teleport_checks() -> void:
     check(teleport!=null and not teleport.disabled,"Camp menu offers Teleport")
     teleport.pressed.emit();await frames(2)
     check(game.panel=="teleport","Teleport opens the destination picker")
-    check(label_containing(tr("TELEPORT_NONE"))!=null and button_containing(game.rows,tr("TELEPORT_CHOOSE"))==null,"With one camp the picker says so and offers nothing")
+    # Change 64: the picker is a visual map; a tap selects a camp, Confirm Teleport travels.
+    check(teleport_map()!=null and label_containing(tr("TELEPORT_NONE"))!=null,"With one camp the picker shows the map and says so")
     check(button_containing(game.actions,tr("TELEPORT_PICK")).disabled,"No destination: the teleport action is disabled")
     sim.state.camps["1"]=[0,1];sim.state.spawns=sim.state.camps["1"];sim.state.camps_known["1"]=[0,1,2] # fixture: two owned camps
     game._refresh_panel(true);await frames(2)
-    check(label_containing(tr("TELEPORT_HERE"))!=null and button_containing(game.rows,tr("TELEPORT_CHOOSE"))!=null,"Current camp marked; the other camp is choosable")
-    var choose_buttons: Array=game.rows.find_children("*","Button",true,false).filter(func(b):return b.text==tr("TELEPORT_CHOOSE"))
-    check(choose_buttons.size()==1,"Only the other owned camp is a destination (locked camp 3 is absent)")
-    choose_buttons[0].pressed.emit();await frames(2)
-    check(game.teleport_target==[1,1] and label_containing(tr("TELEPORT_CHOSEN"))!=null,"Selected target is shown")
-    # Combat blocks opening and moving; nothing is charged or moved.
+    var map=teleport_map()
+    check(map.here==0,"Current camp marked")
+    tap_map(map,0);await frames(2)
+    check(game.teleport_target.is_empty() and game.notice.text==tr("TELEPORT_HERE"),"The camp you stand in is not a destination")
+    tap_map(teleport_map(),1);await frames(2)
+    check(game.teleport_target==[1,1] and label_containing(tr("TELEPORT_SELECTED") % [sim.catalog.stages[0].name,2])!=null,"Selected target is shown")
     var e: Dictionary=sim.state.enemies[0];e.aggro=true # fixture: in combat
     game._refresh_panel(true);await frames(2)
-    var go:=button_containing(game.actions,tr("TELEPORT_GO") % [sim.catalog.stages[0].name,2])
+    var go:=button_containing(game.actions,tr("TELEPORT_CONFIRM"))
     check(go!=null and go.disabled,"In combat the teleport action is disabled")
     var at: Vector2=sim.position_of(sim.state.player);var coins: float=sim.state.coins;var gems: float=sim.state.gems
     check(not game._travel_to(1,1) and sim.position_of(sim.state.player)==at and sim.state.coins==coins and sim.state.gems==gems,"A blocked move changes nothing")
@@ -185,7 +196,7 @@ func teleport_checks() -> void:
     check(button_containing(game.rows,tr("CAMP_TELEPORT")).disabled,"In combat the camp's Teleport is disabled")
     e.aggro=false
     game._open("teleport");game.teleport_target=[1,1];game._refresh_panel(true);await frames(2)
-    go=button_containing(game.actions,tr("TELEPORT_GO") % [sim.catalog.stages[0].name,2])
+    go=button_containing(game.actions,tr("TELEPORT_CONFIRM"))
     check(go!=null and not go.disabled,"Out of combat the teleport action is enabled")
     go.pressed.emit();await frames(8)
     var camp1: Array=sim.campaign.stage().spawns[1]
@@ -201,9 +212,9 @@ func teleport_checks() -> void:
     sim.state.unlocked_stage=2;sim.state.camps["2"]=[0] # fixture
     check(sim.campaign.travel_reason(3,0)=="STAGE_LOCKED" and sim.campaign.travel_reason(1,2)=="CAMP_LOCKED","Locked maps and camps are refused")
     game._open("teleport");await frames(2)
-    check(label_containing(tr("TELEPORT_OTHER_MAP"))!=null and label_containing(sim.catalog.stages[2].name)==null,"Picker lists the reached map's camp and no locked map")
+    check(button_containing(game.rows,sim.catalog.stages[1].name)!=null and button_containing(game.rows,sim.catalog.stages[2].name)==null,"Picker offers the reached map and no locked map")
     game.teleport_target=[2,0];game._refresh_panel(true);await frames(2)
-    button_containing(game.actions,tr("TELEPORT_GO") % [sim.catalog.stages[1].name,1]).pressed.emit();await frames(6)
+    button_containing(game.actions,tr("TELEPORT_CONFIRM")).pressed.emit();await frames(6)
     check(int(sim.state.stage)==2 and int(sim.state.spawn)==0 and not game.sheet.visible,"Teleport across maps arrives at Winter II camp 1")
     get_tree().paused=true
     game.selected_camp=0;game._open("camp");await frames(2)

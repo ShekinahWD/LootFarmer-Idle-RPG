@@ -558,8 +558,15 @@ func _guided_change61(current: String) -> bool:
             if open=="world":step="camp_travel_tap";target=_panel_control("camp_travel_%d" % goal,true)
             elif open=="camp":step="camp_travel_tap";target=_panel_control("camp_teleport",true)
             elif open=="teleport":
+                # Change 64: the destination is a marker on the visual Teleport map (Winter I), then Confirm.
                 step="camp_travel_tap"
-                target=_panel_control("teleport_go",true) if ui.teleport_target==[1,goal] else _panel_control("teleport_1_%d" % goal)
+                if ui.teleport_target==[1,goal]:target=_panel_control("teleport_go",true)
+                elif ui.teleport_stage!=1:target=_panel_control("teleport_stage_1")
+                else:
+                    var map: Control=_teleport_map()
+                    if map!=null:
+                        target=map
+                        screen_target=Rect2(map.global_position+map.camp_point(goal)-Vector2.ONE*24,Vector2.ONE*48)
             else:target=nav.get_node("World")
         "map_details":
             surfaces=["","world"]
@@ -691,6 +698,12 @@ func _panel_row(key: String,map:=false) -> Control:
     return null
 
 var support_value:=0.0
+## Change 64: the visual Teleport map in the open panel (null when not shown).
+func _teleport_map() -> Control:
+    for node in ui.rows.get_children():
+        if node.has_meta("teleport_map") and node.is_visible_in_tree() and not node.is_queued_for_deletion():return node
+    return null
+
 ## Change 61 correction: a card whose explanation changed meaning reads a new key (the old translated
 ## key would now be false). basic_prestige: the reset needs the Snowman defeated, not just found.
 const DETAIL_KEYS:={"basic_prestige":"GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL"}

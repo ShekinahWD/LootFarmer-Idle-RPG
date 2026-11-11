@@ -1628,6 +1628,64 @@
    "en": "Tap the Mastery button on the map to see your remaining Map Mastery goals and rewards. This is optional: you can keep adventuring.",
    "placeholders": [],
    "change": "change-63"
+  },
+  "TELEPORT_CONFIRM": {
+   "en": "Confirm Teleport",
+   "placeholders": [],
+   "change": "change-64"
+  },
+  "TELEPORT_SELECTED": {
+   "en": "Destination: %s · Camp %d",
+   "placeholders": [
+    "%s",
+    "%d"
+   ],
+   "change": "change-64"
+  },
+  "TELEPORT_MAP_HELP": {
+   "en": "Tap a green camp to select it, then Confirm Teleport. Blue marks where you are.",
+   "placeholders": [],
+   "change": "change-64"
+  },
+  "TELEPORT_STAGE_NONE": {
+   "en": "You have no other camp on this map. Choose another map above.",
+   "placeholders": [],
+   "change": "change-64"
+  },
+  "TELEPORT_STAGE_HERE": {
+   "en": "You are on this map",
+   "placeholders": [],
+   "change": "change-64"
+  },
+  "TELEPORT_CAMP_LOCKED": {
+   "en": "This camp is locked. Unlock it at the camp to teleport there.",
+   "placeholders": [],
+   "change": "change-64"
+  },
+  "OFFLINE_CAT_COINS": {
+   "en": "Coins",
+   "placeholders": [],
+   "change": "change-64"
+  },
+  "OFFLINE_CAT_GEMS": {
+   "en": "Gems",
+   "placeholders": [],
+   "change": "change-64"
+  },
+  "OFFLINE_CAT_LOCKED": {
+   "en": "Locked",
+   "placeholders": [],
+   "change": "change-64"
+  },
+  "OFFLINE_LOCKED_EXPLAIN": {
+   "en": "Unlock Offline upgrades to earn weapons, outfits, and supplies while away. Unlocks apply to future time away only. Go to Upgrades claims these rewards first.",
+   "placeholders": [],
+   "change": "change-64"
+  },
+  "OFFLINE_GO_UPGRADES": {
+   "en": "Go to Upgrades",
+   "placeholders": [],
+   "change": "change-64"
   }
  },
  "retired": {

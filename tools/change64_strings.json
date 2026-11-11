@@ -1,0 +1,13 @@
+{
+ "TELEPORT_CONFIRM": "Confirm Teleport",
+ "TELEPORT_SELECTED": "Destination: %s · Camp %d",
+ "TELEPORT_MAP_HELP": "Tap a green camp to select it, then Confirm Teleport. Blue marks where you are.",
+ "TELEPORT_STAGE_NONE": "You have no other camp on this map. Choose another map above.",
+ "TELEPORT_STAGE_HERE": "You are on this map",
+ "TELEPORT_CAMP_LOCKED": "This camp is locked. Unlock it at the camp to teleport there.",
+ "OFFLINE_CAT_COINS": "Coins",
+ "OFFLINE_CAT_GEMS": "Gems",
+ "OFFLINE_CAT_LOCKED": "Locked",
+ "OFFLINE_LOCKED_EXPLAIN": "Unlock Offline upgrades to earn weapons, outfits, and supplies while away. Unlocks apply to future time away only. Go to Upgrades claims these rewards first.",
+ "OFFLINE_GO_UPGRADES": "Go to Upgrades"
+}

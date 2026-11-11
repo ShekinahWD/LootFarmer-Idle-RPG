@@ -6283,3 +6283,36 @@ msgstr "Map fully explored!"
 
 msgid "GUIDE_MASTERY_INTRO_DETAIL"
 msgstr "Tap the Mastery button on the map to see your remaining Map Mastery goals and rewards. This is optional: you can keep adventuring."
+
+msgid "TELEPORT_CONFIRM"
+msgstr "Confirm Teleport"
+
+msgid "TELEPORT_SELECTED"
+msgstr "Destination: %s · Camp %d"
+
+msgid "TELEPORT_MAP_HELP"
+msgstr "Tap a green camp to select it, then Confirm Teleport. Blue marks where you are."
+
+msgid "TELEPORT_STAGE_NONE"
+msgstr "You have no other camp on this map. Choose another map above."
+
+msgid "TELEPORT_STAGE_HERE"
+msgstr "You are on this map"
+
+msgid "TELEPORT_CAMP_LOCKED"
+msgstr "This camp is locked. Unlock it at the camp to teleport there."
+
+msgid "OFFLINE_CAT_COINS"
+msgstr "Coins"
+
+msgid "OFFLINE_CAT_GEMS"
+msgstr "Gems"
+
+msgid "OFFLINE_CAT_LOCKED"
+msgstr "Locked"
+
+msgid "OFFLINE_LOCKED_EXPLAIN"
+msgstr "Unlock Offline upgrades to earn weapons, outfits, and supplies while away. Unlocks apply to future time away only. Go to Upgrades claims these rewards first."
+
+msgid "OFFLINE_GO_UPGRADES"
+msgstr "Go to Upgrades"

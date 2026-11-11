@@ -19,7 +19,8 @@ const PROGRESSION_LANGS:=["en","es_419","es_ES","pt_BR","fr_FR","de_DE"]
 ## Keys whose text must be visible on each screen (format keys: their longest literal fragment).
 const EXPECT:={
     "world_map_hint":["MAP_MARKERS_HINT"],
-    "offline_gear_hint":["OFFLINE_ITEMS_HINT","OFFLINE_UPGRADES_JUMP"],
+    # Change 64: the persistent locked-categories line and Go to Upgrades replaced the one-time O1 hint.
+    "offline_gear_hint":["OFFLINE_LOCKED_EXPLAIN","OFFLINE_GO_UPGRADES","OFFLINE_CAT_LOCKED"],
     "upgrades_offline":["OFFLINE_GEAR_BENEFIT"],
     "item_boss_enhanced":["ITEM_BOSS_BONUS","ITEM_BOSS_BONUS_EXPLAIN","REROLL_ATTRIBUTE"],
     "confirm_reroll":["REROLL_ATTRIBUTE_CONFIRM"],

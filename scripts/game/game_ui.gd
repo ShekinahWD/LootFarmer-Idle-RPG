@@ -120,6 +120,11 @@ var view_camp:=-1
 var mastery_text:=""
 ## Camp Teleport picker: the chosen destination as [stage, camp], or empty.
 var teleport_target: Array=[]
+## Change 64: the map shown in the visual Teleport picker (0: the destination's or the player's map) and
+## the picker's last fitted height (a rebuilt picker starts at it, so a tap never resizes the panel).
+var teleport_stage:=0
+var teleport_map_height:=0.0
+const camp_picker=preload("res://scripts/game/camp_picker.gd")
 ## Last text written to the "Map Explored" chip above the minimap (written only when it changes).
 var explored_text:=""
 var gate_text:=""
@@ -1399,7 +1404,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
-    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target)+":"+str(travel_stage),sim.campaign.focus_hint,mastery_stage]
+    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target)+":"+str(travel_stage)+":"+str(teleport_stage),sim.campaign.focus_hint,mastery_stage]
 
 func _refresh_panel(force_layout:=false) -> void:
     panel_clock=0.0
@@ -1478,6 +1483,7 @@ func _layout_sheet() -> void:
     if sheet.size.x!=width:sheet.size.x=width
     var chrome: float=sheet.get_combined_minimum_size().y
     var content: float=rows.get_combined_minimum_size().y
+    if panel=="teleport":content=_fit_teleport_map(available-chrome-4,content)
     var height:=clampf(chrome+content+4,minf(200,available),available)
     sheet.size=Vector2(width,height)
     sheet.position=Vector2(map.global_position.x+sheet_inset.x,map.global_position.y+map.size.y-sheet_inset.y-height)
@@ -2021,6 +2027,8 @@ func _upgrades_panel() -> void:
             var r: Dictionary=sim.campaign.offline_receipt
             if not r.is_empty():
                 _text(tr("OFFLINE_CLAIMED_RECEIPT") % [fmt(r.rewarded_hours),fmt_currency(r.coins),fmt_currency(r.gems)])
+                # Change 64: the same five categories as the welcome-back receipt (this claim's snapshot).
+                _offline_categories(r,false)
                 for id in r.items:_text(sim.catalog.display_name(id)+" ×"+fmt(r.items[id]),18)
         var snap: Dictionary=sim.campaign.offline_snapshot()
         _text(tr("OFFLINE_RATES") % [fmt_currency(snap.coins),fmt_currency(snap.gems),fmt(snap.cap/3600)],18,Color(.8,.84,.9))
@@ -2387,7 +2395,7 @@ func _select_travel_stage(st: int) -> void:
 func _travel_map_panel() -> void:
     _set_title(sim.catalog.stages[travel_stage-1].name)
     _text(tr("TRAVEL_MAP_HELP"),18)
-    var map=preload("res://scripts/game/camp_picker.gd").new()
+    var map=camp_picker.new()
     map.sim=sim;map.stage_id=travel_stage
     map.custom_minimum_size=Vector2(0,420)
     map.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -2399,7 +2407,7 @@ func _travel_map_panel() -> void:
 
 func _travel_to(st: int,camp: int) -> bool:
     if not sim.campaign.camp_action(st,camp,true):return false
-    teleport_target=[]
+    teleport_target=[];teleport_stage=0
     world.follow_player()
     _close()
     _settle_camp()
@@ -2413,48 +2421,96 @@ func _teleport_reason() -> String:
     if sim.campaign.in_combat():return "TRAVEL_COMBAT"
     return ""
 
-## Change 11 destination picker, opened by a camp's Teleport: every owned camp on every reached map,
-## the camp the player stands in marked and not selectable, one chosen target, Back to cancel.
+## Change 64: a camp's Teleport opens a large visual map (camp_picker.gd in select mode) instead of a
+## list of camp names. A row of stage buttons switches between every reached map (the displayed one is
+## highlighted; the player's own map is labelled). Tapping an owned camp only selects it; Confirm
+## Teleport performs the move through _travel_to (campaign.camp_action re-checks combat, death, locks,
+## stage and ownership at that moment). The camp the player stands in is marked and never a target.
+## Travel never changes the chosen respawn camp (Change 61). Back returns to the camp without moving.
 func _teleport_panel() -> void:
     _set_title(tr("TELEPORT_TITLE"))
-    _text(tr("TELEPORT_HELP"),17,Color(.8,.84,.9))
     var here:=_camp_at_player()
-    var reason:=_teleport_reason()
-    if reason!="":_text(tr(reason),18,Color(1,.72,.45))
-    var choices:=0
-    for st in range(1,int(sim.state.unlocked_stage)+1):
-        var owned: Array=sim.state.camps.get(str(st),[0]).duplicate()
-        owned.sort()
-        for camp in owned:
-            var current: bool=st==int(sim.state.stage) and int(camp)==here
-            var chosen: bool=teleport_target==[st,int(camp)]
-            if not current:choices+=1
-            _teleport_row(st,int(camp),current,chosen)
-    if choices==0:_text(tr("TELEPORT_NONE"),17,Color(.7,.75,.82))
+    var unlocked:=int(sim.state.unlocked_stage)
+    if teleport_stage<1 or teleport_stage>unlocked:
+        teleport_stage=int(teleport_target[0]) if teleport_target.size()==2 else int(sim.state.stage)
+    teleport_stage=clampi(teleport_stage,1,unlocked)
+    var shown:=teleport_stage
     var valid: bool=teleport_target.size()==2 and not (int(teleport_target[0])==int(sim.state.stage) and int(teleport_target[1])==here)
+    if unlocked>1:
+        var stages:=HFlowContainer.new()
+        stages.add_theme_constant_override("h_separation",8)
+        stages.add_theme_constant_override("v_separation",8)
+        rows.add_child(stages)
+        for st in range(1,unlocked+1):
+            var button:=Button.new()
+            button.text=sim.catalog.stages[st-1].name
+            button.custom_minimum_size=Vector2(96,56)
+            button.add_theme_font_size_override("font_size",18)
+            if st==shown:button.theme_type_variation=&"Primary"
+            elif st==int(sim.state.stage):button.add_theme_color_override("font_color",camp_picker.HERE_RING)
+            button.tooltip_text=tr("TELEPORT_STAGE_HERE") if st==int(sim.state.stage) else ""
+            button.set_meta("guide","teleport_stage_%d" % st)
+            stages.add_child(button)
+            button.pressed.connect(func()->void:
+                teleport_stage=st
+                AudioService.play("ui_click")
+                _refresh_panel(true))
+    var map=camp_picker.new()
+    map.sim=sim;map.stage_id=shown;map.select_mode=true
+    map.here=here if shown==int(sim.state.stage) else -1
+    map.selected=int(teleport_target[1]) if teleport_target.size()==2 and int(teleport_target[0])==shown else -1
+    # Square like the maps; _layout_sheet fits it to the sheet (teleport_map_height keeps the last fit).
+    map.custom_minimum_size=Vector2(0,maxf(teleport_map_height,300.0))
+    map.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    map.set_meta("teleport_map",true)
+    # A Guided arrow on it targets a camp marker (screen_target), like the World map's enemy markers.
+    map.set_meta("guide_map",true)
+    map.chosen.connect(func(camp: int)->void:
+        teleport_target=[shown,camp]
+        notice.text=""
+        AudioService.play("ui_click")
+        _refresh_panel(true))
+    map.refused.connect(func(reason: String)->void:_say(tr(reason)))
+    rows.add_child(map)
+    # One status block of fixed height (destination or how to choose, then why travel is blocked), so a
+    # selection or a combat change never resizes the open panel.
+    var lines: Array=[]
+    var choices:=0
+    for st in range(1,unlocked+1):
+        for camp in sim.state.camps.get(str(st),[0]):
+            if not (st==int(sim.state.stage) and int(camp)==here):choices+=1
+    if valid:lines.append(tr("TELEPORT_SELECTED") % [sim.catalog.stages[int(teleport_target[0])-1].name,int(teleport_target[1])+1])
+    elif choices==0:lines.append(tr("TELEPORT_NONE"))
+    else:
+        var on_map:=0
+        for camp in sim.state.camps.get(str(shown),[0]):
+            if not (shown==int(sim.state.stage) and int(camp)==here):on_map+=1
+        lines.append(tr("TELEPORT_MAP_HELP") if on_map>0 else tr("TELEPORT_STAGE_NONE"))
+    var reason:=_teleport_reason()
+    if reason!="":lines.append(tr(reason))
+    var status:=_text("
+".join(lines),18,Color(1,.86,.5) if valid else Color(.8,.84,.9))
+    status.custom_minimum_size.y=78
+    status.set_meta("guide_row","teleport_status")
     var block:=sim.campaign.travel_reason(int(teleport_target[0]),int(teleport_target[1])) if valid else "TELEPORT_PICK"
-    _pinned(tr("TELEPORT_BACK"),func()->void:teleport_target=[];_open("camp"),true,"",false,"teleport_back",false)
-    var label:=tr("TELEPORT_GO") % [sim.catalog.stages[int(teleport_target[0])-1].name,int(teleport_target[1])+1] if valid else tr("TELEPORT_PICK")
-    _pinned(label,func()->void:
+    _pinned(tr("TELEPORT_BACK"),func()->void:teleport_target=[];teleport_stage=0;_open("camp"),true,"",false,"teleport_back",false)
+    var go:=_pinned(tr("TELEPORT_CONFIRM") if valid else tr("TELEPORT_PICK"),func()->void:
         if teleport_target.size()==2:_travel_to(int(teleport_target[0]),int(teleport_target[1])),block=="",block,true,"teleport_go")
+    go.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+    go.text_overrun_behavior=TextServer.OVERRUN_NO_TRIMMING
 
-func _teleport_row(st: int,camp: int,current: bool,chosen: bool) -> void:
-    var card:=PanelContainer.new()
-    card.theme_type_variation=&"Card"
-    rows.add_child(card)
-    var line:=HBoxContainer.new()
-    line.add_theme_constant_override("separation",10)
-    card.add_child(line)
-    _card_icon(line,_art(249),Color(1,.86,.5) if chosen else (Color(.55,.55,.55) if current else Color.WHITE))
-    var text:=VBoxContainer.new()
-    text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-    line.add_child(text)
-    _card_line(text,tr("TELEPORT_DESTINATION") % [sim.catalog.stages[st-1].name,camp+1],20,Color(1,.86,.5) if chosen else Color.WHITE)
-    var status:="TELEPORT_HERE" if current else ("TELEPORT_CHOSEN" if chosen else ("TELEPORT_THIS_MAP" if st==int(sim.state.stage) else "TELEPORT_OTHER_MAP"))
-    _card_line(text,tr(status),17,Color(.7,.75,.82) if current else (Color(1,.86,.5) if chosen else Color(.6,1,.75)))
-    if current:return
-    var pick:=_inline_button(tr("TELEPORT_CHOOSE") if not chosen else "✓",func()->void:teleport_target=[st,camp],true,"",line,chosen)
-    pick.set_meta("guide","teleport_%d_%d" % [st,camp])
+## Change 64: the Teleport map takes the sheet's free height, up to a square of the sheet's width (the
+## stages are square). Returns the rows' content height with the fitted map. Converges in one pass: the
+## other rows do not depend on the map's height.
+func _fit_teleport_map(room: float,content: float) -> float:
+    for node in rows.get_children():
+        if not node.has_meta("teleport_map") or node.is_queued_for_deletion():continue
+        var other: float=content-float(node.custom_minimum_size.y)
+        var want:=floorf(clampf(room-other,300.0,maxf(300.0,rows.size.x)))
+        if absf(want-node.custom_minimum_size.y)>=1.0:node.custom_minimum_size.y=want
+        teleport_map_height=want
+        return other+want
+    return content
 
 func _camp_row(i: int,picker:=false) -> void:
     var st:=int(sim.state.stage)
@@ -2480,7 +2536,7 @@ func _camp_row(i: int,picker:=false) -> void:
         if picker:
             # Change 11: a camp's Teleport opens the destination picker (it used to travel to itself).
             var lock:=_teleport_reason()
-            _inline_button(tr("CAMP_TELEPORT"),func()->void:teleport_target=[];_open("teleport"),lock=="",lock,line,false).set_meta("guide","camp_teleport")
+            _inline_button(tr("CAMP_TELEPORT"),func()->void:teleport_target=[];teleport_stage=0;_open("teleport"),lock=="",lock,line,false).set_meta("guide","camp_teleport")
         else:
             var reason: String=sim.campaign.travel_reason(st,i)
             if i==_camp_at_player():reason="TELEPORT_HERE"
@@ -2833,6 +2889,12 @@ func _pinned_equipment() -> void:
 
 ## The explicit claim step for offline earnings. Nothing is paid, and no offline prestige
 ## opportunity is discovered, until Claim is pressed (campaign.claim_offline).
+## Change 64: the welcome-back receipt always lists Coins, Gems, Weapons, Outfits and Supplies (0 when
+## nothing was earned), each item category totalled by catalog kind from the pending record itself, and
+## marks a category Locked only while its offline unlock (OFFLINE_ITEM_UNLOCKS) is not owned. While any
+## is locked a persistent line explains the unlocks (future time away only) with Go to Upgrades. That
+## button keeps the established order: it claims this receipt first, as its line says, then opens
+## Upgrades → Offline. The individual items follow the totals, as before.
 func _offline_panel() -> void:
     var pending: Dictionary=sim.state.offline_pending
     if pending.is_empty():
@@ -2840,23 +2902,86 @@ func _offline_panel() -> void:
         return
     _set_title(tr("OFFLINE_WELCOME"),Color(1,.86,.5))
     _text(tr("OFFLINE_AWAY") % [fmt_duration(float(pending.seconds)),fmt(float(pending.rewarded_hours))],18,Color(.8,.84,.9))
-    var reward:=HBoxContainer.new()
-    reward.add_theme_constant_override("separation",8)
-    rows.add_child(reward)
-    for pair in [[COIN,float(pending.coins)],[GEM,float(pending.gems)]]:
-        _card_icon(reward,pair[0],Color.WHITE,30)
-        _card_line(reward,fmt_currency(pair[1]),22,Color(1,.88,.55))
+    _offline_categories(pending,true)
     for id in pending.items:
         if sim.catalog.items.has(id):_loot_row(id,-1,int(pending.items[id]))
-    if offline_gear_hint_due() and hint_allowed("offline_gear"):
-        _text(tr("OFFLINE_ITEMS_HINT"),17,Color(1,.86,.5))
-        _action(tr("OFFLINE_UPGRADES_JUMP"),func()->void:
+    if not offline_locked_kinds().is_empty():
+        _text(tr("OFFLINE_LOCKED_EXPLAIN"),17,Color(1,.86,.5)).set_meta("guide_row","offline_locked_explain")
+        _game_action(tr("OFFLINE_GO_UPGRADES"),func()->void:
             if sim.campaign.claim_offline():
                 player_tab=4;_open("upgrades")).set_meta("guide","offline_upgrades_jump")
     _pinned(tr("OFFLINE_CLAIM"),func()->void:
         if sim.campaign.claim_offline():
             _close()
             _toast(tr("OFFLINE_CLAIMED")),true,"",true,"claim_offline")
+
+## Item kinds whose offline unlock is not owned yet (weapon / outfit / consumable), from upgrade levels.
+func offline_locked_kinds() -> Array:
+    var out: Array=[]
+    for id in OFFLINE_ITEM_UNLOCKS:
+        if sim.level(id)==0:out.append(OFFLINE_ITEM_UNLOCKS[id])
+    return out
+
+## Per-category totals of an offline record (pending or claimed receipt): currencies and item copies by
+## catalog kind. Unknown ids (a removed item) are not counted, as the claim never grants them.
+func offline_totals(record: Dictionary) -> Dictionary:
+    var totals:={"coins":float(record.get("coins",0.0)),"gems":float(record.get("gems",0.0)),"weapon":0,"outfit":0,"consumable":0}
+    var items: Dictionary=record.get("items",{})
+    for id in items:
+        if not sim.catalog.items.has(id):continue
+        var kind: String=str(sim.catalog.items[id].kind)
+        if totals.has(kind) and kind not in ["coins","gems"]:totals[kind]=int(totals[kind])+int(items[id])
+    return totals
+
+const OFFLINE_CATEGORY_ROWS:=[["coins","OFFLINE_CAT_COINS"],["gems","OFFLINE_CAT_GEMS"],["weapon","WEAPONS"],["outfit","OUTFITS"],["consumable","CONSUMABLES"]]
+func _offline_categories(record: Dictionary,show_locks: bool) -> void:
+    var totals:=offline_totals(record)
+    var locked:=offline_locked_kinds() if show_locks else []
+    var card:=PanelContainer.new()
+    card.theme_type_variation=&"Card"
+    card.set_meta("guide_row","offline_categories")
+    rows.add_child(card)
+    var box:=VBoxContainer.new()
+    box.add_theme_constant_override("separation",4)
+    card.add_child(box)
+    for pair in OFFLINE_CATEGORY_ROWS:
+        var kind: String=pair[0]
+        var line:=HBoxContainer.new()
+        line.add_theme_constant_override("separation",10)
+        line.set_meta("offline_category",kind)
+        box.add_child(line)
+        _card_icon(line,_offline_category_icon(kind),Color.WHITE if kind not in locked else Color(.55,.55,.55),30)
+        var name_label:=Label.new()
+        name_label.text=tr(pair[1])
+        name_label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        name_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+        name_label.add_theme_font_size_override("font_size",20)
+        line.add_child(name_label)
+        var value:=Label.new()
+        value.text=fmt_currency(totals[kind]) if kind in ["coins","gems"] else fmt_count(totals[kind])
+        value.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
+        value.add_theme_font_size_override("font_size",22)
+        value.add_theme_color_override("font_color",Color(1,.88,.55) if float(totals[kind])>0 else Color(.8,.84,.9))
+        line.add_child(value)
+        if show_locks:
+            # Same width on every row, so the numbers line up whether or not a category is locked.
+            var state:=Label.new()
+            state.text=tr("OFFLINE_CAT_LOCKED") if kind in locked else ""
+            state.custom_minimum_size.x=96
+            state.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
+            state.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+            state.add_theme_font_size_override("font_size",17)
+            state.add_theme_color_override("font_color",Color(1,.72,.45))
+            line.add_child(state)
+
+func _offline_category_icon(kind: String) -> Texture2D:
+    match kind:
+        "coins":return COIN
+        "gems":return GEM
+        "consumable":return icon_cache.get("potion",_art(171))
+    for id in sim.catalog.items:
+        if str(sim.catalog.items[id].kind)==kind and icon_cache.has(id):return icon_cache[id]
+    return _art(171)
 
 # ---------------------------------------------------------------- player level & growth (Change 10)
 
@@ -3280,6 +3405,26 @@ func _path_cards(path: String) -> Array:
 func _path_art(path: String) -> Texture2D:
     return _art(int(sim.catalog.campaign.paths.get(path,{}).get("icon",211)))
 
+## Change 64: Prestige cards in equal columns that fit the sheet's content width (as many cards of at
+## least min_width as fit), so every card, its selection frame and its text stay inside the sheet.
+func _card_grid(min_width: float,gap: int) -> GridContainer:
+    var grid:=GridContainer.new()
+    grid.add_theme_constant_override("h_separation",gap)
+    grid.add_theme_constant_override("v_separation",gap)
+    grid.columns=maxi(1,int(floor((_rows_width()+gap)/(min_width+gap))))
+    rows.add_child(grid)
+    return grid
+
+## Width of the panel rows: the sheet's width (set by _layout_sheet from the map area) less its frame,
+## margins and the scroll bar. Computed, not read from the rows, so a panel built off-tree gets it too.
+func _rows_width() -> float:
+    var width: float=$Safe/Layout/Map.size.x-sheet_inset.x*2
+    width-=sheet.get_theme_stylebox("panel").get_minimum_size().x
+    var margin: MarginContainer=$Sheet/Margin
+    width-=margin.get_theme_constant("margin_left")+margin.get_theme_constant("margin_right")
+    var scroll: ScrollContainer=$Sheet/Margin/Content/Scroll
+    return width-scroll.get_v_scroll_bar().get_combined_minimum_size().x
+
 func _card_node(id: String,state: String,compact:=false) -> Button:
     var node: Button=PRESTIGE_CARD.instantiate()
     node.compact=compact
@@ -3319,10 +3464,7 @@ func _prestige_panel() -> void:
     _section(tr("OWNED_CARDS"))
     if sim.state.owned_cards.is_empty():_text(tr("NO_CARDS_YET"),17,Color(.75,.8,.87))
     else:
-        var grid:=HFlowContainer.new()
-        grid.add_theme_constant_override("h_separation",8)
-        grid.add_theme_constant_override("v_separation",8)
-        rows.add_child(grid)
+        var grid:=_card_grid(150.0,8)
         for id in sim.state.owned_cards:grid.add_child(_card_node(id,"owned",true))
     _section(tr("COMBOS"))
     for c in sim.catalog.campaign.combos:
@@ -3397,8 +3539,11 @@ func _opportunity_card(op: Dictionary) -> void:
         _card_line(text,sim.campaign.follow_summary(op.id),17,Color(1,.86,.5))
         if str(op.path)=="collection":_card_line(text,sim.campaign.opportunity_progress(op.id),16,Color(.8,.84,.9))
     if done:return
-    var chips:=HBoxContainer.new()
-    chips.add_theme_constant_override("separation",8)
+    # Change 64: the path's cards wrap onto as many lines as they need. They used to share one row with an
+    # ellipsis each, so a path with 4-8 cards showed only fragments ("Caref", "Gear Fo") at 432x960.
+    var chips:=HFlowContainer.new()
+    chips.add_theme_constant_override("h_separation",14)
+    chips.add_theme_constant_override("v_separation",2)
     content.add_child(chips)
     for id in _path_cards(str(op.path)):
         var d: Dictionary=sim.catalog.campaign.cards[id]
@@ -3407,8 +3552,6 @@ func _opportunity_card(op: Dictionary) -> void:
         chip.text=("✓ " if owned else "")+d.name+" "+PRESTIGE_CARD_SCRIPT.headline(d)
         chip.add_theme_font_size_override("font_size",17)
         chip.add_theme_color_override("font_color",Color(.55,.58,.62) if owned else Color(Color(str(sim.catalog.campaign.paths.get(op.path,{}).get("color","ffffff"))).lightened(.45)))
-        chip.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-        chip.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
         chips.add_child(chip)
     var row:=HBoxContainer.new()
     row.add_theme_constant_override("separation",8)
@@ -3488,10 +3631,8 @@ func _prestige_choice(batch: Dictionary) -> void:
     var offered: Array=sim.campaign.offered_cards()
     if not offered.has(selected_card):selected_card=""
     # Change 54: an expanded path can offer up to eight cards, so the row wraps on a phone.
-    var row:=HFlowContainer.new()
-    row.add_theme_constant_override("h_separation",10)
-    row.add_theme_constant_override("v_separation",10)
-    rows.add_child(row)
+    # Change 64: in equal columns (a flow stretched the last card of a row across the whole sheet).
+    var row:=_card_grid(200.0,10)
     for id in offered:
         var node:=_card_node(id,"selected" if id==selected_card else "offered")
         node.set_meta("guide","card")
