@@ -16,7 +16,7 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 287,
+  "files": 290,
   "stages": 8,
   "imported": 169
  },
@@ -77,11 +77,10 @@
     "res://scripts/game/game_ui.gd: ITEM_ART % index",
     "res://scripts/game/game_ui.gd: MASTERY_ART[category]",
     "res://scripts/game/game_ui.gd: index",
-    "res://scripts/game/game_ui.gd: int(HELP_ART.get(card,60))",
     "res://scripts/game/game_ui.gd: int(sim.catalog.campaign.paths.get(path,{}).get(\"icon\",211))",
+    "res://scripts/game/help_demo.gd: MASTERY_ICONS[i]",
     "res://scripts/game/prestige_card.gd: ITEM_ART % int(path_info.get(\"icon\",211))",
-    "res://scripts/game/tutorial_guide.gd: int(MODE_ART[mode])",
-    "res://scripts/game/tutorial_guide.gd: int(ui.HELP_ART.get(step,60))"
+    "res://scripts/game/tutorial_guide.gd: int(MODE_ART[mode])"
    ],
    "paths": [
     "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-1.png",
@@ -380,7 +379,7 @@
   "res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-014.png": "dependency of res://resources/game/theme.tres",
   "res://assets/KenneyFantasyUI/PNG/Default/Panel/panel-015.png": "dependency of res://resources/game/theme.tres",
   "res://assets/KenneyFantasyUI/PNG/Default/Transparent center/panel-transparent-center-000.png": "literal in res://scripts/game/tutorial_guide.gd",
-  "res://assets/KenneyFantasyUI/PNG/Default/Transparent center/panel-transparent-center-014.png": "dependency of res://scenes/game/joystick.tscn",
+  "res://assets/KenneyFantasyUI/PNG/Default/Transparent center/panel-transparent-center-014.png": "literal in res://scripts/game/help_demo.gd",
   "res://assets/PixelPlains/Basic Tiles 1.png": "dependency of res://scenes/game/stages/stage_8.tscn",
   "res://assets/PixelPlains/Basic Tiles 2.png": "dependency of res://scenes/game/stages/stage_8.tscn",
   "res://assets/PixelPlains/Basic Tiles 3 (Water).png": "dependency of res://scenes/game/stages/stage_8.tscn",
@@ -612,6 +611,9 @@
   "res://scripts/game/fog_rules.gd": "dependency of res://resources/game/fog_rules.tres",
   "res://scripts/game/game_ui.gd": "dependency of res://scenes/game/main.tscn",
   "res://scripts/game/guided_progress.gd": "literal in res://scripts/game/campaign.gd",
+  "res://scripts/game/help_cards.gd": "literal in res://scripts/game/campaign.gd",
+  "res://scripts/game/help_demo.gd": "literal in res://scripts/game/help_viewer.gd",
+  "res://scripts/game/help_viewer.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/inventory_slot.gd": "dependency of res://scenes/game/slot.tscn",
   "res://scripts/game/joystick.gd": "dependency of res://scenes/game/joystick.tscn",
   "res://scripts/game/language_dropdown.gd": "literal in res://scripts/game/game_ui.gd",

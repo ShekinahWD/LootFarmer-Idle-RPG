@@ -409,6 +409,13 @@ def main():
     presets = PRESETS.read_bytes().decode('utf-8')
     if not args.manifest:
         static_preset_checks(presets, manifest)
+    # Change 65: a stale allowlist is reported even when another error exists. A pending version-code
+    # error once hid that three new scripts were missing from export_files (the Android build closed at
+    # start because game_ui.gd could not preload them).
+    if args.check and not args.manifest and preset_text(presets, manifest) != presets:
+        fail('stale: export_presets.cfg export_files (run python tools/export_manifest.py)')
+    if args.check and (not out.exists() or out.read_bytes().decode('utf-8') != rendered):
+        fail('stale: %s (run python tools/export_manifest.py)' % out.relative_to(ROOT))
     if errors:
         print('EXPORT_MANIFEST FAIL %d error(s)' % len(errors))
         for e in errors:
