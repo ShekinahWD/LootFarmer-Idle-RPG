@@ -574,8 +574,9 @@ func stats() -> Dictionary:
     s.crit += campaign.bonus("crit")
     s.crit_damage += campaign.bonus("crit_damage")
     s.lifesteal += campaign.bonus("lifesteal")
-    s.crit = minf(.75,s.crit)
-    s.crit_damage = minf(4,s.crit_damage)
+    # Change 68 follow-up: no Critical Chance or Critical Damage cap. Chance only stops at 100%, where
+    # every hit is already critical (a probability cannot go higher).
+    s.crit = minf(1.0,s.crit)
     s.lifesteal = minf(.15,s.lifesteal)
     s.speed = minf(2,s.speed)
     _stats = s

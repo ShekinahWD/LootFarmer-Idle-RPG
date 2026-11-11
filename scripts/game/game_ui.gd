@@ -2218,7 +2218,7 @@ func _upgrade_benefit(id: String,g: int) -> String:
     return value
 
 ## Change 68: the critical upgrades show the player's real effective stat now -> after the next level,
-## both read from sim.stats() (equipped and stored gear, Prestige, every source and the 75% / x4 caps),
+## both read from sim.stats() (equipped and stored gear, Prestige, every source; chance stops at 100%),
 ## so the row never offers a gain combat would suppress. Critical Damage is the whole hit: 110% = x1.10.
 func _critical_benefit(id: String,next: int) -> String:
     var key:="crit" if id=="critical_chance" else "crit_damage"
@@ -2693,7 +2693,7 @@ func _stats_panel() -> void:
     _stat_section(tr("STATS_SECTION_TIME"),[
         [tr("STATS_TIME_TOTAL"),fmt_duration(float(sim.state.get("playtime_total",0.0)))],
         [tr("STATS_TIME_RUN"),fmt_duration(float(sim.state.get("playtime_run",0.0)))]])
-    _text(tr("STAT_CAPS_NOTE"),16,Color(.7,.75,.82))
+    _text(tr("STAT_CAPS_NOTE_NO_CRIT"),16,Color(.7,.75,.82))
 
 ## Where effective HP or damage comes from: each additive source, the prestige multiplier and the
 ## total combat uses (sim.stat_breakdown). Damage adds the per-hit modifiers that are not in it.

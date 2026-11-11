@@ -11,6 +11,7 @@
 - Base + 20 levels: 25% Critical Chance, 310% Critical Damage (3.10× per critical hit). Caps unchanged: 75% chance, ×4 damage.
 - The rows show the effective stat now → after the next level (all sources and caps, `sim.stats_with_upgrade`), e.g. 5% → 6% and "Critical hits: 110% → 120% damage"; capped: "75% · at the cap".
 - Owned levels are kept and re-valued; no refund.
+- **Follow-up (same day, user request): both critical caps removed.** The old 75% Critical Chance and ×4 Critical Damage caps no longer apply to any source (upgrades, gear, stored gear, Prestige, Mastery). Critical Chance only stops at 100%, where every hit is already critical; the row then reads "100% · every hit is already critical" (key CRIT_UPGRADE_CAPPED, English reworded while still pending). The Stats panel note now uses STAT_CAPS_NOTE_NO_CRIT ("…lifesteal 15%, attack speed bonus 200%. Critical chance and critical damage have no cap…"); the old STAT_CAPS_NOTE is unused and awaits retirement. Lifesteal and attack-speed caps are unchanged.
 
 
 ## Change 66 — Gem Chance level 1 costs 10 Gems; kill achievements give damage only (11 November 2026)

@@ -2161,10 +2161,15 @@
    "change": "change-68"
   },
   "CRIT_UPGRADE_CAPPED": {
-   "en": "%s · at the cap",
+   "en": "%s · every hit is already critical",
    "placeholders": [
     "%s"
    ],
+   "change": "change-68"
+  },
+  "STAT_CAPS_NOTE_NO_CRIT": {
+   "en": "Totals above include caps: lifesteal 15%, attack speed bonus 200%. Critical chance and critical damage have no cap; at 100% chance every hit is critical.",
+   "placeholders": [],
    "change": "change-68"
   }
  },

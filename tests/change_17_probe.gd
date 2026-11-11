@@ -32,7 +32,7 @@ func upgrades_and_assignments() -> void:
         check(not sim.buy_upgrade(id),id+" capped")
     check(near(sim.stats().crit,.25) and near(sim.stats().crit_damage,3.1),"Permanent critical stats applied once")
     sim.record("wood_sword").extras={"crit":10.0,"crit_damage":10.0};sim.add_item("wood_sword");sim.equip("wood_sword")
-    check(near(sim.stats().crit,.75) and near(sim.stats().crit_damage,4),"Critical caps respected")
+    check(near(sim.stats().crit,1.0) and near(sim.stats().crit_damage,13.1),"Change 68 follow-up: no critical caps (chance stops at 100%)")
     sim.add_item("skill_heal");sim.campaign.equip_skill("skill_heal")
     check(sim.buy_upgrade("skill_slots") and sim.buy_upgrade("skill_slots"),"Purchase equipped slots")
     sim.add_item("skill_fire");sim.campaign.equip_skill("skill_fire",2)

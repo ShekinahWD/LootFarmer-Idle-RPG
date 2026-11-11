@@ -86,7 +86,9 @@ func stat_checks() -> void:
         sim.state.upgrades["critical_chance"]=n;sim.state.upgrades["critical_damage"]=n;sim.touch() # fixture
         check(near(sim.stats().crit,.05+.01*n) and near(sim.stats().crit_damage,1.1+.1*n),"Rank %d: %s%% / %s%%" % [n,str(roundi(sim.stats().crit*100)),str(roundi(sim.stats().crit_damage*100))])
     sim.record("wood_sword").extras={"crit":10.0,"crit_damage":10.0};sim.add_item("wood_sword");sim.equip("wood_sword");sim.touch() # fixture
-    check(near(sim.stats().crit,.75) and near(sim.stats().crit_damage,4),"Caps unchanged: 75% / x4")
+    check(near(sim.stats().crit,1.0) and near(sim.stats().crit_damage,13.1),"No caps: chance stops at 100%, damage 1,310%")
+    sim.record("wood_sword").extras={"crit":.6,"crit_damage":5.0};sim.touch() # fixture: past the old 75% / x4
+    check(near(sim.stats().crit,.85) and near(sim.stats().crit_damage,8.1),"Old caps gone: 85% / 810%")
 
 func crit_ratio() -> float:
     # Same victim, same attacker: the critical hit's damage over the non-critical hit's damage.
@@ -169,10 +171,11 @@ func ui_checks() -> void:
     check(sim.level("critical_damage")==1 and near(sim.stats().crit_damage,2.3) and shown.contains("230%"),"Purchase matches the preview (230%)")
     await get_tree().create_timer(1.0,true,false,true).timeout;await frames(2)
     check(benefit_label("critical_damage")=="Critical hits: 230% → 240% damage","Row refreshes after the purchase: '%s'" % benefit_label("critical_damage"))
-    # Capped Critical Chance: no fictitious gain.
+    # Critical Chance at 100%: no fictitious gain.
     sim.record("wood_sword").extras={"crit":1.0,"crit_damage":.2};sim.touch() # fixture
     await open_player()
-    check(benefit_label("critical_chance")=="75% · at the cap","Capped: '%s'" % benefit_label("critical_chance"))
+    check(benefit_label("critical_chance")=="100% · every hit is already critical","At 100%%: '%s'" % benefit_label("critical_chance"))
+    check(benefit_label("critical_damage").contains("→"),"Critical Damage never stops: '%s'" % benefit_label("critical_damage"))
     # Rank 20: the real value and MAX, no level-21 preview.
     fresh();sim.state.upgrades["critical_chance"]=20;sim.state.upgrades["critical_damage"]=20;sim.touch() # fixture
     await open_player()

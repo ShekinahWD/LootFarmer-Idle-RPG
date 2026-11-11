@@ -8,6 +8,7 @@
 - **Player Upgrades rows** now show the player's real effective stat now → after the next level, both read from `sim.stats()` (all sources, Prestige cards and caps) through `LootSimulation.stats_with_upgrade(id)`, a non-mutating +1-level preview. Fresh player: "5% → 6%" and "Critical hits: 110% → 120% damage". A capped Critical Chance reads "75% · at the cap" (no fictitious gain); level 20 reads "25% · maxed" / "Critical hits: 310% damage · maxed" with MAX on the button. The Stats panel's Critical multiplier reads "110% (×1.1)".
 - Saved levels are kept as they are and re-valued under the new rule (no refund, no schema change); Prestige keeps them.
 - New English keys (pending translation): CRIT_HIT_DAMAGE_VALUE, CRIT_UPGRADE_CAPPED.
+- **Follow-up (same day, user request): both critical caps removed.** The old 75% Critical Chance and ×4 Critical Damage caps no longer apply to any source (upgrades, gear, stored gear, Prestige, Mastery). Critical Chance only stops at 100%, where every hit is already critical; the row then reads "100% · every hit is already critical" (key CRIT_UPGRADE_CAPPED, English reworded while still pending). The Stats panel note now uses STAT_CAPS_NOTE_NO_CRIT ("…lifesteal 15%, attack speed bonus 200%. Critical chance and critical damage have no cap…"); the old STAT_CAPS_NOTE is unused and awaits retirement. Lifesteal and attack-speed caps are unchanged.
 
 
 ## Change 67 — merge and evolution presentation (11 November 2026)
