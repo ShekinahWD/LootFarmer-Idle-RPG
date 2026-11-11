@@ -39,6 +39,7 @@ func run() -> void:
     await guided_teleport_checks()
     await prestige_checks()
     await offline_checks()
+    await banner_checks()
     print("CHANGE_64_CHECKS %d FAILURES %d" % [checks,failures])
     get_tree().quit(1 if failures>0 else 0)
 
@@ -302,3 +303,24 @@ func offline_checks() -> void:
     SaveService.load_and_apply();sim.suspended=false
     check(sim.state.offline_pending.is_empty() and not sim.campaign.claim_offline() and is_equal_approx(sim.state.coins,coins+240.0),"After reload nothing can be claimed twice")
     game._close()
+
+# ---------------------------------------------------------------- discovery banner
+## The in-game discovered / ready banner lists one chip per card of the path; the largest path (eight cards)
+## used to make the plate wider than the screen. It must wrap inside the safe area.
+func banner_checks() -> void:
+    print("-- Discovery banner")
+    fresh();sim.state.tutorial.seen.append("road_ahead") # fixture
+    var largest:="";var n:=0
+    for op in sim.catalog.campaign.opportunities:
+        var count: int=game._path_cards(str(op.path)).size()
+        if count>n:n=count;largest=str(op.id)
+    for kind in ["discovered","ready"]:
+        game.banner.queue.clear();game.banner._finish()
+        game._milestone(kind,largest);await frames(20)
+        var plate: Control=game.banner.get_node("Plate")
+        var view: Rect2=game.get_viewport_rect()
+        var chips: Container=plate.get_node("Row/Text/Rewards")
+        var inside:=view.encloses(plate.get_global_rect())
+        for chip in chips.get_children():inside=inside and plate.get_global_rect().encloses(chip.get_global_rect())
+        check(game.banner.visible and chips.get_child_count()==n and inside,"%s banner with %d card chips stays inside the screen (%s)" % [kind,n,str(plate.get_global_rect())])
+    game.banner.queue.clear();game.banner._finish()

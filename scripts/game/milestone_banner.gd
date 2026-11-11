@@ -76,7 +76,9 @@ func _begin(entry: Dictionary) -> void:
     $Plate/Row/Text/Title.text=entry.title
     $Plate/Row/Text/Subtitle.text=entry.subtitle
     $Plate/Row/Text/Subtitle.visible=entry.subtitle!=""
-    var chips: HBoxContainer=$Plate/Row/Text/Rewards
+    # Change 64: the card chips wrap (an HFlowContainer). In one HBox row a path with 7-8 cards (Expedition,
+    # Collection) made the plate wider than the screen, so the banner ran off both sides at 432x960.
+    var chips: Container=$Plate/Row/Text/Rewards
     for child in chips.get_children():child.queue_free()
     for card in entry.cards:
         var chip:=HBoxContainer.new();chip.mouse_filter=Control.MOUSE_FILTER_IGNORE

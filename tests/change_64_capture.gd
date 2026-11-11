@@ -35,6 +35,7 @@ func run() -> void:
     if only in ["","teleport"]:await teleport_shots()
     if only in ["","prestige"]:await prestige_shots()
     if only in ["","offline"]:await offline_shots()
+    if only in ["","banner"]:await banner_shots()
     print("CHANGE_64_CAPTURE ",out," PROBLEMS ",problems)
     if locale!="":LocalizationService.select_language("automatic")
     get_tree().quit(0)
@@ -232,3 +233,25 @@ func offline_shots() -> void:
     await shot("offline_03_unlocked_items")
     audit("offline_unlocked",game.sheet)
     game._close()
+
+# ---------------------------------------------------------------- discovery banner
+## The in-game banner shown when an opportunity is discovered / ready: one reward chip per card of its
+## path. Every path size is shown once; the largest (eight cards) are captured.
+func banner_shots() -> void:
+    fresh()
+    sim.state.tutorial.seen.append("road_ahead") # fixture: the one-time goals card already read
+    await frames(4)
+    var largest:=0
+    var by_size: Dictionary={}
+    for op in sim.catalog.campaign.opportunities:
+        var n: int=game._path_cards(str(op.path)).size()
+        if not by_size.has(n):by_size[n]=op.id
+        largest=maxi(largest,n)
+    var sizes: Array=by_size.keys();sizes.sort()
+    for n in sizes:
+        game.banner.queue.clear();game.banner._finish()
+        game._milestone("ready" if n==largest else "discovered",str(by_size[n]))
+        await frames(20)
+        audit("banner_%d_cards" % n,game.banner.get_node("Plate"))
+        if n==largest or n==sizes[0]:await shot("banner_%d_cards" % n)
+    game.banner.queue.clear();game.banner._finish()
