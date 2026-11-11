@@ -2152,6 +2152,20 @@
    "en": "Boss defeated!",
    "placeholders": [],
    "change": "change-67"
+  },
+  "CRIT_HIT_DAMAGE_VALUE": {
+   "en": "Critical hits: %s damage",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-68"
+  },
+  "CRIT_UPGRADE_CAPPED": {
+   "en": "%s · at the cap",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-68"
   }
  },
  "retired": {

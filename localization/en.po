@@ -6580,3 +6580,9 @@ msgstr "CRIT!"
 
 msgid "BOSS_DEFEATED_TITLE"
 msgstr "Boss defeated!"
+
+msgid "CRIT_HIT_DAMAGE_VALUE"
+msgstr "Critical hits: %s damage"
+
+msgid "CRIT_UPGRADE_CAPPED"
+msgstr "%s · at the cap"

@@ -1,4 +1,17 @@
-# LootFarmer — Upgrade Catalog — Change 66
+# LootFarmer — Upgrade Catalog — Change 68
+
+## Change 68 — cheaper critical upgrades; Critical Damage 110% + 10 points per level (11 November 2026)
+
+| Id | Scope | Currency | Cap | Prestige | Price | Effect |
+|---|---|---|---:|---|---|---|
+| critical_chance | global | gems | 20 | Keep | **25 / 1.25** (was 250 / 1.5) | +1 point per level (unchanged); base 5% |
+| critical_damage | global | gems | 20 | Keep | **15 / 1.25** (was 200 / 1.5) | **+10 points** per level (was +5); base **110%** (was 150%) |
+
+- Prices are `ceil(base × 1.25^level)`. Critical Chance: 25, 32, 40, 49, 62, 77, 96, 120, 150, 187, 233, 292, 364, 455, 569, 711, 889, 1111, 1388, 1735 (8,585 total). Critical Damage: 15, 19, 24, 30, 37, 46, 58, 72, 90, 112, 140, 175, 219, 273, 342, 427, 533, 667, 833, 1041 (5,153 total).
+- Base + 20 levels: 25% Critical Chance, 310% Critical Damage (3.10× per critical hit). Caps unchanged: 75% chance, ×4 damage.
+- The rows show the effective stat now → after the next level (all sources and caps, `sim.stats_with_upgrade`), e.g. 5% → 6% and "Critical hits: 110% → 120% damage"; capped: "75% · at the cap".
+- Owned levels are kept and re-valued; no refund.
+
 
 ## Change 66 — Gem Chance level 1 costs 10 Gems; kill achievements give damage only (11 November 2026)
 
@@ -89,8 +102,8 @@ Next price = ceil(base × growth^rank × owner multiplier), unless the table sup
 | merge_all | global | gems | 1 | Keep (Change 12) | 5,000 / 1 (one-time unlock; using Merge All is free) |
 | skill_slots | global | gems | 2 | Keep | [300, 600] (Change 13) |
 | skill_auto_slots | global | gems | 3 | Keep | 100 / 250 / 500; freely assign equipped positions |
-| critical_chance | global | gems | 20 | Keep | 250 / 1.5; +1 percentage point per level |
-| critical_damage | global | gems | 20 | Keep | 200 / 1.5; +5 percentage points per level |
+| critical_chance | global | gems | 20 | Keep | 250 / 1.5; +1 percentage point per level *(Change 68: 25 / 1.25)* |
+| critical_damage | global | gems | 20 | Keep | 200 / 1.5; +5 percentage points per level *(Change 68: 15 / 1.25, +10 points, base 110%)* |
 | cooldown_heal | global | coins | 6 | Reset | 100 / 1.65 |
 | cooldown_frost | global | coins | 6 | Reset | 100 / 1.65 |
 | cooldown_fire | global | coins | 6 | Reset | 100 / 1.65 |

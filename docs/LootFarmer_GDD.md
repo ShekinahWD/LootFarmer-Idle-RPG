@@ -1,4 +1,14 @@
-# LootFarmer — Game Design Document — current (2026-11-11, Change 67)
+# LootFarmer — Game Design Document — current (2026-11-11, Change 68)
+
+## Change 68 — critical upgrade pricing, Critical Damage balance and effective-stat display (11 November 2026)
+
+- **Critical Chance** (`critical_chance`, global, Gems, 20 levels, kept through Prestige): base 5% and +1 point per level unchanged; price **25 Gems × 1.25 per level** (was 250 × 1.5). Base + 20 levels = 25%. The 75% combat cap and every other Critical Chance source (gear, stored gear, Prestige cards, Mastery) are unchanged.
+- **Critical Damage** (`critical_damage`, same scope): base **110%** (a critical hit deals **1.10×** the hit; was 150%), **+10 points per level** (was +5), price **15 Gems × 1.25** (was 200 × 1.5). Base + 20 levels = **310% (3.10×)**. The ×4 cap is unchanged. 110% means the whole hit is 1.10×, not +110% extra.
+- Prices use the existing rule `ceil(base × growth^level)`: Critical Chance 25, 32, 40, 49, 62 … 1,735 (level 20); Critical Damage 15, 19, 24, 30, 37 … 1,041 (level 20). All 20 levels: 8,585 and 5,153 Gems.
+- **Player Upgrades rows** now show the player's real effective stat now → after the next level, both read from `sim.stats()` (all sources, Prestige cards and caps) through `LootSimulation.stats_with_upgrade(id)`, a non-mutating +1-level preview. Fresh player: "5% → 6%" and "Critical hits: 110% → 120% damage". A capped Critical Chance reads "75% · at the cap" (no fictitious gain); level 20 reads "25% · maxed" / "Critical hits: 310% damage · maxed" with MAX on the button. The Stats panel's Critical multiplier reads "110% (×1.1)".
+- Saved levels are kept as they are and re-valued under the new rule (no refund, no schema change); Prestige keeps them.
+- New English keys (pending translation): CRIT_HIT_DAMAGE_VALUE, CRIT_UPGRADE_CAPPED.
+
 
 ## Change 67 — merge and evolution presentation (11 November 2026)
 

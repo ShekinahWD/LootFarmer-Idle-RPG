@@ -25,12 +25,12 @@ func run() -> void:
 func upgrades_and_assignments() -> void:
     sim.state.gems=10000000;sim.state.coins=100000
     for id in ["critical_chance","critical_damage"]:
-        var base:=250 if id=="critical_chance" else 200
+        var base:=25 if id=="critical_chance" else 15 # Change 68: 25 / 15 Gems, x1.25
         for i in range(20):
-            check(sim.upgrade_cost(id)==ceili(base*pow(1.5,i)),id+" price "+str(i))
+            check(sim.upgrade_cost(id)==ceili(base*pow(1.25,i)),id+" price "+str(i))
             check(sim.buy_upgrade(id),id+" buy "+str(i))
         check(not sim.buy_upgrade(id),id+" capped")
-    check(near(sim.stats().crit,.25) and near(sim.stats().crit_damage,2.5),"Permanent critical stats applied once")
+    check(near(sim.stats().crit,.25) and near(sim.stats().crit_damage,3.1),"Permanent critical stats applied once")
     sim.record("wood_sword").extras={"crit":10.0,"crit_damage":10.0};sim.add_item("wood_sword");sim.equip("wood_sword")
     check(near(sim.stats().crit,.75) and near(sim.stats().crit_damage,4),"Critical caps respected")
     sim.add_item("skill_heal");sim.campaign.equip_skill("skill_heal")

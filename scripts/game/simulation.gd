@@ -66,6 +66,8 @@ var _save_clock := 0.0
 var _roster_removals := 0
 var _stats: Dictionary = {}
 var _stats_revision := -1
+## Extra levels of a Player upgrade counted only while stats_with_upgrade() builds a preview.
+var _preview_upgrades: Dictionary = {}
 ## Change 60: bumped whenever the whole profile is replaced (new profile, load, Prestige), so the stat
 ## feedback takes a fresh baseline instead of announcing the replacement as stat gains or losses.
 var profile_epoch := 0
@@ -586,6 +588,15 @@ func stats_with(weapon: String, outfit: String) -> Dictionary:
     state.weapon=weapon;state.outfit=outfit;_stats_revision=-1
     var result: Dictionary=stats().duplicate()
     state.weapon=saved[0];state.outfit=saved[1];_stats_revision=-1
+    return result
+
+## Change 68: effective stats if `extra` more levels of a Player stat upgrade were owned. Exact and
+## non-mutating: the same stats() pipeline (every source, Prestige factors and caps) with only that
+## upgrade's level raised for the preview, so a capped stat shows no fictitious gain.
+func stats_with_upgrade(id: String, extra: int = 1) -> Dictionary:
+    _preview_upgrades={id:extra};_stats_revision=-1
+    var result: Dictionary=stats().duplicate()
+    _preview_upgrades={};_stats_revision=-1
     return result
 
 ## Change 10 transparency: how one effective stat is built. The parts are stat_sources() (exactly
@@ -1667,8 +1678,9 @@ func upgrade_block_reason(id: String,g: int=-1) -> String:
 
 func stat_sources() -> Dictionary:
     var result: Dictionary={}
-    result["SOURCE_BASE"]={"hp":100.0,"damage":5.0,"crit":.05,"crit_damage":1.5}
-    result["SOURCE_UPGRADES"]={"crit":player_upgrade_value("critical_chance"),"crit_damage":player_upgrade_value("critical_damage")}
+    # Change 68: base Critical Damage is 110% (a critical hit deals 1.10x); each purchased level adds +0.10.
+    result["SOURCE_BASE"]={"hp":100.0,"damage":5.0,"crit":.05,"crit_damage":1.1}
+    result["SOURCE_UPGRADES"]={"crit":player_upgrade_value("critical_chance",int(_preview_upgrades.get("critical_chance",0))),"crit_damage":player_upgrade_value("critical_damage",int(_preview_upgrades.get("critical_damage",0)))}
     result["SOURCE_LEVEL"]={"hp":(state.player_level-1)*catalog.progression.hp_per_level,"damage":(state.player_level-1)*catalog.progression.damage_per_level}
     result["SOURCE_EQUIPPED"]={}
     result["SOURCE_STORED"]={}

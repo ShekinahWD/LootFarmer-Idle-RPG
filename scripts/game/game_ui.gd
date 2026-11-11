@@ -2202,9 +2202,10 @@ func _upgrade_benefit(id: String,g: int) -> String:
         return tr("OFFLINE_GEAR_BENEFIT") if sim.level(id)==0 else tr("UPGRADE_TRANSITION") % [tr("ON"),tr("ON")]
     if int(sim.catalog.upgrades[id].cap)==1:
         return tr("UPGRADE_TRANSITION") % [tr("ON" if sim.level(id,g)>0 else "OFF"),tr("ON")]
+    if id in ["critical_chance","critical_damage"]:return _critical_benefit(id,next)
     var current:=sim.group_upgrade_value(id,g,enemy_variant) if g>=0 else sim.player_upgrade_value(id)
     var future:=sim.group_upgrade_value(id,g,enemy_variant,next) if g>=0 else sim.player_upgrade_value(id,next)
-    var percent:=id in ["loot","supply_drop","skill_drop","gem_chance","boss_gem_chance","movement","reveal_radius","camp_radius","critical_chance","critical_damage"]
+    var percent:=id in ["loot","supply_drop","skill_drop","gem_chance","boss_gem_chance","movement","reveal_radius","camp_radius"]
     var left:=fmt_value(current*100)+"%" if percent else fmt_value(current)
     var right:=fmt_value(future*100)+"%" if percent else fmt_value(future)
     # Change 13: coin and gem amounts use the shared currency format.
@@ -2215,6 +2216,20 @@ func _upgrade_benefit(id: String,g: int) -> String:
     if id in ["respawn","collect_speed","gear_merge_speed","use_speed","spawn_cooldown"]:value=tr("SECONDS_VALUE") % value
     if id=="supply_drop":value=tr("POTION_CHANCE_VALUE") % value
     return value
+
+## Change 68: the critical upgrades show the player's real effective stat now -> after the next level,
+## both read from sim.stats() (equipped and stored gear, Prestige, every source and the 75% / x4 caps),
+## so the row never offers a gain combat would suppress. Critical Damage is the whole hit: 110% = x1.10.
+func _critical_benefit(id: String,next: int) -> String:
+    var key:="crit" if id=="critical_chance" else "crit_damage"
+    var now:=float(sim.stats()[key])
+    var left:=fmt_value(now*100)+"%"
+    var after:=now if next==0 else float(sim.stats_with_upgrade(id,next)[key])
+    var gain:=after>now+.00001
+    var value:=tr("UPGRADE_TRANSITION") % [left,fmt_value(after*100)+"%"] if gain else left
+    if id=="critical_damage":value=tr("CRIT_HIT_DAMAGE_VALUE") % value
+    if next==0:return tr("UPGRADE_MAXED_VALUE") % value
+    return value if gain else tr("CRIT_UPGRADE_CAPPED") % value
 
 func _item_names(ids: Array) -> String:
     return ", ".join(ids.map(func(id):return sim.catalog.display_name(str(id))))
@@ -2639,7 +2654,7 @@ func _stats_panel() -> void:
     _stat_section(tr("STATS_SECTION_OFFENSE"),[
         [tr("STAT_DAMAGE"),fmt(s.damage)],
         [tr("STAT_CRIT"),fmt_value(s.crit*100)+"%"],
-        [tr("STAT_CRIT_DAMAGE"),"×"+fmt(s.crit_damage)],
+        [tr("STAT_CRIT_DAMAGE"),fmt_value(s.crit_damage*100)+"% (×"+fmt(s.crit_damage)+")"],
         [tr("STATS_ATTACK_SPEED"),tr("STATS_ATTACK_SPEED_VALUE") % [fmt_value(1.0+s.speed),fmt_value(s.speed*100)]],
         [tr("STAT_LIFESTEAL"),fmt_value(s.lifesteal*100)+"%"]])
     _stat_section(tr("STATS_SECTION_DEFENSE"),[
