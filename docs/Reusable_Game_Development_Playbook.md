@@ -4,15 +4,25 @@
 >
 > It is distilled from three projects: **Everfort** (an incremental tower defense, shipped on Google Play), **Feed the Dragon** (a city builder with a final battle) and **Growing Kingdom** (a kingdom-management and wave-defense game, in development). It is not any game's design document. It keeps the patterns, architecture, UI rules, asset practices, AI workflow and production lessons that held up across them.
 >
-> **How to read it.** Each rule is written as a **reusable principle**. Examples name the game that validated them ("Growing Kingdom: ..."); their numbers, names and tables belong to that game and are evidence, not defaults. A game's own design decisions live in that game's GDD and decision log, never here (section 107).
+> **How to read it.** Each rule is written as a **reusable principle**. Examples name the game that validated them ("Growing Kingdom: ..."); their numbers, names and tables belong to that game and are evidence, not defaults. A game's own approved design decisions live in its single canonical GDD, never in competing decision documents (section 107).
 >
-> **Approved cross-game production baseline (2026-10-15, lifecycle amended 2026-10-28):** 20-stage lifecycle (section 0.9; Stage 16 Demo Generation, Content Stripping & Validation inserted after Performance, marketing now Stage 17), paid-once/no-tracking policy (0.10), English-first localization infrastructure from the first feature, with each target language validated before players can select it and the full target set as the final localization milestone (132), authentic language-neutral screenshot capture (87), universal trailer + 10-master social-video production and posting-copy workflow (133), ChatGPT-owned ASO with policy-reviewed English source copy, Play-locale mapping, localized listing/release-note handoff (134), and the separately versioned **Godot Marketing Capture Toolkit 1.0.2 stable** (135). These decisions supersede older optional-service/marketing assumptions. The toolkit is an implementation artifact, **not** a second process document; pin/install it rather than recreating solved infrastructure.
+> **Approved cross-game production baseline (2026-10-15, lifecycle revised 2026-11-08):** 20-stage lifecycle (section 0.9; polished demo at Stage 3, itch.io Android + browser demo release and Coming Soon marketing at Stage 4, full-game work from Stage 5, final marketing at Stage 17), paid-once/no-tracking policy (0.10), English-first localization infrastructure from the first feature, with each target language validated before players can select it and the full target set as the final localization milestone (132), authentic language-neutral screenshot capture (87), universal trailer + 10-master social-video production and posting-copy workflow (133), ChatGPT-owned ASO with policy-reviewed English source copy, Play-locale mapping, localized listing/release-note handoff (134), and the separately versioned **Godot Marketing Capture Toolkit 1.0.2 stable** (135). These decisions supersede older optional-service/marketing assumptions. The toolkit is an implementation artifact, **not** a second process document; pin/install it rather than recreating solved infrastructure.
 >
+> **Future-project repository convention (approved 2026-11-01):** Sections 0.2.5, 0.8, 44, 87, 89, 107, 108, 135.4 and 136 establish the single-GDD documentation model, fixed folder names, one `generated/` output root, standard `.gitignore`, automatic **local** Claude implementation commits before human device acceptance, and `MAJOR.MINOR` game versions advanced to the next major only after the developer confirms a store upload/publication. **Applies exclusively to games started after this policy; do not migrate, clean up or modify existing games.** Earlier game anecdotes and version numbers throughout this Playbook remain historical evidence, not rules to copy.
+>
+> **Shared Playbook location (approved 2026-11-08):** The **single writable master** is `D:\Godot\ReusableKitForNewGames\Reusable_Game_Development_Playbook.md`. Every local game accesses it through the Windows **file symbolic link** `docs/Reusable_Game_Development_Playbook.md`; do not keep independently editable project copies. Section 0.2.6 defines one-time setup for the four existing games and all future games, verification, external-access limitations and Git policy. Existing games may opt into **only this documentation-link setup** without migrating their gameplay, GDD, directory structure or other Git conventions.
+
 > **Last consolidated:** 2026-10-15 (Everfort publishing + reusable workflow finalization). Everfort established the 20-locale runtime reference architecture; the shared workflow now separates English-first implementation from the later 19-language translation handoff, probe-save isolation, old-save compatibility checks, release-export localization verification, language-neutral store screenshots, the 30-second store trailer workflow, the standard ten-video social package (5 focused + 5 full-landscape), per-video social posting copy, policy-first English store-copy approval, and explicit separation between runtime locale IDs and Google Play locale tags. Godot Marketing Capture Toolkit 1.0.2 is the approved stable Windows/Godot baseline. Earlier consolidation history follows. Sections 128 to 133, which had grown as one section per Growing Kingdom pass, were reorganized by topic and merged into the sections that own each subject; contradictions between sections were resolved (what a workforce counter counts, where a block reason goes, how a reassignment treats a carried load, when old saves must be migrated); and new canonical sections cover the iteration loop (44), save compatibility by development phase (61), progression-layer roles (3), management surfaces (16), teaching (18), text hierarchy (128), controls (129), army management (130) and soft counters (131). Earlier synchronization notes are in git history. Strengthened 2026-10-02 from Growing Kingdom's Android corrections, merged into the owning sections: centralized tutorial arbitration (18.8), automation modes above manual configuration (8.2), bulk mode changes (129.6), support anti-stacking (130.7), the Defend coverage pass (130.4), HUD ownership surfaces (16.4), adding to an established HUD (19.1), authored price tables (92), current-schema correctness before release (61.1) and targeted correction batches during device testing (44.2). Strengthened again 2026-10-02 from Growing Kingdom's Villager corrections: a blocked carried load falls through instead of blocking the list (115.4, 120.4), and automatic workers share one coordinated allocation instead of each taking the same best task (8.2, 115.1).
 
 > **Store-review and gesture-teaching update — 2026-10-28:** Added lessons validated in LootFarmer Change 35: teaching a gesture by demonstrating the real gesture and completing on its real success (18.3), inserting a step into a saved ordered tutorial (18.3), first-frame sizing of rarely shown modals (20), decision modals that hold the world (26.2), storefront identity from the release artifact rather than the OS (52.1) and honest, arbitrated review invitations (52.2). Device and store-policy behaviour is not certified by these notes; see each section.
 >
 > **Progressive localization activation — 2026-10-29 (LootFarmer Change 40):** The developer approved enabling validated translation batches before the whole target set is done. Section 132 now gates each locale on its own readiness (one per-locale list drives Settings, Automatic and export packaging), Settings uses one compact dropdown that lists only the locales a build offers (unavailable ones are hidden, not disabled), Automatic matches the device language among enabled and packaged locales with English fallback, and the 20-language milestone is the final comprehensive QA gate rather than a precondition for any activation (0.11, 129.1, 132.2, 132.3, 132.5, 132.6). The earlier rule "all 19 disabled and visible until every language passes" is superseded.
+>
+> **Branding workflow clarification — 2026-11-05 (Idle Fort Defender feature graphic and icon):** Section 101 now requires a candidate-asset study at real output sizes before subjects are chosen, keeps the feature graphic and the icon as independent workflows with their own sources and commits, reuses the process rather than an earlier game's composition, and makes vertical promotional variants recompositions rather than crops (101, 101.1, 101.2). Documentation only; no device or store result is implied.
+
+> **Feature-graphic creative-process reconciliation — 2026-11-05:** Section 101.1 was reworked from the complete successful LootFarmer feature-graphic session, not from later rejected graphics. The proven process is creative-thesis first, substantive research, truth-checked asset investigation, genuinely different visual stories, full creative authority, repeated inspection of actual rendered pixels and multiple critique/revision cycles before acceptance. The later Idle Fort Defender feature-graphic attempts are **not** treated as validation evidence. Portrait reuse is a layered-source requirement during the feature-graphic batch, not a requirement to solve a second final composition at the same time. The successful reference session used Claude Opus 5.5 at Medium effort, so higher effort may be used when available but is not a substitute for the visual iteration process.
+>
+> **Surface and touch-text corrections — 2026-11-04 (idleFortDefender Change 30):** Merged into owning sections: trimming the inner shading of joined nine-island pieces and scanning for repeated seams, plus reproducible composer scripts (22.2); tooltips only for wordless or blocked controls, a tap on a disabled button showing its reason, and a type-floor probe (125.9). Not a phone-acceptance certification.
 >
 > **Playtest corrections — 2026-10-29 (LootFarmer Change 41):** Added from one validated correction batch, merged into the owning sections: a requirement that keeps a copy back is shown in full and counted by the predicate the action checks (143.1), a farming focus keeps self-defence as an explicit fallback tier (8.3), mode-chooser cards and teaching a movement control on the control itself (18.2, 18.3), a player-movable on-screen control (121.12), loot arrival feedback that never delays collection (125.4), a single community link (52) and new `class_name` scripts in headless runs (113). Desktop probes and renders only; thumb comfort, link launching and drop readability on a phone are not certified by these notes.
 >
@@ -22,30 +32,39 @@
 
 > **Change 3 documentation merge — 2026-10-20:** Incorporated supplied fog sections 117.9, 124.12 and 127.6 without replacing the existing LootFarmer asset registry or section 136. Added reusable contracts for camp reveal, copy-count bonuses, evolution baselines and batched rewards. These are specifications, not implementation evidence.
 
-> **Production-audit consolidation — 2026-10-28 (LootFarmer full production audit):** The lifecycle grows from 19 to 20 stages: **Stage 16 — Demo Generation, Content Stripping & Validation** (0.9, 0.9.1); former Stages 16–19 are now 17–20 and their cross-references (87.8, 133, 134.4) were renumbered. Practices verified while auditing LootFarmer were merged into their owning sections rather than appended as a new change section: confirmation layout settled once instead of per frame (16.3), tutorial waits on an active real-time clock (18.5), export allowlists for unused pack content (22.2), desktop frame-time and save-cost measurement method with explicit device boundaries (48), and suite hygiene for unregistered probes, evidence-writing validators and clock-source changes (60.1). Each is marked with what was measured on desktop and what still needs a phone. Sections 138–146 remain project-labelled lesson batches from earlier changes; fold them into their owning sections at the next consolidation pass rather than adding a section 147.
+> **Historical production-audit consolidation — 2026-10-28 (LootFarmer full production audit; demo timing/ownership superseded by the 2026-11-08 sections 0.9–0.9.2):** The lifecycle grows from 19 to 20 stages: **Stage 16 — Demo Generation, Content Stripping & Validation** (0.9, 0.9.1); former Stages 16–19 are now 17–20 and their cross-references (87.8, 133, 134.4) were renumbered. Practices verified while auditing LootFarmer were merged into their owning sections rather than appended as a new change section: confirmation layout settled once instead of per frame (16.3), tutorial waits on an active real-time clock (18.5), export allowlists for unused pack content (22.2), desktop frame-time and save-cost measurement method with explicit device boundaries (48), and suite hygiene for unregistered probes, evidence-writing validators and clock-source changes (60.1). Each is marked with what was measured on desktop and what still needs a phone. Sections 138–146 remain project-labelled lesson batches from earlier changes; fold them into their owning sections at the next consolidation pass rather than adding a section 147.
+
+> **Social video craft — 2026-11-12:** Section 133.10 records the reusable lessons of the first portrait social set (LootFarmer, ten masters, approved after one developer revision): reading time, one focal point, complete actions, unobstructed framing, length chosen by content, a distinct identity per video, fresh capture after the game changes, real-speed review and developer review as a production step. 133.5 no longer fixes social videos at about 15 s or to trailer footage only; 133.7 and 133.9 record match cuts as a validated option.
+>
+> **Video messaging classifications — 2026-11-08:** Section 133.9 adds four independently chosen promotional message types (Bait / Hook, Informational, Progressive, No Text), separate from editing/composition styles. Stage 4 Coming Soon and Stage 17 Out Now promotional videos can use whichever fits their story; the ten-video quantity and existing video export specifications are unchanged. A bait opening may lead with text before gameplay; No Text uses a visual hook instead of a required written headline. Claims and footage remain truthful, and no quota per type is imposed.
+>
+> **Shared foundation and two-phase marketing update — 2026-11-08:** The shared Settings panel is specified in 16.5 and the exact seven default Statistics in 17.4; the embedded bootstrap starter now includes their state/audio/persistence shells, while game-themed working panels are a Stage 3 demo gate. The demo-first workflow publishes Android + HTML5 on itch.io at Stage 4 with one Coming Soon video and two Coming Soon thumbnails. The final launch produces two Out Now thumbnails (not a pair per video) and both feature graphics sequentially: horizontal approved first, vertical recomposed after approval (101.1, 133.8). The existing ten vertical social masters remain unchanged and reusable across TikTok/Reels/Shorts. No new reusable documentation document is created.
+>
+> **Demo-first workflow — approved 2026-11-02, release placement revised 2026-11-08:** For future new games, build and approve a polished limited-content **demo by Stage 3** (including its scoped UI, Settings, Statistics, art/audio, persistence, balance, Android and browser behavior), then **publish the demo on itch.io at Stage 4** as an Android APK and a directly playable HTML5 browser build. Produce the Coming Soon video and two early promotional thumbnails for that milestone. Preserve the accepted demo with a release tag and maintenance branch; develop the full game on `main` from Stage 5. Stage 16 is **Localization & Release Readiness**, not demo creation or release. Existing repositories are not automatically migrated. This describes the approved workflow, not evidence any new demo has passed acceptance.
 
 ## Topic map
 
 | Topic | Sections |
 |---|---|
-| Starting a new game (GDD, bootstrap, signing) | 0, 105 to 107 |
+| Starting a new game (GDD, bootstrap, signing and directory layout) | 0, 0.2.5, 0.2.6, 105 to 107 |
 | Universal production lifecycle and business model | 0.9, 0.10, 2, 44, 95 |
-| Free limited-content demo (Stage 16) | 0.9.1, 88, 135.4 |
+| Demo-first development and itch.io/browser release (Stages 3–4) | 0.9.1, 0.9.2, 88, 135.4 |
 | Scope, checkpoints and the iteration loop | 1, 2, 44, 45, 60.1, 95, 108 |
 | Progression layers (run, Permanent, Prestige, Ascension) | 3, 32 to 37, 53, 92, 110 |
 | Automation | 8, 9, 55 |
 | Workers, resources, buildings, the living world | 10 to 13, 80, 109, 115 to 127 |
 | Army management and combat | 5 to 7, 38, 39, 72, 79, 130, 131 |
-| Mobile UI: surfaces, text, controls | 14 to 17, 19 to 21, 70, 78, 123 to 125, 128, 129, 143 |
+| Mobile UI: surfaces, text, controls, shared Settings/Statistics | 14 to 17 (especially 16.5 and 17.4), 19 to 21, 70, 78, 123 to 125, 128, 129, 143 |
 | Teaching, onboarding and first-profile progression | 18 |
 | Pause, save, reset and offline | 26 to 31, 57, 58, 61, 110, 111, 145 |
 | Validation, probes, bots and audits (incl. boss-readiness audits) | 41 to 43, 59, 60, 100, 112, 113, 127, 140, 145 |
 | Assets, terrain and visuals | 22 to 25, 54, 63 to 67, 71, 73, 101, 103, 104 |
-| Android, release and store (incl. store links and review invitations) | 47 to 49, 52, 64, 68, 84, 87 to 89, 95, 96, 134 |
+| Android, web demo, itch.io, release and store (incl. store links and review invitations) | 0.9.1, 0.9.2, 47 to 49, 52, 64, 68, 84, 87 to 89, 95, 96, 134 |
 | Writing conventions (prose, store and marketing copy) | 74, 134.1 |
 | Localization across 20 languages | 0.11, 132 |
-| Screenshots and universal video | 87, 133 |
+| Screenshots, feature graphics, videos and two-format promotional thumbnails | 87, 101.1, 133 |
 | Reusable source toolkit and AI responsibilities | 0.2, 44, 135 |
+| Project structure, documentation, Git and versioning | 0.2.5, 0.2.6, 0.8, 44, 87.5, 89, 107, 108, 135.4, 136 |
 
 ## Historical section moves (2026-10-01): former sections 128 to 133
 
@@ -77,16 +96,16 @@ A future game should not begin with gameplay code. The project starts by definin
 The canonical startup order is:
 
 ```text
-1. Create and finalize the game-specific GDD
-2. Bootstrap/configure the Godot project from the validated production baseline
+1. Create and finalize the game-specific GDD (use `docs/EarlyDocs/` as ChatGPT-only pre-GDD input where relevant)
+2. Bootstrap/configure the Godot project from the validated production baseline and the canonical tree (0.2.5); create and verify its shared Playbook symlink (0.2.6)
 3. Create the game's Android upload keystore
 4. Configure the project's release-signing identity
 5. Install/verify Android dependencies, export templates and the Android build template
 6. Open and validate the clean starter project
-7. Export a release-signed Bootstrap APK
-8. Install/test that APK on the physical Android target
-9. Commit/archive Bootstrap / Checkpoint 0
-10. Begin implementing the GDD with Checkpoint 1
+7. Export a release-signed Bootstrap APK after automated bootstrap checks
+8. Commit the completed Bootstrap / Checkpoint 0 locally
+9. Install/test that exact APK on the physical Android target; fix findings in new commits
+10. Begin implementing the GDD with Checkpoint 1 only after Android bootstrap validation (Claude commits each completed batch locally)
 ```
 
 The signing identity is established before project-specific Android build dependencies are installed. The **actual signed APK export** happens after those dependencies/templates are available.
@@ -128,14 +147,15 @@ Give the repository-aware agent:
 
 - the completed/approved game-specific GDD;
 - the latest full validated project from the previous game;
-- this standalone reusable Playbook;
+- this single, readable shared master Playbook, reached locally through `docs/Reusable_Game_Development_Playbook.md` (0.2.6);
 - the new game's name (the Android package ID is derived automatically as `com.shekinahwelefuldesigns.<normalized_game_name>`);
 - the intended Godot version;
 - orientation and reference resolution;
 - whether the game needs network services;
+- the approved demo scope and the browser-export compatibility requirements (0.9.1 to 0.9.2);
 - any approved service IDs that the developer intentionally supplies.
 
-The agent should inspect the repository rather than relying on an old continuity summary for technical configuration. If the previous project contains an embedded copy of the reusable Playbook while a newer standalone Playbook is supplied separately, the standalone file is the documentation authority; do not overwrite newer cross-game lessons with the older embedded copy.
+The agent should inspect the repository rather than relying on an old continuity summary for technical configuration. The external shared master file is the documentation authority for this Windows workspace. Do not overwrite it with a stale Playbook copy from an older game, an extracted ZIP, a previous commit or an agent-generated bootstrap.
 
 ### 0.2.2 Classify every previous-project setting
 
@@ -163,7 +183,7 @@ The new project must deliberately replace or regenerate:
 
 - application/store name;
 - Android package ID, generated from the fixed `com.shekinahwelefuldesigns.<normalized_game_name>` convention;
-- integer change version and store version code;
+- two-part game version (`MAJOR.MINOR`) and separate Android store version code;
 - launcher/adaptive/store icons (produced in their own batch from the new game's art, section 101.2);
 - Android upload keystore/alias;
 - no AdMob, Firebase Analytics, Crashlytics, Google Play Billing, tracking or telemetry configuration (these integrations are excluded by section 0.10);
@@ -181,12 +201,13 @@ A repository-aware agent can normally preconfigure:
 - `project.godot` application/display/stretch/orientation defaults;
 - input emulation and mobile renderer settings;
 - Android export preset and architecture;
-- blank Android version name so the project integer change version remains the single source of truth;
+- blank Android version name so the `MAJOR.MINOR` game version in `project.godot` remains the single source of truth;
 - source-control ignores;
 - generic layout/safe-area helpers;
 - centralized numeric formatting;
-- Settings state and persistence hooks;
-- semantic Audio service shell;
+- Settings state and persistence hooks (including Important Sounds Only and language preference);
+- the seven-counter Statistics service shell (17.4);
+- semantic Audio service shell with important-event routing;
 - Save service shell with schema/version/reset/lifecycle behavior;
 - debug/probe folder conventions;
 - reusable editor tooling whose source is actually present and versioned.
@@ -194,6 +215,120 @@ A repository-aware agent can normally preconfigure:
 Prefer a small bootstrap script or agent-driven configuration pass that accepts the new game name/orientation, derives the Android package ID from the fixed company prefix, and avoids editing the same fields by hand every project.
 
 **Shared toolkit contract:** In addition to this self-contained bootstrap specification, every new project consumes a **versioned source-code toolkit** (section 135) whenever the validated artifact exists. Bootstrap installs or references that pinned toolkit automatically; it must not regenerate previously validated capture/video/FFmpeg code from prompts. Source is reused, while the game's screenshots, gameplay scenarios, trailer timeline and storefront copy remain game-specific. Do not pretend an unbuilt toolkit has already been installed.
+
+## 0.2.5 Canonical directory structure and document ownership — **future new games only**
+
+**Scope:** use these conventions for all newly started projects. Finished/existing game repositories are explicitly out of scope for *structural migrations*: **do not** clean up their gameplay, rename their directories, migrate their GDDs or rewrite their broader `.gitignore` merely because this standard was adopted. The developer has separately approved a targeted **shared-Playbook-link setup** for the four existing game projects (0.2.6); that exception changes their Playbook reference only. Past games' specific mechanics and GDDs are not copied into a new game; cross-game learnings belong in this Playbook (107, 108).
+
+Canonical paths (the root contains the existing Godot build/configuration files as usual):
+
+```text
+GameProject/
+  .gitignore
+  .editorconfig
+  .gitattributes
+  CLAUDE.md                            # short agent entry point
+  project.godot
+  export_presets.cfg
+  bootstrap_manifest.json
+  docs/
+    Reusable_Game_Development_Playbook.md  # file symlink to external shared master (0.2.6)
+    OurGameGDD.md                       # the only current-game GDD
+    EarlyDocs/                          # input for ChatGPT's pre-GDD process
+    fonts/                              # supplied/reference fonts, as needed
+    ClaudeMDs/                          # ChatGPT-authored implementation briefs
+    changeDocs/                         # create ONLY if enduring evidence is justified
+  assets/                               # authored/approved runtime game assets
+  scenes/
+  scripts/
+  resources/
+  addons/                               # only installed/reproducible dependencies
+  tests/
+  tools/
+  marketing/                            # tracked scripts, manifests, approved copy
+  generated/
+    .gdignore                           # tracked; contents are ignored by Git
+    screenshots/
+      phone/
+      tablet_7/
+      tablet_10/
+      desktop/
+    icons/
+    feature_graphics/
+    thumbnails/
+    videos/
+      raw/
+      trailers/
+      social/
+    previews/
+    evidence/
+  builds/                               # ignored Android/export outputs
+```
+
+Directory names and letter case above are the **canonical** names, not suggestions. Create optional nested folders only when that output is actually needed; `changeDocs/` is optional. Empty `docs/EarlyDocs/`, `docs/fonts/` and `docs/ClaudeMDs/` can use a tracked empty `.gitkeep` when their presence must survive cloning. Do not create placeholder notes or empty reports. The default gameplay/source subdirectory structure remains flexible when a game's genuine implementation needs it, but Claude must not invent alternative names for these shared responsibilities.
+
+**Documentation authority / workflow:**
+
+- `docs/EarlyDocs/` contains preliminary ideas, data and references supplied to **ChatGPT**, *before* the canonical GDD is authored. Claude does not consult it during routine implementation. Review for confidential material before tracking it.
+- `docs/OurGameGDD.md` is the **only current-game design authority**; ChatGPT and the developer own approval. Claude reads it and implements approved instructions. Claude must not duplicate, version-snapshot, replace or independently redesign it; an approved change edits this single file rather than creating `GDD_v2.md` or alternative status/GDD files.
+- `docs/Reusable_Game_Development_Playbook.md` is a **file symlink**, not an independently writable copy. It resolves to the single shared master at `D:\Godot\ReusableKitForNewGames\Reusable_Game_Development_Playbook.md` (0.2.6). Do **not** create `docs/GDDs/` or copy old games' GDDs into a new project. Update this Playbook only through reviewed, validated reusable lessons; never let Claude silently edit the shared master as part of routine gameplay fixes.
+- `docs/ClaudeMDs/` is for Markdown implementation briefs **written by ChatGPT for Claude**, commonly `Change_01_Core_Loop.md`, `Change_02_Inventory.md`, etc. Claude reads these but does not write its outcomes, self-generated plans, reports, patch notes or audits into that folder. No one brief requires a new subdirectory by default.
+- `docs/changeDocs/` may hold **necessary enduring change/release/test evidence** that cannot reasonably live in Git history, code, GDD or a concise final reply. Create only on explicit request or a real mandatory evidence/continuity need (such as a reproducible balancing study, independently verifiable release audit or demo verification). Group by type/batch within it; never put generated documents in the `docs/` root. Test scratch reports normally belong under ignored `generated/evidence/` or `tests/tmp/`.
+- `docs/fonts/` holds reference/design fonts; required runtime fonts and licenses must also be preserved at their **actual version-controlled source locations** (`assets/` or the pinned toolkit). Do not depend on an ignored generated file to build the game.
+
+**Default document policy:** Claude does **not** generate patch notes, patch/apply manifests, status files, duplicate GDDs, implementation notes, validation summaries, change logs or decision logs for every change. Claude describes implementation, actual tests/failures, version and commit hash in its **final response**. When design ambiguity affects gameplay, report it for a developer/ChatGPT decision instead of creating a new design authority. Keep externally required release text/configuration as source in `marketing/`, and code/test definitions in their owning tracked directories; only preserve separate documents when justified. New root folders need a concrete reason and a tracking policy, and must be reported.
+
+**Outputs vs source:** all generated screenshots, feature graphics, promotional thumbnails, icon renders, recordings, trailers, social videos, previews and temporary visual/testing evidence go **only** under `generated/` using the fixed subdirectories above. Never make new roots such as `store_assets/`, `marketing_assets/`, `recordings/` or `video_outputs/`. Keep reusable production programs, authentic capture scenarios, manifests, approved store copy and toolkit locks in **tracked `marketing/` and `tools/`**. A generated icon/texture/audio file required by the runtime must also be intentionally promoted to a **tracked** game asset and validated in a clean import; ignored output cannot be the build's only dependency. Final deliverables under `generated/` need an **external durable backup** if they must survive local disk loss—`.gitignore` is not a backup.
+
+**Tool compatibility gate:** if the pinned capture toolkit or a game adapter currently defaults to old output paths, configure or adapt the **new game's** output routing to the canonical `generated/` tree and test it before claiming compliance. Do not silently rename the toolkit's internal paths, break its pinned integrity, or claim an unsupported redirect works. The canonical `.gitignore` and embedded starter are in 0.8; tracking policy, commit and release rules are in 44, 89 and 135.4.
+
+## 0.2.6 One shared Playbook for the Windows workspace — first-project setup and existing-game adoption
+
+**Approved 2026-11-08.** This rule is about linking the **documentation file**, not sharing Godot scripts, GDDs, gameplay assets or game-specific settings. There is **one editable master**:
+
+```text
+D:\Godot\ReusableKitForNewGames\Reusable_Game_Development_Playbook.md
+```
+
+For each existing or new game under `D:\Godot`, the normal project path `docs/Reusable_Game_Development_Playbook.md` is a **Windows file symbolic link** pointing to that master. Reading or editing the linked path accesses the master immediately; do not make a Windows `.lnk` shortcut or copy/paste another `.md`. A symlink works across directories on the same drive, but the physical master must remain in place. Keep a separately backed-up/version-controlled copy of the master **outside** individual game repositories.
+
+**Required one-time procedure (Windows CMD):**
+
+1. Put the **latest approved Playbook** at the exact master location above and open it to verify it is the correct version. **Never overwrite the master** with an older game's `docs/` file.
+2. Use **Command Prompt as Administrator**, or enable Windows Developer Mode for unprivileged symlink creation. Verify the master exists before executing `mklink`.
+3. In every existing project, preserve an existing regular Markdown file as `Reusable_Game_Development_Playbook.before-shared-link.md` **only if that backup does not already exist**. Never force an overwrite; if the backup name is occupied, stop and review manually. When the linked path is free, create a **file** symlink (`mklink`, without `/D` or `/H`).
+4. Check the resulting link with `dir /AL "D:\Godot\<game>\docs"`, and open `docs/Reusable_Game_Development_Playbook.md` from that project in the editor or Claude Code. A real shared link must show the same master content, including the newest approved changes. Run this check again after moving the master or cloning a repository.
+5. After confirming the link and independently reviewing the old document, archive/remove the one-time backup so it does not become a second competing Playbook. Keep the master backed up separately.
+
+**Existing four projects — direct CMD commands.** Run these **once per project** for the initial migration. They never overwrite an existing Markdown file or an occupied backup. **If the path is already a working symlink, skip that project instead of running its backup lines again.** If the backup name already exists while the original Markdown file remains, stop and resolve the conflict manually. First verify the master:
+
+```cmd
+dir "D:\Godot\ReusableKitForNewGames\Reusable_Game_Development_Playbook.md"
+```
+
+Then use these commands for the four projects (the existing `docs` folders should already be present):
+
+```cmd
+if exist "D:\Godot\growing-kingdom\docs\Reusable_Game_Development_Playbook.md" if not exist "D:\Godot\growing-kingdom\docs\Reusable_Game_Development_Playbook.before-shared-link.md" move "D:\Godot\growing-kingdom\docs\Reusable_Game_Development_Playbook.md" "D:\Godot\growing-kingdom\docs\Reusable_Game_Development_Playbook.before-shared-link.md"
+if not exist "D:\Godot\growing-kingdom\docs\Reusable_Game_Development_Playbook.md" mklink "D:\Godot\growing-kingdom\docs\Reusable_Game_Development_Playbook.md" "D:\Godot\ReusableKitForNewGames\Reusable_Game_Development_Playbook.md"
+
+if exist "D:\Godot\idleFortDefender\docs\Reusable_Game_Development_Playbook.md" if not exist "D:\Godot\idleFortDefender\docs\Reusable_Game_Development_Playbook.before-shared-link.md" move "D:\Godot\idleFortDefender\docs\Reusable_Game_Development_Playbook.md" "D:\Godot\idleFortDefender\docs\Reusable_Game_Development_Playbook.before-shared-link.md"
+if not exist "D:\Godot\idleFortDefender\docs\Reusable_Game_Development_Playbook.md" mklink "D:\Godot\idleFortDefender\docs\Reusable_Game_Development_Playbook.md" "D:\Godot\ReusableKitForNewGames\Reusable_Game_Development_Playbook.md"
+
+if exist "D:\Godot\lootFarmer\docs\Reusable_Game_Development_Playbook.md" if not exist "D:\Godot\lootFarmer\docs\Reusable_Game_Development_Playbook.before-shared-link.md" move "D:\Godot\lootFarmer\docs\Reusable_Game_Development_Playbook.md" "D:\Godot\lootFarmer\docs\Reusable_Game_Development_Playbook.before-shared-link.md"
+if not exist "D:\Godot\lootFarmer\docs\Reusable_Game_Development_Playbook.md" mklink "D:\Godot\lootFarmer\docs\Reusable_Game_Development_Playbook.md" "D:\Godot\ReusableKitForNewGames\Reusable_Game_Development_Playbook.md"
+
+if exist "D:\Godot\EverFort\docs\Reusable_Game_Development_Playbook.md" if not exist "D:\Godot\EverFort\docs\Reusable_Game_Development_Playbook.before-shared-link.md" move "D:\Godot\EverFort\docs\Reusable_Game_Development_Playbook.md" "D:\Godot\EverFort\docs\Reusable_Game_Development_Playbook.before-shared-link.md"
+if not exist "D:\Godot\EverFort\docs\Reusable_Game_Development_Playbook.md" mklink "D:\Godot\EverFort\docs\Reusable_Game_Development_Playbook.md" "D:\Godot\ReusableKitForNewGames\Reusable_Game_Development_Playbook.md"
+```
+
+**For a new game:** after creating `D:\Godot\<new-game>\docs`, run this command once, replacing `<new-game>` with the actual directory name:
+
+```cmd
+mklink "D:\Godot\<new-game>\docs\Reusable_Game_Development_Playbook.md" "D:\Godot\ReusableKitForNewGames\Reusable_Game_Development_Playbook.md"
+```
+
+**Git/portability contract:** The Windows master is **not inside any game repository**. Do not track the absolute-path symlink as if it made the Playbook portable: on another PC, a Git clone/ZIP/archive or a sandboxed agent might have a broken link or be unable to access its external target. For **new** projects, the canonical `.gitignore` (0.8) excludes the `docs/Reusable_Game_Development_Playbook.md` link; back up and version the **master separately**. In an **existing** repository, `.gitignore` cannot untrack an already tracked Playbook: review `git status`, back up the file, then deliberately remove only that path from Git's index with `git rm --cached -- docs/Reusable_Game_Development_Playbook.md` and add a narrow local ignore rule if adopting this workflow; do not stage/delete unrelated user files. Clones and remote agents must recreate their own link or explicitly receive a **temporary read-only Playbook snapshot** when shared storage is inaccessible. Do not silently treat a missing link or older snapshot as current. Claude must not automatically edit the shared master; ChatGPT/developer explicitly approve all cross-game revisions (108).
 
 ## 0.3 Phase C: create the Android upload keystore
 
@@ -384,12 +519,12 @@ Before the first gameplay mechanic begins:
 3. run the bootstrap probe for core autoloads/helpers;
 4. verify orientation, reference resolution, stretch and safe-area behavior;
 5. export a **release-signed Bootstrap APK** using the new game's upload key;
-6. install that exact APK on the physical target device;
-7. launch it and verify app name, package ID, orientation, touch/input, safe area and displayed integer change version;
-8. if replacing an earlier build of the same package, verify the same signing identity allows a normal update/install-over flow;
-9. preserve the ADB install path/command as the fallback deployment method;
-10. commit or archive a **fresh full-project Bootstrap / Checkpoint 0 baseline**;
-11. only then begin Checkpoint 1 and implement the GDD's first playable loop.
+6. commit the clean Bootstrap / Checkpoint 0 source **locally**, before waiting for human device verification (`chore: initialize Godot project`);
+7. install the exact exported APK on the physical target device;
+8. launch it and verify app name, package ID, orientation, touch/input, safe area and displayed `MAJOR.MINOR` game version;
+9. if replacing an earlier build of the same package, verify the same signing identity allows a normal update/install-over flow;
+10. preserve the ADB install path/command as the fallback deployment method; any discovered issue is corrected, tested and committed separately (do not rewrite the bootstrap commit);
+11. **only after the bootstrap Android device gate passes**, begin Checkpoint 1 and implement the GDD's first playable loop.
 
 The Play Store artifact can later be exported as a release-signed AAB from the same signing identity. The APK is the practical physical-device bootstrap validation artifact.
 
@@ -403,8 +538,8 @@ approved GDD
 -> automated clean starter
 -> dedicated upload keystore/signing identity
 -> Android dependencies/templates
--> signed APK on physical device
--> Bootstrap / Checkpoint 0
+-> signed APK + local Bootstrap / Checkpoint 0 commit
+-> exact APK validated on physical device (fixes in follow-up commits)
 -> GDD implementation / first playable loop
 ```
 
@@ -416,7 +551,7 @@ Reusable rule:
 <!-- EMBEDDED_STARTER_TEMPLATE_START -->
 ## 0.8 Embedded canonical Godot Android starter template
 The reusable starter lives **inside this Playbook**. A future ChatGPT/Claude/repository-aware agent should reconstruct these files directly into a new repository, then apply the new game's identity/configuration inputs. No second bootstrap document is required.
-The embedded template is a clean infrastructure baseline, not an Everfort clone. It intentionally excludes gameplay, art, balance, previous package identity, store identity, service IDs, and signing credentials.
+The embedded template is a clean infrastructure baseline, not an Everfort clone. It intentionally excludes gameplay, art, balance, previous package identity, store identity, service IDs, and signing credentials. New-project directory requirements (0.2.5) are mandatory; no change to existing repositories is implied.
 ### Canonical starter tree
 
 ```text
@@ -424,10 +559,17 @@ Godot_Android_Starter/
   .editorconfig
   .gitattributes
   .gitignore
+  CLAUDE.md
   bootstrap_manifest.json
   project.godot
   export_presets.cfg
   icon.svg
+  docs/Reusable_Game_Development_Playbook.md  # link to shared master (0.2.6), never a copy
+  docs/OurGameGDD.md                        # copy the approved game GDD
+  docs/EarlyDocs/.gitkeep
+  docs/fonts/.gitkeep
+  docs/ClaudeMDs/.gitkeep
+  generated/.gdignore                       # ignored media output root
   scenes/main.tscn
   scripts/main.gd
   scripts/autoload/layout_service.gd
@@ -435,6 +577,7 @@ Godot_Android_Starter/
   scripts/autoload/settings_state.gd
   scripts/autoload/audio_service.gd
   scripts/autoload/save_service.gd
+  scripts/autoload/statistics_state.gd
   tests/bootstrap_probe.gd
   tests/bootstrap_probe.tscn
   tools/bootstrap_new_game.py
@@ -445,16 +588,30 @@ A new project should be created from these embedded files, then configured with 
 
 - application name;
 - Android package ID, generated from the fixed `com.shekinahwelefuldesigns.<normalized_game_name>` convention;
-- integer change version;
-- Android version code;
+- game version as `MAJOR.MINOR` (new game starts at `1.0`);
+- separate, monotonic Android version code;
 - orientation/reference resolution;
 - network permission only when actually required;
 - new icons/branding;
 - release signing;
 - service/store IDs and URLs only when supplied for the new game.
 
-The repository-aware agent must still compare the previous validated production project against this embedded baseline and carry forward newer **proven cross-game infrastructure** when appropriate. The embedded starter is the minimum canonical baseline, not a reason to ignore a newer validated improvement.
+The repository-aware agent must still compare the previous validated production project against this embedded baseline and carry forward newer **proven cross-game infrastructure** when appropriate. The embedded starter is the minimum canonical baseline, not a reason to ignore a newer validated improvement. **The starter provides cross-game Settings/Statistics state shells, audio routing and persistence; it does not pretend its blank bootstrap screen is a finished Settings or Stats panel.** The reusable presentation/control contracts in 16.5 and 17.4 must be implemented and exercised against a real game during Stage 3. Do not call a demo or base project complete without those two functioning surfaces.
 ### Embedded files
+
+For the new project, copy **the approved current game's GDD** into `docs/OurGameGDD.md`, but **do not copy this Playbook**. Create/verify the `docs/Reusable_Game_Development_Playbook.md` file symlink to the external master as instructed in 0.2.6; do not create a placeholder file or overwrite the master. Make `docs/EarlyDocs/.gitkeep`, `docs/fonts/.gitkeep` and `docs/ClaudeMDs/.gitkeep` empty, and create `generated/.gdignore` as an empty tracked file so Godot does not import the ignored media tree. Folder subdirectories for `generated/` are created lazily when used.
+
+#### `CLAUDE.md`
+
+````markdown
+# Project agent entry point
+
+Read `docs/Reusable_Game_Development_Playbook.md` (shared Windows symlink, 0.2.6; especially 0.2.5, 44, 89, 107, 135.4) and `docs/OurGameGDD.md` before implementation. If the link cannot be resolved, report it instead of substituting a stale copy. Do not automatically modify the shared master.
+Execute the approved brief in `docs/ClaudeMDs/` and respect the GDD as read-only unless the developer/ChatGPT explicitly approves its update.
+Keep generated media in `generated/` and production sources in their tracked owners; do not create extra reports or GDD versions by default.
+After each completed implementation batch, run available validation, audit staging, and create a local Git commit before human device testing; report the exact tests, commit hash and `MAJOR.MINOR` game version. Never automatically push, rewrite history or mark a release published.
+The developer explicitly confirms a store upload/publication before the next major version is authorized; Android version/code is separate and strictly increases on store uploads.
+````
 
 #### `.editorconfig`
 
@@ -475,27 +632,32 @@ charset = utf-8
 #### `.gitignore`
 
 ````text
-# Godot-generated caches (keep authored .gdignore files and *.gd.uid files tracked)
+# Godot generated editor/import cache — keep *.gd.uid and .gdignore tracked
 /.godot/
 
-# Generated Android Gradle workspace and export artifacts
-# If you customize Android template/plugin code, preserve it in a reproducible
-# source/patch/install process instead of relying on this ignored workspace.
+# Generated Android Gradle workspace, only when reproducible from tracked sources
+# Custom Android source/plugins must be tracked elsewhere or explicitly exempted.
 /android/
+
+# Exported packages and disposable local builds
 /builds/
 *.apk
 *.aab
 *.pck
 
-# Generated marketing assets and raw recordings
-# KEEP /marketing/ (scenario adapters, manifests and approved source copy).
-/store_assets/
-/recordings/
+# External shared-Playbook file symlink is recreated per workstation (0.2.6).
+# Never commit an absolute Windows link that breaks for clones.
+/docs/Reusable_Game_Development_Playbook.md
 
-# Temporary marketing capture override, never a committed project setting
+# All generated media, recordings, marketing renders and scratch evidence.
+# Keep the .gdignore marker tracked so Godot never imports the generated tree.
+/generated/*
+!/generated/.gdignore
+
+# Temporary marketing-capture override (not an authored project setting)
 /override.cfg
 
-# Test scratch files and Python tooling caches
+# Test scratch results and Python tool caches
 /tests/tmp/
 __pycache__/
 *.py[cod]
@@ -507,7 +669,7 @@ htmlcov/
 .venv/
 venv/
 
-# Signing materials and local environment secrets: NEVER commit these
+# Local secrets and signing credentials (store originals outside the repository)
 *.keystore
 *.jks
 *.p12
@@ -516,24 +678,26 @@ venv/
 .env.*
 !.env.example
 
-# Local archives and temporary files
+# Root-level local handoff archives, not authored source packs elsewhere
 /*.zip
 /*.7z
 /*.rar
+
+# Temporary and editor/OS metadata
 *.tmp
 *.swp
 *.swo
 *~
-
-# OS/editor metadata
 .DS_Store
 Thumbs.db
 Desktop.ini
 .idea/
+.vscode/
 
-# DO NOT ignore /addons/, /Godot-Marketing-Toolkit/, /marketing/,
-# docs, source assets, .gdignore, *.gd.uid, marketing_capture_toolkit.lock.json,
-# or approved toolkit fonts/licenses. They are required for reproducible builds.
+# TRACK intentionally: docs/ (except shared Playbook symlink), CLAUDE.md, assets/, scenes/, scripts/, resources/,
+# addons/, tools/, tests/ (other than tmp), marketing/, approved runtime fonts,
+# licensing files, *.gd.uid, .gdignore and pinned toolkit source/lock.
+# Do NOT globally ignore asset formats such as *.png, *.mp4, *.wav or *.ttf.
 ````
 
 #### `bootstrap_manifest.json`
@@ -567,11 +731,12 @@ Desktop.ini
     "NumberFormat",
     "SettingsState",
     "AudioService",
-    "SaveService"
+    "SaveService",
+    "StatisticsState"
   ],
   "must_replace_per_game": [
     "application name",
-    "integer change version",
+    "game display version (MAJOR.MINOR)",
     "Android version code",
     "orientation/reference resolution if different",
     "icons/branding",
@@ -604,7 +769,7 @@ config_version=5
 [application]
 
 config/name="New Game"
-config/version="0.1.0"
+config/version="1.0"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
@@ -616,6 +781,7 @@ NumberFormat="*res://scripts/autoload/number_format.gd"
 SettingsState="*res://scripts/autoload/settings_state.gd"
 AudioService="*res://scripts/autoload/audio_service.gd"
 SaveService="*res://scripts/autoload/save_service.gd"
+StatisticsState="*res://scripts/autoload/statistics_state.gd"
 
 [display]
 
@@ -652,7 +818,7 @@ custom_features=""
 export_filter="all_resources"
 include_filter=""
 exclude_filter=""
-export_path="builds/NewGame.0.1.0.aab"
+export_path="builds/NewGame.1.0.aab"
 patches=PackedStringArray()
 encrypt_pck=false
 encrypt_directory=false
@@ -746,7 +912,7 @@ extends Node
 
 func _ready() -> void:
     var game_name := String(ProjectSettings.get_setting("application/config/name", "New Game"))
-    var version := String(ProjectSettings.get_setting("application/config/version", "0.0.0"))
+    var version := String(ProjectSettings.get_setting("application/config/version", "1.0"))
     title_label.text = game_name
     detail_label.text = "Starter project ready • Version %s\nReplace this scene with the first playable loop." % version
 ````
@@ -870,6 +1036,8 @@ var sfx_volume: float = 1.0
 var music_volume: float = 1.0
 var sfx_enabled: bool = true
 var music_enabled: bool = true
+var important_sounds_only: bool = false
+var language_choice: String = "auto"  # UI resolves against enabled locales (132)
 
 ## Optional but useful for incremental/idle projects. If the game has no speed
 ## control, simply leave this at 1.0 and do not expose a UI for it.
@@ -883,6 +1051,8 @@ func reset_to_defaults() -> void:
     music_volume = 1.0
     sfx_enabled = true
     music_enabled = true
+    important_sounds_only = false
+    language_choice = "auto"
     selected_game_speed = 1.0
     Engine.time_scale = 1.0
     settings_changed.emit()
@@ -909,6 +1079,18 @@ func set_music_enabled(value: bool) -> void:
     settings_changed.emit()
 
 
+func set_important_sounds_only(value: bool) -> void:
+    important_sounds_only = value
+    settings_changed.emit()
+
+
+func set_language_choice(value: String) -> void:
+    # The game's Localization owner must offer only enabled/packaged locales,
+    # resolve Automatic with English fallback and apply TranslationServer locale.
+    language_choice = value
+    settings_changed.emit()
+
+
 func set_game_speed(value: float) -> void:
     var clamped := clampf(value, MIN_GAME_SPEED, MAX_GAME_SPEED)
     var changed := not is_equal_approx(clamped, selected_game_speed)
@@ -925,6 +1107,8 @@ func to_save_dict() -> Dictionary:
         "music_volume": music_volume,
         "sfx_enabled": sfx_enabled,
         "music_enabled": music_enabled,
+        "important_sounds_only": important_sounds_only,
+        "language_choice": language_choice,
         "selected_game_speed": selected_game_speed,
     }
 
@@ -934,6 +1118,8 @@ func from_save_dict(data: Dictionary) -> void:
     music_volume = clampf(float(data.get("music_volume", 1.0)), 0.0, 1.0)
     sfx_enabled = bool(data.get("sfx_enabled", true))
     music_enabled = bool(data.get("music_enabled", true))
+    important_sounds_only = bool(data.get("important_sounds_only", false))
+    language_choice = String(data.get("language_choice", "auto"))
     set_game_speed(float(data.get("selected_game_speed", 1.0)))
     settings_changed.emit()
 ````
@@ -950,6 +1136,7 @@ const SILENT_DB: float = -80.0
 
 var _sfx_streams: Dictionary = {}
 var _music_streams: Dictionary = {}
+var _important_event_ids: Dictionary = {}
 var _sfx_players: Array[AudioStreamPlayer] = []
 var _music_player: AudioStreamPlayer
 var _current_music_track: String = ""
@@ -966,8 +1153,9 @@ func _ready() -> void:
     SettingsState.settings_changed.connect(_on_settings_changed)
 
 
-func register_sfx(event_id: String, stream: AudioStream) -> void:
+func register_sfx(event_id: String, stream: AudioStream, important: bool = false) -> void:
     _sfx_streams[event_id] = stream
+    _important_event_ids[event_id] = important
 
 
 func register_music(track_id: String, stream: AudioStream) -> void:
@@ -977,11 +1165,14 @@ func register_music(track_id: String, stream: AudioStream) -> void:
 func play_sfx(event_id: String) -> void:
     if not SettingsState.sfx_enabled:
         return
+    if SettingsState.important_sounds_only and not bool(_important_event_ids.get(event_id, false)):
+        return
     var stream: AudioStream = _sfx_streams.get(event_id)
     if stream == null:
         return
     var player := _next_free_sfx_player()
     player.stream = stream
+    player.set_meta("important_sfx", bool(_important_event_ids.get(event_id, false)))
     player.volume_db = _volume_to_db(SettingsState.sfx_volume)
     player.play()
 
@@ -1031,6 +1222,8 @@ func _on_settings_changed() -> void:
     for player in _sfx_players:
         if not SettingsState.sfx_enabled:
             player.stop()
+        elif SettingsState.important_sounds_only and not bool(player.get_meta("important_sfx", false)):
+            player.stop()  # Stop any regular cue already playing on a mode change.
         else:
             player.volume_db = _volume_to_db(SettingsState.sfx_volume)
 
@@ -1167,15 +1360,103 @@ func load_and_apply() -> void:
 
 
 func hard_reset() -> void:
+    # Game progression and statistics reset, but the player's Settings persist.
+    # The caller must first show an explicit irreversible-reset confirmation.
     if FileAccess.file_exists(SAVE_PATH):
         DirAccess.remove_absolute(SAVE_PATH)
-    SettingsState.reset_to_defaults()
     _loaded_sections = {}
     for key in _providers.keys():
         var reset_callable: Callable = _providers[key]["reset"]
         if reset_callable.is_valid():
             reset_callable.call()
     _dirty = false
+    save_now()  # Atomically recreate the empty progress/profile using retained Settings.
+````
+
+#### `scripts/autoload/statistics_state.gd`
+
+````gdscript
+extends Node
+## Seven baseline statistics. Game-specific wallet owners call the earned/spent
+## funnels only after authoritative credits or debits have committed.
+## The active gameplay owner supplies REAL (not Engine.time_scale) seconds.
+
+signal statistics_changed()
+
+const COUNTER_KEYS: Array[String] = [
+    "total_playtime", "total_sessions", "coins_earned", "coins_spent",
+    "gems_earned", "gems_spent",
+]
+
+var counters: Dictionary = {}
+var current_session: float = 0.0
+var _session_counted: bool = false
+
+
+func _ready() -> void:
+    _reset_counters()
+    SaveService.register_section("statistics", to_save_dict, from_save_dict, hard_reset)
+
+
+func note_active_gameplay(real_seconds: float) -> void:
+    # Call only for genuine foreground gameplay, not pause, offline, dialogs,
+    # background, or simulated fast-forward. Never pass Engine-scaled delta.
+    if real_seconds <= 0.0:
+        return
+    if not _session_counted:
+        counters["total_sessions"] = int(counters["total_sessions"]) + 1
+        _session_counted = true
+    current_session += real_seconds
+    counters["total_playtime"] = float(counters["total_playtime"]) + real_seconds
+    SaveService.mark_dirty()
+    statistics_changed.emit()
+
+
+func record_currency_earned(currency: String, amount: float) -> void:
+    _record_currency(currency, amount, "earned")
+
+
+func record_currency_spent(currency: String, amount: float) -> void:
+    _record_currency(currency, amount, "spent")
+
+
+func _record_currency(currency: String, amount: float, action: String) -> void:
+    if amount <= 0.0 or not (currency in ["coins", "gems"]):
+        return
+    var key := "%s_%s" % [currency, action]
+    counters[key] = float(counters[key]) + amount
+    SaveService.mark_dirty()
+    statistics_changed.emit()
+
+
+func to_save_dict() -> Dictionary:
+    return counters.duplicate(true)
+
+
+func from_save_dict(data: Dictionary) -> void:
+    _reset_counters()
+    for key in COUNTER_KEYS:
+        if key == "total_sessions":
+            counters[key] = maxi(0, int(data.get(key, 0)))
+        else:
+            counters[key] = maxf(0.0, float(data.get(key, 0.0)))
+    # App launch begins a new session. Never restore a prior current session.
+    current_session = 0.0
+    _session_counted = false
+    statistics_changed.emit()
+
+
+func hard_reset() -> void:
+    _reset_counters()
+    current_session = 0.0
+    _session_counted = false
+    statistics_changed.emit()
+
+
+func _reset_counters() -> void:
+    counters = {"total_playtime": 0.0, "total_sessions": 0,
+        "coins_earned": 0.0, "coins_spent": 0.0,
+        "gems_earned": 0.0, "gems_spent": 0.0}
 ````
 
 #### `tests/bootstrap_probe.gd`
@@ -1186,14 +1467,21 @@ extends Node
 
 func _ready() -> void:
     var failures: Array[String] = []
-    if String(ProjectSettings.get_setting("application/config/version", "")) == "":
-        failures.append("application/config/version is empty")
+    var display_version := String(ProjectSettings.get_setting("application/config/version", ""))
+    var version_pattern := RegEx.new()
+    version_pattern.compile("^[1-9][0-9]*\\.[0-9]+$")
+    if version_pattern.search(display_version) == null:
+        failures.append("application/config/version must be MAJOR.MINOR (e.g. 1.0)")
     if NumberFormat.number(1250.0, 2) != "1.25K":
         failures.append("NumberFormat basic abbreviation failed")
     if LayoutService.get_viewport_size().x <= 0.0:
         failures.append("LayoutService viewport size invalid")
     if SettingsState.selected_game_speed < 1.0:
         failures.append("SettingsState default game speed invalid")
+    if not StatisticsState.counters.has("total_playtime"):
+        failures.append("StatisticsState was not registered")
+    if not (SettingsState.important_sounds_only is bool):
+        failures.append("Important Sounds Only must be a boolean")
 
     if failures.is_empty():
         print("BOOTSTRAP_PROBE PASS")
@@ -1241,13 +1529,15 @@ def replace_setting(text: str, key: str, value: str) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Configure the reusable Godot starter for a new game.")
     parser.add_argument("--name", required=True, help="Player-facing game name")
-    parser.add_argument("--version", default="0.1.0")
+    parser.add_argument("--version", default="1.0", help="Game display version, MAJOR.MINOR (e.g. 1.0, 1.9, 2.0)")
     parser.add_argument("--version-code", type=int, default=1)
     parser.add_argument("--orientation", choices=["landscape", "portrait"], default="landscape")
     parser.add_argument("--width", type=int)
     parser.add_argument("--height", type=int)
     parser.add_argument("--internet", action="store_true", help="Enable Android INTERNET permission")
     args = parser.parse_args()
+    if not re.fullmatch(r"[1-9][0-9]*\.(0|[1-9][0-9]*)", args.version):
+        parser.error("--version must be MAJOR.MINOR, with a major >= 1, e.g. 1.0 or 2.10")
 
     project_root = Path(__file__).resolve().parents[1]
     project_path = project_root / "project.godot"
@@ -1293,54 +1583,103 @@ if __name__ == "__main__":
 
 1. Finish and approve the game-specific GDD before gameplay implementation.
 2. Create the directory tree exactly as listed above.
-3. Write the embedded file contents verbatim as the initial baseline.
+3. Write the embedded file contents verbatim as the initial baseline, except for the shared Playbook path: **create its symlink** (0.2.6) instead of writing a file copy.
 4. Run `tools/bootstrap_new_game.py` with the new identity/configuration values, or let the repository-aware agent apply the same transformations directly.
 5. Replace placeholder identity/branding fields that must be unique to the new game.
 6. Create the game's dedicated Android upload keystore using the Phase C procedure above.
 7. Configure the Android export preset to use that upload keystore/alias without committing credentials.
 8. Install/verify the JDK, Android SDK, matching Godot export templates and Android Build Template required by the project's export mode.
-9. Add only the permissions/services/dependencies the new game actually uses.
+9. Add only the permissions/services/dependencies the new game actually uses. Confirm the base provides Settings/Statistics state shells and semantic sound filtering from the embedded template; finish game-themed Settings/Stats UI and the wallet/playtime hooks before the Stage 3 demo gate (16.5, 17.4).
 10. Open the project in the intended Godot version and resolve parser/import errors.
 11. Run `res://tests/bootstrap_probe.tscn`.
-12. Export a release-signed Bootstrap APK, install that exact APK on the physical Android target, and verify orientation, safe area, touch/input, package identity, version display, signing and startup.
-13. Commit/archive the resulting clean repository as **Bootstrap / Checkpoint 0**.
-14. Begin Checkpoint 1 gameplay implementation from the approved GDD.
+12. Copy only the approved GDD into `docs/`, create and verify the **shared master Playbook symlink** via 0.2.6 (no duplicate Playbook file), initialize the standard directories and marker files from 0.2.5, and audit the exact `.gitignore` embedded above.
+13. Export a release-signed Bootstrap APK after local automated checks; create the local **Bootstrap / Checkpoint 0** commit (`chore: initialize Godot project`) **before** developer physical-device verification, with no auto-push.
+14. Install that exact APK on the physical Android target and verify orientation, safe area, touch/input, package identity, version display, signing and startup. Fix any findings in additional local commits (do not amend/bootstrap-rewrite).
+15. Only after the physical Android bootstrap acceptance gate passes, begin Checkpoint 1 gameplay from the approved GDD; every completed implementation batch is locally committed as specified in section 44.
 
 The main purpose of this section is that **this one reusable file is enough to instruct an agent to build the starter project**. Do not maintain a second reusable bootstrap guide that can drift from this Playbook.
 <!-- EMBEDDED_STARTER_TEMPLATE_END -->
 
 ## 0.9 Universal production lifecycle — 20 approved stages
 
-**This is the canonical game-independent production roadmap.** Keep the existing engineering checkpoints (section 2) as intermediate delivery gates. The GDD determines which optional mechanics exist; neither campaign/Prestige nor offline income, automation, armies, workers or any other genre mechanic is a universal requirement. The stages are production milestones, **not** an instruction to delay UI, localization, testing or asset work until their named stage.
+**This is the canonical production roadmap for future games, revised 2026-11-08.** Stages 1–4 deliver and publish a complete limited-content demo; **Stages 5–20 are for the expanded full game**. Use the game's GDD to determine which optional mechanics exist; do not import an unrelated game's systems. Engineering checkpoints are internal batches, not extra publication stages. UI, testing, localization infrastructure and asset quality must be delivered when needed: a stage title does not defer work that the demo must already contain.
 
-| # | Production stage | Relation to existing checkpoints |
+| # | Production stage | Milestone / responsibility |
 |---:|---|---|
-| 1 | Game Concept & GDD Definition | Approve game-specific design before code. |
-| 2 | Godot Project Bootstrap & Android Validation | Bootstrap / Checkpoint 0. |
-| 3 | Core Gameplay — First Playable | Checkpoint 1. |
-| 4 | Gameplay Variety & Mechanics | Checkpoint 2. |
-| 5 | Restart, Debug & Development Tools | Checkpoint 3; reset and debug appropriate to the game. |
-| 6 | Progression & Unlock Systems (If Applicable) | Checkpoint 4; only GDD-defined systems. |
-| 7 | Save, Load, Resume & Offline Systems (If Applicable) | Checkpoint 5; persistence as required, offline **simulation/rewards only** if designed. |
-| 8 | Game Objectives, Completion & Replayability | Checkpoint 6; a GDD-defined ending, outcome or ongoing play contract, **not mandatory Prestige**. |
-| 9 | Secondary Systems & Content Expansion | Checkpoint 7+ where applicable. |
-| 10 | UI/UX Implementation & Player Onboarding | Consolidate UI and teaching after incremental implementation. |
-| 11 | Visual Assets, Animations, Effects & Audio | Finish production presentation; start necessary assets earlier. |
-| 12 | Full Feature & Content Completion | GDD scope freeze. |
-| 13 | UI/UX Refinement & Android Device Validation | Physical device readability and interaction acceptance before long balance QA. |
-| 14 | Gameplay Balancing & Full Playthrough Testing | No remaining progression/softlock blockers. |
-| 15 | Performance Optimization & Stability Testing | Profile and verify target devices. |
-| 16 | Demo Generation, Content Stripping & Validation | Optional per game: a separate free demo project generated from the approved full source after the balance and performance gates; section 0.9.1. |
-| 17 | Google Play Store Preparation & Marketing Assets | ASO, policy-reviewed English store copy, gameplay screenshots (every device class), video, feature graphic (its own focused batch, 101.1), app icon (its own focused batch, 101.2), localizations, a set of 10 short-form social videos from approved footage (composition split per 133.5: 5 focused + 5 full-landscape for a landscape game; decided per game for a portrait one), per-video posting copy, and localized Play release notes when applicable; see 87, 133 and 134. |
-| 18 | Release Candidate & Final Android Validation | Test exact release artifact; section 88. |
-| 19 | Google Play Publishing | Configure one-time price, store compliance and submit. |
-| 20 | Post-Launch Support, Updates & Improvements | Fix issues using the developer's chosen support process; no player/crash telemetry. |
+| 1 | Game Concept & GDD Definition | Approve demo scope, full-game boundaries, acceptance criteria and identity. |
+| 2 | Godot Base Project & Android Bootstrap | Apply the embedded canonical starter, shared Settings/Statistics contracts, new-game identity and Android validation (Checkpoint 0). |
+| 3 | **Demo Development, Testing & Approval** | Implement the **actual limited-content full-game systems** with production-ready UI/onboarding, Settings, Statistics, visuals/audio, saving, balance, Android and web-export acceptance. |
+| 4 | **itch.io Demo Release & Early Marketing** | Release the approved demo as downloadable Android APK **and playable in-browser HTML5**, verify the live itch.io page, and produce the Coming Soon video and two Coming Soon thumbnails. |
+| 5 | Full Game Mechanics & Content Expansion | Expand the accepted demo's shared mechanics and content on `main`. |
+| 6 | Progression & Unlock Systems (If Applicable) | Implement full-game progression beyond the demo's accepted scope. |
+| 7 | Save, Load, Resume & Offline Systems (If Applicable) | Extend and revalidate full-game persistence; demo already has working saves/resume and reset. |
+| 8 | Game Objectives, Completion & Replayability | Extend the full-game outcome/replay structure. |
+| 9 | Secondary Systems & Content Expansion | Finish additional full-game systems and content. |
+| 10 | UI/UX Implementation & Player Onboarding | Expand/refine full-game screens and onboarding; universal Settings/Statistics were already functional in the demo. |
+| 11 | Visual Assets, Animations, Effects & Audio | Complete expanded full-game art/audio. |
+| 12 | Full Feature & Content Completion | Freeze full-game feature/content scope. |
+| 13 | UI/UX Refinement & Android Device Validation | Final mobile usability and rendering checks on full-game content. |
+| 14 | Gameplay Balancing & Full Playthrough Testing | Finish full-game pacing and no-softlock acceptance. |
+| 15 | Performance Optimization & Stability Testing | Profile the expanded full-game build on target devices. |
+| 16 | **Localization & Release Readiness** | Final localization freeze, batch translation, layout/export smoke checks, and release compliance preparation; continue supporting the already released demo separately. |
+| 17 | **Google Play Store Preparation & Marketing Assets** | Full-game feature graphics (1024×500 approved first, then 1080×1920), app icon, screenshots, trailer, existing ten-video social package, **two Out Now thumbnails** (1080×1920 and 1280×720), posting copy and approved ASO/localizations. |
+| 18 | Release Candidate & Final Android Validation | Validate the exact signed full-game artifact. |
+| 19 | Google Play Publishing | Set paid price and policy declarations, submit and publish the full game. |
+| 20 | Post-Launch Support, Updates & Improvements | Maintain and improve full game and demo as appropriate. |
 
-**Continuous during all stages:** native localization infrastructure and an up-to-date English reference catalog (other 19 translations deliberately deferred until localization freeze; section 132), focused tests/Android checks, save/reset correctness, GDD/decision-log maintenance, version control and validated reusable lessons (44, 108). Claude may commit approved, validated implementation batches. Final creative, storefront and release decisions require human approval. A phase may overlap another when practical; never use the roadmap to postpone cross-cutting quality requirements.
+**The demo is not a disposable prototype.** At Stage 3 it already needs the quality and validation gates that previously appeared later in the roadmap: feature-complete demo scope, onboarding, correct saves and Hard Reset, native localization-ready UI, Settings and seven baseline Statistics, audio, production-grade art, balance, Android usability, stability, and separate web compatibility. Stage 4 is its **actual public itch.io release**, not an acceptance-only checkpoint. Do not expand full-game content until the developer accepts the demo; do not wait for Stage 16 or 17 to publish it. See 0.9.1–0.9.2.
+
+**Continuous across stages:** the one approved GDD, native English-first localization infrastructure, automated probes and physical-device checks appropriate to current scope, valid saving/reset semantics, automatic **local** Claude commits after implementation batches, and review of genuinely reusable lessons (44, 108). Developer approval of gameplay, creative outputs and storefront publication is separate from implementation commits. An existing released demo remains maintained on its own branch while `main` progresses; publishing an update is a deliberate action. No automatic push or publication.
+
+## 0.9.1 Demo-first development and Stage 3 acceptance
+
+**Approved for future new games; release timing updated 2026-11-08.** Build the initial limited-content implementation as a **polished playable demo**, not a throwaway prototype or gameplay test harness. Stage 3 is its scoped development, testing and human-acceptance milestone; Stage 4 publishes it on itch.io. Stage 5 begins full-game expansion. Existing game repositories are not automatically rewritten or migrated.
+
+### Define the shared demo/full scope in the GDD
+
+The single approved GDD defines the demo's actual content, mechanics, caps, ending/replay behavior, expected completion time, acceptance criteria and later full-game expansion. It uses **the same gameplay implementation** the full game will extend. Any levels, mechanics and balance shared by demo and full game remain identical unless an explicit later game decision changes them. A demo's lack of late content must not mean temporary gameplay code or visibly unfinished presentation. Develop in small playable commits.
+
+The demo includes the universal Settings menu (16.5), seven baseline Statistics (17.4), audio-event categories (85), language selector/localization infrastructure (132), appropriate gameplay/Help, save/load/resume and Hard Reset. Game-specific UI/art and additional statistics are allowed, but common contracts must match. Design web compatibility early: a working Android prototype is not automatically a working browser build (0.9.2).
+
+### Stage 3: demo acceptance before public release or full-game expansion
+
+- Play the complete demo content, its progression, ending and replay; test legitimate states and no softlocks. The demo must be representative of its full-game mechanics, not a debug-only facsimile.
+- Check gameplay/UI/tutorial, icons, effects, audio, touch, accessibility, language layout, Settings/Statistics and save/resume/reset at production quality, including on an actual Android device and the exact signed candidate.
+- Verify demo-specific balance/completion targets with realistic players' progress; no unexplained shortcuts or required offline waiting.
+- Export a web-compatible candidate and check it on desktop browsers and mobile where feasible before promising a live browser version; see 0.9.2.
+- Inspect the **real exported demo artifacts**, not only UI locks: include only permitted content and its dependencies. Absence of out-of-scope maps, units, art and data is verified at the packed/export level.
+- Clearly report unrun tests and open risks; tests passing on desktop do not certify Android or itch.io browser behavior. Resolve blockers in subsequent commits; the developer accepts the candidate.
+
+### One repository, protected released demo
+
+Tag the accepted demo commit and maintain a dedicated `demo` branch. The expanded full game continues on `main`. Keep the canonical GDD per branch and deliberately backport/cherry-pick relevant bug fixes without rewriting published history. A Git tag means acceptance of that source snapshot, **not** an automatic upload. The signed Android APK and browser ZIP come from the accepted demo source and share its truthfully limited content. Demo and full Android applications use separate package IDs, signing identities, app names and independent saved profiles; browser storage is likewise independent. Demo-to-full save transfer is **not** implied or implemented without explicit approval.
+
+**No fake full-game destination.** Once the actual full-game store page exists, the demo's end screen and Settings can offer it through the same centralized external-link routing (52), without popups that interrupt play. Until then, say that the full game is coming soon and link only to real available destinations. Revalidate a demo update on its own branch, and keep its listing and promotional claims within its published content. The scope and artifact checks previously assigned to Stage 16 are now **required at Stage 3 for first publication and at every later demo maintenance release**, not a postponed stage.
+
+## 0.9.2 Stage 4 — dedicated itch.io demo release and early marketing
+
+This is a **separate publication gate** from Stage 19 Google Play. Publish both formats from the **same accepted Stage 3 demo content**. The public itch.io page is the first channel where players can try the game and potentially provide feedback while `main` expands into the paid full game.
+
+**Android download:** export the demo APK for its own identity and signing key. Verify install, launch, game version, saves, language and Hard Reset on a real device. Upload the accepted APK as a downloadable file, label it clearly as the demo and confirm the public download works. It is not the paid full game's APK, and itch.io publication does not authorize a Google Play upload.
+
+**Browser-playable web demo:** create a separate Godot **Web/HTML5 export** of the same demo. For Godot 4, plan for the **Compatibility renderer / WebGL 2.0** and a suitably supported single-threaded web export; do not assume the Android renderer or platform-specific native APIs/plugins run in browsers. Keep the native Android build's validated renderer and settings unless a reviewed cross-platform alternative truly works. Handle browser-only constraints (input, audio-unlock gesture, window resize/fullscreen, focus/suspend, performance, persistence in browser storage, locale/font loading, external links, resource packaging). The browser save is local to that origin/browser and independent of the installed Android demo.
+
+For itch.io's HTML Game upload, package an `index.html` entry point **at ZIP root** with every required web-export companion file and valid relative paths. Use the itch.io HTML Game/iframe presentation, choose a sensible landscape/portrait embed or fullscreen launch, and verify the **actual published** page in a supported desktop browser, at narrow and wider windows, and on mobile where practical. Confirm first-load performance, real gameplay, input, audio, save/reload, game-over/replay and external links. A successful local export or an APK is not proof that the itch.io page works. If browser export fails, Stage 4 is **not complete**: fix and retest rather than silently replacing the promised playable web demo with a download link. Follow current Godot and itch.io platform requirements at the time of export. Canonical references (recheck as platforms evolve): [Godot Web export](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html) and [itch.io HTML5 upload guide](https://itch.io/docs/creators/html5).
+
+**Dedicated itch.io listing:** page title/description identifies **Demo** and the game's real available content, supplies genuine demo screenshots, gameplay instructions and relevant license/credit/privacy information, and enables feedback/comments when desired. Place Android download and the embedded web demo on the same correctly configured page where itch.io supports them; if upload type/settings prevent this, use clearly linked separate itch.io pages rather than misrepresenting support. Only link to a full-game page when that destination genuinely exists. Never imply absent full-game features are playable in the demo.
+
+**Early marketing deliverables at Stage 4:**
+
+- **One Coming Soon promotional video** using authentic approved demo footage. Communicate the available **demo** and the **full game's upcoming release** clearly; default to **“Demo Out Now! Full Game Coming Soon!”** if both claims are true. Select a message type independently from the editing style (133.9): a Bait / Hook version may open on its statement first, while No Text starts on a strong visual moment. The script and any closing call to action are game-specific, and the first seconds must be compelling. Produce the requested social-compatible video profile(s) with section 133's reusable toolkit; no fabricated gameplay.
+- **Exactly two Coming Soon promotional thumbnails per game**, not per video: **1080×1920 vertical** and **1280×720 horizontal**. Show the game logo/name, the Coming Soon / demo-availability message and only real platform names or logos. The approved game brand and editable asset layers carry forward to launch promotion (133.8).
+- Preserve the approved video, thumbnails, posting copy and their source/manifest in the existing `marketing/` and ignored `generated/` paths; no new separate marketing process document or second GDD.
+
+**Publication boundary:** prepare, QA and commit locally; **the developer explicitly approves actual uploads and public promotion**. Record the actual live URL, build/ZIP version and date once published. Feedback may inform full-game iterations, but do not silently redesign the already released demo or assert players submitted reviews when they have not.
+
 
 ## 0.10 Standard business model and prohibited integrations
 
-All games developed under this playbook are **paid once through Google Play**, with **no ads, no in-app purchases and no subscriptions**. Google Play handles the initial storefront purchase; do not add Google Play Billing for IAPs. **Do not integrate AdMob, Firebase Analytics, Firebase Crashlytics, other player-tracking/telemetry SDKs or remote crash-monitoring services.** Do not introduce a separate platform-services/monetization stage. Ordinary local debugging, on-device tests, engine logs and developer-directed troubleshooting remain allowed; there is no ongoing analytics/crash-monitoring obligation.
+Full games developed under this playbook are **paid once through Google Play** (their limited-content demos are free under section 0.9.1), with **no ads, no in-app purchases and no subscriptions**. Google Play handles the initial storefront purchase; do not add Google Play Billing for IAPs. **Do not integrate AdMob, Firebase Analytics, Firebase Crashlytics, other player-tracking/telemetry SDKs or remote crash-monitoring services.** Do not introduce a separate platform-services/monetization stage. Ordinary local debugging, on-device tests, engine logs and developer-directed troubleshooting remain allowed; there is no ongoing analytics/crash-monitoring obligation.
 
 At publishing time, set the paid price and required Play Console declarations (including Data safety and any applicable privacy policy or permissions) accurately; do not interpret "no tracking SDK" as automatic exemption from store compliance. Networking for a genuine gameplay feature would require an explicit game-specific decision; it must not be introduced for monetization or tracking.
 
@@ -1351,32 +1690,6 @@ At publishing time, set the paid price and required Play Console declarations (i
 At the **localization freeze** (after the intended UI and English strings are stable), ChatGPT generates and structurally checks the 19 non-English catalogs from the final English catalog; the human developer copies them into the Godot project. Claude then imports, tests, fixes and enables them **in strict batches of four or five languages** (normally 5 + 5 + 5 + 4); Claude may fix **any** issue it finds, including translation wording, without sending changes back to ChatGPT. A batch must be checked and reported before the next batch. **A batch that has passed may be enabled for players when the developer approves** (progressive activation, 132.5): it joins the per-locale readiness list, ships in release exports, appears in Settings and becomes eligible for Automatic. The complete target set remains the final localization milestone with its own comprehensive QA gate; whether a public release waits for it is the developer's decision, and every locale a release ships must have passed its own gates and the device smoke check. Section 132 is the authoritative detailed process.
 
 Use a lightweight English-key completeness/integrity check during development; do not require a costly bespoke validator when a small existing test suffices. Allow targeted pseudolocalization for text-expansion testing. Never assume a translation is reviewed merely because a catalog parses.
-
-## 0.9.1 Stage 16 — Demo Generation, Content Stripping & Validation
-
-Approved 2026-10-28 as a lifecycle stage. It applies only when the developer decides a game gets a free demo; the stage is then mandatory before store preparation, because the demo's own screenshots, listing and package belong to Stage 17. **Document and plan the demo early if useful; generate it only after the full game's balance (Stage 14) and performance (Stage 15) gates have passed**, so the demo ships the tuned, profiled build rather than a snapshot that must be regenerated.
-
-**What the demo is.** A **separate, free Godot project** generated from the approved full-game source, never a branch that is hand-edited afterwards and never a mode flag inside the paid build. The game's GDD names the demo's content scope (for example "the first two stages"); everything outside that scope must be **physically absent from the delivered demo build**, not merely locked, hidden or gated by a flag a modified client could flip. Absent means: later maps/scenes, enemy and boss identities, gear, skills, progression tables and data rows, scripts and assets that demo gameplay does not need are not in the demo project and not in its APK/AAB/PCK.
-
-**Rules.**
-
-- **Positive allowlist, dependency-verified.** Build the demo from an allowlist of entry scenes, data rows and resources, then close it over real dependencies (scene `ext_resource` paths, `preload`/`load` literals, resource UIDs, data-driven paths in JSON/catalogs, theme and font references, autoloads). Fail the build on any dependency that resolves outside the allowlist or to a missing file. Never build by deleting a blocklist from a copy of the full game: whatever the blocklist forgets ships.
-- **Shared mechanics stay identical.** Do not fork gameplay rules for the demo. Data tables are filtered (rows outside scope removed), code paths that reference removed content are made data-driven or guarded by content presence, and the demo's balance for the included content is the full game's balance. A demo-specific change is a design decision recorded in the GDD.
-- **Separate identity and save.** Its own Android package id, app name, icon variant, version line and signing configuration (its own upload key, created with the section 0.3 procedure); an independent save location and schema marker. The demo never reads or writes the paid game's save.
-- **End-of-demo invitation.** When the demo's content is complete, one non-blocking announcement (and a permanent entry in Settings or the end screen) invites the player to buy the full game. No time lock is required; replaying the included content remains possible. Store links follow section 52 and the paid-once policy (0.10): no ads, no IAP, no tracking.
-- **Optional demo-to-paid save transfer is a separate, unapproved decision.** Do not assume it. If approved later, it needs its own design (what transfers, validation of an untrusted file, no unlock of content the player did not earn) and tests.
-- **Honest threat model.** A demo can be modified by its owner; it cannot expose source or resources that were never shipped. That is the reason for physical absence. Do not claim more protection than that (no "unhackable demo").
-
-**Validation (all required before Stage 17 uses the demo):**
-
-1. **Artifact inspection of the actual exported APK/AAB/PCK**, not the project folder: list every packed path (unzip the APK/AAB, whose Godot resources sit in the asset pack or `assets/`; for a separate or sparse PCK, use a PCK reader and record which tool and version was used) and fail on any forbidden resource, data row, scene, script or identity string from out-of-scope content (search for the authored ids and display names too). Record the file list and hashes as release evidence.
-2. **No dead dependencies:** a headless load of every packed scene and resource succeeds with zero missing-resource or script errors; a static scan finds no `res://` reference to a removed path.
-3. **No inaccessible assets:** every packed asset is reachable from demo gameplay (the allowlist closure equals the packed set, plus declared engine/theme files).
-4. **No bypassable unlock:** probes drive the demo's real end state and every travel/debug/save-edit path (a save naming a later stage, a forced unlock call, a debug flag) and assert that the game refuses it safely because the content is not there, without crashing.
-5. **Gameplay parity:** the full game's probes for the included content pass unchanged against the demo (same numbers, same contracts), plus a demo-specific probe for the end-of-demo invitation, the separate save and the package identity.
-6. **Physical Android check of the exact demo artifact** (section 88): install beside the paid build, confirm independent saves, play the included content to the invitation.
-
-Keep the generator, its allowlist and its validation report in the full game's repository (tools and docs, excluded from the paid export). Regenerate the demo from source after every full-game change it includes; never patch the generated demo by hand.
 
 ---
 
@@ -2173,6 +2486,27 @@ Reusable rule:
 
 ---
 
+## 16.5 Standard Settings panel for every new game
+
+**One functional organization, game-specific visual theme.** Every future game and its Stage 3 demo implement this shared Settings structure; portrait/landscape layout, artwork, typography, backgrounds, button styling and optional game-specific controls remain its own. A compact responsive panel scrolls rather than shrinking text, honors safe areas and works during the user pause (sections 16.3, 26 and 129). Opening Settings must never alter the simulation except the game-defined pause owner.
+
+| Order | Section | Required contents and behavior |
+|---:|---|---|
+| 1 | **Sound & Music** | **Music volume** slider + separate Music Mute toggle; **Sound Effects volume** slider + separate Sound Mute toggle; **Important Sounds Only** On/Off toggle. |
+| 2 | **Gameplay** | Optional area for the game's specific preferences (joystick placement, auto-display, panel-pause options, etc.). Hide the entire section when empty; never mix its options into the universal sections. |
+| 3 | **Language** | One compact language dropdown/selection panel, **Automatic** first; show only enabled, translated and UI-tested languages (0.11, 132). |
+| 4 | **Community & Games** | **Review on Google Play** only in a Google Play build with an actual listing; **Join Discord** with the approved invite; **More Games** opens its own scrollable cross-promotion panel (52.3). Show storefront-appropriate actions only for real configured channels (52.1), no dead/dummy links. |
+| 5 | **Help** | **How to Play / Help** opens the game's own reference; universal entry point, game-specific teaching content. |
+| 6 | **Game Data** | **Hard Reset** as the last interactive action, with explicit irreversible-data warning and Cancel / Confirm; read-only **game version** beneath it. |
+
+**Audio semantics:** important alerts are a designated subset of sound effects: mission ready/claim, boss/threat warning, major milestone, special completion, or an equivalent event the game defines. They are not a third audio volume. **Important Sounds Only On** suppresses regular game/UI effects while keeping important alerts eligible at the **Sound Effects** slider's volume; Music is completely independent. **Sound Mute always silences important alerts too**, regardless of the Important Only switch. The Important Only switch defaults Off. Classify/register event IDs once in the semantic audio service, not with ad hoc bypasses; do not allow duplicate milestone alerts or a noisy notification storm (85). Sliders are continuous controls; Mute and Important Only are discrete toggles (78).
+
+Settings are saved immediately/through the approved committed-action save tier, survive relaunch, ordinary run resets and Prestige, and **survive Hard Reset**. Hard Reset deletes game progress, statistics and tutorial/progression state but not the player's sound/language/gameplay preferences. If the game requires an exception, it must be explicitly approved in its GDD. Language must apply once selected and after load with safe English fallback. Preserve each slider's previous nonzero value when its mute is toggled; do not convert muting into deleting the chosen volume.
+
+**Cross-game acceptance:** same order, controls, behavior and persistence; zero unconfigured/dummy external buttons; settings and subpanels responsive with long translations, Android Back/Escape, scroll and safe area; zero sound leakage under mute, including UI and Important Only; version correct; reset confirmation does not dismiss or trigger gameplay accidentally. Visual sameness is **not** a requirement.
+
+---
+
 # 17. Show current effective stats and what is boosting them
 
 When a game has temporary upgrades, permanent upgrades, Prestige modifiers, Ascension rewards and buffs, the player must be able to answer
@@ -2211,6 +2545,28 @@ Reuse (Growing Kingdom): `MetaBoosts` (`scripts/core/meta_boosts.gd`), `stats_pa
 Reusable rule:
 
 > One page answers "what is affecting me right now": effective values from the gameplay getters, meta boosts as totals by effect with their sources, and real and game time kept apart.
+
+---
+
+## 17.4 Seven baseline lifetime/session statistics for every new game
+
+**Universal Stats panel baseline: exactly these seven entries, in this order.** Any game may add its own tabs/rows for combat, progression, economy or effective power, but none of those is mandatory just because another game tracked it. Do not add kills, stages, missions, victories, Prestige or other generic default counters to the seven.
+
+| # | Baseline statistic | Ownership |
+|---:|---|---|
+| 1 | **Total Playtime** | Cumulative **real active foreground gameplay** seconds across sessions; saved. Excludes pause, background, offline rewards and blocking decisions; independent of game-speed multiplier. |
+| 2 | **Current Session** | Active real gameplay time in this app-launch session; resets at a new launch, not persisted as an old session. |
+| 3 | **Total Sessions** | Persistent count of sessions that actually entered active gameplay; one increment on the first eligible gameplay tick after launch, not on every pause or screen opening. |
+| 4 | **Total Coins Earned** | Lifetime coins actually credited to the spendable wallet, once per source transaction. |
+| 5 | **Total Coins Spent** | Lifetime coins actually debited for committed spending, never from opening a confirmation or a rollback. |
+| 6 | **Total Gems Earned** | Lifetime gems actually credited to the spendable wallet. |
+| 7 | **Total Gems Spent** | Lifetime gems actually debited for committed spending. |
+
+These are seven **slots/contracts**, not a mandate to invent currencies that the game does not have. Bind Coin/Gem labels to the GDD's genuine currency semantics where applicable; if there is no honest matching currency, hide that unavailable row rather than display a fabricated zero or silently reinterpret an unrelated item. Game-defined additional counters are registered separately, not tacked onto the universal baseline by default. For fractional currencies record the same authoritative precision/units that the wallet uses (75); adapt the generic starter's floating-point amount shell to the game's integer subunit representation when the wallet requires exact hundredths or another fixed precision.
+
+**Count the transaction, never the animation.** Earned is credited value (including a genuinely claimed offline amount when awarded), not a drop visual/pending reward, wallet starting balance loaded from save, or a transfer between UI containers. Spent is committed nonrefunded cost, not a purchase preview; explicitly reverse or avoid counting a rolled-back transaction. Record at the currency owner's authoritative grant/spend funnel and use the same real-playtime source as tutorials/review eligibility when their semantics align (17.3, 52.2). Total playtime, session count and currency totals survive reload, ordinary defeat and Prestige; a confirmed Hard Reset wipes them. A new session starts at zero, even with the profile's lifetime totals restored. Save/loads, edge-case credits, reload and hard-reset tests must prove no double counts. Show formatted durations and money amounts using the shared number formatter.
+
+This baseline is distinct from the **effective combat/economy Stats** guidance of sections 17.1–17.3. Those sections apply only to game-specific systems that exist; the seven counters above are the default reusable panel. The embedded starter in 0.8 includes the underlying recording shell; each game supplies the actual wallet hooks and its own visual panel. The starter shell must not be mistaken for a fully integrated statistics UI or tested game-specific currency accounting.
 
 ---
 
@@ -2608,6 +2964,12 @@ Declare the asset policy before composing screens. A project may require one pac
 When the user requires an **asset-only UI**, that includes panel/card backgrounds, buttons, tabs, HP/progress bars, slider tracks/handles, toggles, scrollbars, tooltips and their interaction states. Code-drawn replacement borders, rectangles, bars or icons are new visual design even when no image generator was used. An asset-only audit must inspect runtime drawing and style overrides, not just the image directory.
 
 Code may arrange, slice, crop, tile, animate and apply approved tints to supplied assets. Use authored transparent variants where available; keep touch hit areas usable even when the visible control has little or no background. Do not invent extra item categories, currencies or systems from a pack's demonstration screen.
+
+Before configuring a nine-patch, inspect transparency and tile geometry: some supplied button sheets contain nine separate islands with transparent gutters. A single region stretched across those gutters produces gaps. Extract each actual island or assemble its source regions, then verify at narrow and wide sizes. This is a source-layout check, not permission to redraw the asset.
+
+**Trim the inner shading of joined islands.** An island in a nine-island sheet is usually drawn as a complete small panel, with a 1–2 px shading band on **all four** sides. Only its outer sides are edges of the assembled surface; the inner bands become seams at the slice boundaries, and because edge strips tile, each seam repeats as a faint dashed line along the whole panel (players describe it as "faded corners"). When joining islands, crop each piece's inner sides past the band (keep the cut on the output pixel grid when the art is also downscaled) and keep the outer sides untouched. A probe that checks only the panel interior misses these seams: scan every row and column from just inside the outline over the repeated span and fail when a line differs from the paper colour along most of it, skipping authored inner frames (idleFortDefender Change 30: Tiny Swords RegularPaper/SpecialPaper, `ui_surface_regression`).
+
+**Composer scripts must be reproducible across machines.** Write registry paths with forward slashes (`Path.as_posix()`), read and write text as UTF-8 explicitly (Windows defaults to a legacy code page and fails on `·` or `→`), and when re-running a composer compare **decoded pixels** with the committed files: PNG re-encoding changes bytes without changing the image, so restore untouched outputs instead of committing noise.
 
 Keep a mapping of each UI component and state to its source asset. If a necessary element is missing, report the gap and obtain a design decision before substituting new artwork. Placeholder permissions in section 125.10 do not override an asset-only instruction.
 
@@ -3274,59 +3636,57 @@ unless Godot actually ran.
 
 # 44. AI collaboration and the iteration loop
 
-## 44.1 Roles
+## 44.1 Responsibilities and authority
 
-**Design conversation (ChatGPT or a chat agent).** Design decisions, system architecture, balance reasoning, small focused code changes, briefs for the repository agent, continuity documentation. **ChatGPT owns the post-freeze 19 non-English in-game catalogs (132.4), external competitor/keyword research, ASO strategy, game-name/genre localization proposals, store copy in 20 locales, screenshot order and subjects (screenshots carry no added text by default, section 87.9), trailer/video briefs and storyboards** (section 134). Research is not a claim of verified search volume without supporting data.
+**ChatGPT and developer:** own design conversations, the approved `docs/OurGameGDD.md`, the reusable methodology in this Playbook and the task briefs in `docs/ClaudeMDs/`. ChatGPT owns post-freeze non-English in-game catalogs (132.4), external competitor/keyword research, ASO strategy, store-copy/localization proposals, screenshot subjects/order and video briefs (134). No unverified claim of search volumes/rankings. The developer decides which design, media and storefront outputs are approved and confirms store upload/publication.
 
-**Repository-aware coding agent (Claude Code).** Implementing a batch across many files, broad refactors, finding existing architecture, editor-scene work, running probes and audits, keeping the decision log and report current. **Claude owns Godot tooling/integration, game-specific scenarios, screenshot capture, video recording/FFmpeg production, and localization of every newly implemented player-facing string**. It uses the existing versioned shared toolkit rather than recreating it.
+**Claude (repository-aware implementation agent):** reads the Playbook, canonical GDD and current ChatGPT brief; implements and tests the requested batch; maintains reproducible implementation/test/marketing source, integrates the pinned toolkit and produces authentic capture/FFmpeg outputs where required. It does **not** independently author a competing GDD, generate a versioned GDD copy, maintain mandatory decision/status/patch-report documents or add cross-game rules without approved review. Ordinary results are reported in its final response; mandatory persistent evidence belongs in the predefined owner folder (0.2.5).
 
-Do not prescribe exact files to a repository-aware agent unless necessary. Define:
+Give Claude an objective, constraints, acceptance criteria and useful evidence, not a large duplicated chat transcript. It must inspect actual repository source and the current brief rather than assume an old continuity summary is accurate. Claude **must commit each completed implementation batch locally**, without waiting for the developer's physical device tests. Do not confuse a successful commit with device/storeside certification.
 
-- objective;
-- constraints;
-- acceptance criteria;
-- known evidence.
+## 44.2 Automatic local commits and device-testing corrections
 
-Let the agent inspect the repository. The repository stays the authority rather than an enormous chat transcript: when an agent conversation has accumulated very large context or its prompt cache has expired, prefer a fresh session with a self-contained brief plus the current working tree. This reduces token waste and lowers the chance that stale conversational assumptions override current code.
-
-**Human developer.** Plays the build on the physical device, judges feel, readability and balance, validates visual composition and the exported artifact, and approves design changes, marketing outputs and publishing. **Claude may commit after completing and validating a batch when authorized**; the human does not need to perform every routine commit.
-
-## 44.2 The iteration loop that worked
-
-Growing Kingdom's passes settled on this loop:
+The default iteration loop for **every future new game** is:
 
 ```text
-define a focused batch (one brief)
--> implement the whole batch, with compile checks and the targeted probes of each change
--> expose a playable build early: tell the developer it is ready to play
--> the developer tests on a physical Android device while the agent verifies
--> fix concrete findings from both
--> one full regression suite once the batch is stable
--> commit the validated batch
+ChatGPT-authored brief in docs/ClaudeMDs/ (+ developer approval)
+-> Claude implements the requested batch
+-> Claude runs available focused tests and required regressions
+-> Claude inspects/stages only the intended tracked changes
+-> Claude creates a local Git commit, then reports commit hash, tests and game version
+-> developer tests the committed build on the device
+-> any developer-discovered issues become a NEW brief/change and NEW local commit
 ```
 
-Rules that make it fast without losing trust:
+**Required commit behavior and safeguards:**
 
-- **Automation exists to catch regressions, not to consume most of every feature cycle.** The smallest probe that can disprove a change runs while it is written; the related group runs when the feature is locally correct; the full suite runs once per stable batch (section 60.1).
-- **Long simulations are separate tools for actual balance questions.** Pacing bots, multi-seed composition audits and long soaks run when the batch can materially change what they measure (an AI, economy, wave or map change), one at a time, with recorded profiles and seeds (sections 112, 112.1). A UI, copy or documentation change never triggers a multi-hour simulation.
-- **Prepared deterministic scenarios replace long natural playthroughs.** A test save, a debug preset or a capture option that lands on the state in seconds is worth more than a run that reaches it in an hour (sections 42, 100).
-- **Human device testing and automated testing complement each other.** Probes prove rules, layouts and persistence; the developer's hands find feel, touch comfort, readability at arm's length and balance impressions that no bot can. Neither waits for the other.
-- **Make the batch playable early.** Implement every feature of the batch before the heavy verification, so the developer can build and play while probes and audits run. Waiting for every audit before the first playable build wastes the developer's parallel time.
-- **While a device-testing round is still open, correction batches stay targeted.** Each correction gets its compile check and the targeted probe cases that can disprove it, one named case per acceptance item of the brief (Growing Kingdom's Android corrections: Healer cadence, lockout, multi-Healer spread, Attack Speed independence, Sanctuary counting; tutorial suspension and restore per panel; Prestige HUD at each screen shape; each Smart recruit and bulk mode). The full suite waits until the round settles, because the next device finding will change the batch again; the brief says so explicitly ("do not run the full suite yet"), and the report states that it was deferred and lists the device checks still open. Before a commit, the full suite runs once (section 60.1).
-- **Report progress during long work.** A short "what is left, roughly how long" every twenty minutes or so; separate active work from unattended simulation time and say which heavy steps could be cut.
-- **Record decisions as they are made.** Every choice the brief leaves open goes into the game's decision log with its reason and how it was validated; the report states what was actually run (section 43: never claim a test that did not run).
+- **Commit after implementation, before human testing.** The developer's manual approval is **not** a commit prerequisite. Do not defer a commit until UI feel, screenshots or a physical-device run are approved. Subsequent fixes use normal follow-up commits; do not automatically amend or rewrite earlier commits.
+- **Validate the completed batch first.** Run parser/compile/headless and targeted probes available to the agent. Run the full maintained suite once when the change is broad, at a stable integration boundary, or before release. A narrowly targeted Android correction can run targeted probes and disclose that a larger suite remains pending. Long performance/balance simulations run only when relevant. If a required automated acceptance gate fails, attempt to fix it rather than falsely report the batch complete; disclose any blocker, including if a local commit was not possible. No test executed should be claimed as passed.
+- **Review the working tree.** Inspect `git status --short`, `git diff`/`git diff --cached --check` and staged paths; avoid generated binaries, secrets, prior developer work or files unrelated to the brief. Stage specific owned paths, not an indiscriminate `git add -A` in a dirty tree. Never discard, silently rewrite or remove user changes. If an unrelated conflict prevents safe staging, state that the commit is blocked and why.
+- **One logical commit per completed brief/batch by default.** Keep related tests, code, assets and legitimately necessary source/docs in the same commit. A very large change can be split into coherently named commits, but not one commit per edited file. Do not create an empty commit for an unchanged result.
+- **Local first, main by default.** Commit to `main` for ordinary project work (or the already designated active working branch when applicable). No routine feature branches or pull requests are required. **Never push automatically**, force-push, reset other work, rebase/rewrite published history or create a release tag without the developer's explicit authorization or confirmed release event.
+- **Report exactly:** short summary, commit hash, current `MAJOR.MINOR` from `project.godot`, relevant Android `version/code` when preparing a store build, tests actually run (with failures), and what still needs device verification. This is a final **response**, not an automatic `.md` report in `docs/`.
+- **Approval is not retroactive.** A later device failure is handled in the next versioned implementation batch. The earlier local commit remains an honest record of what was implemented and what evidence existed at that time; it never represents an unperformed manual acceptance test.
 
-The older chat-only pipeline (AI design, AI implementation, static checks, human validation in Godot, targeted fixes, commit) still applies when the agent cannot run the engine: then the human runs every check, and the agent's report lists exactly what was only checked statically.
+### Commit naming (canonical)
 
-Reusable rule:
+```text
+type(change-N): concise imperative description
+```
 
-> Ship a focused batch to the developer's hands early, verify in layers while they play, run the full suite once, and keep long simulations for real balance questions.
+Use sequential integer `change-N` identifiers for ChatGPT briefs and corresponding implementation commits: `feat(change-1): implement core combat`, `fix(change-2): correct inventory drag`, `balance(change-3): adjust early economy`, `perf(change-4): reduce allocation churn`, `docs(change-5): reconcile approved GDD`. Allowed types: `feat`, `fix`, `balance`, `refactor`, `perf`, `docs`, `test`, `build`, `chore`. Keep this vocabulary small. Bootstrap is `chore: initialize Godot project`, preceding numbered changes. An ordinary code batch normally gets a new change number even when the displayed **game version does not change**; corrections get new change numbers and new commits. An authorized documentation-only commit may also have its own change number without pretending executable behavior or store version changed.
 
-## 44.3 Integer change numbering
+## 44.3 Change numbering, game display versions and releases are separate
 
-Use one simple integer for each delivered project change batch: **1, 2, 3, ...**. Start at 1 when adopting this rule; increment by exactly one per subsequent delivered batch, including documentation-only batches. A batch can contain multiple fixes; do not increment once per edited file or test rerun. Use the same number in the project version, current GDD/status, release notes and patch name. Do not introduce dotted game-change versions such as 0.1.2. Preserve old releases as historical records instead of renaming them.
+**Change number:** sequential identifier for a delivery/brief and its commit (`change-1`, `change-2`, ...). It is **not** the game version, Android build code, save schema, marketing toolkit version, or release tag. Never invent a GDD-version or patch filename to match it. Multiple files within one brief do not increment it more than once.
 
-Android's internal `version/code` is a separate monotonic store counter and must never be lowered when starting change 1. Save schemas and pinned third-party/toolkit versions are also independent compatibility identifiers; do not renumber them to match a game change. Leave Android `version/name` blank when it inherits the project's integer version.
+**Game display version:** exactly `MAJOR.MINOR` in `project.godot` (`application/config/version`), starting a new game at **`1.0`**. Claude may increase `MINOR` by 1 when a changed build needs a new distinguishable development version (for example `1.0 -> 1.1 -> 1.2`); it does not have to increment on every Git commit, documentation-only change or rerun. Treat components as integers: `1.10` succeeds `1.9`, not a decimal value. No patch component and no `1.0.0`/old integer-only convention for **new games**. Always report the resulting version to the developer for review when building.
+
+**After a store upload/publication:** only the developer's explicit confirmation that a specific version was uploaded/published authorizes the next **major** development generation. For example `1.0 -> 1.1 -> ... -> 1.9` (developer confirms `1.9` uploaded) `-> 2.0` on the **next development change**, not by mutating the already-shipped artifact; then `2.1`, ... until another confirmed upload, then `3.0`. If release occurs at `1.3`, the next is `2.0` just the same. ChatGPT passes the confirmation/precise last-published version to Claude as an explicit brief. Claude must **never infer publication** from an export, a test APK/AAB, an existing file, commit or tag. Do not reuse an uploaded version for a modified development build.
+
+**Android `version/code`:** the independent monotonic Google Play build integer. Each uploaded APK/AAB (including Play testing tracks) must use a new higher code; do not lower/reuse it to match the display version or change number. Android export `version/name` stays blank so it inherits `application/config/version` where supported (89). Store upload and actual publication are distinct operational events; record the exact event the developer confirms, and don't claim public availability from a testing upload.
+
+**Git release tags:** use the **actual uploaded/published** human-readable version such as `v1.9` or `v2.4`, **only** when the developer confirms which artifact was uploaded/published and authorizes tagging. Normal implementation commits never get a release tag. A separate toolkit, persistence or package schema can retain its own independently versioned identifiers.
 
 
 ---
@@ -3527,11 +3887,13 @@ Before Play Store submission:
 
 ## Store
 
+- **Stage 4**: the itch.io demo was released as both an accepted Android APK and a browser-playable HTML5 export, with its own truthful listing and Coming Soon video plus two early thumbnails (0.9.2). Its maintenance releases are validated independently;
 - authentic, correctly sized, language-neutral gameplay screenshots for every applicable device class, each a real render at its size, with no added promotional text unless the developer approved an exception (raw masters retained; section 87), planned and reviewed as one varied set with per-frame provenance (87.10);
 - genuine gameplay video exports, when selected for the store, validated as MP4 with proper transitions/audio handling (section 133), telling the game's hook through real footage (133.7);
 - Play app icon (512 x 512 full square, no baked corners or outer shadow) built from the game's own licensed art in its own batch, judged at 48 to 96 px on light and dark and among researched competitor icons, with an editable reproducible source shared with the launcher icons (section 101.2);
-- feature graphic prepared consistently with actual in-game presentation: built from the game's own licensed art in its own batch, carrying the full approved title, inspected at full size and at real preview sizes, with an editable reproducible source (section 101.1);
-- short-form social videos (TikTok/Reels/Shorts): 10 masters, 9:16 1080×1920, about 15 s, derived from the approved trailer footage and music: for a landscape game 5 focused reframes and 5 full-landscape cuts with their text in the black bands; for a portrait game a split approved for that game (133.5); distinct feature-based hooks, real gameplay only, configurable copy inside platform-safe margins (section 133.5); never uploaded by Claude;
+- **both approved feature graphics**: first the horizontal Google Play **1024×500** key art (human-approved), then the independently recomposed **1080×1920** vertical key art, each derived from the game's genuine licensed assets with a layered reproducible source and actual-pixel reviews (101.1);
+- short-form social videos (TikTok/Reels/Shorts): 10 masters, 9:16 1080×1920, short-form length set by each video's content (133.10), derived from the approved trailer footage and music, or from fresh capture when that footage no longer shows the current game: for a landscape game 5 focused reframes and 5 full-landscape cuts with their text in the black bands; for a portrait game a split approved for that game (133.5); distinct feature-based hooks, real gameplay only, configurable copy inside platform-safe margins (section 133.5); never uploaded by Claude;
+- **two Out Now promotional thumbnails per game**, **1080×1920 vertical** and **1280×720 horizontal**, with OUT NOW, game name/logo, “Search [Game Name] now on” and only actual live platform names/marks; these are not ten per-video pairs (133.8);
 - one approved social posting-copy entry per master video: video-specific caption/description plus a concise set of relevant hashtags, with claims matching the footage and no automatic posting (133.6);
 - researched and human-approved English title, short description and full description after a current Google Play metadata-policy check; localize only after that English source is locked (section 134);
 - one validated UTF-8 Play AI-import localization package containing 20 logical locales (English source + 19 translations) using the locale tags accepted by the current Play Console surface; after import, compare the detected languages against the intended set rather than trusting the raw count (134.2 to 134.3);
@@ -3657,7 +4019,7 @@ Benefits:
 - easier platform/browser handling;
 - easier QA before release.
 
-Community links fit naturally in Settings and major completion/end-of-content screens, but should remain optional and never block progression.
+Community links fit naturally in Settings and major completion/end-of-content screens, but should remain optional and never block progression. The **Settings placement and section order** for all such buttons is defined by 16.5. A shared label such as Join Discord still appears as only one action within Community & Games, not a large dedicated Discord subsection.
 
 **A single community link is one button, not a section (LootFarmer Change 41).** Put it beside the other Settings actions with the service's name as its label, keep the URL in one inspector resource, and open it through a replaceable opener (`OS.shell_open` hands an https URL to the default browser on desktop and to a view intent on Android, which the service's app may claim). Ignore a second press within a short guard (a double tap), and on failure show one short message in the panel and change nothing else. Treat the service name as a brand in every catalog (allowlisted, not translated). Opening it on a real Android device with and without the app installed is a separate device check.
 
@@ -3690,6 +4052,12 @@ A review request is an interruption the game chooses, so treat it like the tutor
 - **Present it in the game's existing panel language** (its plates, borders, fonts and button styles, perhaps with the player's own gear as decoration), with the store button as the dominant control and Maybe Later clearly legible; check it at portrait sizes like any rare modal (section 20). While it is open the world is held (26.2), not merely covered.
 - **Reuse the pattern, not one game's numbers.** The play-time threshold, health floor, boss radius and quiet window are game tuning kept in a data resource (LootFarmer: 60 active minutes, 50% HP, 280 px, 2 s); exact store URLs live in the game's channel table (52.1) and its own documents, never in this Playbook.
 - **Verified here:** URL selection, routing, persistence and arbitration by probes, panel rendering at portrait sizes on desktop. **Not verified by these notes:** how each store app reacts to the link on a real device, and store review-policy compliance; check both on hardware and against current store policies before release.
+
+---
+
+## 52.3 More Games — manual cross-promotion, not ads
+
+Every new game exposes **More Games** in Settings → Community & Games. It opens a **scrollable responsive panel of other publicly available studio games**: each card has the actual game icon, game name, short truthful description and a clearly labelled **View on Google Play** or appropriately routed store action. Omit the current game. Never put an unreleased title, fake destination or invalid listing in the tap-through catalog; a real Coming Soon listing may be shown only when explicitly approved and labelled as such. Keep the studio's catalog of stable identifiers, platform-specific destinations and promotional card assets in the game's **single shared links/config resource**, not duplicated across the UI. A link appears only when its target is configured for that build/channel. All buttons open externally by explicit player action with graceful failure; no in-game auto-redirect, interstitial, unsolicited advertising popup, attribution SDK or analytics. Test portrait/landscape scroll, closed links, identity exclusion and link routing on a device. Use the existing art style to render the cards; the structure and behavior are shared.
 
 ---
 
@@ -3932,7 +4300,7 @@ This policy changes **only when the developer explicitly declares the game relea
 - destructive changes need backup and recovery consideration (keep the previous file, write atomically);
 - old public saves are treated carefully: never silently reset progress a player paid for in time or money.
 
-Record the declaration in the game's decision log and in the agent instructions (CLAUDE.md or equivalent), with the date and the first released `SAVE_VERSION`, so every later session knows which phase it is in.
+Record this release-phase declaration in the existing `docs/OurGameGDD.md` and short agent entry point (`CLAUDE.md`), with date and first released `SAVE_VERSION`; do not create a separate decision log.
 
 ## 61.3 Moving rewards between layers after release
 
@@ -4705,7 +5073,7 @@ A player-issued RTS command is acknowledged **once at the order level**, never o
 
 A **persistent danger indicator represents the danger state; impact sounds represent the individual hits.** "Castle under attack" is a chip that holds while blows keep landing (a grace longer than the slowest attacker's interval, in simulated time, so it never flickers between blows) and clears when they stop; its warning cue plays once on entering the state, while each blow stays on the pooled, throttled impact cue.
 
-The gameplay pause holds the music where it is (pause the stream, never stop and restart it); settings changed while paused apply their volume at once but never start it audibly before play resumes, and UI sounds keep working in the pause menu.
+The gameplay pause holds the music where it is (pause the stream, never stop and restart it); settings changed while paused apply their volume at once but never start it audibly before play resumes, and eligible UI sounds may work in the pause menu. **The universal Important Sounds Only filter (16.5) still applies to UI clicks:** mute or Important Only must never be bypassed by pause, an alert emitter or another audio path. Important alerts are semantic event IDs (e.g. a mission becoming claimable or a boss appearing), not every routine notification; the game defines the catalog once, with a small per-event cooldown/once-per-state rule. The Sound Effects volume/mute applies to all effects including important alerts; Music is controlled separately.
 
 Reusable rule:
 
@@ -4801,11 +5169,11 @@ The capture tool should remember and restore:
 Default filenames should use the **same destination/category name as the folder plus a sequence number**. This is intentionally boring and operationally useful:
 
 ```text
-Phone/Phone_01.png
-Phone/Phone_02.png
-Tablet_7/Tablet_7_01.png
-Tablet_10/Tablet_10_01.png
-Desktop/Desktop_01.png
+generated/screenshots/phone/phone_01.png
+generated/screenshots/phone/phone_02.png
+generated/screenshots/tablet_7/tablet_7_01.png
+generated/screenshots/tablet_10/tablet_10_01.png
+generated/screenshots/desktop/desktop_01.png
 ```
 
 The exact on-disk folder key can be normalized when necessary, but the basename must unambiguously mirror that destination category. This makes Play Console upload much easier: when selecting files, the device class is obvious from both the folder and the filename, and mixed screenshot sets are much harder to upload accidentally.
@@ -4826,13 +5194,16 @@ so clean and normal screenshots never collide.
 
 ## 87.5 Keep generated marketing images out of game assets
 
-Use an output root such as:
+For **every future project** the only output root is:
 
 ```text
-res://store_assets/screenshots/
+res://generated/screenshots/phone/
+res://generated/screenshots/tablet_7/
+res://generated/screenshots/tablet_10/
+res://generated/screenshots/desktop/
 ```
 
-and put `.gdignore` at the store-screenshot root. Generated screenshots should not be imported as runtime textures or inflate editor import work.
+The tracked `res://generated/.gdignore` excludes the entire generated-media tree from Godot imports, and the canonical `.gitignore` ignores its outputs (0.2.5, 0.8, 135.4). The capture-tool adapter must actually write to these configured paths (0.2.5); do not assume a toolkit with an older output default already complies. Generate no alternative `store_assets/` or `recordings/` root. Generated screenshots must not become runtime textures or inflate editor imports.
 
 ## 87.6 Do not use `debug` as the editor-tool safety boundary
 
@@ -4873,7 +5244,7 @@ A desktop monitor can clamp the capture window: 720×1280 on a 1080-pixel screen
 
 ## 87.8 Trigger and ownership: the UI-readiness gate
 
-Screenshots belong to **stage 17, Google Play Store Preparation & Marketing Assets** (0.9). A game with a free demo (Stage 16, 0.9.1) captures the demo's own screenshots from the demo artifact, showing only content the demo contains. Prepare the reusable capture infrastructure earlier during bootstrap/implementation if useful, but generate final store screenshots once **the UI is mostly ready**, core gameplay is representative and sufficient visual content exists. Final balance, full completion and perfect progression pacing are **not** required for screenshot staging. Regenerate affected marketing captures after significant UI/visual or feature changes.
+Screenshots belong to **stage 17, Google Play Store Preparation & Marketing Assets** (0.9). A game with a published itch.io demo (Stages 3–4, 0.9.1–0.9.2) captures the demo's own screenshots **for its itch.io listing at Stage 4**, from the accepted demo artifact, showing only content the demo contains. Stage 17 captures the expanded full-game store assets. Demo updates are revalidated at their actual maintenance-release time, not at Stage 16. Prepare the reusable capture infrastructure earlier during bootstrap/implementation if useful, but generate final store screenshots once **the UI is mostly ready**, core gameplay is representative and sufficient visual content exists. Final balance, full completion and perfect progression pacing are **not** required for screenshot staging. Regenerate affected marketing captures after significant UI/visual or feature changes.
 
 - **ChatGPT** plans each game's marketing sequence, screenshot order and scenario purposes (what each screenshot shows, not text drawn onto it); the **human** approves what is being advertised and any exception to the no-added-text screenshot default (87.9).
 - **Claude** implements game-specific deterministic scenarios, uses the reusable capture tooling and checks the images actually produced. Each scenario can be overridden by the user (subject, action, camera, UI visibility, device classes).
@@ -4967,14 +5338,14 @@ Maintaining a version in project settings, another in export settings and anothe
 Prefer:
 
 ```text
-one integer change version source
+one `MAJOR.MINOR` game version from `application/config/version`
 -> player-facing Settings/About UI
 -> platform version name where the engine allows inheritance
 ```
 
 Keep platform build/version **codes** separate when the store requires a monotonically increasing integer.
 
-For Godot Android specifically, leaving export `version/name` blank can intentionally fall back to `application/config/version`; the integer Android version code still increments independently.
+For Godot Android specifically, leaving export `version/name` blank can intentionally fall back to `application/config/version`; the integer Android version code increases independently for each Play upload. Only a developer-confirmed upload/publication permits the next major game version (44.3).
 
 Reusable rule:
 
@@ -5068,7 +5439,7 @@ price(id, level):
 
 - **One price function** is the only source: cards, bots, the receipt and the Stats page ask it; nothing computes a price itself.
 - **Probe both branches:** every authored level equals its table entry, and every formula upgrade still matches its formula at every level, so adding a table to one upgrade cannot shift another.
-- **Retune by table, record by decision:** a price change is a table edit with its reason in the decision log and, when it touches the economy's pace, a pacing run (section 112).
+- **Retune by table, record in its owner:** a price change is a table edit; approved game-design rationale belongs in the single GDD (not a decision-log file), and economy-paced changes need a pacing run when relevant (section 112).
 - Bounded requirements follow the same table-first rule (section 3.5).
 
 Growing Kingdom: Expanded Command 200 / 350 / 600 and Recovery Doctrine 600 / 850 / 1,200 through `Balance.meta_cost()`; every other permanent upgrade keeps base and growth (`core_probe` checks both branches).
@@ -5140,24 +5511,15 @@ Reusable rule:
 
 ---
 
-# 96. Synchronize continuity documentation after the release candidate changes materially
+# 96. Keep release continuity current without creating parallel documentation
 
-A long AI-assisted project can have correct code and dangerously stale handoff documents at the same time. That is especially risky when old documents still describe earlier version numbers, balance curves or unfinished phases.
+Long AI-assisted projects can have correct code and stale claims about versions, balance, completed phases or the actual store release. For **future** projects the authoritative current state is the tracked source, the single `docs/OurGameGDD.md`, the `project.godot` display version, Android export identity and Git history/tags (0.2.5, 44, 89). **Do not generate a standing continuity/status report for every milestone.**
 
-At major milestones, compare the continuity document against the latest full project snapshot and explicitly update:
-
-- current version/build identity;
-- completed vs pending phases;
-- final balance values that changed;
-- save/versioning contracts;
-- release/store state;
-- bugs whose fixes created reusable engineering lessons.
-
-Keep historical audits/reports historical rather than rewriting them to look current. The current handoff should summarize where the project is **now**, while dated audit files remain evidence of what was true at that date.
+At a release candidate, Claude reports the exact build identity, important tests, unresolved device acceptance and any changed GDD/release contracts in its final response. The developer/ChatGPT updates the *existing* GDD for approved design changes and curates true cross-game lessons in this Playbook; a required published release note is handled in the existing marketing/store workflow (134.5). Retain a separate audit in `docs/changeDocs/` only for meaningful evidence that must outlive the chat. Preserve genuine historical evidence as historical; never rewrite it into false current sign-off.
 
 Reusable rule:
 
-> Code is implementation authority; the continuity handoff is navigation authority. Keep both synchronized at release milestones.
+> The source and single GDD define the current project; commit history and release records explain how it reached that state. Do not invent a second status-document authority.
 
 ---
 
@@ -5180,12 +5542,11 @@ Examples from Everfort include:
 After a human validates a correction, capture it as one of:
 
 ```text
-project continuity rule
-reusable playbook rule
-asset implementation registry entry
-shared helper/tool
+approved game GDD rule (if design behavior changed)
+reusable Playbook rule (only if it generalizes)
+tracked source asset or helper/tool
 balance/data definition
-QA preset/checklist
+QA preset/checklist in tests or tools
 ```
 
 Do not leave a validated decision only in a chat message or in one person's memory.
@@ -5318,49 +5679,325 @@ Reusable rule:
 
 Production workflows: the feature graphic in 101.1, the app icon in 101.2.
 
-## 101.1 Google Play feature graphic: research, concepts, real art, verified pixels
+**Shared rules for both workflows** (validated on the approved LootFarmer branding workflow; later rejected outputs do not count as validation):
 
-The feature graphic is the listing's banner and, when a preview video exists, the video's cover. It is designed promotional art, not a screenshot (87.9), so it needs its own research and refinement. LootFarmer's first graphic was produced inside the combined store-asset batch and was rejected as generic; the workflow below, run as its own batch, produced the approved version. It has been validated on that one game, so treat the composition techniques as proven options, not a house style.
+- **Start from the product communication problem, not from an asset list.** Before selecting characters, bosses, buildings or layouts, write the short creative thesis for the asset: what quality bar is expected, what single mechanic/fantasy/feeling deserves emphasis, and what known weakness must not be repeated. The candidate study serves that thesis; the thesis must not be reverse-engineered from whichever sprites look convenient.
+- **Mandatory candidate-asset study after the thesis is clear.** Inspect the real data/render path first so candidate art is truthful, then render the plausible subjects and supporting elements that could express the thesis. Compare them at approximately the size they would occupy in the real final medium. Do not choose a subject from filename, source-pixel size or personal preference alone.
+- **Two independent workflows, even when one brief asks for both.** Give the feature graphic and the icon separate compositions, render/check commands, review folders and commits, and finish and commit the first before starting the second. Shared code is limited to read-only helpers (sprite access, treatments). The first workflow's byte check must still pass after the second is built, proving the second did not change it.
+- **Reuse the process, never the previous game's composition.** Research, creative thesis, truth-checked asset study, three genuinely different visual stories, visual inspection, a rubric written before scoring, repeated refinement of the selected direction, layered reproducible sources and pixel-level verification carry over between games. Layout, palette, ground, lighting, subject arrangement and title placement must come from the new game's own art and communication problem. LootFarmer's sand, sunset and before/after line are evidence of one successful solution, not a template.
+- **Effort level is not the quality gate.** The approved LootFarmer feature-graphic session used Claude Opus 5.5 with Medium effort/adaptive thinking. High or higher effort may be useful for difficult branding tasks when available, but never treat an effort selector as a substitute for research, visual inspection and iterative critique.
 
-**Run it as its own focused batch** (one brief, one conversation): not combined with the icon, screenshots, trailer or social videos (45). The time goes into research, concepts and looking at the actual pixels. The batch still protects the other media: hash-compare the icon, screenshots and trailer before and after, and check that shared marketing scripts cannot overwrite the new graphic or its evidence. LootFarmer's icon script still wrote the old feature graphic, and its store finalizer would have copied whatever graphic existed over the previous change's evidence copy; both were fixed before the new graphic was committed.
+## 101.1 Google Play feature graphic: creative thesis, research, visual stories, iterative polish, verified pixels
 
-**1. Research real listings first.** Study at least six relevant games (same genre, art style or mechanic) and capture their **actual feature graphics**, not icons or screenshots. On a Google Play web listing the graphic appears in the page data as a 1024 x 500 image entry, but the first such entry can belong to a related app (LootFarmer's Grow Castle lookup returned another game's banner), so verify each capture against its title and record exclusions rather than mislabel them. For each game, note title, link, what carries the focal point, how large the characters are, contrast, typography, whether the mechanic is visible, and how it reads small; then write the lesson that applies. Captures stay in a scratch folder: never committed, never in the export. Use them for principles only; never copy art, layout, logo, effects or slogans, and do not claim rankings or conversion effects.
+For future games, store all generated concept images and approved feature graphics under `generated/feature_graphics/`, with working previews under `generated/previews/`; track only the composition source in `marketing/` and any required runtime copies in `assets/`. Do not create `store_assets/` or a second marketing-output root (0.2.5).
 
-**2. Find authentic art that proves the hook.** Name the one distinctive mechanic the graphic must show, then find the game's own art that demonstrates it truthfully. Read the game's data and render code rather than guessing: which enemy actually carries or drops which item, which sprite sheet and frame the game draws, where it places weapon and body relative to each other. Choose subjects by how they read at thumbnail size, not by preference: LootFarmer's first choice of boss turned into a brown blob when small and was replaced by a brighter, more distinctive one. Confirm licences for every source, including the wordmark font (keep an OFL notice beside the source when the font file came without one). No AI-generated imagery, stock art or new unlicensed drawing.
+The feature graphic is the listing's banner and, when a preview video exists, its cover. It is **professional marketing key art assembled from authentic game assets**, not a gameplay screenshot (87.9). Authenticity constrains **what the game truthfully contains**. Art direction decides **how those truthful pieces are staged**.
 
-**3. Explore three genuinely different concepts, then select.** The concepts must differ in **how the mechanic and brand are communicated** (for example a left-to-right before/after story, a lineup of looks, a dramatic boss moment), not only in colour. Render each as a quick full-size preview from the same tooling and score them with a weighted rubric written down before choosing (LootFarmer's brief: mechanic 30%, readability and focal hierarchy 25%, polish 20%, fidelity to game art 15%, reuse for a portrait end card 10%). These are internal creative criteria, not conversion claims. When the developer has granted creative authority, the agent selects and refines without asking; record the scores and reasons. Refining may borrow a losing concept's strength (LootFarmer's winner took the lighting of the moodiest concept).
+The approved LootFarmer graphic is the main validated reference for this workflow. Its success did **not** come from a particular layout, background colour, character lineup, or unusually high model-effort setting. It came from a product-specific communication goal, deep asset investigation, substantive research, three different visual stories, full creative authority, and repeated inspection/refinement of the rendered pixels.
 
-**4. Compose from layers of real art.** Techniques that worked for pixel art:
+### 0. Write the creative thesis before researching compositions
 
-- whole-number nearest-neighbour scaling only; main characters large (about 40 to 60 percent of the canvas height in LootFarmer), never scattered small sprites;
-- one readable story with a clear focal order, and a larger secondary subject further back;
-- ground and background chosen for contrast with the subjects (complementary colour, darker edges), using the game's own tiles in a single coherent location;
-- colour treatments instead of painting: tint, darken, soft glow, vignette, a dark shade behind the title, a one-source-pixel outline to separate sprites;
-- real UI pieces only where they explain the mechanic (two large inventory slots holding the dropped items), not as clutter;
-- a display wordmark with outline, stepped depth and two-tone fill, on a dark field.
+Every feature-graphic brief must begin with a short **Creative Thesis**. This is the most important input to the creative process.
 
-**5. Verify the actual image, not its metadata.** Correct dimensions and format are only the entry check (Google: 1024 x 500, JPEG or 24-bit PNG without alpha; confirm the current help page). Then:
+The thesis has exactly three parts:
 
-- view the rendered file at full resolution and iterate on what you see (LootFarmer's v1 still had a green field, a swing frame that hid the hero's face, and faint sparkles);
-- downscale it with a smooth filter (Lanczos, an approximation of store display) to about 512, 360, 240 and 160 px wide, on light and dark backgrounds, beside the previous version; the title, any genre descriptor, the characters and the key items must stay distinct at 240 px;
-- check placement. Google asks for the focal point toward the centre, key elements out of "cutoff zones", and shows a play button over the graphic when a video exists, but publishes no measurements. A **simulated** centred button with assumed edge bands is a useful conservative check (keep faces and the title out from under the button), labelled as a simulation; confirm in the Play Console preview before publishing.
+1. **Professional-quality objective** — state the desired level of polish and visual appeal.
+2. **Primary communication focus** — name the one mechanic, fantasy, progression feeling, relationship or player experience the graphic should emphasize.
+3. **Known failure to avoid** — state what made the current/previous graphic weak, generic, misleading or unappealing.
 
-**6. Keep it reproducible and editable.** One structured composition per output (named layers, positions, scales, sources, treatments), shared components (characters, wordmark style), one render command and one review command. Requirements that held up:
+A good generic brief structure is:
 
-- deterministic output (a rebuild gives the same hash), and every layer also exported alone as a full-canvas transparent PNG for later editing or video use;
-- a truth guard: rendering fails when a layer pairs an item with a character that does not carry or drop it in the game data;
-- sources in an import-ignored marketing folder, outputs in the ignored store-asset folder, small tracked evidence copies (final, concepts, before/after, size sheet), all outside the export allowlist (22.2, 87.5);
-- the tool form follows 63.1: a Godot scene or a data file plus script are both acceptable when they are editable and reproducible. LootFarmer used JSON layers and a Pillow script because its brand tooling already worked that way. Keep it in the game repository; promote it to the toolkit only after it is validated on another game (135.2).
+> I want a substantially improved, professional feature graphic that makes the game visually appealing and emphasizes **[the primary mechanic / fantasy / feeling]**.  
+> The design should communicate **[what the player does or experiences that matters most]**.  
+> Avoid **[the specific weakness of the current graphic]**.
 
-**7. Prepare a portrait end card without making it.** If the graphic may close a 9:16 trailer, keep its title, characters, items and background as separate layers and add a portrait composition that **restages** them (title in the upper third, story stacked below, background tiled to the new height, platform-safe margins). Never stretch or crop the landscape file (133.1). Render a static framing preview only; the trailer change belongs to a video batch. LootFarmer then validated it in a finished video (Changes 32 and 33): the trailer's end card animates this portrait composition with the feature-graphic composer's own layer painters (the boss, its two loot slots, the plain player, then the outfitted player, with the wordmark and subtitle arriving last and held to the end), and the stacked layers and the last frame were verified pixel-identical to the static study (133.7).
+This is deliberately **not** a composition specification. Do not tell the creative agent where to put the boss, hero, castle, title, cards or effects unless a hard product/legal requirement genuinely fixes that placement. The brief defines **what to communicate**, not **how to arrange it**.
 
-**8. Corrections stay confined.** A branding fix after approval (LootFarmer: adding the approved descriptor "Idle RPG" under the title, 87.9) changes only what was asked. Re-render first to prove the untouched layers are byte-identical, then add the new layer and confirm with a pixel diff that only its area changed. When there is no free space, a lockup that tucks the smaller line into the main title's outline and depth reads as one logo.
+The successful LootFarmer brief used this pattern: improve the graphic professionally, emphasize the distinctive equipment system, communicate that enemies' equipment can become the player's equipped appearance, and avoid another plain green scene with small characters. That clarity gave the agent a visual problem to solve without prescribing the solution.
 
-**LootFarmer example.** Rejected: a flat green field, a small player, a large flower boss, two near-identical tinted helpers and tiny loot icons scattered around a large wordmark. It looked like ordinary scenery, the mechanic (take an enemy's weapon and outfit and wear them) was not visible, and it turned into green noise at thumbnail size. Approved: the plain player, then a boss holding its weapon, then that boss's two real drops in the game's inventory slots, then the player wearing that outfit with that weapon. Large sprites, a warm sand ground against teal characters, sunset light, a dark shade behind the title, and the full title "LootFarmer" with "IDLE RPG" beneath it.
+If the game does not have one unusual mechanic, the focus may be a broader but still concrete **game fantasy or progression feeling**. Do not invent a gimmick merely to make the brief sound unique.
+
+### Key-art contract — authenticity is not gameplay geography
+
+- Characters, enemies, buildings, items and effects must come from the real game and remain recognizable as themselves, but they **do not keep gameplay positions, gameplay spacing, gameplay camera scale or gameplay depth order**.
+- A feature graphic may enlarge or reduce subjects, overlap them, change relative spacing, simplify depth, or place related game pieces together when that makes the chosen visual story clearer. Those are marketing-composition decisions, not fake gameplay claims.
+- The background may be a **custom marketing backdrop** assembled from the game's own palette, textures, terrain motifs, silhouettes, gradients, lighting and decorative elements. It does not need to reproduce one real map or one camera frame.
+- Lighting, vignette, atmospheric depth, shadows, glow, outlines, framing shapes and controlled colour treatment may unify separate authentic layers. They must support the original art rather than repaint it.
+- Build foreground, midground and background intentionally. Every major layer needs a compositional purpose.
+- Real UI pieces are allowed only when they help communicate the creative thesis, not merely because they exist in the game.
+- **Hard rejection gate:** hide the title. If the remaining composition could plausibly be reproduced by arranging actors/buildings in the normal game scene and taking a screenshot, reject/restage it before refinement.
+- Conversely, do not invent characters, equipment, effects, mechanics, rewards or outcomes. Creative freedom applies to **composition**, not product truth.
+
+### 1. Run it as its own focused creative batch
+
+One feature graphic = one focused brief/conversation/batch. Do not combine it with the icon, screenshots, trailer, social videos, gameplay changes, balance or store-copy work (45).
+
+Give the agent **full creative authority** when that is the developer's intent:
+
+> Research, create the concepts, select the strongest direction, refine it, and do not stop to ask the developer to choose between rough concepts.
+
+This matters because the creative loop should continue through weak intermediate renders instead of pausing at every choice.
+
+Protect all other approved media with hashes before and after. A shared marketing script must not silently regenerate the icon, screenshots, trailer or an older feature graphic.
+
+### 2. Research real feature graphics before deciding the visual solution
+
+Study at least six relevant games (same genre, art style, mechanic, fantasy or audience) and capture their **actual feature graphics**, not icons or screenshots.
+
+Verify every retrieved graphic against the correct title. If a listing exposes a related app's image or no usable feature graphic, record that exclusion instead of forcing it into the research set.
+
+For each valid reference, record:
+
+- game and link;
+- dominant focal subject;
+- subject scale;
+- value/colour contrast;
+- typography/brand treatment;
+- background treatment;
+- depth/layering;
+- whether a mechanic/fantasy is actually communicated;
+- how it reads at realistic small preview size;
+- one applicable lesson.
+
+Research must happen **before** the final concept direction is chosen. It exists to widen the agent's visual vocabulary, not to justify an already-built composition.
+
+Use research for principles only. Never copy competitor art, layout, logo, effects, typography or slogans. Do not claim conversion/ranking effects without data.
+
+### 3. Investigate the real game deeply enough to prove the thesis
+
+Do not browse PNGs and guess.
+
+Read the game's data, GDD and render code to understand:
+
+- which visual belongs to which gameplay entity;
+- which weapon/outfit/effect/building state is actually paired with which subject;
+- which animation frame the game really draws;
+- which content is available in the advertised edition;
+- which visual combinations would be truthful vs misleading.
+
+Then build a **candidate/contact study** from the authentic art that could express the creative thesis.
+
+Render candidates comparatively at realistic final sizes. For pixel art, include full-resolution presentation and reduced store-preview sizes. A subject that looks attractive in the source sheet may collapse into noise, hide behind its own effect frame, or lose its distinguishing silhouette when reduced.
+
+The candidate study is a creative decision tool, not a checklist to dump every asset into the final graphic.
+
+Confirm the licence/provenance of every source used, including fonts. No AI-generated substitute art, stock art or new unlicensed drawing.
+
+### 4. Create three genuinely different visual stories
+
+A "concept" is **not** a different arrangement of the same battle.
+
+Each concept must answer the creative thesis with a different **visual story or communication strategy**.
+
+Before rendering each concept, write:
+
+- **Concept thesis:** one short sentence explaining what story/idea it uses to communicate the product focus.
+- **Focal order:** what the viewer should notice first, second and third.
+- **Why it is meaningfully different:** how it solves the thesis differently from the other concepts.
+
+Reject two concepts as duplicates if their only difference is:
+
+- left/right placement;
+- background colour;
+- which enemy stands where;
+- which gameplay frame is reconstructed;
+- minor title position;
+- cosmetic effects.
+
+The successful LootFarmer concepts were different because one communicated transformation/before-after, another communicated collection/wardrobe variety, and another communicated boss/reward payoff. They were not merely three battle layouts.
+
+Do **not** prescribe the three concepts in the generic brief. Let research + the thesis + the real asset study produce them.
+
+Render all three as actual full-size visual previews from the intended composition tooling.
+
+### 5. Visually inspect every concept before scoring
+
+The agent must open/view the actual rendered pixels of all concepts. Do not score concepts from JSON, layer lists, filenames, textual descriptions or intuition alone.
+
+During inspection, explicitly critique:
+
+- immediate focal point;
+- whether the thesis is visible without explanation;
+- silhouette/readability;
+- depth;
+- balance/negative space;
+- visual clutter;
+- whether separate sprites feel unified;
+- title integration;
+- thumbnail behaviour;
+- screenshot-likeness;
+- any subject that turns into an indistinct blob at small size.
+
+Only concepts that survive visual inspection and the screenshot-rejection gate proceed to scoring.
+
+Use a rubric written before scoring. The validated LootFarmer weighting was:
+
+- mechanic/fantasy communication — 30%;
+- readability and focal hierarchy — 25%;
+- aesthetic polish/compositional quality — 20%;
+- fidelity to authentic game art — 15%;
+- future portrait/end-card reuse — 10%.
+
+These are internal creative criteria, not conversion claims.
+
+Select the strongest concept without asking the developer when full creative authority was granted.
+
+A winning concept may borrow a specific strength from a rejected one (for example lighting, mood, background treatment or title treatment) if that produces a stronger coherent final.
+
+### 6. Build the selected concept as authored key art
+
+The source art stays authentic; the final scene is deliberately promotional.
+
+Useful pixel-art techniques, when the game's art supports them:
+
+- whole-number nearest-neighbour scaling for source sprites;
+- large primary subjects instead of many small sprites;
+- clear foreground/midground/background hierarchy;
+- custom background assembled from the game's palette, textures and environmental motifs rather than a raw gameplay screenshot;
+- shared lighting direction, shadows and ambient treatment so separate layers feel intentional;
+- tint/darken/glow/outline/vignette rather than repainting source art;
+- controlled scale exaggeration for hierarchy, while keeping the represented mechanic/content truthful;
+- deliberately reserved title space rather than leftover empty terrain;
+- real UI/loot/card elements only when they are part of the visual story.
+
+Do not start by deciding "hero left, boss right, castle behind" or another generic layout. The selected visual story determines the composition.
+
+### 7. Mandatory iterative polish loop — the first polished render is never the final
+
+This is a required part of the workflow, not optional polish.
+
+After the concept is selected:
+
+**Render Draft 1 → inspect actual pixels → write concrete critique → modify → Render Draft 2 → inspect actual pixels → write concrete critique → modify again.**
+
+Require **at least two genuine inspect → critique → modify cycles after concept selection** before the asset can be considered final.
+
+The critique must name visible problems, such as:
+
+- focal subject too small;
+- face/weapon obscured;
+- background fighting the sprites;
+- weak contrast;
+- empty dead area;
+- title crowding;
+- effect too faint;
+- effect too large;
+- edge crowding;
+- subject turning into a colour blob at preview size;
+- inconsistent lighting;
+- mechanic/fantasy not clear enough;
+- composition still feeling like a screenshot.
+
+Do not make cosmetic changes merely to satisfy the iteration count. Every cycle must respond to something actually observed in the rendered file.
+
+The agent may perform more cycles whenever the result is still weak.
+
+**Technical validity can never terminate this loop.** Correct dimensions, deterministic hashes and passing scripts do not make weak artwork acceptable.
+
+The approved LootFarmer workflow used repeated visual inspection across candidate sheets, three concepts, multiple final revisions, small-size sheets, before/after comparisons and portrait framing. The agent explicitly changed subject choice and later corrected weak effects/edge crowding after seeing the rendered pixels. That behaviour is the quality reference.
+
+### 8. Verify the final actual image at full and realistic store sizes
+
+Correct dimensions/format are only the entry check (Google: currently 1024 × 500, JPEG or 24-bit PNG without alpha; verify current official requirements).
+
+Then inspect:
+
+- final at full resolution;
+- approximately 512, 360, 240 and 160 px wide;
+- light and dark surrounding fields when relevant;
+- beside the previous/rejected graphic;
+- with a conservative simulated video-play overlay/cutoff check if a preview video may exist.
+
+At 240 px wide, the title/brand and principal subjects/story must remain distinguishable.
+
+The final review must answer:
+
+- Does the graphic look professionally art-directed rather than mechanically assembled?
+- Does the intended mechanic/fantasy/feeling read without a paragraph of explanation?
+- Does the focal order work immediately?
+- Are the important subjects large and distinct?
+- Does every major layer have a purpose?
+- Does the title-hidden image still read as marketing key art rather than gameplay?
+- Is it a substantial visual improvement over the previous graphic?
+
+If not, return to the iterative polish loop.
+
+### 9. Keep it reproducible and editable
+
+Use one structured composition with named layers, sources, positions, scales and treatments, plus one render command and one review command.
+
+Requirements:
+
+- deterministic final output when regenerated from the same inputs;
+- export important layers separately as full-canvas transparent images when they may be reused;
+- truth guards where the composition depends on real game relationships;
+- tracked composition/source under `marketing/`/`assets/` as appropriate;
+- generated finals/concepts/review sheets under ignored `generated/feature_graphics/` and `generated/previews/`;
+- no marketing-only sources inside the runtime export allowlist.
+
+The tooling form follows 63.1: a Godot scene or structured data + script are both valid when editable, inspectable and reproducible.
+
+### 10. Two mandatory final compositions, sequential approval (2026-11-08)
+
+The **Google Play horizontal graphic (1024 × 500)** is the main creative work and must be fully iterated, inspected and **developer-approved first**. Do not split focus by forcing a finished portrait layout into the original concept-selection batch. During that first batch keep title, focal subjects, props, background and effects as **separate editable layers**; preserve enough material to re-stage them and record a portrait adaptation plan.
+
+**After horizontal approval, produce and review a separate finished 1080 × 1920 vertical promotional version** from the same approved visual identity. Recompose for 9:16: adjust scale, subject placement, environment extension, lighting/effects and brand placement, rather than stretching, letterboxing or cropping the horizontal art. The vertical is required, not merely an optional source-readiness plan, and receives its own pixel inspection, phone-size legibility checks and human approval. A composition may be used as a video end card or promotional asset, but that reuse does not replace the dedicated two-thumbnail set (133.8).
+
+**Final Stage 17 deliverables are both approved images** plus editable/reproducible sources: horizontal **1024 × 500**, then vertical **1080 × 1920**. The creative thesis, asset authenticity, research, three visual-story concepts and multiple critique/revision cycles of 101.1 remain unchanged. Neither the portrait deliverable nor the thumbs authorize marketing claims that are false for the current game.
+
+### 11. Reasoning/effort guidance
+
+The historically successful LootFarmer feature-graphic session used **Claude Opus 5.5 at Medium effort with adaptive thinking throughout**.
+
+Therefore:
+
+- Medium is a proven sufficient baseline for this workflow;
+- High/higher effort may be selected when available for difficult creative work;
+- never document or assume that "High effort" is what produces polish;
+- regardless of effort setting, all research, actual-image inspection and iterative refinement gates above remain mandatory.
+
+If time/compute must be spent somewhere, spend it on **looking at the generated artwork and revising it**, not merely on longer textual planning.
+
+### 12. Corrections after approval stay confined
+
+A later branding correction changes only what was requested. Re-render first to prove untouched layers are stable, then add/modify the required layer and use pixel/hash diffs where appropriate.
+
+### LootFarmer validated reference — what actually worked
+
+The rejected LootFarmer feature graphic used authentic assets but still behaved like a generic game scene: a flat mostly green field, a small player, a large enemy, visually repetitive supporting enemies and tiny loot. The equipment-transformation hook was unclear and the image collapsed into green noise at thumbnail size.
+
+The successful brief did **not** prescribe a final layout. It set a communication target:
+
+> substantially improve the professional visual appeal;  
+> emphasize the distinctive equipment system;  
+> communicate that enemies' equipment can be obtained/equipped and changes the player's appearance;  
+> avoid repeating the plain green background with a few small characters.
+
+The agent then:
+
+1. researched real comparable feature graphics;
+2. inspected the game's catalog/render logic to verify real enemy/equipment relationships;
+3. rendered candidate outfits/weapons/subjects and visually inspected them;
+4. rejected a visually weak candidate after seeing that it became an indistinct blob small;
+5. created three different visual stories rather than three layouts;
+6. visually inspected all three;
+7. scored and selected the strongest;
+8. borrowed a stronger lighting treatment from another concept;
+9. rendered multiple successive final drafts;
+10. opened and critiqued the actual pixels after each major revision;
+11. fixed concrete issues such as weak effects and edge crowding;
+12. checked full-size, thumbnail, before/after and portrait-readiness evidence;
+13. preserved layered source so later video work could recompose the same brand system.
+
+The approved composition isolated and enlarged the authentic pieces needed to communicate the equipment story. The background was chosen/designed to separate those pieces rather than reproduce a map. Shared lighting and treatment made them feel like one authored illustration. Deliberate title space replaced leftover scene space.
+
+The reusable lesson is **not** to copy that lineup, sand, sunset, characters or loot slots. The reusable lesson is:
+
+> **Define what the graphic must make the viewer understand or feel, give the creative agent room to discover how to communicate it, investigate the real game deeply enough to stay truthful, compare genuinely different visual stories, and repeatedly inspect/revise the rendered pixels until the result looks professionally art-directed.**
 
 Reusable rule:
 
-> Produce the feature graphic in its own batch: research real competitor graphics, find the game's own art that proves its distinctive feature, render three different concepts and select one against a written rubric, compose from licensed layers with an editable reproducible source, and approve only after inspecting the actual pixels at full size and at real store preview sizes.
+> Produce the feature graphic in its own focused batch. Start with a concise Creative Thesis (quality objective + one communication focus + one failure to avoid), then research real feature graphics and the game's real visual/data relationships. Let the agent create three genuinely different **visual stories** without prescribing their layouts, inspect the rendered concepts before scoring, select/refine with full creative authority, require at least two real inspect → critique → modify cycles after selection, verify the final at full and store-preview sizes, keep the source layered for later portrait recomposition, and reject any technically valid result that still looks generic, screenshot-like or visually under-polished.
 
 ## 101.2 Google Play and Android app icon: research, concepts, real art, launcher-size verification
 
@@ -5380,7 +6017,7 @@ Patterns observed across LootFarmer's 15 idle/pixel/loot RPG icons (observations
 - **generic genre symbols** (a chest, a lone sword) read as "RPG" but not as a particular game;
 - 14 of 15 carried **no text**; the exception was a temporary event overlay.
 
-**2. Find the game's own subject.** As in 101.1, name what makes the game distinctive and find its own art that shows it truthfully, reading the data and render code (which item belongs to which enemy, which sheet, frame and layout the game draws). For an icon, choose the subject by how it reads **at 48 px** among the game's candidates: render every candidate (each character, outfit, item) at icon scale on one sheet and compare. Prefer the game's own distinctive asset over a genre symbol, and favour continuity with the approved feature graphic's subject when it also wins on readability, without copying the graphic's layout.
+**2. Find the game's own subject.** As in 101.1, name what makes the game distinctive and find its own art that shows it truthfully, reading the data and render code (which item belongs to which enemy, which sheet, frame and layout the game draws). For an icon, choose the subject by how it reads **at 48 px** among the game's candidates: render every candidate (each character, outfit, item) at icon scale on one sheet and compare. Always look at each candidate **at 512, 96 and 48 px before selecting**, using the shared candidate study (101). Most of what rules a subject out becomes obvious only at small size. If the sprites are larger than the shared pixel grid allows, keep the Play 512 icon an exact whole-number enlargement and produce the other targets by rendering at a whole scale and reducing with an exact integer box filter. Never shrink pixel art by a fraction, and never crop so tightly that the identifying silhouette is lost: a tight Warrior bust lost its shield and sword and moved the helmet outside the safe zone. Prefer the game's own distinctive asset over a genre symbol, and favour continuity with the approved feature graphic's subject when it also wins on readability, without copying the graphic's layout.
 
 **3. Three genuinely different concepts, a written rubric, independent selection.** Vary **what the icon is about**, not its colour: for example a full-figure character, the loot or object itself, a cropped close-up portrait. Render them with the same tooling and judge each on one card: Play-masked icon at 512, 96 and 48 px on light and dark, circle and other launcher masks, and the themed (monochrome) version. Write the rubric before scoring (LootFarmer: small-size legibility 30%, game identity/mechanic 25%, distinctiveness beside the researched icons 20%, polish 15%, adaptive/themed robustness 10%; internal quality criteria, not conversion claims). With creative authority granted, select and refine without asking; record marks and reasons, including measured failures (LootFarmer's loot concept put its key art outside the safe zone; its close-up crop removed the silhouette that made the character recognisable).
 
@@ -5759,7 +6396,7 @@ Do not copy a game's full mechanics into the reusable Playbook. Only extract les
 
 Likewise, do not rely on the Playbook to define game-specific behavior. If a rule determines how the current game works, it belongs in that game's GDD even when the implementation technique came from the Playbook.
 
-**Previous game GDDs may be attached to a new project as reference material**, but they are not templates and never become design authority for the new game. The startup prompt must say explicitly: use prior GDDs to identify reusable patterns, game-specific decisions and lessons/anti-patterns; do **not** inherit mechanics, progression, economy, UI structure, theme or content unless the new game independently justifies them. This prevents a new design from becoming an accidental reskin of an older one.
+**Do not bring previous games' GDDs into future new projects.** Do not create `docs/GDDs/`: cross-game implementation lessons, examples and anti-patterns must already be curated in this Playbook. Source code from a validated prior game may still be inspected as an engineering reference under the bootstrap rule (0.2), but this never imports that game's design authority, mechanics, balance or GDD into the new project. This prevents accidental reskins and competing design documents.
 
 When an asset or workflow lesson becomes reusable, record the method rather than the map/layout/content that happened to reveal it.
 
@@ -5804,7 +6441,7 @@ Reusable rule:
 
 > Capture proven lessons close to the phase that produced them, but keep the reusable document curated rather than chronological.
 
-**Process that makes this happen.** Each phase report keeps a short "Reusable lessons (candidates)" section while the phase is in progress. The close-out commit of an approved phase moves the validated candidates into this Playbook (into an existing section when one fits, a new section otherwise) and marks the report section as moved. Feed the Dragon learned this the hard way: three validated phases of candidates sat in reports until Phase 5 closed. Growing Kingdom learned the opposite failure: it appended one Playbook section per pass, so the same subject (guard stances, panels, saves) ended up in three places that disagreed, until a consolidation pass merged them by topic. Merge each lesson into the section that owns its subject; when it contradicts an earlier rule, reconcile the two instead of adding a note.
+**Process:** Claude describes prospective reusable lessons in its final response when they are supported by validation; it does **not** create a phase report or edit this Playbook automatically. The developer/ChatGPT approves whether the lesson generalizes. During an intentional consolidation pass, update the existing Playbook section that owns the topic and reconcile contradictions (do not append one section per change). A separate permanent evidence report is justified only if the evidence itself must be retained under `docs/changeDocs/`. Earlier Feed the Dragon and Growing Kingdom phase reports are historical examples of why lessons must be curated, not instructions to recreate that documentation workflow.
 
 ---
 
@@ -5917,7 +6554,7 @@ Reuse: `tests/pacing_probe.gd` in Feed the Dragon (profiles and flags in its hea
 - **Calibrate by scaling in memory, then write the curve once.** A calibration mode that scales a template in memory (every count and cap times m, the boss HP at N seconds of the typical army's damage) and bisects m for a survival target answers "how strong may entry k be" for the typical and the floor army; fit those numbers into the generator's curve and regenerate the data, never hand-edit the outputs. Calibrate a sample of entries in parallel processes, then verify every entry with the real data.
 - **Trace a lost battle before retuning it.** A battle that drags for minutes and ends with the objective untouched is usually a behaviour bug, not a strength problem. Growing Kingdom's rival audit showed its weakest army "collapsing" from the 13th rival; a per-20-second trace (units left on both sides, reserves, objective HP, the last enemies' positions) showed reinforcements fighting from their building doors, and later a healer standing inside the Castle's footprint, both where the attackers' movement clamp could not reach. One shared ground for both sides fixed it, and the same army then won every rival. Rule: both sides of a fight move on one ground; no unit may stand where its attackers cannot reach it.
 - **Remember that `threat` is not comparable across compositions.** Budget-by-threat sizing piled the archetypes that are deadliest per threat point into a few entries; size a fixed composition by count instead, and let composition change only on a schedule.
-- **Keep audits out of the pass/fail suite** and out of ordinary feature work (section 60.1); their numbers go into the decision log with their assumptions.
+- **Keep audits out of the pass/fail suite** and out of ordinary feature work (section 60.1); report their numbers and assumptions in the final response or, only for a justified retained study, under `docs/changeDocs/`.
 
 Reuse (Growing Kingdom): `tests/balance_audit.tscn` (`--hold`, `--budget`, `--seeds`, `--trace`, profiles fresh / mid / late; see its header), IMPLEMENTATION_DECISIONS.md B8 to B10.
 
@@ -6576,7 +7213,7 @@ Soft edges are presentation only: blur/fades must not reveal hidden labels or pe
 
 Validated option (LootFarmer Change 24, Godot 4.7 Compatibility renderer): store explored cells as one byte per cell, upload them as an `Image.FORMAT_L8` texture (`Image.create_from_data` straight from the byte array, `ImageTexture.update` when only the content changes), draw one `draw_texture_rect` over the map's cell extent with nearest filtering, and let a canvas shader choose transparent, vision veil or cover per cell from the mask, a cell-centred distance test and raw colour uniforms taken from the fog rule resource. Re-upload on discovery changes only; send player position and radius as uniforms when sight crosses a cell. While walking, the CPU cost drops from a whole-map rebuild to two uniform writes. Draw minimap cells as one rectangle per horizontal run. Visual identity on the phone (cells, colours, sight edge) is still a device check.
 
-This section is the reusable implementation specification. Keep actual source paths, measured costs, selected algorithm, exact radii and visual acceptance captures in the project's implementation registry and validation report once verified.
+This section is the reusable implementation specification. Keep actual source paths and selected algorithms in tracked source/data, measured costs and radii in the approved GDD where they are design contracts, and visual acceptance captures under `generated/evidence/`; create a retained study under `docs/changeDocs/` only if justified.
 
 ---
 
@@ -7795,6 +8432,9 @@ Plus a looping fire with a lifetime and fade, and a projectile that rotates alon
 - **A container holding autowrap labels reports an inflated height on the first layout pass after a rebuild** (the label measures itself one word per line before it knows its width). Fit and position a rebuilt panel or modal again on the next frame (`call_deferred`), not only immediately. Better: never show that first measurement at all; keep a new panel invisible until its size holds, and resize a visible one only to a size that has held (section 16.3).
 - **Touch minimum 76 px both ways** for every visible button, enforced by the layout probe; ordinary buttons taller where the layout allows (Growing Kingdom 92 px), dock buttons 96 px.
 - **Every disabled action shows its reason in a fixed place:** beside the cost on cards that sell something (section 128.3), otherwise in a status line that is always present.
+- **Tooltips only where a control has no words.** Touch has no hover, so a tooltip is either shown on press (a short popup above the control) or never. Give one to icon-only controls (unselected icon tabs, a tappable hint icon) and to blocked actions; a button whose text already says what it does gets none, otherwise every tap pops a copy of its own label, and a button that navigates leaves the popup over the next screen. A plain icon (`TextureRect`) with `mouse_filter` IGNORE never shows its tooltip at all.
+- **A tap on a disabled button explains it.** Engines do not emit `pressed` for a disabled button, so a "tap to see why" toast in the press handler never fires and a reason kept only in the tooltip is desktop-only. Handle the release in the button's input callback while disabled and show the full reason, only when the release is within a small slop of the press so scrolling a list of blocked cards shows nothing (idleFortDefender Change 30: `ArtButton`).
+- **Probe the type floor.** Walk every visible `Label`/`Button` with text in each panel and the HUD and fail below the floor (idleFortDefender: 16 px at the 720 × 1280 reference). Prove the probe by raising the floor one step and seeing it report.
 - **Icons** for resources, tasks and states, reused everywhere that concept appears (chips, task buttons, slot icon columns, stance tags), so the player learns one symbol per concept (section 128.4).
 - Wrapped labels must expand horizontally inside rows, or they collapse to one character per line.
 
@@ -8467,7 +9107,7 @@ The developer supplies ChatGPT the **actual final English catalog**, plus any ne
 1. Import that batch for testing (a test-only switch in probe/capture builds) and validate correct locale mapping, file paths, catalog syntax, English-key parity, placeholders/plurals and non-empty translations. The batch stays absent from player builds until it has passed and the developer approves its activation.
 2. Test live switching, persistence, all relevant screen/layout categories, glyph rendering/font fallback, text wrapping/overflow, longer strings, UI redraw, and representative Android screens where practical. Use the correct headless/window sizing rules and do not mistake an untested screen for a pass.
 3. Claude fixes **anything necessary**, including incorrect/awkward translations, text length, UI layout, import registration, resource paths, script fallback and placeholders. For material rewrites, preserve meaning and update the terminology glossary. Recheck every corrected catalog before passing the batch.
-4. Save a **short handoff report**: 4–5 locale IDs, imported key totals, missing/placeholder/glyph/layout test results, exact fixes, tests actually run, unresolved issues and artifact paths. Stop on blocking issues; complete each batch before proceeding. A new Claude chat can start the next batch using the report and files rather than replaying earlier translation output.
+4. **Report the batch in Claude's final response**: 4–5 locale IDs, imported key totals, missing/placeholder/glyph/layout results, exact fixes, tests actually run, unresolved issues and artifact paths. Stop on blocking issues. If multi-session traceability genuinely requires durable evidence, write one consolidated file in `docs/changeDocs/localization/` by explicit need, not automatic reports for every batch; the actual catalogs, enabled-locale configuration and tests remain authoritative.
 5. After all 19 catalogs pass, run a **final 20-language QA gate**: confirm catalog/locale completeness, translation fallbacks, live Settings switches, device-locale detection across the full set, export contents and the representative Android script/layout matrix, then set the all-language certification flag. It certifies the complete set; it is not a precondition for enabling batches that already passed (below). Recheck that a production build cannot expose a draft locale by mistake.
 
 **Progressive activation (developer-approved; first applied in LootFarmer Change 40, 11 of 20 languages).** A batch that passed steps 1–4 may be enabled before the remaining batches are done:
@@ -8495,13 +9135,13 @@ Suggested batch assignment (adjust order for the specific project's risks withou
 | 3 (5) | `tr-TR`, `id-ID`, `vi-VN`, `th-TH`, `hi-IN` |
 | 4 (4) | `ja-JP`, `ko-KR`, `zh-CN`, `zh-TW` |
 
-Final completion report:
+Final completion **response** (no mandatory file):
 
 ```text
 Localization phase: all languages validated and enabled
 English reference key count: <count>
 Catalogs present and complete: 20/20
-Batch verification: 5 + 5 + 5 + 4; 4 handoff reports
+Batch verification: 5 + 5 + 5 + 4; each batch reported in conversation
 Missing keys / placeholder failures: 0 / 0
 Glyph/layout/Android/export checks: <actual results and exceptions>
 Settings: English and 19 other locales enabled
@@ -8523,11 +9163,13 @@ Automatic: device-language detection active; English fallback
 
 # 133. Universal video generator — trailers, social and custom formats
 
-A **single reusable video workflow** must produce a Play Store trailer **or any gameplay-based promotional video**, including TikTok, YouTube Shorts, regular YouTube and custom campaigns. It is not a Growing-Kingdom-only "trailer test." Do not force the user to assemble clips manually in an editor. Video production normally occurs in **stage 17** (0.9), with toolkit preparation and scenario development earlier if valuable.
+A **single reusable video workflow** must produce a Play Store trailer **or any gameplay-based promotional video**, including TikTok, YouTube Shorts, regular YouTube and custom campaigns. It is not a Growing-Kingdom-only "trailer test." Do not force the user to assemble clips manually in an editor. Final full-game video production normally occurs in **Stage 17** (0.9). **Stage 4 also requires one early Coming Soon video** made from approved demo footage (0.9.2). For each promotional video, choose its **message type separately from its editing/composition style** (133.9). Prepare/reuse the same toolkit and scenario adapter earlier; do not postpone its setup until full-game marketing.
 
 ## 133.1 Authored composition, flexible output
 
-- User-specified storyboard, music, durations, text, camera and transitions **override** defaults; otherwise Claude follows a ChatGPT-approved creative brief or proposes composition for human approval.
+**Canonical paths for new projects:** reusable manifests/scenario adapters/approved copy live in tracked `marketing/`; raw videos go in `generated/videos/raw/`, finished Play/store trailers in `generated/videos/trailers/`, social masters in `generated/videos/social/`, and contact sheets/validation frames in `generated/previews/` or `generated/evidence/`. No additional media output root is permitted (0.2.5, 87.5). Retain raw takes needed for later recomposition outside Git with an explicit durable backup; an ignored output cannot be the only surviving approved source recording.
+
+- User-specified storyboard, music, durations, text, camera, transitions and promotional **message type** (133.9) **override** defaults; otherwise Claude follows a ChatGPT-approved creative brief or proposes composition for human approval. Message type describes what the video communicates; reframing, cuts and transitions describe how it is edited.
 - Support landscape **16:9**, portrait **9:16**, square **1:1**, and configurable profiles for resolution, frame rate, orientation and length. Example targets: a Play Store trailer in the game's native orientation (Everfort 16:9; LootFarmer 9:16 from a real portrait window), TikTok/Shorts 9:16. Render/capture gameplay with an appropriate game camera and responsive UI for the target; **do not just rotate or crop landscape footage** and call it portrait support. The one exception is a short-form social cut derived from already-approved footage (133.5): an explicit, reviewed reframe of real landscape gameplay (a focused window, or the whole frame letterboxed in black), never a claim that the game itself has a portrait layout.
 - Shot types: staged real-gameplay clip, marketing text on black or branded background, title/end card (which may restage the feature graphic's layers for the target aspect, 101.1), and reusable already-recorded footage. Marketing text may overlay gameplay **or** appear on cards, independently enabled per shot.
 - Animate cameras where feasible (zoom, pan, follow, fixed), control gameplay staging and framing, and support explicit transitions, sequence order, overlays and optional sound effects.
@@ -8572,30 +9214,30 @@ When the game already has a trailer or shot director (timeline, deterministic se
 
 ## 133.5 Short-form social videos (TikTok / Reels / Shorts) from approved footage
 
-Produced after the store trailer is approved. Treat them as **derived edits of footage that already passed review**, not a new capture project.
+Produced after the store trailer is approved. By default they are **derived edits of footage that already passed review**, not a new capture project. The exception is a game that has changed since that footage was recorded: its set is captured fresh on the current build (LootFarmer, 133.10 point 7).
 
 Defaults (Everfort, 2026-10-14: ten 15 s TikTok masters from the Play trailer's raw clips and music, no new recording):
 
-- **10 master videos**, 9:16, 1080×1920, 30 fps, about 15 s; H.264 + AAC like the trailer. The masters serve TikTok, Reels and Shorts alike; make a platform-specific version only when a platform genuinely needs one.
+- **10 master videos**, 9:16, 1080×1920, 30 fps; H.264 + AAC like the trailer. **Length follows the content, not a quota:** about 15 s is a starting target for a single-moment video, and a video runs longer when its captions need reading time or its actions need to finish (133.10). Stay within the platforms' current short-form limits. Reuse the **same encoded file without modification** for TikTok, Instagram Reels and YouTube Shorts after confirming current upload rules at publication time. The 5 **full-landscape** compositions in a landscape game's set are still **vertical 9:16 output files** containing a complete 16:9 gameplay frame inside; they are **not** five additional horizontal MP4s. No second parallel set or new orientation is required without explicit approval.
 - **One set, not one per locale.** The default deliverable is 10 masters in the reference language. Localized social variants are produced only when explicitly requested; their copy comes from the same manifest keys.
-- **Ten different angles, not near-duplicates.** Each video sells a different real feature or promise (e.g. survival intensity, the progression loop, prestige and visual evolution, damage/crit escalation, horde pressure, the campaign length, upgrades, permanent skills, idle defense, early-vs-late comparison). Reuse the same raw clips with different in-points, framing and order rather than repeating the same edit with new text.
+- **Ten different angles, not near-duplicates.** Each video sells a different real feature or promise (e.g. survival intensity, the progression loop, prestige and visual evolution, damage/crit escalation, horde pressure, the campaign length, upgrades, permanent skills, idle defense, early-vs-late comparison). Select a fitting message type (133.9) per video with **no mandatory quotas** across the ten; message type is independent of the five/five landscape composition split. Reuse the same raw clips with different in-points, framing and order rather than repeating the same edit with new text.
 - **5/5 composition split (mandatory for a landscape game; validated on Everfort):**
   - **5 focused reframes.** Centre a window on each shot's action. For a landscape game, a full-height 9:16 crop usually cuts off the enemies at both sides; a window about 0.45–0.5 of the source width keeps the action large (about 70% of the height). The bands above and below get a blurred, darkened copy of the same moment, where the hook (top) and the platform's caption (bottom) sit. Panels and buttons must stay readable at phone size: crop onto the button being tapped, not the whole panel.
   - **5 full-landscape videos.** The complete landscape frame, centred in the 9:16 output, with black space above and below (the toolkit's `reframe` with full source width and `fill: "black"`, not a separate render path). The hook goes in the top black band, feature lines in either band, so marketing text never covers the gameplay; the toolkit refuses copy that does not fit its band.
-  - **A native portrait game is different.** Its approved footage is already 9:16, so there is no landscape frame to letterbox, and letterboxing portrait footage into a smaller window wastes the screen. Do not impose the landscape split by default: decide that game's composition variants (for example full-frame portrait cuts and tighter close-up reframes, with text on cards or in platform-safe areas that do not cover the action) with the developer, and test them as real formats before calling them standard. No portrait game has completed this social package yet (LootFarmer's social videos are still to be produced), so nothing beyond the general rules of this section is validated for portrait.
-- **Gameplay first; a strong hook in the first 1–2 seconds.** Open on an authentic moment that fits the angle, with the hook headline visible within a quarter second. Keep shots short (1.5–3.5 s) and cut on the music's accents.
-- **Short marketing text is allowed** on social videos (unlike store screenshots, 87.9): a hook, optional short feature lines, a brand card. Every string lives in the manifest's `strings`, so each game (and each variant) sets its own copy; nothing is hard-coded in the tool. Every claim must match what the clip shows (a stage number, a feature that exists in the build).
-- **Real gameplay only.** No fake or misleading footage, mechanics or results; cards hold only the brand (name, icon, approved subtitle).
-- **Reuse before recapture.** Derive all 10 from the approved raws and music. Recapture only when the existing footage genuinely cannot support a required variation.
+  - **A native portrait game is different.** Its footage is already 9:16, so there is no landscape frame to letterbox, and letterboxing portrait footage into a smaller window wastes the screen. Do not impose the landscape split. Validated on LootFarmer (2026-11-12, ten masters approved by the developer): **full-frame portrait cuts** are the base composition, in two forms: takes with the real HUD when the interface is the subject (a panel, a receipt, a button), and clean takes (87.2) when the subject is the character or the world. Text sits on the footage inside the platform-safe box, not on bands. A crop is used only where it loses nothing the shot is about; **a panel is shown at its full width** (133.10). A split screen stacks two clean takes with a clear divider. These are that game's choices; another portrait game decides its own with its developer.
+- **Strong opening in the first 1–2 seconds, appropriate to message type (133.9).** Default to immediate authentic gameplay. For **Bait / Hook**, the bait statement must be the first viewer-facing message, before gameplay, a logo or a conventional introduction; follow it quickly with real gameplay and a truthful payoff. For **No Text**, use a visually compelling first moment without adding a headline. Informational and Progressive types may use short immediately legible text. Keep shots short (1.5–3.5 s) where practical and cut on the music's accents, but never shorter than the caption's reading time or the action's completion (133.10 points 1 and 3).
+- **Marketing text is optional and determined by message type (133.9)** on social videos (unlike store screenshots, 87.9): a bait opener, informational line, action-synchronized prompt or no promotional text at all. When text is present, every string lives in the manifest's `strings`, so each game (and each variant) sets its own copy; nothing is hard-coded in the tool. Every claim must match what the clip shows (a stage number, a feature that exists in the build). A **No Text** edit must not be given a filler headline simply to satisfy an older hook-template assumption.
+- **Authentic gameplay and truthful promotional framing only.** No fake or misleading footage, mechanics or results. Purposeful opening messages/cards and optional approved brand cards are allowed under 133.9, but never as a substitute for showing the real game; a bait opener must pay off without misrepresenting the content.
+- **Reuse before recapture, but never reuse footage of a game that has since changed.** Derive the set from the approved raws and music while they still show the current build. Recapture when the existing footage cannot support a required variation, **or when the game has changed since it was recorded** (balance, effects, interface, items an enemy carries): then the set is a capture project on the current build, and older recordings may appear only as dated "before" footage (133.10).
 - **Platform-safe text margins**: keep text out of the top ~8% (tabs), bottom ~22% (caption, sound) and right ~12% (buttons). The toolkit applies these by default to vertical social profiles, in both compositions.
 - **End on the brand** (logo/icon + name). A hard end (no picture fade) loops cleanly; give the music a short fade.
 - **Reuse the approved music**, varying the in-point per video so a phrase or bar accent lands on the first cut.
 - **Package from the manifest**, not a hard-coded list: every social-profile video in the manifest is a master; its composition is read from its reframes, and the packager checks the count and the 5/5 split.
-- Validate like the trailer, for all 10: resolution/fps/duration/audio probe, transition and text-hold checks, review sheet and a keyframe contact sheet checked at phone size (plus one overview sheet of the whole set), and the Play Store deliverables' hashes unchanged.
+- Validate like the trailer, for all 10: resolution/fps/duration/audio probe, transition and text-hold checks, review sheet and a keyframe contact sheet checked at phone size (plus one overview sheet of the whole set), and the Play Store deliverables' hashes unchanged. **These checks prove the file, not the video:** readability, pacing, clarity and sound are judged at normal playback speed by a person, and the developer's review is a planned production step (133.10).
 
 Reusable rule:
 
-> **Short-form social videos are a set of 10 vertical (9:16, 1080×1920, ~15 s) gameplay-first masters derived from already-approved footage and music: for a landscape game, 5 focused reframes (blurred fill) and 5 full-landscape cuts (the whole frame, text in the black bands, never over the gameplay); for a portrait game, composition variants approved for that game.** Each has its own feature-based hook in the first 1–2 seconds, real gameplay only, short configurable copy inside platform-safe margins, ending on the brand. One master set, reused across TikTok/Reels/Shorts; localized variants only on request; recapture only when the footage genuinely cannot support a variant.
+> **Short-form social videos remain a set of 10 vertical (9:16, 1080×1920) masters, each as long as its content needs within short-form limits, built from authentic gameplay footage of the current build and the approved music: for a landscape game, 5 focused reframes (blurred fill) and 5 full-landscape cuts (the whole frame, with any marketing text in the black bands); for a portrait game, full-frame cuts and other composition variants approved for that game.** Each starts with a strong written or visual hook appropriate to its independently chosen message type (133.9), uses truthful gameplay and optional readable text in safe margins, and retains the approved brand ending. One master set, reused across TikTok/Reels/Shorts; localized variants only on request; recapture when the footage cannot support a variant or no longer shows the current game. Apply the craft rules of 133.10 before the first review.
 
 
 ## 133.6 Social posting copy after the 10 masters are approved
@@ -8650,11 +9292,131 @@ A trailer can pass every technical check (smooth fades, readable cards, correct 
 
 **8. Evidence and protection.** Produce the review set: a shot contact sheet (first, middle and last frame of each shot), card holds, a phone-size strip of the whole film, transition frames, the key sequence frame by frame, a variety sheet, old versus new at the same times, the last seconds of the end card, the audio waveform, and a validation file with every number. Hash every other approved medium before and after. Keep the trailer local until rights are recorded (49) and the developer has watched and listened on a phone.
 
-**Future option, not a requirement: match cuts.** Cutting between shots on a matching action (the same attack across different gear, the same pose across seasons) could make a later trailer or social edit more rhythmic. No LootFarmer video uses them and none was validated; do not retrofit approved videos, and treat a first use as an experiment for developer review.
+**Option, not a requirement: match cuts.** Cutting between shots on a matching action (the same attack across different gear, the same pose across seasons) makes an edit rhythmic. Validated on LootFarmer as review experiments (Changes 44 to 47) and in one approved social master (2026-11-12). What made them work: the take logs every hit with its time, so each cut is placed on a real impact frame (out on the wind-up, in on the first impact frame); the subject keeps the same screen position and apparent size across the cut (different sprites need different zoom); a camera move that crosses a cut is recorded in the takes, so changing it means re-recording. Do not retrofit approved videos. **A second match cut needs a new idea, not a re-record:** the developer rejected a re-recording of the earlier camera, seasons and bosses as a copy, and approved a cut on a different action (critical hits) with different bosses and framing (133.10).
 
 Reusable rule:
 
 > **Show the game's hook as a chain the viewer can watch in real footage, give it the longest coherent sequence, hide menus only as presentation over real game calls, frame tight enough to read on a phone, vary content from the game itself, find events by seed rather than forcing them, close on the approved brand, and recapture only what the new story needs.**
+
+---
+
+## 133.8 Two promotional thumbnails per campaign phase, never one per social video
+
+The thumbnail/cover is a **reusable branded promotional card** distinct from the feature graphic and distinct from raw gameplay screenshots. Generate **exactly two sizes per game per approved campaign phase**: **vertical 1080 × 1920** and **horizontal 1280 × 720**. Do **not** generate a pair for each of the ten social videos. A publisher may alternate between these two cards, approved feature graphics, and authentic frames taken from individual videos, depending on platform/placement.
+
+**Required composition for the full-game launch (Stage 17/19):**
+
+```text
+OUT NOW!
+[Actual approved game logo/name]
+Search [Game Name] now on
+[Actual Platform 1] | [Actual Platform 2, if available]
+```
+
+Use real platform marks/names only for stores where this exact game is genuinely available; if just one channel is live, render one. Do not add a false second platform or promise unavailable features. Respect platform brand/mark use and keep wording legible at small mobile/social previews. Text, logo and backgrounds remain editable and can be localized on explicit request. Reuse the game's visual identity without copying the feature graphic as a plain crop.
+
+**Early promotion (Stage 4):** generate the **same two sizes** with accurate **Coming Soon** status and a real demo destination; default message once the itch.io demo is live: **“Demo Out Now! Full Game Coming Soon!”**. Do not call the full game Out Now before Stage 19 actually publishes it. A short Coming Soon video belongs to the same early package (0.9.2).
+
+Save editable source and platform/link copy in tracked `marketing/`; generated finals in ignored `generated/thumbnails/` and review strips in `generated/previews/`. Check both aspect ratios independently for real-word placement, logo recognition, safe margins and thumbnails viewed at phone size. Use one pair as reusable choices for any of the ten videos, rather than requiring a custom thumbnail on every upload. Upload restrictions/cover-frame selection vary by platform/account, so using a generated file as an actual uploaded thumbnail is not assumed; select an appropriate frame or available platform feature when necessary.
+
+---
+
+## 133.9 Promotional video message types: separate from editing style
+
+**Every promotional video chooses one primary message type** when its creative brief/storyboard is approved. This describes **what the video says to the viewer**, not its technical output, reframing or editing approach. The existing editing/composition choices (for example gameplay-only, explanation plus gameplay, or an experimental match-cut) remain independent; **match cuts are optional (133.7)**. Record the message-type choice with that video's storyboard/manifest; it is creative metadata, not a claim that the pinned toolkit already implements a special selector or requires new runtime code.
+
+| Message type | Viewer-facing contract | Illustrative example |
+|---|---|---|
+| **Bait / Hook** | **Open with the attention-grabbing statement as the first thing the viewer encounters**, before a game intro, logo or gameplay shot; immediately connect it to genuine gameplay and resolve the curiosity without deception. Not an excuse for misleading clickbait. | “Bad news, guys...” → real gameplay that makes the statement relevant. |
+| **Informational** | Clearly explain the game's premise or a real mechanic using concise natural copy, voiceover or both, with gameplay that proves the explanation. Avoid lists of unsupported promises. | “Build your fort and defend it against waves of enemies” with the corresponding footage. |
+| **Progressive** | Present short, sequential action cues synchronized with the specific gameplay scene that demonstrates each cue. The viewer should see the action when the message appears, not much later. | “Kill enemies” → fight footage; “Upgrade weapons” → actual upgrade footage. |
+| **No Text** | Use gameplay, motion, effects, camera work and music **without added promotional headlines, subtitles, explanatory cards or calls to action**. Ordinary in-game UI remains authentic gameplay; an approved game-logo end card may be used for consistent branding, without extra marketing copy. | A gameplay montage whose first moment is visually compelling, with no overlaid copy. |
+
+**Rules applying to Stage 4 Coming Soon and Stage 17 Out Now promotions:**
+
+- Pick whichever type best fits the real footage, story and intended audience. **No fixed quota or required mix** for the ten social videos; all four types are supported options, not four mandatory deliverables. The already approved video count, aspect ratios, codecs, length, footage-reuse workflow and posting-copy requirements stay unchanged.
+- For Bait / Hook, show the opening statement immediately, not after a title or arbitrary pre-roll; a brief text-first opening is an intentional exception to the default gameplay-first social rule (133.5). Provide a genuine payoff quickly. For No Text, the first seconds must work visually and **must not be forced to include a written hook**.
+- For Informational and Progressive, use only real features from the **specific build depicted**. Keep each progressive phrase in sync with its corresponding footage. If footage does not show the claim clearly, revise the message or select a different real shot; never fabricate an event for marketing.
+- Message type and editing style are recorded **per video** in the creative brief/approved composition; promotional strings, when used, stay in the existing manifest/localization path (133.1, 133.5). A No Text video should have no injected default hook/feature text. Do not change the pinned toolkit or invent unsupported manifest keys merely to store a classification; use existing configuration/production notes unless an implementation change is separately approved.
+- Stage 4 video messaging must not imply the **full game** is already released. If a Stage 4 **No Text** video is selected, convey demo availability and the full game’s Coming Soon status in its **posting caption and two campaign thumbnails**, not by forcing text into the video. Stage 17/19 Out Now claims must reflect actual availability (133.8); Store-specific trailer restrictions continue to apply. Preserve the authenticity, review and approval gates in 133.3–133.7.
+
+Reusable rule:
+
+> **Classify each promotional video independently by message type (Bait / Hook, Informational, Progressive, No Text) and editing approach. Start with the chosen type's strongest genuine hook, preserve honest gameplay, and never enforce a type quota or add text to No Text videos.**
+
+---
+
+## 133.10 Social video craft: what review taught (LootFarmer, 2026-11-12)
+
+LootFarmer's first social set passed every technical check and still needed a full revision: the developer could not read the captions in time, did not know where to look, saw key animations cropped or cut short, and found one video a copy of an earlier one. The revision was approved. The rules below are general; the numbers and choices marked as LootFarmer's are examples, not requirements. They add to 133.5 (format, safe margins, truthfulness), 133.7 (the hook as a chain) and 133.9 (message types) and do not replace them.
+
+**1. Reading time is part of the storyboard.** A viewer reads a caption and watches the action at once, so each caption needs more time than its length alone suggests.
+
+- Plan the caption's hold before choosing the shot length, and lengthen the shot to fit; do not shorten the text's time to fit a shot.
+- One caption at a time. Two captions that appear together, or one that changes while a label elsewhere also changes, split attention.
+- Automate a guideline and let it fail the build: LootFarmer's validator refused a caption held under 1.4 s or needing more than 14 characters per second, and the storyboards were tuned until none failed. Treat such numbers as a floor that catches mistakes, not as proof of readability; a dense scene, a long word or a second language needs more. Name labels that only accompany the picture (an outfit's name under a one-beat shot) may be exempt, declared as such.
+- The first cut held several captions for under a second over busy fights. No sheet showed this; only playback did.
+
+**2. One focal point at a time.** Decide for every shot what the viewer should look at, and remove what competes with it.
+
+- Keep captions in **one position per video** (LootFarmer: one band, upper or lower, chosen per video by where its footage has free space). A caption that jumps between top and bottom makes the viewer search for it.
+- Give captions their own contrast (a dark plate, or a stroke that survives the brightest effect in the footage); game effects, damage numbers and bright floors otherwise swallow them.
+- Place captions where they do not cover the action or the interface element the shot is about. Covering an irrelevant part of the HUD is fine.
+- Do not time a caption to appear at the same instant as the effect it describes; let one lead the other.
+- Persistent tags (a date, BEFORE / AFTER, a level) stay in a fixed corner and never move.
+
+**3. Let every important action finish.** A cut is placed after the action's payoff has been seen, never on it.
+
+- An action has a start, an effect and a result: the button, the burst, the changed number or look. Show all three and hold the result briefly.
+- For a drop, the items must be seen lying on the ground before they are picked up; for a pickup, the item must be seen arriving; for an equip, the new look must be held (133.7).
+- Find each effect's real length in the take (its event log and frames) before choosing the out-point. LootFarmer's first cut left merges, the evolution reveal and equips fractions of a second after the press.
+
+**4. Nothing may obscure the feature being shown.** Check the frames around the key moment for anything that sits on the subject.
+
+- **Never crop a panel to make it bigger.** LootFarmer's merge burst plays on the item icon at the panel's left edge; a centred zoom on the panel cut it off in four videos. Show an interface panel at its full width, and judge its legibility at phone size instead of zooming.
+- Other effects can hide the subject: a boss's skill explosion landed on the loot, a third unrelated drop looked like part of the effect, and the game's own defeat effect covered the drops for its first seconds. Fixes that stay authentic: stage the take so the competing event is not due (a real cooldown still running, 133.7 point 5), search seeds for a kill that drops exactly the wanted items, and wait for the game's own effect to clear before the next action.
+- Two full HUDs in a split screen are too much; use clean takes (87.2) for comparisons, with a clear divider and fixed labels.
+- A label the game itself draws on the subject (LootFarmer's boss respawn countdown) stays: do not alter the world view to remove it; plan the framing or timing around it and tell the developer.
+
+**5. Length serves the message.** Start from the hook and the beats the video must carry, then count the time they need.
+
+- A single-moment video can stay near 15 s. A story with several beats, or any video whose captions must be read, takes longer; LootFarmer's approved set runs from 15 s to 37 s. Neither figure is a target for another game.
+- When a video feels rushed, the first remedy is fewer beats, the second is more time. Do not solve it with smaller or faster text.
+- Do not pad either: every added second must be reading time or a completing action.
+
+**6. Each video has its own identity.** Ten videos are ten ideas, not one montage re-cut (133.5).
+
+- Vary the format as well as the feature: LootFarmer's set used a dated devlog, a match cut, a one-take chain with a text hook, numbered cue words, a split-screen comparison, an effects montage on game sound, an interface story, a curiosity question, an on-the-beat lookbook and a three-act loss-and-rematch story.
+- Check variety on the overview sheet and on the first frames side by side.
+- Reusing an earlier video's concept needs a new idea in it. Re-recording the same camera, places and enemies on a newer build reads as the same video (133.7, match cuts).
+- A shot may appear in more than one video only where it carries a different point each time.
+
+**7. Capture the current game.** Marketing footage has a shelf life.
+
+- Before reusing recordings, read the game's history since they were made. LootFarmer's trailer takes were two weeks old and already wrong: a boss carried a different weapon, effects and panels had changed, and weapon levels shown were no longer reachable.
+- Old loadouts may no longer work. After a rebalance the staged heroes lost fights they used to win; a real fight run to its end in the simulation (a balance probe) chose loadouts that win honestly, within the current caps. Never weaken an enemy or strengthen the hero outside the game's rules to get the shot.
+- **Before-and-after footage is recorded from the old commit**, in a separate checkout outside the working tree (LootFarmer: a detached Git worktree, imported headless, recorded with that commit's own adapter, then removed). Label it with its date. Never present an old recording as the current game, and never fake a "before".
+- Every number or claim in a caption is read from the take's log or the repository history (a damage value, hit points left, items received, days and commits), and recorded with the video's timeline.
+- An approved brand card may lag the game in a detail (LootFarmer's end card shows a weapon the character no longer carries). Report it; changing brand art is its own decision (101.1).
+
+**8. Validation has two halves, and the second is not optional.**
+
+- The automated half (133.5): format, duration against the plan, cuts on the planned frames, no black frame, text inside the safe box, the reading-time guideline, audio peak and dropouts, music-only proof, earlier approved media unchanged, contact sheets.
+- The viewing half: watch every video at normal speed, with sound, at phone size, once without pausing, and ask: could I read everything, did I know where to look, did each action finish, does it sound right. Sheets and frame strips cannot answer these; LootFarmer's first cut passed all of the first half.
+- An agent that cannot watch or listen says so plainly in its report and hands the viewing half to a person; it does not describe a video as reviewed on the strength of sheets.
+- Put guards in the tool where a rule can be computed (a caption that leaves the safe box or breaks the reading guideline stops the build), so a revision cannot reintroduce the fault.
+- Measurement lessons: read audio peaks per channel (a float mono downmix can overstate them); leave headroom for lossy-codec overshoot instead of relying on a limiter; a game-sound-only video has silent gaps unless the game's own music runs quietly underneath, as it does in play.
+
+**9. Developer review is a production step.** Plan for at least one round of review and revision before calling a set finished.
+
+- Deliver the set for review with the overview sheet, the per-video timelines and an honest list of what was not checked.
+- Assess each review point on its merits and answer it; where the developer is right, fix the cause across the whole set, not only in the video named (the panel crop was reported on four videos and fixed in every panel shot).
+- Build so that revision is cheap: storyboards as data (shots, in-points, captions, positions), raw takes and their logs kept, one command to rebuild one video. LootFarmer's revision recomposed nine videos and re-recorded only the takes whose content had to change.
+- Record the review's lessons here, as this section does, so the next set starts from them.
+
+Reusable rule:
+
+> **Storyboard reading time first, keep one focal point and one caption position, let every action finish, show panels and subjects unobstructed, let length follow the message, give each video its own idea, capture the game as it is now, and treat real-speed viewing and the developer's review as production steps that no technical check replaces.**
 
 ---
 
@@ -8696,13 +9458,13 @@ Reusable validation before handoff:
 
 **The Console import itself is a separate verification step.** A syntactically valid file is not proof that Play recognized every language. Import the handoff, inspect the detected language list, compare it language-by-language with the intended set, and correct any rejected/normalized locale tag. For the 20-language baseline, the intended outcome is the English source plus all 19 translations, but verify the **actual languages**, not just the number displayed. Do not conclude that a language is unsupported until you have ruled out an incorrect locale identifier.
 
-Keep the approved English listing, the structured 20-locale handoff, the runtime-to-Play locale map and the validation report as source/release evidence. Do not require 20 copies of language-neutral screenshots.
+Keep the approved English listing, structured 20-locale handoff and runtime-to-Play locale map as tracked `marketing/` source; put transient validator output under ignored `generated/evidence/`, or persist only release-required evidence under `docs/changeDocs/`. Do not require 20 copies of language-neutral screenshots.
 
 **Store listing text and runtime catalogs never substitute for each other.** They differ in source (approved listing fields versus the game's English catalog), purpose (market positioning within character limits versus exact instructions), locale identifiers (134.2 versus 132.6) and approval path. Do not paste listing translations into `.po` files or derive listing copy from runtime strings; share only the glossary of game terms so both say the same thing about the same mechanic.
 
 ## 134.4 Publishing gate
 
-At **production stage 17**, plan and produce store screenshots and video, feature graphic and ASO, the set of 10 short-form social videos derived from the approved trailer footage (composition split per 133.5), and their posting copy (133.6), after the UI-readiness trigger for screenshots (87.8). Generate/validate the 20-locale Play listing handoff (134.3) only after the English source copy is policy-checked and approved. A free demo (Stage 16) is its own Play listing with its own copy, screenshots and package; its claims cover only the demo's content. Stage 18 validates the exact Android release candidate (and demo artifact, when present) and assets against the shipped features. Stage 19 completes Play Console configuration: listing, locales, policy declarations, ratings, countries, signed build, release notes where applicable, and **one-time paid** price. No advertising, IAP, subscriptions, analytics or crash-tracking integration is part of this sequence. Treat each final store/social deliverable as an approved artifact, not automatically published material.
+At **production Stage 17**, plan and produce full-game store screenshots and video, **both approved feature-graphic orientations**, **two Out Now thumbnails**, app icon and ASO, the set of 10 short-form social videos derived from the approved trailer footage, or freshly captured when the game has changed since (composition and craft per 133.5 and 133.10), and their posting copy (133.6), after the UI-readiness trigger for screenshots (87.8). Generate/validate the 20-locale Play listing handoff (134.3) only after the English source copy is policy-checked and approved. The maintained free demo is published on **itch.io at Stage 4** (Android download and web-playable export; 0.9.1–0.9.2), with its own truthful listing and gameplay assets. A separate **Google Play demo listing is not part of the default workflow**; it requires an explicit additional publication decision. Stage 18 validates the exact **full-game** Android release candidate and assets against shipped features; demo maintenance releases have their own repeat validation gate. Stage 19 completes Play Console configuration: listing, locales, policy declarations, ratings, countries, signed build, release notes where applicable, and **one-time paid** price. No advertising, IAP, subscriptions, analytics or crash-tracking integration is part of this sequence. Treat each final store/social deliverable as an approved artifact, not automatically published material.
 
 ## 134.5 Localized Google Play release notes
 
@@ -8757,21 +9519,19 @@ Validated integration pattern (Toolkit **1.0.2**): the toolkit carries its own `
 Toolkit **1.0.2 is production-ready as reusable source** for the validated Windows workflow. A future generic change increments the toolkit version/changelog and is validated before games deliberately upgrade their lock. Game-level device checks remain mandatory before that game's publication. The embedded Android starter in this Playbook remains canonical for base app setup; the separately distributed toolkit supplies **additional reusable code**, not a competing process guide.
 
 
-## 135.4 Source control and `.gitignore` baseline — every Godot game
+## 135.4 Source control and `.gitignore` baseline — future new games
 
-**The embedded `.gitignore` at section 0.8 is the canonical starter template.** Keep the actual game's root `.gitignore` synchronized with it, extending only for tools the game genuinely uses. This is part of bootstrap and every new integration, not a one-time cleanup before release.
+**One source of truth:** use the exact embedded `.gitignore` in section 0.8 for all newly started Godot projects, together with the directory and ownership rules in 0.2.5. Bootstrap installs it; game-specific exceptions must be **justified** by a real dependency or tool and reviewed. Existing/finished game repositories are excluded from this standard and are **not** to be cleaned or migrated. Do not silently maintain multiple competing `.gitignore` templates.
 
-**Version with Git:** Godot source (`project.godot`, scenes, scripts, assets, `*.gd.uid`), Android/export configurations that contain no secrets, game tests, `docs/` including GDD and this Playbook, installed `addons/` required at runtime/editor-time, `marketing/` scenario adapters/manifests/approved source copy, `marketing_capture_toolkit.lock.json`, and the reusable toolkit source/package **while it is vendored in the project**. Keep toolkit-required Noto font files, `font_manifest.json`, sample texts and OFL licenses together; do not ignore fonts merely because the Git footprint is large. Once toolkit source is maintained in a separate repository, pin a reproducible package/version and only remove the vendored source after the new installation path is actually verified.
+**Git tracks:** Godot project and export configuration without credentials, `.gdignore`/`*.gd.uid`, `scenes/`, `scripts/`, `resources/`, approved `assets/` and licenses, required `addons/`, tests (excluding scratch), `tools/`, the **game-specific** design authority file (`docs/OurGameGDD.md`), while the **shared Playbook master is separately backed up/versioned outside the repository** (0.2.6), ChatGPT-authored `docs/ClaudeMDs/` briefs, optional meaningful `docs/changeDocs/` evidence, any nonconfidential `docs/EarlyDocs/`/font references deliberately kept, the short root `CLAUDE.md`, `marketing/` source configurations/manifests/approved copy, `marketing_capture_toolkit.lock.json` and reproducible source of a pinned toolkit while vendored. Keep required marketing fonts, OFL licenses and runtime font references with their tracked source.
 
-**Ignore, but keep locally as needed:** `.godot/` import/editor cache; generated Android Gradle workspace in `/android/` when it is reproducible; `/builds/` and exported APK/AAB/PCK; raw recordings and generated marketing previews/final images/videos under `/recordings/` and `/store_assets/`; temporary capture `/override.cfg`; `/tests/tmp/`; Python virtual environments, caches/bytecode and test caches; and local archives. Keep raw recordings outside Git for recomposition but back up selected final deliverables somewhere durable if they matter for publishing. Do **not** globally ignore `*.png`, `*.mp4`, `*.wav`, `*.ttf` or `addons/`: real assets, audio, reference videos, fonts and necessary plugin code might be source files in a different project.
+**Git ignores:** The external Playbook link `/docs/Reusable_Game_Development_Playbook.md` (0.2.6); Godot cache `/.godot/`; generated Android workspace `/android/` **only when reproducible**; `/builds/` and exported packages; `generated/` contents except its tracked `.gdignore`; `/override.cfg`; test scratch; Python virtual environments/bytecode/test caches; root handoff archives; local IDE/OS metadata, temp files and private keys/credentials. Do **not** globally ignore `.png`, `.mp4`, `.wav`, `.ttf`, `addons/` or entire directories of authored source. Do not make a game import its only copy of a runtime-critical image from ignored `generated/`.
 
-**Never commit private keys or credentials:** signing `*.keystore`, `*.jks`, PKCS#12 files and `.env` secrets belong outside Git and preferably outside the project tree. If export settings contain only paths to private keys and no passwords, those settings may be versioned. Handle any custom changes made inside `/android/` as explicit reproducible source patches/plugins or a documented exception; do not silently discard unique Android code because the generated folder is ignored.
+**Required safety checks:** inspect `git status --short`, `git diff --cached --check`, staged paths and ignored/untracked candidates before each local Claude implementation commit; use `git ls-files` and `git check-ignore -v <path>` when diagnosing omissions. `.gitignore` does not untrack already tracked files or protect ZIP copies. Produce reviewed source handoff archives from tracked files (e.g. `git archive`) rather than zipping the entire directory. Never delete or clean untracked user work without authorization. Keep signing material and private operational publishing data outside the project folder where possible; a `.gdignore` and non-export rule are needed for any unavoidable temporary reference-only content.
 
-**Keep private operational publishing data outside the Godot project tree.** Promotion-code inventories, recipient/profile lists, campaign-tracking CSVs and similar operational records are not game source and should live in a separate private location. Merely git-ignoring such a CSV is insufficient: Godot may still import it (for example, as bogus translation resources), local archives may still capture it, and editor import errors can create noise. If legacy operational data must temporarily remain under the project, exclude it from export and place it under a `.gdignore` boundary until it is moved out.
+**Automatic local commits:** each completed implementation batch is committed before human device testing (44.2). Claude stages only its own work, records the actual hash and executable version, and discloses unrun tests. A later correction is a new commit—no amend or history rewrite. Use `main` by default, no automatic remote push, and tag only a confirmed release. See 44.3/89 for the independent game-version and Android-code rules.
 
-**Before an implementation commit or project handoff:** run `git status --short` and `git ls-files` and audit for generated captures, secrets and accidentally omitted required sources. Use `git check-ignore -v <path>` to explain ignored paths. `.gitignore` affects new Git tracking only: a file already committed remains tracked until deliberately removed from the index (`git rm --cached`), and copying/zipping a directory can still include `.git/`, `.godot/`, outputs, and private files. For a clean source handoff, build the archive from tracked, reviewed files (for example, `git archive` at the desired commit) rather than zipping the entire working directory. Never automatically clean or delete untracked work without the developer's approval.
-
-**Reuse gate:** The toolkit's README/installer must say what gets copied to a new project; the project's ignore rules must preserve that install contract. Claude reports new `.gitignore` exceptions when adding new generators, tools or Android plugins, and keeps this Playbook template aligned after a reviewed change.
+**Toolkit integration:** if a pinned marketing toolkit uses noncanonical legacy output paths, route its **new-game** adapter outputs into `generated/` and prove that it works without corrupting the toolkit lock or requiring a duplicate generated-media root. Approved long-lived marketing outputs need external backups; ignored directories are never the only durable copy of final store files.
 
 
 # 136. Whole-project review and design reconciliation
@@ -8784,9 +9544,9 @@ For each major system, record four separate states: resources supplied, behavior
 
 ## 136.2 Reconcile documents instead of stacking contradictory authority
 
-After substantial design discussion, consolidate latest explicit decisions into one current GDD. Separate superseded examples/proposals, delegated numerical authoring and unresolved choices. Update the entry point, audit, checkpoints, asset registry and status documents together. Archive previous versions as clearly historical; keep original release notes and test evidence immutable. Do not leave old APPROVED headers looking like final-game sign-off. Keep reusable methodology in this Playbook and game-specific rules in the game's documents.
+After substantial design discussion, reconcile the developer-approved decisions in the **one** current `docs/OurGameGDD.md`. Mark superseded proposals as such in that document only if their context is essential; do not create `GDD_v2.md`, an archive of previous GDD snapshots, competing approval/status documents or a required decision log. Git stores GDD history. Preserve genuine final release notes and required test evidence in their owning source/evidence location (0.2.5); never imply an older test proves a newer build. Keep reusable methodology in this Playbook and game-specific rules in the one GDD.
 
-Continue integer change numbering once per delivered batch. Documentation-only changes record their own batch but do not silently change executable version, store code or save schema. Never imply a new playable build was tested when only documentation changed.
+A documentation-only commit may have its own sequential `change-N` ID but does not silently change the executable `MAJOR.MINOR`, Android version code or save schema. An implementation commit precedes manual acceptance; never state that a device validation occurred unless it actually did (44, 89).
 
 ## 136.3 Resource and license checks
 
