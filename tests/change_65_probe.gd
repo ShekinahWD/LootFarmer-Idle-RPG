@@ -133,8 +133,11 @@ func focus_checks() -> void:
     events.clear()
     check(not sim.focus(a[0],undiscovered_variant) and events.has("SPOT_UNDISCOVERED"),"An unseen farming spot is still refused")
     sim.movement=Vector2.RIGHT;sim.state.player.hp=sim.stats().hp
-    sim.step(.1);sim.movement=Vector2.ZERO
-    check(int(sim.state.focus)==-1,"Manual movement stops farming")
+    sim.step(.1)
+    check(int(sim.state.focus)==a[1],"A short manual walk keeps farming (Change 69)")
+    for i in range(50):sim.step(.1)
+    sim.movement=Vector2.ZERO
+    check(int(sim.state.focus)==-1,"Five continuous seconds of manual walking stop farming (Change 69)")
     # Second map.
     sim.state.unlocked_stage=2;if not sim.state.camps.has("2"):sim.state.camps["2"]=[0] # fixture: Winter II reached
     for e in sim.state.enemies:e.aggro=false

@@ -706,7 +706,8 @@ func _teleport_map() -> Control:
 
 ## Change 61 correction: a card whose explanation changed meaning reads a new key (the old translated
 ## key would now be false). basic_prestige: the reset needs the Snowman defeated, not just found.
-const DETAIL_KEYS:={"basic_prestige":"GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL"}
+## Change 69: focus_tap's detail now states the 5-second walking rule (a new key; the old one awaits retirement).
+const DETAIL_KEYS:={"basic_prestige":"GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL","focus_tap":"GUIDE_FOCUS_TAP_WALK_DETAIL"}
 static func detail_key(id: String) -> String:
     return DETAIL_KEYS.get(id,"GUIDE_"+id.to_upper()+"_DETAIL")
 ## Change 61: a screen-space pointer target (a World map marker) when the target is not a control.
@@ -747,8 +748,13 @@ func _focus_hint() -> bool:
         target=_panel_control("focus_toggle",true)
         step="focus_tap" if target!=null else "focus_spot"
         return true
+    # Change 69: near the hinted type, point at the map's Auto Farm button (one tap starts farming); the
+    # enemy panel's Farm stays the alternative (focus_tap above when that panel is open).
+    var quick: Control=ui.get_node("Safe/Layout/Map/QuickFarm")
     var hud: Control=ui.get_node("Safe/Layout/Map/EnemyUpgrades")
-    if hud.visible and ui.combat_group==g:
+    if quick.visible and ui.combat_group==g and int(quick.get_meta("variant",-1))>=0:
+        step="focus_quick";target=quick
+    elif hud.visible and ui.combat_group==g:
         step="focus_open";target=hud
     else:
         step="focus_find";target=ui.get_node("Safe/Layout/Map/MiniMap")

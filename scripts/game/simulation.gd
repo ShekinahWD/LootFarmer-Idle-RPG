@@ -60,6 +60,12 @@ var suspended := false
 ## Change 35: a decision panel in front of the game (the review invitation) holds the world: no step,
 ## so no combat, movement, timers or playtime while it is open. Session-only, never saved.
 var held := false
+## Change 69: real seconds (Engine.time_scale countered) of the current continuous manual walk while a
+## Focused Farming target is selected. Walking keeps the target; only FOCUS_WALK_SECONDS of one unbroken
+## walk stops it (stop_focus). Any frame without qualifying walking, a death, a pause/hold, a load, a
+## travel or an explicit focus action resets it to 0. Session-only, never saved.
+const FOCUS_WALK_SECONDS:=5.0
+var focus_walk_time:=0.0
 var revision: int = 0
 var _save_clock := 0.0
 ## Change 24: actors erased from state.enemies in place (see step's roster loop).
@@ -209,6 +215,7 @@ func restore(data: Dictionary) -> void:
     for world_state in state.stage_worlds.values():_rehome(world_state.enemies)
     _sync_spawn_counts()
     movement = Vector2.ZERO
+    focus_walk_time = 0.0
     for a in [state.player] + state.enemies:
         a.windup = 0.0
         a.target = ""
@@ -1011,10 +1018,33 @@ func focus(group: int,variant: int=2) -> bool:
         return fail("FOCUS_LOCKED_GLOBAL")
     clear_target()
     var same:=int(state.focus)==group and int(state.focus_variant)==variant
+    # Change 69: an explicit start, switch or stop (enemy-panel Farm or the map's Auto Farm button, both
+    # this one action) acts at once and cancels any pending walking countdown.
+    focus_walk_time=0.0
     state.focus = -1 if same else group
     state.focus_variant=variant
     touch()
     return true
+
+## Change 69: true when (group, variant) is the selected Focused Farming target (boss types: variant 2).
+func focus_active(group: int,variant: int) -> bool:
+    if group<0 or group>=catalog.groups.size():return false
+    if catalog.groups[group].boss:variant=2
+    return int(state.focus)==group and int(state.focus_variant)==variant
+
+## Change 69: the one stop for a non-toggle cause (FOCUS_WALK_SECONDS of continuous manual walking).
+## Explicit taps stop through focus(); both end with the same state (focus -1, countdown 0).
+func stop_focus(reason: String="") -> void:
+    focus_walk_time=0.0
+    if int(state.focus)<0:return
+    state.focus=-1
+    touch()
+    if reason!="":event.emit(reason)
+
+## Change 69: whole seconds left on the walking countdown (5..1), or 0 when none is running.
+func focus_walk_remaining() -> int:
+    if focus_walk_time<=0 or int(state.focus)<0:return 0
+    return clampi(ceili(FOCUS_WALK_SECONDS-focus_walk_time),1,int(FOCUS_WALK_SECONDS))
 
 func fail(key: String) -> bool:
     event.emit(key)
@@ -1297,6 +1327,8 @@ func _drop(id: String,a: Dictionary) -> String:
 
 func step(dt: float) -> void:
     if state.is_empty() or get_tree().paused or suspended or held or not state.get("prestige_batch",{}).is_empty():
+        # Change 69: a pause, background, hold or Prestige choice breaks a continuous walk.
+        focus_walk_time=0.0
         return
     dt=minf(maxf(dt,0),.1)
     state.clock+=dt
@@ -1328,6 +1360,7 @@ func step(dt: float) -> void:
     for e in state.enemies:
         _actor_timers(e,dt)
     if p.hp<=0:
+        focus_walk_time=0.0
         if p.respawn<=0:
             var point: Array=catalog.world.spawns[state.spawn]
             p.x=point[0]
@@ -1343,15 +1376,20 @@ func step(dt: float) -> void:
         p.hp=minf(stats().hp,p.hp+(stats().regen+stats().hp*(campaign.rest_rate()+stats().regen_pct))*dt)
         if movement.length()>.1:
             clear_target()
+            # Change 69: manual walking takes control at once but keeps the Focused Farming target; only
+            # one unbroken walk of FOCUS_WALK_SECONDS real seconds (game speed countered) stops it.
             if int(state.focus)>=0:
-                state.focus=-1
-                touch()
+                focus_walk_time+=dt/maxf(Engine.time_scale,.01)
+                if focus_walk_time>=FOCUS_WALK_SECONDS-.0001:stop_focus("FOCUS_WALK_STOPPED")
+            else:focus_walk_time=0.0
             p.idle=0.0
             p.windup=0.0
             p.target=""
             p.attack_age=9.0
             _move(p,position_of(p)+movement.normalized()*100,campaign.move_speed(),dt)
         else:
+            # Change 69: letting go cancels the countdown; the hero resumes the selected target.
+            focus_walk_time=0.0
             p.idle+=dt
             _resolve_attack(p,dt)
             if p.idle>=0.5 and p.windup<=0:
@@ -1440,7 +1478,9 @@ func select_target(id: String) -> bool:
         return false
     locked_target=id
     manual_target=id
+    # Existing rule (kept by Change 69): choosing a target by hand ends Focused Farming at once.
     state.focus=-1
+    focus_walk_time=0.0
     state.player.windup=0.0
     state.player.target=""
     state.player.attack_age=9.0

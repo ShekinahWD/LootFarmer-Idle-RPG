@@ -1,4 +1,10 @@
-# LootFarmer — Upgrade Catalog — Change 68
+# LootFarmer — Upgrade Catalog — Change 69
+
+## Change 69 — Focused Farming controls (11 November 2026)
+
+- No price, scope or effect change: `focus` stays global, 25 Gems once, kept by Prestige.
+- A second control for the same action: the map's **Auto Farm** button below Achievements and Upgrades (ON green / OFF red / Locked grey). Locked, it explains the 25-Gem purchase and opens Player Upgrades; it never charges.
+- Manual walking now stops Focused Farming only after **5 continuous real seconds** (countdown shown); explicit Stop/ON taps, a manual target choice and travel still stop it at once.
 
 ## Change 68 — cheaper critical upgrades; Critical Damage 110% + 10 points per level (11 November 2026)
 

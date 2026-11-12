@@ -2171,6 +2171,60 @@
    "en": "Totals above include caps: lifesteal 15%, attack speed bonus 200%. Critical chance and critical damage have no cap; at 100% chance every hit is critical.",
    "placeholders": [],
    "change": "change-68"
+  },
+  "AUTO_FARM_STATE": {
+   "en": "Auto Farm %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-69"
+  },
+  "AUTO_FARM_LOCKED": {
+   "en": "Auto Farm · Locked",
+   "placeholders": [],
+   "change": "change-69"
+  },
+  "FOCUS_WALK_COUNTDOWN": {
+   "en": "Turning off Auto Farming in %d…",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-69"
+  },
+  "FOCUS_WALK_STOPPED": {
+   "en": "Auto Farming turned off",
+   "placeholders": [],
+   "change": "change-69"
+  },
+  "FOCUS_HINT_PANEL_WALK": {
+   "en": "Tap Farm below: your hero walks to this spot and fights here by itself. Tap again to stop. Walking by hand for 5 seconds also stops it.",
+   "placeholders": [],
+   "change": "change-69"
+  },
+  "GUIDE_FOCUS_TAP_WALK_DETAIL": {
+   "en": "Your hero walks to this spot and fights it by itself. Walking by hand for 5 seconds stops it.",
+   "placeholders": [],
+   "change": "change-69"
+  },
+  "GUIDE_FOCUS_QUICK": {
+   "en": "Tap Auto Farm to start",
+   "placeholders": [],
+   "change": "change-69"
+  },
+  "GUIDE_FOCUS_QUICK_DETAIL": {
+   "en": "Your hero farms this enemy by itself. Tap again to stop; walking by hand for 5 seconds also stops it.",
+   "placeholders": [],
+   "change": "change-69"
+  },
+  "HELP_CARD_ADVANCED_FARMING_ACTION_V69": {
+   "en": "Near a discovered enemy, tap Auto Farm (or Farm in its Upgrades).",
+   "placeholders": [],
+   "change": "change-69"
+  },
+  "HELP_CARD_ADVANCED_FARMING_SUPPORT_V69": {
+   "en": "Respawns return to it. Walking by hand 5 seconds stops it; let go sooner to keep farming.",
+   "placeholders": [],
+   "change": "change-69"
   }
  },
  "retired": {

@@ -230,9 +230,12 @@ func world_rules() -> void:
     var start_y: float=sim.state.player.y
     advance(1.1)
     check(sim.state.player.y<start_y and sim.state.focus==1,"Focus resumes travel after respawn")
+    # Change 69: walking keeps the target until 5 continuous real seconds of manual walking.
     sim.movement=Vector2.RIGHT
     sim.step(.1)
-    check(sim.state.focus==-1,"Manual movement cancels focus")
+    check(sim.state.focus==1,"A short manual walk keeps focus (Change 69)")
+    for i in range(50):sim.step(.1)
+    check(sim.state.focus==-1,"Five continuous seconds of manual walking cancel focus")
     sim.movement=Vector2.ZERO
 
 func automation_rules() -> void:

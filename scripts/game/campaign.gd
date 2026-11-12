@@ -250,7 +250,7 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
         var pos: Array=stage().spawns[camp]
         sim.state.player.x=pos[0];sim.state.player.y=pos[1]
         sim.state.player.windup=0;sim.state.player.target="";sim.state.player.idle=0
-        sim.state.focus=-1;sim.clear_target();reveal()
+        sim.state.focus=-1;sim.focus_walk_time=0.0;sim.clear_target();reveal()
         if st==before_stage and camp!=before_camp:guided.action("camp_travel",str(camp))
         sim.touch();SaveService.save_now()
         sim.traveled.emit(st!=before_stage,from,sim.position_of(sim.state.player))

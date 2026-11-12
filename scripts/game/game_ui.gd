@@ -53,6 +53,10 @@ var guide
 @onready var stick=$Safe/Layout/Map/Joystick
 @onready var banner=$Banner
 var combat_group: int=-1
+## Change 69: the real time (msec) the map's Auto Farm button last changed its group or spot: a tap right
+## after it switched is ignored, so a thumb aimed at one group's button never toggles the next group's.
+var quick_changed_msec: int=-100000
+const QUICK_SETTLE_MSEC:=400
 var history_signature: String=""
 var gem_pickup_time:=0.0
 var gem_pickup_amount:=0.0
@@ -256,6 +260,7 @@ func _ready() -> void:
         group=combat_group
         enemy_tab=1
         _open("enemy"))
+    $Safe/Layout/Map/QuickFarm.pressed.connect(_quick_farm_pressed)
     banner.opened.connect(func(kind: String)->void:
         if kind in ["discovered","ready","card","prestiged","prestige_unlocked"]:_open("prestige")
         elif kind in ["mastery_map","mastery_game"]:mastery_stage=0;_open("mastery"))
@@ -336,6 +341,7 @@ func _process(dt: float) -> void:
     # Change 63: the guide's caption room above a panel of the current lesson, fixed per opening.
     _update_sheet_reserve()
     _update_iris(dt)
+    _update_focus_countdown()
     _update_toast(dt)
     _layout_banner()
     # The View Camp button follows the camp on screen every frame (camera moves and pans).
@@ -1174,9 +1180,11 @@ func _update_toast(dt: float) -> void:
     # as soon as there is room.
     var x: float=map.global_position.x+(map.size.x-width)*.5
     # A placed toast keeps its place while that stays clear (no wobble with the bobbing arrow).
-    if toast_placed_for==$Toast/Text.text and is_equal_approx($Toast.position.x,x) and $Toast.position.y>=map.global_position.y+8 and $Toast.position.y+wanted.y<=map.global_position.y+map.size.y-212 and not guide.covers(Rect2($Toast.position,wanted)):return
+    if toast_placed_for==$Toast/Text.text and is_equal_approx($Toast.position.x,x) and $Toast.position.y>=map.global_position.y+8 and $Toast.position.y+wanted.y<=map.global_position.y+map.size.y-212 and not guide.covers(Rect2($Toast.position,wanted)) and not ($FocusCountdown.visible and Rect2($Toast.position,wanted).intersects($FocusCountdown.get_global_rect())):return
     toast_placed_for=$Toast/Text.text
     var y: float=map.global_position.y+map.size.y-212-wanted.y
+    # Change 69: the walking countdown owns the band right above the joystick while it runs.
+    if $FocusCountdown.visible:y=minf(y,$FocusCountdown.position.y-8-wanted.y)
     var blocked: Array=guide.occupied_rects()
     for i in range(blocked.size()+1):
         var hit:=Rect2()
@@ -1634,7 +1642,7 @@ func _item_panel() -> void:
         if selected_slot>=0:
             var row:=HFlowContainer.new();rows.add_child(row)
             _buy_supply_actions(row)
-            _game_action(tr("AUTO_SLOT_STATUS") % tr("ON" if sim.state.auto_slots.has(selected_slot) else "OFF"),func()->void:sim.bind_auto(selected_slot),true,"",row)
+            _toggle_style(_game_action(tr("AUTO_SLOT_STATUS") % tr("ON" if sim.state.auto_slots.has(selected_slot) else "OFF"),func()->void:sim.bind_auto(selected_slot),true,"",row),sim.state.auto_slots.has(selected_slot))
         return
     var id:=selected
     var def: Dictionary=sim.catalog.items[id]
@@ -1735,7 +1743,7 @@ func _item_panel() -> void:
             var label: String=tr("STAT_"+stat.to_upper())
             if slots[i][0]=="boss":label="★ "+label
             _game_action(tr("REROLL_ATTRIBUTE") % [label,fmt_cost(cost)],func()->void:_confirm(tr("REROLL_ATTRIBUTE_CONFIRM") % [fmt_cost(cost),label],func()->void:if selected==id:sim.reroll(id,slot)),true,"",more)
-    if sim.gear_group(id)>=0:_game_action(tr("ITEM_AUTO_MERGE") % tr("OFF" if sim.auto_merge_excluded(id) else "ON"),func()->void:sim.set_auto_merge_excluded(id,not sim.auto_merge_excluded(id)),true,"",more).set_meta("guide","item_auto_merge")
+    if sim.gear_group(id)>=0:_toggle_style(_game_action(tr("ITEM_AUTO_MERGE") % tr("OFF" if sim.auto_merge_excluded(id) else "ON"),func()->void:sim.set_auto_merge_excluded(id,not sim.auto_merge_excluded(id)),true,"",more),not sim.auto_merge_excluded(id)).set_meta("guide","item_auto_merge")
     _drop_action(id,more)
     for button in more.get_children():
         button.size_flags_horizontal=0
@@ -1822,7 +1830,7 @@ func _supply_panel(id: String,list: Array) -> void:
     var index:=list.find(id)
     _arrow_button(-1,index>0,func()->void:_browse(-1))
     _pinned(tr("USE"),func()->void:if selected==id:sim.use_item(id),reason.is_empty(),reason,true,"use")
-    _pinned(tr("AUTO_SHORT") % tr("ON" if sim.state.auto_slots.has(slot) else "OFF"),func()->void:if selected==id:sim.bind_auto(sim.state.supplies.find(id)),slot>=0,"CANNOT_USE",false,"auto")
+    _toggle_style(_pinned(tr("AUTO_SHORT") % tr("ON" if sim.state.auto_slots.has(slot) else "OFF"),func()->void:if selected==id:sim.bind_auto(sim.state.supplies.find(id)),slot>=0,"CANNOT_USE",false,"auto"),sim.state.auto_slots.has(slot))
     _arrow_button(1,index>=0 and index<list.size()-1,func()->void:_browse(1))
 
 ## Change 16 Drop All: discards the whole selected stack to free its inventory slot. The action shows
@@ -2092,11 +2100,11 @@ func _upgrades_panel() -> void:
             var available: bool=assigned or (sim.state.skills[i]!="" and sim.automatic_skill_assignments().size()<sim.automatic_skill_capacity())
             var label: String=tr("SKILL_AUTO_TOGGLE") % [i+1,tr("ON" if assigned else "OFF")]
             if sim.state.skills[i]!="":label+=" · "+sim.catalog.display_name(sim.state.skills[i])
-            _game_action(label,func()->void:
+            _toggle_style(_game_action(label,func()->void:
                 var picks: Array=sim.automatic_skill_assignments()
                 if picks.has(i):picks.erase(i)
                 else:picks.append(i)
-                sim.assign_automatic_skills(picks),available,"AUTO_SKILL_CAPACITY_FULL").set_meta("guide","auto_skill_%d" % i)
+                sim.assign_automatic_skills(picks),available,"AUTO_SKILL_CAPACITY_FULL"),assigned).set_meta("guide","auto_skill_%d" % i)
         # A skill's own upgrades stay hidden until that skill has been obtained once.
         for key in sim.catalog.skills:
             if sim.skill_seen(key):_group_upgrade_card("cooldown_"+key,-1)
@@ -2265,12 +2273,14 @@ func _enemy_panel() -> void:
     if sim.focus_owned():
         # Change 14: right after the first Focused Farming purchase, one line above the button says
         # what it does (above it, because the guide's arrow points at the button from below here).
-        if sim.campaign.focus_hint==group and int(sim.state.focus)<0:_text(tr("FOCUS_HINT_PANEL"),17,Color(1,.86,.5))
-        _game_action(tr("FOCUS_GROUP") % [d.name,tr("ON" if sim.state.focus==group and sim.state.focus_variant==enemy_variant else "OFF")],func()->void:sim.focus(group,enemy_variant),sim.campaign.spot_discovered(group,enemy_variant),"SPOT_UNDISCOVERED").set_meta("guide","focus_toggle")
+        if sim.campaign.focus_hint==group and int(sim.state.focus)<0:_text(tr("FOCUS_HINT_PANEL_WALK"),17,Color(1,.86,.5))
+        # Change 69: the same action and state as the map's Auto Farm button (sim.focus / sim.focus_active).
+        var farming: bool=sim.focus_active(group,enemy_variant)
+        _toggle_style(_game_action(tr("FOCUS_GROUP") % [d.name,tr("ON" if farming else "OFF")],func()->void:sim.focus(group,enemy_variant),sim.campaign.spot_discovered(group,enemy_variant),"SPOT_UNDISCOVERED"),farming,not sim.campaign.spot_discovered(group,enemy_variant)).set_meta("guide","focus_toggle")
     else:
         # Change 65: Focused Farming is one global Player upgrade. Before it is owned, the Farm action is
         # shown locked with its reason and a way to the Player upgrade (never a purchase here).
-        _game_action(tr("FOCUS_GROUP") % [d.name,tr("OFF")],func()->void:pass,false,"FOCUS_LOCKED_GLOBAL").set_meta("guide","focus_locked")
+        _toggle_style(_game_action(tr("FOCUS_GROUP") % [d.name,tr("OFF")],func()->void:pass,false,"FOCUS_LOCKED_GLOBAL"),false,true).set_meta("guide","focus_locked")
         if revealed("upgrades"):
             _action(tr("FOCUS_OPEN_PLAYER_UPGRADES"),func()->void:
                 player_tab=0
@@ -2350,7 +2360,9 @@ func _refresh_combat_achievement() -> void:
     var target: Dictionary=sim._find_actor(sim.locked_target)
     if not target.is_empty() and int(target.group) in range(sim.catalog.groups.size()):
         combat_group=int(target.group)
-    elif int(sim.state.focus) in range(sim.catalog.groups.size()):
+    # Change 69: walking by hand no longer ends Focused Farming at once, so while the player walks the
+    # controls follow the group they approach (as before Change 69, when walking cleared the focus).
+    elif int(sim.state.focus) in range(sim.catalog.groups.size()) and sim.movement.length()<=.1:
         combat_group=int(sim.state.focus)
     elif not sim.campaign.stage().groups.has(combat_group) or sim.movement.length()>.1:
         combat_group=sim.nearest_group()
@@ -2369,6 +2381,115 @@ func _refresh_combat_achievement() -> void:
     var text:=tr("TAB_ACHIEVEMENTS")+"\n"+progress
     if button.text!=text:button.text=text
     button.set_meta("group",g)
+    _refresh_quick_farm(known)
+
+## Change 69: the spot of group g the map's Auto Farm button acts on: the selected target's spot when g is
+## focused, else the discovered spot nearest the player (-1 when none is discovered).
+func _quick_spot(g: int) -> int:
+    if int(sim.state.focus)==g:return int(sim.state.focus_variant)
+    var best:=-1
+    var distance:=INF
+    var at: Vector2=sim.position_of(sim.state.player)
+    for v in sim.campaign.variants(g):
+        if not sim.campaign.spot_discovered(g,v):continue
+        var d:=at.distance_to(sim.campaign.spot(g,v))
+        if d<distance:
+            best=v;distance=d
+    return best
+
+## Change 69: the third contextual control, below Achievements and Upgrades: one Auto Farm button showing
+## the live state of THIS group's spot (ON green when it is the selected Focused Farming target, OFF red
+## otherwise, Locked grey before the global 25-Gem purchase). It appears with the Upgrades route.
+func _refresh_quick_farm(known: bool) -> void:
+    var quick: Button=$Safe/Layout/Map/QuickFarm
+    var g:=combat_group
+    quick.visible=known and revealed("upgrades")
+    if not quick.visible:return
+    var v:=_quick_spot(g)
+    if g!=int(quick.get_meta("group",-1)) or v!=int(quick.get_meta("variant",-99)):
+        quick_changed_msec=Time.get_ticks_msec()
+    quick.set_meta("group",g);quick.set_meta("variant",v)
+    var text: String
+    var reason:=""
+    if not sim.focus_owned():
+        text=tr("AUTO_FARM_LOCKED");reason="FOCUS_LOCKED_GLOBAL"
+        _toggle_style(quick,false,true)
+        quick.set_meta("guide","quick_focus_locked")
+    else:
+        var on: bool=v>=0 and sim.focus_active(g,v)
+        text=tr("AUTO_FARM_STATE") % tr("STATE_ON_CAPS" if on else "STATE_OFF_CAPS")
+        if v<0:reason="SPOT_UNDISCOVERED"
+        elif not sim.action_lock_reason().is_empty():reason=sim.action_lock_reason()
+        _toggle_style(quick,on,v<0)
+        quick.set_meta("guide","quick_focus_toggle")
+    quick.set_meta("reason",reason)
+    if quick.text!=text:quick.text=text
+    var tip: String=tr(sim.catalog.groups[g].name)+" · "+text+("\n"+tr(reason) if reason!="" else "")
+    if quick.tooltip_text!=tip:quick.tooltip_text=tip
+
+## Change 69: the map's Auto Farm button and the enemy panel's Farm button both call sim.focus(group,
+## variant) (start, switch or stop at once). Locked, it explains why and opens Player Upgrades (the same
+## route as the panel's locked Farm action); it never buys anything.
+func _quick_farm_pressed() -> void:
+    var quick: Button=$Safe/Layout/Map/QuickFarm
+    if Time.get_ticks_msec()-quick_changed_msec<QUICK_SETTLE_MSEC:return
+    var g:=int(quick.get_meta("group",-1))
+    var v:=int(quick.get_meta("variant",-1))
+    AudioService.play("ui_click")
+    if not sim.focus_owned():
+        _say(tr("FOCUS_LOCKED_GLOBAL"))
+        if revealed("upgrades"):
+            player_tab=0
+            _open("upgrades")
+        return
+    if g<0 or g>=sim.catalog.groups.size():return
+    if v<0:
+        _say(tr("SPOT_UNDISCOVERED"));return
+    if sim.focus(g,v):SaveService.mark_committed()
+    _refresh_combat_achievement()
+
+## Change 69: one look for every player-operable binary ON/OFF button: green ToggleOn, red ToggleOff, or
+## the grey ToggleLocked when it is unavailable for another reason (the label still states ON/OFF or why).
+## A disabled button keeps its state label and uses the theme's shared disabled look.
+func _toggle_style(button: Button,on: bool,locked:=false) -> Button:
+    var variation: StringName=&"ToggleLocked" if locked else (&"ToggleOn" if on else &"ToggleOff")
+    if button.theme_type_variation!=variation:button.theme_type_variation=variation
+    return button
+
+## Change 69: "Turning off Auto Farming in 5..." while one continuous manual walk runs under a Focused
+## Farming target, in the band right above the joystick (the toast moves above it), clear of the guide.
+func _update_focus_countdown() -> void:
+    var box: PanelContainer=$FocusCountdown
+    var left:=sim.focus_walk_remaining()
+    if left<=0 or sheet.visible or modal_open() or get_tree().paused:
+        if box.visible:box.hide()
+        return
+    var text:=tr("FOCUS_WALK_COUNTDOWN") % left
+    if $FocusCountdown/Text.text!=text:$FocusCountdown/Text.text=text
+    var map: Control=$Safe/Layout/Map
+    var width:=minf(560,map.size.x-48)
+    if $FocusCountdown/Text.custom_minimum_size.x!=width-28:$FocusCountdown/Text.custom_minimum_size.x=width-28
+    # Measured from the font: a hidden container never lays out its label, so its minimum size is stale.
+    var label: Label=$FocusCountdown/Text
+    var font_size: int=label.get_theme_font_size("font_size")
+    var text_height: float=label.get_theme_font("font").get_multiline_string_size(text,HORIZONTAL_ALIGNMENT_CENTER,width-28,font_size).y
+    var wanted:=Vector2(width,ceilf(text_height+box.get_theme_stylebox("panel").get_minimum_size().y))
+    if not box.size.is_equal_approx(wanted):box.size=wanted
+    var x: float=map.global_position.x+(map.size.x-width)*.5
+    var y: float=map.global_position.y+map.size.y-212-wanted.y
+    var blocked: Array=guide.occupied_rects()
+    for i in range(blocked.size()+1):
+        var hit:=Rect2()
+        for r in blocked:
+            if r.intersects(Rect2(x,y,width,wanted.y)) and (hit.size==Vector2.ZERO or r.position.y<hit.position.y):hit=r
+        if hit.size==Vector2.ZERO:break
+        y=hit.position.y-8-wanted.y
+    # With no free place left in the map (the guide covers it) the warning waits; the timer still runs.
+    if y<map.global_position.y+8:
+        if box.visible:box.hide()
+        return
+    box.position=Vector2(x,y)
+    if not box.visible:box.show()
 
 func _open_combat_achievements() -> void:
     group=int($Safe/Layout/Map/Achievement.get_meta("group",0))
@@ -2840,8 +2961,9 @@ func _settings_panel() -> void:
     mutes.add_theme_constant_override("h_separation",8)
     mutes.add_theme_constant_override("v_separation",8)
     rows.add_child(mutes)
-    _action(tr("MUTE_GAMEPLAY_STATUS") % tr("ON" if SettingsState.mute_gameplay else "OFF"),func()->void:SettingsState.set_mute_gameplay(not SettingsState.mute_gameplay),true,"",mutes).set_meta("setting","mute_gameplay")
-    _action(tr("MUTE_SPECIAL_STATUS") % tr("ON" if SettingsState.mute_special else "OFF"),func()->void:SettingsState.set_mute_special(not SettingsState.mute_special),true,"",mutes).set_meta("setting","mute_special")
+    # Change 69: a mute is a binary setting like any other: green when the mute is ON, red when OFF.
+    _toggle_style(_action(tr("MUTE_GAMEPLAY_STATUS") % tr("ON" if SettingsState.mute_gameplay else "OFF"),func()->void:SettingsState.set_mute_gameplay(not SettingsState.mute_gameplay),true,"",mutes),SettingsState.mute_gameplay).set_meta("setting","mute_gameplay")
+    _toggle_style(_action(tr("MUTE_SPECIAL_STATUS") % tr("ON" if SettingsState.mute_special else "OFF"),func()->void:SettingsState.set_mute_special(not SettingsState.mute_special),true,"",mutes),SettingsState.mute_special).set_meta("setting","mute_special")
     for button in mutes.get_children():
         button.size_flags_horizontal=0;button.custom_minimum_size=Vector2(300,64)
     _text(tr("AUDIO_HINT"),16,Color(.7,.75,.82))
@@ -3442,7 +3564,7 @@ func _missions_panel() -> void:
             if sim.state.mission_auto and not sim.state.tutorial.seen.has("mission_auto_enabled"):
                 sim.state.tutorial.seen.append("mission_auto_enabled")
             sim.touch())
-        toggle.set_meta("guide","mission_auto_toggle")
+        _toggle_style(toggle,bool(sim.state.mission_auto)).set_meta("guide","mission_auto_toggle")
 
 ## Compact objective card: icon, title, progress bar with value, rewards and a claim button.
 ## States read at a glance: In progress (muted chip), Ready to claim (primary Claim button) and

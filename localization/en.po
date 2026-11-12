@@ -6589,3 +6589,33 @@ msgstr "%s · every hit is already critical"
 
 msgid "STAT_CAPS_NOTE_NO_CRIT"
 msgstr "Totals above include caps: lifesteal 15%, attack speed bonus 200%. Critical chance and critical damage have no cap; at 100% chance every hit is critical."
+
+msgid "AUTO_FARM_STATE"
+msgstr "Auto Farm %s"
+
+msgid "AUTO_FARM_LOCKED"
+msgstr "Auto Farm · Locked"
+
+msgid "FOCUS_WALK_COUNTDOWN"
+msgstr "Turning off Auto Farming in %d…"
+
+msgid "FOCUS_WALK_STOPPED"
+msgstr "Auto Farming turned off"
+
+msgid "FOCUS_HINT_PANEL_WALK"
+msgstr "Tap Farm below: your hero walks to this spot and fights here by itself. Tap again to stop. Walking by hand for 5 seconds also stops it."
+
+msgid "GUIDE_FOCUS_TAP_WALK_DETAIL"
+msgstr "Your hero walks to this spot and fights it by itself. Walking by hand for 5 seconds stops it."
+
+msgid "GUIDE_FOCUS_QUICK"
+msgstr "Tap Auto Farm to start"
+
+msgid "GUIDE_FOCUS_QUICK_DETAIL"
+msgstr "Your hero farms this enemy by itself. Tap again to stop; walking by hand for 5 seconds also stops it."
+
+msgid "HELP_CARD_ADVANCED_FARMING_ACTION_V69"
+msgstr "Near a discovered enemy, tap Auto Farm (or Farm in its Upgrades)."
+
+msgid "HELP_CARD_ADVANCED_FARMING_SUPPORT_V69"
+msgstr "Respawns return to it. Walking by hand 5 seconds stops it; let go sooner to keep farming."

@@ -451,7 +451,7 @@ func focus_checks() -> void:
     check(focus_notice==tr("FOCUS_UNLOCKED") and tr("FOCUS_UNLOCKED")=="Focused Farming unlocked","Confirmation on the panel: \"%s\"" % focus_notice)
     var toggle: Button=guide._panel_control("focus_toggle",true)
     check(toggle!=null and toggle.text.begins_with(tr("FOCUS_GROUP").split(" ")[0]),"The Farm button appears in the same panel")
-    check(labels_text(game.rows).contains(tr("FOCUS_HINT_PANEL")),"One line under it says how to use it")
+    check(labels_text(game.rows).contains(tr("FOCUS_HINT_PANEL_WALK")),"One line under it says how to use it (Change 69: with the 5-second walking rule)")
     check(guide.pending=="focus" and guide.step=="focus_tap" and guide.target==toggle,"The guide's step is to tap Farm, on the live button")
     check(guide.pointer.visible and guide.suspended_by=="","The pointer shows (Guided)")
     var tip_rect: Rect2=guide.pointer.get_global_rect()
@@ -463,7 +463,11 @@ func focus_checks() -> void:
     # Closing the panel points at the way back.
     game._close();await frames(4)
     var hud: Control=map_node("EnemyUpgrades")
-    if hud.visible and game.combat_group==g:
+    var quick: Control=map_node("QuickFarm")
+    # Change 69: near the hinted type the map's Auto Farm button is the one-tap route.
+    if quick.visible and game.combat_group==g:
+        check(guide.step=="focus_quick" and guide.target==quick and guide.pointer.visible,"Panel closed: pointer on the map's Auto Farm button for this enemy (Change 69)")
+    elif hud.visible and game.combat_group==g:
         check(guide.step=="focus_open" and guide.target==hud and guide.pointer.visible,"Panel closed: pointer on the HUD Upgrades button for this enemy")
     else:
         check(guide.step=="focus_find" and guide.target==map_node("MiniMap"),"Panel closed: pointer on the minimap (map, then the enemy)")

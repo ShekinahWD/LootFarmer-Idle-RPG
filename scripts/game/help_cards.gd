@@ -62,8 +62,11 @@ static func loop_seconds(id: String) -> float:
     return float(card(id).get("loop",6.0))
 
 static func title_key(id: String) -> String:return "HELP_CARD_%s_TITLE" % id.to_upper()
-static func action_key(id: String) -> String:return "HELP_CARD_%s_ACTION" % id.to_upper()
-static func support_key(id: String) -> String:return "HELP_CARD_%s_SUPPORT" % id.to_upper()
+## Change 69: a card whose English meaning changed reads a new key (the translated old key is left in the
+## catalogs until it is retired), so no language shows a now-false rule.
+const TEXT_OVERRIDES:={"advanced_farming":{"action":"HELP_CARD_ADVANCED_FARMING_ACTION_V69","support":"HELP_CARD_ADVANCED_FARMING_SUPPORT_V69"}}
+static func action_key(id: String) -> String:return str(TEXT_OVERRIDES.get(id,{}).get("action","HELP_CARD_%s_ACTION" % id.to_upper()))
+static func support_key(id: String) -> String:return str(TEXT_OVERRIDES.get(id,{}).get("support","HELP_CARD_%s_SUPPORT" % id.to_upper()))
 static func category_key(category: String) -> String:return "HELP_CAT_%s" % category.to_upper()
 
 ## Seconds Auto-Advance waits on a card: one full loop and a comfortable reading time.

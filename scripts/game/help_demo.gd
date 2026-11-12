@@ -27,7 +27,7 @@ const MASTERY_CATEGORIES:=["explore","hunt","research","collect","forge"]
 ## Seconds into the loop drawn as the single frame when motion is reduced (the card's key moment).
 const KEY_TIMES:={"movement_combat":3.4,"manual_target":1.8,"collect_equip":5.4,"merge_gear":3.6,"player_upgrades":5.0,
     "enemy_automation":1.4,"missions":5.4,"explore_camps":5.2,"skills_supplies":4.8,"offline_rewards":6.4,
-    "weapon_evolution":5.4,"prestige":5.6,"map_details_mastery":6.8,"advanced_farming":4.6}
+    "weapon_evolution":5.4,"prestige":5.6,"map_details_mastery":6.8,"advanced_farming":5.2}
 var ui
 var sim
 var card_id:=""
@@ -204,8 +204,8 @@ func _panel(rect: Rect2,border:=Color(.45,.52,.62)) -> void:
     draw_rect(rect,Color(.15,.18,.24,.97))
     draw_rect(rect,border,false,2)
 
-func _button(rect: Rect2,text: String,primary:=false,pressed:=false,icon: Texture2D=null) -> void:
-    var box: StyleBox=get_theme_stylebox("pressed" if pressed else "normal","Primary" if primary else "Button")
+func _button(rect: Rect2,text: String,primary:=false,pressed:=false,icon: Texture2D=null,variation:="") -> void:
+    var box: StyleBox=get_theme_stylebox("pressed" if pressed else "normal",variation if variation!="" else ("Primary" if primary else "Button"))
     if box!=null:draw_style_box(box,rect)
     else:draw_rect(rect,Color(.3,.36,.45))
     var text_rect:=rect.grow_individual(-6,0,-6,0)
@@ -371,7 +371,7 @@ func _demo_player_upgrades(s: float) -> void:
         _label(_enemy_name,Rect2(110,66,230,22),15,Color(1,1,1,view),HORIZONTAL_ALIGNMENT_LEFT)
         var farm:=Rect2(80,130,240,40)
         var on:=s>=5.4
-        _button(farm,tr("FOCUS_GROUP") % [_enemy_name,tr("ON" if on else "OFF")],true,s>=5.0 and s<5.4)
+        _button(farm,tr("FOCUS_GROUP") % [_enemy_name,tr("ON" if on else "OFF")],false,s>=5.0 and s<5.4,null,"ToggleOn" if on else "ToggleOff")
         if s>=4.4 and s<5.5:_touch(farm.get_center(),s>=5.0)
         if on:_ring(Vector2(80,84),26,Color(GOOD,.7))
 
@@ -633,28 +633,33 @@ func _demo_map_details_mastery(s: float) -> void:
         _tex(GEM,Vector2(350,120),30*(.6+.4*done))
         _sparkle(Vector2(350,120),done)
 
-## Tap a found spot on the map, Farm, the hero walks there and fights by itself; a joystick push stops it.
-## The global unlock stays owned (MAX).
+## Tap a found spot, then Auto Farm (red OFF -> green ON): the hero walks there and fights by itself. Change 69:
+## a short joystick walk shows "Turning off Auto Farming in 5..."; letting go before 5 s keeps farming.
 func _demo_advanced_farming(s: float) -> void:
     _bg()
     var spot:=Vector2(300,80)
     var start:=Vector2(90,170)
-    var farm_on:=s>=1.9 and s<5.8
+    var near:=spot+Vector2(-34,8)
+    var away:=Vector2(190,180)
+    var farm_on:=s>=1.9
     var hero:=start
-    if s>=2.0:hero=start.lerp(spot+Vector2(-34,8),_e(_p(s,2.0,3.6)))
-    if s>=5.8:hero=(spot+Vector2(-34,8)).lerp(Vector2(160,190),_e(_p(s,5.9,7.2)))
-    var swing:=fmod(maxf(0,s-3.7),.7)/.7 if s>=3.7 and s<5.6 else 0.0
+    if s>=2.0:hero=start.lerp(near,_e(_p(s,2.0,3.4)))
+    # Change 69: a short walk by hand (under 5 s) shows the countdown; letting go keeps the target and
+    # the hero walks back to farm it.
+    if s>=4.6:hero=near.lerp(away,_e(_p(s,4.6,6.2)))
+    if s>=6.3:hero=away.lerp(near,_e(_p(s,6.3,7.6)))
+    var swing:=fmod(maxf(0,s-3.5),.7)/.7 if s>=3.5 and s<4.5 else 0.0
     _ring(spot,30,Color(GOOD,.35+.25*sin(s*5)),3)
     _enemy_at(spot,_enemy_a,.8 if swing>.45 and swing<.7 else 0.0)
     _hero_at(hero,swing,spot-hero)
     if swing>0:_slash(spot+Vector2(-10,-4),_p(swing,.35,.75))
-    var farm:=Rect2(20,16,200,34)
-    _button(farm,tr("FOCUS_GROUP") % [_enemy_name,tr("ON" if farm_on else "OFF")],not farm_on,s>=1.5 and s<1.9)
-    if farm_on:draw_rect(farm.grow(2),Color(GOOD,.8),false,2)
-    _label(tr("UPGRADE_MAX"),Rect2(226,16,60,34),12,Color(.75,.8,.87))
+    # The map's Auto Farm button (red OFF, green ON), as in the game.
+    var farm:=Rect2(20,16,170,34)
+    _button(farm,tr("AUTO_FARM_STATE") % tr("STATE_ON_CAPS" if farm_on else "STATE_OFF_CAPS"),false,s>=1.5 and s<1.9,null,"ToggleOn" if farm_on else "ToggleOff")
     if s<.9:_ripple(spot,_p(s,.4,.9));_touch(spot,s>=.4,_p(s,0,.3))
     elif s<2.0:_touch(farm.get_center(),s>=1.5)
     var stick:=Vector2(330,196)
-    var push:=_e(_p(s,5.6,5.9))*(1.0-_p(s,7.2,7.5))
+    var push:=_e(_p(s,4.4,4.6))*(1.0-_p(s,6.2,6.4))
     _stick(stick,Vector2(-24,6)*push,.9)
-    if s>=5.4 and s<7.4:_touch(stick+Vector2(-24,6)*push,push>0)
+    if s>=4.3 and s<6.5:_touch(stick+Vector2(-24,6)*push,push>0)
+    if s>=4.6 and s<6.2:_label(tr("FOCUS_WALK_COUNTDOWN") % (5 if s<5.6 else 4),Rect2(20,58,290,24),13,AIM,HORIZONTAL_ALIGNMENT_LEFT)

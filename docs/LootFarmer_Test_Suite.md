@@ -1,4 +1,10 @@
-# LootFarmer — Test Suite (current, 2026-11-11, Change 66)
+# LootFarmer — Test Suite (current, 2026-11-11, Change 69)
+
+## Change 69 — quick Auto Farm, walking countdown, ON/OFF toggles (11 November 2026)
+
+- **Registered** `change_69_probe` (73 checks): the contextual stack order, column, touch size and single button; Locked → explanation + Player Upgrades without a charge, purchase, OFF → ON → OFF, the 0.4 s settle guard; group A ON / group B OFF while walking, switching, the enemy panel Farm reading and stopping the same state, another spot of the same type; the countdown at 1 s / 4.85 s, release + walk back, two 3 s walks, one 5 s walk stopping once, jitter, 3× game speed (15 simulated = 5 real seconds), pause / held / background resets, auto-navigation, held stick while dead + respawn, reload mid-countdown, explicit stop and switch, manual targeting; the countdown label above the joystick, under a toast, hidden by a panel, the stop toast; a source audit that every ON/OFF button in `game_ui.gd` / `help_viewer.gd` goes through `_toggle_style`, rendered Settings mutes, Missions Automatic Claiming (incl. paused = still ON), Help Auto-Advance; the Guided pointer on the quick button and Basic without one. `--realtime` adds a wall-clock run (held stick at 3×: 5.00 s).
+- **Updated expectations:** `gameplay_probe` and `change_65_probe` (a short walk keeps focus; 5 s stops it), `change_14_probe` (panel line `FOCUS_HINT_PANEL_WALK`; closed panel → pointer on the quick button).
+- **Not in the suite:** `tests/change_69_capture.tscn` (extends the Change 65 capture; windowed at 432×960 / 540×960, `--out=<dir>`): stack Locked / OFF / ON, group B OFF with the countdown, countdown + toast, release, after 5 s, enemy Farm ON / OFF, Settings mutes, Missions auto OFF / ON, Guided pointer, Advanced Farming card, Godot pseudolocalization (+40%). Its audit reports world-actor nodes inside the map's SubViewport (not UI) and, under pseudolocalization, the existing dock/HUD chips widening the layout; no overlap, small-target or truncation report on the new controls.
 
 ## Change 66 — Enemy achievements, Gem Chance price, Guided Map Mastery, Focused Farming copy (11 November 2026)
 

@@ -1,0 +1,12 @@
+{
+ "AUTO_FARM_STATE": "Auto Farm %s",
+ "AUTO_FARM_LOCKED": "Auto Farm · Locked",
+ "FOCUS_WALK_COUNTDOWN": "Turning off Auto Farming in %d…",
+ "FOCUS_WALK_STOPPED": "Auto Farming turned off",
+ "FOCUS_HINT_PANEL_WALK": "Tap Farm below: your hero walks to this spot and fights here by itself. Tap again to stop. Walking by hand for 5 seconds also stops it.",
+ "GUIDE_FOCUS_TAP_WALK_DETAIL": "Your hero walks to this spot and fights it by itself. Walking by hand for 5 seconds stops it.",
+ "GUIDE_FOCUS_QUICK": "Tap Auto Farm to start",
+ "GUIDE_FOCUS_QUICK_DETAIL": "Your hero farms this enemy by itself. Tap again to stop; walking by hand for 5 seconds also stops it.",
+ "HELP_CARD_ADVANCED_FARMING_ACTION_V69": "Near a discovered enemy, tap Auto Farm (or Farm in its Upgrades).",
+ "HELP_CARD_ADVANCED_FARMING_SUPPORT_V69": "Respawns return to it. Walking by hand 5 seconds stops it; let go sooner to keep farming."
+}

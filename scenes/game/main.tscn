@@ -132,6 +132,18 @@ offset_right=176.0
 offset_bottom=370.0
 theme_override_font_sizes/font_size=16
 text="TAB_UPGRADES"
+[node name="QuickFarm" type="Button" parent="Safe/Layout/Map"]
+visible=false
+layout_mode=0
+offset_left=18.0
+offset_top=378.0
+offset_right=176.0
+offset_bottom=438.0
+focus_mode=0
+theme_type_variation=&"ToggleOff"
+theme_override_font_sizes/font_size=16
+autowrap_mode=2
+text="AUTO_FARM_STATE"
 [node name="Zoom" type="HBoxContainer" parent="Safe/Layout/Map"]
 layout_mode=1
 anchor_left=1.0
@@ -757,6 +769,23 @@ horizontal_alignment=1
 autowrap_mode=2
 mouse_filter=2
 theme_override_font_sizes/font_size=22
+theme_override_constants/outline_size=5
+[node name="FocusCountdown" type="PanelContainer" parent="."]
+visible=false
+layout_mode=0
+offset_left=60.0
+offset_top=120.0
+offset_right=660.0
+offset_bottom=170.0
+mouse_filter=2
+theme_type_variation=&"Backing"
+[node name="Text" type="Label" parent="FocusCountdown"]
+layout_mode=2
+horizontal_alignment=1
+autowrap_mode=2
+mouse_filter=2
+theme_override_font_sizes/font_size=22
+theme_override_colors/font_color=Color(1,0.82,0.55,1)
 theme_override_constants/outline_size=5
 [node name="Banner" parent="." instance=ExtResource("banner")]
 layout_mode=0

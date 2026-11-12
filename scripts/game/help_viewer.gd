@@ -152,6 +152,8 @@ func _refresh_texts() -> void:
     next_button.disabled=last and context!="basic"
     prev_button.text=tr("HELP_PREVIOUS")
     auto_button.text=tr("HELP_AUTO_ADVANCE") % tr("ON" if auto else "OFF")
+    # Change 69: the shared ON (green) / OFF (red) toggle look.
+    ui._toggle_style(auto_button,auto)
     topics_button.text=tr("HELP_BACK_TO_TOPICS");topics_button.visible=help
     close_button.text=tr("CLOSE");close_button.visible=help
     skip_button.text=tr("HELP_SKIP_OVERVIEW");skip_button.visible=not help and not last
