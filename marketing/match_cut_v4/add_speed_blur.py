@@ -21,12 +21,12 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 SRC = ROOT / 'store_assets/video/experiments/LootFarmer_MatchCut_Zoom_V4_en-US.mp4'
-DST = ROOT / 'store_assets/video/experiments/LootFarmer_MatchCut_Zoom_V4.mp4'
+DST = ROOT / 'store_assets/video/experiments/LootFarmer_MatchCut_Zoom_V5.mp4'
 W, H = 1080, 1920
 # Map area height per shot: the skill row (Autumn, Spring) shortens it.
 MAP_H = {'winter': 1240, 'summer': 1240, 'autumn': 1156, 'spring': 1156}
-THRESHOLD, FULL = 0.75, 1.35  # relative zoom speed (1/s)
-SPREAD = 0.08                 # largest scale difference between ghosts at full strength
+THRESHOLD, FULL = 0.60, 1.35  # relative zoom speed (1/s)
+SPREAD = 0.65                 # largest scale difference between ghosts at full strength
 TAPS = 11
 # Mask: an ellipse around the centre, semi-axes (RX, RY) * map height / 1240; no blur inside it, full
 # blur SOFT ellipse-radii out (1.0 = on the ellipse).
