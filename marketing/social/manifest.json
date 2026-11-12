@@ -1610,6 +1610,314 @@
       "output": "../../store_assets/raw/video/social/n_end_clean.avi"
     },
     {
+      "id": "n_gear2",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 4,
+        "level": 200,
+        "items": [
+          [
+            "iron_sword",
+            20
+          ],
+          [
+            "boss-snowman_outfit",
+            500
+          ]
+        ],
+        "wear": [
+          "iron_sword",
+          "boss-snowman_outfit"
+        ],
+        "seed": 3316,
+        "boss": "boss-teal-dinosaur",
+        "dx": 30,
+        "dy": 10,
+        "explored": 320.0,
+        "fight_until": 0.08,
+        "clean": true,
+        "zoom": 4.2,
+        "boss_skill_in": 25.0,
+        "seed_search": 3,
+        "want_drops": [
+          "boss-teal-dinosaur_outfit_t2",
+          "gold_sword"
+        ],
+        "want_exact": true,
+        "boss_history": [
+          "boss-elephant",
+          "boss-teal-dinosaur"
+        ],
+        "challenges": [
+          "boss-elephant",
+          "boss-teal-dinosaur"
+        ],
+        "known_opportunities": [
+          "masterwork_o3",
+          "arsenal_o1"
+        ],
+        "after_defeat": [
+          [
+            4.2,
+            "collect",
+            "boss-teal-dinosaur_outfit_t2"
+          ],
+          [
+            5.2,
+            "collect",
+            "gold_sword"
+          ],
+          [
+            5.6,
+            "zoom",
+            5.4,
+            0.9
+          ],
+          [
+            6.9,
+            "equip",
+            "boss-teal-dinosaur_outfit_t2"
+          ],
+          [
+            8.1,
+            "equip",
+            "gold_sword"
+          ]
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 16.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/n_gear2.avi"
+    },
+    {
+      "id": "c_winter",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 2,
+        "level": 45,
+        "items": [
+          [
+            "wood_sword",
+            20
+          ],
+          [
+            "boss-snowman_outfit",
+            40
+          ]
+        ],
+        "wear": [
+          "wood_sword",
+          "boss-snowman_outfit"
+        ],
+        "seed": 7001,
+        "upgrades": {
+          "critical_chance": 20,
+          "critical_damage": 20
+        },
+        "boss": "boss-cyan-robot",
+        "dy": 30,
+        "clean": true,
+        "zoom": 3.8,
+        "boss_skill_in": 25.0
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 12.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/c_winter.avi"
+    },
+    {
+      "id": "c_summer",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 4,
+        "level": 200,
+        "items": [
+          [
+            "iron_sword",
+            20
+          ],
+          [
+            "boss-gray-cat_outfit_t2",
+            500
+          ]
+        ],
+        "wear": [
+          "iron_sword",
+          "boss-gray-cat_outfit_t2"
+        ],
+        "seed": 7002,
+        "upgrades": {
+          "critical_chance": 20,
+          "critical_damage": 20
+        },
+        "boss": "boss-elephant",
+        "dy": 30,
+        "clean": true,
+        "zoom": 3.8,
+        "boss_skill_in": 25.0,
+        "boss_history": [
+          "boss-elephant"
+        ],
+        "challenges": [
+          "boss-elephant"
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 12.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/c_summer.avi"
+    },
+    {
+      "id": "c_spring",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 7,
+        "level": 800,
+        "items": [
+          [
+            "emerald_sword",
+            20
+          ],
+          [
+            "boss-bee_outfit_t4",
+            500
+          ]
+        ],
+        "wear": [
+          "emerald_sword",
+          "boss-bee_outfit_t4"
+        ],
+        "seed": 7003,
+        "upgrades": {
+          "critical_chance": 20,
+          "critical_damage": 20
+        },
+        "boss": "boss-bee",
+        "dy": 30,
+        "clean": true,
+        "zoom": 3.8,
+        "fight_until": 0.07,
+        "boss_skill_in": 25.0,
+        "boss_history": [
+          "boss-bee"
+        ],
+        "challenges": [
+          "boss-bee"
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 12.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/c_spring.avi"
+    },
+    {
+      "id": "n_day1c",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 1,
+        "level": 1,
+        "items": [
+          [
+            "wood_sword",
+            0
+          ]
+        ],
+        "wear": [
+          "wood_sword"
+        ],
+        "seed": 6130,
+        "boss": "unit-blue-cap",
+        "pack": true,
+        "dy": 30,
+        "farm": false,
+        "zoom": 3.6,
+        "clean": true
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 13.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/n_day1c.avi"
+    },
+    {
+      "id": "n_endc",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 8,
+        "level": 238,
+        "items": [
+          [
+            "obsidian_sword",
+            60
+          ],
+          [
+            "boss-sunflower_outfit_t5",
+            500
+          ]
+        ],
+        "wear": [
+          "obsidian_sword",
+          "boss-sunflower_outfit_t5"
+        ],
+        "seed": 6132,
+        "skills": [
+          [
+            "skill_lightning",
+            50
+          ],
+          [
+            "skill_fire",
+            50
+          ],
+          [
+            "skill_strike",
+            50
+          ]
+        ],
+        "upgrades": {
+          "critical_chance": 20,
+          "critical_damage": 20
+        },
+        "near": "unit-sprout",
+        "dy": 30,
+        "zoom": 3.6,
+        "clean": true,
+        "auto_collect": true,
+        "skill_at": {
+          "lightning": 1.0,
+          "fire": 2.4,
+          "strike": 3.8
+        },
+        "boss_history": [
+          "boss-bee",
+          "boss-orange-tabby-cat",
+          "boss-sunflower"
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 13.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/n_endc.avi"
+    },
+    {
       "id": "m_winter",
       "kind": "video",
       "scenario": "match_boss",

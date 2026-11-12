@@ -19,9 +19,9 @@ A player gave my idle RPG 4/10 and said normal enemies hit harder than the bosse
 **Video 2 — `LootFarmer_Social_02_match_cut.mp4`**
 
 ```
-Four seasons. One swing. Every cut lands on a real sword hit.
+Four seasons, four critical hits. Every cut lands on a real crit, and the last one finishes the boss.
 
-#idlerpg #pixelart #mobilegame #indiegame #matchcut #lootfarmer #rpg
+#idlerpg #pixelart #mobilegame #indiegame #matchcut #criticalhit #lootfarmer
 ```
 
 **Video 3 — `LootFarmer_Social_03_gear_hook.mp4`**

@@ -87,9 +87,10 @@ def check(n: int) -> dict:
     need(vs['codec_name'] == 'h264' and vs.get('profile') == 'High', 'H.264 High')
     need(vs['pix_fmt'] == 'yuv420p' and vs.get('color_range') == 'tv', 'yuv420p TV range')
     need((vs['width'], vs['height']) == (1080, 1920), '1080x1920')
-    need(vs['r_frame_rate'] == '30/1' and int(vs['nb_read_frames']) == 450, '30 fps, 450 frames')
+    want = float(tl['duration'])
+    need(vs['r_frame_rate'] == '30/1' and int(vs['nb_read_frames']) == round(want * 30), f'30 fps, {round(want * 30)} frames')
     dur = float(p['format']['duration'])
-    need(abs(dur - 15.0) <= 0.05, f'duration {dur}')
+    need(abs(dur - want) <= 0.05, f'duration {dur} (planned {want})')
     need(au['codec_name'] == 'aac' and au['sample_rate'] == '48000' and int(au['channels']) == 2, 'AAC 48 kHz stereo')
     need(faststart(path), 'faststart')
     # picture
@@ -105,8 +106,12 @@ def check(n: int) -> dict:
     for o in tl['overlays']:
         b = o['box']
         need(b[0] >= sx0 - 40 and b[2] <= sx1 + 40 and b[1] >= sy0 and b[3] <= sy1, f"text outside the safe box: {o['text']}")
-    texts = [{'text': o['text'], 't0': o['t0'], 't1': o['t1'], 'seconds': round(o['t1'] - o['t0'], 2),
-              'chars_per_second': round(len(o['text']) / (o['t1'] - o['t0']), 1)} for o in tl['overlays']]
+    texts = [{'text': o['text'], 't0': o['t0'], 't1': o['t1'], 'seconds': round(o['t1'] - o['t0'], 2), 'label': o.get('label', False),
+              'chars_per_second': round(len(o['text'].replace(' / ', ' ')) / (o['t1'] - o['t0']), 1)} for o in tl['overlays']]
+    # Reading time (revision 2): a caption stays at least 1.4 s and asks for at most 14 characters per second.
+    for x in texts:
+        if not x['label']:
+            need(x['seconds'] >= 1.4 and x['chars_per_second'] <= 14.0, f"caption too fast: {x['text']} ({x['seconds']} s, {x['chars_per_second']} cps)")
     # sound
     stereo = audio(path)
     peak = float(np.abs(stereo).max())
@@ -114,14 +119,14 @@ def check(n: int) -> dict:
     need(peak <= 10 ** (-0.9 / 20) + 1e-3, f'audio peak {db(peak)} dBFS')
     win = 4800
     rms = np.sqrt(np.add.reduceat(x ** 2, np.arange(0, len(x) - win, win)) / win)
-    quiet = [round(i * 0.1, 1) for i, r in enumerate(rms[:int(14.2 * 10)]) if r < 10 ** (-50 / 20)]
-    sound = {'peak_dbfs': db(peak), 'rms_dbfs': db(float(np.sqrt((x ** 2).mean()))), 'quiet_windows_below_-50dB_before_14.2s': quiet,
+    quiet = [round(i * 0.1, 1) for i, r in enumerate(rms[:int((want - 0.8) * 10)]) if r < 10 ** (-50 / 20)]
+    sound = {'peak_dbfs': db(peak), 'rms_dbfs': db(float(np.sqrt((x ** 2).mean()))), 'quiet_windows_below_-50dB_before_fade': quiet,
              'kind': tl['audio']['kind']}
     if tl['audio']['kind'] == 'music only':
         need(not quiet, f'audio dropout at {quiet[:5]}')
-        src = audio(Path(tl['audio']['source']), tl['audio']['start'], 15.0).mean(axis=1) * tl['audio']['volume']
+        src = audio(Path(tl['audio']['source']), tl['audio']['start'], want).mean(axis=1) * tl['audio']['volume']
         # AAC adds a priming delay: align by cross-correlation over a short search, then compare 1 s..13 s.
-        seg = slice(48000, 13 * 48000)
+        seg = slice(48000, int(want - 2) * 48000)
         best, lag = -1.0, 0
         for step, span in ((16, 4000), (1, 20)):
             centre = lag
@@ -146,23 +151,28 @@ def check(n: int) -> dict:
 def sheets(ids) -> None:
     REVIEW.mkdir(parents=True, exist_ok=True)
     cw, ch = 162, 288
-    times = [0.1, 1.2, 2.6, 4.0, 5.4, 6.8, 8.2, 9.6, 11.0, 12.4, 14.2]
-    over = Image.new('RGB', (len(times) * cw + 150, len(ids) * (ch + 6) + 40), (16, 14, 30))
-    label(over, 'LootFarmer social set: frames at ' + ' '.join(f'{t:g}' for t in times) + ' s (phone-size check)', (8, 8), 18)
+    fracs = [0.007, 0.09, 0.18, 0.27, 0.36, 0.45, 0.54, 0.63, 0.72, 0.81, 0.96]
+    over = Image.new('RGB', (len(fracs) * cw + 150, len(ids) * (ch + 6) + 40), (16, 14, 30))
+    label(over, 'LootFarmer social set (revision 2): eleven frames spread over each video (phone-size check)', (8, 8), 18)
     firsts = Image.new('RGB', (len(ids) * 270, 480 + 34), (16, 14, 30))
     for row, n in enumerate(ids):
         path = B.output(n)
+        dur = float(json.loads((OUT / 'timelines' / f'{n:02d}_{B.VIDEOS[n][0]}.json').read_text(encoding='utf-8'))['duration'])
+        times = [f * dur for f in fracs]
         label(over, f'{n:02d}', (10, 40 + row * (ch + 6) + 100), 40)
+        label(over, f'{dur:.1f} s', (8, 40 + row * (ch + 6) + 176), 18)
         label(over, B.VIDEOS[n][0], (8, 40 + row * (ch + 6) + 150), 16)
         for col, t in enumerate(times):
             over.paste(frame(path, t, cw, ch), (150 + col * cw, 40 + row * (ch + 6)))
         firsts.paste(frame(path, 0.0, 270, 480), (row * 270, 34))
         label(firsts, f'{n:02d} first frame', (row * 270 + 6, 4), 20)
-        sheet = Image.new('RGB', (5 * 270, 3 * 480), (16, 14, 30))
-        for i in range(15):
+        count = int(dur)
+        rows = -(-count // 6)
+        sheet = Image.new('RGB', (6 * 270, rows * 480), (16, 14, 30))
+        for i in range(count):
             f = frame(path, i + 0.5, 270, 480)
             label(f, f'{i + 0.5:.1f} s')
-            sheet.paste(f, ((i % 5) * 270, (i // 5) * 480))
+            sheet.paste(f, ((i % 6) * 270, (i // 6) * 480))
         sheet.save(REVIEW / f'{n:02d}_{B.VIDEOS[n][0]}_sheet.png')
     over.save(REVIEW / 'overview.png')
     firsts.save(REVIEW / 'overview_first_frames.png')

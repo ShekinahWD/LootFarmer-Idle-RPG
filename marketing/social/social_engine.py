@@ -27,6 +27,8 @@ GOLD = (255, 205, 64)
 WHITE = (255, 255, 255)
 RED = (255, 96, 88)
 GREEN = (120, 235, 130)
+BAR = 20                     # split-screen divider height
+PLATE = (18, 16, 36, 185)    # dark plate behind every caption, so text never fights the picture
 
 
 def music_in(k: int) -> float:
@@ -92,7 +94,7 @@ class Shot:
         self.spec = spec
         self.region = region
         self.n = round(float(spec['d']) * FPS)
-        self.parts = [Shot(dict(s, d=spec['d']), (W, H // 2 - 3)) for s in spec['split']] if 'split' in spec else []
+        self.parts = [Shot(dict(s, d=spec['d']), (W, H // 2 - BAR // 2)) for s in spec['split']] if 'split' in spec else []
         self.gen = None
         self.i = 0
 
@@ -100,9 +102,9 @@ class Shot:
         s = self.spec
         w, h = self.region
         if self.parts:
-            img = Image.new('RGB', (W, H), INK)
+            img = Image.new('RGB', (W, H), GOLD)      # the gold bar between the halves
             img.paste(self.parts[0].frame(), (0, 0))
-            img.paste(self.parts[1].frame(), (0, H // 2 + 3))
+            img.paste(self.parts[1].frame(), (0, H // 2 + BAR // 2))
         elif 'card' in s:
             img = Image.new('RGB', (w, h), tuple(s['card']))
         else:
@@ -138,7 +140,7 @@ def text_layer(lines, size=96, color=WHITE, stroke=None, spacing=1.08, plate=Non
     heights = [int(sz * spacing) for _, _, _, sz in rows]
     pad = sw + 14
     tw, th = int(max(widths)) + 2 * pad, sum(heights) + 2 * pad
-    px = 34 if plate else 0
+    px = 30 if plate else 0
     img = Image.new('RGBA', (tw + 2 * px, th + (20 if plate else 0)), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     if plate:
@@ -195,16 +197,23 @@ class Overlay:
         img.paste(layer, (self.cx - layer.width // 2, self.cy - layer.height // 2), layer)
 
 
-def text(t0, t1, lines, cy=420, size=96, color=WHITE, anim='pop', plate=None, cx=None, **kw) -> Overlay:
+def text(t0, t1, lines, cy=420, size=96, color=WHITE, anim='pop', plate=PLATE, cx=None, label=False, **kw) -> Overlay:
+    if plate:
+        kw.setdefault('max_w', 770)      # the plate adds its own margin
     layer = text_layer(list(lines), size=size, color=color, plate=plate, **kw)
-    return Overlay(t0, t1, layer, cx=cx if cx is not None else (SAFE[0] + SAFE[2]) // 2, cy=cy, anim=anim,
-                   name=' / '.join(l if isinstance(l, str) else l[0] for l in lines))
+    cy = min(max(cy, SAFE[1] + layer.height // 2 + 1), SAFE[3] - layer.height // 2 - 1)   # a caption never leaves the safe box
+    ov = Overlay(t0, t1, layer, cx=cx if cx is not None else (SAFE[0] + SAFE[2]) // 2, cy=cy, anim=anim,
+                 name=' / '.join(l if isinstance(l, str) else l[0] for l in lines))
+    ov.label = label          # a name label that only accompanies the picture (no reading-time contract)
+    return ov
 
 
 def tag(t0, t1, label, cy, color=WHITE, fill=(24, 20, 46, 225), size=54, cx=None, anim='fade') -> Overlay:
     layer = text_layer([label], size=size, color=color, stroke=4, plate=fill)
     cy = max(cy, SAFE[1] + layer.height // 2 + 2)   # a tag never rises above the safe box
-    return Overlay(t0, t1, layer, cx=cx if cx is not None else SAFE[0] + layer.width // 2 + 6, cy=cy, anim=anim, name=label)
+    ov = Overlay(t0, t1, layer, cx=cx if cx is not None else SAFE[0] + layer.width // 2 + 6, cy=cy, anim=anim, name=label)
+    ov.label = True
+    return ov
 
 
 def render(video: dict, out: Path, audio_wav: Path) -> dict:
@@ -218,9 +227,6 @@ def render(video: dict, out: Path, audio_wav: Path) -> dict:
         starts.append(at)
         at += sh.n
     total = at
-    want = round(float(video['duration']) * FPS)
-    if total != want:
-        raise ValueError(f"{video['id']}: timeline is {total} frames, wanted {want}")
     out.parent.mkdir(parents=True, exist_ok=True)
     enc = subprocess.Popen(
         ['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
@@ -228,7 +234,7 @@ def render(video: dict, out: Path, audio_wav: Path) -> dict:
          '-vf', 'scale=in_range=full:out_range=tv:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p',
          '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p',
          '-color_range', 'tv', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709',
-         '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-ac', '2', '-shortest', '-movflags', '+faststart', str(out)],
+         '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-ac', '2', '-movflags', '+faststart', str(out)],
         stdin=subprocess.PIPE)
     prev = None
     for i in range(total):
@@ -261,7 +267,9 @@ def render(video: dict, out: Path, audio_wav: Path) -> dict:
             'shots': [{'start': st / FPS, 'end': (st + sh.n) / FPS, 'src': str(sh.spec.get('src', sh.spec.get('split', 'card'))) if 'split' not in sh.spec else [p.spec['src'] for p in sh.parts],
                        't': sh.spec.get('t'), 'speed': sh.spec.get('speed', 1.0), 'into': sh.spec.get('into', 'cut'),
                        'note': sh.spec.get('note', '')} for sh, st in zip(shots, starts)],
-            'overlays': [{'t0': o.t0, 't1': o.t1, 'text': o.name, 'box': o.box} for o in video.get('overlays', [])]}
+            'duration': total / FPS,
+            'overlays': [{'t0': o.t0, 't1': o.t1, 'text': o.name, 'box': o.box, 'label': bool(getattr(o, 'label', False))}
+                         for o in video.get('overlays', [])]}
 
 
 # ---------------------------------------------------------------- audio

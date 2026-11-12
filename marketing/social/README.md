@@ -1,5 +1,15 @@
 # LootFarmer social videos (Change 70)
 
+> **Revision 2 (12 Nov 2026, developer review).** The 15 s cap is gone (videos run 15 to 37 s). Panels are shown at
+> full width, never cropped (the merge burst sits on the item icon at the panel's left edge). Every caption sits on
+> a dark plate in one place per video, one at a time, and `review_social.py` now fails a caption shown for less
+> than 1.4 s or asking for more than 14 characters per second. Video 2 is a new crit match cut (takes `c_winter`,
+> `c_summer`, `n_crit`, `c_spring`) instead of a re-record of the Change 47 camera. Video 3 uses `n_gear2`: the
+> boss's skills are on cooldown, the kill drops exactly its outfit and sword (seed 3316, found by search), and both
+> lie in view for two seconds after the defeat effect before they are picked up. Video 5 uses HUD-free halves
+> (`n_day1c`, `n_endc`) with a gold divider. Where this file says "15.000 s" below, read the durations in
+> `store_assets/video/social/review/validation.json`.
+
 Ten vertical masters (1080x1920, 30 fps, 15.000 s, H.264 High + AAC) for TikTok, Instagram Reels and YouTube
 Shorts, built from **fresh takes of the current build** (HEAD `cece9c8`, 11 Nov 2026) with the pinned
 **Godot Marketing Capture Toolkit 1.0.2**. Nothing here ships (`marketing/*` is in the Release preset's

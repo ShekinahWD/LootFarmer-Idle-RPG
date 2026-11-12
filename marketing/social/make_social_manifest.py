@@ -147,6 +147,31 @@ soc('n_end_clean', 8.0, stage=8, level=238, items=[['obsidian_sword', 60], ['bos
     boss_history=['boss-bee', 'boss-orange-tabby-cat', 'boss-sunflower'])
 
 
+# ---- revision 2 (developer review): the gear chain with the loot left clear (boss skills on cooldown, exactly
+# the two items dropped, each picked up with time to read), a new crit match cut, HUD-free halves for the split.
+soc('n_gear2', 16.0, **SUMMER2, items=[['iron_sword', 20], [SNOWMAN, 500]], wear=['iron_sword', SNOWMAN], seed=3316,
+    boss='boss-teal-dinosaur', dx=30, dy=10, explored=320.0, fight_until=0.08, clean=True, zoom=4.2, boss_skill_in=25.0,
+    seed_search=3, want_drops=[TEAL, 'gold_sword'], want_exact=True, boss_history=['boss-elephant', 'boss-teal-dinosaur'],
+    challenges=['boss-elephant', 'boss-teal-dinosaur'], known_opportunities=['masterwork_o3', 'arsenal_o1'],
+    after_defeat=[[4.2, 'collect', TEAL], [5.2, 'collect', 'gold_sword'], [5.6, 'zoom', 5.4, 0.9],
+                  [6.9, 'equip', TEAL], [8.1, 'equip', 'gold_sword']])
+soc('c_winter', 12.0, stage=2, level=45, items=[['wood_sword', 20], [SNOWMAN, 40]], wear=['wood_sword', SNOWMAN], seed=7001,
+    upgrades=CRIT, boss='boss-cyan-robot', dy=30, clean=True, zoom=3.8, boss_skill_in=25.0)
+soc('c_summer', 12.0, **SUMMER2, items=[['iron_sword', 20], ['boss-gray-cat_outfit_t2', 500]],
+    wear=['iron_sword', 'boss-gray-cat_outfit_t2'], seed=7002, upgrades=CRIT, boss='boss-elephant', dy=30, clean=True,
+    zoom=3.8, boss_skill_in=25.0, boss_history=['boss-elephant'], challenges=['boss-elephant'])
+soc('c_spring', 12.0, stage=7, level=800, items=[['emerald_sword', 20], ['boss-bee_outfit_t4', 500]],
+    wear=['emerald_sword', 'boss-bee_outfit_t4'], seed=7003, upgrades=CRIT, boss='boss-bee', dy=30, clean=True, zoom=3.8,
+    fight_until=0.07, boss_skill_in=25.0, boss_history=['boss-bee'], challenges=['boss-bee'])
+soc('n_day1c', 13.0, stage=1, level=1, items=[['wood_sword', 0]], wear=['wood_sword'], seed=6130, boss='unit-blue-cap',
+    pack=True, dy=30, farm=False, zoom=3.6, clean=True)
+soc('n_endc', 13.0, stage=8, level=238, items=[['obsidian_sword', 60], ['boss-sunflower_outfit_t5', 500]],
+    wear=['obsidian_sword', 'boss-sunflower_outfit_t5'], seed=6132,
+    skills=[['skill_lightning', 50], ['skill_fire', 50], ['skill_strike', 50]], upgrades=CRIT, near='unit-sprout',
+    dy=30, zoom=3.6, clean=True, auto_collect=True, skill_at={'lightning': 1.0, 'fire': 2.4, 'strike': 3.8},
+    boss_history=['boss-bee', 'boss-orange-tabby-cat', 'boss-sunflower'])
+
+
 def load_v4():
     spec = importlib.util.spec_from_file_location('v4', HERE.parent / 'match_cut_v4' / 'make_match_v4_manifest.py')
     mod = importlib.util.module_from_spec(spec)

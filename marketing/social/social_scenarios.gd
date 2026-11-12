@@ -48,6 +48,8 @@ func _soc() -> bool:
             var ok:=float(soc_boss.hp)<=0
             for id in options.get("want_drops",[]):
                 if not drops.has(str(id)):ok=false
+            # want_exact: nothing else dropped either, so the two items lie alone on the ground.
+            if bool(options.get("want_exact",false)) and drops.size()!=options.get("want_drops",[]).size():ok=false
             print(LOG,"SEARCH seed ",s," defeated=",float(soc_boss.hp)<=0," drops=",drops," ok=",ok)
             if ok:
                 found=s;break
@@ -132,6 +134,13 @@ func _soc_build() -> bool:
         while t2<300.0 and sim.state.player.hp>sim.stats().hp*float(o.player_hp_until):
             sim.step(.05);t2+=.05
         print(LOG,"prefight to player hp ",sim.state.player.hp/sim.stats().hp," after ",t2,"s")
+    # Staging: the boss used its skills shortly before (their real cooldowns still running), so none lands
+    # on the moment the clip shows.
+    if o.has("boss_skill_in") and not soc_boss.is_empty():
+        var def: Dictionary=sim.enemy_definition(int(soc_boss.group))
+        if not soc_boss.has("skill_cds"):soc_boss.skill_cds={}
+        for key in def.get("skills",[]):soc_boss.skill_cds[key]=float(o.boss_skill_in)
+        print(LOG,"boss skills ",def.get("skills",[])," held for ",o.boss_skill_in," s")
     _advance(float(o.get("advance",0.0)))
     if o.has("farm_drops"):_farm_until_drops(int(o.farm_drops),float(o.get("farm_limit",120.0)))
     if bool(o.get("full_hp",false)):sim.state.player.hp=sim.stats().hp
