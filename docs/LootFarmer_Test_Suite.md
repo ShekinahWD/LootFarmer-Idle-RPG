@@ -1,4 +1,13 @@
-# LootFarmer — Test Suite (current, 2026-11-11, Change 69)
+# LootFarmer — Test Suite (current, 2026-11-12, player-profile playtesting Phase 1)
+
+## Player-profile playtesting, Phase 1 (12 November 2026)
+
+How-to: [LootFarmer_Player_Profile_Playtesting.md](LootFarmer_Player_Profile_Playtesting.md).
+
+- **Registered** `player_profile_probe` (45 checks, about 10 s): the clock seam is off by default and production calls read the system clock; with the seam a simulated day boundary refreshes the daily missions; a simulated three-hour absence is settled once and claimed exactly once; boss-respawn settlement and the Prestige transaction id follow the seam; a 240-second natural Active playthrough gives the same event-log digest and state digest twice from fresh profiles and a different one for another seed; a save snapshot survives a JSON round trip and restore. Its clock sections seed labelled fixture values and are not playthrough evidence.
+- **Not in the suite (non-gating, run deliberately, one Godot process at a time):** the playthrough audits, `python tools/player_profile_run.py run|determinism|report --batch <id> …` (scene `tests/playtest/player_profile_run.tscn`). Output goes to `tests/tmp/player_profiles/<batch>/` (git-ignored, with a `.gdignore`).
+- **Production change covered:** `LootSimulation.clock_override` / `now_unix()` / `today()` (default: the system clock). No save field, schema, rule or balance value changed.
+- **Full run in the working tree: 45/62 passed.** The new probe passes. The 17 failing entries (`export_manifest`, `change_57`, `change_56`, `change_55`, `change_54`, `change_52`, `change_51`, `change_41`, `localization_batch01`, `localization_progression`, `change_36`, `change_27`, `change_24`, `change_20`, `change_17`, `change_13`, `change_7`) fail with the same failure counts when the three tracked files this batch touched are restored to commit `77b532f`, so they predate it and were left alone (Playbook 60: classify before changing anything).
 
 ## Change 69 — quick Auto Farm, walking countdown, ON/OFF toggles (11 November 2026)
 

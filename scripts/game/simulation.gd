@@ -78,6 +78,21 @@ var _preview_upgrades: Dictionary = {}
 ## feedback takes a fresh baseline instead of announcing the replacement as stat gains or losses.
 var profile_epoch := 0
 
+## Player-profile playtesting (Phase 1): the one wall-clock seam. Negative (the default, and the only
+## value a shipped game ever has) means the real system clock. A test harness may set a virtual Unix
+## time so the mission day, offline settlement, boss-respawn settlement and the Prestige transaction id
+## are reproducible. Session-only: never saved, never read from a save, reset by the harness on exit.
+## Active-time clocks (state.clock, playtime) and every timer rule are untouched.
+var clock_override: float = -1.0
+
+## Unix seconds now: the system clock unless a test set clock_override.
+func now_unix() -> float:
+    return clock_override if clock_override>=0.0 else Time.get_unix_time_from_system()
+
+## The calendar day that decides the daily missions: the device's local date, or the override's UTC date.
+func today() -> String:
+    return Time.get_date_string_from_unix_time(int(clock_override)) if clock_override>=0.0 else Time.get_date_string_from_system()
+
 func _ready() -> void:
     rng.randomize()
     new_profile()
@@ -181,7 +196,7 @@ func save_snapshot() -> Dictionary:
         worlds[key]=saved
     result.stage_worlds=worlds
     result.explored=campaign.encode_explored(state.explored)
-    result["boss_saved_at"] = float(state.boss_saved_at) if suspended else Time.get_unix_time_from_system()
+    result["boss_saved_at"] = float(state.boss_saved_at) if suspended else now_unix()
     result["reward_stage"] = campaign.reward_stage()
     result["rng_state"] = str(rng.state)
     result["offline_snapshot"] = state.offline_snapshot.duplicate(true) if suspended else campaign.offline_snapshot()
@@ -238,7 +253,7 @@ func _valid_snapshot(data: Dictionary) -> bool:
 
 func _notification(what: int) -> void:
     if what == NOTIFICATION_APPLICATION_PAUSED:
-        state.boss_saved_at=Time.get_unix_time_from_system()
+        state.boss_saved_at=now_unix()
         state.offline_snapshot=campaign.offline_snapshot()
         suspended = true
         movement = Vector2.ZERO
@@ -1888,7 +1903,7 @@ func tick_boss_respawns(seconds: float) -> void:
             state.boss_respawns.erase(id);boss_respawns_changed.emit()
 
 func settle_boss_respawns(now: float=-1) -> void:
-    if now<0:now=Time.get_unix_time_from_system()
+    if now<0:now=now_unix()
     var saved:=float(state.boss_saved_at)
     if saved>0:tick_boss_respawns(maxf(0,now-saved))
     state.boss_saved_at=now

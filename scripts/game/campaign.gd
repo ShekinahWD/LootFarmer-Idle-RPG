@@ -947,7 +947,7 @@ func progress(kind: String,id: String,amount: float) -> void:
 func counter(key: String) -> float:return float(sim.state.counters.get(key,0))
 func missions_auto_claimed() -> bool:return bool(sim.state.mission_auto) and sim.level("mission_claim")>0
 func refresh_missions() -> void:
-    var day=Time.get_date_string_from_system()
+    var day=sim.today()
     for i in range(sim.state.missions.size()):
         if sim.state.missions[i].kind=="waiting" or (sim.state.missions[i].claimed and sim.state.missions[i].day!=day):sim.state.missions[i]=new_mission(i,day)
     while sim.state.missions.size()<3+sim.level("mission_slots"):sim.state.missions.append(new_mission(sim.state.missions.size(),day))
@@ -1404,7 +1404,7 @@ func prestige_block_reason() -> String:
 func begin_prestige() -> bool:
     if not prestige_block_reason().is_empty():return sim.fail(prestige_block_reason())
     var before: Dictionary=sim.state.duplicate(true)
-    sim.state.prestige_batch={"ids":awardable_ids(),"choices":[],"transaction":str(Time.get_unix_time_from_system())+"-"+str(sim.rng.randi())}
+    sim.state.prestige_batch={"ids":awardable_ids(),"choices":[],"transaction":str(sim.now_unix())+"-"+str(sim.rng.randi())}
     # Change 61: an optional Prestige taken at the Guided Prestige lesson completes that lesson before
     # the reset (the tutorial record is kept), so The Road Ahead follows on the new run's first map.
     guided.prestige_started()
@@ -1507,14 +1507,14 @@ func offline_snapshot() -> Dictionary:
     for id in sim.state.items:
         var kind: String=sim.catalog.items[id].kind
         if eligible.has(kind) and sim.quantity(id)>0 and not sim.is_legacy(id):eligible[kind].append(id)
-    return {"time":maxf(Time.get_unix_time_from_system(),float(sim.state.get("offline_snapshot",{}).get("time",0))),"cap":[5,8,12,18,24,36,48][sim.level("offline_cap")]*3600,"coins":(120+60*sim.level("offline_coins"))*(1+bonus("offline_coins")),"gems":(2+.5*sim.level("offline_gems"))*(1+bonus("offline_gems")),"eligible":eligible,"rates":{"weapon":(1+.5*sim.level("offline_weapon_rate"))*sim.level("offline_weapon"),"outfit":(1+.5*sim.level("offline_outfit_rate"))*sim.level("offline_outfit"),"consumable":(2+sim.level("offline_consumable_rate"))*sim.level("offline_consumable")},"items_bonus":1+bonus("offline_items"),"eligible_time":sim.state.prestige_batch.is_empty()}
+    return {"time":maxf(sim.now_unix(),float(sim.state.get("offline_snapshot",{}).get("time",0))),"cap":[5,8,12,18,24,36,48][sim.level("offline_cap")]*3600,"coins":(120+60*sim.level("offline_coins"))*(1+bonus("offline_coins")),"gems":(2+.5*sim.level("offline_gems"))*(1+bonus("offline_gems")),"eligible":eligible,"rates":{"weapon":(1+.5*sim.level("offline_weapon_rate"))*sim.level("offline_weapon"),"outfit":(1+.5*sim.level("offline_outfit_rate"))*sim.level("offline_outfit"),"consumable":(2+sim.level("offline_consumable_rate"))*sim.level("offline_consumable")},"items_bonus":1+bonus("offline_items"),"eligible_time":sim.state.prestige_batch.is_empty()}
 ## Background settlement only records what was earned: rewards wait in offline_pending (saved, merged
 ## across several absences, each interval capped as before) until the player claims them in game.
 ## Only the claim pays out and advances the offline counters that discover offline opportunities.
 func settle_offline(now: float=-1) -> void:
     var snap: Dictionary=sim.state.get("offline_snapshot",{})
     if snap.is_empty():return
-    if now<0:now=Time.get_unix_time_from_system()
+    if now<0:now=sim.now_unix()
     var elapsed=maxf(0,now-float(snap.time))
     if elapsed<2:return
     var before: Dictionary=sim.state.duplicate(true)
@@ -2505,7 +2505,7 @@ func normalize_change17(out: Dictionary) -> void:
         if g<0 or g>=sim.catalog.groups.size() or not sim.catalog.groups[g].boss or str(id)!="g%d_v2_0" % g:out.boss_respawns.erase(id);continue
         e.group=g;e.stage=int(sim.catalog.groups[g].stage);e.remaining=clampf(float(e.remaining),0,sim.spawn_cooldown(g))
         var home: Vector2=sim.spawn_home(g,2,0);e.x=home.x;e.y=home.y
-    if not number(out.get("boss_saved_at")):out.boss_saved_at=Time.get_unix_time_from_system()
+    if not number(out.get("boss_saved_at")):out.boss_saved_at=sim.now_unix()
 
 func normalize_skill_assignments(out: Dictionary) -> void:
     if not out.get("upgrades") is Dictionary:return
