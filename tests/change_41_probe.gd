@@ -263,7 +263,8 @@ func joystick_checks() -> void:
         SettingsState.set_joystick_position(position);await frames(4)
         game._refresh_follow_tracker();game._refresh_mission_tracker();game._layout_trackers()
         var tracker: Control=game.get_node("Safe/Layout/Map/FollowTracker")
-        check(tracker.visible and tracker.get_global_rect().end.y<=stick.get_global_rect().position.y,"%s: the followed tracker sits above the joystick" % stick.POSITIONS[position])
+        # Change 71: above the joystick when it shares the trackers' column, else down to the map's bottom margin.
+        check(tracker.visible and not tracker.get_global_rect().intersects(stick.get_global_rect()),"%s: the followed tracker is clear of the joystick" % stick.POSITIONS[position])
     sim.state.follow="";sim.state.follow_mission=""
     # Persistence: saved with the settings, kept by Hard Reset, older saves default to Center.
     SettingsState.set_joystick_position(0)

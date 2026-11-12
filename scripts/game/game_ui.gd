@@ -36,6 +36,7 @@ const PANEL_ALIASES:={"travel":"world","map":"world","inventory":"filters"}
 ## Inventory filter categories (index 0 shows everything); the dock grid and item browsing use them.
 const FILTER_KINDS:=["","weapon","outfit","skill"]
 const FILTER_TABS:=["ALL_ITEMS","WEAPONS","OUTFITS","SKILLS"]
+const SORT_TABS:=["SORT_DEFAULT","SORT_TIER","SORT_EVOLUTION","SORT_QUANTITY"]
 ## Panels a HUD control toggles: a second tap on the control closes its own panel.
 const LEVEL_PANEL:="level"
 const UPGRADE_TABS:=["TAB_PLAYER","TAB_INVENTORY","TAB_SUPPLIES","TAB_GEMS","TAB_OFFLINE"]
@@ -104,7 +105,18 @@ var panel_clock:=0.0
 var panel_revision:=-1
 var settle_frames:=0
 var previous_pause:=false
-var inventory_filter:=0
+## Change 71: the main inventory's category and order live in SettingsState (saved, kept by close, travel,
+## Prestige and relaunch). These properties keep the old names for the UI and the probes.
+var inventory_filter: int:
+    get:return SettingsState.inventory_filter
+    set(value):SettingsState.set_inventory_view(value,SettingsState.inventory_sort)
+var inventory_sort: int:
+    get:return SettingsState.inventory_sort
+    set(value):SettingsState.set_inventory_view(SettingsState.inventory_filter,value)
+## Change 71: the dock gear grid's view: gear_view[p] is the backing index (sim.state.gear) shown by the slot
+## node at position p. Sorting and filtering reorder this map only; owned items never move.
+var gear_view: Array[int]=[]
+var gear_view_key:=""
 var slot_signatures: Dictionary={}
 var tier_styles: Dictionary={}
 var arrow_art: Texture2D
@@ -147,6 +159,7 @@ var explored_text:=""
 var gate_text:=""
 ## Map Mastery: 0 lists the maps, otherwise the stage whose page is open.
 var mastery_stage:=0
+var mastery_tracker: Control
 var travel_stage:=1
 ## Change 15: panels that belong to a revealed system (campaign.onboarding). Every way into a panel
 ## goes through _open, so a hidden system cannot be reached from the minimap, the character, an
@@ -184,6 +197,8 @@ func _ready() -> void:
     SettingsState.settings_changed.connect(_sync_zoom)
     _sync_zoom()
     SettingsState.settings_changed.connect(_place_joystick)
+    # Change 71: the tracker stack follows a joystick move at once (not on the next HUD tick).
+    SettingsState.settings_changed.connect(_layout_trackers,CONNECT_DEFERRED)
     _place_joystick()
     for id in sim.catalog.items:
         icon_cache[id]=sim.catalog.icon(id)
@@ -244,11 +259,6 @@ func _ready() -> void:
     $ReviewInvitation.review_pressed.connect(_review_open_store)
     $ReviewInvitation.later_pressed.connect(_review_later)
     $Safe/Layout/Map/ViewCamp.text=tr("VIEW_CAMP")
-    $Safe/Layout/Map/Objective/Text.text=tr("OBJECTIVE_WINTER_BOSS")
-    var objective_style: StyleBox=$Safe/Layout/Map/Objective.get_theme_stylebox("panel").duplicate()
-    objective_style.content_margin_left=10;objective_style.content_margin_right=10
-    objective_style.content_margin_top=8;objective_style.content_margin_bottom=8
-    $Safe/Layout/Map/Objective.add_theme_stylebox_override("panel",objective_style)
     _settle_camp()
     $Confirm/Panel/Margin/Content/Actions/Confirm.pressed.connect(func()->void:
         var action:=confirm_action
@@ -269,7 +279,18 @@ func _ready() -> void:
     get_viewport().size_changed.connect(_safe_area)
     # Change 25: a tracker first measured before its text wrapped reported a several-hundred-pixel
     # height for one HUD tick (covering the map); it is laid out again as soon as the wrap settles.
-    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker]:
+    # Reuse the established mission tracker style/size, without introducing a floating panel.
+    mastery_tracker=$Safe/Layout/Map/MissionTracker.duplicate(0)
+    mastery_tracker.name="MasteryTracker"
+    mastery_tracker.hide()
+    $Safe/Layout/Map.add_child(mastery_tracker)
+    mastery_tracker.gui_input.connect(func(event: InputEvent)->void:
+        if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
+            var followed: Dictionary=sim.campaign.mastery.followed()
+            if not followed.is_empty():
+                mastery_stage=int(followed.stage);_open("mastery")
+                accept_event())
+    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker,mastery_tracker]:
         tracker.minimum_size_changed.connect(_layout_trackers,CONNECT_DEFERRED)
     $Safe/Layout/Map.resized.connect(func()->void:if sheet.visible:_layout_sheet())
     _safe_area()
@@ -388,11 +409,12 @@ func _process(dt: float) -> void:
     _refresh_badges()
     _refresh_follow_tracker()
     _refresh_mission_tracker()
+    _refresh_mastery_tracker()
     _layout_trackers()
     _refresh_explored()
     _refresh_mastery_chip()
     _refresh_gate()
-    _refresh_objective()
+    _layout_hud()
     _offer_offline_claim()
     if last_revision!=sim.revision or previous_pause!=get_tree().paused:
         last_revision=sim.revision
@@ -415,12 +437,40 @@ func _update_sheet_reserve() -> void:
     if reserve!=sheet_reserved:
         sheet_reserved=reserve
         _layout_sheet()
+## HUD followers are persistent reserved surfaces, not available space for transient notices.
+func _notice_blockers() -> Array:
+    var blocked: Array=guide.occupied_rects()
+    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker,mastery_tracker]:
+        if tracker!=null and tracker.visible:blocked.append(tracker.get_global_rect().grow(6))
+    return blocked
+
+## Change 71: a toast also keeps clear of the HUD's two control columns (the left enemy controls and the
+## top-right map stack). A banner does not use these: it is the top-of-screen milestone message and may pass
+## over them briefly, as before.
+func _toast_blockers() -> Array:
+    var blocked: Array=_notice_blockers()
+    var map: Control=$Safe/Layout/Map
+    for path in ["EnemySection","Achievement","EnemyUpgrades","QuickFarm","MiniMap","Zoom","Mastery","Explored","Gate","ViewCamp"]:
+        var node: Control=map.get_node(path)
+        if node.visible:blocked.append(node.get_global_rect().grow(4))
+    return blocked
+
+func _toast_overlaps(rect: Rect2) -> bool:
+    for r in _toast_blockers():
+        if r.intersects(rect):return true
+    return false
+
+func _notice_overlaps(rect: Rect2) -> bool:
+    for r in _notice_blockers():
+        if r.intersects(rect):return true
+    return false
+
 ## Change 63: where the banner goes. Its usual place is the top of the safe area; when that would cover
 ## the guide's caption, arrow or target frame it moves down below what it would cover, staying over the
 ## map. Vector2.INF: no free place now, so the banner waits in its queue (held, nothing dropped).
 func _banner_slot() -> Vector2:
     var rect:=_banner_rect()
-    var blocked: Array=guide.occupied_rects()
+    var blocked: Array=_notice_blockers()
     var map: Rect2=$Safe/Layout/Map.get_global_rect()
     for i in range(blocked.size()+1):
         var hit:=Rect2()
@@ -451,7 +501,7 @@ func _layout_banner() -> void:
     # Change 63: never over the guide; _banner_slot moves it to free space (it is held when none). A
     # placed banner keeps its place while that stays clear, so it never wobbles with the bobbing arrow.
     var key:=str(banner.current.get("title",""))+"|"+str(banner.current.get("subtitle",""))
-    if key==banner_placed_for and is_equal_approx(banner.position.x,at.x) and not guide.covers(Rect2(banner.position,wanted)):return
+    if key==banner_placed_for and is_equal_approx(banner.position.x,at.x) and not _notice_overlaps(Rect2(banner.position,wanted)):return
     banner_placed_for=key
     var slot:=_banner_slot()
     if slot!=Vector2.INF:at=slot
@@ -600,20 +650,78 @@ func _refresh_mission_tracker() -> void:
     if icon.texture!=art:icon.texture=art
     if tracker.mouse_filter!=Control.MOUSE_FILTER_STOP:tracker.mouse_filter=Control.MOUSE_FILTER_STOP
 
-## Trackers grow upward just above the joystick, with mission above Prestige.
+## Trackers grow upward from the bottom-left: Prestige lowest, then the mission, then Map Mastery. Change 71:
+## each has its own measured rectangle; the stack starts above the joystick only when the joystick shares the
+## column (Left or Center), else at the map's bottom margin. If the stack would reach the left controls it
+## widens (fewer wrapped lines) up to the free width beside the top-right stack, and as a last resort the
+## gaps tighten; it never covers the controls (tracker_clearance() reports the margin for probes).
+const TRACKER_GAP:=10.0
+const TRACKER_WIDTH:=360.0
 func _layout_trackers() -> void:
     var map: Control=$Safe/Layout/Map
-    var joystick: Control=$Safe/Layout/Map/Joystick
-    var y: float=joystick.position.y-12
-    var width:=minf(360,map.size.x-32)
-    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker]:
-        if not tracker.visible:continue
-        tracker.set_anchors_preset(Control.PRESET_TOP_LEFT)
-        var wanted:=Vector2(width,tracker.get_combined_minimum_size().y)
+    var list: Array=[]
+    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker,mastery_tracker]:
+        if tracker!=null and tracker.visible:list.append(tracker)
+    if list.is_empty():return
+    var bottom:=_tracker_floor(TRACKER_WIDTH)
+    var width:=minf(TRACKER_WIDTH,map.size.x-32)
+    var limit: float=left_column_bottom()+HUD_GAP*2
+    var gap:=TRACKER_GAP
+    if bottom-_tracker_stack_height(list,width,gap)<limit:
+        # Wider rows wrap less; the right column is free below the map stack, so any width up to the map's.
+        var wide: float=map.size.x-32
+        if map_stack_bottom()>limit:wide=map.size.x-HUD_MARGIN*2-MINIMAP_SIDE-24
+        width=maxf(width,minf(wide,map.size.x-32))
+        bottom=_tracker_floor(width)
+        if bottom-_tracker_stack_height(list,width,gap)<limit:gap=4.0
+    var y: float=bottom
+    for tracker in list:
+        var wanted:=Vector2(width,_tracker_height(tracker,width))
+        if tracker.anchor_left!=0 or tracker.anchor_top!=0 or tracker.anchor_right!=0 or tracker.anchor_bottom!=0:tracker.set_anchors_preset(Control.PRESET_TOP_LEFT)
         if not tracker.size.is_equal_approx(wanted):tracker.size=wanted
+        # A container never goes below its own minimum; stack by the size it actually took.
         y-=tracker.size.y
-        if not tracker.position.is_equal_approx(Vector2(16,y)):tracker.position=Vector2(16,y)
-        y-=10
+        if not tracker.position.is_equal_approx(Vector2(HUD_MARGIN,y)):tracker.position=Vector2(HUD_MARGIN,y)
+        y-=gap
+
+## Where the tracker stack's bottom edge goes for a column of this width.
+func _tracker_floor(width: float) -> float:
+    var map: Control=$Safe/Layout/Map
+    var stick: Control=$Safe/Layout/Map/Joystick
+    var stick_rect:=Rect2(stick.position,stick.size)
+    var column:=Rect2(HUD_MARGIN,0,width,map.size.y)
+    if column.intersects(stick_rect):return stick.position.y-12
+    return map.size.y-HUD_MARGIN
+
+## A tracker's height at a width: measured from its labels' fonts (a container that has not laid out yet
+## reports its previous wrap, Playbook 19.1), plus the panel's own margins.
+func _tracker_height(tracker: Control,width: float) -> float:
+    var icon_w: float=tracker.get_node("Row/Icon").custom_minimum_size.x
+    var sep: float=tracker.get_node("Row").get_theme_constant("separation")
+    var style: StyleBox=tracker.get_theme_stylebox("panel")
+    var text_w: float=width-style.get_minimum_size().x-icon_w-sep
+    var h:=0.0
+    for path in ["Row/Text/Name","Row/Text/Step"]:
+        var label: Label=tracker.get_node(path)
+        if not label.visible or label.text=="":continue
+        var font: Font=label.get_theme_font("font")
+        var font_size: int=label.get_theme_font_size("font_size")
+        h+=font.get_multiline_string_size(label.text,HORIZONTAL_ALIGNMENT_LEFT,text_w,font_size).y
+    h+=tracker.get_node("Row/Text").get_theme_constant("separation")
+    return ceilf(maxf(h,tracker.get_node("Row/Icon").custom_minimum_size.y)+style.get_minimum_size().y)
+
+func _tracker_stack_height(list: Array,width: float,gap: float) -> float:
+    var total:=0.0
+    for tracker in list:total+=_tracker_height(tracker,width)
+    return total+gap*(list.size()-1)
+
+## Probe accessor: the vertical space between the left controls and the highest visible tracker (negative =
+## overlap; INF when no tracker shows).
+func tracker_clearance() -> float:
+    var top:=INF
+    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker,mastery_tracker]:
+        if tracker!=null and tracker.visible:top=minf(top,tracker.position.y)
+    return top-left_column_bottom() if top!=INF else INF
 
 ## Change 16: a compact Map Mastery summary for the current map above Map Explored ("Mastery 34% ·
 ## 2/5"); a tap opens that map's Mastery page. It comes with Map Mastery (revealed with Prestige).
@@ -635,20 +743,67 @@ func _refresh_mastery_chip() -> void:
         var room: float=chip.size.x-chip.get_theme_stylebox("normal").get_minimum_size().x-chip.get_theme_constant("icon_max_width")-chip.get_theme_constant("h_separation")-4
         chip.add_theme_font_size_override("font_size",_fitting_font_size(text,room,17,13))
 
-## Change 16: on Winter I, until the Snowman has been defeated once, a persistent objective sits in
-## the map cluster: "KEEP FARMING UNTIL YOU CAN BEAT THE BOSS TO ADVANCE." Under the Next Stage chip
-## when that shows, else in the cluster's first free place; it never takes touches.
-func _refresh_objective() -> void:
-    var node: Control=$Safe/Layout/Map/Objective
-    var show: bool=int(sim.state.stage)==1 and sim.campaign.prestige_unlocked() and not sim.campaign.first_boss_defeated() and sim.state.tutorial.mode!="pending" and (sim.state.tutorial.mode!="guided" or revealed("objective"))
-    if node.visible!=show:node.visible=show
-    var gate: Control=$Safe/Layout/Map/Gate
-    var start: float=$Safe/Layout/Map/MiniMap.offset_bottom+8.0
-    if show:
-        node.offset_top=start
-        node.offset_bottom=start+node.get_combined_minimum_size().y
-    gate.offset_top=(node.offset_bottom+6.0) if show else start
-    gate.offset_bottom=gate.offset_top+gate.get_combined_minimum_size().y
+## Change 71: the HUD columns, laid out from what is visible (never fixed offsets alone). The map's top-right
+## stack is MINIMAP -> ZOOM -> map status (Mastery chip, Map Explored, Next Stage), one gap apart, inside the safe
+## area (the Map control already sits inside it). The left column is the enemy name, Achievements, Upgrades and
+## Auto Farm from the top, so up to three followed objectives fit above the joystick below them. Recent finds
+## and the Gem pickup sit beside the left column. Positions are written only when they change. (Change 71
+## removed the permanent Winter I "Farm until you can beat the boss" objective: the followed objectives and the
+## Next Stage chip carry that progression.)
+const HUD_MARGIN:=16.0
+const HUD_GAP:=8.0
+func _layout_hud() -> void:
+    var map: Control=$Safe/Layout/Map
+    var right: float=map.size.x-HUD_MARGIN
+    var y: float=HUD_MARGIN
+    for path in ["MiniMap","Zoom","Mastery","Explored","Gate"]:
+        var node: Control=map.get_node(path)
+        if not node.visible:continue
+        var size: Vector2=node.size
+        if path=="MiniMap":size=Vector2(MINIMAP_SIDE,MINIMAP_SIDE)
+        elif path=="Zoom":size=Vector2(MINIMAP_SIDE+12,maxf(56,node.get_combined_minimum_size().y))
+        else:
+            # A status chip is at least the minimap's width and grows leftward for a longer text, never off-screen.
+            var least: Vector2=node.get_combined_minimum_size()
+            size=Vector2(clampf(least.x,MINIMAP_SIDE,map.size.x*.6),maxf(least.y,STATUS_HEIGHTS[path]))
+        _place(node,Rect2(right-size.x,y,size.x,size.y))
+        y+=size.y+HUD_GAP
+    var x: float=HUD_MARGIN+2
+    y=HUD_MARGIN
+    for path in ["EnemySection","Achievement","EnemyUpgrades","QuickFarm"]:
+        var node: Control=map.get_node(path)
+        var height: float={"EnemySection":26.0}.get(path,60.0)
+        _place(node,Rect2(x,y,LEFT_COLUMN_WIDTH,height))
+        # Fixed slots (Playbook 19.1): each control keeps its place whether or not it shows right now, so a
+        # control that appears never lands on another one or makes the column jump.
+        y+=height+HUD_GAP
+    _place(map.get_node("History"),Rect2(x+LEFT_COLUMN_WIDTH+12,HUD_MARGIN+32,252,136),false)
+    _place(map.get_node("GemPickup"),Rect2(x+LEFT_COLUMN_WIDTH+12,HUD_MARGIN+180,142,36),false)
+
+const MINIMAP_SIDE:=230.0
+const STATUS_HEIGHTS:={"Mastery":44.0,"Explored":34.0,"Gate":38.0}
+const LEFT_COLUMN_WIDTH:=158.0
+func _place(node: Control,rect: Rect2,set_size:=true) -> void:
+    if node.anchor_left!=0 or node.anchor_right!=0 or node.anchor_top!=0 or node.anchor_bottom!=0:
+        node.set_anchors_preset(Control.PRESET_TOP_LEFT)
+    if not node.position.is_equal_approx(rect.position):node.position=rect.position
+    if set_size and not node.size.is_equal_approx(rect.size):node.size=rect.size
+
+## The bottom of the left control column (map coordinates), for the trackers and probes.
+func left_column_bottom() -> float:
+    var bottom: float=HUD_MARGIN
+    for path in ["EnemySection","Achievement","EnemyUpgrades","QuickFarm"]:
+        var node: Control=$Safe/Layout/Map.get_node(path)
+        if node.visible:bottom=maxf(bottom,node.position.y+node.size.y)
+    return bottom
+
+## The bottom of the top-right stack (map coordinates).
+func map_stack_bottom() -> float:
+    var bottom: float=HUD_MARGIN
+    for path in ["MiniMap","Zoom","Mastery","Explored","Gate"]:
+        var node: Control=$Safe/Layout/Map.get_node(path)
+        if node.visible:bottom=maxf(bottom,node.position.y+node.size.y)
+    return bottom
 
 func _open_equipped(kind: String) -> void:
     var id: String=sim.state[kind]
@@ -673,7 +828,9 @@ func _refresh_follow_tracker() -> void:
     var name_label: Label=tracker.get_node("Row/Text/Name")
     var step: Label=tracker.get_node("Row/Text/Step")
     if name_label.text!=str(op.name):name_label.text=str(op.name)
-    var text: String=sim.campaign.follow_summary(id)
+    # Change 71: the compact tracker shows the current requirement and its progress only; the Prestige panel
+    # keeps the full summary with the following step.
+    var text: String=sim.campaign.follow_summary(id,true)
     if step.text!=text:step.text=text
     var color:=Color(.45,1,.55) if ready else Color(.94,.95,.97)
     if step.get_theme_color("font_color")!=color:step.add_theme_color_override("font_color",color)
@@ -685,6 +842,32 @@ func _refresh_follow_tracker() -> void:
     elif focus.has("group") and int(focus.group)>=0:art=icon_cache.get(sim.catalog.groups[int(focus.group)].body,art)
     if icon.texture!=art:icon.texture=art
     if tracker.mouse_filter!=Control.MOUSE_FILTER_STOP:tracker.mouse_filter=Control.MOUSE_FILTER_STOP
+
+## One objective (Explore/Hunt/Research/Collect/Forge) can be followed from a reached map.
+func _refresh_mastery_tracker() -> void:
+    if mastery_tracker==null:return
+    var f: Dictionary=sim.campaign.mastery.followed()
+    var show: bool=not f.is_empty() and revealed("prestige") and sim.state.prestige_batch.is_empty()
+    mastery_tracker.visible=show
+    if not show:return
+    var st:=int(f.stage);var category: String=f.category
+    var objective: Dictionary=sim.campaign.mastery.objective(st,category)
+    var label: Label=mastery_tracker.get_node("Row/Text/Name")
+    var title:=str(sim.catalog.stages[st-1].name)+" · "+tr("MASTERY_"+category.to_upper())
+    if label.text!=title:label.text=title
+    var step: Label=mastery_tracker.get_node("Row/Text/Step")
+    # Change 71: like the other trackers, the current requirement with its progress, then the category's count.
+    var summary:=""
+    for part in objective.parts:
+        if int(part[2])<int(part[3]):
+            summary=_mastery_missing(st,part)+"  ·  "
+            break
+    summary+=tr("MASTERY_FOLLOW_PROGRESS") % [int(objective.done),int(objective.total)]
+    if step.text!=summary:step.text=summary
+    var icon: TextureRect=mastery_tracker.get_node("Row/Icon")
+    var art: Texture2D=_art(MASTERY_ART[category])
+    if icon.texture!=art:icon.texture=art
+    mastery_tracker.mouse_filter=Control.MOUSE_FILTER_STOP
 
 ## Map cluster (Change 14: zoom, Map Explored, minimap, Next Stage, top right): the current map's
 ## permanently explored share, from the same saved cells and fog grid as World and the Regional
@@ -771,17 +954,19 @@ func _refresh_slots() -> void:
             var slot=SLOT.instantiate()
             var index:=container.get_child_count()
             container.add_child(slot)
-            slot.quick_tap.connect(func()->void:_activate_slot(type,index))
-            slot.held.connect(func()->void:_select_slot(type,index))
+            slot.quick_tap.connect(func()->void:_activate_view_slot(type,index))
+            slot.held.connect(func()->void:_select_view_slot(type,index))
         while container.get_child_count()>list.size():
             var child=container.get_child(container.get_child_count()-1)
             container.remove_child(child)
             child.queue_free()
-        for i in range(list.size()):
-            var node: Button=container.get_child(i)
-            var id: String=list[i]
+        if type==0:_update_gear_view()
+        for p in range(list.size()):
+            var node: Button=container.get_child(p)
+            var i: int=p if type==1 else (gear_view[p] if p<gear_view.size() else -1)
+            var id: String=list[i] if i>=0 else ""
             var badge:=tr("EQUIPPED") if id!="" and sim.equipped(id) else (tr("AUTO") if type==1 and sim.state.auto_slots.has(i) else "")
-            var shown: bool=type==1 or inventory_filter==0 or (id!="" and sim.catalog.items[id].kind==FILTER_KINDS[inventory_filter])
+            var shown: bool=type==1 or i>=0
             var signature:="%s|%d|%d|%s|%s|%s" % [id,sim.quantity(id),sim.merge_level(id),badge,shown,panel=="item" and selected==id]
             if slot_signatures.get(node.get_instance_id(),"")==signature:continue
             slot_signatures[node.get_instance_id()]=signature
@@ -820,19 +1005,111 @@ func _refresh_slots() -> void:
 func _sync_filter_button() -> void:
     var button: Button=dock.get_node("Inventory/GearColumn/Head/Filters")
     var open: bool=sheet.visible and panel=="filters"
-    var text:=tr("FILTERS_ACTIVE") % tr(FILTER_TABS[inventory_filter]) if open and inventory_filter>0 else tr("FILTERS")
+    # Change 71: a saved category or order stays visible on the dock (fixed button size: long names trim).
+    var active: bool=inventory_filter>0 or inventory_sort>0
+    var text:=tr("FILTERS")
+    if inventory_filter>0:text=tr(FILTER_TABS[inventory_filter])+(" ↓" if inventory_sort>0 else "")
+    elif inventory_sort>0:text=tr(SORT_TABS[inventory_sort])
     if button.text!=text:button.text=text
-    var variation:=&"Primary" if open else &""
+    var tip:=tr("FILTERS_TOOLTIP")
+    if active:tip+="\n"+tr("INVENTORY_VIEW_NOW") % [tr(FILTER_TABS[inventory_filter]),tr(SORT_TABS[inventory_sort])]
+    if button.tooltip_text!=tip:button.tooltip_text=tip
+    # Only a saved view's longer name is fitted to the button (font first, then an ellipsis); the plain
+    # "Filters" label keeps the button's own sizing, as before Change 71.
+    var overrun:=TextServer.OVERRUN_TRIM_ELLIPSIS if active else TextServer.OVERRUN_NO_TRIMMING
+    if button.text_overrun_behavior!=overrun:
+        button.text_overrun_behavior=overrun
+        button.clip_text=active
+    var font_size:=_fitting_font_size(text,button.custom_minimum_size.x-button.get_theme_stylebox("normal").get_minimum_size().x-4,17,13) if active else 17
+    if button.get_theme_font_size("font_size")!=font_size:button.add_theme_font_size_override("font_size",font_size)
+    var variation:=&"Primary" if open else (&"ToggleOn" if active else &"")
     if button.theme_type_variation!=variation:button.theme_type_variation=variation
 
-## Change 11: filters last only while the Filters panel is open. Every close path (X, Back, the
-## shortcut again, opening another panel, programmatic closes) ends here, so the dock always
-## returns to the full inventory. Nothing else changes: items, counts, slots and equipment stay.
+## Change 71 (replaces Change 11's reset on close): the category and order are a saved preference of the
+## main inventory, so closing Filters keeps them. Every close path still ends here and re-renders the dock.
 func _clear_filters() -> void:
-    if inventory_filter==0:return
-    inventory_filter=0
+    _refresh_slots()
+
+## Change 71: one setter for both choices (the Filters panel's tabs call it); the dock re-renders at once.
+func _set_inventory_view(filter: int,sort: int) -> void:
+    SettingsState.set_inventory_view(filter,sort)
     slot_signatures.clear()
     _refresh_slots()
+    if sheet.visible:_refresh_panel()
+
+## The backing gear indices in display order (see gear_view). Default + All is the slot order itself, empty
+## slots included. A category shows only its items, a sort ranks them (ties by slot order, so the order is
+## stable); either way the empty slots follow the items, so capacity and the empty-slot actions stay visible. Rebuilt only when what it depends on changes.
+func _update_gear_view() -> void:
+    var key:="%d|%d|%d|" % [inventory_filter,inventory_sort,sim.state.gear.size()]
+    if inventory_filter>0 or inventory_sort>0:
+        for id in sim.state.gear:
+            key+=("%s:%d:%d:%s," % [id,sim.quantity(id),sim.merge_level(id),sim.evolve_block_reason(id).is_empty()]) if id!="" else ","
+    if key==gear_view_key:return
+    gear_view_key=key
+    gear_view=_gear_order()
+
+func _gear_order() -> Array[int]:
+    var all: Array[int]=[]
+    for i in range(sim.state.gear.size()):all.append(i)
+    if inventory_sort==0 and inventory_filter==0:return all
+    var items: Array[int]=[]
+    var empty: Array[int]=[]
+    for i in all:
+        var id: String=sim.state.gear[i]
+        if id=="":
+            empty.append(i)
+            continue
+        if inventory_filter>0 and str(sim.catalog.items[id].kind)!=FILTER_KINDS[inventory_filter]:continue
+        items.append(i)
+    if inventory_sort>0:
+        var keys: Dictionary={}
+        for i in items:keys[i]=_inventory_sort_key(str(sim.state.gear[i]))
+        items.sort_custom(func(a: int,b: int)->bool:
+            var ka: Array=keys[a]
+            var kb: Array=keys[b]
+            for k in range(ka.size()):
+                if ka[k]!=kb[k]:return ka[k]>kb[k]
+            return a<b)
+    return items+empty
+
+## Descending sort key per item (compared element by element; the slot index breaks ties). Tier: tier, then
+## merge level, then copies. Evolution: ready to evolve now, then merge progress toward the evolution
+## requirement, then spare copies toward its cost; items that can never evolve come last. Quantity: copies,
+## then tier.
+func _inventory_sort_key(id: String) -> Array:
+    var d: Dictionary=sim.catalog.items[id]
+    var qty: float=float(sim.quantity(id))
+    match inventory_sort:
+        1:return [int(d.get("tier",0)),sim.merge_level(id),qty]
+        2:
+            if str(d.get("next",""))=="":return [-1,0.0,0.0]
+            var required:=maxi(1,int(sim.catalog.progression.evolution.required_merge))
+            var ready: int=1 if sim.evolve_block_reason(id).is_empty() else 0
+            var spare:=minf(1.0,maxf(0.0,qty-1.0)/maxf(1.0,float(sim.evolution_spare_cost(id))))
+            return [ready,minf(1.0,float(sim.merge_level(id))/required),spare]
+        3:return [qty,int(d.get("tier",0))]
+    return [0]
+
+## The dock slot node that shows backing gear index i (null when the view hides it).
+func gear_slot_node(i: int) -> Control:
+    var grid: Node=dock.get_node("Inventory/GearColumn/GearScroll/Gear")
+    _update_gear_view()
+    var p: int=gear_view.find(i)
+    if i<0 or p<0 or p>=grid.get_child_count():return null
+    var node: Control=grid.get_child(p)
+    return node if node.visible else null
+
+## Slot taps arrive with the slot's position in the grid; the view says which backing slot that is now.
+func _activate_view_slot(type: int,p: int) -> void:
+    var i: int=p if type==1 else (gear_view[p] if p<gear_view.size() else -1)
+    if i<0:return
+    _activate_slot(type,i)
+
+func _select_view_slot(type: int,p: int) -> void:
+    var i: int=p if type==1 else (gear_view[p] if p<gear_view.size() else -1)
+    if i<0:return
+    _select_slot(type,i)
 
 ## One cached style per tier color, outfit milestone rank and highlight state; slots never duplicate
 ## styles per refresh. A milestone lifts the tier colour slightly (its hue stays the tier's).
@@ -1169,33 +1446,51 @@ func _update_toast(dt: float) -> void:
         if not toast_resume.is_empty() and str(toast_resume.text)==$Toast/Text.text:toast_time=maxf(float(toast_resume.time),.8)
         toast_resume={}
         $Toast.show()
-    # Free band of the map: above the joystick, below the player, never over an open panel.
+    # Free band of the map: above the joystick, below the player, never over an open panel. Change 71: the full
+    # width first; where that meets the HUD columns, the band between them (the toast wraps to more lines).
     var map: Control=$Safe/Layout/Map
-    var width:=minf(560,map.size.x-48)
+    var placed_text: String=$Toast/Text.text
+    if toast_placed_for==placed_text and $Toast.visible and $Toast.position.y>=map.global_position.y+8 and $Toast.position.y+$Toast.size.y<=map.global_position.y+map.size.y-212 and not _toast_overlaps(Rect2($Toast.position,$Toast.size)) and not ($FocusCountdown.visible and Rect2($Toast.position,$Toast.size).intersects($FocusCountdown.get_global_rect())):return
+    for width in _toast_widths():
+        var at:=_toast_slot(width)
+        if at!=Vector2.INF:
+            toast_placed_for=placed_text
+            $Toast.position=at
+            return
+    toast_placed_for=""
+    _suspend_toast()
+
+## Widths to try: the usual one, then the free band between the left controls and the top-right stack.
+func _toast_widths() -> Array:
+    var map: Control=$Safe/Layout/Map
+    var widths: Array=[minf(560,map.size.x-48)]
+    var band: float=map.size.x-HUD_MARGIN*2-LEFT_COLUMN_WIDTH-MINIMAP_SIDE-40
+    if band>=220 and band<widths[0]:widths.append(band)
+    return widths
+
+## The toast's top-left at this width (sized to its text), or INF when no clear place exists in the map.
+func _toast_slot(width: float) -> Vector2:
+    var map: Control=$Safe/Layout/Map
     if $Toast/Text.custom_minimum_size.x!=width-28:$Toast/Text.custom_minimum_size.x=width-28
-    var wanted:=Vector2(width,$Toast.get_combined_minimum_size().y)
+    var label: Label=$Toast/Text
+    var text_h: float=label.get_theme_font("font").get_multiline_string_size(label.text,HORIZONTAL_ALIGNMENT_CENTER,width-28,label.get_theme_font_size("font_size")).y
+    var wanted:=Vector2(width,ceilf(text_h+$Toast.get_theme_stylebox("panel").get_minimum_size().y))
     if not $Toast.size.is_equal_approx(wanted):$Toast.size=wanted
-    # Change 63: never over the active guide (caption, arrow, target frame). The toast climbs above what
-    # it would cover; with no free place in the map it waits in its queue (it is not dropped) and shows
-    # as soon as there is room.
+    var band_left: float=map.global_position.x+HUD_MARGIN+LEFT_COLUMN_WIDTH+20
     var x: float=map.global_position.x+(map.size.x-width)*.5
-    # A placed toast keeps its place while that stays clear (no wobble with the bobbing arrow).
-    if toast_placed_for==$Toast/Text.text and is_equal_approx($Toast.position.x,x) and $Toast.position.y>=map.global_position.y+8 and $Toast.position.y+wanted.y<=map.global_position.y+map.size.y-212 and not guide.covers(Rect2($Toast.position,wanted)) and not ($FocusCountdown.visible and Rect2($Toast.position,wanted).intersects($FocusCountdown.get_global_rect())):return
-    toast_placed_for=$Toast/Text.text
+    if width<minf(560,map.size.x-48):x=band_left
     var y: float=map.global_position.y+map.size.y-212-wanted.y
     # Change 69: the walking countdown owns the band right above the joystick while it runs.
     if $FocusCountdown.visible:y=minf(y,$FocusCountdown.position.y-8-wanted.y)
-    var blocked: Array=guide.occupied_rects()
+    var blocked: Array=_toast_blockers()
     for i in range(blocked.size()+1):
         var hit:=Rect2()
         for r in blocked:
             if r.intersects(Rect2(x,y,width,wanted.y)) and (hit.size==Vector2.ZERO or r.position.y<hit.position.y):hit=r
         if hit.size==Vector2.ZERO:break
         y=hit.position.y-8-wanted.y
-    if y<map.global_position.y+8 or guide.covers(Rect2(x,y,width,wanted.y)):
-        _suspend_toast()
-        return
-    $Toast.position=Vector2(x,y)
+    if y<map.global_position.y+8 or _toast_overlaps(Rect2(x,y,width,wanted.y)):return Vector2.INF
+    return Vector2(x,y)
 
 ## Change 63: hides the toast on screen and puts it back at the front of its queue with its remaining
 ## seconds, so it returns (once, with that time) as soon as there is room.
@@ -1225,6 +1520,9 @@ func _milestone(kind: String,id: String) -> void:
             var d: Dictionary=sim.catalog.campaign.cards[id]
             banner.push(kind,tr("MILESTONE_CARD") % d.name,d.description,[{"icon":_path_art(str(d.path)),"text":PRESTIGE_CARD_SCRIPT.headline(d)}])
         "prestiged":
+            # Change 71: the Prestige is committed and saved; the choice panel closes so the world celebration
+            # (world.prestige_fx, centred on the hero) and this banner are seen instead of playing under it.
+            if sheet.visible and panel=="prestige":_close()
             banner.push(kind,tr("MILESTONE_PRESTIGED"),tr("MILESTONE_PRESTIGED_DETAIL") % id.split(",").size())
             AudioService.play("prestiged")
         "stage":
@@ -1446,8 +1744,6 @@ func _language_changed() -> void:
     elapsed=1.0
     slot_signatures.clear()
     $Safe/Layout/Map/ViewCamp.text=tr("VIEW_CAMP")
-    # Change 61: the Snowman objective chip (built once in _ready) also follows the language.
-    $Safe/Layout/Map/Objective/Text.text=tr("OBJECTIVE_WINTER_BOSS")
     if sheet.visible:_refresh_panel(true)
     _refresh_slots()
 
@@ -1457,7 +1753,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 func _panel_context() -> String:
-    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target)+":"+str(travel_stage)+":"+str(teleport_stage),sim.campaign.focus_hint,mastery_stage]+":"+help_page
+    return "%s:%s:%d:%d:%d:%d:%d:%s:%d:%d:%s:%d:%s:%d:%d" % [panel,selected,selected_slot,group,player_tab,enemy_tab,enemy_variant,selected_card,inventory_filter,sim.state.prestige_batch.get("choices",[]).size(),show_completed_main,guide_stage,str(teleport_target)+":"+str(travel_stage)+":"+str(teleport_stage),sim.campaign.focus_hint,mastery_stage]+":"+help_page+":"+str(inventory_sort)
 
 func _refresh_panel(force_layout:=false) -> void:
     panel_clock=0.0
@@ -1614,9 +1910,14 @@ func _restore_panel_scroll(offset: int,generation: int) -> void:
 func _browse_list() -> Array:
     var supplies: bool=selected_slot>=0 or (sim.catalog.items.has(selected) and sim.catalog.items[selected].kind=="consumable")
     var result: Array=[]
-    for id in (sim.state.supplies if supplies else sim.state.gear):
+    # Change 71: gear browses in the dock's displayed order (category and sort applied).
+    var order: Array=sim.state.supplies
+    if not supplies:
+        _update_gear_view()
+        order=[]
+        for i in gear_view:order.append(sim.state.gear[i])
+    for id in order:
         if id=="" or result.has(id):continue
-        if not supplies and inventory_filter>0 and sim.catalog.items[id].kind!=FILTER_KINDS[inventory_filter]:continue
         result.append(id)
     return result
 
@@ -1640,8 +1941,8 @@ func _item_panel() -> void:
         _set_title(tr("EMPTY_SLOT"))
         _text(tr("EMPTY_SLOT_HELP"))
         if selected_slot>=0:
+            _supply_shop()
             var row:=HFlowContainer.new();rows.add_child(row)
-            _buy_supply_actions(row)
             _toggle_style(_game_action(tr("AUTO_SLOT_STATUS") % tr("ON" if sim.state.auto_slots.has(selected_slot) else "OFF"),func()->void:sim.bind_auto(selected_slot),true,"",row),sim.state.auto_slots.has(selected_slot))
         return
     var id:=selected
@@ -1730,6 +2031,8 @@ func _item_panel() -> void:
         # button keeps its unwrapped width, so a long translated reason widened the sheet past the screen; blocked,
         # it is a full-width row that wraps (as other panel rows do).
         _game_action(tr("EVOLVE") % sim.catalog.display_name(def.next),func()->void:if selected==id:_manual_evolve(id),evolve_block.is_empty(),evolve_block,more if evolve_block.is_empty() else null)
+        if sim.evolution_bulk_count(id)>1:
+            _game_action(tr("EVOLVE_ALL_COPIES") % [sim.evolution_bulk_count(id),sim.catalog.display_name(def.next)],func()->void:if selected==id:_manual_evolve_all(id),evolve_block.is_empty(),evolve_block,more if evolve_block.is_empty() else null)
     if def.kind=="skill":
         for i in range(1+sim.level("skill_slots")):
             _game_action(tr("EQUIP_SKILL_SLOT") % (i+1),func()->void:if selected==id:sim.campaign.equip_skill(id,i),true,"",more)
@@ -1818,7 +2121,10 @@ func _supply_panel(id: String,list: Array) -> void:
     more.add_theme_constant_override("v_separation",8)
     rows.add_child(more)
     if int(s.get("price",0))>0:
-        _game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),fmt_cost(int(s.price))],func()->void:if selected==id:_confirmed(sim.purchase_consumable(id)),true,"",more)
+        # Change 71: the shop's saved quantity applies here too (one atomic purchase of that many).
+        var amount: int=SettingsState.supply_buy_amount
+        var block:=sim.consumable_purchase_block(id,amount)
+        _game_action(tr("SHOP_BUY_ITEM") % [amount,fmt_cost(sim.consumable_total(id,amount))],func()->void:if selected==id:_confirmed(sim.purchase_consumables(id,SettingsState.supply_buy_amount)),block.is_empty(),block,more).set_meta("guide","buy_supply_detail")
     _drop_action(id,more)
     for button in more.get_children():
         button.size_flags_horizontal=0
@@ -2029,7 +2335,10 @@ func _tabs(keys: Array,active: int,callback: Callable) -> void:
     rows.add_child(bar)
     # Localization Batch 01: a label longer than its equal share of the row ("Consommables", "Sin conexión")
     # steps its font down instead of being cut; the ellipsis remains only as a last resort.
-    var room: float=(maxf(320.0,$Sheet/Margin/Content/Scroll.size.x-24)-6.0*(keys.size()-1))/keys.size()-get_theme_stylebox("normal","Button").get_minimum_size().x-4
+    # Change 71: on a panel's first build the scroll is not laid out yet; the sheet's width (map width less
+    # its insets, margins and scroll bar) is the width it will have.
+    var width: float=maxf($Sheet/Margin/Content/Scroll.size.x-24,$Safe/Layout/Map.size.x-sheet_inset.x*2-72)
+    var room: float=(maxf(320.0,width)-6.0*(keys.size()-1))/keys.size()-get_theme_stylebox("normal","Button").get_minimum_size().x-4
     for i in range(keys.size()):
         var button:=Button.new()
         button.text=tr(keys[i])
@@ -2112,14 +2421,98 @@ func _upgrades_panel() -> void:
     if player_tab==1:_text(tr("SUPPLY_CAPACITY_NOTE") % sim.supply_ids().size(),17,Color(.75,.8,.87))
     if player_tab==2:
         _text(tr("SUPPLY_MASTERY_EXPLAIN") % int(sim.catalog.progression.supply_mastery.cap),17,Color(.75,.8,.87))
-        var row:=HFlowContainer.new();rows.add_child(row)
-        _buy_supply_actions(row)
+        _supply_shop()
 
-## Shop buttons for all five priced supplies. Bought copies add stock only.
-func _buy_supply_actions(row: Node) -> void:
+## Change 71: the Supplies shop. One purchase quantity shared by every supply (x1, x5, x10, x25 or Custom),
+## saved in SettingsState and kept until the player changes it; then one card per priced supply: icon, name,
+## unit price, owned count, the quantity and its total, and one Buy button for exactly that many (an atomic
+## sim.purchase_consumables). The quantity is never lowered to fit the wallet: the card says why it cannot
+## be bought instead. Bought copies add stock only (Supply Mastery grows by use).
+const SUPPLY_PRESETS:=[1,5,10,25]
+var supply_custom:=false
+func _supply_shop() -> void:
+    var amount: int=SettingsState.supply_buy_amount
+    var custom: bool=supply_custom or not SUPPLY_PRESETS.has(amount)
+    _section(tr("SHOP_QUANTITY"))
+    var presets:=HBoxContainer.new()
+    presets.add_theme_constant_override("separation",6)
+    rows.add_child(presets)
+    for n in SUPPLY_PRESETS:
+        var b:=_shop_chip("×%d" % n,func()->void:supply_custom=false;SettingsState.set_supply_buy_amount(n),presets)
+        b.theme_type_variation=&"Primary" if n==amount and not custom else &""
+        b.set_meta("guide","supply_qty_%d" % n)
+    var c:=_shop_chip(tr("SHOP_CUSTOM"),func()->void:supply_custom=true,presets)
+    c.theme_type_variation=&"Primary" if custom else &""
+    c.set_meta("guide","supply_qty_custom")
+    if custom:
+        var stepper:=HBoxContainer.new()
+        stepper.add_theme_constant_override("separation",6)
+        stepper.alignment=BoxContainer.ALIGNMENT_CENTER
+        rows.add_child(stepper)
+        for step in [-10,-1]:
+            _shop_chip("%+d" % step,func()->void:SettingsState.set_supply_buy_amount(SettingsState.supply_buy_amount+step),stepper).disabled=amount<=1
+        var value:=Label.new()
+        value.text="×%d" % amount
+        value.custom_minimum_size=Vector2(96,0)
+        value.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+        value.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
+        value.add_theme_font_size_override("font_size",24)
+        value.add_theme_color_override("font_color",Color(1,.88,.55))
+        stepper.add_child(value)
+        for step in [1,10]:
+            _shop_chip("%+d" % step,func()->void:SettingsState.set_supply_buy_amount(SettingsState.supply_buy_amount+step),stepper).disabled=amount>=SettingsState.SUPPLY_BUY_MAX
     for id in sim.supply_ids():
-        var price:=int(sim.supply(id).get("price",0))
-        if price>0:_game_action(tr("BUY_SUPPLY") % [sim.catalog.display_name(id),fmt_cost(price)],func()->void:_confirmed(sim.purchase_consumable(id)),true,"",row).set_meta("guide","buy_supply_"+id)
+        if int(sim.supply(id).get("price",0))>0:_supply_shop_card(id,amount)
+
+## A quantity chip: the normal game button at a compact, still finger-sized height.
+func _shop_chip(text: String,callback: Callable,parent: Node) -> Button:
+    var b:=Button.new()
+    b.text=text
+    b.custom_minimum_size=Vector2(0,56)
+    b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    b.add_theme_font_size_override("font_size",19)
+    b.focus_mode=Control.FOCUS_NONE
+    parent.add_child(b)
+    b.pressed.connect(func()->void:
+        callback.call()
+        AudioService.play("ui_click")
+        if sheet.visible:_refresh_panel())
+    return b
+
+func _supply_shop_card(id: String,amount: int) -> void:
+    var unit:=int(sim.supply(id).get("price",0))
+    var total:=sim.consumable_total(id,amount)
+    var reason:=sim.consumable_purchase_block(id,amount)
+    var card:=PanelContainer.new()
+    card.theme_type_variation=&"Card"
+    rows.add_child(card)
+    var line:=HBoxContainer.new()
+    line.add_theme_constant_override("separation",12)
+    card.add_child(line)
+    _card_icon(line,icon_cache.get(id),Color.WHITE,52)
+    var text:=VBoxContainer.new()
+    text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    text.add_theme_constant_override("separation",2)
+    line.add_child(text)
+    _card_line(text,sim.catalog.display_name(id),20,Color.WHITE)
+    _card_line(text,tr("SHOP_UNIT_OWNED") % [fmt_cost(unit),fmt_count(sim.quantity(id))],17,Color(.8,.84,.9))
+    # Fixed rows (Playbook 128.3): the total line always, and a reserved reason line (blank while buyable).
+    _card_line(text,tr("SHOP_TOTAL") % [amount,fmt_cost(total)],17,Color(1,.88,.55))
+    _card_line(text,tr(reason) if not reason.is_empty() else " ",17,Color(1,.72,.45))
+    var buy:=Button.new()
+    buy.custom_minimum_size=Vector2(128,76)
+    buy.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+    buy.text=tr("SHOP_BUY_N") % amount
+    buy.disabled=not reason.is_empty()
+    buy.theme_type_variation=&"Primary" if reason.is_empty() else &""
+    buy.tooltip_text=tr(reason) if not reason.is_empty() else tr("SHOP_TOTAL") % [amount,fmt_cost(total)]
+    buy.add_theme_font_size_override("font_size",20)
+    buy.set_meta("guide","buy_supply_"+id)
+    buy.pressed.connect(func()->void:
+        _confirmed(sim.purchase_consumables(id,SettingsState.supply_buy_amount))
+        SaveService.mark_committed()
+        if sheet.visible:_refresh_panel())
+    line.add_child(buy)
 
 ## Compact upgrade card: icon, name, computed benefit, a status line and the buy button.
 ## The status line is always present; it wraps rather than cutting off the reason (Localization Batch 01:
@@ -2144,7 +2537,7 @@ func _group_upgrade_card(id: String,g: int) -> void:
     var reason:=sim.upgrade_block_reason(id,g)
     var status:=Label.new()
     status.name="BlockReason"
-    status.text=(tr("UPGRADE_LEVEL") % [current,def.cap])+("" if reason.is_empty() or reason=="UPGRADE_MAX" else "  ·  "+tr(reason))
+    status.text=(tr("UPGRADE_LEVEL") % [current,mini(int(def.cap),ceili((float(sim.catalog.groups[g].respawn)-15.0)/5.0)) if id=="boss_spawn_cooldown" and g>=0 else def.cap])+("" if reason.is_empty() or reason=="UPGRADE_MAX" else "  ·  "+tr(reason))
     status.tooltip_text=tr(reason) if not reason.is_empty() else ""
     status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
     status.add_theme_font_size_override("font_size",17)
@@ -2168,7 +2561,7 @@ func _group_upgrade_card(id: String,g: int) -> void:
 
 func _upgrade_icon(id: String,g: int) -> Texture2D:
     var def: Dictionary=sim.catalog.upgrades[id]
-    var icon: Texture2D=icon_cache.get(sim.catalog.groups[g].body) if g>=0 and def.scope in ["type","normal_type"] else _art(147)
+    var icon: Texture2D=icon_cache.get(sim.catalog.groups[g].body) if g>=0 and def.scope in ["type","normal_type","boss_type"] else _art(147)
     if id.begins_with("cooldown_"):icon=icon_cache.get("skill_"+id.trim_prefix("cooldown_"))
     elif id in ["auto_use","use_speed","supply_slots","supply_drop"]:icon=icon_cache.get("potion")
     elif id in ["map_detail","camp_radius","reveal_radius"]:icon=_art(249)
@@ -2176,7 +2569,7 @@ func _upgrade_icon(id: String,g: int) -> Texture2D:
     elif id.begins_with("offline_"):icon=_art(171)
     if id=="coin_amount":icon=COIN
     elif id in ["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"]:icon=GEM
-    elif id in ["loot","merge_gear","auto_evolve"] and g>=0:icon=icon_cache.get(sim.catalog.groups[g].weapon)
+    elif id in ["loot","merge_gear","auto_evolve","boss_item_rolls"] and g>=0:icon=icon_cache.get(sim.catalog.groups[g].weapon)
     return icon
 
 func _upgrade_row(id: String,g: int=-1) -> void:
@@ -2201,6 +2594,7 @@ func _upgrade_benefit(id: String,g: int) -> String:
         return tr("AUTO_MERGE_ON" if sim.level(id,g)>0 else "AUTO_MERGE_BENEFIT") % _item_names(drops)
     if id=="auto_evolve" and g>=0:
         return tr("AUTO_EVOLVE_ON" if sim.level(id,g)>0 else "AUTO_EVOLVE_BENEFIT") % _item_names(sim.evolvable_drops(g))
+    if id=="boss_item_rolls":return tr("BOSS_ITEM_ROLLS_BENEFIT") % [1+sim.level(id,g),mini(5,2+sim.level(id,g))] if next>0 else tr("BOSS_ITEM_ROLLS_MAX") % 5
     # Change 55 M2: Map Detail names its next rank's real benefit (1 markers, 2 names, 3 loadouts).
     if id=="map_detail" and g>=0:
         if next==0:return tr("UPGRADE_MAXED_VALUE") % str(sim.level(id,g))
@@ -2221,7 +2615,7 @@ func _upgrade_benefit(id: String,g: int) -> String:
         left=fmt_currency(current);right=fmt_currency(future)
     var value:=tr("UPGRADE_TRANSITION") % [left,right] if next>0 else tr("UPGRADE_MAXED_VALUE") % left
     if id=="boss_gem_amount":value=tr("BOSS_GEMS_PER_DROP") % value
-    if id in ["respawn","collect_speed","gear_merge_speed","use_speed","spawn_cooldown"]:value=tr("SECONDS_VALUE") % value
+    if id in ["respawn","collect_speed","gear_merge_speed","use_speed","spawn_cooldown","boss_spawn_cooldown"]:value=tr("SECONDS_VALUE") % value
     if id=="supply_drop":value=tr("POTION_CHANCE_VALUE") % value
     return value
 
@@ -2289,14 +2683,16 @@ func _enemy_panel() -> void:
         _section(tr("SECTION_REWARDS"))
         for id in ["loot","coin_amount","group_xp","supply_drop"]:_group_upgrade_card(id,group)
         if not d.skills.is_empty():_group_upgrade_card("skill_drop",group)
-        if not d.boss:
+        if d.boss:
+            _group_upgrade_card("boss_spawn_cooldown",group);_group_upgrade_card("boss_item_rolls",group)
+        else:
             _group_upgrade_card("spawn_amount",group);_group_upgrade_card("spawn_cooldown",group)
         # Automation refinements appear once their automation is unlocked.
         _section(tr("SECTION_AUTOMATION"))
         # Change 13: Auto Evolution sits beside Auto-Merge, on types that drop an evolvable weapon.
         # Change 65: Focused Farming left this list (one global Player upgrade); automation stays per type.
         for pair in [["collect",""],["collect_range","collect"],["collect_batch","collect"],["collect_speed","collect"],["merge_gear",""],["auto_evolve",""],["gear_merge_speed","merge_gear"]]:
-            if pair[0]=="auto_evolve" and sim.evolvable_drops(group).is_empty():continue
+            if pair[0]=="auto_evolve" and (d.boss or sim.evolvable_drops(group).is_empty()):continue
             if pair[1]=="" or sim.level(pair[1],group)>0:_group_upgrade_card(pair[0],group)
         # Change 14: the same two research upgrades as Overview (same card, same purchase, same
         # state), listed with this type's other upgrades; owned ones read Max here.
@@ -2737,6 +3133,23 @@ func _camp_row(i: int,picker:=false) -> void:
             if i==_camp_at_player():reason="TELEPORT_HERE"
             _inline_button(tr("CAMP_TRAVEL"),func()->void:_travel_to(st,i),reason=="",reason,line,false).set_meta("guide","camp_travel_%d" % i)
 
+## Change 71: the one Follow / Unfollow control of Map Mastery, Missions and Prestige: the normal game button
+## at one compact size (never a card-wide bar), red Follow when not followed and green Unfollow when followed
+## (the ON/OFF toggle theme, Change 69), the same in every panel and language. A wider translation grows the
+## button, never wraps it. Eligibility, the saved choice and the action lock stay with each system.
+const FOLLOW_BUTTON_SIZE:=Vector2(132,56)
+func _follow_button(parent: Node,following: bool,callback: Callable,guide_key: String) -> Button:
+    var button:=_inline_button(tr("UNFOLLOW" if following else "FOLLOW"),callback,true,"",parent,false)
+    button.custom_minimum_size=FOLLOW_BUTTON_SIZE
+    button.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
+    button.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+    button.add_theme_font_size_override("font_size",18)
+    button.autowrap_mode=TextServer.AUTOWRAP_OFF
+    _toggle_style(button,following,button.disabled)
+    button.set_meta("guide",guide_key)
+    button.set_meta("follow_button",true)
+    return button
+
 func _inline_button(text: String,callback: Callable,enabled: bool,reason: String,parent: Node,primary: bool) -> Button:
     var button:=Button.new()
     button.text=text
@@ -3060,15 +3473,33 @@ func _inventory_panel() -> void:
     _inventory_zoom_controls()
     _set_title(tr("PANEL_FILTERS"))
     _pinned_equipment()
-    _tabs(FILTER_TABS,inventory_filter,func(i: int)->void:inventory_filter=i;slot_signatures.clear();_refresh_slots())
-    _text(tr("FILTERS_HINT"),16,Color(.7,.75,.82))
+    # Change 71: both rows organise the main gear inventory (the dock grid) and are saved; the list below shows
+    # exactly what the dock shows, in the same order. All and Default are the first tab of each row.
+    _section(tr("FILTER_ITEMS"))
+    _tabs(FILTER_TABS,inventory_filter,func(i: int)->void:_set_inventory_view(i,inventory_sort))
+    _section(tr("SORT_ITEMS"))
+    _tabs(SORT_TABS,inventory_sort,func(i: int)->void:_set_inventory_view(inventory_filter,i))
+    _text(tr("FILTERS_HINT_V71"),16,Color(.7,.75,.82))
     _merge_all_action()
-    for id in sim.state.items:
-        if sim.quantity(id)>0 and (inventory_filter==0 or sim.catalog.items[id].kind==FILTER_KINDS[inventory_filter]):
-            var b:=_action("%s · ×%s · ^%d" % [sim.catalog.display_name(id),fmt_count(sim.quantity(id)),sim.merge_level(id)],func()->void:selected=id;selected_slot=sim.state.supplies.find(id);_open("item"))
-            b.icon=icon_cache.get(id);b.expand_icon=true;b.add_theme_constant_override("icon_max_width",36)
+    _update_gear_view()
+    var listed: Array=[]
+    for i in gear_view:
+        var id: String=sim.state.gear[i]
+        if id=="" or listed.has(id) or sim.quantity(id)<=0:continue
+        listed.append(id)
+        _inventory_row(id,-1)
+    # Supplies are their own column on the dock; the unfiltered list ends with them.
+    if inventory_filter==0:
+        for i in range(sim.state.supplies.size()):
+            var id: String=sim.state.supplies[i]
+            if id=="" or sim.quantity(id)<=0:continue
+            _inventory_row(id,i)
 
-## Merge All (Change 12): shown once the 5,000-Gem unlock is owned; free to use. It reports one
+func _inventory_row(id: String,supply_slot: int) -> void:
+    var b:=_action("%s · ×%s · ^%d" % [sim.catalog.display_name(id),fmt_count(sim.quantity(id)),sim.merge_level(id)],func()->void:selected=id;selected_slot=supply_slot;_open("item"))
+    b.icon=icon_cache.get(id);b.expand_icon=true;b.add_theme_constant_override("icon_max_width",36)
+
+## Merge All (Change 12): once unlocked for 500 Gems, it is free to use. It reports one
 ## aggregate result (one notice, one confirm) and is disabled with "Nothing to merge" when idle.
 func _merge_all_action() -> void:
     if sim.level("merge_all")<1:
@@ -3408,6 +3839,8 @@ func _mastery_map(st: int) -> void:
         _card_line(text,("✓ " if complete else "")+tr("MASTERY_"+category.to_upper())+"  ·  %d / %d" % [int(o.done),int(o.total)],20,Color(.5,1,.65) if complete else Color.WHITE)
         _card_line(text,tr("MASTERY_"+category.to_upper()+"_RULE") % _mastery_rule_values(category),16,Color(.75,.8,.87))
         if complete:continue
+        var followed: bool=str(sim.state.get("follow_mastery",""))=="%d:%s" % [st,category]
+        _follow_button(text,followed,func()->void:sim.campaign.mastery.toggle_follow(st,category),"follow_mastery" if not followed else "unfollow_mastery")
         _mastery_bar(text,float(o.fraction))
         var missing: Array=[]
         for part in o.parts:
@@ -3603,11 +4036,7 @@ func _task_card(art: Texture2D,title: String,value: String,progress: float,goal:
     # the followed Prestige opportunity); Unfollow removes it.
     if not follow.is_empty() and (sim.campaign.can_follow_mission(follow[0],follow[1]) or sim.campaign.mission_followed(follow[0],follow[1])):
         var following: bool=sim.campaign.mission_followed(follow[0],follow[1])
-        var pin:=_inline_button(tr("UNFOLLOW" if following else "FOLLOW"),func()->void:sim.campaign.toggle_follow_mission(follow[0],follow[1]),true,"",text,false)
-        pin.custom_minimum_size=Vector2(132,52)
-        pin.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
-        pin.add_theme_font_size_override("font_size",17)
-        pin.set_meta("guide","follow_hunt" if follow[0]=="hunt" else "follow_mission")
+        _follow_button(text,following,func()->void:sim.campaign.toggle_follow_mission(follow[0],follow[1]),"follow_hunt" if follow[0]=="hunt" else "follow_mission")
     if ready:
         var button:=_inline_button(tr("CLAIM"),claim,true,reason,line,true)
         button.custom_minimum_size=Vector2(112,64)
@@ -3793,9 +4222,7 @@ func _opportunity_card(op: Dictionary) -> void:
     row.add_theme_constant_override("separation",8)
     # A ready opportunity has nothing left to follow (the action layer refuses it too).
     if sim.campaign.can_follow(op.id) or sim.state.follow==op.id:
-        var follow:=_inline_button(tr("UNFOLLOW" if sim.state.follow==op.id else "FOLLOW"),func()->void:sim.campaign.toggle_follow(op.id),true,"",row,false)
-        follow.custom_minimum_size=Vector2(150,64)
-        follow.set_meta("guide","follow" if sim.state.follow!=op.id else "unfollow")
+        var follow:=_follow_button(row,sim.state.follow==op.id,func()->void:sim.campaign.toggle_follow(op.id),"follow" if sim.state.follow!=op.id else "unfollow")
         follow.set_meta("guide_alt","follow_"+str(op.id) if sim.state.follow!=op.id else "")
     if op.path in ["offering","collection"] and not ready:
         var submit:=_inline_button(tr("SUBMIT_CONTRACT"),func()->void:sim.campaign.submit(op.id),true,"",row,true)
@@ -3854,8 +4281,8 @@ func _open_prestige_confirm(ready: Array) -> void:
         var op: Dictionary=_opportunity(id)
         rows_.append({"icon":_path_art(str(op.path)),"text":str(op.name)+"  ·  "+tr("PRESTIGE_CONFIRM_CHOOSE_CARD")})
     # Change 50: the approved Prestige rules (Coins, every upgrade and every merge level are kept).
-    var keep: Array=[tr("KEEP_LINE_CARDS") % sim.state.owned_cards.size(),tr("KEEP_LINE_COINS") % fmt_currency(sim.state.coins),tr("KEEP_LINE_GEMS") % fmt_currency(sim.state.gems),tr("KEEP_LINE_ALL_UPGRADES"),tr("KEEP_LINE_MERGES"),tr("KEEP_LINE_MAP"),tr("KEEP_LINE_PROGRESS"),tr("KEEP_LINE_MAIN_OBJECTIVES"),tr("KEEP_LINE_SETTINGS"),tr("KEEP_LINE_LEVEL") % int(sim.state.player_level)]
-    var reset: Array=[tr("RESET_LINE_CARRIED_ITEMS"),tr("RESET_LINE_SUPPLY_MASTERY"),tr("RESET_LINE_MAPS"),tr("RESET_LINE_RUN_PROGRESS")]
+    var keep: Array=[tr("KEEP_LINE_CARDS") % sim.state.owned_cards.size(),tr("KEEP_LINE_COINS") % fmt_currency(sim.state.coins),tr("KEEP_LINE_GEMS") % fmt_currency(sim.state.gems),tr("KEEP_LINE_ALL_UPGRADES"),tr("KEEP_LINE_MERGES"),tr("KEEP_LINE_MAP"),tr("KEEP_LINE_PROGRESS"),tr("KEEP_LINE_MAIN_OBJECTIVES"),tr("KEEP_LINE_SETTINGS"),tr("KEEP_LINE_LEVEL") % int(sim.state.player_level),tr("KEEP_LINE_SUPPLY_MASTERY")]
+    var reset: Array=[tr("RESET_LINE_CARRIED_ITEMS"),tr("RESET_LINE_MAPS"),tr("RESET_LINE_RUN_PROGRESS")]
     $PrestigeConfirm.open(tr("PRESTIGE_CONFIRM_SUBTITLE") % ready.size(),rows_,keep,reset)
 
 ## The batch: one card per ready opportunity, chosen in order. Tap a card to select it, then keep it.
@@ -3878,7 +4305,7 @@ func _prestige_choice(batch: Dictionary) -> void:
     for id in batch.choices:earned.append(sim.catalog.campaign.cards[id].name)
     if not earned.is_empty():_text(tr("PRESTIGE_EARNED_SO_FAR") % ", ".join(earned),17,Color(.6,1,.75))
     _section(tr("PRESTIGE_KEEP_TITLE"))
-    _text(tr("PRESTIGE_KEEP_ALL"),17,Color(.6,1,.75))
+    _text(tr("PRESTIGE_KEEP_ALL")+"\n"+tr("KEEP_LINE_SUPPLY_MASTERY"),17,Color(.6,1,.75))
     _section(tr("PRESTIGE_RESET_TITLE"))
     _text(tr("PRESTIGE_RESET_RUN"),17,Color(1,.72,.45))
     if batch.choices.is_empty():
@@ -4075,6 +4502,19 @@ func _manual_evolve(id: String) -> bool:
     evolution_show.present(snapshot)
     return true
 
+## Bulk evolve keeps each real transaction and its mission/mastery credit; UI condenses effects.
+func _manual_evolve_all(id: String) -> bool:
+    if not sim.catalog.items.has(id):return false
+    var target: String=str(sim.catalog.items[id].next)
+    fx_manual=true;fx_evolutions.clear()
+    var amount:=sim.evolve_all(id)
+    fx_manual=false;fx_evolutions.clear()
+    if amount<=0:return false
+    AudioService.play("item_merge")
+    _say(tr("EVOLVE_ALL_DONE") % [amount,sim.catalog.display_name(target)])
+    pending_glints.append([target,true,0.0])
+    return true
+
 func _on_merged(id: String,before: int,after: int) -> void:
     if fx_manual:
         fx_merges.append([id,before,after])
@@ -4102,10 +4542,8 @@ func _flush_glints() -> void:
     var grid: Control=dock.get_node("Inventory/GearColumn/GearScroll/Gear")
     var view: Rect2=dock.get_node("Inventory/GearColumn/GearScroll").get_global_rect()
     for g in queued:
-        var index: int=sim.state.gear.find(str(g[0]))
-        if index<0 or index>=grid.get_child_count():continue
-        var slot: Control=grid.get_child(index)
-        if not slot.is_visible_in_tree():continue
+        var slot: Control=gear_slot_node(sim.state.gear.find(str(g[0])))
+        if slot==null or not slot.is_visible_in_tree():continue
         var rect:=slot.get_global_rect()
         if not view.intersects(rect):continue
         merge_fx.glint(rect,_tier_color(str(g[0])),bool(g[1]),float(g[2]))

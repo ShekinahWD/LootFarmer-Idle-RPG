@@ -231,6 +231,9 @@ func hard_reset() -> bool:
             reset.call()
     get_tree().paused = false
     Engine.time_scale = 1.0
+    # Change 71: the inventory organisation belongs to the inventory it organised; a fresh profile starts
+    # on All / Default so its first items are never hidden. Every other setting survives, as before.
+    SettingsState.reset_inventory_view()
     if not save_now():
         return false
     # Make recovery agree with reset instead of resurrecting previous progression.

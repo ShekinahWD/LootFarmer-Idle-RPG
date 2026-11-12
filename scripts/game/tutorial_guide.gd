@@ -513,7 +513,11 @@ func _guided_lesson() -> void:
             step="camp_earn";support_value=int(sim.supply("potion").price)-sim.state.coins;world_target=_nearest_enemy();return
         if ui.sheet.visible and ui.panel=="upgrades":
             if ui.player_tab!=2:target=_panel_control("tab_tab_supplies")
-            else:target=_panel_control("buy_supply_potion",true)
+            else:
+                # Change 71: the shop buys the saved quantity; when that many cannot be paid for, the lesson
+                # points at x1 first (the player's choice is never changed for them).
+                target=_panel_control("buy_supply_potion",true)
+                if target==null:target=_panel_control("supply_qty_1",true)
         else:target=ui.dock.get_node("Navigation/Upgrades")
         return
     if current=="potion_use":
@@ -786,9 +790,12 @@ func _first_item(test: Callable) -> String:
     return ""
 
 func _slot(id: String) -> Control:
+    # Change 71: the dock grid shows a saved category and order, so the item's slot is found through the view;
+    # an item the category hides points at the Filters button (the way to show it again).
     var index: int=sim.state.gear.find(id)
-    var grid: Node=ui.dock.get_node("Inventory/GearColumn/GearScroll/Gear")
-    return grid.get_child(index) if index>=0 and index<grid.get_child_count() else null
+    if index<0:return null
+    var node: Control=ui.gear_slot_node(index)
+    return node if node!=null else ui.dock.get_node("Inventory/GearColumn/Head/Filters")
 
 ## Controls are found by their guide tag, only in the open panel (rows and pinned actions).
 func _panel_control(key: String,enabled_only:=false) -> Control:

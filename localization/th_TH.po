@@ -4633,26 +4633,14 @@ msgstr "พบครบแล้ว! ส่งมอบ: เพรสทีจ �
 msgid "FILTERS"
 msgstr "ตัวกรอง"
 
-msgid "FILTERS_ACTIVE"
-msgstr "ตัวกรอง · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "กรองตารางอุปกรณ์ ปิดตัวกรองแล้วไอเทมทั้งหมดจะแสดงอีกครั้ง"
 
 msgid "PANEL_FILTERS"
 msgstr "ตัวกรอง"
 
-msgid "FILTERS_HINT"
-msgstr "ขณะเปิดตัวกรอง ตารางอุปกรณ์จะแสดงเฉพาะหมวดนี้ ปิดแล้วไอเทมทั้งหมดจะแสดงอีกครั้ง"
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "ช่องเสบียง: ประเภทละหนึ่งช่อง (%d ประเภท) ตัวกรองอยู่ข้างจำนวนอุปกรณ์"
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "ใช้เสบียงนี้จริงทุก 3 ครั้งจะได้ความชำนาญหนึ่งเลเวล สูงสุด ^%d การซื้อและการดรอปเพิ่มแค่จำนวนในคลัง เพรสทีจจะรีเซ็ตความชำนาญและความคืบหน้าการใช้"
-
-msgid "BUY_SUPPLY"
-msgstr "ซื้อ %s · %s เหรียญ"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · เหลือ %d วินาที"
@@ -4741,9 +4729,6 @@ msgstr "ยายังอยู่ในคูลดาวน์"
 msgid "SUPPLY_ACTIVE"
 msgstr "ทำงานอยู่แล้ว ใช้อีกครั้งเมื่อหมดฤทธิ์"
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "ใช้ทุกสามครั้งจะเพิ่มความชำนาญเสบียง เพรสทีจจะรีเซ็ตความชำนาญและความคืบหน้าการใช้"
-
 msgid "SOURCE_SUPPLY"
 msgstr "เสบียงที่ทำงานอยู่"
 
@@ -4824,9 +4809,6 @@ msgstr "ปลดล็อกแล้ว · ใช้ผสานทั้ง�
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "ยังไม่ได้ปลดล็อกผสานทั้งหมด"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "ผสานทั้งหมด: ปลดล็อกครั้งเดียวด้วยอัญมณี 5K ที่อัปเกรด → กระเป๋า"
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "ผสานทั้งหมด · ชิ้นสำรอง %d ชิ้น"
@@ -5367,12 +5349,6 @@ msgstr "ความชำนาญ %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "ความชำนาญแผนที่ของแผนที่นี้: เปอร์เซ็นต์และหมวดที่สำเร็จ แตะเพื่อดูรายละเอียด"
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "ฟาร์มจนกว่าจะชนะบอสได้"
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "มนุษย์หิมะเฝ้าทางไปฤดูหนาว II"
 
 msgid "VIEW_CAMP"
 msgstr "ดูค่าย"

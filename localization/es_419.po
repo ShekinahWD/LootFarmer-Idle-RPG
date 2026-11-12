@@ -4636,26 +4636,14 @@ msgstr "¡Ya tienes todo! Entrégalos: Prestigio y luego Entregar"
 msgid "FILTERS"
 msgstr "Filtros"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filtros · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Filtra la cuadrícula de equipo. Al cerrar Filtros se vuelven a mostrar todos los objetos."
 
 msgid "PANEL_FILTERS"
 msgstr "Filtros"
 
-msgid "FILTERS_HINT"
-msgstr "La cuadrícula de equipo muestra solo esta categoría mientras Filtros está abierto. Al cerrarlo se vuelven a mostrar todos los objetos."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Espacios de suministros: uno por tipo de suministro (%d tipos). Filtros está junto al contador de equipo."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Cada 3 usos reales de este suministro dan un nivel de maestría, hasta ^%d. Las compras y el botín solo suman existencias. El prestigio reinicia la maestría y el progreso de uso."
-
-msgid "BUY_SUPPLY"
-msgstr "Comprar %s · %s monedas"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · quedan %d s"
@@ -4744,9 +4732,6 @@ msgstr "La poción todavía se está enfriando."
 msgid "SUPPLY_ACTIVE"
 msgstr "Ya está activo. Vuelve a usarlo cuando se agote."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Cada tres usos suben la Maestría de suministros. El prestigio reinicia la maestría y el progreso de uso."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Suministros activos"
 
@@ -4827,9 +4812,6 @@ msgstr "Desbloqueado · usa Fusionar todo en Filtros"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "Fusionar todo aún no está desbloqueado"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Fusionar todo: desbloquéalo una vez por 5K gemas en Mejoras → Inventario."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Fusionar todo · %d copias de sobra"
@@ -5380,12 +5362,6 @@ msgstr "Maestría %d %% · %d/%d"
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Maestría de este mapa: porcentaje y categorías completadas. Toca para ver detalles."
 
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Farmea hasta que puedas vencer al jefe."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "El Muñeco de Nieve custodia el camino a Invierno II."
-
 msgid "VIEW_CAMP"
 msgstr "Ver campamento"
 
@@ -5806,14 +5782,8 @@ msgstr "Objetivos principales que completaste pero aún no reclamaste"
 msgid "RESET_LINE_CARRIED_ITEMS"
 msgstr "Todos los objetos que llevas (armas, atuendos, habilidades y suministros) y sus atributos adicionales aleatorios"
 
-msgid "RESET_LINE_RUN_PROGRESS"
-msgstr "Oportunidades y misiones sin terminar. Primero se pagan las misiones completadas y las monedas y gemas sin conexión sin reclamar; las copias de objetos sin conexión sin reclamar se pierden"
-
 msgid "PRESTIGE_KEEP_ALL"
 msgstr "Cartas y conjuntos, tus monedas y gemas, todas las mejoras compradas con monedas o gemas, el nivel de fusión de cada arma, atuendo y habilidad, las zonas exploradas del mapa, el nivel y la EXP del jugador, las llaves de jefe, los logros de enemigos, la Maestría del mapa, los objetivos principales sin reclamar y la configuración."
-
-msgid "PRESTIGE_RESET_RUN"
-msgstr "Todos los objetos que llevas (incluidos los suministros) y sus atributos adicionales aleatorios, la Maestría de suministros, el acceso a mapas (vuelve a Invierno I), los campamentos obtenidos y las oportunidades y misiones sin terminar."
 
 msgid "ITEM_LEGACY_NAME"
 msgstr "%s (estadísticas anteriores)"

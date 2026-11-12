@@ -4633,26 +4633,14 @@ msgstr "Усе знайдено! Здай: «Престиж», потім «Зд
 msgid "FILTERS"
 msgstr "Фільтри"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Фільтри · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Фільтр сітки спорядження. Після закриття фільтрів знову видно всі предмети."
 
 msgid "PANEL_FILTERS"
 msgstr "Фільтри"
 
-msgid "FILTERS_HINT"
-msgstr "Поки фільтри відкриті, сітка спорядження показує лише цю категорію. Після закриття знову видно всі предмети."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Комірки припасів: по одній на тип (типів: %d). Фільтри — поруч із лічильником спорядження."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Кожні 3 справжні використання цього припасу дають один рівень майстерності, до ^%d. Купівлі та випадіння лише поповнюють запас. Престиж скидає майстерність і прогрес використань."
-
-msgid "BUY_SUPPLY"
-msgstr "Купити: %s · монети: %s"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · лишилося %d с"
@@ -4741,9 +4729,6 @@ msgstr "Зілля ще перезаряджається."
 msgid "SUPPLY_ACTIVE"
 msgstr "Уже діє. Використай знову, коли ефект скінчиться."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Кожні три використання підвищують майстерність припасів. Престиж скидає майстерність і прогрес використань."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Активні припаси"
 
@@ -4824,9 +4809,6 @@ msgstr "Відкрито · використовуй «Поєднати все»
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "«Поєднати все» ще не відкрито"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "«Поєднати все» відкривається один раз за 5K самоцвітів: Покращення → Інвентар."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Поєднати все · зайвих копій: %d"
@@ -5367,12 +5349,6 @@ msgstr "Майстерність %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Майстерність цієї мапи: відсоток і виконані категорії. Торкнись для подробиць."
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Фарми, доки не зможеш перемогти боса."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "Сніговик стереже шлях до Зими II."
 
 msgid "VIEW_CAMP"
 msgstr "Переглянути табір"

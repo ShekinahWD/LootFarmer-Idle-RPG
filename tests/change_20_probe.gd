@@ -59,9 +59,10 @@ func run() -> void:
     var rim: Vector2=sim.position_of(boss)+Vector2(sim.campaign.fog_rules.camp_footprint_radius*.7,0)
     check(sim.campaign.boss_found("boss-snowman") and sim.campaign.cell_known(rim),"Boss discovery reveals the surrounding camp-sized footprint")
     game._process(.2);await frames(12)
-    var objective: Control=game.get_node("Safe/Layout/Map/Objective")
+    # Change 71: the permanent "Farm until you can beat the boss" objective is gone; the Next Stage chip
+    # carries the gate under the map stack.
     var gate: Control=game.get_node("Safe/Layout/Map/Gate")
-    check(objective.visible and gate.visible and gate.global_position.y>=objective.get_global_rect().end.y+5,"Boss objective and Next Stage chip never overlap")
+    check(game.get_node_or_null("Safe/Layout/Map/Objective")==null and gate.visible and gate.global_position.y>=game.get_node("Safe/Layout/Map/MiniMap").get_global_rect().end.y,"No permanent boss objective; Next Stage chip sits under the minimap")
     sim.restore(JSON.parse_string(JSON.stringify(sim.snapshot())))
     check(sim.campaign.cell_known(rim),"Boss surrounding reveal persists through reload")
     for enemy in sim.state.enemies:
@@ -74,7 +75,7 @@ func run() -> void:
     check(game.world.boss_labels.is_empty(),"Expired countdown is removed")
     check(game.banner.boss_warning_seconds>=8,"Boss warning remains visible longer")
     check(tr("CONTENT_GROUPS_BOSS-ELEPHANT").contains("Dinosaur"),"Dinosaur label corrected without changing saved identity")
-    # Prestige is a real transaction; XP is retained, mastery and partial use progress both reset.
+    # Prestige is a real transaction; XP, mastery and partial use progress are retained.
     fresh()
     sim.state.player_level=12;sim.state.xp=17
     sim.state.supply_uses.potion=103;sim.state.supply_mastery_credit.potion=7
@@ -85,10 +86,10 @@ func run() -> void:
     while not sim.state.prestige_batch.is_empty() and guard<40:
         guard+=1;sim.campaign.choose_card(str(sim.campaign.offered_cards()[0]))
     check(sim.state.prestiges==1 and sim.state.player_level==12 and sim.state.xp==17,"Prestige retains level and earned XP")
-    check(sim.supply_mastery("potion")==0 and sim.state.supply_uses.is_empty() and sim.state.supply_mastery_credit.is_empty(),"Prestige clears mastery and partial progress")
+    check(sim.supply_mastery("potion")==27 and int(sim.state.supply_uses.potion)==103 and int(sim.state.supply_mastery_credit.potion)==7,"Prestige preserves mastery and partial progress")
     check(sim.stats().hp>sim.catalog.progression.hp_per_level*11,"Level-derived benefits recompute")
     SaveService.load_and_apply()
-    check(sim.state.player_level==12 and sim.state.xp==17 and sim.supply_mastery("potion")==0,"Prestige result durable")
+    check(sim.state.player_level==12 and sim.state.xp==17 and sim.supply_mastery("potion")==27,"Prestige result durable")
     # Slot sizes change content density without changing the surrounding panel.
     fresh();sim.state.upgrades.gear_slots=9
     sim.state.gear.resize(sim.equipment_slot_count());sim.state.gear.fill("")
@@ -171,7 +172,7 @@ func run() -> void:
     fresh("guided")
     var flow=sim.campaign.guided
     check(flow.next_step()=="move" and not flow.feature_allowed("missions"),"Guided begins with movement, no premature missions")
-    check(not game.get_node("Safe/Layout/Map/Objective").visible or not sim.campaign.prestige_unlocked(),"No permanent boss objective before discovery")
+    check(game.get_node_or_null("Safe/Layout/Map/Objective")==null,"No permanent boss objective (removed in Change 71)")
     for step in ["move","kill","collect"]:flow.mark(step)
     sim.add_item(id,2);sim.equip(id);flow.next_step()
     check(flow.next_step()=="close_equip","Equip requires panel close")

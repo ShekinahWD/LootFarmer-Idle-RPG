@@ -4633,26 +4633,14 @@ msgstr "Wszystko znalezione! Oddaj: Prestiż, potem Oddaj"
 msgid "FILTERS"
 msgstr "Filtry"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filtry · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Filtruj siatkę sprzętu. Po zamknięciu Filtrów znów widać wszystkie przedmioty."
 
 msgid "PANEL_FILTERS"
 msgstr "Filtry"
 
-msgid "FILTERS_HINT"
-msgstr "Gdy Filtry są otwarte, siatka sprzętu pokazuje tylko tę kategorię. Po ich zamknięciu znów widać wszystkie przedmioty."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Sloty na zapasy: jeden na typ zapasu (typów: %d). Filtry są obok licznika sprzętu."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Co 3 faktyczne użycia tego zapasu dają jeden poziom mistrzostwa, do ^%d. Zakupy i dropy tylko zwiększają zapas. Prestiż resetuje mistrzostwo i postęp użyć."
-
-msgid "BUY_SUPPLY"
-msgstr "Kup: %s · monety: %s"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · zostało %d s"
@@ -4741,9 +4729,6 @@ msgstr "Mikstura wciąż się odnawia."
 msgid "SUPPLY_ACTIVE"
 msgstr "Już aktywne. Użyj ponownie, gdy działanie się skończy."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Co trzy użycia podnoszą Mistrzostwo zapasów. Prestiż resetuje mistrzostwo i postęp użyć."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Aktywne zapasy"
 
@@ -4824,9 +4809,6 @@ msgstr "Odblokowane · użyj „Połącz wszystko” w Filtrach"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "„Połącz wszystko” nie jest jeszcze odblokowane"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "„Połącz wszystko”: odblokuj raz za 5K klejnotów w Ulepszenia → Ekwipunek."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Połącz wszystko · dodatkowe kopie: %d"
@@ -5367,12 +5349,6 @@ msgstr "Mistrzostwo %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Mistrzostwo tej mapy: procent i ukończone kategorie. Dotknij, by zobaczyć szczegóły."
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Farm, aż dasz radę pokonać bossa."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "Bałwan strzeże drogi do Zimy II."
 
 msgid "VIEW_CAMP"
 msgstr "Pokaż obóz"

@@ -1,4 +1,9 @@
-# LootFarmer — Test Suite (current, 2026-11-12, player-profile playtesting Phase 1)
+# LootFarmer — Test Suite (current, 2026-11-12, Change 71)
+
+## Change 71: implementation audit and polish (12 November 2026)
+
+- **Registered** `change_71_probe` (237 checks, about 60 s): every Coin upgrade on every map and level steps at most x1.8 (the Enemy XP Winter II sample 10, 14, 19, 34, 60, 105, 184, 325, 572), one price for card, purchase and deduction, kept by Prestige; the main inventory's category and sort reorder the dock through `gear_view` only (taps, holds, browse and the guide reach the shown item; owned slots never move), persist through close, disk reload, older settings, Prestige, and Hard Reset returns All / Default; the Supplies shop's atomic bulk purchase (exact Coins and copies or no change; invalid, unaffordable and full requests refused; no Supply Mastery from buying), the saved shared quantity, the shop rows and Custom bounds; one Follow / Unfollow size and colour in Mastery, Missions and Prestige; no "Next:" line on the compact tracker; the HUD stack order and three trackers clear of the left controls and each other at 720x1280, 720x1600, 960x1280 and 720x1080 with every joystick position in English and German, toasts clear of the HUD columns; boss respawn to 15 s for every boss and boss item rolls 25/35/50/100 Gems; daily missions through Prestige and the next calendar day (clock seam); bulk evolution; the Prestige celebration after the committed Prestige, bounded, restartable and stopped by Hard Reset.
+- **Not in the suite:** `tests/change_71_capture.tscn` (windowed before/after captures into `tests/tmp/change_71_capture/`, see its header).
 
 ## Player-profile playtesting, Phase 1 (12 November 2026)
 

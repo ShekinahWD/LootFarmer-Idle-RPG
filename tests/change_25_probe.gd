@@ -48,7 +48,7 @@ func usable(c: Control) -> bool:
     return c.is_visible_in_tree() and not (c is BaseButton and c.disabled) and c.modulate.a>=1.0 and c.mouse_filter!=Control.MOUSE_FILTER_IGNORE
 func refresh_hud() -> void:
     game._refresh_reveal();game._refresh_badges();game._refresh_follow_tracker();game._refresh_mission_tracker();game._layout_trackers()
-    game._refresh_explored();game._refresh_mastery_chip();game._refresh_gate();game._refresh_objective()
+    game._refresh_explored();game._refresh_mastery_chip();game._refresh_gate();game._layout_hud()
 func progress_record() -> Dictionary:
     return {"stage":sim.state.stage,"unlocked":sim.state.unlocked_stage,"camps":sim.state.camps.duplicate(true),"upgrades":sim.state.upgrades.duplicate(true),
         "coins":sim.state.coins,"gems":sim.state.gems,"found":sim.state.bosses_found.duplicate(),"cards":sim.state.owned_cards.duplicate(),

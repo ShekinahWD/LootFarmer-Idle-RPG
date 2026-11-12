@@ -84,7 +84,9 @@
     {"file": "res://scripts/game/help_demo.gd", "call": "_art", "arg": "MASTERY_ICONS[i]", "family": "item_art", "consts": ["res://scripts/game/help_demo.gd:MASTERY_ICONS"]},
     {"file": "res://scripts/game/tutorial_guide.gd", "call": "_art", "arg": "int(MODE_ART[mode])", "family": "item_art", "consts": ["res://scripts/game/tutorial_guide.gd:MODE_ART"]},
     {"file": "res://scripts/game/prestige_card.gd", "literal": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png", "family": "item_art"},
-    {"file": "res://scripts/game/prestige_card.gd", "arg": "ITEM_ART % int(path_info.get(\"icon\",211))", "family": "item_art", "values": "arg_ints"}
+    {"file": "res://scripts/game/prestige_card.gd", "arg": "ITEM_ART % int(path_info.get(\"icon\",211))", "family": "item_art", "values": "arg_ints"},
+    {"file": "res://scripts/game/prestige_fx.gd", "literal": "res://assets/PixelPlains/Items/All v3 (Separated Files, Black Outline)/Item-%d.png", "family": "item_art"},
+    {"file": "res://scripts/game/prestige_fx.gd", "arg": "ITEM_ART % index", "family": "item_art"}
   ],
   "excluded_groups": [
     {"prefix": "res://assets/PixelPlains/Items/All items", "why": "unused outline variants (game uses All v3 Black Outline)"},

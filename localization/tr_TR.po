@@ -4633,26 +4633,14 @@ msgstr "Hepsi bulundu! Teslim et: Prestij, sonra Teslim"
 msgid "FILTERS"
 msgstr "Filtreler"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filtreler · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Ekipman ızgarasını filtrele. Filtreler kapanınca her eşya yeniden görünür."
 
 msgid "PANEL_FILTERS"
 msgstr "Filtreler"
 
-msgid "FILTERS_HINT"
-msgstr "Filtreler açıkken ekipman ızgarası yalnızca bu kategoriyi gösterir. Kapatınca her eşya yeniden görünür."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Malzeme yuvaları: malzeme türü başına bir (%d tür). Filtreler ekipman sayısının yanında."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Bu malzemeyi her 3 gerçek kullanışın bir ustalık seviyesi verir, en fazla ^%d. Satın alma ve düşenler yalnızca stok ekler. Prestij ustalığı ve kullanım ilerlemesini sıfırlar."
-
-msgid "BUY_SUPPLY"
-msgstr "Satın al: %s · %s altın"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · %d sn kaldı"
@@ -4741,9 +4729,6 @@ msgstr "İksir hâlâ bekleme süresinde."
 msgid "SUPPLY_ACTIVE"
 msgstr "Zaten etkin. Süresi dolunca yeniden kullan."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Her üç kullanım Malzeme Ustalığı'nı yükseltir. Prestij ustalığı ve kullanım ilerlemesini sıfırlar."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Etkin malzemeler"
 
@@ -4824,9 +4809,6 @@ msgstr "Açık · Filtreler'de Tümünü Birleştir'i kullan"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "Tümünü Birleştir henüz açılmadı"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Tümünü Birleştir: Geliştirmeler → Envanter'den bir kez 5K mücevhere aç."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Tümünü Birleştir · yedek kopya: %d"
@@ -5367,12 +5349,6 @@ msgstr "Ustalık %%%d · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Bu haritanın Harita Ustalığı: yüzde ve tamamlanan kategoriler. Ayrıntılar için dokun."
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Boss'u yenebilecek kadar farm yap."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "Kardan Adam, Kış II'ye giden yolu koruyor."
 
 msgid "VIEW_CAMP"
 msgstr "Kampı Gör"

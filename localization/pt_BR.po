@@ -4636,26 +4636,14 @@ msgstr "Tudo encontrado! Entregue: Prestígio e depois Entregar"
 msgid "FILTERS"
 msgstr "Filtros"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filtros · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Filtra a grade de equipamento. Fechar Filtros mostra todos os itens de novo."
 
 msgid "PANEL_FILTERS"
 msgstr "Filtros"
 
-msgid "FILTERS_HINT"
-msgstr "A grade de equipamento mostra só esta categoria enquanto Filtros está aberto. Ao fechar, todos os itens aparecem de novo."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Espaços de suprimento: um por tipo (%d tipos). Filtros fica ao lado da contagem de equipamento."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "A cada 3 usos reais deste suprimento, você ganha um nível de maestria, até ^%d. Compras e drops só aumentam o estoque. O prestígio redefine a maestria e o progresso de uso."
-
-msgid "BUY_SUPPLY"
-msgstr "Comprar %s · %s moedas"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · faltam %d s"
@@ -4744,9 +4732,6 @@ msgstr "A poção ainda está recarregando."
 msgid "SUPPLY_ACTIVE"
 msgstr "Já está ativo. Use de novo quando acabar."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "A cada três usos, a Maestria de Suprimentos sobe. O prestígio redefine a maestria e o progresso de uso."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Suprimentos ativos"
 
@@ -4827,9 +4812,6 @@ msgstr "Desbloqueado · use Fundir Tudo em Filtros"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "Fundir Tudo ainda não foi desbloqueado"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Fundir Tudo: desbloqueie uma vez por 5K gemas em Melhorias → Inventário."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Fundir Tudo · %d cópias extras"
@@ -5380,12 +5362,6 @@ msgstr "Maestria %d%% · %d/%d"
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Maestria deste mapa: porcentagem e categorias concluídas. Toque para ver detalhes."
 
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Farme até conseguir vencer o chefe."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "O Boneco de Neve guarda o caminho para Inverno II."
-
 msgid "VIEW_CAMP"
 msgstr "Ver acampamento"
 
@@ -5806,14 +5782,8 @@ msgstr "Objetivos principais concluídos, mas ainda não resgatados"
 msgid "RESET_LINE_CARRIED_ITEMS"
 msgstr "Todos os itens que você carrega (armas, trajes, habilidades e suprimentos) e seus atributos bônus aleatórios"
 
-msgid "RESET_LINE_RUN_PROGRESS"
-msgstr "Oportunidades e missões inacabadas. Missões concluídas e moedas e gemas offline não resgatadas são creditadas primeiro; cópias de itens offline não resgatadas são perdidas"
-
 msgid "PRESTIGE_KEEP_ALL"
 msgstr "Cartas e conjuntos, suas moedas e gemas, todas as melhorias compradas com moedas ou gemas, o nível de fusão de cada arma, traje e habilidade, as áreas exploradas do mapa, o nível e o XP do jogador, as chaves de chefe, as conquistas de inimigos, a Maestria do Mapa, os objetivos principais não resgatados e as configurações."
-
-msgid "PRESTIGE_RESET_RUN"
-msgstr "Todos os itens que você carrega (incluindo suprimentos) e seus atributos bônus aleatórios, a Maestria de Suprimentos, o acesso aos mapas (volta para Inverno I), os acampamentos obtidos e as oportunidades e missões inacabadas."
 
 msgid "ITEM_LEGACY_NAME"
 msgstr "%s (atributos antigos)"

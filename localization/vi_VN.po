@@ -4633,26 +4633,14 @@ msgstr "Đã tìm đủ! Hãy nộp: Chuyển sinh, rồi Nộp"
 msgid "FILTERS"
 msgstr "Bộ lọc"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Bộ lọc · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Lọc lưới trang bị. Đóng Bộ lọc sẽ hiện lại mọi vật phẩm."
 
 msgid "PANEL_FILTERS"
 msgstr "Bộ lọc"
 
-msgid "FILTERS_HINT"
-msgstr "Khi Bộ lọc đang mở, lưới trang bị chỉ hiện loại này. Đóng lại sẽ hiện mọi vật phẩm."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Ô đồ tiêu hao: mỗi loại một ô (%d loại). Bộ lọc nằm cạnh số lượng trang bị."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Cứ 3 lần thực sự dùng đồ tiêu hao này sẽ được một cấp thành thạo, tối đa ^%d. Mua và nhặt chỉ tăng số lượng. Chuyển sinh đặt lại thành thạo và tiến độ sử dụng."
-
-msgid "BUY_SUPPLY"
-msgstr "Mua %s · %s xu"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · còn %d giây"
@@ -4741,9 +4729,6 @@ msgstr "Bình thuốc vẫn đang hồi."
 msgid "SUPPLY_ACTIVE"
 msgstr "Đang có hiệu lực. Dùng lại khi hết."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Cứ ba lần dùng sẽ tăng Thành thạo đồ tiêu hao. Chuyển sinh đặt lại thành thạo và tiến độ sử dụng."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Đồ tiêu hao đang hiệu lực"
 
@@ -4824,9 +4809,6 @@ msgstr "Đã mở · dùng Ghép tất cả trong Bộ lọc"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "Chưa mở khóa Ghép tất cả"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Ghép tất cả: mở khóa một lần với 5K ngọc ở Nâng cấp → Túi đồ."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Ghép tất cả · %d bản sao dư"
@@ -5367,12 +5349,6 @@ msgstr "Thành thạo %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Thành thạo bản đồ của bản đồ này: phần trăm và hạng mục đã hoàn thành. Chạm để xem chi tiết."
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Cày cho đến khi bạn đủ sức hạ Boss."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "Người Tuyết canh giữ đường đến Mùa Đông II."
 
 msgid "VIEW_CAMP"
 msgstr "Xem trại"

@@ -4631,26 +4631,14 @@ msgstr "すべて見つけた！「転生」から「納品」で渡そう"
 msgid "FILTERS"
 msgstr "フィルター"
 
-msgid "FILTERS_ACTIVE"
-msgstr "フィルター · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "装備グリッドを絞り込みます。フィルターを閉じると、すべてのアイテムが再表示されます。"
 
 msgid "PANEL_FILTERS"
 msgstr "フィルター"
 
-msgid "FILTERS_HINT"
-msgstr "フィルターを開いている間、装備グリッドにはこのカテゴリーだけが表示されます。閉じると、すべてのアイテムが再表示されます。"
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "消耗品スロット：種類ごとに1つ（%d種類）。フィルターは装備数の隣にあります。"
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "この消耗品を実際に3回使うごとに熟練度が1上がります（最大^%d）。購入やドロップでは在庫が増えるだけです。転生すると熟練度と使用回数はリセットされます。"
-
-msgid "BUY_SUPPLY"
-msgstr "%sを購入 · コイン %s"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · 残り%d秒"
@@ -4739,9 +4727,6 @@ msgstr "ポーションはまだクールダウン中です。"
 msgid "SUPPLY_ACTIVE"
 msgstr "すでに効果中です。切れたらもう一度使おう。"
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "3回使うごとに消耗品熟練度が上がります。転生すると熟練度と使用回数はリセットされます。"
-
 msgid "SOURCE_SUPPLY"
 msgstr "効果中の消耗品"
 
@@ -4822,9 +4807,6 @@ msgstr "解放済み · フィルターで「一括合成」を使おう"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "一括合成はまだ解放されていません"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "一括合成：「強化」→「持ち物」で、ジェム5Kで一度だけ解放できます。"
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "一括合成 · 予備%d個"
@@ -5365,12 +5347,6 @@ msgstr "熟練度 %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "このマップのマップ熟練度：割合と達成したカテゴリー。タップで詳細。"
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "ボスに勝てるまで狩りを続けよう。"
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "雪だるまが冬 II への道を守っています。"
 
 msgid "VIEW_CAMP"
 msgstr "キャンプを見る"

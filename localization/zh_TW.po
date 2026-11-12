@@ -4631,26 +4631,14 @@ msgstr "全部找到了！繳交方式：開啟「轉生」，再點「繳交」
 msgid "FILTERS"
 msgstr "篩選"
 
-msgid "FILTERS_ACTIVE"
-msgstr "篩選 · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "篩選裝備欄。關閉篩選後會重新顯示所有道具。"
 
 msgid "PANEL_FILTERS"
 msgstr "篩選"
 
-msgid "FILTERS_HINT"
-msgstr "篩選開啟時，裝備欄只顯示此類別。關閉後會重新顯示所有道具。"
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "補給品欄位：每種一格（共 %d 種）。篩選按鈕位於裝備數量旁邊。"
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "每實際使用此補給品 3 次，熟練度提升 1 級，最高 ^%d。購買與掉落只會增加庫存。轉生會重設熟練度與使用進度。"
-
-msgid "BUY_SUPPLY"
-msgstr "購買%s · %s 金幣"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · 剩餘 %d秒"
@@ -4739,9 +4727,6 @@ msgstr "藥水仍在冷卻中。"
 msgid "SUPPLY_ACTIVE"
 msgstr "已在生效中。效果結束後再使用。"
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "每使用三次提升補給熟練度。轉生會重設熟練度與使用進度。"
-
 msgid "SOURCE_SUPPLY"
 msgstr "生效中的補給品"
 
@@ -4822,9 +4807,6 @@ msgstr "已解鎖 · 在篩選中使用「全部合成」"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "尚未解鎖全部合成"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "全部合成：在「強化」→「背包」中花費 5K 寶石一次解鎖。"
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "全部合成 · %d 件重複品"
@@ -5365,12 +5347,6 @@ msgstr "熟練度 %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "此地圖的地圖熟練度：百分比與已完成的類別。輕觸查看詳情。"
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "刷怪直到能擊敗頭目。"
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "雪人守著通往冬季 II 的路。"
 
 msgid "VIEW_CAMP"
 msgstr "查看營地"

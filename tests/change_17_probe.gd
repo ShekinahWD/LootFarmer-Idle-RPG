@@ -236,7 +236,7 @@ func persistence() -> void:
         while not sim.state.prestige_batch.is_empty() and guard<40:
             guard+=1
             sim.campaign.choose_card(str(sim.campaign.offered_cards()[0]))
-        check(sim.state.prestiges==1 and sim.supply_mastery("potion")==0 and sim.automatic_skill_capacity()==1,"Prestige resets mastery and retains automation")
+        check(sim.state.prestiges==1 and sim.supply_mastery("potion")==26 and sim.automatic_skill_capacity()==1,"Prestige preserves supply mastery and automation")
         check(sim.level("critical_chance")==1 and sim.level("critical_damage")==1 and sim.level("use_speed")==1 and sim.campaign.reward_stage()==1,"Prestige retains Gem upgrades; the new run's missions are priced from Winter I (Change 50)")
     else:check(false,"Prestige fixture must earn an opportunity")
     check(SaveService.hard_reset(),"Hard Reset committed to disk")

@@ -6,7 +6,9 @@ from pathlib import Path
 import json, sys
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / 'data/game/catalog.json'
-ECONOMY = {'cheap_first_upgrades': ['coin_amount', 'group_xp', 'loot'], 'cheap_first_levels': 5, 'cheap_first_factor': 0.25}
+# Change 71: the x0.25 discount holds for the first three levels and then fades geometrically to the full price at
+# level 8 (campaign.cheap_first_factor), replacing the one-step x5.4 price jump after level 5.
+ECONOMY = {'cheap_first_upgrades': ['coin_amount', 'group_xp', 'loot'], 'cheap_first_levels': 3, 'cheap_taper_until': 8, 'cheap_first_factor': 0.25}
 
 def apply(c):
     if c['progression'].get('economy') == ECONOMY:

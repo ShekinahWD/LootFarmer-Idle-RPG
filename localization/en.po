@@ -4634,26 +4634,17 @@ msgstr "All found! Hand them in: Prestige, then Submit"
 msgid "FILTERS"
 msgstr "Filters"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filters · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Filter the gear grid. Closing Filters shows every item again."
 
 msgid "PANEL_FILTERS"
 msgstr "Filters"
 
-msgid "FILTERS_HINT"
-msgstr "The gear grid shows only this category while Filters is open. Closing it shows every item again."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Supply slots: one per supply type (%d types). Filters sit next to the gear count."
 
 msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Every 3 actual uses of this supply grant one mastery level, up to ^%d. Purchases and drops add stock only. Prestige resets mastery and use progress."
-
-msgid "BUY_SUPPLY"
-msgstr "Buy %s · %s coins"
+msgstr "Every 5 uses of a supply raise its mastery by one level, up to ^%d. Buying or finding supplies adds stock only. Prestige keeps mastery levels and use progress."
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · %ds left"
@@ -4743,7 +4734,7 @@ msgid "SUPPLY_ACTIVE"
 msgstr "Already active. Use it again when it runs out."
 
 msgid "SUPPLY_NO_MERGE"
-msgstr "Every three uses raise Supply Mastery. Prestige resets mastery and use progress."
+msgstr "Every five uses raise Supply Mastery. Prestige keeps mastery and use progress."
 
 msgid "SOURCE_SUPPLY"
 msgstr "Active supplies"
@@ -4827,7 +4818,7 @@ msgid "MERGE_ALL_LOCKED"
 msgstr "Merge All is not unlocked yet"
 
 msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Merge All: unlock it once for 5K gems in Upgrades → Inventory."
+msgstr "Merge All: unlock it once for 500 gems in Upgrades → Inventory."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Merge All · %d spare copies"
@@ -5378,12 +5369,6 @@ msgstr "Mastery %d%% · %d/%d"
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Map Mastery of this map: percent and completed categories. Tap for details."
 
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Farm until you can beat the boss."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "The Snowman guards the way to Winter II."
-
 msgid "VIEW_CAMP"
 msgstr "View Camp"
 
@@ -5805,13 +5790,13 @@ msgid "RESET_LINE_CARRIED_ITEMS"
 msgstr "Every item you carry (weapons, outfits, skills and supplies) and its random bonus attributes"
 
 msgid "RESET_LINE_RUN_PROGRESS"
-msgstr "Unfinished opportunities and missions. Finished missions and unclaimed offline Coins and Gems are paid first; unclaimed offline item copies are lost"
+msgstr "Unfinished Prestige opportunities. Pending offline Coins and Gems are paid first; unclaimed offline item copies are lost."
 
 msgid "PRESTIGE_KEEP_ALL"
 msgstr "Cards and sets, your Coins and Gems, every upgrade you bought with Coins or Gems, the merge level of every weapon, outfit and skill, explored map areas, player level and XP, boss keys, enemy achievements, Map Mastery, unclaimed main objectives and settings."
 
 msgid "PRESTIGE_RESET_RUN"
-msgstr "Every item you carry (supplies included) and its random bonus attributes, Supply Mastery, map access (back to Winter I), owned camps, and unfinished opportunities and missions."
+msgstr "Every item you carry (supplies included) and its random bonus attributes, map access (back to Winter I), owned camps and unfinished Prestige opportunities."
 
 msgid "ITEM_LEGACY_NAME"
 msgstr "%s (old stats)"
@@ -6619,3 +6604,70 @@ msgstr "Near a discovered enemy, tap Auto Farm (or Farm in its Upgrades)."
 
 msgid "HELP_CARD_ADVANCED_FARMING_SUPPORT_V69"
 msgstr "Respawns return to it. Walking by hand 5 seconds stops it; let go sooner to keep farming."
+
+msgid "SORT_ITEMS"
+msgstr "Sort items"
+
+msgid "SORT_DEFAULT"
+msgstr "Default"
+
+msgid "SORT_TIER"
+msgstr "Tier ↓"
+
+msgid "SORT_EVOLUTION"
+msgstr "Evolution ↓"
+
+msgid "SORT_QUANTITY"
+msgstr "Quantity ↓"
+
+msgid "UP_BOSS_SPAWN_COOLDOWN"
+msgstr "Boss respawn time"
+
+msgid "UP_BOSS_ITEM_ROLLS"
+msgstr "Boss item drops"
+
+msgid "EVOLVE_ALL_COPIES"
+msgstr "Evolve all: %d → %s"
+
+msgid "EVOLVE_ALL_DONE"
+msgstr "Evolved: %d → %s"
+
+msgid "MASTERY_FOLLOW_PROGRESS"
+msgstr "Objectives %d/%d"
+
+msgid "BOSS_ITEM_ROLLS_BENEFIT"
+msgstr "×%d → ×%d"
+
+msgid "BOSS_ITEM_ROLLS_MAX"
+msgstr "×%d"
+
+
+msgid "KEEP_LINE_SUPPLY_MASTERY"
+msgstr "Supply Mastery and its use progress, and your daily missions (progress and claims)"
+
+msgid "FILTER_ITEMS"
+msgstr "Show items"
+
+msgid "FILTERS_HINT_V71"
+msgstr "These choices organize your main inventory and stay until you change them. All and Default show every item in slot order."
+
+msgid "INVENTORY_VIEW_NOW"
+msgstr "Showing %s · %s"
+
+msgid "SHOP_QUANTITY"
+msgstr "Quantity per purchase"
+
+msgid "SHOP_CUSTOM"
+msgstr "Custom"
+
+msgid "SHOP_UNIT_OWNED"
+msgstr "%s coins each · Owned: %s"
+
+msgid "SHOP_TOTAL"
+msgstr "×%d · Total %s coins"
+
+msgid "SHOP_BUY_N"
+msgstr "Buy ×%d"
+
+msgid "SHOP_BUY_ITEM"
+msgstr "Buy ×%d · %s coins"

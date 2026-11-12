@@ -4633,26 +4633,14 @@ msgstr "Alles gevonden! Lever ze in: Prestige, dan Inleveren"
 msgid "FILTERS"
 msgstr "Filters"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filters · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Filter het uitrustingsraster. Als je Filters sluit, zie je weer alle voorwerpen."
 
 msgid "PANEL_FILTERS"
 msgstr "Filters"
 
-msgid "FILTERS_HINT"
-msgstr "Zolang Filters open is, toont het uitrustingsraster alleen deze categorie. Sluit je het, dan zie je weer alle voorwerpen."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Voorraadvakken: één per voorraadtype (%d typen). Filters staan naast de uitrustingsteller."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Elke 3 echte keren gebruik van deze voorraad geven één meesterschapsniveau, tot ^%d. Aankopen en drops vullen alleen de voorraad aan. Prestige reset het meesterschap en de gebruiksvoortgang."
-
-msgid "BUY_SUPPLY"
-msgstr "%s kopen · %s munten"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · nog %d s"
@@ -4741,9 +4729,6 @@ msgstr "Het drankje koelt nog af."
 msgid "SUPPLY_ACTIVE"
 msgstr "Al actief. Gebruik het opnieuw als het is uitgewerkt."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Elke drie keer gebruik verhoogt het Voorraadmeesterschap. Prestige reset het meesterschap en de gebruiksvoortgang."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Actieve voorraad"
 
@@ -4824,9 +4809,6 @@ msgstr "Ontgrendeld · gebruik Alles samenvoegen in Filters"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "Alles samenvoegen is nog niet ontgrendeld"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Alles samenvoegen: ontgrendel het eenmalig voor 5K edelstenen in Upgrades → Inventaris."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Alles samenvoegen · %d extra exemplaren"
@@ -5367,12 +5349,6 @@ msgstr "Meesterschap %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Kaartmeesterschap van deze kaart: percentage en voltooide categorieën. Tik voor details."
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Farm tot je de baas aankunt."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "De Sneeuwpop bewaakt de weg naar Winter II."
 
 msgid "VIEW_CAMP"
 msgstr "Kamp bekijken"

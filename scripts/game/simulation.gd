@@ -111,7 +111,7 @@ const SCHEMA:=9
 const MIGRATABLE_SCHEMAS:=[8,9]
 ## One-time profile migrations, in order (state.migrations). A new profile starts with all of them.
 ## legacy_weapons_h24 (Change 51): owned weapons of the old stat table become legacy-stat copies.
-const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24"]
+const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","boss_auto_evolve_refunded"]
 
 func new_profile() -> void:
     profile_epoch+=1
@@ -152,7 +152,7 @@ func spawn_amount(group: int,extra: int=0) -> int:
 
 func spawn_cooldown(group: int,extra: int=0) -> float:
     var base: float=catalog.groups[group].respawn
-    return base if catalog.groups[group].boss else base*(1.0-.1*(level("spawn_cooldown",group)+extra))
+    return maxf(15.0,base-5.0*(level("boss_spawn_cooldown",group)+extra)) if catalog.groups[group].boss else base*(1.0-.1*(level("spawn_cooldown",group)+extra))
 
 ## Authored home of a spawned actor; saved actors are re-homed here so layout changes load cleanly.
 func spawn_home(tier: int,kind: int,i: int) -> Vector2:
@@ -358,7 +358,7 @@ func reroll_cost(id: String) -> int:
     return ceili(float(catalog.items[id].get("reroll",0))*maxf(0,1-campaign.bonus("reroll_discount")-campaign.bonus("precise_reroll")))
 
 ## Change 50: the permanent merge level of an item identity (kept by Prestige, cleared by Hard Reset).
-## Supplies grow by use (supply mastery), never by merging, so they are never remembered.
+## Supplies grow by use (supply mastery) and now persist through Prestige, never by merging.
 func remembered_merge(id: String) -> int:
     if not catalog.items.has(id) or catalog.items[id].kind=="consumable" or is_legacy(id):return 0
     return int(state.get("merge_memory",{}).get(id,0))
@@ -430,9 +430,8 @@ func merge_level(id: String) -> int:
 
 # ---------------------------------------------------------------- supplies (Change 11)
 # A supply has stock (items[id].qty) and permanent mastery from successful uses (Change 17).
-# Every change17.supply_uses_per_level uses (3 since Change 36) add one capped level; one-time
-# supply_mastery_credit preserves older earned levels.
-# supply_found is historical only. Prestige clears uses and credit as well as stock/buffs/bindings.
+# Every five successful uses add one capped level. Existing three-use saves migrate to five-use
+# progress without losing earned mastery. Prestige retains mastery progress, not supply stock/buffs.
 # Coin Tonic keeps boost_time/boost_power; other timed supplies use state.buffs[id] = {time, power}.
 
 func supply(id: String) -> Dictionary:
@@ -808,7 +807,7 @@ func merge(id: String, all: bool = false) -> bool:
     merged.emit(id,before,int(r.merge))
     return true
 
-## Merge All (Change 12, a one-time 5,000-Gem unlock): one deliberate action that performs every
+## Merge All (Change 12, a one-time 500-Gem unlock): one deliberate action that performs every
 ## merge an ordinary Merge (all copies) would, item by item, under the same rules: gear and skills only
 ## (supplies grow by themselves), one copy always kept, never past the item's cap, and never an
 ## evolution (that stays a separate action). Returns {items, copies}; nothing changes when both are 0.
@@ -862,6 +861,31 @@ func evolve(id: String) -> bool:
     event.emit("EVOLVED")
     evolved.emit(id,target)
     return true
+
+## Bulk evolution is one atomic transaction: the same source copy remains, the exact normal
+## spare cost is applied N times, and target copies and mission credit are awarded together.
+## One event (and one VFX) avoids N main-thread rebuilds on a large inventory.
+func evolution_bulk_count(id: String) -> int:
+    if not catalog.items.has(id) or str(catalog.items[id].next)=="":return 0
+    if int(state.items.get(id,{}).get("merge",0))<int(catalog.progression.evolution.required_merge):return 0
+    return maxi(0,int((quantity(id)-1)/maxi(1,evolution_spare_cost(id))))
+
+func evolve_all(id: String) -> int:
+    var reason:=evolve_block_reason(id)
+    if not reason.is_empty():fail(reason);return 0
+    var amount:=evolution_bulk_count(id)
+    if amount<1:return 0
+    var target: String=str(catalog.items[id].next)
+    var exclude: bool=auto_merge_excluded(id)
+    _remove(id,amount*evolution_spare_cost(id))
+    # evolve_block_reason already established a free slot or existing target stack.
+    add_item(target,amount,false,false)
+    if exclude:record(target).auto_merge_excluded=true
+    campaign.progress("evolve",id,amount)
+    touch()
+    event.emit("EVOLVED")
+    evolved.emit(id,target)
+    return amount
 
 func equip(id: String) -> bool:
     if not action_lock_reason().is_empty():
@@ -955,24 +979,53 @@ func coin_boost_duration() -> float:
 
 ## Shop: all five authored supplies have Coin prices. Bought copies add stock only.
 func purchase_consumable(id: String) -> bool:
-    if not action_lock_reason().is_empty():
-        return fail(action_lock_reason())
-    var cost:=int(supply(id).get("price",0))
-    if cost<=0:
-        return fail("CANNOT_USE")
-    if not can_add(id):
-        return fail("INVENTORY_FULL")
-    if not pay("coins",cost):
+    return purchase_consumables(id,1)
+
+## Change 71: the largest quantity one Supplies purchase may request (SettingsState.SUPPLY_BUY_MAX mirrors it).
+const SUPPLY_BUY_MAX:=999
+
+## Change 71: the one Coin price of `amount` copies (the authored unit price times the amount; 0 when invalid).
+func consumable_total(id: String,amount: int) -> int:
+    var unit:=int(supply(id).get("price",0)) if catalog.items.has(id) and str(catalog.items[id].kind)=="consumable" else 0
+    if unit<=0 or amount<1 or amount>SUPPLY_BUY_MAX:return 0
+    return unit*amount
+
+## Why `amount` copies cannot be bought now ("" when they can). Checked in this order, so the shop shows the
+## first thing the player can act on: a lock, an invalid request, no room, then not enough Coins for ALL of them.
+func consumable_purchase_block(id: String,amount: int) -> String:
+    var lock:=action_lock_reason()
+    if not lock.is_empty():return lock
+    if consumable_total(id,amount)<=0:return "CANNOT_USE"
+    if not can_add(id):return "INVENTORY_FULL"
+    if float(state.coins)<consumable_total(id,amount):return "NOT_ENOUGH_COINS"
+    return ""
+
+## Change 71: one atomic Supplies purchase of `amount` copies: every check passes first, then exactly
+## unit price x amount Coins are paid and exactly `amount` copies are added, or nothing changes. Buying is not
+## using: no Supply Mastery. The shop's demonstrated action (Change 15) counts every copy bought.
+func purchase_consumables(id: String,amount: int) -> bool:
+    var reason:=consumable_purchase_block(id,amount)
+    if not reason.is_empty():
+        return fail(reason)
+    var total:=consumable_total(id,amount)
+    var before_coins: float=float(state.coins)
+    var before_qty:=quantity(id)
+    if not pay("coins",total):
         return false
-    add_item(id,1,false)
-    # Change 15: a shop purchase is one of the demonstrated actions of the reveal table.
-    campaign.progress("supply_buy",id,1)
+    if not add_item(id,amount,false):
+        # Unreachable after the checks above; restore the Coins rather than leave a partial purchase.
+        state.coins=before_coins
+        return fail("INVENTORY_FULL")
+    assert(quantity(id)==before_qty+amount)
+    campaign.progress("supply_buy",id,amount)
     return true
 
 func upgrade_cost(id: String, group: int = -1) -> int:
     return campaign.upgrade_cost("skill_auto_slots" if id.begins_with("skill_auto_") else id,group)
 
 func upgrade_maxed(id: String, group: int = -1) -> bool:
+    if id=="boss_spawn_cooldown" and group>=0 and catalog.groups[group].boss:
+        return spawn_cooldown(group)<=15.0
     if level(id,group)>=int(catalog.upgrades[id].cap):
         return true
     return false
@@ -991,6 +1044,15 @@ func buy_upgrade(id: String, group: int = -1) -> bool:
         return false
     var key := _upgrade_key(id,group)
     state.upgrades[key] = level(id,group)+1
+    if id=="boss_spawn_cooldown":
+        for actor_id in state.boss_respawns:
+            var entry: Dictionary=state.boss_respawns[actor_id]
+            if int(entry.group)!=group:continue
+            entry.remaining=minf(float(entry.remaining),spawn_cooldown(group))
+            var actors: Array=state.enemies if int(entry.stage)==int(state.stage) else state.stage_worlds.get(str(entry.stage),{}).get("enemies",[])
+            for actor in actors:
+                if str(actor.id)==str(actor_id) and actor.hp<=0:actor.respawn=entry.remaining
+        boss_respawns_changed.emit()
     if id=="spawn_amount":_sync_spawn_counts()
     if id=="gear_slots":
         state.gear.append("")
@@ -1302,18 +1364,22 @@ func _reward(a: Dictionary) -> void:
         state.gems+=gems
         state.online_gems+=gems
         history("HISTORY_CURRENCY","",gems,0)
+    # Independent item-drop rolls: purchased boss levels add up to four rolls for gear, supplies
+    # and skills. Champion's Spoils keeps its separate first-defeat bonus gear roll only.
+    # The original RNG sequence is unchanged for a boss with no new upgrade, including Spoils.
+    var item_rolls:=1+level("boss_item_rolls",group) if def.boss else 1
+    var gear_rolls:=item_rolls
+    if def.boss and campaign.bonus("champions_spoils")>0 and int(state.run_kills.get(str(def.id),0))==0:gear_rolls+=1
     var dropped: Array=[]
-    # Change 54 Champion's Spoils: a boss's first defeat this run (run_kills counts it after _reward) rolls
-    # its loot twice. Twin Find: a normal enemy's gear drop can be a pile of two copies.
-    var rolls:=2 if def.boss and campaign.bonus("champions_spoils")>0 and int(state.run_kills.get(str(def.id),0))==0 else 1
-    for roll in range(rolls):
+    for roll in range(gear_rolls):
         for id in def.loot:
             if rng.randf()<gear_chance(group):
                 dropped.append(_drop(id,a))
                 if not def.boss and campaign.bonus("twin_find")>0 and rng.randf()<campaign.bonus("twin_find"):state.pickups.back()["qty"]=2
-    if rng.randf()<consumable_chance(group,"supply"):dropped.append(_drop(_roll_supply(group),a))
-    if not def.skills.is_empty() and rng.randf()<(.1 if def.boss else .05)+.01*level("skill_drop",group):
-        dropped.append(_drop("skill_"+str(def.skills[rng.randi_range(0,def.skills.size()-1)]),a))
+    for roll in range(item_rolls):
+        if rng.randf()<consumable_chance(group,"supply"):dropped.append(_drop(_roll_supply(group),a))
+        if not def.skills.is_empty() and rng.randf()<(.1 if def.boss else .05)+.01*level("skill_drop",group):
+            dropped.append(_drop("skill_"+str(def.skills[rng.randi_range(0,def.skills.size()-1)]),a))
     # Change 15: the profile's first weapon or outfit and a matching copy, if no natural drop came.
     campaign.onboarding.loot_kill(a,def,dropped)
     # Change 27: a listed boss's first lifetime defeat always drops its own weapon (hidden).
@@ -1631,7 +1697,7 @@ func set_auto_merge_excluded(id: String,excluded: bool) -> bool:
 func evolve_group(id: String) -> int:
     if not catalog.items.has(id) or catalog.items[id].kind!="weapon" or str(catalog.items[id].next)=="":return -1
     for g in droppers(id):
-        if level("auto_evolve",g)>0:return g
+        if not catalog.groups[g].boss and level("auto_evolve",g)>0:return g
     return -1
 
 ## Weapons this type drops that can still evolve (Auto Evolution applies to the type only if any).
@@ -1698,6 +1764,7 @@ func _upgrade_scope_valid(id: String,g: int) -> bool:
     if not catalog.upgrades.has(id):return false
     match str(catalog.upgrades[id].get("scope","global")):
         "type":return g in range(catalog.groups.size())
+        "boss_type":return g in range(catalog.groups.size()) and catalog.groups[g].boss
         "normal_type":return g in range(catalog.groups.size()) and not catalog.groups[g].boss
         "stage":return g>=1 and g<=8
         "camp":return g>=10 and g<83 and g%10<catalog.stages[g/10-1].spawns.size()
@@ -1711,7 +1778,7 @@ func upgrade_block_reason(id: String,g: int=-1) -> String:
     if not reason.is_empty():return reason
     if not _upgrade_scope_valid(id,g):return "ACTION_UNAVAILABLE"
     var scope: String=catalog.upgrades[id].scope
-    if scope in ["type","normal_type"] and (catalog.groups[g].stage>state.unlocked_stage or not campaign.discovered(g)):return "UNDISCOVERED"
+    if scope in ["type","normal_type","boss_type"] and (catalog.groups[g].stage>state.unlocked_stage or not campaign.discovered(g)):return "UNDISCOVERED"
     if scope=="stage" and g>state.unlocked_stage:return "STAGE_LOCKED"
     if scope=="camp" and not state.camps.get(str(g/10),[]).has(g%10):return "CAMP_LOCKED"
     if id in ["collect_range","collect_batch","collect_speed"] and level("collect",g)==0:return "AUTOMATION_LOCKED"
@@ -1724,7 +1791,7 @@ func upgrade_block_reason(id: String,g: int=-1) -> String:
         if state.gems<upgrade_cost("skill_auto_slots"):return "NOT_ENOUGH_GEMS"
         return ""
     if id=="skill_drop" and catalog.groups[g].skills.is_empty():return "ACTION_UNAVAILABLE"
-    if id=="auto_evolve" and evolvable_drops(g).is_empty():return "ACTION_UNAVAILABLE"
+    if id=="auto_evolve" and (catalog.groups[g].boss or evolvable_drops(g).is_empty()):return "ACTION_UNAVAILABLE"
     if id.begins_with("cooldown_") and not skill_seen(id.trim_prefix("cooldown_")):return "UNDISCOVERED"
     if (id=="skill_slots" or id.begins_with("skill_auto_")) and state.skills_seen.is_empty():return "UNDISCOVERED"
     if upgrade_maxed(id,g):return "UPGRADE_MAX"
@@ -1775,7 +1842,8 @@ func group_upgrade_value(id: String,g: int,variant: int=2,extra: int=0) -> float
             return float(enemy_definition(g,variant).xp)*(1.0+n*.1)*(1+campaign.bonus("boss_xp" if catalog.groups[g].boss else "normal_xp")+campaign.bonus("xp")+veteran)
         "coin_amount":return float(catalog.groups[g].coins)*(1.0+.5*n)*card("coins")*(1.0+float(state.boost_power))*(1+campaign.bonus("boss_coins" if catalog.groups[g].boss else "normal_coins"))
         "spawn_amount":return spawn_amount(g,extra)
-        "spawn_cooldown":return spawn_cooldown(g,extra)
+        "spawn_cooldown","boss_spawn_cooldown":return spawn_cooldown(g,extra)
+        "boss_item_rolls":return 1+n
         "collect_range":return (100+n*50)*(1+campaign.bonus("collection_radius"))
         "collect_batch":return 1+n
         "collect_speed","gear_merge_speed":return 10-n

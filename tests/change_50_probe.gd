@@ -132,34 +132,33 @@ func prestige_checks() -> void:
     clear_files()
     prestige_fixture()
     var s: Dictionary=sim.state
-    var mission: Dictionary=s.missions[0].duplicate(true)
-    sim.campaign.price_mission(mission)
+    var missions_before: Array=s.missions.duplicate(true)
     var coins_before: float=float(s.coins);var gems_before: float=float(s.gems)
     var upgrades_before: Dictionary=s.upgrades.duplicate(true)
     check(sim.campaign.begin_prestige(),"Prestige begins (%s)" % sim.campaign.prestige_block_reason())
     var offered: Array=sim.campaign.offered_cards()
     check(not offered.is_empty() and sim.campaign.choose_card(str(offered[0])),"The last card completes the Prestige")
     s=sim.state
-    check(is_equal_approx(float(s.coins),coins_before+float(mission.coins)+240.0),"Coins kept + finished mission + offline Coins paid once (%s vs %s)" % [s.coins,coins_before+float(mission.coins)+240.0])
-    check(is_equal_approx(float(s.gems),gems_before+float(mission.gems)+4.0),"Gems kept + mission + offline Gems")
+    check(is_equal_approx(float(s.coins),coins_before+240.0),"Coins kept + offline Coins paid once (daily mission remains unclaimed) (%s vs %s)" % [s.coins,coins_before+240.0])
+    check(is_equal_approx(float(s.gems),gems_before+4.0),"Gems kept + offline Gems; daily mission not auto-claimed")
     check(s.upgrades==upgrades_before,"Every purchased upgrade keeps its level (Coin and Gem, map and camp)")
     check(sim.quantity("wood_axe")==0 and sim.quantity("potion")==0 and s.weapon=="" and not s.gear.has("wood_axe"),"Items and loadout reset")
     check(int(s.merge_memory.get("wood_axe",0))==3,"Merge memory keeps the run's Wood Axe ^3")
     check(s.offline_pending.is_empty() and sim.quantity("wood_axe")==0,"Pending offline items end with the inventory (never claimable later)")
     check(s.main_ready.has("3"),"An earned main objective stays claimable")
     check(int(s.unlocked_stage)==1 and s.camps=={"1":[0]},"Map access and owned camps reset")
-    check(s.supply_uses.is_empty(),"Supply Mastery resets")
+    check(int(s.supply_uses.get("potion",0))==12 and sim.supply_mastery("potion")==2,"Supply Mastery stays across Prestige")
+    check(s.missions==missions_before and not s.missions[0].claimed,"Daily mission progress, rewards and claim state survive Prestige")
     check(int(s.player_level)==25,"Player level kept")
     check(sim.campaign.reward_stage()==1,"Missions are priced from the new run's map access")
-    for m in s.missions:
-        if str(m.kind)!="waiting":check(int(m.reward_stage)==1,"New mission priced at stage 1 (%s)" % str(m.kind))
+    check(s.missions==missions_before,"Existing missions are not replaced or repriced at Prestige")
     # Camp radius stays bought but acts only while its camp is owned again.
     check(int(sim.level("camp_radius",11))==1 and not s.spawns.has(1),"Camp radius kept while its camp is not owned")
     # Reacquiring restores the remembered level, with fresh rolled attributes.
     check(sim.add_item("wood_axe") and int(sim.record("wood_axe").merge)==3,"The Wood Axe found again is ^3")
     check(SaveService.save_now(),"Post-Prestige profile saves")
     reload()
-    check(int(sim.state.merge_memory.get("wood_axe",0))==3 and is_equal_approx(float(sim.state.coins),coins_before+float(mission.coins)+240.0),"Reload keeps the settled Prestige")
+    check(int(sim.state.merge_memory.get("wood_axe",0))==3 and is_equal_approx(float(sim.state.coins),coins_before+240.0),"Reload keeps the settled Prestige")
 
 func rollback_checks() -> void:
     clear_files()

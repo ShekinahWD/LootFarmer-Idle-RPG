@@ -1,5 +1,5 @@
 extends "res://tests/change_20_probe.gd"
-## Change 56 (approved progression brief §6): "cheap first five". Levels 1-5 of each enemy type's Coin Amount,
+## Change 56 (approved progression brief §6): "cheap first five" (Change 71: first three, then a taper to level 8). Levels 1-5 of each enemy type's Coin Amount,
 ## Enemy XP and Loot Chance cost x0.25 of the existing curve; level 6 onward and every other upgrade are unchanged;
 ## bought levels are kept by Prestige (Change 50), so a repeat run starts with them; missions keep pricing from
 ## the current run's map access. Runs with --first-run-complete.
@@ -24,10 +24,12 @@ func cost_checks() -> void:
     for g in [0,4,11,30,39]:
         sim.state.discovered[str(g)]=true
         for id in ["coin_amount","group_xp","loot"]:
-            for n in range(7):
+            # Change 71: x0.25 for the first three levels, then a geometric fade to the full price at level 8
+            # (the one-step x5.4 jump after level 5 is gone). Computed here independently of campaign.gd.
+            for n in range(10):
                 sim.state.upgrades["%s:%d" % [id,g]]=n
-                var want: int=maxi(1,ceili(float(plain(id,g,n))*(.25 if n<5 else 1.0))) if n<5 else plain(id,g,n)
-                if n<5:want=maxi(1,ceili(float(sim.catalog.upgrades[id].base)*pow(float(sim.catalog.upgrades[id].growth),n)*.25*sim.campaign.map_cost_factor(int(sim.catalog.groups[g].stage))))
+                var f: float=.25 if n<3 else (1.0 if n>=8 else pow(.25,1.0-float(n-2)/6.0))
+                var want: int=maxi(1,ceili(float(sim.catalog.upgrades[id].base)*pow(float(sim.catalog.upgrades[id].growth),n)*f*sim.campaign.map_cost_factor(int(sim.catalog.groups[g].stage))))
                 check(sim.upgrade_cost(id,g)==want,"%s level %d on %s: %d (want %d)" % [id,n+1,sim.catalog.groups[g].id,sim.upgrade_cost(id,g),want])
             sim.state.upgrades.erase("%s:0" % id)
     for id in ["supply_drop","skill_drop","spawn_amount"]:
@@ -44,6 +46,7 @@ func prestige_checks() -> void:
     check(sim.level("coin_amount",0)==5,"Five cheap levels bought for %d coins" % int(spent))
     for run in range(2):
         if not sim.state.bosses_found.has("boss-snowman"):sim.state.bosses_found.append("boss-snowman")
+        sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1 # fixture: defeated once (needed since Change 61; added in Change 71)
         sim.state.unlocked_stage=4
         sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
         sim.state.consumed.erase("hunter_o1");sim.state.owned_cards=sim.state.owned_cards.filter(func(c):return not str(c).begins_with("hunter"))

@@ -4633,26 +4633,14 @@ msgstr "Semua ditemukan! Serahkan: Prestise, lalu Serahkan"
 msgid "FILTERS"
 msgstr "Filter"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filter · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Saring kisi perlengkapan. Menutup Filter menampilkan semua item lagi."
 
 msgid "PANEL_FILTERS"
 msgstr "Filter"
 
-msgid "FILTERS_HINT"
-msgstr "Selama Filter terbuka, kisi perlengkapan hanya menampilkan kategori ini. Menutupnya menampilkan semua item lagi."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Slot perbekalan: satu per jenis perbekalan (%d jenis). Filter ada di samping jumlah perlengkapan."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Setiap 3 kali benar-benar memakai perbekalan ini memberi satu level penguasaan, hingga ^%d. Pembelian dan drop hanya menambah stok. Prestise mereset penguasaan dan progres pemakaian."
-
-msgid "BUY_SUPPLY"
-msgstr "Beli %s · %s koin"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · sisa %d dtk"
@@ -4741,9 +4729,6 @@ msgstr "Ramuan masih dalam jeda."
 msgid "SUPPLY_ACTIVE"
 msgstr "Sudah aktif. Pakai lagi setelah habis."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Setiap tiga pemakaian menaikkan Penguasaan Perbekalan. Prestise mereset penguasaan dan progres pemakaian."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Perbekalan aktif"
 
@@ -4824,9 +4809,6 @@ msgstr "Terbuka · pakai Gabung Semua di Filter"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "Gabung Semua belum terbuka"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Gabung Semua: buka sekali seharga 5K permata di Peningkatan → Inventaris."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Gabung Semua · %d salinan cadangan"
@@ -5367,12 +5349,6 @@ msgstr "Penguasaan %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Penguasaan Peta untuk peta ini: persentase dan kategori yang selesai. Ketuk untuk detail."
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Farming sampai kamu bisa mengalahkan bos."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "Manusia Salju menjaga jalan ke Musim Dingin II."
 
 msgid "VIEW_CAMP"
 msgstr "Lihat Kemah"

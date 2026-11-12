@@ -112,7 +112,7 @@ func do_prestige() -> bool:
     return sim.campaign.begin_prestige() and sim.prestige(sim.campaign.offered_cards()[0])
 func refresh_hud() -> void:
     game._refresh_reveal();game._refresh_follow_tracker();game._refresh_mission_tracker();game._layout_trackers()
-    game._refresh_explored();game._refresh_mastery_chip();game._refresh_gate();game._refresh_objective()
+    game._refresh_explored();game._refresh_mastery_chip();game._refresh_gate();game._layout_hud()
 
 # ---------------------------------------------------------------- 1. economy
 func economy_checks() -> void:
@@ -368,27 +368,13 @@ func overhead_checks() -> void:
 # ---------------------------------------------------------------- 5. persistent Winter I objective
 func objective_checks() -> void:
     print("-- Winter I objective")
+    # Change 71: the permanent "Farm until you can beat the boss" chip is removed; the followed objectives and
+    # the Next Stage chip carry that progression. The boss unlock and gate rules are unchanged.
     fresh()
-    refresh_hud();await frames(2)
-    var node:=map_node("Objective")
-    var text: Label=node.get_node("Text")
-    check(not node.visible and text.text=="Farm until you can beat the boss.","Winter I shows \"%s\"" % text.text)
-    check(node.mouse_filter==Control.MOUSE_FILTER_IGNORE and text.mouse_filter==Control.MOUSE_FILTER_IGNORE,"It never takes touches")
-    var gate:=map_node("Gate")
-    check(not node.visible,"It sits under the Next Stage chip, on the same right edge")
-    check(text.get_theme_font_size("font_size")>=15 and contrast(text.get_theme_color("font_color"),Color(.04,.06,.09))>=7.0,"Readable: %d px on the dark chip, %.1f:1" % [text.get_theme_font_size("font_size"),contrast(text.get_theme_color("font_color"),Color(.04,.06,.09))])
     sim.state.bosses_found.append("boss-snowman") # fixture: found but not defeated
-    refresh_hud()
-    check(node.visible,"Finding the Snowman keeps it (it stays until the Snowman is defeated)")
-    sim.state.bosses_found.clear()
     refresh_hud();await frames(2)
-    check(not node.visible,"No objective before boss discovery")
-    sim.state.onboarding.reveal=sim.campaign.onboarding.FEATURES.duplicate()
-    sim.state.group_kills[group("boss-snowman")]=1;sim.state.run_kills["boss-snowman"]=1 # fixture: defeated
-    refresh_hud()
-    check(not node.visible,"Defeating the Snowman removes it")
-    fresh();stage(2);refresh_hud()
-    check(not node.visible,"Other maps never show it")
+    check(game.get_node_or_null("Safe/Layout/Map/Objective")==null,"No permanent Winter I objective chip")
+    check(sim.campaign.prestige_unlocked() and not sim.campaign.first_boss_defeated(),"The boss unlock rule itself is unchanged")
 
 # ---------------------------------------------------------------- 6. missions and Prestige tracking
 func tracker_checks() -> void:
@@ -406,11 +392,12 @@ func tracker_checks() -> void:
     var map_rect: Rect2=map_node("").get_rect() if false else Rect2(Vector2.ZERO,game.get_node("Safe/Layout/Map").size)
     var mr:=mission.get_rect();var fr:=follow.get_rect()
     check(map_rect.encloses(mr) and map_rect.encloses(fr),"Both inside the map")
-    check(absf(fr.end.y-game.stick.get_rect().position.y+12)<1 and fr.position.y>mr.position.y,"Both stacked directly above joystick")
+    # Change 71: the stack's floor is just above the joystick when they share the column, else the map's bottom margin.
+    check(absf(fr.end.y-game._tracker_floor(fr.size.x))<1 and fr.position.y>mr.position.y,"Both stacked on the tracker floor (above a joystick in their column)")
     check(not mr.intersects(fr) and mr.end.y<=fr.position.y,"Stacked: mission above Prestige, no overlap")
     var stick: Rect2=game.stick.get_rect()
     check(not mr.intersects(stick) and not fr.intersects(stick),"Clear of the joystick")
-    check(not mr.intersects(map_node("Gate").get_rect()) and not mr.intersects(map_node("MiniMap").get_rect()) and not mr.intersects(map_node("Objective").get_rect()),"Clear of the map cluster")
+    check(not mr.intersects(map_node("Gate").get_rect()) and not mr.intersects(map_node("MiniMap").get_rect()),"Clear of the map cluster")
     var m: Dictionary=sim.state.missions[i]
     var step: String=mission.get_node("Row/Text/Step").text
     var name_: String=sim.catalog.groups[group(str(m.target))].name
@@ -449,7 +436,7 @@ func tracker_checks() -> void:
     var data=JSON.parse_string(JSON.stringify(sim.snapshot()))
     sim.restore(data)
     check(str(sim.state.follow_mission)==key,"The followed mission is saved")
-    check(do_prestige() and str(sim.state.follow_mission)=="","Prestige clears the followed mission (missions restart)")
+    check(do_prestige() and str(sim.state.follow_mission)==key,"Prestige keeps the followed daily mission")
 
 # ---------------------------------------------------------------- 6b. all 33 opportunities explained
 func follow_text_checks() -> void:
@@ -640,17 +627,17 @@ func mastery_checks() -> void:
     print("-- Map Mastery")
     fresh()
     var r=sim.campaign.mastery.rules
-    check(r.map_rewards[5]=={"gem_chance":0.02} and r.map_rewards[7]=={"hp":0.15},"Autumn II rewards +2 pts Gem Chance, Spring II +15% max HP")
+    check(r.map_rewards[5]=={"gem_chance":0.05} and r.map_rewards[7]=={"hp":0.15},"Autumn II rewards +5 pts Gem Chance, Spring II +15% max HP")
     var gem: float=sim.gem_base_chance();var hp: float=sim.card("hp")
     sim.state.mastery.done.append("map:6");sim.campaign.mastery.reset_cache() # fixture: Autumn II mastered in an existing save
-    check(near(sim.gem_base_chance()-gem,.02) and near(sim.card("hp"),hp),"A latched Autumn II pays the Gem Chance (no claim state to migrate)")
+    check(near(sim.gem_base_chance()-gem,.05) and near(sim.card("hp"),hp),"A latched Autumn II pays the Gem Chance (no claim state to migrate)")
     sim.state.mastery.done.append("map:8");sim.campaign.mastery.reset_cache();sim.touch()
     check(near(sim.card("hp")-hp,.15),"A latched Spring II pays +15% max HP")
     var data=JSON.parse_string(JSON.stringify(sim.snapshot()))
     sim.restore(data)
-    check(near(sim.gem_base_chance()-gem,.02) and near(sim.card("hp")-hp,.15),"…through save and load")
+    check(near(sim.gem_base_chance()-gem,.05) and near(sim.card("hp")-hp,.15),"…through save and load")
     game._open("mastery");await frames(2)
-    check(labels_text(game.rows).contains("Autumn II") and labels_text(game.rows).contains("+2 pts Gem Chance"),"The Mastery list shows the swapped rewards")
+    check(labels_text(game.rows).contains("Autumn II") and labels_text(game.rows).contains("+5 pts Gem Chance"),"The Mastery list shows the swapped rewards")
     game._close()
     # The summary chip above Map Explored.
     refresh_hud();await frames(2)

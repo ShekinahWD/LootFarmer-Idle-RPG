@@ -1,0 +1,7 @@
+{
+ "SUPPLY_MASTERY_EXPLAIN": "Every 5 uses of a supply raise its mastery by one level, up to ^%d. Buying or finding supplies adds stock only. Prestige keeps mastery levels and use progress.",
+ "SUPPLY_NO_MERGE": "Every five uses raise Supply Mastery. Prestige keeps mastery and use progress.",
+ "MERGE_ALL_LOCKED_HINT": "Merge All: unlock it once for 500 gems in Upgrades → Inventory.",
+ "RESET_LINE_RUN_PROGRESS": "Unfinished Prestige opportunities. Pending offline Coins and Gems are paid first; unclaimed offline item copies are lost.",
+ "PRESTIGE_RESET_RUN": "Every item you carry (supplies included) and its random bonus attributes, map access (back to Winter I), owned camps and unfinished Prestige opportunities."
+}

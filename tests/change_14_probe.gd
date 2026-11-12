@@ -79,10 +79,11 @@ func cluster_checks() -> void:
     check(gate.visible and gate_label.text=="Next Stage · Bosses 0/2","Summer II reads \"%s\"" % gate_label.text)
     check(explored.text==tr("MAP_EXPLORED") % sim.campaign.explored_percent(4) and explored.text.begins_with("Map Explored: "),"Map Explored reads \"%s\" from the saved explored cells" % explored.text)
     var rz:=zoom.get_global_rect();var re:=explored.get_global_rect();var rm:=mini.get_global_rect();var rg:=gate.get_global_rect()
-    check(rz.end.y<=re.position.y and re.end.y<=rm.position.y and rm.end.y<=rg.position.y,"Top-down order: zoom %s, Map Explored %s, minimap %s, Next Stage %s" % [rz,re,rm,rg])
+    # Change 71: MINIMAP -> ZOOM -> status (Map Explored, Next Stage).
+    check(rm.end.y<=rz.position.y and rz.end.y<=re.position.y and re.end.y<=rg.position.y,"Top-down order: minimap %s, zoom %s, Map Explored %s, Next Stage %s" % [rm,rz,re,rg])
     var map_rect: Rect2=game.get_node("Safe/Layout/Map").get_global_rect()
     check(re.get_center().x>map_rect.get_center().x and rg.get_center().x>map_rect.get_center().x and absf(re.end.x-rm.end.x)<=1 and absf(rg.end.x-rm.end.x)<=1,"Both chips share the minimap's right edge, top right of the map")
-    check(re.end.y<map_rect.get_center().y,"The percentage is no longer in the lower right (it ends at y %.0f of %.0f)" % [re.end.y,map_rect.end.y])
+    check(re.position.y>=rz.end.y and re.end.y<=rg.position.y,"The percentage stays in the top-right stack (it ends at y %.0f of %.0f)" % [re.end.y,map_rect.end.y])
     var cluster: Array=[zoom,explored,mini,gate]
     for i in range(cluster.size()):
         for j in range(i+1,cluster.size()):check(not cluster[i].get_global_rect().intersects(cluster[j].get_global_rect()),"%s and %s do not overlap" % [cluster[i].name,cluster[j].name])

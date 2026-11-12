@@ -23,7 +23,7 @@ func _init(owner) -> void:
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={}
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"bosses_found":[],"follow_mission":"","review":review.initial(),"respawns":{},"hunt":hunt_initial()},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"follow_mastery":"","bosses_found":[],"follow_mission":"","review":review.initial(),"respawns":{},"hunt":hunt_initial()},true)
     mastery.reset_cache()
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
@@ -506,7 +506,7 @@ func upgrade_cost(id: String,g: int) -> int:
     var d: Dictionary=sim.catalog.upgrades[id]
     var n: int=sim.level(id,g)
     var st=1
-    if d.scope in ["type","normal_type"]:st=int(sim.catalog.groups[g].stage)
+    if d.scope in ["type","normal_type","boss_type"]:st=int(sim.catalog.groups[g].stage)
     elif d.scope=="stage":st=g
     elif d.scope=="camp":st=g/10
     var factor=map_cost_factor(st) if d.currency=="coins" else 1+.25*(st-1)
@@ -521,12 +521,23 @@ func upgrade_cost(id: String,g: int) -> int:
     if d.get("sequence",false):
         factor=1.0
         price=maxf(float(d.base)*pow(float(d.growth),sequence_count(id)),float(d.get("floor",0))*map_cost_factor(st))
-    # Change 56 (approved "cheap first five"): the first levels of each enemy type's Coin Amount, Enemy XP and
-    # Loot Chance cost x0.25, so a newly farmed type is quick to start investing in; later levels are unchanged.
-    var economy: Dictionary=sim.catalog.progression.get("economy",{})
-    if d.currency=="coins" and d.scope in ["type","normal_type"] and economy.get("cheap_first_upgrades",[]).has(id) and n<int(economy.get("cheap_first_levels",0)):
-        price*=float(economy.get("cheap_first_factor",1.0))
+    price*=cheap_first_factor(id,n)
     return maxi(1,ceili(price*factor*(1-bonus("coin_discount") if d.currency=="coins" else 1)))
+## Change 56 (approved cheap first levels): each enemy type's Coin Amount, Enemy XP and Loot Chance start at
+## x0.25 so a newly farmed type is quick to start investing in. Change 71: the discount used to end in one step
+## after level 5 (a x5.4 jump: Enemy XP on Winter II went 38 -> 209 Coins). Now the first cheap_first_levels
+## purchases keep the full discount and it fades geometrically until cheap_taper_until, where the normal
+## price applies, so no purchase costs more than about x1.8 the one before. Later levels are unchanged.
+func cheap_first_factor(id: String,n: int) -> float:
+    var d: Dictionary=sim.catalog.upgrades[id]
+    var economy: Dictionary=sim.catalog.progression.get("economy",{})
+    if d.currency!="coins" or not d.scope in ["type","normal_type"] or not economy.get("cheap_first_upgrades",[]).has(id):return 1.0
+    var factor:=float(economy.get("cheap_first_factor",1.0))
+    var first:=int(economy.get("cheap_first_levels",0))
+    var until:=maxi(first,int(economy.get("cheap_taper_until",first)))
+    if n<first:return factor
+    if n>=until:return 1.0
+    return pow(factor,1.0-float(n-first+1)/float(until-first+1))
 func sequence_count(id: String) -> int:
     var total:=0
     for key in sim.state.upgrades:
@@ -949,10 +960,17 @@ func missions_auto_claimed() -> bool:return bool(sim.state.mission_auto) and sim
 func refresh_missions() -> void:
     var day=sim.today()
     for i in range(sim.state.missions.size()):
-        if sim.state.missions[i].kind=="waiting" or (sim.state.missions[i].claimed and sim.state.missions[i].day!=day):sim.state.missions[i]=new_mission(i,day)
-    while sim.state.missions.size()<3+sim.level("mission_slots"):sim.state.missions.append(new_mission(sim.state.missions.size(),day))
+        if sim.state.missions[i].kind=="waiting" or (sim.state.missions[i].claimed and sim.state.missions[i].day!=day):
+            sim.state.missions[i]=new_mission(i,day)
+            price_mission(sim.state.missions[i])
+    while sim.state.missions.size()<3+sim.level("mission_slots"):
+        var mission: Dictionary=new_mission(sim.state.missions.size(),day)
+        price_mission(mission)
+        sim.state.missions.append(mission)
+    # Preserve active mission rewards and progress through Prestige. New missions use the new
+    # run's current reward stage, while old saves without pricing are initialized once.
     for m in sim.state.missions:
-        if not m.claimed:price_mission(m)
+        if not m.claimed and not m.has("reward_stage"):price_mission(m)
     sim.state.mission_day=day
 func new_mission(index: int,day: String) -> Dictionary:
     var candidates: Array=[]
@@ -1084,7 +1102,8 @@ func claim_mission(i: int) -> bool:
     var m: Dictionary=sim.state.missions[i]
     if m.claimed or m.progress<m.goal:return false
     var before: Dictionary=sim.state.duplicate(true)
-    price_mission(m)
+    # The reward recorded for the daily mission remains stable across Prestige.
+    if not m.has("reward_stage"):price_mission(m)
     m.claimed=true;sim.state.coins+=m.coins;sim.state.gems+=m.gems
     progress("mission","",1);refresh_missions();check_follow_mission();sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
@@ -1435,9 +1454,9 @@ func choose_card(id: String) -> bool:
         # Change 35: the review invitation record is per profile, so Prestige keeps it too.
         # Change 50 (approved rules): also the Coin balance, every purchased upgrade, the per-item merge
         # memory and earned-but-unclaimed main objectives. Items, loadout, rolled attributes, map access,
-        # owned camps, missions, Supply Mastery and transient run state reset. Mission rewards are
-        # priced from the new run's own map access (reward_stage), not the highest map ever reached.
-        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        # owned camps and transient run state reset; daily missions and Supply Mastery persist.
+        # New daily missions are repriced from current-run map access (reward_stage) on real day reset.
+        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","supply_uses","supply_mastery_credit","missions","mission_day","mission_auto","follow_mission","follow_mastery","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1451,7 +1470,9 @@ func choose_card(id: String) -> bool:
         sim._sync_spawn_counts()
         # The kept exploration is drawn and its spots are known again at once.
         discovery_revision+=1;reveal()
-        sim.state.missions=[];refresh_missions();sim.touch();sim.state.player.hp=sim.stats().hp
+        # The saved daily assignments, progress, rewards and claims survive this reset unchanged.
+        # The normal calendar-day refresh still occurs on the next campaign tick.
+        check_follow_mission();sim.touch();sim.state.player.hp=sim.stats().hp
     sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     # Presentation follows the durable commit; a failed write never celebrates.
@@ -1459,15 +1480,12 @@ func choose_card(id: String) -> bool:
     if final:sim.event.emit("PRESTIGED");sim.milestone.emit("prestiged",",".join(granted))
     return true
 ## Change 50: the ending run's earned rewards, applied in memory by the final card choice before the
-## reset (never on their own): every finished, unclaimed regular mission pays its reward once at the
-## ending run's price; pending offline Coins and Gems are paid once with their offline counters (the
+## reset (never on their own): daily mission assignments, progress and unclaimed rewards remain in
+## the profile; pending offline Coins and Gems are paid once with their offline counters (the
 ## pending item copies would join an inventory that is about to reset, so they end with it); the run's
 ## merge levels join the merge memory. Main objectives are not claimed: they stay claimable.
 func settle_run_for_prestige() -> void:
-    for m in sim.state.missions:
-        if str(m.kind)=="waiting" or m.claimed or m.progress<m.goal:continue
-        price_mission(m)
-        m.claimed=true;sim.state.coins+=m.coins;sim.state.gems+=m.gems
+    # Regular daily missions remain claimable after Prestige; only explicit claims pay them.
     var pending: Dictionary=sim.state.get("offline_pending",{})
     if not pending.is_empty():
         sim.state.coins+=float(pending.coins);sim.state.gems+=float(pending.gems);sim.state.offline_income+=float(pending.coins)
@@ -1563,9 +1581,44 @@ func claim_offline() -> bool:
     offline_receipt=receipt
     sim.event.emit("OFFLINE_CLAIMED")
     return true
+## Previous builds earned one Supply Mastery level per three successful uses. A profile's
+## permanent ranks and remaining partial uses must not decrease when the requirement rises to five.
+## The previous Auto Evolution unlock also accepted bosses. Only bosses lose that upgrade.
+## Refund each legacy boss purchase once while keeping normal-enemy Auto Evolution untouched.
+func migrate_boss_auto_evolve(out: Dictionary) -> void:
+    var migrations: Array=out.get("migrations",[]) if out.get("migrations",[]) is Array else []
+    if migrations.has("boss_auto_evolve_refunded"):return
+    if out.get("upgrades") is Dictionary:
+        for key in out.upgrades.keys():
+            var name: String=str(key)
+            if not name.begins_with("auto_evolve:"):continue
+            var part: String=name.trim_prefix("auto_evolve:")
+            if not part.is_valid_int():continue
+            var g:=int(part)
+            if g<0 or g>=sim.catalog.groups.size() or not sim.catalog.groups[g].boss:continue
+            if number(out.upgrades[key]) and int(out.upgrades[key])>0:
+                out["gems"]=maxf(0,float(out.get("gems",0)))+int(sim.catalog.upgrades.auto_evolve.base)
+            out.upgrades.erase(key)
+    migrations.append("boss_auto_evolve_refunded")
+    out.migrations=migrations
+
+func migrate_supply_uses5(out: Dictionary) -> void:
+    var migrations: Array=out.get("migrations",[]) if out.get("migrations",[]) is Array else []
+    if migrations.has("supply_uses_5"):return
+    if out.get("supply_uses") is Dictionary:
+        for id in out.supply_uses:
+            var uses=out.supply_uses[id]
+            if number(uses) and float(uses)>=0:
+                var old:=int(uses)
+                out.supply_uses[id]=int(old/3)*5+old%3
+    migrations.append("supply_uses_5")
+    out.migrations=migrations
+
 func normalize_snapshot(data: Dictionary) -> Dictionary:
     var out: Dictionary=data.duplicate(true)
     migrate_schema9(out)
+    migrate_supply_uses5(out)
+    migrate_boss_auto_evolve(out)
     normalize_change17(out)
     guided.normalize(out)
     review.normalize(out)
@@ -2120,7 +2173,8 @@ func opportunity_progress(id: String) -> String:
 ## line 2 ("Next: …" or "Then …") says what follows when there is a next requirement. Collection
 ## contracts name the exact item (the tracker also shows its icon, follow_focus). Supersedes the
 ## Change 11 rule that hid the required outfits.
-func follow_summary(id: String) -> String:
+## compact (Change 71, the HUD tracker): only the current actionable step and its progress, no "Next:" line.
+func follow_summary(id: String,compact:=false) -> String:
     var o: Dictionary=sim.state.opportunities.get(id,{})
     if o.is_empty():return ""
     if o.ready:return sim.tr("FOLLOW_READY")
@@ -2130,7 +2184,7 @@ func follow_summary(id: String) -> String:
             var chain=chain_for(id);var index=int(o.get("step",0))
             if index>=chain.size():return sim.tr("FOLLOW_READY")
             var line: String=sim.tr("FOLLOW_STEP") % [index+1,chain.size(),_chain_goal(chain[index]),int(o.get("count",0)),int(chain[index][2])]
-            if index+1<chain.size():line+="\n"+sim.tr("FOLLOW_NEXT") % (_chain_goal(chain[index+1])+" ×%d" % int(chain[index+1][2]))
+            if index+1<chain.size() and not compact:line+="\n"+sim.tr("FOLLOW_NEXT") % (_chain_goal(chain[index+1])+" ×%d" % int(chain[index+1][2]))
             return line
         "collection":
             var goal:=collection_required(n)
@@ -2143,7 +2197,7 @@ func follow_summary(id: String) -> String:
             var item: String=contract_outfit(names[open[0]])
             var g:=group_id("unit-"+names[open[0]])
             var line: String=sim.tr("FOLLOW_COLLECT") % [counts.size()-open.size()+1,counts.size(),sim.catalog.display_name(item),_group_place(g),counts[open[0]],goal]
-            if open.size()>1:line+="\n"+sim.tr("FOLLOW_NEXT") % sim.catalog.display_name(contract_outfit(names[open[1]]))
+            if open.size()>1 and not compact:line+="\n"+sim.tr("FOLLOW_NEXT") % sim.catalog.display_name(contract_outfit(names[open[1]]))
             return line
         "hunter":
             # The first boss still short of its count (Hunter IV names two).
@@ -2158,7 +2212,7 @@ func follow_summary(id: String) -> String:
             for boss in bosses:
                 if not o.get("trophy_boss-"+boss,false):open.append(boss)
             var line: String=sim.tr("FOLLOW_TROPHY") % [_group_place(group_id("boss-"+str(open[0]))),bosses.size()-open.size(),bosses.size()]
-            if open.size()>1:line+="\n"+sim.tr("FOLLOW_NEXT") % _group_place(group_id("boss-"+str(open[1])))
+            if open.size()>1 and not compact:line+="\n"+sim.tr("FOLLOW_NEXT") % _group_place(group_id("boss-"+str(open[1])))
             return line
         "masterwork":
             var best:=masterwork_best(o,n)

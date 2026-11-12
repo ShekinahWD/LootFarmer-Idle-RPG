@@ -420,12 +420,18 @@ func filter_checks() -> void:
     var grid: Node=game.dock.get_node("Inventory/GearColumn/GearScroll/Gear")
     var gear_before: Array=sim.state.gear.duplicate()
     var methods:=["close button","Filters again","Back","another panel","programmatic","prestige close"]
+    # Change 71 (replaces Change 11's reset on close): the category is a saved preference of the main
+    # inventory, so every close path keeps it; choosing All restores the full grid.
     for method in methods:
+        game._set_inventory_view(0,0)
         button.pressed.emit();await frames(2)
-        check(game.panel=="filters" and game.inventory_filter==0,"%s: Filters opens unfiltered" % method)
-        game.inventory_filter=3;game.slot_signatures.clear();game._refresh_slots();game._refresh_panel(true);await frames(2) # Skills: none owned
-        var shown:=grid.get_children().filter(func(n):return n.visible).size()
-        check(shown==0 and button.text==tr("FILTERS_ACTIVE") % tr("SKILLS"),"%s: an empty filter hides every gear slot while open" % method)
+        check(game.panel=="filters" and game.inventory_filter==0,"%s: Filters opens on the saved view (All)" % method)
+        game._set_inventory_view(3,0);await frames(2) # Skills: none owned
+        var shown:=0
+        for p in range(grid.get_child_count()):
+            var i: int=game.gear_view[p] if p<game.gear_view.size() else -1
+            if grid.get_child(p).visible and i>=0 and sim.state.gear[i]!="":shown+=1
+        check(shown==0 and button.text==tr("SKILLS"),"%s: an empty category shows no item, the dock names it" % method)
         match method:
             "close button":game.get_node("Sheet/Margin/Content/Header/Close").pressed.emit()
             "Filters again":button.pressed.emit()
@@ -435,10 +441,13 @@ func filter_checks() -> void:
             "programmatic":game._close()
             "prestige close":game._event("PRESTIGED")
         await frames(2)
+        check(game.inventory_filter==3 and (not game.sheet.visible or game.panel!="filters"),"%s: closing keeps the saved category" % method)
+        game._close()
+        game._set_inventory_view(0,0);await frames(2)
         var visible_items:=0
-        for i in range(grid.get_child_count()):
-            if grid.get_child(i).visible and sim.state.gear[i]!="":visible_items+=1
-        check(game.inventory_filter==0 and visible_items==2 and button.text==tr("FILTERS"),"%s: closing restores the full inventory" % method)
+        for p in range(grid.get_child_count()):
+            if grid.get_child(p).visible and sim.state.gear[game.gear_view[p]]!="":visible_items+=1
+        check(visible_items==2 and button.text==tr("FILTERS"),"%s: All shows the full inventory again" % method)
     check(sim.state.gear==gear_before and sim.state.weapon=="wood_sword" and sim.quantity("wood_sword")==2,"Filtering never changes items, counts or equipment")
     game._close()
     game.player_tab=1;game._open("upgrades");await frames(2)
@@ -491,7 +500,7 @@ func prestige_upgrade_checks() -> void:
     sim.state.group_kills[sim.campaign.prestige_unlock_group()]=1
     sim.state.opportunities["hunter_o1"]={"ready":true,"baseline":{},"step":0,"count":0}
     sim.campaign.begin_prestige();sim.prestige(sim.campaign.offered_cards()[0])
-    check(sim.supply_mastery("potion")==0 and sim.quantity("potion")==0,"Prestige clears supply mastery and stock")
+    check(sim.supply_mastery("potion")==20 and sim.quantity("potion")==0,"Prestige keeps supply mastery but resets stock")
     sim.state.upgrades["gem_chance"]=2
     check(SaveService.hard_reset() and sim.state.upgrades.is_empty() and sim.state.supply_found.is_empty(),"Hard Reset clears every upgrade and mastery")
     sim.state.tutorial.mode="none";sim.suspended=false

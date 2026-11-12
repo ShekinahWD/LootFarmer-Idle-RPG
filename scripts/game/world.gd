@@ -35,6 +35,7 @@ var collected_uids: Dictionary={}
 ## and the small camera kick of a crit (world units, decaying over KICK_TIME real seconds).
 var crit_fx: Node2D
 var supply_fx: Node2D
+var prestige_fx: Node2D
 var kick_start:=-1
 var kick_time:=.16
 var kick_amount:=2.5
@@ -107,6 +108,12 @@ func setup(value: LootSimulation) -> void:
     supply_fx.setup(sim)
     add_child(supply_fx)
     sim.supply_used.connect(func(id: String)->void:supply_fx.play(id,_player_feet()))
+    prestige_fx=preload("res://scripts/game/prestige_fx.gd").new()
+    add_child(prestige_fx)
+    prestige_fx.setup(sim)
+    sim.milestone.connect(func(kind: String,_id: String)->void:
+        if kind=="prestiged":prestige_fx.play()
+        elif kind=="reset" and prestige_fx!=null:prestige_fx.stop())
     moments=preload("res://scripts/game/world_moments.gd").new()
     add_child(moments)
     sim.traveled.connect(_traveled)

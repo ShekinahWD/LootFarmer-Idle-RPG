@@ -64,16 +64,10 @@
    ]
   },
   "RESET_LINE_RUN_PROGRESS": {
-   "en": "Unfinished opportunities and missions. Finished missions and unclaimed offline Coins and Gems are paid first; unclaimed offline item copies are lost",
+   "en": "Unfinished Prestige opportunities. Pending offline Coins and Gems are paid first; unclaimed offline item copies are lost.",
    "placeholders": [],
-   "change": "change-50",
-   "translated": [
-    "es_419",
-    "es_ES",
-    "pt_BR",
-    "fr_FR",
-    "de_DE"
-   ]
+   "change": "change-71",
+   "status": "changed"
   },
   "PRESTIGE_KEEP_ALL": {
    "en": "Cards and sets, your Coins and Gems, every upgrade you bought with Coins or Gems, the merge level of every weapon, outfit and skill, explored map areas, player level and XP, boss keys, enemy achievements, Map Mastery, unclaimed main objectives and settings.",
@@ -88,16 +82,10 @@
    ]
   },
   "PRESTIGE_RESET_RUN": {
-   "en": "Every item you carry (supplies included) and its random bonus attributes, Supply Mastery, map access (back to Winter I), owned camps, and unfinished opportunities and missions.",
+   "en": "Every item you carry (supplies included) and its random bonus attributes, map access (back to Winter I), owned camps and unfinished Prestige opportunities.",
    "placeholders": [],
-   "change": "change-50",
-   "translated": [
-    "es_419",
-    "es_ES",
-    "pt_BR",
-    "fr_FR",
-    "de_DE"
-   ]
+   "change": "change-71",
+   "status": "changed"
   },
   "ITEM_LEGACY_NAME": {
    "en": "%s (old stats)",
@@ -2225,6 +2213,164 @@
    "en": "Respawns return to it. Walking by hand 5 seconds stops it; let go sooner to keep farming.",
    "placeholders": [],
    "change": "change-69"
+  },
+  "SORT_ITEMS": {
+   "en": "Sort items",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "SORT_DEFAULT": {
+   "en": "Default",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "SORT_TIER": {
+   "en": "Tier ↓",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "SORT_EVOLUTION": {
+   "en": "Evolution ↓",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "SORT_QUANTITY": {
+   "en": "Quantity ↓",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "FILTER_ITEMS": {
+   "en": "Show items",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "FILTERS_HINT_V71": {
+   "en": "These choices organize your main inventory and stay until you change them. All and Default show every item in slot order.",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "INVENTORY_VIEW_NOW": {
+   "en": "Showing %s · %s",
+   "placeholders": [
+    "%s",
+    "%s"
+   ],
+   "change": "change-71"
+  },
+  "UP_BOSS_SPAWN_COOLDOWN": {
+   "en": "Boss respawn time",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "UP_BOSS_ITEM_ROLLS": {
+   "en": "Boss item drops",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "BOSS_ITEM_ROLLS_BENEFIT": {
+   "en": "×%d → ×%d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-71"
+  },
+  "BOSS_ITEM_ROLLS_MAX": {
+   "en": "×%d",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-71"
+  },
+  "EVOLVE_ALL_COPIES": {
+   "en": "Evolve all: %d → %s",
+   "placeholders": [
+    "%d",
+    "%s"
+   ],
+   "change": "change-71"
+  },
+  "EVOLVE_ALL_DONE": {
+   "en": "Evolved: %d → %s",
+   "placeholders": [
+    "%d",
+    "%s"
+   ],
+   "change": "change-71"
+  },
+  "MASTERY_FOLLOW_PROGRESS": {
+   "en": "Objectives %d/%d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-71"
+  },
+  "KEEP_LINE_SUPPLY_MASTERY": {
+   "en": "Supply Mastery and its use progress, and your daily missions (progress and claims)",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "SHOP_QUANTITY": {
+   "en": "Quantity per purchase",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "SHOP_CUSTOM": {
+   "en": "Custom",
+   "placeholders": [],
+   "change": "change-71"
+  },
+  "SHOP_UNIT_OWNED": {
+   "en": "%s coins each · Owned: %s",
+   "placeholders": [
+    "%s",
+    "%s"
+   ],
+   "change": "change-71"
+  },
+  "SHOP_TOTAL": {
+   "en": "×%d · Total %s coins",
+   "placeholders": [
+    "%d",
+    "%s"
+   ],
+   "change": "change-71"
+  },
+  "SHOP_BUY_N": {
+   "en": "Buy ×%d",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-71"
+  },
+  "SHOP_BUY_ITEM": {
+   "en": "Buy ×%d · %s coins",
+   "placeholders": [
+    "%d",
+    "%s"
+   ],
+   "change": "change-71"
+  },
+  "SUPPLY_MASTERY_EXPLAIN": {
+   "en": "Every 5 uses of a supply raise its mastery by one level, up to ^%d. Buying or finding supplies adds stock only. Prestige keeps mastery levels and use progress.",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-71",
+   "status": "changed"
+  },
+  "SUPPLY_NO_MERGE": {
+   "en": "Every five uses raise Supply Mastery. Prestige keeps mastery and use progress.",
+   "placeholders": [],
+   "change": "change-71",
+   "status": "changed"
+  },
+  "MERGE_ALL_LOCKED_HINT": {
+   "en": "Merge All: unlock it once for 500 gems in Upgrades → Inventory.",
+   "placeholders": [],
+   "change": "change-71",
+   "status": "changed"
   }
  },
  "retired": {
@@ -2254,6 +2400,11 @@
   "REROLL_CONFIRM": "change-52",
   "MAP_UPGRADES_JUMP": "change-55",
   "GUIDE_MASTERY_INTRO": "change-66",
-  "GUIDE_MASTERY_INTRO_DETAIL": "change-66"
+  "GUIDE_MASTERY_INTRO_DETAIL": "change-66",
+  "OBJECTIVE_WINTER_BOSS": "change-71",
+  "OBJECTIVE_WINTER_TOOLTIP": "change-71",
+  "FILTERS_HINT": "change-71",
+  "FILTERS_ACTIVE": "change-71",
+  "BUY_SUPPLY": "change-71"
  }
 }

@@ -136,6 +136,22 @@ func objective(st: int,category: String) -> Dictionary:
     var complete:=done==parts.size()
     return {"done":done,"total":parts.size(),"fraction":1.0 if complete else minf(fraction,.999),"complete":complete or data().done.has("%d:%s" % [st,category]),"parts":parts}
 
+## Follow is a single actionable objective (map + category), independent of mission/Prestige.
+func followed() -> Dictionary:
+    var key: String=str(sim.state.get("follow_mastery",""))
+    var bits:=key.split(":")
+    if bits.size()!=2 or not bits[0].is_valid_int():return {}
+    var st:=int(bits[0]);var category: String=bits[1]
+    if st<1 or st>int(sim.state.unlocked_stage) or not CATEGORIES.has(category) or category_complete(st,category):return {}
+    return {"stage":st,"category":category}
+
+func toggle_follow(st: int,category: String) -> bool:
+    var key:="%d:%s" % [st,category]
+    if str(sim.state.follow_mastery)==key:
+        sim.state.follow_mastery="";sim.touch();return true
+    if not sim.action_lock_reason().is_empty() or st<1 or st>int(sim.state.unlocked_stage) or not CATEGORIES.has(category) or category_complete(st,category):return false
+    sim.state.follow_mastery=key;sim.touch();return true
+
 func category_complete(st: int,category: String) -> bool:
     return data().done.has("%d:%s" % [st,category])
 
@@ -196,6 +212,7 @@ func evaluate(announce:=true) -> void:
             sim.milestone.emit("mastery_game","")
     if changed:
         _reward_key=-1
+        if not str(sim.state.get("follow_mastery","")).is_empty() and followed().is_empty():sim.state.follow_mastery=""
         sim.touch()
 
 # ---------------------------------------------------------------- rewards

@@ -4633,26 +4633,14 @@ msgstr "Trovati tutti! Consegnali: Prestigio, poi Consegna"
 msgid "FILTERS"
 msgstr "Filtri"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filtri · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Filtra la griglia dell’equipaggiamento. Chiudendo Filtri tornano visibili tutti gli oggetti."
 
 msgid "PANEL_FILTERS"
 msgstr "Filtri"
 
-msgid "FILTERS_HINT"
-msgstr "Finché Filtri è aperto, la griglia dell’equipaggiamento mostra solo questa categoria. Chiudendolo tornano visibili tutti gli oggetti."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Slot provviste: uno per tipo di provvista (%d tipi). I Filtri sono accanto al conteggio dell’equipaggiamento."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Ogni 3 usi effettivi di questa provvista danno un livello di maestria, fino a ^%d. Acquisti e drop aggiungono solo scorte. Il prestigio azzera la maestria e i progressi d’uso."
-
-msgid "BUY_SUPPLY"
-msgstr "Compra %s · %s monete"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · %d s rimasti"
@@ -4741,9 +4729,6 @@ msgstr "La pozione è ancora in ricarica."
 msgid "SUPPLY_ACTIVE"
 msgstr "Già attiva. Usala di nuovo quando si esaurisce."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Ogni tre usi aumentano la Maestria delle provviste. Il prestigio azzera la maestria e i progressi d’uso."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Provviste attive"
 
@@ -4824,9 +4809,6 @@ msgstr "Sbloccato · usa Fondi tutto in Filtri"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "Fondi tutto non è ancora sbloccato"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Fondi tutto: sbloccalo una volta per 5K gemme in Potenziamenti → Inventario."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Fondi tutto · %d copie extra"
@@ -5367,12 +5349,6 @@ msgstr "Maestria %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Maestria di questa mappa: percentuale e categorie completate. Tocca per i dettagli."
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Farma finché non riesci a battere il boss."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "Il Pupazzo di Neve sorveglia la strada per Inverno II."
 
 msgid "VIEW_CAMP"
 msgstr "Vedi campo"

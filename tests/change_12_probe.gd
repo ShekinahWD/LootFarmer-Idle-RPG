@@ -167,7 +167,7 @@ func explored_checks() -> void:
     # Placement (Change 14): top right, between the zoom slider and the minimap, inside the map.
     var map: Control=game.get_node("Safe/Layout/Map")
     var rect:=label.get_global_rect()
-    check(map.get_global_rect().encloses(rect) and rect.end.x<=map.get_global_rect().end.x-12 and rect.position.y>=map.get_node("Zoom").get_global_rect().end.y and rect.end.y<=map.get_node("MiniMap").get_global_rect().position.y,"The label sits in the top-right map cluster, between zoom and minimap")
+    check(map.get_global_rect().encloses(rect) and rect.end.x<=map.get_global_rect().end.x-12 and rect.position.y>=map.get_node("Zoom").get_global_rect().end.y and map.get_node("Zoom").get_global_rect().position.y>=map.get_node("MiniMap").get_global_rect().end.y,"The label sits in the top-right map cluster, under the minimap and zoom (Change 71 order)")
     for path in ["Joystick","MiniMap","FollowTracker","Zoom","EnemyUpgrades","Achievement"]:
         check(not rect.intersects(map.get_node(path).get_global_rect()),"It does not overlap %s" % path)
     check(label.mouse_filter==Control.MOUSE_FILTER_IGNORE,"It never takes touches")
@@ -315,7 +315,7 @@ func notice_checks() -> void:
 func merge_all_checks() -> void:
     fresh()
     var def: Dictionary=sim.catalog.upgrades.merge_all
-    check(def.currency=="gems" and int(def.base)==5000 and int(def.cap)==1 and def.scope=="global" and sim.upgrade_kept("merge_all"),"Merge All: one 5,000-Gem global unlock, kept by Prestige")
+    check(def.currency=="gems" and int(def.base)==500 and int(def.cap)==1 and def.scope=="global" and sim.upgrade_kept("merge_all"),"Merge All: one 500-Gem global unlock, kept by Prestige")
     sim.state.upgrades["gear_slots"]=4;sim.state.gear.resize(7);for i in range(3,7):sim.state.gear[i]="" # fixture: room for 6 items
     sim.add_item("wood_sword",6);sim.add_item("unit-blue-cap_outfit",5);sim.add_item("skill_heal",3);sim.add_item("stone_axe",1)
     sim.state.upgrades["supply_slots"]=4;sim.state.supplies.resize(5);sim.state.supplies.fill("")
@@ -330,10 +330,10 @@ func merge_all_checks() -> void:
     game.player_tab=1;game._open("upgrades");await frames(2)
     check(label_containing(tr("UP_MERGE_ALL"))!=null and label_containing(tr("MERGE_ALL_BENEFIT"))!=null,"Upgrades > Inventory lists Merge All with its description")
     game._close()
-    sim.state.gems=4999.0
-    check(not sim.buy_upgrade("merge_all") and sim.level("merge_all")==0,"4,999 gems cannot buy it")
-    sim.state.gems=5000.0
-    check(sim.buy_upgrade("merge_all") and sim.level("merge_all")==1 and sim.state.gems==0.0,"5,000 gems unlock it")
+    sim.state.gems=499.0
+    check(not sim.buy_upgrade("merge_all") and sim.level("merge_all")==0,"499 gems cannot buy it")
+    sim.state.gems=500.0
+    check(sim.buy_upgrade("merge_all") and sim.level("merge_all")==1 and sim.state.gems==0.0,"500 gems unlock it")
     sim.state.gems=9000.0
     check(not sim.buy_upgrade("merge_all") and sim.state.gems==9000.0 and sim.upgrade_block_reason("merge_all")=="UPGRADE_MAX","It cannot be bought twice")
     check(sim.merge_all_copies()==5+4+2,"Eligible spare copies counted: 5 + 4 + 2")

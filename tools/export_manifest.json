@@ -16,9 +16,9 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 331,
+  "files": 333,
   "stages": 8,
-  "imported": 204
+  "imported": 205
  },
  "families": {
   "stage_scenes": {
@@ -80,6 +80,7 @@
     "res://scripts/game/game_ui.gd: int(sim.catalog.campaign.paths.get(path,{}).get(\"icon\",211))",
     "res://scripts/game/help_demo.gd: MASTERY_ICONS[i]",
     "res://scripts/game/prestige_card.gd: ITEM_ART % int(path_info.get(\"icon\",211))",
+    "res://scripts/game/prestige_fx.gd: ITEM_ART % index",
     "res://scripts/game/tutorial_guide.gd: int(MODE_ART[mode])"
    ],
    "paths": [
@@ -552,6 +553,7 @@
   "res://assets/vfx/moments/Confetti_Sheet.png": "literal in res://scripts/game/world_moments.gd",
   "res://assets/vfx/moments/Radial_Glow_002.png": "literal in res://scripts/game/world_moments.gd",
   "res://assets/vfx/moments/Wind_Shard_002.png": "literal in res://scripts/game/world_moments.gd",
+  "res://assets/vfx/prestige/Star_002.png": "literal in res://scripts/game/prestige_fx.gd",
   "res://assets/vfx/supply/Coin_Spin_Sheet.png": "literal in res://scripts/game/world_moments.gd",
   "res://assets/vfx/supply/Heal_001.png": "literal in res://scripts/game/supply_fx.gd",
   "res://assets/vfx/supply/Heart_001.png": "literal in res://scripts/game/supply_fx.gd",
@@ -667,6 +669,7 @@
   "res://scripts/game/pickup_style.gd": "dependency of res://resources/game/pickup_style.tres",
   "res://scripts/game/prestige_card.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/prestige_confirm.gd": "dependency of res://scenes/game/prestige_confirm.tscn",
+  "res://scripts/game/prestige_fx.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/respawn_fx.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/review_dialog.gd": "dependency of res://scenes/game/review_invitation.tscn",
   "res://scripts/game/review_invitation.gd": "literal in res://scripts/game/campaign.gd",

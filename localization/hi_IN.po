@@ -4633,26 +4633,14 @@ msgstr "सब मिल गए! जमा करें: प्रेस्ट�
 msgid "FILTERS"
 msgstr "फ़िल्टर"
 
-msgid "FILTERS_ACTIVE"
-msgstr "फ़िल्टर · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "गियर ग्रिड फ़िल्टर करें। फ़िल्टर बंद करने पर हर आइटम फिर दिखता है।"
 
 msgid "PANEL_FILTERS"
 msgstr "फ़िल्टर"
 
-msgid "FILTERS_HINT"
-msgstr "फ़िल्टर खुले रहने तक गियर ग्रिड केवल यही श्रेणी दिखाता है। बंद करने पर हर आइटम फिर दिखता है।"
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "रसद स्लॉट: हर रसद प्रकार के लिए एक (%d प्रकार)। फ़िल्टर गियर गिनती के पास हैं।"
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "इस रसद के हर 3 वास्तविक उपयोग एक महारत लेवल देते हैं, ^%d तक। खरीद और ड्रॉप केवल स्टॉक बढ़ाते हैं। प्रेस्टीज महारत और उपयोग प्रगति को रीसेट करता है।"
-
-msgid "BUY_SUPPLY"
-msgstr "खरीदें: %s · सिक्के: %s"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · %d से. बाकी"
@@ -4741,9 +4729,6 @@ msgstr "पोशन अभी कूलडाउन में है।"
 msgid "SUPPLY_ACTIVE"
 msgstr "पहले से सक्रिय है। ख़त्म होने पर फिर इस्तेमाल करें।"
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "हर तीन उपयोग रसद महारत बढ़ाते हैं। प्रेस्टीज महारत और उपयोग प्रगति को रीसेट करता है।"
-
 msgid "SOURCE_SUPPLY"
 msgstr "सक्रिय रसद"
 
@@ -4824,9 +4809,6 @@ msgstr "अनलॉक · फ़िल्टर में सब मर्ज �
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "सब मर्ज करें अभी अनलॉक नहीं है"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "सब मर्ज करें: अपग्रेड → इन्वेंटरी में 5K रत्नों से एक बार अनलॉक करें।"
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "सब मर्ज करें · अतिरिक्त प्रतियाँ: %d"
@@ -5367,12 +5349,6 @@ msgstr "महारत %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "इस नक्शे की नक्शा महारत: प्रतिशत और पूरी हुई श्रेणियाँ। विवरण के लिए टैप करें।"
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "बॉस को हराने लायक होने तक फ़ार्म करें।"
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "हिममानव सर्दी II का रास्ता रोके खड़ा है।"
 
 msgid "VIEW_CAMP"
 msgstr "कैंप देखें"

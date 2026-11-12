@@ -4633,26 +4633,14 @@ msgstr "Всё найдено! Сдай: «Престиж», затем «Сда
 msgid "FILTERS"
 msgstr "Фильтры"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Фильтры · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Фильтр сетки снаряжения. После закрытия фильтров снова видны все предметы."
 
 msgid "PANEL_FILTERS"
 msgstr "Фильтры"
 
-msgid "FILTERS_HINT"
-msgstr "Пока открыты фильтры, в сетке снаряжения видна только эта категория. После закрытия снова видны все предметы."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Ячейки припасов: по одной на тип (типов: %d). Фильтры — рядом со счётчиком снаряжения."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Каждые 3 реальных применения этого припаса дают один уровень мастерства, до ^%d. Покупки и выпадения только пополняют запас. Престиж сбрасывает мастерство и прогресс применений."
-
-msgid "BUY_SUPPLY"
-msgstr "Купить: %s · монеты: %s"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · осталось %d с"
@@ -4741,9 +4729,6 @@ msgstr "Зелье ещё перезаряжается."
 msgid "SUPPLY_ACTIVE"
 msgstr "Уже действует. Примени снова, когда эффект закончится."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Каждые три применения повышают мастерство припасов. Престиж сбрасывает мастерство и прогресс применений."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Активные припасы"
 
@@ -4824,9 +4809,6 @@ msgstr "Открыто · используй «Объединить всё» в 
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "«Объединить всё» ещё не открыто"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "«Объединить всё» открывается один раз за 5K самоцветов: Улучшения → Инвентарь."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Объединить всё · лишних копий: %d"
@@ -5367,12 +5349,6 @@ msgstr "Мастерство %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Мастерство этой карты: процент и выполненные категории. Нажми для подробностей."
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Фарми, пока не сможешь победить босса."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "Снеговик охраняет путь в Зиму II."
 
 msgid "VIEW_CAMP"
 msgstr "Осмотреть лагерь"

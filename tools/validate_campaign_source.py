@@ -79,7 +79,8 @@ g12=c['upgrades']['gem_chance']
 check('gem chance: base 5%, 20 levels of +0.5 points, no game caps',c['progression']['gem_limits']['base_chance']==0.05 and g12['cap']==20 and g12['effect']==0.005 and 'normal_cap' not in c['progression']['gem_limits'] and 'boss_cap' not in c['progression']['gem_limits'])
 check('gem chance prices: level 1 = 10 (Change 66), 2-12 unchanged, 13-20 rising',g12['prices'][:12]==[10,40,58,80,105,135,170,210,260,320,390,470] and all(b>a for a,b in zip(g12['prices'],g12['prices'][1:])) and len(g12['prices'])==20)
 check('Gem Wisdom +5 points',c['campaign']['cards']['offering_c2']['effect']=='gem_chance' and c['campaign']['cards']['offering_c2']['value']==0.05)
-check('Merge All: one-time 5,000-gem global unlock',c['upgrades']['merge_all']=={'currency':'gems','base':5000,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'global'})
+# Change 70/71: Merge All costs 500 Gems (approved price change; existing owners keep their unlock).
+check('Merge All: one-time 500-gem global unlock',c['upgrades']['merge_all']=={'currency':'gems','base':500,'growth':1,'cap':1,'keep':True,'effect':1,'scope':'global'})
 check('stone-tier weapons swing with the tinted Iron set',all(c['items'][i]['attack'].endswith('Iron set/%s 2 64x32.png' % k) and len(c['items'][i]['attack_tint'])==3 for i,k in [('stone_axe','Axe'),('stone_sword','Sword')]))
 # Change 13: skill cooldowns and unlock prices, potion cooldown and floor, flat Auto Evolution, enemy
 # ability and weather resources.
@@ -107,7 +108,8 @@ check('Health Potion heals 10% at ^0 and 20% at ^100 before bonuses',c['items'][
 ab16=(ROOT/'resources/game/enemy_abilities.tres').read_text(encoding='utf-8')
 check('Boss skills every 10 s (Change 62; catalog Heal 20 s for the player and normal enemies)','boss_skill_cooldown = 10.0' in ab16 and 'boss-cyan-robot:heal' not in ab16 and c['skills']['heal']['cooldown']==20)
 mr=(ROOT/'resources/game/mastery_rules.tres').read_text(encoding='utf-8')
-check('Mastery rewards: Autumn II +2 pts Gem Chance, Spring II +15% HP','{"gear_chance": 0.01}, {"gem_chance": 0.02}, {"damage": 0.15}, {"hp": 0.15}]' in mr)
+# Change 70/71: Winter I gives +2 pts Gem Chance (was +10% Coins) and Autumn II +5 pts (was +2).
+check('Mastery rewards: Winter I +2 pts Gem Chance, Autumn II +5 pts Gem Chance, Spring II +15% HP','[{"gem_chance": 0.02}, {"xp": 0.1}' in mr and '{"gear_chance": 0.01}, {"gem_chance": 0.05}, {"damage": 0.15}, {"hp": 0.15}]' in mr)
 check('boss warning cue uses the mission-ready sound','id = "boss_found"\nstream = ExtResource("s8")' in (ROOT/'resources/game/audio_cues.tres').read_text(encoding='utf-8'))
 for scene in ['scenes/game/main.tscn','scenes/game/prestige_confirm.tscn','scenes/game/review_invitation.tscn']:
     for key in re.findall(r'^text="([A-Z][A-Z0-9]*_[A-Z0-9_]+)"$',(ROOT/scene).read_text(encoding='utf-8'),re.M):check('scene translation '+key,key in strings)

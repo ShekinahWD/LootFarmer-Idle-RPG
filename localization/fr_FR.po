@@ -4636,26 +4636,14 @@ msgstr "Tout est trouvé ! Remettez-les : Prestige, puis Remettre"
 msgid "FILTERS"
 msgstr "Filtres"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filtres · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Filtre la grille d’équipement. Fermer Filtres réaffiche tous les objets."
 
 msgid "PANEL_FILTERS"
 msgstr "Filtres"
 
-msgid "FILTERS_HINT"
-msgstr "La grille d’équipement n’affiche que cette catégorie tant que Filtres est ouvert. Le fermer réaffiche tous les objets."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Emplacements de consommables : un par type (%d types). Filtres se trouve à côté du compteur d’équipement."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Toutes les 3 utilisations réelles de ce consommable, vous gagnez un niveau de maîtrise, jusqu’à ^%d. Les achats et le butin ne font qu’augmenter le stock. Le prestige réinitialise la maîtrise et la progression d’utilisation."
-
-msgid "BUY_SUPPLY"
-msgstr "Acheter %s · %s pièces"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · %d s restantes"
@@ -4744,9 +4732,6 @@ msgstr "La potion est encore en recharge."
 msgid "SUPPLY_ACTIVE"
 msgstr "Déjà actif. Réutilisez-le quand il prend fin."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Toutes les trois utilisations, la Maîtrise des consommables augmente. Le prestige réinitialise la maîtrise et la progression d’utilisation."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Consommables actifs"
 
@@ -4827,9 +4812,6 @@ msgstr "Débloqué · utilisez Tout fusionner dans Filtres"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "Tout fusionner n’est pas encore débloqué"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Tout fusionner : à débloquer une fois pour 5K gemmes dans Améliorations → Inventaire."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Tout fusionner · %d copies en trop"
@@ -5380,12 +5362,6 @@ msgstr "Maîtrise %d %% · %d/%d"
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Maîtrise de cette carte : pourcentage et catégories accomplies. Touchez pour les détails."
 
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Farmez jusqu’à pouvoir battre le boss."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "Le Bonhomme de Neige garde le passage vers Hiver II."
-
 msgid "VIEW_CAMP"
 msgstr "Voir le camp"
 
@@ -5806,14 +5782,8 @@ msgstr "Objectifs principaux terminés mais pas encore récupérés"
 msgid "RESET_LINE_CARRIED_ITEMS"
 msgstr "Tous les objets transportés (armes, tenues, compétences et consommables) ainsi que leurs attributs bonus aléatoires"
 
-msgid "RESET_LINE_RUN_PROGRESS"
-msgstr "Opportunités et missions inachevées. Les missions terminées et les pièces et gemmes hors ligne non récupérées sont créditées d’abord ; les copies d’objets hors ligne non récupérées sont perdues"
-
 msgid "PRESTIGE_KEEP_ALL"
 msgstr "Cartes et ensembles, vos pièces et gemmes, toutes les améliorations achetées avec des pièces ou des gemmes, le niveau de fusion de chaque arme, tenue et compétence, les zones explorées, le niveau et l’XP du joueur, les clés de boss, les succès d’ennemis, la Maîtrise des cartes, les objectifs principaux non récupérés et les paramètres."
-
-msgid "PRESTIGE_RESET_RUN"
-msgstr "Tous les objets transportés (consommables compris) et leurs attributs bonus aléatoires, la Maîtrise des consommables, l’accès aux cartes (retour à Hiver I), les camps possédés ainsi que les opportunités et missions inachevées."
 
 msgid "ITEM_LEGACY_NAME"
 msgstr "%s (anciennes statistiques)"

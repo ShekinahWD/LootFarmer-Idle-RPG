@@ -4636,26 +4636,14 @@ msgstr "Alles gefunden! Gib sie ab: Prestige, dann Abgeben"
 msgid "FILTERS"
 msgstr "Filter"
 
-msgid "FILTERS_ACTIVE"
-msgstr "Filter · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "Filtert das Ausrüstungsraster. Beim Schließen der Filter werden wieder alle Gegenstände angezeigt."
 
 msgid "PANEL_FILTERS"
 msgstr "Filter"
 
-msgid "FILTERS_HINT"
-msgstr "Das Ausrüstungsraster zeigt nur diese Kategorie, solange Filter geöffnet ist. Beim Schließen werden wieder alle Gegenstände angezeigt."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "Vorratsplätze: einer pro Vorratstyp (%d Typen). Filter befindet sich neben der Ausrüstungsanzahl."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "Alle 3 tatsächlichen Benutzungen dieses Vorrats bringen eine Meisterschaftsstufe, bis ^%d. Käufe und Drops erhöhen nur den Bestand. Prestige setzt die Meisterschaft und den Nutzungsfortschritt zurück."
-
-msgid "BUY_SUPPLY"
-msgstr "%s kaufen · %s Münzen"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · noch %d s"
@@ -4744,9 +4732,6 @@ msgstr "Der Trank klingt noch ab."
 msgid "SUPPLY_ACTIVE"
 msgstr "Bereits aktiv. Nutze ihn erneut, wenn er abläuft."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "Alle drei Benutzungen steigt die Vorratsmeisterschaft. Prestige setzt die Meisterschaft und den Nutzungsfortschritt zurück."
-
 msgid "SOURCE_SUPPLY"
 msgstr "Aktive Vorräte"
 
@@ -4827,9 +4812,6 @@ msgstr "Freigeschaltet · nutze Alles verschmelzen in Filter"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "Alles verschmelzen ist noch nicht freigeschaltet"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "Alles verschmelzen: einmalig für 5K Edelsteine unter Upgrades → Inventar freischalten."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "Alles verschmelzen · %d übrige Kopien"
@@ -5380,12 +5362,6 @@ msgstr "Meisterschaft %d %% · %d/%d"
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "Kartenmeisterschaft dieser Karte: Prozent und abgeschlossene Kategorien. Für Details tippen."
 
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "Farme, bis du den Boss besiegen kannst."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "Der Schneemann bewacht den Weg nach Winter II."
-
 msgid "VIEW_CAMP"
 msgstr "Lager ansehen"
 
@@ -5806,14 +5782,8 @@ msgstr "Abgeschlossene, aber noch nicht abgeholte Hauptziele"
 msgid "RESET_LINE_CARRIED_ITEMS"
 msgstr "Alle mitgeführten Gegenstände (Waffen, Kostüme, Fähigkeiten und Vorräte) samt ihren zufälligen Bonusattributen"
 
-msgid "RESET_LINE_RUN_PROGRESS"
-msgstr "Unvollständige Gelegenheiten und Missionen. Abgeschlossene Missionen sowie nicht abgeholte Offline-Münzen und -Edelsteine werden zuerst ausgezahlt; nicht abgeholte Offline-Kopien von Gegenständen verfallen"
-
 msgid "PRESTIGE_KEEP_ALL"
 msgstr "Karten und Sets, deine Münzen und Edelsteine, alle mit Münzen oder Edelsteinen gekauften Upgrades, die Verschmelzungsstufe aller Waffen, Kostüme und Fähigkeiten, erkundete Kartenbereiche, Spielerstufe und EP, Boss-Schlüssel, Gegnererfolge, Kartenmeisterschaft, nicht abgeholte Hauptziele und Einstellungen."
-
-msgid "PRESTIGE_RESET_RUN"
-msgstr "Alle mitgeführten Gegenstände (einschließlich Vorräte) und ihre zufälligen Bonusattribute, Vorratsmeisterschaft, Kartenzugang (zurück nach Winter I), eigene Lager sowie unvollständige Gelegenheiten und Missionen."
 
 msgid "ITEM_LEGACY_NAME"
 msgstr "%s (alte Werte)"

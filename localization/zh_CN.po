@@ -4631,26 +4631,14 @@ msgstr "全部找到了！上交：打开“转生”，然后点击“提交”
 msgid "FILTERS"
 msgstr "筛选"
 
-msgid "FILTERS_ACTIVE"
-msgstr "筛选 · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "筛选装备栏。关闭筛选后会重新显示所有物品。"
 
 msgid "PANEL_FILTERS"
 msgstr "筛选"
 
-msgid "FILTERS_HINT"
-msgstr "筛选打开时，装备栏只显示此类别。关闭后会重新显示所有物品。"
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "补给品格子：每种一格（共 %d 种）。筛选按钮位于装备数量旁边。"
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "每实际使用此补给品 3 次，精通等级提升 1 级，最高 ^%d。购买和掉落只会增加库存。转生会重置精通与使用进度。"
-
-msgid "BUY_SUPPLY"
-msgstr "购买%s · %s 金币"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · 剩余 %d秒"
@@ -4739,9 +4727,6 @@ msgstr "药水仍在冷却中。"
 msgid "SUPPLY_ACTIVE"
 msgstr "已在生效中。效果结束后再使用。"
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "每使用三次提升补给精通。转生会重置精通与使用进度。"
-
 msgid "SOURCE_SUPPLY"
 msgstr "生效中的补给品"
 
@@ -4822,9 +4807,6 @@ msgstr "已解锁 · 在筛选中使用“全部合成”"
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "尚未解锁全部合成"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "全部合成：在“强化”→“背包”中花费 5K 宝石一次性解锁。"
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "全部合成 · %d 件重复品"
@@ -5365,12 +5347,6 @@ msgstr "精通 %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "此地图的地图精通：百分比与已完成的类别。点击查看详情。"
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "刷怪直到能击败首领。"
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "雪人守着通往冬季 II 的路。"
 
 msgid "VIEW_CAMP"
 msgstr "查看营地"

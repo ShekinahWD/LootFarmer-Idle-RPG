@@ -21,7 +21,9 @@ func run() -> void:
     game._nav("filters");await frames(3)
     game.inventory_filter=2;game._refresh_panel(true);await frames(2)
     game._nav("filters");await frames(2)
-    print("SMOKE filters_reset=",game.inventory_filter==0 and not game.sheet.visible)
+    # Change 71: the category is a saved preference, kept when Filters closes.
+    print("SMOKE filters_kept=",game.inventory_filter==2 and not game.sheet.visible)
+    game.inventory_filter=0
     sim.state.camps["1"]=[0,1];sim.state.spawns=sim.state.camps["1"];sim.state.camps_known["1"]=[0,1]
     game.selected_camp=0;game._open("camp");await frames(3)
     game._open("teleport");await frames(3)

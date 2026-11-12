@@ -4631,26 +4631,14 @@ msgstr "모⁠두 찾⁠았⁠습⁠니⁠다! 환⁠생 메⁠뉴⁠에⁠서 �
 msgid "FILTERS"
 msgstr "필⁠터"
 
-msgid "FILTERS_ACTIVE"
-msgstr "필⁠터 · %s"
-
 msgid "FILTERS_TOOLTIP"
 msgstr "장⁠비 목⁠록⁠을 필⁠터⁠링⁠합⁠니⁠다. 필⁠터⁠를 닫⁠으⁠면 모⁠든 아⁠이⁠템⁠이 다⁠시 표⁠시⁠됩⁠니⁠다."
 
 msgid "PANEL_FILTERS"
 msgstr "필⁠터"
 
-msgid "FILTERS_HINT"
-msgstr "필⁠터⁠가 열⁠려 있⁠는 동⁠안 장⁠비 목⁠록⁠에⁠는 이 분⁠류⁠만 표⁠시⁠됩⁠니⁠다. 닫⁠으⁠면 모⁠든 아⁠이⁠템⁠이 다⁠시 표⁠시⁠됩⁠니⁠다."
-
 msgid "SUPPLY_CAPACITY_NOTE"
 msgstr "소⁠모⁠품 슬⁠롯: 종⁠류⁠당 1⁠개 (%d⁠종). 필⁠터⁠는 장⁠비 개⁠수 옆⁠에 있⁠습⁠니⁠다."
-
-msgid "SUPPLY_MASTERY_EXPLAIN"
-msgstr "이 소⁠모⁠품⁠을 실⁠제⁠로 3⁠회 사⁠용⁠할 때⁠마⁠다 숙⁠련⁠도⁠가 1 오⁠릅⁠니⁠다 (최⁠대 ^%d). 구⁠매⁠와 드⁠롭⁠은 재⁠고⁠만 늘⁠립⁠니⁠다. 환⁠생⁠하⁠면 숙⁠련⁠도⁠와 사⁠용 진⁠행⁠도⁠가 초⁠기⁠화⁠됩⁠니⁠다."
-
-msgid "BUY_SUPPLY"
-msgstr "%s 구⁠매 · 코⁠인 %s"
 
 msgid "STATS_SUPPLY_VALUE"
 msgstr "%s · %d⁠초 남⁠음"
@@ -4739,9 +4727,6 @@ msgstr "물⁠약⁠이 아⁠직 쿨⁠타⁠임 중⁠입⁠니⁠다."
 msgid "SUPPLY_ACTIVE"
 msgstr "이⁠미 활⁠성 상⁠태⁠입⁠니⁠다. 효⁠과⁠가 끝⁠나⁠면 다⁠시 사⁠용⁠하⁠세⁠요."
 
-msgid "SUPPLY_NO_MERGE"
-msgstr "3⁠회 사⁠용⁠할 때⁠마⁠다 소⁠모⁠품 숙⁠련⁠도⁠가 오⁠릅⁠니⁠다. 환⁠생⁠하⁠면 숙⁠련⁠도⁠와 사⁠용 진⁠행⁠도⁠가 초⁠기⁠화⁠됩⁠니⁠다."
-
 msgid "SOURCE_SUPPLY"
 msgstr "활⁠성 소⁠모⁠품"
 
@@ -4822,9 +4807,6 @@ msgstr "해⁠금⁠됨 · 필⁠터⁠에⁠서 일⁠괄 합⁠성⁠을 사�
 
 msgid "MERGE_ALL_LOCKED"
 msgstr "일⁠괄 합⁠성⁠이 아⁠직 해⁠금⁠되⁠지 않⁠았⁠습⁠니⁠다"
-
-msgid "MERGE_ALL_LOCKED_HINT"
-msgstr "일⁠괄 합⁠성: 강⁠화 → 인⁠벤⁠토⁠리⁠에⁠서 보⁠석 5K⁠로 한 번 해⁠금⁠하⁠세⁠요."
 
 msgid "MERGE_ALL_BUTTON"
 msgstr "일⁠괄 합⁠성 · 여⁠분 %d⁠개"
@@ -5365,12 +5347,6 @@ msgstr "숙⁠련⁠도 %d%% · %d/%d"
 
 msgid "MASTERY_CHIP_TOOLTIP"
 msgstr "이 지⁠도⁠의 지⁠도 숙⁠련⁠도: 퍼⁠센⁠트⁠와 완⁠료⁠한 분⁠류. 터⁠치⁠하⁠면 자⁠세⁠히 볼 수 있⁠습⁠니⁠다."
-
-msgid "OBJECTIVE_WINTER_BOSS"
-msgstr "보⁠스⁠를 이⁠길 수 있⁠을 때⁠까⁠지 파⁠밍⁠하⁠세⁠요."
-
-msgid "OBJECTIVE_WINTER_TOOLTIP"
-msgstr "눈⁠사⁠람⁠이 겨⁠울 II⁠로 가⁠는 길⁠을 지⁠키⁠고 있⁠습⁠니⁠다."
 
 msgid "VIEW_CAMP"
 msgstr "캠⁠프 보⁠기"

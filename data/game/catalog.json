@@ -21958,6 +21958,31 @@
       ],
       "scope": "normal_type"
     },
+    "boss_spawn_cooldown": {
+      "currency": "coins",
+      "base": 150,
+      "growth": 1.45,
+      "cap": 21,
+      "keep": false,
+      "effect": 5,
+      "scope": "boss_type"
+    },
+    "boss_item_rolls": {
+      "currency": "gems",
+      "base": 25,
+      "growth": 1,
+      "prices": [
+        25,
+        35,
+        50,
+        100
+      ],
+      "cap": 4,
+      "keep": true,
+      "effect": 1,
+      "scope": "boss_type",
+      "flat": true
+    },
     "movement": {
       "currency": "coins",
       "base": 40,
@@ -22224,22 +22249,12 @@
     },
     "merge_all": {
       "currency": "gems",
-      "base": 5000,
+      "base": 500,
       "growth": 1,
       "cap": 1,
       "keep": true,
       "effect": 1,
       "scope": "global"
-    },
-    "auto_evolve": {
-      "currency": "gems",
-      "base": 2000,
-      "growth": 1,
-      "cap": 1,
-      "keep": true,
-      "effect": 1,
-      "scope": "type",
-      "flat": true
     },
     "critical_chance": {
       "currency": "gems",
@@ -22272,6 +22287,16 @@
       "keep": true,
       "effect": 1,
       "scope": "global"
+    },
+    "auto_evolve": {
+      "currency": "gems",
+      "base": 2000,
+      "growth": 1,
+      "cap": 1,
+      "keep": true,
+      "effect": 1,
+      "scope": "type",
+      "flat": true
     }
   },
   "cards": [
@@ -22516,7 +22541,7 @@
       "boss_status_duration": 0.5,
       "lightning_attack_rate": 0.5,
       "lightning_duration": 3.0,
-      "supply_uses_per_level": 3,
+      "supply_uses_per_level": 5,
       "auto_supply_base_interval": 10.0,
       "auto_supply_min_interval": 2.0,
       "mission_regular_kills": 40,
@@ -22552,7 +22577,8 @@
         "group_xp",
         "loot"
       ],
-      "cheap_first_levels": 5,
+      "cheap_first_levels": 3,
+      "cheap_taper_until": 8,
       "cheap_first_factor": 0.25
     }
   },
