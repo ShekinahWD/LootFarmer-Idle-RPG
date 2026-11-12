@@ -51,7 +51,7 @@ Same game, 237 levels apart. Top: level 1 with a Wood Sword (9 damage). Bottom: 
 **Video 6 — `LootFarmer_Social_06_sound_on.mp4`**
 
 ```
-Sound on. Crits, merges, a weapon evolution, a portal and a boss going down. No music, just the game.
+Sound on. Crits, merges, a weapon evolution, a portal and a boss going down, all in the game's own sound.
 
 #satisfying #pixelart #idlerpg #gamefeel #indiedev #mobilegame #lootfarmer
 ```

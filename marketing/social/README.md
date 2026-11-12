@@ -43,8 +43,8 @@ review. Re-record a take only when its gameplay or framing must change.
 - **End card:** `store_assets/raw/video/trailer_c32/end_card.mkv`, the approved brand card restaged from the
   feature graphic (it shows the feature graphic's Iron Sword; brand art, not a gameplay claim).
 - **Sound:** nine videos carry only `assets/sounds/background_music.wav` (one continuous section each, in-points
-  on the track's downbeats, 145 BPM); video 6 carries only the takes' recorded game sound (music volume is 0
-  in every take).
+  on the track's downbeats, 145 BPM); video 6 carries the takes' recorded game sound effects with the same track low underneath (level 0.3;
+  music volume is 0 in every take, so cuts never restart it).
 
 ## Staging rules kept
 
