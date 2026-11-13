@@ -224,8 +224,8 @@ func travel_reason(st: int,camp: int) -> String:
     if not sim.state.camps.get(str(st),[0]).has(camp):return "CAMP_LOCKED"
     return ""
 ## Change 61 (approved separation): Select chooses the respawn camp; Travel / Teleport only moves the
-## player. The selected respawn camp is kept per stage (state.respawns, stage key -> camp; reset with
-## the camps by Prestige): leaving a stage records its choice and arriving restores the destination
+## player. The selected respawn camp is kept per stage (state.respawns, stage key -> camp; kept with
+## the camps by Prestige since Change 76): leaving a stage records its choice and arriving restores the destination
 ## stage's own choice (its arrival camp when none was made or that camp is no longer owned). Travel
 ## never changes it, so a trip to another camp still respawns the player at the camp they selected.
 func camp_action(st: int,camp: int,teleport: bool) -> bool:
@@ -860,6 +860,8 @@ func automate(dt: float) -> void:
             if int(slot)>=0 and int(slot)<sim.state.supplies.size():
                 var id: String=sim.state.supplies[int(slot)]
                 if id!="" and sim.supply_auto_ready(id):sim.use_item(id)
+    # Change 76: Auto Buy Supplies restocks after the uses above (a use that empties a stack buys at once).
+    sim.auto_buy_step()
     for i in sim.automatic_skill_assignments():cast(int(i))
     if sim.state.mission_auto and sim.level("mission_claim")>0:
         for i in range(sim.state.missions.size()):
@@ -1455,8 +1457,11 @@ func choose_card(id: String) -> bool:
         # Change 50 (approved rules): also the Coin balance, every purchased upgrade, the per-item merge
         # memory and earned-but-unclaimed main objectives. Items, loadout, rolled attributes, map access,
         # owned camps and transient run state reset; daily missions and Supply Mastery persist.
+        # Change 76: owned camps are permanent progression too (with each map's chosen respawn camp), and so
+        # are the Auto Buy Supplies selections. Map access still resets: a map's camps are usable again as
+        # soon as that map is reached again.
         # New daily missions are repriced from current-run map access (reward_stage) on real day reset.
-        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","supply_uses","supply_mastery_credit","missions","mission_day","mission_auto","follow_mission","follow_mastery","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","supply_uses","supply_mastery_credit","missions","mission_day","mission_auto","follow_mission","follow_mastery","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt","camps","respawns","auto_buy"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1465,6 +1470,9 @@ func choose_card(id: String) -> bool:
             if sim.upgrade_kept(key.split(":")[0]):upgrades[key]=sim.state.upgrades[key]
         var runs: int=sim.state.prestiges+1;var gear: int=sim.state.gear.size();var supplies: int=sim.state.supplies.size()
         sim.new_profile();sim.state.merge(keep,true);sim.state.upgrades=upgrades;sim.state.prestiges=runs
+        # The kept camps replace the fresh profile's: state.spawns must be the kept array of this map (a later
+        # camp purchase writes state.spawns back into state.camps), and the map's chosen respawn camp returns.
+        sim.state.spawn=int(sim.state.respawns.get(str(sim.state.stage),0));configure_stage()
         sim.state.gear.resize(gear);sim.state.gear.fill("");sim.state.supplies.resize(supplies);sim.state.supplies.fill("")
         # Kept spawn upgrades (gems) apply to the fresh world at once, not after the next purchase.
         sim._sync_spawn_counts()
@@ -1585,6 +1593,37 @@ func claim_offline() -> bool:
 ## permanent ranks and remaining partial uses must not decrease when the requirement rises to five.
 ## The previous Auto Evolution unlock also accepted bosses. Only bosses lose that upgrade.
 ## Refund each legacy boss purchase once while keeping normal-enemy Auto Evolution untouched.
+## Change 76: owned camps became permanent. A profile that already prestiged lost its camps then; Map
+## Mastery's lifetime record (mastery.camps, every camp ever owned, kept by Prestige) gives them back once.
+func migrate_camps_permanent(out: Dictionary) -> void:
+    var migrations: Array=out.get("migrations",[]) if out.get("migrations",[]) is Array else []
+    if migrations.has("camps_permanent"):return
+    var record=out.get("mastery",{}).get("camps",{}) if out.get("mastery") is Dictionary else {}
+    if out.get("camps") is Dictionary and record is Dictionary:
+        for key in record:
+            if not str(key).is_valid_int() or int(key)<1 or int(key)>sim.catalog.stages.size() or not record[key] is Array:continue
+            var owned: Array=[]
+            if out.camps.get(str(key)) is Array:
+                for camp in out.camps[str(key)]:
+                    if number(camp):owned.append(int(camp))
+            if not owned.has(0):owned.push_front(0)
+            for camp in record[key]:
+                if number(camp) and int(camp)>=0 and int(camp)<sim.catalog.stages[int(key)-1].spawns.size() and not owned.has(int(camp)):owned.append(int(camp))
+            out.camps[str(key)]=owned
+    migrations.append("camps_permanent")
+    out.migrations=migrations
+
+## Change 76: Auto Buy selections from a save: AUTO_BUY_SLOTS entries, each a shop supply or "", never one
+## supply twice (the later duplicate is cleared).
+func normalize_auto_buy(out: Dictionary) -> void:
+    var raw: Array=out.get("auto_buy") if out.get("auto_buy") is Array else []
+    var picks: Array=[]
+    for i in range(sim.AUTO_BUY_SLOTS):
+        var id: String=str(raw[i]) if i<raw.size() and raw[i] is String else ""
+        if id!="" and (not sim.auto_buy_eligible(id) or picks.has(id)):id=""
+        picks.append(id)
+    out.auto_buy=picks
+
 func migrate_boss_auto_evolve(out: Dictionary) -> void:
     var migrations: Array=out.get("migrations",[]) if out.get("migrations",[]) is Array else []
     if migrations.has("boss_auto_evolve_refunded"):return
@@ -1619,6 +1658,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     migrate_schema9(out)
     migrate_supply_uses5(out)
     migrate_boss_auto_evolve(out)
+    migrate_camps_permanent(out)
     normalize_change17(out)
     guided.normalize(out)
     review.normalize(out)
@@ -1643,6 +1683,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
         if not str(key).is_valid_int() or int(key)<0 or int(key)>sim.catalog.stages.size() or not out.prestige_collapsed[key] is bool:
             out.prestige_collapsed.erase(key)
     normalize_merge_memory(out)
+    normalize_auto_buy(out)
     for field in ["schema","stage","unlocked_stage","spawn","player_level","prestiges","focus","focus_variant","next_pickup","next_cat","help","consumable_uses","fog_layout_revision"]:
         if number(out.get(field)):out[field]=int(out[field])
     # JSON decodes numbers as floats; Array.has uses strict Variant types.

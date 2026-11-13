@@ -5461,20 +5461,11 @@ msgstr "Cartas y conjuntos de prestigio (%d obtenidas) más las nuevas"
 msgid "KEEP_LINE_GEMS"
 msgstr "Tus gemas: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Zonas exploradas del mapa, campamentos avistados y jefes encontrados"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Llaves de jefe, logros de enemigos y Maestría del mapa"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Ajustes y progreso del tutorial"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Nivel del jugador %d (vuelve a 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Acceso a mapas (vuelve a Invierno I) y campamentos obtenidos"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Pulsa Ver campamento"
@@ -5770,9 +5761,6 @@ msgstr "Sin lecciones ni consejos. Todos los menús están abiertos desde el pri
 msgid "KEEP_LINE_COINS"
 msgstr "Tus monedas: %s"
 
-msgid "KEEP_LINE_ALL_UPGRADES"
-msgstr "Todas las mejoras que has comprado con monedas o gemas (las mejoras de un campamento vuelven a funcionar cuando vuelves a comprar ese campamento)"
-
 msgid "KEEP_LINE_MERGES"
 msgstr "Niveles de fusión de todas tus armas, atuendos y habilidades; se restauran cuando vuelves a encontrar ese objeto"
 
@@ -5781,9 +5769,6 @@ msgstr "Objetivos principales que has completado pero aún no has reclamado"
 
 msgid "RESET_LINE_CARRIED_ITEMS"
 msgstr "Todos los objetos que llevas (armas, atuendos, habilidades y suministros) y sus atributos adicionales aleatorios"
-
-msgid "PRESTIGE_KEEP_ALL"
-msgstr "Cartas y conjuntos, tus monedas y gemas, todas las mejoras compradas con monedas o gemas, el nivel de fusión de cada arma, atuendo y habilidad, las zonas exploradas del mapa, el nivel y la EXP del jugador, las llaves de jefe, los logros de enemigos, la Maestría del mapa, los objetivos principales sin reclamar y los ajustes."
 
 msgid "ITEM_LEGACY_NAME"
 msgstr "%s (estadísticas anteriores)"

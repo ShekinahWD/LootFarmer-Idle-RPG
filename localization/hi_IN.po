@@ -5449,20 +5449,11 @@ msgstr "प्रेस्टीज कार्ड और सेट (आपक�
 msgid "KEEP_LINE_GEMS"
 msgstr "आपके रत्न: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "खोजे गए नक्शा क्षेत्र, दिखे कैंप और मिले बॉस"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "बॉस चाबियाँ, दुश्मन उपलब्धियाँ और नक्शा महारत"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "सेटिंग्स और ट्यूटोरियल प्रगति"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "खिलाड़ी लेवल %d (वापस 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "नक्शा पहुँच (वापस सर्दी I) और आपके कैंप"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "कैंप देखें पर टैप करें"

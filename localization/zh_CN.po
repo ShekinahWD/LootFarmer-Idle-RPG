@@ -5447,20 +5447,11 @@ msgstr "转生卡牌与套组（已拥有 %d）以及新卡牌"
 msgid "KEEP_LINE_GEMS"
 msgstr "你的宝石：%s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "已探索的地图区域、已发现的营地与首领"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "首领钥匙、敌人成就与地图精通"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "设置与教程进度"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "玩家等级 %d（重置为 1）"
-
-msgid "RESET_LINE_MAPS"
-msgstr "地图权限（返回冬季 I）与已拥有的营地"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "点击“查看营地”"

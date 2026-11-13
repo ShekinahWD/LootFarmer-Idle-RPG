@@ -5469,19 +5469,19 @@ msgid "KEEP_LINE_GEMS"
 msgstr "Your Gems: %s"
 
 msgid "KEEP_LINE_MAP"
-msgstr "Explored map areas, sighted camps and found bosses"
+msgstr "Explored map areas, sighted and owned camps, and found bosses"
 
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Boss keys, enemy achievements and Map Mastery"
 
 msgid "KEEP_LINE_SETTINGS"
-msgstr "Settings and tutorial progress"
+msgstr "Settings, Auto Buy Supplies choices and tutorial progress"
 
 msgid "RESET_LINE_LEVEL"
 msgstr "Player level %d (back to 1)"
 
 msgid "RESET_LINE_MAPS"
-msgstr "Map access (back to Winter I) and owned camps"
+msgstr "Map access (back to Winter I). Owned camps stay and work again when you reach their map."
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Tap View Camp"
@@ -5778,7 +5778,7 @@ msgid "KEEP_LINE_COINS"
 msgstr "Your Coins: %s"
 
 msgid "KEEP_LINE_ALL_UPGRADES"
-msgstr "Every upgrade you bought, with Coins or Gems (a camp's own upgrades work again once you buy that camp again)"
+msgstr "Every upgrade you bought, with Coins or Gems"
 
 msgid "KEEP_LINE_MERGES"
 msgstr "Merge levels of every weapon, outfit and skill, restored when you find that item again"
@@ -5793,10 +5793,10 @@ msgid "RESET_LINE_RUN_PROGRESS"
 msgstr "Unfinished Prestige opportunities. Pending offline Coins and Gems are paid first; unclaimed offline item copies are lost."
 
 msgid "PRESTIGE_KEEP_ALL"
-msgstr "Cards and sets, your Coins and Gems, every upgrade you bought with Coins or Gems, the merge level of every weapon, outfit and skill, explored map areas, player level and XP, boss keys, enemy achievements, Map Mastery, unclaimed main objectives and settings."
+msgstr "Cards and sets, your Coins and Gems, every upgrade you bought with Coins or Gems, the merge level of every weapon, outfit and skill, explored map areas and owned camps, player level and XP, boss keys, enemy achievements, Map Mastery, unclaimed main objectives, Auto Buy Supplies choices and settings."
 
 msgid "PRESTIGE_RESET_RUN"
-msgstr "Every item you carry (supplies included) and its random bonus attributes, map access (back to Winter I), owned camps and unfinished Prestige opportunities."
+msgstr "Every item you carry (supplies included) and its random bonus attributes, map access (back to Winter I) and unfinished Prestige opportunities."
 
 msgid "ITEM_LEGACY_NAME"
 msgstr "%s (old stats)"
@@ -6671,3 +6671,54 @@ msgstr "Buy ×%d"
 
 msgid "SHOP_BUY_ITEM"
 msgstr "Buy ×%d · %s coins"
+
+msgid "UP_AUTO_BUY_SLOTS"
+msgstr "Auto Buy slots"
+
+msgid "AUTO_BUY_TITLE"
+msgstr "Auto Buy Supplies"
+
+msgid "AUTO_BUY_EXPLAIN"
+msgstr "When a chosen supply drops below %d, %d more are bought with Coins at the shop price. A purchase waits until you have the Coins and a free supply slot. Prestige keeps these choices."
+
+msgid "AUTO_BUY_SLOT"
+msgstr "Slot %d · %s"
+
+msgid "AUTO_BUY_LOCKED"
+msgstr "Locked"
+
+msgid "AUTO_BUY_EMPTY"
+msgstr "Choose a supply to restock automatically"
+
+msgid "AUTO_BUY_RULE"
+msgstr "Buys %d below %d · Owned %s"
+
+msgid "AUTO_BUY_WAITING"
+msgstr "Waiting: %s"
+
+msgid "AUTO_BUY_CHANGE"
+msgstr "Change"
+
+msgid "AUTO_BUY_CHOOSE"
+msgstr "Choose the supply for slot %d"
+
+msgid "AUTO_BUY_IN_SLOT"
+msgstr "In slot %d"
+
+msgid "AUTO_BUY_UNLOCK_PRICE"
+msgstr "Unlock for %s Gems"
+
+msgid "AUTO_BUY_UNLOCK_ORDER"
+msgstr "Unlock the slot before it first"
+
+msgid "AUTO_BUY_SLOT_LOCKED"
+msgstr "Unlock this Auto Buy slot first"
+
+msgid "AUTO_BUY_DUPLICATE"
+msgstr "This supply already has an Auto Buy slot"
+
+msgid "AUTO_BUY_BADGE"
+msgstr "Auto Buy"
+
+msgid "AUTO_BUY_DONE"
+msgstr "Auto Buy: %d × %s"

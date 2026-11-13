@@ -10058,3 +10058,21 @@ Reusable rule:
 
 > Reconcile by designed size, not grown size; let a touch gesture own its list until it rests; when HUD elements grow, re-place what used the space they took and measure the fight zone on the old and new build; wrap text instead of cutting it; mark destinations with the objectives they advance.
 
+
+# 148. Permanent camps, important notices and restocking automation (LootFarmer Change 76)
+
+## 148.1 Moving state across a reset boundary: keep it at the owner, re-alias live views, migrate what was lost
+
+A Prestige that rebuilds the profile from a keep list is the one place to make a progression permanent: add the field there (owned camps and the per-map respawn choice), not in a UI or a post-reset patch. If the runtime holds a live alias of that state (the current map's camp list is the same array as `camps[map]`, and a purchase writes the alias back), re-run the function that sets up the alias after the merge; otherwise the first later purchase overwrites the kept list with the fresh one. Keep the neighbouring rule that should still reset (map access) and state what that means for the kept data (a kept camp on a map not reached yet works again on arrival, with no repurchase). When a lifetime record already holds what earlier resets destroyed (Map Mastery's owned camps), give it back once through a recorded migration, and update every keep/reset line the player reads in the same change.
+
+## 148.2 An important notice never inherits the queue's shortening
+
+A shared toast queue shortens each toast while others wait. A once-per-run explanation (a boss weapon's bonus attributes) must not: mark it important where the event is translated to text, give it a floor (8 s) and a cap (12 s) on its reading time, never cut it when others wait, and keep the queue order so nothing else is dropped. Measure it through the real queue with notices before and after it, and with a panel opening mid-way (it pauses and resumes with its remaining time).
+
+## 148.3 Restocking automation is a wait, not a failure
+
+An automated purchase reuses the manual purchase function (price, room, currency, locks) and is attempted only when that function's own block check is clear, so a blocked purchase raises no failure notice every frame and the automation stays on, waiting. A restock threshold (below 2) and batch (5) bigger than the threshold make loops impossible; verify with many passes after one restock. Show each slot's state where it is configured (the rule with the stock, or "Waiting: <the purchase's own reason>"), mark the automated items in the shop, announce each purchase once, and keep the configuration and its unlocks across Prestige while the stock itself resets.
+
+Reusable rule:
+
+> Make progression permanent at the reset's keep list and re-alias any live view of it; return what earlier resets destroyed once, from a lifetime record; never let a queue shorten an important notice; automate purchases through the manual path, waiting silently on its block reason.

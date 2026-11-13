@@ -16,16 +16,10 @@
    ]
   },
   "KEEP_LINE_ALL_UPGRADES": {
-   "en": "Every upgrade you bought, with Coins or Gems (a camp's own upgrades work again once you buy that camp again)",
+   "en": "Every upgrade you bought, with Coins or Gems",
    "placeholders": [],
-   "change": "change-50",
-   "translated": [
-    "es_419",
-    "es_ES",
-    "pt_BR",
-    "fr_FR",
-    "de_DE"
-   ]
+   "change": "change-76",
+   "status": "changed"
   },
   "KEEP_LINE_MERGES": {
    "en": "Merge levels of every weapon, outfit and skill, restored when you find that item again",
@@ -70,21 +64,15 @@
    "status": "changed"
   },
   "PRESTIGE_KEEP_ALL": {
-   "en": "Cards and sets, your Coins and Gems, every upgrade you bought with Coins or Gems, the merge level of every weapon, outfit and skill, explored map areas, player level and XP, boss keys, enemy achievements, Map Mastery, unclaimed main objectives and settings.",
+   "en": "Cards and sets, your Coins and Gems, every upgrade you bought with Coins or Gems, the merge level of every weapon, outfit and skill, explored map areas and owned camps, player level and XP, boss keys, enemy achievements, Map Mastery, unclaimed main objectives, Auto Buy Supplies choices and settings.",
    "placeholders": [],
-   "change": "change-50",
-   "translated": [
-    "es_419",
-    "es_ES",
-    "pt_BR",
-    "fr_FR",
-    "de_DE"
-   ]
+   "change": "change-76",
+   "status": "changed"
   },
   "PRESTIGE_RESET_RUN": {
-   "en": "Every item you carry (supplies included) and its random bonus attributes, map access (back to Winter I), owned camps and unfinished Prestige opportunities.",
+   "en": "Every item you carry (supplies included) and its random bonus attributes, map access (back to Winter I) and unfinished Prestige opportunities.",
    "placeholders": [],
-   "change": "change-71",
+   "change": "change-76",
    "status": "changed"
   },
   "ITEM_LEGACY_NAME": {
@@ -2370,6 +2358,130 @@
    "en": "Merge All: unlock it once for 500 gems in Upgrades → Inventory.",
    "placeholders": [],
    "change": "change-71",
+   "status": "changed"
+  },
+  "UP_AUTO_BUY_SLOTS": {
+   "en": "Auto Buy slots",
+   "placeholders": [],
+   "change": "change-76"
+  },
+  "AUTO_BUY_TITLE": {
+   "en": "Auto Buy Supplies",
+   "placeholders": [],
+   "change": "change-76"
+  },
+  "AUTO_BUY_EXPLAIN": {
+   "en": "When a chosen supply drops below %d, %d more are bought with Coins at the shop price. A purchase waits until you have the Coins and a free supply slot. Prestige keeps these choices.",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-76"
+  },
+  "AUTO_BUY_SLOT": {
+   "en": "Slot %d · %s",
+   "placeholders": [
+    "%d",
+    "%s"
+   ],
+   "change": "change-76"
+  },
+  "AUTO_BUY_LOCKED": {
+   "en": "Locked",
+   "placeholders": [],
+   "change": "change-76"
+  },
+  "AUTO_BUY_EMPTY": {
+   "en": "Choose a supply to restock automatically",
+   "placeholders": [],
+   "change": "change-76"
+  },
+  "AUTO_BUY_RULE": {
+   "en": "Buys %d below %d · Owned %s",
+   "placeholders": [
+    "%d",
+    "%d",
+    "%s"
+   ],
+   "change": "change-76"
+  },
+  "AUTO_BUY_WAITING": {
+   "en": "Waiting: %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-76"
+  },
+  "AUTO_BUY_CHANGE": {
+   "en": "Change",
+   "placeholders": [],
+   "change": "change-76"
+  },
+  "AUTO_BUY_CHOOSE": {
+   "en": "Choose the supply for slot %d",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-76"
+  },
+  "AUTO_BUY_IN_SLOT": {
+   "en": "In slot %d",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-76"
+  },
+  "AUTO_BUY_UNLOCK_PRICE": {
+   "en": "Unlock for %s Gems",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-76"
+  },
+  "AUTO_BUY_UNLOCK_ORDER": {
+   "en": "Unlock the slot before it first",
+   "placeholders": [],
+   "change": "change-76"
+  },
+  "AUTO_BUY_SLOT_LOCKED": {
+   "en": "Unlock this Auto Buy slot first",
+   "placeholders": [],
+   "change": "change-76"
+  },
+  "AUTO_BUY_DUPLICATE": {
+   "en": "This supply already has an Auto Buy slot",
+   "placeholders": [],
+   "change": "change-76"
+  },
+  "AUTO_BUY_BADGE": {
+   "en": "Auto Buy",
+   "placeholders": [],
+   "change": "change-76"
+  },
+  "AUTO_BUY_DONE": {
+   "en": "Auto Buy: %d × %s",
+   "placeholders": [
+    "%d",
+    "%s"
+   ],
+   "change": "change-76"
+  },
+  "RESET_LINE_MAPS": {
+   "en": "Map access (back to Winter I). Owned camps stay and work again when you reach their map.",
+   "placeholders": [],
+   "change": "change-76",
+   "status": "changed"
+  },
+  "KEEP_LINE_MAP": {
+   "en": "Explored map areas, sighted and owned camps, and found bosses",
+   "placeholders": [],
+   "change": "change-76",
+   "status": "changed"
+  },
+  "KEEP_LINE_SETTINGS": {
+   "en": "Settings, Auto Buy Supplies choices and tutorial progress",
+   "placeholders": [],
+   "change": "change-76",
    "status": "changed"
   }
  },

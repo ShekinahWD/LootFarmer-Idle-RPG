@@ -502,9 +502,9 @@ func prestige_keep_checks() -> void:
     check(int(sim.state.gems)==345,"Gems kept: %s" % str(sim.state.gems))
     check(sim.campaign.explored_count(1)>=explored["1"].count(1) and sim.campaign.explored_count(2)==2 and sim.campaign.explored_percent(1)>=pct,"Explored cells kept on both maps (Winter I %d%%)" % sim.campaign.explored_percent(1))
     check(sim.state.camps_known.get("1",[]).has(1) and sim.state.discovered_spots.size()>=spots.size(),"Sighted camps and found spots kept")
-    # Change 50 (approved): Coins and every upgrade (map upgrades included) are kept; owned camps and the
-    # run's online Gem credit still reset.
-    check(int(sim.state.coins)>=999 and sim.state.camps.get("1",[])==[0] and sim.level("map_detail",1)==2 and sim.level("reveal_radius",1)==1 and float(sim.state.online_gems)==0.0,"Coins and map upgrades kept; owned camps and the run's online Gem credit reset")
+    # Change 50 (approved): Coins and every upgrade (map upgrades included) are kept; the run's online Gem
+    # credit still resets. Change 76: owned camps are kept too (tests/change_76_probe covers them).
+    check(int(sim.state.coins)>=999 and sim.level("map_detail",1)==2 and sim.level("reveal_radius",1)==1 and float(sim.state.online_gems)==0.0,"Coins and map upgrades kept; the run's online Gem credit resets")
     check(sim.state.prestiges==1 and sim.state.owned_cards.size()==1 and int(sim.state.unlocked_stage)==1,"Other Prestige rules unchanged (card granted, back to Winter I)")
 
 # ---------------------------------------------------------------- 8. Health Potion
@@ -742,7 +742,7 @@ func confirm_checks() -> void:
     var reset: String=screen.get_node("Plate/Margin/Content/Scroll/Body/Reset/Box/List").text
     # Change 50: the approved lists (Coins, every upgrade and merge levels are kept).
     check(keep.contains("Your Gems: 77") and keep.contains("Your Coins: 1.23K") and keep.contains("Explored map areas") and keep.contains("Every upgrade you bought") and keep.contains("Merge levels"),"Permanent card lists Coins, Gems, exploration, every upgrade and merge levels")
-    check(reset.contains("Every item you carry") and reset.contains("random bonus attributes") and reset.contains("owned camps") and not reset.contains("Coins:"),"Reset card lists items and their attributes, camps; not Coins")
+    check(reset.contains("Every item you carry") and reset.contains("random bonus attributes") and not reset.contains("owned camps") and keep.contains("owned camps") and not reset.contains("Coins:"),"Reset card lists items and their attributes; owned camps are on the kept side (Change 76); not Coins")
     check(screen.get_node("Plate/Margin/Content/Scroll/Body/Keep/Box/Title").get_theme_color("font_color").g>.9 and screen.get_node("Plate/Margin/Content/Scroll/Body/Reset/Box/Title").get_theme_color("font_color").r>.9,"Kept and reset read apart (green, orange)")
     check(screen.get_node("Plate/Margin/Content/Scroll/Body/Opportunities").get_child_count()==1,"It lists the one opportunity redeemed")
     var cancel: Button=screen.get_node("Plate/Margin/Content/Actions/Cancel")

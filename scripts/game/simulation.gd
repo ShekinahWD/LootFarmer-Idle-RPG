@@ -36,6 +36,8 @@ signal supply_used(id: String)
 signal traveled(map_changed: bool, from: Vector2, to: Vector2)
 signal respawn_selected(camp: int)
 signal boss_defeated(actor_id: String, group: int, at: Vector2)
+## Change 76: Auto Buy Supplies bought `amount` copies of a supply (after the purchase was committed).
+signal auto_bought(id: String, amount: int)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 ## Change 13: summoning and final-boss action rules (inspector-editable resource).
@@ -111,14 +113,15 @@ const SCHEMA:=9
 const MIGRATABLE_SCHEMAS:=[8,9]
 ## One-time profile migrations, in order (state.migrations). A new profile starts with all of them.
 ## legacy_weapons_h24 (Change 51): owned weapons of the old stat table become legacy-stat copies.
-const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","boss_auto_evolve_refunded"]
+## camps_permanent (Change 76): camps owned in an earlier run (Map Mastery's lifetime record) are owned again.
+const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","boss_auto_evolve_refunded","camps_permanent"]
 
 func new_profile() -> void:
     profile_epoch+=1
     suspended=false
     clear_target()
     state = {"schema":SCHEMA,"merge_memory":{},"migrations":MIGRATIONS.duplicate(),"group_kills":[0,0,0,0],"player_level":1,"xp":0.0,"coins":0,"gems":0,"items":{},"gear":["","",""],"supplies":[""],
-        "weapon":"","outfit":"","upgrades":{},"auto_slots":[],
+        "weapon":"","outfit":"","upgrades":{},"auto_slots":[],"auto_buy":["","",""],
         "spawns":[0],"spawn":0,"cards":{},"prestiges":0,"offer":[],"victory":false,
         "focus":-1,"focus_variant":2,"boost_time":0.0,"boost_power":0.0,"use_cd":0.0,"history":[],
         "pickups":[],"next_pickup":0,"clock":0.0,"collect_clock":0.0,"collect_clocks":[0.0,0.0,0.0,0.0],"merge_clock":0.0,
@@ -1019,6 +1022,81 @@ func purchase_consumables(id: String,amount: int) -> bool:
     assert(quantity(id)==before_qty+amount)
     campaign.progress("supply_buy",id,amount)
     return true
+
+# ---------------------------------------------------------------- Auto Buy Supplies (Change 76)
+# state.auto_buy holds AUTO_BUY_SLOTS supply ids ("" = off); slot i works once the Gem unlock
+# auto_buy_slots has reached level i+1. A selected supply whose stock falls below AUTO_BUY_BELOW is bought
+# AUTO_BUY_AMOUNT at a time through purchase_consumables (same price, room and Coin checks as the shop).
+# When that purchase is blocked the slot waits (it is never switched off). Prestige keeps the selections
+# and the unlock (an upgrade); Hard Reset clears both.
+const AUTO_BUY_SLOTS:=3
+const AUTO_BUY_BELOW:=2
+const AUTO_BUY_AMOUNT:=5
+
+## A supply the shop sells (a priced consumable).
+func auto_buy_eligible(id: String) -> bool:
+    return catalog.items.has(id) and str(catalog.items[id].kind)=="consumable" and int(supply(id).get("price",0))>0
+
+func auto_buy_capacity() -> int:
+    return mini(AUTO_BUY_SLOTS,level("auto_buy_slots"))
+
+## The supply selected in each slot, unlocked or not ("" = none).
+func auto_buy_selection() -> Array:
+    var picks: Array=state.get("auto_buy",[])
+    var out: Array=[]
+    for i in range(AUTO_BUY_SLOTS):out.append(str(picks[i]) if i<picks.size() else "")
+    return out
+
+## The supplies automation buys now: selections in unlocked slots.
+func auto_buy_ids() -> Array:
+    var out: Array=[]
+    var picks:=auto_buy_selection()
+    for i in range(auto_buy_capacity()):
+        if picks[i]!="":out.append(picks[i])
+    return out
+
+## Why slot `slot` cannot hold `id` ("" when it can; id "" turns the slot off).
+func auto_buy_block(slot: int,id: String) -> String:
+    var lock:=action_lock_reason()
+    if not lock.is_empty():return lock
+    if slot<0 or slot>=AUTO_BUY_SLOTS:return "ACTION_UNAVAILABLE"
+    if slot>=auto_buy_capacity():return "AUTO_BUY_SLOT_LOCKED"
+    if id=="":return ""
+    if not auto_buy_eligible(id):return "ACTION_UNAVAILABLE"
+    var picks:=auto_buy_selection()
+    for i in range(AUTO_BUY_SLOTS):
+        if i!=slot and picks[i]==id:return "AUTO_BUY_DUPLICATE"
+    return ""
+
+## Sets (or clears, with "") one Auto Buy slot. A supply never occupies two slots.
+func set_auto_buy(slot: int,id: String) -> bool:
+    var reason:=auto_buy_block(slot,id)
+    if not reason.is_empty():return fail(reason)
+    var picks:=auto_buy_selection()
+    picks[slot]=id
+    state.auto_buy=picks
+    touch()
+    SaveService.mark_committed()
+    return true
+
+## What an active Auto Buy slot is doing: "" when the stock is fine (AUTO_BUY_BELOW or more) or a
+## purchase is possible now, otherwise the purchase block it is waiting on (Coins, room, a lock).
+func auto_buy_wait_reason(id: String) -> String:
+    if quantity(id)>=AUTO_BUY_BELOW:return ""
+    return consumable_purchase_block(id,AUTO_BUY_AMOUNT)
+
+## One automation pass: each active supply below AUTO_BUY_BELOW is bought once (AUTO_BUY_AMOUNT copies)
+## when the normal purchase would succeed. A blocked purchase is never attempted (no failure notice every
+## frame) and is retried on a later pass. Returns how many purchases were made.
+func auto_buy_step() -> int:
+    var bought:=0
+    for id in auto_buy_ids():
+        if quantity(id)>=AUTO_BUY_BELOW:continue
+        if not consumable_purchase_block(id,AUTO_BUY_AMOUNT).is_empty():continue
+        if purchase_consumables(id,AUTO_BUY_AMOUNT):
+            bought+=1
+            auto_bought.emit(id,AUTO_BUY_AMOUNT)
+    return bought
 
 func upgrade_cost(id: String, group: int = -1) -> int:
     return campaign.upgrade_cost("skill_auto_slots" if id.begins_with("skill_auto_") else id,group)

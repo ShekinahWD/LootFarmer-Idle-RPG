@@ -5461,20 +5461,11 @@ msgstr "Prestige-Karten und -Sets (%d im Besitz) plus die neuen"
 msgid "KEEP_LINE_GEMS"
 msgstr "Deine Edelsteine: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Erkundete Kartenbereiche, entdeckte Lager und gefundene Bosse"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Boss-Schlüssel, Gegnererfolge und Kartenmeisterschaft"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Einstellungen und Tutorialfortschritt"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Spielerstufe %d (zurück auf 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Kartenzugang (zurück nach Winter I) und eigene Lager"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Tippe auf Lager ansehen"
@@ -5770,9 +5761,6 @@ msgstr "Keine Lektionen oder Tipps. Alle Menüs sind von Anfang an offen."
 msgid "KEEP_LINE_COINS"
 msgstr "Deine Münzen: %s"
 
-msgid "KEEP_LINE_ALL_UPGRADES"
-msgstr "Alle Upgrades, die du mit Münzen oder Edelsteinen gekauft hast (die Upgrades eines Lagers wirken wieder, sobald du dieses Lager erneut kaufst)"
-
 msgid "KEEP_LINE_MERGES"
 msgstr "Verschmelzungsstufen aller Waffen, Kostüme und Fähigkeiten; sie werden wiederhergestellt, sobald du den Gegenstand erneut findest"
 
@@ -5781,9 +5769,6 @@ msgstr "Abgeschlossene, aber noch nicht abgeholte Hauptziele"
 
 msgid "RESET_LINE_CARRIED_ITEMS"
 msgstr "Alle mitgeführten Gegenstände (Waffen, Kostüme, Fähigkeiten und Vorräte) samt ihren zufälligen Bonusattributen"
-
-msgid "PRESTIGE_KEEP_ALL"
-msgstr "Karten und Sets, deine Münzen und Edelsteine, alle mit Münzen oder Edelsteinen gekauften Upgrades, die Verschmelzungsstufe aller Waffen, Kostüme und Fähigkeiten, erkundete Kartenbereiche, Spielerstufe und EP, Boss-Schlüssel, Gegnererfolge, Kartenmeisterschaft, nicht abgeholte Hauptziele und Einstellungen."
 
 msgid "ITEM_LEGACY_NAME"
 msgstr "%s (alte Werte)"

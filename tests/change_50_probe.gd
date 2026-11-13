@@ -6,7 +6,7 @@ extends "res://tests/change_20_probe.gd"
 ##   once and twice gives the same profile.
 ## - Owning no copy grants no power; finding the item again restores its remembered level.
 ## - Prestige keeps Coins, every upgrade, merge memory and earned main objectives; pays finished missions
-##   and pending offline Coins/Gems once; resets items, rolls, map access, camps and missions; prices
+##   and pending offline Coins/Gems once; resets items, rolls and map access (camps kept since Change 76) and missions; prices
 ##   new missions from the new run's map access.
 ## - A failed write rolls the whole transaction back; an open batch survives two reloads and pays once.
 ## - Hard Reset clears merge memory; an unreadable schema is copied aside before the fresh profile.
@@ -135,6 +135,8 @@ func prestige_checks() -> void:
     var missions_before: Array=s.missions.duplicate(true)
     var coins_before: float=float(s.coins);var gems_before: float=float(s.gems)
     var upgrades_before: Dictionary=s.upgrades.duplicate(true)
+    var camps_before: Dictionary=s.camps.duplicate(true)
+    check(camps_before.get("1",[])==[0,1],"Fixture owns Winter I camps 0 and 1")
     check(sim.campaign.begin_prestige(),"Prestige begins (%s)" % sim.campaign.prestige_block_reason())
     var offered: Array=sim.campaign.offered_cards()
     check(not offered.is_empty() and sim.campaign.choose_card(str(offered[0])),"The last card completes the Prestige")
@@ -146,14 +148,15 @@ func prestige_checks() -> void:
     check(int(s.merge_memory.get("wood_axe",0))==3,"Merge memory keeps the run's Wood Axe ^3")
     check(s.offline_pending.is_empty() and sim.quantity("wood_axe")==0,"Pending offline items end with the inventory (never claimable later)")
     check(s.main_ready.has("3"),"An earned main objective stays claimable")
-    check(int(s.unlocked_stage)==1 and s.camps=={"1":[0]},"Map access and owned camps reset")
+    # Change 76: owned camps are permanent; map access still resets.
+    check(int(s.unlocked_stage)==1 and s.camps==camps_before,"Map access resets; owned camps are kept (Change 76)")
     check(int(s.supply_uses.get("potion",0))==12 and sim.supply_mastery("potion")==2,"Supply Mastery stays across Prestige")
     check(s.missions==missions_before and not s.missions[0].claimed,"Daily mission progress, rewards and claim state survive Prestige")
     check(int(s.player_level)==25,"Player level kept")
     check(sim.campaign.reward_stage()==1,"Missions are priced from the new run's map access")
     check(s.missions==missions_before,"Existing missions are not replaced or repriced at Prestige")
-    # Camp radius stays bought but acts only while its camp is owned again.
-    check(int(sim.level("camp_radius",11))==1 and not s.spawns.has(1),"Camp radius kept while its camp is not owned")
+    # Camp radius stays bought and, since Change 76, its camp stays owned, so it keeps acting.
+    check(int(sim.level("camp_radius",11))==1 and s.spawns.has(1),"Camp radius kept with its camp still owned")
     # Reacquiring restores the remembered level, with fresh rolled attributes.
     check(sim.add_item("wood_axe") and int(sim.record("wood_axe").merge)==3,"The Wood Axe found again is ^3")
     check(SaveService.save_now(),"Post-Prestige profile saves")

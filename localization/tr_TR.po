@@ -5449,20 +5449,11 @@ msgstr "Prestij kartları ve setleri (%d tane) artı yenileri"
 msgid "KEEP_LINE_GEMS"
 msgstr "Mücevherlerin: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Keşfedilmiş harita alanları, görülen kamplar ve bulunan boss'lar"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Boss anahtarları, düşman başarımları ve Harita Ustalığı"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Ayarlar ve öğretici ilerlemesi"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Oyuncu seviyesi %d (1'e döner)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Harita erişimi (Kış I'e döner) ve sahip olunan kamplar"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Kampı Gör'e dokun"

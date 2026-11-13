@@ -5449,20 +5449,11 @@ msgstr "Картки й набори престижу (маєш: %d) і нові
 msgid "KEEP_LINE_GEMS"
 msgstr "Твої самоцвіти: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Досліджені ділянки мап, помічені табори й знайдені боси"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Ключі босів, досягнення за ворогів і майстерність мап"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Налаштування й прогрес навчання"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Рівень героя %d (знову 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Доступ до мап (знову Зима I) і відкриті табори"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Торкнись «Переглянути табір»"

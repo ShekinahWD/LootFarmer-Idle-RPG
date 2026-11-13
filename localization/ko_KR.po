@@ -5447,20 +5447,11 @@ msgstr "환⁠생 카⁠드⁠와 세⁠트 (%d⁠장 보⁠유) 및 새 카⁠�
 msgid "KEEP_LINE_GEMS"
 msgstr "보⁠유 보⁠석: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "탐⁠험⁠한 지⁠도 지⁠역, 발⁠견⁠한 캠⁠프⁠와 보⁠스"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "보⁠스 열⁠쇠, 적 업⁠적, 지⁠도 숙⁠련⁠도"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "설⁠정 및 튜⁠토⁠리⁠얼 진⁠행 상⁠황"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "플⁠레⁠이⁠어 레⁠벨 %d (1⁠로 돌⁠아⁠감)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "지⁠도 이⁠용 권⁠한 (겨⁠울 I⁠로 돌⁠아⁠감)과 보⁠유 캠⁠프"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "캠⁠프 보⁠기⁠를 터⁠치⁠하⁠세⁠요"

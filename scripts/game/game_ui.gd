@@ -74,6 +74,8 @@ var elapsed:=0.0
 var last_revision: int=-1
 var toast_time:=0.0
 var toast_queue: Array=[]
+## Change 76: queued toast texts that are important (IMPORTANT_EVENTS): longer and never shortened.
+var toast_important: Dictionary={}
 ## Change 63 (Playbook 18.8 arbitration): blocking modals first, the active Guided instruction next,
 ## ordinary notices after. The guide is never hidden or covered by a notice: toasts and banners move
 ## to free space beside it and wait in their queues (never dropped) only while there is none.
@@ -283,6 +285,7 @@ func _ready() -> void:
         if kind in ["discovered","ready","card","prestiged","prestige_unlocked"]:_open("prestige")
         elif kind in ["mastery_map","mastery_game"]:mastery_stage=0;_open("mastery"))
     sim.event.connect(_event)
+    sim.auto_bought.connect(func(id: String,amount: int)->void:_say(tr("AUTO_BUY_DONE") % [amount,sim.catalog.display_name(id)]))
     SaveService.save_failed.connect(func(_reason: String)->void:_event("SAVE_ERROR"))
     get_viewport().size_changed.connect(_safe_area)
     # Change 25: a tracker first measured before its text wrapped reported a several-hundred-pixel
@@ -1548,6 +1551,8 @@ func _close() -> void:
     panel=""
     panel_context=""
     selected_card=""
+    # Change 76: an Auto Buy chooser is a choice in progress, not a setting; it closes with the panel.
+    auto_buy_edit=-1
     notice.text=""
     _refresh_slots()
 
@@ -1560,6 +1565,9 @@ func _pause() -> void:
 
 ## Short feedback. With a panel open it uses the panel's fixed notice line; otherwise it queues a
 ## backed toast. Major milestones go to the banner instead (see _milestone).
+## Change 76: notices the player must be able to read in full, whatever else is queued (a boss weapon's bonus
+## attributes). They use toast_reading_time's important timing.
+const IMPORTANT_EVENTS:=["ITEM_ENHANCED"]
 func _event(key: String) -> void:
     if key in ["PRESTIGE_DISCOVERED","PRESTIGE_READY","STAGE_UNLOCKED"]:return
     # Change 67: an evolution is announced by _manual_evolve or _on_evolved (which knows whether it was automatic).
@@ -1570,7 +1578,7 @@ func _event(key: String) -> void:
         _close()
         _recenter_on_player()
         return
-    _say(text)
+    _say(text,key in IMPORTANT_EVENTS)
 
 ## Change 12: after a Prestige the camera centres on the newly spawned player and follows it again,
 ## whatever the camera was doing (a drag in progress, a pan far away). Zoom is kept. The new profile
@@ -1664,14 +1672,15 @@ func _confirmed(ok: bool) -> bool:
     return ok
 
 ## Short text on the open panel's notice line, otherwise as a toast.
-func _say(text: String) -> void:
+func _say(text: String,important:=false) -> void:
     if sheet.visible:notice.text=text
-    else:_toast(text)
+    else:_toast(text,important)
 
-func _toast(text: String) -> void:
+func _toast(text: String,important:=false) -> void:
     # Change 63: a message already waiting or on screen is not queued twice; nothing else is dropped.
     if text.is_empty() or toast_queue.has(text) or ($Toast.visible and $Toast/Text.text==text):return
     toast_queue.append(text)
+    if important:toast_important[text]=true
 
 func _update_toast(dt: float) -> void:
     if sheet.visible:
@@ -1684,7 +1693,8 @@ func _update_toast(dt: float) -> void:
             $Toast.hide()
             return
         $Toast/Text.text=toast_queue.pop_front()
-        toast_time=toast_reading_time($Toast/Text.text,not toast_queue.is_empty())
+        toast_time=toast_reading_time($Toast/Text.text,not toast_queue.is_empty(),toast_important.has($Toast/Text.text))
+        toast_important.erase($Toast/Text.text)
         if not toast_resume.is_empty() and str(toast_resume.text)==$Toast/Text.text:toast_time=maxf(float(toast_resume.time),.8)
         toast_resume={}
         # Change 72: a toast that appears is placed afresh (the same text shown earlier may have sat lower,
@@ -1711,8 +1721,14 @@ func _update_toast(dt: float) -> void:
 ## 1.6 s glance), never under toast_seconds, at most TOAST_MAX_SECONDS. With more toasts waiting it is cut to
 ## three quarters, but never under toast_busy_seconds: a boss weapon's "two bonus attributes added" used to
 ## leave after 1.4 s when it arrived with other news.
+## Change 76: an important toast (IMPORTANT_EVENTS) stays at least IMPORTANT_TOAST_SECONDS (its reading time when
+## longer, up to IMPORTANT_TOAST_MAX_SECONDS) and is never cut when others wait: they follow it in the queue.
+## A boss weapon's notice used to show for 3.3-4.4 s; it is a once-per-run explanation worth a calm read.
 const TOAST_MAX_SECONDS:=6.0
-func toast_reading_time(text: String,busy: bool) -> float:
+const IMPORTANT_TOAST_SECONDS:=8.0
+const IMPORTANT_TOAST_MAX_SECONDS:=12.0
+func toast_reading_time(text: String,busy: bool,important:=false) -> float:
+    if important:return clampf(1.6+text.length()/10.0,IMPORTANT_TOAST_SECONDS,IMPORTANT_TOAST_MAX_SECONDS)
     var reading: float=clampf(1.6+text.length()/14.0,toast_seconds,TOAST_MAX_SECONDS)
     return maxf(toast_busy_seconds,reading*.75) if busy else reading
 
@@ -1798,7 +1814,7 @@ func _milestone(kind: String,id: String) -> void:
     var cards: Array=[]
     match kind:
         "reset":
-            banner.queue.clear();banner._finish();toast_queue.clear()
+            banner.queue.clear();banner._finish();toast_queue.clear();toast_important.clear();auto_buy_edit=-1
         "discovered","ready":
             # Change 15: Prestige is introduced after the Snowman; earlier finds wait for its reveal.
             if not revealed("prestige"):return
@@ -2718,6 +2734,7 @@ func _upgrades_panel() -> void:
     if player_tab==1:_text(tr("SUPPLY_CAPACITY_NOTE") % sim.supply_ids().size(),17,Color(.75,.8,.87))
     if player_tab==2:
         _text(tr("SUPPLY_MASTERY_EXPLAIN") % int(sim.catalog.progression.supply_mastery.cap),17,Color(.75,.8,.87))
+        _auto_buy_section()
         _supply_shop()
 
 ## Change 71: the Supplies shop. One purchase quantity shared by every supply (x1, x5, x10, x25 or Custom),
@@ -2761,6 +2778,113 @@ func _supply_shop() -> void:
     for id in sim.supply_ids():
         if int(sim.supply(id).get("price",0))>0:_supply_shop_card(id,amount)
 
+## Change 76: Auto Buy Supplies, above the shop. One card per slot (AUTO_BUY_SLOTS): an unlocked slot shows its
+## supply (or Off) and what it is doing (restocking rule with the owned count, or what the purchase waits for)
+## with a Change button; a locked slot shows its Gem price, and the next one unlocks from its own button (the
+## same sim.buy_upgrade as any upgrade card). Change opens a chooser under that slot: every shop supply, the
+## one in this slot highlighted, those in other slots disabled with their slot number, and Off.
+var auto_buy_edit:=-1
+func _auto_buy_section() -> void:
+    _section(tr("AUTO_BUY_TITLE"))
+    _text(tr("AUTO_BUY_EXPLAIN") % [sim.AUTO_BUY_BELOW,sim.AUTO_BUY_AMOUNT],17,Color(.75,.8,.87))
+    var capacity:=sim.auto_buy_capacity()
+    if auto_buy_edit>=capacity:auto_buy_edit=-1
+    var picks:=sim.auto_buy_selection()
+    var prices: Array=sim.catalog.upgrades.auto_buy_slots.get("prices",[])
+    for i in range(sim.AUTO_BUY_SLOTS):
+        var unlocked: bool=i<capacity
+        var id: String=picks[i] if unlocked else ""
+        var card:=PanelContainer.new()
+        card.theme_type_variation=&"Card"
+        card.set_meta("guide","auto_buy_slot_%d" % i)
+        rows.add_child(card)
+        var line:=HBoxContainer.new()
+        line.add_theme_constant_override("separation",12)
+        card.add_child(line)
+        if not unlocked:_card_icon(line,GEM,Color(1,1,1,.55),52)
+        elif id!="":_card_icon(line,icon_cache.get(id),Color.WHITE,52)
+        else:_card_icon(line,icon_cache.get("potion"),Color(1,1,1,.35),52)
+        var text:=VBoxContainer.new()
+        text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        text.add_theme_constant_override("separation",2)
+        line.add_child(text)
+        var button:=Button.new()
+        button.custom_minimum_size=Vector2(128,76)
+        button.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+        button.add_theme_font_size_override("font_size",20)
+        button.focus_mode=Control.FOCUS_NONE
+        if unlocked:
+            var name: String=sim.catalog.display_name(id) if id!="" else tr("OFF")
+            _card_line(text,tr("AUTO_BUY_SLOT") % [i+1,name],20,Color.WHITE if id!="" else Color(.75,.8,.87))
+            var status:=tr("AUTO_BUY_EMPTY")
+            var color:=Color(.7,.75,.82)
+            if id!="":
+                var wait:=sim.auto_buy_wait_reason(id)
+                status=tr("AUTO_BUY_WAITING") % tr(wait) if not wait.is_empty() else tr("AUTO_BUY_RULE") % [sim.AUTO_BUY_AMOUNT,sim.AUTO_BUY_BELOW,fmt_count(sim.quantity(id))]
+                color=Color(1,.72,.45) if not wait.is_empty() else Color(.6,1,.75)
+            _card_line(text,status,17,color)
+            button.text=tr("AUTO_BUY_CHANGE")
+            button.theme_type_variation=&"Primary" if auto_buy_edit==i else &""
+            button.set_meta("guide","auto_buy_change_%d" % i)
+            button.pressed.connect(func()->void:
+                auto_buy_edit=-1 if auto_buy_edit==i else i
+                AudioService.play("ui_click")
+                if sheet.visible:_refresh_panel())
+        else:
+            var price: int=int(prices[mini(i,prices.size()-1)]) if not prices.is_empty() else sim.upgrade_cost("auto_buy_slots")
+            _card_line(text,tr("AUTO_BUY_SLOT") % [i+1,tr("AUTO_BUY_LOCKED")],20,Color(.75,.8,.87))
+            var next: bool=i==capacity
+            var reason:=sim.upgrade_block_reason("auto_buy_slots") if next else "AUTO_BUY_UNLOCK_ORDER"
+            _card_line(text,tr("AUTO_BUY_UNLOCK_PRICE") % fmt_cost(price)+("" if reason.is_empty() else "  ·  "+tr(reason)),17,Color(1,.72,.45) if not reason.is_empty() else Color(.7,.75,.82))
+            button.text=fmt_cost(price)
+            button.icon=GEM
+            button.expand_icon=true
+            button.add_theme_constant_override("icon_max_width",26)
+            button.disabled=not reason.is_empty()
+            button.theme_type_variation=&"Primary" if reason.is_empty() else &""
+            button.tooltip_text=tr(reason) if not reason.is_empty() else tr("UP_AUTO_BUY_SLOTS")
+            button.set_meta("guide","auto_buy_unlock_%d" % i)
+            button.pressed.connect(func()->void:
+                if _confirmed(sim.buy_upgrade("auto_buy_slots")):auto_buy_edit=i
+                else:AudioService.play("ui_click")
+                if sheet.visible:_refresh_panel())
+        line.add_child(button)
+        if unlocked and auto_buy_edit==i:_auto_buy_chooser(i,picks)
+
+## The supplies slot `slot` may hold, two per row: finger-sized chips with the supply's icon.
+func _auto_buy_chooser(slot: int,picks: Array) -> void:
+    _text(tr("AUTO_BUY_CHOOSE") % (slot+1),17,Color(1,.86,.5))
+    var grid:=GridContainer.new()
+    grid.columns=2
+    grid.add_theme_constant_override("h_separation",8)
+    grid.add_theme_constant_override("v_separation",8)
+    rows.add_child(grid)
+    var options: Array=sim.supply_ids().filter(func(v):return sim.auto_buy_eligible(str(v)))
+    options.append("")
+    for id in options:
+        var other:=picks.find(id) if id!="" else -1
+        var b:=Button.new()
+        b.text=(sim.catalog.display_name(id) if id!="" else tr("OFF"))+("\n"+tr("AUTO_BUY_IN_SLOT") % (other+1) if other>=0 and other!=slot else "")
+        b.icon=icon_cache.get(id) if id!="" else null
+        b.expand_icon=true
+        b.add_theme_constant_override("icon_max_width",36)
+        b.alignment=HORIZONTAL_ALIGNMENT_LEFT
+        b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+        b.custom_minimum_size=Vector2(0,64)
+        b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+        b.add_theme_font_size_override("font_size",18)
+        b.focus_mode=Control.FOCUS_NONE
+        var reason:=sim.auto_buy_block(slot,id)
+        b.disabled=not reason.is_empty()
+        b.tooltip_text=tr(reason) if not reason.is_empty() else ""
+        b.theme_type_variation=&"Primary" if picks[slot]==id else &""
+        b.set_meta("guide","auto_buy_pick_"+(id if id!="" else "off"))
+        b.pressed.connect(func()->void:
+            if _confirmed(sim.set_auto_buy(slot,id)):auto_buy_edit=-1
+            else:AudioService.play("ui_click")
+            if sheet.visible:_refresh_panel())
+        grid.add_child(b)
+
 ## A quantity chip: the normal game button at a compact, still finger-sized height.
 func _shop_chip(text: String,callback: Callable,parent: Node) -> Button:
     var b:=Button.new()
@@ -2791,7 +2915,8 @@ func _supply_shop_card(id: String,amount: int) -> void:
     text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     text.add_theme_constant_override("separation",2)
     line.add_child(text)
-    _card_line(text,sim.catalog.display_name(id),20,Color.WHITE)
+    # Change 76: a supply Auto Buy restocks says so on its card.
+    _card_line(text,sim.catalog.display_name(id)+("  ·  "+tr("AUTO_BUY_BADGE") if sim.auto_buy_ids().has(id) else ""),20,Color.WHITE)
     _card_line(text,tr("SHOP_UNIT_OWNED") % [fmt_cost(unit),fmt_count(sim.quantity(id))],17,Color(.8,.84,.9))
     # Fixed rows (Playbook 128.3): the total line always, and a reserved reason line (blank while buyable).
     _card_line(text,tr("SHOP_TOTAL") % [amount,fmt_cost(total)],17,Color(1,.88,.55))
@@ -2860,7 +2985,7 @@ func _upgrade_icon(id: String,g: int) -> Texture2D:
     var def: Dictionary=sim.catalog.upgrades[id]
     var icon: Texture2D=icon_cache.get(sim.catalog.groups[g].body) if g>=0 and def.scope in ["type","normal_type","boss_type"] else _art(147)
     if id.begins_with("cooldown_"):icon=icon_cache.get("skill_"+id.trim_prefix("cooldown_"))
-    elif id in ["auto_use","use_speed","supply_slots","supply_drop"]:icon=icon_cache.get("potion")
+    elif id in ["auto_use","use_speed","supply_slots","supply_drop","auto_buy_slots"]:icon=icon_cache.get("potion")
     elif id in ["map_detail","camp_radius","reveal_radius"]:icon=_art(249)
     elif id=="merge_all":icon=_art(147)
     elif id.begins_with("offline_"):icon=_art(171)
@@ -2880,6 +3005,9 @@ func _upgrade_benefit(id: String,g: int) -> String:
     if id=="gear_slots":
         if next==0:return tr("EQUIPMENT_SLOTS_MAXED") % [sim.equipment_slot_count(),sim.equipment_slot_max()]
         return tr("EQUIPMENT_SLOTS_NEXT") % [sim.equipment_slot_count(),int(sim.player_upgrade_value(id,1)),sim.equipment_slot_max()]
+    if id=="auto_buy_slots":
+        var n:=sim.auto_buy_capacity()
+        return tr("UPGRADE_TRANSITION") % [str(n),str(n+1)] if next>0 else tr("UPGRADE_MAXED_VALUE") % str(n)
     if id=="merge_all":return tr("MERGE_ALL_UNLOCKED") if sim.level(id)>0 else tr("MERGE_ALL_BENEFIT")
     # Change 66: the unlock's description says what it does, including the return after a respawn.
     if id=="focus":return tr("FOCUS_GLOBAL_OWNED") if sim.focus_owned() else tr("FOCUS_GLOBAL_BENEFIT")

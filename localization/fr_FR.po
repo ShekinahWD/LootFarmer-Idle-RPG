@@ -5461,20 +5461,11 @@ msgstr "Cartes et ensembles de prestige (%d possédées) plus les nouvelles"
 msgid "KEEP_LINE_GEMS"
 msgstr "Vos gemmes : %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Zones explorées, camps repérés et boss trouvés"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Clés de boss, succès d’ennemis et Maîtrise des cartes"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Paramètres et progression du tutoriel"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Niveau du joueur %d (retour au niveau 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Accès aux cartes (retour à Hiver I) et camps possédés"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Touchez Voir le camp"
@@ -5770,9 +5761,6 @@ msgstr "Ni leçons ni conseils. Tous les menus sont ouverts dès le départ."
 msgid "KEEP_LINE_COINS"
 msgstr "Vos pièces : %s"
 
-msgid "KEEP_LINE_ALL_UPGRADES"
-msgstr "Toutes les améliorations achetées avec des pièces ou des gemmes (les améliorations propres à un camp se réactivent quand vous rachetez ce camp)"
-
 msgid "KEEP_LINE_MERGES"
 msgstr "Niveaux de fusion de chaque arme, tenue et compétence, rétablis lorsque vous retrouvez l’objet"
 
@@ -5781,9 +5769,6 @@ msgstr "Objectifs principaux terminés mais pas encore récupérés"
 
 msgid "RESET_LINE_CARRIED_ITEMS"
 msgstr "Tous les objets transportés (armes, tenues, compétences et consommables) ainsi que leurs attributs bonus aléatoires"
-
-msgid "PRESTIGE_KEEP_ALL"
-msgstr "Cartes et ensembles, vos pièces et gemmes, toutes les améliorations achetées avec des pièces ou des gemmes, le niveau de fusion de chaque arme, tenue et compétence, les zones explorées, le niveau et l’XP du joueur, les clés de boss, les succès d’ennemis, la Maîtrise des cartes, les objectifs principaux non récupérés et les paramètres."
 
 msgid "ITEM_LEGACY_NAME"
 msgstr "%s (anciennes statistiques)"

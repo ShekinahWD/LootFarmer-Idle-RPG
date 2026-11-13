@@ -5449,20 +5449,11 @@ msgstr "Thẻ và bộ thẻ chuyển sinh (đang có %d) cùng các thẻ mới
 msgid "KEEP_LINE_GEMS"
 msgstr "Ngọc của bạn: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Vùng bản đồ đã khám phá, trại đã thấy và Boss đã tìm thấy"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Chìa khóa Boss, thành tựu kẻ địch và Thành thạo bản đồ"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Cài đặt và tiến độ hướng dẫn"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Cấp nhân vật %d (về cấp 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Quyền vào bản đồ (về Mùa Đông I) và trại đã sở hữu"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Chạm Xem trại"

@@ -5449,20 +5449,11 @@ msgstr "Karty i zestawy prestiżu (posiadane: %d) oraz nowe karty"
 msgid "KEEP_LINE_GEMS"
 msgstr "Twoje klejnoty: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Odkryte obszary map, dostrzeżone obozy i znalezieni bossowie"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Klucze bossów, osiągnięcia za wrogów i Mistrzostwo map"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Ustawienia i postęp samouczka"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Poziom bohatera %d (z powrotem 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Dostęp do map (z powrotem Zima I) i posiadane obozy"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Dotknij „Pokaż obóz”"

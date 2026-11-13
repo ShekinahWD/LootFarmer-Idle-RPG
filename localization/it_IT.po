@@ -5449,20 +5449,11 @@ msgstr "Carte e set prestigio (%d possedute) più quelle nuove"
 msgid "KEEP_LINE_GEMS"
 msgstr "Le tue gemme: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Aree esplorate delle mappe, campi avvistati e boss trovati"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Chiavi dei boss, imprese sui nemici e Maestria delle mappe"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Impostazioni e progressi del tutorial"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Livello dell’eroe %d (torna a 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Accesso alle mappe (torna a Inverno I) e campi posseduti"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Tocca Vedi campo"

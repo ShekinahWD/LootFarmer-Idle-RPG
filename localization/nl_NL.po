@@ -5449,20 +5449,11 @@ msgstr "Prestigekaarten en -sets (%d in bezit) plus de nieuwe"
 msgid "KEEP_LINE_GEMS"
 msgstr "Je edelstenen: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Verkende kaartgebieden, geziene kampen en gevonden bazen"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Baassleutels, vijandprestaties en Kaartmeesterschap"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Instellingen en tutorialvoortgang"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Spelerniveau %d (terug naar 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Toegang tot kaarten (terug naar Winter I) en eigen kampen"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Tik op Kamp bekijken"

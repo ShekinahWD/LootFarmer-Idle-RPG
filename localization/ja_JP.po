@@ -5447,20 +5447,11 @@ msgstr "転生カードとセット（所持%d）と新しいカード"
 msgid "KEEP_LINE_GEMS"
 msgstr "所持ジェム：%s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "探索済みのマップエリア、発見したキャンプとボス"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "ボスの鍵、敵の実績、マップ熟練度"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "設定とチュートリアルの進行状況"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "プレイヤーレベル%d（1に戻る）"
-
-msgid "RESET_LINE_MAPS"
-msgstr "マップへのアクセス（冬 I に戻る）と所有キャンプ"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "「キャンプを見る」をタップ"

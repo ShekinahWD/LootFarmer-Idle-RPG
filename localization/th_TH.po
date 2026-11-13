@@ -5449,20 +5449,11 @@ msgstr "การ์ดและชุดการ์ดเพรสทีจ (�
 msgid "KEEP_LINE_GEMS"
 msgstr "อัญมณีของคุณ: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "พื้นที่แผนที่ที่สำรวจแล้ว ค่ายที่มองเห็น และบอสที่พบ"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "กุญแจบอส ความสำเร็จของศัตรู และความชำนาญแผนที่"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "การตั้งค่าและความคืบหน้าบทสอน"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "เลเวลผู้เล่น %d (กลับเป็น 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "การเข้าถึงแผนที่ (กลับไปฤดูหนาว I) และค่ายที่มี"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "แตะดูค่าย"

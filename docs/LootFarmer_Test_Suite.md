@@ -1,4 +1,9 @@
-# LootFarmer — Test Suite (current, 2026-11-13, Change 75)
+# LootFarmer — Test Suite (current, 2026-11-13, Change 76)
+
+## Change 76: permanent camps, boss weapon notice, Auto Buy Supplies (13 November 2026)
+
+- `change_76_probe` (new, in the suite, 145 checks): Prestige keeps owned camps and each map's respawn choice while map access, items and run kills reset; the kept camps stay the live camp list (a camp bought after Prestige joins them); travel works once a map is reached again; disk save/reload; Hard Reset clears them; the one-time `camps_permanent` migration restores camps lost to earlier Prestiges from Map Mastery and never repeats. The boss weapon notice (ITEM_ENHANCED) through the real toast queue: >= 8 s alone and with other notices queued around it, all notices still shown in order, held and resumed with its remaining time when a panel opens. Auto Buy Supplies: 100 / 160 / 250 Gem unlocks, duplicate and locked-slot refusal, 0 / 1 / 2 / 3 / 7 owned, no repeat purchases, insufficient Coins and no free supply slot (waits, stays enabled, buys once possible), three supplies in one simulation step, paused and Prestige-choice locks, Prestige / reload / Hard Reset, older and damaged saves. Supplies tab UI at 720x1280, 720x1600, 720x1080 and 960x1280.
+- `change_76_capture` (windowed evidence, not in the suite): docs/Change_76_Evidence.
 
 ## Change 75: Next Stage on two lines, compact zoom slider (13 November 2026)
 

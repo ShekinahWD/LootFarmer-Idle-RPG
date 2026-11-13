@@ -5449,20 +5449,11 @@ msgstr "Карточки и наборы престижа (у тебя: %d) и �
 msgid "KEEP_LINE_GEMS"
 msgstr "Твои самоцветы: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Исследованные области карт, замеченные лагеря и найденные боссы"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Ключи боссов, достижения за врагов и мастерство карт"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Настройки и прогресс обучения"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Уровень героя %d (снова 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Доступ к картам (снова Зима I) и открытые лагеря"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Нажми «Осмотреть лагерь»"

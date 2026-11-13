@@ -5449,20 +5449,11 @@ msgstr "Kartu dan set prestise (%d dimiliki) ditambah yang baru"
 msgid "KEEP_LINE_GEMS"
 msgstr "Permatamu: %s"
 
-msgid "KEEP_LINE_MAP"
-msgstr "Area peta yang dijelajahi, kemah yang terlihat, dan bos yang ditemukan"
-
 msgid "KEEP_LINE_PROGRESS"
 msgstr "Kunci bos, pencapaian musuh, dan Penguasaan Peta"
 
-msgid "KEEP_LINE_SETTINGS"
-msgstr "Pengaturan dan progres tutorial"
-
 msgid "RESET_LINE_LEVEL"
 msgstr "Level pemain %d (kembali ke 1)"
-
-msgid "RESET_LINE_MAPS"
-msgstr "Akses peta (kembali ke Musim Dingin I) dan kemah yang dimiliki"
 
 msgid "GUIDE_CAMP_VIEW"
 msgstr "Ketuk Lihat Kemah"

@@ -22297,6 +22297,20 @@
       "effect": 1,
       "scope": "type",
       "flat": true
+    },
+    "auto_buy_slots": {
+      "currency": "gems",
+      "base": 100,
+      "growth": 1,
+      "prices": [
+        100,
+        160,
+        250
+      ],
+      "cap": 3,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
     }
   },
   "cards": [
