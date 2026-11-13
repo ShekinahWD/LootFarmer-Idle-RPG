@@ -260,7 +260,7 @@ func gate_checks() -> void:
     fresh()
     stage(4)
     var gate: Control=game.get_node("Safe/Layout/Map/Gate")
-    game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_gate()
+    game._refresh_gate()
     check(gate.visible and gate.get_node("Row/Label").text==tr("GATE_HUD") % [0,2],"Summer II (two gate bosses): HUD reads Next stage · Bosses 0/2")
     check(gate.get_node("Row/Label").text=="Next Stage · Bosses 0/2","…in English: 'Next Stage · Bosses 0/2' (Change 14 capitalisation)")
     check(gate.mouse_filter==Control.MOUSE_FILTER_STOP and gate.get_node("Row/Label").mouse_filter==Control.MOUSE_FILTER_IGNORE,"The chip takes the tap (Change 72: it opens World); its label never does")
@@ -274,7 +274,7 @@ func gate_checks() -> void:
     game.world._process(0);check(game.world.views[actor_of("boss-elephant").id].gate,"…with the banner beside its HP bar")
     check(not sim.campaign.gate_required(group(sim.catalog.groups[sim.campaign.stage().groups[0]].id)),"Normal enemies are never marked")
     var e:=actor_of("boss-elephant");e.hp=0.0;sim._kill(e) # fixture kill
-    game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_gate()
+    game._refresh_gate()
     check(gate.get_node("Row/Label").text==tr("GATE_HUD") % [1,2] and not sim.campaign.gate_required(elephant),"One of two defeated: 1/2, the Elephant is no longer marked")
     check(int(sim.state.unlocked_stage)==4,"The next stage stays locked with one of two")
     game._open("world");await frames(2)
@@ -284,25 +284,25 @@ func gate_checks() -> void:
     sim.campaign.discover_spot(dino,2)
     check(sim.campaign.gate_required(dino),"The discovered Dinosaur is now marked")
     var d:=actor_of("boss-teal-dinosaur");d.hp=0.0;sim._kill(d)
-    game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_gate()
+    game._refresh_gate()
     check(int(sim.state.unlocked_stage)==5 and not gate.visible,"Both defeated: Autumn I opens and the line hides")
     # Revisit an earlier map: nothing pending there.
-    stage(2);game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_gate()
+    stage(2);game._refresh_gate()
     check(not gate.visible,"An earlier map with its exit already open shows no line")
     # Respawned boss after the gate counted: no marker.
-    stage(1);sim.state.unlocked_stage=1;sim.campaign.discover_spot(group("boss-snowman"),2);game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_gate()
+    stage(1);sim.state.unlocked_stage=1;sim.campaign.discover_spot(group("boss-snowman"),2);game._refresh_gate()
     check(gate.get_node("Row/Label").text==tr("GATE_HUD") % [0,1],"Winter I: 0/1")
-    sim.state.run_kills["boss-snowman"]=1;sim.state.unlocked_stage=2;game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_gate() # fixture: counted
+    sim.state.run_kills["boss-snowman"]=1;sim.state.unlocked_stage=2;game._refresh_gate() # fixture: counted
     check(not sim.campaign.gate_required(group("boss-snowman")) and not gate.visible,"After the kill the respawned Snowman carries no marker")
     # Spring II: world clear count.
-    stage(8);game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_gate()
+    stage(8);game._refresh_gate()
     check(gate.get_node("Row/Label").text==tr("GATE_HUD_WORLD") % [0,9],"Spring II: World clear · 0/9")
     # Load and Hard Reset recompute from saved state.
     sim.state.run_kills["unit-plain"]=1
-    SaveService.save_now();sim.new_profile();SaveService.load_and_apply();await frames(1);game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_gate()
+    SaveService.save_now();sim.new_profile();SaveService.load_and_apply();await frames(1);game._refresh_gate()
     check(gate.get_node("Row/Label").text==tr("GATE_HUD_WORLD") % [1,9],"After a load: 1/9 from the saved kills")
     sim.state.tutorial.mode="none";sim.suspended=false
-    SaveService.hard_reset();sim.state.tutorial.mode="none";sim.suspended=false;game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_gate()
+    SaveService.hard_reset();sim.state.tutorial.mode="none";sim.suspended=false;game._refresh_gate()
     check(gate.get_node("Row/Label").text==tr("GATE_HUD") % [0,1],"After Hard Reset: Winter I 0/1")
     # Map badge: minimap draws the banner only for a drawn (discovered) required boss.
     fresh();stage(4);sim.state.upgrades["map_detail:4"]=2

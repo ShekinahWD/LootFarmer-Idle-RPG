@@ -645,7 +645,7 @@ func mastery_checks() -> void:
     var st:=int(sim.state.stage)
     check(chip.visible and chip.text==tr("MASTERY_CHIP") % [sim.campaign.mastery.map_percent(st),0,5],"Chip reads \"%s\"" % chip.text)
     var explored:=map_node("Explored")
-    check(chip.get_rect().position.y>=map_node("MiniMap").get_rect().end.y and absf(map_node("MiniMap").get_rect().end.y-explored.get_rect().end.y)<=1 and is_equal_approx(chip.get_rect().end.x,explored.get_rect().end.x),"It sits under the minimap (which carries Map Explored), on the cluster's right edge (Change 72)")
+    check(chip.get_rect().position.y>=explored.get_rect().end.y and explored.get_rect().position.y>=map_node("MiniMap").get_rect().end.y and is_equal_approx(chip.get_rect().end.x,explored.get_rect().end.x),"It sits under the minimap and its Map Explored caption, on the cluster's right edge (Change 74)")
     check(chip.size.y>=44 and chip.get_theme_font_size("font_size")>=16,"A 44 px tap target, 17 px text")
     chip.pressed.emit();await frames(2)
     check(game.sheet.visible and game.panel=="mastery" and game.mastery_stage==st and game.get_node("Sheet/Margin/Content/Header/Title").text==tr("MASTERY_MAP_TITLE") % sim.catalog.stages[st-1].name,"Tapping it opens this map's Mastery page directly")

@@ -4,8 +4,9 @@ extends Node
 ## - Rails: the enemy controls in one row, the followed objectives as one-line pills under them, the minimap with
 ##   Map Explored on its lower edge, the zoom button, the Mastery and Next Stage chips; nothing persistent below
 ##   the middle of the map except the joystick, at four screen shapes and every joystick position.
-## - Fight form: with a locked target (and for 3 s after the last blow) pills keep icon and progress, the two
-##   chips drop their words; places and heights do not change; everything returns after the hold.
+## - Fight form: removed by Change 74 (pills and chips keep their full form in a fight; see change_74_probe).
+##   Change 74 also enlarged the minimap and the enemy controls, put Map Explored under the minimap and moved
+##   phone toasts out of the (now narrow) lane between the rails; the checks here follow that layout.
 ## - Pills: progress values and the green Claim; the step sentence stays in the tooltip.
 ## - Zoom: the button opens the slider, a second tap or 4 s closes it; pinch-independent value text.
 ## - Recent finds: one right-aligned feed, rows leave after 8 s; the separate Gem counter stays hidden.
@@ -56,7 +57,7 @@ func fresh() -> void:
     sim.campaign.onboarding.reveal_all(true)
     sim.state.tutorial.seen.append("road_ahead")
     game._close();game.banner.queue.clear();game.banner._finish();game.toast_queue.clear();game.get_node("Toast").hide()
-    game.hud_combat_time=0.0;game.zoom_open_time=0.0;game.toast_time=0.0
+    game.zoom_open_time=0.0;game.toast_time=0.0
 
 ## Fixture: Winter I with the Snowman found, the nearest enemy known and three followed objectives.
 func fixture() -> void:
@@ -94,12 +95,12 @@ func rail_checks() -> void:
             var ok: bool=list.size()==3 and a.end.x<=u.position.x and u.end.x<=q.position.x and is_equal_approx(a.position.y,q.position.y)
             var y: float=a.end.y
             for t in list:
-                ok=ok and t.position.y>=y and is_equal_approx(t.position.x,a.position.x) and t.size.y<=48 and is_equal_approx(t.size.x,game.LEFT_COLUMN_WIDTH)
+                ok=ok and t.position.y>=y and is_equal_approx(t.position.x,a.position.x) and t.size.y<=48 and t.size.x<=game.LEFT_COLUMN_WIDTH+.5
                 y=t.get_rect().end.y
             check(ok,"%s: one row of enemy controls, three one-line pills under it" % tag)
             var mini: Rect2=node("MiniMap").get_rect();var ex: Rect2=node("Explored").get_rect()
             var chip: Rect2=node("Mastery").get_rect();var gate: Rect2=node("Gate").get_rect();var zb: Rect2=node("ZoomButton").get_rect()
-            check(is_equal_approx(mini.size.x,game.MINIMAP_SIDE) and absf(mini.end.x-(map.size.x-game.HUD_MARGIN))<1 and absf(ex.end.y-mini.end.y)<1 and absf(ex.end.x-mini.end.x)<1 and zb.end.x<=mini.position.x and not zb.intersects(ex) and chip.position.y>=mini.end.y and gate.position.y>=chip.end.y and absf(gate.end.x-mini.end.x)<1,"%s: minimap with Map Explored on it, zoom button beside, Mastery then Next Stage under" % tag)
+            check(is_equal_approx(mini.size.x,game.MINIMAP_SIDE) and absf(mini.end.x-(map.size.x-game.HUD_MARGIN))<1 and ex.position.y>=mini.end.y and absf(ex.end.x-mini.end.x)<1 and zb.end.x<=mini.position.x and not zb.intersects(ex) and chip.position.y>=ex.end.y and gate.position.y>=chip.end.y and absf(gate.end.x-mini.end.x)<1,"%s: minimap, zoom button beside, Map Explored under it, then Mastery and Next Stage (Change 74)" % tag)
             # Nothing persistent in the lower half but the joystick; the rails do not meet.
             var low:=true
             var rails: Array=[node("Achievement"),node("EnemyUpgrades"),node("QuickFarm"),node("MiniMap"),node("Explored"),node("Mastery"),node("Gate"),node("ZoomButton")]+list
@@ -114,55 +115,18 @@ func rail_checks() -> void:
     await frames(4)
 
 func combat_checks() -> void:
-    print("-- fight form")
+    print("-- no fight form (Change 74)")
     fixture()
     await frames(4);await hud_ticks()
-    var list:=pills()
-    var before: Array=list.map(func(t):return t.get_rect())
     var chip: Button=node("Mastery");var gate: Label=node("Gate/Row/Label")
-    var st:=int(sim.state.stage)
-    check(not game.hud_combat and chip.text.begins_with("Mastery ") and gate.text=="Next Stage · Bosses 0/1","Out of a fight: \"%s\" and \"%s\"" % [chip.text,gate.text])
-    check(list.all(func(t):return t.get_node("Row/Text").visible and t.get_node("Row/Text/Name").text!=""),"Out of a fight the pills show their titles")
-    # A blow dealt or taken starts the fight form.
+    var before: Array=pills().map(func(t):return t.get_rect())
     sim.feedback.emit("player",5.0,false)
-    await frames(2)
-    check(game.hud_combat,"A blow puts the HUD in its fight form")
-    await hud_ticks(2)
+    await frames(2);await hud_ticks(2)
+    check(chip.text.begins_with("Mastery ") and gate.text=="Next Stage · Bosses 0/1" and pills().all(func(t):return t.get_node("Row/Text").visible),"A blow changes no chip or pill: \"%s\", \"%s\"" % [chip.text,gate.text])
     var ok:=true
-    for i in range(list.size()):
-        var r: Rect2=list[i].get_rect()
-        ok=ok and r.position.is_equal_approx(before[i].position) and is_equal_approx(r.size.y,before[i].size.y) and is_equal_approx(r.size.x,game.PILL_COMBAT_WIDTH)
-        ok=ok and not list[i].get_node("Row/Text").visible and list[i].get_node("Row/Icon").texture!=null and list[i].get_node("Row/Progress").text!=""
-    check(ok,"In a fight each pill keeps its place and height, icon and progress, and narrows to %d" % int(game.PILL_COMBAT_WIDTH))
-    check(chip.text==tr("MASTERY_CHIP_SHORT") % [sim.campaign.mastery.map_percent(st),0,5] and not chip.text.contains("Mastery") and gate.text=="Bosses 0/1","In a fight the chips read \"%s\" and \"%s\"" % [chip.text,gate.text])
-    check(chip.icon!=null and node("Gate/Row/Icon").texture!=null and node("Gate").visible and chip.visible,"Both chips keep their icons")
-    check(is_equal_approx(chip.size.x,game.MINIMAP_SIDE) and is_equal_approx(node("Gate").size.x,game.MINIMAP_SIDE),"Short chips are the minimap's width")
-    # A healing number is not a blow; the hold runs out in real time.
-    game.hud_combat_time=.05
-    sim.feedback.emit("player",5.0,true)
-    await frames(8)
-    await hud_ticks(2)
-    check(not game.hud_combat and chip.text.begins_with("Mastery ") and gate.text=="Next Stage · Bosses 0/1","After the hold the words return (a heal does not extend it)")
-    ok=true
-    for i in range(list.size()):ok=ok and list[i].get_rect().is_equal_approx(before[i]) and list[i].get_node("Row/Text").visible
-    check(ok,"…and the pills return to their full form in the same places")
-    check(is_equal_approx(game.HUD_COMBAT_HOLD,3.0),"The hold is 3 s")
-    # A locked target holds the fight form by itself.
-    var enemy: Dictionary={}
-    for e in sim.state.enemies:
-        if float(e.hp)>0:enemy=e;break
-    sim.locked_target=str(enemy.id) # fixture: the lock the simulation takes when an enemy is in reach
-    check(not sim._find_actor(sim.locked_target).is_empty(),"Fixture: a target is locked")
-    await frames(3)
-    check(game.hud_combat and is_equal_approx(game.hud_combat_time,game.HUD_COMBAT_HOLD),"A locked target keeps the fight form")
-    get_tree().paused=true
-    game.hud_combat_time=.05;sim.clear_target()
-    await frames(6)
-    check(game.hud_combat,"A pause freezes the hold")
-    get_tree().paused=false
-    await frames(8)
-    check(not game.hud_combat,"…which runs out after it")
-    # German: the long word grows the chip leftward at the full font; the short form is language-neutral.
+    for i in range(before.size()):ok=ok and pills()[i].get_rect().is_equal_approx(before[i])
+    check(ok,"…and moves nothing")
+    # German: the long word grows the chip leftward at the full font.
     LocalizationService.select_language("de_DE")
     await frames(4)
     game.mastery_text="";game.gate_text=""
@@ -192,11 +156,6 @@ func pill_checks() -> void:
     await hud_ticks(2)
     var label: Label=follow.get_node("Row/Progress")
     check(label.text==tr("CLAIM") and label.get_theme_color("font_color").g>.99 and label.get_theme_color("font_color").r<.6,"A ready opportunity reads Claim in green")
-    game.hud_combat_time=3.0
-    await frames(2);await hud_ticks(2)
-    check(label.text==tr("CLAIM") and label.is_visible_in_tree(),"…also in the fight form")
-    game.hud_combat_time=0.0
-    await frames(2)
     for path in ["collection_o1","hunter_o1","trophy_o1","arsenal_o1"]:
         sim.state.opportunities[path]={"ready":false,"baseline":{},"step":0,"count":0}
         var text: String=sim.campaign.follow_progress(path)
@@ -264,13 +223,16 @@ func notice_checks() -> void:
         var toast: Control=game.get_node("Toast")
         var r: Rect2=toast.get_global_rect()
         var tag:="%dx%d" % [shape.x,shape.y]
-        check(toast.visible and r.position.x>pills()[0].get_global_rect().end.x and r.end.x<node("MiniMap").get_global_rect().position.x and r.end.y<map.global_position.y+map.size.y*.42 and not game._toast_overlaps(r),"%s: the toast sits in the lane between the rails, in the upper map (%s; pill end %s, minimap x %s, limit %s, overlaps %s)" % [tag,r,pills()[0].get_global_rect().end.x,node("MiniMap").get_global_rect().position.x,map.global_position.y+map.size.y*.42,game._toast_overlaps(r)])
+        # Change 74: the lane between the rails where it is wide enough (960), else the joystick's free side at the bottom.
+        var top_lane: bool=r.position.x>pills()[0].get_global_rect().end.x and r.end.x<node("MiniMap").get_global_rect().position.x and r.end.y<map.global_position.y+map.size.y*.42
+        var bottom_lane: bool=r.position.y>map.global_position.y+map.size.y*.62 and not r.intersects(node("Joystick").get_global_rect())
+        check(toast.visible and (top_lane if shape.x>=960 else bottom_lane) and not game._toast_overlaps(r),"%s: the toast sits in a lane clear of the HUD and the fight (%s, overlaps %s)" % [tag,r,game._toast_overlaps(r)])
         sim.milestone.emit("discovered","expedition_o1")
         await frames(12)
         var b: Rect2=game.banner.get_global_rect()
         r=toast.get_global_rect()
         check(game.banner.visible and b.position.y<=map.global_position.y+game.banner_top_gap+60,"%s: the banner keeps the top of the map (y %d)" % [tag,int(b.position.y)])
-        check(not toast.visible or (r.position.y>=b.end.y and not r.intersects(b) and r.end.y<map.global_position.y+map.size.y*.42),"%s: with a banner the toast is under it or waits, never in the fight (%s, shown %s)" % [tag,r,toast.visible])
+        check(not toast.visible or (not r.intersects(b) and (r.end.y<map.global_position.y+map.size.y*.42 or r.position.y>map.global_position.y+map.size.y*.62)),"%s: with a banner the toast never covers it and stays out of the fight (%s, shown %s)" % [tag,r,toast.visible])
         game.banner.queue.clear();game.banner._finish();game.toast_queue.clear();toast.hide()
     get_window().size=Vector2i(720,1280)
     await frames(4)
@@ -286,8 +248,4 @@ func chip_checks() -> void:
     node("Mastery").pressed.emit();await frames(3)
     check(game.panel=="mastery","A tap on the Mastery chip opens its page")
     game._close();await frames(2)
-    game.hud_combat_time=3.0;await frames(2);await hud_ticks(2)
-    check(node("Gate").mouse_filter==Control.MOUSE_FILTER_STOP and not node("Mastery").disabled and node("Gate").size.y>=38 and node("Mastery").size.y>=44,"Both stay tappable in the fight form")
-    game.hud_combat_time=0.0
-    var pending: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tools/localization_pending.json")).keys
-    check(["MASTERY_CHIP_SHORT","GATE_HUD_SHORT","GATE_HUD_WORLD_SHORT"].all(func(k):return pending.has(k) and tr(k)!=k),"The three short strings exist in English and are in the translation handoff")
+    check(node("Gate").mouse_filter==Control.MOUSE_FILTER_STOP and not node("Mastery").disabled and node("Gate").size.y>=38 and node("Mastery").size.y>=44,"Both stay tappable")

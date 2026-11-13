@@ -27,7 +27,12 @@ func setup(id: String,definition: Dictionary,path_info: Dictionary,state: String
 ## Change 58 (localization): the card grows to its text. A Button does not take its anchored Content's size, so a
 ## longer translated description ran past the card's bottom edge (German Crowd Guard, Second Wind at 432x960).
 ## Height only, never below the designed size; the width (and so the wrapping) does not change, so it settles.
+## Change 74: the size the card was designed at is kept as meta "designed_minimum" (a Button ignores a script
+## _get_minimum_size, so the grown height must stay in custom_minimum_size). The panel reconciler compares the
+## designed size, not the grown one: comparing the grown height never matched the card's fresh description, so
+## every refresh of an open Prestige panel replaced the owned cards and reset the scroll under the finger.
 func _ready() -> void:
+    if not has_meta("designed_minimum"):set_meta("designed_minimum",custom_minimum_size)
     $Content.minimum_size_changed.connect(_fit_content)
     resized.connect(_fit_content)
 

@@ -320,8 +320,8 @@ func hud_checks() -> void:
                 var trackers: Array=[map.get_node("FollowTracker"),map.get_node("MissionTracker"),game.mastery_tracker].filter(func(t):return t.visible)
                 if stick==1 and shape==Vector2i(720,1280):
                     check(mini.position.y<=20 and mini.end.x<=map.size.x-12 and mini.size.x>=160,"%s: minimap top-right, full size %s" % [tag,mini])
-                    # Change 72: Map Explored is the minimap's caption; the zoom is a button beside the minimap (slider on demand).
-                    check(absf(explored.end.x-mini.end.x)<=1 and absf(explored.end.y-mini.end.y)<=1 and explored.position.y>=mini.position.y and not map.get_node("Zoom").visible and map.get_node("ZoomButton").get_rect().end.x<=mini.position.x and chip.position.y>=mini.end.y and (not map.get_node("Gate").visible or gate.position.y>=chip.end.y),"%s: minimap (Map Explored on it, zoom button beside) -> Mastery -> Next Stage" % tag)
+                    # Change 74: Map Explored is the minimap's caption under it; the zoom is a button beside the minimap (slider on demand).
+                    check(absf(explored.end.x-mini.end.x)<=1 and explored.position.y>=mini.end.y and not map.get_node("Zoom").visible and map.get_node("ZoomButton").get_rect().end.x<=mini.position.x and chip.position.y>=explored.end.y and (not map.get_node("Gate").visible or gate.position.y>=chip.end.y),"%s: minimap (zoom button beside) -> Map Explored -> Mastery -> Next Stage" % tag)
                 check(gate.end.x<=map.size.x+.5 and explored.end.x<=map.size.x+.5,"%s: status chips inside the map (gate %s, map %s)" % [tag,gate,map.size])
                 check(trackers.size()==3,"%s: three trackers shown" % tag)
                 var clearance: float=game.tracker_clearance()

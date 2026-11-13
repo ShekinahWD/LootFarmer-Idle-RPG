@@ -9865,3 +9865,30 @@ Inventory density controls should resize slot contents with the slots while reta
 A scrollable panel needs an obvious thumb whenever content overflows; validate it against the actual dark panel at phone scale. Reuse the supplied scrollbar textures with appropriate width and contrast. Shrinking a slot is incomplete unless the grid's column calculation uses its own available width; exercise empty slots as well as filled ones and assert how many complete rows remain visible. Synchronize independent column headers before aligning their first rows.
 
 Anchor follow trackers to the control they must avoid (the joystick), then stack upward using measured wrapped heights. Fixed-height action buttons must opt out of a horizontal container's vertical fill. For map travel, activate on release, cancel after dragging and recheck the shared gameplay travel gate at activation.
+
+# 147. Enlarging a decluttered HUD, and scrolling that survives live refreshes (LootFarmer Change 74)
+
+## 147.1 A reconciler's "same shape" test must ignore sizes a control grows by itself
+
+An open panel that rebuilds an off-tree description and reconciles it into the live controls compares a few layout properties to decide whether a live control can be reused. A control that grows its own minimum size after entering the tree (a card fitting its translated text) never matches its fresh description, so every refresh replaced it: the control under the finger was freed and the saved offset was restored two frames later. On a phone the list "froze" whenever the game changed state, which is all the time while fighting. Keep the designed size apart (meta "designed_minimum") and compare that. A script `_get_minimum_size` does not help on a Button: the engine's own Button minimum wins. Probe it by counting structural refreshes of every panel while the state keeps changing; the expected count is zero.
+
+## 147.2 A touch gesture owns the list until it comes to rest
+
+Track the scroll container's `scroll_started` .. `scroll_ended` (the fling included) and hold content refreshes, and any offset restore, while it runs; refresh as soon as the list rests. Test with the event stream a phone sends: ScreenTouch/ScreenDrag plus the mouse events emulated for finger 0, pushed through the viewport, starting over a card, a button and a plain row, while the simulation keeps revising state. Mouse-wheel tests do not reach this path.
+
+## 147.3 Growing HUD elements: measure the fight zone before and after, and move the right thing
+
+Making a minimap, controls and a name 30% larger on a fixed 720-wide portrait canvas closes the lane between the two rails (130 units). Do not shrink something else to compensate; re-place what was using that lane. Toasts take an ordered list of lanes: the top lane when it is wide enough (tablets), the bottom of the map on the joystick's free side, then over the joystick, then the side rail. Size pills and names to their text instead of to the rail, put small controls (zoom) in bands that are outside the fight more often, and re-measure fight-zone coverage at several aspect ratios with the same fixture on the old and new build. Removing a combat compact mode on request costs coverage; report that number, not just "it fits".
+
+## 147.4 Text never collapses: wrap and grow, and keep reading time proportional
+
+Labels in persistent HUD pills wrap onto a second line and the pill grows; a measured multiline height places the next pill in the same frame. Name a followed objective by the thing it tracks (the outfit, the enemy, the item), from the same state as its progress, with names already in the catalog. A toast's time follows its length (a short glance plus about 14 characters a second, capped), and a queue may shorten it only to three quarters.
+
+## 147.5 Show where a followed objective progresses
+
+Wherever the player chooses a destination (the map list, the teleport picker), mark the maps where each followed objective can progress, with the icon of its kind. Derive the maps from the same focus the HUD pill uses (the enemy that drops the needed outfit, the enemy a step names), falling back to the catalog's map list. A two-column grid of map buttons halves the list and leaves room for the marks.
+
+Reusable rule:
+
+> Reconcile by designed size, not grown size; let a touch gesture own its list until it rests; when HUD elements grow, re-place what used the space they took and measure the fight zone on the old and new build; wrap text instead of cutting it; mark destinations with the objectives they advance.
+

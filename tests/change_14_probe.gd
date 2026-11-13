@@ -72,15 +72,15 @@ const RAIN_GRASS:=Color(.22,.36,.2)
 func cluster_checks() -> void:
     fresh()
     stage(4)
-    game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_explored();game._refresh_gate()
+    game._refresh_explored();game._refresh_gate()
     await frames(3)
     var zoom:=map_node("Zoom");var explored: Label=map_node("Explored");var mini:=map_node("MiniMap");var gate:=map_node("Gate")
     var gate_label: Label=gate.get_node("Row/Label")
     check(gate.visible and gate_label.text=="Next Stage · Bosses 0/2","Summer II reads \"%s\"" % gate_label.text)
     check(explored.text==tr("MAP_EXPLORED") % sim.campaign.explored_percent(4) and explored.text.begins_with("Map Explored: "),"Map Explored reads \"%s\" from the saved explored cells" % explored.text)
     var rz:=zoom.get_global_rect();var re:=explored.get_global_rect();var rm:=mini.get_global_rect();var rg:=gate.get_global_rect()
-    # Change 72: MINIMAP with Map Explored on its lower edge, then the status chips; the zoom slider is on demand.
-    check(absf(re.end.x-rm.end.x)<=1 and absf(re.end.y-rm.end.y)<=1 and re.position.y>=rm.position.y and rm.end.y<=rg.position.y and not zoom.visible,"Top-down order: minimap %s carrying Map Explored %s, Next Stage %s (zoom %s hidden)" % [rm,re,rg,rz])
+    # Change 74: MINIMAP, Map Explored as its caption under it, then the status chips; the zoom slider is on demand.
+    check(absf(re.end.x-rm.end.x)<=1 and re.position.y>=rm.end.y and re.end.y<=rg.position.y and not zoom.visible,"Top-down order: minimap %s, Map Explored under it %s, Next Stage %s (zoom %s hidden)" % [rm,re,rg,rz])
     var map_rect: Rect2=game.get_node("Safe/Layout/Map").get_global_rect()
     check(re.get_center().x>map_rect.get_center().x and rg.get_center().x>map_rect.get_center().x and absf(re.end.x-rm.end.x)<=1 and absf(rg.end.x-rm.end.x)<=1,"Both chips share the minimap's right edge, top right of the map")
     check(re.end.y<=rg.position.y,"The percentage stays in the top-right stack (it ends at y %.0f of %.0f)" % [re.end.y,map_rect.end.y])
@@ -121,7 +121,7 @@ func cluster_checks() -> void:
     check(game.get_node("Safe").is_ancestor_of(explored) and game.get_node("Safe").is_ancestor_of(gate),"Both chips sit inside the safe-area container")
     game.get_node("Safe").add_theme_constant_override("margin_top",60);game.get_node("Safe").add_theme_constant_override("margin_right",40) # fixture: a notch inset
     await frames(3)
-    check(explored.get_global_rect().position.y>=60 and explored.get_global_rect().end.x<=game.size.x-40 and absf(explored.get_global_rect().end.y-mini.get_global_rect().end.y)<=1 and not gate.get_global_rect().intersects(mini.get_global_rect()),"With 60 px top / 40 px right insets the cluster moves inside and stays ordered")
+    check(explored.get_global_rect().position.y>=60 and explored.get_global_rect().end.x<=game.size.x-40 and explored.get_global_rect().position.y>=mini.get_global_rect().end.y and not gate.get_global_rect().intersects(mini.get_global_rect()),"With 60 px top / 40 px right insets the cluster moves inside and stays ordered")
     game._safe_area()
     await frames(2)
 

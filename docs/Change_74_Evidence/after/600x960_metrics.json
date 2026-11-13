@@ -1,0 +1,296 @@
+[
+  {
+    "action_zone_covered_pct": 10.0,
+    "canvas": [
+      800.0,
+      1280.0
+    ],
+    "elements": [
+      "Joystick",
+      "EnemySection",
+      "Achievement",
+      "EnemyUpgrades",
+      "QuickFarm",
+      "MiniMap",
+      "FollowTracker",
+      "MissionTracker",
+      "Mastery",
+      "Explored",
+      "Gate",
+      "MasteryTracker",
+      "ZoomButton"
+    ],
+    "hud_elements": 13,
+    "layout": "c74_after",
+    "map": [
+      800.0,
+      804.0
+    ],
+    "map_covered_pct": 25.8,
+    "map_share_of_screen": 62.8,
+    "on_player": [],
+    "shape": "600x960",
+    "shot": "01_three_objectives",
+    "variant": ""
+  },
+  {
+    "action_zone_covered_pct": 10.0,
+    "canvas": [
+      800.0,
+      1280.0
+    ],
+    "elements": [
+      "Joystick",
+      "Loot",
+      "Loot",
+      "Loot",
+      "EnemySection",
+      "Achievement",
+      "EnemyUpgrades",
+      "QuickFarm",
+      "MiniMap",
+      "FollowTracker",
+      "MissionTracker",
+      "Mastery",
+      "Explored",
+      "Gate",
+      "MasteryTracker",
+      "ZoomButton"
+    ],
+    "hud_elements": 16,
+    "layout": "c74_after",
+    "map": [
+      800.0,
+      804.0
+    ],
+    "map_covered_pct": 27.3,
+    "map_share_of_screen": 62.8,
+    "on_player": [],
+    "shape": "600x960",
+    "shot": "02_combat",
+    "variant": ""
+  },
+  {
+    "action_zone_covered_pct": 10.0,
+    "canvas": [
+      800.0,
+      1280.0
+    ],
+    "elements": [
+      "Joystick",
+      "Loot",
+      "Loot",
+      "Loot",
+      "EnemySection",
+      "Achievement",
+      "EnemyUpgrades",
+      "QuickFarm",
+      "MiniMap",
+      "FollowTracker",
+      "MissionTracker",
+      "Mastery",
+      "Explored",
+      "Gate",
+      "MasteryTracker",
+      "ZoomButton",
+      "Toast"
+    ],
+    "hud_elements": 17,
+    "layout": "c74_after",
+    "map": [
+      800.0,
+      804.0
+    ],
+    "map_covered_pct": 30.3,
+    "map_share_of_screen": 62.8,
+    "on_player": [],
+    "shape": "600x960",
+    "shot": "03_combat_toast",
+    "variant": ""
+  },
+  {
+    "action_zone_covered_pct": 17.2,
+    "canvas": [
+      800.0,
+      1280.0
+    ],
+    "elements": [
+      "Joystick",
+      "Loot",
+      "Loot",
+      "Loot",
+      "EnemySection",
+      "Achievement",
+      "EnemyUpgrades",
+      "QuickFarm",
+      "MiniMap",
+      "FollowTracker",
+      "MissionTracker",
+      "Mastery",
+      "Explored",
+      "Gate",
+      "MasteryTracker",
+      "ZoomButton",
+      "Toast",
+      "Banner"
+    ],
+    "hud_elements": 18,
+    "layout": "c74_after",
+    "map": [
+      800.0,
+      804.0
+    ],
+    "map_covered_pct": 36.7,
+    "map_share_of_screen": 62.8,
+    "on_player": [],
+    "shape": "600x960",
+    "shot": "04_combat_banner_toast",
+    "variant": ""
+  },
+  {
+    "action_zone_covered_pct": 12.2,
+    "canvas": [
+      800.0,
+      1280.0
+    ],
+    "elements": [
+      "Joystick",
+      "Loot",
+      "Loot",
+      "Loot",
+      "EnemySection",
+      "Achievement",
+      "EnemyUpgrades",
+      "QuickFarm",
+      "MiniMap",
+      "FollowTracker",
+      "MissionTracker",
+      "Explored",
+      "MasteryTracker",
+      "ZoomButton",
+      "ZoomPlate",
+      "Zoom"
+    ],
+    "hud_elements": 16,
+    "layout": "c74_after",
+    "map": [
+      800.0,
+      804.0
+    ],
+    "map_covered_pct": 28.1,
+    "map_share_of_screen": 62.8,
+    "on_player": [],
+    "shape": "600x960",
+    "shot": "05_zoom_open",
+    "variant": ""
+  },
+  {
+    "action_zone_covered_pct": 10.0,
+    "canvas": [
+      800.0,
+      1280.0
+    ],
+    "elements": [
+      "Joystick",
+      "Loot",
+      "Loot",
+      "Loot",
+      "EnemySection",
+      "Achievement",
+      "EnemyUpgrades",
+      "QuickFarm",
+      "MiniMap",
+      "FollowTracker",
+      "MissionTracker",
+      "Mastery",
+      "Explored",
+      "Gate",
+      "MasteryTracker",
+      "ZoomButton"
+    ],
+    "hud_elements": 16,
+    "layout": "c74_after",
+    "map": [
+      800.0,
+      804.0
+    ],
+    "map_covered_pct": 27.3,
+    "map_share_of_screen": 62.8,
+    "on_player": [],
+    "shape": "600x960",
+    "shot": "06_after_combat",
+    "variant": ""
+  },
+  {
+    "action_zone_covered_pct": 8.1,
+    "canvas": [
+      800.0,
+      1280.0
+    ],
+    "elements": [
+      "Joystick",
+      "Loot",
+      "Loot",
+      "Loot",
+      "EnemySection",
+      "Achievement",
+      "EnemyUpgrades",
+      "QuickFarm",
+      "MiniMap",
+      "FollowTracker",
+      "MissionTracker",
+      "Mastery",
+      "Explored",
+      "MasteryTracker",
+      "ZoomButton"
+    ],
+    "hud_elements": 15,
+    "layout": "c74_after",
+    "map": [
+      800.0,
+      804.0
+    ],
+    "map_covered_pct": 26.0,
+    "map_share_of_screen": 62.8,
+    "on_player": [],
+    "shape": "600x960",
+    "shot": "07_world_travel",
+    "variant": ""
+  },
+  {
+    "action_zone_covered_pct": 8.1,
+    "canvas": [
+      800.0,
+      1280.0
+    ],
+    "elements": [
+      "Joystick",
+      "Loot",
+      "Loot",
+      "Loot",
+      "EnemySection",
+      "Achievement",
+      "EnemyUpgrades",
+      "QuickFarm",
+      "MiniMap",
+      "FollowTracker",
+      "MissionTracker",
+      "Mastery",
+      "Explored",
+      "MasteryTracker",
+      "ZoomButton"
+    ],
+    "hud_elements": 15,
+    "layout": "c74_after",
+    "map": [
+      800.0,
+      804.0
+    ],
+    "map_covered_pct": 26.0,
+    "map_share_of_screen": 62.8,
+    "on_player": [],
+    "shape": "600x960",
+    "shot": "08_prestige_after_drag",
+    "variant": ""
+  }
+]

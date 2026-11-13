@@ -2263,6 +2263,73 @@ func follow_progress(id: String) -> String:
             return "%d/%d" % [mini(counts[0],need)+mini(counts[1],need),need*2]
     return ""
 
+## Change 74: the name of what the followed opportunity's current requirement is about, for the HUD pill's title
+## (the opportunity's own name stays in the Prestige panel): the outfit a collection still needs ("Space Helmet
+## Outfit"), the enemy or boss a hunt step names ("Space Helmet"), the map or boss a Regional step names. "" when
+## the requirement names no single thing (Masterwork, Arsenal, Offering, Offline, a ready opportunity): the
+## pill then keeps the opportunity's name. Same state as follow_summary and follow_focus; names already
+## translated in the catalog.
+func follow_target(id: String) -> String:
+    var o: Dictionary=sim.state.opportunities.get(id,{})
+    if o.is_empty() or o.ready:return ""
+    var n=int(id.right(1));var path=id.split("_o")[0]
+    if path=="collection":
+        var focus:=follow_focus(id)
+        return sim.catalog.display_name(str(focus.item)) if focus.has("item") else ""
+    if path=="specialist":
+        var chain=chain_for(id);var index=int(o.get("step",0))
+        if index<chain.size():
+            var g:=group_id(str(chain[index][1]))
+            return str(sim.catalog.groups[g].name) if g>=0 else ""
+        return ""
+    if path=="regional":
+        var stages:=regional_stages(n)
+        for st in stages:
+            if explored_fraction(st)<.9:return str(sim.catalog.stages[st-1].name)
+        for st in stages:
+            for g in sim.catalog.stages[st-1].groups:
+                if sim.catalog.groups[g].boss and int(sim.state.run_kills.get(sim.catalog.groups[g].id,0))==0:return str(sim.catalog.groups[g].name)
+        return str(sim.catalog.stages[stages[0]-1].name) if not stages.is_empty() else ""
+    var focus:=follow_focus(id)
+    if focus.has("group") and int(focus.group)>=0:return str(sim.catalog.groups[int(focus.group)].name)
+    return ""
+
+## Change 74: the maps where each followed objective can progress now, as {stage: ["mastery","mission",
+## "prestige"]}, for the map buttons (World Travel, Teleport). Map Mastery is per map; a daily mission about one
+## enemy belongs to that enemy's map (other missions progress anywhere and mark no map); a Prestige opportunity
+## marks the map of what its current requirement names (follow_focus: the enemy that drops the outfit, the
+## enemy or boss of the step), else the maps its catalog entry lists (Change 54 "stages"), Regional its own maps.
+func follow_stages() -> Dictionary:
+    var out: Dictionary={}
+    var mark:=func(st: int,kind: String)->void:
+        if st<1 or st>sim.catalog.stages.size():return
+        if not out.has(st):out[st]=[]
+        if not kind in out[st]:out[st].append(kind)
+    var m: Dictionary=mastery.followed()
+    if not m.is_empty():mark.call(int(m.stage),"mastery")
+    var f:=followed_mission()
+    if not f.is_empty() and str(f.kind)=="daily":
+        var g:=group_id(str(sim.state.missions[int(f.index)].target))
+        if g>=0:mark.call(int(sim.catalog.groups[g].stage),"mission")
+    var id: String=str(sim.state.follow)
+    var o: Dictionary=sim.state.opportunities.get(id,{})
+    if id!="" and not o.is_empty() and not bool(o.ready) and not sim.state.consumed.has(id):
+        var focus:=follow_focus(id)
+        var g:=-1
+        if focus.has("group"):g=int(focus.group)
+        elif focus.has("item"):
+            for i in range(sim.catalog.groups.size()):
+                if sim.catalog.groups[i].loot.has(str(focus.item)):g=i;break
+        var path: String=id.split("_o")[0]
+        if g>=0:mark.call(int(sim.catalog.groups[g].stage),"prestige")
+        elif path=="regional":
+            for st in regional_stages(int(id.right(1))):mark.call(int(st),"prestige")
+        else:
+            for op in sim.catalog.campaign.opportunities:
+                if str(op.id)==id:
+                    for st in op.get("stages",[]):mark.call(int(st),"prestige")
+    return out
+
 ## What the follower shows beside its text: the exact item a collection still needs, else the enemy
 ## the current step names ({"item": id} or {"group": index}); {} means the path's own art.
 func follow_focus(id: String) -> Dictionary:

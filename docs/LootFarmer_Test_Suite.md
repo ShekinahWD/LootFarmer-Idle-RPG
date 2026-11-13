@@ -1,4 +1,9 @@
-# LootFarmer — Test Suite (current, 2026-11-13, Change 72)
+# LootFarmer — Test Suite (current, 2026-11-13, Change 74)
+
+## Change 74: HUD enlargement, Prestige touch scrolling, objective names (13 November 2026)
+
+- **Registered** `change_74_probe` (138 checks, about 30 s): Prestige scrolling with Android-style touch (ScreenTouch/ScreenDrag plus the emulated mouse events, through the viewport) while the game keeps changing state: no structural refresh of an open Prestige panel, a 300 px drag starting over an opportunity card, a Follow button or an owned card scrolls 300 px and flings on, a structural refresh waits for the gesture and keeps the offset, a tap still follows, owned cards still grow to their text; sizes (minimap 220, Achievements 162x81, Upgrades and Auto Farm 76x81, icons 37, enemy name 24 px: each at least 30% over Change 72); Map Explored under the minimap; no fight form (a blow and a locked target change nothing; the three short strings retired); pill names (outfit, enemy, boss, Mastery target; follows progress; de_DE); no overlaps at 720x1280, 720x1600, 720x1440 and 960x1280 with every joystick position; toast lanes (bottom free side on phones, top lane at 960, over the joystick, never over the HUD, the banner or the fight); the longest enemy name of 20 languages whole at 24 px; map buttons with follow icons (World Travel two-column grid, Teleport); toast reading time (ITEM_ENHANCED 4.4 s); long pill titles wrap and the pill grows in English, German and Russian.
+- **Updated:** `change_72_probe` (fight form replaced by "a fight changes nothing", toast lanes, Explored under the minimap), `change_71_probe`, `change_16_probe`, `change_14_probe`, `change_13_probe`, `change_12_probe`. `tests/hud_audit_capture` gained 07 World travel and 08 Prestige after a touch drag.
 
 ## Change 72: HUD declutter, edge rails (13 November 2026)
 

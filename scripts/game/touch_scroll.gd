@@ -1,6 +1,12 @@
 extends ScrollContainer
 ## Keep taps, but let drags starting on dynamically added cards reach the scroller.
+## Change 74: gesturing is true from the moment a finger drag passes the dead zone until the fling has stopped
+## (scroll_started .. scroll_ended), so whoever rebuilds the content can wait instead of pulling the list
+## out from under the finger.
+var gesturing:=false
 func _ready() -> void:
+    scroll_started.connect(func()->void:gesturing=true)
+    scroll_ended.connect(func()->void:gesturing=false)
     get_tree().node_added.connect(_added)
     _prepare(self)
     var bar:=get_v_scroll_bar()

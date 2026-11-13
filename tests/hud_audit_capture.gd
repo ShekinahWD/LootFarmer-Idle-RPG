@@ -107,6 +107,43 @@ func run() -> void:
     if "hud_combat_time" in game:game.hud_combat_time=0.0
     await present()
     await shot("06_after_combat")
+    # 7. Change 74: World with the travel list while a Mastery objective on Winter II is followed.
+    combat=false
+    sim.state.unlocked_stage=4
+    sim.state.follow_mastery="2:explore"
+    sim.touch()
+    game._open("world")
+    await frames(10)
+    game._scroll_to_section(tr("SECTION_TRAVEL"))
+    await frames(6)
+    await shot("07_world_travel")
+    game._close()
+    # 8. Change 74: the Prestige panel after a 360 px finger drag made over its cards while the game runs.
+    var ids: Array=sim.catalog.campaign.cards.keys()
+    for i in range(6):
+        if not sim.state.owned_cards.has(ids[i]):sim.state.owned_cards.append(ids[i])
+    for op in sim.catalog.campaign.opportunities:
+        if not sim.state.opportunities.has(op.id):sim.state.opportunities[op.id]={"ready":false,"baseline":{},"step":0,"count":0}
+    sim.touch()
+    game._open("prestige")
+    await frames(12)
+    var scroll: ScrollContainer=game.get_node("Sheet/Margin/Content/Scroll")
+    var area: Rect2=scroll.get_global_rect()
+    var at:=Vector2(area.get_center().x,area.position.y+area.size.y*.8)
+    touch(at,true);await frames(1)
+    # A finger-speed drag (about 0.6 s at 60 fps) so the game's 0.25 s panel refresh lands during it.
+    for i in range(36):
+        if i%3==0:sim.touch()
+        var d:=InputEventScreenDrag.new();d.index=0;d.relative=Vector2(0,-10);at+=d.relative;d.position=at
+        send(d);await frames(1)
+    var during: int=scroll.scroll_vertical
+    touch(at,false)
+    for i in range(20):
+        if i%3==0:sim.touch()
+        await frames(1)
+    print("PRESTIGE_DRAG 360 px finger: %d px during the drag, %d px after the fling" % [during,scroll.scroll_vertical])
+    await shot("08_prestige_after_drag")
+    game._close()
     var dir:="res://tests/tmp/hud_audit/%s/" % layout
     var f:=FileAccess.open(dir+shape+("_"+variant if variant!="" else "")+"_metrics.json",FileAccess.WRITE)
     f.store_string(JSON.stringify(metrics,"  "));f.close()
@@ -115,12 +152,36 @@ func run() -> void:
     AudioService.stop_all_sfx()
     get_tree().quit()
 
+## Android-style touch: the touch event, then the mouse event Android emulates for finger 0.
+func send(event: InputEvent) -> void:
+    var vp:=get_viewport()
+    # Events are pushed in window pixels (the window applies the stretch to canvas units, as on a phone).
+    var to_window: Vector2=Vector2(DisplayServer.window_get_size())/vp.get_visible_rect().size
+    event=event.duplicate()
+    event.position*=to_window
+    if event is InputEventScreenDrag:event.relative*=to_window
+    vp.push_input(event)
+    if event is InputEventScreenTouch and event.index==0:
+        var mb:=InputEventMouseButton.new()
+        mb.button_index=MOUSE_BUTTON_LEFT;mb.pressed=event.pressed;mb.position=event.position;mb.global_position=event.position
+        mb.button_mask=MOUSE_BUTTON_MASK_LEFT if event.pressed else 0
+        vp.push_input(mb)
+    elif event is InputEventScreenDrag and event.index==0:
+        var mm:=InputEventMouseMotion.new()
+        mm.position=event.position;mm.global_position=event.position;mm.relative=event.relative;mm.button_mask=MOUSE_BUTTON_MASK_LEFT
+        vp.push_input(mm)
+func touch(at: Vector2,pressed: bool) -> void:
+    var t:=InputEventScreenTouch.new();t.index=0;t.pressed=pressed;t.position=at
+    send(t)
+
 func quiet() -> void:
     game.banner.queue.clear();game.banner._finish()
     game.toast_queue.clear();game.get_node("Toast").hide();game.toast_time=0.0
 
 ## Fixture (state set directly): Winter I, level 17, the Snowman found, two enemy groups known, a Mastery
 ## objective, the Hunt mission and a Prestige opportunity followed, like the reported screenshot.
+## Change 74: three followed objectives that name a specific thing: Mastery Hunt (an enemy), a daily Hunt
+## mission (an enemy) and Collection I (an outfit). The same fixture renders the before set from a HEAD worktree.
 func fixture() -> void:
     get_tree().paused=false
     sim.new_profile();sim.set_physics_process(false);sim.suspended=false
@@ -142,9 +203,11 @@ func fixture() -> void:
     sim.state.group_kills[1]=1370
     sim.campaign.refresh_missions()
     sim.state.follow_mission="main:0"
-    sim.state.opportunities["expedition_o1"]={"ready":false,"baseline":{},"step":1,"count":0}
-    sim.state.follow="expedition_o1"
-    sim.state.follow_mastery="1:explore"
+    for i in range(sim.state.missions.size()):
+        if str(sim.state.missions[i].kind)=="kill":sim.state.follow_mission=sim.campaign.mission_follow_key("daily",i);break
+    sim.state.opportunities["collection_o1"]={"ready":false,"baseline":{}}
+    sim.state.follow="collection_o1"
+    sim.state.follow_mastery="1:hunt"
     var at: Vector2=sim.campaign.spot(1,2)+Vector2(0,34)
     sim.state.player.x=at.x;sim.state.player.y=at.y;sim.clear_target();sim.campaign.reveal()
     game.world.follow_player()
