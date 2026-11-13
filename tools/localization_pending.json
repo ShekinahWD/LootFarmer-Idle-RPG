@@ -2371,6 +2371,32 @@
    "placeholders": [],
    "change": "change-71",
    "status": "changed"
+  },
+  "MASTERY_CHIP_SHORT": {
+   "en": "%d%% · %d/%d",
+   "placeholders": [
+    "%d",
+    "%%",
+    "%d",
+    "%d"
+   ],
+   "change": "change-72"
+  },
+  "GATE_HUD_SHORT": {
+   "en": "Bosses %d/%d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-72"
+  },
+  "GATE_HUD_WORLD_SHORT": {
+   "en": "World %d/%d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-72"
   }
  },
  "retired": {

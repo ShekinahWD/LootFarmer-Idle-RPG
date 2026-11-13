@@ -71,10 +71,6 @@ func run() -> void:
     touch(5,joystick_point,true)
     check(not surface.pointers.has(5),"Joystick touch cannot join map pinch")
     touch(5,joystick_point,false)
-    var slider: HSlider=game.get_node("Safe/Layout/Map/Zoom/Slider")
-    touch(6,slider.global_position+slider.size*.5,true)
-    check(not surface.pointers.has(6),"Slider touch cannot join map pinch")
-    touch(6,slider.global_position+slider.size*.5,false)
     game.world.follow_player()
     game.sim.state.pickups[0].x=game.sim.state.player.x
     game.sim.state.pickups[0].y=game.sim.state.player.y
@@ -91,6 +87,16 @@ func run() -> void:
     touch(9,center+Vector2(40,0),false)
     check(not game.world.following_player,"Map drag works during pause")
     get_tree().paused=false
+    # Change 72: the slider shows after its button is tapped.
+    game._toggle_zoom()
+    await get_tree().process_frame
+    await get_tree().process_frame
+    var slider: HSlider=game.get_node("Safe/Layout/Map/Zoom/Slider")
+    touch(6,slider.global_position+slider.size*.5,true)
+    check(not surface.pointers.has(6),"Slider touch cannot join map pinch")
+    touch(6,slider.global_position+slider.size*.5,false)
+    game._toggle_zoom()
+    await get_tree().process_frame
     print("CAMERA_PROBE checks=%d failures=%d" % [checks,failures])
     game.queue_free()
     await get_tree().process_frame

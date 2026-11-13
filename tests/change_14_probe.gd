@@ -72,24 +72,24 @@ const RAIN_GRASS:=Color(.22,.36,.2)
 func cluster_checks() -> void:
     fresh()
     stage(4)
-    game._refresh_explored();game._refresh_gate()
+    game.hud_combat_time=0.0;game.hud_combat=false;game._refresh_explored();game._refresh_gate()
     await frames(3)
     var zoom:=map_node("Zoom");var explored: Label=map_node("Explored");var mini:=map_node("MiniMap");var gate:=map_node("Gate")
     var gate_label: Label=gate.get_node("Row/Label")
     check(gate.visible and gate_label.text=="Next Stage · Bosses 0/2","Summer II reads \"%s\"" % gate_label.text)
     check(explored.text==tr("MAP_EXPLORED") % sim.campaign.explored_percent(4) and explored.text.begins_with("Map Explored: "),"Map Explored reads \"%s\" from the saved explored cells" % explored.text)
     var rz:=zoom.get_global_rect();var re:=explored.get_global_rect();var rm:=mini.get_global_rect();var rg:=gate.get_global_rect()
-    # Change 71: MINIMAP -> ZOOM -> status (Map Explored, Next Stage).
-    check(rm.end.y<=rz.position.y and rz.end.y<=re.position.y and re.end.y<=rg.position.y,"Top-down order: minimap %s, zoom %s, Map Explored %s, Next Stage %s" % [rm,rz,re,rg])
+    # Change 72: MINIMAP with Map Explored on its lower edge, then the status chips; the zoom slider is on demand.
+    check(absf(re.end.x-rm.end.x)<=1 and absf(re.end.y-rm.end.y)<=1 and re.position.y>=rm.position.y and rm.end.y<=rg.position.y and not zoom.visible,"Top-down order: minimap %s carrying Map Explored %s, Next Stage %s (zoom %s hidden)" % [rm,re,rg,rz])
     var map_rect: Rect2=game.get_node("Safe/Layout/Map").get_global_rect()
     check(re.get_center().x>map_rect.get_center().x and rg.get_center().x>map_rect.get_center().x and absf(re.end.x-rm.end.x)<=1 and absf(rg.end.x-rm.end.x)<=1,"Both chips share the minimap's right edge, top right of the map")
-    check(re.position.y>=rz.end.y and re.end.y<=rg.position.y,"The percentage stays in the top-right stack (it ends at y %.0f of %.0f)" % [re.end.y,map_rect.end.y])
-    var cluster: Array=[zoom,explored,mini,gate]
+    check(re.end.y<=rg.position.y,"The percentage stays in the top-right stack (it ends at y %.0f of %.0f)" % [re.end.y,map_rect.end.y])
+    var cluster: Array=[map_node("ZoomButton"),mini,gate]
     for i in range(cluster.size()):
         for j in range(i+1,cluster.size()):check(not cluster[i].get_global_rect().intersects(cluster[j].get_global_rect()),"%s and %s do not overlap" % [cluster[i].name,cluster[j].name])
     for path in ["Joystick","EnemyUpgrades","Achievement","EnemySection","History","FollowTracker","GemPickup"]:
         for node in [explored,gate]:check(not node.get_global_rect().intersects(map_node(path).get_global_rect()),"%s clear of %s" % [node.name,path])
-    check(explored.mouse_filter==Control.MOUSE_FILTER_IGNORE and gate.mouse_filter==Control.MOUSE_FILTER_IGNORE and gate_label.mouse_filter==Control.MOUSE_FILTER_IGNORE and gate.get_node("Row").mouse_filter==Control.MOUSE_FILTER_IGNORE,"Neither chip takes touches")
+    check(explored.mouse_filter==Control.MOUSE_FILTER_IGNORE and gate.mouse_filter==Control.MOUSE_FILTER_STOP and gate_label.mouse_filter==Control.MOUSE_FILTER_IGNORE and gate.get_node("Row").mouse_filter==Control.MOUSE_FILTER_IGNORE,"Map Explored takes no touches; the Next Stage chip takes the tap (Change 72), its parts do not")
     # Readability: a dark plate under both, readable font sizes and high contrast on any ground.
     var chip: StyleBoxTexture=gate.get_theme_stylebox("panel")
     var plate: StyleBoxTexture=explored.get_theme_stylebox("normal")
@@ -99,7 +99,7 @@ func cluster_checks() -> void:
     for ground in [SNOW,RAIN_GRASS,Color(.85,.75,.45),Color(.45,.3,.2)]:
         var back:=over(chip.modulate_color,ground)
         check(contrast(gate_label.get_theme_color("font_color"),back)>=7.0 and contrast(explored.get_theme_color("font_color"),back)>=7.0,"Contrast over %s ground: %.1f / %.1f (≥ 7)" % [ground,contrast(gate_label.get_theme_color("font_color"),back),contrast(explored.get_theme_color("font_color"),back)])
-    check(gate_label.get_minimum_size().x+gate.get_node("Row/Icon").custom_minimum_size.x<=rm.size.x+40,"The Next Stage text fits beside the minimap (%.0f px)" % gate.get_combined_minimum_size().x)
+    check(gate.size.x>=rm.size.x-.5 and gate.size.x<=game.get_node("Safe/Layout/Map").size.x*.6+.5,"The Next Stage chip is at least the minimap's width and grows leftward for its text (%.0f px)" % gate.size.x)
     # Updates as required bosses fall; the World wording on Spring II.
     var e:=actor_of("boss-elephant");e.hp=0.0;sim._kill(e) # fixture kill
     game._refresh_gate()
@@ -121,7 +121,7 @@ func cluster_checks() -> void:
     check(game.get_node("Safe").is_ancestor_of(explored) and game.get_node("Safe").is_ancestor_of(gate),"Both chips sit inside the safe-area container")
     game.get_node("Safe").add_theme_constant_override("margin_top",60);game.get_node("Safe").add_theme_constant_override("margin_right",40) # fixture: a notch inset
     await frames(3)
-    check(explored.get_global_rect().position.y>=60 and explored.get_global_rect().end.x<=game.size.x-40 and not explored.get_global_rect().intersects(mini.get_global_rect()) and not gate.get_global_rect().intersects(mini.get_global_rect()),"With 60 px top / 40 px right insets the cluster moves inside and stays ordered")
+    check(explored.get_global_rect().position.y>=60 and explored.get_global_rect().end.x<=game.size.x-40 and absf(explored.get_global_rect().end.y-mini.get_global_rect().end.y)<=1 and not gate.get_global_rect().intersects(mini.get_global_rect()),"With 60 px top / 40 px right insets the cluster moves inside and stays ordered")
     game._safe_area()
     await frames(2)
 

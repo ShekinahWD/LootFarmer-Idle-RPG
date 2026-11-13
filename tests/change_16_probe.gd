@@ -392,8 +392,8 @@ func tracker_checks() -> void:
     var map_rect: Rect2=map_node("").get_rect() if false else Rect2(Vector2.ZERO,game.get_node("Safe/Layout/Map").size)
     var mr:=mission.get_rect();var fr:=follow.get_rect()
     check(map_rect.encloses(mr) and map_rect.encloses(fr),"Both inside the map")
-    # Change 71: the stack's floor is just above the joystick when they share the column, else the map's bottom margin.
-    check(absf(fr.end.y-game._tracker_floor(fr.size.x))<1 and fr.position.y>mr.position.y,"Both stacked on the tracker floor (above a joystick in their column)")
+    # Change 72: the pills stack in the left rail under the enemy controls, whatever the joystick's place.
+    check(mr.position.y>=game.left_column_bottom() and fr.position.y>mr.position.y and fr.end.y<map_rect.size.y*.5,"Both stacked in the left rail under the enemy controls")
     check(not mr.intersects(fr) and mr.end.y<=fr.position.y,"Stacked: mission above Prestige, no overlap")
     var stick: Rect2=game.stick.get_rect()
     check(not mr.intersects(stick) and not fr.intersects(stick),"Clear of the joystick")
@@ -645,7 +645,7 @@ func mastery_checks() -> void:
     var st:=int(sim.state.stage)
     check(chip.visible and chip.text==tr("MASTERY_CHIP") % [sim.campaign.mastery.map_percent(st),0,5],"Chip reads \"%s\"" % chip.text)
     var explored:=map_node("Explored")
-    check(chip.get_rect().end.y<=explored.get_rect().position.y and is_equal_approx(chip.get_rect().end.x,explored.get_rect().end.x) and chip.get_rect().position.y>=map_node("Zoom").get_rect().end.y,"It sits above Map Explored, under the zoom, on the cluster's right edge")
+    check(chip.get_rect().position.y>=map_node("MiniMap").get_rect().end.y and absf(map_node("MiniMap").get_rect().end.y-explored.get_rect().end.y)<=1 and is_equal_approx(chip.get_rect().end.x,explored.get_rect().end.x),"It sits under the minimap (which carries Map Explored), on the cluster's right edge (Change 72)")
     check(chip.size.y>=44 and chip.get_theme_font_size("font_size")>=16,"A 44 px tap target, 17 px text")
     chip.pressed.emit();await frames(2)
     check(game.sheet.visible and game.panel=="mastery" and game.mastery_stage==st and game.get_node("Sheet/Margin/Content/Header/Title").text==tr("MASTERY_MAP_TITLE") % sim.catalog.stages[st-1].name,"Tapping it opens this map's Mastery page directly")

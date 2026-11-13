@@ -167,8 +167,8 @@ func explored_checks() -> void:
     # Placement (Change 14): top right, between the zoom slider and the minimap, inside the map.
     var map: Control=game.get_node("Safe/Layout/Map")
     var rect:=label.get_global_rect()
-    check(map.get_global_rect().encloses(rect) and rect.end.x<=map.get_global_rect().end.x-12 and rect.position.y>=map.get_node("Zoom").get_global_rect().end.y and map.get_node("Zoom").get_global_rect().position.y>=map.get_node("MiniMap").get_global_rect().end.y,"The label sits in the top-right map cluster, under the minimap and zoom (Change 71 order)")
-    for path in ["Joystick","MiniMap","FollowTracker","Zoom","EnemyUpgrades","Achievement"]:
+    check(map.get_global_rect().encloses(rect) and rect.end.x<=map.get_global_rect().end.x-12 and absf(map.get_node("MiniMap").get_global_rect().end.y-rect.end.y)<=1 and absf(map.get_node("MiniMap").get_global_rect().end.x-rect.end.x)<=1,"The label sits in the top-right map cluster, on the minimap's lower edge (Change 72)")
+    for path in ["Joystick","FollowTracker","ZoomButton","EnemyUpgrades","Achievement"]:
         check(not rect.intersects(map.get_node(path).get_global_rect()),"It does not overlap %s" % path)
     check(label.mouse_filter==Control.MOUSE_FILTER_IGNORE,"It never takes touches")
 

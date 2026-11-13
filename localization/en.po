@@ -6671,3 +6671,12 @@ msgstr "Buy ×%d"
 
 msgid "SHOP_BUY_ITEM"
 msgstr "Buy ×%d · %s coins"
+
+msgid "MASTERY_CHIP_SHORT"
+msgstr "%d%% · %d/%d"
+
+msgid "GATE_HUD_SHORT"
+msgstr "Bosses %d/%d"
+
+msgid "GATE_HUD_WORLD_SHORT"
+msgstr "World %d/%d"

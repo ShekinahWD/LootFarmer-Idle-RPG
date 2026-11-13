@@ -160,6 +160,18 @@ var gate_text:=""
 ## Map Mastery: 0 lists the maps, otherwise the stage whose page is open.
 var mastery_stage:=0
 var mastery_tracker: Control
+## Change 72 (HUD declutter): the HUD is "in a fight" while the player has a locked target, and for
+## HUD_COMBAT_HOLD seconds after the last blow dealt or taken. In a fight the followed objectives show their
+## icon and progress only, and the Mastery and Next Stage chips drop their words; all return when it ends.
+var hud_combat_time:=0.0
+var hud_combat:=false
+const HUD_COMBAT_HOLD:=3.0
+## The zoom slider shows for this long after the zoom button is tapped or the slider is moved.
+var zoom_open_time:=0.0
+const ZOOM_OPEN_SECONDS:=4.0
+## A recent-find row stays this long (simulation seconds), fading over the last LOOT_FADE.
+const LOOT_SECONDS:=8.0
+const LOOT_FADE:=1.0
 var travel_stage:=1
 ## Change 15: panels that belong to a revealed system (campaign.onboarding). Every way into a panel
 ## goes through _open, so a hidden system cannot be reached from the minimap, the character, an
@@ -292,6 +304,9 @@ func _ready() -> void:
                 accept_event())
     for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker,mastery_tracker]:
         tracker.minimum_size_changed.connect(_layout_trackers,CONNECT_DEFERRED)
+    _build_hud_rails()
+    sim.feedback.connect(func(_id: String,_amount: float,healing: bool)->void:
+        if not healing:hud_combat_time=HUD_COMBAT_HOLD)
     $Safe/Layout/Map.resized.connect(func()->void:if sheet.visible:_layout_sheet())
     _safe_area()
     dock.get_node("Inventory").resized.connect(_layout_inventory)
@@ -336,6 +351,100 @@ func _ready() -> void:
 func _sync_zoom() -> void:
     $Safe/Layout/Map/Zoom/Slider.set_value_no_signal(SettingsState.camera_zoom)
     $Safe/Layout/Map/Zoom/Value.text="%.2f×" % SettingsState.camera_zoom
+    var button: Button=$Safe/Layout/Map.get_node_or_null("ZoomButton")
+    if button!=null:button.text="%.1f×" % SettingsState.camera_zoom
+
+## Change 72: the parts of the edge-rail HUD that are built once: the one-line objective pills (the tracker
+## nodes keep their names; the step sentence stays in the hidden Step label and in the panels), the icons of
+## the three enemy controls, the zoom button with its slider popover, and the tappable Next Stage chip.
+func _build_hud_rails() -> void:
+    var map: Control=$Safe/Layout/Map
+    for tracker in [map.get_node("FollowTracker"),map.get_node("MissionTracker"),mastery_tracker]:
+        tracker.get_node("Row/Text/Step").hide()
+        tracker.get_node("Row/Icon").custom_minimum_size=Vector2(28,28)
+        tracker.get_node("Row").add_theme_constant_override("separation",6)
+        var text: BoxContainer=tracker.get_node("Row/Text")
+        text.alignment=BoxContainer.ALIGNMENT_CENTER
+        var title: Label=tracker.get_node("Row/Text/Name")
+        title.clip_text=true
+        title.add_theme_font_size_override("font_size",16)
+        var progress:=Label.new()
+        progress.name="Progress"
+        progress.mouse_filter=Control.MOUSE_FILTER_IGNORE
+        progress.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
+        progress.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
+        progress.add_theme_font_size_override("font_size",17)
+        progress.add_theme_color_override("font_outline_color",Color.BLACK)
+        progress.add_theme_constant_override("outline_size",4)
+        tracker.get_node("Row").add_child(progress)
+    for pair in [["Achievement",_art(211)],["EnemyUpgrades",dock.get_node("Navigation/Upgrades").icon],["QuickFarm",_art(266)]]:
+        var b: Button=map.get_node(pair[0])
+        b.icon=pair[1]
+        b.expand_icon=true
+        b.add_theme_constant_override("icon_max_width",28)
+        b.icon_alignment=HORIZONTAL_ALIGNMENT_CENTER
+        b.vertical_icon_alignment=VERTICAL_ALIGNMENT_TOP
+        b.autowrap_mode=TextServer.AUTOWRAP_OFF
+        b.clip_text=true
+    var upgrades: Button=map.get_node("EnemyUpgrades")
+    upgrades.text=""
+    upgrades.vertical_icon_alignment=VERTICAL_ALIGNMENT_CENTER
+    upgrades.tooltip_text=tr("TAB_UPGRADES")
+    var plate:=PanelContainer.new()
+    plate.name="ZoomPlate"
+    plate.theme_type_variation=&"Backing"
+    plate.hide()
+    map.add_child(plate)
+    var zoom: Control=map.get_node("Zoom")
+    zoom.hide()
+    map.move_child(zoom,-1)
+    var button:=Button.new()
+    button.name="ZoomButton"
+    button.focus_mode=Control.FOCUS_NONE
+    button.add_theme_font_size_override("font_size",16)
+    button.tooltip_text=tr("CAMERA_ZOOM")
+    button.set_meta("guide","zoom_button")
+    map.add_child(button)
+    map.move_child(button,plate.get_index())
+    button.pressed.connect(_toggle_zoom)
+    zoom.get_node("Slider").value_changed.connect(func(_value: float)->void:zoom_open_time=ZOOM_OPEN_SECONDS)
+    zoom.get_node("Slider").drag_started.connect(func()->void:zoom_open_time=ZOOM_OPEN_SECONDS)
+    var gate: Control=map.get_node("Gate")
+    gate.mouse_filter=Control.MOUSE_FILTER_STOP
+    gate.gui_input.connect(func(event: InputEvent)->void:
+        if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
+            accept_event();_open("world"))
+    _sync_zoom()
+
+## The zoom button opens the slider under the minimap for a few seconds (a second tap closes it). Pinch
+## zooms as before and updates the button's value.
+func _toggle_zoom() -> void:
+    AudioService.play("ui_click")
+    zoom_open_time=0.0 if $Safe/Layout/Map/Zoom.visible else ZOOM_OPEN_SECONDS
+    _update_zoom_popover(0.0)
+func _update_zoom_popover(dt: float) -> void:
+    var zoom: Control=$Safe/Layout/Map/Zoom
+    zoom_open_time=maxf(0.0,zoom_open_time-dt)
+    var show: bool=zoom_open_time>0 and not sheet.visible
+    if not show:zoom_open_time=0.0
+    if zoom.visible==show:return
+    zoom.visible=show
+    $Safe/Layout/Map/ZoomPlate.visible=show
+    _layout_hud()
+
+## Change 72: whether the HUD is in its fight form (see hud_combat_time). A change re-lays the pills and
+## rewrites the two chips at once.
+func _update_hud_combat(dt: float) -> void:
+    if not get_tree().paused and not sim.suspended and not sim.held:
+        if not sim._find_actor(sim.locked_target).is_empty():hud_combat_time=HUD_COMBAT_HOLD
+        else:hud_combat_time=maxf(0.0,hud_combat_time-dt)
+    var fighting: bool=hud_combat_time>0
+    if fighting==hud_combat:return
+    hud_combat=fighting
+    _refresh_mastery_chip()
+    _refresh_gate()
+    _layout_trackers()
+    _layout_hud()
 
 func _safe_area() -> void:
     var i:=LayoutService.get_safe_area_insets_canvas()
@@ -350,7 +459,10 @@ func _process(dt: float) -> void:
     sim.held=$ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible) or (evolution_show!=null and evolution_show.visible)
     _offer_review(dt)
     gem_pickup_time=maxf(0,gem_pickup_time-dt)
-    $Safe/Layout/Map/GemPickup.visible=gem_pickup_time>0
+    # Change 72: Gems found show as rows of the one recent-finds feed; the separate counter stays hidden.
+    $Safe/Layout/Map/GemPickup.visible=false
+    _update_hud_combat(dt)
+    _update_zoom_popover(dt)
     world.update_camera()
     _update_skill_buttons()
     _update_supply_cooldowns()
@@ -406,6 +518,7 @@ func _process(dt: float) -> void:
     _refresh_reveal()
     _refresh_combat_achievement()
     _refresh_loot_notifications()
+    _fade_loot()
     _refresh_badges()
     _refresh_follow_tracker()
     _refresh_mission_tracker()
@@ -437,12 +550,11 @@ func _update_sheet_reserve() -> void:
     if reserve!=sheet_reserved:
         sheet_reserved=reserve
         _layout_sheet()
-## HUD followers are persistent reserved surfaces, not available space for transient notices.
+## What a banner must keep clear of: the guide's caption, arrow and target frame. Change 72: the followed
+## objectives now sit in the left rail at the top, which the banner passes over briefly like the rest of the
+## two rails (were they blockers, the banner would be pushed down onto the player).
 func _notice_blockers() -> Array:
-    var blocked: Array=guide.occupied_rects()
-    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker,mastery_tracker]:
-        if tracker!=null and tracker.visible:blocked.append(tracker.get_global_rect().grow(6))
-    return blocked
+    return guide.occupied_rects()
 
 ## Change 71: a toast also keeps clear of the HUD's two control columns (the left enemy controls and the
 ## top-right map stack). A banner does not use these: it is the top-of-screen milestone message and may pass
@@ -450,9 +562,13 @@ func _notice_blockers() -> Array:
 func _toast_blockers() -> Array:
     var blocked: Array=_notice_blockers()
     var map: Control=$Safe/Layout/Map
-    for path in ["EnemySection","Achievement","EnemyUpgrades","QuickFarm","MiniMap","Zoom","Mastery","Explored","Gate","ViewCamp"]:
+    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker,mastery_tracker]:
+        if tracker!=null and tracker.visible:blocked.append(tracker.get_global_rect().grow(4))
+    for path in ["EnemySection","Achievement","EnemyUpgrades","QuickFarm","MiniMap","ZoomButton","ZoomPlate","Mastery","Gate","ViewCamp"]:
         var node: Control=map.get_node(path)
         if node.visible:blocked.append(node.get_global_rect().grow(4))
+    for row in map.get_node("History").get_children():
+        if row.visible:blocked.append(row.get_global_rect().grow(4))
     return blocked
 
 func _toast_overlaps(rect: Rect2) -> bool:
@@ -646,74 +762,50 @@ func _refresh_mission_tracker() -> void:
     if step.text!=text:step.text=text
     var color:=Color(.45,1,.55) if ready else Color(.94,.95,.97)
     if step.get_theme_color("font_color")!=color:step.add_theme_color_override("font_color",color)
+    var amount:=""
+    if f.kind=="hunt":amount="%d/%d" % [int(sim.campaign.hunt_progress()),sim.campaign.HUNT_GOAL]
+    elif f.kind=="main":
+        var p: Array=sim.campaign.main_progress(int(f.index))
+        amount="%d/%d" % [int(p[0]),int(p[1])]
+    else:
+        var m: Dictionary=sim.state.missions[int(f.index)]
+        amount=(fmt_currency(m.progress)+"/"+fmt_currency(m.goal)) if str(m.kind)=="coins" else (fmt_count(floorf(m.progress))+"/"+fmt_count(m.goal))
+    _set_pill(tracker,amount,ready,text)
     var icon: TextureRect=tracker.get_node("Row/Icon")
     if icon.texture!=art:icon.texture=art
     if tracker.mouse_filter!=Control.MOUSE_FILTER_STOP:tracker.mouse_filter=Control.MOUSE_FILTER_STOP
 
-## Trackers grow upward from the bottom-left: Prestige lowest, then the mission, then Map Mastery. Change 71:
-## each has its own measured rectangle; the stack starts above the joystick only when the joystick shares the
-## column (Left or Center), else at the map's bottom margin. If the stack would reach the left controls it
-## widens (fewer wrapped lines) up to the free width beside the top-right stack, and as a last resort the
-## gaps tighten; it never covers the controls (tracker_clearance() reports the margin for probes).
-const TRACKER_GAP:=10.0
-const TRACKER_WIDTH:=360.0
+## Change 72: a pill's right-hand value: the current requirement's progress, or Claim in green once it is ready
+## (the same predicate as the panel's Claim button). The full step sentence is the pill's tooltip.
+func _set_pill(tracker: Control,amount: String,ready: bool,sentence: String) -> void:
+    var label: Label=tracker.get_node("Row/Progress")
+    var text: String=tr("CLAIM") if ready else amount
+    if label.text!=text:label.text=text
+    var color:=Color(.45,1,.55) if ready else Color(.94,.95,.97)
+    if label.get_theme_color("font_color")!=color:label.add_theme_color_override("font_color",color)
+    if tracker.tooltip_text!=sentence:tracker.tooltip_text=sentence
+
+## Change 72: the followed objectives are one-line pills in the left rail, under the enemy controls, from the
+## top: Map Mastery, the mission, the Prestige opportunity. The rail's slots are fixed (the pills start at the
+## same height whether or not the enemy controls show) and no longer depend on the joystick. In a fight a pill
+## keeps its icon and progress only; its place and height never change, so no tap target moves.
+const PILL_HEIGHT:=40.0
+const PILL_GAP:=4.0
+const PILL_COMBAT_WIDTH:=124.0
 func _layout_trackers() -> void:
     var map: Control=$Safe/Layout/Map
-    var list: Array=[]
-    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker,mastery_tracker]:
-        if tracker!=null and tracker.visible:list.append(tracker)
-    if list.is_empty():return
-    var bottom:=_tracker_floor(TRACKER_WIDTH)
-    var width:=minf(TRACKER_WIDTH,map.size.x-32)
-    var limit: float=left_column_bottom()+HUD_GAP*2
-    var gap:=TRACKER_GAP
-    if bottom-_tracker_stack_height(list,width,gap)<limit:
-        # Wider rows wrap less; the right column is free below the map stack, so any width up to the map's.
-        var wide: float=map.size.x-32
-        if map_stack_bottom()>limit:wide=map.size.x-HUD_MARGIN*2-MINIMAP_SIDE-24
-        width=maxf(width,minf(wide,map.size.x-32))
-        bottom=_tracker_floor(width)
-        if bottom-_tracker_stack_height(list,width,gap)<limit:gap=4.0
-    var y: float=bottom
-    for tracker in list:
-        var wanted:=Vector2(width,_tracker_height(tracker,width))
-        if tracker.anchor_left!=0 or tracker.anchor_top!=0 or tracker.anchor_right!=0 or tracker.anchor_bottom!=0:tracker.set_anchors_preset(Control.PRESET_TOP_LEFT)
-        if not tracker.size.is_equal_approx(wanted):tracker.size=wanted
-        # A container never goes below its own minimum; stack by the size it actually took.
-        y-=tracker.size.y
-        if not tracker.position.is_equal_approx(Vector2(HUD_MARGIN,y)):tracker.position=Vector2(HUD_MARGIN,y)
-        y-=gap
-
-## Where the tracker stack's bottom edge goes for a column of this width.
-func _tracker_floor(width: float) -> float:
-    var map: Control=$Safe/Layout/Map
-    var stick: Control=$Safe/Layout/Map/Joystick
-    var stick_rect:=Rect2(stick.position,stick.size)
-    var column:=Rect2(HUD_MARGIN,0,width,map.size.y)
-    if column.intersects(stick_rect):return stick.position.y-12
-    return map.size.y-HUD_MARGIN
-
-## A tracker's height at a width: measured from its labels' fonts (a container that has not laid out yet
-## reports its previous wrap, Playbook 19.1), plus the panel's own margins.
-func _tracker_height(tracker: Control,width: float) -> float:
-    var icon_w: float=tracker.get_node("Row/Icon").custom_minimum_size.x
-    var sep: float=tracker.get_node("Row").get_theme_constant("separation")
-    var style: StyleBox=tracker.get_theme_stylebox("panel")
-    var text_w: float=width-style.get_minimum_size().x-icon_w-sep
-    var h:=0.0
-    for path in ["Row/Text/Name","Row/Text/Step"]:
-        var label: Label=tracker.get_node(path)
-        if not label.visible or label.text=="":continue
-        var font: Font=label.get_theme_font("font")
-        var font_size: int=label.get_theme_font_size("font_size")
-        h+=font.get_multiline_string_size(label.text,HORIZONTAL_ALIGNMENT_LEFT,text_w,font_size).y
-    h+=tracker.get_node("Row/Text").get_theme_constant("separation")
-    return ceilf(maxf(h,tracker.get_node("Row/Icon").custom_minimum_size.y)+style.get_minimum_size().y)
-
-func _tracker_stack_height(list: Array,width: float,gap: float) -> float:
-    var total:=0.0
-    for tracker in list:total+=_tracker_height(tracker,width)
-    return total+gap*(list.size()-1)
+    var y: float=HUD_MARGIN+ENEMY_LABEL_HEIGHT+TILE_HEIGHT+HUD_GAP
+    var width: float=minf(PILL_COMBAT_WIDTH if hud_combat else LEFT_COLUMN_WIDTH,map.size.x-HUD_MARGIN*2)
+    for tracker in [mastery_tracker,$Safe/Layout/Map/MissionTracker,$Safe/Layout/Map/FollowTracker]:
+        if tracker==null or not tracker.visible:continue
+        var text: Control=tracker.get_node("Row/Text")
+        if text.visible==hud_combat:text.visible=not hud_combat
+        var progress: Label=tracker.get_node("Row/Progress")
+        var flags: int=Control.SIZE_EXPAND_FILL if hud_combat else Control.SIZE_SHRINK_END
+        if progress.size_flags_horizontal!=flags:progress.size_flags_horizontal=flags
+        var height: float=maxf(PILL_HEIGHT,tracker.get_combined_minimum_size().y)
+        _place(tracker,Rect2(HUD_MARGIN,y,width,height))
+        y+=height+PILL_GAP
 
 ## Probe accessor: the vertical space between the left controls and the highest visible tracker (negative =
 ## overlap; INF when no tracker shows).
@@ -735,54 +827,78 @@ func _refresh_mastery_chip() -> void:
     var done:=0
     for category in m.CATEGORIES:
         if m.category_complete(st,category):done+=1
-    var text:=tr("MASTERY_CHIP") % [m.map_percent(st),done,m.CATEGORIES.size()]
+    # Change 72: the star alone names the chip in a fight; the word returns when the fight ends.
+    var text:=tr("MASTERY_CHIP_SHORT" if hud_combat else "MASTERY_CHIP") % [m.map_percent(st),done,m.CATEGORIES.size()]
     if text!=mastery_text:
         mastery_text=text
         chip.text=text
-        # Localization Batch 01: "Meisterschaft 34 % · 2/5" steps its font down rather than losing the count.
-        var room: float=chip.size.x-chip.get_theme_stylebox("normal").get_minimum_size().x-chip.get_theme_constant("icon_max_width")-chip.get_theme_constant("h_separation")-4
-        chip.add_theme_font_size_override("font_size",_fitting_font_size(text,room,17,13))
 
-## Change 71: the HUD columns, laid out from what is visible (never fixed offsets alone). The map's top-right
-## stack is MINIMAP -> ZOOM -> map status (Mastery chip, Map Explored, Next Stage), one gap apart, inside the safe
-## area (the Map control already sits inside it). The left column is the enemy name, Achievements, Upgrades and
-## Auto Farm from the top, so up to three followed objectives fit above the joystick below them. Recent finds
-## and the Gem pickup sit beside the left column. Positions are written only when they change. (Change 71
-## removed the permanent Winter I "Farm until you can beat the boss" objective: the followed objectives and the
-## Next Stage chip carry that progression.)
-const HUD_MARGIN:=16.0
+## Change 72 (HUD declutter, Layout B): everything persistent sits in two rails along the top of the map, so
+## the middle and lower map hold only the world and the joystick.
+## Left rail: the enemy name, one row of its three controls (Achievements with its count, Upgrades, Auto Farm),
+## then the followed objectives as one-line pills (_layout_trackers).
+## Right rail: MINIMAP with Map Explored on its lower edge and the zoom button beside it, then the Mastery and
+## Next Stage chips (at least the minimap's width, growing leftward for a longer text, never shrinking the
+## font) and the recent-finds feed, right-aligned. The zoom slider opens over the chips while it is used.
+## Toasts use the lane between the rails (_toast_slot). Positions are written only when they change.
+const HUD_MARGIN:=12.0
 const HUD_GAP:=8.0
+const ENEMY_LABEL_HEIGHT:=26.0
+const TILE_HEIGHT:=62.0
+const TILE_SIDE:=58.0
+const TILE_GAP:=6.0
+const ZOOM_BUTTON:=Vector2(68,48)
+const CHIP_FONT:=17
 func _layout_hud() -> void:
     var map: Control=$Safe/Layout/Map
     var right: float=map.size.x-HUD_MARGIN
+    var x: float=right-MINIMAP_SIDE
     var y: float=HUD_MARGIN
-    for path in ["MiniMap","Zoom","Mastery","Explored","Gate"]:
+    _place(map.get_node("MiniMap"),Rect2(x,y,MINIMAP_SIDE,MINIMAP_SIDE))
+    # Map Explored is the minimap's caption: on its lower edge, growing leftward for a longer catalog text,
+    # never shrinking its font (Playbook 143.6). The zoom button sits above the caption's height, so a
+    # caption that grows never reaches it.
+    var caption: float=maxf(MINIMAP_SIDE,map.get_node("Explored").get_combined_minimum_size().x)
+    _place(map.get_node("Explored"),Rect2(right-caption,y+MINIMAP_SIDE-STATUS_HEIGHTS.Explored,caption,STATUS_HEIGHTS.Explored))
+    _place(map.get_node("ZoomButton"),Rect2(x-HUD_GAP-ZOOM_BUTTON.x,y+MINIMAP_SIDE-STATUS_HEIGHTS.Explored-4-ZOOM_BUTTON.y,ZOOM_BUTTON.x,ZOOM_BUTTON.y))
+    y+=MINIMAP_SIDE+HUD_GAP-2
+    var chips_top: float=y
+    for path in ["Mastery","Gate"]:
         var node: Control=map.get_node(path)
         if not node.visible:continue
-        var size: Vector2=node.size
-        if path=="MiniMap":size=Vector2(MINIMAP_SIDE,MINIMAP_SIDE)
-        elif path=="Zoom":size=Vector2(MINIMAP_SIDE+12,maxf(56,node.get_combined_minimum_size().y))
-        else:
-            # A status chip is at least the minimap's width and grows leftward for a longer text, never off-screen.
-            var least: Vector2=node.get_combined_minimum_size()
-            size=Vector2(clampf(least.x,MINIMAP_SIDE,map.size.x*.6),maxf(least.y,STATUS_HEIGHTS[path]))
+        var least: float=_chip_width(node) if node is Button else node.get_combined_minimum_size().x
+        var size:=Vector2(clampf(least,MINIMAP_SIDE,map.size.x*.6),STATUS_HEIGHTS[path])
         _place(node,Rect2(right-size.x,y,size.x,size.y))
-        y+=size.y+HUD_GAP
-    var x: float=HUD_MARGIN+2
-    y=HUD_MARGIN
-    for path in ["EnemySection","Achievement","EnemyUpgrades","QuickFarm"]:
-        var node: Control=map.get_node(path)
-        var height: float={"EnemySection":26.0}.get(path,60.0)
-        _place(node,Rect2(x,y,LEFT_COLUMN_WIDTH,height))
-        # Fixed slots (Playbook 19.1): each control keeps its place whether or not it shows right now, so a
-        # control that appears never lands on another one or makes the column jump.
-        y+=height+HUD_GAP
-    _place(map.get_node("History"),Rect2(x+LEFT_COLUMN_WIDTH+12,HUD_MARGIN+32,252,136),false)
-    _place(map.get_node("GemPickup"),Rect2(x+LEFT_COLUMN_WIDTH+12,HUD_MARGIN+180,142,36),false)
+        y+=size.y+PILL_GAP
+        # The open zoom slider takes the chips' place for its few seconds (they return untouched).
+        var alpha: float=0.0 if map.get_node("Zoom").visible else 1.0
+        if node.modulate.a!=alpha:node.modulate.a=alpha
+    _place(map.get_node("History"),Rect2(right-LEFT_COLUMN_WIDTH,y+2,LEFT_COLUMN_WIDTH,136))
+    var zoom: Control=map.get_node("Zoom")
+    if zoom.visible:
+        var width: float=MINIMAP_SIDE+HUD_GAP+ZOOM_BUTTON.x
+        var plate:=Rect2(right-width,chips_top,width,maxf(maxf(56,zoom.get_combined_minimum_size().y),y-PILL_GAP-chips_top))
+        _place(map.get_node("ZoomPlate"),plate)
+        _place(zoom,plate.grow_individual(-10,0,-4,0))
+    x=HUD_MARGIN
+    _place(map.get_node("EnemySection"),Rect2(x+2,HUD_MARGIN-4,LEFT_COLUMN_WIDTH-2,ENEMY_LABEL_HEIGHT))
+    y=HUD_MARGIN+ENEMY_LABEL_HEIGHT
+    # Fixed slots (Playbook 19.1): each control keeps its place whether or not it shows right now.
+    var wide: float=LEFT_COLUMN_WIDTH-(TILE_SIDE+TILE_GAP)*2
+    _place(map.get_node("Achievement"),Rect2(x,y,wide,TILE_HEIGHT))
+    _place(map.get_node("EnemyUpgrades"),Rect2(x+wide+TILE_GAP,y,TILE_SIDE,TILE_HEIGHT))
+    _place(map.get_node("QuickFarm"),Rect2(x+wide+TILE_GAP*2+TILE_SIDE,y,TILE_SIDE,TILE_HEIGHT))
 
-const MINIMAP_SIDE:=230.0
-const STATUS_HEIGHTS:={"Mastery":44.0,"Explored":34.0,"Gate":38.0}
-const LEFT_COLUMN_WIDTH:=158.0
+## The width a chip button needs for its whole text at the chip font (its own minimum is 0: it trims).
+func _chip_width(chip: Button) -> float:
+    var font: Font=chip.get_theme_font("font")
+    var style: StyleBox=chip.get_theme_stylebox("normal")
+    return ceilf(font.get_string_size(chip.text,HORIZONTAL_ALIGNMENT_LEFT,-1,CHIP_FONT).x+style.get_minimum_size().x+chip.get_theme_constant("icon_max_width")+chip.get_theme_constant("h_separation")+8)
+
+const MINIMAP_SIDE:=168.0
+const STATUS_HEIGHTS:={"Mastery":44.0,"Explored":30.0,"Gate":38.0}
+## The left rail's width (the three enemy controls in a row, and an objective pill).
+const LEFT_COLUMN_WIDTH:=252.0
 func _place(node: Control,rect: Rect2,set_size:=true) -> void:
     if node.anchor_left!=0 or node.anchor_right!=0 or node.anchor_top!=0 or node.anchor_bottom!=0:
         node.set_anchors_preset(Control.PRESET_TOP_LEFT)
@@ -834,6 +950,7 @@ func _refresh_follow_tracker() -> void:
     if step.text!=text:step.text=text
     var color:=Color(.45,1,.55) if ready else Color(.94,.95,.97)
     if step.get_theme_color("font_color")!=color:step.add_theme_color_override("font_color",color)
+    _set_pill(tracker,sim.campaign.follow_progress(id),ready,text)
     var icon: TextureRect=tracker.get_node("Row/Icon")
     # Change 16: the exact item a collection still needs, or the enemy the step names, else path art.
     var focus: Dictionary=sim.campaign.follow_focus(id)
@@ -864,6 +981,15 @@ func _refresh_mastery_tracker() -> void:
             break
     summary+=tr("MASTERY_FOLLOW_PROGRESS") % [int(objective.done),int(objective.total)]
     if step.text!=summary:step.text=summary
+    # Change 72: the pill shows the current requirement's own count (a percentage for exploration), else
+    # the category's count.
+    var amount:="%d/%d" % [int(objective.done),int(objective.total)]
+    for part in objective.parts:
+        if int(part[2])>=int(part[3]):continue
+        if str(part[0])=="explored":amount="%d%%" % int(part[2])
+        elif int(part[3])>1:amount=fmt_count(part[2])+"/"+fmt_count(part[3])
+        break
+    _set_pill(mastery_tracker,amount,false,summary)
     var icon: TextureRect=mastery_tracker.get_node("Row/Icon")
     var art: Texture2D=_art(MASTERY_ART[category])
     if icon.texture!=art:icon.texture=art
@@ -890,7 +1016,8 @@ func _refresh_gate() -> void:
     var text:=""
     # Change 15: the chip is the Defeat the Snowman objective, shown once that objective is revealed.
     if not status.is_empty() and revealed("objective"):
-        text=tr("GATE_HUD_WORLD" if status.kind=="world" else "GATE_HUD") % [int(status.killed),int(status.total)]
+        # Change 72: in a fight the chip keeps its icon and the count ("Bosses 0/1"); the words return after it.
+        text=tr(("GATE_HUD_WORLD" if status.kind=="world" else "GATE_HUD")+("_SHORT" if hud_combat else "")) % [int(status.killed),int(status.total)]
     if text==gate_text:return
     gate_text=text
     var node: Control=$Safe/Layout/Map/Gate
@@ -1445,30 +1572,47 @@ func _update_toast(dt: float) -> void:
         toast_time=toast_busy_seconds if not toast_queue.is_empty() else toast_seconds
         if not toast_resume.is_empty() and str(toast_resume.text)==$Toast/Text.text:toast_time=maxf(float(toast_resume.time),.8)
         toast_resume={}
+        # Change 72: a toast that appears is placed afresh (the same text shown earlier may have sat lower,
+        # under a banner that is gone now).
+        toast_placed_for=""
         $Toast.show()
-    # Free band of the map: above the joystick, below the player, never over an open panel. Change 71: the full
-    # width first; where that meets the HUD columns, the band between them (the toast wraps to more lines).
+    # Change 72: the lane between the HUD rails at the top of the map (under a banner while one shows), never
+    # the middle of the map. A placement is kept while it stays clear.
     var map: Control=$Safe/Layout/Map
     var placed_text: String=$Toast/Text.text
-    if toast_placed_for==placed_text and $Toast.visible and $Toast.position.y>=map.global_position.y+8 and $Toast.position.y+$Toast.size.y<=map.global_position.y+map.size.y-212 and not _toast_overlaps(Rect2($Toast.position,$Toast.size)) and not ($FocusCountdown.visible and Rect2($Toast.position,$Toast.size).intersects($FocusCountdown.get_global_rect())):return
+    var now:=Rect2($Toast.position,$Toast.size)
+    if toast_placed_for==placed_text and $Toast.visible and map.get_global_rect().encloses(now) and not _toast_overlaps(now) and not (banner.visible and now.intersects(banner.get_global_rect())):return
+    var best:=Vector2.INF
+    var best_width:=0.0
     for width in _toast_widths():
         var at:=_toast_slot(width)
-        if at!=Vector2.INF:
-            toast_placed_for=placed_text
-            $Toast.position=at
-            return
+        if at!=Vector2.INF and at.y<best.y:
+            best=at;best_width=width
+    if best!=Vector2.INF:
+        # The last width measured is not always the chosen one: size the toast for the chosen width again.
+        _toast_slot(best_width)
+        toast_placed_for=placed_text
+        $Toast.position=best
+        return
     toast_placed_for=""
     _suspend_toast()
 
-## Widths to try: the usual one, then the free band between the left controls and the top-right stack.
-func _toast_widths() -> Array:
+## The lane's left edge and width (global): between the left rail and the minimap.
+func _toast_lane() -> Vector2:
     var map: Control=$Safe/Layout/Map
-    var widths: Array=[minf(560,map.size.x-48)]
-    var band: float=map.size.x-HUD_MARGIN*2-LEFT_COLUMN_WIDTH-MINIMAP_SIDE-40
-    if band>=220 and band<widths[0]:widths.append(band)
+    var left: float=HUD_MARGIN+LEFT_COLUMN_WIDTH+10
+    return Vector2(map.global_position.x+left,map.size.x-left-HUD_MARGIN-MINIMAP_SIDE-10)
+
+## Widths to try: the whole lane, then the lane short of the zoom button (used when the toast sits lower,
+## under a banner, at the button's height).
+func _toast_widths() -> Array:
+    var lane:=_toast_lane()
+    var widths: Array=[minf(560,lane.y)]
+    var narrow: float=lane.y-ZOOM_BUTTON.x-HUD_GAP
+    if narrow>=180:widths.append(narrow)
     return widths
 
-## The toast's top-left at this width (sized to its text), or INF when no clear place exists in the map.
+## The toast's top-left at this width (sized to its text), or INF when no clear place exists in the upper map.
 func _toast_slot(width: float) -> Vector2:
     var map: Control=$Safe/Layout/Map
     if $Toast/Text.custom_minimum_size.x!=width-28:$Toast/Text.custom_minimum_size.x=width-28
@@ -1476,20 +1620,20 @@ func _toast_slot(width: float) -> Vector2:
     var text_h: float=label.get_theme_font("font").get_multiline_string_size(label.text,HORIZONTAL_ALIGNMENT_CENTER,width-28,label.get_theme_font_size("font_size")).y
     var wanted:=Vector2(width,ceilf(text_h+$Toast.get_theme_stylebox("panel").get_minimum_size().y))
     if not $Toast.size.is_equal_approx(wanted):$Toast.size=wanted
-    var band_left: float=map.global_position.x+HUD_MARGIN+LEFT_COLUMN_WIDTH+20
-    var x: float=map.global_position.x+(map.size.x-width)*.5
-    if width<minf(560,map.size.x-48):x=band_left
-    var y: float=map.global_position.y+map.size.y-212-wanted.y
-    # Change 69: the walking countdown owns the band right above the joystick while it runs.
-    if $FocusCountdown.visible:y=minf(y,$FocusCountdown.position.y-8-wanted.y)
+    var lane:=_toast_lane()
+    # The whole lane is centred in it; the narrow form keeps to the lane's left, clear of the zoom button.
+    var x: float=lane.x+((lane.y-width)*.5 if width>=minf(560,lane.y) else 0.0)
+    var y: float=map.global_position.y+HUD_MARGIN
+    if banner.visible:y=maxf(y,banner.get_global_rect().end.y+8)
     var blocked: Array=_toast_blockers()
     for i in range(blocked.size()+1):
         var hit:=Rect2()
         for r in blocked:
-            if r.intersects(Rect2(x,y,width,wanted.y)) and (hit.size==Vector2.ZERO or r.position.y<hit.position.y):hit=r
+            if r.intersects(Rect2(x,y,width,wanted.y)) and (hit.size==Vector2.ZERO or r.end.y>hit.end.y):hit=r
         if hit.size==Vector2.ZERO:break
-        y=hit.position.y-8-wanted.y
-    if y<map.global_position.y+8 or _toast_overlaps(Rect2(x,y,width,wanted.y)):return Vector2.INF
+        y=hit.end.y+8
+    # Never down into the fight: the toast waits in its queue instead (nothing is dropped).
+    if y+wanted.y>map.global_position.y+map.size.y*.42 or _toast_overlaps(Rect2(x,y,width,wanted.y)):return Vector2.INF
     return Vector2(x,y)
 
 ## Change 63: hides the toast on screen and puts it back at the front of its queue with its remaining
@@ -2774,8 +2918,13 @@ func _refresh_combat_achievement() -> void:
     var milestones: Array=sim.achievement_thresholds(g)
     var tier:=sim.achievement_level(g)
     var progress:=tr("ACHIEVEMENT_DONE") if tier==milestones.size() else "%s / %s" % [fmt_count(sim.state.group_kills[g]),fmt_count(milestones[tier])]
-    var text:=tr("TAB_ACHIEVEMENTS")+"\n"+progress
-    if button.text!=text:button.text=text
+    # Change 72: the tile shows the star and the count; the name is in its tooltip and in the panel it opens.
+    var text:=progress.replace(" ","")
+    if button.text!=text:
+        button.text=text
+        button.add_theme_font_size_override("font_size",_fitting_font_size(text,LEFT_COLUMN_WIDTH-(TILE_SIDE+TILE_GAP)*2-18,16,12))
+    var tip:=tr("TAB_ACHIEVEMENTS")+"\n"+progress
+    if button.tooltip_text!=tip:button.tooltip_text=tip
     button.set_meta("group",g)
     _refresh_quick_farm(known)
 
@@ -2819,7 +2968,15 @@ func _refresh_quick_farm(known: bool) -> void:
         _toggle_style(quick,on,v<0)
         quick.set_meta("guide","quick_focus_toggle")
     quick.set_meta("reason",reason)
-    if quick.text!=text:quick.text=text
+    # Change 72: the tile shows the Auto Farm icon in the toggle's colour with ON / OFF under it (nothing
+    # while locked: the grey tile says so, and a tap explains); the full state is the tooltip and state_text.
+    quick.set_meta("state_text",text)
+    var caption: String="" if not sim.focus_owned() else tr("STATE_ON_CAPS" if sim.focus_active(g,v) and v>=0 else "STATE_OFF_CAPS")
+    if quick.text!=caption or quick.get_meta("fitted","")!=caption:
+        quick.text=caption
+        quick.set_meta("fitted",caption)
+        quick.vertical_icon_alignment=VERTICAL_ALIGNMENT_CENTER if caption=="" else VERTICAL_ALIGNMENT_TOP
+        quick.add_theme_font_size_override("font_size",_fitting_font_size(caption,TILE_SIDE-14,16,12))
     var tip: String=tr(sim.catalog.groups[g].name)+" · "+text+("\n"+tr(reason) if reason!="" else "")
     if quick.tooltip_text!=tip:quick.tooltip_text=tip
 
@@ -4600,9 +4757,16 @@ func _show_gem_pickup(amount: float) -> void:
     gem_pickup_amount=(gem_pickup_amount if gem_pickup_time>0 else 0)+amount
     gem_pickup_time=4.0
     $Safe/Layout/Map/GemPickup/Amount.text="+"+fmt(gem_pickup_amount)
-    $Safe/Layout/Map/GemPickup.show()
 
 ## Recent finds, top-left, each on a dark backing so they stay readable on snow.
+## Change 72: a recent find leaves the feed LOOT_SECONDS after it happened (simulation clock), fading out.
+func _fade_loot() -> void:
+    var now: float=float(sim.state.clock)
+    for row in $Safe/Layout/Map/History.get_children():
+        var alpha: float=clampf((LOOT_SECONDS-(now-float(row.get_meta("time",now))))/LOOT_FADE,0.0,1.0)
+        if row.visible!=(alpha>0):row.visible=alpha>0
+        if not is_equal_approx(row.modulate.a,alpha):row.modulate.a=alpha
+
 func _refresh_loot_notifications() -> void:
     var signature:=JSON.stringify(sim.state.history)
     if signature==history_signature:
@@ -4618,8 +4782,9 @@ func _refresh_loot_notifications() -> void:
             continue
         var row:=Button.new()
         row.custom_minimum_size=Vector2(0,40)
-        row.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
+        row.size_flags_horizontal=Control.SIZE_SHRINK_END
         row.alignment=HORIZONTAL_ALIGNMENT_LEFT
+        row.set_meta("time",float(entry.get("time",0.0)))
         row.add_theme_font_size_override("font_size",20)
         row.add_theme_constant_override("outline_size",5)
         row.add_theme_color_override("font_outline_color",Color(0,0,0,1))

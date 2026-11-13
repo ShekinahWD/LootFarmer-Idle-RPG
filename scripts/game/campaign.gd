@@ -2234,6 +2234,35 @@ func follow_summary(id: String,compact:=false) -> String:
             return sim.tr("FOLLOW_OFFLINE_TOTAL" if n==1 else "FOLLOW_OFFLINE_LONGEST") % (sim.state.offline_total/3600.0 if n==1 else sim.state.offline_longest/3600.0)
     return opportunity_progress(id)
 
+## Change 72: the followed opportunity's current requirement as a short count for the HUD pill ("3/100"), from
+## the same state as follow_summary; "" where the requirement has no single count (the pill shows its title).
+func follow_progress(id: String) -> String:
+    var o: Dictionary=sim.state.opportunities.get(id,{})
+    if o.is_empty() or o.ready:return ""
+    var n=int(id.right(1));var path=id.split("_o")[0]
+    match path:
+        "expedition","specialist":
+            var chain=chain_for(id);var index=int(o.get("step",0))
+            if index<chain.size():return "%d/%d" % [int(o.get("count",0)),int(chain[index][2])]
+        "collection":
+            var goal:=collection_required(n)
+            for count in collection_counts(id):
+                if count<goal:return "%d/%d" % [count,goal]
+        "hunter":
+            for boss in hunter_bosses(n):
+                if hunter_count(o,boss)<hunter_goal(n) or boss==hunter_bosses(n).back():
+                    return "%d/%d" % [mini(hunter_count(o,boss),hunter_goal(n)),hunter_goal(n)]
+        "trophy":
+            var bosses:=trophy_bosses(n)
+            var done:=0
+            for boss in bosses:
+                if o.get("trophy_boss-"+boss,false):done+=1
+            return "%d/%d" % [done,bosses.size()]
+        "arsenal":
+            var counts:=arsenal_counts(o,n);var need:=arsenal_need(n)
+            return "%d/%d" % [mini(counts[0],need)+mini(counts[1],need),need*2]
+    return ""
+
 ## What the follower shows beside its text: the exact item a collection still needs, else the enemy
 ## the current step names ({"item": id} or {"group": index}); {} means the path's own art.
 func follow_focus(id: String) -> Dictionary:

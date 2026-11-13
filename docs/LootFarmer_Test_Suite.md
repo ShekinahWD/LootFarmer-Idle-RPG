@@ -1,4 +1,8 @@
-# LootFarmer — Test Suite (current, 2026-11-12, Change 71)
+# LootFarmer — Test Suite (current, 2026-11-13, Change 72)
+
+## Change 72: HUD declutter, edge rails (13 November 2026)
+
+- **Registered** `change_72_probe` (112 checks, about 20 s; Change 72, HUD declutter): the edge-rail HUD at 720x1280, 720x1600, 720x1440 and 960x1280 with every joystick position (enemy controls in one row, three one-line objective pills under them, the 168 minimap carrying Map Explored, the zoom button, Mastery then Next Stage, both rails in the upper half and clear of the joystick, touch sizes); the fight form (a blow or a locked target; 3 s hold frozen by a pause; pills keep place and height and show icon and progress; chips read the short strings and return; German grows the chip leftward at the full font); pill progress per kind, the green Claim and the tooltip sentence; `campaign.follow_progress`; the zoom button's slider (open, move, 4 s close, second tap); the recent-finds feed leaving after 8 s with the Gem counter hidden; a toast in the lane between the rails and under a banner, never in the lower map; both chips tappable; the three short strings in the translation handoff. Updated for the approved layout: `change_8`, `change_11` (minimap 168, markers at least 12 px), `change_12`, `change_13`, `change_14`, `change_16`, `change_69`, `change_71` probes and `camera_probe` (the slider is opened from its button first).
 
 ## Change 71: implementation audit and polish (12 November 2026)
 

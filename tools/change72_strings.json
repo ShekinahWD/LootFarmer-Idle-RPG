@@ -1,0 +1,5 @@
+{
+ "MASTERY_CHIP_SHORT": "%d%% · %d/%d",
+ "GATE_HUD_SHORT": "Bosses %d/%d",
+ "GATE_HUD_WORLD_SHORT": "World %d/%d"
+}

@@ -114,7 +114,7 @@ func follower_checks() -> void:
 func minimap_checks() -> void:
     fresh()
     var mini: Control=game.get_node("Safe/Layout/Map/MiniMap")
-    check(mini.size.x>=220 and mini.size.y>=220,"Minimap enlarged to %s (was 130 x 130)" % mini.size)
+    check(mini.size.x>=160 and mini.size.y>=160,"Minimap enlarged to %s (was 130 x 130)" % mini.size)
     var stick: Control=game.get_node("Safe/Layout/Map/Joystick")
     check(not mini.get_global_rect().intersects(stick.get_global_rect()),"Minimap clear of the joystick")
     var full=preload("res://scripts/game/map_view.gd").new();full.sim=sim;full.size=Vector2(680,420);add_child(full)
@@ -139,7 +139,7 @@ func minimap_checks() -> void:
             for g in sim.campaign.stage().groups:
                 for v in sim.campaign.variants(g):
                     if view.marker_visible(g,v):expected+=1
-            check(boxes.size()==expected and overlaps==0 and side>=(16.0 if view==mini else 7.0),"Stage %d %s: %d markers of %.0f px, none overlapping" % [st,"minimap" if view==mini else "full map",boxes.size(),side])
+            check(boxes.size()==expected and overlaps==0 and side>=(12.0 if view==mini else 7.0),"Stage %d %s: %d markers of %.0f px, none overlapping" % [st,"minimap" if view==mini else "full map",boxes.size(),side])
     full.queue_free()
     # Loadout reads from the definition: outfit-only wears the outfit, weapon-only does not.
     var g0:=0
