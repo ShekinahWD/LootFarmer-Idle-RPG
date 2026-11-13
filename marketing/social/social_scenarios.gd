@@ -15,10 +15,24 @@ func prepare_scenario(scenario_id: String,options_: Dictionary,game_root: Node,c
             for id in sim.state.items:
                 if sim.catalog.items[id].kind=="weapon":sim.record(id).merge=mini(int(sim.record(id).merge),sim.merge_cap(id))
             game.slot_signatures.clear();game._refresh_slots()
+        # Change 73: timed steps on the store adapter's scenarios too (the Prestige card kept by its own
+        # button, so the committed Prestige plays its celebration).
+        if done and options_.has("steps"):
+            sim.milestone.connect(func(kind,id):print(LOG,"MILESTONE ",kind," ",id," t=",clock))
+            sim.event.connect(func(key):print(LOG,"EVENT ",key," t=",clock))
+            for a in options_.get("steps",[]):
+                var entry: Array=a
+                timeline.append([float(entry[0]),func():_act(entry.slice(1))])
+            timeline.sort_custom(func(x,y):return float(x[0])<float(y[0]))
         return done
     game=game_root;sim=game.sim;job=capture;scenario=scenario_id;options=options_
     fps=float(capture.get("fps",30))
     _settings().set_music_volume(0.0)
+    # Change 73: the capture profile's saved inventory view, slot size and shop quantity (Change 71
+    # preferences) start from their defaults in every take, unless the take stages one.
+    _settings().set_supply_buy_amount(1)
+    _settings().set_inventory_zoom(int(options.get("inventory_zoom",2)))
+    game._set_inventory_view(0,0);game._layout_inventory()
     var ok:=_soc()
     if ok:sim.milestone.connect(func(kind,id):print(LOG,"MILESTONE ",kind," ",id," t=",clock))
     if ok and bool(options.get("clean",false)):_clean_view()
@@ -87,6 +101,8 @@ func _soc_build() -> bool:
             sim.state.camps[str(key)]=_ints(o.camps_by_stage[key]);sim.state.camps_known[str(key)]=_ints(o.camps_by_stage[key])
     for boss_id in o.get("challenges",[]):sim.campaign.progress("restricted",str(boss_id),1)
     for i in range(2):sim.campaign.evaluate()
+    # Change 73: objectives followed through the game's own toggles (the panels' Follow buttons call these).
+    for f in o.get("follow",[]):_follow(f)
     if o.has("hp"):sim.state.player.hp=sim.stats().hp*float(o.hp)
     else:sim.state.player.hp=sim.stats().hp
     # Placement.
@@ -277,4 +293,67 @@ func _act(a: Array) -> void:
         "hud_off":
             if hidden_ui.is_empty():_clean_view()
         "log":print(LOG,"NOTE ",a[1]," t=",clock," coins=",sim.state.coins," hp=",sim.state.player.hp/sim.stats().hp)
+        # Change 73 steps.
+        "tap":_press(_guide_any(str(a[1])),"tap "+str(a[1]))
+        "tab":_press_tab(int(a[1]),int(a[2]))
+        "tab_key":
+            # A panel tab by its translation key (Filters' order row: SORT_TIER, SORT_QUANTITY, ...).
+            var hit: Button=null
+            for b in game.rows.find_children("*","Button",true,false):
+                if str(b.text)==tr(str(a[1])) and b.is_visible_in_tree():hit=b
+            _press(hit,"tab "+str(a[1]))
+        "upgrades_tab":
+            game.player_tab=int(a[1]);game._open("upgrades");print(LOG,"OPEN upgrades tab ",a[1]," t=",clock)
+        "scroll":
+            var sc: ScrollContainer=game.get_node("Sheet/Margin/Content/Scroll")
+            sc.scroll_vertical=int(a[1]);print(LOG,"SCROLL ",a[1]," t=",clock)
+        "pick_card":
+            var offered: Array=sim.campaign.offered_cards()
+            if int(a[1])<offered.size():
+                game.selected_card=offered[int(a[1])];game._refresh_panel(true)
+                print(LOG,"PRESTIGE card selected ",offered[int(a[1])]," of ",offered.size()," batch=",sim.state.prestige_batch.get("choices",[]).size(),"/",sim.state.prestige_batch.get("ids",[]).size()," t=",clock)
+            else:print(LOG,"PICK_CARD missing ",a[1])
+        "follow":_follow(a.slice(1))
+        "confirm":_press(game.get_node("Confirm/Panel/Margin/Content/Actions/Confirm") as Button,"confirm dialog")
+        "scroll_to":
+            # Scrolls the open panel so the tagged control sits a[2] px below the scroll area's top.
+            var target:=_guide_any(str(a[1]))
+            var sc2: ScrollContainer=game.get_node("Sheet/Margin/Content/Scroll")
+            if target==null:print(LOG,"SCROLL_TO missing ",a[1]);return
+            sc2.scroll_vertical=int(sc2.scroll_vertical+target.global_position.y-sc2.global_position.y-float(a[2]))
+            print(LOG,"SCROLL_TO ",a[1]," -> ",sc2.scroll_vertical," t=",clock)
         _:print(LOG,"UNKNOWN step ",what)
+
+# ---------------------------------------------------------------- Change 73 (social refresh) helpers
+
+## A button by its guide tag in the open panel, its pinned row or its actions (what a tap reaches).
+func _guide_any(key: String) -> Button:
+    for b in game.rows.find_children("*","Button",true,false)+game.actions.find_children("*","Button",true,false)+game.pinned_rows.find_children("*","Button",true,false):
+        if str(b.get_meta("guide",""))==key and b.is_visible_in_tree():return b
+    return null
+
+## The i-th button of the bar-th tab row in the open panel (Filters: 0 = category, 1 = order).
+func _press_tab(bar: int,i: int) -> void:
+    var bars: Array=game.rows.find_children("*","HBoxContainer",true,false).filter(func(n):return str(n.name).begins_with("Tabs"))
+    if bar>=bars.size():
+        print(LOG,"TAB missing bar ",bar," t=",clock);return
+    var buttons: Array=bars[bar].get_children().filter(func(n):return n is Button)
+    if i>=buttons.size():
+        print(LOG,"TAB missing ",bar,"/",i," t=",clock);return
+    _press(buttons[i],"tab %d/%d '%s'" % [bar,i,buttons[i].text])
+
+## ["mastery", stage, category] | ["mission"] (the first open daily mission) | ["opportunity"] (the first
+## followable Prestige opportunity): the same toggles the Follow buttons call.
+func _follow(f: Array) -> void:
+    match str(f[0]):
+        "mastery":print(LOG,"FOLLOW mastery ",f[1],":",f[2]," ok=",sim.campaign.mastery.toggle_follow(int(f[1]),str(f[2]))," t=",clock)
+        "mission":
+            for i in range(sim.state.missions.size()):
+                if sim.campaign.can_follow_mission("daily",i):
+                    print(LOG,"FOLLOW mission ",i," ",sim.state.missions[i].get("kind","")," ok=",sim.campaign.toggle_follow_mission("daily",i)," t=",clock);return
+            print(LOG,"FOLLOW mission none")
+        "opportunity":
+            for id in sim.state.opportunities:
+                if sim.campaign.can_follow(id):
+                    print(LOG,"FOLLOW opportunity ",id," ok=",sim.campaign.toggle_follow(id)," t=",clock);return
+            print(LOG,"FOLLOW opportunity none")

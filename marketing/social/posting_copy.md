@@ -4,14 +4,17 @@ One entry per master in `store_assets/video/social/`. Caption and hashtags trave
 rendered into the videos. Publishing is a human action: nothing has been uploaded. Check each platform's
 current upload rules, and the open rights item (REL-02: music and Pixel Plains licence records), before posting.
 
-Every claim below matches what its video shows on the current build (HEAD `cece9c8`, 11 Nov 2026).
+Every claim below matches what its video shows on the current build. Revision 3 (Change 73, 13 Nov 2026): all takes
+re-recorded on HEAD `83e5492` (after the Change 71 polish and the Change 72 HUD declutter); videos 1, 4 and 6 changed
+content and video 11 is new, so their entries are new; the others still match their videos (figures re-checked in the
+new take logs).
 
 ---
 
 **Video 1 — `LootFarmer_Social_01_review_story.mp4`**
 
 ```
-A player gave my idle RPG 4/10 and said normal enemies hit harder than the bosses. They were right. The rebalance took two days… and then I couldn't stop polishing. Six days and 33 commits later: new Teleport map, merge bursts, weapon evolutions, boss-defeat moments.
+A player gave my idle RPG 4/10 and said normal enemies hit harder than the bosses. They were right, so I fixed it… and then kept going for a week. The fight is no longer buried under the interface, your loot sorts the way you want, supplies come by the stack, and Prestige finally gets the celebration it deserves.
 
 #indiedev #gamedev #devlog #idlerpg #mobilegame #pixelart #lootfarmer #godot
 ```
@@ -35,7 +38,7 @@ I beat a dinosaur, so I took its outfit. And its sword. In LootFarmer every enem
 **Video 4 — `LootFarmer_Social_04_loop.mp4`**
 
 ```
-The whole game in five words: fight, loot, merge, evolve, prestige. Then come back stronger.
+The whole game in five steps: fight a boss, pick up what it wore, merge the spare copies, evolve your weapon, then Prestige and start again stronger.
 
 #idlerpg #incrementalgame #mobilegame #pixelart #indiegame #lootfarmer #rpg
 ```
@@ -51,7 +54,7 @@ Same game, 237 levels apart. Top: level 1 with a Wood Sword (9 damage). Bottom: 
 **Video 6 — `LootFarmer_Social_06_sound_on.mp4`**
 
 ```
-Sound on. Crits, merges, a weapon evolution, a portal and a boss going down, all in the game's own sound.
+Sound on. Crits, merges, a weapon evolution, a supply burst, a portal, the new Prestige celebration and a boss going down, all in the game's own sound.
 
 #satisfying #pixelart #idlerpg #gamefeel #indiedev #mobilegame #lootfarmer
 ```
@@ -86,4 +89,12 @@ What happens if you merge 31 swords? Twenty go into the merge, ten more pay for 
 This boss killed me. So I went farming: 500 copies of one outfit and a sharper sword. Round 2 ended with 25 HP left.
 
 #idlerpg #bossfight #mobilegame #pixelart #indiegame #lootfarmer #rpg
+```
+
+**Video 11 — `LootFarmer_Social_11_prestige.mp4`** (new in Change 73)
+
+```
+I gave up all my gear for the last card of my Prestige. Then this happened. Watch it again at half speed: the cards gather, spiral in and burst into light, and all five stay with you for every run after.
+
+#idlerpg #prestige #pixelart #gamefeel #mobilegame #indiegame #lootfarmer
 ```

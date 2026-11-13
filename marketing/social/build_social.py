@@ -55,23 +55,25 @@ def load_v4():
     return mod, blur
 
 
-# ------------------------------------------------------------------ 1. the review story
+# ------------------------------------------------------------------ 1. the review story (Change 73: a week of fixes)
+# Revision 3 (13 Nov 2026): the story still opens on the review of 6 Nov and its fix, then shows a few of the
+# strongest, most visual improvements made since (not a changelog): the decluttered HUD (dated before/after,
+# the old take recorded from a worktree of 3856390), saved inventory sorting, the bulk Supplies shop and the
+# rebuilt Prestige celebration.
 
 def v1():
     c = LOW
     shots = [
-        {'src': OLD / 'o_pack.avi', 't': 2.0, 'd': 3.0, 'view': MAP, 'note': 'old build: a Summer I pack attacks at once'},
-        {'src': OLD / 'o_pack.avi', 't': 5.0, 'd': 3.6, 'view': MAP, 'note': 'old build: HP nearly gone'},
+        {'src': OLD / 'o_pack.avi', 't': 2.0, 'd': 2.8, 'view': MAP, 'note': 'old build (6 Nov): a Summer I pack attacks at once'},
+        {'src': OLD / 'o_pack.avi', 't': 4.8, 'd': 3.0, 'view': MAP, 'note': 'old build: HP nearly gone'},
         {'src': take('n_pack_after'), 't': 1.0, 'd': 3.2, 'view': MAP, 'into': 'flash', 'note': 'same hero and spot, current build'},
-        {'src': take('n_crit'), 't': 3.2, 'd': 2.4, 'note': 'crit impacts 3.73 / 4.73 (9791b1b)'},
-        {'src': take('n_gear2'), 't': 9.6, 'd': 2.4, 'note': 'stat feedback bursts on equip 9.89 / 11.09 (8ce00ae, 7ba013e)'},
-        {'src': OLD / 'o_teleport.avi', 't': 1.0, 'd': 2.2, 'note': 'old Teleport: a list'},
-        {'src': take('n_teleport'), 't': 2.5, 'd': 3.4, 'into': 'flash', 'note': 'Teleport map: pick 3.03, confirm 4.23, portal (9a078c4, 0d3b328)'},
-        {'src': take('n_merge'), 't': 4.3, 'd': 2.4, 'note': 'merge burst 4.83 (2f1acb2)'},
-        {'src': take('n_evolve'), 't': 4.2, 'd': 3.2, 'note': 'evolution show (2f1acb2)'},
-        {'src': C32 / 'c33_gear.avi', 't': 2.3, 'd': 2.0, 'note': '28 Oct build: a boss defeat'},
-        {'src': take('n_boss_clean'), 't': 2.5, 'd': 2.8, 'into': 'flash', 'note': 'boss defeat moment 2.96 (0d3b328)'},
-        {'src': take('n_endc'), 't': 0.6, 'd': 4.2, 'dim': 0.6, 'note': 'closing line'},
+        {'src': OLD / 'o_hud_fight.avi', 't': 2.0, 'd': 3.0, 'note': '12 Nov build (3856390): the same fight with the HUD before the declutter'},
+        {'src': take('n_hud_fight'), 't': 2.0, 'd': 3.4, 'into': 'flash', 'note': 'current build: two edge rails, fight form chips, objective pills counting'},
+        {'src': take('n_sort'), 't': 1.9, 'd': 4.6, 'note': 'Filters: order by Tier 2.23, by Quantity 4.63; the dock grid reorders'},
+        {'src': take('n_shop'), 't': 1.9, 'd': 3.6, 'note': 'Supplies shop: x10 2.23, Buy x10 3.63, Potions owned 2 -> 12'},
+        {'src': take('n_prestige_fx'), 't': 1.65, 'd': 2.35, 'note': 'final Prestige card selected 1.6 (the cards reflow then), Keep 2.83, confirm dialog'},
+        {'src': take('n_prestige_clean'), 't': 4.05, 'd': 4.2, 'note': 'Prestige committed 4.03 (Winter I from 4.03): reveal, spiral, impact 5.9, ascend, resolve'},
+        {'src': take('n_endc'), 't': 0.6, 'd': 4.0, 'dim': 0.6, 'note': 'closing line'},
         end_card(2.0),
     ]
     at = [0.0]
@@ -81,26 +83,21 @@ def v1():
         tag(at[0], at[2], 'OLD BUILD · NOV 6', 216),
         text(at[0], at[1] - 0.1, ['A player rated', ('my game 4/10.', GOLD)], cy=c, size=100, anim='slam'),
         text(at[1], at[2] - 0.1, ['“Normal enemies hit', 'harder than bosses.”'], cy=c, size=84),
-        tag(at[2], at[3], 'DAY 2', 216, color=GOLD, size=70),
-        text(at[2] + 0.1, at[3] - 0.1, ['They were right.', ('I rebalanced it.', GOLD)], cy=c, size=96),
-        text(at[3], at[4] - 0.1, ['…but then', 'I couldn’t stop.'], cy=c, size=100, anim='slam'),
-        tag(at[4], at[5], 'DAY 5', 216, color=GOLD, size=70),
-        text(at[4] + 0.1, at[5] - 0.1, ['Stat feedback'], cy=c, size=100),
-        tag(at[5], at[11], 'DAY 6', 216, color=GOLD, size=70),
-        tag(at[5], at[6], 'BEFORE', 328, color=RED),
-        tag(at[6], at[7], 'AFTER', 328, color=GREEN),
-        text(at[5] + 0.1, at[6] - 0.1, ['Teleport was a list…'], cy=c, size=92),
-        text(at[6] + 0.1, at[7] - 0.1, [('…now it’s a map.', GOLD)], cy=c, size=92),
-        text(at[7] + 0.1, at[8] - 0.1, ['Merges pop.'], cy=c, size=100),
-        text(at[8] + 0.1, at[9] - 0.1, ['Weapons evolve.'], cy=c, size=100),
-        tag(at[9], at[10], 'BEFORE', 328, color=RED),
-        tag(at[10], at[11], 'AFTER', 328, color=GREEN),
-        text(at[9] + 0.1, at[10] - 0.1, ['Bosses just vanished…'], cy=c, size=88),
-        text(at[10] + 0.1, at[11] - 0.1, [('…now you feel it.', GOLD)], cy=c, size=92),
-        text(at[11] + 0.1, at[12] - 0.1, ['The 2-day fix', ('took 6 days.', GOLD), ('33 commits later', WHITE, 64)], cy=c - 60, size=108, anim='slam'),
+        tag(at[2], at[3], 'FIXED', 216, color=GREEN, size=70),
+        text(at[2] + 0.1, at[3] - 0.1, ['They were right.', ('So I fixed it…', GOLD)], cy=c, size=96),
+        tag(at[3], at[4], 'BEFORE', 216, color=RED),
+        tag(at[4], at[5], 'NOW', 216, color=GREEN),
+        text(at[3] + 0.1, at[4] - 0.1, ['…then kept going.', 'The fight was buried.'], cy=c, size=84),
+        text(at[4] + 0.15, at[5] - 0.1, [('Now you see it all.', GOLD)], cy=c, size=92),
+        text(at[5] + 0.4, at[6] - 0.1, ['Sort your loot.'], cy=c, size=100),
+        text(at[6] + 0.3, at[7] - 0.1, ['Buy by the stack.'], cy=c, size=100),
+        text(at[7] + 0.1, at[8] + 0.6, ['And Prestige…'], cy=c, size=100),
+        text(at[8] + 2.2, at[9] - 0.1, [('…now feels earned.', GOLD)], cy=c, size=92),
+        text(at[9] + 0.1, at[10] - 0.1, ['The 2-day fix', ('became a week.', GOLD), ('Thanks for the 4/10.', WHITE, 64)], cy=c - 60, size=100, anim='slam'),
     ]
     return {'shots': shots, 'overlays': ov, 'music': 62,
-            'meta': {'title': 'A player review changed everything', 'type': 'Bait / Hook', 'style': 'devlog, dated before/after hard cuts'}}
+            'meta': {'title': 'A player review changed everything', 'type': 'Bait / Hook',
+                     'style': 'devlog: dated before/after hard cuts, then a few improvements shown at full width'}}
 
 
 # ------------------------------------------------------------------ 2. crit match cut (new for this set)
@@ -151,16 +148,18 @@ def v4():
         {'src': take('n_gear2'), 't': 2.7, 'd': 6.0, 'note': 'defeat 2.96, the two drops in view, pickups 7.19 / 8.19'},
         {'src': take('n_merge'), 't': 1.9, 'd': 4.6, 'note': 'full panel: merges 2.23 / 2.93 / 3.63, Merge 57 spare copies 4.83'},
         {'src': take('n_evolve'), 't': 4.2, 'd': 3.6, 'note': 'Iron Sword -> Gold Sword'},
-        {'src': take('n_prestige'), 't': 0.6, 'd': 3.4, 'note': 'Prestige card choice, Hard Hit picked 2.2'},
+        {'src': take('n_prestige_fx'), 't': 1.65, 'd': 1.8, 'note': 'the final Prestige card selected 1.6, Keep 2.83'},
+        {'src': take('n_prestige_clean'), 't': 4.05, 'd': 3.7, 'note': 'Change 71 celebration: Prestige committed 4.03, impact 5.9, resolve'},
         {'src': take('n_end'), 't': 0.6, 'd': 2.8, 'note': 'Spring II'},
         end_card(2.0),
     ]
     at = [0.0]
     for s in shots:
         at.append(at[-1] + s['d'])
-    words = ['1  FIGHT', '2  LOOT', '3  MERGE', '4  EVOLVE', '5  PRESTIGE']
+    words = ['1  FIGHT', '2  LOOT', '3  MERGE', '4  EVOLVE']
     ov = [text(at[i] + 0.03, at[i + 1] - 0.08, [(w, GOLD)], cy=LOW, size=132, anim='slam') for i, w in enumerate(words)]
-    ov.append(text(at[5] + 0.03, at[6] - 0.08, ['COME BACK', ('STRONGER', GOLD)], cy=LOW - 30, size=116, anim='slam'))
+    ov.append(text(at[4] + 0.03, at[6] - 0.08, [('5  PRESTIGE', GOLD)], cy=LOW, size=132, anim='slam'))
+    ov.append(text(at[6] + 0.03, at[7] - 0.08, ['COME BACK', ('STRONGER', GOLD)], cy=LOW - 30, size=116, anim='slam'))
     return {'shots': shots, 'overlays': ov, 'music': 42,
             'meta': {'title': 'The loop in five words', 'type': 'Progressive', 'style': 'numbered cue words cut to the matching action'}}
 
@@ -197,6 +196,7 @@ def v6():
         {'src': take('n_evolve'), 't': 4.1, 'd': 3.6, 'note': 'evolution: charge, burst, reveal'},
         {'src': take('n_supply'), 't': 0.8, 'd': 1.8, 'note': 'Coin Tonic burst and aura'},
         {'src': take('n_teleport'), 't': 3.9, 'd': 2.0, 'note': 'Confirm Teleport, violet portal'},
+        {'src': take('n_prestige_clean'), 't': 4.05, 'd': 3.6, 'note': 'Prestige celebration with its own sound (Change 71)'},
         {'src': take('n_boss_clean'), 't': 2.6, 'd': 2.6, 'note': 'boss defeat moment'},
         end_card(1.6),
     ]
@@ -211,7 +211,7 @@ def v7():
     shots = [
         {'src': take('n_quick'), 't': 3.0, 'd': 2.6, 'dim': 0.5, 'note': 'hook over play'},
         {'src': take('n_offline'), 't': 0.5, 'd': 7.6, 'into': 'flash', 'note': 'full frame: the offline receipt after an 8 h absence (real settlement), Claim 5.23, the stats rise'},
-        {'src': take('n_quick'), 't': 0.9, 'd': 6.0, 'note': 'Auto Farm OFF -> ON 1.63'},
+        {'src': take('n_quick'), 't': 0.9, 'd': 6.0, 'view': (400, 420, 1.4), 'note': 'Auto Farm tile on the left rail (Change 72): red Off -> green On 1.63; framed on the rail and the fight'},
         end_card(2.0),
     ]
     ov = [
@@ -303,8 +303,35 @@ def v10():
             'meta': {'title': 'This boss killed me', 'type': 'Bait / Hook', 'style': 'three-act story: loss, upgrade at full width, rematch'}}
 
 
+# ------------------------------------------------------------------ 11. Prestige celebration (Change 73, new)
+# The rebuilt Prestige celebration (Change 71) on its own: the last card kept, the panel closes, the effect plays
+# once at speed, then again at half speed so its four phases (reveal, spiral, impact, resolve) can be seen.
+
+def v11():
+    c = LOW
+    shots = [
+        {'src': take('n_prestige_fx'), 't': 1.65, 'd': 2.4, 'note': 'Prestige panel, the last of five cards: Veteran Traveler selected 1.6, Keep 2.83, confirm dialog'},
+        {'src': take('n_prestige_clean'), 't': 4.05, 'd': 3.9, 'into': 'flash', 'note': 'Prestige committed 4.03: the celebration at speed'},
+        {'src': take('n_prestige_clean'), 't': 4.05, 'd': 6.8, 'speed': 0.5, 'into': ('xfade', 8), 'view': (540, 1010, 1.25), 'note': 'the same 3.4 s at half speed, closer, framed below the game banner'},
+        end_card(2.0),
+    ]
+    at = [0.0]
+    for s_ in shots:
+        at.append(at[-1] + s_['d'])
+    at[3] -= 8 / F
+    ov = [
+        text(0.0, 2.3, ['I gave up', ('all my gear…', GOLD)], cy=c, size=112, anim='slam'),
+        tag(at[2] - 0.0, at[3], 'REPLAY · ½ SPEED', 216, color=GOLD, size=56),
+        text(at[2] + 4.2, at[3] - 0.1, ['5 cards.', ('Kept forever.', GOLD)], cy=c, size=112),
+    ]
+    return {'shots': shots, 'overlays': ov, 'music': 122,
+            'meta': {'title': 'I gave up all my gear', 'type': 'Bait / Hook',
+                     'style': 'one UI beat, the celebration at speed, then a half-speed replay closer in'}}
+
+
 VIDEOS = {1: ('review_story', v1), 2: ('match_cut', v2), 3: ('gear_hook', v3), 4: ('loop', v4), 5: ('split_levels', v5),
-          6: ('sound_on', v6), 7: ('offline', v7), 8: ('31_swords', v8), 9: ('lookbook', v9), 10: ('revenge', v10)}
+          6: ('sound_on', v6), 7: ('offline', v7), 8: ('31_swords', v8), 9: ('lookbook', v9), 10: ('revenge', v10),
+          11: ('prestige', v11)}
 
 
 def output(n: int) -> Path:

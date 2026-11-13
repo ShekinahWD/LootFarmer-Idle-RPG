@@ -1918,6 +1918,343 @@
       "output": "../../store_assets/raw/video/social/draft/n_endc.avi"
     },
     {
+      "id": "n_hud_fight",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 6,
+        "level": 500,
+        "items": [
+          [
+            "diamond_sword",
+            20
+          ],
+          [
+            "boss-red-fox_outfit_t3",
+            500
+          ]
+        ],
+        "wear": [
+          "diamond_sword",
+          "boss-red-fox_outfit_t3"
+        ],
+        "seed": 7301,
+        "upgrades": {
+          "critical_chance": 20,
+          "critical_damage": 20
+        },
+        "boss": "unit-top-hat",
+        "pack": true,
+        "dy": 30,
+        "zoom": 2.6,
+        "follow": [
+          [
+            "opportunity"
+          ],
+          [
+            "mission"
+          ],
+          [
+            "mastery",
+            6,
+            "hunt"
+          ]
+        ],
+        "boss_history": [
+          "boss-grim-reaper",
+          "boss-black-cat"
+        ],
+        "challenges": [
+          "boss-grim-reaper",
+          "boss-black-cat"
+        ]
+      },
+      "width": 540,
+      "height": 960,
+      "fps": 30,
+      "duration": 10.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/draft/n_hud_fight.avi"
+    },
+    {
+      "id": "n_prestige_fx",
+      "kind": "video",
+      "scenario": "shot_prestige",
+      "options": {
+        "seed": 3406,
+        "wear": [
+          "boss-bee_outfit_t4",
+          "diamond_axe"
+        ],
+        "boss_history": [
+          "boss-cyan-robot",
+          "boss-teal-dinosaur"
+        ],
+        "challenges": [
+          "boss-cyan-robot",
+          "boss-teal-dinosaur"
+        ],
+        "path": "last",
+        "pick": 1,
+        "pick_at": 1.6,
+        "steps": [
+          [
+            2.4,
+            "zoom",
+            3.0,
+            0.3
+          ],
+          [
+            2.8,
+            "tap",
+            "keep_card"
+          ],
+          [
+            4.0,
+            "confirm"
+          ]
+        ]
+      },
+      "width": 540,
+      "height": 960,
+      "fps": 30,
+      "duration": 12.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/draft/n_prestige_fx.avi"
+    },
+    {
+      "id": "n_sort",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 6,
+        "level": 500,
+        "items": [
+          [
+            "wood_axe",
+            4
+          ],
+          [
+            "boss-red-fox_outfit_t3",
+            120
+          ],
+          [
+            "iron_sword",
+            20
+          ],
+          [
+            "boss-gray-cat_outfit_t2",
+            30
+          ],
+          [
+            "diamond_sword",
+            20
+          ],
+          [
+            "stone_sword",
+            8
+          ],
+          [
+            "boss-snowman_outfit",
+            40
+          ],
+          [
+            "gold_sword",
+            12
+          ],
+          [
+            "unit-pumpkin-head_outfit_t3",
+            3
+          ],
+          [
+            "emerald_sword",
+            2
+          ],
+          [
+            "boss-teal-dinosaur_outfit_t2",
+            60
+          ],
+          [
+            "boss-grim-reaper_outfit_t3",
+            1
+          ]
+        ],
+        "wear": [
+          "diamond_sword",
+          "boss-red-fox_outfit_t3"
+        ],
+        "seed": 7302,
+        "zoom": 2.4,
+        "inventory_zoom": 0,
+        "extra": [
+          [
+            "wood_axe",
+            40
+          ],
+          [
+            "stone_sword",
+            25
+          ],
+          [
+            "iron_sword",
+            3
+          ],
+          [
+            "unit-pumpkin-head_outfit_t3",
+            18
+          ],
+          [
+            "boss-snowman_outfit",
+            9
+          ]
+        ],
+        "steps": [
+          [
+            0.8,
+            "open",
+            "filters"
+          ],
+          [
+            2.2,
+            "tab_key",
+            "SORT_TIER"
+          ],
+          [
+            4.6,
+            "tab_key",
+            "SORT_QUANTITY"
+          ],
+          [
+            7.4,
+            "close"
+          ]
+        ]
+      },
+      "width": 540,
+      "height": 960,
+      "fps": 30,
+      "duration": 10.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/draft/n_sort.avi"
+    },
+    {
+      "id": "n_shop",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 6,
+        "level": 500,
+        "items": [
+          [
+            "diamond_sword",
+            20
+          ],
+          [
+            "boss-red-fox_outfit_t3",
+            500
+          ]
+        ],
+        "wear": [
+          "diamond_sword",
+          "boss-red-fox_outfit_t3"
+        ],
+        "seed": 7303,
+        "coins": 184000.0,
+        "gems": 420.0,
+        "extra": [
+          [
+            "potion",
+            2
+          ]
+        ],
+        "zoom": 2.4,
+        "steps": [
+          [
+            0.7,
+            "upgrades_tab",
+            2
+          ],
+          [
+            0.8,
+            "scroll_to",
+            "supply_qty_1",
+            60
+          ],
+          [
+            2.2,
+            "tap",
+            "supply_qty_10"
+          ],
+          [
+            3.6,
+            "tap",
+            "buy_supply_potion"
+          ],
+          [
+            6.6,
+            "close"
+          ]
+        ]
+      },
+      "width": 540,
+      "height": 960,
+      "fps": 30,
+      "duration": 9.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/draft/n_shop.avi"
+    },
+    {
+      "id": "n_prestige_clean",
+      "kind": "video",
+      "scenario": "shot_prestige",
+      "options": {
+        "seed": 3406,
+        "wear": [
+          "boss-bee_outfit_t4",
+          "diamond_axe"
+        ],
+        "boss_history": [
+          "boss-cyan-robot",
+          "boss-teal-dinosaur"
+        ],
+        "challenges": [
+          "boss-cyan-robot",
+          "boss-teal-dinosaur"
+        ],
+        "path": "last",
+        "pick": 1,
+        "pick_at": 1.6,
+        "clean": true,
+        "steps": [
+          [
+            2.8,
+            "tap",
+            "keep_card"
+          ],
+          [
+            3.9,
+            "zoom",
+            4.2,
+            0.01
+          ],
+          [
+            3.95,
+            "hud_off"
+          ],
+          [
+            4.0,
+            "confirm"
+          ]
+        ]
+      },
+      "width": 540,
+      "height": 960,
+      "fps": 30,
+      "duration": 10.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/draft/n_prestige_clean.avi"
+    },
+    {
       "id": "m_winter",
       "kind": "video",
       "scenario": "match_boss",

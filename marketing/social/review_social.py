@@ -1,4 +1,4 @@
-"""Technical validation and review sheets for the ten social masters (store_assets/video/social/).
+"""Technical validation and review sheets for the social masters (ten, plus video 11 since Change 73) (store_assets/video/social/).
 
     python marketing/social/review_social.py
 
@@ -153,7 +153,7 @@ def sheets(ids) -> None:
     cw, ch = 162, 288
     fracs = [0.007, 0.09, 0.18, 0.27, 0.36, 0.45, 0.54, 0.63, 0.72, 0.81, 0.96]
     over = Image.new('RGB', (len(fracs) * cw + 150, len(ids) * (ch + 6) + 40), (16, 14, 30))
-    label(over, 'LootFarmer social set (revision 2): eleven frames spread over each video (phone-size check)', (8, 8), 18)
+    label(over, 'LootFarmer social set (revision 3, Change 73): eleven frames spread over each video (phone-size check)', (8, 8), 18)
     firsts = Image.new('RGB', (len(ids) * 270, 480 + 34), (16, 14, 30))
     for row, n in enumerate(ids):
         path = B.output(n)

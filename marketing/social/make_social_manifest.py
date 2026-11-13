@@ -172,6 +172,32 @@ soc('n_endc', 13.0, stage=8, level=238, items=[['obsidian_sword', 60], ['boss-su
     boss_history=['boss-bee', 'boss-orange-tabby-cat', 'boss-sunflower'])
 
 
+# ---- Change 73 (refresh after Changes 71-72): the new interface and the rebuilt Prestige celebration.
+# A fight with the HUD and three followed objectives (the Change 72 rails). o_hud_fight is the same job
+# recorded from a detached worktree of 3856390 (12 Nov 2026, the HUD before the declutter).
+FOLLOW3 = [['opportunity'], ['mission'], ['mastery', 6, 'hunt']]
+soc('n_hud_fight', 10.0, **AUTUMN2, **AUTUMN_GEAR, seed=7301, upgrades=CRIT, boss='unit-top-hat', pack=True, dy=30,
+    zoom=2.6, follow=FOLLOW3, **REAPER)
+# The Prestige card kept with its own button: the panel closes and the celebration plays on the hero.
+PRESTIGE_FX = {'seed': 3406, 'wear': ['boss-bee_outfit_t4', 'diamond_axe'],
+               'boss_history': ['boss-cyan-robot', 'boss-teal-dinosaur'],
+               'challenges': ['boss-cyan-robot', 'boss-teal-dinosaur'], 'path': 'last', 'pick': 1, 'pick_at': 1.6}
+take('n_prestige_fx', 12.0, 'shot_prestige', {**PRESTIGE_FX, 'steps': [[2.4, 'zoom', 3.0, 0.3], [2.8, 'tap', 'keep_card'], [4.0, 'confirm']]})
+# Filters: the dock's gear grid reorders by Tier, then by Quantity (the saved view of Change 71).
+SORT_ITEMS = [['wood_axe', 4], [RED_FOX, 120], ['iron_sword', 20], ['boss-gray-cat_outfit_t2', 30], ['diamond_sword', 20],
+              ['stone_sword', 8], [SNOWMAN, 40], ['gold_sword', 12], ['unit-pumpkin-head_outfit_t3', 3],
+              ['emerald_sword', 2], [TEAL, 60], ['boss-grim-reaper_outfit_t3', 1]]
+soc('n_sort', 10.0, **AUTUMN2, items=SORT_ITEMS, wear=['diamond_sword', RED_FOX], seed=7302, zoom=2.4, inventory_zoom=0,
+    extra=[['wood_axe', 40], ['stone_sword', 25], ['iron_sword', 3], ['unit-pumpkin-head_outfit_t3', 18], [SNOWMAN, 9]],
+    steps=[[0.8, 'open', 'filters'], [2.2, 'tab_key', 'SORT_TIER'], [4.6, 'tab_key', 'SORT_QUANTITY'], [7.4, 'close']])
+# Supplies shop: quantity x10, buy ten Health Potions in one purchase.
+soc('n_shop', 9.0, **AUTUMN2, **AUTUMN_GEAR, seed=7303, coins=184000.0, gems=420.0, extra=[['potion', 2]], zoom=2.4,
+    steps=[[0.7, 'upgrades_tab', 2], [0.8, 'scroll_to', 'supply_qty_1', 60], [2.2, 'tap', 'supply_qty_10'], [3.6, 'tap', 'buy_supply_potion'], [6.6, 'close']])
+# The same Prestige with the HUD hidden from the confirm on, the camera closer (a clean take, 87.2).
+take('n_prestige_clean', 10.0, 'shot_prestige', {**PRESTIGE_FX, 'clean': True,
+     'steps': [[2.8, 'tap', 'keep_card'], [3.9, 'zoom', 4.2, 0.01], [3.95, 'hud_off'], [4.0, 'confirm']]})
+
+
 def load_v4():
     spec = importlib.util.spec_from_file_location('v4', HERE.parent / 'match_cut_v4' / 'make_match_v4_manifest.py')
     mod = importlib.util.module_from_spec(spec)
@@ -193,11 +219,17 @@ MATCH = {
 for sid, seconds in (('winter', 4.0), ('summer', 6.0), ('autumn', 5.0), ('spring', 6.0)):
     take(f'm_{sid}', seconds, 'match_boss', {**MATCH[sid], 'hud': 'match', 'numbers_gap': 1.5, 'cam': V4.cams()[sid]})
 
-def manifest(draft: bool) -> dict:
+# Recorded from a detached worktree of 3856390 (12 Nov 2026, the HUD before Change 72) with --before.
+BEFORE = {'o_hud_fight': 'n_hud_fight'}
+
+
+def manifest(draft: bool, before: bool = False) -> dict:
     w, h = (540, 960) if draft else (1080, 1920)
     sub = '/draft' if draft else ''
     jobs = []
-    for tid, (scenario, options, seconds) in TAKES.items():
+    pairs = [(old, TAKES[new]) for old, new in BEFORE.items()] if before else TAKES.items()
+    sub = '/before' if before else sub
+    for tid, (scenario, options, seconds) in pairs:
         jobs.append({'id': tid, 'kind': 'video', 'scenario': scenario, 'options': options, 'width': w, 'height': h,
                      'fps': F, 'duration': seconds, 'capture_ui': True, 'output': f'{OUT}{sub}/{tid}.avi'})
     return {'text_renderer': 'pillow', 'quality': 'high',
@@ -212,9 +244,10 @@ def manifest(draft: bool) -> dict:
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--draft', action='store_true')
+    p.add_argument('--before', action='store_true', help='manifest_before.json: the "before" jobs, output in before/')
     a = p.parse_args()
-    name = 'manifest_draft.json' if a.draft else 'manifest.json'
-    (HERE / name).write_bytes((json.dumps(manifest(a.draft), indent=2) + chr(10)).encode('utf-8'))
+    name = 'manifest_before.json' if a.before else ('manifest_draft.json' if a.draft else 'manifest.json')
+    (HERE / name).write_bytes((json.dumps(manifest(a.draft, a.before), indent=2) + chr(10)).encode('utf-8'))
     print('wrote', HERE / name, len(TAKES), 'takes')
 
 

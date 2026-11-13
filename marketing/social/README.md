@@ -1,4 +1,19 @@
-# LootFarmer social videos (Change 70)
+# LootFarmer social videos (Change 70; refreshed in Change 73)
+
+> **Revision 3 (13 Nov 2026, Change 73: refresh after Changes 71 and 72).** Every take was re-recorded on HEAD
+> `83e5492` (the rev-2 takes and masters are kept, untracked, in `store_assets/raw/video/social/rev2/` and
+> `store_assets/video/social/rev2/`). Combat is deterministic: crits, defeats, drops, the offline receipt (+6,720
+> Coins) and the rematch (25 HP left) replay on the same frames as before, so storyboards kept their in-points; what
+> changed is the interface (Change 72 edge rails, fight-form chips, the Auto Farm tile) and the Prestige celebration
+> (Change 71). Video 1 now tells the review story through a few visual improvements instead of the old list: a dated
+> HUD before/after (`before/o_hud_fight.avi`, recorded from a detached worktree of `3856390` with
+> `make_social_manifest.py --before`), saved sorting (`n_sort`), the bulk Supplies shop (`n_shop`) and the Prestige
+> celebration (`n_prestige_fx` with the HUD, `n_prestige_clean` from the commit on). Video 4's PRESTIGE beat and
+> video 6 gain the celebration; video 7 frames Auto Farm on the left rail. **Video 11 is new**: the Prestige
+> celebration at speed, then a half-speed replay. New adapter steps: `tap` (any guide tag, pinned rows included),
+> `tab_key`, `upgrades_tab`, `scroll_to`, `confirm`, `follow`, and timed `steps` on the store adapter's scenarios.
+> Every soc take now starts from the default inventory view, slot size and shop quantity (saved settings since
+> Change 71 would otherwise leak between takes).
 
 > **Revision 2 (12 Nov 2026, developer review).** The 15 s cap is gone (videos run 15 to 37 s). Panels are shown at
 > full width, never cropped (the merge burst sits on the item icon at the panel's left edge). Every caption sits on

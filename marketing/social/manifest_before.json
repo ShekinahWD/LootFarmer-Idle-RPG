@@ -1,0 +1,86 @@
+{
+  "text_renderer": "pillow",
+  "quality": "high",
+  "fonts": {
+    "default": {
+      "file": "../../assets/GUIPackCartoon/Demo/Fonts/LilitaOne - Regular.ttf"
+    }
+  },
+  "strings": {
+    "en-US": {}
+  },
+  "game_scene": "res://scenes/game/main.tscn",
+  "adapter_script": "res://marketing/social/social_scenarios.gd",
+  "ui_group": "store_screenshot_ui",
+  "godot_user_args": [
+    "--profile=capture-store",
+    "--no-autosave",
+    "--first-run-complete"
+  ],
+  "log_show": [
+    "LOOTFARMER_MARKETING"
+  ],
+  "output_root": "../../store_assets",
+  "capture_jobs": [
+    {
+      "id": "o_hud_fight",
+      "kind": "video",
+      "scenario": "soc",
+      "options": {
+        "stage": 6,
+        "level": 500,
+        "items": [
+          [
+            "diamond_sword",
+            20
+          ],
+          [
+            "boss-red-fox_outfit_t3",
+            500
+          ]
+        ],
+        "wear": [
+          "diamond_sword",
+          "boss-red-fox_outfit_t3"
+        ],
+        "seed": 7301,
+        "upgrades": {
+          "critical_chance": 20,
+          "critical_damage": 20
+        },
+        "boss": "unit-top-hat",
+        "pack": true,
+        "dy": 30,
+        "zoom": 2.6,
+        "follow": [
+          [
+            "opportunity"
+          ],
+          [
+            "mission"
+          ],
+          [
+            "mastery",
+            6,
+            "hunt"
+          ]
+        ],
+        "boss_history": [
+          "boss-grim-reaper",
+          "boss-black-cat"
+        ],
+        "challenges": [
+          "boss-grim-reaper",
+          "boss-black-cat"
+        ]
+      },
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 10.0,
+      "capture_ui": true,
+      "output": "../../store_assets/raw/video/social/before/o_hud_fight.avi"
+    }
+  ],
+  "videos": []
+}
