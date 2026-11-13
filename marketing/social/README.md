@@ -16,7 +16,8 @@ ignored by Git and Godot) and nothing has been uploaded.
   (Change 73) has passed the automated half only; the viewing half (normal speed, sound, phone) is the developer's.
 - **Already behind the game:** Change 74 (6351d85) enlarged the HUD by 30% and removed the fight-form chips that the
   HUD shots show; Change 75 reshaped the Next Stage chip and the zoom slider. Every shot with the HUD (videos 1, 4,
-  6, 7, 8, 10, 11's first shot) shows the Change 72 HUD. A refresh is a re-record of all takes plus one build (see
+  6, 7, 8, 10, 11's first shot) shows the Change 72 HUD. Under the Playbook's scope rule (133.10 point 7) that is a
+  change visible across the set: re-record every take with the HUD on screen and rebuild the videos using them (see
   "Revising"), and video 1's caption "Now you see it all." should be re-checked against the Change 74 HUD.
 - **Rights (REL-02, open):** no licence or purchase record exists for `assets/sounds` (the music) or the Pixel
   Plains art. These are local review masters, not cleared for upload (Playbook 49).
@@ -156,8 +157,10 @@ A video is a function returning `{'shots', 'overlays', 'music', 'meta'}`:
 ## Revising
 
 1. Copy, timing, order or music in-point: edit `build_social.py`, build the numbers changed, review.
-2. Gameplay or interface changed: archive the current takes and masters (`rev<N>/` folders), re-record **every**
-   take the set uses on the current build, build all, review. Fixed seeds and the deterministic simulation replay
+2. Gameplay or interface changed: sort the changes since the recording commit by the Playbook's scope rule
+   (133.10 point 7). Archive the current takes and masters (`rev<N>/` folders), re-record the takes the changes
+   reach on the current build (every take the set uses when the reach is broad or uncertain, as in Change 73),
+   rebuild the videos that use them, review. Fixed seeds and the deterministic simulation replay
    the same fights on the same frames, so in-points normally survive; check each video's `note` events against the
    new logs (`grep -E "BOSS_DEFEATED|crit=true|COLLECTED|PRESS" <take>.avi.log`) and re-check every figure in a
    caption.
