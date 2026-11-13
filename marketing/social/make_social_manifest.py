@@ -1,5 +1,5 @@
 """Writes marketing/social/manifest.json (Godot Marketing Capture Toolkit 1.0.2): the capture jobs for the
-ten 15 s social masters. Every take is real play of res://scenes/game/main.tscn at the current build through
+social masters (marketing/social/README.md). Every take is real play of res://scenes/game/main.tscn at the current build through
 marketing/social/social_scenarios.gd (scenario "soc") or the store adapter's own scenarios. The cut itself is
 composed by build_social.py from these masters; this manifest only records.
 

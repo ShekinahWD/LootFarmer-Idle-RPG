@@ -4,8 +4,9 @@
 
 Writes store_assets/video/social/review/: validation.json, one contact sheet per video (a frame every second),
 overview.png (the whole set, phone-size frames) and overview_first_frames.png. Exits non-zero when a contract
-fails. Contracts: 1080x1920, 30 fps, 450 frames, 15.000 s, H.264 High yuv420p (TV range), one AAC 48 kHz stereo
-stream, faststart, no black frame, every cut on the planned frame, text inside the platform-safe box, audio peak
+fails. Contracts: 1080x1920, 30 fps, the planned frame count and duration (from the video's timeline), H.264 High yuv420p (TV range), one AAC 48 kHz stereo
+stream, faststart, no black frame, every cut on the planned frame, text inside the platform-safe box, every caption
+held at least 1.4 s at no more than 14 characters per second (name labels exempt), audio peak
 below -0.9 dBFS without a dropout, music videos carrying only the developer's track, and every earlier approved
 medium byte-identical to its hash taken before this work.
 """

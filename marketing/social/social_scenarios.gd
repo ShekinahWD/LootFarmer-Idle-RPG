@@ -1,5 +1,5 @@
 extends "res://marketing/game_scenarios.gd"
-## LootFarmer social-video adapter (ten 15 s vertical masters, marketing/social/). It extends the store
+## LootFarmer social-video adapter (the vertical social masters, marketing/social/README.md). It extends the store
 ## adapter and adds ONE data-driven scenario, "soc": a staged profile (the store adapter's own
 ## _stage_profile / _late_profile), a placement, and a list of timed steps. Every step calls what the
 ## player's own tap calls (the item panel's Merge / Evolve buttons, sim.equip, sim.collect, sim.use_item,

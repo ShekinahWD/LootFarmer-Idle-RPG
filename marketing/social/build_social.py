@@ -1,6 +1,7 @@
-"""Builds the ten LootFarmer social masters (9:16, 1080x1920, 30 fps; 15 to 31 s each) from the recorded takes.
+"""Builds the LootFarmer social masters (eleven since Change 73; 9:16, 1080x1920, 30 fps; length set per video) from
+the recorded takes.
 
-    python marketing/social/build_social.py            # all ten
+    python marketing/social/build_social.py            # all of them
     python marketing/social/build_social.py 3 7        # only these
 
 Sources (all real play; nothing is drawn here except text and the approved end card):
@@ -8,7 +9,8 @@ Sources (all real play; nothing is drawn here except text and the approved end c
   store_assets/raw/video/social/before/*.avi   the build of 6 Nov 2026 (3dd2eab), recorded from a detached worktree
   store_assets/raw/video/trailer_c32/c33_gear.avi   the 28 Oct 2026 build (Change 33 take), used only as "before"
   store_assets/raw/video/trailer_c32/end_card.mkv   the approved brand end card (feature-graphic layers)
-Every string is in STRINGS below (en-US); message type and editing style per video are in VIDEOS[*]['meta'].
+Every caption (en-US) is written in its video's storyboard function below; message type and editing style per video
+are in each function's 'meta'. The table VIDEOS lists the videos and their slugs.
 """
 import importlib.util
 import sys

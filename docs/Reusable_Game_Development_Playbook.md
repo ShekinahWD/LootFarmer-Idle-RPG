@@ -36,6 +36,8 @@
 
 > **Social video craft — 2026-11-12:** Section 133.10 records the reusable lessons of the first portrait social set (LootFarmer, ten masters, approved after one developer revision): reading time, one focal point, complete actions, unobstructed framing, length chosen by content, a distinct identity per video, fresh capture after the game changes, real-speed review and developer review as a production step. 133.5 no longer fixes social videos at about 15 s or to trailer footage only; 133.7 and 133.9 record match cuts as a validated option.
 >
+> **Social video workflow consolidation — 2026-11-13 (LootFarmer documentation audit after Change 73):** 133.11 adds the end-to-end runbook (order, inputs, outputs, pointing to the owning sections), 133.12 the catalogue of editing techniques with what each is for and whether it was approved or only reviewed, 133.13 the tooling (toolkit composer versus a project-side compositor, whose portrait features are candidate toolkit changes), dependencies, the files to keep for revisions and the workflow's untested limits. 133.1 no longer contradicts 133.5 on localization (social sets stay one reference-language set unless variants are requested), 133.5 allows an additional master only for a feature that carries its own video, and 133.10 points 7 and 8 record the refresh traps and validating after every build. Game-specific commands and paths stay in each game's `marketing/social/README.md`.
+>
 > **Video messaging classifications — 2026-11-08:** Section 133.9 adds four independently chosen promotional message types (Bait / Hook, Informational, Progressive, No Text), separate from editing/composition styles. Stage 4 Coming Soon and Stage 17 Out Now promotional videos can use whichever fits their story; the ten-video quantity and existing video export specifications are unchanged. A bait opening may lead with text before gameplay; No Text uses a visual hook instead of a required written headline. Claims and footage remain truthful, and no quota per type is imposed.
 >
 > **Shared foundation and two-phase marketing update — 2026-11-08:** The shared Settings panel is specified in 16.5 and the exact seven default Statistics in 17.4; the embedded bootstrap starter now includes their state/audio/persistence shells, while game-themed working panels are a Stage 3 demo gate. The demo-first workflow publishes Android + HTML5 on itch.io at Stage 4 with one Coming Soon video and two Coming Soon thumbnails. The final launch produces two Out Now thumbnails (not a pair per video) and both feature graphics sequentially: horizontal approved first, vertical recomposed after approval (101.1, 133.8). The existing ten vertical social masters remain unchanged and reusable across TikTok/Reels/Shorts. No new reusable documentation document is created.
@@ -9174,7 +9176,7 @@ A **single reusable video workflow** must produce a Play Store trailer **or any 
 - Shot types: staged real-gameplay clip, marketing text on black or branded background, title/end card (which may restage the feature graphic's layers for the target aspect, 101.1), and reusable already-recorded footage. Marketing text may overlay gameplay **or** appear on cards, independently enabled per shot.
 - Animate cameras where feasible (zoom, pan, follow, fixed), control gameplay staging and framing, and support explicit transitions, sequence order, overlays and optional sound effects.
 - Output can be silent/game-audio-only by default; when the developer supplies an MP3/WAV (or another supported source), arrange scenes against the track and include it in the final render. **Do not require Claude to source or create music.** When the developer asks for **music only**, exclude game audio at the source rather than turning it down (133.3).
-- Maintain all written video headlines/title-card copy in the approved 20-language marketing localization set. Allow export of selected locales using the same source composition and footage.
+- Keep every written headline, card and caption as data (manifest strings or storyboard tables), never baked into footage, so a locale can be exported from the same composition and footage. The store trailer's copy follows the store listing's localization (134.2). Social videos are one reference-language set unless localized variants are explicitly requested (133.5); their captions are translated only then.
 
 ## 133.2 Transitions must be rendered, never simulated by instantaneous swaps
 
@@ -9218,7 +9220,7 @@ Produced after the store trailer is approved. By default they are **derived edit
 
 Defaults (Everfort, 2026-10-14: ten 15 s TikTok masters from the Play trailer's raw clips and music, no new recording):
 
-- **10 master videos**, 9:16, 1080×1920, 30 fps; H.264 + AAC like the trailer. **Length follows the content, not a quota:** about 15 s is a starting target for a single-moment video, and a video runs longer when its captions need reading time or its actions need to finish (133.10). Stay within the platforms' current short-form limits. Reuse the **same encoded file without modification** for TikTok, Instagram Reels and YouTube Shorts after confirming current upload rules at publication time. The 5 **full-landscape** compositions in a landscape game's set are still **vertical 9:16 output files** containing a complete 16:9 gameplay frame inside; they are **not** five additional horizontal MP4s. No second parallel set or new orientation is required without explicit approval.
+- **10 master videos**, 9:16, 1080×1920, 30 fps; H.264 + AAC like the trailer. An additional master is made only when a later feature is strong enough to carry a video of its own, never to raise the count (LootFarmer added an eleventh for its rebuilt Prestige celebration, Change 73). **Length follows the content, not a quota:** about 15 s is a starting target for a single-moment video, and a video runs longer when its captions need reading time or its actions need to finish (133.10). Stay within the platforms' current short-form limits. Reuse the **same encoded file without modification** for TikTok, Instagram Reels and YouTube Shorts after confirming current upload rules at publication time. The 5 **full-landscape** compositions in a landscape game's set are still **vertical 9:16 output files** containing a complete 16:9 gameplay frame inside; they are **not** five additional horizontal MP4s. No second parallel set or new orientation is required without explicit approval.
 - **One set, not one per locale.** The default deliverable is 10 masters in the reference language. Localized social variants are produced only when explicitly requested; their copy comes from the same manifest keys.
 - **Ten different angles, not near-duplicates.** Each video sells a different real feature or promise (e.g. survival intensity, the progression loop, prestige and visual evolution, damage/crit escalation, horde pressure, the campaign length, upgrades, permanent skills, idle defense, early-vs-late comparison). Select a fitting message type (133.9) per video with **no mandatory quotas** across the ten; message type is independent of the five/five landscape composition split. Reuse the same raw clips with different in-points, framing and order rather than repeating the same edit with new text.
 - **5/5 composition split (mandatory for a landscape game; validated on Everfort):**
@@ -9232,7 +9234,7 @@ Defaults (Everfort, 2026-10-14: ten 15 s TikTok masters from the Play trailer's 
 - **Platform-safe text margins**: keep text out of the top ~8% (tabs), bottom ~22% (caption, sound) and right ~12% (buttons). The toolkit applies these by default to vertical social profiles, in both compositions.
 - **End on the brand** (logo/icon + name). A hard end (no picture fade) loops cleanly; give the music a short fade.
 - **Reuse the approved music**, varying the in-point per video so a phrase or bar accent lands on the first cut.
-- **Package from the manifest**, not a hard-coded list: every social-profile video in the manifest is a master; its composition is read from its reframes, and the packager checks the count and the 5/5 split.
+- **Package from data**, not a hand-assembled list: with the toolkit composer every social-profile video in the manifest is a master, its composition is read from its reframes and the packager checks the count and the 5/5 split; with a project-side compositor (133.13) the storyboard table is the list and the validator checks every entry.
 - Validate like the trailer, for all 10: resolution/fps/duration/audio probe, transition and text-hold checks, review sheet and a keyframe contact sheet checked at phone size (plus one overview sheet of the whole set), and the Play Store deliverables' hashes unchanged. **These checks prove the file, not the video:** readability, pacing, clarity and sound are judged at normal playback speed by a person, and the developer's review is a planned production step (133.10).
 
 Reusable rule:
@@ -9406,6 +9408,7 @@ LootFarmer's first social set passed every technical check and still needed a fu
 - The viewing half: watch every video at normal speed, with sound, at phone size, once without pausing, and ask: could I read everything, did I know where to look, did each action finish, does it sound right. Sheets and frame strips cannot answer these; LootFarmer's first cut passed all of the first half.
 - An agent that cannot watch or listen says so plainly in its report and hands the viewing half to a person; it does not describe a video as reviewed on the strength of sheets.
 - Put guards in the tool where a rule can be computed (a caption that leaves the safe box or breaks the reading guideline stops the build), so a revision cannot reintroduce the fault.
+- Validate after every build, not only after the last: an interrupted encode leaves a truncated file under the final name (LootFarmer: "moov atom not found" on one master of a batch), which no sheet made earlier shows.
 - Measurement lessons: read audio peaks per channel (a float mono downmix can overstate them); leave headroom for lossy-codec overshoot instead of relying on a limiter; a game-sound-only video has silent gaps unless the game's own music runs quietly underneath, as it does in play.
 
 **9. Developer review is a production step.** Plan for at least one round of review and revision before calling a set finished.
@@ -9418,6 +9421,99 @@ LootFarmer's first social set passed every technical check and still needed a fu
 Reusable rule:
 
 > **Storyboard reading time first, keep one focal point and one caption position, let every action finish, show panels and subjects unobstructed, let length follow the message, give each video its own idea, capture the game as it is now, and treat real-speed viewing and the developer's review as production steps that no technical check replaces.**
+
+---
+
+## 133.11 Social video set: end-to-end runbook
+
+The order of work for a set of short-form social videos, from an empty folder to a set ready for the developer's publishing decision. Each step points to the section that owns its rules; this runbook adds only the order, the inputs and the outputs. LootFarmer's implementation (portrait, eleven masters, Changes 70 and 73) is the worked example in its `marketing/social/README.md`.
+
+**Inputs:** the current build, the approved brand end card or feature-graphic layers (101.1), the developer's music (133.1), the pinned toolkit (135) passing `status`, and the game's scenario adapter (133.4).
+
+1. **Read the game as it is now** (133.10 point 7): the GDD, the shipped features, the changes since any earlier footage, the balance caps that limit staged loadouts. List the features worth a video and what each looks like on screen.
+2. **Plan the set as ten ideas** (133.5, 133.10 point 6). For each video write one row: number and slug, the idea, the message type (133.9), the editing style (133.12), the hook and its first seconds, the takes it needs, the caption position, a rough length (133.10 point 5). Check variety across the rows before any capture.
+3. **Storyboard reading time first** (133.10 point 1): every caption's text and hold, then the shots that carry it, every action with its start, effect and result (133.10 point 3).
+4. **Extend the adapter** (133.4) with the staging each take needs: profile, placement, timed steps that call what a tap calls, seed search for drops (133.7 point 5), clean view where the HUD is not the subject (87.2). Each step logs its event with the take's clock; a step that finds no control logs a failure.
+5. **Choose loadouts honestly** with balance probes: run the real fight to its end in the simulation and keep loadouts that win or lose as the story needs, within the game's caps (133.10 point 7).
+6. **Stage at small size**: record each new take at a quarter of the final pixels (LootFarmer 540×960), read its log and contact sheet, fix staging. Only then record at full size.
+7. **Record the full-size takes**, one capture at a time per project, each with its event log; record dated "before" footage from the older commit in a separate checkout (133.10 point 7).
+8. **Compose** from the storyboards (133.13): every in-point taken from the log, never guessed; captions on their own contrast in one position per video; the approved end card last; music in-points on the track's accents.
+9. **Validate the files** (133.10 point 8, automated half) and fix until the validator passes; confirm every other approved medium is byte-identical.
+10. **Inspect the frames** at phone size: the overview sheet, the first frames side by side, the frames around every key moment (a panel reflow, a scene change mid-take, an effect covering the subject). Then the **viewing half** at normal speed with sound; an agent that cannot do it says so and hands it on.
+11. **Developer review and revision** (133.10 point 9).
+12. **Publishing preparation**: one posting-copy entry per approved master (133.6), the two campaign thumbnails (133.8), the rights records for every asset in the videos (49), the platforms' current upload limits checked at publication time. Publishing stays a human action.
+13. **Keep for revision** everything listed in 133.13 and record the set's state (built from which commit, what the set already lags) in the project's social README.
+
+Reusable rule:
+
+> **Plan ten distinct ideas with their message types, storyboard reading time before shots, stage takes small and record them full size with event logs, compose from data, validate the files, inspect the frames, hand the viewing to a person, revise after review, and keep every source needed to rebuild.**
+
+## 133.12 Editing techniques: what each is for and how it was validated
+
+Techniques used in approved or reviewed videos. They are options; pick each for what the video says (133.9), not to show variety for its own sake. "Validated" names where the result was approved or, where marked, only reviewed or only checked automatically.
+
+| Technique | Use it for | How it is made, and its traps | Validated |
+|---|---|---|---|
+| Hard cut | Rhythm between moments of one idea | Cut after the action's result is seen (133.10 point 3) | LootFarmer social set |
+| White flash into a shot | A reveal: before/after, the moment a story turns | A few frames blended toward white at the start of the incoming shot; reserve it for turns, or it stops meaning anything | LootFarmer videos 1, 7, 10 |
+| Crossfade | Two views of one subject (the same moment at another speed, gear then action) | A short overlap (LootFarmer 8 frames; 0.3 s in its trailer); never into a title card (133.2) | LootFarmer trailer; video 11 (automated checks only) |
+| Fade through black | Title cards | 133.2 | Everfort and LootFarmer trailers |
+| Crop window and slow push | Making a small subject readable, a gentle move inside a static take | A window `(cx, cy, zoom)` eased to a second window; never crop a panel (133.10 point 4); a crop costs resolution, so prefer the game camera's zoom when re-recording is cheap | LootFarmer videos 2, 7, 11 |
+| Punch-in on a cut | Emphasis on a match-cut impact | Start the incoming shot slightly zoomed in and ease out | LootFarmer video 2 |
+| Match cut | The same action across different gear or places | Cut on logged impact frames, same screen position and apparent size across the cut (133.7) | LootFarmer video 2 (crit frames) |
+| Recorded camera move | A move that must continue across a cut | Camera keys (time, offset, velocity, zoom) on a Hermite curve driven by the adapter during the take; the move is baked into the footage, so changing it means re-recording | LootFarmer match-cut experiments V2 to V4 (reviewed, not approved) |
+| Zoom rush with speed blur | Energy at a cut between two zoom levels | A radial blur post-pass whose strength follows the camera's zoom speed, masked to the frame edges so the subject stays sharp | LootFarmer experiments V3 to V4 (reviewed, not approved) |
+| Slow-motion replay | A short effect whose phases the eye cannot follow at speed | Play once at speed, then again at half speed, closer in, under a fixed "replay" tag; frame repetition from a 30 fps take suits pixel art, a smooth-art game should record that take at a higher frame rate instead | LootFarmer video 11 (automated checks only) |
+| Split screen | A comparison (early vs late) | Two clean takes stacked with a divider and fixed labels; never two full HUDs (133.10 point 4) | LootFarmer video 5 |
+| Dated before/after | Showing a change honestly | Old footage recorded from the old commit (133.10 point 7), BEFORE and NOW tags in one fixed corner, the same capture job on both builds so only the change differs | LootFarmer video 1 |
+| Dim behind a closing line | A final caption over moving footage | Darken the picture under the line instead of cutting to a card | LootFarmer video 1 |
+| Beat-cut montage | Many short looks (a lookbook) | Shot lengths from the music's measured beat; name labels exempt from the reading-time rule | LootFarmer video 9 |
+| Music section | Every music-only video | One continuous section per video, its in-point on a downbeat of the track; a fixed gain to a set peak (no limiter pumping); a short fade out (133.3) | All LootFarmer music-only videos |
+| Game sound over a music bed | A "sound on" video | The takes' recorded sound cut exactly with the picture, the game's own music quietly underneath (LootFarmer level 0.3) so the cuts have no silent gaps | LootFarmer video 6 |
+
+Reusable rule:
+
+> **Choose each technique for what the shot must say, make it from logged events and real takes, and treat the ones that were only reviewed as experiments, not approved defaults.**
+
+## 133.13 Tooling, dependencies and what to keep
+
+**Toolkit composer or project-side compositor.** Toolkit 1.0.2's `video` command composes clips, cards, fades, landscape reframes (focused, or the full frame with blurred or black fill), game audio and music, and keeps text in its social safe area; use it for trailers and landscape social sets (Everfort). LootFarmer's portrait social set needed per-shot crop windows and slow pushes on portrait takes, split screens, white flashes, half-speed replays, captions on dark plates with a reading-time validator, music in-points on downbeats and a game-sound mix over a music bed. It records with the toolkit (`marketing.py record`) and composes with a small project-side compositor (Python: FFmpeg decode to raw frames, Pillow for text, one H.264 encode). Those compositor features are **candidate toolkit changes** (135.2), not part of 1.0.2; promote them only through a validated toolkit version. Until then a new portrait game copies the pattern, not LootFarmer's files.
+
+**Dependencies (validated on Windows 10, 13 Nov 2026):** the Godot 4.7.2 console executable; the pinned toolkit; Python 3.12 with numpy and Pillow; FFmpeg and ffprobe 8.0.1 on `PATH`; the game's title font; the developer's music file. Set `PYTHONUTF8=1` when the toolkit reads Godot logs that contain non-ASCII text. Movie Maker records at the window size the toolkit sets through a temporary `override.cfg`, independent of the monitor (133.3); one capture at a time per project.
+
+**Typical command sequence** (LootFarmer's script names; a new game writes its own equivalents):
+
+```text
+python <toolkit>/tools/marketing.py status --project .        # toolkit pinned and intact
+python marketing/social/make_social_manifest.py [--draft]     # takes: scenario + options + seconds
+python marketing/social/record_takes.py [--draft] [ids...]    # toolkit record per job; log summary + contact sheet
+python marketing/social/build_social.py [numbers...]          # storyboards -> MP4 + timeline JSON
+python marketing/social/review_social.py                      # validation JSON, sheets, overview; non-zero on failure
+```
+
+Measured on LootFarmer: about 1.3 minutes per full-size 1080×1920 take, about 20 seconds to build a video, a few minutes to validate eleven. Run long recordings in the background and validate after every build (133.10 point 8).
+
+**Keep for future revisions** (sources tracked; media in the ignored output tree with a durable backup, 133.1):
+
+| Kind | Examples | Why |
+|---|---|---|
+| Tracked source | adapter, take manifests and their generator, storyboards, compositor, validator, posting copy, README | Everything needed to rebuild any video with one command |
+| Raw takes with their event logs | `<take>.avi` + `<take>.avi.log` | In-points and caption figures come from the logs; recomposition never needs a new recording |
+| Dated "before" takes | recorded from older commits | The old build cannot be recorded again without its checkout |
+| Per-video timelines and the validation JSON | shots with source in-points and notes, overlay boxes, audio settings | Proof of what each master contains, and the input for the next revision |
+| The end card master and the music file | lossless end card, the developer's track | Shared by every video |
+| The previous revision's takes and masters | a `rev<N>/` folder beside each tree | Comparison and rollback after a refresh |
+| Hashes of other approved media | a list the validator checks | Proof that a social batch changed nothing else |
+
+Intermediate files (the last build's audio WAVs, draft takes, contact sheets of takes) can be regenerated and need no backup.
+
+**Folder layout:** new games use the `generated/videos/` tree of 133.1 and 0.2.5. A game that predates that layout keeps its own (LootFarmer: `store_assets/raw/video/social/` and `store_assets/video/social/`) and records the mapping in its marketing README (135.4: existing repositories are not migrated).
+
+**Limits of the validated workflow:** Windows only; one reference language (no localized social set has been produced, so caption length in other languages is untested); the compositor draws captions with Pillow without complex-script shaping, so Thai, Devanagari and similar scripts need the toolkit's Godot-rendered text or a shaping library before localized captions are attempted; slow motion by frame repetition only; no automatic check that a caption covers the subject (that is the frame inspection of 133.11 step 10).
+
+Reusable rule:
+
+> **Record with the pinned toolkit, compose with the toolkit when it covers the video and with a small project-side compositor when it does not (and propose those features for the next toolkit version), keep every source and log needed to rebuild, and state what the workflow has not been validated for.**
 
 ---
 
