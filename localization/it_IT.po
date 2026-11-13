@@ -3580,12 +3580,6 @@ msgstr "Vista lunga"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50% raggio di esplorazione intorno a te"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Ricognizione dei campi"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "I campi costano il 50% di monete in meno"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Precisione"
 

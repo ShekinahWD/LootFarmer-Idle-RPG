@@ -3578,12 +3578,6 @@ msgstr "千里眼"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "周围探索半径 +50%"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "营地勘察"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "营地所需金币减少 50%"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "精准"
 

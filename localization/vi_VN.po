@@ -3580,12 +3580,6 @@ msgstr "Tầm Nhìn Xa"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50% bán kính khám phá quanh bạn"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Khảo Sát Trại"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Trại tốn ít hơn 50% xu"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Chính Xác"
 

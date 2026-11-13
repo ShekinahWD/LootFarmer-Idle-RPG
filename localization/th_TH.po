@@ -3580,12 +3580,6 @@ msgstr "สายตาไกล"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "รัศมีสำรวจรอบตัว +50%"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "สำรวจค่าย"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "ค่ายใช้เหรียญน้อยลง 50%"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "แม่นยำ"
 

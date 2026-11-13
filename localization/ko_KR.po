@@ -3578,12 +3578,6 @@ msgstr "천⁠리⁠안"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "주⁠변 탐⁠험 반⁠경 +50%"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "캠⁠프 조⁠사"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "캠⁠프 코⁠인 비⁠용 50% 감⁠소"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "정⁠밀"
 

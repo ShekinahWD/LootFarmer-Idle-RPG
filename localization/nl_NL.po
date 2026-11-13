@@ -3580,12 +3580,6 @@ msgstr "Verre blik"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50% verkenningsradius om je heen"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Kampverkenning"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Kampen kosten 50% minder munten"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Precisie"
 

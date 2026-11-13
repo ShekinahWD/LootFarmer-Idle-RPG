@@ -3583,12 +3583,6 @@ msgstr "Visão Distante"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50% de raio de exploração ao seu redor"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Reconhecimento de Acampamentos"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Acampamentos custam 50% menos moedas"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Precisão"
 

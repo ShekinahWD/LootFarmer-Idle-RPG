@@ -2483,6 +2483,30 @@
    "placeholders": [],
    "change": "change-76",
    "status": "changed"
+  },
+  "CONTENT_REGIONAL_C3_NAME": {
+   "en": "Camp Supplies",
+   "placeholders": [],
+   "change": "change-77",
+   "status": "changed"
+  },
+  "CONTENT_REGIONAL_C3_DESCRIPTION": {
+   "en": "Get 1 free random supply on your first visit to each owned camp every Prestige run",
+   "placeholders": [],
+   "change": "change-77",
+   "status": "changed"
+  },
+  "CAMP_SUPPLY_RECEIVED": {
+   "en": "Camp Supplies: +1 %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-77"
+  },
+  "CAMP_SUPPLY_WAITING": {
+   "en": "Camp Supplies: free a supply slot to collect this camp's supply",
+   "placeholders": [],
+   "change": "change-77"
   }
  },
  "retired": {

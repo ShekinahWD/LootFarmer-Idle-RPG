@@ -3580,12 +3580,6 @@ msgstr "Pandangan Jauh"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50% radius penjelajahan di sekitarmu"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Survei Kemah"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Kemah 50% lebih murah"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Presisi"
 

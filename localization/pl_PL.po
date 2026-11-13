@@ -3580,12 +3580,6 @@ msgstr "Dalekie spojrzenie"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50% do zasięgu odkrywania wokół ciebie"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Zwiad obozów"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Obozy kosztują o 50% mniej monet"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Precyzja"
 

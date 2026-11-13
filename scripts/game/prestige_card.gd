@@ -46,6 +46,7 @@ static func headline(definition: Dictionary) -> String:
     var value: float=float(definition.value)
     match str(definition.effect):
         "crit","gear_chance","supply_chance","gem_chance":return TranslationServer.translate("CARD_VALUE_POINTS") % roundi(value*100)
-        "boss_guard","guard","coin_discount","reroll_discount","camp_discount":return "−%d%%" % roundi(value*100)
+        "boss_guard","guard","coin_discount","reroll_discount":return "−%d%%" % roundi(value*100)
+        "camp_supplies":return "+%d" % roundi(value) # Change 77: one supply per camp (name and line say so)
         "respawn":return TranslationServer.translate("CARD_VALUE_SECONDS") % str(snappedf(value,.1)).trim_suffix(".0")
     return "+%d%%" % roundi(value*100)

@@ -3583,12 +3583,6 @@ msgstr "Weitblick"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50 % Erkundungsradius um dich herum"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Lagervermessung"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Lager kosten 50 % weniger Münzen"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Präzision"
 

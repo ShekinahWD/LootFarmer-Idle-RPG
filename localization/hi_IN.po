@@ -3580,12 +3580,6 @@ msgstr "दूरदृष्टि"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "आपके आसपास खोज दायरा +50%"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "कैंप सर्वेक्षण"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "कैंप में 50% कम सिक्के लगते हैं"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "सटीकता"
 

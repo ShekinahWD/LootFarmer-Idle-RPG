@@ -1,4 +1,10 @@
-# LootFarmer — Test Suite (current, 2026-11-13, Change 76)
+# LootFarmer — Test Suite (current, 2026-11-13, Change 77)
+
+## Change 77: Camp Supplies replaces Camp Survey (13 November 2026)
+
+- `change_77_probe` (new, in the suite): regional_c3 keeps its id, path, string keys and Regional set membership with effect camp_supplies; a released schema 8 save owning the card gets the effect and no discount; one free random supply per owned camp per Prestige run (from the map's supply pool), never repeated by staying, leaving and returning, teleporting, respawning or reloading; different camps and maps reward independently; nothing without the card, at an unowned camp, while defeated, during a Prestige choice or on a map beyond the run's reach; a full inventory leaves the camp unmarked with one waiting notice and gives the supply once there is room; disk save/reload; Prestige clears the record while camps and cards stay; Hard Reset; older and damaged saves; the card and toast in the UI.
+- `change_6_probe` updated: the card no longer discounts camps.
+- `change_77_capture` (windowed evidence, not in the suite): docs/Change_77_Evidence.
 
 ## Change 76: permanent camps, boss weapon notice, Auto Buy Supplies (13 November 2026)
 

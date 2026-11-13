@@ -3578,12 +3578,6 @@ msgstr "千里眼"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "周囲の探索範囲+50%"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "キャンプ調査"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "キャンプに必要なコインが50%減少"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "精密"
 

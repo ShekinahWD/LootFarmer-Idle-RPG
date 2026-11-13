@@ -3580,12 +3580,6 @@ msgstr "Далекий погляд"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50% до радіуса дослідження навколо тебе"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Розвідка таборів"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Табори коштують на 50% менше монет"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Влучність"
 

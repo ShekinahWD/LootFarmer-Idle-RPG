@@ -3580,10 +3580,10 @@ msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50% exploration radius around you"
 
 msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Camp Survey"
+msgstr "Camp Supplies"
 
 msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Camps cost 50% fewer coins"
+msgstr "Get 1 free random supply on your first visit to each owned camp every Prestige run"
 
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Precision"
@@ -6722,3 +6722,9 @@ msgstr "Auto Buy"
 
 msgid "AUTO_BUY_DONE"
 msgstr "Auto Buy: %d × %s"
+
+msgid "CAMP_SUPPLY_RECEIVED"
+msgstr "Camp Supplies: +1 %s"
+
+msgid "CAMP_SUPPLY_WAITING"
+msgstr "Camp Supplies: free a supply slot to collect this camp's supply"

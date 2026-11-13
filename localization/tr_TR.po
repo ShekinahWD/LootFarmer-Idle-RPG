@@ -3580,12 +3580,6 @@ msgstr "Uzak Görüş"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "Etrafındaki keşif yarıçapına +%50"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Kamp Keşfi"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Kamplar %50 daha az altın tutar"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Hassasiyet"
 

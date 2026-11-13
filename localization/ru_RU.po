@@ -3580,12 +3580,6 @@ msgstr "Дальний взгляд"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50% к радиусу исследования вокруг тебя"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Разведка лагерей"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Лагеря стоят на 50% меньше монет"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Точность"
 

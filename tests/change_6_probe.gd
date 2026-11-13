@@ -101,7 +101,8 @@ func card_checks() -> void:
     fresh();var base_steal: float=sim.stats().lifesteal;var base_price: int=sim.campaign.camp_price(1)
     sim.state.owned_cards=["challenge_c2","regional_c3"];sim.touch()
     check(is_equal_approx(sim.stats().lifesteal,base_steal+.05),"Resolve grants life steal")
-    check(sim.campaign.camp_price(1)==ceili(base_price*.5),"Camp Survey halves camp prices")
+    # Change 77: Camp Survey became Camp Supplies (same card id); camps keep their full price.
+    check(sim.campaign.camp_price(1)==base_price,"Camp Supplies (formerly Camp Survey) leaves camp prices unchanged")
     var headline: String=load("res://scripts/game/prestige_card.gd").headline(cards.challenge_c1)
     check(headline=="+15 pts","Point-based cards show points, not percent: "+headline)
 

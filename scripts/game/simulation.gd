@@ -38,6 +38,10 @@ signal respawn_selected(camp: int)
 signal boss_defeated(actor_id: String, group: int, at: Vector2)
 ## Change 76: Auto Buy Supplies bought `amount` copies of a supply (after the purchase was committed).
 signal auto_bought(id: String, amount: int)
+## Change 77: Camp Supplies gave this supply on a camp's first visit this run.
+signal camp_supply_granted(id: String)
+## Change 77: a camp's supply is due but no supply slot is free (shown once per visit).
+signal camp_supply_waiting
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 ## Change 13: summoning and final-boss action rules (inspector-editable resource).

@@ -286,6 +286,9 @@ func _ready() -> void:
         elif kind in ["mastery_map","mastery_game"]:mastery_stage=0;_open("mastery"))
     sim.event.connect(_event)
     sim.auto_bought.connect(func(id: String,amount: int)->void:_say(tr("AUTO_BUY_DONE") % [amount,sim.catalog.display_name(id)]))
+    # Change 77: Camp Supplies uses the toast lane (never a blocking panel).
+    sim.camp_supply_granted.connect(func(id: String)->void:_say(tr("CAMP_SUPPLY_RECEIVED") % sim.catalog.display_name(id)))
+    sim.camp_supply_waiting.connect(func()->void:_say(tr("CAMP_SUPPLY_WAITING")))
     SaveService.save_failed.connect(func(_reason: String)->void:_event("SAVE_ERROR"))
     get_viewport().size_changed.connect(_safe_area)
     # Change 25: a tracker first measured before its text wrapped reported a several-hundred-pixel

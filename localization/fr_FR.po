@@ -3583,12 +3583,6 @@ msgstr "Vue lointaine"
 msgid "CONTENT_REGIONAL_C2_DESCRIPTION"
 msgstr "+50 % de rayon d’exploration autour de vous"
 
-msgid "CONTENT_REGIONAL_C3_NAME"
-msgstr "Relevé des camps"
-
-msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Les camps coûtent 50 % de pièces en moins"
-
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Précision"
 
