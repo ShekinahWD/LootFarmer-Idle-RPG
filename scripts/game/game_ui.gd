@@ -405,6 +405,7 @@ func _build_hud_rails() -> void:
     var zoom: Control=map.get_node("Zoom")
     zoom.hide()
     map.move_child(zoom,-1)
+    _style_zoom_slider(zoom)
     var button:=Button.new()
     button.name="ZoomButton"
     button.focus_mode=Control.FOCUS_NONE
@@ -417,11 +418,69 @@ func _build_hud_rails() -> void:
     zoom.get_node("Slider").value_changed.connect(func(_value: float)->void:zoom_open_time=ZOOM_OPEN_SECONDS)
     zoom.get_node("Slider").drag_started.connect(func()->void:zoom_open_time=ZOOM_OPEN_SECONDS)
     var gate: Control=map.get_node("Gate")
+    # Change 75: two lines (see _refresh_gate); Row/Label keeps the whole sentence for the tooltip and checks.
+    gate.get_node("Row/Label").hide()
+    var lines:=VBoxContainer.new()
+    lines.name="Lines"
+    lines.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    lines.alignment=BoxContainer.ALIGNMENT_CENTER
+    lines.add_theme_constant_override("separation",-2)
+    for pair in [["Caption",GATE_CAPTION_FONT,Color(.82,.86,.92)],["Value",CHIP_FONT,Color(1,.86,.5)]]:
+        var label:=Label.new()
+        label.name=pair[0]
+        label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+        label.add_theme_font_size_override("font_size",pair[1])
+        label.add_theme_color_override("font_color",pair[2])
+        label.add_theme_color_override("font_outline_color",Color.BLACK)
+        label.add_theme_constant_override("outline_size",4)
+        lines.add_child(label)
+    gate.get_node("Row").add_child(lines)
+    gate.get_node("Row").alignment=BoxContainer.ALIGNMENT_BEGIN
     gate.mouse_filter=Control.MOUSE_FILTER_STOP
     gate.gui_input.connect(func(event: InputEvent)->void:
         if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
             accept_event();_open("world"))
     _sync_zoom()
+
+## Change 75: the zoom slider in the HUD's look: a dark rounded track with a lighter filled part, a round grabber
+## in the plates' pale teal (the engine's white square looked foreign), the value in the chip font.
+func _style_zoom_slider(zoom: Control) -> void:
+    var slider: HSlider=zoom.get_node("Slider")
+    slider.custom_minimum_size=Vector2(0,36)
+    var track:=StyleBoxFlat.new()
+    track.bg_color=Color(.08,.12,.16,.95)
+    track.border_color=Color(.30,.40,.44)
+    track.set_border_width_all(1)
+    track.set_corner_radius_all(5)
+    track.content_margin_top=5;track.content_margin_bottom=5
+    var fill:=track.duplicate()
+    fill.bg_color=Color(.40,.66,.70)
+    fill.border_color=Color(.40,.66,.70)
+    slider.add_theme_stylebox_override("slider",track)
+    slider.add_theme_stylebox_override("grabber_area",fill)
+    slider.add_theme_stylebox_override("grabber_area_highlight",fill)
+    var knob: Texture2D=_round_knob(26,Color(.86,.93,.92),Color(.10,.16,.20))
+    var hot: Texture2D=_round_knob(26,Color(1,1,1),Color(.10,.16,.20))
+    slider.add_theme_icon_override("grabber",knob)
+    slider.add_theme_icon_override("grabber_highlight",hot)
+    var value: Label=zoom.get_node("Value")
+    value.custom_minimum_size=Vector2(56,0)
+    value.add_theme_font_size_override("font_size",CHIP_FONT)
+    value.add_theme_constant_override("outline_size",4)
+
+## A filled circle with an outline, drawn once (no new asset).
+func _round_knob(side: int,fill: Color,edge: Color) -> Texture2D:
+    var image:=Image.create(side,side,false,Image.FORMAT_RGBA8)
+    var c:=Vector2(side,side)*.5
+    for y in range(side):
+        for x in range(side):
+            var d:=Vector2(x+.5,y+.5).distance_to(c)
+            var r:=side*.5-.5
+            if d<=r-2.0:image.set_pixel(x,y,fill)
+            elif d<=r:image.set_pixel(x,y,edge)
+            elif d<=r+.8:image.set_pixel(x,y,Color(edge,clampf(r+.8-d,0,1)))
+            else:image.set_pixel(x,y,Color(0,0,0,0))
+    return ImageTexture.create_from_image(image)
 
 ## The zoom button opens the slider under the minimap for a few seconds (a second tap closes it). Pinch
 ## zooms as before and updates the button's value.
@@ -864,6 +923,8 @@ const TILE_FONT:=21
 const ZOOM_BUTTON:=Vector2(68,48)
 const CHIP_FONT:=17
 const CAPTION_GAP:=4.0
+## Change 75: the open zoom slider's plate: the Mastery chip's height plus the gap under it.
+const ZOOM_PLATE_HEIGHT:=48.0
 func _layout_hud() -> void:
     var map: Control=$Safe/Layout/Map
     var right: float=map.size.x-HUD_MARGIN
@@ -887,19 +948,20 @@ func _layout_hud() -> void:
         var node: Control=map.get_node(path)
         if not node.visible:continue
         var least: float=_chip_width(node) if node is Button else node.get_combined_minimum_size().x
-        var size:=Vector2(clampf(least,MINIMAP_SIDE,map.size.x*.6),STATUS_HEIGHTS[path])
+        var size:=Vector2(clampf(least,MINIMAP_SIDE,map.size.x*.6),maxf(STATUS_HEIGHTS[path],node.get_combined_minimum_size().y))
         _place(node,Rect2(right-size.x,y,size.x,size.y))
         y+=size.y+PILL_GAP
-        # The open zoom slider takes the chips' place for its few seconds (they return untouched).
-        var alpha: float=0.0 if map.get_node("Zoom").visible else 1.0
+        # Change 75: the open zoom slider takes the place of the chip it covers (the first one) for its few
+        # seconds; the chip returns untouched.
+        var alpha: float=0.0 if map.get_node("Zoom").visible and Rect2(right-MINIMAP_SIDE,chips_top,MINIMAP_SIDE,ZOOM_PLATE_HEIGHT).intersects(Rect2(right-size.x,y-size.y-PILL_GAP,size.x,size.y)) else 1.0
         if node.modulate.a!=alpha:node.modulate.a=alpha
     _place(map.get_node("History"),Rect2(right-HISTORY_WIDTH,y+2,HISTORY_WIDTH,136))
     var zoom: Control=map.get_node("Zoom")
     if zoom.visible:
-        var width: float=MINIMAP_SIDE+HUD_GAP+ZOOM_BUTTON.x
-        var plate:=Rect2(right-width,chips_top,width,maxf(maxf(56,zoom.get_combined_minimum_size().y),y-PILL_GAP-chips_top))
+        # Change 75: one slider row at the minimap's width (it used to stretch over both chips, 296 x 86).
+        var plate:=Rect2(right-MINIMAP_SIDE,chips_top,MINIMAP_SIDE,ZOOM_PLATE_HEIGHT)
         _place(map.get_node("ZoomPlate"),plate)
-        _place(zoom,plate.grow_individual(-10,0,-4,0))
+        _place(zoom,plate.grow_individual(-10,0,-6,0))
     x=HUD_MARGIN
     # The name is as wide as its text, up to the minimap (the longest name in the 20 languages fits at 24 px;
     # a longer one would end in an ellipsis there).
@@ -920,7 +982,8 @@ func _chip_width(chip: Button) -> float:
     return ceilf(font.get_string_size(chip.text,HORIZONTAL_ALIGNMENT_LEFT,-1,CHIP_FONT).x+style.get_minimum_size().x+chip.get_theme_constant("icon_max_width")+chip.get_theme_constant("h_separation")+8)
 
 const MINIMAP_SIDE:=220.0
-const STATUS_HEIGHTS:={"Mastery":44.0,"Explored":30.0,"Gate":38.0}
+const STATUS_HEIGHTS:={"Mastery":44.0,"Explored":30.0,"Gate":52.0}
+const GATE_CAPTION_FONT:=14
 ## The left rail's width (the three enemy controls in a row, and an objective pill): 162+6+76+6+76.
 const LEFT_COLUMN_WIDTH:=ACHIEVEMENT_WIDTH+(TILE_GAP+TILE_SIDE)*2
 ## The recent-finds feed (right-aligned rows) keeps its Change 72 width.
@@ -1058,6 +1121,23 @@ func _refresh_gate() -> void:
     var node: Control=$Safe/Layout/Map/Gate
     node.visible=text!=""
     node.get_node("Row/Label").text=text
+    # Change 75: shown on two lines, the place as a small caption over the count ("Next Stage" / "Bosses 0/1"),
+    # so the chip keeps the minimap's width. Split at the catalog's own separator (" · " or ": "); a text
+    # without one stays on one line.
+    var lines: Array=gate_lines(text)
+    node.get_node("Row/Lines/Caption").text=lines[0]
+    node.get_node("Row/Lines/Caption").visible=lines[0]!=""
+    node.get_node("Row/Lines/Value").text=lines[1]
+
+## Change 75: the Next Stage text as [caption, main line] (caption "" when the text has no separator).
+static func gate_lines(text: String) -> Array:
+    for separator in [" · ",": "]:
+        var at: int=text.find(separator)
+        if at>0:
+            # On its own line the count starts with a capital ("Verder: bazen 0/1" -> "Verder" / "Bazen 0/1").
+            var rest: String=text.substr(at+separator.length())
+            return [text.substr(0,at),rest.left(1).to_upper()+rest.substr(1)]
+    return ["",text]
 
 ## Offline earnings are claimed in game: offer the claim once per settlement, when nothing else
 ## (a panel, a confirmation, the guide chooser or a prestige choice) is in front of the player.

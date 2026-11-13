@@ -16,6 +16,8 @@ extends Node
 ## - Map buttons (World Travel grid, Teleport) carry the icons of the followed objectives progressing there.
 ## - Toasts stay long enough to read (a boss weapon's ITEM_ENHANCED); one may pass over the joystick.
 ## - No text collapses: a long pill title wraps and the pill grows.
+## - Change 75: Next Stage on two lines at the minimap's width in every language; the zoom slider plate is one
+##   row at the minimap's width, hides only the Mastery chip and has a round grabber.
 ## Run: Godot --headless --path . res://tests/change_74_probe.tscn -- --probe --profile=probe-c74 --no-autosave --first-run-complete
 var checks:=0
 var failures:=0
@@ -53,6 +55,7 @@ func run() -> void:
     await map_button_checks()
     await toast_time_checks()
     await wrap_checks()
+    await gate_and_zoom_checks()
     SettingsState.set_joystick_position(1)
     get_window().size=Vector2i(720,1280)
     LocalizationService.select_language("automatic")
@@ -470,3 +473,40 @@ func wrap_checks() -> void:
         var label: Label=follow.get_node("Row/Text/Name")
         check(follow.size.y>game.PILL_HEIGHT and label.get_line_count()>=2 and label.get_visible_line_count()>=label.get_line_count() and follow.size.x<=game.LEFT_COLUMN_WIDTH+.5,"%s: a long title wraps (%d lines) and its pill grows to %d" % [lang,label.get_line_count(),int(follow.size.y)])
     LocalizationService.select_language("automatic");await frames(4)
+
+# ---------------------------------------------------------------- Change 75: Next Stage chip, zoom plate
+func gate_and_zoom_checks() -> void:
+    print("-- Next Stage chip and zoom plate (Change 75)")
+    var worst:="";var widest:=0.0
+    for lang in LocalizationService.ENABLED_LANGUAGES:
+        LocalizationService.select_language(lang)
+        fixture()
+        game.gate_text=""
+        await frames(4);await hud_ticks(3)
+        var gate: Control=node("Gate");var caption: Label=gate.get_node("Row/Lines/Caption");var value: Label=gate.get_node("Row/Lines/Value")
+        var full: String=gate.get_node("Row/Label").text
+        var ok: bool=caption.visible and caption.text!="" and value.text.ends_with("0/1") and full.begins_with(caption.text) and full.to_lower().ends_with(value.text.to_lower()) and value.text.left(1)==value.text.left(1).to_upper() and not gate.get_node("Row/Label").visible
+        ok=ok and absf(gate.size.x-game.MINIMAP_SIDE)<.5 and absf(gate.get_rect().end.x-node("MiniMap").get_rect().end.x)<1 and gate.size.y>=gate.get_combined_minimum_size().y-.5
+        if gate.get_combined_minimum_size().x>widest:widest=gate.get_combined_minimum_size().x;worst=lang
+        check(ok,"%s: \"%s\" over \"%s\", %dx%d" % [lang,caption.text,value.text,int(gate.size.x),int(gate.size.y)])
+    check(widest<=game.MINIMAP_SIDE,"Every language fits the minimap's width (widest %s, %d)" % [worst,int(widest)])
+    LocalizationService.select_language("automatic")
+    fixture()
+    sim.state.unlocked_stage=8;sim.state.stage=8;game.gate_text="";sim.touch()
+    await frames(4);await hud_ticks(3)
+    check(node("Gate/Row/Lines/Value").text.ends_with("/%d" % int(sim.campaign.gate_status().total)) and node("Gate/Row/Lines/Caption").text==game.gate_lines(node("Gate/Row/Label").text)[0],"The final map's World clear chip splits too: \"%s\" / \"%s\"" % [node("Gate/Row/Lines/Caption").text,node("Gate/Row/Lines/Value").text])
+    check(game.gate_lines("No separator here")==["","No separator here"],"A text without a separator stays one line")
+    fixture()
+    await frames(4);await hud_ticks(3)
+    node("ZoomButton").pressed.emit();await frames(3)
+    var plate: Rect2=node("ZoomPlate").get_rect();var mastery: Rect2=node("Mastery").get_rect()
+    check(absf(plate.size.x-game.MINIMAP_SIDE)<.5 and plate.size.y<=game.ZOOM_PLATE_HEIGHT+.5 and absf(plate.end.x-node("MiniMap").get_rect().end.x)<1 and plate.encloses(node("Zoom").get_rect()),"The open slider is one row at the minimap's width (%s)" % plate)
+    check(node("Mastery").modulate.a==0.0 and plate.intersects(mastery) and node("Gate").modulate.a==1.0 and not plate.intersects(node("Gate").get_rect()),"It takes the Mastery chip's place only; Next Stage stays visible")
+    var slider: HSlider=node("Zoom/Slider")
+    var knob: Texture2D=slider.get_theme_icon("grabber")
+    check(slider.has_theme_icon_override("grabber") and knob.get_width()==26 and knob.get_image().get_pixel(13,13).a==1.0 and knob.get_image().get_pixel(0,0).a==0.0,"The grabber is round (26 px), not the white square")
+    slider.value=1.5;await frames(2)
+    check(is_equal_approx(SettingsState.camera_zoom,1.5) and node("ZoomButton").text=="1.5×","Moving it still zooms")
+    node("ZoomButton").pressed.emit();await frames(3)
+    check(not node("Zoom").visible and node("Mastery").modulate.a==1.0,"A second tap closes it and Mastery returns")
+    SettingsState.set_camera_zoom(2.0)

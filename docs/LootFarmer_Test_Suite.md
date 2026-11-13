@@ -1,4 +1,8 @@
-# LootFarmer — Test Suite (current, 2026-11-13, Change 74)
+# LootFarmer — Test Suite (current, 2026-11-13, Change 75)
+
+## Change 75: Next Stage on two lines, compact zoom slider (13 November 2026)
+
+- `change_74_probe` extended to 166 checks: the Next Stage chip as caption over count at the minimap's width in all 20 languages (World clear too, a text without separator stays one line, the count capitalised), the open zoom slider one 220x48 row hiding only the Mastery chip, a round grabber, zoom still works and closes.
 
 ## Change 74: HUD enlargement, Prestige touch scrolling, objective names (13 November 2026)
 
