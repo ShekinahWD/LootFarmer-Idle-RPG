@@ -34,6 +34,8 @@
 
 > **Historical production-audit consolidation — 2026-10-28 (LootFarmer full production audit; demo timing/ownership superseded by the 2026-11-08 sections 0.9–0.9.2):** The lifecycle grows from 19 to 20 stages: **Stage 16 — Demo Generation, Content Stripping & Validation** (0.9, 0.9.1); former Stages 16–19 are now 17–20 and their cross-references (87.8, 133, 134.4) were renumbered. Practices verified while auditing LootFarmer were merged into their owning sections rather than appended as a new change section: confirmation layout settled once instead of per frame (16.3), tutorial waits on an active real-time clock (18.5), export allowlists for unused pack content (22.2), desktop frame-time and save-cost measurement method with explicit device boundaries (48), and suite hygiene for unregistered probes, evidence-writing validators and clock-source changes (60.1). Each is marked with what was measured on desktop and what still needs a phone. Sections 138–146 remain project-labelled lesson batches from earlier changes; fold them into their owning sections at the next consolidation pass rather than adding a section 147.
 
+> **Text readability standard — 2026-11-13:** Section 133.14 gathers everything about text over promotional video in one place: the order of decisions (caption, hold, position, then shots), time (holds, reading speed, gaps, exempt labels), amount, placement inside the safe box and off the subject, contrast and type, motion, the game's own interface text, and the four checks from build guard to developer review, with LootFarmer's approved values as examples.
+>
 > **Social video craft — 2026-11-12:** Section 133.10 records the reusable lessons of the first portrait social set (LootFarmer, ten masters, approved after one developer revision): reading time, one focal point, complete actions, unobstructed framing, length chosen by content, a distinct identity per video, fresh capture after the game changes, real-speed review and developer review as a production step. 133.5 no longer fixes social videos at about 15 s or to trailer footage only; 133.7 and 133.9 record match cuts as a validated option.
 >
 > **Social video workflow consolidation — 2026-11-13 (LootFarmer documentation audit after Change 73):** 133.11 adds the end-to-end runbook (order, inputs, outputs, pointing to the owning sections), 133.12 the catalogue of editing techniques with what each is for and whether it was approved or only reviewed, 133.13 the tooling (toolkit composer versus a project-side compositor, whose portrait features are candidate toolkit changes), dependencies, the files to keep for revisions and the workflow's untested limits. 133.1 no longer contradicts 133.5 on localization (social sets stay one reference-language set unless variants are requested), 133.5 allows an additional master only for a feature that carries its own video, and 133.10 points 7 and 8 record the refresh traps and validating after every build. Game-specific commands and paths stay in each game's `marketing/social/README.md`.
@@ -9286,7 +9288,7 @@ A trailer can pass every technical check (smooth fades, readable cards, correct 
 
 **6. Cards, end card and audio.**
 
-- Title cards follow 133.2 (text only on black) and 74.1: one natural sentence each, timed for reading (LootFarmer: about 18 characters per second, at least 1.5 s fully visible).
+- Title cards follow 133.2 (text only on black) and 74.1: one natural sentence each, timed for reading (LootFarmer: about 18 characters per second, at least 1.5 s fully visible). That speed is for text alone on black; text over moving gameplay needs more time (133.14).
 - Close on the approved brand: an end card restaged from the feature graphic's layers for the video's aspect (101.1 step 7), not an icon pasted on black.
 - Use the developer's chosen music; music-only cuts exclude game audio at the source (133.3).
 
@@ -9352,7 +9354,7 @@ Reusable rule:
 
 LootFarmer's first social set passed every technical check and still needed a full revision: the developer could not read the captions in time, did not know where to look, saw key animations cropped or cut short, and found one video a copy of an earlier one. The revision was approved. The rules below are general; the numbers and choices marked as LootFarmer's are examples, not requirements. They add to 133.5 (format, safe margins, truthfulness), 133.7 (the hook as a chain) and 133.9 (message types) and do not replace them.
 
-**1. Reading time is part of the storyboard.** A viewer reads a caption and watches the action at once, so each caption needs more time than its length alone suggests.
+**1. Reading time is part of the storyboard.** A viewer reads a caption and watches the action at once, so each caption needs more time than its length alone suggests. The working values, placement and checks are in 133.14.
 
 - Plan the caption's hold before choosing the shot length, and lengthen the shot to fit; do not shorten the text's time to fit a shot.
 - One caption at a time. Two captions that appear together, or one that changes while a label elsewhere also changes, split attention.
@@ -9432,12 +9434,12 @@ The order of work for a set of short-form social videos, from an empty folder to
 
 1. **Read the game as it is now** (133.10 point 7): the GDD, the shipped features, the changes since any earlier footage, the balance caps that limit staged loadouts. List the features worth a video and what each looks like on screen.
 2. **Plan the set as ten ideas** (133.5, 133.10 point 6). For each video write one row: number and slug, the idea, the message type (133.9), the editing style (133.12), the hook and its first seconds, the takes it needs, the caption position, a rough length (133.10 point 5). Check variety across the rows before any capture.
-3. **Storyboard reading time first** (133.10 point 1): every caption's text and hold, then the shots that carry it, every action with its start, effect and result (133.10 point 3).
+3. **Storyboard reading time first** (133.10 point 1, 133.14): every caption's text and hold, then the shots that carry it, every action with its start, effect and result (133.10 point 3).
 4. **Extend the adapter** (133.4) with the staging each take needs: profile, placement, timed steps that call what a tap calls, seed search for drops (133.7 point 5), clean view where the HUD is not the subject (87.2). Each step logs its event with the take's clock; a step that finds no control logs a failure.
 5. **Choose loadouts honestly** with balance probes: run the real fight to its end in the simulation and keep loadouts that win or lose as the story needs, within the game's caps (133.10 point 7).
 6. **Stage at small size**: record each new take at a quarter of the final pixels (LootFarmer 540×960), read its log and contact sheet, fix staging. Only then record at full size.
 7. **Record the full-size takes**, one capture at a time per project, each with its event log; record dated "before" footage from the older commit in a separate checkout (133.10 point 7).
-8. **Compose** from the storyboards (133.13): every in-point taken from the log, never guessed; captions on their own contrast in one position per video; the approved end card last; music in-points on the track's accents.
+8. **Compose** from the storyboards (133.13): every in-point taken from the log, never guessed; captions on their own contrast in one position per video (133.14); the approved end card last; music in-points on the track's accents.
 9. **Validate the files** (133.10 point 8, automated half) and fix until the validator passes; confirm every other approved medium is byte-identical.
 10. **Inspect the frames** at phone size: the overview sheet, the first frames side by side, the frames around every key moment (a panel reflow, a scene change mid-take, an effect covering the subject). Then the **viewing half** at normal speed with sound; an agent that cannot do it says so and hands it on.
 11. **Developer review and revision** (133.10 point 9).
@@ -9514,6 +9516,69 @@ Intermediate files (the last build's audio WAVs, draft takes, contact sheets of 
 Reusable rule:
 
 > **Record with the pinned toolkit, compose with the toolkit when it covers the video and with a small project-side compositor when it does not (and propose those features for the next toolkit version), keep every source and log needed to rebuild, and state what the workflow has not been validated for.**
+
+## 133.14 On-screen text readability: the working standard
+
+One place for everything about text drawn over a promotional video (hooks, captions, cue words, tags, name labels). 133.10 points 1 and 2 say why; this section says how, with the values that were approved. It applies to any video with text over moving footage; black title cards keep their own rule (133.2, 133.7 point 6). The failure it prevents: LootFarmer's first social cut passed every technical check, and the developer's first words were that the text "gets lost with all the game visuals" and "you don't know where to look"; several captions were on screen for under a second.
+
+**The order of decisions.** Text is designed before the edit, not laid over a finished cut:
+
+1. Write the caption (one natural thought, 74.1).
+2. Give it a hold from its length and the busyness of the footage under it.
+3. Choose the one position the video's captions will use.
+4. Choose the shots, and make each long enough for its caption and its action (133.10 point 3).
+5. Only then set in-points and transitions.
+
+**Time.**
+
+| What | General rule | LootFarmer (approved set, 49 captions) |
+|---|---|---|
+| Minimum hold | Long enough to notice, read and look back at the action; never under about 1.5 s for any caption a viewer must read | Validator floor 1.4 s; shortest 1.45 s, median 2.7 s, longest 5.9 s |
+| Reading speed | Slower than reading alone, because the viewer also watches the game | Validator ceiling 14 characters per second; median 7.4 |
+| Text on a black card | May be faster, nothing competes with it | Trailer cards about 18 characters per second, at least 1.5 s fully visible (133.7) |
+| Counting | Count every character the viewer reads, spaces included, over the whole time the caption is on screen; remember the entrance and exit eat into it | Entrance 0.14 to 0.2 s, exit 0.12 s |
+| Busy footage | Add time when the picture is dense (many damage numbers, a panel to read, an effect to watch) or the wording is unusual | Captions over a panel the viewer must also read held 3 to 4 s |
+| Gap between captions | A short empty beat so a change of caption registers as a change | 0.1 to 0.3 s |
+| Exempt labels | A name that only accompanies the picture may flash with it, if declared as a label and nothing depends on reading it | Outfit names on one-beat shots (0.41 s) |
+
+The floor and ceiling are guards that catch mistakes. They are not targets: a caption at exactly 1.4 s and 14 characters per second is the fastest allowed, not a good one. Other languages run longer and other scripts read differently; re-time, do not shrink.
+
+**Amount.** One caption on screen at a time. Two lines is normal and three the limit; LootFarmer's longest caption is 49 characters. A longer thought becomes two consecutive captions joined by an ellipsis ("Teleport was a list…" then "…now it's a map."), each with its own hold. Do not restate what the footage already shows legibly; do restate a figure the viewer could not read in the game's own small interface text.
+
+**Place.**
+
+- **One position per video.** Pick the band where that video's footage has free space and keep every caption there (LootFarmer at 1080×1920: an upper band centred near y 330 for clean takes with the hero mid-frame, a lower band near y 1345 for interface takes, where it covers the inventory dock rather than the panel being shown). A split screen puts its hook on the divider.
+- **Inside the platform-safe box** (133.5). LootFarmer's box at 1080×1920: x 60 to 950, y 154 to 1497. The tool clamps a caption that would leave the box vertically and stops the build when one cannot fit.
+- **Off the subject.** Before fixing a band, look at the frames under it for the action, the control being pressed, the number that changes and the game's own titles and banners. Covering an unrelated part of the HUD is fine.
+- **Fixed tags** (a date, BEFORE / NOW, a level, REPLAY) sit in one corner for as long as they apply and never move or animate.
+
+**Contrast and type.**
+
+- **A caption carries its own background.** Stroke and shadow alone lost against LootFarmer's bright floors, white flashes and gold effects; every approved caption sits on a dark, slightly transparent rounded plate (about 73% opaque) with a dark stroke and a soft shadow on the letters. Tags use a nearly opaque pill.
+- **Size for a phone.** Judge text on the phone-size overview sheet (LootFarmer: frames 162 px wide); what cannot be read there is too small. Approved sizes at 1080 px width, in the game's title face: hooks and cue words 104 to 160 px, sentences 84 to 112 px, tags 54 to 70 px. The tool shrinks a line that would exceed the plate's width (770 px) instead of letting it run out of the box.
+- **One accent.** White text with a single accent colour for the phrase that matters (LootFarmer gold; red or green only where the meaning is loss or gain). More colours read as noise.
+- **The brand's own face**, with its licence recorded (49); never a default system font.
+
+**Motion.** A caption arrives with a short entrance (a pop or slam of 0.2 s or less) and then holds still; it does not drift, pulse or scroll while it is being read. Do not start a caption on the same frame as the effect it describes, on a white flash, or on a cut that also changes a tag; let one lead the other by a few tenths of a second (133.10 point 2).
+
+**The game's own text is part of the picture.** Interface text is small at video size (LootFarmer's panels are laid out for a 720 px wide canvas), so:
+
+- show a panel at its full width and hold it (133.10 point 4);
+- thin what the game draws over the subject only through a view-only option of the capture adapter (LootFarmer's match-cut takes show at most one damage number per interval; combat is untouched), never by editing the footage;
+- when a caption and the game's own title, banner or toast would overlap, move the band or the timing.
+
+**Checks, in this order.**
+
+1. **In the build tool:** safe-box guard, width fit, reading-time floor and ceiling (labels exempt). A failure stops the build (133.10 point 8). LootFarmer's tools do not check that only one caption is on screen or that a caption misses the subject; those are checks 2 and 3.
+2. **On the sheets and the timeline:** one caption at a time; every caption readable at phone size; no caption over the subject, a control or the game's own text; position unchanged through the video.
+3. **At normal speed with sound, without pausing** (the only check that finds captions that are too fast): could each caption be read once and the action still followed; did the eye ever have to search; did any caption arrive during something else worth watching.
+4. **Developer review** (133.10 point 9). Treat "I could not read it" or "I did not know where to look" as a defect in the storyboard, fixed by fewer words, more time or a better position, in that order, across the whole set.
+
+**What changed between the rejected and the approved cut** (LootFarmer, as a pattern to recognise): captions under a second became 1.5 to 4 s; captions that alternated between top and bottom moved to one band per video; bare stroked text gained a plate; pairs of simultaneous captions became sequences; and videos grew from a fixed 15 s to between 15 and 37 s to pay for it.
+
+Reusable rule:
+
+> **Write the caption, time it for someone who is also watching the game, give it one position and its own background, keep it still and off the subject, let the tool refuse what is measurably too fast or out of the safe box, and let a person at normal speed decide whether it can actually be read.**
 
 ---
 

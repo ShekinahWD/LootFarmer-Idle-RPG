@@ -143,6 +143,9 @@ A video is a function returning `{'shots', 'overlays', 'music', 'meta'}`:
   `view` / `view2` (`(cx, cy, zoom)` crop window and its end for a slow push; `MAP` frames the map of a HUD take),
   `speed` (0.5 = half speed by frame repetition), `dim`, `into` (`'cut'`, `'flash'`, `('xfade', frames)`),
   `split` (two shot specs stacked with the gold divider), `note` (the logged event times this shot relies on).
+- **Caption values** (the standard is Playbook 133.14; these are where LootFarmer sets them): safe box `SAFE`, plate
+  `PLATE` and the 770 px line width in `social_engine.py`; the two bands `UP`/`LOW` in `build_social.py`; the 1.4 s
+  and 14 characters-per-second rule in `review_social.py` (`check`).
 - **Overlay:** `text(t0, t1, lines, cy=UP|LOW, size, anim)` for captions (dark plate, kept in the safe box) and
   `tag(t0, t1, label, cy, color)` for fixed corner labels; `label=True` exempts a name label from the reading-time
   rule. One caption position per video (`UP` 330 or `LOW` 1345).
