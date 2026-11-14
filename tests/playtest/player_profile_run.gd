@@ -1,28 +1,33 @@
 extends Node
-## Player-profile playtest run: one policy playing the real LootSimulation from a fresh, isolated
-## profile. Non-gating: never part of tools/run_probes.py. Run it through tools/player_profile_run.py,
-## which adds the process watchdog and builds the reports.
+## Player-profile playtest run: one player profile playing the real LootSimulation from a fresh, isolated
+## save. Non-gating: never part of tools/run_probes.py. Run it through tools/player_profile_run.py, which adds
+## the process watchdog and builds the reports.
+##
+## Two policy sets (--policy-set, default `framework`):
+##   framework  the reusable Player Profiles package (res://addons/player_profiles/): seven universal profiles
+##              (active, casual, idle, beginner, collector, speedrunner, completionist) decided by the universal
+##              engine, played through the LootFarmer integration (tests/playtest/lootfarmer/). Options are those
+##              of addons/player_profiles/core/run_session.gd options_from_args(), plus --override=trait=value,...
+##   legacy     the frozen Phase 1/2 policies `active-1`, `casual-1`, `idle-1` (tests/playtest/policies/,
+##              tests/playtest/profiles.json) with the Phase 1/2 driver, unchanged: the historical baseline.
+##              Their events and digests stay comparable with the Phase 1/2 evidence.
 ##
 ##   godot --headless --path . res://tests/playtest/player_profile_run.tscn -- --probe --no-autosave
-##         --profile=probe-pp-<id> --player-profile=active|casual|idle --seed=1
+##         --profile=probe-pp-<id> --player-profile=<id> --seed=1 [--policy-set=framework|legacy]
 ##         --active-minutes=60                               (active-time horizon)
-##       | --until=calendar --calendar-hours=24 [--max-active-minutes=N]   (calendar horizon, Phase 2)
+##       | --until=calendar --calendar-hours=24 [--max-active-minutes=N]   (calendar horizon)
 ##       | --until=first-prestige --max-active-minutes=240 [--max-calendar-hours=N]
-##         [--schedule=default|continuous|calendar] [--session-minutes=16-24] [--slots=8.5,13@0.5,20]
+##         [--schedule=default|continuous|calendar|sessions] [--session-minutes=16-24] [--slots=8.5,13@0.5,20]
 ##         [--jitter-minutes=30] [--min-gap-minutes=30] [--grace-seconds=120] [--return-mode=cold|warm]
+##         [--override=attention=0.4,weight.explore=0.9] (framework only)
 ##         [--max-wall-seconds=600] [--stall-minutes=30] [--trace] --output=<absolute folder under tests/tmp/player_profiles/>
 ##
-## Profiles and their default schedules are in tests/playtest/profiles.json. `--schedule=default` uses the
-## profile's own schedule, except that Active (continuous by default) uses its `calendar_schedule` for a
-## calendar horizon. A continuous run of Active is exactly the Phase 1 run (same events and digests).
-## Stalls stop a continuous run after --stall-minutes (default 30); a session run only records them
-## unless --stall-minutes is given.
-##
 ## Last line: PLAYTEST_RESULT ok=<true|false> stop=<reason> ... Exit code 0 when the run itself was sound
-## (a stall or a spent time budget is a finding and still exits 0), 1 on an action or engine error,
+## (a stall or a spent time budget is a finding and still exits 0), 1 on an action, engine or contract error,
 ## 2 on bad arguments or an unusable output folder.
-## Add a profile by adding its policy script to PROFILES; the driver and the adapter do not change.
 
+const RunSession:=preload("res://addons/player_profiles/core/run_session.gd")
+const Integration:=preload("res://tests/playtest/lootfarmer/lf_integration.gd")
 const PROFILES_FILE:="res://tests/playtest/profiles.json"
 const FINGERPRINT_FILES:=["res://data/game/catalog.json","res://resources/game/enemy_abilities.tres","res://resources/game/fog_rules.tres",
     "res://resources/game/onboarding_rules.tres","res://resources/game/mastery_rules.tres"]
@@ -39,11 +44,35 @@ func arg(key: String,default):
 
 func _ready() -> void:call_deferred("run")
 
+func run() -> void:
+    var policy_set:=str(arg("policy-set","framework"))
+    if policy_set=="legacy":run_legacy()
+    elif policy_set=="framework":run_framework()
+    else:fail(2,"--policy-set must be framework or legacy")
+
+## The reusable framework: universal profile + engine, LootFarmer integration.
+func run_framework() -> void:
+    var o:=RunSession.options_from_args(OS.get_cmdline_user_args())
+    if not str(o.until) in ["duration","calendar","first-prestige"]:
+        fail(2,"--until must be duration, calendar or first-prestige");return
+    var integration=Integration.new()
+    var problem: String=integration.prepare(self,o)
+    if problem!="":
+        fail(2,problem);return
+    o["process_extra"]={"save_profile":BootContext.profile_name,"profile_precleaned":integration.precleaned}
+    var result:=RunSession.execute(integration,o,self)
+    integration.cleanup()
+    if str(result.error)!="" and result.summary.is_empty():
+        fail(int(result.exit),str(result.error));return
+    print(str(result.summary.get("_sentinel","PLAYTEST_RESULT ok=false stop=%s" % str(result.summary.get("stop_reason","?")))))
+    get_tree().quit(int(result.exit))
+
 func fail(code: int,text: String) -> void:
     print("PLAYTEST_RESULT ok=false stop=engine_failure detail=",text)
     get_tree().quit(code)
 
-func run() -> void:
+## The frozen Phase 1/2 baseline (unchanged code path).
+func run_legacy() -> void:
     var profile:=str(arg("player-profile","active"))
     var output:=str(arg("output",""))
     var registry=JSON.parse_string(FileAccess.get_file_as_string(PROFILES_FILE))
@@ -102,7 +131,7 @@ func run() -> void:
     var stop: String=driver.run()
     var state_digest: String=adapter.state_digest()
     var events_digest: String=recorder.digest()
-    var summary: Dictionary={"schema":2,"profile":profile,"policy_version":version,"policy_sha256":policy_hash,"seed":seed_value,
+    var summary: Dictionary={"schema":2,"policy_set":"legacy","profile":profile,"policy_version":version,"policy_sha256":policy_hash,"seed":seed_value,
         "content_fingerprint":fingerprint,"evidence_class":"natural fresh-save playthrough","onboarding_mode":"none",
         "until":driver.until,"stop_reason":stop,"ok":driver.ok(),
         "active_seconds":snappedf(driver.active,.1),"offline_seconds":snappedf(driver.offline,.1),"calendar_seconds":snappedf(driver.active+driver.offline,.1),

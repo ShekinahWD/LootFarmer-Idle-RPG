@@ -1,8 +1,55 @@
-# LootFarmer — Player-Profile Automated Playtesting (Phases 1 and 2)
+# LootFarmer — Player-Profile Automated Playtesting
 
-Briefs: `docs/LootFarmer_Player_Profile_Playtesting_Phase_1.md` (framework + Active) and the Phase 2 brief (Casual, Idle, sessions and offline time). This document is the how-to: what exists, how to run it and how to read its output. The Phase 2 results are in `docs/LootFarmer_Player_Profile_Playtesting_Phase_2_Report.md`.
+**Since 14 November 2026 the default is the reusable Player Profiles package** (`addons/player_profiles/`, version
+1.0.0, pinned by `player_profiles.lock.json`; canonical source `D:\Godot\ReusableKitForNewGames\Godot-Player-Profiles\`).
+Seven universal profiles — `active`, `casual`, `idle`, `beginner`, `collector`, `speedrunner`, `completionist` — are
+decided by one universal engine and played through LootFarmer's integration in `tests/playtest/lootfarmer/`. The
+Phase 1/2 policies `active-1`, `casual-1`, `idle-1` are kept unchanged as the **legacy** policy set (historical
+baseline). Architecture, audit, migration and results: `docs/LootFarmer_Player_Profiles_Framework_Integration.md`.
+Package documentation: `addons/player_profiles/README.md`; new-game guide: `addons/player_profiles/INTEGRATION_FOR_CLAUDE.md`.
 
-Three profiles exist: **Active**, **Casual** and **Idle**. Collector, Speedrunner, Beginner and Completionist are extension points only.
+## Framework policy set (default)
+
+| Part | File | Role |
+|---|---|---|
+| Universal presets | `addons/player_profiles/core/profiles.json` | The seven profiles' traits and default sessions (never edited per game) |
+| Engine, driver, recorder, schedule, contract | `addons/player_profiles/core/` | Game-independent decisions, clocks, sessions, evidence |
+| LootFarmer adapter / strategy | `tests/playtest/lootfarmer/lf_adapter.gd` | Maps LootFarmer's legal actions to the 11 generic intents with player-observable signals; Prestige cards by the profile's intent weights; oracle limitations listed in its header |
+| LootFarmer tactics | `tests/playtest/lootfarmer/lf_tactics.gd` | Farming, exploration (now fights ambushes instead of abandoning the burst), the committed boss attempt, resting, reflexes; parameters derived from traits |
+| LootFarmer integration | `tests/playtest/lootfarmer/lf_integration.gd` | `probe-pp-*` isolation, simulation creation, content fingerprint, cleanup |
+| Runtime layer (unchanged) | `tests/playtest/lootfarmer_adapter.gd` | The Phase 1/2 adapter: real actions and measurements, used by both policy sets |
+| Probes (in the suite) | `tests/player_profiles_framework_probe.tscn`, `tests/player_profiles_selftest.tscn` | LootFarmer contract/profiles/determinism/sessions; the package's cross-game self-test |
+
+```powershell
+# the seven profiles, equal active exposure (30 active minutes each, continuous)
+python tools/player_profile_run.py run --batch b1 --player-profile active,casual,idle,beginner,collector,speedrunner,completionist --seeds 1,2,3 --active-minutes 30 --schedule continuous
+# equal calendar time with each profile's own sessions
+python tools/player_profile_run.py run --batch b2 --player-profile active,casual,idle,beginner,collector,speedrunner,completionist --seeds 1 --until calendar --calendar-hours 24 --max-wall-seconds 1800
+# a per-run override (never a preset edit; part of the profile hash)
+python tools/player_profile_run.py run --batch b3 --player-profile casual --override attention=0.3,weight.explore=0.9
+# determinism and the legacy baseline
+python tools/player_profile_run.py determinism --batch b4 --player-profile beginner --active-minutes 20
+python tools/player_profile_run.py run --batch b5 --player-profile active --policy-set legacy --active-minutes 60
+```
+
+Reports: the existing `comparison.csv/.md`, `profile_comparison.md`, `findings.md`, `measurements.md` (LootFarmer
+metrics) plus `framework_comparison.md/.csv` (the package's cross-game metrics: decisions and time by intent, mistakes,
+switches, unsupported intents, a starting diagnosis).
+
+**Migration notes (Phase 1/2 → framework):**
+- `--player-profile=active|casual|idle` now selects the framework profiles. Add `--policy-set legacy` for `active-1`,
+  `casual-1`, `idle-1`; legacy run folders get a `legacy-` label prefix and `summary.policy_set = "legacy"`. A legacy
+  re-run at the current content reproduces the Phase 2 digests (`active_s1_60m`: events `590fb131…`, state `403db944…`).
+- Framework `summary.json` keeps every Phase 2 top-level field (`profile`, `policy_version`, `policy_sha256` = profile
+  hash, times, sessions, stalls, digests, `game`) and adds `schema: player-profiles.summary/1`, `framework`,
+  `profile_definition`, `integration`, `decisions`, `generic`. `policy_version` reads `<profile>-v1@pp1.0.0+lootfarmer-strategy-1`.
+- `--until=first-prestige` still works; framework runs stop with the generic `goal_reached` (legacy: `first_prestige_completed`).
+- New options: `--policy-set`, `--override`, `--schedule sessions`. Framework profiles are not the legacy policies:
+  compare them as baseline vs new, never as the same profile.
+
+# Legacy policy set (Phases 1 and 2, frozen)
+
+Briefs: `docs/LootFarmer_Player_Profile_Playtesting_Phase_1.md` (framework + Active) and the Phase 2 brief (Casual, Idle, sessions and offline time). The Phase 2 results are in `docs/LootFarmer_Player_Profile_Playtesting_Phase_2_Report.md`. Everything below describes the legacy set; run it with `--policy-set legacy`.
 
 ## What it is
 

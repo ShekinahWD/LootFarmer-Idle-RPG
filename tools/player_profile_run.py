@@ -1,10 +1,17 @@
 """Player-profile playtest runner (non-gating, Playbook 60.1: one Godot process at a time).
 
-Runs res://tests/playtest/player_profile_run.tscn headless (the real LootSimulation played by a policy from a
+Runs res://tests/playtest/player_profile_run.tscn headless (the real LootSimulation played by a player profile from a
 fresh isolated profile), under a hard process timeout, and builds the comparison sheets from what the game recorded.
 Python never computes a game outcome: it only starts runs, checks them and summarizes their files.
 
-  python tools/player_profile_run.py run --batch <id> [--player-profile active[,casual,idle]] [--seeds 1,2,3]
+Policy sets (--policy-set): `framework` (default) = the reusable Player Profiles package (addons/player_profiles/,
+seven universal profiles: active, casual, idle, beginner, collector, speedrunner, completionist) through the LootFarmer
+integration (tests/playtest/lootfarmer/); `legacy` = the frozen Phase 1/2 policies active-1, casual-1, idle-1 (historical
+baseline; folders get a `legacy-` label prefix). Framework runs accept --override trait=value,... (per-run, never a
+preset edit).
+
+  python tools/player_profile_run.py run --batch <id> [--player-profile active[,casual,idle,...]] [--seeds 1,2,3]
+         [--policy-set framework|legacy] [--override attention=0.4,weight.explore=0.9]
          [--active-minutes 60                                   (active-time horizon)
           | --until calendar --calendar-hours 24 [--max-active-minutes N]   (calendar horizon, Phase 2)
           | --until first-prestige --max-active-minutes 240 [--max-calendar-hours N]]
@@ -18,7 +25,8 @@ Runs are sequential: profiles in the order given, seeds in order within each pro
 Outputs (git-ignored): tests/tmp/player_profiles/<batch>/<profile>_s<seed>_<label>/{events.jsonl, summary.json,
 trace.jsonl, godot.log} and, per batch: comparison.csv/.md (one row per run), profile_comparison.md (profiles side by
 side per horizon, active vs calendar time), findings.md (automatic progression-problem candidates with evidence)
-and measurements.md (per-run timelines).
+and measurements.md (per-run timelines), plus framework_comparison.md/.csv (the package's generic, cross-game metrics:
+decisions by intent, time share by intent, mistakes, switches, unsupported intents, diagnosis) for framework runs.
 A run is accepted only when Godot exits 0, prints no SCRIPT ERROR and ends with the PLAYTEST_RESULT line.
 Exit code: 0 when every requested run was sound (a stall or a spent time budget is a finding, not a failure) and,
 for `determinism`, both digests match; 1 otherwise.
@@ -31,8 +39,10 @@ ROOT = Path(__file__).resolve().parents[1]
 GODOT = os.environ.get('GODOT', 'D:/Programs/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64_console.exe')
 BASE = ROOT / 'tests/tmp/player_profiles'
 SCENE = 'res://tests/playtest/player_profile_run.tscn'
+sys.path.insert(0, str(ROOT / 'addons' / 'player_profiles' / 'tools'))
+import player_profiles as pp_package  # noqa: E402  (the package's generic report)
 PROFILE_ORDER = ['active', 'casual', 'idle', 'collector', 'speedrunner', 'beginner', 'completionist']
-COLUMNS = ['profile', 'policy_version', 'seed', 'label', 'horizon', 'target_active_hours', 'actual_active_hours', 'offline_hours',
+COLUMNS = ['profile', 'policy_set', 'policy_version', 'profile_sha256', 'seed', 'label', 'horizon', 'target_active_hours', 'actual_active_hours', 'offline_hours',
            'calendar_hours', 'sessions', 'stop_reason', 'final_map', 'highest_stage_unlocked', 'player_level',
            'first_boss_time_min', 'first_boss_calendar_h', 'first_prestige_ready_time_min',
            'first_prestige_completed_time_min', 'first_prestige_calendar_h', 'prestiges', 'cards', 'deaths',
@@ -66,7 +76,9 @@ def run_one(batch, profile, seed, label, a):
     save_profile = re.sub(r'[^a-z0-9-]', '-', f'probe-pp-{batch}-{profile}-s{seed}-{label}'.lower())[:64]
     args = [GODOT, '--headless', '--path', str(ROOT), SCENE, '--', '--probe', '--no-autosave', f'--profile={save_profile}',
             f'--player-profile={profile}', f'--seed={seed}', f'--max-wall-seconds={a.max_wall_seconds}',
-            f'--output={out.as_posix()}']
+            f'--output={out.as_posix()}', f'--policy-set={a.policy_set}']
+    if a.override:
+        args += [f'--override={a.override}']
     if a.stall_minutes is not None:
         args += [f'--stall-minutes={a.stall_minutes}']
     if a.until == 'duration':
@@ -111,7 +123,7 @@ def run_one(batch, profile, seed, label, a):
     ok = script_errors == 0 and not timed_out and bool(sentinel) and summary is not None and code == 0
     meta = {'run_id': f'{batch}/{out.name}', 'batch': batch, 'label': label, 'runner_status': status, 'runner_ok': ok,
             'exit_code': code, 'script_errors': script_errors, 'process_wall_seconds': round(wall, 2),
-            'requested': {'until': a.until, 'active_minutes': a.active_minutes, 'calendar_hours': a.calendar_hours,
+            'requested': {'policy_set': a.policy_set, 'override': a.override, 'until': a.until, 'active_minutes': a.active_minutes, 'calendar_hours': a.calendar_hours,
                           'max_active_minutes': a.max_active_minutes, 'max_calendar_hours': a.max_calendar_hours,
                           'max_wall_seconds': a.max_wall_seconds, 'stall_minutes': a.stall_minutes, 'trace': a.trace,
                           'schedule_overrides': {k: getattr(a, k) for k in ['schedule', 'session_minutes', 'slots', 'jitter_minutes',
@@ -180,7 +192,8 @@ def row_of(summary, out):
 
     gaps = summary.get('progress_gaps') or []
     return {
-        'profile': summary.get('profile'), 'policy_version': summary.get('policy_version'), 'seed': summary.get('seed'),
+        'profile': summary.get('profile'), 'policy_set': summary.get('policy_set', 'legacy'), 'policy_version': summary.get('policy_version'),
+        'profile_sha256': (summary.get('profile_sha256') or summary.get('policy_sha256') or '')[:16] or None, 'seed': summary.get('seed'),
         'label': summary.get('runner', {}).get('label'), 'horizon': horizon_of(summary),
         'target_active_hours': None if target is None or requested.get('until') == 'calendar' else round(float(target) / 60.0, 3),
         'actual_active_hours': None if 'active_seconds' not in summary else round(summary['active_seconds'] / 3600.0, 3),
@@ -306,8 +319,9 @@ def report(batch):
     write(folder / 'measurements.md', measurements(batch, summaries))
     write(folder / 'profile_comparison.md', profile_comparison(batch, rows, summaries, head))
     write(folder / 'findings.md', findings(batch, summaries))
+    framework_runs = pp_package.framework_report(folder) or 0
     print(f'report: {(folder / "comparison.md").relative_to(ROOT).as_posix()} ({len(rows)} runs, {len(aggregates)} aggregate rows), '
-          f'profile_comparison.md, findings.md, measurements.md')
+          f'profile_comparison.md, findings.md, measurements.md' + (f', framework_comparison.md ({framework_runs} framework runs)' if framework_runs else ''))
     return True
 
 
@@ -340,12 +354,14 @@ COMPARE = [
 
 
 def profile_comparison(batch, rows, summaries, head):
-    out = [f'# Active vs Casual vs Idle: batch `{batch}`', '',
+    out = [f'# Player-profile comparison: batch `{batch}`', '',
            'Side-by-side measurements per horizon. Each cell is the median and [range] across the seeds run for that profile and horizon '
            '(bot runs, not a distribution of players). An **active-time horizon** gives each profile the same hours of play, which spread over '
            'very different calendar spans; a **calendar horizon** gives each profile the same days, in which they play very different amounts. '
            'Neither comparison is "fair" on its own: read the active and calendar rows together. Offline rewards exist only for profiles that '
-           'leave the game; a continuous Active run has none by construction.', ''] + head
+           'leave the game; a continuous run has none by construction. Framework profiles (policy_set `framework`) and the frozen '
+           'Phase 1/2 policies (`legacy`, versions active-1/casual-1/idle-1) are different policy versions: compare them only as '
+           'labelled baseline vs new, never as the same profile.', ''] + head
     by_horizon = {}
     for r, (s, folder) in zip(rows, summaries):
         if r['label'] and str(r['label']).startswith('repeat'):
@@ -603,6 +619,8 @@ def main():
         ap.add_argument(option, default=None)
     ap.add_argument('--trace', action='store_true')
     ap.add_argument('--label', default='')
+    ap.add_argument('--policy-set', default='framework', choices=['framework', 'legacy'])
+    ap.add_argument('--override', default=None, help='framework only: trait=value,... (also weight.<intent>=w, derived.<key>=v)')
     a = ap.parse_args()
     a.max_active_minutes_set = a.max_active_minutes is not None
     if a.max_active_minutes is None:
@@ -617,6 +635,10 @@ def main():
         default_label = f'{a.calendar_hours:g}h-cal'
     else:
         default_label = a.until
+    if a.policy_set == 'legacy':
+        default_label = 'legacy-' + default_label
+        if a.override:
+            sys.exit('--override applies to the framework policy set only')
     label = a.label or default_label
     seeds = [int(s) for s in a.seeds.split(',') if s]
     profiles = [p for p in a.player_profile.split(',') if p]

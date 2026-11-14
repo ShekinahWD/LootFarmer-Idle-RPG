@@ -1,0 +1,108 @@
+{
+  "schema": "player-profiles.profiles/1",
+  "_doc": [
+    "The seven universal player-behaviour presets. Game-independent: no game, mechanic, item or node path appears here.",
+    "Every trait is normalized to 0..1 (0 = none/lowest, 1 = strongest). Habits (attention, sessions) and goals (exploration,",
+    "collection, completion, urgency) are separate axes and can be overridden independently per run without changing a preset.",
+    "The session patterns are editable defaults for simulation, NOT measured human population statistics.",
+    "Derived engine values (decision interval, commitment hold, confidence gate...) are computed from the traits by",
+    "core/profile_library.gd; the formulas are documented there and in README.md."
+  ],
+  "parameters": {
+    "attention":              {"meaning": "how often the player makes deliberate decisions and how quickly urgent situations are noticed", "low": "glances at the game rarely", "high": "watches constantly"},
+    "efficiency":             {"meaning": "how sharply the player distinguishes better from worse options (optimization)", "low": "treats options as roughly equal", "high": "picks the best-value option"},
+    "exploration":            {"meaning": "preference for discovering unknown content", "low": "stays with what it knows", "high": "explores eagerly"},
+    "main_goal_urgency":      {"meaning": "pressure to advance the main objective/milestones", "low": "unhurried", "high": "advances as soon as possible"},
+    "risk_tolerance":         {"meaning": "willingness to accept options that can fail or lose progress", "low": "avoids risk", "high": "accepts calculated risk"},
+    "spending":               {"meaning": "spends resources now vs saves for a chosen goal", "low": "saves for its top goal", "high": "buys whatever is useful and affordable"},
+    "preparation":            {"meaning": "how prepared the player wants to be before a risky attempt", "low": "tries early", "high": "over-prepares"},
+    "side_goal_preference":   {"meaning": "interest in optional/side content", "low": "skips optional tasks", "high": "seeks them out"},
+    "collection_drive":       {"meaning": "drive to own new/unowned/rare items and variety", "low": "indifferent", "high": "collection first"},
+    "completion_drive":       {"meaning": "drive to finish accessible goals before advancing", "low": "advances freely", "high": "finishes the area first"},
+    "automation_preference":  {"meaning": "preference for passive, offline and automation systems when the game offers them", "low": "plays by hand", "high": "automates first"},
+    "setback_tolerance":      {"meaning": "how readily the player retries after a failure", "low": "backs off for long and grows cautious", "high": "retries soon"},
+    "revisit_tendency":       {"meaning": "how readily the player revisits a committed plan", "low": "sticks with a plan", "high": "re-plans often"},
+    "mastery":                {"meaning": "initial familiarity with game systems", "low": "new to the genre, avoids unfamiliar features", "high": "experienced"},
+    "learning_rate":          {"meaning": "how fast familiarity grows and mistakes fade with experience", "low": "slow", "high": "fast"},
+    "mistake_rate":           {"meaning": "initial chance of a bounded, explainable mistake (choosing a plausible runner-up)", "low": "0", "high": "1 (never used: presets stay well below 0.3)"}
+  },
+  "profiles": {
+    "active": {
+      "version": "1",
+      "summary": "Plays often and for long stretches, decides frequently, explores and pursues progression, learns and uses the tools available.",
+      "constraint": "Engaged is not optimal or omniscient; avoids permanent hoarding and aimless grinding.",
+      "traits": {"attention": 0.9, "efficiency": 0.75, "exploration": 0.6, "main_goal_urgency": 0.7, "risk_tolerance": 0.6,
+        "spending": 0.75, "preparation": 0.3, "side_goal_preference": 0.4, "collection_drive": 0.3, "completion_drive": 0.25,
+        "automation_preference": 0.5, "setback_tolerance": 0.7, "revisit_tendency": 0.6, "mastery": 0.8, "learning_rate": 0.7, "mistake_rate": 0.02},
+      "default_schedule": "continuous",
+      "sessions": {"mode": "sessions", "session_minutes": [55, 65], "slots": [{"hour": 8.0, "chance": 1.0}, {"hour": 19.0, "chance": 1.0}],
+        "jitter_minutes": 20, "min_gap_minutes": 30, "end_grace_seconds": 180, "return_mode": "cold"}
+    },
+    "casual": {
+      "version": "1",
+      "summary": "Short, intermittent sessions; moderate decisions; follows understandable goals; explores occasionally; spends when the benefit is clear.",
+      "constraint": "Less optimized than Active; interruptions and missed opportunities are plausible, not artificial penalties.",
+      "traits": {"attention": 0.5, "efficiency": 0.45, "exploration": 0.35, "main_goal_urgency": 0.5, "risk_tolerance": 0.45,
+        "spending": 0.65, "preparation": 0.5, "side_goal_preference": 0.55, "collection_drive": 0.3, "completion_drive": 0.3,
+        "automation_preference": 0.45, "setback_tolerance": 0.45, "revisit_tendency": 0.35, "mastery": 0.55, "learning_rate": 0.5, "mistake_rate": 0.04},
+      "default_schedule": "sessions",
+      "sessions": {"mode": "sessions", "session_minutes": [16, 24], "slots": [{"hour": 8.5, "chance": 1.0}, {"hour": 13.0, "chance": 0.5}, {"hour": 20.0, "chance": 1.0}],
+        "jitter_minutes": 30, "min_gap_minutes": 30, "end_grace_seconds": 120, "return_mode": "cold"}
+    },
+    "idle": {
+      "version": "1",
+      "summary": "Very brief, infrequent interaction; prioritizes passive and automation systems if the game offers them; few manual decisions.",
+      "constraint": "Without offline or automation systems this is low attention only; it never invents passive rewards.",
+      "traits": {"attention": 0.15, "efficiency": 0.5, "exploration": 0.15, "main_goal_urgency": 0.35, "risk_tolerance": 0.3,
+        "spending": 0.35, "preparation": 0.6, "side_goal_preference": 0.2, "collection_drive": 0.15, "completion_drive": 0.1,
+        "automation_preference": 0.95, "setback_tolerance": 0.35, "revisit_tendency": 0.15, "mastery": 0.6, "learning_rate": 0.4, "mistake_rate": 0.03},
+      "default_schedule": "sessions",
+      "sessions": {"mode": "sessions", "session_minutes": [5, 10], "slots": [{"hour": 8.0, "chance": 1.0}, {"hour": 21.0, "chance": 0.6}],
+        "jitter_minutes": 45, "min_gap_minutes": 60, "end_grace_seconds": 120, "return_mode": "cold"}
+    },
+    "beginner": {
+      "version": "1",
+      "summary": "New to the game's systems: tentative exploration, slower and less consistent decisions, some understandable mistakes, cautious with unfamiliar features.",
+      "constraint": "Imperfection is bounded and explainable (plausible runner-up choices, avoidance of unfamiliar features) and fades as it learns; never sabotage.",
+      "traits": {"attention": 0.45, "efficiency": 0.3, "exploration": 0.45, "main_goal_urgency": 0.45, "risk_tolerance": 0.35,
+        "spending": 0.7, "preparation": 0.55, "side_goal_preference": 0.45, "collection_drive": 0.35, "completion_drive": 0.3,
+        "automation_preference": 0.3, "setback_tolerance": 0.4, "revisit_tendency": 0.5, "mastery": 0.1, "learning_rate": 0.55, "mistake_rate": 0.25},
+      "default_schedule": "sessions",
+      "sessions": {"mode": "sessions", "session_minutes": [15, 30], "slots": [{"hour": 12.5, "chance": 0.4}, {"hour": 18.5, "chance": 1.0}],
+        "jitter_minutes": 30, "min_gap_minutes": 30, "end_grace_seconds": 120, "return_mode": "cold"}
+    },
+    "collector": {
+      "version": "1",
+      "summary": "Seeks items, discoveries, variety, sets and rare or unowned content; willing to delay the main progression for collection.",
+      "constraint": "Collection first is not 100% completion of every mission or upgrade.",
+      "traits": {"attention": 0.65, "efficiency": 0.55, "exploration": 0.75, "main_goal_urgency": 0.35, "risk_tolerance": 0.5,
+        "spending": 0.6, "preparation": 0.5, "side_goal_preference": 0.35, "collection_drive": 0.95, "completion_drive": 0.35,
+        "automation_preference": 0.4, "setback_tolerance": 0.55, "revisit_tendency": 0.45, "mastery": 0.65, "learning_rate": 0.6, "mistake_rate": 0.03},
+      "default_schedule": "sessions",
+      "sessions": {"mode": "sessions", "session_minutes": [25, 40], "slots": [{"hour": 9.0, "chance": 0.7}, {"hour": 20.0, "chance": 1.0}],
+        "jitter_minutes": 30, "min_gap_minutes": 30, "end_grace_seconds": 150, "return_mode": "cold"}
+    },
+    "speedrunner": {
+      "version": "1",
+      "summary": "Reaches explicit milestones as quickly as it can: skips optional tasks, accepts calculated risk, spends only to remove progression bottlenecks.",
+      "constraint": "Fast is not omniscient, instant or a cheat; failures and resets cost real simulated time.",
+      "traits": {"attention": 0.95, "efficiency": 0.9, "exploration": 0.3, "main_goal_urgency": 1.0, "risk_tolerance": 0.8,
+        "spending": 0.45, "preparation": 0.15, "side_goal_preference": 0.05, "collection_drive": 0.05, "completion_drive": 0.0,
+        "automation_preference": 0.45, "setback_tolerance": 0.85, "revisit_tendency": 0.75, "mastery": 0.9, "learning_rate": 0.8, "mistake_rate": 0.01},
+      "default_schedule": "continuous",
+      "sessions": {"mode": "sessions", "session_minutes": [60, 90], "slots": [{"hour": 10.0, "chance": 1.0}, {"hour": 21.0, "chance": 0.8}],
+        "jitter_minutes": 20, "min_gap_minutes": 45, "end_grace_seconds": 180, "return_mode": "cold"}
+    },
+    "completionist": {
+      "version": "1",
+      "summary": "Finishes accessible goals, upgrades, achievements and optional objectives before advancing; methodical and persistent.",
+      "constraint": "Broader than Collector; respects accessibility and gives up on unreachable targets instead of looping forever.",
+      "traits": {"attention": 0.7, "efficiency": 0.6, "exploration": 0.7, "main_goal_urgency": 0.3, "risk_tolerance": 0.35,
+        "spending": 0.55, "preparation": 0.7, "side_goal_preference": 0.85, "collection_drive": 0.6, "completion_drive": 0.95,
+        "automation_preference": 0.45, "setback_tolerance": 0.6, "revisit_tendency": 0.3, "mastery": 0.65, "learning_rate": 0.6, "mistake_rate": 0.02},
+      "default_schedule": "sessions",
+      "sessions": {"mode": "sessions", "session_minutes": [40, 60], "slots": [{"hour": 9.0, "chance": 0.8}, {"hour": 19.0, "chance": 1.0}],
+        "jitter_minutes": 30, "min_gap_minutes": 30, "end_grace_seconds": 180, "return_mode": "cold"}
+    }
+  }
+}
