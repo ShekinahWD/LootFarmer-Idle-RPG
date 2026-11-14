@@ -18,6 +18,7 @@ var _events: PackedStringArray=[]
 var _trace: PackedStringArray=[]
 var _ring: Array=[]
 var _failures: Dictionary={}
+var _failure_totals: Dictionary={}   # "action|reason" -> every rejection, collapsed or not (summary only)
 var _hash:=HashingContext.new()
 
 func open(directory: String,with_trace: bool) -> bool:
@@ -49,6 +50,7 @@ func event(kind: String,data: Dictionary={}) -> void:
 ## counted and reported at most once per `every` active seconds, with how many were collapsed.
 func failure(action: String,reason: String,subject: String,data: Dictionary={},every: float=120.0) -> void:
     var key:=action+"|"+reason+"|"+subject
+    _failure_totals[action+"|"+reason]=int(_failure_totals.get(action+"|"+reason,0))+1
     var entry: Dictionary=_failures.get(key,{"at":-1e9,"held":0})
     if active-float(entry.at)<every:
         entry.held=int(entry.held)+1
@@ -58,6 +60,13 @@ func failure(action: String,reason: String,subject: String,data: Dictionary={},e
     for k in data:row[k]=data[k]
     event("action_rejected",row)
     _failures[key]={"at":active,"held":0}
+
+## Every rejected action by action and refusal key (policy-quality evidence; not part of the event digest).
+func failure_counts() -> Dictionary:
+    var out: Dictionary={}
+    var keys: Array=_failure_totals.keys();keys.sort()
+    for k in keys:out[k]=_failure_totals[k]
+    return out
 
 func trace(data: Dictionary) -> void:
     var row: Dictionary={"t":snappedf(active,.1),"vt":stamp()}

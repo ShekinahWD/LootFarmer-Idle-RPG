@@ -1,0 +1,22 @@
+{
+  "_comment": "Player-profile registry (Phase 2). policy = the decision script; hash_files = every script its decisions come from (hashed into the run identity); schedule = when the profile plays. Hours are virtual UTC on the run's calendar (the run starts on day 0 at 08:00). Override any schedule field from the command line (see tests/playtest/player_profile_run.gd).",
+  "active": {
+    "policy": "res://tests/playtest/policies/active_policy.gd",
+    "hash_files": ["res://tests/playtest/policies/active_policy.gd"],
+    "schedule": {"mode": "continuous"},
+    "calendar_schedule": {"mode": "sessions", "session_minutes": [55, 65], "slots": [{"hour": 8.0, "chance": 1.0}, {"hour": 19.0, "chance": 1.0}],
+      "jitter_minutes": 20, "min_gap_minutes": 30, "end_grace_seconds": 180, "return_mode": "cold"}
+  },
+  "casual": {
+    "policy": "res://tests/playtest/policies/casual_policy.gd",
+    "hash_files": ["res://tests/playtest/policies/casual_policy.gd", "res://tests/playtest/policies/profile_policy.gd", "res://tests/playtest/policies/active_policy.gd"],
+    "schedule": {"mode": "sessions", "session_minutes": [16, 24], "slots": [{"hour": 8.5, "chance": 1.0}, {"hour": 13.0, "chance": 0.5}, {"hour": 20.0, "chance": 1.0}],
+      "jitter_minutes": 30, "min_gap_minutes": 30, "end_grace_seconds": 120, "return_mode": "cold"}
+  },
+  "idle": {
+    "policy": "res://tests/playtest/policies/idle_policy.gd",
+    "hash_files": ["res://tests/playtest/policies/idle_policy.gd", "res://tests/playtest/policies/profile_policy.gd", "res://tests/playtest/policies/active_policy.gd"],
+    "schedule": {"mode": "sessions", "session_minutes": [5, 10], "slots": [{"hour": 8.0, "chance": 1.0}, {"hour": 21.0, "chance": 0.6}],
+      "jitter_minutes": 45, "min_gap_minutes": 60, "end_grace_seconds": 120, "return_mode": "cold"}
+  }
+}

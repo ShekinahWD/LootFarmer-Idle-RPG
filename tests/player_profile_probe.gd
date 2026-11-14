@@ -1,12 +1,20 @@
 extends Node
-## Player-profile playtesting infrastructure probe (Phase 1). Fast and deterministic, part of the maintained
-## suite (tools/run_probes.py). It guards the invariants the long, non-gating playthrough audits rely on:
+## Player-profile playtesting infrastructure probe (Phases 1 and 2). Fast and deterministic, part of the
+## maintained suite (tools/run_probes.py). It guards the invariants the long, non-gating playthrough audits rely on:
 ##   A. the clock seam is off by default and production calls read the system clock;
 ##   B. with the seam, a simulated day boundary refreshes the daily missions;
 ##   C. a simulated offline interval is settled and can be claimed exactly once;
 ##   D. boss-respawn settlement and the Prestige transaction id follow the seam;
 ##   E. the same seed gives the same normalized event log and final state digest, twice, from fresh profiles;
 ##   F. a save snapshot survives a JSON round trip and restore with its progression intact.
+##   G. (Phase 2) the session schedule is deterministic per seed and profile and independent of the game RNG;
+##   H. (Phase 2) a real Casual playthrough over a calendar day: sessions start and end as scheduled, offline
+##      time advances only the calendar, each return cold-loads the isolated save with the progression intact,
+##      the game settles the absence (capped at the purchased cap) and the claim pays it exactly once, the
+##      daily missions roll over at midnight, and the same seed gives the same events and state twice;
+##   I. (Phase 2) a warm return (resume notice) settles and claims the same way;
+##   J. (Phase 2) a continuous Active run has no sessions and no offline time (the Phase 1 behaviour).
+## Sections G-J use no fixtures: every value comes from the real game.
 ## Sections B, C and D seed a few labelled fixture values (marked "fixture"): they test the engine seam in
 ## isolation and are never playthrough evidence. Section E is a real, short, natural playthrough.
 ## Usage: godot --headless --path . res://tests/player_profile_probe.tscn -- --probe --profile=probe-x --no-autosave
@@ -14,6 +22,8 @@ const Driver:=preload("res://tests/playtest/playtest_driver.gd")
 const Recorder:=preload("res://tests/playtest/playtest_recorder.gd")
 const Adapter:=preload("res://tests/playtest/lootfarmer_adapter.gd")
 const Policy:=preload("res://tests/playtest/policies/active_policy.gd")
+const CasualPolicy:=preload("res://tests/playtest/policies/casual_policy.gd")
+const Schedule:=preload("res://tests/playtest/session_schedule.gd")
 const DAY:=1767600000.0   # 2026-01-05T08:00:00Z
 
 var checks:=0
@@ -45,6 +55,8 @@ func run() -> void:
     section_offline()
     section_respawn_and_prestige_id()
     section_determinism()
+    section_schedule()
+    section_sessions()
     print("PLAYER_PROFILE_PROBE checks=%d failures=%d" % [checks,failures])
     if failures==0:print("PLAYER_PROFILE_PROBE PASS")
     get_tree().quit(1 if failures else 0)
@@ -187,3 +199,118 @@ func section_determinism() -> void:
     var other:=play(2,"c")
     check(str(other.state)!=str(first.state),"another seed gives another playthrough")
     other.adapter.teardown();other.sim.queue_free()
+
+# G. The schedule alone: deterministic per seed and profile, its own random stream, slots and lengths honoured.
+func section_schedule() -> void:
+    var config:={"mode":"sessions","session_minutes":[16,24],"slots":[{"hour":8.5,"chance":1.0},{"hour":13.0,"chance":.5},{"hour":20.0,"chance":1.0}],
+        "jitter_minutes":30,"min_gap_minutes":30}
+    var lists: Array=[]
+    for i in range(3):
+        var sch=Schedule.new()
+        sch.setup(config,1 if i<2 else 2,"casual")
+        var list: Array=[snappedf(sch.first_length(),.01)]
+        var at:=0.0
+        for n in range(12):
+            var next: Dictionary=sch.next_after(at)
+            list.append([snappedf(float(next.start_c),.01),snappedf(float(next.active_s),.01)])
+            at=float(next.start_c)+float(next.active_s)
+        lists.append(list)
+    check(var_to_str(lists[0])==var_to_str(lists[1]),"same seed and profile: the same sessions")
+    check(var_to_str(lists[0])!=var_to_str(lists[2]),"another seed: other sessions")
+    var ok_lengths:=true
+    var ok_order:=true
+    var prev:=0.0
+    for item in lists[0].slice(1):
+        if float(item[1])<16*60-.01 or float(item[1])>24*60+.01:ok_lengths=false
+        if float(item[0])<prev+30*60-.01:ok_order=false
+        prev=float(item[0])+float(item[1])
+    check(ok_lengths,"session lengths stay inside session_minutes")
+    check(ok_order,"sessions never overlap and keep min_gap_minutes")
+    var days:=int(float(lists[0][-1][0])/86400.0)+1
+    check(lists[0].size()-1>=2*days-1 and lists[0].size()-1<=3*days+1,"two or three sessions a day")
+    var rng_probe:=RandomNumberGenerator.new();rng_probe.seed=99
+    var before:=rng_probe.state
+    var sch2=Schedule.new();sch2.setup(config,99,"casual");sch2.next_after(0.0)
+    check(rng_probe.state==before,"the schedule never draws from another random stream")
+
+## One short scheduled Casual playthrough: 1-minute sessions at 08:00, ~08:12 and 20:00 each day, for 26
+## calendar hours (crossing midnight, one absence longer than the 5-hour cap).
+func play_sessions(seed_value: int,tag: String,return_mode: String) -> Dictionary:
+    var sim=fresh_sim()
+    var recorder=Recorder.new()
+    var folder:=ProjectSettings.globalize_path("res://tests/tmp/player_profiles/_probe/"+tag)
+    DirAccess.make_dir_recursive_absolute(folder)
+    check(recorder.open(folder,false),"the recorder opens its scratch folder ("+tag+")")
+    var adapter=Adapter.new()
+    var driver=Driver.new()
+    adapter.setup(sim,recorder,seed_value,driver.start_unix)
+    var policy=CasualPolicy.new()
+    policy.setup(adapter)
+    var schedule=Schedule.new()
+    schedule.setup({"mode":"sessions","session_minutes":[1,1],"slots":[{"hour":8.2,"chance":1.0},{"hour":20.0,"chance":1.0}],
+        "jitter_minutes":0,"min_gap_minutes":0,"end_grace_seconds":60,"return_mode":return_mode},seed_value,"casual")
+    driver.adapter=adapter;driver.policy=policy;driver.recorder=recorder;driver.schedule=schedule
+    driver.until="calendar";driver.calendar_limit=26.0*3600;driver.active_limit=INF;driver.stall_seconds=0.0;driver.max_wall_seconds=60.0
+    var stop: String=driver.run()
+    return {"stop":stop,"driver":driver,"adapter":adapter,"sim":sim,"events":recorder.digest(),"state":adapter.state_digest(),"folder":folder}
+
+func read_events(folder: String) -> Array:
+    var out: Array=[]
+    for line in FileAccess.get_file_as_string(folder.path_join("events.jsonl")).split("\n",false):out.append(JSON.parse_string(line))
+    return out
+
+func section_sessions() -> void:
+    check(BootContext.profile_name.begins_with("probe") and BootContext.save_directory().contains(BootContext.profile_name),"runs save only inside the isolated probe profile")
+    var first:=play_sessions(3,"s1","cold")
+    var d=first.driver
+    var adapter=first.adapter
+    check(str(first.stop)=="calendar_reached","the calendar horizon ends the run")
+    check(absf(d.calendar()-26.0*3600)<.2,"the run stops at 26 calendar hours")
+    check(absf(d.calendar()-(d.active+d.offline))<.01,"calendar time is active plus offline time")
+    check(d.sessions.size()==4,"four sessions in 26 hours (08:00, 08:12, 20:00, next day 08:12)")
+    var lengths_ok:=true
+    for s in d.sessions:
+        if float(s.active_s)<60.0-.01 or float(s.active_s)>60.0+60.0+.01:lengths_ok=false
+    check(lengths_ok,"each session plays its minute (plus at most the end grace)")
+    check(d.active<6.0*60.0 and d.offline>25.0*3600,"almost all of the day is offline time")
+    var events:=read_events(str(first.folder))
+    var settled: Array=events.filter(func(e):return str(e.type)=="offline_settled")
+    var claims: Array=events.filter(func(e):return str(e.type)=="action" and str(e.action)=="claim_offline")
+    var errors: Array=events.filter(func(e):return str(e.type)=="action_error")
+    check(errors.is_empty(),"no persistence or action error across three cold returns")
+    check(settled.size()==3 and claims.size()==3 and int(adapter.offline.claims)==3,"every return is settled once and claimed once")
+    var away_sum:=0.0
+    var cap_ok:=true
+    var long_seen:=false
+    for e in settled:
+        away_sum+=float(e.away_s)
+        if absf(float(e.settled_s)-float(e.away_s))>2.0:cap_ok=false
+        var paid_h:=minf(float(e.away_s),float(e.cap_h)*3600.0)/3600.0
+        if absf(float(e.rewarded_h)-paid_h)>.002:cap_ok=false
+        if float(e.away_s)>float(e.cap_h)*3600.0:long_seen=true
+    check(absf(away_sum+d.away_at_stop-d.offline)<1.0 and d.away_at_stop>0.0,"the settled absences plus the absence cut by the horizon add up to the offline time")
+    check(cap_ok,"each absence is settled in full and paid up to the purchased cap")
+    check(long_seen and float(adapter.offline.capped_seconds)>0.0,"an absence longer than the cap pays only the cap")
+    check(absf(float(adapter.offline.claimed.coins)-float(adapter.offline.earned.coins))<.01,"claimed Coins equal what the game settled")
+    check(first.sim.state.offline_pending.is_empty(),"nothing stays pending after the last claim")
+    var coins: float=float(first.sim.state.coins)
+    check(not adapter.claim_offline().ok and float(first.sim.state.coins)==coins,"a second claim pays nothing")
+    check(adapter.mission_days.size()>=1 and str(adapter.mission_days[0].day)=="2026-01-06","the daily missions roll over at the virtual midnight")
+    check(absf(float(first.sim.state.offline_total)-away_sum)<1.0,"the game's own offline counter advanced by exactly the claimed time")
+    check(int(first.sim.state.player_level)>1 and int(adapter.summary().kills_total)>0,"progress made in early sessions persists to the end")
+    adapter.teardown();first.sim.queue_free()
+    var again:=play_sessions(3,"s2","cold")
+    check(str(again.events)==str(first.events),"same seed and schedule: identical event log")
+    check(str(again.state)==str(first.state),"same seed and schedule: identical final state")
+    again.adapter.teardown();again.sim.queue_free()
+    var warm:=play_sessions(3,"s3","warm")
+    var warm_events:=read_events(str(warm.folder))
+    check(str(warm.stop)=="calendar_reached" and warm_events.filter(func(e):return str(e.type)=="action_error").is_empty(),"warm returns run without errors")
+    check(int(warm.adapter.offline.claims)==3 and warm.sim.state.offline_pending.is_empty(),"warm returns are settled and claimed once each")
+    warm.adapter.teardown();warm.sim.queue_free()
+    # J. Continuous Active: no sessions, no offline time, no session events.
+    var cont:=play(1,"d")
+    var cont_events:=read_events(ProjectSettings.globalize_path("res://tests/tmp/player_profiles/_probe/d"))
+    check(float(cont.adapter.offline.away_seconds)==0.0 and cont_events.filter(func(e):return str(e.type) in ["session_started","offline_settled","schedule"]).is_empty(),
+        "a continuous Active run has no sessions and no offline time")
+    cont.adapter.teardown();cont.sim.queue_free()

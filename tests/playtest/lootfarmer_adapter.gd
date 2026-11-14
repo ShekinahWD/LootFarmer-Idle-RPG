@@ -7,6 +7,14 @@ extends RefCounted
 ## game's own input layer writes: sim.movement (the joystick) and sim.clock_override (the test clock seam).
 ## Every action returns {"ok": bool, "reason": String}; rejections carry the game's own refusal key.
 ## Policy logic never lives here.
+##
+## Phase 2 (sessions): leaving the game is the game's own background notice (offline snapshot + durable
+## save); returning is, by default, a cold start: a fresh profile object loads the isolated save file through
+## SaveService.load_and_apply(), whose restore() settles offline time and boss respawns at the virtual now.
+## The adapter checks that the reloaded progression equals what was left, and measures what the game's
+## settlement recorded (earned) separately from what the player's Claim paid (claimed). It never computes
+## an offline reward itself. The one UI-only toggle it presses (mission auto-claim) writes exactly what the
+## Missions panel's toggle writes.
 
 const TAP_REACH:=320.0     # a pickup can be tapped when it is in sight and about on screen
 var sim
@@ -35,10 +43,27 @@ var prestige_diffs: Array=[]
 var first_times: Dictionary={}
 var fresh_reference: Dictionary={}
 var _before_prestige: Dictionary={}
+# Phase 2: calendar time, sessions and offline accounting (measured from the game's own records)
+const AUTOMATION:=["focus","collect","collect_range","collect_batch","collect_speed","merge_gear","gear_merge_speed","auto_use","use_speed",
+    "auto_evolve","auto_buy_slots","skill_auto_slots","mission_claim","merge_all","offline_cap","offline_coins","offline_gems","offline_weapon",
+    "offline_outfit","offline_consumable","offline_skill","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate","offline_skill_rate"]
+var start_unix:=0.0
+var milestones: Dictionary={}          # key -> {"t": active s, "c": calendar s}, first time only
+var automation_first: Dictionary={}    # upgrade id -> {"t","c","level"} of its first purchase
+var offline:={"settlements":0,"away_seconds":0.0,"rewarded_seconds":0.0,"capped_seconds":0.0,"ineligible_seconds":0.0,
+    "earned":{"coins":0.0,"gems":0.0,"items":0},"earned_items":{},
+    "claims":0,"claimed":{"coins":0.0,"gems":0.0,"items":0},"claimed_items":{},"items_refused":0,
+    "paid_at_prestige":{"coins":0.0,"gems":0.0,"items_dropped":0},"rates_at_leave":[]}
+var mission_days: Array=[]             # [{"day","t","c"}] each daily mission refresh observed
+var wants: Dictionary={}               # policy saving goals: key -> {"since_t","since_c"}
+var waits: Array=[]                    # closed saving goals that lasted long
+var _mission_day:=""
+var _persist_before:=""
 
-func setup(simulation,recorder,seed_value: int,start_unix: float) -> void:
+func setup(simulation,recorder,seed_value: int,start: float) -> void:
     sim=simulation;rec=recorder
-    sim.clock_override=start_unix
+    sim.clock_override=start
+    start_unix=start
     sim.rng.seed=seed_value
     sim.new_profile()
     sim.rng.seed=seed_value
@@ -54,6 +79,7 @@ func setup(simulation,recorder,seed_value: int,start_unix: float) -> void:
     sim.evolved.connect(_on_evolved)
     sim.supply_used.connect(func(_id):counts.supplies_used+=1)
     stage_enter_times["1"]=0.0
+    _mission_day=str(sim.state.mission_day)
 
 func teardown() -> void:
     sim.clock_override=-1.0
@@ -72,6 +98,10 @@ func step(dt: float) -> bool:
         for e in sim.state.enemies:
             if float(e.hp)>0 and bool(e.aggro) and not groups.has(str(sim.catalog.groups[int(e.group)].id)):groups.append(str(sim.catalog.groups[int(e.group)].id))
         if not groups.is_empty():_recent_aggro=groups
+    if _tick%50==0 and str(sim.state.mission_day)!=_mission_day:
+        _mission_day=str(sim.state.mission_day)
+        mission_days.append({"day":_mission_day,"t":snappedf(rec.active,.1),"c":snappedf(calendar_now(),.1)})
+        rec.event("missions_refreshed",{"day":_mission_day})
     return float(sim.state.get("playtime_total",0.0))>before
 
 func goal_reached(goal: String) -> bool:
@@ -116,13 +146,16 @@ func _on_event(key: String) -> void:
         "PLAYER_DIED":
             var p: Vector2=pos()
             var row: Dictionary={"t":snappedf(rec.active,.1),"stage":stage(),"level":level(),"x":snappedf(p.x,1),"y":snappedf(p.y,1),"attackers":_recent_aggro.duplicate()}
+            row["c"]=snappedf(calendar_now(),.1)
             deaths.append(row);rec.event("death",row);_recent_aggro=[]
         "PLAYER_LEVEL_UP":
             level_times[str(level())]=snappedf(rec.active,.1)
+            mark("level:%d" % level())
             rec.event("level_up",{"level":level()})
         "STAGE_UNLOCKED":
             var key2:=str(int(sim.state.unlocked_stage))
             if not stage_unlock_times.has(key2):stage_unlock_times[key2]=snappedf(rec.active,.1)
+            mark("stage_unlocked:"+key2)
             rec.event("stage_unlocked",{"stage":int(sim.state.unlocked_stage),"prestiges":int(sim.state.prestiges)})
         "WORLD_COMPLETE":rec.event("world_complete",{})
 
@@ -131,9 +164,11 @@ func _on_milestone(kind: String,id: String) -> void:
         "discovered":rec.event("opportunity_discovered",{"id":id})
         "ready":
             if prestige_ready_time<0:prestige_ready_time=snappedf(rec.active,.1)
+            mark("prestige_ready")
             rec.event("opportunity_ready",{"id":id})
         "boss_found":
             if not boss_found_times.has(id):boss_found_times[id]=snappedf(rec.active,.1)
+            mark("boss_found:"+id)
             rec.event("boss_found",{"id":id})
         "card":rec.event("card_awarded",{"id":id})
         "prestiged":rec.event("prestige_completed",{"cards":id,"prestiges":int(sim.state.prestiges)})
@@ -141,6 +176,7 @@ func _on_milestone(kind: String,id: String) -> void:
 func _on_boss_defeated(_actor: String,group: int,_at: Vector2) -> void:
     var id:=str(sim.catalog.groups[group].id)
     if not boss_first_kill_times.has(id):boss_first_kill_times[id]=snappedf(rec.active,.1)
+    mark("boss_defeated:"+id)
     rec.event("boss_defeated",{"id":id,"level":level(),"hp_left":snappedf(hp_frac(),.01),"lifetime_defeats_before":int(sim.state.group_kills[group])})
 
 func _on_evolved(source: String,target: String) -> void:
@@ -150,6 +186,7 @@ func _on_evolved(source: String,target: String) -> void:
 func first(key: String) -> void:
     if not first_times.has(key):
         first_times[key]=snappedf(rec.active,.1)
+        mark("first:"+key)
         rec.event("first",{"what":key})
 
 # ------------------------------------------------------------------ action plumbing
@@ -230,6 +267,8 @@ func buy_upgrade(id: String,group: int=-1) -> Dictionary:
     if result.ok:
         purchases[subject]=int(purchases.get(subject,0))+1
         first("upgrade")
+        if AUTOMATION.has(id) and not automation_first.has(id):
+            automation_first[id]={"t":snappedf(rec.active,.1),"c":snappedf(calendar_now(),.1),"level":int(sim.level(id,group))}
     return result
 
 func _scope_name(id: String,group: int) -> String:
@@ -285,8 +324,25 @@ func claim_main(i: int) -> Dictionary:
 func claim_hunt() -> Dictionary:
     return _act("claim_hunt","hunt","mission",func():return sim.campaign.claim_hunt())
 
+## The Claim button of the offline receipt. Measures what the claim paid and which item copies the game
+## granted (campaign.offline_receipt); copies the inventory could not take are counted as refused.
 func claim_offline() -> Dictionary:
-    return _act("claim_offline","offline","offline",func():return sim.campaign.claim_offline())
+    var pending: Dictionary=offline_pending()
+    if pending.is_empty():return {"ok":false,"reason":"NOTHING_PENDING"}
+    var result:=_act("claim_offline","offline","offline",func():return sim.campaign.claim_offline(),true,
+        {"away_s":snappedf(float(pending.seconds),.1),"rewarded_h":snappedf(float(pending.rewarded_hours),.001),"items":_count(pending.items)})
+    if result.ok:
+        var receipt: Dictionary=sim.campaign.offline_receipt
+        offline.claims+=1
+        offline.claimed.coins+=float(pending.coins);offline.claimed.gems+=float(pending.gems)
+        var granted:=0
+        for id in receipt.get("items",{}):
+            granted+=int(receipt.items[id]);offline.claimed_items[id]=int(offline.claimed_items.get(id,0))+int(receipt.items[id])
+        offline.claimed.items+=granted
+        offline.items_refused+=_count(pending.items)-granted
+        if not sim.state.offline_pending.is_empty():_error="offline claim left a pending record"
+        mark("first:offline_claim")
+    return result
 
 ## The whole Prestige transaction is two real calls: begin_prestige, then one choose_card per opportunity.
 func begin_prestige() -> Dictionary:
@@ -297,12 +353,19 @@ func begin_prestige() -> Dictionary:
     return result
 
 func choose_card(id: String) -> Dictionary:
+    var pending: Dictionary=offline_pending()
     var result:=_act("choose_card",id,"prestige_settlement",func():return sim.campaign.choose_card(id))
+    if result.ok and sim.state.prestige_batch.is_empty() and not pending.is_empty() and sim.state.offline_pending.is_empty():
+        # The game pays unclaimed offline Coins and Gems inside the Prestige transaction; their item copies end with the run.
+        offline.paid_at_prestige.coins+=float(pending.coins);offline.paid_at_prestige.gems+=float(pending.gems)
+        offline.paid_at_prestige.items_dropped+=_count(pending.items)
+        rec.event("offline_paid_by_prestige",{"coins":snappedf(float(pending.coins),.01),"gems":snappedf(float(pending.gems),.01),"items_dropped":_count(pending.items)})
     if result.ok and sim.state.prestige_batch.is_empty() and not _before_prestige.is_empty():
         prestige_times.append(snappedf(rec.active,.1))
         prestige_diffs.append(_field_diff(_before_prestige,sim.state))
         _before_prestige={}
         stage_enter_times["1@p%d" % int(sim.state.prestiges)]=snappedf(rec.active,.1)
+        mark("prestige:%d" % int(sim.state.prestiges))
     return result
 
 ## The canonical field diff (tests/prestige_field_diff.gd): each top-level state field is KEPT (unchanged),
@@ -323,6 +386,173 @@ func _field_diff(before: Dictionary,after: Dictionary) -> Dictionary:
         "upgrades_equal":var_to_str(before.upgrades)==var_to_str(after.upgrades),"group_kills_equal":var_to_str(before.group_kills)==var_to_str(after.group_kills),
         "consumed_after":after.consumed.duplicate(),"cards_owned_after":after.owned_cards.duplicate()}
     return {"fields":rows,"facts":facts}
+
+## Merge All (the 500-Gem unlock): one tap performing every ordinary merge.
+func merge_all() -> Dictionary:
+    return _act("merge_all","all","none",func():return int(sim.merge_all().items)>0)
+
+## A supply slot's Auto Use toggle (needs Auto Use levels).
+func bind_auto(slot: int) -> Dictionary:
+    return _act("auto_use_toggle",str(slot),"none",func():return sim.bind_auto(slot))
+func auto_slots() -> Array:return sim.state.auto_slots.duplicate()
+func supply_slot_of(id: String) -> int:return sim.state.supplies.find(id)
+func auto_use_levels() -> int:return int(sim.level("auto_use"))
+
+## Auto Buy Supplies: choose the supply a slot restocks.
+func set_auto_buy(slot: int,id: String) -> Dictionary:
+    return _act("auto_buy_select","%d:%s" % [slot,id],"none",func():return sim.set_auto_buy(slot,id))
+func auto_buy_capacity() -> int:return sim.auto_buy_capacity()
+func auto_buy_selection() -> Array:return sim.auto_buy_selection()
+
+## Automatic skill casting: which equipped skill slots cast by themselves.
+func assign_automatic_skills(slots_: Array) -> Dictionary:
+    return _act("auto_skills",str(slots_),"none",func():return sim.assign_automatic_skills(slots_))
+func automatic_skill_capacity() -> int:return sim.automatic_skill_capacity()
+func automatic_skill_slots() -> Array:return sim.automatic_skill_assignments()
+
+## The Missions panel's "Automatic Claiming" toggle. The game has no simulation function for it: the panel
+## writes the flag (and the seen-hint) itself; this does exactly the same and nothing more.
+func set_mission_auto(on: bool) -> Dictionary:
+    if sim.level("mission_claim")<=0:
+        rec.failure("mission_auto","MISSION_AUTO_LOCKED","");return {"ok":false,"reason":"MISSION_AUTO_LOCKED"}
+    if bool(sim.state.mission_auto)==on:return {"ok":true,"reason":""}
+    sim.state.mission_auto=on
+    if on and not sim.state.tutorial.seen.has("mission_auto_enabled"):sim.state.tutorial.seen.append("mission_auto_enabled")
+    sim.touch()
+    rec.event("action",{"action":"mission_auto","subject":"on" if on else "off"})
+    return {"ok":true,"reason":""}
+func mission_auto() -> bool:return bool(sim.state.mission_auto)
+
+# ------------------------------------------------------------------ sessions (Phase 2)
+func calendar_now() -> float:return float(rec.virtual_unix)-start_unix
+func mark(key: String) -> void:
+    if not milestones.has(key):milestones[key]={"t":snappedf(rec.active,.1),"c":snappedf(calendar_now(),.1)}
+
+## A player closes the game only between fights with a boss and outside a Prestige choice.
+func session_can_end() -> bool:
+    return not boss_aggro() and not prestige_batch_open()
+
+## The player leaves: release the stick and let the game background itself (its own offline snapshot and
+## durable save). The progression left behind is remembered to verify the next load.
+func leave_session(n: int) -> void:
+    stop()
+    var snap: Dictionary=sim.campaign.offline_snapshot()
+    offline.rates_at_leave.append({"session":n,"cap_h":snappedf(float(snap.cap)/3600.0,.01),"coins_h":snappedf(float(snap.coins),.01),"gems_h":snappedf(float(snap.gems),.01),
+        "item_rates_h":snap.rates.duplicate(),"eligible":{"weapon":snap.eligible.weapon.size(),"outfit":snap.eligible.outfit.size(),"consumable":snap.eligible.consumable.size(),"skill":snap.eligible.skill.size()}})
+    sim.notification(Node.NOTIFICATION_APPLICATION_PAUSED)
+    _persist_before=_persistence_view()
+    rec.event("left_game",{"session":n,"level":level(),"stage":stage(),"coins":floorf(coins()),"gems":floorf(gems()),
+        "offline_cap_h":snappedf(float(snap.cap)/3600.0,.01),"offline_coins_h":snappedf(float(snap.coins),.01),"offline_gems_h":snappedf(float(snap.gems),.01)})
+
+## The player opens the game again `away` seconds later. Cold: a new profile object loads the save file
+## (restore settles offline time and boss respawns). Warm: the game's resume notice settles them. Returns ""
+## or why persistence failed. The game's settlement is measured as the change of the pending record.
+func return_session(n: int,away: float,mode: String) -> String:
+    var pending_before: Dictionary=offline_pending()
+    var snap: Dictionary=sim.state.offline_snapshot.duplicate(true)
+    if mode=="cold":
+        sim.new_profile()
+        SaveService.load_and_apply()
+        if SaveService.last_load_result!="primary":return "persistence: the save did not load (%s)" % SaveService.last_load_result
+    else:
+        sim.notification(Node.NOTIFICATION_APPLICATION_RESUMED)
+    if sim.suspended:return "persistence: the game is still suspended after the return"
+    var after:=_persistence_view()
+    if after!=_persist_before:
+        var was: Dictionary=JSON.parse_string(_persist_before)
+        var now_view: Dictionary=JSON.parse_string(after)
+        var fields: Array=[]
+        for k in was:
+            if not _same(was[k],now_view.get(k)):fields.append("%s: %s -> %s" % [k,JSON.stringify(was[k]).left(160),JSON.stringify(now_view.get(k)).left(160)])
+        # The view rounds numbers to 0.001 and a JSON round trip can move a value across that rounding boundary,
+        # so numbers may differ by one rounding unit (0.0011); everything else must be equal.
+        if not fields.is_empty():return "persistence: the reloaded progression differs from what was left (%s)" % "; ".join(fields)
+    var pending: Dictionary=offline_pending()
+    var seconds:=float(pending.get("seconds",0.0))-float(pending_before.get("seconds",0.0))
+    var hours:=float(pending.get("rewarded_hours",0.0))-float(pending_before.get("rewarded_hours",0.0))
+    var row: Dictionary={"session":n,"away_s":snappedf(away,.1),"settled_s":snappedf(seconds,.1),"rewarded_h":snappedf(hours,.001),
+        "cap_h":snappedf(float(snap.get("cap",0.0))/3600.0,.01),"coins":0.0,"gems":0.0,"items":0}
+    offline.away_seconds+=away
+    if not bool(snap.get("eligible_time",true)):
+        offline.ineligible_seconds+=away;row["ineligible"]=true
+    elif seconds>0.0:
+        offline.settlements+=1
+        offline.rewarded_seconds+=hours*3600.0
+        offline.capped_seconds+=maxf(0.0,seconds-hours*3600.0)
+        var c:=float(pending.get("coins",0.0))-float(pending_before.get("coins",0.0))
+        var g:=float(pending.get("gems",0.0))-float(pending_before.get("gems",0.0))
+        offline.earned.coins+=c;offline.earned.gems+=g
+        var items: Dictionary=pending.get("items",{})
+        var before_items: Dictionary=pending_before.get("items",{})
+        var n_items:=0
+        for id in items:
+            var d:=int(items[id])-int(before_items.get(id,0))
+            if d>0:n_items+=d;offline.earned_items[id]=int(offline.earned_items.get(id,0))+d
+        offline.earned.items+=n_items
+        row.coins=snappedf(c,.01);row.gems=snappedf(g,.01);row.items=n_items
+    rec.event("offline_settled",row)
+    return ""
+
+## What any player does on return when the profile has no own routine: tap Claim on the offline receipt.
+func default_return() -> void:
+    if not offline_pending().is_empty():claim_offline()
+
+## Progression that must survive closing and reopening the game (offline settlement fields excluded).
+func _persistence_view() -> String:
+    var s: Dictionary=sim.state
+    var items: Dictionary={}
+    for id in s.items:items[id]=[int(s.items[id].qty),int(s.items[id].merge)]
+    var upgrades: Dictionary={}
+    for key in s.upgrades:upgrades[key]=int(s.upgrades[key])
+    var mission_rows: Array=[]
+    for m in s.missions:mission_rows.append([str(m.kind),str(m.target),snappedf(float(m.progress),.001),bool(m.claimed),str(m.day)])
+    var view: Dictionary={"level":int(s.player_level),"xp":snappedf(float(s.xp),.001),"coins":snappedf(float(s.coins),.001),"gems":snappedf(float(s.gems),.001),
+        "items":items,"upgrades":upgrades,"prestiges":int(s.prestiges),"stage":int(s.stage),"unlocked":int(s.unlocked_stage),"cards":s.owned_cards.duplicate(),
+        "weapon":str(s.weapon),"outfit":str(s.outfit),"missions":mission_rows,"camps":JSON.stringify(s.camps,"",true),"kills":JSON.stringify(s.group_kills),
+        "focus":[int(s.focus),int(s.focus_variant)],"skills":s.skills.duplicate(),"opportunities":_opportunity_view(s.opportunities)}
+    return JSON.stringify(view,"",true)
+
+func _same(x,y) -> bool:
+    if (x is float or x is int) and (y is float or y is int):
+        return absf(float(x)-float(y))<=1e-9*maxf(1.0,maxf(absf(float(x)),absf(float(y))))+.0011
+    if x is Array and y is Array:
+        if x.size()!=y.size():return false
+        for i in range(x.size()):
+            if not _same(x[i],y[i]):return false
+        return true
+    if x is Dictionary and y is Dictionary:
+        if x.size()!=y.size():return false
+        for k in x:
+            if not y.has(k) or not _same(x[k],y[k]):return false
+        return true
+    return JSON.stringify(x)==JSON.stringify(y)
+
+func _opportunity_view(ops: Dictionary) -> Array:
+    var ids: Array=ops.keys();ids.sort()
+    var out: Array=[]
+    for id in ids:out.append("%s=%s" % [id,str(bool(ops[id].get("ready",false)))])
+    return out
+
+func _count(d: Dictionary) -> int:
+    var n:=0
+    for k in d:n+=int(d[k])
+    return n
+
+## Policy saving goals: a policy opens one when its top wish is unaffordable and closes it when bought.
+## Long waits are evidence (an upgrade that stays out of reach, automation that arrives late).
+## A goal the policy stops asking for (its farm changed, a cheaper list item came first) lapses after 600 active
+## seconds without a renewal and is dropped without a wait record; asking again later starts a new goal.
+func want_open(key: String) -> void:
+    if wants.has(key) and rec.active-float(wants[key].seen_t)>600.0:wants.erase(key)
+    if not wants.has(key):wants[key]={"since_t":snappedf(rec.active,.1),"since_c":snappedf(calendar_now(),.1),"seen_t":rec.active}
+    wants[key].seen_t=rec.active
+func want_close(key: String) -> void:
+    if not wants.has(key):return
+    var w: Dictionary=wants[key];wants.erase(key)
+    if rec.active-float(w.seen_t)>600.0:return
+    var row: Dictionary={"want":key,"waited_active_s":snappedf(rec.active-float(w.since_t),.1),"waited_calendar_s":snappedf(calendar_now()-float(w.since_c),.1)}
+    if float(row.waited_active_s)>=600.0 or float(row.waited_calendar_s)>=6.0*3600.0:
+        waits.append(row);rec.event("purchase_wait",row)
 
 ## Policy notes that are evidence (boss attempts, decisions with a reason).
 func note(kind: String,data: Dictionary={}) -> void:rec.event(kind,data)
@@ -469,6 +699,22 @@ func main_ready() -> Array:
     result.sort()
     return result
 func hunt_claimable() -> bool:return sim.campaign.hunt_claimable()
+## The daily missions as the Missions panel shows them.
+func missions() -> Array:
+    var result: Array=[]
+    for m in sim.state.missions:result.append({"kind":str(m.kind),"target":str(m.target),"progress":float(m.progress),"goal":float(m.goal),"claimed":bool(m.claimed)})
+    return result
+func group_index(group_id: String) -> int:
+    for g in range(sim.catalog.groups.size()):
+        if str(sim.catalog.groups[g].id)==group_id:return g
+    return -1
+## The pending offline receipt (a copy), {} when there is none.
+func offline_pending() -> Dictionary:return sim.state.get("offline_pending",{}).duplicate(true)
+## The Offline tab's figures: hourly Coins and Gems, item rates and the cap in hours.
+func offline_rates() -> Dictionary:
+    var snap: Dictionary=sim.campaign.offline_snapshot()
+    return {"cap_h":float(snap.cap)/3600.0,"coins_h":float(snap.coins),"gems_h":float(snap.gems),"rates":snap.rates.duplicate()}
+func skills_seen() -> bool:return not sim.state.skills_seen.is_empty()
 
 func prestige_block() -> String:return sim.campaign.prestige_block_reason()
 func prestige_batch_open() -> bool:return not sim.state.prestige_batch.is_empty()
@@ -513,7 +759,27 @@ func summary() -> Dictionary:
             "gems":{"earned_total":snappedf(earned_gems,.01),"spent_total":snappedf(spent_gems,.01),"spent_by_category":_rounded(spent.gems),
                 "earned_by_action":_rounded(gained.gems),"earned_from_kills":snappedf(earned_gems-_sum(gained.gems),.01),"balance":snappedf(float(sim.state.gems),.01)}},
         "opportunities":opportunities(),"explored_percent_current_map":explored_percent(),
-        "offline_claims":"not_measured","prestige_field_diffs":prestige_diffs}
+        "offline":offline,"offline_claims":offline.claims,"offline_pending_at_end":_offline_brief(offline_pending()),
+        "automation_upgrades":_automation_levels(),"automation_first_purchase":automation_first,
+        "milestones":milestones,"mission_days":mission_days,"purchase_waits":waits,"open_wants":_open_wants(),
+        "rejections":rec.failure_counts(),"prestige_field_diffs":prestige_diffs}
+
+func _offline_brief(p: Dictionary) -> Dictionary:
+    if p.is_empty():return {}
+    return {"seconds":snappedf(float(p.seconds),.1),"rewarded_hours":snappedf(float(p.rewarded_hours),.001),"coins":snappedf(float(p.coins),.01),"gems":snappedf(float(p.gems),.01),"items":_count(p.items)}
+func _automation_levels() -> Dictionary:
+    var out: Dictionary={}
+    var keys: Array=sim.state.upgrades.keys();keys.sort()
+    for key in keys:
+        if AUTOMATION.has(str(key).split(":")[0]) and int(sim.state.upgrades[key])>0:out[str(key)]=int(sim.state.upgrades[key])
+    return out
+func _open_wants() -> Array:
+    var out: Array=[]
+    var keys: Array=wants.keys();keys.sort()
+    for k in keys:
+        if rec.active-float(wants[k].seen_t)>600.0:continue
+        out.append({"want":k,"since_t":wants[k].since_t,"since_c":wants[k].since_c,"open_active_s":snappedf(rec.active-float(wants[k].since_t),.1),"open_calendar_s":snappedf(calendar_now()-float(wants[k].since_c),.1)})
+    return out
 
 func _gear(id: String) -> Dictionary:
     if id=="":return {"id":"","tier":0,"merge":0}
