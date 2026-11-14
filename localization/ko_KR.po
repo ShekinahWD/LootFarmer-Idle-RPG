@@ -3443,9 +3443,6 @@ msgstr "최⁠대 체⁠력 +10%"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "주⁠변 탐⁠험 반⁠경 +25%"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "보⁠스 대⁠상 피⁠해 +10%"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "모⁠든 적⁠에⁠게⁠서 얻⁠는 코⁠인 +10%"
 
@@ -3467,9 +3464,6 @@ msgstr "일⁠반 적 코⁠인 +15%"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "합⁠성⁠마⁠다 얻⁠는 능⁠력⁠치 +10%"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "보⁠스 대⁠상 피⁠해 +10%"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "오⁠프⁠라⁠인 아⁠이⁠템 획⁠득⁠률 +25%"
 
@@ -3479,14 +3473,8 @@ msgstr "최⁠대 체⁠력 +10%"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "거⁠인 사⁠냥⁠꾼"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "보⁠스 대⁠상 피⁠해 +25%"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "보⁠스 방⁠어"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "보⁠스⁠에⁠게 받⁠는 피⁠해 20% 감⁠소"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "현⁠상⁠금"
@@ -3640,9 +3628,6 @@ msgstr "보⁠스 경⁠험⁠치 +50%"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "트⁠로⁠피⁠의 힘"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "보⁠스 대⁠상 피⁠해 +20%"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "트⁠로⁠피 보⁠석"

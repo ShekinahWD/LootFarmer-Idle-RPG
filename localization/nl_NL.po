@@ -3445,9 +3445,6 @@ msgstr "+10% maximale HP"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25% verkenningsradius om je heen"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10% schade tegen bazen"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10% munten van elke vijand"
 
@@ -3469,9 +3466,6 @@ msgstr "+15% munten van gewone vijanden"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10% statistieken uit elke samenvoeging"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10% schade tegen bazen"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25% offline voorwerptempo"
 
@@ -3481,14 +3475,8 @@ msgstr "+10% maximale HP"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Reuzendoder"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25% schade tegen bazen"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Bazenwacht"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Je krijgt 20% minder schade van bazen"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Premie"
@@ -3642,9 +3630,6 @@ msgstr "+50% XP van bazen"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Trofeeënkracht"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20% schade tegen bazen"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Trofeeënedelstenen"

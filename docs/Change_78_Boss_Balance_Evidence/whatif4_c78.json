@@ -1,0 +1,6804 @@
+{
+ "seeds": [
+  1,
+  2
+ ],
+ "card_sets": {
+  "p1": {
+   "ready": [
+    "hunter_o1",
+    "trophy_o1",
+    "challenge_o1",
+    "expedition_o1",
+    "arsenal_o1",
+    "regional_o1",
+    "offering_o1"
+   ],
+   "picks": [
+    "hunter_c1",
+    "trophy_c2",
+    "challenge_c2",
+    "expedition_c1",
+    "arsenal_c1",
+    "regional_c1",
+    "offering_c1"
+   ]
+  },
+  "p2": {
+   "ready": [
+    "hunter_o2",
+    "expedition_o2",
+    "specialist_o1",
+    "masterwork_o1"
+   ],
+   "picks": [
+    "hunter_c2",
+    "expedition_c3",
+    "specialist_c3",
+    "masterwork_c3"
+   ]
+  },
+  "p3": {
+   "ready": [
+    "specialist_o2",
+    "collection_o1"
+   ],
+   "picks": [
+    "specialist_c1",
+    "collection_c2"
+   ]
+  }
+ },
+ "builds": [
+  {
+   "id": "L4_r3_P0",
+   "label": "Stage 4 ladder rung 3: L52, gold_sword ^11, boss-gray-cat_outfit_t2 ^107, P0",
+   "stage": 4,
+   "level": 52,
+   "prestige": [],
+   "weapon": [
+    "gold_sword",
+    11
+   ],
+   "outfit": [
+    "boss-gray-cat_outfit_t2",
+    107
+   ],
+   "stored": [
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     43
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     43
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     43
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     43
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "unit-straw-hat_outfit_t2",
+     43
+    ],
+    [
+     "unit-sunglasses_outfit_t2",
+     43
+    ],
+    [
+     "unit-yellow-cap_outfit_t2",
+     43
+    ],
+    [
+     "iron_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_frost",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     24,
+     40
+    ],
+    "guard_tonic": [
+     24,
+     15
+    ],
+    "recovery_salve": [
+     24,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 100,
+    "unit-duck-swim-ring": 100,
+    "unit-rainbow-clown": 100,
+    "unit-red-cap-swimmer": 100,
+    "unit-snorkeler": 100,
+    "unit-straw-hat-swimmer": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-elephant",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "skills": [
+       "strike",
+       "focus"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-teal-dinosaur",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S4",
+   "rung": 3
+  },
+  {
+   "id": "L4_r3_P1",
+   "label": "Stage 4 ladder rung 3: L52, gold_sword ^11, boss-gray-cat_outfit_t2 ^107, P0",
+   "stage": 4,
+   "level": 52,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "gold_sword",
+    11
+   ],
+   "outfit": [
+    "boss-gray-cat_outfit_t2",
+    107
+   ],
+   "stored": [
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     43
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     43
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     43
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     43
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "unit-straw-hat_outfit_t2",
+     43
+    ],
+    [
+     "unit-sunglasses_outfit_t2",
+     43
+    ],
+    [
+     "unit-yellow-cap_outfit_t2",
+     43
+    ],
+    [
+     "iron_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_frost",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     24,
+     40
+    ],
+    "guard_tonic": [
+     24,
+     15
+    ],
+    "recovery_salve": [
+     24,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 100,
+    "unit-duck-swim-ring": 100,
+    "unit-rainbow-clown": 100,
+    "unit-red-cap-swimmer": 100,
+    "unit-snorkeler": 100,
+    "unit-straw-hat-swimmer": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-elephant",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "skills": [
+       "strike",
+       "focus"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-teal-dinosaur",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S4",
+   "rung": 3
+  },
+  {
+   "id": "L4_r3_P3",
+   "label": "Stage 4 ladder rung 3: L52, gold_sword ^11, boss-gray-cat_outfit_t2 ^107, P0",
+   "stage": 4,
+   "level": 52,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "gold_sword",
+    11
+   ],
+   "outfit": [
+    "boss-gray-cat_outfit_t2",
+    107
+   ],
+   "stored": [
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     43
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     43
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     43
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     43
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "unit-straw-hat_outfit_t2",
+     43
+    ],
+    [
+     "unit-sunglasses_outfit_t2",
+     43
+    ],
+    [
+     "unit-yellow-cap_outfit_t2",
+     43
+    ],
+    [
+     "iron_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_frost",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     24,
+     40
+    ],
+    "guard_tonic": [
+     24,
+     15
+    ],
+    "recovery_salve": [
+     24,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 100,
+    "unit-duck-swim-ring": 100,
+    "unit-rainbow-clown": 100,
+    "unit-red-cap-swimmer": 100,
+    "unit-snorkeler": 100,
+    "unit-straw-hat-swimmer": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-elephant",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "skills": [
+       "strike",
+       "focus"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-teal-dinosaur",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S4",
+   "rung": 3
+  },
+  {
+   "id": "L4_r6_P0",
+   "label": "Stage 4 ladder rung 6: L67, gold_sword ^20, boss-gray-cat_outfit_t2 ^203, P0",
+   "stage": 4,
+   "level": 67,
+   "prestige": [],
+   "weapon": [
+    "gold_sword",
+    20
+   ],
+   "outfit": [
+    "boss-gray-cat_outfit_t2",
+    203
+   ],
+   "stored": [
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     82
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     82
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     82
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     82
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "unit-straw-hat_outfit_t2",
+     82
+    ],
+    [
+     "unit-sunglasses_outfit_t2",
+     82
+    ],
+    [
+     "unit-yellow-cap_outfit_t2",
+     82
+    ],
+    [
+     "iron_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_frost",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     38,
+     40
+    ],
+    "guard_tonic": [
+     38,
+     15
+    ],
+    "recovery_salve": [
+     38,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 100,
+    "unit-duck-swim-ring": 100,
+    "unit-rainbow-clown": 100,
+    "unit-red-cap-swimmer": 100,
+    "unit-snorkeler": 100,
+    "unit-straw-hat-swimmer": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-elephant",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "skills": [
+       "strike",
+       "focus"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-teal-dinosaur",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S4",
+   "rung": 6
+  },
+  {
+   "id": "L4_r6_P1",
+   "label": "Stage 4 ladder rung 6: L67, gold_sword ^20, boss-gray-cat_outfit_t2 ^203, P0",
+   "stage": 4,
+   "level": 67,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "gold_sword",
+    20
+   ],
+   "outfit": [
+    "boss-gray-cat_outfit_t2",
+    203
+   ],
+   "stored": [
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     82
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     82
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     82
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     82
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "unit-straw-hat_outfit_t2",
+     82
+    ],
+    [
+     "unit-sunglasses_outfit_t2",
+     82
+    ],
+    [
+     "unit-yellow-cap_outfit_t2",
+     82
+    ],
+    [
+     "iron_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_frost",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     38,
+     40
+    ],
+    "guard_tonic": [
+     38,
+     15
+    ],
+    "recovery_salve": [
+     38,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 100,
+    "unit-duck-swim-ring": 100,
+    "unit-rainbow-clown": 100,
+    "unit-red-cap-swimmer": 100,
+    "unit-snorkeler": 100,
+    "unit-straw-hat-swimmer": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-elephant",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "skills": [
+       "strike",
+       "focus"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-teal-dinosaur",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S4",
+   "rung": 6
+  },
+  {
+   "id": "L4_r6_P3",
+   "label": "Stage 4 ladder rung 6: L67, gold_sword ^20, boss-gray-cat_outfit_t2 ^203, P0",
+   "stage": 4,
+   "level": 67,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "gold_sword",
+    20
+   ],
+   "outfit": [
+    "boss-gray-cat_outfit_t2",
+    203
+   ],
+   "stored": [
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     82
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     82
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     82
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     82
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "unit-straw-hat_outfit_t2",
+     82
+    ],
+    [
+     "unit-sunglasses_outfit_t2",
+     82
+    ],
+    [
+     "unit-yellow-cap_outfit_t2",
+     82
+    ],
+    [
+     "iron_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_frost",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     38,
+     40
+    ],
+    "guard_tonic": [
+     38,
+     15
+    ],
+    "recovery_salve": [
+     38,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 100,
+    "unit-duck-swim-ring": 100,
+    "unit-rainbow-clown": 100,
+    "unit-red-cap-swimmer": 100,
+    "unit-snorkeler": 100,
+    "unit-straw-hat-swimmer": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-elephant",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "skills": [
+       "strike",
+       "focus"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-teal-dinosaur",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S4",
+   "rung": 6
+  },
+  {
+   "id": "L4_r9_P0",
+   "label": "Stage 4 ladder rung 9: L81, gold_sword ^20, boss-gray-cat_outfit_t2 ^300, P0",
+   "stage": 4,
+   "level": 81,
+   "prestige": [],
+   "weapon": [
+    "gold_sword",
+    20
+   ],
+   "outfit": [
+    "boss-gray-cat_outfit_t2",
+    300
+   ],
+   "stored": [
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     120
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     120
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     120
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     120
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "unit-straw-hat_outfit_t2",
+     120
+    ],
+    [
+     "unit-sunglasses_outfit_t2",
+     120
+    ],
+    [
+     "unit-yellow-cap_outfit_t2",
+     120
+    ],
+    [
+     "iron_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_frost",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     52,
+     40
+    ],
+    "guard_tonic": [
+     52,
+     15
+    ],
+    "recovery_salve": [
+     52,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 100,
+    "unit-duck-swim-ring": 100,
+    "unit-rainbow-clown": 100,
+    "unit-red-cap-swimmer": 100,
+    "unit-snorkeler": 100,
+    "unit-straw-hat-swimmer": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-elephant",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "skills": [
+       "strike",
+       "focus"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-teal-dinosaur",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S4",
+   "rung": 9
+  },
+  {
+   "id": "L4_r9_P1",
+   "label": "Stage 4 ladder rung 9: L81, gold_sword ^20, boss-gray-cat_outfit_t2 ^300, P0",
+   "stage": 4,
+   "level": 81,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "gold_sword",
+    20
+   ],
+   "outfit": [
+    "boss-gray-cat_outfit_t2",
+    300
+   ],
+   "stored": [
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     120
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     120
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     120
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     120
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "unit-straw-hat_outfit_t2",
+     120
+    ],
+    [
+     "unit-sunglasses_outfit_t2",
+     120
+    ],
+    [
+     "unit-yellow-cap_outfit_t2",
+     120
+    ],
+    [
+     "iron_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_frost",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     52,
+     40
+    ],
+    "guard_tonic": [
+     52,
+     15
+    ],
+    "recovery_salve": [
+     52,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 100,
+    "unit-duck-swim-ring": 100,
+    "unit-rainbow-clown": 100,
+    "unit-red-cap-swimmer": 100,
+    "unit-snorkeler": 100,
+    "unit-straw-hat-swimmer": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-elephant",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "skills": [
+       "strike",
+       "focus"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-teal-dinosaur",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S4",
+   "rung": 9
+  },
+  {
+   "id": "L4_r9_P3",
+   "label": "Stage 4 ladder rung 9: L81, gold_sword ^20, boss-gray-cat_outfit_t2 ^300, P0",
+   "stage": 4,
+   "level": 81,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "gold_sword",
+    20
+   ],
+   "outfit": [
+    "boss-gray-cat_outfit_t2",
+    300
+   ],
+   "stored": [
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     120
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     120
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     120
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     120
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "unit-straw-hat_outfit_t2",
+     120
+    ],
+    [
+     "unit-sunglasses_outfit_t2",
+     120
+    ],
+    [
+     "unit-yellow-cap_outfit_t2",
+     120
+    ],
+    [
+     "iron_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_frost",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     52,
+     40
+    ],
+    "guard_tonic": [
+     52,
+     15
+    ],
+    "recovery_salve": [
+     52,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 100,
+    "unit-duck-swim-ring": 100,
+    "unit-rainbow-clown": 100,
+    "unit-red-cap-swimmer": 100,
+    "unit-snorkeler": 100,
+    "unit-straw-hat-swimmer": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-elephant",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "skills": [
+       "strike",
+       "focus"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-teal-dinosaur",
+     "limit": 600,
+     "patch": {
+      "damage": 1.6,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S4",
+   "rung": 9
+  },
+  {
+   "id": "L5_r3_P0",
+   "label": "Stage 5 ladder rung 3: L83, diamond_sword ^11, boss-teal-dinosaur_outfit_t2 ^107, P0",
+   "stage": 5,
+   "level": 83,
+   "prestige": [],
+   "weapon": [
+    "diamond_sword",
+    11
+   ],
+   "outfit": [
+    "boss-teal-dinosaur_outfit_t2",
+    107
+   ],
+   "stored": [
+    [
+     "unit-black-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     43
+    ],
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     43
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     43
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     43
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     43
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "gold_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     28,
+     40
+    ],
+    "guard_tonic": [
+     28,
+     15
+    ],
+    "recovery_salve": [
+     28,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600,
+     "patch": {
+      "damage": 1.5,
+      "skills": [
+       "strike",
+       "heal"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600,
+     "patch": {
+      "damage": 1.4,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S5",
+   "rung": 3
+  },
+  {
+   "id": "L5_r3_P1",
+   "label": "Stage 5 ladder rung 3: L83, diamond_sword ^11, boss-teal-dinosaur_outfit_t2 ^107, P0",
+   "stage": 5,
+   "level": 83,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "diamond_sword",
+    11
+   ],
+   "outfit": [
+    "boss-teal-dinosaur_outfit_t2",
+    107
+   ],
+   "stored": [
+    [
+     "unit-black-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     43
+    ],
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     43
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     43
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     43
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     43
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "gold_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     28,
+     40
+    ],
+    "guard_tonic": [
+     28,
+     15
+    ],
+    "recovery_salve": [
+     28,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600,
+     "patch": {
+      "damage": 1.5,
+      "skills": [
+       "strike",
+       "heal"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600,
+     "patch": {
+      "damage": 1.4,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S5",
+   "rung": 3
+  },
+  {
+   "id": "L5_r3_P3",
+   "label": "Stage 5 ladder rung 3: L83, diamond_sword ^11, boss-teal-dinosaur_outfit_t2 ^107, P0",
+   "stage": 5,
+   "level": 83,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "diamond_sword",
+    11
+   ],
+   "outfit": [
+    "boss-teal-dinosaur_outfit_t2",
+    107
+   ],
+   "stored": [
+    [
+     "unit-black-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     43
+    ],
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     43
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     43
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     43
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     43
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     43
+    ],
+    [
+     "gold_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     28,
+     40
+    ],
+    "guard_tonic": [
+     28,
+     15
+    ],
+    "recovery_salve": [
+     28,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600,
+     "patch": {
+      "damage": 1.5,
+      "skills": [
+       "strike",
+       "heal"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600,
+     "patch": {
+      "damage": 1.4,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S5",
+   "rung": 3
+  },
+  {
+   "id": "L5_r6_P0",
+   "label": "Stage 5 ladder rung 6: L101, diamond_sword ^20, boss-teal-dinosaur_outfit_t2 ^203, P0",
+   "stage": 5,
+   "level": 101,
+   "prestige": [],
+   "weapon": [
+    "diamond_sword",
+    20
+   ],
+   "outfit": [
+    "boss-teal-dinosaur_outfit_t2",
+    203
+   ],
+   "stored": [
+    [
+     "unit-black-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     82
+    ],
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     82
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     82
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     82
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     82
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "gold_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     44,
+     40
+    ],
+    "guard_tonic": [
+     44,
+     15
+    ],
+    "recovery_salve": [
+     44,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600,
+     "patch": {
+      "damage": 1.5,
+      "skills": [
+       "strike",
+       "heal"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600,
+     "patch": {
+      "damage": 1.4,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S5",
+   "rung": 6
+  },
+  {
+   "id": "L5_r6_P1",
+   "label": "Stage 5 ladder rung 6: L101, diamond_sword ^20, boss-teal-dinosaur_outfit_t2 ^203, P0",
+   "stage": 5,
+   "level": 101,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "diamond_sword",
+    20
+   ],
+   "outfit": [
+    "boss-teal-dinosaur_outfit_t2",
+    203
+   ],
+   "stored": [
+    [
+     "unit-black-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     82
+    ],
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     82
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     82
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     82
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     82
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "gold_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     44,
+     40
+    ],
+    "guard_tonic": [
+     44,
+     15
+    ],
+    "recovery_salve": [
+     44,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600,
+     "patch": {
+      "damage": 1.5,
+      "skills": [
+       "strike",
+       "heal"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600,
+     "patch": {
+      "damage": 1.4,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S5",
+   "rung": 6
+  },
+  {
+   "id": "L5_r6_P3",
+   "label": "Stage 5 ladder rung 6: L101, diamond_sword ^20, boss-teal-dinosaur_outfit_t2 ^203, P0",
+   "stage": 5,
+   "level": 101,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "diamond_sword",
+    20
+   ],
+   "outfit": [
+    "boss-teal-dinosaur_outfit_t2",
+    203
+   ],
+   "stored": [
+    [
+     "unit-black-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     82
+    ],
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     82
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     82
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     82
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     82
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     82
+    ],
+    [
+     "gold_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     44,
+     40
+    ],
+    "guard_tonic": [
+     44,
+     15
+    ],
+    "recovery_salve": [
+     44,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600,
+     "patch": {
+      "damage": 1.5,
+      "skills": [
+       "strike",
+       "heal"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600,
+     "patch": {
+      "damage": 1.4,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S5",
+   "rung": 6
+  },
+  {
+   "id": "L5_r9_P0",
+   "label": "Stage 5 ladder rung 9: L119, diamond_sword ^20, boss-teal-dinosaur_outfit_t2 ^300, P0",
+   "stage": 5,
+   "level": 119,
+   "prestige": [],
+   "weapon": [
+    "diamond_sword",
+    20
+   ],
+   "outfit": [
+    "boss-teal-dinosaur_outfit_t2",
+    300
+   ],
+   "stored": [
+    [
+     "unit-black-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     120
+    ],
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     120
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     120
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     120
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     120
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "gold_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     60,
+     40
+    ],
+    "guard_tonic": [
+     60,
+     15
+    ],
+    "recovery_salve": [
+     60,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600,
+     "patch": {
+      "damage": 1.5,
+      "skills": [
+       "strike",
+       "heal"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600,
+     "patch": {
+      "damage": 1.4,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S5",
+   "rung": 9
+  },
+  {
+   "id": "L5_r9_P1",
+   "label": "Stage 5 ladder rung 9: L119, diamond_sword ^20, boss-teal-dinosaur_outfit_t2 ^300, P0",
+   "stage": 5,
+   "level": 119,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "diamond_sword",
+    20
+   ],
+   "outfit": [
+    "boss-teal-dinosaur_outfit_t2",
+    300
+   ],
+   "stored": [
+    [
+     "unit-black-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     120
+    ],
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     120
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     120
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     120
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     120
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "gold_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     60,
+     40
+    ],
+    "guard_tonic": [
+     60,
+     15
+    ],
+    "recovery_salve": [
+     60,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600,
+     "patch": {
+      "damage": 1.5,
+      "skills": [
+       "strike",
+       "heal"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600,
+     "patch": {
+      "damage": 1.4,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S5",
+   "rung": 9
+  },
+  {
+   "id": "L5_r9_P3",
+   "label": "Stage 5 ladder rung 9: L119, diamond_sword ^20, boss-teal-dinosaur_outfit_t2 ^300, P0",
+   "stage": 5,
+   "level": 119,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "diamond_sword",
+    20
+   ],
+   "outfit": [
+    "boss-teal-dinosaur_outfit_t2",
+    300
+   ],
+   "stored": [
+    [
+     "unit-black-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     120
+    ],
+    [
+     "unit-cowboy-bandana_outfit_t2",
+     120
+    ],
+    [
+     "unit-duck-swim-ring_outfit_t2",
+     120
+    ],
+    [
+     "unit-rainbow-clown_outfit_t2",
+     120
+    ],
+    [
+     "unit-red-cap-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "unit-snorkeler_outfit_t2",
+     120
+    ],
+    [
+     "unit-straw-hat-swimmer_outfit_t2",
+     120
+    ],
+    [
+     "gold_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     60,
+     40
+    ],
+    "guard_tonic": [
+     60,
+     15
+    ],
+    "recovery_salve": [
+     60,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 100,
+    "unit-mushroom-cap": 100,
+    "unit-pumpkin-head": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-squirrel",
+     "limit": 600,
+     "patch": {
+      "damage": 1.5,
+      "skills": [
+       "strike",
+       "heal"
+      ],
+      "hp": 0.75
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-red-fox",
+     "limit": 600,
+     "patch": {
+      "damage": 1.4,
+      "hp": 0.75
+     }
+    }
+   ],
+   "ladder": "S5",
+   "rung": 9
+  },
+  {
+   "id": "L6_r3_P0",
+   "label": "Stage 6 ladder rung 3: L122, emerald_sword ^11, boss-red-fox_outfit_t3 ^107, P0",
+   "stage": 6,
+   "level": 122,
+   "prestige": [],
+   "weapon": [
+    "emerald_sword",
+    11
+   ],
+   "outfit": [
+    "boss-red-fox_outfit_t3",
+    107
+   ],
+   "stored": [
+    [
+     "unit-horned-hood_outfit_t3",
+     43
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     43
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     43
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     43
+    ],
+    [
+     "unit-black-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     43
+    ],
+    [
+     "diamond_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ],
+    [
+     "skill_lightning",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     32,
+     40
+    ],
+    "guard_tonic": [
+     32,
+     15
+    ],
+    "recovery_salve": [
+     32,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 100,
+    "unit-orange-screen-helmet": 100,
+    "unit-television-head": 100,
+    "unit-top-hat": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-black-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-grim-reaper",
+     "limit": 600,
+     "patch": {
+      "damage": 1.2
+     }
+    }
+   ],
+   "ladder": "S6",
+   "rung": 3
+  },
+  {
+   "id": "L6_r3_P1",
+   "label": "Stage 6 ladder rung 3: L122, emerald_sword ^11, boss-red-fox_outfit_t3 ^107, P0",
+   "stage": 6,
+   "level": 122,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "emerald_sword",
+    11
+   ],
+   "outfit": [
+    "boss-red-fox_outfit_t3",
+    107
+   ],
+   "stored": [
+    [
+     "unit-horned-hood_outfit_t3",
+     43
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     43
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     43
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     43
+    ],
+    [
+     "unit-black-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     43
+    ],
+    [
+     "diamond_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ],
+    [
+     "skill_lightning",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     32,
+     40
+    ],
+    "guard_tonic": [
+     32,
+     15
+    ],
+    "recovery_salve": [
+     32,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 100,
+    "unit-orange-screen-helmet": 100,
+    "unit-television-head": 100,
+    "unit-top-hat": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-black-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-grim-reaper",
+     "limit": 600,
+     "patch": {
+      "damage": 1.2
+     }
+    }
+   ],
+   "ladder": "S6",
+   "rung": 3
+  },
+  {
+   "id": "L6_r3_P3",
+   "label": "Stage 6 ladder rung 3: L122, emerald_sword ^11, boss-red-fox_outfit_t3 ^107, P0",
+   "stage": 6,
+   "level": 122,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "emerald_sword",
+    11
+   ],
+   "outfit": [
+    "boss-red-fox_outfit_t3",
+    107
+   ],
+   "stored": [
+    [
+     "unit-horned-hood_outfit_t3",
+     43
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     43
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     43
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     43
+    ],
+    [
+     "unit-black-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     43
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     43
+    ],
+    [
+     "diamond_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ],
+    [
+     "skill_lightning",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     32,
+     40
+    ],
+    "guard_tonic": [
+     32,
+     15
+    ],
+    "recovery_salve": [
+     32,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 100,
+    "unit-orange-screen-helmet": 100,
+    "unit-television-head": 100,
+    "unit-top-hat": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-black-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-grim-reaper",
+     "limit": 600,
+     "patch": {
+      "damage": 1.2
+     }
+    }
+   ],
+   "ladder": "S6",
+   "rung": 3
+  },
+  {
+   "id": "L6_r6_P0",
+   "label": "Stage 6 ladder rung 6: L148, emerald_sword ^20, boss-red-fox_outfit_t3 ^203, P0",
+   "stage": 6,
+   "level": 148,
+   "prestige": [],
+   "weapon": [
+    "emerald_sword",
+    20
+   ],
+   "outfit": [
+    "boss-red-fox_outfit_t3",
+    203
+   ],
+   "stored": [
+    [
+     "unit-horned-hood_outfit_t3",
+     82
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     82
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     82
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     82
+    ],
+    [
+     "unit-black-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     82
+    ],
+    [
+     "diamond_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_lightning",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     50,
+     40
+    ],
+    "guard_tonic": [
+     50,
+     15
+    ],
+    "recovery_salve": [
+     50,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 100,
+    "unit-orange-screen-helmet": 100,
+    "unit-television-head": 100,
+    "unit-top-hat": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-black-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-grim-reaper",
+     "limit": 600,
+     "patch": {
+      "damage": 1.2
+     }
+    }
+   ],
+   "ladder": "S6",
+   "rung": 6
+  },
+  {
+   "id": "L6_r6_P1",
+   "label": "Stage 6 ladder rung 6: L148, emerald_sword ^20, boss-red-fox_outfit_t3 ^203, P0",
+   "stage": 6,
+   "level": 148,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "emerald_sword",
+    20
+   ],
+   "outfit": [
+    "boss-red-fox_outfit_t3",
+    203
+   ],
+   "stored": [
+    [
+     "unit-horned-hood_outfit_t3",
+     82
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     82
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     82
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     82
+    ],
+    [
+     "unit-black-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     82
+    ],
+    [
+     "diamond_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_lightning",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     50,
+     40
+    ],
+    "guard_tonic": [
+     50,
+     15
+    ],
+    "recovery_salve": [
+     50,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 100,
+    "unit-orange-screen-helmet": 100,
+    "unit-television-head": 100,
+    "unit-top-hat": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-black-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-grim-reaper",
+     "limit": 600,
+     "patch": {
+      "damage": 1.2
+     }
+    }
+   ],
+   "ladder": "S6",
+   "rung": 6
+  },
+  {
+   "id": "L6_r6_P3",
+   "label": "Stage 6 ladder rung 6: L148, emerald_sword ^20, boss-red-fox_outfit_t3 ^203, P0",
+   "stage": 6,
+   "level": 148,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "emerald_sword",
+    20
+   ],
+   "outfit": [
+    "boss-red-fox_outfit_t3",
+    203
+   ],
+   "stored": [
+    [
+     "unit-horned-hood_outfit_t3",
+     82
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     82
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     82
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     82
+    ],
+    [
+     "unit-black-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     82
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     82
+    ],
+    [
+     "diamond_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_lightning",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     50,
+     40
+    ],
+    "guard_tonic": [
+     50,
+     15
+    ],
+    "recovery_salve": [
+     50,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 100,
+    "unit-orange-screen-helmet": 100,
+    "unit-television-head": 100,
+    "unit-top-hat": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-black-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-grim-reaper",
+     "limit": 600,
+     "patch": {
+      "damage": 1.2
+     }
+    }
+   ],
+   "ladder": "S6",
+   "rung": 6
+  },
+  {
+   "id": "L6_r9_P0",
+   "label": "Stage 6 ladder rung 9: L175, emerald_sword ^20, boss-red-fox_outfit_t3 ^300, P0",
+   "stage": 6,
+   "level": 175,
+   "prestige": [],
+   "weapon": [
+    "emerald_sword",
+    20
+   ],
+   "outfit": [
+    "boss-red-fox_outfit_t3",
+    300
+   ],
+   "stored": [
+    [
+     "unit-horned-hood_outfit_t3",
+     120
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     120
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     120
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     120
+    ],
+    [
+     "unit-black-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     120
+    ],
+    [
+     "diamond_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ],
+    [
+     "skill_lightning",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     68,
+     40
+    ],
+    "guard_tonic": [
+     68,
+     15
+    ],
+    "recovery_salve": [
+     68,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 100,
+    "unit-orange-screen-helmet": 100,
+    "unit-television-head": 100,
+    "unit-top-hat": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-black-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-grim-reaper",
+     "limit": 600,
+     "patch": {
+      "damage": 1.2
+     }
+    }
+   ],
+   "ladder": "S6",
+   "rung": 9
+  },
+  {
+   "id": "L6_r9_P1",
+   "label": "Stage 6 ladder rung 9: L175, emerald_sword ^20, boss-red-fox_outfit_t3 ^300, P0",
+   "stage": 6,
+   "level": 175,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "emerald_sword",
+    20
+   ],
+   "outfit": [
+    "boss-red-fox_outfit_t3",
+    300
+   ],
+   "stored": [
+    [
+     "unit-horned-hood_outfit_t3",
+     120
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     120
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     120
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     120
+    ],
+    [
+     "unit-black-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     120
+    ],
+    [
+     "diamond_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ],
+    [
+     "skill_lightning",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     68,
+     40
+    ],
+    "guard_tonic": [
+     68,
+     15
+    ],
+    "recovery_salve": [
+     68,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 100,
+    "unit-orange-screen-helmet": 100,
+    "unit-television-head": 100,
+    "unit-top-hat": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-black-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-grim-reaper",
+     "limit": 600,
+     "patch": {
+      "damage": 1.2
+     }
+    }
+   ],
+   "ladder": "S6",
+   "rung": 9
+  },
+  {
+   "id": "L6_r9_P3",
+   "label": "Stage 6 ladder rung 9: L175, emerald_sword ^20, boss-red-fox_outfit_t3 ^300, P0",
+   "stage": 6,
+   "level": 175,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "emerald_sword",
+    20
+   ],
+   "outfit": [
+    "boss-red-fox_outfit_t3",
+    300
+   ],
+   "stored": [
+    [
+     "unit-horned-hood_outfit_t3",
+     120
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     120
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     120
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     120
+    ],
+    [
+     "unit-black-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-mushroom-cap_outfit_t3",
+     120
+    ],
+    [
+     "unit-pumpkin-head_outfit_t3",
+     120
+    ],
+    [
+     "diamond_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ],
+    [
+     "skill_lightning",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     68,
+     40
+    ],
+    "guard_tonic": [
+     68,
+     15
+    ],
+    "recovery_salve": [
+     68,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 100,
+    "unit-orange-screen-helmet": 100,
+    "unit-television-head": 100,
+    "unit-top-hat": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-black-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-grim-reaper",
+     "limit": 600,
+     "patch": {
+      "damage": 1.2
+     }
+    }
+   ],
+   "ladder": "S6",
+   "rung": 9
+  },
+  {
+   "id": "L7_r3_P0",
+   "label": "Stage 7 ladder rung 3: L175, obsidian_sword ^53, boss-grim-reaper_outfit_t3 ^107, P0",
+   "stage": 7,
+   "level": 175,
+   "prestige": [],
+   "weapon": [
+    "obsidian_sword",
+    53
+   ],
+   "outfit": [
+    "boss-grim-reaper_outfit_t3",
+    107
+   ],
+   "stored": [
+    [
+     "unit-bunny-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-horned-hood_outfit_t3",
+     43
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     43
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     43
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     43
+    ],
+    [
+     "emerald_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ],
+    [
+     "skill_strike",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     36,
+     40
+    ],
+    "guard_tonic": [
+     36,
+     15
+    ],
+    "recovery_salve": [
+     36,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.25
+     }
+    }
+   ],
+   "ladder": "S7",
+   "rung": 3
+  },
+  {
+   "id": "L7_r3_P1",
+   "label": "Stage 7 ladder rung 3: L175, obsidian_sword ^53, boss-grim-reaper_outfit_t3 ^107, P0",
+   "stage": 7,
+   "level": 175,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    53
+   ],
+   "outfit": [
+    "boss-grim-reaper_outfit_t3",
+    107
+   ],
+   "stored": [
+    [
+     "unit-bunny-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-horned-hood_outfit_t3",
+     43
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     43
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     43
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     43
+    ],
+    [
+     "emerald_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ],
+    [
+     "skill_strike",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     36,
+     40
+    ],
+    "guard_tonic": [
+     36,
+     15
+    ],
+    "recovery_salve": [
+     36,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.25
+     }
+    }
+   ],
+   "ladder": "S7",
+   "rung": 3
+  },
+  {
+   "id": "L7_r3_P3",
+   "label": "Stage 7 ladder rung 3: L175, obsidian_sword ^53, boss-grim-reaper_outfit_t3 ^107, P0",
+   "stage": 7,
+   "level": 175,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    53
+   ],
+   "outfit": [
+    "boss-grim-reaper_outfit_t3",
+    107
+   ],
+   "stored": [
+    [
+     "unit-bunny-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-horned-hood_outfit_t3",
+     43
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     43
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     43
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     43
+    ],
+    [
+     "emerald_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ],
+    [
+     "skill_strike",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     36,
+     40
+    ],
+    "guard_tonic": [
+     36,
+     15
+    ],
+    "recovery_salve": [
+     36,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.25
+     }
+    }
+   ],
+   "ladder": "S7",
+   "rung": 3
+  },
+  {
+   "id": "L7_r6_P0",
+   "label": "Stage 7 ladder rung 6: L209, obsidian_sword ^100, boss-grim-reaper_outfit_t3 ^203, P0",
+   "stage": 7,
+   "level": 209,
+   "prestige": [],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-grim-reaper_outfit_t3",
+    203
+   ],
+   "stored": [
+    [
+     "unit-bunny-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-horned-hood_outfit_t3",
+     82
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     82
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     82
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     82
+    ],
+    [
+     "emerald_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_strike",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     56,
+     40
+    ],
+    "guard_tonic": [
+     56,
+     15
+    ],
+    "recovery_salve": [
+     56,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.25
+     }
+    }
+   ],
+   "ladder": "S7",
+   "rung": 6
+  },
+  {
+   "id": "L7_r6_P1",
+   "label": "Stage 7 ladder rung 6: L209, obsidian_sword ^100, boss-grim-reaper_outfit_t3 ^203, P0",
+   "stage": 7,
+   "level": 209,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-grim-reaper_outfit_t3",
+    203
+   ],
+   "stored": [
+    [
+     "unit-bunny-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-horned-hood_outfit_t3",
+     82
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     82
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     82
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     82
+    ],
+    [
+     "emerald_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_strike",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     56,
+     40
+    ],
+    "guard_tonic": [
+     56,
+     15
+    ],
+    "recovery_salve": [
+     56,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.25
+     }
+    }
+   ],
+   "ladder": "S7",
+   "rung": 6
+  },
+  {
+   "id": "L7_r6_P3",
+   "label": "Stage 7 ladder rung 6: L209, obsidian_sword ^100, boss-grim-reaper_outfit_t3 ^203, P0",
+   "stage": 7,
+   "level": 209,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-grim-reaper_outfit_t3",
+    203
+   ],
+   "stored": [
+    [
+     "unit-bunny-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-horned-hood_outfit_t3",
+     82
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     82
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     82
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     82
+    ],
+    [
+     "emerald_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_strike",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     56,
+     40
+    ],
+    "guard_tonic": [
+     56,
+     15
+    ],
+    "recovery_salve": [
+     56,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.25
+     }
+    }
+   ],
+   "ladder": "S7",
+   "rung": 6
+  },
+  {
+   "id": "L7_r9_P0",
+   "label": "Stage 7 ladder rung 9: L244, obsidian_sword ^100, boss-grim-reaper_outfit_t3 ^300, P0",
+   "stage": 7,
+   "level": 244,
+   "prestige": [],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-grim-reaper_outfit_t3",
+    300
+   ],
+   "stored": [
+    [
+     "unit-bunny-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-horned-hood_outfit_t3",
+     120
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     120
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     120
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     120
+    ],
+    [
+     "emerald_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ],
+    [
+     "skill_strike",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     76,
+     40
+    ],
+    "guard_tonic": [
+     76,
+     15
+    ],
+    "recovery_salve": [
+     76,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.25
+     }
+    }
+   ],
+   "ladder": "S7",
+   "rung": 9
+  },
+  {
+   "id": "L7_r9_P1",
+   "label": "Stage 7 ladder rung 9: L244, obsidian_sword ^100, boss-grim-reaper_outfit_t3 ^300, P0",
+   "stage": 7,
+   "level": 244,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-grim-reaper_outfit_t3",
+    300
+   ],
+   "stored": [
+    [
+     "unit-bunny-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-horned-hood_outfit_t3",
+     120
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     120
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     120
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     120
+    ],
+    [
+     "emerald_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ],
+    [
+     "skill_strike",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     76,
+     40
+    ],
+    "guard_tonic": [
+     76,
+     15
+    ],
+    "recovery_salve": [
+     76,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.25
+     }
+    }
+   ],
+   "ladder": "S7",
+   "rung": 9
+  },
+  {
+   "id": "L7_r9_P3",
+   "label": "Stage 7 ladder rung 9: L244, obsidian_sword ^100, boss-grim-reaper_outfit_t3 ^300, P0",
+   "stage": 7,
+   "level": 244,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-grim-reaper_outfit_t3",
+    300
+   ],
+   "stored": [
+    [
+     "unit-bunny-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-horned-hood_outfit_t3",
+     120
+    ],
+    [
+     "unit-orange-screen-helmet_outfit_t3",
+     120
+    ],
+    [
+     "unit-television-head_outfit_t3",
+     120
+    ],
+    [
+     "unit-top-hat_outfit_t3",
+     120
+    ],
+    [
+     "emerald_sword",
+     20
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ],
+    [
+     "skill_strike",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     76,
+     40
+    ],
+    "guard_tonic": [
+     76,
+     15
+    ],
+    "recovery_salve": [
+     76,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 100,
+    "unit-cat-ears": 100,
+    "unit-elf-ears": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-bee",
+     "limit": 600,
+     "patch": {
+      "damage": 1.3
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-orange-tabby-cat",
+     "limit": 600,
+     "patch": {
+      "damage": 1.25
+     }
+    }
+   ],
+   "ladder": "S7",
+   "rung": 9
+  },
+  {
+   "id": "L8_r3_P0",
+   "label": "Stage 8 ladder rung 3: L230, obsidian_sword ^53, boss-bee_outfit_t4 ^107, P0",
+   "stage": 8,
+   "level": 230,
+   "prestige": [],
+   "weapon": [
+    "obsidian_sword",
+    53
+   ],
+   "outfit": [
+    "boss-bee_outfit_t4",
+    107
+   ],
+   "stored": [
+    [
+     "unit-flower-crown_outfit_t5",
+     43
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     43
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     43
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     43
+    ],
+    [
+     "unit-plain_outfit_t5",
+     43
+    ],
+    [
+     "unit-sprout_outfit_t5",
+     43
+    ],
+    [
+     "unit-bunny-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     43
+    ],
+    [
+     "obsidian_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ],
+    [
+     "skill_strike",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     40,
+     40
+    ],
+    "guard_tonic": [
+     40,
+     15
+    ],
+    "recovery_salve": [
+     40,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.5
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.4,
+      "skills": [
+       "fire",
+       "heal"
+      ]
+     }
+    }
+   ],
+   "ladder": "S8",
+   "rung": 3
+  },
+  {
+   "id": "L8_r3_P1",
+   "label": "Stage 8 ladder rung 3: L230, obsidian_sword ^53, boss-bee_outfit_t4 ^107, P0",
+   "stage": 8,
+   "level": 230,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    53
+   ],
+   "outfit": [
+    "boss-bee_outfit_t4",
+    107
+   ],
+   "stored": [
+    [
+     "unit-flower-crown_outfit_t5",
+     43
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     43
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     43
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     43
+    ],
+    [
+     "unit-plain_outfit_t5",
+     43
+    ],
+    [
+     "unit-sprout_outfit_t5",
+     43
+    ],
+    [
+     "unit-bunny-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     43
+    ],
+    [
+     "obsidian_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ],
+    [
+     "skill_strike",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     40,
+     40
+    ],
+    "guard_tonic": [
+     40,
+     15
+    ],
+    "recovery_salve": [
+     40,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.5
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.4,
+      "skills": [
+       "fire",
+       "heal"
+      ]
+     }
+    }
+   ],
+   "ladder": "S8",
+   "rung": 3
+  },
+  {
+   "id": "L8_r3_P3",
+   "label": "Stage 8 ladder rung 3: L230, obsidian_sword ^53, boss-bee_outfit_t4 ^107, P0",
+   "stage": 8,
+   "level": 230,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    53
+   ],
+   "outfit": [
+    "boss-bee_outfit_t4",
+    107
+   ],
+   "stored": [
+    [
+     "unit-flower-crown_outfit_t5",
+     43
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     43
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     43
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     43
+    ],
+    [
+     "unit-plain_outfit_t5",
+     43
+    ],
+    [
+     "unit-sprout_outfit_t5",
+     43
+    ],
+    [
+     "unit-bunny-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     43
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     43
+    ],
+    [
+     "obsidian_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     20
+    ],
+    [
+     "skill_fire",
+     20
+    ],
+    [
+     "skill_strike",
+     20
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     40,
+     40
+    ],
+    "guard_tonic": [
+     40,
+     15
+    ],
+    "recovery_salve": [
+     40,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.5
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.4,
+      "skills": [
+       "fire",
+       "heal"
+      ]
+     }
+    }
+   ],
+   "ladder": "S8",
+   "rung": 3
+  },
+  {
+   "id": "L8_r6_P0",
+   "label": "Stage 8 ladder rung 6: L265, obsidian_sword ^100, boss-bee_outfit_t4 ^203, P0",
+   "stage": 8,
+   "level": 265,
+   "prestige": [],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-bee_outfit_t4",
+    203
+   ],
+   "stored": [
+    [
+     "unit-flower-crown_outfit_t5",
+     82
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     82
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     82
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     82
+    ],
+    [
+     "unit-plain_outfit_t5",
+     82
+    ],
+    [
+     "unit-sprout_outfit_t5",
+     82
+    ],
+    [
+     "unit-bunny-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     82
+    ],
+    [
+     "obsidian_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_strike",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     62,
+     40
+    ],
+    "guard_tonic": [
+     62,
+     15
+    ],
+    "recovery_salve": [
+     62,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.5
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.4,
+      "skills": [
+       "fire",
+       "heal"
+      ]
+     }
+    }
+   ],
+   "ladder": "S8",
+   "rung": 6
+  },
+  {
+   "id": "L8_r6_P1",
+   "label": "Stage 8 ladder rung 6: L265, obsidian_sword ^100, boss-bee_outfit_t4 ^203, P0",
+   "stage": 8,
+   "level": 265,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-bee_outfit_t4",
+    203
+   ],
+   "stored": [
+    [
+     "unit-flower-crown_outfit_t5",
+     82
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     82
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     82
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     82
+    ],
+    [
+     "unit-plain_outfit_t5",
+     82
+    ],
+    [
+     "unit-sprout_outfit_t5",
+     82
+    ],
+    [
+     "unit-bunny-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     82
+    ],
+    [
+     "obsidian_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_strike",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     62,
+     40
+    ],
+    "guard_tonic": [
+     62,
+     15
+    ],
+    "recovery_salve": [
+     62,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.5
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.4,
+      "skills": [
+       "fire",
+       "heal"
+      ]
+     }
+    }
+   ],
+   "ladder": "S8",
+   "rung": 6
+  },
+  {
+   "id": "L8_r6_P3",
+   "label": "Stage 8 ladder rung 6: L265, obsidian_sword ^100, boss-bee_outfit_t4 ^203, P0",
+   "stage": 8,
+   "level": 265,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-bee_outfit_t4",
+    203
+   ],
+   "stored": [
+    [
+     "unit-flower-crown_outfit_t5",
+     82
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     82
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     82
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     82
+    ],
+    [
+     "unit-plain_outfit_t5",
+     82
+    ],
+    [
+     "unit-sprout_outfit_t5",
+     82
+    ],
+    [
+     "unit-bunny-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     82
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     82
+    ],
+    [
+     "obsidian_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     40
+    ],
+    [
+     "skill_fire",
+     40
+    ],
+    [
+     "skill_strike",
+     40
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     62,
+     40
+    ],
+    "guard_tonic": [
+     62,
+     15
+    ],
+    "recovery_salve": [
+     62,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.5
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.4,
+      "skills": [
+       "fire",
+       "heal"
+      ]
+     }
+    }
+   ],
+   "ladder": "S8",
+   "rung": 6
+  },
+  {
+   "id": "L8_r9_P0",
+   "label": "Stage 8 ladder rung 9: L300, obsidian_sword ^100, boss-bee_outfit_t4 ^300, P0",
+   "stage": 8,
+   "level": 300,
+   "prestige": [],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-bee_outfit_t4",
+    300
+   ],
+   "stored": [
+    [
+     "unit-flower-crown_outfit_t5",
+     120
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     120
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     120
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     120
+    ],
+    [
+     "unit-plain_outfit_t5",
+     120
+    ],
+    [
+     "unit-sprout_outfit_t5",
+     120
+    ],
+    [
+     "unit-bunny-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     120
+    ],
+    [
+     "obsidian_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ],
+    [
+     "skill_strike",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     84,
+     40
+    ],
+    "guard_tonic": [
+     84,
+     15
+    ],
+    "recovery_salve": [
+     84,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.5
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.4,
+      "skills": [
+       "fire",
+       "heal"
+      ]
+     }
+    }
+   ],
+   "ladder": "S8",
+   "rung": 9
+  },
+  {
+   "id": "L8_r9_P1",
+   "label": "Stage 8 ladder rung 9: L300, obsidian_sword ^100, boss-bee_outfit_t4 ^300, P0",
+   "stage": 8,
+   "level": 300,
+   "prestige": [
+    "p1"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-bee_outfit_t4",
+    300
+   ],
+   "stored": [
+    [
+     "unit-flower-crown_outfit_t5",
+     120
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     120
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     120
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     120
+    ],
+    [
+     "unit-plain_outfit_t5",
+     120
+    ],
+    [
+     "unit-sprout_outfit_t5",
+     120
+    ],
+    [
+     "unit-bunny-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     120
+    ],
+    [
+     "obsidian_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ],
+    [
+     "skill_strike",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     84,
+     40
+    ],
+    "guard_tonic": [
+     84,
+     15
+    ],
+    "recovery_salve": [
+     84,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.5
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.4,
+      "skills": [
+       "fire",
+       "heal"
+      ]
+     }
+    }
+   ],
+   "ladder": "S8",
+   "rung": 9
+  },
+  {
+   "id": "L8_r9_P3",
+   "label": "Stage 8 ladder rung 9: L300, obsidian_sword ^100, boss-bee_outfit_t4 ^300, P0",
+   "stage": 8,
+   "level": 300,
+   "prestige": [
+    "p1",
+    "p2",
+    "p3"
+   ],
+   "weapon": [
+    "obsidian_sword",
+    100
+   ],
+   "outfit": [
+    "boss-bee_outfit_t4",
+    300
+   ],
+   "stored": [
+    [
+     "unit-flower-crown_outfit_t5",
+     120
+    ],
+    [
+     "unit-green-cap_outfit_t5",
+     120
+    ],
+    [
+     "unit-pink-cap_outfit_t5",
+     120
+    ],
+    [
+     "unit-pink-flower-hood_outfit_t5",
+     120
+    ],
+    [
+     "unit-plain_outfit_t5",
+     120
+    ],
+    [
+     "unit-sprout_outfit_t5",
+     120
+    ],
+    [
+     "unit-bunny-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-cat-ears_outfit_t4",
+     120
+    ],
+    [
+     "unit-elf-ears_outfit_t4",
+     120
+    ],
+    [
+     "obsidian_axe",
+     60
+    ]
+   ],
+   "skills": [
+    [
+     "skill_heal",
+     60
+    ],
+    [
+     "skill_fire",
+     60
+    ],
+    [
+     "skill_strike",
+     60
+    ]
+   ],
+   "supplies": {
+    "potion": [
+     84,
+     40
+    ],
+    "guard_tonic": [
+     84,
+     15
+    ],
+    "recovery_salve": [
+     84,
+     15
+    ]
+   },
+   "potion_at": 0.4,
+   "cast": "auto",
+   "auto": [
+    "potion",
+    "guard_tonic",
+    "recovery_salve"
+   ],
+   "kills": {
+    "unit-blue-cap": 250,
+    "unit-red-scarf": 250,
+    "unit-chef-hat": 250,
+    "boss-snowman": 3,
+    "unit-wolf-hood": 250,
+    "unit-calico-cat-hood": 250,
+    "unit-golden-crown": 250,
+    "unit-reindeer-antlers": 250,
+    "unit-santa-hat": 250,
+    "unit-space-helmet": 250,
+    "boss-cyan-robot": 3,
+    "unit-straw-hat": 250,
+    "unit-sunglasses": 250,
+    "unit-yellow-cap": 250,
+    "boss-gray-cat": 3,
+    "unit-cowboy-bandana": 250,
+    "unit-duck-swim-ring": 250,
+    "unit-rainbow-clown": 250,
+    "unit-red-cap-swimmer": 250,
+    "unit-snorkeler": 250,
+    "unit-straw-hat-swimmer": 250,
+    "boss-elephant": 3,
+    "boss-teal-dinosaur": 3,
+    "unit-black-cap": 250,
+    "unit-mushroom-cap": 250,
+    "unit-pumpkin-head": 250,
+    "boss-squirrel": 3,
+    "boss-red-fox": 3,
+    "unit-horned-hood": 250,
+    "unit-orange-screen-helmet": 250,
+    "unit-television-head": 250,
+    "unit-top-hat": 250,
+    "boss-black-cat": 3,
+    "boss-grim-reaper": 3,
+    "unit-bunny-ears": 250,
+    "unit-cat-ears": 250,
+    "unit-elf-ears": 250,
+    "boss-bee": 3,
+    "boss-orange-tabby-cat": 3,
+    "unit-flower-crown": 100,
+    "unit-green-cap": 100,
+    "unit-pink-cap": 100,
+    "unit-pink-flower-hood": 100,
+    "unit-plain": 100,
+    "unit-sprout": 100
+   },
+   "policy": "attentive",
+   "prestiges": 0,
+   "evidence": "constructed fixture (seeded level/merges/kills/supplies; Prestige via real transaction)",
+   "encounters": [
+    {
+     "kind": "boss",
+     "group": "boss-red-panda",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.5
+     }
+    },
+    {
+     "kind": "boss",
+     "group": "boss-sunflower",
+     "limit": 600,
+     "patch": {
+      "hp": 0.5,
+      "damage": 1.4,
+      "skills": [
+       "fire",
+       "heal"
+      ]
+     }
+    }
+   ],
+   "ladder": "S8",
+   "rung": 9
+  }
+ ]
+}

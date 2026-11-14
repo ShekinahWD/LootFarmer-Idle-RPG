@@ -1,0 +1,14 @@
+{"cards": {"hunter_c1": 0.15, "trophy_c2": 0.10, "hunter_c2": 0.10},
+ "combos": {"challenge_set": 0.05, "boss_specialist": 0.05},
+ "bosses": {
+  "boss-elephant": {"damage": 1.30, "hp": 0.80, "skills": ["strike", "focus"]},
+  "boss-teal-dinosaur": {"damage": 1.25, "hp": 0.85},
+  "boss-squirrel": {"damage": 1.30, "hp": 0.80, "skills": ["strike", "heal"]},
+  "boss-red-fox": {"damage": 1.15, "hp": 0.85},
+  "boss-black-cat": {"damage": 1.10, "hp": 0.90},
+  "boss-grim-reaper": {"hp": 0.85},
+  "boss-bee": {"damage": 1.10},
+  "boss-red-panda": {"damage": 1.25, "hp": 0.45},
+  "boss-sunflower": {"damage": 1.15, "hp": 0.45, "skills": ["fire", "heal"]},
+  "boss-green-alien": {"damage": 1.15, "hp": 0.55}
+ }}

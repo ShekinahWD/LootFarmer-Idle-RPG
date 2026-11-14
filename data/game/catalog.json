@@ -20764,6 +20764,7 @@
       "body": "boss-elephant_outfit",
       "weapon": "gold_sword",
       "skills": [
+        "strike",
         "focus"
       ],
       "center": [
@@ -20771,8 +20772,8 @@
         304.0
       ],
       "count": 1,
-      "hp": 3926.7397,
-      "damage": 38.4059,
+      "hp": 3141.3918,
+      "damage": 44.1668,
       "defense": 0,
       "interval": 1.7,
       "respawn": 60,
@@ -20805,8 +20806,8 @@
         192.0
       ],
       "count": 1,
-      "hp": 4378.1093,
-      "damage": 38.4059,
+      "hp": 3721.3929,
+      "damage": 44.1668,
       "defense": 0,
       "interval": 1.65,
       "respawn": 60,
@@ -20932,16 +20933,16 @@
       "body": "boss-squirrel_outfit",
       "weapon": "diamond_sword",
       "skills": [
-        "heal",
-        "focus"
+        "strike",
+        "heal"
       ],
       "center": [
         288.0,
         336.0
       ],
       "count": 1,
-      "hp": 7543.2585,
-      "damage": 56.6841,
+      "hp": 6034.6068,
+      "damage": 73.6893,
       "defense": 0,
       "interval": 1.6,
       "respawn": 60,
@@ -20975,8 +20976,8 @@
         160.0
       ],
       "count": 1,
-      "hp": 8410.3384,
-      "damage": 56.6841,
+      "hp": 7148.7876,
+      "damage": 65.1867,
       "defense": 0,
       "interval": 1.55,
       "respawn": 60,
@@ -21142,8 +21143,8 @@
         304.0
       ],
       "count": 1,
-      "hp": 20083.9579,
-      "damage": 98.8506,
+      "hp": 18075.5621,
+      "damage": 108.7357,
       "defense": 0,
       "interval": 1.5,
       "respawn": 60,
@@ -21177,8 +21178,8 @@
         240.0
       ],
       "count": 1,
-      "hp": 22392.5618,
-      "damage": 98.8506,
+      "hp": 20153.3056,
+      "damage": 86.9885,
       "defense": 0,
       "interval": 1.45,
       "respawn": 60,
@@ -21582,8 +21583,8 @@
         448.0
       ],
       "count": 1,
-      "hp": 176985.9872,
-      "damage": 280.7445,
+      "hp": 79643.6942,
+      "damage": 379.0051,
       "defense": 0,
       "interval": 1.33,
       "respawn": 60,
@@ -21609,16 +21610,16 @@
       "body": "boss-sunflower_outfit",
       "weapon": "obsidian_sword",
       "skills": [
-        "heal",
-        "focus"
+        "fire",
+        "heal"
       ],
       "center": [
         528.0,
         208.0
       ],
       "count": 1,
-      "hp": 197330.1116,
-      "damage": 300.9546,
+      "hp": 88798.5502,
+      "damage": 346.0978,
       "defense": 0,
       "interval": 1.32,
       "respawn": 60,
@@ -21653,8 +21654,8 @@
         253.44
       ],
       "count": 1,
-      "hp": 304513.6903,
-      "damage": 345.8442,
+      "hp": 137031.1606,
+      "damage": 415.013,
       "defense": 0,
       "interval": 1.3,
       "respawn": 120,
@@ -22249,6 +22250,24 @@
       "effect": 1,
       "scope": "global"
     },
+    "offline_skill": {
+      "currency": "gems",
+      "base": 75,
+      "growth": 1,
+      "cap": 1,
+      "keep": true,
+      "effect": 1,
+      "scope": "global"
+    },
+    "offline_skill_rate": {
+      "currency": "coins",
+      "base": 150,
+      "growth": 1.5,
+      "cap": 10,
+      "keep": true,
+      "effect": 0.25,
+      "scope": "global"
+    },
     "merge_all": {
       "currency": "gems",
       "base": 500,
@@ -22453,7 +22472,45 @@
           2.56
         ]
       },
-      "boss_spot_share": 0.9
+      "boss_spot_share": 0.9,
+      "boss_tuning": {
+        "boss-elephant": [
+          0.8,
+          1.15
+        ],
+        "boss-teal-dinosaur": [
+          0.85,
+          1.15
+        ],
+        "boss-squirrel": [
+          0.8,
+          1.3
+        ],
+        "boss-red-fox": [
+          0.85,
+          1.15
+        ],
+        "boss-black-cat": [
+          0.9,
+          1.1
+        ],
+        "boss-grim-reaper": [
+          0.9,
+          0.88
+        ],
+        "boss-red-panda": [
+          0.45,
+          1.35
+        ],
+        "boss-sunflower": [
+          0.45,
+          1.15
+        ],
+        "boss-green-alien": [
+          0.45,
+          1.2
+        ]
+      }
     },
     "rest": {
       "field": 0.01,
@@ -22936,14 +22993,14 @@
         "name": "CONTENT_HUNTER_C1_NAME",
         "description": "CONTENT_HUNTER_C1_DESCRIPTION",
         "effect": "boss_damage",
-        "value": 0.25
+        "value": 0.15
       },
       "hunter_c2": {
         "path": "hunter",
         "name": "CONTENT_HUNTER_C2_NAME",
         "description": "CONTENT_HUNTER_C2_DESCRIPTION",
         "effect": "boss_guard",
-        "value": 0.2
+        "value": 0.1
       },
       "hunter_c3": {
         "path": "hunter",
@@ -23132,7 +23189,7 @@
         "name": "CONTENT_TROPHY_C2_NAME",
         "description": "CONTENT_TROPHY_C2_DESCRIPTION",
         "effect": "boss_damage",
-        "value": 0.2
+        "value": 0.1
       },
       "trophy_c3": {
         "path": "trophy",
@@ -23883,7 +23940,7 @@
         ],
         "description": "CONTENT_CHALLENGE_SET_DESCRIPTION",
         "effect": "boss_damage",
-        "value": 0.1
+        "value": 0.05
       },
       {
         "id": "offering_set",
@@ -23971,7 +24028,7 @@
         ],
         "description": "CONTENT_BOSS_SPECIALIST_DESCRIPTION",
         "effect": "boss_damage",
-        "value": 0.1
+        "value": 0.05
       },
       {
         "id": "patient_collector",

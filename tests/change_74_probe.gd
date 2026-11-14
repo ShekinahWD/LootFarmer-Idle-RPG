@@ -271,42 +271,44 @@ func name_checks() -> void:
     var follow: Control=node("FollowTracker");var mission: Control=node("MissionTracker");var mastery: Control=game.mastery_tracker
     var names: Array=sim.campaign.collection_names(1)
     var outfit: String=sim.campaign.contract_outfit(names[0])
-    check(title(follow)==sim.catalog.display_name(outfit) and title(follow).ends_with(" Outfit") and title(follow)!=str(game._opportunity("collection_o1").name),"Collection pill names the outfit: \"%s\" (not \"%s\")" % [title(follow),game._opportunity("collection_o1").name])
+    # Change 79: every pill states the action with its target (supersedes Change 74's name-only titles).
+    check(title(follow)==tr("TRACK_COLLECT_ITEM") % sim.catalog.display_name(outfit) and title(follow).ends_with(" Outfit") and title(follow)!=str(game._opportunity("collection_o1").name),"Collection pill names the action and outfit: \"%s\" (not \"%s\")" % [title(follow),game._opportunity("collection_o1").name])
     # Progress moves the pill to the next outfit (fixture: the first one is complete).
     var goal: int=sim.campaign.collection_goal(1)
     sim.state.online_items[outfit]=goal;sim.state.opportunities.collection_o1["item_"+outfit]=goal
     sim.add_item(outfit,goal+1,false,false)
     sim.touch();await hud_ticks(2)
     var next: String=sim.catalog.display_name(sim.campaign.contract_outfit(names[1]))
-    check(title(follow)==next,"With the first outfit collected the pill moves on: \"%s\"" % title(follow))
+    check(title(follow)==tr("TRACK_COLLECT_ITEM") % next,"With the first outfit collected the pill moves on: \"%s\"" % title(follow))
     var m: Dictionary=sim.state.missions[int(sim.campaign.followed_mission().index)]
     var g: int=sim.campaign.group_id(str(m.target))
-    check(title(mission)==str(sim.catalog.groups[g].name),"Daily Hunt pill names the enemy: \"%s\"" % title(mission))
+    check(title(mission)==sim.campaign.mission_action(int(sim.campaign.followed_mission().index)) and title(mission).contains(str(sim.catalog.groups[g].name)),"Daily Hunt pill says what to do with the enemy: \"%s\"" % title(mission))
     var objective: Dictionary=sim.campaign.mastery.objective(1,"hunt")
     var part: Array=[]
     for p in objective.parts:
         if int(p[2])<int(p[3]):part=p;break
-    check(not part.is_empty() and title(mastery)==game._mastery_target(part) and title(mastery)!="" and not title(mastery).contains("·"),"Mastery Hunt pill names its enemy: \"%s\"" % title(mastery))
+    check(not part.is_empty() and title(mastery)==tr("FOLLOW_GOAL_KILL_TARGET") % game._mastery_target(part) and not title(mastery).contains("·"),"Mastery Hunt pill: defeat its enemy: \"%s\"" % title(mastery))
     sim.state.follow_mastery="1:explore";sim.touch();await hud_ticks(2)
-    check(title(mastery)==str(sim.catalog.stages[0].name)+" · "+tr("MASTERY_EXPLORE"),"Exploration names no single thing and keeps map and category: \"%s\"" % title(mastery))
+    check(title(mastery)==tr("TRACK_EXPLORE_MAP") % str(sim.catalog.stages[0].name),"Exploration says to explore the map: \"%s\"" % title(mastery))
     for pair in [["hunter_o1","boss-snowman"],["trophy_o1",""]]:
         sim.state.opportunities[pair[0]]={"ready":false,"baseline":{},"step":0,"count":0}
         sim.state.follow=pair[0];sim.touch();await hud_ticks(2)
         var focus: Dictionary=sim.campaign.follow_focus(pair[0])
-        var want: String=str(sim.catalog.groups[int(focus.group)].name)
-        check(title(follow)==want,"%s pill names the boss: \"%s\"" % [pair[0],title(follow)])
+        var want: String=tr("FOLLOW_GOAL_KILL_TARGET") % str(sim.catalog.groups[int(focus.group)].name)
+        check(title(follow)==want,"%s pill: defeat the boss: \"%s\"" % [pair[0],title(follow)])
     sim.state.opportunities["expedition_o1"]={"ready":false,"baseline":{},"step":0,"count":0}
     sim.state.follow="expedition_o1";sim.touch();await hud_ticks(2)
     var chain: Array=sim.campaign.chain_for("expedition_o1")
     var eg: int=sim.campaign.group_id(str(chain[0][1]))
-    check(title(follow)==(str(sim.catalog.groups[eg].name) if eg>=0 else str(game._opportunity("expedition_o1").name)),"Expedition step pill: \"%s\"" % title(follow))
+    check(title(follow)==(tr("FOLLOW_GOAL_KILL_TARGET") % str(sim.catalog.groups[eg].name) if eg>=0 else tr("FOLLOW_GOAL_"+str(chain[0][0]).to_upper())),"Expedition step pill: \"%s\"" % title(follow))
     sim.state.opportunities["arsenal_o1"]={"ready":false,"baseline":{}}
     sim.state.follow="arsenal_o1";sim.touch();await hud_ticks(2)
-    check(title(follow)==str(game._opportunity("arsenal_o1").name),"A requirement naming no single thing keeps the opportunity's name: \"%s\"" % title(follow))
+    check(title(follow)==sim.campaign.follow_summary("arsenal_o1",true).get_slice("
+",0),"A requirement naming no single thing shows its step sentence: \"%s\"" % title(follow))
     # Language: the same objective in German.
     sim.state.follow="collection_o1";sim.touch()
     LocalizationService.select_language("de_DE");await frames(4);await hud_ticks(2)
-    check(title(follow)==sim.catalog.display_name(sim.campaign.contract_outfit(names[1])) and title(follow)!=next,"de_DE: \"%s\"" % title(follow))
+    check(title(follow)==tr("TRACK_COLLECT_ITEM") % sim.catalog.display_name(sim.campaign.contract_outfit(names[1])) and not title(follow).contains(next),"de_DE: \"%s\"" % title(follow))
     LocalizationService.select_language("automatic");await frames(4);await hud_ticks(2)
 
 # ---------------------------------------------------------------- rails
@@ -333,9 +335,11 @@ func rail_checks() -> void:
             var y: float=node("Achievement").get_rect().end.y
             var ok:=true
             for t in list:
-                ok=ok and t.position.y>=y and t.size.x<=game.LEFT_COLUMN_WIDTH+.5 and t.size.x>=game.ACHIEVEMENT_WIDTH-.5 and t.size.y<=48
+                # Change 79: an action-and-target title may wrap (at most three lines here); nothing is cut.
+                var name_label: Label=t.get_node("Row/Text/Name")
+                ok=ok and t.position.y>=y and t.size.x<=game.LEFT_COLUMN_WIDTH+.5 and t.size.x>=game.ACHIEVEMENT_WIDTH-.5 and t.size.y<=80 and name_label.get_visible_line_count()>=name_label.get_line_count()
                 y=t.get_rect().end.y
-            check(ok,"%s: three one-line pills under the enemy controls, %s wide" % [tag,list.map(func(t):return int(t.size.x))])
+            check(ok,"%s: three pills under the enemy controls, wrapping without cutting, %s wide, %s tall" % [tag,list.map(func(t):return int(t.size.x)),list.map(func(t):return int(t.size.y))])
     get_window().size=Vector2i(720,1280)
     SettingsState.set_joystick_position(1)
     await frames(4)

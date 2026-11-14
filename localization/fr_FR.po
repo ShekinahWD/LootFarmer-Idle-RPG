@@ -3448,9 +3448,6 @@ msgstr "+10 % de PV max."
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25 % de rayon d’exploration autour de vous"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10 % de dégâts contre les boss"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10 % de pièces sur chaque ennemi"
 
@@ -3472,9 +3469,6 @@ msgstr "+15 % de pièces des ennemis normaux"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10 % aux statistiques gagnées à chaque fusion"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10 % de dégâts contre les boss"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25 % aux taux d’objets hors ligne"
 
@@ -3484,14 +3478,8 @@ msgstr "+10 % de PV max."
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Tueur de géants"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25 % de dégâts contre les boss"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Garde anti-boss"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Subissez 20 % de dégâts en moins des boss"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Prime"
@@ -3645,9 +3633,6 @@ msgstr "+50 % d’XP des boss"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Puissance des trophées"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20 % de dégâts contre les boss"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Gemmes des trophées"

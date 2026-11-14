@@ -1,0 +1,20 @@
+{
+ "REROLL_STATS": "Reroll Stats · %s gems",
+ "REROLL_STATS_CONFIRM": "Reroll the unlocked attributes (%d) for %s gems? Each new roll replaces the old one, even if it is weaker. Locked attributes keep their stat and value.",
+ "REROLL_STATS_ACTION": "Reroll",
+ "REROLL_STATS_DONE": "Attributes rerolled: %d",
+ "REROLL_LOCK": "Lock",
+ "REROLL_LOCKED": "Locked",
+ "REROLL_LOCK_RULE": "Lock an attribute to keep its stat and value when you reroll. Each locked attribute adds 20% to the price, a locked boss bonus 40%.",
+ "REROLL_ALL_LOCKED": "Unlock at least one attribute to reroll.",
+ "UP_OFFLINE_SKILL": "Unlock offline skill drops",
+ "UP_OFFLINE_SKILL_RATE": "Offline skills per hour",
+ "OFFLINE_SKILL_BENEFIT": "Off → On · copies of skills you own, about 1 every 2 hours",
+ "OFFLINE_TAB_EXPLAIN_V79": "Coins and Gems build up while you're away. Unlock Weapons, Outfits, Supplies and Skills below to also receive copies of items you own, then raise their reward rates. Nothing here is required.",
+ "OFFLINE_LOCKED_EXPLAIN_V79": "Unlock Offline upgrades to earn weapons, outfits, supplies and skills while away. Unlocks apply to future time away only. Go to Upgrades claims these rewards first.",
+ "TRACK_EXPLORE_MAP": "Explore %s",
+ "TRACK_UNLOCK_CAMP": "Unlock Camp %d",
+ "TRACK_FIND_ITEM": "Find %s",
+ "TRACK_MERGE_ITEM": "Merge %s to ^%d",
+ "TRACK_COLLECT_ITEM": "Collect %s"
+}

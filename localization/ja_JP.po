@@ -3443,9 +3443,6 @@ msgstr "最大HP+10%"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "周囲の探索範囲+25%"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "ボスへのダメージ+10%"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "すべての敵からのコイン+10%"
 
@@ -3467,9 +3464,6 @@ msgstr "通常の敵からのコイン+15%"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "合成ごとのステータス上昇+10%"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "ボスへのダメージ+10%"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "オフライン時のアイテム獲得率+25%"
 
@@ -3479,14 +3473,8 @@ msgstr "最大HP+10%"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "巨人殺し"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "ボスへのダメージ+25%"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "ボスへの備え"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "ボスから受けるダメージが20%減少"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "賞金"
@@ -3640,9 +3628,6 @@ msgstr "ボスからのEXP+50%"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "トロフィーの力"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "ボスへのダメージ+20%"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "トロフィージェム"

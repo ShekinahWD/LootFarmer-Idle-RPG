@@ -3445,9 +3445,6 @@ msgstr "HP สูงสุด +10%"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "รัศมีสำรวจรอบตัว +25%"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "ดาเมจต่อบอส +10%"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "เหรียญจากศัตรูทุกตัว +10%"
 
@@ -3469,9 +3466,6 @@ msgstr "เหรียญจากศัตรูธรรมดา +15%"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "ค่าสถานะที่ได้จากการผสานแต่ละครั้ง +10%"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "ดาเมจต่อบอส +10%"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "อัตราไอเทมออฟไลน์ +25%"
 
@@ -3481,14 +3475,8 @@ msgstr "HP สูงสุด +10%"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "นักล่ายักษ์"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "ดาเมจต่อบอส +25%"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "เกราะกันบอส"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "รับดาเมจจากบอสน้อยลง 20%"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "ค่าหัว"
@@ -3642,9 +3630,6 @@ msgstr "EXP จากบอส +50%"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "พลังถ้วยรางวัล"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "ดาเมจต่อบอส +20%"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "อัญมณีถ้วยรางวัล"

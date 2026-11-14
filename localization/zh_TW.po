@@ -3443,9 +3443,6 @@ msgstr "最大生命值 +10%"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "周圍探索半徑 +25%"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "對頭目傷害 +10%"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "所有敵人掉落的金幣 +10%"
 
@@ -3467,9 +3464,6 @@ msgstr "一般敵人金幣 +15%"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "每次合成獲得的能力值 +10%"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "對頭目傷害 +10%"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "離線道具獲取率 +25%"
 
@@ -3479,14 +3473,8 @@ msgstr "最大生命值 +10%"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "巨人殺手"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "對頭目傷害 +25%"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "頭目防護"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "受到頭目的傷害降低 20%"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "賞金"
@@ -3640,9 +3628,6 @@ msgstr "頭目經驗 +50%"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "獎盃之力"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "對頭目傷害 +20%"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "獎盃寶石"

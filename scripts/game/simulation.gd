@@ -72,6 +72,12 @@ var held := false
 ## travel or an explicit focus action resets it to 0. Session-only, never saved.
 const FOCUS_WALK_SECONDS:=5.0
 var focus_walk_time:=0.0
+## Change 79: after a respawn under a Focused Farming target the hero walks straight back to the farming
+## spot (state.player.focus_return, saved with the player actor) and neither targets, auto-attacks, auto-casts
+## an attack skill nor chases anything on the way, even enemies hitting it. It ends on arrival (within
+## FOCUS_ARRIVE_RADIUS), when the Focus stops or changes, a manual target, a travel or a new profile.
+## Manual walking still moves the hero at once and the return resumes when the stick is released.
+const FOCUS_ARRIVE_RADIUS:=12.0
 var revision: int = 0
 var _save_clock := 0.0
 ## Change 24: actors erased from state.enemies in place (see step's roster loop).
@@ -934,35 +940,125 @@ func equip(id: String) -> bool:
 ## Change 52: rerolls one attribute slot (reroll_slots order; slot 0 is the base attribute) at the item's
 ## reroll price. The slot draws a stat that no other slot of this weapon holds, then a value in its range;
 ## every other slot, the quantity, the merge level and the Auto-Merge choice stay as they were.
-func reroll(id: String,slot: int=0) -> bool:
-    if not action_lock_reason().is_empty():
-        return fail(action_lock_reason())
-    var cost:=reroll_cost(id)
-    var slots:=reroll_slots(id)
-    if quantity(id)<1 or cost==0 or catalog.items[id].extras.is_empty() or slot<0 or slot>=slots.size():
-        return false
-    if not pay("gems",cost):
-        return false
-    var r := record(id)
-    var entry: Array=slots[slot]
-    var taken:=_held_stats(r)
-    var own: String=str(entry[1]) if entry[0]=="base" else str(r.boss_extras[int(entry[1])].stat)
-    # Change 54 Precise Reroll: never the same stat again (when the pool has another free one).
-    if campaign.bonus("precise_reroll")<=0:taken.erase(own)
-    var stat:=_free_stat(id,taken)
-    if stat=="":stat=own
-    var value:=_roll_value(id,stat,entry[0]=="boss")
-    if entry[0]=="base":
-        # Rebuild the base attributes in their order with this slot replaced.
-        var rebuilt: Dictionary={}
-        for key in r.extras:
-            if key==own:rebuilt[stat]=value
-            else:rebuilt[key]=r.extras[key]
-        r.extras=rebuilt
-    else:
-        r.boss_extras[int(entry[1])]={"stat":stat,"value":value}
+## Change 79 (approved brief §2): one Reroll Stats action per item rerolls every unlocked attribute at once.
+## Each attribute slot of an item can be locked (record.locks, saved with the item's record): a locked slot keeps
+## its stat AND its value. Lock keys name a slot by position, never by stat, so a lock belongs to this item's
+## slot only: "base:<i>" (i-th regular attribute, in record order) and "boss:<i>" (i-th boss bonus attribute).
+## A reroll keeps slot order, so keys stay valid; Prestige clears the inventory and its locks with it, an
+## evolution creates a new item with no locks, and an older save simply has none.
+## Price (additive, not compounding): base x (1 + 0.20 x locked regular + 0.40 x locked boss bonus), rounded up
+## to whole Gems with integer arithmetic so the shown and charged amounts are the same number.
+const REROLL_LOCK_REGULAR_PERCENT:=20
+const REROLL_LOCK_BOSS_PERCENT:=40
+func reroll_slot_key(entry: Array) -> String:
+    return "%s:%d" % [str(entry[0]),int(entry[1])]
+
+## Lock keys of this item's slots in display order (regular attributes, then boss bonus attributes).
+func reroll_slot_keys(id: String) -> Array:
+    var out: Array=[]
+    var base: Dictionary=state.items.get(id,{}).get("extras",{})
+    for i in range(base.size()):out.append("base:%d" % i)
+    for i in range(boss_extras(id).size()):out.append("boss:%d" % i)
+    return out
+
+## The item's locked slots that exist now (an unknown or stale key, or a malformed save value, is ignored).
+func reroll_locks(id: String) -> Array:
+    var raw=state.items.get(id,{}).get("locks",[])
+    if not raw is Array:return []
+    var valid:=reroll_slot_keys(id)
+    var out: Array=[]
+    for key in raw:
+        if valid.has(str(key)) and not out.has(str(key)):out.append(str(key))
+    return out
+
+func reroll_locked(id: String,key: String) -> bool:
+    return reroll_locks(id).has(key)
+
+## Locks or unlocks one slot of an owned item with rerollable attributes. Returns false for an unknown slot.
+func set_reroll_lock(id: String,key: String,locked: bool) -> bool:
+    if not catalog.items.has(id) or quantity(id)<1 or catalog.items[id].extras.is_empty() or not reroll_slot_keys(id).has(key):return false
+    var locks:=reroll_locks(id)
+    if locked and not locks.has(key):locks.append(key)
+    elif not locked:locks.erase(key)
+    var r:=record(id)
+    if locks.is_empty():r.erase("locks")
+    else:r["locks"]=locks
     touch()
     return true
+
+## [locked regular slots, locked boss bonus slots].
+func reroll_lock_counts(id: String) -> Array:
+    var regular:=0;var boss:=0
+    for key in reroll_locks(id):
+        if str(key).begins_with("boss:"):boss+=1
+        else:regular+=1
+    return [regular,boss]
+
+## The exact Gem price of the next Reroll Stats with the item's current locks.
+func reroll_total_cost(id: String) -> int:
+    var base:=reroll_cost(id)
+    var counts:=reroll_lock_counts(id)
+    var percent: int=100+REROLL_LOCK_REGULAR_PERCENT*int(counts[0])+REROLL_LOCK_BOSS_PERCENT*int(counts[1])
+    return (base*percent+99)/100
+
+## Why Reroll Stats cannot run now ("" when it can): locked actions, no rerollable attribute, every attribute
+## locked, or too few Gems.
+func reroll_block_reason(id: String) -> String:
+    var lock:=action_lock_reason()
+    if not lock.is_empty():return lock
+    if not catalog.items.has(id) or quantity(id)<1 or catalog.items[id].extras.is_empty() or reroll_cost(id)<=0 or reroll_slot_keys(id).is_empty():return "ACTION_UNAVAILABLE"
+    if reroll_locks(id).size()>=reroll_slot_keys(id).size():return "REROLL_ALL_LOCKED"
+    if float(state.gems)<reroll_total_cost(id):return "NOT_ENOUGH_GEMS"
+    return ""
+
+## Rerolls every unlocked attribute slot of the item in one transaction. Nothing changes and nothing is paid when
+## it is blocked. Each unlocked slot draws a stat from the item's pool that no locked slot and no slot already
+## redrawn in this reroll holds (Precise Reroll also skips the slot's own previous stat while another is free);
+## boss slots stay boss slots (their value rolls with the boss rules, Treasure Sense included).
+func reroll_stats(id: String) -> bool:
+    var reason:=reroll_block_reason(id)
+    if not reason.is_empty():return fail(reason)
+    var cost:=reroll_total_cost(id)
+    var r:=record(id)
+    var locks:=reroll_locks(id)
+    var slots:=reroll_slots(id)
+    var precise: bool=campaign.bonus("precise_reroll")>0
+    var taken: Array=[]
+    var owns: Array=[]
+    for entry in slots:
+        var own: String=str(entry[1]) if entry[0]=="base" else str(r.boss_extras[int(entry[1])].stat)
+        owns.append(own)
+        if locks.has(reroll_slot_key([entry[0],_slot_index(r,entry)])):taken.append(own)
+    if not pay("gems",cost):return false
+    var base_values: Array=[]
+    var boss_values: Array=r.get("boss_extras",[]).duplicate(true)
+    for i in range(slots.size()):
+        var entry: Array=slots[i]
+        var index:=_slot_index(r,entry)
+        var own: String=owns[i]
+        var stat:=own
+        var value: float=float(r.extras[own]) if entry[0]=="base" else float(r.boss_extras[index].value)
+        if not locks.has(reroll_slot_key([entry[0],index])):
+            var excluded: Array=taken.duplicate()
+            if precise:excluded.append(own)
+            stat=_free_stat(id,excluded)
+            if stat=="":stat=_free_stat(id,taken)
+            if stat=="":stat=own
+            value=_roll_value(id,stat,entry[0]=="boss")
+            taken.append(stat)
+        if entry[0]=="base":base_values.append([stat,value])
+        else:boss_values[index]={"stat":stat,"value":value}
+    var rebuilt: Dictionary={}
+    for pair in base_values:rebuilt[pair[0]]=pair[1]
+    r.extras=rebuilt
+    if not boss_values.is_empty():r.boss_extras=boss_values
+    touch()
+    return true
+
+## Position of a reroll slot among its kind (regular attributes are keyed by stat in reroll_slots).
+func _slot_index(r: Dictionary,entry: Array) -> int:
+    if entry[0]=="boss":return int(entry[1])
+    return r.extras.keys().find(str(entry[1]))
 
 func bind_auto(slot: int) -> bool:
     if not action_lock_reason().is_empty():
@@ -1202,6 +1298,8 @@ func focus(group: int,variant: int=2) -> bool:
     # Change 69: an explicit start, switch or stop (enemy-panel Farm or the map's Auto Farm button, both
     # this one action) acts at once and cancels any pending walking countdown.
     focus_walk_time=0.0
+    # Change 79: a start, switch or stop ends any post-respawn return (a new spot is walked to normally).
+    end_focus_return()
     state.focus = -1 if same else group
     state.focus_variant=variant
     touch()
@@ -1217,6 +1315,7 @@ func focus_active(group: int,variant: int) -> bool:
 ## Explicit taps stop through focus(); both end with the same state (focus -1, countdown 0).
 func stop_focus(reason: String="") -> void:
     focus_walk_time=0.0
+    end_focus_return()
     if int(state.focus)<0:return
     state.focus=-1
     touch()
@@ -1553,6 +1652,11 @@ func step(dt: float) -> void:
             p.hp=stats().hp
             p.idle=0.0
             p.attack_age=9.0
+            p.windup=0.0
+            p.target=""
+            # Change 79: under a Focus the respawned hero returns to its spot before fighting again.
+            clear_target()
+            p.focus_return=int(state.focus)>=0
             campaign.reveal()
             touch()
             revived.emit()
@@ -1576,17 +1680,23 @@ func step(dt: float) -> void:
             # Change 69: letting go cancels the countdown; the hero resumes the selected target.
             focus_walk_time=0.0
             p.idle+=dt
-            _resolve_attack(p,dt)
-            if p.idle>=0.5 and p.windup<=0:
-                var target:=_combat_target()
-                var distance:=INF if target.is_empty() else position_of(p).distance_to(position_of(target))
-                if not target.is_empty():
-                    if distance>float(catalog.world.reach):
-                        _move(p,position_of(target),campaign.move_speed(),dt)
-                    elif p.cooldown<=0:
-                        _start_attack(p,target,1.0/(1.0+stats().speed+campaign.last_stand_speed()))
-                elif int(state.focus)>=0:
-                    _move(p,farming_position(),campaign.move_speed(),dt)
+            if not _return_step(p,dt):
+                _resolve_attack(p,dt)
+                if p.idle>=0.5 and p.windup<=0:
+                    var target:=_combat_target()
+                    var distance:=INF if target.is_empty() else position_of(p).distance_to(position_of(target))
+                    if not target.is_empty() and distance>float(catalog.world.reach) and not _may_chase(target):
+                        # Change 79: under a Focus the hero never leaves its spot to chase a stranger; an
+                        # attacker that comes within reach is still answered.
+                        target={}
+                        clear_target()
+                    if not target.is_empty():
+                        if distance>float(catalog.world.reach):
+                            _move(p,position_of(target),campaign.move_speed(),dt)
+                        elif p.cooldown<=0:
+                            _start_attack(p,target,1.0/(1.0+stats().speed+campaign.last_stand_speed()))
+                    elif int(state.focus)>=0:
+                        _move(p,farming_position(),campaign.move_speed(),dt)
     # Iterate a stable copy. Change 24: membership is re-checked (a linear scan per actor) only once
     # the roster really lost an actor or was replaced during this loop, never on ordinary ticks.
     var roster: Array=state.enemies
@@ -1654,6 +1764,39 @@ func step(dt: float) -> void:
 func _automate(dt: float) -> void:
     campaign.automate(dt)
 
+## Change 79: true while the respawned hero is walking back to its Focused Farming spot.
+func focus_returning() -> bool:
+    return int(state.get("focus",-1))>=0 and bool(state.get("player",{}).get("focus_return",false))
+
+## Ends the post-respawn return (arrival, Focus change or stop, manual target, travel).
+func end_focus_return() -> void:
+    if not state.is_empty() and state.has("player"):state.player.erase("focus_return")
+
+## Change 79: one frame of the post-respawn return. While it runs nothing is targeted, attacked or chased:
+## the hero walks the blocked-step path to the spot at its normal speed. Returns false when there is no
+## return (or it just ended on arrival), so the ordinary Focus combat runs in the same frame.
+func _return_step(p: Dictionary,dt: float) -> bool:
+    if not p.get("focus_return",false):return false
+    if int(state.focus)<0:
+        end_focus_return()
+        return false
+    var spot:=farming_position()
+    if position_of(p).distance_to(spot)<=FOCUS_ARRIVE_RADIUS:
+        end_focus_return()
+        return false
+    clear_target()
+    p.windup=0.0
+    p.target=""
+    _move(p,spot,campaign.move_speed(),dt)
+    return true
+
+## Change 79: whether the hero may walk after an automatic target out of reach. Without a Focus, for the
+## focused type, or for the player's own target: always. Under a Focus a defensive target (an attacker of
+## another type) is chased only while it stays near the farming spot, so the hero never wanders off it.
+func _may_chase(target: Dictionary) -> bool:
+    if int(state.focus)<0 or focus_match(target) or manual_target==str(target.id):return true
+    return farming_position().distance_to(position_of(target))<=float(catalog.world.acquisition)
+
 func clear_target() -> void:
     locked_target=""
     manual_target=""
@@ -1666,6 +1809,7 @@ func select_target(id: String) -> bool:
     manual_target=id
     # Existing rule (kept by Change 69): choosing a target by hand ends Focused Farming at once.
     state.focus=-1
+    end_focus_return()
     focus_walk_time=0.0
     state.player.windup=0.0
     state.player.target=""
@@ -1969,6 +2113,7 @@ func player_upgrade_value(id: String,extra: int=0) -> float:
         "offline_gems":return (2+.5*n)*(1+campaign.bonus("offline_gems"))
         "offline_weapon_rate","offline_outfit_rate":return (1+.5*n)*(1+campaign.bonus("offline_items"))
         "offline_consumable_rate":return (2+n)*(1+campaign.bonus("offline_items"))
+        "offline_skill_rate":return (.5+.25*n)*(1+campaign.bonus("offline_items"))
         "gear_slots":return 3+n*effect
         "supply_slots":return 1+n*effect
         "respawn":return maxf(2,10-n*effect-campaign.bonus("respawn"))

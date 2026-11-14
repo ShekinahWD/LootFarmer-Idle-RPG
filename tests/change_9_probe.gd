@@ -148,10 +148,12 @@ func spring_two_checks() -> void:
     var b: Dictionary=c.progression.balance
     var final: Dictionary=c.groups[-1]
     var at_level:=func(L: int)->float:return float(b.hp_base)*pow(float(b.hp_growth),L-1)*(1+minf(L,float(b.ramp_cap))/float(b.ramp_hp_div))
-    check(final.final and near(float(final.hp)/at_level.call(250),18.0,.0001) and near(float(b.final_hp),18.0,.0001),"Final boss HP uses its own 18x factor (%.0f HP, %.1f damage)" % [final.hp,final.damage])
+    # Change 79: boss_tuning applies after these factors (Green Alien HP x0.45, Red Panda HP x0.45).
+    var tuned:=func(id: String)->float:return float(b.get("boss_tuning",{}).get(id,[1.0,1.0])[0])
+    check(final.final and near(float(final.hp)/at_level.call(250),18.0*tuned.call("boss-green-alien"),.0001) and near(float(b.final_hp),18.0,.0001),"Final boss HP uses its own 18x factor (%.0f HP, %.1f damage)" % [final.hp,final.damage])
     var panda: Dictionary=c.groups.filter(func(g):return g.id=="boss-red-panda")[0]
-    check(near(float(panda.hp)/at_level.call(235),float(b.boss_hp),.0001),"Other bosses keep the shared 14.5x factor")
-    check(float(final.hp)>250000 and float(final.hp)<350000 and float(final.damage)>300 and float(final.damage)<400,"Final boss near the investigation anchors (305K HP, 346 damage)")
+    check(near(float(panda.hp)/at_level.call(235),float(b.boss_hp)*tuned.call("boss-red-panda"),.0001),"Other bosses keep the shared 14.5x factor")
+    check(float(final.hp)>130000 and float(final.hp)<145000 and float(final.damage)>400 and float(final.damage)<430,"Final boss at the Change 79 values (137K HP, 415 damage)")
     var g8:=-1
     for i in range(c.groups.size()):
         if c.groups[i].id=="unit-sprout":g8=i
@@ -171,7 +173,8 @@ func earlier_stage_checks() -> void:
     var before:={"boss-snowman":[7,600.0,"wood_axe"],"unit-straw-hat":[22,83.0,"iron_sword"],"boss-black-cat":[135,20084.0,"emerald_sword"],"unit-elf-ears":[170,2967.0,"obsidian_axe"],"boss-bee":[190,66474.0,"obsidian_axe"],"boss-orange-tabby-cat":[195,74114.0,"obsidian_axe"]}
     var ok:=true
     for g in sim.catalog.groups:
-        if before.has(g.id):ok=ok and int(g.level)==before[g.id][0] and absf(float(g.hp)-before[g.id][1])<1.0 and g.weapon==before[g.id][2]
+        # Change 79: a boss's HP is its earlier value times its boss_tuning HP multiplier (Black Cat x0.90).
+        if before.has(g.id):ok=ok and int(g.level)==before[g.id][0] and absf(float(g.hp)-before[g.id][1]*float(sim.catalog.progression.balance.get("boss_tuning",{}).get(g.id,[1.0,1.0])[0]))<2.0 and g.weapon==before[g.id][2]
         if int(g.stage)<=7:ok=ok and int(sim.catalog.items[g.loot[1]].tier)==1+(int(g.stage)-1)/2 and float(g.gear_chance)==(.3 if g.boss else .05)
     check(ok,"Stages 1-7: levels, HP, weapons, outfit tiers and drop chances unchanged")
 

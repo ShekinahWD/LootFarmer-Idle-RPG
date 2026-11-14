@@ -3445,9 +3445,6 @@ msgstr "+%10 maksimum can"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "Etrafındaki keşif yarıçapına +%25"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "Boss'lara karşı +%10 hasar"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "Her düşmandan +%10 altın"
 
@@ -3469,9 +3466,6 @@ msgstr "Normal düşmanlardan +%15 altın"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "Her birleştirmeden kazanılan istatistiklere +%10"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "Boss'lara karşı +%10 hasar"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "Çevrimdışı eşya oranlarına +%25"
 
@@ -3481,14 +3475,8 @@ msgstr "+%10 maksimum can"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Dev Avcısı"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "Boss'lara karşı +%25 hasar"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Boss Kalkanı"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Boss'lardan %20 daha az hasar al"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Ödül"
@@ -3642,9 +3630,6 @@ msgstr "Boss'lardan +%50 TP"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Kupa Gücü"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "Boss'lara karşı +%20 hasar"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Kupa Mücevheri"

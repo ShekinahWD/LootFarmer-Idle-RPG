@@ -136,11 +136,14 @@ func skill_priority_checks() -> void:
     check(first_index(closing,"cast:lightning")<first_index(closing,"attack"),"Walking into reach, it casts before its first normal attack %s" % str(closing.slice(0,3)))
     # Conditions: a boss with Heal and Focus at full HP passes over Heal and uses Focus in combat.
     fresh()
+    # Change 79: Squirrel's kit is Strike + Heal (was Heal + Focus); its rotation starts on Heal's turn here (fixture),
+    # so the full-HP pass-over is still exercised.
     e=lone("boss-squirrel",2,20.0)
     e.aggro=true
+    e.skill_index=1 # fixture: Heal's turn in the rotation
     var boss:=run_for(e,3.0)
-    check(first_index(boss,"cast:focus")<first_index(boss,"attack") and boss.count("cast:heal")==0,"Squirrel at full HP: Heal is passed over, Focus comes first %s" % str(boss.slice(0,3)))
-    check(int(e.skill_index)%2==0,"…and the rotation moves on to Heal for its next turn")
+    check(first_index(boss,"cast:strike")<first_index(boss,"attack") and boss.count("cast:heal")==0,"Squirrel at full HP: Heal is passed over, Strike comes first %s" % str(boss.slice(0,3)))
+    check(int(e.skill_index)%2==1,"…and the rotation moves on to Heal for its next turn")
     e.hp=float(sim.enemy_definition(gi("boss-squirrel"),2).hp)*.5 # fixture: wounded
     var heal:=run_for(e,11.0)
     check(heal.has("cast:heal"),"Wounded, its next turn after the 10 s boss cooldown is Heal")
@@ -297,9 +300,10 @@ func boss_gear_checks() -> void:
     for k in total:counted=counted and float(src.get(k,0))>=float(total[k])-1e-6
     check(counted,"Equipped, the boss attributes count in the stats")
     sim.state.gems=100000
-    var slots: Array=sim.reroll_slots("boss-snowman_outfit")
-    var boss_slot: int=slots.find(["boss",0])
-    check(boss_slot>=0 and sim.reroll("boss-snowman_outfit",boss_slot) and sim.boss_extras("boss-snowman_outfit").size()==2,"A boss slot rerolls on its own")
+    # Change 79: the regular slot and the second boss slot locked, so the first boss slot rerolls on its own.
+    sim.set_reroll_lock("boss-snowman_outfit","base:0",true);sim.set_reroll_lock("boss-snowman_outfit","boss:1",true)
+    var kept_boss: String=JSON.stringify(sim.boss_extras("boss-snowman_outfit")[1])
+    check(sim.reroll_stats("boss-snowman_outfit") and sim.boss_extras("boss-snowman_outfit").size()==2 and JSON.stringify(sim.boss_extras("boss-snowman_outfit")[1])==kept_boss,"A boss slot rerolls on its own")
     # Weapons unchanged; a normal enemy's outfit drop is not enhanced; a direct grant never is.
     boss_drop("wood_axe","boss-snowman")
     check(bool(sim.state.pickups.back().get("enhanced",false)),"Boss weapons are still enhanced")

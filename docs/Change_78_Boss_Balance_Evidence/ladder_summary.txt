@@ -1,0 +1,105 @@
+
+=== Stage 1  bosses ['boss-snowman']  spots [('unit-chef-hat', 1), ('unit-red-scarf', 1)]
+ r0 L  1 dmg      9 hp    111 | snowman    L   0%    32s in    4.2 pot  2.0 | 3:W 86% in   2.2 3:W 88% in   1.9 6:W 78% in   2.2 6:W 82% in   1.9
+ r1 L  2 dmg     10 hp    119 | snowman    L   0%    38s in    4.1 pot  3.0 | 3:W 83% in   2.2 3:W 85% in   1.9 6:W 76% in   2.2 6:W 80% in   1.9
+ r2 L  3 dmg     11 hp    127 | snowman    L   0%    42s in    4.0 pot  3.0 | 3:W 84% in   2.2 3:W 93% in   1.5 6:W 78% in   2.2 6:W 96% in   1.4
+ r3 L  4 dmg     11 hp    134 | snowman    L   0%    44s in    4.0 pot  3.0 | 3:W 85% in   2.2 3:W 93% in   1.5 6:W 80% in   2.2 6:W 98% in   1.4
+ r4 L  4 dmg     12 hp    137 | snowman    L   0%    46s in    4.0 pot  3.0 | 3:W 85% in   2.2 3:W 93% in   1.5 6:W 81% in   2.2 6:W 98% in   1.4
+ r5 L  5 dmg     12 hp    145 | snowman    L   0%    48s in    4.0 pot  3.0 | 3:W 93% in   1.7 3:W 94% in   1.5 6:W 97% in   1.6 6:W 98% in   1.4
+ r6 L  6 dmg     13 hp    152 | snowman    W   5%    50s in    4.0 pot  3.0 | 3:W 93% in   1.7 3:W 94% in   1.5 6:W 98% in   1.6 6:W 98% in   1.4
+ r7 L  7 dmg     14 hp    160 | snowman    W  14%    48s in    4.1 pot  3.0 | 3:W 93% in   1.7 3:W 94% in   1.5 6:W 98% in   1.6 6:W 98% in   1.4
+ r8 L  8 dmg     14 hp    167 | snowman    W  26%    47s in    4.0 pot  3.0 | 3:W 94% in   1.7 3:W 95% in   1.5 6:W 98% in   1.6 6:W 98% in   1.4
+ r9 L  9 dmg     15 hp    173 | snowman    W  35%    45s in    4.0 pot  3.0 | 3:W 94% in   1.7 3:W 95% in   1.5 6:W 98% in   1.6 6:W 98% in   1.4
+  -> comfortable 3-spot farming from rung 0; 6-spot farming from rung 0
+
+=== Stage 2  bosses ['boss-cyan-robot']  spots [('unit-space-helmet', 1), ('unit-space-helmet', 3)]
+ r0 L  8 dmg     18 hp    176 | cyan-robot L   0%    37s in    7.1 pot  3.0 | 3:W 84% in   3.6 3:W 84% in   3.6 6:W 74% in   3.5 6:W 74% in   3.5
+ r1 L 10 dmg     19 hp    204 | cyan-robot L   0%    47s in    7.0 pot  3.0 | 3:W 87% in   3.6 3:W 87% in   3.6 6:W 81% in   3.5 6:W 81% in   3.5
+ r2 L 12 dmg     21 hp    232 | cyan-robot L   0%    60s in    6.7 pot  4.0 | 3:W 92% in   3.3 3:W 92% in   3.3 6:W 89% in   3.2 6:W 89% in   3.2
+ r3 L 14 dmg     22 hp    259 | cyan-robot L   0%    76s in    6.7 pot  5.0 | 3:W 97% in   2.8 3:W 97% in   2.8 6:W 97% in   2.7 6:W 97% in   2.7
+ r4 L 16 dmg     24 hp    279 | cyan-robot W  20%    74s in    6.8 pot  5.0 | 3:W 97% in   2.8 3:W 97% in   2.8 6:W 97% in   2.7 6:W 97% in   2.7
+ r5 L 17 dmg     25 hp    295 | cyan-robot W  29%    71s in    6.7 pot  4.0 | 3:W 97% in   2.8 3:W 97% in   2.8 6:W 97% in   2.7 6:W 97% in   2.7
+ r6 L 19 dmg     26 hp    325 | cyan-robot W  42%    68s in    6.7 pot  3.0 | 3:W 97% in   2.8 3:W 97% in   2.8 6:W 97% in   2.7 6:W 97% in   2.7
+ r7 L 21 dmg     27 hp    346 | cyan-robot W  66%    62s in    6.6 pot  3.0 | 3:W 97% in   2.8 3:W 97% in   2.8 6:W 98% in   2.7 6:W 98% in   2.7
+ r8 L 23 dmg     28 hp    367 | cyan-robot W  64%    59s in    6.6 pot  3.0 | 3:W 95% in   3.2 3:W 95% in   3.2 6:W 95% in   3.1 6:W 95% in   3.1
+ r9 L 25 dmg     29 hp    387 | cyan-robot W  76%    58s in    6.7 pot  3.0 | 3:W 95% in   3.2 3:W 95% in   3.2 6:W 95% in   3.1 6:W 95% in   3.1
+  -> comfortable 3-spot farming from rung 0; 6-spot farming from rung 0
+
+=== Stage 3  bosses ['boss-gray-cat']  spots [('unit-yellow-cap', 1), ('unit-yellow-cap', 3)]
+ r0 L 22 dmg     33 hp    252 | gray-cat   L   0%    32s in   14.0 pot  2.0 | 3:W 73% in   7.3 3:W 73% in   7.3 6:W 65% in   6.6 6:W 65% in   6.6
+ r1 L 24 dmg     35 hp    281 | gray-cat   L   0%    33s in   14.4 pot  2.0 | 3:W 77% in   7.3 3:W 77% in   7.3 6:W 67% in   6.6 6:W 67% in   6.6
+ r2 L 27 dmg     38 hp    316 | gray-cat   L   0%    55s in   13.8 pot  4.0 | 3:W 84% in   7.3 3:W 84% in   7.3 6:W 74% in   6.5 6:W 74% in   6.5
+ r3 L 29 dmg     40 hp    344 | gray-cat   W  23%    58s in   13.4 pot  4.0 | 3:W 86% in   7.1 3:W 86% in   7.1 6:W 80% in   6.3 6:W 80% in   6.3
+ r4 L 32 dmg     42 hp    371 | gray-cat   W  43%    54s in   13.0 pot  3.0 | 3:W 92% in   6.4 3:W 92% in   6.4 6:W 89% in   5.8 6:W 89% in   5.8
+ r5 L 34 dmg     44 hp    393 | gray-cat   W  47%    52s in   13.3 pot  3.5 | 3:W 93% in   6.4 3:W 93% in   6.4 6:W 91% in   5.8 6:W 91% in   5.8
+ r6 L 36 dmg     46 hp    425 | gray-cat   W  43%    50s in   13.5 pot  2.0 | 3:W 94% in   6.3 3:W 94% in   6.3 6:W 93% in   5.7 6:W 93% in   5.7
+ r7 L 39 dmg     47 hp    452 | gray-cat   W  59%    48s in   13.4 pot  2.0 | 3:W 95% in   6.3 3:W 95% in   6.3 6:W 95% in   5.8 6:W 95% in   5.8
+ r8 L 41 dmg     48 hp    474 | gray-cat   W  43%    47s in   13.5 pot  2.0 | 3:W 89% in   7.8 3:W 89% in   7.8 6:W 89% in   6.9 6:W 89% in   6.9
+ r9 L 44 dmg     50 hp    499 | gray-cat   W  55%    46s in   13.5 pot  2.0 | 3:W 90% in   7.8 3:W 90% in   7.8 6:W 91% in   6.9 6:W 91% in   6.9
+  -> comfortable 3-spot farming from rung 0; 6-spot farming from rung 0
+
+=== Stage 4  bosses ['boss-elephant', 'boss-teal-dinosaur']  spots [('unit-snorkeler', 1), ('unit-straw-hat-swimmer', 1)]
+ r0 L 38 dmg     57 hp    389 | elephant   L   0%    40s in   19.5 pot  3.0 | teal-dinos L   0%    24s in   26.4 pot  2.0 | 3:W 52% in  22.0 3:W 50% in  22.9 6:L  0% in  54.7 6:L  0% in  58.3
+ r1 L 43 dmg     62 hp    460 | elephant   L   0%    58s in   19.0 pot  4.0 | teal-dinos L   0%    34s in   25.3 pot  2.0 | 3:W 81% in  17.1 3:W 57% in  22.9 6:W 14% in  32.0 6:L  0% in  57.7
+ r2 L 48 dmg     66 hp    531 | elephant   W  41%    63s in   18.8 pot  4.0 | teal-dinos L   0%    55s in   23.4 pot  4.0 | 3:W 84% in  17.1 3:W 83% in  17.8 6:W 30% in  32.0 6:W 26% in  33.4
+ r3 L 52 dmg     70 hp    594 | elephant   W  43%    60s in   17.8 pot  3.0 | teal-dinos W  50%    66s in   21.7 pot  5.0 | 3:W 86% in  16.1 3:W 86% in  16.8 6:W 50% in  29.6 6:W 42% in  31.5
+ r4 L 57 dmg     74 hp    646 | elephant   W  43%    56s in   18.5 pot  3.0 | teal-dinos W  32%    62s in   22.3 pot  4.0 | 3:W 88% in  16.1 3:W 87% in  16.8 6:W 56% in  32.7 6:W 54% in  30.8
+ r5 L 62 dmg     79 hp    698 | elephant   W  57%    52s in   18.4 pot  3.0 | teal-dinos W  32%    59s in   22.4 pot  3.0 | 3:W 88% in  16.1 3:W 88% in  16.8 6:W 57% in  32.7 6:W 59% in  34.1
+ r6 L 67 dmg     82 hp    774 | elephant   W  59%    50s in   18.5 pot  2.0 | teal-dinos W  48%    56s in   22.6 pot  3.0 | 3:W 90% in  16.1 3:W 89% in  16.8 6:W 63% in  32.7 6:W 61% in  34.1
+ r7 L 72 dmg     85 hp    828 | elephant   W  69%    48s in   18.7 pot  2.0 | teal-dinos W  61%    54s in   21.6 pot  3.0 | 3:W 90% in  16.1 3:W 90% in  16.8 6:W 67% in  32.7 6:W 64% in  34.0
+ r8 L 76 dmg     87 hp    875 | elephant   W  64%    47s in   18.5 pot  2.0 | teal-dinos W  74%    52s in   21.9 pot  3.0 | 3:W 98% in  11.9 3:W 90% in  16.8 6:W 82% in  24.9 6:W 68% in  34.0
+ r9 L 81 dmg     89 hp    925 | elephant   W  81%    46s in   17.7 pot  2.0 | teal-dinos W  92%    51s in   21.4 pot  3.0 | 3:W 98% in  11.9 3:W 98% in  12.4 6:W 85% in  26.8 6:W 82% in  26.0
+  -> comfortable 3-spot farming from rung 1; 6-spot farming from rung 2
+
+=== Stage 5  bosses ['boss-squirrel', 'boss-red-fox']  spots [('unit-pumpkin-head', 1), ('unit-pumpkin-head', 3)]
+ r0 L 65 dmg    101 hp    539 | squirrel   L   0%    30s in   31.7 pot  2.0 | red-fox    L   0%    14s in   49.5 pot  1.0 | 3:W 36% in  34.0 3:W 36% in  34.0 6:L  0% in 118.4 6:L  0% in 118.4
+ r1 L 71 dmg    108 hp    619 | squirrel   L   0%    34s in   31.0 pot  2.0 | red-fox    L   0%    20s in   42.7 pot  1.0 | 3:W 58% in  32.9 3:W 58% in  32.9 6:L  0% in  98.8 6:L  0% in  98.8
+ r2 L 77 dmg    114 hp    699 | squirrel   L   0%    58s in   30.3 pot  4.0 | red-fox    L   0%    20s in   42.5 pot  1.0 | 3:W 67% in  34.2 3:W 67% in  34.2 6:L  5% in  83.9 6:L  5% in  83.9
+ r3 L 83 dmg    121 hp    776 | squirrel   L   0%    77s in   29.0 pot  6.0 | red-fox    L   0%    37s in   38.9 pot  3.0 | 3:W 71% in  32.2 3:W 71% in  32.2 6:L 16% in  73.1 6:L 16% in  73.1
+ r4 L 89 dmg    127 hp    836 | squirrel   W  31%    76s in   28.9 pot  6.0 | red-fox    L   0%    40s in   39.0 pot  3.0 | 3:W 75% in  32.2 3:W 75% in  32.2 6:L 20% in  69.7 6:L 20% in  69.7
+ r5 L 95 dmg    134 hp    896 | squirrel   W  43%    72s in   28.7 pot  4.0 | red-fox    L   0%    61s in   37.6 pot  5.0 | 3:W 82% in  33.9 3:W 82% in  33.9 6:W 39% in  53.3 6:W 39% in  53.3
+ r6 L101 dmg    140 hp    982 | squirrel   W  56%    69s in   28.4 pot  4.0 | red-fox    W  25%    61s in   37.5 pot  4.0 | 3:W 85% in  33.9 3:W 85% in  33.9 6:W 51% in  54.5 6:W 51% in  54.5
+ r7 L107 dmg    143 hp   1044 | squirrel   W  49%    67s in   28.5 pot  3.0 | red-fox    W  35%    60s in   37.1 pot  4.0 | 3:W 92% in  28.7 3:W 92% in  28.7 6:W 68% in  48.0 6:W 68% in  48.0
+ r8 L113 dmg    146 hp   1103 | squirrel   W  65%    65s in   27.3 pot  3.0 | red-fox    W  51%    59s in   36.6 pot  3.0 | 3:W 93% in  28.7 3:W 93% in  28.7 6:W 74% in  47.9 6:W 74% in  47.9
+ r9 L119 dmg    149 hp   1160 | squirrel   W  87%    63s in   27.5 pot  3.0 | red-fox    W  39%    58s in   37.1 pot  3.0 | 3:W 88% in  29.7 3:W 88% in  29.7 6:W 81% in  51.6 6:W 81% in  51.6
+  -> comfortable 3-spot farming from rung 1; 6-spot farming from rung 5
+
+=== Stage 6  bosses ['boss-black-cat', 'boss-grim-reaper']  spots [('unit-television-head', 1), ('unit-top-hat', 1)]
+ r0 L 95 dmg    173 hp    817 | black-cat  L   0%    15s in   70.7 pot  1.0 | grim-reape L   0%    12s in   92.9 pot  1.0 | 3:W 60% in  44.9 3:W 48% in  51.0 6:L  0% in 118.1 6:L  0% in 148.1
+ r1 L104 dmg    185 hp    976 | black-cat  L   0%    26s in   64.6 pot  2.0 | grim-reape L   0%    14s in   93.1 pot  1.0 | 3:W 66% in  44.9 3:W 58% in  49.2 6:L  0% in 116.4 6:L  0% in 137.8
+ r2 L113 dmg    196 hp   1136 | black-cat  L   0%    31s in   63.0 pot  2.0 | grim-reape L   0%    20s in   82.0 pot  1.0 | 3:W 82% in  34.6 3:W 68% in  50.2 6:W 24% in  78.5 6:L  0% in 122.6
+ r3 L122 dmg    208 hp   1286 | black-cat  L   0%    53s in   56.3 pot  4.0 | grim-reape L   0%    29s in   72.3 pot  2.0 | 3:W 88% in  38.3 3:W 74% in  46.1 6:W 49% in  66.6 6:W 26% in  80.8
+ r4 L131 dmg    219 hp   1395 | black-cat  L   0%    75s in   56.0 pot  6.0 | grim-reape L   0%    35s in   75.0 pot  3.0 | 3:W 89% in  38.3 3:W 85% in  35.5 6:W 58% in  66.9 6:W 46% in  73.1
+ r5 L139 dmg    231 hp   1499 | black-cat  W  25%    81s in   55.3 pot  6.0 | grim-reape L   0%    38s in   74.1 pot  3.0 | 3:W 95% in  28.2 3:W 86% in  35.5 6:W 65% in  61.5 6:W 41% in  80.4
+ r6 L148 dmg    239 hp   1671 | black-cat  W  47%    80s in   53.2 pot  4.0 | grim-reape L   0%    80s in   72.1 pot  7.0 | 3:W 96% in  28.2 3:W 90% in  42.8 6:W 73% in  64.1 6:W 62% in  74.1
+ r7 L157 dmg    244 hp   1786 | black-cat  W  47%    77s in   53.2 pot  4.0 | grim-reape W  44%    84s in   70.5 pot  7.0 | 3:W 96% in  28.2 3:W 95% in  31.5 6:W 76% in  64.0 6:W 69% in  68.7
+ r8 L166 dmg    248 hp   1896 | black-cat  W  49%    75s in   52.9 pot  4.0 | grim-reape W  64%    81s in   65.7 pot  5.0 | 3:W 96% in  28.2 3:W 96% in  31.5 6:W 79% in  64.0 6:W 72% in  68.7
+ r9 L175 dmg    253 hp   2003 | black-cat  W  72%    73s in   52.7 pot  4.0 | grim-reape W  34%    80s in   66.3 pot  4.0 | 3:W 97% in  28.2 3:W 96% in  31.5 6:W 83% in  64.0 6:W 77% in  68.6
+  -> comfortable 3-spot farming from rung 1; 6-spot farming from rung 3
+
+=== Stage 7  bosses ['boss-bee', 'boss-orange-tabby-cat']  spots [('unit-elf-ears', 1), ('unit-elf-ears', 3)]
+ r0 L140 dmg    354 hp   1082 | bee        L   0%    11s in  122.1 pot  1.0 | orange-tab L   0%    10s in  138.5 pot  1.0 | 3:L 15% in  73.4 3:L 15% in  73.4 6:L  0% in 214.3 6:L  0% in 214.3
+ r1 L152 dmg    445 hp   1266 | bee        L   0%    12s in  130.6 pot  1.0 | orange-tab L   0%    12s in  130.6 pot  1.0 | 3:W 55% in  62.5 3:W 55% in  62.5 6:L  0% in 190.0 6:L  0% in 190.0
+ r2 L163 dmg    536 hp   1444 | bee        L   0%    16s in  119.3 pot  1.0 | orange-tab L   0%    15s in  127.8 pot  1.0 | 3:W 68% in  53.5 3:W 68% in  53.5 6:L  8% in 146.0 6:L  8% in 146.0
+ r3 L175 dmg    623 hp   1618 | bee        L   0%    30s in   95.2 pot  2.0 | orange-tab L   0%    27s in  105.1 pot  2.0 | 3:W 74% in  48.5 3:W 74% in  48.5 6:L 21% in 119.9 6:L 21% in 119.9
+ r4 L186 dmg    714 hp   1747 | bee        L   0%    37s in   97.8 pot  3.0 | orange-tab L   0%    30s in  105.0 pot  2.0 | 3:W 86% in  43.7 3:W 86% in  43.7 6:W 39% in  89.5 6:W 39% in  89.5
+ r5 L198 dmg    806 hp   1880 | bee        L   0%    38s in   95.9 pot  3.0 | orange-tab L   0%    40s in  103.4 pot  3.0 | 3:W 89% in  46.9 3:W 89% in  46.9 6:W 55% in  88.7 6:W 55% in  88.7
+ r6 L209 dmg    864 hp   2072 | bee        W  36%    83s in   88.5 pot  8.0 | orange-tab L   0%    60s in   97.5 pot  5.0 | 3:W 88% in  43.7 3:W 88% in  43.7 6:W 72% in  91.4 6:W 72% in  91.4
+ r7 L221 dmg    870 hp   2210 | bee        W  44%    81s in   87.6 pot  6.0 | orange-tab W  46%    75s in   95.2 pot  7.0 | 3:W 89% in  43.7 3:W 89% in  43.7 6:W 78% in  91.3 6:W 78% in  91.3
+ r8 L232 dmg    875 hp   2337 | bee        W  41%    80s in   87.8 pot  5.0 | orange-tab W  57%    73s in   95.9 pot  6.0 | 3:W 89% in  43.7 3:W 89% in  43.7 6:W 75% in  91.1 6:W 75% in  91.1
+ r9 L244 dmg    881 hp   2464 | bee        W  62%    80s in   87.1 pot  4.0 | orange-tab W  61%    72s in   95.2 pot  4.0 | 3:W 93% in  44.2 3:W 93% in  44.2 6:W 68% in  84.2 6:W 68% in  84.2
+  -> comfortable 3-spot farming from rung 1; 6-spot farming from rung 4
+
+=== Stage 8  bosses ['boss-red-panda', 'boss-sunflower']  spots [('unit-sprout', 1), ('unit-sprout', 3)]
+ r0 L195 dmg    465 hp   2419 | red-panda  L   0%    14s in  226.3 pot  1.0 | sunflower  L   0%    14s in  226.3 pot  1.0 | 3:L  0% in 217.8 3:L  0% in 217.8 6:L  0% in 478.9 6:L  0% in 478.9
+ r1 L207 dmg    557 hp   2828 | red-panda  L   0%    18s in  217.5 pot  1.0 | sunflower  L   0%    16s in  231.5 pot  1.0 | 3:L 10% in 170.9 3:L 10% in 170.9 6:L  0% in 465.2 6:L  0% in 465.2
+ r2 L218 dmg    648 hp   3232 | red-panda  L   0%    28s in  196.4 pot  2.0 | sunflower  L   0%    26s in  218.3 pot  2.0 | 3:W 31% in 134.1 3:W 31% in 134.1 6:L  0% in 461.5 6:L  0% in 461.5
+ r3 L230 dmg    735 hp   3615 | red-panda  L   0%    38s in  177.5 pot  3.0 | sunflower  L   0%    31s in  198.7 pot  2.0 | 3:W 60% in 122.6 3:W 60% in 122.6 6:L  0% in 394.3 6:L  0% in 394.3
+ r4 L242 dmg    826 hp   3897 | red-panda  L   0%    60s in  168.6 pot  5.0 | sunflower  L   0%    37s in  202.3 pot  3.0 | 3:W 52% in 120.4 3:W 52% in 120.4 6:L  0% in 369.1 6:L  0% in 369.1
+ r5 L253 dmg    917 hp   4174 | red-panda  L   0%   357s in  152.5 pot 31.0 | sunflower  L   0%    41s in  204.2 pot  3.0 | 3:W 73% in 113.1 3:W 73% in 113.1 6:L 20% in 281.4 6:L 20% in 281.4
+ r6 L265 dmg    976 hp   4616 | red-panda  W  43%   370s in  151.0 pot 24.0 | sunflower  L   0%   156s in  196.1 pot 14.0 | 3:W 87% in 113.1 3:W 87% in 113.1 6:L 27% in 236.9 6:L 27% in 236.9
+ r7 L277 dmg    982 hp   4908 | red-panda  W  72%   351s in  149.9 pot 22.0 | sunflower  L   0%   356s in  193.9 pot 31.0 | 3:W 90% in 111.0 3:W 90% in 111.0 6:W 76% in 194.8 6:W 76% in 194.8
+ r8 L288 dmg    987 hp   5172 | red-panda  W  78%   334s in  148.5 pot 19.0 | sunflower  L   0%   378s in  192.0 pot 27.0 | 3:W 82% in 110.6 3:W 82% in 110.6 6:W 69% in 193.9 6:W 69% in 193.9
+ r9 L300 dmg    993 hp   5420 | red-panda  W  64%   327s in  147.4 pot 17.0 | sunflower  W  77%   406s in  190.4 pot 26.0 | 3:W 91% in 111.0 3:W 91% in 111.0 6:W 87% in 193.8 6:W 87% in 193.8
+  -> comfortable 3-spot farming from rung 3; 6-spot farming from rung 7
+{"1": [0, 0], "2": [0, 0], "3": [0, 0], "4": [1, 2], "5": [1, 5], "6": [1, 3], "7": [1, 4], "8": [3, 7]}

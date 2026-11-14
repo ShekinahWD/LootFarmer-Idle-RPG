@@ -3445,7 +3445,7 @@ msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25% exploration radius around you"
 
 msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10% damage against bosses"
+msgstr "+5% damage against bosses"
 
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10% coins from every enemy"
@@ -3469,7 +3469,7 @@ msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10% stats gained from every merge"
 
 msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10% damage against bosses"
+msgstr "+5% damage against bosses"
 
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25% offline item rates"
@@ -3481,13 +3481,13 @@ msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Giant Slayer"
 
 msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25% damage against bosses"
+msgstr "+15% damage against bosses"
 
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Boss Guard"
 
 msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Take 20% less damage from bosses"
+msgstr "Take 10% less damage from bosses"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Bounty"
@@ -3649,7 +3649,7 @@ msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Trophy Power"
 
 msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20% damage against bosses"
+msgstr "+10% damage against bosses"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Trophy Gems"
@@ -6728,3 +6728,57 @@ msgstr "Camp Supplies: +1 %s"
 
 msgid "CAMP_SUPPLY_WAITING"
 msgstr "Camp Supplies: free a supply slot to collect this camp's supply"
+
+msgid "REROLL_STATS"
+msgstr "Reroll Stats · %s gems"
+
+msgid "REROLL_STATS_CONFIRM"
+msgstr "Reroll the unlocked attributes (%d) for %s gems? Each new roll replaces the old one, even if it is weaker. Locked attributes keep their stat and value."
+
+msgid "REROLL_STATS_ACTION"
+msgstr "Reroll"
+
+msgid "REROLL_STATS_DONE"
+msgstr "Attributes rerolled: %d"
+
+msgid "REROLL_LOCK"
+msgstr "Lock"
+
+msgid "REROLL_LOCKED"
+msgstr "Locked"
+
+msgid "REROLL_LOCK_RULE"
+msgstr "Lock an attribute to keep its stat and value when you reroll. Each locked attribute adds 20% to the price, a locked boss bonus 40%."
+
+msgid "REROLL_ALL_LOCKED"
+msgstr "Unlock at least one attribute to reroll."
+
+msgid "UP_OFFLINE_SKILL"
+msgstr "Unlock offline skill drops"
+
+msgid "UP_OFFLINE_SKILL_RATE"
+msgstr "Offline skills per hour"
+
+msgid "OFFLINE_SKILL_BENEFIT"
+msgstr "Off → On · copies of skills you own, about 1 every 2 hours"
+
+msgid "OFFLINE_TAB_EXPLAIN_V79"
+msgstr "Coins and Gems build up while you're away. Unlock Weapons, Outfits, Supplies and Skills below to also receive copies of items you own, then raise their reward rates. Nothing here is required."
+
+msgid "OFFLINE_LOCKED_EXPLAIN_V79"
+msgstr "Unlock Offline upgrades to earn weapons, outfits, supplies and skills while away. Unlocks apply to future time away only. Go to Upgrades claims these rewards first."
+
+msgid "TRACK_EXPLORE_MAP"
+msgstr "Explore %s"
+
+msgid "TRACK_UNLOCK_CAMP"
+msgstr "Unlock Camp %d"
+
+msgid "TRACK_FIND_ITEM"
+msgstr "Find %s"
+
+msgid "TRACK_MERGE_ITEM"
+msgstr "Merge %s to ^%d"
+
+msgid "TRACK_COLLECT_ITEM"
+msgstr "Collect %s"

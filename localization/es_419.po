@@ -3448,9 +3448,6 @@ msgstr "+10 % de PV máximos"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25 % de radio de exploración a tu alrededor"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10 % de daño contra jefes"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10 % de monedas de cada enemigo"
 
@@ -3472,9 +3469,6 @@ msgstr "+15 % de monedas de enemigos normales"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10 % a las estadísticas obtenidas en cada fusión"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10 % de daño contra jefes"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25 % a las tasas de objetos sin conexión"
 
@@ -3484,14 +3478,8 @@ msgstr "+10 % de PV máximos"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Matagigantes"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25 % de daño contra jefes"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Guardia antijefes"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Recibes un 20 % menos de daño de los jefes"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Botín de caza"
@@ -3645,9 +3633,6 @@ msgstr "+50 % de EXP de jefes"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Poder de trofeo"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20 % de daño contra jefes"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Gemas de trofeo"

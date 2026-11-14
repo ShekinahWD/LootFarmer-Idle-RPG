@@ -20,10 +20,11 @@ const PROGRESSION_LANGS:=["en","es_419","es_ES","pt_BR","fr_FR","de_DE"]
 const EXPECT:={
     "world_map_hint":["MAP_MARKERS_HINT"],
     # Change 64: the persistent locked-categories line and Go to Upgrades replaced the one-time O1 hint.
-    "offline_gear_hint":["OFFLINE_LOCKED_EXPLAIN","OFFLINE_GO_UPGRADES","OFFLINE_CAT_LOCKED"],
+    "offline_gear_hint":["OFFLINE_LOCKED_EXPLAIN_V79","OFFLINE_GO_UPGRADES","OFFLINE_CAT_LOCKED"],
     "upgrades_offline":["OFFLINE_GEAR_BENEFIT"],
-    "item_boss_enhanced":["ITEM_BOSS_BONUS","ITEM_BOSS_BONUS_EXPLAIN","REROLL_ATTRIBUTE"],
-    "confirm_reroll":["REROLL_ATTRIBUTE_CONFIRM"],
+    # Change 79: one Reroll Stats per item (Lock toggles per attribute) replaced the per-slot Reroll buttons.
+    "item_boss_enhanced":["ITEM_BOSS_BONUS","ITEM_BOSS_BONUS_EXPLAIN","REROLL_STATS","REROLL_LOCK"],
+    "confirm_reroll":["REROLL_STATS_CONFIRM"],
     "item_boss_hint":["ITEM_BOSS_BONUS_HINT"],
     "item_evolution_rule":["EVOLUTION_RULE"],
     "item_legacy":["ITEM_LEGACY_NAME","LEGACY_ITEM_EXPLAIN"],
@@ -170,7 +171,7 @@ func progression_screens() -> void:
     inside("item_boss_enhanced",game.get_node("Sheet"))
     var reroll: Button=null
     for b in game.find_children("*","Button",true,false):
-        if b.is_visible_in_tree() and str(b.text).contains(literal("REROLL_ATTRIBUTE")):reroll=b;break
+        if b.is_visible_in_tree() and b.name=="RerollStats":reroll=b;break
     if reroll==null:add("item_boss_enhanced","not_shown","no Reroll button")
     else:
         reroll.pressed.emit();await shown("confirm_reroll")

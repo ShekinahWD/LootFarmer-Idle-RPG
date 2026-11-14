@@ -3445,9 +3445,6 @@ msgstr "+10% अधिकतम HP"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "आपके आसपास खोज दायरा +25%"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "बॉस के विरुद्ध +10% डैमेज"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "हर दुश्मन से +10% सिक्के"
 
@@ -3469,9 +3466,6 @@ msgstr "सामान्य दुश्मनों से +15% सिक्�
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "हर मर्ज से मिलने वाले आँकड़ों पर +10%"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "बॉस के विरुद्ध +10% डैमेज"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "ऑफ़लाइन आइटम दरों पर +25%"
 
@@ -3481,14 +3475,8 @@ msgstr "+10% अधिकतम HP"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "दैत्य संहारक"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "बॉस के विरुद्ध +25% डैमेज"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "बॉस कवच"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "बॉस से 20% कम डैमेज लें"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "इनाम"
@@ -3642,9 +3630,6 @@ msgstr "बॉस से +50% XP"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "ट्रॉफ़ी शक्ति"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "बॉस के विरुद्ध +20% डैमेज"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "ट्रॉफ़ी रत्न"

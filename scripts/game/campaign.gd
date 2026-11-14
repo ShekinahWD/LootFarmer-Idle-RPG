@@ -251,7 +251,7 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
         var pos: Array=stage().spawns[camp]
         sim.state.player.x=pos[0];sim.state.player.y=pos[1]
         sim.state.player.windup=0;sim.state.player.target="";sim.state.player.idle=0
-        sim.state.focus=-1;sim.focus_walk_time=0.0;sim.clear_target();reveal()
+        sim.state.focus=-1;sim.focus_walk_time=0.0;sim.end_focus_return();sim.clear_target();reveal()
         if st==before_stage and camp!=before_camp:guided.action("camp_travel",str(camp))
         sim.touch();SaveService.save_now()
         sim.traveled.emit(st!=before_stage,from,sim.position_of(sim.state.player))
@@ -962,7 +962,13 @@ func automate(dt: float) -> void:
                 if id!="" and sim.supply_auto_ready(id):sim.use_item(id)
     # Change 76: Auto Buy Supplies restocks after the uses above (a use that empties a stack buys at once).
     sim.auto_buy_step()
-    for i in sim.automatic_skill_assignments():cast(int(i))
+    # Change 79: during the post-respawn return to the farming spot only Heal is cast automatically (it
+    # targets nobody and never stops the walk); attack and Focus skills wait for the arrival.
+    var returning: bool=sim.focus_returning()
+    for i in sim.automatic_skill_assignments():
+        var skill_id: String=str(sim.state.skills[int(i)]) if int(i)<sim.state.skills.size() else ""
+        if returning and str(sim.catalog.items.get(skill_id,{}).get("skill",""))!="heal":continue
+        cast(int(i))
     if sim.state.mission_auto and sim.level("mission_claim")>0:
         for i in range(sim.state.missions.size()):
             if sim.state.missions[i].progress>=sim.state.missions[i].goal and not sim.state.missions[i].claimed:claim_mission(i)
@@ -1628,12 +1634,15 @@ func claim_main(i: int) -> bool:
     sim.touch()
     if not SaveService.save_now():sim.state=before;sim.touch();return false
     return true
+## Change 79: skills join the offline item kinds (offline_skill unlock + offline_skill_rate). As for gear and
+## supplies, only identities with stock at departure are eligible: offline time never discovers a skill and
+## never changes what a skill does. An older snapshot without a "skill" entry simply grants none.
 func offline_snapshot() -> Dictionary:
-    var eligible: Dictionary={"weapon":[],"outfit":[],"consumable":[]}
+    var eligible: Dictionary={"weapon":[],"outfit":[],"consumable":[],"skill":[]}
     for id in sim.state.items:
         var kind: String=sim.catalog.items[id].kind
         if eligible.has(kind) and sim.quantity(id)>0 and not sim.is_legacy(id):eligible[kind].append(id)
-    return {"time":maxf(sim.now_unix(),float(sim.state.get("offline_snapshot",{}).get("time",0))),"cap":[5,8,12,18,24,36,48][sim.level("offline_cap")]*3600,"coins":(120+60*sim.level("offline_coins"))*(1+bonus("offline_coins")),"gems":(2+.5*sim.level("offline_gems"))*(1+bonus("offline_gems")),"eligible":eligible,"rates":{"weapon":(1+.5*sim.level("offline_weapon_rate"))*sim.level("offline_weapon"),"outfit":(1+.5*sim.level("offline_outfit_rate"))*sim.level("offline_outfit"),"consumable":(2+sim.level("offline_consumable_rate"))*sim.level("offline_consumable")},"items_bonus":1+bonus("offline_items"),"eligible_time":sim.state.prestige_batch.is_empty()}
+    return {"time":maxf(sim.now_unix(),float(sim.state.get("offline_snapshot",{}).get("time",0))),"cap":[5,8,12,18,24,36,48][sim.level("offline_cap")]*3600,"coins":(120+60*sim.level("offline_coins"))*(1+bonus("offline_coins")),"gems":(2+.5*sim.level("offline_gems"))*(1+bonus("offline_gems")),"eligible":eligible,"rates":{"weapon":(1+.5*sim.level("offline_weapon_rate"))*sim.level("offline_weapon"),"outfit":(1+.5*sim.level("offline_outfit_rate"))*sim.level("offline_outfit"),"consumable":(2+sim.level("offline_consumable_rate"))*sim.level("offline_consumable"),"skill":(.5+.25*sim.level("offline_skill_rate"))*sim.level("offline_skill")},"items_bonus":1+bonus("offline_items"),"eligible_time":sim.state.prestige_batch.is_empty()}
 ## Background settlement only records what was earned: rewards wait in offline_pending (saved, merged
 ## across several absences, each interval capped as before) until the player claims them in game.
 ## Only the claim pays out and advances the offline counters that discover offline opportunities.
@@ -2430,6 +2439,38 @@ func follow_progress(id: String) -> String:
             var counts:=arsenal_counts(o,n);var need:=arsenal_need(n)
             return "%d/%d" % [mini(counts[0],need)+mini(counts[1],need),need*2]
     return ""
+
+## Change 79: the followed opportunity's current requirement as an instruction for the HUD pill's title: the action
+## and its target ("Defeat Teal Dinosaur", "Collect Space Helmet Outfit"), or, for a requirement without one
+## target, the compact step sentence itself (it carries its own counts). "" for a ready opportunity (the pill keeps
+## the opportunity's name and shows Claim). The count beside it is follow_progress.
+func follow_action(id: String) -> String:
+    var o: Dictionary=sim.state.opportunities.get(id,{})
+    if o.is_empty() or o.ready:return ""
+    var n=int(id.right(1));var path=id.split("_o")[0]
+    match path:
+        "collection":
+            var target:=follow_target(id)
+            if target!="":return sim.tr("TRACK_COLLECT_ITEM") % target
+        "expedition","specialist":
+            var chain=chain_for(id);var index=int(o.get("step",0))
+            if index<chain.size():
+                var g:=group_id(str(chain[index][1]))
+                if g>=0:return sim.tr("FOLLOW_GOAL_KILL_TARGET") % str(sim.catalog.groups[g].name)
+                return sim.tr("FOLLOW_GOAL_"+str(chain[index][0]).to_upper())
+        "hunter","trophy":
+            var focus:=follow_focus(id)
+            if focus.has("group") and int(focus.group)>=0:return sim.tr("FOLLOW_GOAL_KILL_TARGET") % str(sim.catalog.groups[int(focus.group)].name)
+    return follow_summary(id,true).get_slice("\n",0)
+
+## Change 79: a daily mission's instruction for the HUD pill, from its own localized goal ("Defeat %s (%s)" with the
+## enemy and its map, "Merge items", ...); the hunt and the main objectives already read as instructions.
+func mission_action(i: int) -> String:
+    var m: Dictionary=sim.state.missions[i]
+    var what: String=sim.tr("MISSION_DO_"+str(m.kind).to_upper())
+    var g:=group_id(str(m.target))
+    if g>=0:what=what % [str(sim.catalog.groups[g].name),str(sim.catalog.stages[int(sim.catalog.groups[g].stage)-1].name)]
+    return what
 
 ## Change 74: the name of what the followed opportunity's current requirement is about, for the HUD pill's title
 ## (the opportunity's own name stays in the Prestige panel): the outfit a collection still needs ("Space Helmet

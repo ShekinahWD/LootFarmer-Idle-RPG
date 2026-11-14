@@ -502,4 +502,5 @@ func final_boss_checks() -> void:
     sim.state.player.x=alien.x+50;sim.state.player.y=alien.y
     campaign_steps(10)
     check(casts.is_empty() and sim.helpers_of(alien.id).is_empty(),"Without the 13 keys the final boss does nothing (gate unchanged)")
-    check(int(sim.catalog.groups[group("boss-green-alien")].hp)==304513 and sim.catalog.groups[group("boss-green-alien")].skills==["focus","fire","strike"],"Baseline HP and its drop skills unchanged")
+    # Change 79: HP x0.45 through progression.balance.boss_tuning (304,514 -> 137,031); its drop skills unchanged.
+    check(int(sim.catalog.groups[group("boss-green-alien")].hp)==137031 and sim.catalog.groups[group("boss-green-alien")].skills==["focus","fire","strike"],"Baseline HP and its drop skills unchanged")

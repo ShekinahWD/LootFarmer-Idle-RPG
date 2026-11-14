@@ -790,7 +790,34 @@ func _refresh_view_camp() -> void:
     var map: Control=$Safe/Layout/Map
     var pos:=Vector2(at.x-button.size.x*.5,at.y+4)
     pos=pos.clamp(Vector2(8,8),map.size-button.size-Vector2(8,8))
+    # Change 79: a followed-objective pill may now be several lines tall, so the button never covers a pill or a
+    # HUD rail control: it keeps its place under the camp name when that is free, else the first free place of
+    # right of the pills (same height) and below them (same column), else below the pills.
+    var blockers: Array=[]
+    var pills: Rect2=Rect2()
+    for tracker in [map.get_node("FollowTracker"),map.get_node("MissionTracker"),mastery_tracker]:
+        if tracker==null or not tracker.visible:continue
+        var r: Rect2=Rect2(tracker.position,tracker.size).grow(4)
+        blockers.append(r)
+        pills=r if pills.size==Vector2.ZERO else pills.merge(r)
+    if not blockers.is_empty():
+        for path in VIEW_CAMP_AVOID:
+            var node: Control=map.get_node(path)
+            if node.visible:blockers.append(Rect2(node.position,node.size).grow(4))
+        var low:=map.size-button.size-Vector2(8,8)
+        var free:=func(at: Vector2)->bool:
+            var rect:=Rect2(at,button.size)
+            return blockers.all(func(r: Rect2)->bool:return not rect.intersects(r))
+        if not free.call(pos):
+            var options: Array=[Vector2(pills.end.x,pos.y).clamp(Vector2(8,8),low),Vector2(pos.x,pills.end.y).clamp(Vector2(8,8),low)]
+            var chosen: Vector2=options[1]
+            for option in options:
+                if free.call(option):chosen=option;break
+            pos=chosen
     if not button.position.is_equal_approx(pos):button.position=pos
+
+## Change 79: HUD rail controls View Camp keeps clear of once a followed-objective pill shows.
+const VIEW_CAMP_AVOID:=["EnemySection","Achievement","EnemyUpgrades","QuickFarm","MiniMap","ZoomButton","ZoomPlate","Explored","Mastery","Gate"]
 
 ## The bottom centre of a camp's name label, in Map coordinates (INF when the stage art is missing).
 func _camp_label_point(i: int) -> Vector2:
@@ -819,8 +846,9 @@ func _refresh_mission_tracker() -> void:
     else:
         var m: Dictionary=sim.state.missions[int(f.index)]
         var g:=sim.campaign.group_id(str(m.target))
-        # Change 74: a daily mission about one enemy is named by that enemy; the others keep their goal.
-        title=str(sim.catalog.groups[g].name) if g>=0 else tr("GOAL_"+str(m.kind).to_upper())
+        # Change 79: the pill says what to do ("Defeat Teal Dinosaur (Summer II)", "Merge items"), never only a
+        # name or a category (campaign.mission_action, the mission's own localized instruction).
+        title=sim.campaign.mission_action(int(f.index))
         art=icon_cache.get(sim.catalog.groups[g].body) if g>=0 else _art(60)
         ready=m.progress>=m.goal
     var name_label: Label=tracker.get_node("Row/Text/Name")
@@ -1041,8 +1069,10 @@ func _refresh_follow_tracker() -> void:
     var name_label: Label=tracker.get_node("Row/Text/Name")
     var step: Label=tracker.get_node("Row/Text/Step")
     # Change 74: the pill names what is being tracked now ("Space Helmet Outfit"), not the opportunity.
-    var target: String=sim.campaign.follow_target(id)
-    var title: String=target if target!="" else str(op.name)
+    # Change 79: with the action that is required ("Collect Space Helmet Outfit", "Defeat Teal Dinosaur"),
+    # campaign.follow_action; only a ready opportunity keeps its own name (its pill says Claim).
+    var action: String=sim.campaign.follow_action(id)
+    var title: String=action if action!="" else str(op.name)
     if name_label.text!=title:name_label.text=title
     # Change 71: the compact tracker shows the current requirement and its progress only; the Prestige panel
     # keeps the full summary with the following step.
@@ -1070,13 +1100,13 @@ func _refresh_mastery_tracker() -> void:
     var st:=int(f.stage);var category: String=f.category
     var objective: Dictionary=sim.campaign.mastery.objective(st,category)
     var label: Label=mastery_tracker.get_node("Row/Text/Name")
-    # Change 74: the pill names the enemy or item the current requirement is about; a requirement without one
-    # (explore, camps, evolve) keeps the map and category.
+    # Change 74: the pill names the enemy or item the current requirement is about. Change 79: as an action
+    # ("Defeat Teal Dinosaur", "Find Snorkeler Outfit", "Unlock Camp 2"), never a bare name or the category.
     var title:=str(sim.catalog.stages[st-1].name)+" · "+tr("MASTERY_"+category.to_upper())
     for part in objective.parts:
         if int(part[2])<int(part[3]):
-            var named: String=_mastery_target(part)
-            if named!="":title=named
+            var action: String=_mastery_action(st,part)
+            if action!="":title=action
             break
     if label.text!=title:label.text=title
     var step: Label=mastery_tracker.get_node("Row/Text/Step")
@@ -2299,14 +2329,22 @@ func _item_panel() -> void:
             var gain: float=float(preview.get(key,0.0))
             _stat_line(details,_stat_text(key,sim.normal(id)[key],true),deltas.get(key,0.0),key,22,Color.WHITE,_merge_gain_text(key,gain))
             shown[key]=true
+    # Change 79: an item whose attributes can be rerolled shows a Lock toggle on each attribute row.
+    var lockable: bool=not def.extras.is_empty() and r.qty>0 and def.kind!="skill"
+    var base_index:=0
     for key in r.extras:
-        _stat_line(details,"+ "+_stat_text(key,r.extras[key],true),0.0 if shown.has(key) else deltas.get(key,0.0),key,19,Color(.75,.8,.87))
+        var line:=_stat_line(details,"+ "+_stat_text(key,r.extras[key],true),0.0 if shown.has(key) else deltas.get(key,0.0),key,19,Color(.75,.8,.87))
+        if lockable:_reroll_lock_toggle(line,id,"base:%d" % base_index)
+        base_index+=1
         shown[key]=true
     # Change 52: boss bonus attributes in gold under one "★ Boss bonus" heading (Change 55: a heading line
     # instead of a prefix on each line, so the card keeps its phone width at 432 px).
     if not sim.boss_extras(id).is_empty():_card_line(details,"★ "+tr("ITEM_BOSS_BONUS"),17,Color(1,.84,.45))
+    var boss_index:=0
     for e in sim.boss_extras(id):
-        _stat_line(details,"+ "+_stat_text(str(e.stat),float(e.value),true),0.0 if shown.has(str(e.stat)) else deltas.get(str(e.stat),0.0),str(e.stat),19,Color(1,.84,.45))
+        var line:=_stat_line(details,"+ "+_stat_text(str(e.stat),float(e.value),true),0.0 if shown.has(str(e.stat)) else deltas.get(str(e.stat),0.0),str(e.stat),19,Color(1,.84,.45))
+        if lockable:_reroll_lock_toggle(line,id,"boss:%d" % boss_index)
+        boss_index+=1
         shown[str(e.stat)]=true
     # Stats only the equipped item gives: shown as what equipping this one would lose.
     for key in ["damage","hp","defense","crit","crit_damage","speed","lifesteal","regen","regen_pct"]:
@@ -2361,16 +2399,18 @@ func _item_panel() -> void:
     if def.kind=="skill":
         for i in range(1+sim.level("skill_slots")):
             _game_action(tr("EQUIP_SKILL_SLOT") % (i+1),func()->void:if selected==id:sim.campaign.equip_skill(id,i),true,"",more)
-    if not def.extras.is_empty() and r.qty>0:
-        # Change 52: one Reroll per attribute slot; the others stay as they are.
-        var cost:=sim.reroll_cost(id)
-        var slots:=sim.reroll_slots(id)
-        for i in range(slots.size()):
-            var slot: int=i
-            var stat: String=str(slots[i][1]) if slots[i][0]=="base" else str(sim.boss_extras(id)[int(slots[i][1])].stat)
-            var label: String=tr("STAT_"+stat.to_upper())
-            if slots[i][0]=="boss":label="★ "+label
-            _game_action(tr("REROLL_ATTRIBUTE") % [label,fmt_cost(cost)],func()->void:_confirm(tr("REROLL_ATTRIBUTE_CONFIRM") % [fmt_cost(cost),label],func()->void:if selected==id:sim.reroll(id,slot)),true,"",more)
+    if lockable:
+        # Change 79: one Reroll Stats per item rerolls every unlocked attribute together; its label carries the
+        # exact price for the current locks (sim.reroll_total_cost, the amount the reroll charges). Blocked (all
+        # locked, too few Gems) it is a full-width row with its reason, as Evolve is.
+        var total:=sim.reroll_total_cost(id)
+        var block:=sim.reroll_block_reason(id)
+        var unlocked:=sim.reroll_slot_keys(id).size()-sim.reroll_locks(id).size()
+        var reroll_button:=_game_action(tr("REROLL_STATS") % fmt_cost(total),func()->void:
+            _confirm(tr("REROLL_STATS_CONFIRM") % [unlocked,fmt_cost(total)],func()->void:
+                if selected==id and _confirmed(sim.reroll_stats(id)):_say(tr("REROLL_STATS_DONE") % unlocked)
+                _refresh_panel(),tr("REROLL_STATS_ACTION")),block.is_empty(),block,more if block.is_empty() else null)
+        reroll_button.name="RerollStats"
     if sim.gear_group(id)>=0:_toggle_style(_game_action(tr("ITEM_AUTO_MERGE") % tr("OFF" if sim.auto_merge_excluded(id) else "ON"),func()->void:sim.set_auto_merge_excluded(id,not sim.auto_merge_excluded(id)),true,"",more),not sim.auto_merge_excluded(id)).set_meta("guide","item_auto_merge")
     _drop_action(id,more)
     for button in more.get_children():
@@ -2379,6 +2419,8 @@ func _item_panel() -> void:
         button.add_theme_font_size_override("font_size",18)
     if more.get_child_count()>0:rows.add_child(more)
     else:more.free()
+    # Change 79: how locks work and what they cost, in the panel (a tooltip is not reachable on a phone).
+    if lockable:_text(tr("REROLL_LOCK_RULE"),16,Color(.7,.75,.82)).name="RerollRule"
     if def.kind=="outfit":
         _text(tr("OUTFIT_GROWTH_EXPLAIN") % [cap,fmt_value(float(sim.catalog.progression.stored_outfit_factor)*100)],17,Color(.8,.84,.9))
     elif sim.copy_growth(id):
@@ -2618,7 +2660,7 @@ func _item_summary_card(id: String,ribbon: String,ribbon_color: Color,at:=-1,cou
 
 ## Change 78: green colour of a next-merge gain beside its stat.
 const MERGE_GAIN_COLOR:=Color(.45,1,.55)
-func _stat_line(parent: Control,text: String,delta: float,key: String,font_size: int,color:=Color.WHITE,gain:="") -> void:
+func _stat_line(parent: Control,text: String,delta: float,key: String,font_size: int,color:=Color.WHITE,gain:="") -> HBoxContainer:
     var line:=HBoxContainer.new()
     line.add_theme_constant_override("separation",10)
     parent.add_child(line)
@@ -2661,6 +2703,40 @@ func _stat_line(parent: Control,text: String,delta: float,key: String,font_size:
         change.size_flags_horizontal=Control.SIZE_EXPAND_FILL
         change.size_flags_stretch_ratio=0.8
         line.add_child(change)
+    return line
+
+## Change 79: the Lock / Locked toggle at the end of one attribute row of the item panel (key "base:<i>" or
+## "boss:<i>", sim.set_reroll_lock). Locked is the ON style. Tapping it changes nothing but the lock and the
+## Reroll Stats price, so it is never blocked by the gameplay lock.
+const REROLL_LOCK_SIZE:=Vector2(108,52)
+func _reroll_lock_toggle(line: HBoxContainer,id: String,key: String) -> Button:
+    var locked:=sim.reroll_locked(id,key)
+    var button:=Button.new()
+    button.name="RerollLock"
+    button.set_meta("reroll_lock",key)
+    button.text=tr("REROLL_LOCKED" if locked else "REROLL_LOCK")
+    button.custom_minimum_size=REROLL_LOCK_SIZE
+    button.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+    button.add_theme_font_size_override("font_size",17)
+    button.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+    button.tooltip_text=tr("REROLL_LOCK_RULE")
+    _toggle_style(button,locked)
+    line.add_child(button)
+    # The toggle takes row width: the stat and delta labels ("+ Angriffstempo-Bonus 2.30%", "▲ +3.95% Angriffstempo-
+    # Bonus") keep at least their longest word, so a long translated stat name wraps between words, never inside one.
+    for child in line.get_children():
+        if child is Label:
+            var font: Font=child.get_theme_font("font")
+            var size: int=child.get_theme_font_size("font_size")
+            var widest:=0.0
+            for word in str(child.text).split(" ",false):widest=maxf(widest,font.get_string_size(word,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x)
+            child.custom_minimum_size.x=ceilf(widest)+16
+    button.pressed.connect(func()->void:
+        if sim.set_reroll_lock(id,key,not sim.reroll_locked(id,key)):
+            SaveService.mark_committed()
+            AudioService.play("ui_click")
+        if sheet.visible:_refresh_panel())
+    return button
 
 ## Smallest change worth showing; Recovery is a fraction of max HP per second (0.0025 = 0.25%).
 func _meaningful(key: String,value: float) -> bool:
@@ -2734,7 +2810,7 @@ static func cropped(source: Texture2D) -> Texture2D:
 func _upgrades_panel() -> void:
     _tabs(UPGRADE_TABS,player_tab,func(i: int)->void:player_tab=i)
     # Change 65: the one global Focused Farming unlock sits with the Player upgrades.
-    var sections: Array=[["respawn","movement","focus","skill_slots","skill_auto_slots","critical_chance","critical_damage"],["gear_slots","supply_slots","merge_all"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate"]]
+    var sections: Array=[["respawn","movement","focus","skill_slots","skill_auto_slots","critical_chance","critical_damage"],["gear_slots","supply_slots","merge_all"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_skill","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate","offline_skill_rate"]]
     if player_tab==0:_text(tr("UPGRADES_PLAYER_HINT"),17,Color(.75,.8,.87))
     if player_tab==4:
         if not sim.state.offline_pending.is_empty():
@@ -2750,7 +2826,7 @@ func _upgrades_panel() -> void:
         var snap: Dictionary=sim.campaign.offline_snapshot()
         _text(tr("OFFLINE_RATES") % [fmt_currency(snap.coins),fmt_currency(snap.gems),fmt(snap.cap/3600)],18,Color(.8,.84,.9))
         # Change 61: what the item unlocks below do, in every mode (no purchase is ever required).
-        _text(tr("OFFLINE_TAB_EXPLAIN"),17,Color(.75,.8,.87))
+        _text(tr("OFFLINE_TAB_EXPLAIN_V79"),17,Color(.75,.8,.87))
     for id in sections[player_tab]:
         # Skill slots and auto-cast appear with the first skill found (Change 8).
         if id.begins_with("skill_") and sim.state.skills_seen.is_empty():continue
@@ -3067,6 +3143,9 @@ func _upgrade_benefit(id: String,g: int) -> String:
     # Change 55 O2: offline gear copies only gear already owned.
     if id in ["offline_weapon","offline_outfit"]:
         return tr("OFFLINE_GEAR_BENEFIT") if sim.level(id)==0 else tr("UPGRADE_TRANSITION") % [tr("ON"),tr("ON")]
+    # Change 79: copies of skills already owned, at half the gear rate.
+    if id=="offline_skill":
+        return tr("OFFLINE_SKILL_BENEFIT") if sim.level(id)==0 else tr("UPGRADE_TRANSITION") % [tr("ON"),tr("ON")]
     if int(sim.catalog.upgrades[id].cap)==1:
         return tr("UPGRADE_TRANSITION") % [tr("ON" if sim.level(id,g)>0 else "OFF"),tr("ON")]
     if id in ["critical_chance","critical_damage"]:return _critical_benefit(id,next)
@@ -4082,7 +4161,7 @@ func _pinned_equipment() -> void:
 
 ## The explicit claim step for offline earnings. Nothing is paid, and no offline prestige
 ## opportunity is discovered, until Claim is pressed (campaign.claim_offline).
-## Change 64: the welcome-back receipt always lists Coins, Gems, Weapons, Outfits and Supplies (0 when
+## Change 64: the welcome-back receipt always lists Coins, Gems, Weapons, Outfits and Supplies (Change 79: and Skills) (0 when
 ## nothing was earned), each item category totalled by catalog kind from the pending record itself, and
 ## marks a category Locked only while its offline unlock (OFFLINE_ITEM_UNLOCKS) is not owned. While any
 ## is locked a persistent line explains the unlocks (future time away only) with Go to Upgrades. That
@@ -4099,7 +4178,7 @@ func _offline_panel() -> void:
     for id in pending.items:
         if sim.catalog.items.has(id):_loot_row(id,-1,int(pending.items[id]))
     if not offline_locked_kinds().is_empty():
-        _text(tr("OFFLINE_LOCKED_EXPLAIN"),17,Color(1,.86,.5)).set_meta("guide_row","offline_locked_explain")
+        _text(tr("OFFLINE_LOCKED_EXPLAIN_V79"),17,Color(1,.86,.5)).set_meta("guide_row","offline_locked_explain")
         _game_action(tr("OFFLINE_GO_UPGRADES"),func()->void:
             if sim.campaign.claim_offline():
                 player_tab=4;_open("upgrades")).set_meta("guide","offline_upgrades_jump")
@@ -4108,17 +4187,19 @@ func _offline_panel() -> void:
             _close()
             _toast(tr("OFFLINE_CLAIMED")),true,"",true,"claim_offline")
 
-## Item kinds whose offline unlock is not owned yet (weapon / outfit / consumable), from upgrade levels.
+## Item kinds whose offline unlock is not owned yet (weapon / outfit / consumable / skill), from upgrade levels.
+## Change 79: skills have their own unlock; the O1 hint (OFFLINE_ITEM_UNLOCKS) keeps its three gear kinds.
+const OFFLINE_KIND_UNLOCKS:={"offline_weapon":"weapon","offline_outfit":"outfit","offline_consumable":"consumable","offline_skill":"skill"}
 func offline_locked_kinds() -> Array:
     var out: Array=[]
-    for id in OFFLINE_ITEM_UNLOCKS:
-        if sim.level(id)==0:out.append(OFFLINE_ITEM_UNLOCKS[id])
+    for id in OFFLINE_KIND_UNLOCKS:
+        if sim.level(id)==0:out.append(OFFLINE_KIND_UNLOCKS[id])
     return out
 
 ## Per-category totals of an offline record (pending or claimed receipt): currencies and item copies by
 ## catalog kind. Unknown ids (a removed item) are not counted, as the claim never grants them.
 func offline_totals(record: Dictionary) -> Dictionary:
-    var totals:={"coins":float(record.get("coins",0.0)),"gems":float(record.get("gems",0.0)),"weapon":0,"outfit":0,"consumable":0}
+    var totals:={"coins":float(record.get("coins",0.0)),"gems":float(record.get("gems",0.0)),"weapon":0,"outfit":0,"consumable":0,"skill":0}
     var items: Dictionary=record.get("items",{})
     for id in items:
         if not sim.catalog.items.has(id):continue
@@ -4126,7 +4207,7 @@ func offline_totals(record: Dictionary) -> Dictionary:
         if totals.has(kind) and kind not in ["coins","gems"]:totals[kind]=int(totals[kind])+int(items[id])
     return totals
 
-const OFFLINE_CATEGORY_ROWS:=[["coins","OFFLINE_CAT_COINS"],["gems","OFFLINE_CAT_GEMS"],["weapon","WEAPONS"],["outfit","OUTFITS"],["consumable","CONSUMABLES"]]
+const OFFLINE_CATEGORY_ROWS:=[["coins","OFFLINE_CAT_COINS"],["gems","OFFLINE_CAT_GEMS"],["weapon","WEAPONS"],["outfit","OUTFITS"],["consumable","CONSUMABLES"],["skill","SKILLS"]]
 func _offline_categories(record: Dictionary,show_locks: bool) -> void:
     var totals:=offline_totals(record)
     var locked:=offline_locked_kinds() if show_locks else []
@@ -4391,6 +4472,20 @@ func _mastery_target(part: Array) -> String:
             return str(sim.catalog.groups[g].name) if _type_known(g) else tr("MASTERY_UNKNOWN_ENEMY")
         "item","merge":return sim.catalog.display_name(part[1]) if _item_known(part[1]) else tr("MASTERY_UNKNOWN_ITEM")
         "camp":return tr("CAMP_NAME") % (int(part[1])+1)
+    return ""
+
+## Change 79: the HUD pill's instruction for one unfinished Map Mastery requirement, action and target in one
+## localized phrase; the pill's progress label carries the count, so no number repeats here.
+func _mastery_action(st: int,part: Array) -> String:
+    var kind: String=part[0]
+    match kind:
+        "explored":return tr("TRACK_EXPLORE_MAP") % str(sim.catalog.stages[st-1].name)
+        "camp":return tr("TRACK_UNLOCK_CAMP") % (int(part[1])+1)
+        "kills":return tr("FOLLOW_GOAL_KILL_TARGET") % _mastery_target(part)
+        "stats","drops":return tr("MASTERY_NEED_"+kind.to_upper()) % _mastery_target(part)
+        "item":return tr("TRACK_FIND_ITEM") % _mastery_target(part)
+        "merge":return tr("TRACK_MERGE_ITEM") % [_mastery_target(part),int(part[3])]
+        "evolve","weapon_merge":return _mastery_missing(st,part)
     return ""
 
 func _mastery_missing(st: int,part: Array) -> String:

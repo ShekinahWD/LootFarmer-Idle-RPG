@@ -91,7 +91,8 @@ func follower_checks() -> void:
         check(tracker.visible and step.text.get_slice("
 ",0)==expected[i] and tracker.get_node("Row/Icon").texture==icons[i],"Collection stage %d follower reads \"%s\" with that item's icon" % [i,step.text.get_slice("
 ",0)])
-    check(tracker.get_node("Row/Text/Name").text==tr("CONTENT_COLLECTION_O1_NAME"),"Follower keeps the Prestige name")
+    # Change 79: the pill title states the current action (here the hand-in sentence), not the opportunity's name.
+    check(tracker.get_node("Row/Text/Name").text==sim.campaign.follow_action("collection_o1") and sim.campaign.follow_action("collection_o1")!="","Follower title states the action: \"%s\"" % tracker.get_node("Row/Text/Name").text)
     game._open("prestige");await frames(2)
     var detail:=label_containing(sim.catalog.display_name(items[0]))
     check(detail!=null and detail.text.contains("21/21"),"Prestige panel still names each required outfit with its count")

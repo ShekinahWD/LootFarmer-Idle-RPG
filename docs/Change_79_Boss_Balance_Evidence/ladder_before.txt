@@ -1,0 +1,195 @@
+
+=== Stage 4 P0
+ r0 L 38 dmg    57 hp   389 | elephant L  0%   40s in    20 p 3.0 | teal-din L  0%   24s in    26 p 2.0 | 6:L  0% in   55 6:L  0% in   58
+ r1 L 43 dmg    62 hp   460 | elephant L  0%   58s in    19 p 4.0 | teal-din L  0%   34s in    25 p 2.0 | 6:W 14% in   32 6:L  0% in   58
+ r2 L 48 dmg    66 hp   531 | elephant W 41%   63s in    19 p 4.0 | teal-din L  0%   55s in    23 p 4.0 | 6:W 30% in   32 6:W 26% in   33
+ r3 L 52 dmg    70 hp   594 | elephant W 43%   60s in    18 p 3.0 | teal-din W 50%   66s in    22 p 5.0 | 6:W 50% in   30 6:W 42% in   32
+ r4 L 57 dmg    74 hp   646 | elephant W 43%   56s in    18 p 3.0 | teal-din W 32%   62s in    22 p 4.0 | 6:W 56% in   33 6:W 54% in   31
+ r5 L 62 dmg    79 hp   698 | elephant W 57%   52s in    18 p 3.0 | teal-din W 32%   59s in    22 p 3.0 | 6:W 57% in   33 6:W 59% in   34
+ r6 L 67 dmg    82 hp   774 | elephant W 59%   50s in    19 p 2.0 | teal-din W 48%   56s in    23 p 3.0 | 6:W 63% in   33 6:W 61% in   34
+ r7 L 72 dmg    85 hp   828 | elephant W 69%   48s in    19 p 2.0 | teal-din W 61%   54s in    22 p 3.0 | 6:W 67% in   33 6:W 64% in   34
+ r8 L 76 dmg    87 hp   875 | elephant W 64%   47s in    18 p 2.0 | teal-din W 74%   52s in    22 p 3.0 | 6:W 82% in   25 6:W 68% in   34
+ r9 L 81 dmg    89 hp   925 | elephant W 81%   46s in    18 p 2.0 | teal-din W 92%   51s in    21 p 3.0 | 6:W 85% in   27 6:W 82% in   26
+  -> 6-spot farming from r2; first boss wins {'boss-elephant': 2, 'boss-teal-dinosaur': 3}
+
+=== Stage 4 P1
+ r0 L 38 dmg    57 hp   466 | elephant W 42%   51s in    19 p 3.0 | teal-din L  0%   55s in    24 p 4.0 | 6:W 20% in   33 6:W 16% in   35
+ r1 L 43 dmg    62 hp   552 | elephant W 48%   47s in    19 p 2.0 | teal-din W 51%   52s in    23 p 4.0 | 6:W 43% in   36 6:W 33% in   35
+ r2 L 48 dmg    66 hp   638 | elephant W 55%   43s in    19 p 2.0 | teal-din W 53%   48s in    24 p 3.0 | 6:W 54% in   36 6:W 51% in   38
+ r3 L 52 dmg    70 hp   713 | elephant W 65%   40s in    18 p 2.0 | teal-din W 51%   46s in    22 p 2.0 | 6:W 59% in   34 6:W 62% in   35
+ r4 L 57 dmg    74 hp   775 | elephant W 70%   39s in    19 p 2.0 | teal-din W 62%   42s in    23 p 2.0 | 6:W 64% in   34 6:W 62% in   35
+ r5 L 62 dmg    79 hp   837 | elephant W 85%   36s in    19 p 2.0 | teal-din W 63%   40s in    22 p 2.0 | 6:W 82% in   27 6:W 66% in   35
+ r6 L 67 dmg    82 hp   929 | elephant W 95%   35s in    18 p 2.0 | teal-din W 72%   39s in    23 p 2.0 | 6:W 83% in   32 6:W 83% in   28
+ r7 L 72 dmg    85 hp   993 | elephant W 99%   34s in    18 p 2.0 | teal-din W 86%   37s in    22 p 2.0 | 6:W 84% in   32 6:W 84% in   34
+ r8 L 76 dmg    87 hp  1050 | elephant W 98%   32s in    18 p 2.0 | teal-din W 90%   37s in    22 p 2.0 | 6:W 85% in   32 6:W 85% in   34
+ r9 L 81 dmg    89 hp  1110 | elephant W 98%   31s in    19 p 2.0 | teal-din W 92%   35s in    22 p 2.0 | 6:W 86% in   32 6:W 86% in   34
+  -> 6-spot farming from r1; first boss wins {'boss-elephant': 0, 'boss-teal-dinosaur': 1}
+
+=== Stage 4 P3
+ r0 L 38 dmg    62 hp   484 | elephant W 55%   46s in    15 p 2.0 | teal-din W 49%   51s in    19 p 3.0 | 6:W 32% in   36 6:W 24% in   35
+ r1 L 43 dmg    68 hp   579 | elephant W 72%   42s in    16 p 2.0 | teal-din W 50%   47s in    19 p 2.0 | 6:W 46% in   36 6:W 44% in   38
+ r2 L 48 dmg    72 hp   674 | elephant W 78%   40s in    15 p 2.0 | teal-din W 75%   43s in    18 p 2.0 | 6:W 56% in   36 6:W 54% in   38
+ r3 L 52 dmg    77 hp   758 | elephant W 94%   37s in    14 p 2.0 | teal-din W 84%   41s in    18 p 2.0 | 6:W 80% in   27 6:W 79% in   28
+ r4 L 57 dmg    81 hp   825 | elephant W 97%   35s in    15 p 2.0 | teal-din W 84%   39s in    19 p 2.0 | 6:W 81% in   32 6:W 80% in   34
+ r5 L 62 dmg    86 hp   892 | elephant W 99%   32s in    15 p 2.0 | teal-din W 91%   37s in    18 p 2.0 | 6:W 82% in   32 6:W 82% in   34
+ r6 L 67 dmg    90 hp   988 | elephant W 98%   31s in    15 p 2.0 | teal-din W 94%   35s in    18 p 2.0 | 6:W 84% in   32 6:W 83% in   34
+ r7 L 72 dmg    93 hp  1057 | elephant W 93%   30s in    15 p 1.0 | teal-din W 96%   34s in    18 p 2.0 | 6:W 85% in   32 6:W 84% in   34
+ r8 L 76 dmg    95 hp  1118 | elephant W 95%   29s in    15 p 1.0 | teal-din W 99%   32s in    17 p 2.0 | 6:W 85% in   32 6:W 85% in   34
+ r9 L 81 dmg    97 hp  1183 | elephant W 95%   28s in    15 p 1.0 | teal-din W 99%   31s in    18 p 2.0 | 6:W 86% in   32 6:W 86% in   34
+  -> 6-spot farming from r1; first boss wins {'boss-elephant': 0, 'boss-teal-dinosaur': 0}
+
+=== Stage 5 P0
+ r0 L 65 dmg   101 hp   539 | red-fox  L  0%   14s in    50 p 1.0 | squirrel L  0%   30s in    32 p 2.0 | 6:L  0% in   88 6:L  0% in  149
+ r1 L 71 dmg   108 hp   619 | red-fox  L  0%   20s in    43 p 1.0 | squirrel L  0%   34s in    31 p 2.0 | 6:L  0% in   69 6:L  0% in  128
+ r2 L 77 dmg   114 hp   699 | red-fox  L  0%   20s in    43 p 1.0 | squirrel L  0%   58s in    30 p 4.0 | 6:W 10% in   51 6:L  0% in  117
+ r3 L 83 dmg   121 hp   776 | red-fox  L  0%   37s in    39 p 3.0 | squirrel L  0%   77s in    29 p 6.0 | 6:W 32% in   49 6:L  0% in   97
+ r4 L 89 dmg   127 hp   836 | red-fox  L  0%   40s in    39 p 3.0 | squirrel W 31%   76s in    29 p 6.0 | 6:W 39% in   49 6:L  0% in   91
+ r5 L 95 dmg   134 hp   896 | red-fox  L  0%   61s in    38 p 5.0 | squirrel W 43%   72s in    29 p 4.0 | 6:W 46% in   49 6:W 33% in   58
+ r6 L101 dmg   140 hp   982 | red-fox  W 25%   61s in    37 p 4.0 | squirrel W 56%   69s in    28 p 4.0 | 6:W 53% in   51 6:W 49% in   58
+ r7 L107 dmg   143 hp  1044 | red-fox  W 35%   60s in    37 p 4.0 | squirrel W 49%   67s in    29 p 3.0 | 6:W 76% in   38 6:W 60% in   58
+ r8 L113 dmg   146 hp  1103 | red-fox  W 51%   59s in    37 p 3.0 | squirrel W 65%   65s in    27 p 3.0 | 6:W 78% in   38 6:W 71% in   57
+ r9 L119 dmg   149 hp  1160 | red-fox  W 39%   58s in    37 p 3.0 | squirrel W 87%   63s in    27 p 3.0 | 6:W 79% in   45 6:W 84% in   58
+  -> 6-spot farming from r5; first boss wins {'boss-squirrel': 4, 'boss-red-fox': 6}
+
+=== Stage 5 P1
+ r0 L 65 dmg   101 hp   647 | red-fox  L  0%   30s in    41 p 2.0 | squirrel W 26%   67s in    30 p 5.0 | 6:W 11% in   51 6:L  0% in  119
+ r1 L 71 dmg   108 hp   743 | red-fox  L  0%   55s in    41 p 4.0 | squirrel W 56%   62s in    30 p 3.0 | 6:W 33% in   50 6:L  0% in  114
+ r2 L 77 dmg   114 hp   839 | red-fox  W 44%   53s in    39 p 4.0 | squirrel W 43%   59s in    30 p 3.0 | 6:W 44% in   50 6:L  0% in   83
+ r3 L 83 dmg   121 hp   931 | red-fox  W 50%   49s in    38 p 3.0 | squirrel W 70%   52s in    29 p 3.0 | 6:W 58% in   51 6:W 47% in   58
+ r4 L 89 dmg   127 hp  1003 | red-fox  W 54%   47s in    39 p 2.0 | squirrel W 70%   49s in    29 p 2.0 | 6:W 80% in   38 6:W 59% in   58
+ r5 L 95 dmg   134 hp  1076 | red-fox  W 47%   44s in    38 p 2.0 | squirrel W 70%   46s in    29 p 2.0 | 6:W 81% in   45 6:W 74% in   58
+ r6 L101 dmg   140 hp  1178 | red-fox  W 63%   42s in    38 p 2.0 | squirrel W 84%   43s in    29 p 2.0 | 6:W 82% in   45 6:W 71% in   59
+ r7 L107 dmg   143 hp  1253 | red-fox  W 72%   41s in    38 p 2.0 | squirrel W 94%   42s in    29 p 2.0 | 6:W 83% in   45 6:W 64% in   54
+ r8 L113 dmg   146 hp  1324 | red-fox  W 66%   40s in    38 p 2.0 | squirrel W100%   41s in    28 p 2.0 | 6:W 83% in   45 6:W 70% in   58
+ r9 L119 dmg   149 hp  1392 | red-fox  W 75%   40s in    38 p 2.0 | squirrel W 88%   40s in    29 p 2.0 | 6:W 84% in   45 6:W 76% in   58
+  -> 6-spot farming from r3; first boss wins {'boss-squirrel': 0, 'boss-red-fox': 2}
+
+=== Stage 5 P3
+ r0 L 65 dmg   111 hp   665 | red-fox  W 39%   54s in    31 p 4.0 | squirrel W 45%   60s in    24 p 3.0 | 6:W 21% in   50 6:L  0% in  117
+ r1 L 71 dmg   119 hp   770 | red-fox  W 49%   50s in    32 p 3.0 | squirrel W 73%   52s in    24 p 3.0 | 6:W 39% in   54 6:L  0% in  102
+ r2 L 77 dmg   126 hp   876 | red-fox  W 44%   47s in    32 p 2.0 | squirrel W 67%   49s in    24 p 2.0 | 6:W 74% in   41 6:W 32% in   62
+ r3 L 83 dmg   134 hp   976 | red-fox  W 70%   43s in    31 p 2.0 | squirrel W 88%   46s in    23 p 2.0 | 6:W 78% in   45 6:W 62% in   59
+ r4 L 89 dmg   141 hp  1053 | red-fox  W 79%   41s in    30 p 2.0 | squirrel W 95%   43s in    24 p 2.0 | 6:W 79% in   45 6:W 66% in   53
+ r5 L 95 dmg   149 hp  1130 | red-fox  W 73%   40s in    31 p 2.0 | squirrel W 86%   40s in    24 p 2.0 | 6:W 80% in   45 6:W 60% in   58
+ r6 L101 dmg   154 hp  1237 | red-fox  W 85%   38s in    31 p 2.0 | squirrel W 87%   40s in    24 p 2.0 | 6:W 81% in   45 6:W 67% in   58
+ r7 L107 dmg   157 hp  1317 | red-fox  W 86%   37s in    31 p 2.0 | squirrel W 91%   39s in    23 p 2.0 | 6:W 82% in   45 6:W 74% in   58
+ r8 L113 dmg   160 hp  1393 | red-fox  W 87%   37s in    31 p 2.0 | squirrel W 95%   38s in    22 p 2.0 | 6:W 83% in   45 6:W 77% in   58
+ r9 L119 dmg   163 hp  1466 | red-fox  W 90%   36s in    30 p 2.0 | squirrel W 95%   37s in    23 p 2.0 | 6:W 84% in   45 6:W 80% in   58
+  -> 6-spot farming from r2; first boss wins {'boss-red-fox': 0, 'boss-squirrel': 0}
+
+=== Stage 6 P0
+ r0 L 95 dmg   173 hp   817 | black-ca L  0%   15s in    71 p 1.0 | grim-rea L  0%   12s in    93 p 1.0 | 6:L  0% in  118 6:L  0% in  148
+ r1 L104 dmg   185 hp   976 | black-ca L  0%   26s in    65 p 2.0 | grim-rea L  0%   14s in    93 p 1.0 | 6:L  0% in  116 6:L  0% in  138
+ r2 L113 dmg   196 hp  1136 | black-ca L  0%   31s in    63 p 2.0 | grim-rea L  0%   20s in    82 p 1.0 | 6:W 24% in   79 6:L  0% in  123
+ r3 L122 dmg   208 hp  1286 | black-ca L  0%   53s in    56 p 4.0 | grim-rea L  0%   29s in    72 p 2.0 | 6:W 49% in   67 6:W 26% in   81
+ r4 L131 dmg   219 hp  1395 | black-ca L  0%   75s in    56 p 6.0 | grim-rea L  0%   35s in    75 p 3.0 | 6:W 58% in   67 6:W 46% in   73
+ r5 L139 dmg   231 hp  1499 | black-ca W 25%   81s in    55 p 6.0 | grim-rea L  0%   38s in    74 p 3.0 | 6:W 65% in   61 6:W 41% in   80
+ r6 L148 dmg   239 hp  1671 | black-ca W 47%   80s in    53 p 4.0 | grim-rea L  0%   80s in    72 p 7.0 | 6:W 73% in   64 6:W 62% in   74
+ r7 L157 dmg   244 hp  1786 | black-ca W 47%   77s in    53 p 4.0 | grim-rea W 44%   84s in    70 p 7.0 | 6:W 76% in   64 6:W 69% in   69
+ r8 L166 dmg   248 hp  1896 | black-ca W 49%   75s in    53 p 4.0 | grim-rea W 64%   81s in    66 p 5.0 | 6:W 79% in   64 6:W 72% in   69
+ r9 L175 dmg   253 hp  2003 | black-ca W 72%   73s in    53 p 4.0 | grim-rea W 34%   80s in    66 p 4.0 | 6:W 83% in   64 6:W 77% in   69
+  -> 6-spot farming from r3; first boss wins {'boss-black-cat': 5, 'boss-grim-reaper': 7}
+
+=== Stage 6 P1
+ r0 L 95 dmg   173 hp   981 | black-ca L  0%   38s in    63 p 3.0 | grim-rea L  0%   18s in    84 p 1.0 | 6:W  5% in   79 6:L  0% in  136
+ r1 L104 dmg   185 hp  1172 | black-ca W 15%   73s in    59 p 6.0 | grim-rea L  0%   26s in    81 p 2.0 | 6:W 44% in   73 6:L  0% in  120
+ r2 L113 dmg   196 hp  1363 | black-ca W 25%   68s in    61 p 5.0 | grim-rea L  0%   35s in    82 p 3.0 | 6:W 59% in   73 6:W 32% in   88
+ r3 L122 dmg   208 hp  1543 | black-ca W 62%   62s in    55 p 3.0 | grim-rea L  0%   58s in    74 p 4.0 | 6:W 64% in   67 6:W 64% in   74
+ r4 L131 dmg   219 hp  1674 | black-ca W 50%   60s in    55 p 3.0 | grim-rea W 41%   66s in    73 p 5.0 | 6:W 77% in   64 6:W 64% in   75
+ r5 L139 dmg   231 hp  1799 | black-ca W 77%   57s in    55 p 3.0 | grim-rea W 44%   61s in    73 p 3.0 | 6:W 82% in   68 6:W 75% in   69
+ r6 L148 dmg   239 hp  2005 | black-ca W 74%   54s in    54 p 3.0 | grim-rea W 48%   60s in    69 p 3.0 | 6:W 85% in   68 6:W 81% in   72
+ r7 L157 dmg   244 hp  2143 | black-ca W 85%   52s in    55 p 3.0 | grim-rea W 67%   59s in    68 p 3.0 | 6:W 90% in   60 6:W 84% in   72
+ r8 L166 dmg   248 hp  2275 | black-ca W 90%   51s in    54 p 2.5 | grim-rea W 84%   58s in    68 p 3.0 | 6:W 91% in   60 6:W 86% in   72
+ r9 L175 dmg   253 hp  2404 | black-ca W 88%   49s in    55 p 2.0 | grim-rea W 72%   56s in    68 p 3.0 | 6:W 92% in   60 6:W 90% in   72
+  -> 6-spot farming from r2; first boss wins {'boss-black-cat': 1, 'boss-grim-reaper': 4}
+
+=== Stage 6 P3
+ r0 L 95 dmg   193 hp  1026 | black-ca W 52%   68s in    48 p 5.0 | grim-rea L  0%   32s in    65 p 2.0 | 6:W 36% in   73 6:L  0% in  114
+ r1 L104 dmg   207 hp  1241 | black-ca W 54%   62s in    47 p 3.0 | grim-rea L  0%   58s in    66 p 4.0 | 6:W 61% in   70 6:W 40% in   81
+ r2 L113 dmg   218 hp  1456 | black-ca W 54%   60s in    49 p 3.0 | grim-rea W 34%   65s in    65 p 5.0 | 6:W 66% in   70 6:W 64% in   75
+ r3 L122 dmg   232 hp  1658 | black-ca W 74%   56s in    45 p 3.0 | grim-rea W 42%   60s in    58 p 3.0 | 6:W 77% in   68 6:W 72% in   72
+ r4 L131 dmg   244 hp  1801 | black-ca W 95%   51s in    45 p 3.0 | grim-rea W 64%   59s in    58 p 3.0 | 6:W 88% in   60 6:W 76% in   72
+ r5 L139 dmg   258 hp  1938 | black-ca W 89%   48s in    45 p 2.0 | grim-rea W 71%   54s in    55 p 3.0 | 6:W 89% in   60 6:W 80% in   76
+ r6 L148 dmg   267 hp  2156 | black-ca W 94%   44s in    45 p 2.0 | grim-rea W 92%   51s in    55 p 3.0 | 6:W 90% in   60 6:W 89% in   67
+ r7 L157 dmg   271 hp  2306 | black-ca W 99%   43s in    43 p 2.0 | grim-rea W 85%   50s in    54 p 2.0 | 6:W 90% in   60 6:W 90% in   67
+ r8 L166 dmg   276 hp  2451 | black-ca W 98%   42s in    44 p 2.0 | grim-rea W 91%   48s in    54 p 2.0 | 6:W 90% in   60 6:W 90% in   67
+ r9 L175 dmg   280 hp  2591 | black-ca W 92%   40s in    45 p 2.0 | grim-rea W 93%   47s in    55 p 2.0 | 6:W 91% in   60 6:W 91% in   67
+  -> 6-spot farming from r1; first boss wins {'boss-black-cat': 0, 'boss-grim-reaper': 2}
+
+=== Stage 7 P0
+ r0 L140 dmg   354 hp  1082 | bee      L  0%   11s in   122 p 1.0 | orange-t L  0%   10s in   139 p 1.0 | 6:L  0% in  214 6:L  0% in  215
+ r1 L152 dmg   445 hp  1266 | bee      L  0%   12s in   131 p 1.0 | orange-t L  0%   12s in   131 p 1.0 | 6:L  0% in  172 6:L  0% in  208
+ r2 L163 dmg   536 hp  1444 | bee      L  0%   16s in   119 p 1.0 | orange-t L  0%   15s in   128 p 1.0 | 6:W 16% in   96 6:L  0% in  196
+ r3 L175 dmg   623 hp  1618 | bee      L  0%   30s in    95 p 2.0 | orange-t L  0%   27s in   105 p 2.0 | 6:W 42% in   88 6:L  0% in  152
+ r4 L186 dmg   714 hp  1747 | bee      L  0%   37s in    98 p 3.0 | orange-t L  0%   30s in   105 p 2.0 | 6:W 63% in   83 6:W 15% in   96
+ r5 L198 dmg   806 hp  1880 | bee      L  0%   38s in    96 p 3.0 | orange-t L  0%   40s in   103 p 3.0 | 6:W 62% in   83 6:W 48% in   95
+ r6 L209 dmg   864 hp  2072 | bee      W 36%   83s in    88 p 8.0 | orange-t L  0%   60s in    98 p 5.0 | 6:W 70% in   86 6:W 73% in   97
+ r7 L221 dmg   870 hp  2210 | bee      W 44%   81s in    88 p 6.0 | orange-t W 46%   75s in    95 p 7.0 | 6:W 73% in   86 6:W 83% in   96
+ r8 L232 dmg   875 hp  2337 | bee      W 41%   80s in    88 p 5.0 | orange-t W 57%   73s in    96 p 6.0 | 6:W 76% in   86 6:W 74% in   96
+ r9 L244 dmg   881 hp  2464 | bee      W 62%   80s in    87 p 4.0 | orange-t W 61%   72s in    95 p 4.0 | 6:W 81% in   86 6:W 55% in   82
+  -> 6-spot farming from r5; first boss wins {'boss-bee': 6, 'boss-orange-tabby-cat': 7}
+
+=== Stage 7 P1
+ r0 L140 dmg   354 hp  1299 | bee      L  0%   18s in   120 p 1.0 | orange-t L  0%   18s in   120 p 1.0 | 6:L  0% in  189 6:L  0% in  220
+ r1 L152 dmg   445 hp  1519 | bee      L  0%   56s in   101 p 4.0 | orange-t L  0%   40s in   110 p 3.0 | 6:L  0% in  143 6:L  0% in  193
+ r2 L163 dmg   536 hp  1733 | bee      L  0%   98s in    99 p 8.0 | orange-t L  0%   53s in   111 p 4.0 | 6:W 53% in   96 6:W 45% in  102
+ r3 L175 dmg   623 hp  1942 | bee      W 48%   81s in    92 p 4.0 | orange-t W 42%   75s in   100 p 4.0 | 6:W 83% in   83 6:W 82% in   96
+ r4 L186 dmg   714 hp  2096 | bee      W 73%   71s in    91 p 4.0 | orange-t W 66%   63s in    98 p 3.0 | 6:W 86% in   86 6:W 69% in   97
+ r5 L198 dmg   806 hp  2256 | bee      W 94%   61s in    88 p 3.0 | orange-t W 63%   57s in    99 p 3.0 | 6:W 87% in   86 6:W 79% in   86
+ r6 L209 dmg   864 hp  2486 | bee      W 93%   54s in    89 p 3.0 | orange-t W 96%   52s in    98 p 3.0 | 6:W 95% in   81 6:W 83% in   87
+ r7 L221 dmg   870 hp  2652 | bee      W 95%   53s in    88 p 3.0 | orange-t W 92%   51s in    98 p 2.5 | 6:W 94% in   81 6:W 86% in   87
+ r8 L232 dmg   875 hp  2805 | bee      W 97%   52s in    87 p 3.0 | orange-t W 85%   49s in    98 p 2.0 | 6:W 94% in   81 6:W 88% in   86
+ r9 L244 dmg   881 hp  2957 | bee      W100%   51s in    87 p 3.0 | orange-t W 89%   48s in    98 p 2.0 | 6:W 95% in   81 6:W 96% in   85
+  -> 6-spot farming from r2; first boss wins {'boss-bee': 3, 'boss-orange-tabby-cat': 3}
+
+=== Stage 7 P3
+ r0 L140 dmg   401 hp  1344 | bee      L  0%  155s in    76 p12.0 | orange-t L  0%   67s in    87 p 5.0 | 6:L  0% in  171 6:L  0% in  194
+ r1 L152 dmg   510 hp  1588 | bee      W 51%  106s in    77 p 5.0 | orange-t W 47%   90s in    85 p 5.0 | 6:W 43% in   97 6:L  0% in  169
+ r2 L163 dmg   618 hp  1826 | bee      W 51%   80s in    80 p 4.0 | orange-t W 60%   73s in    88 p 4.0 | 6:W 74% in   90 6:W 67% in  106
+ r3 L175 dmg   721 hp  2057 | bee      W 84%   68s in    74 p 3.0 | orange-t W 83%   60s in    80 p 3.0 | 6:W 83% in   86 6:W 67% in   98
+ r4 L186 dmg   829 hp  2223 | bee      W 94%   60s in    72 p 3.0 | orange-t W 97%   53s in    80 p 3.0 | 6:W 93% in   81 6:W 77% in   87
+ r5 L198 dmg   938 hp  2395 | bee      W 94%   47s in    73 p 2.0 | orange-t W 90%   44s in    83 p 2.0 | 6:W 92% in   81 6:W 84% in   86
+ r6 L209 dmg  1006 hp  2637 | bee      W 99%   41s in    72 p 2.0 | orange-t W 96%   40s in    80 p 2.0 | 6:W 91% in   81 6:W 99% in   79
+ r7 L221 dmg  1012 hp  2816 | bee      W 98%   40s in    72 p 2.0 | orange-t W 96%   40s in    79 p 2.0 | 6:W 91% in   81 6:W100% in   83
+ r8 L232 dmg  1018 hp  2980 | bee      W 98%   40s in    71 p 2.0 | orange-t W 97%   40s in    79 p 2.0 | 6:W 91% in   81 6:W100% in   83
+ r9 L244 dmg  1024 hp  3144 | bee      W 98%   40s in    71 p 2.0 | orange-t W 98%   40s in    78 p 2.0 | 6:W 91% in   81 6:W100% in   83
+  -> 6-spot farming from r2; first boss wins {'boss-bee': 1, 'boss-orange-tabby-cat': 1}
+
+=== Stage 8 P0
+ r0 L195 dmg   465 hp  2419 | red-pand L  0%   14s in   226 p 1.0 | sunflowe L  0%   14s in   226 p 1.0 | green-al L  0%    9s in   334 p 1.0 | 6:L  0% in  478 6:L  0% in  480
+ r1 L207 dmg   557 hp  2828 | red-pand L  0%   18s in   217 p 1.0 | sunflowe L  0%   16s in   231 p 1.0 | green-al L  0%   12s in   310 p 1.0 | 6:L  0% in  465 6:L  0% in  466
+ r2 L218 dmg   648 hp  3232 | red-pand L  0%   28s in   196 p 2.0 | sunflowe L  0%   26s in   218 p 2.0 | green-al L  0%   14s in   300 p 1.0 | 6:L  0% in  461 6:L  0% in  462
+ r3 L230 dmg   735 hp  3615 | red-pand L  0%   38s in   177 p 3.0 | sunflowe L  0%   31s in   199 p 2.0 | green-al L  0%   25s in   251 p 2.0 | 6:L  0% in  379 6:L  0% in  409
+ r4 L242 dmg   826 hp  3897 | red-pand L  0%   60s in   169 p 5.0 | sunflowe L  0%   37s in   202 p 3.0 | green-al L  0%   28s in   247 p 2.0 | 6:L  0% in  340 6:L  0% in  398
+ r5 L253 dmg   917 hp  4174 | red-pand L  0%  357s in   153 p31.0 | sunflowe L  0%   41s in   204 p 3.0 | green-al L  0%   34s in   244 p 2.5 | 6:W 41% in  200 6:L  0% in  362
+ r6 L265 dmg   976 hp  4616 | red-pand W 43%  370s in   151 p24.0 | sunflowe L  0%  156s in   196 p14.0 | green-al L  0%   39s in   246 p 3.0 | 6:W 54% in  201 6:L  0% in  273
+ r7 L277 dmg   982 hp  4908 | red-pand W 72%  351s in   150 p22.0 | sunflowe L  0%  356s in   194 p31.0 | green-al L  0%   60s in   243 p 5.0 | 6:W 65% in  195 6:W 88% in  195
+ r8 L288 dmg   987 hp  5172 | red-pand W 78%  334s in   149 p19.0 | sunflowe L  0%  378s in   192 p27.0 | green-al L  0%   98s in   248 p 8.5 | 6:W 77% in  194 6:W 61% in  194
+ r9 L300 dmg   993 hp  5420 | red-pand W 64%  327s in   147 p17.0 | sunflowe W 77%  406s in   190 p26.0 | green-al L  0%  375s in   227 p29.0 | 6:W 76% in  193 6:W 99% in  194
+  -> 6-spot farming from r7; first boss wins {'boss-red-panda': 6, 'boss-sunflower': 9}
+
+=== Stage 8 P1
+ r0 L195 dmg   465 hp  2902 | red-pand L  0%   31s in   198 p 2.0 | sunflowe L  0%   21s in   226 p 1.0 | green-al L  0%   13s in   314 p 1.0 | 6:L  0% in  443 6:L  0% in  480
+ r1 L207 dmg   557 hp  3394 | red-pand L  0%   37s in   202 p 3.0 | sunflowe L  0%   28s in   227 p 2.0 | green-al L  0%   18s in   298 p 1.0 | 6:L  0% in  468 6:L  0% in  472
+ r2 L218 dmg   648 hp  3879 | red-pand L  0%   98s in   185 p 8.0 | sunflowe L  0%   38s in   228 p 3.0 | green-al L  0%   28s in   278 p 2.0 | 6:L  0% in  402 6:L  0% in  449
+ r3 L230 dmg   735 hp  4338 | red-pand W 57%  312s in   160 p17.0 | sunflowe L  0%  100s in   206 p 8.0 | green-al L  0%   39s in   260 p 3.0 | 6:W 50% in  213 6:L  0% in  326
+ r4 L242 dmg   826 hp  4676 | red-pand W 67%  240s in   159 p12.0 | sunflowe W 55%  305s in   205 p24.5 | green-al L  0%   57s in   255 p 4.0 | 6:W 61% in  204 6:W 75% in  200
+ r5 L253 dmg   917 hp  5008 | red-pand W 80%  205s in   152 p10.0 | sunflowe W 53%  240s in   198 p14.0 | green-al L  0%  375s in   232 p29.0 | 6:W 76% in  195 6:W 87% in  202
+ r6 L265 dmg   976 hp  5539 | red-pand W 88%  181s in   151 p 9.0 | sunflowe W 75%  214s in   196 p11.0 | green-al W 84%  354s in   231 p21.0 | 6:W 91% in  199 6:W 99% in  193
+ r7 L277 dmg   982 hp  5890 | red-pand W 85%  171s in   152 p 8.0 | sunflowe W 66%  211s in   194 p10.5 | green-al W 82%  362s in   227 p19.0 | 6:W 80% in  205 6:W100% in  192
+ r8 L288 dmg   987 hp  6207 | red-pand W 93%  168s in   150 p 8.0 | sunflowe W 77%  206s in   192 p10.0 | green-al W 86%  341s in   226 p17.5 | 6:W 86% in  204 6:W 91% in  190
+ r9 L300 dmg   993 hp  6504 | red-pand W 97%  164s in   150 p 8.0 | sunflowe W 87%  202s in   191 p10.0 | green-al W 71%  330s in   224 p16.0 | 6:W 75% in  203 6:W100% in  195
+  -> 6-spot farming from r4; first boss wins {'boss-red-panda': 3, 'boss-sunflower': 4, 'boss-green-alien': 6}
+
+=== Stage 8 P3
+ r0 L195 dmg   513 hp  3017 | red-pand L  0%  188s in   141 p15.0 | sunflowe L  0%   31s in   191 p 2.0 | green-al L  0%   27s in   233 p 2.0 | 6:L  0% in  456 6:L  0% in  457
+ r1 L207 dmg   621 hp  3569 | red-pand L  0%  375s in   143 p30.0 | sunflowe L  0%   41s in   197 p 3.0 | green-al L  0%   34s in   232 p 2.5 | 6:L  0% in  434 6:L  0% in  451
+ r2 L218 dmg   730 hp  4116 | red-pand W 69%  304s in   142 p15.0 | sunflowe L  0%  118s in   193 p 9.0 | green-al L  0%   46s in   240 p 3.5 | 6:L  0% in  385 6:L  0% in  427
+ r3 L230 dmg   833 hp  4631 | red-pand W 57%  220s in   129 p11.0 | sunflowe W 55%  281s in   174 p15.0 | green-al L  0%  107s in   225 p 7.5 | 6:W 68% in  197 6:W 77% in  202
+ r4 L242 dmg   941 hp  5000 | red-pand W 99%  184s in   126 p 9.0 | sunflowe W 82%  226s in   173 p12.0 | green-al W 74%  365s in   205 p22.0 | 6:W 72% in  207 6:W 76% in  198
+ r5 L253 dmg  1049 hp  5363 | red-pand W 97%  147s in   124 p 7.0 | sunflowe W 75%  181s in   166 p 9.0 | green-al W 89%  281s in   198 p14.0 | 6:W 78% in  209 6:W 92% in  195
+ r6 L265 dmg  1118 hp  5924 | red-pand W 96%  129s in   123 p 6.0 | sunflowe W 90%  160s in   165 p 8.0 | green-al W 79%  257s in   194 p13.0 | 6:W 81% in  187 6:W 99% in  198
+ r7 L277 dmg  1124 hp  6306 | red-pand W101%  126s in   122 p 6.0 | sunflowe W 91%  150s in   164 p 7.0 | green-al W 98%  244s in   192 p12.0 | 6:W 86% in  186 6:W 99% in  197
+ r8 L288 dmg  1130 hp  6654 | red-pand W100%  124s in   122 p 6.0 | sunflowe W 95%  147s in   163 p 7.0 | green-al W106%  236s in   191 p12.0 | 6:W 75% in  207 6:W100% in  197
+ r9 L300 dmg  1136 hp  6981 | red-pand W 95%  120s in   122 p 6.0 | sunflowe W 99%  144s in   162 p 7.0 | green-al W108%  223s in   190 p11.0 | 6:W 82% in  206 6:W100% in  196
+  -> 6-spot farming from r3; first boss wins {'boss-red-panda': 2, 'boss-sunflower': 3, 'boss-green-alien': 4}

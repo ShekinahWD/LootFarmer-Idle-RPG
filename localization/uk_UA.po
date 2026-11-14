@@ -3445,9 +3445,6 @@ msgstr "+10% макс. ОЗ"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25% до радіуса дослідження навколо тебе"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10% шкоди босам"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10% монет з усіх ворогів"
 
@@ -3469,9 +3466,6 @@ msgstr "+15% монет зі звичайних ворогів"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10% до характеристик від кожного поєднання"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10% шкоди босам"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25% до офлайн-випадіння предметів"
 
@@ -3481,14 +3475,8 @@ msgstr "+10% макс. ОЗ"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Убивця велетнів"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25% шкоди босам"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Захист від босів"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Отримуєш на 20% менше шкоди від босів"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Нагорода за голову"
@@ -3642,9 +3630,6 @@ msgstr "+50% досвіду з босів"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Сила трофеїв"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20% шкоди босам"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Самоцвіти трофеїв"

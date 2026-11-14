@@ -77,16 +77,26 @@ func reroll_checks() -> void:
         var all:=stats_of("wood_axe")
         var b: Array=sim.boss_extras("wood_axe").duplicate(true)
         var base: Dictionary=sim.state.items.wood_axe.extras.duplicate()
-        check(sim.reroll("wood_axe",slot),"Reroll slot %d" % slot)
+        check(reroll_slot("wood_axe",slot),"Reroll slot %d" % slot)
         check(unique(stats_of("wood_axe")) and stats_of("wood_axe").size()==3,"Still three distinct stats")
         if slot>0:
             check(JSON.stringify(sim.state.items.wood_axe.extras)==JSON.stringify(base) and JSON.stringify(sim.boss_extras("wood_axe")[2-slot])==JSON.stringify(b[2-slot]),"Only boss slot %d changed" % slot)
         else:
             check(JSON.stringify(sim.boss_extras("wood_axe"))==JSON.stringify(b),"Base reroll leaves both boss slots")
+    # Change 79: one slot alone = the other two locked; the price adds 20% per locked regular and 40% per locked boss slot.
     var gems: float=sim.state.gems
-    check(sim.reroll("wood_axe",1) and is_equal_approx(gems-float(sim.state.gems),float(sim.reroll_cost("wood_axe"))),"A slot costs the item's reroll price")
-    check(not sim.reroll("wood_axe",3),"No fourth slot")
+    var cost: int=(sim.reroll_cost("wood_axe")*160+99)/100
+    check(reroll_slot("wood_axe",1) and is_equal_approx(gems-float(sim.state.gems),float(cost)),"One slot alone costs the reroll price +20% +40% for the two locked slots")
+    check(not sim.set_reroll_lock("wood_axe","boss:2",true),"No fourth slot")
     check(int(sim.state.items.wood_axe.qty)==1 and int(sim.state.items.wood_axe.merge)==1,"Rerolls never touch quantity or merge level")
+
+## Change 79: rerolls exactly one slot (display order) by locking the others, then unlocks everything again.
+func reroll_slot(id: String,slot: int) -> bool:
+    var keys: Array=sim.reroll_slot_keys(id)
+    for i in range(keys.size()):sim.set_reroll_lock(id,keys[i],i!=slot)
+    var ok: bool=sim.reroll_stats(id)
+    for key in keys:sim.set_reroll_lock(id,key,false)
+    return ok
 
 func persistence_checks() -> void:
     fresh()
@@ -118,10 +128,10 @@ func prestige_checks() -> void:
 func ui_checks() -> void:
     game.selected="wood_axe";game._open("item")
     await frames(2)
-    var rerolls:=0
-    for b in game.rows.find_children("*","Button",true,false):
-        if str(b.text).begins_with(tr("REROLL_ATTRIBUTE").get_slice("%",0)):rerolls+=1
-    check(rerolls==3,"The item panel offers one Reroll per slot (%d)" % rerolls)
+    # Change 79: one Reroll Stats per item and a Lock toggle per attribute slot.
+    var rerolls: int=game.rows.find_children("RerollStats","Button",true,false).size()
+    var locks: int=game.rows.find_children("RerollLock","Button",true,false).size()
+    check(rerolls==1 and locks==3,"The item panel offers one Reroll Stats and one Lock per slot (%d, %d)" % [rerolls,locks])
     var gold:=0
     for l in game.rows.find_children("*","Label",true,false):
         if str(l.text).contains(tr("ITEM_BOSS_BONUS")):gold+=1

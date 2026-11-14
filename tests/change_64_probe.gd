@@ -244,13 +244,13 @@ func offline_checks() -> void:
     fresh()
     pending("a",{})
     game._open("offline");await frames(3)
-    for kind in ["weapon","outfit","consumable"]:
+    for kind in ["weapon","outfit","consumable","skill"]: # Change 79: Skills is the sixth category
         var row:=category(kind)
         check(row.size()==3 and row[1]=="0" and row[2]==tr("OFFLINE_CAT_LOCKED"),"Fresh: %s reads 0 · Locked (%s)" % [kind,str(row)])
     check(category("coins").size()==3 and category("coins")[2]=="" and category("gems")[1]==game.fmt_currency(4.0),"Coins and Gems are listed with their amounts")
-    check(panel_text().contains(tr("OFFLINE_LOCKED_EXPLAIN")) and button_meta(game.rows,"offline_upgrades_jump")!=null and button_meta(game.rows,"offline_upgrades_jump").text==tr("OFFLINE_GO_UPGRADES"),"The locked explanation and Go to Upgrades are shown")
+    check(panel_text().contains(tr("OFFLINE_LOCKED_EXPLAIN_V79")) and button_meta(game.rows,"offline_upgrades_jump")!=null and button_meta(game.rows,"offline_upgrades_jump").text==tr("OFFLINE_GO_UPGRADES"),"The locked explanation and Go to Upgrades are shown")
     game._close();game._open("offline");await frames(3)
-    check(panel_text().contains(tr("OFFLINE_LOCKED_EXPLAIN")),"…and stay on every opening while locked (not a one-time hint)")
+    check(panel_text().contains(tr("OFFLINE_LOCKED_EXPLAIN_V79")),"…and stay on every opening while locked (not a one-time hint)")
     game._close()
     # Partly unlocked: an unlocked category with nothing earned reads 0, not Locked.
     fresh()
@@ -262,7 +262,7 @@ func offline_checks() -> void:
     game._close()
     # Fully unlocked with items: per-kind totals plus the item rows; no explanation.
     fresh()
-    for u in ["offline_weapon","offline_outfit","offline_consumable"]:sim.state.upgrades[u]=1 # fixture
+    for u in ["offline_weapon","offline_outfit","offline_consumable","offline_skill"]:sim.state.upgrades[u]=1 # fixture (Change 79: and Offline Skills)
     var weapons: Array=[];var outfit:=""
     for id in sim.catalog.items:
         var kind: String=sim.catalog.items[id].kind
@@ -272,7 +272,7 @@ func offline_checks() -> void:
     game._open("offline");await frames(3)
     check(category("weapon")[1]=="3" and category("outfit")[1]=="4" and category("consumable")[1]=="3","Totals by catalog kind (weapons 2+1, outfits 4, supplies 3; unknown ids not counted)")
     check(panel_text().contains(sim.catalog.display_name(weapons[0])+" ×2") and panel_text().contains(sim.catalog.display_name("potion")+" ×3"),"Individual items are still listed")
-    check(not panel_text().contains(tr("OFFLINE_LOCKED_EXPLAIN")) and button_meta(game.rows,"offline_upgrades_jump")==null,"All unlocked: no explanation, no Go to Upgrades")
+    check(not panel_text().contains(tr("OFFLINE_LOCKED_EXPLAIN_V79")) and button_meta(game.rows,"offline_upgrades_jump")==null,"All unlocked: no explanation, no Go to Upgrades")
     game._close()
     # Go to Upgrades: claims once, then opens Upgrades → Offline.
     fresh()

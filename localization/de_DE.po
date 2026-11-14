@@ -3448,9 +3448,6 @@ msgstr "+10 % maximale LP"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25 % Erkundungsradius um dich herum"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10 % Schaden gegen Bosse"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10 % Münzen von jedem Gegner"
 
@@ -3472,9 +3469,6 @@ msgstr "+15 % Münzen von normalen Gegnern"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10 % Werte aus jeder Verschmelzung"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10 % Schaden gegen Bosse"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25 % Offline-Gegenstandsraten"
 
@@ -3484,14 +3478,8 @@ msgstr "+10 % maximale LP"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Riesentöter"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25 % Schaden gegen Bosse"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Bosswehr"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "20 % weniger Schaden durch Bosse"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Kopfgeld"
@@ -3645,9 +3633,6 @@ msgstr "+50 % EP von Bossen"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Trophäenkraft"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20 % Schaden gegen Bosse"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Trophäenedelsteine"

@@ -1,0 +1,15 @@
+stage|boss|HP|dmg/hit|interval|normal DPS|skills (dmg/cast)|skill DPS|eff DPS|strongest spot (type v)|per-actor DPS|3-actor DPS|6-actor DPS|attackers at once|boss/3-spot|boss/6-spot
+1 Winter I|boss-snowman|600|8.0|2|4.0|-|0.0|4.0|unit-chef-hat v1|2.31|6.9|13.9|1 (passive)|1.73|1.73
+2 Winter II|boss-cyan-robot|1096|13.3|1.9|7.0|heal 8%HP|0.0|7.0|unit-space-helmet v1|4.11|12.3|24.6|1 (passive)|1.71|1.71
+3 Summer I|boss-gray-cat|2089|23.2|1.8|12.9|lightning 33|3.1|16.0|unit-yellow-cap v3|7.29|21.9|43.7|1 (passive)|2.19|2.19
+4 Summer II|boss-elephant|3927|38.4|1.7|22.6|focus +15% 5s|0.0|24.2|unit-snorkeler v3|12.66|38.0|75.9|all (group)|0.64|0.32
+4 Summer II|boss-teal-dinosaur|4378|38.4|1.65|23.3|fire 61|5.8|29.1|unit-snorkeler v3|12.66|38.0|75.9|all (group)|0.77|0.38
+5 Autumn I|boss-squirrel|7543|56.7|1.6|35.4|heal 8%HP, focus +15% 5s|0.0|36.7|unit-pumpkin-head v3|18.03|54.1|108.2|all (group)|0.68|0.34
+5 Autumn I|boss-red-fox|8410|56.7|1.55|36.6|fire 91, strike 159|11.8|48.3|unit-pumpkin-head v3|18.03|54.1|108.2|all (group)|0.89|0.45
+6 Autumn II|boss-black-cat|20084|98.9|1.5|65.9|lightning 138, focus +15% 5s|6.5|75.0|unit-top-hat v1|30.51|91.5|183.1|all (group)|0.82|0.41
+6 Autumn II|boss-grim-reaper|22393|98.9|1.45|68.2|frost 119, strike 277|18.7|86.8|unit-top-hat v1|30.51|91.5|183.1|all (group)|0.95|0.47
+7 Spring I|boss-bee|66474|150.2|1.4|107.3|lightning 210, heal 8%HP|9.9|117.2|unit-elf-ears v1|36.68|110.1|220.1|all (group)|1.06|0.53
+7 Spring I|boss-orange-tabby-cat|74114|161.0|1.35|119.3|fire 258, focus +15% 5s|12.2|136.0|unit-elf-ears v1|36.68|110.1|220.1|all (group)|1.24|0.62
+8 Spring II|boss-red-panda|176986|280.7|1.33|211.1|frost 337, heal 8%HP|15.9|227.0|unit-sprout v1|78.81|236.4|472.8|all (group)|0.96|0.48
+8 Spring II|boss-sunflower|197330|301.0|1.32|228.0|heal 8%HP, focus +15% 5s|0.0|236.1|unit-sprout v1|78.81|236.4|472.8|all (group)|1.00|0.50
+8 Spring II|boss-green-alien|304514|345.8|1.3|266.0|focus +15% 5s, fire 553, strike 968|41.7|311.8|unit-sprout v1|78.81|236.4|472.8|all (group)|1.32|0.66

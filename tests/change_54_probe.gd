@@ -213,7 +213,7 @@ func effect_checks() -> void:
     var same:=0
     for i in range(20):
         var was: String=str(sim.state.items.wood_sword.extras.keys()[0])
-        sim.reroll("wood_sword",0)
+        sim.reroll_stats("wood_sword") # Change 79: one regular slot, no locks
         if str(sim.state.items.wood_sword.extras.keys()[0])==was:same+=1
     check(same==0,"Precise Reroll: 20 rerolls, never the same stat")
     # Treasure Sense: boss attributes in the upper half.

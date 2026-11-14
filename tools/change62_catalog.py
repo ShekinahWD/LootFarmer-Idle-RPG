@@ -13,6 +13,8 @@ differences, --table prints the per-boss reference table).
   boss, per the approved schedule below. Normal enemies keep theirs.
 - Aggression (aggro_mode): stages 1-2 every enemy "passive" (retaliates once attacked); stage 3 normals
   "passive", stage 3 boss proximity ("group", as before); stages 4-8 "group" (proximity + spot assist).
+- Change 79: a boss with a progression.balance.boss_tuning entry is checked against floor x its damage multiplier
+  (the tuning is the last step after the floor; Grim Reaper x0.88 is deliberately below the plain floor).
 - Standard boss skill cooldowns (10 s) live in resources/game/enemy_abilities.tres (boss_skill_cooldown),
   because the catalog skill cooldown is shared with the player's skills and normal enemies.
 """
@@ -51,8 +53,10 @@ def apply(c):
         if not g['boss']: continue
         if g['interval'] != INTERVALS[g['id']]:
             g['interval'] = INTERVALS[g['id']]; changes.append(g['id'] + '.interval')
-        need = threshold(c, stage)
-        if float(g['damage']) < need:
+        # Change 79: progression.balance.boss_tuning is applied after the floor (tools/tune_campaign.py), so a tuned
+        # boss is checked against its floor times its own damage multiplier.
+        need = round(threshold(c, stage) * c['progression']['balance'].get('boss_tuning', {}).get(g['id'], [1.0, 1.0])[1], 4)
+        if float(g['damage']) < need - 1e-4:
             g['damage'] = need; changes.append(g['id'] + '.damage')
     return changes
 

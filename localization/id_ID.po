@@ -3445,9 +3445,6 @@ msgstr "+10% HP maksimum"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25% radius penjelajahan di sekitarmu"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10% damage terhadap bos"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10% koin dari setiap musuh"
 
@@ -3469,9 +3466,6 @@ msgstr "+15% koin dari musuh biasa"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10% statistik yang didapat dari setiap penggabungan"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10% damage terhadap bos"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25% laju item offline"
 
@@ -3481,14 +3475,8 @@ msgstr "+10% HP maksimum"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Pembantai Raksasa"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25% damage terhadap bos"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Perisai Bos"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Terima 20% lebih sedikit damage dari bos"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Hadiah Buruan"
@@ -3642,9 +3630,6 @@ msgstr "+50% EXP dari bos"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Kekuatan Trofi"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20% damage terhadap bos"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Permata Trofi"

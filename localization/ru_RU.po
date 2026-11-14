@@ -3445,9 +3445,6 @@ msgstr "+10% макс. ОЗ"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25% к радиусу исследования вокруг тебя"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10% урона по боссам"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10% монет со всех врагов"
 
@@ -3469,9 +3466,6 @@ msgstr "+15% монет с обычных врагов"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10% к характеристикам от каждого объединения"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10% урона по боссам"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25% к офлайн-выпадению предметов"
 
@@ -3481,14 +3475,8 @@ msgstr "+10% макс. ОЗ"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Убийца гигантов"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25% урона по боссам"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Защита от боссов"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Получаешь на 20% меньше урона от боссов"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Награда за голову"
@@ -3642,9 +3630,6 @@ msgstr "+50% опыта с боссов"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Сила трофеев"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20% урона по боссам"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Самоцветы трофеев"

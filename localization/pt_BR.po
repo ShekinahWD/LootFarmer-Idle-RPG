@@ -3448,9 +3448,6 @@ msgstr "+10% de PV máximo"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25% de raio de exploração ao seu redor"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10% de dano contra chefes"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10% de moedas de cada inimigo"
 
@@ -3472,9 +3469,6 @@ msgstr "+15% de moedas de inimigos comuns"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10% nos atributos ganhos em cada fusão"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10% de dano contra chefes"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25% nas taxas de itens offline"
 
@@ -3484,14 +3478,8 @@ msgstr "+10% de PV máximo"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Mata-Gigantes"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25% de dano contra chefes"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Guarda contra Chefes"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Receba 20% menos dano de chefes"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Prêmio"
@@ -3645,9 +3633,6 @@ msgstr "+50% de XP de chefes"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Poder do Troféu"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20% de dano contra chefes"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Gemas do Troféu"

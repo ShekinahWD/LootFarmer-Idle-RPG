@@ -3445,9 +3445,6 @@ msgstr "+10% maks. PŻ"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25% do zasięgu odkrywania wokół ciebie"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10% obrażeń przeciw bossom"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10% monet z każdego wroga"
 
@@ -3469,9 +3466,6 @@ msgstr "+15% monet ze zwykłych wrogów"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10% statystyk z każdego łączenia"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10% obrażeń przeciw bossom"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25% do tempa przedmiotów offline"
 
@@ -3481,14 +3475,8 @@ msgstr "+10% maks. PŻ"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Pogromca olbrzymów"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25% obrażeń przeciw bossom"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Osłona przed bossami"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Otrzymujesz o 20% mniej obrażeń od bossów"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Nagroda za głowę"
@@ -3642,9 +3630,6 @@ msgstr "+50% PD z bossów"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Moc trofeów"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20% obrażeń przeciw bossom"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Klejnoty trofeów"

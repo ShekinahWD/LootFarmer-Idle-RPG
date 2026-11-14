@@ -2489,6 +2489,144 @@
    "en": "Camp Supplies: free a supply slot to collect this camp's supply",
    "placeholders": [],
    "change": "change-77"
+  },
+  "REROLL_STATS": {
+   "en": "Reroll Stats · %s gems",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-79"
+  },
+  "REROLL_STATS_CONFIRM": {
+   "en": "Reroll the unlocked attributes (%d) for %s gems? Each new roll replaces the old one, even if it is weaker. Locked attributes keep their stat and value.",
+   "placeholders": [
+    "%d",
+    "%s"
+   ],
+   "change": "change-79"
+  },
+  "REROLL_STATS_ACTION": {
+   "en": "Reroll",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "REROLL_STATS_DONE": {
+   "en": "Attributes rerolled: %d",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-79"
+  },
+  "REROLL_LOCK": {
+   "en": "Lock",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "REROLL_LOCKED": {
+   "en": "Locked",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "REROLL_LOCK_RULE": {
+   "en": "Lock an attribute to keep its stat and value when you reroll. Each locked attribute adds 20% to the price, a locked boss bonus 40%.",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "REROLL_ALL_LOCKED": {
+   "en": "Unlock at least one attribute to reroll.",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "UP_OFFLINE_SKILL": {
+   "en": "Unlock offline skill drops",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "UP_OFFLINE_SKILL_RATE": {
+   "en": "Offline skills per hour",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "OFFLINE_SKILL_BENEFIT": {
+   "en": "Off → On · copies of skills you own, about 1 every 2 hours",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "OFFLINE_TAB_EXPLAIN_V79": {
+   "en": "Coins and Gems build up while you're away. Unlock Weapons, Outfits, Supplies and Skills below to also receive copies of items you own, then raise their reward rates. Nothing here is required.",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "OFFLINE_LOCKED_EXPLAIN_V79": {
+   "en": "Unlock Offline upgrades to earn weapons, outfits, supplies and skills while away. Unlocks apply to future time away only. Go to Upgrades claims these rewards first.",
+   "placeholders": [],
+   "change": "change-79"
+  },
+  "TRACK_EXPLORE_MAP": {
+   "en": "Explore %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-79"
+  },
+  "TRACK_UNLOCK_CAMP": {
+   "en": "Unlock Camp %d",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-79"
+  },
+  "TRACK_FIND_ITEM": {
+   "en": "Find %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-79"
+  },
+  "TRACK_MERGE_ITEM": {
+   "en": "Merge %s to ^%d",
+   "placeholders": [
+    "%s",
+    "%d"
+   ],
+   "change": "change-79"
+  },
+  "TRACK_COLLECT_ITEM": {
+   "en": "Collect %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-79"
+  },
+  "CONTENT_HUNTER_C1_DESCRIPTION": {
+   "en": "+15% damage against bosses",
+   "placeholders": [],
+   "change": "change-79",
+   "status": "changed"
+  },
+  "CONTENT_HUNTER_C2_DESCRIPTION": {
+   "en": "Take 10% less damage from bosses",
+   "placeholders": [],
+   "change": "change-79",
+   "status": "changed"
+  },
+  "CONTENT_TROPHY_C2_DESCRIPTION": {
+   "en": "+10% damage against bosses",
+   "placeholders": [],
+   "change": "change-79",
+   "status": "changed"
+  },
+  "CONTENT_CHALLENGE_SET_DESCRIPTION": {
+   "en": "+5% damage against bosses",
+   "placeholders": [],
+   "change": "change-79",
+   "status": "changed"
+  },
+  "CONTENT_BOSS_SPECIALIST_DESCRIPTION": {
+   "en": "+5% damage against bosses",
+   "placeholders": [],
+   "change": "change-79",
+   "status": "changed"
   }
  },
  "retired": {

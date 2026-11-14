@@ -7,6 +7,9 @@ Normal both-variant enemy at fixed roster level L:
 Bosses multiply the normal value at their level (boss_overrides may set [hp, damage] per boss id,
 used where an authored boss meets a very different player-level advantage); the final boss uses
 its own multipliers.
+Change 79: boss_tuning {id: [hp multiplier, damage multiplier]} is the last step for a boss, applied after the
+spot floor below (so a floor-bound boss is tuned relative to its floor). It carries the Change 79 boss balance
+(docs/LootFarmer_Change_79_Boss_Balance_Report.md); bosses without an entry are unchanged.
 The first enemy keeps the approved prototype opening (18 HP, 2 damage, 2 s).
 Variant multipliers, XP and coin formulas are unchanged and applied at runtime / below.
 Run after editing the constants; --check verifies the catalog matches without writing.
@@ -58,6 +61,8 @@ def main():
         hp, dmg = compute(g, b)
         if g['boss']:
             dmg = max(dmg, boss_floor(data, int(g['stage'])))
+            hm, dm = b.get('boss_tuning', {}).get(g['id'], [1.0, 1.0])
+            hp, dmg = round(hp * hm, 4), round(dmg * dm, 4)
         if abs(g['hp'] - hp) > 1e-3 or abs(g['damage'] - dmg) > 1e-3:
             mismatch += 1
             g['hp'], g['damage'] = hp, dmg

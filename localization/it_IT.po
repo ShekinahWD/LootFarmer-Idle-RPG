@@ -3445,9 +3445,6 @@ msgstr "+10% PS massimi"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25% raggio di esplorazione intorno a te"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10% danni contro i boss"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10% monete da ogni nemico"
 
@@ -3469,9 +3466,6 @@ msgstr "+15% monete dai nemici normali"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10% statistiche ottenute da ogni fusione"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10% danni contro i boss"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25% ritmo degli oggetti offline"
 
@@ -3481,14 +3475,8 @@ msgstr "+10% PS massimi"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Ammazzagiganti"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25% danni contro i boss"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Guardia antiboss"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Subisci il 20% di danni in meno dai boss"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Taglia"
@@ -3642,9 +3630,6 @@ msgstr "+50% PE dai boss"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Potere dei trofei"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20% danni contro i boss"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Gemme dei trofei"

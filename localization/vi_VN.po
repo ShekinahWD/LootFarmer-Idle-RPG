@@ -3445,9 +3445,6 @@ msgstr "+10% HP tối đa"
 msgid "CONTENT_REGIONAL_SET_DESCRIPTION"
 msgstr "+25% bán kính khám phá quanh bạn"
 
-msgid "CONTENT_CHALLENGE_SET_DESCRIPTION"
-msgstr "+10% sát thương lên Boss"
-
 msgid "CONTENT_OFFERING_SET_DESCRIPTION"
 msgstr "+10% xu từ mọi kẻ địch"
 
@@ -3469,9 +3466,6 @@ msgstr "+15% xu từ kẻ địch thường"
 msgid "CONTENT_CRAFTING_JOURNEY_DESCRIPTION"
 msgstr "+10% chỉ số nhận được từ mỗi lần ghép"
 
-msgid "CONTENT_BOSS_SPECIALIST_DESCRIPTION"
-msgstr "+10% sát thương lên Boss"
-
 msgid "CONTENT_PATIENT_COLLECTOR_DESCRIPTION"
 msgstr "+25% tỉ lệ vật phẩm ngoại tuyến"
 
@@ -3481,14 +3475,8 @@ msgstr "+10% HP tối đa"
 msgid "CONTENT_HUNTER_C1_NAME"
 msgstr "Diệt Khổng Lồ"
 
-msgid "CONTENT_HUNTER_C1_DESCRIPTION"
-msgstr "+25% sát thương lên Boss"
-
 msgid "CONTENT_HUNTER_C2_NAME"
 msgstr "Khiên Chống Boss"
-
-msgid "CONTENT_HUNTER_C2_DESCRIPTION"
-msgstr "Nhận ít hơn 20% sát thương từ Boss"
 
 msgid "CONTENT_HUNTER_C3_NAME"
 msgstr "Tiền Thưởng"
@@ -3642,9 +3630,6 @@ msgstr "+50% EXP từ Boss"
 
 msgid "CONTENT_TROPHY_C2_NAME"
 msgstr "Sức Mạnh Chiến Tích"
-
-msgid "CONTENT_TROPHY_C2_DESCRIPTION"
-msgstr "+20% sát thương lên Boss"
 
 msgid "CONTENT_TROPHY_C3_NAME"
 msgstr "Ngọc Chiến Tích"
