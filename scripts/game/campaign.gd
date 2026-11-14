@@ -582,6 +582,8 @@ func upgrade_cost(id: String,g: int) -> int:
         factor=1.0
         price=maxf(float(d.base)*pow(float(d.growth),sequence_count(id)),float(d.get("floor",0))*map_cost_factor(st))
     price*=cheap_first_factor(id,n)
+    # Change 78: a boss type's Auto-Collect and gear Auto-Merge unlocks cost x0.25 (catalog boss_price_factor).
+    if d.has("boss_price_factor") and g>=0 and g<sim.catalog.groups.size() and d.scope in ["type","boss_type"] and bool(sim.catalog.groups[g].boss):price*=float(d.boss_price_factor)
     return maxi(1,ceili(price*factor*(1-bonus("coin_discount") if d.currency=="coins" else 1)))
 ## Change 56 (approved cheap first levels): each enemy type's Coin Amount, Enemy XP and Loot Chance start at
 ## x0.25 so a newly farmed type is quick to start investing in. Change 71: the discount used to end in one step
@@ -793,22 +795,28 @@ func step(dt: float) -> void:
         if d.final:
             _final_turn(a)
             continue
-        if not d.skills.is_empty() and a.skill_timer<=0:
-            var index=int(a.get("skill_index",0))%d.skills.size()
-            var key: String=d.skills[index]
-            # Change 12: a self-cast skill with nothing to do (Heal at 80%+ HP, Focus out of combat)
-            # is passed over without a telegraph, so no effect plays for a heal that cannot happen and
-            # the rotation is not stuck on it; it is tried again on its next turn.
-            if not a.get("telegraph",false) and not skill_ready(a,key):
-                a.skill_index=index+1;a.skill_timer=1.0
-                continue
-            if d.boss and not a.get("telegraph",false):
-                _begin_telegraph(a,key)
-            else:
-                if apply_skill(a,key,float(sim.catalog.skills[key].power),Vector2(a.get("aim_x",sim.state.player.x),a.get("aim_y",sim.state.player.y)) if d.boss else Vector2.INF):
-                    a.skill_timer=enemy_skill_cooldown(d,key);a.skill_index=index+1
-                else:a.skill_timer=1.0
-                a.telegraph=false
+        if d.skills.is_empty() or a.skill_timer>0:continue
+        if a.get("telegraph",false):
+            # A boss's announced skill resolves at the end of its telegraph. A dodged one (the player
+            # left its reach) costs a short pause, never the skill's cooldown.
+            var key: String=str(a.get("pending",""))
+            a.telegraph=false;a.pending=""
+            if key!="" and apply_skill(a,key,float(sim.catalog.skills[key].power),Vector2(a.get("aim_x",sim.state.player.x),a.get("aim_y",sim.state.player.y))):
+                a.skill_timer=enemy_skill_cooldown(d,key);a.skill_index=int(a.get("skill_index",0))+1
+            else:a.skill_timer=DODGED_SKILL_PAUSE
+            continue
+        # Change 78: the first eligible skill of the rotation acts as soon as the skill timer is ready.
+        # A skill that cannot act now (Heal above its threshold, Focus out of combat, an attack skill
+        # out of reach) is passed over without consuming anything and checked again next frame, so
+        # it never hands the turn to a normal attack (enemy_skill_first holds those back).
+        var index:=enemy_skill_choice(a,d)
+        if index<0:continue
+        a.skill_index=index
+        var key: String=d.skills[index]
+        if d.boss:
+            _begin_telegraph(a,key)
+        elif apply_skill(a,key,float(sim.catalog.skills[key].power)):
+            a.skill_timer=enemy_skill_cooldown(d,key);a.skill_index=index+1
     reveal_clock+=dt;objective_clock+=dt
     evolve_clock+=dt
     if reveal_clock>=fog_rules.update_interval:reveal_clock=0;reveal();camp_supply_step()
@@ -818,6 +826,38 @@ func step(dt: float) -> void:
 ## EnemyAbilityRules, else the boss standard cooldown (Change 62: 10 s), else the catalog skill's.
 func enemy_skill_cooldown(d: Dictionary,key: String) -> float:
     return sim.abilities.skill_cooldown(str(d.id),key,float(sim.catalog.skills[key].cooldown),bool(d.get("boss",false)))
+## Change 78: pause after a boss's telegraphed skill misses its resolution (the player left its reach).
+const DODGED_SKILL_PAUSE:=.5
+## Whether an enemy's skill can act on the player right now: its own condition (skill_ready) and, for an
+## attack skill, the player alive and within the skill's reach.
+func enemy_skill_eligible(a: Dictionary,key: String) -> bool:
+    if not sim.catalog.skills.has(key) or not skill_ready(a,key):return false
+    if key in SELF_SKILLS:return true
+    var p: Dictionary=sim.state.player
+    return p.hp>0 and sim.position_of(a).distance_to(sim.position_of(p))<=skill_range(key)
+## Change 78: index in the type's skill list of the first eligible skill, scanning the rotation from
+## skill_index, or -1 when none can act now.
+func enemy_skill_choice(a: Dictionary,d: Dictionary) -> int:
+    var n: int=d.skills.size()
+    var start:=int(a.get("skill_index",0))
+    for i in range(n):
+        var index:=(start+i)%n
+        if enemy_skill_eligible(a,str(d.skills[index])):return index
+    return -1
+## Change 78: skills come before normal attacks. True while this enemy's skill is telegraphed or ready to
+## act on its next turn; the normal attack loop starts no attack then (one already swinging lands).
+func enemy_skill_first(a: Dictionary) -> bool:
+    if a.get("telegraph",false):return true
+    if a.hp<=0 or not a.aggro or float(a.get("skill_timer",0))>0:return false
+    var d: Dictionary=sim.enemy_definition(int(a.group),int(a.get("variant",2)))
+    if d.final or d.skills.is_empty():return false
+    return enemy_skill_choice(a,d)>=0
+## Change 78: an enemy comes back from death (or is created) with a fresh skill turn: no leftover
+## cooldown, telegraph or rotation position from its previous life, so its first eligible skill comes
+## first again. Before this, the timer only ran while alive and survived death.
+func reset_enemy_skills(a: Dictionary) -> void:
+    a.skill_timer=0.0;a.skill_index=0;a.skill_cds={}
+    a.telegraph=false;a.pending="";a.summon_cast=0.0
 ## A boss announces a skill for the telegraph time before it resolves. Self effects play once, on
 ## success (apply_skill); attacks show their aim as a warning.
 func _begin_telegraph(a: Dictionary,key: String) -> void:
@@ -1672,6 +1712,32 @@ func migrate_camps_permanent(out: Dictionary) -> void:
             out.camps[str(key)]=owned
     migrations.append("camps_permanent")
     out.migrations=migrations
+
+## Change 78 (once, state.migrations "boss_outfit_extras"): boss gear drops now include outfits. Every owned
+## outfit that only bosses drop came from a boss (offline grants add copies of owned items only), so one with
+## no boss attributes receives its two now, exactly as a boss copy collected under the new rule would (same
+## pool, ranges and Treasure Sense). A boss's outfit still on the ground (any map) is marked to enhance when
+## collected. Runs on the live state after validation, before anything else reads the inventory.
+func migrate_boss_outfit_extras() -> void:
+    var state: Dictionary=sim.state
+    if not state.get("migrations") is Array or state.migrations.has("boss_outfit_extras"):return
+    var ids: Array=state.items.keys();ids.sort()
+    for id in ids:
+        if boss_only_outfit(str(id)) and sim.quantity(str(id))>0:sim.enhance(str(id))
+    var drops: Array=[state.pickups]
+    for key in state.stage_worlds:drops.append(state.stage_worlds[key].get("pickups",[]))
+    for list in drops:
+        for p in list:
+            if p.has("dropped") or not sim.catalog.items.has(str(p.item)) or str(sim.catalog.items[str(p.item)].kind)!="outfit":continue
+            var g:=int(p.group)
+            if g>=0 and g<sim.catalog.groups.size() and bool(sim.catalog.groups[g].boss):p.enhanced=true
+    state.migrations.append("boss_outfit_extras")
+
+## An outfit no ordinary enemy drops (each boss's own outfit).
+func boss_only_outfit(id: String) -> bool:
+    if not sim.catalog.items.has(id) or str(sim.catalog.items[id].kind)!="outfit":return false
+    var groups: Array=sim.droppers(id)
+    return not groups.is_empty() and groups.all(func(g):return bool(sim.catalog.groups[int(g)].boss))
 
 ## Change 76: Auto Buy selections from a save: AUTO_BUY_SLOTS entries, each a shop supply or "", never one
 ## supply twice (the later duplicate is cleared).

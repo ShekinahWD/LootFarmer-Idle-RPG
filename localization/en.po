@@ -5853,13 +5853,13 @@ msgid "ITEM_BOSS_BONUS"
 msgstr "Boss bonus"
 
 msgid "ITEM_ENHANCED"
-msgstr "Boss weapon: two bonus attributes added"
+msgstr "Boss gear: two bonus attributes added"
 
 msgid "ITEM_BOSS_BONUS_EXPLAIN"
-msgstr "Boss-enhanced: your first copy of this weapon from a boss added two bonus attributes. Later boss copies count as normal copies. Bonus attributes reset at Prestige; merge levels stay."
+msgstr "Boss-enhanced: your first copy of this item from a boss added two bonus attributes. Later boss copies count as normal copies. Bonus attributes reset at Prestige; merge levels stay."
 
 msgid "ITEM_BOSS_BONUS_HINT"
-msgstr "The first copy of this weapon you get from a boss adds two bonus attributes (once per run)."
+msgstr "The first copy of this item you get from a boss adds two bonus attributes (once per run)."
 
 msgid "REROLL_ATTRIBUTE"
 msgstr "Reroll %s · %s gems"

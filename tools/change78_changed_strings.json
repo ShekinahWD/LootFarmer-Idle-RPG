@@ -1,0 +1,5 @@
+{
+ "ITEM_ENHANCED": "Boss gear: two bonus attributes added",
+ "ITEM_BOSS_BONUS_EXPLAIN": "Boss-enhanced: your first copy of this item from a boss added two bonus attributes. Later boss copies count as normal copies. Bonus attributes reset at Prestige; merge levels stay.",
+ "ITEM_BOSS_BONUS_HINT": "The first copy of this item you get from a boss adds two bonus attributes (once per run)."
+}

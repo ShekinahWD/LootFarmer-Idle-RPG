@@ -13,6 +13,7 @@ const ATTACKS={
     "iron_sword": preload("res://assets/PixelPlainsAnimationPack/Iron set/Sword 2 64x32.png")
 }
 const PICKUP=preload("res://scenes/game/pickup.tscn")
+const GAME_THEME=preload("res://resources/game/theme.tres")
 const PICKUP_STYLE=preload("res://resources/game/pickup_style.tres")
 ## Change 14: placement, scale and layer of every skill effect, per skill (inspector resource).
 @export var effects: SkillEffectSet=preload("res://resources/game/skill_effects.tres")
@@ -694,6 +695,8 @@ func _boss_countdowns() -> void:
         live.append(key)
         if not boss_labels.has(key):
             var label:=Label.new()
+            # Change 78: the game theme's MSDF font (a label under a Node2D inherits no theme).
+            label.theme=GAME_THEME
             label.mouse_filter=Control.MOUSE_FILTER_IGNORE
             label.add_theme_font_size_override("font_size",32)
             label.scale=Vector2.ONE*.5

@@ -5818,15 +5818,6 @@ msgstr "Zum Weiterentwickeln brauchst du die volle Verschmelzungsstufe und genug
 msgid "ITEM_BOSS_BONUS"
 msgstr "Bossbonus"
 
-msgid "ITEM_ENHANCED"
-msgstr "Bosswaffe: zwei zusätzliche Bonusattribute"
-
-msgid "ITEM_BOSS_BONUS_EXPLAIN"
-msgstr "Bossverstärkt: Deine erste Kopie dieser Waffe von einem Boss hat zwei Bonusattribute erhalten. Spätere Boss-Kopien zählen als normale Kopien. Bonusattribute werden beim Prestige zurückgesetzt; Verschmelzungsstufen bleiben."
-
-msgid "ITEM_BOSS_BONUS_HINT"
-msgstr "Die erste Kopie dieser Waffe, die du von einem Boss erhältst, bekommt zwei Bonusattribute (einmal pro Durchlauf)."
-
 msgid "REROLL_ATTRIBUTE"
 msgstr "%s neu würfeln · %s Edelsteine"
 

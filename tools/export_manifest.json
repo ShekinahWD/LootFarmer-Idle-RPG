@@ -16,7 +16,7 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 333,
+  "files": 334,
   "stages": 8,
   "imported": 205
  },
@@ -682,6 +682,7 @@
   "res://scripts/game/stat_feedback.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/summon_rule.gd": "class_name SummonRule used by res://scripts/game/simulation.gd",
   "res://scripts/game/supply_fx.gd": "literal in res://scripts/game/world.gd",
+  "res://scripts/game/text_filter.gd": "class_name TextFilter used by res://scripts/game/game_ui.gd",
   "res://scripts/game/touch_scroll.gd": "dependency of res://scenes/game/main.tscn",
   "res://scripts/game/tutorial_guide.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/ui_art.gd": "class_name UiArt used by res://scripts/game/map_view.gd",

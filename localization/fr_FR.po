@@ -5818,15 +5818,6 @@ msgstr "L’évolution exige le niveau de fusion maximal et assez de copies en t
 msgid "ITEM_BOSS_BONUS"
 msgstr "Bonus de boss"
 
-msgid "ITEM_ENHANCED"
-msgstr "Arme de boss : deux attributs bonus ajoutés"
-
-msgid "ITEM_BOSS_BONUS_EXPLAIN"
-msgstr "Améliorée par un boss : votre première copie de cette arme obtenue sur un boss a ajouté deux attributs bonus. Les copies obtenues ensuite sur un boss comptent comme des copies normales. Les attributs bonus sont réinitialisés au Prestige ; les niveaux de fusion restent."
-
-msgid "ITEM_BOSS_BONUS_HINT"
-msgstr "La première copie de cette arme obtenue sur un boss ajoute deux attributs bonus (une fois par partie)."
-
 msgid "REROLL_ATTRIBUTE"
 msgstr "Relancer %s · %s gemmes"
 

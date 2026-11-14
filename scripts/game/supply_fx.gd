@@ -19,6 +19,7 @@ extends Node2D
 ## supply kind, reused; at most ~60 particles in total; game time (it pauses with the world).
 
 const GLOW:=preload("res://assets/vfx/buff/Glow_001.png")
+const GAME_THEME:=preload("res://resources/game/theme.tres")
 const RING:=preload("res://assets/vfx/celebration/Circle_Outline_002.png")
 const SOFT_RING:=preload("res://assets/vfx/buff/Circle_Outline_003.png")
 const CROSS:=preload("res://assets/vfx/supply/Heal_001.png")
@@ -74,6 +75,9 @@ func _ready() -> void:
         bursts[kind]=b
         if kind!="heal":auras[kind]=_aura(kind,color)
     label=Label.new()
+    # Change 78: a label under a Node2D inherits no theme, so this one drew the engine's fallback raster font
+    # at 10 px, enlarged by the camera zoom (the pixelated supply names). The game theme's MSDF font scales.
+    label.theme=GAME_THEME
     label.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
     label.mouse_filter=Control.MOUSE_FILTER_IGNORE
     label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER

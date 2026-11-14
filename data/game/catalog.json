@@ -21699,7 +21699,8 @@
       "cap": 1,
       "keep": true,
       "effect": 1,
-      "scope": "type"
+      "scope": "type",
+      "boss_price_factor": 0.25
     },
     "collect_range": {
       "currency": "coins",
@@ -21735,7 +21736,8 @@
       "cap": 1,
       "keep": true,
       "effect": 1,
-      "scope": "type"
+      "scope": "type",
+      "boss_price_factor": 0.25
     },
     "auto_use": {
       "currency": "gems",

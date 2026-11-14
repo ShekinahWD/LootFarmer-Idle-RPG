@@ -365,40 +365,22 @@
    ]
   },
   "ITEM_ENHANCED": {
-   "en": "Boss weapon: two bonus attributes added",
+   "en": "Boss gear: two bonus attributes added",
    "placeholders": [],
-   "change": "change-52",
-   "translated": [
-    "es_419",
-    "es_ES",
-    "pt_BR",
-    "fr_FR",
-    "de_DE"
-   ]
+   "change": "change-78",
+   "status": "changed"
   },
   "ITEM_BOSS_BONUS_EXPLAIN": {
-   "en": "Boss-enhanced: your first copy of this weapon from a boss added two bonus attributes. Later boss copies count as normal copies. Bonus attributes reset at Prestige; merge levels stay.",
+   "en": "Boss-enhanced: your first copy of this item from a boss added two bonus attributes. Later boss copies count as normal copies. Bonus attributes reset at Prestige; merge levels stay.",
    "placeholders": [],
-   "change": "change-52",
-   "translated": [
-    "es_419",
-    "es_ES",
-    "pt_BR",
-    "fr_FR",
-    "de_DE"
-   ]
+   "change": "change-78",
+   "status": "changed"
   },
   "ITEM_BOSS_BONUS_HINT": {
-   "en": "The first copy of this weapon you get from a boss adds two bonus attributes (once per run).",
+   "en": "The first copy of this item you get from a boss adds two bonus attributes (once per run).",
    "placeholders": [],
-   "change": "change-52",
-   "translated": [
-    "es_419",
-    "es_ES",
-    "pt_BR",
-    "fr_FR",
-    "de_DE"
-   ]
+   "change": "change-78",
+   "status": "changed"
   },
   "REROLL_ATTRIBUTE": {
    "en": "Reroll %s · %s gems",

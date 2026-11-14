@@ -118,7 +118,7 @@ const MIGRATABLE_SCHEMAS:=[8,9]
 ## One-time profile migrations, in order (state.migrations). A new profile starts with all of them.
 ## legacy_weapons_h24 (Change 51): owned weapons of the old stat table become legacy-stat copies.
 ## camps_permanent (Change 76): camps owned in an earlier run (Map Mastery's lifetime record) are owned again.
-const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","boss_auto_evolve_refunded","camps_permanent"]
+const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","boss_auto_evolve_refunded","camps_permanent","boss_outfit_extras"]
 
 func new_profile() -> void:
     profile_epoch+=1
@@ -233,6 +233,7 @@ func restore(data: Dictionary) -> void:
     state = data.duplicate(true)
     campaign.configure_stage()
     rng.state = int(state.get("rng_state",str(rng.state)))
+    campaign.migrate_boss_outfit_extras()
     _rehome(state.enemies)
     for world_state in state.stage_worlds.values():_rehome(world_state.enemies)
     _sync_spawn_counts()
@@ -307,7 +308,8 @@ func record(id: String) -> Dictionary:
         state.items[id] = {"qty":0,"merge":remembered_merge(id),"extras":extras}
     return state.items[id]
 
-## Change 52 (approved brief §4): boss-enhanced weapons. The first boss-origin copy of a weapon id this run
+## Change 52 (approved brief §4): boss-enhanced weapons; Change 78: every boss gear drop, outfits included.
+## The first boss-origin copy of a weapon or outfit id this run
 ## (a pickup marked "enhanced", or a boss drop collected while the stack has none) adds exactly two bonus
 ## attributes to the id's record (record.boss_extras: [{stat, value}, ...]) from the item's own pool and
 ## ranges, never a stat another slot already holds. Later boss copies are ordinary copies. Merging never
@@ -315,7 +317,7 @@ func record(id: String) -> Dictionary:
 ## reset with it at Prestige; offline grants and evolutions are never enhanced. Returns true if enhanced.
 const BOSS_EXTRA_SLOTS:=2
 func enhance(id: String) -> bool:
-    if not catalog.items.has(id) or catalog.items[id].kind!="weapon" or is_legacy(id) or quantity(id)<1:return false
+    if not catalog.items.has(id) or not str(catalog.items[id].kind) in ["weapon","outfit"] or is_legacy(id) or quantity(id)<1:return false
     var r:=record(id)
     if not (r.get("boss_extras",[]) as Array).is_empty():return false
     var slots: Array=[]
@@ -389,13 +391,33 @@ func normal(id: String) -> Dictionary:
     if catalog.items[id].kind=="skill":
         var value:=skill_base_power(id)
         return {"power":value*stats().hp if catalog.items[id].skill=="heal" else value}
-    var merge_level := int(state.items.get(id,{}).get("merge",0))
+    return gear_normal_at(id,int(state.items.get(id,{}).get("merge",0)),quantity(id))
+
+## A weapon's or outfit's own core stats at a merge level and owned quantity (normal() uses the record's;
+## merge_preview the state one merge later). Copies past the cap add the stock bonus.
+func gear_normal_at(id: String,merge_level: int,qty: int) -> Dictionary:
+    var output: Dictionary = {}
     var levels:=merge_levels(id,merge_level)
-    var stock:=1.0+float(catalog.progression.merge.stock_bonus_per_copy)*maxi(0,quantity(id)-1) if merge_level>=merge_cap(id) else 1.0
+    var stock:=1.0+float(catalog.progression.merge.stock_bonus_per_copy)*maxi(0,qty-1) if merge_level>=merge_cap(id) else 1.0
     for stat in catalog.items[id].normal:
         var pair: Array = catalog.items[id].normal[stat]
         output[stat] = (float(pair[0]) + merge_gain(id,stat) * levels) * stock
     return output
+
+## Change 78: what the next single merge adds to each core stat of a weapon or outfit, {stat: gain},
+## from the same formula as normal(): one level up, one copy spent (the stock bonus starts at the cap).
+## Empty at the merge cap or for other kinds. With one copy it previews the merge the next copy allows.
+func merge_preview(id: String) -> Dictionary:
+    if not catalog.items.has(id) or not str(catalog.items[id].kind) in ["weapon","outfit"]:return {}
+    var r: Dictionary=state.items.get(id,{})
+    var m:=int(r.get("merge",0))
+    if m>=merge_cap(id):return {}
+    var qty:=maxi(1,int(r.get("qty",0)))
+    var now:=gear_normal_at(id,m,qty)
+    var after:=gear_normal_at(id,m+1,maxi(1,qty-1))
+    var out: Dictionary={}
+    for stat in now:out[stat]=float(after[stat])-float(now[stat])
+    return out
 
 ## Outfits and skills grow from copies of themselves (no evolution, Change 8); weapons and supplies
 ## keep ^100 and evolve. Caps and the curve live in catalog.progression.merge.
@@ -1483,8 +1505,8 @@ func _drop(id: String,a: Dictionary) -> String:
     state.next_pickup+=1
     var pickup:={"uid":state.next_pickup,"item":id,"x":a.x+rng.randf_range(-10,10),"y":a.y+rng.randf_range(-8,8),"ttl":300.0,"group":int(a.group)}
     # Change 52: a boss's weapon drop carries its origin, so it still enhances when collected later
-    # (after a reload, from another map's saved world or by Auto-Collect).
-    if int(a.group) in range(catalog.groups.size()) and catalog.groups[int(a.group)].boss and catalog.items[id].kind=="weapon":pickup["enhanced"]=true
+    # (after a reload, from another map's saved world or by Auto-Collect). Change 78: outfits too.
+    if int(a.group) in range(catalog.groups.size()) and catalog.groups[int(a.group)].boss and str(catalog.items[id].kind) in ["weapon","outfit"]:pickup["enhanced"]=true
     state.pickups.append(pickup)
     return id
 
@@ -1590,6 +1612,7 @@ func step(dt: float) -> void:
                 e.erase("encounter_uses")
                 e.returning=false
                 e.attack_age=9.0
+                campaign.reset_enemy_skills(e)
             continue
         if catalog.groups[group].final and state.keys.size()<13:
             e.aggro=false;e.windup=0
@@ -1614,7 +1637,7 @@ func step(dt: float) -> void:
             if e.windup<=0:
                 if position_of(e).distance_to(position_of(p))>float(catalog.world.reach):
                     _move(e,position_of(p),62*(.75 if float(e.get("slow",0))>0 else 1.0),dt)
-                elif e.cooldown<=0:
+                elif e.cooldown<=0 and not campaign.enemy_skill_first(e):
                     _start_attack(e,p,float(catalog.groups[group].interval))
         elif position_of(e).distance_to(home)>1:
             _move(e,home,60,dt)

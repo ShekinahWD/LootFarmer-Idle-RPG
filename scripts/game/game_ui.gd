@@ -178,6 +178,8 @@ const PANEL_FEATURE:={"missions":"missions","enemy":"enemy","world":"world","cam
 const MASTERY_ART:={"explore":249,"hunt":1,"research":60,"collect":147,"forge":211}
 
 func _ready() -> void:
+    # Change 78: MSDF text draws with linear filtering under the pixel-art UI (TextFilter).
+    TextFilter.install(self,theme)
     sheet.z_index=10
     $Confirm.z_index=20
     $PrestigeConfirm.z_index=20
@@ -2290,8 +2292,12 @@ func _item_panel() -> void:
         for line in skill_description(id):_card_line(details,line,19,Color.WHITE)
         shown["power"]=true
     else:
+        # Change 78: the next merge's gain sits in green beside each stat it raises ("Damage 22.39 +0.44"),
+        # from the simulation's own formula; nothing at the merge cap.
+        var preview: Dictionary=sim.merge_preview(id)
         for key in sim.normal(id):
-            _stat_line(details,_stat_text(key,sim.normal(id)[key],true),deltas.get(key,0.0),key,22)
+            var gain: float=float(preview.get(key,0.0))
+            _stat_line(details,_stat_text(key,sim.normal(id)[key],true),deltas.get(key,0.0),key,22,Color.WHITE,_merge_gain_text(key,gain))
             shown[key]=true
     for key in r.extras:
         _stat_line(details,"+ "+_stat_text(key,r.extras[key],true),0.0 if shown.has(key) else deltas.get(key,0.0),key,19,Color(.75,.8,.87))
@@ -2324,11 +2330,14 @@ func _item_panel() -> void:
     _card_line(details,owned,17,Color(.8,.84,.9))
     var cap:=sim.merge_cap(id)
     if r.merge<cap:
-        var gains: Array[String]=[]
-        for stat in def.normal:
-            var gain: float=sim.next_merge_gain(id,stat)
-            if gain>0:gains.append(_skill_amount(str(def.skill),gain) if def.kind=="skill" else _stat_text(stat,gain,true))
-        _card_line(details,tr("NEXT_MERGE_GAIN")+" "+", ".join(gains),17,Color(.5,1,.65))
+        # Change 78: gear shows its next-merge gains beside its stats (above); a skill has no stat rows,
+        # so it keeps the one-line summary.
+        if def.kind=="skill":
+            var gains: Array[String]=[]
+            for stat in def.normal:
+                var gain: float=sim.next_merge_gain(id,stat)
+                if gain>0:gains.append(_skill_amount(str(def.skill),gain))
+            _card_line(details,tr("NEXT_MERGE_GAIN")+" "+", ".join(gains),17,Color(.5,1,.65))
     else:
         _card_line(details,tr("STOCK_BONUS") % fmt(maxi(0,int(r.qty)-1)*float(sim.catalog.progression.merge.stock_bonus_per_copy)*100),17,Color(.5,1,.65))
     if def.kind=="outfit":_outfit_milestone_lines(details,id)
@@ -2380,8 +2389,8 @@ func _item_panel() -> void:
         _text(tr("EVOLUTION_RULE") % [int(sim.catalog.progression.evolution.required_merge),sim.evolution_spare_cost(id),sim.evolution_spare_cost(id)+1],17,Color(.8,.84,.9))
     elif def.next=="":
         _text(tr("MAX_ITEM_TIER"),17,Color(.8,.84,.9))
-    # Change 52: what boss copies add to this weapon (or have added this run).
-    if def.kind=="weapon" and not sim.is_legacy(id):
+    # Change 52: what boss copies add to this weapon (or have added this run). Change 78: boss outfits too.
+    if (def.kind=="weapon" and not sim.is_legacy(id)) or sim.campaign.boss_only_outfit(id):
         var enhanced: bool=not sim.boss_extras(id).is_empty()
         _text(tr("ITEM_BOSS_BONUS_EXPLAIN" if enhanced else "ITEM_BOSS_BONUS_HINT"),16,Color(1,.84,.45) if enhanced else Color(.7,.75,.82))
     # Pinned: previous, primary, merge, next. Positions never change while browsing.
@@ -2607,16 +2616,35 @@ func _item_summary_card(id: String,ribbon: String,ribbon_color: Color,at:=-1,cou
     _card_line(details,merge_text,17,Color(.75,.8,.87))
     return details
 
-func _stat_line(parent: Control,text: String,delta: float,key: String,font_size: int,color:=Color.WHITE) -> void:
+## Change 78: green colour of a next-merge gain beside its stat.
+const MERGE_GAIN_COLOR:=Color(.45,1,.55)
+func _stat_line(parent: Control,text: String,delta: float,key: String,font_size: int,color:=Color.WHITE,gain:="") -> void:
     var line:=HBoxContainer.new()
     line.add_theme_constant_override("separation",10)
     parent.add_child(line)
-    var label:=Label.new()
-    label.text=text
-    label.add_theme_font_size_override("font_size",font_size)
-    label.add_theme_color_override("font_color",color)
-    # Change 55: a long stat name wraps instead of widening the sheet past a 432/540 px phone screen.
-    label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+    var label: Control
+    if gain=="":
+        label=Label.new()
+        label.text=text
+        label.add_theme_font_size_override("font_size",font_size)
+        label.add_theme_color_override("font_color",color)
+        # Change 55: a long stat name wraps instead of widening the sheet past a 432/540 px phone screen.
+        label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+    else:
+        # Change 78: the stat and its next-merge gain in one wrapping line, the gain in green.
+        var rich:=RichTextLabel.new()
+        rich.bbcode_enabled=true
+        rich.fit_content=true
+        rich.scroll_active=false
+        rich.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+        rich.mouse_filter=Control.MOUSE_FILTER_IGNORE
+        rich.add_theme_font_size_override("normal_font_size",font_size)
+        rich.add_theme_color_override("default_color",color)
+        rich.add_theme_color_override("font_outline_color",get_theme_color("font_outline_color","Label"))
+        rich.add_theme_constant_override("outline_size",get_theme_constant("outline_size","Label"))
+        rich.text="%s  [color=#%s]%s[/color]" % [text.replace("[","[lb]"),MERGE_GAIN_COLOR.to_html(false),gain.replace("[","[lb]")]
+        rich.name="MergeGain"
+        label=rich
     label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     line.add_child(label)
     if absf(delta)>=.005:
@@ -2637,6 +2665,15 @@ func _stat_line(parent: Control,text: String,delta: float,key: String,font_size:
 ## Smallest change worth showing; Recovery is a fraction of max HP per second (0.0025 = 0.25%).
 func _meaningful(key: String,value: float) -> bool:
     return absf(value)>=(.00001 if key=="regen_pct" else .005)
+
+## Change 78: a next-merge gain in the unit of its stat line ("+0.44", "+1.5%"), without the stat name.
+## Empty when the gain is nothing or rounds to zero.
+func _merge_gain_text(key: String,value: float) -> String:
+    if value<=0:return ""
+    var percent: bool=key in ["regen_pct","crit","lifesteal","speed","coin_bonus","crit_damage"]
+    var amount:=value*100 if percent else value
+    if amount<.005:return ""
+    return "+"+(fmt_value(amount) if key=="regen_pct" else fmt(amount))+("%" if percent else "")
 
 func _signed_stat(key: String,value: float) -> String:
     var sign:="+" if value>=0 else "−"

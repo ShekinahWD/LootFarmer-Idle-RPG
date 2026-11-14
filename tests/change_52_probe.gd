@@ -38,7 +38,8 @@ func drop_checks() -> void:
     var uid:=boss_drop("wood_axe")
     check(bool(sim.state.pickups.back().get("enhanced",false)),"A boss's weapon drop is marked enhanced")
     sim._drop("unit-blue-cap_outfit",{"group":gi("boss-snowman"),"x":0.0,"y":0.0})
-    check(not sim.state.pickups.back().has("enhanced"),"Boss outfits are not enhanced (weapons only)")
+    # Change 78: any gear a boss drops is enhanced, outfits included (change_78_probe covers outfits).
+    check(bool(sim.state.pickups.back().get("enhanced",false)),"A boss's outfit drop is enhanced too (Change 78)")
     sim.state.pickups.pop_back()
     check(sim.collect(uid),"Collect the boss Wood Axe")
     check(sim.boss_extras("wood_axe").size()==2 and sim.state.items.wood_axe.extras.size()==1,"First boss copy: one base attribute + two boss attributes")

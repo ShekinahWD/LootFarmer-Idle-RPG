@@ -5818,15 +5818,6 @@ msgstr "Para evolucionar necesitas el nivel de fusión completo y suficientes co
 msgid "ITEM_BOSS_BONUS"
 msgstr "Bonificación de jefe"
 
-msgid "ITEM_ENHANCED"
-msgstr "Arma de jefe: se han añadido dos atributos adicionales"
-
-msgid "ITEM_BOSS_BONUS_EXPLAIN"
-msgstr "Mejorada por jefe: la primera copia de esta arma que has obtenido de un jefe ha añadido dos atributos adicionales. Las copias posteriores de jefes cuentan como copias normales. Los atributos adicionales se reinician con el Prestigio; los niveles de fusión se mantienen."
-
-msgid "ITEM_BOSS_BONUS_HINT"
-msgstr "La primera copia de esta arma que obtengas de un jefe añade dos atributos adicionales (una vez por partida)."
-
 msgid "REROLL_ATTRIBUTE"
 msgstr "Volver a tirar %s · %s gemas"
 

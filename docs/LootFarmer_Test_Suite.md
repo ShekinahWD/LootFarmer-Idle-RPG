@@ -1,4 +1,9 @@
-# LootFarmer — Test Suite (current, 2026-11-13, Change 77)
+# LootFarmer — Test Suite (current, 2026-11-13, Change 78)
+
+## Change 78: enemy skill priority, merge stat preview, text filtering, boss outfit attributes, boss automation prices (13 November 2026)
+
+- `change_78_probe` (new, in the suite): a respawned enemy starts with a fresh skill turn (no leftover cooldown, telegraph or rotation); its first eligible skill comes before its first normal attack after every respawn, out of reach it waits without spending the turn, Heal above its threshold is passed over, cooldowns hold (20 s normal, 10 s boss), a boss telegraph holds back normal attacks. `sim.merge_preview` equals the real stat change of one merge for weapons and outfits (stock bonus at the cap, one copy), empty at the cap; the item panel shows the green gain beside each stat and no Next merge line for gear (skills keep theirs), inside the sheet on the comparison card. Every label draws linear, theme pixel frames stay nearest through CanvasTexture, the world supply name uses the MSDF theme font. Boss outfit drops get two boss attributes (first copy only, ranges, no repeated stat, merge, reroll, equipped stats, disk save/reload); the one-time `boss_outfit_extras` migration; boss Auto-Collect and Auto-Merge at least 70% cheaper on every boss, normal types and other automation unchanged, bought levels kept.
+- `change_52_probe` updated: a boss's outfit drop is now enhanced too.
 
 ## Change 77: Camp Supplies replaces Camp Survey (13 November 2026)
 

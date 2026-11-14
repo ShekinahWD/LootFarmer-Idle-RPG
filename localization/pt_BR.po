@@ -5818,15 +5818,6 @@ msgstr "Para evoluir, é preciso o nível de fusão completo e cópias extras su
 msgid "ITEM_BOSS_BONUS"
 msgstr "Bônus de chefe"
 
-msgid "ITEM_ENHANCED"
-msgstr "Arma de chefe: dois atributos bônus adicionados"
-
-msgid "ITEM_BOSS_BONUS_EXPLAIN"
-msgstr "Aprimorada por chefe: sua primeira cópia desta arma obtida de um chefe ganhou dois atributos bônus. Cópias posteriores de chefes contam como cópias normais. Os atributos bônus são redefinidos no Prestígio; os níveis de fusão permanecem."
-
-msgid "ITEM_BOSS_BONUS_HINT"
-msgstr "A primeira cópia desta arma obtida de um chefe ganha dois atributos bônus (uma vez por partida)."
-
 msgid "REROLL_ATTRIBUTE"
 msgstr "Rerrolar %s · %s gemas"
 
