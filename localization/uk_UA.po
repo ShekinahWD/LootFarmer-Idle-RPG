@@ -3583,9 +3583,6 @@ msgstr "Зцілює на 5% від завданої шкоди"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Важкий удар"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Критичні удари завдають ще +75% шкоди"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Монетна мудрість"
 

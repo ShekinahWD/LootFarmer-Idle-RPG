@@ -3581,9 +3581,6 @@ msgstr "与えたダメージの5%を回復"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "痛打"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "クリティカルのダメージがさらに+75%"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "コインの知恵"
 

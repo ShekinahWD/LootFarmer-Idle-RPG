@@ -3586,9 +3586,6 @@ msgstr "Heile dich um 5 % des verursachten Schadens"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Harter Treffer"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Kritische Treffer verursachen +75 % mehr Schaden"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Münzweisheit"
 

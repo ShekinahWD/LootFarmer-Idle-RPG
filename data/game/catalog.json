@@ -21218,7 +21218,7 @@
       "interval": 1.5,
       "respawn": 17,
       "coins": 11.390625,
-      "xp": 358,
+      "xp": 500,
       "gear_chance": 0.05,
       "loot": [
         "obsidian_sword",
@@ -21250,7 +21250,7 @@
       "interval": 1.5,
       "respawn": 17,
       "coins": 11.390625,
-      "xp": 600,
+      "xp": 650,
       "gear_chance": 0.05,
       "loot": [
         "obsidian_axe",
@@ -21284,7 +21284,7 @@
       "interval": 1.5,
       "respawn": 17,
       "coins": 11.390625,
-      "xp": 1005,
+      "xp": 850,
       "gear_chance": 0.05,
       "loot": [
         "obsidian_axe",
@@ -21388,7 +21388,7 @@
       "interval": 1.5,
       "respawn": 19,
       "coins": 17.085938,
-      "xp": 2821,
+      "xp": 1050,
       "gear_chance": 0.05,
       "loot": [
         "obsidian_sword",
@@ -21422,7 +21422,7 @@
       "interval": 1.5,
       "respawn": 19,
       "coins": 17.085938,
-      "xp": 3978,
+      "xp": 1250,
       "gear_chance": 0.05,
       "loot": [
         "obsidian_sword",
@@ -21454,7 +21454,7 @@
       "interval": 1.5,
       "respawn": 19,
       "coins": 17.085938,
-      "xp": 5612,
+      "xp": 1500,
       "gear_chance": 0.05,
       "loot": [
         "obsidian_axe",
@@ -21488,7 +21488,7 @@
       "interval": 1.5,
       "respawn": 19,
       "coins": 17.085938,
-      "xp": 7916,
+      "xp": 1800,
       "gear_chance": 0.05,
       "loot": [
         "obsidian_axe",
@@ -21520,7 +21520,7 @@
       "interval": 1.5,
       "respawn": 19,
       "coins": 17.085938,
-      "xp": 11166,
+      "xp": 2150,
       "gear_chance": 0.05,
       "loot": [
         "obsidian_sword",
@@ -21554,7 +21554,7 @@
       "interval": 1.5,
       "respawn": 19,
       "coins": 17.085938,
-      "xp": 15750,
+      "xp": 2550,
       "gear_chance": 0.05,
       "loot": [
         "obsidian_sword",
@@ -21589,7 +21589,7 @@
       "interval": 1.33,
       "respawn": 60,
       "coins": 136.6875,
-      "xp": 879610,
+      "xp": 30000,
       "gear_chance": 0.3,
       "loot": [
         "obsidian_sword",
@@ -21624,7 +21624,7 @@
       "interval": 1.32,
       "respawn": 60,
       "coins": 136.6875,
-      "xp": 1044700,
+      "xp": 35000,
       "gear_chance": 0.3,
       "loot": [
         "obsidian_sword",
@@ -21660,7 +21660,7 @@
       "interval": 1.3,
       "respawn": 120,
       "coins": 136.6875,
-      "xp": 4912510,
+      "xp": 45000,
       "gear_chance": 0.3,
       "loot": [
         "obsidian_sword",
@@ -22292,7 +22292,7 @@
       "growth": 1.25,
       "cap": 20,
       "keep": true,
-      "effect": 0.1,
+      "effect": 0.05,
       "scope": "global"
     },
     "skill_auto_slots": {
@@ -23112,7 +23112,8 @@
         "name": "CONTENT_REGIONAL_C3_NAME",
         "description": "CONTENT_REGIONAL_C3_DESCRIPTION",
         "effect": "camp_supplies",
-        "value": 1
+        "value": 3,
+        "cooldown": 600
       },
       "challenge_c1": {
         "path": "challenge",
@@ -23133,7 +23134,7 @@
         "name": "CONTENT_CHALLENGE_C3_NAME",
         "description": "CONTENT_CHALLENGE_C3_DESCRIPTION",
         "effect": "crit_damage",
-        "value": 0.75
+        "value": 0.4
       },
       "offering_c1": {
         "path": "offering",

@@ -3583,9 +3583,6 @@ msgstr "Hồi máu bằng 5% sát thương bạn gây ra"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Đòn Mạnh"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Đòn chí mạng gây thêm +75% sát thương"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Khôn Ngoan Về Xu"
 

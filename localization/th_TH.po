@@ -3583,9 +3583,6 @@ msgstr "ฟื้น HP เท่ากับ 5% ของดาเมจที�
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "ตีหนัก"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "การโจมตีคริติคอลทำดาเมจเพิ่มอีก +75%"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "ปัญญาเหรียญ"
 

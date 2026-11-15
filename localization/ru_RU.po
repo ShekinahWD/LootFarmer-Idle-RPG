@@ -3583,9 +3583,6 @@ msgstr "Лечит на 5% от нанесённого урона"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Тяжёлый удар"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Критические удары наносят ещё +75% урона"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Монетная мудрость"
 

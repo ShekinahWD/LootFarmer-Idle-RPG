@@ -289,7 +289,10 @@ func _ready() -> void:
     sim.event.connect(_event)
     sim.auto_bought.connect(func(id: String,amount: int)->void:_say(tr("AUTO_BUY_DONE") % [amount,sim.catalog.display_name(id)]))
     # Change 77: Camp Supplies uses the toast lane (never a blocking panel).
-    sim.camp_supply_granted.connect(func(id: String)->void:_say(tr("CAMP_SUPPLY_RECEIVED") % sim.catalog.display_name(id)))
+    # Change 80: one notice per grant with the number actually given (1 names the supply; each unit is also in
+    # the recent-finds feed through add_item).
+    sim.camp_supply_granted.connect(func(ids: Array,_owed: int)->void:
+        _say(tr("CAMP_SUPPLY_RECEIVED") % sim.catalog.display_name(str(ids[0])) if ids.size()==1 else tr("CAMP_SUPPLY_BATCH") % ids.size()))
     sim.camp_supply_waiting.connect(func()->void:_say(tr("CAMP_SUPPLY_WAITING")))
     SaveService.save_failed.connect(func(_reason: String)->void:_event("SAVE_ERROR"))
     get_viewport().size_changed.connect(_safe_area)
@@ -3452,9 +3455,18 @@ func _open_combat_achievements() -> void:
 # ---------------------------------------------------------------- world, camps and travel
 
 func _camp_status(st: int,i: int) -> String:
-    if st==int(sim.state.stage) and int(sim.state.spawn)==i:return tr("CAMP_STATE_SELECTED")
-    if sim.state.camps.get(str(st),[0]).has(i):return tr("CAMP_STATE_OWNED")
-    return tr("CAMP_STATE_LOCKED") % fmt_cost(sim.campaign.camp_price(i))
+    var owned: bool=sim.state.camps.get(str(st),[0]).has(i)
+    var line: String=tr("CAMP_STATE_SELECTED") if st==int(sim.state.stage) and int(sim.state.spawn)==i else (tr("CAMP_STATE_OWNED") if owned else tr("CAMP_STATE_LOCKED") % fmt_cost(sim.campaign.camp_price(i)))
+    # Change 80: an owned camp says when its Camp Supplies are next ready (only with the card).
+    if owned and sim.campaign.camp_supplies_owned():line+="
+"+_camp_supply_status(st,i)
+    return line
+
+## Change 80: "Camp Supplies: ready (3)" or "Camp Supplies: next in 7m 12s" for one owned camp.
+func _camp_supply_status(st: int,i: int) -> String:
+    var wait: float=sim.campaign.camp_supply_wait(st,i)
+    if wait>0:return tr("CAMP_SUPPLY_STATUS_WAIT") % fmt_duration(ceilf(wait))
+    return tr("CAMP_SUPPLY_STATUS_READY") % sim.campaign.camp_supply_owed(st,i)
 
 ## Camps of the current stage first (where the camp lesson points), then the map, then travel.
 func _world_panel() -> void:
@@ -3519,23 +3531,170 @@ func _world_panel() -> void:
     # Change 15: Map Mastery (revealed with Prestige, after the Snowman).
     if revealed("prestige"):
         _action(tr("MASTERY_OPEN") % sim.campaign.mastery.game_percent(),func()->void:mastery_stage=0;_open("mastery")).set_meta("guide","mastery")
-    if int(sim.state.unlocked_stage)>1:
-        _section(tr("SECTION_TRAVEL"))
-        # Change 74: the maps as a two-column grid of map buttons (one full-width row each took up to seven rows),
-        # each carrying the icons of the followed objectives that progress there.
-        var grid:=GridContainer.new()
-        grid.columns=2 if _rows_width()>=420 else 1
-        grid.add_theme_constant_override("h_separation",8)
-        grid.add_theme_constant_override("v_separation",8)
-        rows.add_child(grid)
-        for st in range(1,int(sim.state.unlocked_stage)+1):
-            if st==int(sim.state.stage):continue
-            var b:=_map_button(st,grid,func()->void:_select_travel_stage(st))
-            b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-            b.set_meta("guide","travel_stage_%d" % st)
+    _stage_progression()
     _section(tr("SECTION_MAP_UPGRADES"))
     for id in ["map_detail","reveal_radius"]:_group_upgrade_card(id,int(sim.state.stage))
     for i in sim.state.spawns:_group_upgrade_card("camp_radius",int(sim.state.stage)*10+int(i))
+
+## Change 80: the stage selector. Every stage 01-08 in canonical order, one compact card each, grouped under its
+## season, with this run's state from campaign.stage_progress(): a status line (gate cleared / unlocked with its
+## gate progress / locked, NEXT saying what opens it), a HERE badge and ring on the map the player stands on and
+## a NEXT badge and gold ring on the next stage to unlock (from the frontier, never from the current map). An
+## unlocked map other than the current one travels exactly as before (_select_travel_stage; guide key
+## travel_stage_N); the current map and locked maps cannot be chosen. Built with the panel (at most once a
+## second, never while the sheet scrolls), never per frame.
+const SEASON_KEYS:=["SEASON_WINTER","SEASON_SUMMER","SEASON_AUTUMN","SEASON_SPRING"]
+const SEASON_COLORS:=[Color(.62,.84,1),Color(1,.84,.38),Color(1,.6,.32),Color(.6,.92,.5)]
+const STAGE_NEXT_RING:=Color(1,.82,.3)
+const GAME_THEME:=preload("res://resources/game/theme.tres")
+func _stage_progression() -> void:
+    _section(tr("SECTION_TRAVEL"))
+    var states: Array=sim.campaign.stage_progress()
+    var next:=sim.campaign.next_stage_to_unlock()
+    var summary: String=tr("STAGE_PROGRESS_SUMMARY") % [int(sim.state.unlocked_stage),states.size()]
+    summary+="\n"+(tr("STAGE_PROGRESS_NEXT") % sim.catalog.stages[next-1].name if next>0 else tr("STAGE_PROGRESS_ALL"))
+    _text(summary,17,Color(.8,.84,.9)).set_meta("stage_summary",true)
+    var list:=VBoxContainer.new()
+    list.add_theme_constant_override("separation",6)
+    list.set_meta("stage_list",true)
+    rows.add_child(list)
+    for s in states:
+        var season: int=(int(s.stage)-1)/2
+        if (int(s.stage)-1)%2==0:
+            var head:=Label.new()
+            head.text=tr(SEASON_KEYS[mini(season,3)])
+            head.add_theme_font_size_override("font_size",17)
+            head.add_theme_color_override("font_color",SEASON_COLORS[mini(season,3)])
+            head.set_meta("season_header",season)
+            list.add_child(head)
+        list.add_child(_stage_row(s,SEASON_COLORS[mini(season,3)]))
+
+func _stage_status(s: Dictionary) -> String:
+    var st: int=int(s.stage)
+    if bool(s.cleared):return tr("STAGE_STATUS_FINAL_CLEARED" if bool(s.final) else "STAGE_STATUS_CLEARED")
+    if bool(s.unlocked):return tr("STAGE_STATUS_FINAL_OPEN") if bool(s.final) else tr("STAGE_STATUS_OPEN") % [int(s.gate_done),int(s.gate_total)]
+    if bool(s.next):return tr("STAGE_STATUS_NEXT") % sim.catalog.stages[st-2].name
+    return tr("STAGE_STATUS_LOCKED")
+
+func _stage_badge(parent: Node,text: String,color: Color) -> void:
+    var chip:=PanelContainer.new()
+    var box:=StyleBoxFlat.new()
+    box.bg_color=Color(color.r,color.g,color.b,.22);box.border_color=color
+    box.set_border_width_all(2);box.set_corner_radius_all(8)
+    box.content_margin_left=8;box.content_margin_right=8;box.content_margin_top=2;box.content_margin_bottom=2
+    chip.add_theme_stylebox_override("panel",box)
+    chip.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    chip.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+    var label:=Label.new()
+    label.text=text
+    label.add_theme_font_size_override("font_size",15)
+    label.add_theme_color_override("font_color",color)
+    chip.add_child(label)
+    parent.add_child(chip)
+
+## One stage card: number, name, status line, badges, followed-objective icons, and a travel chevron when it can
+## be chosen. The card sizes to its wrapped text; a flat full-card button on top takes the tap.
+func _stage_row(s: Dictionary,season_color: Color) -> Control:
+    var st: int=int(s.stage)
+    var here: bool=bool(s.here)
+    var can_travel: bool=bool(s.unlocked) and not here
+    var card:=PanelContainer.new()
+    # The panel refresh reuses a live control of the same shape and copies only a few properties (never a
+    # stylebox override), so the card's look is keyed by its theme_type_variation, which _same_shape compares:
+    # a stage whose state changes gets a new card. These variation names are not theme types; the override
+    # below draws the card.
+    var look: String="here" if here else ("next" if bool(s.next) else ("open" if bool(s.unlocked) else "locked"))
+    card.theme_type_variation=StringName("StageCard_"+look)
+    card.set_meta("stage_row",st)
+    card.set_meta("stage_state",s)
+    # Compact cards (8 px above and below instead of the Card's 14); the current map and the next stage get a
+    # coloured ring (cyan HERE, gold NEXT).
+    var box: StyleBox
+    if here or bool(s.next):
+        var flat:=StyleBoxFlat.new()
+        flat.bg_color=Color(.2,.29,.34) if here else Color(.24,.24,.2)
+        flat.border_color=camp_picker.HERE_RING if here else STAGE_NEXT_RING
+        flat.set_border_width_all(3);flat.set_corner_radius_all(8)
+        box=flat
+    else:box=GAME_THEME.get_stylebox("panel","Card").duplicate()
+    box.content_margin_left=12;box.content_margin_right=12;box.content_margin_top=8;box.content_margin_bottom=8
+    card.add_theme_stylebox_override("panel",box)
+    var line:=HBoxContainer.new()
+    line.add_theme_constant_override("separation",10)
+    line.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    line.custom_minimum_size.y=52
+    card.add_child(line)
+    var number:=Label.new()
+    number.text="%02d" % st
+    number.custom_minimum_size.x=34
+    number.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
+    number.add_theme_font_size_override("font_size",22)
+    number.add_theme_color_override("font_color",season_color if bool(s.unlocked) or bool(s.next) else Color(.55,.58,.64))
+    line.add_child(number)
+    var text:=VBoxContainer.new()
+    text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    text.alignment=BoxContainer.ALIGNMENT_CENTER
+    text.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    text.add_theme_constant_override("separation",0)
+    line.add_child(text)
+    var name_row:=HFlowContainer.new()
+    name_row.add_theme_constant_override("h_separation",8)
+    name_row.add_theme_constant_override("v_separation",4)
+    name_row.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    text.add_child(name_row)
+    var title:=Label.new()
+    title.text=sim.catalog.stages[st-1].name
+    title.add_theme_font_size_override("font_size",20)
+    title.add_theme_color_override("font_color",Color.WHITE if bool(s.unlocked) else Color(.7,.72,.78))
+    name_row.add_child(title)
+    if here:_stage_badge(name_row,tr("STAGE_BADGE_HERE"),camp_picker.HERE_RING)
+    if bool(s.next):_stage_badge(name_row,tr("STAGE_BADGE_NEXT"),STAGE_NEXT_RING)
+    var status:=Label.new()
+    status.text=_stage_status(s)
+    status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+    status.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    status.add_theme_font_size_override("font_size",16)
+    status.add_theme_color_override("font_color",Color(.6,1,.75) if bool(s.cleared) else (Color(.94,.95,.97) if bool(s.unlocked) else (STAGE_NEXT_RING if bool(s.next) else Color(.62,.65,.72))))
+    status.set_meta("stage_status",true)
+    text.add_child(status)
+    var marks: Array=sim.campaign.follow_stages().get(st,[]) if bool(s.unlocked) else []
+    for kind in ["mastery","mission","prestige"]:
+        if not kind in marks:continue
+        var icon:=TextureRect.new()
+        icon.texture=_follow_kind_icon(kind)
+        icon.custom_minimum_size=Vector2(28,28)
+        icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+        icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+        icon.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+        icon.mouse_filter=Control.MOUSE_FILTER_IGNORE
+        line.add_child(icon)
+    card.set_meta("follow_marks",marks)
+    if can_travel:
+        var chevron:=Label.new()
+        chevron.text="›"
+        chevron.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
+        chevron.add_theme_font_size_override("font_size",30)
+        chevron.add_theme_color_override("font_color",Color(1,.86,.5))
+        line.add_child(chevron)
+    if not bool(s.unlocked):card.modulate=Color(1,1,1,.8)
+    # The tap target covers the whole card (at least 56 px tall). Locked maps and the current map stay disabled.
+    var tap:=Button.new()
+    tap.flat=true
+    tap.focus_mode=Control.FOCUS_NONE
+    tap.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
+    var clear:=StyleBoxEmpty.new()
+    for style in ["normal","disabled","focus"]:tap.add_theme_stylebox_override(style,clear)
+    var glow:=StyleBoxFlat.new()
+    glow.bg_color=Color(1,1,1,.08);glow.set_corner_radius_all(10)
+    for style in ["hover","pressed","hover_pressed"]:tap.add_theme_stylebox_override(style,glow)
+    tap.disabled=not can_travel
+    tap.tooltip_text=tr("TELEPORT_STAGE_HERE") if here else ("" if can_travel else tr("STAGE_LOCKED"))
+    if can_travel:
+        tap.set_meta("guide","travel_stage_%d" % st)
+        tap.pressed.connect(func()->void:_select_travel_stage(st))
+    else:tap.set_meta("guide","stage_row_%d" % st)
+    card.add_child(tap)
+    return card
 
 ## Moves to an owned camp by the shared travel rules (campaign.camp_action re-checks combat, stage and
 ## ownership at the moment of the move), then closes the panel. Arrival counts as already inside the

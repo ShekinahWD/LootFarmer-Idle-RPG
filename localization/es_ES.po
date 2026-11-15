@@ -3586,9 +3586,6 @@ msgstr "Te curas el 5 % del daño que infliges"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Golpe duro"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Los golpes críticos infligen un +75 % más de daño"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Sabiduría de monedas"
 

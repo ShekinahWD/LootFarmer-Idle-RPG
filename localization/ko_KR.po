@@ -3581,9 +3581,6 @@ msgstr "입⁠힌 피⁠해⁠의 5%만⁠큼 회⁠복"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "강⁠타"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "치⁠명⁠타 피⁠해 +75% 추⁠가"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "코⁠인⁠의 지⁠혜"
 

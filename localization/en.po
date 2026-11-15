@@ -3583,7 +3583,7 @@ msgid "CONTENT_REGIONAL_C3_NAME"
 msgstr "Camp Supplies"
 
 msgid "CONTENT_REGIONAL_C3_DESCRIPTION"
-msgstr "Get 1 free random supply on your first visit to each owned camp every Prestige run"
+msgstr "Get 3 free random supplies at each owned camp, every 10 minutes per camp"
 
 msgid "CONTENT_CHALLENGE_C1_NAME"
 msgstr "Precision"
@@ -3601,7 +3601,7 @@ msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Hard Hit"
 
 msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Critical hits deal +75% more damage"
+msgstr "Critical hits deal +40% more damage"
 
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Coin Wisdom"
@@ -6727,7 +6727,7 @@ msgid "CAMP_SUPPLY_RECEIVED"
 msgstr "Camp Supplies: +1 %s"
 
 msgid "CAMP_SUPPLY_WAITING"
-msgstr "Camp Supplies: free a supply slot to collect this camp's supply"
+msgstr "Camp Supplies: free a supply slot to collect this camp's supplies"
 
 msgid "REROLL_STATS"
 msgstr "Reroll Stats · %s gems"
@@ -6782,3 +6782,57 @@ msgstr "Merge %s to ^%d"
 
 msgid "TRACK_COLLECT_ITEM"
 msgstr "Collect %s"
+
+msgid "CAMP_SUPPLY_BATCH"
+msgstr "Camp Supplies: +%d supplies"
+
+msgid "CAMP_SUPPLY_STATUS_READY"
+msgstr "Camp Supplies: ready (%d)"
+
+msgid "CAMP_SUPPLY_STATUS_WAIT"
+msgstr "Camp Supplies: next in %s"
+
+msgid "STAGE_PROGRESS_SUMMARY"
+msgstr "Stages unlocked this run: %d / %d"
+
+msgid "STAGE_PROGRESS_NEXT"
+msgstr "Next to unlock: %s"
+
+msgid "STAGE_PROGRESS_ALL"
+msgstr "All stages unlocked this run"
+
+msgid "STAGE_BADGE_HERE"
+msgstr "HERE"
+
+msgid "STAGE_BADGE_NEXT"
+msgstr "NEXT"
+
+msgid "STAGE_STATUS_CLEARED"
+msgstr "Gate bosses defeated"
+
+msgid "STAGE_STATUS_FINAL_CLEARED"
+msgstr "Final stage cleared"
+
+msgid "STAGE_STATUS_OPEN"
+msgstr "Unlocked · gate bosses %d / %d"
+
+msgid "STAGE_STATUS_FINAL_OPEN"
+msgstr "Unlocked · final stage"
+
+msgid "STAGE_STATUS_NEXT"
+msgstr "Locked · defeat the gate bosses of %s to unlock"
+
+msgid "STAGE_STATUS_LOCKED"
+msgstr "Locked"
+
+msgid "SEASON_WINTER"
+msgstr "Winter"
+
+msgid "SEASON_SUMMER"
+msgstr "Summer"
+
+msgid "SEASON_AUTUMN"
+msgstr "Autumn"
+
+msgid "SEASON_SPRING"
+msgstr "Spring"

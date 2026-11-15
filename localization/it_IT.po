@@ -3583,9 +3583,6 @@ msgstr "Ti curi del 5% dei danni che infliggi"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Colpo duro"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "I colpi critici infliggono un ulteriore +75% di danni"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Saggezza delle monete"
 

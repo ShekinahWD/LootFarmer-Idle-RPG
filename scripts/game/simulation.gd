@@ -38,9 +38,10 @@ signal respawn_selected(camp: int)
 signal boss_defeated(actor_id: String, group: int, at: Vector2)
 ## Change 76: Auto Buy Supplies bought `amount` copies of a supply (after the purchase was committed).
 signal auto_bought(id: String, amount: int)
-## Change 77: Camp Supplies gave this supply on a camp's first visit this run.
-signal camp_supply_granted(id: String)
-## Change 77: a camp's supply is due but no supply slot is free (shown once per visit).
+## Change 80: Camp Supplies gave these supplies (one id per unit) at a camp; `owed` units of the batch are
+## still waiting for inventory space (0 when the batch is complete and the camp's cooldown started).
+signal camp_supply_granted(ids: Array, owed: int)
+## Change 77: a camp's supplies are due but no supply slot fits them (shown once per visit).
 signal camp_supply_waiting
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
@@ -124,7 +125,7 @@ const MIGRATABLE_SCHEMAS:=[8,9]
 ## One-time profile migrations, in order (state.migrations). A new profile starts with all of them.
 ## legacy_weapons_h24 (Change 51): owned weapons of the old stat table become legacy-stat copies.
 ## camps_permanent (Change 76): camps owned in an earlier run (Map Mastery's lifetime record) are owned again.
-const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","boss_auto_evolve_refunded","camps_permanent","boss_outfit_extras"]
+const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","boss_auto_evolve_refunded","camps_permanent","boss_outfit_extras","camp_supply_cooldowns"]
 
 func new_profile() -> void:
     profile_epoch+=1

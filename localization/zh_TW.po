@@ -3581,9 +3581,6 @@ msgstr "回復所造成傷害的 5%"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "重擊"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "爆擊傷害額外 +75%"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "金幣智慧"
 

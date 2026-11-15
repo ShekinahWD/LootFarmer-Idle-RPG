@@ -3586,9 +3586,6 @@ msgstr "Récupérez 5 % des dégâts infligés en santé"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Coup puissant"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Les coups critiques infligent +75 % de dégâts en plus"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Sagesse des pièces"
 

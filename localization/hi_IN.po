@@ -3583,9 +3583,6 @@ msgstr "अपने दिए डैमेज का 5% HP वापस पा�
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "ज़ोरदार वार"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "क्रिटिकल हिट +75% अधिक डैमेज करते हैं"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "सिक्कों की समझ"
 

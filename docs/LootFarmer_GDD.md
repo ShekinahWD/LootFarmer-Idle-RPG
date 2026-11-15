@@ -1,4 +1,28 @@
-# LootFarmer — Game Design Document — current (2026-11-14, Change 79)
+# LootFarmer — Game Design Document — current (2026-11-15, Change 80)
+
+## Change 80 — Spring XP, Critical Damage, repeatable Camp Supplies, stage selector (15 November 2026)
+
+Save schema 9 unchanged (one new migration). The game version and Android version code are not touched by this change. Brief: `docs/LootFarmer_Change_80_XP_Critical_Camp_Stage_Progression.md`. Report and measurements: `docs/LootFarmer_Change_80_Report.md`, `docs/Change_80_Evidence/`. Catalog writer: `tools/change80_catalog.py`.
+
+- **Spring XP (base kill XP, before every multiplier).** Spring I: Bunny Ears 500 (was 358), Cat Ears 650 (600), Elf Ears 850 (1,005). Spring II: Flower Crown 1,050 (2,821), Green Cap 1,250 (3,978), Pink Cap 1,500 (5,612), Pink Flower Hood 1,800 (7,916), Plain 2,150 (11,166), Sprout 2,550 (15,750). Bosses: Bee 20,000 and Orange Tabby Cat 23,750 unchanged; Red Panda 30,000 (879,610), Sunflower 35,000 (1,044,700), Green Alien 45,000 (4,912,510). Stages 1-6, the XP requirement `ceil(12 × level^1.35)`, the level cap 1000, XP upgrades (+10% per level per type), XP cards, Veteran Traveler and Wisdom Tonic are unchanged. Kills are the only XP source. One Spring II boss now gives 2-3 levels at Spring II levels (was 50-210).
+- **Critical Damage.** Base 110% unchanged. The global Gem upgrade adds **+5 points per level** (was +10), as a flat addition to the multiplier (level 20 = 210%). Cap 20 and price 15 Gems × 1.25 are unchanged. The Challenge card **Hard Hit** (`challenge_c3`) gives **+40 points** (was +75). Upgrade levels and card ownership are kept; the new values apply on load with no migration. Table: levels 0/5/10/15/20 = 110/135/160/185/210%, with the card 150/175/200/225/250%. Gear extras add on top as before. Supersedes the per-level value in *Change 68*.
+- **Camp Supplies (`regional_c3`, same id, path and Regional set).** Each owned camp gives a batch of **3 free random supplies** from its map's weighted supply pool, then rests for **10 minutes of active play**. Each camp has its own record (`state.camp_supply`: `"stage:camp"` → `next` = playtime when the next batch may start, `left` = units of the current batch still owed). Conditions: card owned, player alive, inside an owned camp's rest radius on the current map, and that map reached in this run. Checked on the fog tick, so a camp that becomes ready while the player stands in it pays without a re-entry. Nothing is given during a Prestige choice, a pause or in the background.
+  - The clock is `playtime_total` (active play). It runs while the player farms or travels anywhere. It stops while the app is closed or paused, so camps produce nothing offline and device-clock changes, reloads and teleports cannot shorten a cooldown.
+  - No backpay: a ready camp holds at most one batch.
+  - Units are granted one at a time. Each counts down `left` and is saved at once. Units that do not fit stay owed and are delivered exactly once when there is room (one "free a supply slot" notice per visit). The cooldown starts only when the whole batch is delivered. Supply stacks have no size limit, so in practice a batch is all-or-nothing.
+  - Feedback: "Camp Supplies: +N supplies" (or "+1 <supply>") with the actual count, and each unit appears in the recent-finds feed. With the card, the camp panel shows "Camp Supplies: ready (3)" or "next in 7m 12s".
+  - Prestige keeps every camp's record, like the camps and the clock. A late-map camp pays only once its map is reached again. Hard Reset clears the records.
+  - Migration `camp_supply_cooldowns`: the Change 77/79 per-run list `camp_supplies` is retired. A camp in that list (it already gave its 1 supply this run) starts a full 10-minute cooldown at load. Every other owned camp is ready for its first batch.
+  - Supersedes the once-per-camp-per-run rule of *Change 77*.
+- **Stage selector (World → Travel to another stage).** Always shows **01-08** in canonical order under Winter / Summer / Autumn / Spring headers, above a summary ("Stages unlocked this run: N / 8", "Next to unlock: <stage>" or "All stages unlocked this run"). Each stage has a compact card with its number, name, status line and the followed-objective icons. The states come from `campaign.stage_progress()` and use this run only (owned camps never count):
+  - **Gate bosses defeated:** the stage is before the frontier (`stage < unlocked_stage`), so its gate opened the next stage. For Spring II this reads **Final stage cleared**, after `world_complete`.
+  - **Unlocked · gate bosses d / t:** the frontier stage.
+  - **Locked · defeat the gate bosses of <previous> to unlock:** the **NEXT** stage (`unlocked_stage + 1`, gold ring and badge). It is computed from the frontier, never from the current map.
+  - **Locked:** the other stages.
+  - **HERE:** the map the player stands on (cyan ring and badge), independent of the other states.
+  - A tap on any unlocked map other than the current one travels as before (`_select_travel_stage`, guide key `travel_stage_N`). The current map and locked maps cannot be chosen. The Teleport picker's stage row is unchanged.
+  - Supersedes the two-column Travel grid of *Change 74*.
+
 
 ## Change 79 — Auto Farm return, Reroll Stats with locks, objective pills, Offline Skills, boss balance (14 November 2026)
 

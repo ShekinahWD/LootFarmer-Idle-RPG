@@ -3586,9 +3586,6 @@ msgstr "Cure 5% do dano que você causa"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Golpe Pesado"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Acertos críticos causam +75% de dano"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Sabedoria das Moedas"
 

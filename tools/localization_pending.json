@@ -2473,9 +2473,9 @@
    "status": "changed"
   },
   "CONTENT_REGIONAL_C3_DESCRIPTION": {
-   "en": "Get 1 free random supply on your first visit to each owned camp every Prestige run",
+   "en": "Get 3 free random supplies at each owned camp, every 10 minutes per camp",
    "placeholders": [],
-   "change": "change-77",
+   "change": "change-80",
    "status": "changed"
   },
   "CAMP_SUPPLY_RECEIVED": {
@@ -2486,9 +2486,9 @@
    "change": "change-77"
   },
   "CAMP_SUPPLY_WAITING": {
-   "en": "Camp Supplies: free a supply slot to collect this camp's supply",
+   "en": "Camp Supplies: free a supply slot to collect this camp's supplies",
    "placeholders": [],
-   "change": "change-77"
+   "change": "change-80"
   },
   "REROLL_STATS": {
    "en": "Reroll Stats · %s gems",
@@ -2626,6 +2626,118 @@
    "en": "+5% damage against bosses",
    "placeholders": [],
    "change": "change-79",
+   "status": "changed"
+  },
+  "CAMP_SUPPLY_BATCH": {
+   "en": "Camp Supplies: +%d supplies",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-80"
+  },
+  "CAMP_SUPPLY_STATUS_READY": {
+   "en": "Camp Supplies: ready (%d)",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-80"
+  },
+  "CAMP_SUPPLY_STATUS_WAIT": {
+   "en": "Camp Supplies: next in %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-80"
+  },
+  "STAGE_PROGRESS_SUMMARY": {
+   "en": "Stages unlocked this run: %d / %d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-80"
+  },
+  "STAGE_PROGRESS_NEXT": {
+   "en": "Next to unlock: %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-80"
+  },
+  "STAGE_PROGRESS_ALL": {
+   "en": "All stages unlocked this run",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "STAGE_BADGE_HERE": {
+   "en": "HERE",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "STAGE_BADGE_NEXT": {
+   "en": "NEXT",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "STAGE_STATUS_CLEARED": {
+   "en": "Gate bosses defeated",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "STAGE_STATUS_FINAL_CLEARED": {
+   "en": "Final stage cleared",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "STAGE_STATUS_OPEN": {
+   "en": "Unlocked · gate bosses %d / %d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-80"
+  },
+  "STAGE_STATUS_FINAL_OPEN": {
+   "en": "Unlocked · final stage",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "STAGE_STATUS_NEXT": {
+   "en": "Locked · defeat the gate bosses of %s to unlock",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-80"
+  },
+  "STAGE_STATUS_LOCKED": {
+   "en": "Locked",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "SEASON_WINTER": {
+   "en": "Winter",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "SEASON_SUMMER": {
+   "en": "Summer",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "SEASON_AUTUMN": {
+   "en": "Autumn",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "SEASON_SPRING": {
+   "en": "Spring",
+   "placeholders": [],
+   "change": "change-80"
+  },
+  "CONTENT_CHALLENGE_C3_DESCRIPTION": {
+   "en": "Critical hits deal +40% more damage",
+   "placeholders": [],
+   "change": "change-80",
    "status": "changed"
   }
  },

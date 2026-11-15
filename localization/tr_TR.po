@@ -3583,9 +3583,6 @@ msgstr "Verdiğin hasarın %5'i kadar iyileş"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Sert Vuruş"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Kritik vuruşlar +%75 daha fazla hasar verir"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Altın Bilgeliği"
 

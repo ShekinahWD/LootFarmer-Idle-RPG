@@ -1,0 +1,21 @@
+{
+ "CAMP_SUPPLY_BATCH": "Camp Supplies: +%d supplies",
+ "CAMP_SUPPLY_WAITING": "Camp Supplies: free a supply slot to collect this camp's supplies",
+ "CAMP_SUPPLY_STATUS_READY": "Camp Supplies: ready (%d)",
+ "CAMP_SUPPLY_STATUS_WAIT": "Camp Supplies: next in %s",
+ "STAGE_PROGRESS_SUMMARY": "Stages unlocked this run: %d / %d",
+ "STAGE_PROGRESS_NEXT": "Next to unlock: %s",
+ "STAGE_PROGRESS_ALL": "All stages unlocked this run",
+ "STAGE_BADGE_HERE": "HERE",
+ "STAGE_BADGE_NEXT": "NEXT",
+ "STAGE_STATUS_CLEARED": "Gate bosses defeated",
+ "STAGE_STATUS_FINAL_CLEARED": "Final stage cleared",
+ "STAGE_STATUS_OPEN": "Unlocked · gate bosses %d / %d",
+ "STAGE_STATUS_FINAL_OPEN": "Unlocked · final stage",
+ "STAGE_STATUS_NEXT": "Locked · defeat the gate bosses of %s to unlock",
+ "STAGE_STATUS_LOCKED": "Locked",
+ "SEASON_WINTER": "Winter",
+ "SEASON_SUMMER": "Summer",
+ "SEASON_AUTUMN": "Autumn",
+ "SEASON_SPRING": "Spring"
+}

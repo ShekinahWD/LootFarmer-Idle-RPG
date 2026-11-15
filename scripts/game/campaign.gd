@@ -23,7 +23,7 @@ func _init(owner) -> void:
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={};camp_supply_waiting=""
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"follow_mastery":"","bosses_found":[],"follow_mission":"","review":review.initial(),"respawns":{},"hunt":hunt_initial(),"camp_supplies":{}},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"follow_mastery":"","bosses_found":[],"follow_mission":"","review":review.initial(),"respawns":{},"hunt":hunt_initial(),"camp_supply":{}},true)
     mastery.reset_cache()
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
@@ -215,6 +215,28 @@ func resting_camp() -> int:
         var a: Array=stage().spawns[int(camp)]
         if p.distance_to(Vector2(a[0],a[1]))<=float(sim.catalog.progression.rest.camp_radius):return int(camp)
     return -1
+## Change 80: the stage selector's state for every stage 1-8 in canonical order (current Prestige run only;
+## owned camps and lifetime records never count). unlocked: reachable now (st <= unlocked_stage). cleared: the
+## gate of a stage before the frontier was defeated in this run (that is what opened the next stage), or the
+## final stage's clear (world_complete). next: the one stage after the frontier, still locked (none once all
+## eight are open). here: the map the player stands on, independent of the others. gate_done / gate_total:
+## this run's gate progress on that stage.
+func stage_progress() -> Array:
+    var result: Array=[]
+    var unlocked:=int(sim.state.unlocked_stage)
+    for st in range(1,sim.catalog.stages.size()+1):
+        var gates: Array=sim.catalog.stages[st-1].gates
+        var done:=0
+        for id in gates:
+            if int(sim.state.run_kills.get(id,0))>0:done+=1
+        var final_stage: bool=gates.is_empty()
+        result.append({"stage":st,"unlocked":st<=unlocked,"cleared":(st<unlocked) or (final_stage and st<=unlocked and bool(sim.state.get("world_complete",false))),
+            "next":st==unlocked+1,"here":st==int(sim.state.stage),"final":final_stage,"gate_done":done,"gate_total":gates.size()})
+    return result
+## The next stage to unlock (the frontier + 1), or 0 when every stage is open.
+func next_stage_to_unlock() -> int:
+    var unlocked:=int(sim.state.unlocked_stage)
+    return unlocked+1 if unlocked<sim.catalog.stages.size() else 0
 func travel_reason(st: int,camp: int) -> String:
     var lock: String=sim.action_lock_reason()
     if lock!="":return lock
@@ -268,65 +290,135 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
         guided.action("respawn",str(camp))
         sim.respawn_selected.emit(camp)
     sim.touch();SaveService.save_now();return true
-# ---------------------------------------------------------------- Camp Supplies (Change 77)
-# The Regional card regional_c3 (formerly Camp Survey, same id) has effect camp_supplies: the first visit to each
-# owned camp in a Prestige run gives 1 random supply. state.camp_supplies (stage key -> camps that already gave
-# theirs this run) is saved with the profile; Prestige starts it empty (it is not on the keep list) and Hard
-# Reset clears it. A visit is standing alive inside an owned camp's rest radius on the current, reachable map
-# (resting_camp), checked on the fog tick; teleporting, respawning or reloading at a camp that already gave its
-# supply gives nothing. With no free supply slot the reward is not marked: it waits for a later check.
+# ---------------------------------------------------------------- Camp Supplies (Change 77, Change 80)
+# The Regional card regional_c3 (formerly Camp Survey, same id, path and Regional set) has effect camp_supplies.
+# Change 80: every owned camp gives a batch of <card value> (3) free random supplies, then rests for <card
+# cooldown> (600) seconds before it can give the next batch. Each camp keeps its own record in
+# state.camp_supply ("stage:camp" -> {"next": playtime at which a new batch may start, "left": units of the
+# current batch still owed}); a missing record means ready with nothing owed.
+# - Clock: state.playtime_total (active play, saved, kept by Prestige). It advances while the player farms
+#   or travels anywhere in the game and stops while the app is closed, paused, in the background or holding a
+#   Prestige choice (sim.step does not run), so no supplies are produced offline and device clock changes or
+#   reloads cannot shorten a cooldown.
+# - A visit is standing alive inside an owned camp's rest radius on the current, reachable map (resting_camp),
+#   checked on the fog tick, so a camp that becomes ready while the player stands in it gives its batch with
+#   no need to leave and re-enter. Teleport, respawn or reload during the cooldown give nothing.
+# - No backpay: a ready camp holds one batch at most (the next batch starts only when the last one is done).
+# - Inventory: one unit at a time from the map's weighted supply pool filtered by what fits now; each unit is
+#   granted and counted down in the same step and saved at once. Units that do not fit stay owed ("left"),
+#   and the camp's cooldown starts only when the whole batch is delivered.
+# - Prestige keeps state.camp_supply (camps and the clock are kept too); Hard Reset clears it.
 var camp_supply_waiting: String=""
 func camp_supplies_owned() -> bool:return bonus("camp_supplies")>0
 func camp_supply_key(st: int,camp: int) -> String:return "%d:%d" % [st,camp]
-func camp_supply_claimed(st: int,camp: int) -> bool:
-    return sim.state.get("camp_supplies",{}).get(str(st),[]).has(camp)
+## Supplies per batch: the owned camp_supplies card value (3).
+func camp_supply_batch() -> int:return maxi(0,roundi(bonus("camp_supplies")))
+## Seconds of active play between two batches of one camp (the card's "cooldown", 600).
+func camp_supply_cooldown() -> float:
+    for id in sim.catalog.campaign.cards:
+        var d: Dictionary=sim.catalog.campaign.cards[id]
+        if str(d.effect)=="camp_supplies":return float(d.get("cooldown",600))
+    return 600.0
+func camp_supply_now() -> float:return float(sim.state.get("playtime_total",0.0))
+func camp_supply_record(st: int,camp: int) -> Dictionary:
+    var r=sim.state.get("camp_supply",{}).get(camp_supply_key(st,camp),{})
+    return r if r is Dictionary else {}
+## Units this camp would give now: the rest of an unfinished batch, a full batch once its cooldown is over, else 0.
+func camp_supply_owed(st: int,camp: int) -> int:
+    var r:=camp_supply_record(st,camp)
+    if int(r.get("left",0))>0:return mini(int(r.left),camp_supply_batch())
+    return camp_supply_batch() if camp_supply_now()>=float(r.get("next",0.0)) else 0
+## Seconds until this camp can give again (0 when it is ready or owes the rest of a batch).
+func camp_supply_wait(st: int,camp: int) -> float:
+    var r:=camp_supply_record(st,camp)
+    if int(r.get("left",0))>0:return 0.0
+    return maxf(0.0,float(r.get("next",0.0))-camp_supply_now())
 ## Supplies a camp of this map can give: the drop pool of that map (min_stage) that fits the inventory now.
 func camp_supply_pool(st: int) -> Array:
     var result: Array=[]
     for id in sim.supply_ids():
         if int(sim.supply(id).get("min_stage",1))<=st and float(sim.supply(id).get("drop_weight",0))>0 and sim.can_add(id):result.append(id)
     return result
-## Grants this camp's supply when due; returns the supply id ("" when nothing was given).
-func camp_supply_step() -> String:
-    if not camp_supplies_owned() or sim.state.player.hp<=0:return ""
+## Grants what this camp owes when the player is there; returns the supply ids given this step (in order,
+## one entry per unit; empty when nothing was given).
+func camp_supply_step() -> Array:
+    var given: Array=[]
+    if not camp_supplies_owned() or sim.state.player.hp<=0:return given
     var st:=int(sim.state.stage)
-    if st<1 or st>int(sim.state.unlocked_stage):return ""
+    if st<1 or st>int(sim.state.unlocked_stage):return given
     var camp:=resting_camp()
     if camp<0:
-        camp_supply_waiting="";return ""
-    if camp_supply_claimed(st,camp):return ""
-    var pool:=camp_supply_pool(st)
-    if pool.is_empty():
-        # Inventory full: nothing is marked, so the camp still gives its supply once there is room.
-        if camp_supply_waiting!=camp_supply_key(st,camp):
-            camp_supply_waiting=camp_supply_key(st,camp);sim.camp_supply_waiting.emit()
-        return ""
-    var total:=0.0
-    for id in pool:total+=float(sim.supply(id).drop_weight)
-    var roll: float=sim.rng.randf()*total
-    var pick: String=pool.back()
-    for id in pool:
-        roll-=float(sim.supply(id).drop_weight)
-        if roll<0:pick=id;break
-    if not sim.add_item(pick,1):return ""
-    var claimed: Dictionary=sim.state.get("camp_supplies",{})
-    var list: Array=claimed.get(str(st),[])
-    list.append(camp);claimed[str(st)]=list;sim.state.camp_supplies=claimed
-    camp_supply_waiting=""
-    sim.touch();SaveService.save_now()
-    sim.camp_supply_granted.emit(pick)
-    return pick
-## Saved per-run camp rewards: stage key -> distinct valid camp indices (anything malformed is dropped).
-func normalize_camp_supplies(out: Dictionary) -> void:
+        camp_supply_waiting="";return given
+    var owed:=camp_supply_owed(st,camp)
+    if owed<=0:return given
+    var key:=camp_supply_key(st,camp)
+    var record:=camp_supply_record(st,camp)
+    while owed>0:
+        var pool:=camp_supply_pool(st)
+        if pool.is_empty():break
+        var total:=0.0
+        for id in pool:total+=float(sim.supply(id).drop_weight)
+        var roll: float=sim.rng.randf()*total
+        var pick: String=pool.back()
+        for id in pool:
+            roll-=float(sim.supply(id).drop_weight)
+            if roll<0:pick=id;break
+        if not sim.add_item(pick,1):break
+        given.append(pick);owed-=1
+    if not given.is_empty():
+        var all: Dictionary=sim.state.get("camp_supply",{})
+        # The whole batch delivered: the camp rests from now on. Otherwise the rest stays owed (no cooldown yet).
+        all[key]={"next":camp_supply_now()+camp_supply_cooldown(),"left":0} if owed==0 else {"next":float(record.get("next",0.0)),"left":owed}
+        sim.state.camp_supply=all
+        sim.touch();SaveService.save_now()
+        sim.camp_supply_granted.emit(given.duplicate(),owed)
+    if owed>0:
+        # Inventory full: what is owed waits for a later check; one notice per camp visit, never repeated.
+        if camp_supply_waiting!=key:
+            camp_supply_waiting=key;sim.camp_supply_waiting.emit()
+    else:camp_supply_waiting=""
+    return given
+## Saved camp records: "stage:camp" -> {"next": float, "left": int} for valid camps of valid maps. "next" is
+## clamped to at most one cooldown after the saved clock (a damaged or edited value never locks a camp for
+## longer), "left" to one batch. A record equal to "ready, nothing owed" is dropped.
+func normalize_camp_supply(out: Dictionary) -> void:
     var clean: Dictionary={}
+    var now: float=float(out.get("playtime_total",0.0)) if number(out.get("playtime_total")) else 0.0
+    var cap: int=3
+    for id in sim.catalog.campaign.cards:
+        if str(sim.catalog.campaign.cards[id].effect)=="camp_supplies":cap=maxi(1,roundi(float(sim.catalog.campaign.cards[id].value)))
+    if out.get("camp_supply") is Dictionary:
+        for key in out.camp_supply:
+            var parts: PackedStringArray=str(key).split(":")
+            var r=out.camp_supply[key]
+            if parts.size()!=2 or not parts[0].is_valid_int() or not parts[1].is_valid_int() or not r is Dictionary:continue
+            var st:=int(parts[0]);var camp:=int(parts[1])
+            if st<1 or st>sim.catalog.stages.size() or camp<0 or camp>=sim.catalog.stages[st-1].spawns.size():continue
+            var next: float=clampf(float(r.get("next",0.0)) if number(r.get("next")) else 0.0,0.0,now+camp_supply_cooldown())
+            var left: int=clampi(int(r.get("left",0)) if number(r.get("left")) else 0,0,cap)
+            if left==0 and next<=now:continue
+            clean[camp_supply_key(st,camp)]={"next":next,"left":left}
+    out["camp_supply"]=clean
+## Change 80 (once, state.migrations "camp_supply_cooldowns"): Change 77/79 saves kept state.camp_supplies
+## (stage key -> camps that already gave their one supply this Prestige run). That list is retired. A camp in
+## it starts a full cooldown from the moment of loading (so updating never pays it again at once); every other
+## owned camp had not given its supply this run and is ready for its first batch of 3.
+func migrate_camp_supply_cooldowns(out: Dictionary) -> void:
+    var migrations: Array=out.get("migrations",[]) if out.get("migrations",[]) is Array else []
+    if migrations.has("camp_supply_cooldowns"):
+        out.erase("camp_supplies");return
+    var now: float=float(out.get("playtime_total",0.0)) if number(out.get("playtime_total")) else 0.0
+    var records: Dictionary=out.camp_supply if out.get("camp_supply") is Dictionary else {}
     if out.get("camp_supplies") is Dictionary:
         for key in out.camp_supplies:
             if not str(key).is_valid_int() or int(key)<1 or int(key)>sim.catalog.stages.size() or not out.camp_supplies[key] is Array:continue
-            var camps: Array=[]
             for camp in out.camp_supplies[key]:
-                if number(camp) and int(camp) in range(sim.catalog.stages[int(key)-1].spawns.size()) and not camps.has(int(camp)):camps.append(int(camp))
-            if not camps.is_empty():clean[str(int(key))]=camps
-    out["camp_supplies"]=clean
+                if number(camp) and int(camp)>=0 and int(camp)<sim.catalog.stages[int(key)-1].spawns.size():
+                    records[camp_supply_key(int(key),int(camp))]={"next":now+camp_supply_cooldown(),"left":0}
+    out.erase("camp_supplies")
+    out["camp_supply"]=records
+    migrations.append("camp_supply_cooldowns")
+    out.migrations=migrations
 func cell_key(pos: Vector2) -> String:
     return "%d,%d" % [floori(pos.x/fog_rules.cell_size),floori(pos.y/fog_rules.cell_size)]
 func in_bounds(pos: Vector2) -> bool:
@@ -1567,7 +1659,7 @@ func choose_card(id: String) -> bool:
         # are the Auto Buy Supplies selections. Map access still resets: a map's camps are usable again as
         # soon as that map is reached again.
         # New daily missions are repriced from current-run map access (reward_stage) on real day reset.
-        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","supply_uses","supply_mastery_credit","missions","mission_day","mission_auto","follow_mission","follow_mastery","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt","camps","respawns","auto_buy"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","supply_uses","supply_mastery_credit","missions","mission_day","mission_auto","follow_mission","follow_mastery","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt","camps","respawns","auto_buy","camp_supply"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1794,6 +1886,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     migrate_supply_uses5(out)
     migrate_boss_auto_evolve(out)
     migrate_camps_permanent(out)
+    migrate_camp_supply_cooldowns(out)
     normalize_change17(out)
     guided.normalize(out)
     review.normalize(out)
@@ -1819,7 +1912,7 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
             out.prestige_collapsed.erase(key)
     normalize_merge_memory(out)
     normalize_auto_buy(out)
-    normalize_camp_supplies(out)
+    normalize_camp_supply(out)
     for field in ["schema","stage","unlocked_stage","spawn","player_level","prestiges","focus","focus_variant","next_pickup","next_cat","help","consumable_uses","fog_layout_revision"]:
         if number(out.get(field)):out[field]=int(out[field])
     # JSON decodes numbers as floats; Array.has uses strict Variant types.

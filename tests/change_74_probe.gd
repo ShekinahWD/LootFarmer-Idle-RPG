@@ -409,21 +409,28 @@ func map_button_checks() -> void:
     check(marks.get(2,[]).has("mastery") and marks.get(1,[]).has("mission") and marks.get(1,[]).has("prestige"),"follow_stages: Mastery on Winter II, the daily Hunt and Collection I on Winter I (%s)" % marks)
     sim.state.stage=3;sim.touch()
     game._open("world");await frames(8)
-    var buttons: Array=game.rows.find_children("*","Button",true,false).filter(func(b):return b.has_meta("follow_marks"))
-    var grid: GridContainer=buttons[0].get_parent() if not buttons.is_empty() else null
-    check(buttons.size()==3 and grid!=null and grid.columns==2,"World Travel lists the other three maps in a two-column grid (%d buttons, %s columns)" % [buttons.size(),grid.columns if grid else 0])
-    var w1: Button=null;var w2: Button=null;var w4: Button=null
-    for b in buttons:
-        if str(b.get_meta("guide",""))=="travel_stage_1":w1=b
-        elif str(b.get_meta("guide",""))=="travel_stage_2":w2=b
-        elif str(b.get_meta("guide",""))=="travel_stage_4":w4=b
-    var icons:=func(b: Button)->int:return b.get_child(0).get_child_count() if b!=null and b.get_child_count()>0 else -1
-    check(icons.call(w1)==2 and icons.call(w2)==1 and icons.call(w4)==0,"Winter I carries the mission and Prestige icons, Winter II the Mastery icon, the fourth map none (%d, %d, %d)" % [icons.call(w1),icons.call(w2),icons.call(w4)])
+    # Change 80: World Travel became the 01-08 stage list (one card per stage; an unlocked map other than the
+    # current one carries a full-card travel button with guide key travel_stage_N). The followed-objective icons
+    # stay on each unlocked map's card.
+    var cards: Array=game.rows.find_children("*","PanelContainer",true,false).filter(func(c):return c.has_meta("stage_row"))
+    var travel: Array=game.rows.find_children("*","Button",true,false).filter(func(b):return str(b.get_meta("guide","")).begins_with("travel_stage_"))
+    check(cards.size()==8 and travel.size()==3,"World Travel lists every stage, with the other three reached maps travelable (%d cards, %d travel)" % [cards.size(),travel.size()])
+    var card_of:=func(st: int)->Control:
+        for c in cards:
+            if int(c.get_meta("stage_row"))==st:return c
+        return null
+    var icons:=func(c: Control)->int:return c.find_children("*","TextureRect",true,false).size() if c!=null else -1
+    check(icons.call(card_of.call(1))==2 and icons.call(card_of.call(2))==1 and icons.call(card_of.call(4))==0,"Winter I carries the mission and Prestige icons, Winter II the Mastery icon, the fourth map none (%d, %d, %d)" % [icons.call(card_of.call(1)),icons.call(card_of.call(2)),icons.call(card_of.call(4))])
     var ok:=true
-    for b in buttons:
-        var r: Rect2=b.get_global_rect()
-        ok=ok and r.size.y>=56 and b.get_child(0).get_global_rect().end.x<=r.end.x and b.get_theme_default_font().get_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,18).x+16<=b.get_child(0).get_global_rect().position.x-r.position.x+1
-    check(ok,"Names and icons fit inside each button, tap height 56 or more")
+    for c in cards:
+        var r: Rect2=c.get_global_rect()
+        ok=ok and r.size.y>=56
+        for l in c.find_children("*","",true,false):
+            if l is Control and l.visible:ok=ok and l.get_global_rect().end.x<=r.end.x+1
+    check(ok,"Names and icons fit inside each card, tap height 56 or more")
+    var w2: Button=null
+    for b in travel:
+        if str(b.get_meta("guide",""))=="travel_stage_2":w2=b
     w2.pressed.emit();await frames(4)
     check(int(sim.state.stage)==2 or game.panel=="travel_map","A map button still travels (stage %d, panel %s)" % [int(sim.state.stage),game.panel])
     game._close();await frames(2)

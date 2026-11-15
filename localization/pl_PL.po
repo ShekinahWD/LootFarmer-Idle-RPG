@@ -3583,9 +3583,6 @@ msgstr "Leczy o 5% zadawanych obrażeń"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Mocny cios"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Trafienia krytyczne zadają dodatkowe +75% obrażeń"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Mądrość monet"
 

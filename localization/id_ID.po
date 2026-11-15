@@ -3583,9 +3583,6 @@ msgstr "Pulihkan 5% dari damage yang kamu berikan"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Pukulan Keras"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Serangan kritis memberi +75% damage lebih besar"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Kebijakan Koin"
 

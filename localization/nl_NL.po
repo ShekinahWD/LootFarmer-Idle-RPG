@@ -3583,9 +3583,6 @@ msgstr "Genees 5% van de schade die je toebrengt"
 msgid "CONTENT_CHALLENGE_C3_NAME"
 msgstr "Harde klap"
 
-msgid "CONTENT_CHALLENGE_C3_DESCRIPTION"
-msgstr "Kritieke treffers doen nog eens +75% schade"
-
 msgid "CONTENT_OFFERING_C1_NAME"
 msgstr "Muntwijsheid"
 
