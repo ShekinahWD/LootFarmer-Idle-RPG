@@ -55,8 +55,11 @@ signal arena_changed(active: bool, reason: String)
 ## Change 83: the danger question before the Green Alien encounter ("ask" while campaign.warning_pending is set,
 ## "accepted", "declined").
 signal final_warning(phase: String)
-## Change 83: the Green Alien entered Rage Mode (once per boss life; the latch is actor.rage).
+## Change 83: the Green Alien entered Rage Mode (once per encounter since Change 86; the latch is actor.rage).
 signal final_rage(id: String)
+## Change 86: the Green Alien (or a helper it summoned) has just defeated the player: emitted in the death step,
+## before the arena opens and the encounter resets, so its laugh is decided under the settings of that moment.
+signal final_defeated_player(id: String)
 ## Change 83: a Green Alien victory: "first" (the 10 s celebration starts, world frozen), "deferred" (the ending
 ## message is still owed), "repeat"; then "celebrated" (the first celebration ended; ending_due) and
 ## "acknowledged" (the ending panel was answered).
@@ -1579,7 +1582,7 @@ func _resolve_attack(a: Dictionary, dt: float) -> void:
         # Change 54 Cleave: a basic attack also hits other enemies close to its target for a share.
         if campaign.bonus("cleave")>0:_cleave(target,damage)
     if target.hp<=0:
-        _kill(target)
+        _kill(target,a)
 
 func _cleave(target: Dictionary,damage: float) -> void:
     var view:=campaign.sight()
@@ -1593,7 +1596,8 @@ func _cleave(target: Dictionary,damage: float) -> void:
         feedback.emit(other.id,hit,false)
         if float(other.hp)<=0:_kill(other)
 
-func _kill(a: Dictionary) -> void:
+## killer: the actor whose hit or skill did it, when known (Change 86: used only to tell a Green Alien defeat).
+func _kill(a: Dictionary,killer: Dictionary={}) -> void:
     if a.id==locked_target or a.id=="player":clear_target()
     a.windup=0.0
     a.telegraph=false
@@ -1614,7 +1618,13 @@ func _kill(a: Dictionary) -> void:
             e.erase("encounter_uses")
             e.windup=0.0
             e.returning=true
+            # Change 86: the encounter is over, so Rage Mode ends with it (aura, red wall, rage music, attack speed,
+            # mitigation and the healing bonus all derive from this latch); the next fight starts normal and
+            # enrages again at 20%.
+            e.erase("rage")
         event.emit("PLAYER_DIED")
+        var final_id:=campaign.final_killer(killer)
+        if final_id!="":final_defeated_player.emit(final_id)
         # Change 82: a defeat opens the Green Alien arena at once (every enemy has just dropped its aggro).
         campaign.update_arena()
     else:

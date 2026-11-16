@@ -7010,3 +7010,6 @@ msgstr "Your ultimate goal is to defeat the final boss in Stage 8 and conquer th
 
 msgid "MASTERY_OPEN_V83"
 msgstr "Map Mastery %d%% · Game Completion %d%%"
+
+msgid "FINAL_RAGE_FLOAT"
+msgstr "ENRAGED!"

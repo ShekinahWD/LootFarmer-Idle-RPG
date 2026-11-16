@@ -48,6 +48,10 @@ var ceremony_fx: Node2D
 var arena_fx: Node2D
 ## Change 83: the enraged Green Alien's aura and its celebration floor (dance_floor.gd, one at a time).
 var rage_fx: Node2D
+## Change 86: the "ENRAGED!" floating text of the current Rage activation (enraged_text.gd), or null, and the HUD
+## rectangles over the map it keeps clear of (game_ui.map_hud_rects; viewport pixels).
+var enraged_text: Node2D
+var hud_avoid: Callable
 var dance_floor: Node2D
 var floor_clock:=0.0
 const DANCE_FLOOR=preload("res://scripts/game/dance_floor.gd")
@@ -820,6 +824,14 @@ func _final_rage(id: String) -> void:
     moments.play("rage",at,Vector2.INF,clampf(vs/2.0,1.0,1.4))
     shake(BOSS_SHAKE,BOSS_SHAKE_TIME)
     _update_rage_fx()
+    # Change 86: one large floating "ENRAGED!" per activation, above the boss's HP bar, name and skill icons.
+    if enraged_text!=null and is_instance_valid(enraged_text):enraged_text.queue_free()
+    enraged_text=null
+    if views.has(id):
+        enraged_text=preload("res://scripts/game/enraged_text.gd").new()
+        enraged_text.z_index=60
+        add_child(enraged_text)
+        enraged_text.setup(self,id,textures.get("skill_fire"),tr("FINAL_RAGE_FLOAT"))
 
 ## The aura follows whichever Green Alien on this map is enraged (state-derived: a reload shows it again).
 func _update_rage_fx() -> void:

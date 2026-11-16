@@ -204,6 +204,49 @@ func flush() -> String:
     return best
 
 
+## Change 86: plays one cue at once, outside the frame's one-cue competition (so a higher-priority cue requested in
+## the same frame, such as the arena opening, cannot drop it) and outside its own cooldown. Its category mute and
+## the volume still apply, and a settings change still updates or stops it like any sound. Any sound-effect player
+## still playing one of `replace` stops first (two laughs never overlap). The player is reserved until it ends, so a
+## burst of other cues never steals it. Returns whether it played.
+func play_now(id: String, replace: Array = []) -> bool:
+    if not _cues.has(id):
+        return false
+    var cue: Dictionary = _cues[id]
+    if not category_audible(String(cue.category)):
+        return false
+    var streams: Array = []
+    for other in replace:
+        if _cues.has(other) and _cues[other].stream != null:
+            streams.append(_cues[other].stream)
+    for player in _sfx_players:
+        if player.playing and streams.has(player.stream):
+            player.stop()
+            player.set_meta("reserved", false)
+    _pending.erase(id)
+    var now := Time.get_ticks_msec()
+    _last_played_ms[id] = now
+    played_log.push_front(id)
+    if played_log.size() > LOG_SIZE:
+        played_log.pop_back()
+    if cue.stream != null:
+        _last_stream_ms[cue.stream.get_instance_id()] = now
+        var player := _next_free_sfx_player()
+        player.stream = cue.stream
+        player.volume_db = _volume_to_db(SettingsState.sfx_volume) + float(cue.volume_db)
+        player.set_meta("category", cue.category)
+        player.set_meta("mix_db", float(cue.volume_db))
+        player.set_meta("reserved", true)
+        player.play()
+    return true
+
+
+## Seconds a cue's sound lasts (0 without a stream).
+func cue_length(id: String) -> float:
+    var stream: AudioStream = _cues.get(id, {}).get("stream", null)
+    return stream.get_length() if stream != null else 0.0
+
+
 ## Forgets cooldowns, pending requests and the log (probes).
 func reset_history() -> void:
     _pending.clear()
@@ -267,6 +310,11 @@ func music_state() -> Dictionary:
 func _next_free_sfx_player() -> AudioStreamPlayer:
     for player in _sfx_players:
         if not player.playing:
+            player.set_meta("reserved", false)
+            return player
+    # Every player busy: take the first one not reserved by play_now (Change 86).
+    for player in _sfx_players:
+        if not bool(player.get_meta("reserved", false)):
             return player
     return _sfx_players[0]
 

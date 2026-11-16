@@ -67,6 +67,9 @@ var speech_tween: Tween
 @onready var _skills: Node2D=$Skills
 @onready var _gate: Sprite2D=$Gate
 var _layout_scale:=-1.0
+## Change 86: the top of everything drawn over this actor (HP bar, name, skill icons, World banner and the target
+## marker above them), in its own units; floating text above the actor starts higher than this.
+var overhead_top:=0.0
 var _weapon_scaled: Texture2D
 
 func _ready() -> void:
@@ -135,6 +138,7 @@ func _process(dt: float) -> void:
         _hp_text.size=bar/hp_text_scale
     var top:=_stack_overhead(bar,dead)
     _marker.position=Vector2(-8,top-16 if _stack_used else -38*visual_scale)
+    overhead_top=minf(top,_marker.position.y)
     _speech.position.y=minf(-52*visual_scale,top-14)
     if not dead and actor.get("hurt",0)>0:
         # Recoil away from the blow; a critical hit knocks the target back more than twice as far.

@@ -212,6 +212,7 @@ func _ready() -> void:
         selected_camp=index
         _open("camp"))
     $Safe/Layout/Map/GestureSurface.world=world
+    world.hud_avoid=map_hud_rects
     $Safe/Layout/Map/Zoom/Slider.value_changed.connect(SettingsState.set_camera_zoom)
     SettingsState.settings_changed.connect(_sync_zoom)
     _sync_zoom()
@@ -1298,6 +1299,32 @@ func _final_chip_target() -> Rect2:
     var node: Control=$Safe/Layout/Map/FinalKeys
     if not node.visible or sheet.visible or modal_open() or not sim.state.prestige_batch.is_empty():return Rect2()
     return Rect2(node.position,node.size)
+
+## Change 86: every visible HUD control over the map (both rails, trackers, chips, feed, joystick, the banner and
+## the toast), as rectangles in the map viewport's own pixels, for world text that must stay clear of them. A control
+## covering most of the map is a layer, not a block: its own children count instead.
+func map_hud_rects() -> Array:
+    var container: Control=$Safe/Layout/Map/ViewportContainer
+    var vp: SubViewport=$Safe/Layout/Map/ViewportContainer/Viewport
+    var origin: Vector2=container.global_position
+    var k: Vector2=Vector2(vp.size)/container.size.max(Vector2.ONE)
+    var layer_area: float=container.size.x*container.size.y*.4
+    var out: Array=[]
+    var nodes: Array=[]
+    for child in $Safe/Layout/Map.get_children():
+        if child is Control and child!=container and child.name!="GestureSurface":nodes.append(child)
+    nodes.append_array([banner,$Toast])
+    while not nodes.is_empty():
+        var node=nodes.pop_back()
+        if node==null or not node.is_visible_in_tree():continue
+        var r: Rect2=node.get_global_rect()
+        if r.size.x<=1.0 or r.size.y<=1.0:continue
+        if r.size.x*r.size.y>layer_area:
+            for c in node.get_children():
+                if c is Control:nodes.append(c)
+            continue
+        out.append(Rect2((r.position-origin)*k,r.size*k))
+    return out
 
 ## Where a floating key's centre may be (map coordinates): below both HUD rails and the followed pills, inside the
 ## map's middle columns, above the joystick's band.

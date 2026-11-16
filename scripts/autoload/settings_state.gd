@@ -43,9 +43,14 @@ var selected_game_speed: float = 1.0
 ## and only temporarily. The player's own values are remembered here, never saved as the mix: to_save_dict writes
 ## the original value of every channel still at its recommended value, so a closed app or a crash can never leave
 ## the mix behind. restore_recommended() puts back each channel the player has not changed since (a deliberate
-## change in the meantime is kept). Mutes are never touched.
+## change in the meantime is kept).
+## Change 86: the mix also turns both sound-effect mutes off (Gameplay Sounds carry the boss's laughs, enrage and
+## arena cues; Special Sounds its notifications), since a muted category would silence them whatever the volume.
+## They are remembered, saved and restored by the same rule as the volumes. Volumes and these two mutes are every
+## audio restriction the game has (no bus mutes).
 const RECOMMENDED_MUSIC: float = 0.4
 const RECOMMENDED_SFX: float = 1.0
+const RECOMMENDED_MUTE: bool = false
 signal recommended_changed(active: bool)
 var _recommended: Dictionary = {}
 
@@ -153,9 +158,11 @@ func recommended_active() -> bool:
 ## Applies the recommended mix after an explicit tap; the current values are kept to restore later.
 func apply_recommended() -> void:
     if _recommended.is_empty():
-        _recommended = {"music": music_volume, "sfx": sfx_volume}
+        _recommended = {"music": music_volume, "sfx": sfx_volume, "mute_gameplay": mute_gameplay, "mute_special": mute_special}
     music_volume = RECOMMENDED_MUSIC
     sfx_volume = RECOMMENDED_SFX
+    mute_gameplay = RECOMMENDED_MUTE
+    mute_special = RECOMMENDED_MUTE
     settings_changed.emit()
     recommended_changed.emit(true)
 
@@ -168,6 +175,10 @@ func restore_recommended() -> void:
         music_volume = float(_recommended.music)
     if is_equal_approx(sfx_volume, RECOMMENDED_SFX):
         sfx_volume = float(_recommended.sfx)
+    if mute_gameplay == RECOMMENDED_MUTE:
+        mute_gameplay = bool(_recommended.get("mute_gameplay", mute_gameplay))
+    if mute_special == RECOMMENDED_MUTE:
+        mute_special = bool(_recommended.get("mute_special", mute_special))
     _recommended = {}
     settings_changed.emit()
     recommended_changed.emit(false)
@@ -175,6 +186,10 @@ func restore_recommended() -> void:
 
 func _saved_volume(key: String, value: float, recommended: float) -> float:
     return float(_recommended[key]) if _recommended.has(key) and is_equal_approx(value, recommended) else value
+
+
+func _saved_mute(key: String, value: bool) -> bool:
+    return bool(_recommended[key]) if _recommended.has(key) and value == RECOMMENDED_MUTE else value
 
 
 func to_save_dict() -> Dictionary:
@@ -188,8 +203,8 @@ func to_save_dict() -> Dictionary:
         "supply_buy_amount": supply_buy_amount,
         "sfx_volume": _saved_volume("sfx", sfx_volume, RECOMMENDED_SFX),
         "music_volume": _saved_volume("music", music_volume, RECOMMENDED_MUSIC),
-        "mute_gameplay": mute_gameplay,
-        "mute_special": mute_special,
+        "mute_gameplay": _saved_mute("mute_gameplay", mute_gameplay),
+        "mute_special": _saved_mute("mute_special", mute_special),
         "selected_game_speed": selected_game_speed,
     }
 

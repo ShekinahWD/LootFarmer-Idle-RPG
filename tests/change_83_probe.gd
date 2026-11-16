@@ -168,13 +168,14 @@ func rage_checks() -> void:
     SaveService.save_now();SaveService.load_and_apply();await frames(2)
     a=alien()
     check(sim.campaign.enraged(a),"Rage survives save / load")
-    # Player death: the latch holds.
+    # Player death: since Change 86 it ends the encounter's Rage (tests/change_86_probe covers the details).
     die();steps(.2)
-    check(bool(alien().get("rage",false)),"A player death does not reset it")
-    # Arena wall colour (needs a closed arena with this boss).
+    check(not bool(alien().get("rage",false)),"A player death resets it (Change 86)")
+    # Arena wall colour (needs a closed arena with this boss, enraged again at 20%).
     var p: Dictionary=sim.state.player
     p.respawn=0.0;steps(.1);sturdy();place(Vector2(30,0));steps(.2);calm_boss()
-    await frames(30)
+    alien().hp=maxhp()*.19;steps(.05);calm_boss()
+    await frames(30);await wall_settled()
     check(sim.campaign.arena_active() and game.world.arena_fx.boss_enraged() and game.world.arena_fx.rage>.95,"The arena wall is red while it is enraged (%.2f)" % game.world.arena_fx.rage)
     check(is_equal_approx(sim.campaign.arena_radius(),118.0),"Radius 118 unchanged")
     var old_r: float=sim.campaign.arena_radius()
@@ -296,7 +297,7 @@ func audio_checks() -> void:
     check(not SettingsState.recommended_active() and is_equal_approx(SettingsState.music_volume,.8),"Walking away restores it")
     check(not game.get_node("Safe/Layout/Map/FinalAudio").visible,"…and the chip hides")
     # Mute behaviour preserved.
-    check(SettingsState.mute_gameplay and SettingsState.mute_special,"Mutes untouched")
+    check(SettingsState.mute_gameplay and SettingsState.mute_special,"Mutes back to the player's own (Change 86: the mix turns them off while it lasts)")
 
 # ================================================================ 6. Quest and marker
 func quest_marker_checks() -> void:

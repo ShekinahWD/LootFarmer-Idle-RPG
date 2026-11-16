@@ -875,7 +875,7 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
                 apply_timed_status(b,"attack_slow",float(sim.catalog.progression.change17.lightning_duration))
                 b.attack_rate=float(sim.catalog.progression.change17.lightning_attack_rate)
             sim.feedback.emit(b.id,damage,false)
-            if b.hp<=0:sim._kill(b)
+            if b.hp<=0:sim._kill(b,a)
         # Change 14: an area effect plays at its centre (Fire's aim, Frost around the caster); a
         # single-target strike (Lightning, Strike) plays on the actor it hit, wherever a boss aimed.
         pos=center if key in ["fire","frost"] else sim.position_of(target)
@@ -1081,8 +1081,9 @@ func _rearm_warning(a: Dictionary) -> void:
 # (interval / RAGE_ATTACK_SPEED), it takes RAGE_DAMAGE_TAKEN of the damage (every enemy's Defense is 0, so the
 # +30% defense is the game's own damage-mitigation multiplier, as Guard is for the player), each Heal restores
 # RAGE_HEAL x its amount, and on entry it heals once at once (that Heal also starts the Heal cooldown, so the next
-# one follows the normal rules). The latch (actor.rage) is saved with the actor: it survives a reload, a player
-# death, its regeneration and the arena opening, and is dropped only when this boss dies (the next one is normal).
+# one follows the normal rules). The latch (actor.rage) is saved with the actor: it survives a reload while the fight
+# goes on, and is dropped when this boss dies (the next one is normal) or, since Change 86, when the player's death
+# ends the encounter (simulation._kill), so every new fight starts normal and enrages again at RAGE_BELOW.
 const RAGE_BELOW:=.2
 const RAGE_ATTACK_SPEED:=1.5
 const RAGE_DAMAGE_TAKEN:=1.0/1.3
@@ -1095,6 +1096,12 @@ func attack_speed_factor(a: Dictionary) -> float:
 ## Damage-taken factor for an actor (the enraged Green Alien's mitigation).
 func damage_taken_factor(b: Dictionary) -> float:
     return RAGE_DAMAGE_TAKEN if enraged(b) else 1.0
+## Change 86: the Green Alien's id when this killer is that boss or a helper it summoned, else "".
+func final_killer(killer: Dictionary) -> String:
+    if killer.is_empty() or str(killer.get("id",""))=="player":return ""
+    var boss: Dictionary=sim._find_actor(str(killer.get("summoner",""))) if sim.is_helper(killer) else killer
+    if boss.is_empty() or not bool(sim.catalog.groups[int(boss.group)].final):return ""
+    return str(boss.id)
 func _rage_check(a: Dictionary) -> void:
     if bool(a.get("rage",false)) or not bool(a.aggro) or float(a.hp)<=0 or sim.is_helper(a):return
     var maxhp:=actor_max_hp(a)

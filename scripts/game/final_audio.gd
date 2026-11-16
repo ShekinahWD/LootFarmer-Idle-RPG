@@ -11,6 +11,12 @@ extends Node
 ## every LAUGH_MIN..LAUGH_MAX seconds of unpaused play (the first one LAUGH_FIRST in); the audio service's cue
 ## cooldowns keep them from overlapping. A local RNG: the simulation's own RNG stream is never consumed.
 ##
+## Change 86 death laugh: whenever the Green Alien (or a helper it summoned) defeats the player, one of the same three
+## laughs plays at once (AudioService.play_now: it survives the arena-open cue of that frame, replaces a random
+## laugh still playing, and is never stolen), under the settings in force at that moment. While it plays no random
+## laugh starts, and a recommended mix the death would end is restored only after it (restore_due), so its own
+## restoration cannot cut it off. The boss music release is a separate player and never touches it.
+##
 ## Recommended mix (SettingsState, only after an explicit tap, never saved): kept while the player is at the
 ## Green Alien (asking, ceremony, fight, arena, within NEAR_RADIUS of the living boss) and through the first
 ## victory's 10 s celebration; restored when the fight ends otherwise (a later victory, the player's death, "No"
@@ -36,6 +42,11 @@ var rage_quiet:=0.0
 var rng:=RandomNumberGenerator.new()
 ## Probes: laugh cues requested, most recent last.
 var laughs_requested: Array=[]
+## Change 86: the death laugh: when it ends (Time ticks, real time) and whether a restore waits for it.
+var death_laugh_until_ms:=0
+var restore_due:=false
+## Probes: death laughs played (cue ids), most recent last.
+var death_laughs: Array=[]
 
 func _ready() -> void:
     process_mode=Node.PROCESS_MODE_PAUSABLE
@@ -50,7 +61,24 @@ func setup(value) -> void:
     sim.final_warning.connect(func(phase: String)->void:
         if phase=="declined":SettingsState.restore_recommended())
     sim.arena_changed.connect(func(active: bool,reason: String)->void:
-        if not active and reason=="death":SettingsState.restore_recommended())
+        if not active and reason=="death":_restore_after_laugh())
+    sim.final_defeated_player.connect(_death_laugh)
+
+## Change 86: the Green Alien defeated the player: one random laugh now.
+func _death_laugh(_id: String) -> void:
+    var cue: String=LAUGHS[rng.randi_range(0,LAUGHS.size()-1)]
+    if AudioService.play_now(cue,LAUGHS):
+        death_laughs.append(cue)
+        death_laugh_until_ms=Time.get_ticks_msec()+int(maxf(AudioService.cue_length(cue),.5)*1000.0)
+    laugh_clock=-1.0
+
+func death_laugh_playing() -> bool:
+    return Time.get_ticks_msec()<death_laugh_until_ms
+
+## Ends the recommended mix now, or once the death laugh has finished.
+func _restore_after_laugh() -> void:
+    if death_laugh_playing():restore_due=true
+    else:SettingsState.restore_recommended()
 
 func _victory(kind: String) -> void:
     # The boss music stops at once (the encounter ended in this step); the main music returns.
@@ -86,7 +114,10 @@ func _process(delta: float) -> void:
     var want:=wanted_track()
     if want!=AudioService.boss_music():
         AudioService.set_boss_music(want,RAGE_MIX_DB if want==RAGE_TRACK else NORMAL_MIX_DB,SWITCH_FADE if want!=null else RELEASE_FADE)
-    if SettingsState.recommended_active() and not at_final_boss():SettingsState.restore_recommended()
+    if restore_due and not death_laugh_playing():
+        restore_due=false
+        SettingsState.restore_recommended()
+    if SettingsState.recommended_active() and not at_final_boss() and not death_laugh_playing():SettingsState.restore_recommended()
     if sim.held or sim.suspended:return
     rage_quiet=maxf(0.0,rage_quiet-delta)
     if want==null:
@@ -94,7 +125,7 @@ func _process(delta: float) -> void:
         return
     if laugh_clock<0:laugh_clock=rng.randf_range(LAUGH_FIRST.x,LAUGH_FIRST.y)
     laugh_clock-=delta
-    if laugh_clock<=0 and rage_quiet<=0:
+    if laugh_clock<=0 and rage_quiet<=0 and not death_laugh_playing():
         var cue: String=LAUGHS[rng.randi_range(0,LAUGHS.size()-1)]
         laughs_requested.append(cue)
         AudioService.play(cue)
