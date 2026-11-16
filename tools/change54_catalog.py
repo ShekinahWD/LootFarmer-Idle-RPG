@@ -57,7 +57,7 @@ NEW_CARDS = {
     'collection_c8': ('treasure_sense', 1.0),      # boss attributes roll in the upper half of their range
     'hunter_c4': ('boss_breaker', 0.25),           # boss telegraphs +0.3 s, boss heals -25%
     'challenge_c4': ('last_stand', 0.20),          # below 25% HP: +20% attack speed
-    'trophy_c4': ('champions_spoils', 1.0),        # a boss's first defeat each run rolls its loot twice
+    'trophy_c4': ('champions_spoils', 3.0),        # Change 87: a boss's first defeat each run: x3 copies of each equipment drop
     'regional_c4': ('veteran_traveler', 0.25),     # +25% XP from normal enemies below the highest unlocked map
     'masterwork_c4': ('obsidian_temper', 0.15),    # Obsidian merge gain +15%
 }

@@ -5942,7 +5942,7 @@ msgid "CONTENT_TROPHY_C4_NAME"
 msgstr "Botín del campeón"
 
 msgid "CONTENT_TROPHY_C4_DESCRIPTION"
-msgstr "La primera vez que derrotas a un jefe en una partida, su botín se sortea dos veces"
+msgstr "La primera vez que derrotas a un jefe en una partida siempre suelta un arma o atuendo, cada uno en 3 copias"
 
 msgid "CONTENT_REGIONAL_C4_NAME"
 msgstr "Viajero veterano"

@@ -6009,7 +6009,7 @@ msgid "CONTENT_TROPHY_C4_NAME"
 msgstr "Champion's Spoils"
 
 msgid "CONTENT_TROPHY_C4_DESCRIPTION"
-msgstr "Defeating a boss for the first time in a run rolls its loot twice"
+msgstr "Defeating a boss for the first time in a run always drops a weapon or outfit, each as 3 copies"
 
 msgid "CONTENT_REGIONAL_C4_NAME"
 msgstr "Veteran Traveler"

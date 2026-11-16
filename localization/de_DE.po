@@ -5942,7 +5942,7 @@ msgid "CONTENT_TROPHY_C4_NAME"
 msgstr "Beute des Champions"
 
 msgid "CONTENT_TROPHY_C4_DESCRIPTION"
-msgstr "Beim ersten Sieg über einen Boss pro Durchlauf wird die Beute zweimal ausgewürfelt"
+msgstr "Der erste Sieg über einen Boss pro Durchlauf droppt immer eine Waffe oder ein Kostüm, jeweils als 3 Kopien"
 
 msgid "CONTENT_REGIONAL_C4_NAME"
 msgstr "Erfahrener Reisender"

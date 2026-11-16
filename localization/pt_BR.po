@@ -5942,7 +5942,7 @@ msgid "CONTENT_TROPHY_C4_NAME"
 msgstr "Espólios do campeão"
 
 msgid "CONTENT_TROPHY_C4_DESCRIPTION"
-msgstr "Na primeira vez que você derrota um chefe em uma partida, o saque é sorteado duas vezes"
+msgstr "Na primeira vez que você derrota um chefe em uma partida, ele sempre deixa uma arma ou traje, cada um em 3 cópias"
 
 msgid "CONTENT_REGIONAL_C4_NAME"
 msgstr "Viajante veterano"

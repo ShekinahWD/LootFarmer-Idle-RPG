@@ -54,7 +54,7 @@
   "CONTENT_CHALLENGE_C4_NAME": "Last Stand",
   "CONTENT_CHALLENGE_C4_DESCRIPTION": "Below 25% HP: +20% attack speed",
   "CONTENT_TROPHY_C4_NAME": "Champion's Spoils",
-  "CONTENT_TROPHY_C4_DESCRIPTION": "Defeating a boss for the first time in a run rolls its loot twice",
+  "CONTENT_TROPHY_C4_DESCRIPTION": "Defeating a boss for the first time in a run always drops a weapon or outfit, each as 3 copies",
   "CONTENT_REGIONAL_C4_NAME": "Veteran Traveler",
   "CONTENT_REGIONAL_C4_DESCRIPTION": "+25% XP from normal enemies on maps before your furthest unlocked map",
   "CONTENT_MASTERWORK_C4_NAME": "Obsidian Temper",

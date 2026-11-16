@@ -5942,7 +5942,7 @@ msgid "CONTENT_TROPHY_C4_NAME"
 msgstr "Butin du champion"
 
 msgid "CONTENT_TROPHY_C4_DESCRIPTION"
-msgstr "La première défaite d’un boss dans une partie déclenche deux tirages de butin"
+msgstr "La première défaite d’un boss dans une partie lâche toujours une arme ou une tenue, chacune en 3 copies"
 
 msgid "CONTENT_REGIONAL_C4_NAME"
 msgstr "Voyageur aguerri"

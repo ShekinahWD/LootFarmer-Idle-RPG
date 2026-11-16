@@ -1068,7 +1068,7 @@
    ]
   },
   "CONTENT_TROPHY_C4_DESCRIPTION": {
-   "en": "Defeating a boss for the first time in a run rolls its loot twice",
+   "en": "Defeating a boss for the first time in a run always drops a weapon or outfit, each as 3 copies",
    "placeholders": [],
    "change": "change-54",
    "translated": [

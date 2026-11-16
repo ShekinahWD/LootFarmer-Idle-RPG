@@ -1669,11 +1669,15 @@ func _reward(a: Dictionary) -> void:
         state.online_gems+=gems
         history("HISTORY_CURRENCY","",gems,0)
     # Independent item-drop rolls: purchased boss levels add up to four rolls for gear, supplies
-    # and skills. Champion's Spoils keeps its separate first-defeat bonus gear roll only.
-    # The original RNG sequence is unchanged for a boss with no new upgrade, including Spoils.
+    # and skills.
     var item_rolls:=1+level("boss_item_rolls",group) if def.boss else 1
     var gear_rolls:=item_rolls
-    if def.boss and campaign.bonus("champions_spoils")>0 and int(state.run_kills.get(str(def.id),0))==0:gear_rolls+=1
+    # Change 87: a boss's first defeat this run (state.run_kills, saved, reset by Prestige; campaign.killed
+    # raises it right after this reward) always yields equipment, and Champion's Spoils multiplies that
+    # defeat's equipment drops. The guarantee makes "first defeat" and "first equipment drop" the same
+    # event, so run_kills is also Spoils' persisted per-boss consumed marker.
+    var boss_first:bool=def.boss and int(state.run_kills.get(str(def.id),0))==0
+    var first_pickup: int=state.pickups.size()
     var dropped: Array=[]
     for roll in range(gear_rolls):
         for id in def.loot:
@@ -1688,7 +1692,34 @@ func _reward(a: Dictionary) -> void:
     campaign.onboarding.loot_kill(a,def,dropped)
     # Change 27: a listed boss's first lifetime defeat always drops its own weapon (hidden).
     campaign.onboarding.boss_first_kill(a,def,dropped)
+    # Change 87: after Change 27, so its weapon (from the same pool) already counts as the guaranteed item.
+    if boss_first:
+        _boss_first_gear(a,def,dropped)
+        _spoils(first_pickup)
     _loot_speech(a,dropped)
+
+## Change 87: a boss's first defeat this run. If this defeat produced no equipment (natural rolls or the
+## Change 27 weapon), one item from the boss's own equipment loot pool drops (the RNG is touched only then,
+## so every other defeat keeps its sequence).
+func _boss_first_gear(a: Dictionary,def: Dictionary,dropped: Array) -> void:
+    var gear: Array=def.loot.filter(func(id):return str(catalog.items[id].kind) in ["weapon","outfit"])
+    if gear.is_empty() or dropped.any(func(id):return str(catalog.items[id].kind) in ["weapon","outfit"]):return
+    dropped.append(_drop(str(gear[rng.randi_range(0,gear.size()-1)]),a))
+
+## Change 87 Champion's Spoils: every equipment pickup of a boss's first defeat this run (natural drops, the
+## guarantee and the Change 27 first-lifetime weapon) becomes spoils_copies() copies of it, each item on its own.
+## The pickup keeps its "enhanced" mark, and enhance() adds boss attributes once per id, so the extra copies
+## never duplicate them.
+func _spoils(first_pickup: int) -> void:
+    var copies:=spoils_copies()
+    if copies<=1:return
+    for i in range(first_pickup,state.pickups.size()):
+        var p: Dictionary=state.pickups[i]
+        if str(catalog.items[p.item].kind) in ["weapon","outfit"] and not p.has("dropped"):p["qty"]=int(p.get("qty",1))*copies
+
+## Change 87: copies per equipment drop on a boss's first defeat this run (1 without Champion's Spoils).
+func spoils_copies() -> int:
+    return maxi(1,roundi(campaign.bonus("champions_spoils")))
 
 ## Change 11: a defeated enemy's loot line follows what it actually dropped, after every roll: one
 ## bubble at most, for the most personal item (outfit, then weapon, skill, supply); none without a drop.

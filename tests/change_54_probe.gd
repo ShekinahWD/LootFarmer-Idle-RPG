@@ -285,11 +285,12 @@ func effect_checks() -> void:
     for i in range(200):
         sim.state.pickups=[];sim.state.run_kills.erase("boss-snowman")
         sim._reward({"id":"g%d_v2_0" % snow,"group":snow,"variant":2,"x":10.0,"y":10.0})
-        first+=sim.state.pickups.filter(func(p):return bd.loot.has(p.item)).size()
+        for p in sim.state.pickups.filter(func(p):return bd.loot.has(p.item)):first+=int(p.get("qty",1))
         sim.state.pickups=[];sim.state.run_kills["boss-snowman"]=1
         sim._reward({"id":"g%d_v2_0" % snow,"group":snow,"variant":2,"x":10.0,"y":10.0})
-        later+=sim.state.pickups.filter(func(p):return bd.loot.has(p.item)).size()
-    check(first>later*1.5,"Champion's Spoils: a first defeat this run rolls the loot twice (%d vs %d)" % [first,later])
+        for p in sim.state.pickups.filter(func(p):return bd.loot.has(p.item)):later+=int(p.get("qty",1))
+    # Change 87: x3 copies of each first-defeat equipment drop (plus the first-kill guarantee); see change_87_probe.
+    check(first>later*3,"Champion's Spoils: a first defeat this run drops 3 copies of each item (%d vs %d)" % [first,later])
 
 func ui_checks() -> void:
     fresh()

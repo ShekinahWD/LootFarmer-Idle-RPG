@@ -87,6 +87,7 @@ func equivalence_checks() -> void:
     for prior in [0,1]:
         fresh("none");chance(.5)
         sim.state.group_kills[snow]=prior # fixture: lifetime defeats before this one
+        sim.state.run_kills["boss-snowman"]=1 # fixture (Change 87): not the run's first defeat, so the run guarantee stays out
         sim.rng.seed=2727
         signals.clear()
         var items:=defeat()
@@ -124,7 +125,9 @@ func persistence_checks() -> void:
     check(int(sim.state.group_kills[snow])==1 and int(sim.state.run_kills.get("boss-snowman",0))==0,"Prestige keeps the lifetime defeat, clears the run's")
     sim.suspended=false
     var after:=defeat()
-    check(not after.has("wood_axe"),"First defeat after Prestige is ordinary (%s)" % [after])
+    # Change 87: a run's first boss defeat now always drops one item from the boss's pool; the Change 27 weapon
+    # is not added on top of it.
+    check(after.filter(func(id):return str(sim.catalog.items[id].kind) in ["weapon","outfit"]).size()==1,"First defeat after Prestige: only the Change 87 guaranteed item, no extra weapon (%s)" % [after])
     # Hard Reset makes a new profile: the guarantee is back.
     check(SaveService.hard_reset(),"Hard Reset succeeds")
     sim.suspended=false;sim.state.tutorial.mode="none"
@@ -163,6 +166,7 @@ func catalog_weapon_checks() -> void:
     var cyan: Dictionary={}
     for e in sim.state.enemies:
         if int(e.group)==robot:cyan=e
+    sim.state.run_kills["boss-cyan-robot"]=1 # fixture (Change 87): not the run's first defeat, so the run guarantee stays out
     var before: int=sim.state.pickups.size()
     cyan.hp=0.0;sim._kill(cyan)
     check(not sim.state.pickups.slice(before).any(func(p):return str(p.item)=="stone_sword"),"Unlisted bosses keep ordinary drops")

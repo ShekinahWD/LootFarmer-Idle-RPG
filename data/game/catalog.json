@@ -23392,7 +23392,7 @@
         "name": "CONTENT_TROPHY_C4_NAME",
         "description": "CONTENT_TROPHY_C4_DESCRIPTION",
         "effect": "champions_spoils",
-        "value": 1.0
+        "value": 3.0
       },
       "regional_c4": {
         "path": "regional",

@@ -47,6 +47,7 @@ static func headline(definition: Dictionary) -> String:
     match str(definition.effect):
         "crit","gear_chance","supply_chance","gem_chance":return TranslationServer.translate("CARD_VALUE_POINTS") % roundi(value*100)
         "boss_guard","guard","coin_discount","reroll_discount":return "−%d%%" % roundi(value*100)
+        "champions_spoils":return "×%d" % roundi(value) # Change 87: copies per first-defeat equipment drop
         "camp_supplies":return "+%d" % roundi(value) # Change 80: supplies per camp batch (the line gives the 10-minute cooldown)
         "respawn":return TranslationServer.translate("CARD_VALUE_SECONDS") % str(snappedf(value,.1)).trim_suffix(".0")
     return "+%d%%" % roundi(value*100)
