@@ -5035,15 +5035,6 @@ msgstr "Elk menu is al beschikbaar"
 msgid "PANEL_MASTERY"
 msgstr "Kaartmeesterschap"
 
-msgid "MASTERY_OPEN"
-msgstr "Kaartmeesterschap · Spel %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "Optionele doelen voor 100% voltooiing. Voortgang is permanent en blijft bij prestige."
-
-msgid "MASTERY_GAME"
-msgstr "Spelvoltooiing %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Alle acht kaarten: titel %s · %s"
 
@@ -5160,9 +5151,6 @@ msgstr "Voltooi een kans en gebruik dan Prestige voor een permanente kaart"
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Kaart beheerst · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100% voltooid"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Meesterfarmer"
@@ -5601,9 +5589,6 @@ msgstr "Open Wereld en kies Winter II om het avontuur voort te zetten."
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "DE WEG VOORUIT"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Je uiteindelijke doel is de eindbaas in gebied 8 te verslaan en het spel te veroveren.\n\nNog meer uitdaging? Haal 100% voltooiing door elke mijlpaal in Kaartmeesterschap te halen.\n\nSpeel in je eigen tempo, geniet van de reis en veel succes!"
 
 msgid "SLOT_SMALL"
 msgstr "Klein"

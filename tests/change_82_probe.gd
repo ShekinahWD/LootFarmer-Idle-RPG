@@ -78,6 +78,7 @@ func all_keys() -> void:
     sim.state.keys=[]
     for d in sim.catalog.groups:
         if d.boss and not d.final:sim.state.keys.append(str(d.id)) # fixture: 13 keys earned
+    sim.state.final_warning_ok=true # fixture: the Change 83 danger warning accepted earlier (this probe tests the ceremony)
 ## Strong enough to stand in the fight for the few seconds these checks need (fixture; no balance read).
 func sturdy() -> void:
     sim.state.player_level=500;sim._stats_revision=-1;sim.state.player.hp=sim.stats().hp
@@ -225,7 +226,7 @@ func do_prestige() -> bool:
 ## A fresh Spring II with the ceremony already done and the fight on (fixture).
 func engaged() -> Dictionary:
     fresh();spring_two();sturdy();all_keys()
-    sim.state.final_unsealed=true # fixture: ceremony completed earlier
+    sim.state.final_unsealed=true;sim.state.final_experience=true # fixture: ceremony (and Change 83 introduction) completed earlier
     place(Vector2(30,0));steps(.1)
     return alien()
 

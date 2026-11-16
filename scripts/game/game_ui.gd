@@ -130,6 +130,10 @@ var merge_fx: Control
 ## Change 81: the boss-key pickup over the map (scripts/game/key_fx.gd) and the Boss Keys chip's last text.
 var key_fx: Control
 var final_text:=""
+## Change 83: the danger warning and the ending panel (final_dialog.gd), and the Green Alien's music, laughter and
+## temporary recommended mix (final_audio.gd).
+var final_dialog: Control
+var final_audio: Node
 var evolution_show: Control
 ## While a manual merge or evolution runs, the simulation's merged / evolved signals are collected
 ## here instead of being shown as automatic ones.
@@ -356,6 +360,19 @@ func _ready() -> void:
     sim.final_ceremony.connect(_final_ceremony)
     sim.arena_changed.connect(_arena_changed)
     sim.traveled.connect(func(map_changed: bool,_from: Vector2,_to: Vector2)->void:if map_changed:key_fx.send_all())
+    # Change 83: the danger warning, Rage Mode, the victory celebration and ending, the recommended mix.
+    final_dialog=preload("res://scripts/game/final_dialog.gd").new()
+    final_dialog.name="FinalDialog"
+    add_child(final_dialog)
+    final_dialog.answered.connect(_final_answered)
+    final_audio=preload("res://scripts/game/final_audio.gd").new()
+    final_audio.name="FinalAudio"
+    add_child(final_audio)
+    final_audio.setup(sim)
+    sim.final_warning.connect(_final_warning)
+    sim.final_rage.connect(_final_rage)
+    sim.final_victory.connect(_final_victory)
+    _build_final_audio_chip()
     # Change 65: the one tutorial-card viewer (Basic opening and Help), above the panel and the guide.
     help_viewer=preload("res://scripts/game/help_viewer.gd").new()
     help_viewer.z_index=18
@@ -588,7 +605,8 @@ func _safe_area() -> void:
 
 func _process(dt: float) -> void:
     # Change 35: the review invitation holds the world while it is open (and only then).
-    sim.held=$ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible) or (evolution_show!=null and evolution_show.visible)
+    sim.held=$ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible) or (evolution_show!=null and evolution_show.visible) or (final_dialog!=null and final_dialog.is_open())
+    _update_final(dt)
     _offer_review(dt)
     gem_pickup_time=maxf(0,gem_pickup_time-dt)
     # Change 72: Gems found show as rows of the one recent-finds feed; the separate counter stays hidden.
@@ -782,7 +800,7 @@ func _settle_camp() -> void:
 ## A confirmation is in front of the game (the ordinary one, the Prestige confirmation or, since
 ## Change 35, the review invitation).
 func modal_open() -> bool:
-    return $Confirm.visible or $PrestigeConfirm.visible or $ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible) or (evolution_show!=null and evolution_show.visible)
+    return $Confirm.visible or $PrestigeConfirm.visible or $ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible) or (evolution_show!=null and evolution_show.visible) or (final_dialog!=null and final_dialog.is_open())
 
 ## Change 35: the review invitation (review_invitation.gd owns its state and the world-side rules).
 ## Once pending on a build with a configured storefront, it waits for a quiet moment: the world safe
@@ -891,7 +909,7 @@ func _refresh_view_camp() -> void:
     if not button.position.is_equal_approx(pos):button.position=pos
 
 ## Change 79: HUD rail controls View Camp keeps clear of once a followed-objective pill shows.
-const VIEW_CAMP_AVOID:=["EnemySection","Achievement","EnemyUpgrades","QuickFarm","MiniMap","ZoomButton","ZoomPlate","Explored","Mastery","Gate","FinalKeys"]
+const VIEW_CAMP_AVOID:=["EnemySection","Achievement","EnemyUpgrades","QuickFarm","MiniMap","ZoomButton","ZoomPlate","Explored","Mastery","Gate","FinalKeys","FinalAudio"]
 
 ## The bottom centre of a camp's name label, in Map coordinates (INF when the stage art is missing).
 func _camp_label_point(i: int) -> Vector2:
@@ -1054,7 +1072,7 @@ func _layout_hud() -> void:
     _place(map.get_node("Explored"),Rect2(right-caption,y,caption,STATUS_HEIGHTS.Explored))
     y+=STATUS_HEIGHTS.Explored+HUD_GAP-2
     var chips_top: float=y
-    for path in ["Mastery","Gate","FinalKeys"]:
+    for path in ["Mastery","Gate","FinalKeys","FinalAudio"]:
         var node: Control=map.get_node(path)
         if not node.visible:continue
         var least: float=_chip_width(node) if node is Button else node.get_combined_minimum_size().x
@@ -1089,10 +1107,12 @@ func _layout_hud() -> void:
 func _chip_width(chip: Button) -> float:
     var font: Font=chip.get_theme_font("font")
     var style: StyleBox=chip.get_theme_stylebox("normal")
-    return ceilf(font.get_string_size(chip.text,HORIZONTAL_ALIGNMENT_LEFT,-1,CHIP_FONT).x+style.get_minimum_size().x+chip.get_theme_constant("icon_max_width")+chip.get_theme_constant("h_separation")+8)
+    var widest:=0.0
+    for line in chip.text.split("\n"):widest=maxf(widest,font.get_string_size(line,HORIZONTAL_ALIGNMENT_LEFT,-1,CHIP_FONT).x)
+    return ceilf(widest+style.get_minimum_size().x+chip.get_theme_constant("icon_max_width")+chip.get_theme_constant("h_separation")+8)
 
 const MINIMAP_SIDE:=220.0
-const STATUS_HEIGHTS:={"Mastery":44.0,"Explored":30.0,"Gate":52.0,"FinalKeys":52.0}
+const STATUS_HEIGHTS:={"Mastery":44.0,"Explored":30.0,"Gate":52.0,"FinalKeys":52.0,"FinalAudio":48.0}
 const GATE_CAPTION_FONT:=14
 ## The left rail's width (the three enemy controls in a row, and an objective pill): 162+6+76+6+76.
 const LEFT_COLUMN_WIDTH:=ACHIEVEMENT_WIDTH+(TILE_GAP+TILE_SIDE)*2
@@ -1115,7 +1135,7 @@ func left_column_bottom() -> float:
 ## The bottom of the top-right stack (map coordinates).
 func map_stack_bottom() -> float:
     var bottom: float=HUD_MARGIN
-    for path in ["MiniMap","Zoom","Mastery","Explored","Gate","FinalKeys"]:
+    for path in ["MiniMap","Zoom","Mastery","Explored","Gate","FinalKeys","FinalAudio"]:
         var node: Control=$Safe/Layout/Map.get_node(path)
         if node.visible:bottom=maxf(bottom,node.position.y+node.size.y)
     return bottom
@@ -1342,6 +1362,114 @@ func _final_ceremony(phase: String) -> void:
 ## Change 82: one short notice when the barrier closes (not right after the ceremony's own banner).
 func _arena_changed(active: bool,_reason: String) -> void:
     if active and Time.get_ticks_msec()/1000.0-unseal_shown_at>6.0:_say(tr("ARENA_CLOSED"))
+
+# ---------------------------------------------------------------- Change 83: Green Alien finale
+func _final_group() -> int:
+    for i in range(sim.catalog.groups.size()):
+        if bool(sim.catalog.groups[i].final):return i
+    return -1
+
+func _final_art() -> Texture2D:
+    var g:=_final_group()
+    return icon_cache.get(sim.catalog.groups[g].body) if g>=0 else null
+
+## The danger question opens over everything (a panel closes first; the stick lets go).
+func _final_warning(phase: String) -> void:
+    if phase!="ask":return
+    stick.release();stick_input=Vector2.ZERO
+    if sheet.visible:_close()
+    if $Confirm.visible:_cancel_confirm()
+    world.follow_player()
+    final_dialog.open_warning(_final_art())
+    AudioService.play("boss_found")
+
+func _final_answered(kind: String,choice: String) -> void:
+    match kind:
+        "warning":
+            if choice=="yes":
+                AudioService.play("ui_confirm")
+                sim.campaign.accept_final_warning()
+            else:
+                AudioService.play("ui_click")
+                sim.campaign.decline_final_warning()
+        "ending":
+            # Any answer acknowledges the message once; the links open after (they never block play).
+            sim.campaign.acknowledge_ending()
+            match choice:
+                "review":
+                    if not sim.campaign.review.open_store():_say(tr("REVIEW_OPEN_FAILED"))
+                "discord":_open_discord()
+                _:AudioService.play("ui_confirm")
+
+## Rage Mode: a red warning over the map for about 5 s (non-blocking: never a modal, never a pause); the aura and
+## the red wall stay after it.
+func _final_rage(_id: String) -> void:
+    banner.push_warning("final_rage",tr("FINAL_RAGE_TITLE"),tr("FINAL_RAGE_BODY"),_final_art(),RAGE_BANNER_SECONDS)
+const RAGE_BANNER_SECONDS:=5.0
+
+## A Green Alien victory. "first": the 10 s celebration (world frozen, camera on the floor); the ending panel follows
+## once campaign.ending_due. Later victories: nothing modal (unless the message is still owed).
+func _final_victory(kind: String) -> void:
+    match kind:
+        "first":
+            stick.release();stick_input=Vector2.ZERO
+            if sheet.visible:_close()
+            if $Confirm.visible:_cancel_confirm()
+            world.follow_player()
+            # The celebration has its own banner: the generic boss title (it would sit on the floor's caption) goes.
+            if boss_title_tween!=null and boss_title_tween.is_valid():boss_title_tween.kill()
+            boss_title.visible=false
+            banner.push_front("final_victory",tr("FINAL_VICTORY_TITLE"),tr("FINAL_VICTORY_BODY"),_final_art())
+            AudioService.play("game_complete")
+        "repeat":_say(tr("FLOOR_REPEAT_NOTICE"))
+
+## Every frame: the owed ending panel (when nothing else holds the screen) and the recommended-audio chip.
+func _update_final(_dt: float) -> void:
+    if final_dialog==null:return
+    var c=sim.campaign
+    if c.ending_due and not final_dialog.is_open() and not modal_open() and sim.state.prestige_batch.is_empty() and not get_tree().paused and not sim.suspended and sim.state.tutorial.mode!="pending":
+        if sheet.visible:_close()
+        stick.release();stick_input=Vector2.ZERO
+        final_dialog.open_ending(_hero_art())
+        AudioService.play("mastery_map")
+    _refresh_final_audio_chip()
+
+func _hero_art() -> Texture2D:
+    var outfit: String=str(sim.state.get("outfit",""))
+    return icon_cache.get(outfit) if outfit!="" and icon_cache.has(outfit) else _final_art()
+
+## A small chip under Boss Keys whenever the player is at the living Green Alien (or fighting it): one tap sets the
+## recommended mix (Music 40% / Sound Effects 100%) for this encounter, a second tap puts the player's own back.
+func _build_final_audio_chip() -> void:
+    var map: Control=$Safe/Layout/Map
+    var chip:=Button.new()
+    chip.name="FinalAudio"
+    chip.theme_type_variation=&"HudChipButton"
+    chip.visible=false
+    chip.focus_mode=Control.FOCUS_NONE
+    chip.add_theme_font_size_override("font_size",CHIP_FONT)
+    chip.clip_text=false
+    chip.pressed.connect(func()->void:
+        if SettingsState.recommended_active():SettingsState.restore_recommended()
+        else:SettingsState.apply_recommended()
+        AudioService.play("ui_confirm")
+        _refresh_final_audio_chip(true))
+    map.add_child(chip)
+    map.move_child(chip,map.get_node("FinalKeys").get_index()+1)
+
+var final_audio_text:=""
+func _refresh_final_audio_chip(force:=false) -> void:
+    var chip: Button=$Safe/Layout/Map/FinalAudio
+    var c=sim.campaign
+    var show: bool=final_audio!=null and not final_dialog.is_open() and not c.celebration_active() and not c.ceremony_active() and (final_audio.near_living_boss() or not c.engaged_final().is_empty())
+    if chip.visible!=show:chip.visible=show
+    if not show:return
+    var text:=tr("FINAL_AUDIO_ON") if SettingsState.recommended_active() else tr("FINAL_AUDIO_CHIP")
+    if text==final_audio_text and not force:return
+    final_audio_text=text
+    chip.text=text
+    chip.tooltip_text=tr("FINAL_AUDIO_TOOLTIP")
+    chip.add_theme_color_override("font_color",Color(.55,1,.6) if SettingsState.recommended_active() else Color(1,.86,.5))
 
 ## Change 81: the Green Alien's introduction, once per profile, the first time it is met (state.tutorial.seen
 ## "final_intro", kept by Prestige). A red banner (the boss-warning form) over the map, never a modal; it waits
@@ -1826,6 +1954,7 @@ func _notice(kind: String,_id: String) -> void:
                 _say(tr("MASTERY_OBJECTIVE_DONE") % [sim.catalog.stages[int(bits[0])-1].name,tr("MASTERY_"+bits[1].to_upper())])
         "mastery_map":if revealed("prestige"):AudioService.play("mastery_map")
         "game_complete":AudioService.play("game_complete")
+        "game_complete_100":AudioService.play("game_complete")
         # Change 16: the first sight of a boss plays the notification (mission-ready) sound, once.
         "boss_found":AudioService.play("boss_found")
         # Change 14: the first Focused Farming purchase confirms itself on the panel's notice line
@@ -2064,7 +2193,10 @@ func _milestone(kind: String,id: String) -> void:
                 var st:=int(id)
                 banner.push(kind,tr("MILESTONE_MASTERY_MAP") % sim.catalog.stages[st-1].name,mastery_reward_text(sim.campaign.mastery.rules.map_rewards[st-1]))
         "mastery_game":
-            banner.push(kind,tr("MILESTONE_MASTERY_GAME"),tr("MASTER_FARMER_TITLE")+" · "+mastery_reward_text(sim.campaign.mastery.rules.completion_reward))
+            # Change 83: every map mastered is one of Game Completion's four parts (no longer "100% complete").
+            banner.push(kind,tr("MILESTONE_ALL_MAPS_MASTERED"),tr("MASTER_FARMER_TITLE")+" · "+mastery_reward_text(sim.campaign.mastery.rules.completion_reward))
+        "game_complete_100":
+            banner.push(kind,tr("MILESTONE_GAME_COMPLETE_100"),tr("MILESTONE_GAME_COMPLETE_100_DETAIL"))
         # Change 16: a boss seen for the first time: a red warning ahead of any queued banner.
         "boss_found":
             var g: int=sim.campaign.group_id(id)
@@ -2239,6 +2371,9 @@ func back() -> void:
         if dropdown.is_menu_open():
             dropdown.close_menu();return
         if dropdown.closed_frame>=frame-1:return
+    # Change 83: the Green Alien panels answer Back with their safe choice (No, Not Yet / Continue Playing).
+    if final_dialog!=null and final_dialog.is_open():
+        final_dialog.back();return
     # Change 67: the evolution panel skips to its result first, then closes.
     if evolution_show.visible:
         evolution_show.back();return
@@ -3730,6 +3865,10 @@ func _world_panel() -> void:
             if sim.campaign.discovered(g):
                 var b:=_action(sim.catalog.groups[g].name,func()->void:group=g;enemy_variant=2;enemy_tab=0;_open("enemy"),true,"",known)
                 b.size_flags_horizontal=0;b.custom_minimum_size=Vector2(0,56);b.add_theme_font_size_override("font_size",17)
+                # Change 83: the final boss keeps its identity here too (its portrait, the map marker's green).
+                if bool(sim.catalog.groups[g].final):
+                    b.icon=_final_art();b.add_theme_constant_override("icon_max_width",30)
+                    b.add_theme_color_override("font_color",Color(.55,1,.6))
     elif map_detail_hint_due() and hint_allowed("map_detail"):
         _text(tr("MAP_MARKERS_HINT"),17,Color(1,.86,.5))
         _action(tr("SECTION_MAP_UPGRADES"),func()->void:_scroll_to_section(tr("SECTION_MAP_UPGRADES"))).set_meta("guide","map_upgrades_jump")
@@ -3738,7 +3877,8 @@ func _world_panel() -> void:
     _action(tr("FARMING_GUIDE_OPEN"),func()->void:guide_stage=0;_open("farming")).set_meta("guide","farming_guide")
     # Change 15: Map Mastery (revealed with Prestige, after the Snowman).
     if revealed("prestige"):
-        _action(tr("MASTERY_OPEN") % sim.campaign.mastery.game_percent(),func()->void:mastery_stage=0;_open("mastery")).set_meta("guide","mastery")
+        # Change 83: Map Mastery and the four-part Game Completion are different numbers; the row names both.
+        _action(tr("MASTERY_OPEN_V83") % [sim.campaign.mastery.game_percent(),sim.campaign.completion.percent()],func()->void:mastery_stage=0;_open("mastery")).set_meta("guide","mastery")
     _stage_progression()
     _section(tr("SECTION_MAP_UPGRADES"))
     for id in ["map_detail","reveal_radius"]:_group_upgrade_card(id,int(sim.state.stage))
@@ -4717,7 +4857,7 @@ func _farming_panel() -> void:
 ## Game completion and the title in Stats, once Map Mastery is revealed.
 func _mastery_stats() -> Array:
     if not revealed("prestige"):return []
-    var lines: Array=[[tr("STATS_COMPLETION"),"%d%%" % sim.campaign.mastery.game_percent()]]
+    var lines: Array=[[tr("STATS_COMPLETION"),"%d%%" % sim.campaign.completion.percent()],[tr("COMPLETION_MAP_MASTERY"),"%d%%" % sim.campaign.mastery.game_percent()]]
     if sim.campaign.mastery.game_complete():lines.append([tr("STATS_TITLE"),tr("MASTER_FARMER_TITLE")])
     return lines
 
@@ -4748,14 +4888,15 @@ func _mastery_panel() -> void:
         _mastery_map(mastery_stage)
         return
     mastery_stage=0
-    _text(tr("MASTERY_INTRO"),17,Color(.8,.84,.9))
+    _completion_card()
+    _text(tr("MASTERY_INTRO_V83"),17,Color(.8,.84,.9))
     var total:=PanelContainer.new()
     total.theme_type_variation=&"Card"
     rows.add_child(total)
     var box:=VBoxContainer.new()
     box.add_theme_constant_override("separation",4)
     total.add_child(box)
-    _card_line(box,tr("MASTERY_GAME") % m.game_percent(),22,Color(1,.86,.5))
+    _card_line(box,tr("MASTERY_ALL_MAPS") % m.game_percent(),22,Color(1,.86,.5))
     _mastery_bar(box,m.game_fraction())
     _card_line(box,(tr("MASTERY_GAME_REWARD_EARNED") if m.game_complete() else tr("MASTERY_GAME_REWARD")) % [tr("MASTER_FARMER_TITLE"),mastery_reward_text(m.rules.completion_reward)],17,Color(.6,1,.75) if m.game_complete() else Color(.8,.84,.9))
     for st in range(1,sim.catalog.stages.size()+1):
@@ -4783,6 +4924,21 @@ func _mastery_panel() -> void:
             open.custom_minimum_size=Vector2(120,64)
             open.set_meta("guide","mastery_map_%d" % st)
         else:_card_line(text,tr("MASTERY_NOT_REACHED"),17,Color(.7,.75,.82))
+
+## Change 83: Game Completion with its four equal parts (completion.gd): overall percent and bar, then each part's
+## achieved / total, percent and bar. Main adventure (the Green Alien) and outfits are separate goals, said below.
+func _completion_card() -> void:
+    var c: Dictionary=sim.campaign.completion.summary()
+    var card:=PanelContainer.new();card.theme_type_variation=&"Card";rows.add_child(card)
+    var box:=VBoxContainer.new();box.add_theme_constant_override("separation",4);card.add_child(box)
+    _card_line(box,("✓ " if c.complete else "")+tr("COMPLETION_TITLE") % int(c.percent),24,Color(.5,1,.65) if c.complete else Color(1,.86,.5))
+    _mastery_bar(box,float(c.fraction))
+    _card_line(box,tr("COMPLETION_RULE"),16,Color(.8,.84,.9))
+    for pair in [["mastery","COMPLETION_PART_MASTERY"],["cards","COMPLETION_PART_CARDS"],["player","COMPLETION_PART_PLAYER"],["enemy","COMPLETION_PART_ENEMY"]]:
+        var e: Dictionary=c[pair[0]]
+        _card_line(box,("✓ " if e.complete else "")+tr(pair[1]) % [int(e.done),int(e.total),int(e.percent)],18,Color(.5,1,.65) if e.complete else Color.WHITE)
+        _mastery_bar(box,float(e.fraction))
+    _card_line(box,tr("COMPLETION_SEPARATE") % [sim.campaign.owned_floor_outfits().size(),sim.campaign.floor_outfits().size()],16,Color(.75,.8,.87))
 
 func _mastery_bar(parent: Control,fraction: float) -> void:
     var bar:=ProgressBar.new()
@@ -4961,6 +5117,8 @@ func _missions_panel() -> void:
         var ready: bool=not m.claimed and m.progress>=m.goal
         _task_card(art,tr("GOAL_"+str(m.kind).to_upper())+(" · "+sim.catalog.groups[g].name if g>=0 else ""),("%s / %s" % [fmt_currency(m.progress),fmt_cost(m.goal)] if str(m.kind)=="coins" else "%s / %s" % [fmt_count(m.progress),fmt_count(m.goal)]),m.progress,m.goal,m.coins,m.gems,func()->void:_confirmed(sim.campaign.claim_mission(i)),ready,"MISSION_NOT_READY",bool(m.claimed),["daily",i])
     _section(tr("MAIN_OBJECTIVES"))
+    # Change 83: the Boss Keys quest leads the main objectives on every map (from the discovery to the victory).
+    if sim.state.final_discovered:_final_quest_card()
     # Change 61: the one-time 30-defeat mission, from the Snowman's discovery until it is claimed. It is
     # listed above (not inside) the three main objectives, so their display limit never hides it.
     if sim.campaign.hunt_open():
@@ -4981,15 +5139,6 @@ func _missions_panel() -> void:
         _action(tr("MAIN_COMPLETED_TOGGLE") % [claimed_main.size(),tr("HIDE" if show_completed_main else "SHOW")],func()->void:show_completed_main=not show_completed_main)
         if show_completed_main:
             for i in claimed_main:_text("✓ "+tr("MAIN_%d" % int(i)),17,Color(.5,1,.65))
-    if sim.state.final_discovered:
-        # Change 81: the quest's own section (the Boss Keys chip opens Missions here): the introduction, the count.
-        _section(tr("FINAL_KEYS_SECTION"))
-        _text(tr("FINAL_INTRO_BODY") % [sim.campaign.FINAL_KEYS,sim.campaign.FINAL_KEYS],17,Color(.8,.84,.9))
-        var objective: String=sim.campaign.final_objective()
-        _text(tr("FINAL_HUD_READY").replace(" · ",": ") if objective=="ready" else tr("KEY_PROGRESS") % sim.state.keys.size(),18,Color(.55,1,.6) if objective=="ready" else Color(1,.86,.5))
-        var keys:=HFlowContainer.new();rows.add_child(keys)
-        for d in sim.catalog.groups:
-            if d.boss and not d.final:_card_icon(keys,icon_cache.get(d.body),Color.WHITE if sim.state.keys.has(d.id) else Color(.3,.3,.35))
     _group_upgrade_card("mission_slots",-1)
     _group_upgrade_card("mission_claim",-1)
     if sim.level("mission_claim")<=0:
@@ -5004,6 +5153,47 @@ func _missions_panel() -> void:
                 sim.state.tutorial.seen.append("mission_auto_enabled")
             sim.touch())
         _toggle_style(toggle,bool(sim.state.mission_auto)).set_meta("guide","mission_auto_toggle")
+
+## Change 83: the Boss Keys quest (Missions → Main Objectives, opened by the Boss Keys chip): the count X/13 and every
+## key the Green Alien needs, grouped by stage in catalog order: a check for a key held, "Defeat <boss> — <stage>"
+## for one missing. At 13/13 it says to return to the Green Alien; after the victory it shows as completed. Only
+## after the discovery (the caller checks), so nothing is spoiled; names wrap at portrait widths.
+func _final_quest_card() -> void:
+    _section(tr("FINAL_KEYS_SECTION"))
+    var g:=_final_group()
+    var objective: String=sim.campaign.final_objective()
+    var card:=PanelContainer.new();card.theme_type_variation=&"Card";rows.add_child(card)
+    var box:=VBoxContainer.new();box.add_theme_constant_override("separation",6);card.add_child(box)
+    var head:=HBoxContainer.new();head.add_theme_constant_override("separation",10);box.add_child(head)
+    _card_icon(head,_final_art(),Color.WHITE,52)
+    var lines:=VBoxContainer.new();lines.size_flags_horizontal=Control.SIZE_EXPAND_FILL;head.add_child(lines)
+    var stage_name: String=str(sim.catalog.stages[int(sim.catalog.groups[g].stage)-1].name) if g>=0 else ""
+    var boss_name: String=str(sim.catalog.groups[g].name) if g>=0 else ""
+    _card_line(lines,tr("FINAL_QUEST_TITLE") % boss_name,20,Color.WHITE)
+    var held: int=sim.state.keys.size()
+    if objective=="":
+        _card_line(lines,"✓ "+tr("FINAL_QUEST_DONE") % boss_name,18,Color(.5,1,.65))
+        return
+    if objective=="ready":_card_line(lines,tr("FINAL_QUEST_RETURN") % [boss_name,stage_name],18,Color(.55,1,.6))
+    else:_card_line(lines,tr("KEY_PROGRESS") % held,18,Color(1,.86,.5))
+    _mastery_bar(box,float(held)/float(sim.campaign.FINAL_KEYS))
+    _card_line(box,tr("FINAL_INTRO_BODY") % [sim.campaign.FINAL_KEYS,sim.campaign.FINAL_KEYS],16,Color(.8,.84,.9))
+    for st in range(1,sim.catalog.stages.size()+1):
+        var bosses: Array=[]
+        for d in sim.catalog.groups:
+            if d.boss and not d.final and int(d.stage)==st:bosses.append(d)
+        if bosses.is_empty():continue
+        _card_line(box,str(sim.catalog.stages[st-1].name),17,Color(.75,.82,.95))
+        for d in bosses:
+            var have: bool=sim.state.keys.has(d.id)
+            var row:=HBoxContainer.new();row.add_theme_constant_override("separation",8);box.add_child(row)
+            _card_icon(row,icon_cache.get(d.body),Color.WHITE if have else Color(.55,.55,.6),34)
+            var mark:=TextureRect.new();mark.texture=preload("res://assets/ui/Key - Gold.png");mark.custom_minimum_size=Vector2(22,22)
+            mark.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;mark.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+            mark.size_flags_vertical=Control.SIZE_SHRINK_CENTER;mark.modulate=Color.WHITE if have else Color(.25,.25,.28,.8)
+            row.add_child(mark)
+            var label: String=("✓ "+tr("FINAL_KEY_HELD") % d.name) if have else tr("FINAL_KEY_MISSING") % [d.name,str(sim.catalog.stages[st-1].name)]
+            _card_line(row,label,17,Color(.5,1,.65) if have else Color(1,.86,.5))
 
 ## Compact objective card: icon, title, progress bar with value, rewards and a claim button.
 ## States read at a glance: In progress (muted chip), Ready to claim (primary Claim button) and

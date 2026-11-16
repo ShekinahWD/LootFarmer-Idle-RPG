@@ -1,5 +1,9 @@
 # LootFarmer — Current Asset Registry — Change 30
 
+## Green Alien soundtrack and voice (Change 83, 2026-11-16)
+
+**Runtime (tracked, ships):** `assets/sounds/EndGame - Music 1 (1).ogg` (66.8 s, normal battle, loop on) and `EndGame - Music 1 (2).ogg` (144.0 s, Rage battle, loop on), played through `AudioService.set_boss_music` by `scripts/game/final_audio.gd`; `Enraged - Long 01.wav` (4.5 s, cue `final_enraged`), `Laugh 01.wav` / `Laugh 03.wav` / `Laugh 05.wav` (5.0–5.5 s, cues `final_laugh_1/3/5`) in `resources/game/audio_cues.tres` (gameplay category). Supplied by the developer in `assets/sounds/` for Change 83 with no licence or purchase record alongside them: **they join REL-02** (record their source before publication). The OGG headers carry the comment "Sony Ogg Vorbis 1.0 Final" (Godot warns about its format on load; harmless). The celebration's firework pop reuses `magic-spells-sfx-lite/ogg/arcane_blast_01.ogg` (cue `floor_firework`).
+
 ## Store listing and launcher branding (Change 27, 2026-10-28)
 
 **Runtime (tracked, ships):** `assets/branding/launcher_192.png` (project `config/icon` and Android `launcher_icons/main_192x192`), `adaptive_foreground_432.png` (transparent, content inside the 288 px safe zone), `adaptive_background_432.png` (opaque), `adaptive_monochrome_432.png` (white on transparent, Android 13 themed icon). They replace the REL-01 placeholder: `icon.svg` stays in source but no longer ships. Registered as roots in `tools/export_rules.json` (the generator then lists 232 files); verified in the signed `LootFarmerIdleRPG.27.aab` as `base/res/mipmap-*/icon*.webp`.

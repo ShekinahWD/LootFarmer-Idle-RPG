@@ -5078,15 +5078,6 @@ msgstr "Every menu is already available"
 msgid "PANEL_MASTERY"
 msgstr "Map Mastery"
 
-msgid "MASTERY_OPEN"
-msgstr "Map Mastery · Game %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "Optional goals for 100% completion. Progress is permanent and kept by Prestige."
-
-msgid "MASTERY_GAME"
-msgstr "Game completion %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "All eight maps: %s title · %s"
 
@@ -5206,9 +5197,6 @@ msgstr "Complete an opportunity, then Prestige for a permanent card"
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Map mastered · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100% complete"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Master Farmer"
@@ -5659,9 +5647,6 @@ msgstr "Open World and select Winter II to continue the adventure."
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "THE ROAD AHEAD"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Your ultimate goal is to defeat the final boss in Stage 8 and conquer the game.\n\nWant an even greater challenge? Achieve 100% completion by finishing every milestone in Map Mastery.\n\nPlay at your own pace, enjoy the journey, and good luck!"
 
 msgid "SLOT_SMALL"
 msgstr "Small"
@@ -6899,3 +6884,129 @@ msgstr "The arena is sealed! Defeat the Green Alien or fall trying."
 
 msgid "ARENA_SEALED"
 msgstr "The arena is sealed. Win the fight or fall to leave."
+
+msgid "FINAL_DANGER_TITLE"
+msgstr "FINAL BOSS — DANGER"
+
+msgid "FINAL_DANGER_BODY"
+msgstr "Are you sure you want to fight the Green Alien?\n\nThere is no escape once the arena seals: you must win or fall."
+
+msgid "FINAL_DANGER_AUDIO_NOTE"
+msgstr "For the full final-boss experience, we suggest the recommended audio settings: Music 40%, Sound Effects 100%. They last for this encounter only, and your own settings come back afterwards."
+
+msgid "FINAL_DANGER_AUDIO"
+msgstr "Set Recommended Volume"
+
+msgid "FINAL_DANGER_YES"
+msgstr "Yes, Fight!"
+
+msgid "FINAL_DANGER_NO"
+msgstr "No, Not Yet"
+
+msgid "FINAL_AUDIO_CHIP"
+msgstr "Recommended Audio\nTap to Apply"
+
+msgid "FINAL_AUDIO_ON"
+msgstr "Recommended Audio ✓\nTap to Undo"
+
+msgid "FINAL_AUDIO_TOOLTIP"
+msgstr "Music 40% and Sound Effects 100% for this encounter. Your own settings come back afterwards."
+
+msgid "FINAL_RAGE_TITLE"
+msgstr "GREEN ALIEN IS ENRAGED!"
+
+msgid "FINAL_RAGE_BODY"
+msgstr "Attack speed +50% · Defense +30% · Healing +20%"
+
+msgid "FINAL_VICTORY_TITLE"
+msgstr "THE GREEN ALIEN IS DEFEATED!"
+
+msgid "FINAL_VICTORY_BODY"
+msgstr "Your outfits are celebrating with you!"
+
+msgid "FINAL_ENDING_TITLE"
+msgstr "CONGRATULATIONS!"
+
+msgid "FINAL_ENDING_BODY"
+msgstr "You defeated the Green Alien and completed LootFarmer's main adventure.\n\nYour journey continues: collect every outfit, master every map, earn every Prestige card and finish your upgrades!"
+
+msgid "FINAL_ENDING_CONTINUE"
+msgstr "Continue Playing"
+
+msgid "FINAL_ENDING_REVIEW"
+msgstr "Leave an Honest Review"
+
+msgid "FINAL_ENDING_DISCORD"
+msgstr "Join Our Discord"
+
+msgid "FLOOR_COLLECT_HINT"
+msgstr "Collect every outfit to complete this celebration floor!"
+
+msgid "FLOOR_OUTFITS_COUNT"
+msgstr "Outfits dancing: %d / %d"
+
+msgid "FLOOR_REPEAT_NOTICE"
+msgstr "The Green Alien is defeated! Your outfits are dancing until it returns."
+
+msgid "FINAL_CELEBRATING"
+msgstr "Enjoy the celebration first!"
+
+msgid "FINAL_QUEST_TITLE"
+msgstr "Final Boss · %s"
+
+msgid "FINAL_QUEST_RETURN"
+msgstr "All keys collected! Return to %s — %s"
+
+msgid "FINAL_QUEST_DONE"
+msgstr "%s defeated · main adventure complete"
+
+msgid "FINAL_KEY_HELD"
+msgstr "%s · key collected"
+
+msgid "FINAL_KEY_MISSING"
+msgstr "Defeat %s — %s"
+
+msgid "COMPLETION_TITLE"
+msgstr "Game Completion %d%%"
+
+msgid "COMPLETION_RULE"
+msgstr "100% needs all four parts, each worth 25%. The main adventure and outfit collection are tracked separately."
+
+msgid "COMPLETION_PART_MASTERY"
+msgstr "Map Mastery objectives: %d / %d · %d%%"
+
+msgid "COMPLETION_PART_CARDS"
+msgstr "Prestige cards owned: %d / %d · %d%%"
+
+msgid "COMPLETION_PART_PLAYER"
+msgstr "Player and map upgrades maxed: %d / %d · %d%%"
+
+msgid "COMPLETION_PART_ENEMY"
+msgstr "Enemy upgrades maxed: %d / %d · %d%%"
+
+msgid "COMPLETION_SEPARATE"
+msgstr "Outfits collected: %d / %d (the celebration floor, not part of Game Completion)."
+
+msgid "COMPLETION_MAP_MASTERY"
+msgstr "Map Mastery"
+
+msgid "MASTERY_INTRO_V83"
+msgstr "Optional goals on every map. Map Mastery is one of the four parts of Game Completion, and its progress is permanent and kept by Prestige."
+
+msgid "MASTERY_ALL_MAPS"
+msgstr "Map Mastery (all maps) %d%%"
+
+msgid "MILESTONE_ALL_MAPS_MASTERED"
+msgstr "Every map mastered"
+
+msgid "MILESTONE_GAME_COMPLETE_100"
+msgstr "100% GAME COMPLETION!"
+
+msgid "MILESTONE_GAME_COMPLETE_100_DETAIL"
+msgstr "Every map mastered, every Prestige card owned and every upgrade maxed."
+
+msgid "GUIDE_TUTORIAL_FINAL_DETAIL_V83"
+msgstr "Your ultimate goal is to defeat the final boss in Stage 8 and conquer the game.\n\nWant an even greater challenge? Reach 100% Game Completion: master every map, earn every Prestige card and max every Player and enemy upgrade.\n\nPlay at your own pace, enjoy the journey, and good luck!"
+
+msgid "MASTERY_OPEN_V83"
+msgstr "Map Mastery %d%% · Game Completion %d%%"

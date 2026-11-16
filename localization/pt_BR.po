@@ -5041,15 +5041,6 @@ msgstr "Todos os menus já estão disponíveis"
 msgid "PANEL_MASTERY"
 msgstr "Maestria do Mapa"
 
-msgid "MASTERY_OPEN"
-msgstr "Maestria do Mapa · Jogo %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "Objetivos opcionais para 100% de conclusão. O progresso é permanente e mantido no Prestígio."
-
-msgid "MASTERY_GAME"
-msgstr "Conclusão do jogo: %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Todos os oito mapas: título %s · %s"
 
@@ -5169,9 +5160,6 @@ msgstr "Conclua uma oportunidade e faça Prestígio para ganhar uma carta perman
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Mapa dominado · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100% concluído"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Mestre Farmador"
@@ -5613,9 +5601,6 @@ msgstr "Abra Mundo e escolha Inverno II para continuar a aventura."
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "O CAMINHO PELA FRENTE"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Seu objetivo final é derrotar o chefe final da fase 8 e conquistar o jogo.\n\nQuer um desafio ainda maior? Alcance 100% de conclusão cumprindo todos os marcos da Maestria do Mapa.\n\nJogue no seu ritmo, aproveite a jornada e boa sorte!"
 
 msgid "SLOT_SMALL"
 msgstr "Pequeno"

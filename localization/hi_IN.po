@@ -5035,15 +5035,6 @@ msgstr "हर मेन्यू पहले से उपलब्ध है"
 msgid "PANEL_MASTERY"
 msgstr "नक्शा महारत"
 
-msgid "MASTERY_OPEN"
-msgstr "नक्शा महारत · गेम %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "100% पूर्णता के लिए वैकल्पिक लक्ष्य। प्रगति स्थायी है और प्रेस्टीज के बाद भी रहती है।"
-
-msgid "MASTERY_GAME"
-msgstr "गेम पूर्णता %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "सभी आठ नक्शे: %s उपाधि · %s"
 
@@ -5160,9 +5151,6 @@ msgstr "एक अवसर पूरा करें, फिर स्थाय
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "नक्शे पर महारत · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100% पूरा"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "उस्ताद फ़ार्मर"
@@ -5601,9 +5589,6 @@ msgstr "रोमांच जारी रखने के लिए दुन�
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "आगे का रास्ता"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "आपका अंतिम लक्ष्य स्टेज 8 के आख़िरी बॉस को हराकर गेम जीतना है।\n\nऔर बड़ी चुनौती चाहिए? नक्शा महारत का हर पड़ाव पूरा करके 100% पूर्णता पाएँ।\n\nअपनी रफ़्तार से खेलें, सफ़र का आनंद लें, और शुभकामनाएँ!"
 
 msgid "SLOT_SMALL"
 msgstr "छोटा"

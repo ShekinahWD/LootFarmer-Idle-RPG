@@ -70,6 +70,7 @@
     {"file": "res://scripts/game/catalog.gd", "arg": "entry.icon_path", "family": "catalog_paths"},
     {"file": "res://scripts/game/catalog.gd", "arg": "entry.texture", "family": "catalog_paths"},
     {"file": "res://scripts/game/world.gd", "arg": "path", "family": "catalog_paths", "why": "body sheet: catalog outfit texture or a literal in _visual_look"},
+    {"file": "res://scripts/game/dance_floor.gd", "arg": "str(sim.catalog.items[id].texture)", "family": "catalog_paths", "why": "Change 83 celebration floor: each owned outfit's catalog body sheet"},
     {"file": "res://scripts/game/world.gd", "arg": "sim.catalog.items[weapon].attack", "family": "catalog_paths"},
     {"file": "res://scripts/game/world.gd", "arg": "\"res://assets/magic-spells-vfx-lite/%s/%s_sheet.png\" % [d.effect,d.effect]", "family": "skill_vfx"},
     {"file": "res://scripts/game/world.gd", "literal": "res://assets/magic-spells-vfx-lite/%s/%s_sheet.png", "family": "skill_vfx"},

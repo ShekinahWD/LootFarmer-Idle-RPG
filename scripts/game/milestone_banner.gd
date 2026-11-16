@@ -50,10 +50,11 @@ func push_front(kind: String,title: String,subtitle: String,art: Texture2D=null)
     queue.push_front({"kind":kind,"title":title,"subtitle":subtitle,"cards":[],"art":art})
 
 ## A warning shown next, ahead of queued celebrations, in warning_color with its own art.
-func push_warning(kind: String,title: String,subtitle: String,art: Texture2D=null) -> void:
+## Change 83: seconds overrides the warning's hold time (the Green Alien's Rage warning reads for 5 s).
+func push_warning(kind: String,title: String,subtitle: String,art: Texture2D=null,seconds:=-1.0) -> void:
     for entry in queue+[current]:
         if entry.get("title","")==title and entry.get("subtitle","")==subtitle:return
-    queue.push_front({"kind":kind,"title":title,"subtitle":subtitle,"cards":[],"warning":true,"art":art})
+    queue.push_front({"kind":kind,"title":title,"subtitle":subtitle,"cards":[],"warning":true,"art":art,"seconds":seconds})
 
 func pending() -> int:
     return queue.size()+(0 if current.is_empty() else 1)
@@ -70,7 +71,8 @@ func _process(dt: float) -> void:
     var frame:=int(age*20.0)%spark_frames
     for i in range($Sparks.get_child_count()):
         $Sparks.get_child(i).texture=spark_textures[(frame+i*5)%spark_frames]
-    if age>=(boss_warning_seconds if current.get("warning",false) else hold_seconds):_finish()
+    var hold: float=float(current.get("seconds",-1.0)) if float(current.get("seconds",-1.0))>0 else (boss_warning_seconds if current.get("warning",false) else hold_seconds)
+    if age>=hold:_finish()
 
 func _begin(entry: Dictionary) -> void:
     current=entry;age=0.0

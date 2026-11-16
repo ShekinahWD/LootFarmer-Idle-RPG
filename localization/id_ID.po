@@ -5035,15 +5035,6 @@ msgstr "Semua menu sudah tersedia"
 msgid "PANEL_MASTERY"
 msgstr "Penguasaan Peta"
 
-msgid "MASTERY_OPEN"
-msgstr "Penguasaan Peta · Game %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "Tujuan opsional untuk penyelesaian 100%. Progresnya permanen dan tetap setelah Prestise."
-
-msgid "MASTERY_GAME"
-msgstr "Penyelesaian game %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Kedelapan peta: gelar %s · %s"
 
@@ -5160,9 +5151,6 @@ msgstr "Selesaikan sebuah peluang, lalu lakukan Prestise untuk kartu permanen"
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Peta dikuasai · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "Selesai 100%"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Petani Ulung"
@@ -5601,9 +5589,6 @@ msgstr "Buka Dunia dan pilih Musim Dingin II untuk melanjutkan petualangan."
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "JALAN DI DEPAN"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Tujuan akhirmu adalah mengalahkan bos terakhir di Tahap 8 dan menaklukkan game ini.\n\nIngin tantangan yang lebih besar? Raih penyelesaian 100% dengan menuntaskan setiap tonggak di Penguasaan Peta.\n\nBermainlah sesuai ritmemu, nikmati perjalanannya, dan semoga beruntung!"
 
 msgid "SLOT_SMALL"
 msgstr "Kecil"

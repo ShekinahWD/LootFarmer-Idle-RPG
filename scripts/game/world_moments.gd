@@ -33,6 +33,7 @@ const CYAN:=Color(.36,.94,1)
 const VIOLET:=Color(.72,.45,1)
 const GOLD:=Color(1,.8,.3)
 const ALIEN:=Color(.45,1,.5)
+const RAGE:=Color(1,.14,.1)
 const BODY:=Vector2(0,-7)
 
 var add_material:=CanvasItemMaterial.new()
@@ -86,6 +87,15 @@ func _ready() -> void:
     _layer(m,"to",RING,{"t0":.06,"d":.65,"size":[16,140],"flat":.45,"alpha":[1,0],"color":GOLD,"y":14})
     _layer(m,"to",SOFT_RING,{"t0":.2,"d":.7,"size":[16,110],"flat":.45,"alpha":[.9,0],"color":ALIEN,"y":14})
     m.particles["to"]=_motes(m,"to",STAR,GOLD,20,0.0,true,true)
+    # --- Change 83: the Green Alien enrages: a red-white flash, a crimson shockwave, red god-rays and two rings,
+    # embers thrown out (Glow_001, Shockwave_001, Radial_Glow_002, Circle_Outline_002/003, Glow_001 motes).
+    m=_moment("rage",1.5)
+    _layer(m,"to",GLOW,{"t0":0,"d":.4,"size":[30,150],"alpha":[1,0],"color":Color(1,.75,.7),"add":true,"y":0})
+    _layer(m,"to",SHOCK,{"t0":.02,"d":.55,"size":[20,200],"alpha":[.95,0],"color":RAGE.lightened(.25),"y":0})
+    _layer(m,"to",RAYS,{"t0":.05,"d":1.4,"size":[50,170],"alpha":[.8,0],"hold":.5,"spin":1.3,"color":RAGE,"y":0})
+    _layer(m,"to",RING,{"t0":.06,"d":.6,"size":[16,150],"flat":.45,"alpha":[1,0],"color":Color(1,.4,.2),"y":14})
+    _layer(m,"to",SOFT_RING,{"t0":.22,"d":.7,"size":[16,120],"flat":.45,"alpha":[.9,0],"color":RAGE,"y":14})
+    m.particles["to"]=_motes(m,"to",GLOW,Color(1,.35,.15),22,0.0,true,true)
     for key in moments:moments[key].node_to.visible=false
 
 func _moment(key: String,length: float) -> Dictionary:

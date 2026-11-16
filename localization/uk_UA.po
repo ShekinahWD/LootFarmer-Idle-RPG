@@ -5035,15 +5035,6 @@ msgstr "Усі меню вже доступні"
 msgid "PANEL_MASTERY"
 msgstr "Майстерність мап"
 
-msgid "MASTERY_OPEN"
-msgstr "Майстерність мап · Гра %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "Необов’язкові цілі для 100% проходження. Прогрес постійний і зберігається під час престижу."
-
-msgid "MASTERY_GAME"
-msgstr "Проходження гри %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Усі вісім мап: титул «%s» · %s"
 
@@ -5160,9 +5151,6 @@ msgstr "Виконай нагоду, потім пройди престиж за
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Мапу опановано · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "Пройдено на 100%"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Майстер фарму"
@@ -5601,9 +5589,6 @@ msgstr "Відкрий «Світ» і вибери Зиму II, щоб прод
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "ШЛЯХ ПОПЕРЕДУ"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Твоя головна мета — перемогти останнього боса на етапі 8 і пройти гру.\n\nХочеш ще більшого виклику? Пройди гру на 100%, виконавши всі рубежі майстерності мап.\n\nГрай у власному темпі, насолоджуйся мандрівкою — і хай щастить!"
 
 msgid "SLOT_SMALL"
 msgstr "Малий"

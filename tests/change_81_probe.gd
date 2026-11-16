@@ -266,8 +266,10 @@ func combat_data_checks() -> void:
     for id in DAMAGE_BEFORE:
         var g:=gi(id)
         var dmg: float=float(sim.enemy_definition(g).damage)
-        if dmg<1.5*float(DAMAGE_BEFORE[id])-1e-6 or dmg>1.51*float(DAMAGE_BEFORE[id]):ok=false
-        if not near(float(sim.enemy_definition(g).hp)/float(HP_BEFORE[id]),2.0/3.0,1e-4):ok=false
+        # Change 83 doubles the Green Alien's HP and attack on top of these Change 81 values.
+        var later: float=2.0 if id=="boss-green-alien" else 1.0
+        if dmg<1.5*later*float(DAMAGE_BEFORE[id])-1e-6 or dmg>1.51*later*float(DAMAGE_BEFORE[id]):ok=false
+        if not near(float(sim.enemy_definition(g).hp)/float(HP_BEFORE[id]),2.0/3.0*later,1e-4):ok=false
         print("     %s damage %.1f -> %.1f (x%.4f), HP %.0f -> %.0f" % [id,DAMAGE_BEFORE[id],dmg,dmg/float(DAMAGE_BEFORE[id]),HP_BEFORE[id],sim.enemy_definition(g).hp])
     check(ok,"Spring bosses: damage x1.50 (+0.1% rounding at most), HP x2/3")
     ok=true
@@ -391,7 +393,7 @@ func final_boss_checks() -> void:
     ga=alien()
     # Change 82: with 13 keys it waits for the one-time unsealing ceremony (tests/change_82_probe), then it is a target.
     check(not sim.campaign.target_allowed(ga),"13 keys: still waiting for the Change 82 ceremony")
-    sim.state.final_unsealed=true # fixture: the Change 82 ceremony completed
+    sim.state.final_unsealed=true;sim.state.final_experience=true;sim.state.final_warning_ok=true # fixture: Change 82 ceremony and Change 83 introduction done
     check(sim.campaign.target_allowed(ga) or not sim.campaign.can_see(sim.position_of(ga)),"Unsealed: it can be targeted")
     check(not sim.campaign.final_sealed(int(ga.group)),"…no longer sealed")
     print("-- Green Alien: Prestige and victory")

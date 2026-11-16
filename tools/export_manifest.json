@@ -16,9 +16,9 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 338,
+  "files": 349,
   "stages": 8,
-  "imported": 206
+  "imported": 212
  },
  "families": {
   "stage_scenes": {
@@ -209,6 +209,7 @@
    "sites": [
     "res://scripts/game/catalog.gd: entry.icon_path",
     "res://scripts/game/catalog.gd: entry.texture",
+    "res://scripts/game/dance_floor.gd: str(sim.catalog.items[id].texture)",
     "res://scripts/game/world.gd: path",
     "res://scripts/game/world.gd: sim.catalog.items[weapon].attack"
    ],
@@ -527,6 +528,12 @@
   "res://assets/magic-spells-vfx-lite/ice_shatter/ice_shatter_sheet.png": "dependency of res://data/game/catalog.json",
   "res://assets/magic-spells-vfx-lite/impact/impact_sheet.png": "dependency of res://data/game/catalog.json",
   "res://assets/magic-spells-vfx-lite/zap/zap_sheet.png": "dependency of res://data/game/catalog.json",
+  "res://assets/sounds/EndGame - Music 1 (1).ogg": "literal in res://scripts/game/final_audio.gd",
+  "res://assets/sounds/EndGame - Music 1 (2).ogg": "literal in res://scripts/game/final_audio.gd",
+  "res://assets/sounds/Enraged - Long 01.wav": "dependency of res://resources/game/audio_cues.tres",
+  "res://assets/sounds/Laugh 01.wav": "dependency of res://resources/game/audio_cues.tres",
+  "res://assets/sounds/Laugh 03.wav": "dependency of res://resources/game/audio_cues.tres",
+  "res://assets/sounds/Laugh 05.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/sounds/background_music.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/sounds/mission_ready.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/sounds/stage_clear.wav": "dependency of res://resources/game/audio_cues.tres",
@@ -643,12 +650,16 @@
   "res://scripts/game/camp_picker.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/campaign.gd": "literal in res://scripts/game/simulation.gd",
   "res://scripts/game/catalog.gd": "class_name LootCatalog used by res://scripts/game/simulation.gd",
+  "res://scripts/game/completion.gd": "literal in res://scripts/game/campaign.gd",
   "res://scripts/game/crit_fx.gd": "literal in res://scripts/game/world.gd",
+  "res://scripts/game/dance_floor.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/distribution_channels.gd": "dependency of res://resources/game/distribution_channels.tres",
   "res://scripts/game/enemy_ability_rules.gd": "class_name EnemyAbilityRules used by res://scripts/game/simulation.gd",
   "res://scripts/game/evolution_show.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/external_links.gd": "dependency of res://resources/game/external_links.tres",
+  "res://scripts/game/final_audio.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/final_ceremony_fx.gd": "literal in res://scripts/game/world.gd",
+  "res://scripts/game/final_dialog.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/fog_layer.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/fog_rules.gd": "dependency of res://resources/game/fog_rules.tres",
   "res://scripts/game/game_ui.gd": "dependency of res://scenes/game/main.tscn",
@@ -674,6 +685,7 @@
   "res://scripts/game/prestige_card.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/prestige_confirm.gd": "dependency of res://scenes/game/prestige_confirm.tscn",
   "res://scripts/game/prestige_fx.gd": "literal in res://scripts/game/world.gd",
+  "res://scripts/game/rage_fx.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/respawn_fx.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/review_dialog.gd": "dependency of res://scenes/game/review_invitation.tscn",
   "res://scripts/game/review_invitation.gd": "literal in res://scripts/game/campaign.gd",

@@ -5035,15 +5035,6 @@ msgstr "Wszystkie menu są już dostępne"
 msgid "PANEL_MASTERY"
 msgstr "Mistrzostwo map"
 
-msgid "MASTERY_OPEN"
-msgstr "Mistrzostwo map · Gra %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "Opcjonalne cele do ukończenia gry w 100%. Postęp jest stały i zostaje po prestiżu."
-
-msgid "MASTERY_GAME"
-msgstr "Ukończenie gry %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Wszystkie osiem map: tytuł „%s” · %s"
 
@@ -5160,9 +5151,6 @@ msgstr "Ukończ okazję, a potem użyj Prestiżu, by zdobyć stałą kartę"
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Mapa opanowana · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "Ukończono w 100%"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Mistrz farmienia"
@@ -5601,9 +5589,6 @@ msgstr "Otwórz Świat i wybierz Zimę II, by kontynuować przygodę."
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "DROGA PRZED TOBĄ"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Twoim ostatecznym celem jest pokonanie ostatniego bossa na etapie 8 i podbicie gry.\n\nChcesz jeszcze większego wyzwania? Ukończ grę w 100%, zaliczając każdy kamień milowy Mistrzostwa map.\n\nGraj we własnym tempie, ciesz się podróżą i powodzenia!"
 
 msgid "SLOT_SMALL"
 msgstr "Mały"

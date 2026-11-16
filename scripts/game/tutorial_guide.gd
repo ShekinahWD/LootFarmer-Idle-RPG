@@ -711,7 +711,8 @@ func _teleport_map() -> Control:
 ## Change 61 correction: a card whose explanation changed meaning reads a new key (the old translated
 ## key would now be false). basic_prestige: the reset needs the Snowman defeated, not just found.
 ## Change 69: focus_tap's detail now states the 5-second walking rule (a new key; the old one awaits retirement).
-const DETAIL_KEYS:={"basic_prestige":"GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL","focus_tap":"GUIDE_FOCUS_TAP_WALK_DETAIL"}
+## Change 83: The Road Ahead names the four parts of 100% Game Completion (it said Map Mastery alone).
+const DETAIL_KEYS:={"basic_prestige":"GUIDE_BASIC_PRESTIGE_DEFEAT_DETAIL","focus_tap":"GUIDE_FOCUS_TAP_WALK_DETAIL","tutorial_final":"GUIDE_TUTORIAL_FINAL_DETAIL_V83"}
 static func detail_key(id: String) -> String:
     return DETAIL_KEYS.get(id,"GUIDE_"+id.to_upper()+"_DETAIL")
 ## Change 61: a screen-space pointer target (a World map marker) when the target is not a control.

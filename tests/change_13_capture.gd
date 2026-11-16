@@ -75,7 +75,7 @@ func run() -> void:
     stage(8)
     var alien:=boss("boss-green-alien")
     sim.state.keys=[];for i in range(13):sim.state.keys.append("key%d" % i)
-    sim.state.final_discovered=true;sim.state.final_unsealed=true # fixture: Change 82 ceremony done
+    sim.state.final_discovered=true;sim.state.final_unsealed=true;sim.state.final_experience=true;sim.state.final_warning_ok=true # fixture: Change 82 ceremony and Change 83 introduction done
     sim.state.player.x=alien.x+40;sim.state.player.y=alien.y+14
     sim.campaign.reveal_circle(sim.position_of(sim.state.player),220.0)
     alien.aggro=true;alien.summon_cd=0.0;alien.hp=float(sim.enemy_definition(int(alien.group)).hp)*.45

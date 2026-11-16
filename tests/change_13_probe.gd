@@ -459,7 +459,7 @@ func final_boss_checks() -> void:
     var bosses: Array=[]
     for g in sim.catalog.groups:
         if g.boss and not g.final:bosses.append(g.id)
-    sim.state.keys=bosses;sim.state.final_discovered=true;sim.state.final_unsealed=true # fixture: all 13 keys, Change 82 ceremony done
+    sim.state.keys=bosses;sim.state.final_discovered=true;sim.state.final_unsealed=true;sim.state.final_experience=true;sim.state.final_warning_ok=true # fixture: Change 82 ceremony and Change 83 introduction done
     sim.state.player.x=alien.x+50;sim.state.player.y=alien.y
     var maxhp: float=sim.campaign.actor_max_hp(alien)
     alien.aggro=true;alien.hp=maxhp*.9;alien.summon_cd=999.0 # fixture: summons later
@@ -503,4 +503,5 @@ func final_boss_checks() -> void:
     campaign_steps(10)
     check(casts.is_empty() and sim.helpers_of(alien.id).is_empty(),"Without the 13 keys the final boss does nothing (gate unchanged)")
     # Change 79: HP x0.45 through progression.balance.boss_tuning (304,514 -> 137,031); its drop skills unchanged.
-    check(int(sim.catalog.groups[group("boss-green-alien")].hp)==91354 and sim.catalog.groups[group("boss-green-alien")].skills==["focus","fire","strike"],"Baseline HP (Change 81: 137,031 x2/3) and its drop skills unchanged")
+    # Change 83: HP x2 (91,354 -> 182,708).
+    check(int(sim.catalog.groups[group("boss-green-alien")].hp)==182708 and sim.catalog.groups[group("boss-green-alien")].skills==["focus","fire","strike"],"Baseline HP (Change 83: 91,354 x2) and its drop skills unchanged")

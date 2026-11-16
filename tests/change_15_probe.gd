@@ -560,9 +560,9 @@ func ui_checks() -> void:
     var maps: Array=game.rows.find_children("*","Control",true,false).filter(func(n):return n.get_script()==preload("res://scripts/game/map_view.gd"))
     check(maps.size()==1 and is_instance_valid(maps[0].player_dot) and maps[0].player_dot.get_parent()==maps[0],"World map keeps its player dot through in-place panel refreshes")
     var entry: Button=game.guide._panel_control("mastery")
-    check(entry!=null and entry.text==tr("MASTERY_OPEN") % sim.campaign.mastery.game_percent(),"World → \"%s\"" % (entry.text if entry else "-"))
+    check(entry!=null and entry.text==tr("MASTERY_OPEN_V83") % [sim.campaign.mastery.game_percent(),sim.campaign.completion.percent()],"World → \"%s\"" % (entry.text if entry else "-"))
     entry.pressed.emit();await frames(6)
-    check(game.panel=="mastery" and labels_text(game.rows).contains(tr("MASTERY_GAME") % sim.campaign.mastery.game_percent()),"Map Mastery shows game completion")
+    check(game.panel=="mastery" and labels_text(game.rows).contains(tr("MASTERY_ALL_MAPS") % sim.campaign.mastery.game_percent()),"Map Mastery shows game completion")
     var text: String=labels_text(game.rows)
     var names_ok:=true
     for st in range(1,9):

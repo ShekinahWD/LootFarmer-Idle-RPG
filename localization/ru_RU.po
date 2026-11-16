@@ -5035,15 +5035,6 @@ msgstr "Все меню уже доступны"
 msgid "PANEL_MASTERY"
 msgstr "Мастерство карт"
 
-msgid "MASTERY_OPEN"
-msgstr "Мастерство карт · Игра %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "Необязательные цели для 100% прохождения. Прогресс постоянный и сохраняется при престиже."
-
-msgid "MASTERY_GAME"
-msgstr "Прохождение игры %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Все восемь карт: титул «%s» · %s"
 
@@ -5160,9 +5151,6 @@ msgstr "Выполни возможность, затем пройди прес�
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Карта освоена · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "Пройдено на 100%"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Мастер фарма"
@@ -5601,9 +5589,6 @@ msgstr "Открой «Мир» и выбери Зиму II, чтобы прод
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "ПУТЬ ВПЕРЕДИ"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Твоя главная цель — победить последнего босса на этапе 8 и пройти игру.\n\nХочешь испытание посерьёзнее? Пройди игру на 100%, выполнив все рубежи мастерства карт.\n\nИграй в своём темпе, наслаждайся путешествием и удачи!"
 
 msgid "SLOT_SMALL"
 msgstr "Маленький"

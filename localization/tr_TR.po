@@ -5035,15 +5035,6 @@ msgstr "Tüm menüler zaten kullanılabilir"
 msgid "PANEL_MASTERY"
 msgstr "Harita Ustalığı"
 
-msgid "MASTERY_OPEN"
-msgstr "Harita Ustalığı · Oyun %%%d"
-
-msgid "MASTERY_INTRO"
-msgstr "%100 tamamlama için isteğe bağlı hedefler. İlerleme kalıcıdır ve Prestij'de korunur."
-
-msgid "MASTERY_GAME"
-msgstr "Oyun tamamlama %%%d"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Sekiz haritanın hepsi: %s unvanı · %s"
 
@@ -5160,9 +5151,6 @@ msgstr "Bir fırsatı tamamla, sonra kalıcı bir kart için Prestij yap"
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Harita ustalaşıldı · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "%100 tamamlandı"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Usta Farmcı"
@@ -5601,9 +5589,6 @@ msgstr "Maceraya devam etmek için Dünya'yı aç ve Kış II'yi seç."
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "ÖNÜMÜZDEKİ YOL"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Nihai hedefin, 8. Bölge'deki son boss'u yenip oyunu fethetmek.\n\nDaha büyük bir meydan okuma mı istiyorsun? Harita Ustalığı'ndaki her kilometre taşını bitirerek %100 tamamlamaya ulaş.\n\nKendi temponda oyna, yolculuğun tadını çıkar ve bol şans!"
 
 msgid "SLOT_SMALL"
 msgstr "Küçük"

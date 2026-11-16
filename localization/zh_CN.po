@@ -5033,15 +5033,6 @@ msgstr "所有菜单均已开放"
 msgid "PANEL_MASTERY"
 msgstr "地图精通"
 
-msgid "MASTERY_OPEN"
-msgstr "地图精通 · 游戏 %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "达成 100% 完成度的可选目标。进度永久保留，转生后也会保留。"
-
-msgid "MASTERY_GAME"
-msgstr "游戏完成度 %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "全部八张地图：“%s”称号 · %s"
 
@@ -5158,9 +5149,6 @@ msgstr "完成一个机遇后转生，获得永久卡牌"
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "地图已精通 · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100% 完成"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "刷宝大师"
@@ -5599,9 +5587,6 @@ msgstr "打开“世界”并选择冬季 II，继续冒险。"
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "前方之路"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "你的终极目标是击败第 8 关的最终首领，征服整个游戏。\n\n想要更大的挑战？完成地图精通中的所有里程碑，达成 100% 完成度。\n\n按照自己的节奏游玩，享受旅程，祝你好运！"
 
 msgid "SLOT_SMALL"
 msgstr "小"

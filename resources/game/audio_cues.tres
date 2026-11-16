@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AudioCueSet" load_steps=65 format=3]
+[gd_resource type="Resource" script_class="AudioCueSet" load_steps=74 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/audio_cue_set.gd" id="set"]
 [ext_resource type="Script" path="res://scripts/game/audio_cue.gd" id="cue"]
@@ -27,6 +27,10 @@
 [ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/portal_01.ogg" id="s23"]
 [ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/rune_01.ogg" id="s24"]
 [ext_resource type="AudioStream" path="res://assets/magic-spells-sfx-lite/ogg/thunder_01.ogg" id="s25"]
+[ext_resource type="AudioStream" path="res://assets/sounds/Enraged - Long 01.wav" id="s26"]
+[ext_resource type="AudioStream" path="res://assets/sounds/Laugh 01.wav" id="s27"]
+[ext_resource type="AudioStream" path="res://assets/sounds/Laugh 03.wav" id="s28"]
+[ext_resource type="AudioStream" path="res://assets/sounds/Laugh 05.wav" id="s29"]
 
 [sub_resource type="Resource" id="ui_click"]
 script = ExtResource("cue")
@@ -361,8 +365,53 @@ priority = 30
 cooldown = 1.0
 volume_db = -4.0
 
+[sub_resource type="Resource" id="final_enraged"]
+script = ExtResource("cue")
+id = "final_enraged"
+stream = ExtResource("s26")
+category = "gameplay"
+priority = 44
+cooldown = 4.0
+volume_db = 3.0
+
+[sub_resource type="Resource" id="final_laugh_1"]
+script = ExtResource("cue")
+id = "final_laugh_1"
+stream = ExtResource("s27")
+category = "gameplay"
+priority = 6
+cooldown = 6.0
+volume_db = 0.0
+
+[sub_resource type="Resource" id="final_laugh_3"]
+script = ExtResource("cue")
+id = "final_laugh_3"
+stream = ExtResource("s28")
+category = "gameplay"
+priority = 6
+cooldown = 6.0
+volume_db = 0.0
+
+[sub_resource type="Resource" id="final_laugh_5"]
+script = ExtResource("cue")
+id = "final_laugh_5"
+stream = ExtResource("s29")
+category = "gameplay"
+priority = 6
+cooldown = 6.0
+volume_db = 0.0
+
+[sub_resource type="Resource" id="floor_firework"]
+script = ExtResource("cue")
+id = "floor_firework"
+stream = ExtResource("s16")
+category = "gameplay"
+priority = 4
+cooldown = 0.6
+volume_db = -12.0
+
 [resource]
 script = ExtResource("set")
 music = ExtResource("s12")
 music_volume_db = -8.0
-cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("spell_summon"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged"), SubResource("main_ready"), SubResource("feature_unlocked"), SubResource("mastery_objective"), SubResource("mastery_map"), SubResource("game_complete"), SubResource("boss_found"), SubResource("item_merge"), SubResource("evolve_charge"), SubResource("evolve_burst"), SubResource("evolve_reveal"), SubResource("evolve_auto"), SubResource("crit_hit"), SubResource("supply_buff"), SubResource("supply_guard"), SubResource("travel_camp"), SubResource("travel_map"), SubResource("respawn_select"), SubResource("boss_defeated"), SubResource("final_keys"), SubResource("final_unseal"), SubResource("arena_close"), SubResource("arena_open")])
+cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("spell_summon"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged"), SubResource("main_ready"), SubResource("feature_unlocked"), SubResource("mastery_objective"), SubResource("mastery_map"), SubResource("game_complete"), SubResource("boss_found"), SubResource("item_merge"), SubResource("evolve_charge"), SubResource("evolve_burst"), SubResource("evolve_reveal"), SubResource("evolve_auto"), SubResource("crit_hit"), SubResource("supply_buff"), SubResource("supply_guard"), SubResource("travel_camp"), SubResource("travel_map"), SubResource("respawn_select"), SubResource("boss_defeated"), SubResource("final_keys"), SubResource("final_unseal"), SubResource("arena_close"), SubResource("arena_open"), SubResource("final_enraged"), SubResource("final_laugh_1"), SubResource("final_laugh_3"), SubResource("final_laugh_5"), SubResource("floor_firework")])

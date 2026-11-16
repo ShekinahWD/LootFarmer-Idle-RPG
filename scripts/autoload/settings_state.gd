@@ -39,8 +39,19 @@ const MIN_GAME_SPEED: float = 1.0
 const MAX_GAME_SPEED: float = 3.0
 var selected_game_speed: float = 1.0
 
+## Change 83: the Green Alien's recommended mix (Music 40%, Sound Effects 100%), applied only by an explicit tap
+## and only temporarily. The player's own values are remembered here, never saved as the mix: to_save_dict writes
+## the original value of every channel still at its recommended value, so a closed app or a crash can never leave
+## the mix behind. restore_recommended() puts back each channel the player has not changed since (a deliberate
+## change in the meantime is kept). Mutes are never touched.
+const RECOMMENDED_MUSIC: float = 0.4
+const RECOMMENDED_SFX: float = 1.0
+signal recommended_changed(active: bool)
+var _recommended: Dictionary = {}
+
 
 func reset_to_defaults() -> void:
+    _recommended = {}
     selected_language = "automatic"
     sfx_volume = 1.0
     music_volume = 1.0
@@ -135,6 +146,37 @@ func set_supply_buy_amount(value: int) -> void:
     settings_changed.emit()
 
 
+func recommended_active() -> bool:
+    return not _recommended.is_empty()
+
+
+## Applies the recommended mix after an explicit tap; the current values are kept to restore later.
+func apply_recommended() -> void:
+    if _recommended.is_empty():
+        _recommended = {"music": music_volume, "sfx": sfx_volume}
+    music_volume = RECOMMENDED_MUSIC
+    sfx_volume = RECOMMENDED_SFX
+    settings_changed.emit()
+    recommended_changed.emit(true)
+
+
+## Ends a temporary recommended mix: every channel still at its recommended value returns to the player's own.
+func restore_recommended() -> void:
+    if _recommended.is_empty():
+        return
+    if is_equal_approx(music_volume, RECOMMENDED_MUSIC):
+        music_volume = float(_recommended.music)
+    if is_equal_approx(sfx_volume, RECOMMENDED_SFX):
+        sfx_volume = float(_recommended.sfx)
+    _recommended = {}
+    settings_changed.emit()
+    recommended_changed.emit(false)
+
+
+func _saved_volume(key: String, value: float, recommended: float) -> float:
+    return float(_recommended[key]) if _recommended.has(key) and is_equal_approx(value, recommended) else value
+
+
 func to_save_dict() -> Dictionary:
     return {
         "selected_language": selected_language,
@@ -144,8 +186,8 @@ func to_save_dict() -> Dictionary:
         "inventory_filter": inventory_filter,
         "inventory_sort": inventory_sort,
         "supply_buy_amount": supply_buy_amount,
-        "sfx_volume": sfx_volume,
-        "music_volume": music_volume,
+        "sfx_volume": _saved_volume("sfx", sfx_volume, RECOMMENDED_SFX),
+        "music_volume": _saved_volume("music", music_volume, RECOMMENDED_MUSIC),
         "mute_gameplay": mute_gameplay,
         "mute_special": mute_special,
         "selected_game_speed": selected_game_speed,
@@ -153,6 +195,7 @@ func to_save_dict() -> Dictionary:
 
 
 func from_save_dict(data: Dictionary) -> void:
+    _recommended = {}
     selected_language = str(data.get("selected_language", "automatic"))
     # A target language survives the load (Change 40): LocalizationService applies it on settings_changed if this
     # build offers it and shows English otherwise, without rewriting the stored choice. Unknown values reset.

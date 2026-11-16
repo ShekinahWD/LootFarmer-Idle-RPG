@@ -415,7 +415,7 @@ func mode_checks() -> void:
     var f: Dictionary=sim.campaign.guided.data()
     f.done=sim.campaign.guided.STEPS.slice(0,sim.campaign.guided.STEPS.size()-1) # fixture: at the finale
     await frames(4)
-    check(guide.intro_id=="flow:tutorial_final" and guide.title.text==tr("GUIDE_TUTORIAL_FINAL") and guide.support.text.begins_with(tr("GUIDE_TUTORIAL_FINAL_DETAIL")) and guide.support.text.ends_with(tr("HELP_DISCOVERY_GUIDED")),"Guided: The Road Ahead keeps its title and text and adds the Help line")
+    check(guide.intro_id=="flow:tutorial_final" and guide.title.text==tr("GUIDE_TUTORIAL_FINAL") and guide.support.text.begins_with(tr("GUIDE_TUTORIAL_FINAL_DETAIL_V83")) and guide.support.text.ends_with(tr("HELP_DISCOVERY_GUIDED")),"Guided: The Road Ahead keeps its title and text and adds the Help line")
     check(not viewer.visible,"Guided never opens the Basic cards")
 
 # ---------------------------------------------------------------- E. Guided first manual attack

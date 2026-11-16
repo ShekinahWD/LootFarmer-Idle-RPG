@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3cphh2cc2p5r"
+path="res://.godot/imported/EndGame - Music 1 (2).ogg-c79f7f1741852f6e60fa7783e27171dc.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/EndGame - Music 1 (2).ogg"
+dest_files=["res://.godot/imported/EndGame - Music 1 (2).ogg-c79f7f1741852f6e60fa7783e27171dc.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

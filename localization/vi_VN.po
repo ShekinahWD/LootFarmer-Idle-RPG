@@ -5035,15 +5035,6 @@ msgstr "Tất cả menu đã khả dụng từ trước"
 msgid "PANEL_MASTERY"
 msgstr "Thành thạo bản đồ"
 
-msgid "MASTERY_OPEN"
-msgstr "Thành thạo bản đồ · Trò chơi %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "Các mục tiêu tùy chọn để hoàn thành 100%. Tiến độ là vĩnh viễn và được giữ khi Chuyển sinh."
-
-msgid "MASTERY_GAME"
-msgstr "Hoàn thành trò chơi %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Cả tám bản đồ: danh hiệu %s · %s"
 
@@ -5160,9 +5151,6 @@ msgstr "Hoàn thành một cơ hội, rồi Chuyển sinh để nhận thẻ vĩ
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Đã thành thạo bản đồ · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "Hoàn thành 100%"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Bậc Thầy Cày Cuốc"
@@ -5601,9 +5589,6 @@ msgstr "Mở Thế giới và chọn Mùa Đông II để tiếp tục cuộc ph
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "CON ĐƯỜNG PHÍA TRƯỚC"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Mục tiêu cuối cùng của bạn là đánh bại Boss cuối ở Màn 8 và chinh phục trò chơi.\n\nMuốn thử thách lớn hơn? Hãy đạt 100% hoàn thành bằng cách vượt qua mọi cột mốc trong Thành thạo bản đồ.\n\nHãy chơi theo nhịp của riêng bạn, tận hưởng hành trình, và chúc may mắn!"
 
 msgid "SLOT_SMALL"
 msgstr "Nhỏ"

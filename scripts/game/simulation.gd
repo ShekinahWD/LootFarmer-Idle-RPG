@@ -52,6 +52,15 @@ signal key_earned(group: int, at: Vector2, total: int)
 signal final_ceremony(phase: String)
 ## Change 82: the Green Alien arena barrier closed (active, "close") or opened ("victory", "death", "reset").
 signal arena_changed(active: bool, reason: String)
+## Change 83: the danger question before the Green Alien encounter ("ask" while campaign.warning_pending is set,
+## "accepted", "declined").
+signal final_warning(phase: String)
+## Change 83: the Green Alien entered Rage Mode (once per boss life; the latch is actor.rage).
+signal final_rage(id: String)
+## Change 83: a Green Alien victory: "first" (the 10 s celebration starts, world frozen), "deferred" (the ending
+## message is still owed), "repeat"; then "celebrated" (the first celebration ended; ending_due) and
+## "acknowledged" (the ending panel was answered).
+signal final_victory(kind: String)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 ## Change 13: summoning and final-boss action rules (inspector-editable resource).
@@ -272,6 +281,7 @@ func restore(data: Dictionary) -> void:
     campaign.mastery.reset_cache()
     # Records only rise; latch anything already complete without announcing it again on load.
     campaign.mastery.evaluate(false)
+    campaign.completion.evaluate(false)
     settle_boss_respawns()
     campaign.settle_offline()
     profile_epoch+=1
@@ -1577,7 +1587,7 @@ func _cleave(target: Dictionary,damage: float) -> void:
         if other.id==target.id or float(other.hp)<=0 or not campaign.target_allowed(other,view):continue
         if position_of(other).distance_to(position_of(target))>campaign.CLEAVE_RADIUS:continue
         var defense: float=float(enemy_definition(int(other.group),int(other.get("variant",2))).defense)
-        var hit:=maxf(1,damage*campaign.bonus("cleave")*100.0/(100.0+defense))
+        var hit:=maxf(1,damage*campaign.bonus("cleave")*campaign.damage_taken_factor(other)*100.0/(100.0+defense))
         other.hp=maxf(0,float(other.hp)-hit);other.hurt=.16;other.quiet=0.0
         other.aggro=not bool(other.get("returning",false))
         feedback.emit(other.id,hit,false)
@@ -1614,10 +1624,13 @@ func _kill(a: Dictionary) -> void:
             state.boss_respawns[str(a.id)]={"group":int(a.group),"stage":int(catalog.groups[int(a.group)].stage),"remaining":a.respawn,"x":a.home_x,"y":a.home_y}
             boss_respawns_changed.emit()
         state.group_kills[int(a.group)]+=1
+        a.erase("rage")
         _reward(a)
         campaign.killed(a)
         # Change 82: the Green Alien's defeat opens its arena before the win flow continues.
         campaign.update_arena()
+        # Change 83: then its victory flow (first celebration, a deferred ending message, or nothing blocking).
+        if bool(catalog.groups[int(a.group)].final):campaign.final_victory()
     touch()
 
 func gear_chance(group: int) -> float:
@@ -1699,6 +1712,12 @@ func step(dt: float) -> void:
         movement=Vector2.ZERO
         focus_walk_time=0.0
         return
+    # Change 83: the first Green Alien victory celebration holds the world the same way for its 10 seconds.
+    if campaign.celebration_step(dt):
+        movement=Vector2.ZERO
+        focus_walk_time=0.0
+        return
+    campaign.ending_step(dt)
     state.clock+=dt
     # Active play only: step never runs while paused, suspended (background, guide chooser), held
     # (the review invitation, Change 35) or during a prestige choice, and offline settlement never advances these clocks.
@@ -1806,6 +1825,7 @@ func step(dt: float) -> void:
                 e.erase("encounter_uses")
                 e.returning=false
                 e.attack_age=9.0
+                e.erase("rage")
                 campaign.reset_enemy_skills(e)
             continue
         if campaign.final_locked(group):
@@ -1832,7 +1852,7 @@ func step(dt: float) -> void:
                 if position_of(e).distance_to(position_of(p))>float(catalog.world.reach):
                     _move(e,position_of(p),62*(.75 if float(e.get("slow",0))>0 else 1.0),dt)
                 elif e.cooldown<=0 and not campaign.enemy_skill_first(e):
-                    _start_attack(e,p,float(catalog.groups[group].interval))
+                    _start_attack(e,p,float(catalog.groups[group].interval)/campaign.attack_speed_factor(e))
         elif position_of(e).distance_to(home)>1:
             _move(e,home,60,dt)
     p.attack_slow=maxf(0,float(p.get("attack_slow",0))-dt)
@@ -1900,7 +1920,8 @@ func select_target(id: String) -> bool:
     # Change 82: with all 13 keys, a tap on the never-unsealed Green Alien is an attempt to engage it: the
     # ceremony plays first (it starts no target or attack).
     if campaign.final_locked(int(enemy.group)) and campaign.ceremony_due(enemy):
-        campaign.begin_ceremony(enemy)
+        # Change 83: the danger question first (a tap asks again even right after a No), then the ceremony.
+        campaign.final_attempt(enemy,true)
         return false
     # From farther away the tap says it is ready; walking up to it starts the ceremony.
     if campaign.final_locked(int(enemy.group)) and campaign.ceremony_due(enemy,INF):
@@ -2331,6 +2352,8 @@ func boss_respawn_countdowns(stage_id: int=-1) -> Array:
 func tick_boss_respawns(seconds: float) -> void:
     for id in state.boss_respawns.keys():
         var entry: Dictionary=state.boss_respawns[id]
+        # Change 83: the Green Alien does not return while its celebration or ending message is still owed.
+        if campaign.final_respawn_held() and int(entry.group)>=0 and int(entry.group)<catalog.groups.size() and bool(catalog.groups[int(entry.group)].final):continue
         entry.remaining=maxf(0,float(entry.remaining)-maxf(0,seconds))
         var actors: Array=state.enemies if int(entry.stage)==int(state.stage) else state.stage_worlds.get(str(entry.stage),{}).get("enemies",[])
         for a in actors:

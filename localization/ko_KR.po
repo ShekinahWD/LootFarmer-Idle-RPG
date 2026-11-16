@@ -5033,15 +5033,6 @@ msgstr "모⁠든 메⁠뉴⁠를 이⁠미 사⁠용⁠할 수 있⁠습⁠니�
 msgid "PANEL_MASTERY"
 msgstr "지⁠도 숙⁠련⁠도"
 
-msgid "MASTERY_OPEN"
-msgstr "지⁠도 숙⁠련⁠도 · 게⁠임 %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "100% 완⁠료⁠를 위⁠한 선⁠택 목⁠표⁠입⁠니⁠다. 진⁠행⁠도⁠는 영⁠구⁠적⁠이⁠며 환⁠생 후⁠에⁠도 유⁠지⁠됩⁠니⁠다."
-
-msgid "MASTERY_GAME"
-msgstr "게⁠임 달⁠성⁠도 %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "8⁠개 지⁠도 전⁠체: ‘%s’ 칭⁠호 · %s"
 
@@ -5158,9 +5149,6 @@ msgstr "기⁠회⁠를 완⁠료⁠한 뒤 환⁠생⁠해 영⁠구 카⁠드�
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "지⁠도 숙⁠련 완⁠료 · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100% 완⁠료"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "마⁠스⁠터 파⁠머"
@@ -5599,9 +5587,6 @@ msgstr "월⁠드⁠를 열⁠고 겨⁠울 II⁠를 선⁠택⁠해 모⁠험�
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "앞⁠으⁠로⁠의 여⁠정"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "최⁠종 목⁠표⁠는 스⁠테⁠이⁠지 8⁠의 최⁠종 보⁠스⁠를 쓰⁠러⁠뜨⁠리⁠고 게⁠임⁠을 정⁠복⁠하⁠는 것⁠입⁠니⁠다.\n\n더 큰 도⁠전⁠을 원⁠하⁠시⁠나⁠요? 지⁠도 숙⁠련⁠도⁠의 모⁠든 마⁠일⁠스⁠톤⁠을 달⁠성⁠해 100% 완⁠료⁠에 도⁠전⁠하⁠세⁠요.\n\n자⁠신⁠만⁠의 속⁠도⁠로 여⁠정⁠을 즐⁠기⁠세⁠요. 행⁠운⁠을 빕⁠니⁠다!"
 
 msgid "SLOT_SMALL"
 msgstr "작⁠게"

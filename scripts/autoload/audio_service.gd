@@ -24,6 +24,20 @@ var _sfx_players: Array[AudioStreamPlayer] = []
 var _music_player: AudioStreamPlayer
 ## Most recent first: cue ids that actually played (for probes; never read by gameplay).
 var played_log: Array[String] = []
+## Change 83: an encounter track that temporarily replaces the main music (the Green Alien's battle and Rage
+## tracks). Two players crossfade between encounter tracks; the main track fades out and holds its place
+## (stream pause, never restarted) while one plays, and fades back in when it is released. The same Music
+## volume, mute-at-0 and pause rules apply; headless runs keep the routing state only (probes read it).
+const BOSS_FADE_SECONDS: float = 1.2
+var _boss_players: Array[AudioStreamPlayer] = []
+var _boss_levels: Array[float] = [0.0, 0.0]
+var _boss_current: int = -1
+var _boss_wanted: AudioStream
+var _boss_mix_db: float = 0.0
+var _base_level: float = 1.0
+var _fade_seconds: float = BOSS_FADE_SECONDS
+## Most recent first: encounter tracks requested (resource paths, "" for a release), for probes.
+var music_log: Array[String] = []
 
 
 func _ready() -> void:
@@ -39,6 +53,11 @@ func _ready() -> void:
     _music_player.process_mode = Node.PROCESS_MODE_PAUSABLE
     add_child(_music_player)
     _music_player.finished.connect(_on_music_finished)
+    for i in range(2):
+        var boss := AudioStreamPlayer.new()
+        boss.process_mode = Node.PROCESS_MODE_PAUSABLE
+        add_child(boss)
+        _boss_players.append(boss)
     SettingsState.settings_changed.connect(_on_settings_changed)
 
 
@@ -83,9 +102,69 @@ func category_audible(category: String) -> bool:
     return not (SettingsState.mute_special if category == "special" else SettingsState.mute_gameplay)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
     if not _pending.is_empty():
         flush()
+    _step_boss_music(delta)
+
+
+## Change 83: plays an encounter track in place of the main music (null releases it). Requesting the track
+## already wanted does nothing; another one crossfades from the start of the new track.
+func set_boss_music(stream: AudioStream, mix_db: float = 0.0, fade_seconds: float = BOSS_FADE_SECONDS) -> void:
+    if stream == _boss_wanted:
+        return
+    _boss_wanted = stream
+    _boss_mix_db = mix_db
+    _fade_seconds = maxf(0.05, fade_seconds)
+    music_log.push_front(stream.resource_path if stream != null else "")
+    if music_log.size() > LOG_SIZE:
+        music_log.pop_back()
+    if stream == null:
+        _boss_current = -1
+        return
+    var next := 0 if _boss_current != 0 else 1
+    _boss_current = next
+    var player := _boss_players[next]
+    player.stream = stream
+    _boss_levels[next] = 0.0
+    if DisplayServer.get_name() != "headless":
+        player.volume_db = SILENT_DB
+        player.play()
+
+
+## The encounter track wanted now (null: the main music).
+func boss_music() -> AudioStream:
+    return _boss_wanted
+
+
+func _step_boss_music(delta: float) -> void:
+    if is_inside_tree() and get_tree().paused:
+        return
+    var rate := delta / _fade_seconds
+    var base_target := 0.0 if _boss_wanted != null else 1.0
+    _base_level = move_toward(_base_level, base_target, rate)
+    for i in range(_boss_players.size()):
+        var target := 1.0 if i == _boss_current and _boss_wanted != null else 0.0
+        _boss_levels[i] = move_toward(_boss_levels[i], target, rate)
+        var player := _boss_players[i]
+        if _boss_levels[i] <= 0.0 and target == 0.0:
+            if player.playing or player.stream_paused:
+                player.stop()
+                player.stream_paused = false
+            if i != _boss_current:
+                player.stream = null
+    _apply_boss_volumes()
+
+
+func _apply_boss_volumes() -> void:
+    for i in range(_boss_players.size()):
+        var player := _boss_players[i]
+        player.volume_db = _volume_to_db(SettingsState.music_volume * _boss_levels[i]) + _boss_mix_db if SettingsState.music_volume > 0.0 and _boss_levels[i] > 0.0 else SILENT_DB
+        if player.stream != null and (player.playing or player.stream_paused):
+            player.stream_paused = SettingsState.music_volume <= 0.0
+    if _music_player.stream != null and (_music_player.playing or _music_player.stream_paused):
+        _apply_music_volume()
+        _music_player.stream_paused = music_should_hold()
 
 
 ## Resolves this frame's requests now (called every frame; probes may call it directly).
@@ -171,7 +250,7 @@ func refresh_music() -> void:
 
 ## The track holds its place while the Music volume is 0 or the game is paused.
 func music_should_hold() -> bool:
-    return SettingsState.music_volume <= 0.0 or (is_inside_tree() and get_tree().paused)
+    return SettingsState.music_volume <= 0.0 or (is_inside_tree() and get_tree().paused) or (_base_level <= 0.0 and _boss_wanted != null)
 
 
 func music_playing() -> bool:
@@ -211,7 +290,7 @@ func _on_settings_changed() -> void:
 
 
 func _apply_music_volume() -> void:
-    _music_player.volume_db = _volume_to_db(SettingsState.music_volume) + _music_mix_db if SettingsState.music_volume > 0.0 else SILENT_DB
+    _music_player.volume_db = _volume_to_db(SettingsState.music_volume * _base_level) + _music_mix_db if SettingsState.music_volume > 0.0 and _base_level > 0.0 else SILENT_DB
 
 
 func _volume_to_db(value: float) -> float:
@@ -233,5 +312,9 @@ func _exit_tree() -> void:
     if is_instance_valid(_music_player):
         _music_player.stop()
         _music_player.stream = null
+    for player in _boss_players:
+        if is_instance_valid(player):
+            player.stop()
+            player.stream = null
     _cues.clear()
     _music_stream = null

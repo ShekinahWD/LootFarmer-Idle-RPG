@@ -46,6 +46,11 @@ const KICK:=2.5
 var moments: Node2D
 var ceremony_fx: Node2D
 var arena_fx: Node2D
+## Change 83: the enraged Green Alien's aura and its celebration floor (dance_floor.gd, one at a time).
+var rage_fx: Node2D
+var dance_floor: Node2D
+var floor_clock:=0.0
+const DANCE_FLOOR=preload("res://scripts/game/dance_floor.gd")
 ## A boss defeat shakes the camera harder and longer than a crit.
 const BOSS_SHAKE:=6.0
 const BOSS_SHAKE_TIME:=.45
@@ -135,6 +140,14 @@ func setup(value: LootSimulation) -> void:
     add_child(arena_fx)
     sim.final_ceremony.connect(_final_ceremony)
     sim.arena_changed.connect(_arena_changed)
+    # Change 83: Rage Mode (aura and entry burst) and the victory celebration floor.
+    rage_fx=preload("res://scripts/game/rage_fx.gd").new()
+    rage_fx.sim=sim
+    rage_fx.feet=ceremony_fx.feet
+    # Ground level, under the actors (the y-sorted world): the glow shows around the boss, never over the hero.
+    rage_fx.z_index=-1
+    add_child(rage_fx)
+    sim.final_rage.connect(_final_rage)
 
 ## Change 24 (Playbook 44): presentation work scales with what is on screen, not with the map.
 ## - Views whose actor is outside the camera (plus CULL_MARGIN world units) are hidden and skip their
@@ -166,6 +179,8 @@ func _process(_delta: float) -> void:
     _prepare_cached_obstacles()
     countdown_clock+=_delta
     if buff_bursts.values().any(func(b):return b.running()):_place_bursts()
+    _update_floor(_delta)
+    _update_rage_fx()
     supply_fx.follow(_player_feet(),_delta)
     if countdown_clock>=.2:
         countdown_clock=0
@@ -544,6 +559,8 @@ const CINE_BLEND:=.45
 const HERO_BAND:=.12
 const TOP_BAND:=.34
 const ARENA_SHOT:=1.6
+## Change 83: world extent the celebration shot keeps in view (floor rings, fireworks above, caption below).
+const FLOOR_SHOT:=Vector2(250,250)
 var cine_weight:=0.0
 var cine_last: Dictionary={"pos":Vector2.ZERO,"zoom":1.0}
 var arena_shot:=0.0
@@ -554,7 +571,12 @@ func _cinematic(zoom_factor: float) -> Dictionary:
     cine_frame=Engine.get_process_frames()
     var goal: Dictionary={}
     var view: Vector2=get_viewport_rect().size
-    if sim.campaign.ceremony_active():
+    if sim.campaign.celebration_active() and dance_floor!=null:
+        # Change 83: the first victory's celebration frames the floor, its dancers, fireworks and caption in the
+        # open upper part of the map (above the joystick), then eases back to the player's own zoom and follow.
+        var zoom: float=minf(zoom_factor,minf(view.x/FLOOR_SHOT.x,view.y*.62/FLOOR_SHOT.y))
+        goal={"pos":dance_floor.position+Vector2(0,-30+view.y*.07/zoom),"zoom":zoom}
+    elif sim.campaign.ceremony_active():
         var boss: Dictionary=sim._find_actor(sim.campaign.ceremony_boss)
         if not boss.is_empty():
             var hero:=sim.position_of(sim.state.player)+Vector2(0,-10)
@@ -787,3 +809,42 @@ func _boss_countdowns() -> void:
         label.position=entry.position-Vector2(label.get_combined_minimum_size().x*.25,30)
     for key in boss_labels.keys():
         if not live.has(key):boss_labels[key].queue_free();boss_labels.erase(key)
+
+## Change 83: the Green Alien enraged: the red burst at the boss, a hard shake (the enrage cue is final_audio's).
+func _final_rage(id: String) -> void:
+    var boss: Dictionary=sim._find_actor(id)
+    if boss.is_empty():return
+    var vs: float=float(sim.catalog.groups[int(boss.group)].visual_scale)
+    var at: Vector2=(views[id].position if views.has(id) else sim.position_of(boss))+Vector2(0,-10*vs)
+    moments.play("rage",at,Vector2.INF,clampf(vs/2.0,1.0,1.4))
+    shake(BOSS_SHAKE,BOSS_SHAKE_TIME)
+    _update_rage_fx()
+
+## The aura follows whichever Green Alien on this map is enraged (state-derived: a reload shows it again).
+func _update_rage_fx() -> void:
+    if rage_fx==null:return
+    for e in sim.state.enemies:
+        if sim.campaign.enraged(e) and views.has(e.id) and views[e.id].disclosed:
+            rage_fx.follow(str(e.id),float(sim.catalog.groups[int(e.group)].visual_scale))
+            return
+    rage_fx.follow("",1.0)
+
+## The celebration floor exists exactly while campaign.floor_visible() on this map: created at the victory (or on
+## arriving / reloading while the boss is still down), freed when it respawns or the map changes. Owned outfits are
+## re-read once a second, so a new outfit joins the dance.
+func _update_floor(delta: float) -> void:
+    var want: bool=sim.campaign.floor_visible() and sim.campaign.final_home()!=Vector2.INF
+    if not want:
+        if dance_floor!=null:dance_floor.queue_free();dance_floor=null
+        return
+    if dance_floor==null:
+        dance_floor=DANCE_FLOOR.new()
+        dance_floor.sim=sim
+        add_child(dance_floor)
+        dance_floor.open(sim.campaign.final_home(),sim.campaign.celebration_active())
+        floor_clock=0.0
+    dance_floor.set_intro(sim.campaign.celebration_active())
+    floor_clock+=delta
+    if floor_clock>=1.0:
+        floor_clock=0.0
+        dance_floor.refresh_outfits()

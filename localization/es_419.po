@@ -5041,15 +5041,6 @@ msgstr "Todos los menús ya están disponibles"
 msgid "PANEL_MASTERY"
 msgstr "Maestría del mapa"
 
-msgid "MASTERY_OPEN"
-msgstr "Maestría del mapa · Juego %d %%"
-
-msgid "MASTERY_INTRO"
-msgstr "Objetivos opcionales para completar el 100 %. El progreso es permanente y se conserva con el prestigio."
-
-msgid "MASTERY_GAME"
-msgstr "Juego completado al %d %%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Los ocho mapas: título %s · %s"
 
@@ -5169,9 +5160,6 @@ msgstr "Completa una oportunidad y luego haz Prestigio para ganar una carta perm
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Mapa dominado · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100 % completado"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Maestro Farmeador"
@@ -5613,9 +5601,6 @@ msgstr "Abre Mundo y elige Invierno II para seguir la aventura."
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "EL CAMINO POR DELANTE"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Tu meta final es derrotar al jefe final en la etapa 8 y conquistar el juego.\n\n¿Quieres un desafío todavía mayor? Completa el 100 % superando todos los hitos de la Maestría del mapa.\n\nJuega a tu ritmo, disfruta el viaje y ¡mucha suerte!"
 
 msgid "SLOT_SMALL"
 msgstr "Pequeño"

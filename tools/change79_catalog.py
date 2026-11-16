@@ -42,7 +42,8 @@ BOSS_TUNING = {
     # Change 81 supersedes the Spring I/II damage multipliers (attack damage x1.5 on the new spot floor; Change 79
     # values were Red Panda 1.35, Sunflower 1.15, Green Alien 1.20, Bee and Orange Tabby none): tools/change81_catalog.py.
     # HP: Change 79 multiplier / 1.5 (Red Panda, Sunflower, Green Alien 0.45 -> 0.30; Bee, Orange Tabby 1.0 -> 0.6667).
-    'boss-red-panda': [0.3, 1.485], 'boss-sunflower': [0.3, 1.356], 'boss-green-alien': [0.3, 1.626],
+    # Change 83 doubles the Green Alien's HP and damage ([0.3, 1.626] -> [0.6, 3.252]): tools/change83_catalog.py.
+    'boss-red-panda': [0.3, 1.485], 'boss-sunflower': [0.3, 1.356], 'boss-green-alien': [0.6, 3.252],
     'boss-bee': [0.6667, 1.264], 'boss-orange-tabby-cat': [0.6667, 1.355],
 }
 BOSS_SKILLS = {'boss-elephant': ['strike', 'focus'], 'boss-squirrel': ['strike', 'heal'], 'boss-sunflower': ['fire', 'heal']}

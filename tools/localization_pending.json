@@ -2914,6 +2914,265 @@
    "en": "The arena is sealed. Win the fight or fall to leave.",
    "placeholders": [],
    "change": "change-82"
+  },
+  "FINAL_DANGER_TITLE": {
+   "en": "FINAL BOSS — DANGER",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_DANGER_BODY": {
+   "en": "Are you sure you want to fight the Green Alien?\\n\\nThere is no escape once the arena seals: you must win or fall.",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_DANGER_AUDIO_NOTE": {
+   "en": "For the full final-boss experience, we suggest the recommended audio settings: Music 40%, Sound Effects 100%. They last for this encounter only, and your own settings come back afterwards.",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_DANGER_AUDIO": {
+   "en": "Set Recommended Volume",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_DANGER_YES": {
+   "en": "Yes, Fight!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_DANGER_NO": {
+   "en": "No, Not Yet",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_AUDIO_CHIP": {
+   "en": "Recommended Audio\\nTap to Apply",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_AUDIO_ON": {
+   "en": "Recommended Audio ✓\\nTap to Undo",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_AUDIO_TOOLTIP": {
+   "en": "Music 40% and Sound Effects 100% for this encounter. Your own settings come back afterwards.",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_RAGE_TITLE": {
+   "en": "GREEN ALIEN IS ENRAGED!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_RAGE_BODY": {
+   "en": "Attack speed +50% · Defense +30% · Healing +20%",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_VICTORY_TITLE": {
+   "en": "THE GREEN ALIEN IS DEFEATED!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_VICTORY_BODY": {
+   "en": "Your outfits are celebrating with you!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_ENDING_TITLE": {
+   "en": "CONGRATULATIONS!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_ENDING_BODY": {
+   "en": "You defeated the Green Alien and completed LootFarmer's main adventure.\\n\\nYour journey continues: collect every outfit, master every map, earn every Prestige card and finish your upgrades!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_ENDING_CONTINUE": {
+   "en": "Continue Playing",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_ENDING_REVIEW": {
+   "en": "Leave an Honest Review",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_ENDING_DISCORD": {
+   "en": "Join Our Discord",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FLOOR_COLLECT_HINT": {
+   "en": "Collect every outfit to complete this celebration floor!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FLOOR_OUTFITS_COUNT": {
+   "en": "Outfits dancing: %d / %d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-83"
+  },
+  "FLOOR_REPEAT_NOTICE": {
+   "en": "The Green Alien is defeated! Your outfits are dancing until it returns.",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_CELEBRATING": {
+   "en": "Enjoy the celebration first!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "FINAL_QUEST_TITLE": {
+   "en": "Final Boss · %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-83"
+  },
+  "FINAL_QUEST_RETURN": {
+   "en": "All keys collected! Return to %s — %s",
+   "placeholders": [
+    "%s",
+    "%s"
+   ],
+   "change": "change-83"
+  },
+  "FINAL_QUEST_DONE": {
+   "en": "%s defeated · main adventure complete",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-83"
+  },
+  "FINAL_KEY_HELD": {
+   "en": "%s · key collected",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-83"
+  },
+  "FINAL_KEY_MISSING": {
+   "en": "Defeat %s — %s",
+   "placeholders": [
+    "%s",
+    "%s"
+   ],
+   "change": "change-83"
+  },
+  "COMPLETION_TITLE": {
+   "en": "Game Completion %d%%",
+   "placeholders": [
+    "%d",
+    "%%"
+   ],
+   "change": "change-83"
+  },
+  "COMPLETION_RULE": {
+   "en": "100% needs all four parts, each worth 25%. The main adventure and outfit collection are tracked separately.",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "COMPLETION_PART_MASTERY": {
+   "en": "Map Mastery objectives: %d / %d · %d%%",
+   "placeholders": [
+    "%d",
+    "%d",
+    "%d",
+    "%%"
+   ],
+   "change": "change-83"
+  },
+  "COMPLETION_PART_CARDS": {
+   "en": "Prestige cards owned: %d / %d · %d%%",
+   "placeholders": [
+    "%d",
+    "%d",
+    "%d",
+    "%%"
+   ],
+   "change": "change-83"
+  },
+  "COMPLETION_PART_PLAYER": {
+   "en": "Player and map upgrades maxed: %d / %d · %d%%",
+   "placeholders": [
+    "%d",
+    "%d",
+    "%d",
+    "%%"
+   ],
+   "change": "change-83"
+  },
+  "COMPLETION_PART_ENEMY": {
+   "en": "Enemy upgrades maxed: %d / %d · %d%%",
+   "placeholders": [
+    "%d",
+    "%d",
+    "%d",
+    "%%"
+   ],
+   "change": "change-83"
+  },
+  "COMPLETION_SEPARATE": {
+   "en": "Outfits collected: %d / %d (the celebration floor, not part of Game Completion).",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-83"
+  },
+  "COMPLETION_MAP_MASTERY": {
+   "en": "Map Mastery",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "MASTERY_INTRO_V83": {
+   "en": "Optional goals on every map. Map Mastery is one of the four parts of Game Completion, and its progress is permanent and kept by Prestige.",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "MASTERY_ALL_MAPS": {
+   "en": "Map Mastery (all maps) %d%%",
+   "placeholders": [
+    "%d",
+    "%%"
+   ],
+   "change": "change-83"
+  },
+  "MILESTONE_ALL_MAPS_MASTERED": {
+   "en": "Every map mastered",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "MILESTONE_GAME_COMPLETE_100": {
+   "en": "100% GAME COMPLETION!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "MILESTONE_GAME_COMPLETE_100_DETAIL": {
+   "en": "Every map mastered, every Prestige card owned and every upgrade maxed.",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "GUIDE_TUTORIAL_FINAL_DETAIL_V83": {
+   "en": "Your ultimate goal is to defeat the final boss in Stage 8 and conquer the game.\\n\\nWant an even greater challenge? Reach 100% Game Completion: master every map, earn every Prestige card and max every Player and enemy upgrade.\\n\\nPlay at your own pace, enjoy the journey, and good luck!",
+   "placeholders": [],
+   "change": "change-83"
+  },
+  "MASTERY_OPEN_V83": {
+   "en": "Map Mastery %d%% · Game Completion %d%%",
+   "placeholders": [
+    "%d",
+    "%%",
+    "%d",
+    "%%"
+   ],
+   "change": "change-83"
   }
  },
  "retired": {
@@ -2954,6 +3213,11 @@
   "GATE_HUD_WORLD_SHORT": "change-74",
   "PLAYER_LEVEL_CAP": "change-81",
   "FINAL_DISCOVERED": "change-81",
-  "MAX_ITEM_TIER": "change-81"
+  "MAX_ITEM_TIER": "change-81",
+  "MASTERY_OPEN": "change-83",
+  "MASTERY_GAME": "change-83",
+  "MASTERY_INTRO": "change-83",
+  "MILESTONE_MASTERY_GAME": "change-83",
+  "GUIDE_TUTORIAL_FINAL_DETAIL": "change-83"
  }
 }

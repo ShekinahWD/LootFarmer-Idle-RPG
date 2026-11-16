@@ -88,7 +88,7 @@ func run() -> void:
             sim.campaign.killed({"group":g,"encounter_uses":0})
     # Change 82: the keys open it once the one-time unsealing ceremony has played (tests/change_82_probe).
     check(sim.state.keys.size()==13 and not sim.campaign.final_sealed(int(final.group)) and not sim.campaign.target_allowed(final),"Thirteen unique keys unseal final boss (ceremony next)")
-    sim.state.final_unsealed=true # fixture: the Change 82 ceremony completed
+    sim.state.final_unsealed=true;sim.state.final_experience=true;sim.state.final_warning_ok=true # fixture: Change 82 ceremony and Change 83 introduction done
     check(sim.campaign.target_allowed(final),"After the ceremony the final boss can be fought")
     for g in sim.campaign.stage().groups:
         sim.campaign.killed({"group":g,"encounter_uses":0})

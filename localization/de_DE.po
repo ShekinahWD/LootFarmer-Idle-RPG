@@ -5041,15 +5041,6 @@ msgstr "Alle Menüs sind bereits verfügbar"
 msgid "PANEL_MASTERY"
 msgstr "Kartenmeisterschaft"
 
-msgid "MASTERY_OPEN"
-msgstr "Kartenmeisterschaft · Spiel %d %%"
-
-msgid "MASTERY_INTRO"
-msgstr "Optionale Ziele für 100 % Abschluss. Der Fortschritt ist dauerhaft und bleibt beim Prestige erhalten."
-
-msgid "MASTERY_GAME"
-msgstr "Spielabschluss %d %%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Alle acht Karten: Titel %s · %s"
 
@@ -5169,9 +5160,6 @@ msgstr "Schließe eine Gelegenheit ab und nutze dann Prestige für eine dauerhaf
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Karte gemeistert · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100 % abgeschlossen"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Meisterfarmer"
@@ -5613,9 +5601,6 @@ msgstr "Öffne Welt und wähle Winter II, um das Abenteuer fortzusetzen."
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "DER WEG VOR DIR"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Dein großes Ziel: Besiege den Endboss in Gebiet 8 und bezwinge das Spiel.\n\nLust auf eine noch größere Herausforderung? Erreiche 100 %, indem du alle Meilensteine der Kartenmeisterschaft schaffst.\n\nSpiel in deinem Tempo, genieß die Reise und viel Glück!"
 
 msgid "SLOT_SMALL"
 msgstr "Klein"

@@ -7,7 +7,7 @@ extends Resource
 ## claims discord.gg links, else the browser). Nothing is embedded and no account is touched.
 
 ## The approved invite for Settings → Discord.
-@export var discord_url:="https://discord.gg/zbr9RH6QWa"
+@export var discord_url:="https://discord.gg/JKjeP6PDAU"
 ## A second press within this many real seconds opens nothing (a double tap, a press that slides).
 @export var repeat_guard_seconds:=1.5
 

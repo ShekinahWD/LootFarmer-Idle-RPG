@@ -92,6 +92,9 @@ def apply(c):
     tuning = p['balance']['boss_tuning']
     for boss, dm in boss_multipliers(c).items():
         hm = round(BOSS_HP_BEFORE[boss] / DAMAGE_FACTOR, 4)
+        # Change 83 supersedes the Green Alien entry (HP and damage x2): tools/change83_catalog.py.
+        if boss == 'boss-green-alien':
+            hm, dm = round(hm * 2.0, 4), round(dm * 2.0, 4)
         if tuning.get(boss, [1.0, 1.0]) != [hm, dm]:
             tuning[boss] = [hm, dm]; changes.append('progression.balance.boss_tuning.' + boss)
     m = p['merge']

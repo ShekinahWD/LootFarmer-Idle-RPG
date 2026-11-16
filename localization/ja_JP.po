@@ -5033,15 +5033,6 @@ msgstr "すべてのメニューはすでに利用可能です"
 msgid "PANEL_MASTERY"
 msgstr "マップ熟練度"
 
-msgid "MASTERY_OPEN"
-msgstr "マップ熟練度 · ゲーム %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "100%達成のための任意の目標です。進捗は永続し、転生後も残ります。"
-
-msgid "MASTERY_GAME"
-msgstr "ゲーム達成率 %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "全8マップ：称号「%s」 · %s"
 
@@ -5158,9 +5149,6 @@ msgstr "チャンスを達成してから転生し、永続カードを手に入
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "マップ制覇 · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100%達成"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "マスターファーマー"
@@ -5599,9 +5587,6 @@ msgstr "「ワールド」を開いて冬 II を選び、冒険を続けよう�
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "この先の道のり"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "最終目標は、ステージ8の最終ボスを倒してゲームを制覇することです。\n\nさらに大きな挑戦をお望みですか？マップ熟練度のマイルストーンをすべて達成して、100%コンプリートを目指そう。\n\n自分のペースで旅を楽しんでください。幸運を祈ります！"
 
 msgid "SLOT_SMALL"
 msgstr "小"

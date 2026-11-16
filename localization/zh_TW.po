@@ -5033,15 +5033,6 @@ msgstr "所有選單均已開放"
 msgid "PANEL_MASTERY"
 msgstr "地圖熟練度"
 
-msgid "MASTERY_OPEN"
-msgstr "地圖熟練度 · 遊戲 %d%%"
-
-msgid "MASTERY_INTRO"
-msgstr "達成 100% 完成度的選擇性目標。進度永久保留，轉生後也會保留。"
-
-msgid "MASTERY_GAME"
-msgstr "遊戲完成度 %d%%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "全部八張地圖：「%s」稱號 · %s"
 
@@ -5158,9 +5149,6 @@ msgstr "完成一個機會後轉生，獲得永久卡片"
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "地圖熟練度達成 · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "100% 完成"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "刷寶大師"
@@ -5599,9 +5587,6 @@ msgstr "開啟「世界」並選擇冬季 II，繼續冒險。"
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "前方的路"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "你的終極目標是擊敗第 8 關的最終頭目，征服整個遊戲。\n\n想要更大的挑戰？完成地圖熟練度中的所有里程碑，達成 100% 完成度。\n\n依照自己的步調遊玩，享受旅程，祝你好運！"
 
 msgid "SLOT_SMALL"
 msgstr "小"

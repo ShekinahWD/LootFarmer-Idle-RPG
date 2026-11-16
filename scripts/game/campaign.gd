@@ -9,6 +9,7 @@ var offline_receipt: Dictionary={}
 ## Change 15: first-profile progression (menu reveals, early equipment guarantee) and Map Mastery.
 var onboarding
 var mastery
+var completion
 var guided
 ## Change 35: the one automatic review invitation (state.review) and its storefront routing.
 var review
@@ -20,10 +21,12 @@ func _init(owner) -> void:
     review=preload("res://scripts/game/review_invitation.gd").new(owner)
     onboarding=preload("res://scripts/game/onboarding.gd").new(owner)
     mastery=preload("res://scripts/game/mastery.gd").new(owner)
+    # Change 83: Game Completion (Map Mastery, Prestige cards, Player and enemy upgrades).
+    completion=preload("res://scripts/game/completion.gd").new(owner)
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={};camp_supply_waiting=""
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"final_unsealed":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"follow_mastery":"","bosses_found":[],"follow_mission":"","review":review.initial(),"respawns":{},"hunt":hunt_initial(),"camp_supply":{}},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"final_unsealed":false,"final_warning_ok":false,"final_experience":false,"final_celebrated":false,"final_ending_seen":false,"completion_maxed":[],"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"follow_mastery":"","bosses_found":[],"follow_mission":"","review":review.initial(),"respawns":{},"hunt":hunt_initial(),"camp_supply":{}},true)
     mastery.reset_cache()
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
@@ -243,6 +246,7 @@ func travel_reason(st: int,camp: int) -> String:
     if sim.state.player.hp<=0:return "CANNOT_USE"
     # Change 82: the sealed Green Alien arena (and its unsealing ceremony) cannot be left by any travel.
     if arena_active() or ceremony_active():return "ARENA_SEALED"
+    if celebration_active():return "FINAL_CELEBRATING"
     if in_combat():return "TRAVEL_COMBAT"
     if st<1 or st>int(sim.state.unlocked_stage):return "STAGE_LOCKED"
     if camp<0 or camp>=sim.catalog.stages[st-1].spawns.size():return "CAMP_LOCKED"
@@ -256,6 +260,7 @@ func travel_reason(st: int,camp: int) -> String:
 func camp_action(st: int,camp: int,teleport: bool) -> bool:
     if not sim.action_lock_reason().is_empty():return sim.fail(sim.action_lock_reason())
     if teleport and (arena_active() or ceremony_active()):return sim.fail("ARENA_SEALED")
+    if teleport and celebration_active():return sim.fail("FINAL_CELEBRATING")
     if teleport:
         var reason=travel_reason(st,camp)
         if reason!="":return sim.fail(reason)
@@ -626,7 +631,10 @@ func target_allowed(e: Dictionary,view: Sight=null) -> bool:
     return seen and not final_locked(int(e.group)) and arena_allows(e)
 func damage_multiplier(a: Dictionary,b: Dictionary) -> float:
     var n=1.0
-    if a.id=="player":n+=bonus("boss_damage" if sim.catalog.groups[int(b.group)].boss else "normal_damage")
+    if a.id=="player":
+        n+=bonus("boss_damage" if sim.catalog.groups[int(b.group)].boss else "normal_damage")
+        # Change 83: the enraged Green Alien's +30% defense (damage taken / 1.3).
+        n*=damage_taken_factor(b)
     elif b.id=="player":
         n*=1-bonus("guard")- (bonus("boss_guard") if sim.catalog.groups[int(a.group)].boss else 0.0)
         # Change 54 Crowd Guard: -4% per normal attacker beyond the first, at most -20%.
@@ -832,6 +840,8 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
         if not skill_ready(a,key):return false
         var maxhp:=actor_max_hp(a)
         var fraction: float=float(sim.abilities.final_heal_fraction) if not player and bool(sim.catalog.groups[int(a.group)].final) else float(sim.catalog.skills.heal.enemy_hp_fraction)
+        # Change 83: the enraged Green Alien heals +20% (each Heal, once).
+        if not player and enraged(a):fraction*=RAGE_HEAL
         var gain=minf(minf(power,maxhp*float(sim.catalog.skills.heal.player_hp_cap)) if player else maxhp*fraction,maxhp-a.hp)
         # Change 54 Boss Breaker: boss heals restore 25% less.
         if not player and sim.catalog.groups[int(a.group)].boss:gain*=1-bonus("boss_breaker")
@@ -882,10 +892,14 @@ func step(dt: float) -> void:
         var d: Dictionary=sim.enemy_definition(a.group,a.variant)
         if d.final and not sim.state.final_discovered and sim.position_of(a).distance_to(sim.position_of(sim.state.player))<160:
             discover_final()
-        # Change 82: with all 13 keys, the first approach plays the unsealing ceremony (once per profile).
-        if d.final and ceremony_due(a):begin_ceremony(a)
+        # Change 82/83: with all 13 keys, the first approach asks the danger question, then plays the ceremony.
+        if d.final:
+            _rearm_warning(a)
+            final_attempt(a)
         if d.final and final_locked(int(a.group)):
             a.aggro=false;a.windup=0;continue
+        # Change 83: Rage Mode (after damage, never on a lethal blow: a dead boss is skipped above).
+        if d.final:_rage_check(a)
         # Change 13: summoners (EnemyAbilityRules) call helpers on their own timer; helpers never summon.
         var rule: SummonRule=null if sim.is_helper(a) else sim.abilities.summon_rule(str(d.id))
         if not a.aggro:
@@ -926,7 +940,7 @@ func step(dt: float) -> void:
     evolve_clock+=dt
     if reveal_clock>=fog_rules.update_interval:reveal_clock=0;reveal();camp_supply_step()
     if objective_clock>=1:
-        objective_clock=0;refresh_missions();evaluate();onboarding.evaluate();mastery.evaluate();check_follow_mission();sim.touch()
+        objective_clock=0;refresh_missions();evaluate();onboarding.evaluate();mastery.evaluate();completion.evaluate();check_follow_mission();sim.touch()
 ## Seconds before an enemy of this type casts again after a successful skill: a per-type override in
 ## EnemyAbilityRules, else the boss standard cooldown (Change 62: 10 s), else the catalog skill's.
 ## Change 81: the boss keys (13 distinct other bosses defeated after the discovery) open the Green Alien. Until
@@ -993,18 +1007,198 @@ var arena_bump: Vector2=Vector2.INF
 var arena_bump_clock:=-INF
 
 func final_unsealed() -> bool:return bool(sim.state.get("final_unsealed",false))
-## The Green Alien cannot fight yet: missing keys (sealed), or the unsealing ceremony has not completed.
+## Change 83: the new encounter introduction (danger warning accepted, then the full key ceremony) was completed
+## on this profile. Separate from the Change 82 final_unsealed and from any past victory: an older save that had
+## unsealed or even defeated the Green Alien still sees the warning and the ceremony once.
+func final_experience() -> bool:return bool(sim.state.get("final_experience",false))
+func final_warning_ok() -> bool:return bool(sim.state.get("final_warning_ok",false))
+## The Green Alien may fight: unsealed and the Change 83 introduction completed.
+func final_ready() -> bool:return final_unsealed() and final_experience()
+## The Green Alien cannot fight yet: missing keys (sealed), the introduction (warning and ceremony) not completed,
+## or the warning or the ceremony on screen now.
 func final_locked(g: int) -> bool:
-    return g>=0 and g<sim.catalog.groups.size() and bool(sim.catalog.groups[g].final) and (sim.state.keys.size()<FINAL_KEYS or not final_unsealed() or ceremony_active())
+    return g>=0 and g<sim.catalog.groups.size() and bool(sim.catalog.groups[g].final) and (sim.state.keys.size()<FINAL_KEYS or not final_ready() or ceremony_active() or warning_pending!="")
 func ceremony_active() -> bool:return ceremony_time>=0.0
 func ceremony_progress() -> float:return clampf(ceremony_time/CEREMONY_SECONDS,0.0,1.0) if ceremony_active() else 0.0
-## True when this living Green Alien should start the ceremony now (13 keys, never unsealed, player alive and close).
+## True when this living Green Alien should start its introduction now (13 keys, introduction not completed, player
+## alive and close). The introduction is the danger warning (until accepted once) and then the ceremony.
 func ceremony_due(a: Dictionary,radius:=CEREMONY_RADIUS) -> bool:
-    if ceremony_active() or final_unsealed() or sim.state.keys.size()<FINAL_KEYS:return false
+    if ceremony_active() or warning_pending!="" or final_experience() or sim.state.keys.size()<FINAL_KEYS:return false
     if float(a.hp)<=0 or float(sim.state.player.hp)<=0 or not sim.state.get("prestige_batch",{}).is_empty():return false
     return sim.position_of(a).distance_to(sim.position_of(sim.state.player))<=radius and can_see(sim.position_of(a))
+
+# ---------------------------------------------------------------- Change 83: danger warning before the encounter
+# The first valid attempt to engage (walking or Auto Farm within CEREMONY_RADIUS, or a tap on it there) asks first,
+# before any key visual, arena, combat or music: warning_pending holds the boss id while the panel is open (the UI
+# holds the world). "Yes" saves final_warning_ok and starts the full ceremony; "No" closes it with nothing changed,
+# and the approach asks again only after the player has walked WARNING_REARM beyond the radius (or taps the boss
+# again), never every frame. A warning that was not answered (reload, Prestige, Hard Reset) counts as not accepted.
+# Once accepted, an interrupted ceremony replays on the next approach without asking again.
+const WARNING_REARM:=60.0
+var warning_pending:=""
+var warning_armed:=true
+## The approach (or a tap) reached a Green Alien whose introduction is due: ask, or play the ceremony once accepted.
+## explicit: a tap, which asks again even right after a "No".
+func final_attempt(a: Dictionary,explicit:=false) -> bool:
+    if not ceremony_due(a):return false
+    if final_warning_ok():return begin_ceremony(a)
+    if not warning_armed and not explicit:return false
+    discover_final()
+    reveal()
+    warning_pending=str(a.id)
+    sim.movement=Vector2.ZERO;sim.clear_target();sim.focus_walk_time=0.0
+    sim.state.player.windup=0.0;sim.state.player.target=""
+    a.aggro=false;a.windup=0.0;a.telegraph=false
+    sim.final_warning.emit("ask")
+    return true
+## Yes, fight: saved at once (never asked again on this profile), then the full 13-key ceremony.
+func accept_final_warning() -> bool:
+    if warning_pending=="":return false
+    var boss: Dictionary=sim._find_actor(warning_pending)
+    warning_pending=""
+    sim.state.final_warning_ok=true
+    sim.touch();SaveService.save_now()
+    sim.final_warning.emit("accepted")
+    if boss.is_empty() or float(boss.hp)<=0 or float(sim.state.player.hp)<=0:return false
+    return begin_ceremony(boss)
+## No, not yet: the encounter is cancelled (arena open, boss disengaged); a Focus on the Green Alien stops so Auto
+## Farm does not walk straight back into the question.
+func decline_final_warning() -> void:
+    if warning_pending=="":return
+    var boss: Dictionary=sim._find_actor(warning_pending)
+    warning_pending="";warning_armed=false
+    if not boss.is_empty():boss.aggro=false;boss.windup=0.0
+    if int(sim.state.focus)>=0 and int(sim.state.focus)<sim.catalog.groups.size() and bool(sim.catalog.groups[int(sim.state.focus)].final):sim.stop_focus("")
+    sim.touch()
+    sim.final_warning.emit("declined")
+## Re-arms the warning once the player has walked away from the Green Alien after a "No".
+func _rearm_warning(a: Dictionary) -> void:
+    if not warning_armed and sim.position_of(a).distance_to(sim.position_of(sim.state.player))>CEREMONY_RADIUS+WARNING_REARM:warning_armed=true
+
+# ---------------------------------------------------------------- Change 83: Green Alien Rage Mode
+# The first time the living, fighting Green Alien is at or below RAGE_BELOW of its maximum HP after taking damage
+# (checked in step, so a lethal blow never enrages it), it enrages until it is defeated: attacks start 1.5x as often
+# (interval / RAGE_ATTACK_SPEED), it takes RAGE_DAMAGE_TAKEN of the damage (every enemy's Defense is 0, so the
+# +30% defense is the game's own damage-mitigation multiplier, as Guard is for the player), each Heal restores
+# RAGE_HEAL x its amount, and on entry it heals once at once (that Heal also starts the Heal cooldown, so the next
+# one follows the normal rules). The latch (actor.rage) is saved with the actor: it survives a reload, a player
+# death, its regeneration and the arena opening, and is dropped only when this boss dies (the next one is normal).
+const RAGE_BELOW:=.2
+const RAGE_ATTACK_SPEED:=1.5
+const RAGE_DAMAGE_TAKEN:=1.0/1.3
+const RAGE_HEAL:=1.2
+func enraged(a: Dictionary) -> bool:
+    return not a.is_empty() and a.id!="player" and bool(a.get("rage",false)) and float(a.hp)>0
+## Attack-rate factor for an enemy's basic attacks (1.5 while enraged).
+func attack_speed_factor(a: Dictionary) -> float:
+    return RAGE_ATTACK_SPEED if enraged(a) else 1.0
+## Damage-taken factor for an actor (the enraged Green Alien's mitigation).
+func damage_taken_factor(b: Dictionary) -> float:
+    return RAGE_DAMAGE_TAKEN if enraged(b) else 1.0
+func _rage_check(a: Dictionary) -> void:
+    if bool(a.get("rage",false)) or not bool(a.aggro) or float(a.hp)<=0 or sim.is_helper(a):return
+    var maxhp:=actor_max_hp(a)
+    if float(a.hp)>maxhp*RAGE_BELOW:return
+    a.rage=true
+    # The one immediate Heal (no telegraph), with the enraged +20%.
+    var gain:=minf(maxhp*float(sim.abilities.final_heal_fraction)*RAGE_HEAL*(1.0-bonus("boss_breaker")),maxhp-float(a.hp))
+    if gain>0:
+        a.hp=float(a.hp)+gain
+        sim.feedback.emit(a.id,gain,true)
+        sim.spell_cast.emit(a.id,"heal",sim.position_of(a))
+    if not a.has("skill_cds"):a.skill_cds={}
+    a.skill_cds["heal"]=enemy_skill_cooldown(sim.catalog.groups[int(a.group)],"heal")
+    sim.touch()
+    sim.final_rage.emit(str(a.id))
+
+# ---------------------------------------------------------------- Change 83: the first victory and the ending
+# Four separate saved facts: boss defeated (group_kills), final_celebrated (the first 10 s celebration played to its
+# end), final_ending_seen (the ending message acknowledged by a button) and 100% Game Completion (completion.gd).
+# A Green Alien victory:
+# - nothing celebrated yet: the CELEBRATION_SECONDS celebration plays with the world frozen (like the ceremony;
+#   pause and background pause it), then ending_due asks the UI for the ending panel, which holds the world;
+# - celebrated but the message never acknowledged (closed app, reload): after ENDING_DELAY of play the panel shows;
+# - otherwise: nothing blocks (the dance floor is presentation only).
+# The boss respawn clock waits while the celebration runs or the panel is due, so the floor and the message are
+# never cut off by its return. A reload drops an unfinished celebration and an unshown panel without saving them;
+# the next victory delivers them.
+const CELEBRATION_SECONDS:=10.0
+const ENDING_DELAY:=3.0
+var celebration_time:=-1.0
+var ending_due:=false
+var ending_wait:=-1.0
+func celebration_active() -> bool:return celebration_time>=0.0
+func final_celebrated() -> bool:return bool(sim.state.get("final_celebrated",false))
+func final_ending_seen() -> bool:return bool(sim.state.get("final_ending_seen",false))
+## The final boss's respawn clock is held (the celebration or the ending message is still owed this victory).
+func final_respawn_held() -> bool:return celebration_active() or ending_due or ending_wait>=0.0
+## Called once per Green Alien defeat, after its rewards. Returns "first", "deferred" or "repeat".
+func final_victory() -> String:
+    if final_ending_seen():
+        sim.final_victory.emit("repeat")
+        return "repeat"
+    if not final_celebrated():
+        celebration_time=0.0
+        sim.movement=Vector2.ZERO;sim.clear_target();sim.focus_walk_time=0.0
+        sim.final_victory.emit("first")
+        return "first"
+    ending_wait=0.0
+    sim.final_victory.emit("deferred")
+    return "deferred"
+## Advances the first celebration while the world is frozen (sim.step). Returns true while it runs.
+func celebration_step(dt: float) -> bool:
+    if not celebration_active():return false
+    celebration_time+=dt
+    if celebration_time<CELEBRATION_SECONDS:return true
+    celebration_time=-1.0
+    sim.state.final_celebrated=true
+    sim.touch();SaveService.save_now()
+    ending_due=true
+    sim.final_victory.emit("celebrated")
+    return false
+## The deferred message's short wait (live play, not frozen).
+func ending_step(dt: float) -> void:
+    if ending_wait<0.0:return
+    ending_wait+=dt
+    if ending_wait>=ENDING_DELAY:ending_wait=-1.0;ending_due=true
+## The ending panel was answered (Continue, review or Discord): never shown again on this profile.
+func acknowledge_ending() -> void:
+    if final_ending_seen() and not ending_due:return
+    ending_due=false;ending_wait=-1.0
+    sim.state.final_ending_seen=true
+    sim.touch();SaveService.save_now()
+    sim.final_victory.emit("acknowledged")
+
+## Change 83: the outfits the celebration floor can show: every outfit an enemy drops (outfits never evolve), in
+## catalog order. Copies, merge levels and retired/legacy ids never add to it.
+var _floor_outfits: Array=[]
+func floor_outfits() -> Array:
+    if _floor_outfits.is_empty():
+        for g in sim.catalog.groups:
+            for id in g.loot:
+                if sim.catalog.items.has(id) and str(sim.catalog.items[id].kind)=="outfit" and not _floor_outfits.has(id):_floor_outfits.append(id)
+    return _floor_outfits
+## The obtainable outfits this profile owns now (in the inventory or worn), one entry per outfit.
+func owned_floor_outfits() -> Array:
+    var out: Array=[]
+    for id in floor_outfits():
+        if str(sim.state.get("outfit",""))==id or float(sim.state.items.get(id,{}).get("qty",0))>0:out.append(id)
+    return out
+## Where the dance floor stands: the Green Alien's home, or INF when it is not on this map.
+func final_home() -> Vector2:
+    for e in sim.state.enemies:
+        if bool(sim.catalog.groups[int(e.group)].final) and not sim.is_helper(e):return Vector2(float(e.home_x),float(e.home_y))
+    return Vector2.INF
+## The floor shows on the Green Alien's map from its defeat until it respawns (state-derived: a reload or a return to
+## the map shows it again; a respawn removes it).
+func floor_visible() -> bool:
+    if not final_defeated():return false
+    for e in sim.state.enemies:
+        if bool(sim.catalog.groups[int(e.group)].final) and not sim.is_helper(e):return float(e.hp)<=0
+    return false
+
 func begin_ceremony(a: Dictionary) -> bool:
-    if ceremony_active() or final_unsealed():return false
+    if ceremony_active() or final_experience():return false
     discover_final()
     # The world freezes from here: bring the fog and the boss sighting up to date first.
     reveal()
@@ -1035,6 +1229,8 @@ func ceremony_step(dt: float) -> bool:
     # Completion: the durable unlock is saved first, then the encounter starts (the arena closes on the next step).
     ceremony_time=-1.0;ceremony_boss=""
     sim.state.final_unsealed=true
+    # Change 83: the new introduction is complete only now (warning accepted earlier, ceremony played through).
+    sim.state.final_experience=true
     boss.aggro=true;boss.returning=false;boss.quiet=0.0
     begin_encounter(boss)
     sim.touch();SaveService.save_now()
@@ -1059,7 +1255,7 @@ func arena_geometry(a: Dictionary) -> Dictionary:
     return {"center":center,"radius":ARENA_RADIUS,"boss":str(a.id)}
 ## The living, engaged, unsealed Green Alien on the current map, or {}.
 func engaged_final() -> Dictionary:
-    if not final_unsealed() or ceremony_active() or float(sim.state.player.hp)<=0:return {}
+    if not final_ready() or ceremony_active() or float(sim.state.player.hp)<=0:return {}
     for e in sim.state.enemies:
         if bool(sim.catalog.groups[int(e.group)].final) and not sim.is_helper(e) and float(e.hp)>0 and bool(e.aggro) and not bool(e.get("returning",false)):
             return e
@@ -1125,6 +1321,9 @@ func reset_final_encounter() -> void:
     cancel_ceremony()
     open_arena("reset")
     arena_notice_clock=0.0
+    # Change 83: an unanswered warning is not accepted; an unfinished celebration or unshown ending is owed again.
+    warning_pending="";warning_armed=true
+    celebration_time=-1.0;ending_due=false;ending_wait=-1.0
 func enemy_skill_cooldown(d: Dictionary,key: String) -> float:
     return sim.abilities.skill_cooldown(str(d.id),key,float(sim.catalog.skills[key].cooldown),bool(d.get("boss",false)))
 ## Change 78: pause after a boss's telegraphed skill misses its resolution (the player left its reach).
@@ -1828,6 +2027,7 @@ func prestige_block_reason() -> String:
     var lock: String=sim.action_lock_reason()
     if lock!="":return lock
     if arena_active() or ceremony_active():return "ARENA_SEALED"
+    if celebration_active():return "FINAL_CELEBRATING"
     var gate:=prestige_gate_reason()
     if gate!="":return gate
     if ready_ids().is_empty():return "NO_READY_PRESTIGE"
@@ -1872,7 +2072,7 @@ func choose_card(id: String) -> bool:
         # are the Auto Buy Supplies selections. Map access still resets: a map's camps are usable again as
         # soon as that map is reached again.
         # New daily missions are repriced from current-run map access (reward_stage) on real day reset.
-        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","final_unsealed","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","supply_uses","supply_mastery_credit","missions","mission_day","mission_auto","follow_mission","follow_mastery","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt","camps","respawns","auto_buy","camp_supply"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","final_unsealed","final_warning_ok","final_experience","final_celebrated","final_ending_seen","completion_maxed","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","supply_uses","supply_mastery_credit","missions","mission_day","mission_auto","follow_mission","follow_mastery","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt","camps","respawns","auto_buy","camp_supply"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -2118,6 +2318,11 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
     normalize_change61(out)
     # Change 82: the unsealing ceremony state is never copied from the live profile (an older save has not seen it).
     if not out.has("final_unsealed") or typeof(out.final_unsealed)!=TYPE_BOOL:out["final_unsealed"]=false
+    # Change 83: the new introduction, the first celebration and the ending message are not implied by an older
+    # unseal or victory; Game Completion's latched maxed upgrades start from what the save holds now.
+    for key in ["final_warning_ok","final_experience","final_celebrated","final_ending_seen"]:
+        if not out.has(key) or typeof(out[key])!=TYPE_BOOL:out[key]=false
+    if not out.has("completion_maxed") or not out.completion_maxed is Array:out["completion_maxed"]=[]
     for key in sim.state:
         if not out.has(key):out[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
     # Older schema-8 profiles have no expansion preferences. Ignore malformed/unknown keys.

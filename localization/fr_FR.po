@@ -5041,15 +5041,6 @@ msgstr "Tous les menus sont déjà disponibles"
 msgid "PANEL_MASTERY"
 msgstr "Maîtrise des cartes"
 
-msgid "MASTERY_OPEN"
-msgstr "Maîtrise des cartes · Jeu %d %%"
-
-msgid "MASTERY_INTRO"
-msgstr "Objectifs facultatifs pour atteindre 100 %. La progression est permanente et conservée au Prestige."
-
-msgid "MASTERY_GAME"
-msgstr "Jeu terminé à %d %%"
-
 msgid "MASTERY_GAME_REWARD"
 msgstr "Les huit cartes : titre %s · %s"
 
@@ -5169,9 +5160,6 @@ msgstr "Accomplissez une opportunité, puis faites un Prestige pour obtenir une 
 
 msgid "MILESTONE_MASTERY_MAP"
 msgstr "Carte maîtrisée · %s"
-
-msgid "MILESTONE_MASTERY_GAME"
-msgstr "Terminé à 100 %"
 
 msgid "MASTER_FARMER_TITLE"
 msgstr "Maître Farmeur"
@@ -5613,9 +5601,6 @@ msgstr "Ouvrez Monde et sélectionnez Hiver II pour poursuivre l’aventure."
 
 msgid "GUIDE_TUTORIAL_FINAL"
 msgstr "LA ROUTE À SUIVRE"
-
-msgid "GUIDE_TUTORIAL_FINAL_DETAIL"
-msgstr "Votre but ultime : vaincre le boss final de la zone 8 et conquérir le jeu.\n\nEnvie d’un défi encore plus grand ? Atteignez 100 % en accomplissant tous les paliers de la Maîtrise des cartes.\n\nJouez à votre rythme, profitez du voyage et bonne chance !"
 
 msgid "SLOT_SMALL"
 msgstr "Petite"

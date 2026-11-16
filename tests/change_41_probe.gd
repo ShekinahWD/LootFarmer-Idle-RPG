@@ -415,7 +415,7 @@ func drop_checks() -> void:
 # ---------------------------------------------------------------- 6. Discord
 func discord_checks() -> void:
     var links: Resource=preload("res://resources/game/external_links.tres")
-    check(links.discord_url=="https://discord.gg/zbr9RH6QWa","The invite is the approved URL, defined once")
+    check(links.discord_url=="https://discord.gg/JKjeP6PDAU","The invite is the approved URL, defined once")
     var opened: Array=[]
     links.opener=func(url: String)->int:opened.append(url);return OK
     links.reset_guard()
@@ -434,7 +434,7 @@ func discord_checks() -> void:
     var scroll: ScrollContainer=game.get_node("Sheet/Margin/Content/Scroll")
     check(scroll.get_global_rect().encloses(b.get_global_rect()),"Reachable without scrolling at 720x1280")
     b.pressed.emit();b.pressed.emit();await frames(1)
-    check(opened==["https://discord.gg/zbr9RH6QWa"],"One press opens the exact URL; an immediate second press opens nothing")
+    check(opened==["https://discord.gg/JKjeP6PDAU"],"One press opens the exact URL; an immediate second press opens nothing")
     links.reset_guard();game.toast_queue.clear()
     links.opener=func(_url: String)->int:return ERR_CANT_OPEN
     b.pressed.emit();await frames(2)
