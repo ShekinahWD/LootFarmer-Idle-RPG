@@ -1397,6 +1397,14 @@ func _summon_step(a: Dictionary,d: Dictionary,rule: SummonRule,dt: float) -> boo
 func heal_first(a: Dictionary) -> bool:
     return float(a.get("skill_cds",{}).get("heal",0))<=0 and skill_ready(a,"heal")
 
+## Change 84: the skills an enemy type shows over its head. The catalog's skill list (also its skill drops,
+## mastery and map icon); the final boss also casts Heal through its Change 13 kit (final_choice, Rage), which
+## is not in that list, so its Heal icon is added here (display only: drops and mastery keep the catalog list).
+func shown_skills(d: Dictionary) -> Array:
+    var out: Array=Array(d.get("skills",[])).duplicate()
+    if bool(d.get("final",false)) and not out.has("heal"):out.append("heal")
+    return out
+
 func final_choice(a: Dictionary) -> String:
     if heal_first(a):return "heal"
     var options: Array=[]

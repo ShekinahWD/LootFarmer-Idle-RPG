@@ -123,9 +123,10 @@ func maxhp() -> float:return float(sim.enemy_definition(final_g()).hp)
 func catalog_checks() -> void:
     print("-- Green Alien values")
     var d: Dictionary=sim.catalog.groups[final_g()]
-    check(absf(float(d.hp)-91354.1071*2.0)<.01 and absf(float(d.damage)-622.7689*2.0)<.01,"HP 91,354 -> %s and attack 622.8 -> %s (x2)" % [d.hp,d.damage])
+    # Change 84 then lowers the attack x7/9 (tools/change84_catalog.py); HP keeps the Change 83 x2.
+    check(absf(float(d.hp)-91354.1071*2.0)<.01 and absf(float(d.damage)-622.7689*2.0/3.252*2.5293)<.01,"HP 91,354 -> %s (x2) and attack 622.8 -> %s (x2, then Change 84 x7/9)" % [d.hp,d.damage])
     check(is_equal_approx(float(d.interval),1.3) and int(d.respawn)==120 and d.skills==["focus","fire","strike"],"Interval, respawn and skills unchanged")
-    check(sim.catalog.progression.balance.boss_tuning["boss-green-alien"]==[0.6,3.252] and sim.catalog.progression.balance.boss_tuning["boss-sunflower"]==[0.3,1.356],"Only the Green Alien's tuning changed")
+    check(sim.catalog.progression.balance.boss_tuning["boss-green-alien"]==[0.6,2.5293] and sim.catalog.progression.balance.boss_tuning["boss-sunflower"]==[0.3,1.356],"Only the Green Alien's tuning changed")
     check(is_equal_approx(float(sim.abilities.final_heal_fraction),.04) and is_equal_approx(float(sim.abilities.final_heal_below),.5) and is_equal_approx(float(sim.abilities.boss_skill_cooldown),10.0),"Heal: 4% of max HP below 50%, 10 s cooldown (existing values)")
     # A damage skill is definition damage x power: it doubles once with the hit.
     var def: Dictionary=sim.enemy_definition(final_g())

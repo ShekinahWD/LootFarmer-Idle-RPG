@@ -22,10 +22,14 @@ TUNING_BEFORE = [0.3, 1.626]
 TUNING = [round(TUNING_BEFORE[0] * FACTOR, 4), round(TUNING_BEFORE[1] * FACTOR, 4)]
 HP_BEFORE = 91354.1071
 DAMAGE_BEFORE = 622.7689
+# Change 84 supersedes the damage multiplier (x7/9, 3.252 -> 2.5293): tools/change84_catalog.py.
+SUPERSEDED = [TUNING[0], 2.5293]
 
 
 def apply(c):
     tuning = c['progression']['balance']['boss_tuning']
+    if tuning.get(FINAL_ID) == SUPERSEDED:
+        return []
     if tuning.get(FINAL_ID) not in (TUNING_BEFORE, TUNING):
         raise SystemExit('%s boss_tuning is %s, not the expected Change 81 value' % (FINAL_ID, tuning.get(FINAL_ID)))
     if tuning[FINAL_ID] != TUNING:
@@ -43,6 +47,8 @@ def main():
     subprocess.run([sys.executable, str(ROOT / 'tools/tune_campaign.py')], check=True, capture_output=True)
     c = json.loads(CATALOG.read_text(encoding='utf-8'))
     g = next(g for g in c['groups'] if g['id'] == FINAL_ID)
+    if c['progression']['balance']['boss_tuning'][FINAL_ID] == SUPERSEDED:
+        print(json.dumps({'changed': changes, 'superseded_by': 'tools/change84_catalog.py'})); return
     for key, before in (('hp', HP_BEFORE), ('damage', DAMAGE_BEFORE)):
         if abs(g[key] - before * FACTOR) > 0.01:
             raise SystemExit('%s %s is %.4f, expected %.4f' % (FINAL_ID, key, g[key], before * FACTOR))

@@ -1,4 +1,12 @@
-# LootFarmer — Game Design Document — current (2026-11-16, Change 83)
+# LootFarmer — Game Design Document — current (2026-11-16, Change 84)
+
+## Change 84 — Green Alien Heal icon and attack 900 → 700 (16 November 2026)
+
+Two corrections; save schema, game version and Android version code unchanged. Catalog writer: `tools/change84_catalog.py`. Probe: `tests/change_84_probe` (25 checks).
+
+- **Heal icon.** The icons over an enemy are its catalog `skills` list, but the Green Alien's Heal never came from that list: its Change 13 final kit (`final_choice`: Heal first below 50% while off cooldown, then the attack pool and Focus) and Rage's immediate Heal cast it regardless. Its list stayed `focus, fire, strike`, so Heal worked but had no icon. `campaign.shown_skills` now gives the head row the catalog list plus Heal for the final boss (`world._skill_icons`); every other type's row is unchanged. Display only: its skill drops, mastery and map icon keep the catalog list (no new Heal drop). Healing is unchanged: 4% of max HP below 50%, telegraphed, the 10 s boss cooldown; Rage +20% and its one immediate Heal; Boss Breaker still reduces it.
+- **Attack ×7/9.** A hit on the player is definition damage × guard / boss guard / Focus × 100 / (100 + player defense), all multiplicative, and Rage changes only the boss's attack speed, damage taken and healing, never its hit. So the reported ~900 becomes ~700 by scaling the definition damage by 7/9 through `boss_tuning` `[0.6, 3.252]` → `[0.6, 2.5293]`: attack **1,245.5378 → 968.7388** per hit (900 → 700.0). Its damage skills stay definition damage × skill power, so they follow the hit (×7/9), as they followed the Change 83 doubling. HP (182,708.2142), interval (1.3 s; 0.867 s in Rage), defense, Heal, summons and every other type are unchanged.
+- **Supersedes:** Change 83's Green Alien attack 1,245.5378 (HP unchanged). `tools/change79/81/83_catalog.py` know the new value.
 
 ## Change 83 — Green Alien finale: Rage, warning, soundtrack, celebration, ending, Game Completion (16 November 2026)
 

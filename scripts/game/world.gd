@@ -488,13 +488,14 @@ func _dispose_retired() -> void:
         budget-=1+item.get_child_count()
         item.free()
 
-## The skill icons of one enemy loadout (cached per type and variant: definitions never change).
+## The skill icons of one enemy loadout (cached per type and variant: definitions never change). Change 84:
+## campaign.shown_skills, so the final boss also shows the Heal its Change 13 kit casts.
 var _icon_rows: Dictionary={}
 func _skill_icons(group: int,variant: int,def: Dictionary) -> Array:
     var key:=group*8+variant
     if not _icon_rows.has(key):
         var row: Array=[]
-        for skill in def.skills:row.append(textures.get("skill_"+str(skill)))
+        for skill in sim.campaign.shown_skills(def):row.append(textures.get("skill_"+str(skill)))
         _icon_rows[key]=row
     return _icon_rows[key]
 
