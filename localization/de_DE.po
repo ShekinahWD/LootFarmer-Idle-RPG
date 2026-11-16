@@ -5982,3 +5982,51 @@ msgstr "Aus → An · Kopien deiner Ausrüstung, etwa 1 pro Stunde"
 
 msgid "EVOLVE_READY_HINT"
 msgstr "%s hat die maximale Verschmelzungsstufe erreicht. Sammle %d weitere Kopien, um den Gegenstand zu %s weiterzuentwickeln."
+
+msgid "FLOOR_COLLECT_HINT"
+msgstr "Sammle alle Outfits, um diese Tanzfläche zu vervollständigen!"
+
+msgid "FLOOR_OUTFITS_COUNT"
+msgstr "Tanzende Outfits: %d / %d"
+
+msgid "FINAL_CELEBRATING"
+msgstr "Genieße zuerst die Feier!"
+
+msgid "FINAL_QUEST_TITLE"
+msgstr "Endboss · %s"
+
+msgid "FINAL_KEY_HELD"
+msgstr "%s · Schlüssel erhalten"
+
+msgid "FINAL_KEY_MISSING"
+msgstr "Besiege %s — %s"
+
+msgid "COMPLETION_TITLE"
+msgstr "Spielfortschritt %d%%"
+
+msgid "COMPLETION_PART_MASTERY"
+msgstr "Kartenmeisterschaftsziele: %d / %d · %d%%"
+
+msgid "COMPLETION_PART_CARDS"
+msgstr "Erhaltene Prestige-Karten: %d / %d · %d%%"
+
+msgid "COMPLETION_PART_PLAYER"
+msgstr "Spieler- und Kartenupgrades maximiert: %d / %d · %d%%"
+
+msgid "COMPLETION_PART_ENEMY"
+msgstr "Gegner-Upgrades maximiert: %d / %d · %d%%"
+
+msgid "COMPLETION_MAP_MASTERY"
+msgstr "Kartenmeisterschaft"
+
+msgid "MASTERY_ALL_MAPS"
+msgstr "Kartenmeisterschaft (alle Karten) %d%%"
+
+msgid "MILESTONE_ALL_MAPS_MASTERED"
+msgstr "Alle Karten gemeistert!"
+
+msgid "MILESTONE_GAME_COMPLETE_100"
+msgstr "SPIEL ZU 100 % ABGESCHLOSSEN!"
+
+msgid "FINAL_RAGE_FLOAT"
+msgstr "RASEND!"

@@ -5982,3 +5982,51 @@ msgstr "Desactivado → Activado · copias de equipo que posees, aproximadamente
 
 msgid "EVOLVE_READY_HINT"
 msgstr "%s alcanzó su nivel máximo de fusión. Consigue %d copias más para evolucionarlo a %s."
+
+msgid "FLOOR_COLLECT_HINT"
+msgstr "¡Reúne todos los atuendos para completar esta pista de celebración!"
+
+msgid "FLOOR_OUTFITS_COUNT"
+msgstr "Atuendos bailando: %d / %d"
+
+msgid "FINAL_CELEBRATING"
+msgstr "¡Disfruta primero de la celebración!"
+
+msgid "FINAL_QUEST_TITLE"
+msgstr "Jefe final · %s"
+
+msgid "FINAL_KEY_HELD"
+msgstr "%s · llave obtenida"
+
+msgid "FINAL_KEY_MISSING"
+msgstr "Derrota a %s — %s"
+
+msgid "COMPLETION_TITLE"
+msgstr "Progreso total del juego %d%%"
+
+msgid "COMPLETION_PART_MASTERY"
+msgstr "Objetivos de maestría de mapas: %d / %d · %d%%"
+
+msgid "COMPLETION_PART_CARDS"
+msgstr "Cartas de prestigio obtenidas: %d / %d · %d%%"
+
+msgid "COMPLETION_PART_PLAYER"
+msgstr "Mejoras del jugador y mapas al máximo: %d / %d · %d%%"
+
+msgid "COMPLETION_PART_ENEMY"
+msgstr "Mejoras de enemigos al máximo: %d / %d · %d%%"
+
+msgid "COMPLETION_MAP_MASTERY"
+msgstr "Maestría de mapas"
+
+msgid "MASTERY_ALL_MAPS"
+msgstr "Maestría de mapas (todos) %d%%"
+
+msgid "MILESTONE_ALL_MAPS_MASTERED"
+msgstr "¡Dominaste todos los mapas!"
+
+msgid "MILESTONE_GAME_COMPLETE_100"
+msgstr "¡JUEGO COMPLETADO AL 100 %!"
+
+msgid "FINAL_RAGE_FLOAT"
+msgstr "¡ENFURECIDO!"

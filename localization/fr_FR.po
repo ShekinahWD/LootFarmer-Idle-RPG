@@ -5982,3 +5982,51 @@ msgstr "Désactivé → Activé · copies d’équipement possédé, environ 1 
 
 msgid "EVOLVE_READY_HINT"
 msgstr "%s a atteint son niveau de fusion maximal. Obtenez encore %d copies pour le faire évoluer en %s."
+
+msgid "FLOOR_COLLECT_HINT"
+msgstr "Collectionnez toutes les tenues pour compléter cette piste de fête !"
+
+msgid "FLOOR_OUTFITS_COUNT"
+msgstr "Tenues qui dansent : %d / %d"
+
+msgid "FINAL_CELEBRATING"
+msgstr "Profitez d’abord de la fête !"
+
+msgid "FINAL_QUEST_TITLE"
+msgstr "Boss final · %s"
+
+msgid "FINAL_KEY_HELD"
+msgstr "%s · clé récupérée"
+
+msgid "FINAL_KEY_MISSING"
+msgstr "Battez %s — %s"
+
+msgid "COMPLETION_TITLE"
+msgstr "Progression totale du jeu %d%%"
+
+msgid "COMPLETION_PART_MASTERY"
+msgstr "Objectifs de maîtrise des cartes : %d / %d · %d%%"
+
+msgid "COMPLETION_PART_CARDS"
+msgstr "Cartes de Prestige obtenues : %d / %d · %d%%"
+
+msgid "COMPLETION_PART_PLAYER"
+msgstr "Améliorations du joueur et des cartes au maximum : %d / %d · %d%%"
+
+msgid "COMPLETION_PART_ENEMY"
+msgstr "Améliorations des ennemis au maximum : %d / %d · %d%%"
+
+msgid "COMPLETION_MAP_MASTERY"
+msgstr "Maîtrise des cartes"
+
+msgid "MASTERY_ALL_MAPS"
+msgstr "Maîtrise des cartes (toutes) %d%%"
+
+msgid "MILESTONE_ALL_MAPS_MASTERED"
+msgstr "Toutes les cartes maîtrisées !"
+
+msgid "MILESTONE_GAME_COMPLETE_100"
+msgstr "JEU TERMINÉ À 100 % !"
+
+msgid "FINAL_RAGE_FLOAT"
+msgstr "ENRAGÉ !"
