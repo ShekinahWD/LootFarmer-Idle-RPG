@@ -61,3 +61,14 @@ Desktop.ini
 # Generated media and test evidence (Playbook 0.2.5): contents ignored, the .gdignore marker is tracked
 /generated/*
 !/generated/.gdignore
+
+# Third-party Cartoon Coffee VFX source pack (Unity .meta/prefabs, ~380 MB).
+# The textures the game uses are copied into /assets/vfx/ and tracked there.
+/assets/Cartoon Coffee/
+
+# Obsolete 2026-10-28 translation handoff ("NOT FOR RELEASE"), superseded by
+# the validated localization/*.po catalogs and tools/validate_localization.py
+/localization/README_TRANSLATION_STATUS.md
+/localization/check_draft.py
+/localization/translation_status.json
+/localization/untranslated_ids.*
