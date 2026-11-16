@@ -2894,6 +2894,26 @@
     "%d"
    ],
    "change": "change-81"
+  },
+  "FINAL_UNSEAL_TITLE": {
+   "en": "YOU HAVE PROVEN YOUR WORTH!",
+   "placeholders": [],
+   "change": "change-82"
+  },
+  "FINAL_UNSEAL_BODY": {
+   "en": "The Green Alien accepts your challenge. Defeat it!",
+   "placeholders": [],
+   "change": "change-82"
+  },
+  "ARENA_CLOSED": {
+   "en": "The arena is sealed! Defeat the Green Alien or fall trying.",
+   "placeholders": [],
+   "change": "change-82"
+  },
+  "ARENA_SEALED": {
+   "en": "The arena is sealed. Win the fight or fall to leave.",
+   "placeholders": [],
+   "change": "change-82"
   }
  },
  "retired": {

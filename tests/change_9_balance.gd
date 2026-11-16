@@ -98,6 +98,7 @@ func build(spec: Dictionary) -> String:
         if not sim.campaign.equip_skill(spec.skills[i][0],i):return "skill equip failed: "+str(spec.skills[i][0])
     sim.state.owned_cards=CARDS.slice(0,int(spec.cards))
     sim.state.keys=[];for i in range(13):sim.state.keys.append("key%d" % i) # fixture: final boss unlocked
+    sim.state.final_unsealed=true # fixture: Change 82 ceremony done
     sim._reset_world()
     return ""
 

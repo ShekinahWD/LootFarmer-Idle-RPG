@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AudioCueSet" load_steps=61 format=3]
+[gd_resource type="Resource" script_class="AudioCueSet" load_steps=65 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/audio_cue_set.gd" id="set"]
 [ext_resource type="Script" path="res://scripts/game/audio_cue.gd" id="cue"]
@@ -325,8 +325,44 @@ priority = 40
 cooldown = 1.0
 volume_db = 0.0
 
+[sub_resource type="Resource" id="final_keys"]
+script = ExtResource("cue")
+id = "final_keys"
+stream = ExtResource("s15")
+category = "gameplay"
+priority = 38
+cooldown = 2.0
+volume_db = -2.0
+
+[sub_resource type="Resource" id="final_unseal"]
+script = ExtResource("cue")
+id = "final_unseal"
+stream = ExtResource("s19")
+category = "gameplay"
+priority = 42
+cooldown = 2.0
+volume_db = 0.0
+
+[sub_resource type="Resource" id="arena_close"]
+script = ExtResource("cue")
+id = "arena_close"
+stream = ExtResource("s21")
+category = "gameplay"
+priority = 36
+cooldown = 1.0
+volume_db = -3.0
+
+[sub_resource type="Resource" id="arena_open"]
+script = ExtResource("cue")
+id = "arena_open"
+stream = ExtResource("s23")
+category = "gameplay"
+priority = 30
+cooldown = 1.0
+volume_db = -4.0
+
 [resource]
 script = ExtResource("set")
 music = ExtResource("s12")
 music_volume_db = -8.0
-cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("spell_summon"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged"), SubResource("main_ready"), SubResource("feature_unlocked"), SubResource("mastery_objective"), SubResource("mastery_map"), SubResource("game_complete"), SubResource("boss_found"), SubResource("item_merge"), SubResource("evolve_charge"), SubResource("evolve_burst"), SubResource("evolve_reveal"), SubResource("evolve_auto"), SubResource("crit_hit"), SubResource("supply_buff"), SubResource("supply_guard"), SubResource("travel_camp"), SubResource("travel_map"), SubResource("respawn_select"), SubResource("boss_defeated")])
+cues = Array[ExtResource("cue")]([SubResource("ui_click"), SubResource("ui_confirm"), SubResource("spell_heal"), SubResource("spell_frost"), SubResource("spell_fire"), SubResource("spell_lightning"), SubResource("spell_focus"), SubResource("spell_strike"), SubResource("spell_summon"), SubResource("mission_ready"), SubResource("prestige_step"), SubResource("prestige_discovered"), SubResource("stage_unlocked"), SubResource("prestige_ready"), SubResource("prestiged"), SubResource("main_ready"), SubResource("feature_unlocked"), SubResource("mastery_objective"), SubResource("mastery_map"), SubResource("game_complete"), SubResource("boss_found"), SubResource("item_merge"), SubResource("evolve_charge"), SubResource("evolve_burst"), SubResource("evolve_reveal"), SubResource("evolve_auto"), SubResource("crit_hit"), SubResource("supply_buff"), SubResource("supply_guard"), SubResource("travel_camp"), SubResource("travel_map"), SubResource("respawn_select"), SubResource("boss_defeated"), SubResource("final_keys"), SubResource("final_unseal"), SubResource("arena_close"), SubResource("arena_open")])

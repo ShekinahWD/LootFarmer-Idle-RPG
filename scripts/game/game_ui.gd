@@ -352,6 +352,9 @@ func _ready() -> void:
     key_fx.bounds=_key_fx_bounds
     key_fx.arrived.connect(_key_arrived)
     sim.key_earned.connect(_key_earned)
+    # Change 82: the Green Alien unsealing ceremony's message and the arena notices.
+    sim.final_ceremony.connect(_final_ceremony)
+    sim.arena_changed.connect(_arena_changed)
     sim.traveled.connect(func(map_changed: bool,_from: Vector2,_to: Vector2)->void:if map_changed:key_fx.send_all())
     # Change 65: the one tutorial-card viewer (Basic opening and Help), above the panel and the guide.
     help_viewer=preload("res://scripts/game/help_viewer.gd").new()
@@ -1319,6 +1322,26 @@ func _key_arrived(total: int) -> void:
         AudioService.play("prestige_ready")
         _say(tr("FINAL_READY_NOTICE"),true)
     else:AudioService.play("prestige_step")
+
+## Change 82: the ceremony takes the stick (the world is frozen) and, when the seal breaks, a gold banner with the
+## Green Alien acknowledges the player's worth. The fight and the arena start when the ceremony ends.
+var unseal_shown_at:=-INF
+func _final_ceremony(phase: String) -> void:
+    match phase:
+        "start":
+            stick.release();stick_input=Vector2.ZERO
+            world.follow_player()
+        "unseal":
+            var g:=-1
+            for i in range(sim.catalog.groups.size()):
+                if bool(sim.catalog.groups[i].final):g=i
+            banner.push_front("final_unsealed",tr("FINAL_UNSEAL_TITLE"),tr("FINAL_UNSEAL_BODY"),icon_cache.get(sim.catalog.groups[g].body) if g>=0 else null)
+            unseal_shown_at=Time.get_ticks_msec()/1000.0
+            _refresh_final_chip()
+
+## Change 82: one short notice when the barrier closes (not right after the ceremony's own banner).
+func _arena_changed(active: bool,_reason: String) -> void:
+    if active and Time.get_ticks_msec()/1000.0-unseal_shown_at>6.0:_say(tr("ARENA_CLOSED"))
 
 ## Change 81: the Green Alien's introduction, once per profile, the first time it is met (state.tutorial.seen
 ## "final_intro", kept by Prestige). A red banner (the boss-warning form) over the map, never a modal; it waits

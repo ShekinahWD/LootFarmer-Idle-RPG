@@ -46,6 +46,12 @@ signal camp_supply_waiting
 ## Change 81: a boss key was credited (already saved; presentation only): the boss's group, where it fell and
 ## the new number of distinct keys (13 = the Green Alien can be challenged).
 signal key_earned(group: int, at: Vector2, total: int)
+## Change 82: the Green Alien unsealing ceremony ("start", "unseal" at the seal-breaking moment, "done" once the
+## unlock is saved and the encounter begins, "cancel" when an unfinished one is dropped). Presentation reads
+## campaign.ceremony_progress() each frame.
+signal final_ceremony(phase: String)
+## Change 82: the Green Alien arena barrier closed (active, "close") or opened ("victory", "death", "reset").
+signal arena_changed(active: bool, reason: String)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 ## Change 13: summoning and final-boss action rules (inspector-editable resource).
@@ -134,6 +140,7 @@ const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","
 
 func new_profile() -> void:
     profile_epoch+=1
+    campaign.reset_final_encounter()
     suspended=false
     clear_target()
     state = {"schema":SCHEMA,"merge_memory":{},"migrations":MIGRATIONS.duplicate(),"group_kills":[0,0,0,0],"player_level":1,"xp":0.0,"coins":0,"gems":0,"items":{},"gear":["","",""],"supplies":[""],
@@ -242,6 +249,8 @@ func restore(data: Dictionary) -> void:
         SaveService.last_load_result="invalid_profile_reset"
         return
     clear_target()
+    # Change 82: an unfinished ceremony or a closed arena belongs to the replaced session (rebuilt from the save).
+    campaign.reset_final_encounter()
     state = data.duplicate(true)
     campaign.configure_stage()
     rng.state = int(state.get("rng_state",str(rng.state)))
@@ -1349,6 +1358,8 @@ func focus(group: int,variant: int=2) -> bool:
     if catalog.groups[group].boss:variant=2
     # Change 81: the sealed Green Alien cannot be farmed (the same explanation as a tap on it).
     if campaign.final_sealed(group):return fail("FINAL_SEALED")
+    # Change 82: inside the closed Green Alien arena Auto Farm cannot be pointed at anything outside it.
+    if campaign.arena_active() and not bool(catalog.groups[group].final):return fail("ARENA_SEALED")
     # Auto-farm never walks to a spot the player has not found (no hidden coordinates).
     if not campaign.spot_discovered(group,variant):
         return fail("SPOT_UNDISCOVERED")
@@ -1471,6 +1482,8 @@ func nearest_group() -> int:
 func _move(a: Dictionary, destination: Vector2, speed: float, delta: float) -> void:
     var old := position_of(a)
     var next := campaign.blocked_step(old,old.move_toward(destination,speed*delta),destination)
+    # Change 82: the closed Green Alien arena holds its fighters in and everyone else out.
+    next=campaign.arena_clamp(a,old,next)
     a.x = clampf(next.x,14,catalog.world.size[0]-14)
     a.y = clampf(next.y,30,catalog.world.size[1]-14)
     a.moving = old.distance_to(position_of(a))>.01
@@ -1592,6 +1605,8 @@ func _kill(a: Dictionary) -> void:
             e.windup=0.0
             e.returning=true
         event.emit("PLAYER_DIED")
+        # Change 82: a defeat opens the Green Alien arena at once (every enemy has just dropped its aggro).
+        campaign.update_arena()
     else:
         a.respawn=spawn_cooldown(int(a.group))
         if catalog.groups[int(a.group)].boss:
@@ -1601,6 +1616,8 @@ func _kill(a: Dictionary) -> void:
         state.group_kills[int(a.group)]+=1
         _reward(a)
         campaign.killed(a)
+        # Change 82: the Green Alien's defeat opens its arena before the win flow continues.
+        campaign.update_arena()
     touch()
 
 func gear_chance(group: int) -> float:
@@ -1676,6 +1693,12 @@ func step(dt: float) -> void:
         focus_walk_time=0.0
         return
     dt=minf(maxf(dt,0),.1)
+    # Change 82: the Green Alien unsealing ceremony holds the whole world (no AI, damage, regen, clocks or input)
+    # until it completes; pause and background hold it too (step does not run).
+    if campaign.ceremony_step(dt):
+        movement=Vector2.ZERO
+        focus_walk_time=0.0
+        return
     state.clock+=dt
     # Active play only: step never runs while paused, suspended (background, guide chooser), held
     # (the review invitation, Change 35) or during a prestige choice, and offline settlement never advances these clocks.
@@ -1785,7 +1808,7 @@ func step(dt: float) -> void:
                 e.attack_age=9.0
                 campaign.reset_enemy_skills(e)
             continue
-        if catalog.groups[group].final and state.keys.size()<13:
+        if campaign.final_locked(group):
             e.aggro=false;e.windup=0
             continue
         if e.quiet>=5:
@@ -1817,6 +1840,7 @@ func step(dt: float) -> void:
         a.attack_slow=maxf(0,float(a.get("attack_slow",0))-dt)
     if p.hp>0:
         _automate(dt)
+    campaign.update_arena()
     _save_clock+=dt
     if _save_clock>=2:
         _save_clock=0.0
@@ -1855,6 +1879,8 @@ func _return_step(p: Dictionary,dt: float) -> bool:
 ## focused type, or for the player's own target: always. Under a Focus a defensive target (an attacker of
 ## another type) is chased only while it stays near the farming spot, so the hero never wanders off it.
 func _may_chase(target: Dictionary) -> bool:
+    # Change 82: inside the closed arena every eligible target is a fighter in it, so it is always answered.
+    if campaign.arena_active():return true
     if int(state.focus)<0 or focus_match(target) or manual_target==str(target.id):return true
     return farming_position().distance_to(position_of(target))<=float(catalog.world.acquisition)
 
@@ -1871,6 +1897,14 @@ func select_target(id: String) -> bool:
     if campaign.final_sealed(int(enemy.group)) and campaign.can_see(position_of(enemy)):
         campaign.discover_final()
         return fail("FINAL_SEALED")
+    # Change 82: with all 13 keys, a tap on the never-unsealed Green Alien is an attempt to engage it: the
+    # ceremony plays first (it starts no target or attack).
+    if campaign.final_locked(int(enemy.group)) and campaign.ceremony_due(enemy):
+        campaign.begin_ceremony(enemy)
+        return false
+    # From farther away the tap says it is ready; walking up to it starts the ceremony.
+    if campaign.final_locked(int(enemy.group)) and campaign.ceremony_due(enemy,INF):
+        return fail("FINAL_READY_NOTICE")
     if not campaign.target_allowed(enemy):
         return false
     locked_target=id

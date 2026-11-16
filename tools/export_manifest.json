@@ -16,7 +16,7 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 336,
+  "files": 338,
   "stages": 8,
   "imported": 206
  },
@@ -534,7 +534,7 @@
   "res://assets/ui/Hand.png": "dependency of res://resources/game/pickup_style.tres",
   "res://assets/ui/Key - Gold.png": "literal in res://scripts/game/game_ui.gd",
   "res://assets/vfx/buff/Arrow_006.png": "literal in res://scripts/game/buff_burst.gd",
-  "res://assets/vfx/buff/Circle_Outline_003.png": "literal in res://scripts/game/world_moments.gd",
+  "res://assets/vfx/buff/Circle_Outline_003.png": "literal in res://scripts/game/final_ceremony_fx.gd",
   "res://assets/vfx/buff/Glow_001.png": "literal in res://scripts/game/evolution_show.gd",
   "res://assets/vfx/buff/Light_Ray_007.png": "literal in res://scripts/game/world_moments.gd",
   "res://assets/vfx/celebration/Circle_Outline_002.png": "literal in res://scripts/game/evolution_show.gd",
@@ -558,7 +558,7 @@
   "res://assets/vfx/supply/Coin_Spin_Sheet.png": "literal in res://scripts/game/world_moments.gd",
   "res://assets/vfx/supply/Heal_001.png": "literal in res://scripts/game/supply_fx.gd",
   "res://assets/vfx/supply/Heart_001.png": "literal in res://scripts/game/supply_fx.gd",
-  "res://assets/vfx/supply/Hexagon_001.png": "literal in res://scripts/game/supply_fx.gd",
+  "res://assets/vfx/supply/Hexagon_001.png": "literal in res://scripts/game/arena_fx.gd",
   "res://assets/vfx/supply/Hexagon_Circle_001.png": "literal in res://scripts/game/supply_fx.gd",
   "res://assets/vfx/supply/Hexagon_Circle_002.png": "literal in res://scripts/game/supply_fx.gd",
   "res://data/game/catalog.json": "root: campaign data, read with FileAccess by catalog.gd (not a resource dependency)",
@@ -636,6 +636,7 @@
   "res://scripts/autoload/save_service.gd": "project.godot autoload SaveService",
   "res://scripts/autoload/settings_state.gd": "project.godot autoload SettingsState",
   "res://scripts/game/actor_view.gd": "class_name LootActorView used by res://scripts/game/world.gd",
+  "res://scripts/game/arena_fx.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/audio_cue.gd": "class_name AudioCue used by res://scripts/game/audio_cue_set.gd",
   "res://scripts/game/audio_cue_set.gd": "class_name AudioCueSet used by res://scripts/game/game_ui.gd",
   "res://scripts/game/buff_burst.gd": "literal in res://scripts/game/world.gd",
@@ -647,6 +648,7 @@
   "res://scripts/game/enemy_ability_rules.gd": "class_name EnemyAbilityRules used by res://scripts/game/simulation.gd",
   "res://scripts/game/evolution_show.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/external_links.gd": "dependency of res://resources/game/external_links.tres",
+  "res://scripts/game/final_ceremony_fx.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/fog_layer.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/fog_rules.gd": "dependency of res://resources/game/fog_rules.tres",
   "res://scripts/game/game_ui.gd": "dependency of res://scenes/game/main.tscn",

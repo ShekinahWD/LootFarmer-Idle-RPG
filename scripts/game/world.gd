@@ -44,6 +44,8 @@ const KICK_TIME:=.16
 const KICK:=2.5
 ## Change 67 follow-up: teleport, map travel, respawn selection and boss defeat (world_moments.gd).
 var moments: Node2D
+var ceremony_fx: Node2D
+var arena_fx: Node2D
 ## A boss defeat shakes the camera harder and longer than a crit.
 const BOSS_SHAKE:=6.0
 const BOSS_SHAKE_TIME:=.45
@@ -120,6 +122,19 @@ func setup(value: LootSimulation) -> void:
     sim.traveled.connect(_traveled)
     sim.respawn_selected.connect(_respawn_selected)
     sim.boss_defeated.connect(_boss_defeated)
+    # Change 82: the Green Alien unsealing ceremony (13 keys) and its arena barrier.
+    ceremony_fx=preload("res://scripts/game/final_ceremony_fx.gd").new()
+    ceremony_fx.sim=sim
+    ceremony_fx.feet=func(id: String)->Vector2:
+        if views.has(id):return views[id].position
+        var a: Dictionary=sim._find_actor(id)
+        return sim.position_of(a) if not a.is_empty() else Vector2.ZERO
+    add_child(ceremony_fx)
+    arena_fx=preload("res://scripts/game/arena_fx.gd").new()
+    arena_fx.sim=sim
+    add_child(arena_fx)
+    sim.final_ceremony.connect(_final_ceremony)
+    sim.arena_changed.connect(_arena_changed)
 
 ## Change 24 (Playbook 44): presentation work scales with what is on screen, not with the map.
 ## - Views whose actor is outside the camera (plus CULL_MARGIN world units) are hidden and skip their
@@ -160,6 +175,7 @@ func _process(_delta: float) -> void:
         for effect in get_children():
             if effect is AnimatedSprite2D:effect.queue_free()
         respawn_fx.stop()
+        if arena_fx!=null and not sim.campaign.arena_active():arena_fx.clear()
         crit_fx.stop()
         supply_fx.stop()
         collected_uids.clear()
@@ -505,10 +521,11 @@ func update_camera() -> void:
         return
     _update_camps()
     var zoom_factor: float=get_viewport_rect().size.x/360.0*SettingsState.camera_zoom
-    $Camera.zoom=Vector2.ONE*zoom_factor
     if following_player:
         camera_position=sim.position_of(sim.state.player)
-    $Camera.position=camera_position
+    var shot:=_cinematic(zoom_factor)
+    $Camera.zoom=Vector2.ONE*lerpf(zoom_factor,float(shot.zoom),float(shot.w))
+    $Camera.position=camera_position.lerp(shot.pos,float(shot.w))
     # Change 67 follow-up: a critical hit kicks the camera a little (real time, decaying, offset only).
     var kick:=Vector2.ZERO
     if kick_start>=0:
@@ -517,6 +534,43 @@ func update_camera() -> void:
         elif u>=1:kick_start=-1
     $Camera.offset=kick
     $Camera.force_update_scroll()
+
+## Change 82: two short framings, blended in and out over CINE_BLEND seconds of unpaused time and never saved or
+## written to the zoom setting. During the Green Alien ceremony the camera frames the hero and the boss together
+## (the keys fly between them); when the arena closes it pulls back to show the whole barrier for ARENA_SHOT
+## seconds, then returns to the player's own zoom and follow.
+const CINE_BLEND:=.45
+## Fractions of the world view's height: where the hero's feet may sit below the centre, and the room above it.
+const HERO_BAND:=.12
+const TOP_BAND:=.34
+const ARENA_SHOT:=1.6
+var cine_weight:=0.0
+var cine_last: Dictionary={"pos":Vector2.ZERO,"zoom":1.0}
+var arena_shot:=0.0
+var cine_frame:=-1
+func _cinematic(zoom_factor: float) -> Dictionary:
+    # update_camera can run several times in one frame (follow, pan, the world's own frame): time advances once.
+    var dt: float=0.0 if get_tree().paused or Engine.get_process_frames()==cine_frame else get_process_delta_time()
+    cine_frame=Engine.get_process_frames()
+    var goal: Dictionary={}
+    var view: Vector2=get_viewport_rect().size
+    if sim.campaign.ceremony_active():
+        var boss: Dictionary=sim._find_actor(sim.campaign.ceremony_boss)
+        if not boss.is_empty():
+            var hero:=sim.position_of(sim.state.player)+Vector2(0,-10)
+            var top:=sim.position_of(boss)+Vector2(0,-14.0*float(sim.catalog.groups[int(boss.group)].visual_scale))
+            # Both in the open upper part of the map (the joystick sits low in the middle): the hero's feet no
+            # lower than HERO_BAND below the centre, the boss's head below the top rail.
+            var zoom: float=minf(zoom_factor,minf(view.x/(absf(top.x-hero.x)+110.0),view.y*(HERO_BAND+TOP_BAND)/(absf(top.y-hero.y)+60.0)))
+            goal={"pos":Vector2((hero.x+top.x)*.5,hero.y+10-view.y*HERO_BAND/zoom),"zoom":zoom}
+    elif arena_shot>0 and sim.campaign.arena_active():
+        arena_shot-=dt
+        var extent: float=sim.campaign.arena_radius()+30.0
+        goal={"pos":sim.campaign.arena_center()+Vector2(0,-6),"zoom":minf(zoom_factor,minf(view.x,view.y)/(2*extent))}
+    cine_weight=move_toward(cine_weight,1.0 if not goal.is_empty() else 0.0,dt/CINE_BLEND)
+    if not goal.is_empty():cine_last=goal
+    var w:=cine_weight*cine_weight*(3.0-2.0*cine_weight)
+    return {"pos":cine_last.pos,"zoom":cine_last.zoom,"w":w}
 
 func follow_player() -> void:
     following_player=true
@@ -607,6 +661,29 @@ func _boss_defeated(id: String,_group: int,at: Vector2) -> void:
     moments.play("boss",at+Vector2(0,-10*v.visual_scale),Vector2.INF,clampf(v.visual_scale,1.0,1.6))
     shake(BOSS_SHAKE,BOSS_SHAKE_TIME)
     AudioService.play("boss_defeated")
+
+## Change 82: the ceremony's sound and seal-breaking moment (the keys themselves are ceremony_fx).
+func _final_ceremony(phase: String) -> void:
+    match phase:
+        "start":AudioService.play("final_keys")
+        "unseal":
+            var boss: Dictionary=sim._find_actor(sim.campaign.ceremony_boss)
+            if boss.is_empty():return
+            var vs: float=float(sim.catalog.groups[int(boss.group)].visual_scale)
+            var at: Vector2=(views[boss.id].position if views.has(boss.id) else sim.position_of(boss))+Vector2(0,-10*vs)
+            moments.play("unseal",at,Vector2.INF,clampf(vs/2.0,1.0,1.4))
+            shake(BOSS_SHAKE,BOSS_SHAKE_TIME)
+            AudioService.play("final_unseal")
+
+## Change 82: the arena barrier closes and opens with the encounter (arena_fx also follows the simulation).
+func _arena_changed(active: bool,_reason: String) -> void:
+    if active:
+        arena_fx.close(sim.campaign.arena_center(),sim.campaign.arena_radius())
+        arena_shot=ARENA_SHOT
+        AudioService.play("arena_close")
+    else:
+        arena_fx.open()
+        AudioService.play("arena_open")
 
 ## The hero's feet: the drawn view when there is one, else the simulation position.
 func _player_feet() -> Vector2:

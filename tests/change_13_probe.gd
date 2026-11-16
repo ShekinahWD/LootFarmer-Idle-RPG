@@ -459,7 +459,7 @@ func final_boss_checks() -> void:
     var bosses: Array=[]
     for g in sim.catalog.groups:
         if g.boss and not g.final:bosses.append(g.id)
-    sim.state.keys=bosses;sim.state.final_discovered=true # fixture: all 13 keys
+    sim.state.keys=bosses;sim.state.final_discovered=true;sim.state.final_unsealed=true # fixture: all 13 keys, Change 82 ceremony done
     sim.state.player.x=alien.x+50;sim.state.player.y=alien.y
     var maxhp: float=sim.campaign.actor_max_hp(alien)
     alien.aggro=true;alien.hp=maxhp*.9;alien.summon_cd=999.0 # fixture: summons later

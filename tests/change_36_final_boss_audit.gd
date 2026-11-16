@@ -169,7 +169,7 @@ func build(b: Dictionary,card_sets: Dictionary,seed: int) -> Dictionary:
     sim.rng.seed=seed
     sim.state.player_level=int(b.level);sim.state.xp=0.0 # fixture: level reached (XP reported below)
     sim.state.stage=8;sim.state.unlocked_stage=8;sim.state.reward_stage=8 # fixture: Stage 8 reached this run
-    sim.state.keys=key_ids().duplicate();sim.state.final_discovered=true # fixture: the 13 boss keys
+    sim.state.keys=key_ids().duplicate();sim.state.final_discovered=true;sim.state.final_unsealed=true # fixture: the 13 boss keys, Change 82 ceremony done
     var gear: Array=[b.weapon,b.outfit]+b.get("stored_weapons",[])+b.get("stored_outfits",[])
     var room: int=gear.size()+b.skills.size()+2-sim.equipment_slot_count()
     if room>0 and not buy("gear_slots",room):out.why="gear slots";return out

@@ -23,7 +23,7 @@ func _init(owner) -> void:
 func stage() -> Dictionary: return sim.catalog.stages[int(sim.state.stage)-1]
 func initialize() -> void:
     reveal_clock=0;objective_clock=0;offline_receipt={};camp_supply_waiting=""
-    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"follow_mastery":"","bosses_found":[],"follow_mission":"","review":review.initial(),"respawns":{},"hunt":hunt_initial(),"camp_supply":{}},true)
+    sim.state.merge({"fog_layout_revision":fog_rules.layout_revision,"tutorial":{"mode":"pending","done":[],"seen":onboarding.initial_seen()},"stage":1,"unlocked_stage":1,"stage_worlds":{},"camps":{"1":[0]},"explored":{},"discovered":{},"run_kills":{},"keys":[],"final_discovered":false,"final_complete":false,"final_unsealed":false,"skills":["","",""],"skill_auto":[false,false,false],"skill_cooldowns":{},"merge_timers":{},"merge_cursors":{},"opportunities":{},"owned_cards":[],"consumed":[],"prestige_batch":{},"prestige_collapsed":{},"follow":"","counters":{},"online_items":{},"online_coins":0.0,"online_gems":0.0,"offline_total":0.0,"offline_longest":0.0,"offline_income":0.0,"offline_remainders":{},"offline_snapshot":{},"offline_pending":{},"missions":[],"main_claimed":[],"main_ready":{},"mission_day":"","consumable_uses":0,"mission_auto":false,"world_complete":false,"skills_seen":[],"discovered_spots":{},"camps_known":{},"onboarding":onboarding.initial(),"mastery":mastery.initial(),"follow_mastery":"","bosses_found":[],"follow_mission":"","review":review.initial(),"respawns":{},"hunt":hunt_initial(),"camp_supply":{}},true)
     mastery.reset_cache()
     sim.state.group_kills.resize(sim.catalog.groups.size());sim.state.group_kills.fill(0)
     sim.state.collect_clocks.resize(sim.catalog.groups.size());sim.state.collect_clocks.fill(0.0)
@@ -241,6 +241,8 @@ func travel_reason(st: int,camp: int) -> String:
     var lock: String=sim.action_lock_reason()
     if lock!="":return lock
     if sim.state.player.hp<=0:return "CANNOT_USE"
+    # Change 82: the sealed Green Alien arena (and its unsealing ceremony) cannot be left by any travel.
+    if arena_active() or ceremony_active():return "ARENA_SEALED"
     if in_combat():return "TRAVEL_COMBAT"
     if st<1 or st>int(sim.state.unlocked_stage):return "STAGE_LOCKED"
     if camp<0 or camp>=sim.catalog.stages[st-1].spawns.size():return "CAMP_LOCKED"
@@ -253,6 +255,7 @@ func travel_reason(st: int,camp: int) -> String:
 ## never changes it, so a trip to another camp still respawns the player at the camp they selected.
 func camp_action(st: int,camp: int,teleport: bool) -> bool:
     if not sim.action_lock_reason().is_empty():return sim.fail(sim.action_lock_reason())
+    if teleport and (arena_active() or ceremony_active()):return sim.fail("ARENA_SEALED")
     if teleport:
         var reason=travel_reason(st,camp)
         if reason!="":return sim.fail(reason)
@@ -618,7 +621,9 @@ func camp_reveal_radius() -> float:
 func target_allowed(e: Dictionary,view: Sight=null) -> bool:
     var d: Dictionary=sim.catalog.groups[int(e.group)]
     var seen: bool=view.sees(sim.position_of(e)) if view!=null else can_see(sim.position_of(e))
-    return seen and not final_sealed(int(e.group))
+    # Change 82: the Green Alien also stays untargetable until its ceremony completes; a closed arena admits only
+    # its own fighters.
+    return seen and not final_locked(int(e.group)) and arena_allows(e)
 func damage_multiplier(a: Dictionary,b: Dictionary) -> float:
     var n=1.0
     if a.id=="player":n+=bonus("boss_damage" if sim.catalog.groups[int(b.group)].boss else "normal_damage")
@@ -868,6 +873,7 @@ func apply_skill(a: Dictionary,key: String,power: float,aim: Vector2=Vector2.INF
     sim.spell_cast.emit(a.id,key,pos)
     return true
 func step(dt: float) -> void:
+    arena_notice_clock=maxf(0.0,arena_notice_clock-dt)
     for key in sim.state.skill_cooldowns:sim.state.skill_cooldowns[key]=maxf(0,sim.state.skill_cooldowns[key]-dt)
     sim.state.player.second_wind=maxf(0,float(sim.state.player.get("second_wind",0))-dt)
     for a in [sim.state.player]+sim.state.enemies:
@@ -876,7 +882,9 @@ func step(dt: float) -> void:
         var d: Dictionary=sim.enemy_definition(a.group,a.variant)
         if d.final and not sim.state.final_discovered and sim.position_of(a).distance_to(sim.position_of(sim.state.player))<160:
             discover_final()
-        if d.final and sim.state.keys.size()<13:
+        # Change 82: with all 13 keys, the first approach plays the unsealing ceremony (once per profile).
+        if d.final and ceremony_due(a):begin_ceremony(a)
+        if d.final and final_locked(int(a.group)):
             a.aggro=false;a.windup=0;continue
         # Change 13: summoners (EnemyAbilityRules) call helpers on their own timer; helpers never summon.
         var rule: SummonRule=null if sim.is_helper(a) else sim.abilities.summon_rule(str(d.id))
@@ -940,6 +948,183 @@ func final_defeated() -> bool:
     for g in range(sim.catalog.groups.size()):
         if bool(sim.catalog.groups[g].final):return int(sim.state.group_kills[g])>0
     return false
+
+# ---------------------------------------------------------------- Green Alien ceremony and arena (Change 82)
+# Two distinct states. Presentation and encounter rules only: no HP, damage, skill, reward or key value changes.
+# - Ceremony (once per profile): state.final_unsealed (saved; kept by Prestige; cleared by Hard Reset). With 13 keys
+#   and final_unsealed false the Green Alien stays locked (final_locked: no aggro, target or damage), and the first
+#   approach within CEREMONY_RADIUS (or a tap on it) starts the cinematic. ceremony_time is transient: while it runs
+#   sim.step freezes the world (no AI, damage, regen or clocks), so cinematic timing cannot cause combat. Only when
+#   it reaches CEREMONY_SECONDS is final_unsealed set and saved, and the boss starts its encounter (aggro). A pause or
+#   background pauses it; a reload, Hard Reset or Prestige before the end drops it, and the next approach replays it.
+#   Keys are never consumed or re-awarded (state.keys stays authoritative).
+# - Arena (per attempt, transient, never saved): while the unsealed Green Alien is alive and engaged (aggro, not
+#   returning) and the player is alive on its map, a circle of ARENA_RADIUS closes around its home as soon as the
+#   player stands inside it. A player engaging from just outside (a ranged skill) gets the circle slid toward them
+#   (at most ARENA_MAX_SHIFT) so it closes with them inside, never through them. Inside, the player, the Green Alien and its summoned helpers are kept in
+#   by _move (sim); every other enemy is kept out and cannot be targeted across it. Travel, Teleport, map changes,
+#   Prestige and Auto Farm on another type are refused (ARENA_SEALED). It opens the moment its condition fails: the
+#   boss dies (victory), the player dies (every enemy drops aggro), the boss resets, or the profile is replaced.
+#   A reload rebuilds it from the saved actors (the boss's saved aggro), so it can never strand a player.
+# Geometry: Spring II (2112 x 2112) puts the Green Alien's home at (1032, 253) in a natural clearing: the nearest
+# solid (a tree trunk, r 6) is 142 from it. Radius 118 around home is that clearing with 16+ px to spare, so the
+# arena holds no solid scenery, the barrier never crosses a tree and the map edge (y 30) stays outside it. 236
+# across holds melee reach (28), the boss's skill ranges (Strike 80, Fire / Focus 120 across it) and its helpers'
+# summon ring (40). Shifted or not, the boss stays within 100 + 108 < 220 of home, so its leash never resets a
+# fight inside the arena.
+const CEREMONY_SECONDS:=5.6
+const CEREMONY_UNSEAL_AT:=4.1
+## Inside the arena's close margin (118 - 12), so the fight that follows the ceremony is always sealed.
+const CEREMONY_RADIUS:=88.0
+const ARENA_RADIUS:=118.0
+## How far the circle may slide from the boss's home toward a player engaging from outside it.
+const ARENA_MAX_SHIFT:=100.0
+## Actor centres stay this far inside (members) or outside (others) the barrier line.
+const ARENA_CLEARANCE:=10.0
+## The player must be this far inside the circle before it closes (never closes through the player).
+const ARENA_CLOSE_MARGIN:=12.0
+const ARENA_NOTICE_SECONDS:=4.0
+var ceremony_time:=-1.0
+var ceremony_boss:=""
+var arena: Dictionary={}
+var arena_notice_clock:=0.0
+## Last point where the player pushed against the barrier (world) and the playtime clock at that moment.
+var arena_bump: Vector2=Vector2.INF
+var arena_bump_clock:=-INF
+
+func final_unsealed() -> bool:return bool(sim.state.get("final_unsealed",false))
+## The Green Alien cannot fight yet: missing keys (sealed), or the unsealing ceremony has not completed.
+func final_locked(g: int) -> bool:
+    return g>=0 and g<sim.catalog.groups.size() and bool(sim.catalog.groups[g].final) and (sim.state.keys.size()<FINAL_KEYS or not final_unsealed() or ceremony_active())
+func ceremony_active() -> bool:return ceremony_time>=0.0
+func ceremony_progress() -> float:return clampf(ceremony_time/CEREMONY_SECONDS,0.0,1.0) if ceremony_active() else 0.0
+## True when this living Green Alien should start the ceremony now (13 keys, never unsealed, player alive and close).
+func ceremony_due(a: Dictionary,radius:=CEREMONY_RADIUS) -> bool:
+    if ceremony_active() or final_unsealed() or sim.state.keys.size()<FINAL_KEYS:return false
+    if float(a.hp)<=0 or float(sim.state.player.hp)<=0 or not sim.state.get("prestige_batch",{}).is_empty():return false
+    return sim.position_of(a).distance_to(sim.position_of(sim.state.player))<=radius and can_see(sim.position_of(a))
+func begin_ceremony(a: Dictionary) -> bool:
+    if ceremony_active() or final_unsealed():return false
+    discover_final()
+    # The world freezes from here: bring the fog and the boss sighting up to date first.
+    reveal()
+    ceremony_time=0.0;ceremony_boss=str(a.id)
+    sim.movement=Vector2.ZERO;sim.clear_target();sim.focus_walk_time=0.0
+    sim.state.player.windup=0.0;sim.state.player.target=""
+    a.aggro=false;a.windup=0.0;a.telegraph=false
+    sim.final_ceremony.emit("start")
+    sim.touch()
+    return true
+## Drops an unfinished ceremony (reload, Hard Reset, Prestige, the boss gone). Nothing was saved, so the next
+## approach replays it.
+func cancel_ceremony() -> void:
+    if not ceremony_active():return
+    ceremony_time=-1.0;ceremony_boss=""
+    sim.final_ceremony.emit("cancel")
+## Advances the cinematic while the world is frozen (sim.step). Returns true while it runs.
+func ceremony_step(dt: float) -> bool:
+    if not ceremony_active():return false
+    var boss: Dictionary=sim._find_actor(ceremony_boss)
+    if boss.is_empty() or float(boss.hp)<=0 or float(sim.state.player.hp)<=0:
+        cancel_ceremony()
+        return false
+    var before:=ceremony_time
+    ceremony_time+=dt
+    if before<CEREMONY_UNSEAL_AT and ceremony_time>=CEREMONY_UNSEAL_AT:sim.final_ceremony.emit("unseal")
+    if ceremony_time<CEREMONY_SECONDS:return true
+    # Completion: the durable unlock is saved first, then the encounter starts (the arena closes on the next step).
+    ceremony_time=-1.0;ceremony_boss=""
+    sim.state.final_unsealed=true
+    boss.aggro=true;boss.returning=false;boss.quiet=0.0
+    begin_encounter(boss)
+    sim.touch();SaveService.save_now()
+    sim.final_ceremony.emit("done")
+    return false
+
+func arena_active() -> bool:return not arena.is_empty()
+func arena_center() -> Vector2:return arena.get("center",Vector2.INF)
+func arena_radius() -> float:return float(arena.get("radius",0.0))
+## The arena circle for this Green Alien actor: its home (so a chase never moves it), slid toward a player who
+## engaged from outside it so the player is inside the close margin; {} while the player is too far for that.
+func arena_geometry(a: Dictionary) -> Dictionary:
+    var home:=Vector2(float(a.home_x),float(a.home_y))
+    var center:=home
+    var player: Vector2=sim.position_of(sim.state.player)
+    var reach:=ARENA_RADIUS-ARENA_CLOSE_MARGIN-2.0
+    if player.distance_to(home)>reach:
+        var shift: float=player.distance_to(home)-reach
+        if shift>ARENA_MAX_SHIFT:return {}
+        center=home+(player-home).normalized()*shift
+    if sim.position_of(a).distance_to(center)>ARENA_RADIUS-ARENA_CLEARANCE:return {}
+    return {"center":center,"radius":ARENA_RADIUS,"boss":str(a.id)}
+## The living, engaged, unsealed Green Alien on the current map, or {}.
+func engaged_final() -> Dictionary:
+    if not final_unsealed() or ceremony_active() or float(sim.state.player.hp)<=0:return {}
+    for e in sim.state.enemies:
+        if bool(sim.catalog.groups[int(e.group)].final) and not sim.is_helper(e) and float(e.hp)>0 and bool(e.aggro) and not bool(e.get("returning",false)):
+            return e
+    return {}
+## Opens or closes the arena from the encounter state (called every simulation step and after a kill).
+func update_arena() -> void:
+    var boss:=engaged_final()
+    if arena_active():
+        if boss.is_empty() or str(boss.id)!=str(arena.boss):
+            var fallen: Dictionary=sim._find_actor(str(arena.boss))
+            var reason:="death" if float(sim.state.player.hp)<=0 else ("victory" if fallen.is_empty() or float(fallen.hp)<=0 else "reset")
+            open_arena(reason)
+        return
+    if boss.is_empty():return
+    var g:=arena_geometry(boss)
+    if g.is_empty() or sim.position_of(sim.state.player).distance_to(g.center)>float(g.radius)-ARENA_CLOSE_MARGIN:return
+    arena=g
+    arena_notice_clock=0.0
+    sim.arena_changed.emit(true,"close")
+func open_arena(reason: String) -> void:
+    if not arena_active():return
+    var was: Dictionary=arena
+    arena={}
+    arena_bump=Vector2.INF
+    sim.arena_changed.emit(false,reason)
+    if was.has("center"):sim.touch()
+## True for actors fenced inside the closed arena: the player, the Green Alien and its helpers.
+func arena_member(a: Dictionary) -> bool:
+    if a.id=="player" or str(a.id)==str(arena.get("boss","")):return true
+    return sim.is_helper(a) and str(a.get("summoner",""))==str(arena.get("boss",""))
+## Keeps a movement step on its side of the barrier. A member stops at the line; any other actor is held outside.
+## A corrected point inside solid scenery keeps the actor where it was (never pushed into a tree).
+func arena_clamp(a: Dictionary,old: Vector2,next: Vector2) -> Vector2:
+    if not arena_active():return next
+    var c: Vector2=arena.center
+    var r: float=arena.radius
+    var offset:=next-c
+    if arena_member(a):
+        var limit:=r-ARENA_CLEARANCE
+        if offset.length()<=limit:return next
+        var held_at:=c+offset.normalized()*limit
+        if a.id=="player":_arena_pushed(c+offset.normalized()*r)
+        return old if solid_at(held_at) and old.distance_to(c)<=limit+.01 else held_at
+    var outside:=r+ARENA_CLEARANCE
+    if offset.length()>=outside:return next
+    var dir:=offset.normalized() if offset.length()>.01 else (old-c).normalized()
+    if dir==Vector2.ZERO:dir=Vector2.DOWN
+    var pushed:=c+dir*outside
+    return old if solid_at(pushed) and old.distance_to(c)>=outside-.01 else pushed
+## A press against the barrier: a ripple there (presentation) and, at most every ARENA_NOTICE_SECONDS, one notice.
+func _arena_pushed(at: Vector2) -> void:
+    arena_bump=at
+    arena_bump_clock=float(sim.state.get("playtime_total",0.0))
+    if sim.movement.length()<=.1:return
+    if arena_notice_clock>0:return
+    arena_notice_clock=ARENA_NOTICE_SECONDS
+    sim.event.emit("ARENA_SEALED")
+## Whether an enemy may be targeted from the player's side of a closed arena (members only while it is closed).
+func arena_allows(e: Dictionary) -> bool:
+    return not arena_active() or arena_member(e)
+## Drops every transient encounter state (new profile, Prestige, reload). The saved unlock is untouched.
+func reset_final_encounter() -> void:
+    cancel_ceremony()
+    open_arena("reset")
+    arena_notice_clock=0.0
 func enemy_skill_cooldown(d: Dictionary,key: String) -> float:
     return sim.abilities.skill_cooldown(str(d.id),key,float(sim.catalog.skills[key].cooldown),bool(d.get("boss",false)))
 ## Change 78: pause after a boss's telegraphed skill misses its resolution (the player left its reach).
@@ -1642,6 +1827,7 @@ func awardable_ids() -> Array:
 func prestige_block_reason() -> String:
     var lock: String=sim.action_lock_reason()
     if lock!="":return lock
+    if arena_active() or ceremony_active():return "ARENA_SEALED"
     var gate:=prestige_gate_reason()
     if gate!="":return gate
     if ready_ids().is_empty():return "NO_READY_PRESTIGE"
@@ -1686,7 +1872,7 @@ func choose_card(id: String) -> bool:
         # are the Auto Buy Supplies selections. Map access still resets: a map's camps are usable again as
         # soon as that map is reached again.
         # New daily missions are repriced from current-run map access (reward_stage) on real day reset.
-        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","supply_uses","supply_mastery_credit","missions","mission_day","mission_auto","follow_mission","follow_mastery","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt","camps","respawns","auto_buy","camp_supply"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
+        for key in ["owned_cards","consumed","opportunities","prestige_collapsed","keys","final_discovered","final_complete","final_unsealed","main_claimed","main_ready","offline_total","offline_longest","offline_income","cards","group_kills","skill_auto","tutorial","playtime_total","skills_seen","supply_found","supply_uses","supply_mastery_credit","missions","mission_day","mission_auto","follow_mission","follow_mastery","player_level","xp","onboarding","mastery","gems","coins","merge_memory","migrations","explored","camps_known","discovered","discovered_spots","bosses_found","review","hunt","camps","respawns","auto_buy","camp_supply"]:keep[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
         keep.owned_cards.append_array(sim.state.prestige_batch.choices);keep.consumed.append_array(sim.state.prestige_batch.ids)
         for op in keep.opportunities:
             if not op.begins_with("offline") and not keep.consumed.has(op):keep.opportunities[op]={"ready":false,"baseline":{},"step":0,"count":0}
@@ -1930,6 +2116,8 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
                 if sim.catalog.groups[g].boss and number(out.group_kills[g]) and float(out.group_kills[g])>0:found.append(str(sim.catalog.groups[g].id))
         out["bosses_found"]=found
     normalize_change61(out)
+    # Change 82: the unsealing ceremony state is never copied from the live profile (an older save has not seen it).
+    if not out.has("final_unsealed") or typeof(out.final_unsealed)!=TYPE_BOOL:out["final_unsealed"]=false
     for key in sim.state:
         if not out.has(key):out[key]=sim.state[key].duplicate(true) if sim.state[key] is Dictionary or sim.state[key] is Array else sim.state[key]
     # Older schema-8 profiles have no expansion preferences. Ignore malformed/unknown keys.

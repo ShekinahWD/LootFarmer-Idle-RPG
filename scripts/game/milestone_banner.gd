@@ -36,12 +36,18 @@ func _ready() -> void:
         if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
             opened.emit(str(current.get("kind","")));_finish())
 
-## cards: Array of {"icon": Texture2D, "text": String}
-func push(kind: String,title: String,subtitle: String,cards: Array=[]) -> void:
+## cards: Array of {"icon": Texture2D, "text": String}. art (Change 82): optional art for a gold celebration.
+func push(kind: String,title: String,subtitle: String,cards: Array=[],art: Texture2D=null) -> void:
     for entry in queue+[current]:
         if entry.get("title","")==title and entry.get("subtitle","")==subtitle:return
     # Change 63: no fixed cap; a waiting banner is never dropped (duplicates are refused above).
-    queue.append({"kind":kind,"title":title,"subtitle":subtitle,"cards":cards})
+    queue.append({"kind":kind,"title":title,"subtitle":subtitle,"cards":cards,"art":art})
+
+## Change 82: a gold celebration shown next, ahead of anything queued (the Green Alien accepting the challenge).
+func push_front(kind: String,title: String,subtitle: String,art: Texture2D=null) -> void:
+    for entry in queue+[current]:
+        if entry.get("title","")==title and entry.get("subtitle","")==subtitle:return
+    queue.push_front({"kind":kind,"title":title,"subtitle":subtitle,"cards":[],"art":art})
 
 ## A warning shown next, ahead of queued celebrations, in warning_color with its own art.
 func push_warning(kind: String,title: String,subtitle: String,art: Texture2D=null) -> void:
@@ -72,7 +78,7 @@ func _begin(entry: Dictionary) -> void:
     $Plate/Row/Text/Title.add_theme_color_override("font_color",warning_color if warning else title_color)
     $Plate/Frame.modulate=warning_color if warning else frame_color
     $Sparks.modulate=warning_color if warning else Color.WHITE
-    $Plate/Row/Art.texture=entry.get("art") if warning and entry.get("art")!=null else default_art
+    $Plate/Row/Art.texture=entry.get("art") if entry.get("art")!=null else default_art
     $Plate/Row/Text/Title.text=entry.title
     $Plate/Row/Text/Subtitle.text=entry.subtitle
     $Plate/Row/Text/Subtitle.visible=entry.subtitle!=""

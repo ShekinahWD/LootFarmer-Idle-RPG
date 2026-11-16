@@ -32,6 +32,7 @@ const COINS:=preload("res://assets/vfx/supply/Coin_Spin_Sheet.png")
 const CYAN:=Color(.36,.94,1)
 const VIOLET:=Color(.72,.45,1)
 const GOLD:=Color(1,.8,.3)
+const ALIEN:=Color(.45,1,.5)
 const BODY:=Vector2(0,-7)
 
 var add_material:=CanvasItemMaterial.new()
@@ -74,6 +75,17 @@ func _ready() -> void:
     m.particles["to"]=_confetti(m,"to")
     m.particles["coins"]=_coins(m,"to")
     m.particles["embers"]=_motes(m,"to",GLOW,GOLD,22,0.0,true,true)
+    # --- Change 82: the Green Alien's seal breaks (the 13 keys strike it): a white-gold flash, a green-gold
+    # shockwave, alien-green god-rays turning behind the boss, two rings and rising sparks; held while the
+    # banner reads. (Radial_Glow_002, Shockwave_001, Circle_Outline_002/003, Star_004, Glow_001)
+    m=_moment("unseal",1.6)
+    _layer(m,"to",GLOW,{"t0":0,"d":.4,"size":[30,150],"alpha":[1,0],"color":Color(1,.98,.85),"add":true,"y":0})
+    _layer(m,"to",SHOCK,{"t0":.02,"d":.6,"size":[20,190],"alpha":[.95,0],"color":ALIEN.lightened(.3),"y":0})
+    _layer(m,"to",RAYS,{"t0":.05,"d":1.5,"size":[50,170],"alpha":[.75,0],"hold":.6,"spin":.9,"color":ALIEN,"y":0})
+    _layer(m,"to",RAYS,{"t0":.1,"d":1.4,"size":[36,120],"alpha":[.6,0],"hold":.55,"spin":-.6,"color":GOLD,"y":0})
+    _layer(m,"to",RING,{"t0":.06,"d":.65,"size":[16,140],"flat":.45,"alpha":[1,0],"color":GOLD,"y":14})
+    _layer(m,"to",SOFT_RING,{"t0":.2,"d":.7,"size":[16,110],"flat":.45,"alpha":[.9,0],"color":ALIEN,"y":14})
+    m.particles["to"]=_motes(m,"to",STAR,GOLD,20,0.0,true,true)
     for key in moments:moments[key].node_to.visible=false
 
 func _moment(key: String,length: float) -> Dictionary:

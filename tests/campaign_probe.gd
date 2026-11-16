@@ -86,7 +86,10 @@ func run() -> void:
     for g in range(48):
         if sim.catalog.groups[g].boss and not sim.catalog.groups[g].final:
             sim.campaign.killed({"group":g,"encounter_uses":0})
-    check(sim.state.keys.size()==13 and sim.campaign.target_allowed(final),"Thirteen unique keys unlock final boss")
+    # Change 82: the keys open it once the one-time unsealing ceremony has played (tests/change_82_probe).
+    check(sim.state.keys.size()==13 and not sim.campaign.final_sealed(int(final.group)) and not sim.campaign.target_allowed(final),"Thirteen unique keys unseal final boss (ceremony next)")
+    sim.state.final_unsealed=true # fixture: the Change 82 ceremony completed
+    check(sim.campaign.target_allowed(final),"After the ceremony the final boss can be fought")
     for g in sim.campaign.stage().groups:
         sim.campaign.killed({"group":g,"encounter_uses":0})
     check(sim.state.world_complete and sim.state.main_ready.has("15"),"All nine final stage types required")

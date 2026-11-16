@@ -6887,3 +6887,15 @@ msgstr "Weapon milestones (equipped)"
 
 msgid "MAX_ITEM_TIER_CAP"
 msgstr "Final tier reached. Merging continues up to ^%d, with a milestone every ^100."
+
+msgid "FINAL_UNSEAL_TITLE"
+msgstr "YOU HAVE PROVEN YOUR WORTH!"
+
+msgid "FINAL_UNSEAL_BODY"
+msgstr "The Green Alien accepts your challenge. Defeat it!"
+
+msgid "ARENA_CLOSED"
+msgstr "The arena is sealed! Defeat the Green Alien or fall trying."
+
+msgid "ARENA_SEALED"
+msgstr "The arena is sealed. Win the fight or fall to leave."

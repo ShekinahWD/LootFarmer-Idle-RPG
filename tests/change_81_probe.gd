@@ -389,6 +389,9 @@ func final_boss_checks() -> void:
     check(str(chip.get_node("Row/Lines/Caption").text)=="Green Alien" and str(chip.get_node("Row/Lines/Value").text)=="Ready to Challenge","Chip: Green Alien / Ready to Challenge")
     spring_two()
     ga=alien()
+    # Change 82: with 13 keys it waits for the one-time unsealing ceremony (tests/change_82_probe), then it is a target.
+    check(not sim.campaign.target_allowed(ga),"13 keys: still waiting for the Change 82 ceremony")
+    sim.state.final_unsealed=true # fixture: the Change 82 ceremony completed
     check(sim.campaign.target_allowed(ga) or not sim.campaign.can_see(sim.position_of(ga)),"Unsealed: it can be targeted")
     check(not sim.campaign.final_sealed(int(ga.group)),"…no longer sealed")
     print("-- Green Alien: Prestige and victory")
