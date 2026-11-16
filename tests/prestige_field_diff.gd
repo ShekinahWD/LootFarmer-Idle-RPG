@@ -26,7 +26,7 @@ func run() -> void:
         var ok: bool=sim.buy_upgrade(str(up[0]),int(up[1]))
         if not ok:print("C49P buy failed ",up," ",sim.upgrade_block_reason(str(up[0]),int(up[1])))
     s.camps_known["1"]=[0,1];sim.campaign.camp_action(1,1,false)
-    print("C49P camps ",s.camps," camp_radius buy ",sim.buy_upgrade("camp_radius",11))
+    print("C49P camps ",s.camps," camp_radius buy ",sim.buy_upgrade("camp_radius"))
     s.supply_uses["potion"]=9;s.supply_mastery_credit["potion"]=2
     s.skill_cooldowns["0"]=7.5;s.buffs["guard_tonic"]={"time":20.0,"power":5.0};s.boost_time=30.0;s.boost_power=.5
     s.counters["kill"]=500.0;s.run_kills["unit-blue-cap"]=40

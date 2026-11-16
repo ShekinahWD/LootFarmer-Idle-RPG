@@ -713,9 +713,6 @@ msgstr "その他のオプション"
 msgid "LOOT_HISTORY"
 msgstr "ドロップ履歴"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "レベル %d / 1,000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "レベル %d · HPとダメージが上昇"
 
@@ -842,9 +839,6 @@ msgstr "%sを狩る · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "狩りの対象：%s。復活後はここに戻ります。"
 
-msgid "MAX_ITEM_TIER"
-msgstr "最終ランクに到達しました。^100までは引き続き合成できます。"
-
 msgid "TAB_PLAYER"
 msgstr "プレイヤー"
 
@@ -874,9 +868,6 @@ msgstr "先にこのキャンプを探索してください。"
 
 msgid "STAGE_UNLOCKED"
 msgstr "次のステージが解放されました！"
-
-msgid "FINAL_DISCOVERED"
-msgstr "最後の守護者は封印されています。他の13体のボスを倒して鍵を集めよう。集めた鍵は転生後も残ります。"
 
 msgid "WORLD_COMPLETE"
 msgstr "春 II の敵をすべて撃破 — 最終ミッション達成！"
@@ -1075,9 +1066,6 @@ msgstr "%s · 出現地点%dか所 · 1か所に%d体 · 再出現%s秒"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "撃破した最終ステージの種類：%d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "キャンプの発見範囲"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "プレイヤーの視界範囲"
@@ -4813,9 +4801,6 @@ msgstr "クールダウン：%s秒"
 
 msgid "GATE_HUD"
 msgstr "次のステージ · ボス %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "ワールド制覇 · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "このマップで次のマップを開くために倒すボスです。発見済みで、まだ数に入るボスには金色の旗が付きます。"

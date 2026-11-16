@@ -1,0 +1,22 @@
+{
+ "AUTO_SKILL_NEEDS_SLOT": "Unlock Skill Slot %d first",
+ "FINAL_SEALED": "The Green Alien refuses to fight you. Boss Keys: %d / %d",
+ "FINAL_INTRO_TITLE": "YOU ARE NOT WORTHY!",
+ "FINAL_INTRO_BODY": "The Green Alien refuses to fight you. Prove your strength: defeat the other %d bosses and collect their keys. Return when you have all %d.",
+ "FINAL_KEYS_SECTION": "Final Boss · Boss Keys",
+ "FINAL_HUD_KEYS": "Final Boss · Boss Keys %d/%d",
+ "FINAL_HUD_READY": "Green Alien · Ready to Challenge",
+ "FINAL_HUD_TOOLTIP": "Each other boss defeated after finding the Green Alien gives one key, once. Keys stay through Prestige. Tap for details.",
+ "FINAL_READY_NOTICE": "All 13 Boss Keys collected! The Green Alien is ready to be challenged.",
+ "KEY_FX_LABEL": "Boss Key %d/%d",
+ "CAMP_RADIUS_GLOBAL_NOTE": "Camp reveal radius: +%s%% on every camp (Upgrades › Player)",
+ "CAMP_REVEAL_RADIUS": "This camp reveals %s around it (+%s%% Camp reveal radius)",
+ "MILESTONES_ACTIVE_WEAPON": "Milestones (while equipped): %s",
+ "MILESTONE_WEAPON_CRIT": "Critical Chance +%s%%",
+ "MILESTONE_WEAPON_CRIT_DAMAGE": "Critical Damage +%s%%",
+ "MILESTONE_WEAPON_LIFESTEAL": "Lifesteal +%s%%",
+ "MILESTONE_WEAPON_DAMAGE": "Damage +%s",
+ "WEAPON_MILESTONE_REACHED": "%s ^%d milestone: %s",
+ "SOURCE_WEAPON_MILESTONE": "Weapon milestones (equipped)",
+ "MAX_ITEM_TIER_CAP": "Final tier reached. Merging continues up to ^%d, with a milestone every ^100."
+}

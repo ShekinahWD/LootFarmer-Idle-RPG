@@ -57,3 +57,7 @@ Desktop.ini
 # DO NOT ignore /addons/, /Godot-Marketing-Toolkit/, /marketing/,
 # docs, source assets, .gdignore, *.gd.uid, marketing_capture_toolkit.lock.json,
 # or approved toolkit fonts/licenses. They are required for reproducible builds.
+
+# Generated media and test evidence (Playbook 0.2.5): contents ignored, the .gdignore marker is tracked
+/generated/*
+!/generated/.gdignore

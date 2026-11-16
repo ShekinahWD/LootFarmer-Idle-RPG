@@ -715,9 +715,6 @@ msgstr "Più opzioni"
 msgid "LOOT_HISTORY"
 msgstr "Cronologia bottino"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "LIVELLO %d / 1.000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "LIVELLO %d · salute e danni aumentati"
 
@@ -844,9 +841,6 @@ msgstr "Farma %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Farming selezionato: %s. Dopo la rinascita torni qui."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Grado finale raggiunto. La fusione resta disponibile fino a ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Eroe"
 
@@ -876,9 +870,6 @@ msgstr "Esplora prima questo campo."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Zona successiva sbloccata!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "Il guardiano finale è sigillato. Sconfiggi gli altri 13 boss per ottenerne le chiavi. Le chiavi raccolte restano col prestigio."
 
 msgid "WORLD_COMPLETE"
 msgstr "Tutti i nemici di Primavera II sconfitti: missione finale completata!"
@@ -1077,9 +1068,6 @@ msgstr "%s · postazioni: %d · %d per postazione · rinascita %s s"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Tipi della zona finale sconfitti: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Raggio di rivelazione del campo"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Raggio di rivelazione dell’eroe"
@@ -4815,9 +4803,6 @@ msgstr "Ricarica: %s s"
 
 msgid "GATE_HUD"
 msgstr "Zona succ. · Boss %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Mondo ripulito · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Boss da sconfiggere su questa mappa per aprire la successiva. I boss trovati che contano ancora hanno lo stendardo dorato."

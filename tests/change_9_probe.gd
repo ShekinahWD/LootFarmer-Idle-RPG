@@ -153,7 +153,7 @@ func spring_two_checks() -> void:
     check(final.final and near(float(final.hp)/at_level.call(250),18.0*tuned.call("boss-green-alien"),.0001) and near(float(b.final_hp),18.0,.0001),"Final boss HP uses its own 18x factor (%.0f HP, %.1f damage)" % [final.hp,final.damage])
     var panda: Dictionary=c.groups.filter(func(g):return g.id=="boss-red-panda")[0]
     check(near(float(panda.hp)/at_level.call(235),float(b.boss_hp)*tuned.call("boss-red-panda"),.0001),"Other bosses keep the shared 14.5x factor")
-    check(float(final.hp)>130000 and float(final.hp)<145000 and float(final.damage)>400 and float(final.damage)<430,"Final boss at the Change 79 values (137K HP, 415 damage)")
+    check(float(final.hp)>90000 and float(final.hp)<93000 and float(final.damage)>620 and float(final.damage)<625,"Final boss at the Change 81 values (91K HP, 623 damage)")
     var g8:=-1
     for i in range(c.groups.size()):
         if c.groups[i].id=="unit-sprout":g8=i

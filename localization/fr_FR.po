@@ -715,9 +715,6 @@ msgstr "Plus d’options"
 msgid "LOOT_HISTORY"
 msgstr "Historique du butin"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "NIVEAU %d / 1 000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "NIVEAU %d · Santé et dégâts augmentés"
 
@@ -844,9 +841,6 @@ msgstr "Farmer %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Farm sélectionné : %s. Vous revenez ici après une réapparition."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Rang final atteint. La fusion reste possible jusqu’à ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Joueur"
 
@@ -876,9 +870,6 @@ msgstr "Explorez d’abord ce camp."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Zone suivante débloquée !"
-
-msgid "FINAL_DISCOVERED"
-msgstr "Le gardien final est scellé. Vainquez les 13 autres boss pour obtenir leurs clés. Les clés obtenues sont conservées au prestige."
 
 msgid "WORLD_COMPLETE"
 msgstr "Tous les ennemis de Printemps II sont vaincus : mission finale accomplie !"
@@ -1077,9 +1068,6 @@ msgstr "%s · %d zones · %d par zone · réapparition %s s"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Types de la zone finale vaincus : %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Rayon de révélation des camps"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Rayon de révélation du joueur"
@@ -4821,9 +4809,6 @@ msgstr "Recharge : %s s"
 
 msgid "GATE_HUD"
 msgstr "Zone suivante · Boss %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Monde terminé · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Boss à vaincre sur cette carte pour ouvrir la suivante. Les boss trouvés qui comptent encore portent la bannière dorée."

@@ -601,9 +601,10 @@ const BOSSES:={
     "boss-elephant":[3926.74,38.41,3141.39,44.17],"boss-teal-dinosaur":[4378.11,38.41,3721.39,44.17],
     "boss-squirrel":[7543.26,56.68,6034.61,73.69],"boss-red-fox":[8410.34,56.68,7148.79,65.19],
     "boss-black-cat":[20083.96,98.85,18075.56,108.74],"boss-grim-reaper":[22392.56,98.85,20153.31,86.99],
-    "boss-bee":[66473.5,150.18,66473.5,150.18],"boss-orange-tabby-cat":[74114.5,160.99,74114.5,160.99],
-    "boss-red-panda":[176985.99,280.74,79643.69,379.01],"boss-sunflower":[197330.11,300.95,88798.55,346.10],
-    "boss-green-alien":[304513.69,345.84,137031.16,415.01]}
+    # Change 81 supersedes the Spring rows: attack x1.5 and HP x2/3 of the Change 79 values (change_81_probe).
+    "boss-bee":[66473.5,150.18,44317.89,225.35],"boss-orange-tabby-cat":[74114.5,160.99,49412.12,241.58],
+    "boss-red-panda":[176985.99,280.74,53095.80,568.76],"boss-sunflower":[197330.11,300.95,59199.03,519.36],
+    "boss-green-alien":[304513.69,345.84,91354.11,622.77]}
 const DAMAGING:=["fire","strike","frost","lightning"]
 func boss_balance_checks() -> void:
     print("-- 5. Boss balance data")

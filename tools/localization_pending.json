@@ -2739,6 +2739,161 @@
    "placeholders": [],
    "change": "change-80",
    "status": "changed"
+  },
+  "AUTO_SKILL_NEEDS_SLOT": {
+   "en": "Unlock Skill Slot %d first",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-81"
+  },
+  "FINAL_SEALED": {
+   "en": "The Green Alien refuses to fight you. Boss Keys: %d / %d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-81"
+  },
+  "FINAL_INTRO_TITLE": {
+   "en": "YOU ARE NOT WORTHY!",
+   "placeholders": [],
+   "change": "change-81"
+  },
+  "FINAL_INTRO_BODY": {
+   "en": "The Green Alien refuses to fight you. Prove your strength: defeat the other %d bosses and collect their keys. Return when you have all %d.",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-81"
+  },
+  "FINAL_KEYS_SECTION": {
+   "en": "Final Boss · Boss Keys",
+   "placeholders": [],
+   "change": "change-81"
+  },
+  "FINAL_HUD_KEYS": {
+   "en": "Final Boss · Boss Keys %d/%d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-81"
+  },
+  "FINAL_HUD_READY": {
+   "en": "Green Alien · Ready to Challenge",
+   "placeholders": [],
+   "change": "change-81"
+  },
+  "FINAL_HUD_TOOLTIP": {
+   "en": "Each other boss defeated after finding the Green Alien gives one key, once. Keys stay through Prestige. Tap for details.",
+   "placeholders": [],
+   "change": "change-81"
+  },
+  "FINAL_READY_NOTICE": {
+   "en": "All 13 Boss Keys collected! The Green Alien is ready to be challenged.",
+   "placeholders": [],
+   "change": "change-81"
+  },
+  "KEY_FX_LABEL": {
+   "en": "Boss Key %d/%d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-81"
+  },
+  "CAMP_RADIUS_GLOBAL_NOTE": {
+   "en": "Camp reveal radius: +%s%% on every camp (Upgrades › Player)",
+   "placeholders": [
+    "%s",
+    "%%"
+   ],
+   "change": "change-81"
+  },
+  "CAMP_REVEAL_RADIUS": {
+   "en": "This camp reveals %s around it (+%s%% Camp reveal radius)",
+   "placeholders": [
+    "%s",
+    "%s",
+    "%%"
+   ],
+   "change": "change-81"
+  },
+  "MILESTONES_ACTIVE_WEAPON": {
+   "en": "Milestones (while equipped): %s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-81"
+  },
+  "MILESTONE_WEAPON_CRIT": {
+   "en": "Critical Chance +%s%%",
+   "placeholders": [
+    "%s",
+    "%%"
+   ],
+   "change": "change-81"
+  },
+  "MILESTONE_WEAPON_CRIT_DAMAGE": {
+   "en": "Critical Damage +%s%%",
+   "placeholders": [
+    "%s",
+    "%%"
+   ],
+   "change": "change-81"
+  },
+  "MILESTONE_WEAPON_LIFESTEAL": {
+   "en": "Lifesteal +%s%%",
+   "placeholders": [
+    "%s",
+    "%%"
+   ],
+   "change": "change-81"
+  },
+  "MILESTONE_WEAPON_DAMAGE": {
+   "en": "Damage +%s",
+   "placeholders": [
+    "%s"
+   ],
+   "change": "change-81"
+  },
+  "WEAPON_MILESTONE_REACHED": {
+   "en": "%s ^%d milestone: %s",
+   "placeholders": [
+    "%s",
+    "%d",
+    "%s"
+   ],
+   "change": "change-81"
+  },
+  "SOURCE_WEAPON_MILESTONE": {
+   "en": "Weapon milestones (equipped)",
+   "placeholders": [],
+   "change": "change-81"
+  },
+  "GATE_HUD_WORLD": {
+   "en": "Enemy types defeated · %d/%d",
+   "placeholders": [
+    "%d",
+    "%d"
+   ],
+   "change": "change-81",
+   "status": "changed"
+  },
+  "UP_CAMP_RADIUS": {
+   "en": "Camp reveal radius (all camps)",
+   "placeholders": [],
+   "change": "change-81",
+   "status": "changed"
+  },
+  "MAX_ITEM_TIER_CAP": {
+   "en": "Final tier reached. Merging continues up to ^%d, with a milestone every ^100.",
+   "placeholders": [
+    "%d"
+   ],
+   "change": "change-81"
   }
  },
  "retired": {
@@ -2776,6 +2931,9 @@
   "BUY_SUPPLY": "change-71",
   "MASTERY_CHIP_SHORT": "change-74",
   "GATE_HUD_SHORT": "change-74",
-  "GATE_HUD_WORLD_SHORT": "change-74"
+  "GATE_HUD_WORLD_SHORT": "change-74",
+  "PLAYER_LEVEL_CAP": "change-81",
+  "FINAL_DISCOVERED": "change-81",
+  "MAX_ITEM_TIER": "change-81"
  }
 }

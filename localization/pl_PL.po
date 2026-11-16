@@ -715,9 +715,6 @@ msgstr "Więcej opcji"
 msgid "LOOT_HISTORY"
 msgstr "Historia łupów"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "POZIOM %d / 1000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "POZIOM %d · zdrowie i obrażenia wzrosły"
 
@@ -844,9 +841,6 @@ msgstr "Farm: %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Wybór farmienia: %s. Po odrodzeniu bohater tu wróci."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Osiągnięto ostatnią rangę. Łączenie wciąż działa do ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Bohater"
 
@@ -876,9 +870,6 @@ msgstr "Najpierw odkryj ten obóz."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Następny etap odblokowany!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "Ostatni strażnik jest zapieczętowany. Pokonaj pozostałych 13 bossów, by zebrać ich klucze. Zebrane klucze zostają po prestiżu."
 
 msgid "WORLD_COMPLETE"
 msgstr "Wszyscy wrogowie Wiosny II pokonani — ostatnia misja ukończona!"
@@ -1077,9 +1068,6 @@ msgstr "%s · miejsc: %d · %d na miejsce · odrodzenie %s s"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Pokonane typy ostatniego etapu: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Zasięg odkrywania obozu"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Zasięg odkrywania bohatera"
@@ -4815,9 +4803,6 @@ msgstr "Odnowienie: %s s"
 
 msgid "GATE_HUD"
 msgstr "Dalej: bossowie %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Świat oczyszczony · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Bossowie, których trzeba pokonać na tej mapie, by otworzyć następną. Znalezieni bossowie, którzy się jeszcze liczą, mają złoty sztandar."

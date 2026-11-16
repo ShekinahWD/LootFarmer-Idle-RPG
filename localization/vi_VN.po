@@ -715,9 +715,6 @@ msgstr "Thêm tùy chọn"
 msgid "LOOT_HISTORY"
 msgstr "Lịch sử chiến lợi phẩm"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "CẤP %d / 1.000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "CẤP %d · HP và sát thương tăng"
 
@@ -844,9 +841,6 @@ msgstr "Cày %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Lựa chọn cày: %s. Quay lại đây sau khi hồi sinh."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Đã đạt bậc cuối. Vẫn có thể ghép đến ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Nhân vật"
 
@@ -876,9 +870,6 @@ msgstr "Hãy khám phá trại này trước."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Đã mở màn tiếp theo!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "Hộ vệ cuối cùng đang bị phong ấn. Đánh bại 13 Boss còn lại để thu thập chìa khóa của chúng. Chìa khóa đã thu thập được giữ khi chuyển sinh."
 
 msgid "WORLD_COMPLETE"
 msgstr "Đã đánh bại mọi kẻ địch Mùa Xuân II — hoàn thành nhiệm vụ cuối!"
@@ -1077,9 +1068,6 @@ msgstr "%s · %d điểm · %d mỗi điểm · hồi sinh %s giây"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Loại kẻ địch màn cuối đã hạ: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Bán kính tầm nhìn trại"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Bán kính tầm nhìn nhân vật"
@@ -4815,9 +4803,6 @@ msgstr "Hồi chiêu: %s giây"
 
 msgid "GATE_HUD"
 msgstr "Màn sau · Boss %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Thế giới đã sạch · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Các Boss cần đánh bại trên bản đồ này để mở bản đồ tiếp theo. Boss đã tìm thấy và vẫn được tính mang dải cờ vàng."

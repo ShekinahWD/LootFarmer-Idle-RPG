@@ -268,11 +268,11 @@ func level_checks() -> void:
     var mult=sim.card("hp")
     check(mult>1.0 and near(sim.stats_at_level(12).hp-sim.stats().hp,5.0*mult),"With a prestige HP card the next-level gain is ×%s" % mult)
     game.top.get_node("Meters/XP/Open").pressed.emit();await frames(3)
-    check(game.panel=="level" and label_containing("Level 11 / 1000")!=null and label_containing("more to reach level 12")!=null,"Level panel: level, XP and next level")
+    check(game.panel=="level" and label_containing("Level 11 / 500")!=null and label_containing("more to reach level 12")!=null,"Level panel: level, XP and next level")
     check(label_containing(tr("BREAKDOWN_TOTAL"))!=null and label_containing("Stored gear (outfits 15%, weapons 30%)")!=null and label_containing("Player levels (10 × +5)")!=null,"Level panel lists HP sources")
     check(label_containing(tr("BREAKDOWN_PRESTIGE"))!=null,"Prestige multiplier row shows only when owned")
     sim.gain_xp(sim.xp_required()+1);game.panel_clock=1.0;game._refresh_panel();await frames(2)
-    check(label_containing("Level 12 / 1000")!=null,"Panel refreshes after a level-up")
+    check(label_containing("Level 12 / 500")!=null,"Panel refreshes after a level-up")
     sim.equip("boss-snowman_outfit");game._refresh_panel();await frames(2) # unequip
     check(label_containing("+%s" % game.fmt_value(sim.stat_breakdown("hp").parts.filter(func(x):return x[0]=="SOURCE_STORED")[0][1]))!=null,"Panel follows an equipment swap")
     sim.state.player_level=sim.max_level();sim.state.xp=0.0;sim.touch();game._refresh_panel(true);await frames(2)

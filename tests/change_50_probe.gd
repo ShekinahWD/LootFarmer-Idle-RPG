@@ -118,7 +118,8 @@ func prestige_fixture() -> void:
         check(sim.buy_upgrade(str(up[0]),int(up[1])),"Fixture buys %s" % str(up))
     s.camps_known["1"]=[0,1]
     check(sim.campaign.camp_action(1,1,false),"Fixture buys camp 1 of Winter I")
-    check(sim.buy_upgrade("camp_radius",11),"Fixture buys that camp's reveal radius")
+    s.gems=float(s.gems)+10.0 # fixture: the Gems for it
+    check(sim.buy_upgrade("camp_radius"),"Fixture buys the global camp reveal radius (one upgrade since Change 81)")
     s.main_ready["3"]=true
     s.offline_pending={"id":"probe","seconds":7200.0,"longest":7200.0,"rewarded_hours":2.0,"coins":240.0,"gems":4.0,"items":{"wood_axe":2}}
     sim.campaign.refresh_missions()
@@ -155,8 +156,8 @@ func prestige_checks() -> void:
     check(int(s.player_level)==25,"Player level kept")
     check(sim.campaign.reward_stage()==1,"Missions are priced from the new run's map access")
     check(s.missions==missions_before,"Existing missions are not replaced or repriced at Prestige")
-    # Camp radius stays bought and, since Change 76, its camp stays owned, so it keeps acting.
-    check(int(sim.level("camp_radius",11))==1 and s.spawns.has(1),"Camp radius kept with its camp still owned")
+    # Camp radius stays bought (Change 81: one global upgrade) and, since Change 76, the camp stays owned.
+    check(int(sim.level("camp_radius"))==1 and s.spawns.has(1),"Camp radius kept with its camp still owned")
     # Reacquiring restores the remembered level, with fresh rolled attributes.
     check(sim.add_item("wood_axe") and int(sim.record("wood_axe").merge)==3,"The Wood Axe found again is ^3")
     check(SaveService.save_now(),"Post-Prestige profile saves")

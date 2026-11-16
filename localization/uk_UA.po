@@ -715,9 +715,6 @@ msgstr "Більше дій"
 msgid "LOOT_HISTORY"
 msgstr "Історія здобичі"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "РІВЕНЬ %d / 1000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "РІВЕНЬ %d · здоров’я і шкода зросли"
 
@@ -844,9 +841,6 @@ msgstr "Фармити: %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Вибір фарму: %s. Після відродження герой повернеться сюди."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Досягнуто останнього рангу. Поєднувати можна до ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Герой"
 
@@ -876,9 +870,6 @@ msgstr "Спершу досліди цей табір."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Наступний етап відкрито!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "Останнього вартового запечатано. Переможи решту 13 босів, щоб зібрати їхні ключі. Зібрані ключі зберігаються під час престижу."
 
 msgid "WORLD_COMPLETE"
 msgstr "Усіх ворогів Весни II переможено — останню місію виконано!"
@@ -1077,9 +1068,6 @@ msgstr "%s · точок: %d · по %d на точку · відродженн�
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Переможено типів останнього етапу: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Радіус огляду табору"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Радіус огляду героя"
@@ -4815,9 +4803,6 @@ msgstr "Перезарядка: %s с"
 
 msgid "GATE_HUD"
 msgstr "Далі: боси %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Світ зачищено · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Боси, яких треба перемогти на цій мапі, щоб відкрити наступну. Знайдені боси, які ще зараховуються, позначено золотим прапором."

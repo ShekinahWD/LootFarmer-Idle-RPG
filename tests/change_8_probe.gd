@@ -62,7 +62,7 @@ func prestige_gate_checks() -> void:
 func merge_cap_checks() -> void:
     fresh()
     sim.add_item("unit-blue-cap_outfit",600)
-    check(sim.merge_cap("unit-blue-cap_outfit")==500 and sim.merge_cap("wood_sword")==20 and sim.merge_cap("obsidian_sword")==100,"Copy cap 500; weapon cap ^20 to evolve, Obsidian ^100 (Change 51)")
+    check(sim.merge_cap("unit-blue-cap_outfit")==500 and sim.merge_cap("wood_sword")==20 and sim.merge_cap("obsidian_sword")==500,"Copy cap 500; weapon cap ^20 to evolve, Obsidian ^500 (Change 81)")
     check(sim.merge("unit-blue-cap_outfit",true) and int(sim.record("unit-blue-cap_outfit").merge)==500,"Merge all reaches ^500")
     check(not sim.merge("unit-blue-cap_outfit"),"No merge past the cap")
     var hp: float=sim.normal("unit-blue-cap_outfit").hp

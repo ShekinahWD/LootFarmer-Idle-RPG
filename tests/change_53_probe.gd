@@ -33,12 +33,13 @@ func damage_checks() -> void:
         if d.boss:
             check(near(float(sim.enemy_definition(g,2).damage),base),"%s boss damage unchanged" % d.id)
             continue
-        var scale:=0.6 if int(d.stage)>=7 else 1.0
+        # Change 81: Spring I/II normal damage x0.90 (was x0.60, change_81_probe).
+        var scale:=0.9 if int(d.stage)>=7 else 1.0
         check(near(float(sim.enemy_definition(g,0).damage),base*.75*scale) and near(float(sim.enemy_definition(g,1).damage),base*1.25*scale) and near(float(sim.enemy_definition(g,2).damage),base*scale),"%s loadouts x%.2f" % [d.id,scale])
         if not d.skills.is_empty():
             check(near(float(sim.enemy_definition(g,3).damage),base*1.15*scale) and near(float(sim.enemy_definition(g,3).hp),float(d.hp)*1.35),"%s skill variant damage x%.3f, HP x1.35" % [d.id,1.15*scale])
     var bee=sim.campaign.group_id("unit-elf-ears")
-    check(near(float(sim.enemy_definition(bee,3).damage),float(sim.catalog.groups[bee].damage)*.69),"Spring skill variant: 0.60 x 1.15 = 0.69")
+    check(near(float(sim.enemy_definition(bee,3).damage),float(sim.catalog.groups[bee].damage)*1.035),"Spring skill variant: 0.90 x 1.15 = 1.035 (Change 81)")
     # Helpers copy their type's catalog damage scaled by their summon rule only.
     for g in range(sim.catalog.groups.size()):
         var rule: SummonRule=sim.abilities.helper_rule(str(sim.catalog.groups[g].id))

@@ -715,9 +715,6 @@ msgstr "Больше действий"
 msgid "LOOT_HISTORY"
 msgstr "История добычи"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "УРОВЕНЬ %d / 1000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "УРОВЕНЬ %d · здоровье и урон выросли"
 
@@ -844,9 +841,6 @@ msgstr "Фармить: %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Выбор фарма: %s. После возрождения герой вернётся сюда."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Достигнут последний ранг. Объединять можно до ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Герой"
 
@@ -876,9 +870,6 @@ msgstr "Сначала исследуй этот лагерь."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Следующий этап открыт!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "Последний страж запечатан. Победи остальных 13 боссов, чтобы собрать их ключи. Собранные ключи сохраняются при престиже."
 
 msgid "WORLD_COMPLETE"
 msgstr "Все враги Весны II повержены — последнее задание выполнено!"
@@ -1077,9 +1068,6 @@ msgstr "%s · точек: %d · по %d на точку · возрождени�
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Побеждено типов последнего этапа: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Радиус обзора лагеря"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Радиус обзора героя"
@@ -4815,9 +4803,6 @@ msgstr "Перезарядка: %s с"
 
 msgid "GATE_HUD"
 msgstr "Дальше: боссы %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Мир зачищен · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Боссы, которых нужно победить на этой карте, чтобы открыть следующую. Найденные боссы, которые ещё засчитываются, отмечены золотым знаменем."

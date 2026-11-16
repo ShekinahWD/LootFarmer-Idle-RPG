@@ -1,4 +1,50 @@
-# LootFarmer — Game Design Document — current (2026-11-15, Change 80)
+# LootFarmer — Game Design Document — current (2026-11-16, Change 81)
+
+## Change 81 — Final boss clarity, boss keys, Spring combat, endgame progression (16 November 2026)
+
+Save schema 9 unchanged (two new one-time migrations, `camp_radius_global` and `final_intro_seen`, plus a level clamp on load). The game version and Android version code are not touched by this change. Brief: `docs/LootFarmer_Change_81_Final_Boss_Combat_Progression.md`. Catalog writer: `tools/change81_catalog.py` (then `tools/tune_campaign.py`). Probe: `tests/change_81_probe` (maintained suite). Captures: `tests/change_81_capture` → `generated/evidence/change_81/screens/`. Combat ladder harness and CSVs: `tests/tmp/c81/` → `generated/evidence/change_81/` (ignored by Git).
+
+- **Camp Reveal Radius is one global upgrade.** Upgrades → Player → "Camp reveal radius (all camps)": 3 levels for **10 / 20 / 40 Gems** (70 in all, fixed steps), each **+25% of the base camp reveal radius** (additive: +25 / +50 / +75%), for every owned camp on every map, including camps bought later. Permanent (kept by Prestige, cleared by Hard Reset). `campaign.camp_reveal_radius()` = base × (1 + global bonus + any `camp_reveal` bonus), each counted once. No per-camp purchase exists any more: World → Map upgrades shows a one-line note with the shared bonus and the camp panel shows that camp's actual radius. The player (map exploration) Reveal Radius is unchanged.
+  - Migration `camp_radius_global` (once): the old per-camp Coin records (`camp_radius:<stage×10+camp>`, up to 4 levels) are removed and the profile gets **global level = its best camp's level, at most 3**. No refund and no new charge; every other camp gains that level. Malformed or zero records grant nothing.
+- **Auto Skill needs its skill slot.** Automatic slot N can be bought only when manual Skill Slot N is owned (slot 1 is the default). Enforced in `upgrade_block_reason` for `skill_auto_slots` and every legacy `skill_auto_*` id (`AUTO_SKILL_NEEDS_SLOT`, "Unlock Skill Slot N first", no Gems taken). Prices unchanged (100 / 250 / 500). Capacity bought before this rule is kept; capacity beyond the owned skill slots stays inactive and works once the slot is bought.
+- **Spring I / Spring II enemies hit ×1.5.** Every direct hit of a Spring I/II enemy is ×1.50 its Change 80 value; attack intervals are unchanged.
+  - Normal types (all four loadouts): `progression.combat.normal_damage_scale` 0.60 → **0.90**.
+  - Bosses: damage ×1.5006 (rounded up) through `boss_tuning`, solved against the spot floor, which also reads the scale. HP **×2/3** (each hit is ×1.5, and a full-length fight now deals about the same total damage as before). Without the HP change the first clears moved 1–2 ladder rungs later, and the Green Alien became a wall below P3.
+  - Summoned helpers: Sunflower's Sprouts `damage_scale` 0.30 → 0.45 and Green Alien's Green Caps 0.35 → 0.525. The Grim Reaper (Autumn II) is unchanged.
+  - Enemy damage skills (Fire, Frost, Lightning, Strike, final-boss attacks) are `definition damage × skill power`, so they rise ×1.5 with the hit and are not multiplied again. Heal (8% max HP; final boss 4%), Focus (+15%), status durations and skill powers are unchanged. Stages 1–6 are unchanged.
+
+  | Spring hit (plain loadout) | Before → after | Boss | Hit before → after | HP before → after |
+  |---|---|---|---|---|
+  | Bunny Ears | 29.0 → 43.5 | Bee | 150.2 → 225.4 | 66,474 → 44,318 |
+  | Cat Ears | 35.7 → 53.6 | Orange Tabby Cat | 161.0 → 241.6 | 74,114 → 49,412 |
+  | Elf Ears | 44.0 → 66.0 | Red Panda | 379.0 → 568.8 | 79,644 → 53,096 |
+  | Flower Crown | 62.3 → 93.5 | Sunflower | 346.1 → 519.4 | 88,799 → 59,199 |
+  | Green Cap | 67.7 → 101.6 | Green Alien | 415.0 → 622.8 | 137,031 → 91,354 |
+  | Pink Cap / Pink Flower Hood | 73.6 → 110.4 / 80.0 → 120.1 | Sprout helper | 47.3 → 70.9 | — |
+  | Plain / Sprout | 87.0 → 130.5 / 94.6 → 141.9 | Green Cap helper | 39.5 → 59.3 | — |
+
+  - Measured with the real simulation (ladder rungs from Change 79 at P0/P1/P3, plus the same builds at −25 levels for the lower Change 80 levels). First boss wins moved about one rung (≈12 levels, ≈18 Obsidian merges) or one Prestige later. Examples: Bee r3 P1 → r4 P1; Red Panda r4 P1 → r5–r6 P1; Sunflower r4 P3 → r5 P3. Green Alien r6 P1 → r6 P3 (1 of 2) / r7 P3, and still no P1 win up to r8 (its burst kills P1 builds in 33–41 s whatever its HP). Normal 3-enemy spots stay winnable; 6-enemy and skill-variant pulls are harder.
+- **Green Alien introduction and Boss Keys objective.** Unchanged rule: 13 distinct keys, one per other boss defeated after the discovery, kept by Prestige.
+  - First discovery (coming within 160 of it, or tapping it): a red banner, **"YOU ARE NOT WORTHY!"** with the quest text, once per profile (`tutorial.seen` `final_intro`). Profiles that discovered it before this build are marked as seen by `final_intro_seen` and never get a retroactive popup.
+  - Tapping the sealed boss explains the seal with the count ("…Boss Keys: X / 13"). It never targets, fights, farms (Focus refused) or spends anything.
+  - HUD: a **Boss Keys** chip under Next Stage in the right rail on every map: "Final Boss / Boss Keys X/13", then "Green Alien / Ready to Challenge" (green). It shows from the discovery until the Green Alien has been defeated (`campaign.final_objective()`). A tap opens Missions → "Final Boss · Boss Keys" (explanation, count, key icons).
+  - Spring II's gate chip now reads **"Enemy types defeated · X/9"** (was "World clear"). The counter is unchanged and independent of keys.
+- **Boss-key pickup** (`scripts/game/key_fx.gd`, art `assets/ui/Key - Gold.png`, an unchanged copy of the repository's GUI Pack gold key). The key is credited and saved in `campaign.killed` before `sim.key_earned` fires. Animation: a large gold key on a soft glow with "Boss Key X/13" pops up over the fallen boss, kept inside the open play area (below the HUD rails and pills, above the joystick). It bobs and wobbles for about 2.6 s, then flies to the chip, which pulses and only then counts the key. A tap sends it at once. A key over a protected control (the joystick, the skill buttons) takes no touches. A panel or dialog over the chip, or a hidden chip, makes the key fade in place. Travel to another map sends floating keys; a Prestige reset drops flights. Rapid keys are staggered. The 13th key shows "All 13 Boss Keys collected!…" as an important notice. Only new keys play; a reload never replays one.
+- **Level cap 500** (`progression.max_level` 1000 → 500). XP requirement ceil(12 × L^1.35) and every XP reward and multiplier are unchanged. At 500 the HUD shows MAX, the Level panel "Level 500 / 500" with no next-level line, and XP past the cap is discarded (XP stays 0). A save above 500 is clamped to 500 on load (its XP set to 0; stats are those of level 500). Prestige keeps level and XP as before. The unused `PLAYER_LEVEL_CAP` ("LEVEL %d / 1,000") string is retired.
+- **Obsidian Sword and Axe merge to ^500** (`progression.merge.final_weapon_cap`; still tier 7, same ids, no evolution). Past ^100 each merge adds **0.5 merge level** (`final_weapon_tail_rate`, the outfit tail): ^200 = 150 levels, ^300 = 200, ^500 = 300. Obsidian Temper and Merge Wisdom apply as before. Spare copies of a ^100+ Obsidian keep the stock bonus (threshold ^100), so a ^100 save loses nothing and can merge to ^101. Merge, Merge All, Auto-Merge, previews, merge memory and validation all use the new cap. Masterwork IV still asks for ^100.
+  - Offensive milestones (`progression.weapon_milestones`, equipped weapon only, recomputed from the merge level so each counts once; later steps replace earlier values; "damage" = share of the weapon's core damage, never of spare-copy stock or random attributes):
+
+  | Merge | Sword (precision) | Axe (weight / sustain) |
+  |---|---|---|
+  | ^100 | Crit Chance +2% | Lifesteal +1% |
+  | ^200 | Crit Chance +2%, Crit Damage +10% | Lifesteal +1%, Damage +10% core |
+  | ^300 | Crit Chance +4%, Crit Damage +10%, Damage +10% core | Lifesteal +2%, Damage +10% core |
+  | ^400 | Crit Chance +4%, Crit Damage +20%, Damage +10% core | Lifesteal +2%, Damage +20% core |
+  | ^500 | Crit Chance +6%, Crit Damage +25%, Damage +15% core | Lifesteal +3%, Damage +25% core |
+
+  - Item card: "Tier 7 · ^n / ^500", active and next milestones, "Final tier reached. Merging continues up to ^500, with a milestone every ^100"; slot frames as outfits (^100–^500). A merge that crosses a milestone names it once.
+- **Supersedes:** Camp Radius per camp (Change 7/11/16 lines below); "Merge cap ^100 for weapons" for the final tier (§ Items); "World clear · n/9"; the Change 36/79 final-boss audit notes for Spring combat numbers; the 1,000 level cap.
+- **Localization:** 20 new English keys pending as `change-81` (`tools/change81_strings.json`); `GATE_HUD_WORLD` and `UP_CAMP_RADIUS` changed (`tools/change81_changed_strings.json`, translations removed until delivered); `PLAYER_LEVEL_CAP`, `FINAL_DISCOVERED` and `MAX_ITEM_TIER` retired.
 
 ## Change 80 — Spring XP, Critical Damage, repeatable Camp Supplies, stage selector (15 November 2026)
 

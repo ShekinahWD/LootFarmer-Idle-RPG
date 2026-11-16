@@ -715,9 +715,6 @@ msgstr "और विकल्प"
 msgid "LOOT_HISTORY"
 msgstr "लूट इतिहास"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "लेवल %d / 1,000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "लेवल %d · HP और डैमेज बढ़े"
 
@@ -844,9 +841,6 @@ msgstr "फ़ार्म: %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "फ़ार्मिंग चयन: %s। पुनर्जीवन के बाद यहीं लौटता है।"
 
-msgid "MAX_ITEM_TIER"
-msgstr "अंतिम टियर पर पहुँचे। ^100 तक मर्ज अब भी उपलब्ध है।"
-
 msgid "TAB_PLAYER"
 msgstr "खिलाड़ी"
 
@@ -876,9 +870,6 @@ msgstr "पहले इस कैंप की खोज करें।"
 
 msgid "STAGE_UNLOCKED"
 msgstr "अगला स्टेज अनलॉक हुआ!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "अंतिम रक्षक सील है। उनकी चाबियाँ इकट्ठा करने के लिए बाकी 13 बॉस हराएँ। इकट्ठा की गई चाबियाँ प्रेस्टीज के बाद भी रहती हैं।"
 
 msgid "WORLD_COMPLETE"
 msgstr "वसंत II के सभी दुश्मन पराजित — अंतिम मिशन पूरा!"
@@ -1077,9 +1068,6 @@ msgstr "%s · स्थान: %d · प्रति स्थान: %d · प�
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "अंतिम स्टेज के पराजित प्रकार: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "कैंप दृश्य दायरा"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "खिलाड़ी दृश्य दायरा"
@@ -4815,9 +4803,6 @@ msgstr "कूलडाउन: %s से."
 
 msgid "GATE_HUD"
 msgstr "अगला स्टेज · बॉस %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "दुनिया साफ़ · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "अगला नक्शा खोलने के लिए इस नक्शे पर हराए जाने वाले बॉस। जो मिले हुए बॉस अब भी गिने जाते हैं, उन पर सुनहरा बैनर होता है।"

@@ -39,7 +39,11 @@ BOSS_TUNING = {
     'boss-elephant': [0.80, 1.15], 'boss-teal-dinosaur': [0.85, 1.15],
     'boss-squirrel': [0.80, 1.30], 'boss-red-fox': [0.85, 1.15],
     'boss-black-cat': [0.90, 1.10], 'boss-grim-reaper': [0.90, 0.88],
-    'boss-red-panda': [0.45, 1.35], 'boss-sunflower': [0.45, 1.15], 'boss-green-alien': [0.45, 1.20],
+    # Change 81 supersedes the Spring I/II damage multipliers (attack damage x1.5 on the new spot floor; Change 79
+    # values were Red Panda 1.35, Sunflower 1.15, Green Alien 1.20, Bee and Orange Tabby none): tools/change81_catalog.py.
+    # HP: Change 79 multiplier / 1.5 (Red Panda, Sunflower, Green Alien 0.45 -> 0.30; Bee, Orange Tabby 1.0 -> 0.6667).
+    'boss-red-panda': [0.3, 1.485], 'boss-sunflower': [0.3, 1.356], 'boss-green-alien': [0.3, 1.626],
+    'boss-bee': [0.6667, 1.264], 'boss-orange-tabby-cat': [0.6667, 1.355],
 }
 BOSS_SKILLS = {'boss-elephant': ['strike', 'focus'], 'boss-squirrel': ['strike', 'heal'], 'boss-sunflower': ['fire', 'heal']}
 CARD_VALUES = {'hunter_c1': 0.15, 'trophy_c2': 0.10, 'hunter_c2': 0.10}

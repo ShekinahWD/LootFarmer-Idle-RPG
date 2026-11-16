@@ -33,7 +33,7 @@ func catalog_checks() -> void:
         var b: float=H24[t]
         check(near(float(sw.normal.damage[0]),b) and near(float(sw.merge_gain.damage),b*.02),"%s sword base %.3f, gain 2%%" % [TIERS[t],float(sw.normal.damage[0])])
         check(near(float(ax.normal.damage[0]),b*.8) and near(float(ax.normal.hp[0]),b*3.0) and near(float(ax.merge_gain.hp),b*3.0*.02),"%s axe 0.8x damage, 3x HP" % TIERS[t])
-        check(sim.merge_cap(TIERS[t]+"_sword")==(100 if t==6 else 20),"%s merge cap" % TIERS[t])
+        check(sim.merge_cap(TIERS[t]+"_sword")==(500 if t==6 else 20),"%s merge cap (Obsidian ^500 since Change 81)" % TIERS[t])
     check(int(sim.catalog.progression.evolution.required_merge)==20 and sim.evolution_spare_cost()==10 and not sim.catalog.progression.evolution.has("base_multiplier"),"Evolution: ^20 + 10 spares, base multiplier retired")
     for d in sim.catalog.groups:
         for id in d.loot:

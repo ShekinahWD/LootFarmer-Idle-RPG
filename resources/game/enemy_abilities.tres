@@ -24,7 +24,7 @@ cooldown = 24.0
 per_cast = 2
 max_alive = 2
 hp_scale = 0.35
-damage_scale = 0.3
+damage_scale = 0.45
 spawn_radius = 34.0
 
 [sub_resource type="Resource" id="green_alien"]
@@ -36,7 +36,7 @@ cooldown = 20.0
 per_cast = 2
 max_alive = 3
 hp_scale = 0.4
-damage_scale = 0.35
+damage_scale = 0.525
 spawn_radius = 40.0
 
 [resource]

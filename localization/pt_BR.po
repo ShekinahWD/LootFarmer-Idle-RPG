@@ -715,9 +715,6 @@ msgstr "Mais opções"
 msgid "LOOT_HISTORY"
 msgstr "Histórico de saque"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "NÍVEL %d / 1.000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "NÍVEL %d · Vida e dano aumentaram"
 
@@ -844,9 +841,6 @@ msgstr "Farmar %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Farm escolhido: %s. Você volta aqui ao renascer."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Nível final alcançado. Ainda é possível fundir até ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Jogador"
 
@@ -876,9 +870,6 @@ msgstr "Explore este acampamento primeiro."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Próxima fase desbloqueada!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "O guardião final está selado. Derrote os outros 13 chefes para pegar as chaves deles. As chaves obtidas continuam após o prestígio."
 
 msgid "WORLD_COMPLETE"
 msgstr "Todos os inimigos de Primavera II derrotados: missão final concluída!"
@@ -1077,9 +1068,6 @@ msgstr "%s · %d pontos · %d por ponto · renascem em %s s"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Tipos da fase final derrotados: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Raio de revelação do acampamento"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Raio de revelação do jogador"
@@ -4821,9 +4809,6 @@ msgstr "Recarga: %s s"
 
 msgid "GATE_HUD"
 msgstr "Próxima fase · Chefes %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Mundo concluído · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Chefes a derrotar neste mapa para abrir o próximo. Chefes encontrados que ainda contam levam o estandarte dourado."

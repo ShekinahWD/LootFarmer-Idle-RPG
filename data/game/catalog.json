@@ -21313,8 +21313,8 @@
         352.0
       ],
       "count": 1,
-      "hp": 66473.5039,
-      "damage": 150.1769,
+      "hp": 44317.8851,
+      "damage": 225.3544,
       "defense": 0,
       "interval": 1.4,
       "respawn": 60,
@@ -21348,8 +21348,8 @@
         160.0
       ],
       "count": 1,
-      "hp": 74114.4774,
-      "damage": 160.9878,
+      "hp": 49412.1221,
+      "damage": 241.5785,
       "defense": 0,
       "interval": 1.35,
       "respawn": 60,
@@ -21583,8 +21583,8 @@
         448.0
       ],
       "count": 1,
-      "hp": 79643.6942,
-      "damage": 379.0051,
+      "hp": 53095.7962,
+      "damage": 568.7649,
       "defense": 0,
       "interval": 1.33,
       "respawn": 60,
@@ -21618,8 +21618,8 @@
         208.0
       ],
       "count": 1,
-      "hp": 88798.5502,
-      "damage": 346.0978,
+      "hp": 59199.0335,
+      "damage": 519.3571,
       "defense": 0,
       "interval": 1.32,
       "respawn": 60,
@@ -21654,8 +21654,8 @@
         253.44
       ],
       "count": 1,
-      "hp": 137031.1606,
-      "damage": 415.013,
+      "hp": 91354.1071,
+      "damage": 622.7689,
       "defense": 0,
       "interval": 1.3,
       "respawn": 120,
@@ -22128,13 +22128,19 @@
       "scope": "stage"
     },
     "camp_radius": {
-      "currency": "coins",
-      "base": 25,
-      "growth": 1.6,
-      "cap": 4,
-      "keep": false,
+      "currency": "gems",
+      "base": 10,
+      "growth": 1,
+      "prices": [
+        10,
+        20,
+        40
+      ],
+      "cap": 3,
+      "keep": true,
       "effect": 0.25,
-      "scope": "camp"
+      "scope": "global",
+      "flat": true
     },
     "mission_slots": {
       "currency": "gems",
@@ -22372,7 +22378,7 @@
     "leash": 220
   },
   "progression": {
-    "max_level": 1000,
+    "max_level": 500,
     "hp_per_level": 5.0,
     "damage_per_level": 0.5,
     "xp_base": 12,
@@ -22499,16 +22505,24 @@
           0.88
         ],
         "boss-red-panda": [
-          0.45,
-          1.35
+          0.3,
+          1.485
         ],
         "boss-sunflower": [
-          0.45,
-          1.15
+          0.3,
+          1.356
         ],
         "boss-green-alien": [
-          0.45,
-          1.2
+          0.3,
+          1.626
+        ],
+        "boss-bee": [
+          0.6667,
+          1.264
+        ],
+        "boss-orange-tabby-cat": [
+          0.6667,
+          1.355
         ]
       }
     },
@@ -22524,7 +22538,9 @@
       "tail_scale": 100.0,
       "outfit_tail_rate": 0.5,
       "stock_bonus_per_copy": 0.0005,
-      "evolvable_weapon_cap": 20
+      "evolvable_weapon_cap": 20,
+      "final_weapon_cap": 500,
+      "final_weapon_tail_rate": 0.5
     },
     "prestige_unlock_boss": "boss-snowman",
     "outfit_milestones": [
@@ -22640,8 +22656,8 @@
       "skill_variant_damage": 1.15,
       "skill_variant_hp": 1.35,
       "normal_damage_scale": {
-        "7": 0.6,
-        "8": 0.6
+        "7": 0.9,
+        "8": 0.9
       }
     },
     "economy": {
@@ -22653,6 +22669,73 @@
       "cheap_first_levels": 3,
       "cheap_taper_until": 8,
       "cheap_first_factor": 0.25
+    },
+    "weapon_milestones": {
+      "sword": [
+        {
+          "merge": 100,
+          "id": "honed_edge",
+          "crit": 0.02
+        },
+        {
+          "merge": 200,
+          "id": "keen_edge",
+          "crit": 0.02,
+          "crit_damage": 0.1
+        },
+        {
+          "merge": 300,
+          "id": "tempered_blade",
+          "crit": 0.04,
+          "crit_damage": 0.1,
+          "damage_share": 0.1
+        },
+        {
+          "merge": 400,
+          "id": "razor_edge",
+          "crit": 0.04,
+          "crit_damage": 0.2,
+          "damage_share": 0.1
+        },
+        {
+          "merge": 500,
+          "id": "obsidian_mastery",
+          "crit": 0.06,
+          "crit_damage": 0.25,
+          "damage_share": 0.15
+        }
+      ],
+      "axe": [
+        {
+          "merge": 100,
+          "id": "bloodthirst",
+          "lifesteal": 0.01
+        },
+        {
+          "merge": 200,
+          "id": "heavy_head",
+          "lifesteal": 0.01,
+          "damage_share": 0.1
+        },
+        {
+          "merge": 300,
+          "id": "bloodthirst_2",
+          "lifesteal": 0.02,
+          "damage_share": 0.1
+        },
+        {
+          "merge": 400,
+          "id": "crushing_head",
+          "lifesteal": 0.02,
+          "damage_share": 0.2
+        },
+        {
+          "merge": 500,
+          "id": "obsidian_mastery",
+          "lifesteal": 0.03,
+          "damage_share": 0.25
+        }
+      ]
     }
   },
   "skills": {

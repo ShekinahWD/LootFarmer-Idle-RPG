@@ -710,9 +710,6 @@ msgstr "More options"
 msgid "LOOT_HISTORY"
 msgstr "Loot history"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "LEVEL %d / 1,000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "LEVEL %d · HP and damage increased"
 
@@ -839,9 +836,6 @@ msgstr "Farm %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Farming selection: %s. Returns here after respawning."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Final tier reached. Merging is still available up to ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Player"
 
@@ -873,9 +867,6 @@ msgstr "Explore this camp first."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Next stage unlocked!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "The final guardian is sealed. Defeat the other 13 bosses to collect their keys. Collected keys stay through prestige."
 
 msgid "WORLD_COMPLETE"
 msgstr "All Spring II enemies defeated — final mission complete!"
@@ -1076,7 +1067,7 @@ msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Final-stage types defeated: %d / 9"
 
 msgid "UP_CAMP_RADIUS"
-msgstr "Camp reveal radius"
+msgstr "Camp reveal radius (all camps)"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Player reveal radius"
@@ -4854,7 +4845,7 @@ msgid "GATE_HUD"
 msgstr "Next Stage · Bosses %d/%d"
 
 msgid "GATE_HUD_WORLD"
-msgstr "World clear · %d/%d"
+msgstr "Enemy types defeated · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Bosses to defeat on this map to open the next one. Found bosses that still count carry the gold banner."
@@ -6836,3 +6827,63 @@ msgstr "Autumn"
 
 msgid "SEASON_SPRING"
 msgstr "Spring"
+
+msgid "AUTO_SKILL_NEEDS_SLOT"
+msgstr "Unlock Skill Slot %d first"
+
+msgid "FINAL_SEALED"
+msgstr "The Green Alien refuses to fight you. Boss Keys: %d / %d"
+
+msgid "FINAL_INTRO_TITLE"
+msgstr "YOU ARE NOT WORTHY!"
+
+msgid "FINAL_INTRO_BODY"
+msgstr "The Green Alien refuses to fight you. Prove your strength: defeat the other %d bosses and collect their keys. Return when you have all %d."
+
+msgid "FINAL_KEYS_SECTION"
+msgstr "Final Boss · Boss Keys"
+
+msgid "FINAL_HUD_KEYS"
+msgstr "Final Boss · Boss Keys %d/%d"
+
+msgid "FINAL_HUD_READY"
+msgstr "Green Alien · Ready to Challenge"
+
+msgid "FINAL_HUD_TOOLTIP"
+msgstr "Each other boss defeated after finding the Green Alien gives one key, once. Keys stay through Prestige. Tap for details."
+
+msgid "FINAL_READY_NOTICE"
+msgstr "All 13 Boss Keys collected! The Green Alien is ready to be challenged."
+
+msgid "KEY_FX_LABEL"
+msgstr "Boss Key %d/%d"
+
+msgid "CAMP_RADIUS_GLOBAL_NOTE"
+msgstr "Camp reveal radius: +%s%% on every camp (Upgrades › Player)"
+
+msgid "CAMP_REVEAL_RADIUS"
+msgstr "This camp reveals %s around it (+%s%% Camp reveal radius)"
+
+msgid "MILESTONES_ACTIVE_WEAPON"
+msgstr "Milestones (while equipped): %s"
+
+msgid "MILESTONE_WEAPON_CRIT"
+msgstr "Critical Chance +%s%%"
+
+msgid "MILESTONE_WEAPON_CRIT_DAMAGE"
+msgstr "Critical Damage +%s%%"
+
+msgid "MILESTONE_WEAPON_LIFESTEAL"
+msgstr "Lifesteal +%s%%"
+
+msgid "MILESTONE_WEAPON_DAMAGE"
+msgstr "Damage +%s"
+
+msgid "WEAPON_MILESTONE_REACHED"
+msgstr "%s ^%d milestone: %s"
+
+msgid "SOURCE_WEAPON_MILESTONE"
+msgstr "Weapon milestones (equipped)"
+
+msgid "MAX_ITEM_TIER_CAP"
+msgstr "Final tier reached. Merging continues up to ^%d, with a milestone every ^100."

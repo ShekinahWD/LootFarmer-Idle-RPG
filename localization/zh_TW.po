@@ -713,9 +713,6 @@ msgstr "更多選項"
 msgid "LOOT_HISTORY"
 msgstr "戰利品紀錄"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "等級 %d / 1,000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "等級 %d · 生命值與傷害提升"
 
@@ -842,9 +839,6 @@ msgstr "刷%s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "刷怪選擇：%s。復活後會回到這裡。"
 
-msgid "MAX_ITEM_TIER"
-msgstr "已達最終階級。仍可繼續合成至 ^100。"
-
 msgid "TAB_PLAYER"
 msgstr "玩家"
 
@@ -874,9 +868,6 @@ msgstr "請先探索此營地。"
 
 msgid "STAGE_UNLOCKED"
 msgstr "下一關卡已解鎖！"
-
-msgid "FINAL_DISCOVERED"
-msgstr "最終守護者遭到封印。擊敗其他 13 個頭目，收集其鑰匙。收集到的鑰匙在轉生後會保留。"
 
 msgid "WORLD_COMPLETE"
 msgstr "春季 II 的敵人已全數擊敗——最終任務完成！"
@@ -1075,9 +1066,6 @@ msgstr "%s · %d 個重生點 · 每點 %d 隻 · %s秒重生"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "已擊敗的最終關卡敵人種類：%d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "營地顯現半徑"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "玩家視野半徑"
@@ -4813,9 +4801,6 @@ msgstr "冷卻：%s秒"
 
 msgid "GATE_HUD"
 msgstr "下一關 · 頭目 %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "世界通關 · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "在此地圖上需擊敗這些頭目才能開啟下一張地圖。已發現且仍計入的頭目會帶有金色旗幟。"

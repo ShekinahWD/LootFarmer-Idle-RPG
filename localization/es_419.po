@@ -715,9 +715,6 @@ msgstr "Más opciones"
 msgid "LOOT_HISTORY"
 msgstr "Historial de botín"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "NIVEL %d / 1,000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "NIVEL %d · Aumentaron tu salud y tu daño"
 
@@ -844,9 +841,6 @@ msgstr "Farmear %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Farmeo elegido: %s. Vuelves aquí al reaparecer."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Alcanzaste el nivel final. Aún puedes fusionar hasta ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Jugador"
 
@@ -876,9 +870,6 @@ msgstr "Primero explora este campamento."
 
 msgid "STAGE_UNLOCKED"
 msgstr "¡Siguiente etapa desbloqueada!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "El guardián final está sellado. Derrota a los otros 13 jefes para conseguir sus llaves. Las llaves obtenidas se conservan con el prestigio."
 
 msgid "WORLD_COMPLETE"
 msgstr "¡Derrotaste a todos los enemigos de Primavera II: misión final completada!"
@@ -1077,9 +1068,6 @@ msgstr "%s · %d puntos · %d por punto · reaparición en %s s"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Tipos de la etapa final derrotados: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Radio de revelado del campamento"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Radio de revelado del jugador"
@@ -4821,9 +4809,6 @@ msgstr "Enfriamiento: %s s"
 
 msgid "GATE_HUD"
 msgstr "Siguiente etapa · Jefes %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Mundo superado · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Jefes que debes derrotar en este mapa para abrir el siguiente. Los jefes encontrados que aún cuentan llevan el estandarte dorado."

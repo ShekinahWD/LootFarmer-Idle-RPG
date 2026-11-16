@@ -23,8 +23,9 @@ NORMAL_GEAR_CHANCE = 0.05
 BOSS_GEAR_CHANCE = 0.3
 # Change 9: outfits grow linearly past ^100 at outfit_tail_rate merge levels per copy (2% then 1% of
 # base per copy); skills keep the logarithmic tail (tail_scale).
+# Change 81: the final weapon tier (Obsidian) merges to ^500 with the outfit tail past ^100 (tools/change81_catalog.py).
 MERGE = {'weapon_cap': 100, 'evolvable_weapon_cap': 20, 'copy_cap': 500, 'linear_levels': 100, 'tail_scale': 100.0,
-         'outfit_tail_rate': 0.5, 'stock_bonus_per_copy': 0.0005}
+         'outfit_tail_rate': 0.5, 'stock_bonus_per_copy': 0.0005, 'final_weapon_cap': 500, 'final_weapon_tail_rate': 0.5}
 # id -> fields replaced on the upgrade definition. "step" = linear price (base + step * level);
 # "sequence" = price grows with every purchase of this upgrade on any stage this run.
 UPGRADES = {

@@ -15,7 +15,8 @@ from pathlib import Path
 import json, sys
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / 'data/game/catalog.json'
-COMBAT = {'skill_variant_damage': 1.15, 'skill_variant_hp': 1.35, 'normal_damage_scale': {'7': 0.6, '8': 0.6}}
+# Change 81 supersedes the Spring scale: 0.60 -> 0.90 (enemy attack damage x1.5, tools/change81_catalog.py).
+COMBAT = {'skill_variant_damage': 1.15, 'skill_variant_hp': 1.35, 'normal_damage_scale': {'7': 0.9, '8': 0.9}}
 
 def apply(c):
     changes = []

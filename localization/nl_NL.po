@@ -715,9 +715,6 @@ msgstr "Meer opties"
 msgid "LOOT_HISTORY"
 msgstr "Buitgeschiedenis"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "NIVEAU %d / 1.000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "NIVEAU %d · gezondheid en schade verhoogd"
 
@@ -844,9 +841,6 @@ msgstr "%s farmen · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Farmkeuze: %s. Na het respawnen keer je hier terug."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Hoogste rang bereikt. Samenvoegen kan nog tot ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Speler"
 
@@ -876,9 +870,6 @@ msgstr "Verken dit kamp eerst."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Volgend gebied ontgrendeld!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "De laatste bewaker is verzegeld. Versla de andere 13 bazen om hun sleutels te verzamelen. Verzamelde sleutels blijven bij prestige."
 
 msgid "WORLD_COMPLETE"
 msgstr "Alle vijanden van Lente II verslagen — laatste missie voltooid!"
@@ -1077,9 +1068,6 @@ msgstr "%s · plekken: %d · %d per plek · respawn %s s"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Verslagen typen in het laatste gebied: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Onthullingsradius van kampen"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Onthullingsradius van speler"
@@ -4815,9 +4803,6 @@ msgstr "Afkoeltijd: %s s"
 
 msgid "GATE_HUD"
 msgstr "Verder: bazen %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Wereld vrij · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Bazen die je op deze kaart moet verslaan om de volgende te openen. Gevonden bazen die nog meetellen hebben de gouden banier."

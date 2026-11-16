@@ -43,6 +43,9 @@ signal auto_bought(id: String, amount: int)
 signal camp_supply_granted(ids: Array, owed: int)
 ## Change 77: a camp's supplies are due but no supply slot fits them (shown once per visit).
 signal camp_supply_waiting
+## Change 81: a boss key was credited (already saved; presentation only): the boss's group, where it fell and
+## the new number of distinct keys (13 = the Green Alien can be challenged).
+signal key_earned(group: int, at: Vector2, total: int)
 var catalog := LootCatalog.new()
 var campaign = preload("res://scripts/game/campaign.gd").new(self)
 ## Change 13: summoning and final-boss action rules (inspector-editable resource).
@@ -125,7 +128,9 @@ const MIGRATABLE_SCHEMAS:=[8,9]
 ## One-time profile migrations, in order (state.migrations). A new profile starts with all of them.
 ## legacy_weapons_h24 (Change 51): owned weapons of the old stat table become legacy-stat copies.
 ## camps_permanent (Change 76): camps owned in an earlier run (Map Mastery's lifetime record) are owned again.
-const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","boss_auto_evolve_refunded","camps_permanent","boss_outfit_extras","camp_supply_cooldowns"]
+## camp_radius_global (Change 81): per-camp Camp Reveal Radius records become one global level.
+## final_intro_seen (Change 81): a Green Alien met before this build does not replay the new introduction.
+const MIGRATIONS:=["schema9_merge_memory","legacy_weapons_h24","supply_uses_5","boss_auto_evolve_refunded","camps_permanent","boss_outfit_extras","camp_supply_cooldowns","camp_radius_global","final_intro_seen"]
 
 func new_profile() -> void:
     profile_epoch+=1
@@ -405,7 +410,7 @@ func normal(id: String) -> Dictionary:
 func gear_normal_at(id: String,merge_level: int,qty: int) -> Dictionary:
     var output: Dictionary = {}
     var levels:=merge_levels(id,merge_level)
-    var stock:=1.0+float(catalog.progression.merge.stock_bonus_per_copy)*maxi(0,qty-1) if merge_level>=merge_cap(id) else 1.0
+    var stock:=1.0+float(catalog.progression.merge.stock_bonus_per_copy)*maxi(0,qty-1) if merge_level>=stock_threshold(id) else 1.0
     for stat in catalog.items[id].normal:
         var pair: Array = catalog.items[id].normal[stat]
         output[stat] = (float(pair[0]) + merge_gain(id,stat) * levels) * stock
@@ -440,14 +445,31 @@ func merge_validation_cap(id: String) -> int:
 
 ## Highest level a new merge may reach. Change 51: a weapon with a next tier stops at ^20 (the evolution
 ## requirement), so Merge, Merge All and Auto-Merge never spend the spare copies evolution needs; the
-## final tier (Obsidian) merges to ^100. A legacy-stat copy has its own authored cap. A record above its
-## cap (an older save) keeps its level and its effect but cannot merge further.
+## final tier (Obsidian) merges to ^100, ^500 since Change 81 (merge.final_weapon_cap). A legacy-stat copy has its
+## own authored cap. A record above its cap (an older save) keeps its level and its effect but cannot merge further.
 func merge_cap(id: String) -> int:
     var d: Dictionary=catalog.items[id]
     if d.kind=="consumable":return int(catalog.progression.supply_mastery.cap)
     if copy_growth(id):return int(catalog.progression.merge.copy_cap)
     if d.has("merge_cap"):return int(d.merge_cap)
+    if final_weapon(id):return int(catalog.progression.merge.get("final_weapon_cap",catalog.progression.merge.weapon_cap))
     return int(catalog.progression.merge.evolvable_weapon_cap if str(d.next)!="" else catalog.progression.merge.weapon_cap)
+
+## Change 81: the final weapon tier (Obsidian Sword and Axe): a non-legacy weapon with no next tier. It merges to
+## ^500 with the outfit tail past ^100 and has offensive milestones (weapon_milestones).
+func final_weapon(id: String) -> bool:
+    var d: Dictionary=catalog.items.get(id,{})
+    return str(d.get("kind",""))=="weapon" and str(d.get("next","x"))=="" and not bool(d.get("legacy",false))
+
+## Merge level from which spare copies add the stock bonus: the merge cap, except a final-tier weapon keeps its
+## pre-Change 81 threshold (^100), so a ^100 Obsidian with spare copies loses nothing when ^500 opens (merging a
+## spare copy is still worth more than its stock share).
+func stock_threshold(id: String) -> int:
+    return mini(merge_cap(id),int(catalog.progression.merge.weapon_cap)) if final_weapon(id) else merge_cap(id)
+
+## Change 81: items whose merge track displays "^now / ^cap" (outfits, skills and the final weapon tier).
+func shows_merge_cap(id: String) -> bool:
+    return copy_growth(id) or final_weapon(id)
 
 ## Change 51: an old-stat weapon copy kept from before the H24 ladder (never dropped, never evolves,
 ## leaves with the inventory at the next Prestige).
@@ -575,7 +597,10 @@ func merge_levels(id: String,merge_level: int) -> float:
     var linear: float=float(m.linear_levels)
     # Change 51: bounded by the validation cap, so a weapon above its new merge cap keeps its full effect.
     merge_level=clampi(merge_level,0,merge_validation_cap(id))
-    if not copy_growth(id) or merge_level<=linear:return float(merge_level)
+    if merge_level<=linear:return float(merge_level)
+    # Change 81: past ^100 the final weapon tier grows at the outfit tail rate (0.5 level per merge).
+    if final_weapon(id):return linear+float(m.get("final_weapon_tail_rate",m.outfit_tail_rate))*(merge_level-linear)
+    if not copy_growth(id):return float(merge_level)
     if str(catalog.items[id].kind)=="outfit":return linear+float(m.outfit_tail_rate)*(merge_level-linear)
     return linear+float(m.tail_scale)*log(1.0+(merge_level-linear)/float(m.tail_scale))
 
@@ -603,6 +628,39 @@ func outfit_milestones(id: String) -> Dictionary:
 func next_outfit_milestone(id: String) -> Dictionary:
     var merge_level:=int(state.items.get(id,{}).get("merge",0))
     for step in catalog.progression.outfit_milestones:
+        if merge_level<int(step.merge):return step
+    return {}
+
+## Change 81: the milestone track of a final-tier weapon's family (catalog.progression.weapon_milestones.sword /
+## .axe), [] for any other item.
+func weapon_milestone_track(id: String) -> Array:
+    if not final_weapon(id):return []
+    return catalog.progression.get("weapon_milestones",{}).get(str(catalog.items[id].family),[])
+
+## Change 81: offensive milestone effects of an Obsidian weapon at merge_level (default: its record), in the outfit
+## pattern: each reached step replaces the previous step's values. crit and crit_damage are flat additions,
+## lifesteal a fraction, and damage a share (damage_share) of the weapon's core damage (base + merges; never the
+## spare-copy stock bonus or random attributes). stat_sources() applies them for the equipped weapon only, so a
+## milestone counts exactly once whatever the merge history.
+func weapon_milestones(id: String,merge_level: int=-1) -> Dictionary:
+    var out:={"damage":0.0,"crit":0.0,"crit_damage":0.0,"lifesteal":0.0}
+    var track:=weapon_milestone_track(id)
+    if track.is_empty():return out
+    if merge_level<0:merge_level=int(state.items.get(id,{}).get("merge",0))
+    var share:=0.0
+    for step in track:
+        if merge_level<int(step.merge):break
+        for key in ["crit","crit_damage","lifesteal"]:out[key]=float(step.get(key,0.0))
+        share=float(step.get("damage_share",0.0))
+    if share>0:
+        var pair: Array=catalog.items[id].normal.get("damage",[0.0,0.0])
+        out.damage=share*(float(pair[0])+merge_gain(id,"damage")*merge_levels(id,merge_level))
+    return out
+
+## Change 81: the next milestone this final-tier weapon can reach, or {} at the end of its track (or for others).
+func next_weapon_milestone(id: String) -> Dictionary:
+    var merge_level:=int(state.items.get(id,{}).get("merge",0))
+    for step in weapon_milestone_track(id):
         if merge_level<int(step.merge):return step
     return {}
 
@@ -1289,6 +1347,8 @@ func focus(group: int,variant: int=2) -> bool:
     if group<0 or group>=catalog.groups.size() or not campaign.stage().groups.has(group) or not campaign.discovered(group) or not campaign.variants(group).has(variant):
         return false
     if catalog.groups[group].boss:variant=2
+    # Change 81: the sealed Green Alien cannot be farmed (the same explanation as a tap on it).
+    if campaign.final_sealed(group):return fail("FINAL_SEALED")
     # Auto-farm never walks to a spot the player has not found (no hidden coordinates).
     if not campaign.spot_discovered(group,variant):
         return fail("SPOT_UNDISCOVERED")
@@ -1804,7 +1864,14 @@ func clear_target() -> void:
 
 func select_target(id: String) -> bool:
     var enemy:=_find_actor(id)
-    if suspended or held or get_tree().paused or state.player.hp<=0 or enemy.is_empty() or enemy.hp<=0 or id=="player" or not campaign.target_allowed(enemy):
+    if suspended or held or get_tree().paused or state.player.hp<=0 or enemy.is_empty() or enemy.hp<=0 or id=="player":
+        return false
+    # Change 81: a tap on the sealed Green Alien explains the seal and the key count (it never starts a fight,
+    # takes a target or spends anything). Tapping it counts as meeting it, so the quest is introduced first.
+    if campaign.final_sealed(int(enemy.group)) and campaign.can_see(position_of(enemy)):
+        campaign.discover_final()
+        return fail("FINAL_SEALED")
+    if not campaign.target_allowed(enemy):
         return false
     locked_target=id
     manual_target=id
@@ -2038,6 +2105,8 @@ func upgrade_block_reason(id: String,g: int=-1) -> String:
     if id.begins_with("skill_auto_"):
         if state.skills_seen.is_empty():return "UNDISCOVERED"
         if automatic_skill_capacity()>=3:return "UPGRADE_MAX"
+        # Change 81: Auto Skill slot N needs manual Skill Slot N (slot 1 is the default one).
+        if auto_skill_slot_locked():return "AUTO_SKILL_NEEDS_SLOT"
         if state.gems<upgrade_cost("skill_auto_slots"):return "NOT_ENOUGH_GEMS"
         return ""
     if id=="skill_drop" and catalog.groups[g].skills.is_empty():return "ACTION_UNAVAILABLE"
@@ -2070,6 +2139,10 @@ func stat_sources() -> Dictionary:
     if state.outfit!="" and quantity(state.outfit)>0:
         var milestone:=outfit_milestones(state.outfit)
         if milestone.values().any(func(v):return float(v)>0):result["SOURCE_MILESTONE"]=milestone
+    # Change 81: milestones of the equipped Obsidian weapon only (stored weapons add none).
+    if state.weapon!="" and quantity(state.weapon)>0:
+        var weapon_step:=weapon_milestones(state.weapon)
+        if weapon_step.values().any(func(v):return float(v)>0):result["SOURCE_WEAPON_MILESTONE"]=weapon_step
     # Active supply buffs (Change 11): Guard Tonic Defense and Recovery Salve healing over time.
     var active: Dictionary={}
     for id in state.buffs:
@@ -2174,6 +2247,16 @@ func automatic_skill_capacity() -> int:
     var n:=level("skill_auto_slots")
     for i in range(3):n+=level("skill_auto_"+str(i))
     return mini(3,n)
+
+## Change 81: the next Auto Skill slot (capacity + 1) needs the manual skill slot of the same number. A profile
+## that bought automatic capacity before this rule keeps it; capacity beyond the owned manual slots stays inactive
+## (automatic_skill_assignments only reads owned slots) and works once that slot is bought.
+func auto_skill_slot_locked() -> bool:
+    return automatic_skill_capacity()<3 and automatic_skill_capacity()+1>1+level("skill_slots")
+
+## The manual Skill Slot number the next Auto Skill purchase waits for (1-3).
+func auto_skill_required_slot() -> int:
+    return mini(3,automatic_skill_capacity()+1)
 
 func automatic_skill_assignments() -> Array:
     var selected: Array=[]

@@ -161,9 +161,7 @@ func economy_checks() -> void:
         for id in stage_ids:
             var u: Dictionary=sim.catalog.upgrades[id]
             if sim.upgrade_cost(id,st)!=maxi(1,ceili(float(u.base)*factor)):all_ok=false;bad.append(id+" s%d" % st)
-        for camp in range(1,sim.catalog.stages[st-1].spawns.size()):
-            var u: Dictionary=sim.catalog.upgrades.camp_radius
-            if sim.upgrade_cost("camp_radius",st*10+camp)!=maxi(1,ceili(float(u.base)*factor)):all_ok=false;bad.append("camp_radius s%d" % st)
+        # Change 81: Camp reveal radius is one global Gem upgrade (10 / 20 / 40), not a per-camp Coin price.
     check(all_ok and type_ids.size()>=8,"Enemy upgrades (%s), map upgrades (%s) and camp radius cost base × growth^level × 1.55^(map−1) on all 8 maps %s" % [", ".join(type_ids),", ".join(stage_ids),str(bad.slice(0,4))])
     var camps_ok:=true
     for st in range(1,9):

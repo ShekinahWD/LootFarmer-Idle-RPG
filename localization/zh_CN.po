@@ -713,9 +713,6 @@ msgstr "更多选项"
 msgid "LOOT_HISTORY"
 msgstr "战利品记录"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "等级 %d / 1,000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "等级 %d · 生命值和伤害提升"
 
@@ -842,9 +839,6 @@ msgstr "刷%s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "刷怪选择：%s。复活后返回此处。"
 
-msgid "MAX_ITEM_TIER"
-msgstr "已达最终阶级。仍可继续合成至 ^100。"
-
 msgid "TAB_PLAYER"
 msgstr "玩家"
 
@@ -874,9 +868,6 @@ msgstr "请先探索此营地。"
 
 msgid "STAGE_UNLOCKED"
 msgstr "下一关卡已解锁！"
-
-msgid "FINAL_DISCOVERED"
-msgstr "最终守护者已被封印。击败其他 13 个首领，收集它们的钥匙。收集到的钥匙在转生后保留。"
 
 msgid "WORLD_COMPLETE"
 msgstr "春季 II 的敌人已全部击败——最终任务完成！"
@@ -1075,9 +1066,6 @@ msgstr "%s · %d 个刷新点 · 每点 %d 只 · %s秒刷新"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "已击败的最终关卡敌人种类：%d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "营地显现半径"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "玩家视野半径"
@@ -4813,9 +4801,6 @@ msgstr "冷却：%s秒"
 
 msgid "GATE_HUD"
 msgstr "下一关 · 首领 %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "世界通关 · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "在此地图上需击败这些首领才能开启下一张地图。已发现且仍计入的首领会带有金色旗帜。"

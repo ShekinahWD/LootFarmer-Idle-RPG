@@ -16,9 +16,9 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 334,
+  "files": 336,
   "stages": 8,
-  "imported": 205
+  "imported": 206
  },
  "families": {
   "stage_scenes": {
@@ -532,6 +532,7 @@
   "res://assets/sounds/stage_clear.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/sounds/ui_confirm.wav": "dependency of res://resources/game/audio_cues.tres",
   "res://assets/ui/Hand.png": "dependency of res://resources/game/pickup_style.tres",
+  "res://assets/ui/Key - Gold.png": "literal in res://scripts/game/game_ui.gd",
   "res://assets/vfx/buff/Arrow_006.png": "literal in res://scripts/game/buff_burst.gd",
   "res://assets/vfx/buff/Circle_Outline_003.png": "literal in res://scripts/game/world_moments.gd",
   "res://assets/vfx/buff/Glow_001.png": "literal in res://scripts/game/evolution_show.gd",
@@ -655,6 +656,7 @@
   "res://scripts/game/help_viewer.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/inventory_slot.gd": "dependency of res://scenes/game/slot.tscn",
   "res://scripts/game/joystick.gd": "dependency of res://scenes/game/joystick.tscn",
+  "res://scripts/game/key_fx.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/language_dropdown.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/map_gestures.gd": "dependency of res://scenes/game/main.tscn",
   "res://scripts/game/map_view.gd": "dependency of res://scenes/game/main.tscn",

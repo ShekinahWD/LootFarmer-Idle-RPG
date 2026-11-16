@@ -715,9 +715,6 @@ msgstr "Daha fazla seçenek"
 msgid "LOOT_HISTORY"
 msgstr "Ganimet geçmişi"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "SEVİYE %d / 1.000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "SEVİYE %d · can ve hasar arttı"
 
@@ -844,9 +841,6 @@ msgstr "Farm: %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Farm seçimi: %s. Yeniden doğduktan sonra buraya döner."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Son kademeye ulaşıldı. ^100'e kadar birleştirme hâlâ mümkün."
-
 msgid "TAB_PLAYER"
 msgstr "Oyuncu"
 
@@ -876,9 +870,6 @@ msgstr "Önce bu kampı keşfet."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Sonraki bölge açıldı!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "Son muhafız mühürlü. Anahtarlarını toplamak için diğer 13 boss'u yen. Toplanan anahtarlar prestijden sonra da kalır."
 
 msgid "WORLD_COMPLETE"
 msgstr "Tüm İlkbahar II düşmanları yenildi — son görev tamamlandı!"
@@ -1077,9 +1068,6 @@ msgstr "%s · %d nokta · nokta başına %d · %s sn yeniden doğma"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Yenilen son bölge türleri: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Kamp görüş yarıçapı"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Oyuncu görüş yarıçapı"
@@ -4815,9 +4803,6 @@ msgstr "Bekleme süresi: %s sn"
 
 msgid "GATE_HUD"
 msgstr "Sonraki · Boss %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Dünya temiz · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Sonraki haritayı açmak için bu haritada yenilmesi gereken boss'lar. Hâlâ sayılan bulunmuş boss'larda altın şerit var."

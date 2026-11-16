@@ -127,6 +127,9 @@ var stat_feedback: Control
 ## Change 67: merge feedback (card burst, Merge All flash, dock glints) and the manual evolution panel.
 ## Both only present results the simulation has already committed.
 var merge_fx: Control
+## Change 81: the boss-key pickup over the map (scripts/game/key_fx.gd) and the Boss Keys chip's last text.
+var key_fx: Control
+var final_text:=""
 var evolution_show: Control
 ## While a manual merge or evolution runs, the simulation's merged / evolved signals are collected
 ## here instead of being shown as automatic ones.
@@ -339,6 +342,17 @@ func _ready() -> void:
     _build_moment_overlays()
     sim.traveled.connect(func(map_changed: bool,_from: Vector2,_to: Vector2)->void:if map_changed:_open_iris())
     sim.boss_defeated.connect(_boss_title)
+    # Change 81: a credited boss key flies from the fallen boss to the Boss Keys chip (presentation only).
+    key_fx=preload("res://scripts/game/key_fx.gd").new()
+    key_fx.name="KeyFx"
+    $Safe/Layout/Map.add_child(key_fx)
+    key_fx.project=func(at: Vector2)->Vector2:return (world.get_canvas_transform()*at)*$Safe/Layout/Map.size/Vector2(world.get_viewport_rect().size)
+    key_fx.destination=_final_chip_target
+    key_fx.avoid=_key_fx_avoid
+    key_fx.bounds=_key_fx_bounds
+    key_fx.arrived.connect(_key_arrived)
+    sim.key_earned.connect(_key_earned)
+    sim.traveled.connect(func(map_changed: bool,_from: Vector2,_to: Vector2)->void:if map_changed:key_fx.send_all())
     # Change 65: the one tutorial-card viewer (Basic opening and Help), above the panel and the guide.
     help_viewer=preload("res://scripts/game/help_viewer.gd").new()
     help_viewer.z_index=18
@@ -451,7 +465,59 @@ func _build_hud_rails() -> void:
     gate.gui_input.connect(func(event: InputEvent)->void:
         if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
             accept_event();_open("world"))
+    _build_final_chip()
     _sync_zoom()
+
+## Change 81: the persistent final-boss objective, a chip under Next Stage in the same right rail, in the Gate
+## chip's two-line form: "Final Boss" over "Boss Keys 4/13", then "Green Alien" over "Ready to Challenge" (gold).
+## Shown on every map from the Green Alien's discovery until its defeat; a tap opens the Boss Keys section of
+## Missions (the quest's explanation and the keys collected). The boss-key pickup flies to it.
+func _build_final_chip() -> void:
+    var map: Control=$Safe/Layout/Map
+    var chip:=PanelContainer.new()
+    chip.name="FinalKeys"
+    chip.theme_type_variation=&"HudChip"
+    chip.visible=false
+    chip.mouse_filter=Control.MOUSE_FILTER_STOP
+    chip.pivot_offset=Vector2(MINIMAP_SIDE*.5,STATUS_HEIGHTS.FinalKeys*.5)
+    var row:=HBoxContainer.new()
+    row.name="Row"
+    row.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    row.add_theme_constant_override("separation",6)
+    chip.add_child(row)
+    var icon:=TextureRect.new()
+    icon.name="Icon"
+    icon.texture=preload("res://assets/ui/Key - Gold.png")
+    icon.custom_minimum_size=Vector2(30,30)
+    icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+    icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    icon.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+    icon.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    row.add_child(icon)
+    var lines:=VBoxContainer.new()
+    lines.name="Lines"
+    lines.mouse_filter=Control.MOUSE_FILTER_IGNORE
+    lines.alignment=BoxContainer.ALIGNMENT_CENTER
+    lines.add_theme_constant_override("separation",-2)
+    for pair in [["Caption",GATE_CAPTION_FONT,Color(.82,.86,.92)],["Value",CHIP_FONT,Color(1,.86,.5)]]:
+        var label:=Label.new()
+        label.name=pair[0]
+        label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+        label.add_theme_font_size_override("font_size",pair[1])
+        label.add_theme_color_override("font_color",pair[2])
+        label.add_theme_color_override("font_outline_color",Color.BLACK)
+        label.add_theme_constant_override("outline_size",4)
+        lines.add_child(label)
+    row.add_child(lines)
+    map.add_child(chip)
+    map.move_child(chip,map.get_node("Gate").get_index()+1)
+    chip.gui_input.connect(func(event: InputEvent)->void:
+        if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
+            accept_event();_open_final_keys())
+
+func _open_final_keys() -> void:
+    _open("missions")
+    _scroll_to_section(tr("FINAL_KEYS_SECTION"))
 
 ## Change 75: the zoom slider in the HUD's look: a dark rounded track with a lighter filled part, a round grabber
 ## in the plates' pale teal (the engine's white square looked foreign), the value in the chip font.
@@ -591,6 +657,8 @@ func _process(dt: float) -> void:
     _refresh_explored()
     _refresh_mastery_chip()
     _refresh_gate()
+    _refresh_final_chip()
+    _final_intro_check()
     _layout_hud()
     _offer_offline_claim()
     if last_revision!=sim.revision or previous_pause!=get_tree().paused:
@@ -820,7 +888,7 @@ func _refresh_view_camp() -> void:
     if not button.position.is_equal_approx(pos):button.position=pos
 
 ## Change 79: HUD rail controls View Camp keeps clear of once a followed-objective pill shows.
-const VIEW_CAMP_AVOID:=["EnemySection","Achievement","EnemyUpgrades","QuickFarm","MiniMap","ZoomButton","ZoomPlate","Explored","Mastery","Gate"]
+const VIEW_CAMP_AVOID:=["EnemySection","Achievement","EnemyUpgrades","QuickFarm","MiniMap","ZoomButton","ZoomPlate","Explored","Mastery","Gate","FinalKeys"]
 
 ## The bottom centre of a camp's name label, in Map coordinates (INF when the stage art is missing).
 func _camp_label_point(i: int) -> Vector2:
@@ -983,7 +1051,7 @@ func _layout_hud() -> void:
     _place(map.get_node("Explored"),Rect2(right-caption,y,caption,STATUS_HEIGHTS.Explored))
     y+=STATUS_HEIGHTS.Explored+HUD_GAP-2
     var chips_top: float=y
-    for path in ["Mastery","Gate"]:
+    for path in ["Mastery","Gate","FinalKeys"]:
         var node: Control=map.get_node(path)
         if not node.visible:continue
         var least: float=_chip_width(node) if node is Button else node.get_combined_minimum_size().x
@@ -1021,7 +1089,7 @@ func _chip_width(chip: Button) -> float:
     return ceilf(font.get_string_size(chip.text,HORIZONTAL_ALIGNMENT_LEFT,-1,CHIP_FONT).x+style.get_minimum_size().x+chip.get_theme_constant("icon_max_width")+chip.get_theme_constant("h_separation")+8)
 
 const MINIMAP_SIDE:=220.0
-const STATUS_HEIGHTS:={"Mastery":44.0,"Explored":30.0,"Gate":52.0}
+const STATUS_HEIGHTS:={"Mastery":44.0,"Explored":30.0,"Gate":52.0,"FinalKeys":52.0}
 const GATE_CAPTION_FONT:=14
 ## The left rail's width (the three enemy controls in a row, and an objective pill): 162+6+76+6+76.
 const LEFT_COLUMN_WIDTH:=ACHIEVEMENT_WIDTH+(TILE_GAP+TILE_SIDE)*2
@@ -1044,7 +1112,7 @@ func left_column_bottom() -> float:
 ## The bottom of the top-right stack (map coordinates).
 func map_stack_bottom() -> float:
     var bottom: float=HUD_MARGIN
-    for path in ["MiniMap","Zoom","Mastery","Explored","Gate"]:
+    for path in ["MiniMap","Zoom","Mastery","Explored","Gate","FinalKeys"]:
         var node: Control=$Safe/Layout/Map.get_node(path)
         if node.visible:bottom=maxf(bottom,node.position.y+node.size.y)
     return bottom
@@ -1179,6 +1247,91 @@ static func gate_lines(text: String) -> Array:
             var rest: String=text.substr(at+separator.length())
             return [text.substr(0,at),rest.left(1).to_upper()+rest.substr(1)]
     return ["",text]
+
+## Change 81: the Boss Keys chip from campaign.final_objective(). The count is the credited keys minus those still
+## flying to it (each pickup adds its key when it lands), so the chip never runs ahead of the animation; on a load
+## nothing is in flight and it shows the saved count. Written only when the text changes.
+func _refresh_final_chip() -> void:
+    var node: Control=$Safe/Layout/Map/FinalKeys
+    var objective: String=sim.campaign.final_objective()
+    var shown:=maxi(0,sim.state.keys.size()-(key_fx.in_flight() if key_fx!=null else 0))
+    var text:=""
+    if objective!="":
+        text=tr("FINAL_HUD_READY") if objective=="ready" and shown>=sim.campaign.FINAL_KEYS else tr("FINAL_HUD_KEYS") % [shown,sim.campaign.FINAL_KEYS]
+    if node.visible!=(text!=""):node.visible=text!=""
+    if text==final_text:return
+    final_text=text
+    node.tooltip_text=tr("FINAL_HUD_TOOLTIP")
+    var lines: Array=gate_lines(text)
+    node.get_node("Row/Lines/Caption").text=lines[0]
+    node.get_node("Row/Lines/Caption").visible=lines[0]!=""
+    node.get_node("Row/Lines/Value").text=lines[1]
+    var ready: bool=objective=="ready" and shown>=sim.campaign.FINAL_KEYS
+    node.get_node("Row/Lines/Value").add_theme_color_override("font_color",Color(.55,1,.6) if ready else Color(1,.86,.5))
+
+## Where a flying key lands (map coordinates), or an empty Rect2 when the chip cannot take it now: hidden, or
+## covered by a panel, a dialog or the Prestige choice (the key then fades where it is).
+func _final_chip_target() -> Rect2:
+    var node: Control=$Safe/Layout/Map/FinalKeys
+    if not node.visible or sheet.visible or modal_open() or not sim.state.prestige_batch.is_empty():return Rect2()
+    return Rect2(node.position,node.size)
+
+## Where a floating key's centre may be (map coordinates): below both HUD rails and the followed pills, inside the
+## map's middle columns, above the joystick's band.
+func _key_fx_bounds() -> Rect2:
+    var map: Control=$Safe/Layout/Map
+    var top: float=maxf(map_stack_bottom(),left_column_bottom())
+    for tracker in [$Safe/Layout/Map/FollowTracker,$Safe/Layout/Map/MissionTracker,mastery_tracker]:
+        if tracker!=null and tracker.visible:top=maxf(top,tracker.position.y+tracker.size.y)
+    top+=70.0
+    var bottom: float=map.size.y-150.0
+    if stick!=null and stick.is_visible_in_tree():bottom=minf(bottom,stick.get_global_rect().position.y-map.global_position.y-70.0)
+    var left: float=map.size.x*.2
+    return Rect2(left,top,maxf(1.0,map.size.x*.6),maxf(1.0,bottom-top))
+
+## Places a floating key must not take touches from: the joystick and the skill/supply buttons over the map.
+func _key_fx_avoid() -> Array:
+    var map: Control=$Safe/Layout/Map
+    var out: Array=[]
+    for node in [stick,$Safe/Layout/Skills]:
+        if node!=null and node.is_visible_in_tree():
+            var r: Rect2=node.get_global_rect()
+            out.append(Rect2(r.position-map.global_position,r.size).grow(12))
+    return out
+
+## sim.key_earned: the key is already credited and saved. The pickup plays over the fallen boss; the 13th key is
+## also announced as an important notice when it lands.
+func _key_earned(group: int,at: Vector2,total: int) -> void:
+    if sim.catalog.groups[group].stage!=int(sim.state.stage):at=sim.position_of(sim.state.player)
+    key_fx.play(at,total,tr("KEY_FX_LABEL") % [total,sim.campaign.FINAL_KEYS])
+    AudioService.play("feature_unlocked")
+
+func _key_arrived(total: int) -> void:
+    final_text=""
+    _refresh_final_chip()
+    var chip: Control=$Safe/Layout/Map/FinalKeys
+    if chip.visible:
+        chip.pivot_offset=chip.size*.5
+        var t:=create_tween()
+        t.tween_property(chip,"scale",Vector2.ONE*1.18,.12).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+        t.tween_property(chip,"scale",Vector2.ONE,.22)
+    if total>=sim.campaign.FINAL_KEYS:
+        AudioService.play("prestige_ready")
+        _say(tr("FINAL_READY_NOTICE"),true)
+    else:AudioService.play("prestige_step")
+
+## Change 81: the Green Alien's introduction, once per profile, the first time it is met (state.tutorial.seen
+## "final_intro", kept by Prestige). A red banner (the boss-warning form) over the map, never a modal; it waits
+## while a panel or dialog is open. Reopened at any time from the Boss Keys chip (Missions).
+func _final_intro_check() -> void:
+    if not bool(sim.state.final_discovered) or sim.state.tutorial.seen.has("final_intro") or sim.state.tutorial.mode=="pending":return
+    sim.state.tutorial.seen.append("final_intro")
+    sim.touch()
+    var g:=-1
+    for i in range(sim.catalog.groups.size()):
+        if bool(sim.catalog.groups[i].final):g=i
+    banner.push_warning("final_intro",tr("FINAL_INTRO_TITLE"),tr("FINAL_INTRO_BODY") % [sim.campaign.FINAL_KEYS,sim.campaign.FINAL_KEYS],icon_cache.get(sim.catalog.groups[g].body) if g>=0 else null)
+    AudioService.play("boss_found")
 
 ## Offline earnings are claimed in game: offer the claim once per settlement, when nothing else
 ## (a panel, a confirmation, the guide chooser or a prestige choice) is in front of the player.
@@ -1406,9 +1559,10 @@ func _tier_style(id: String,highlight: bool) -> StyleBoxTexture:
         tier_styles[key]=style
     return tier_styles[key]
 
-## Change 10: an outfit's ^100 milestone rank (0-5) decides its slot treatment; other items are 0.
+## Change 10: an outfit's ^100 milestone rank (0-5) decides its slot treatment; other items are 0. Change 81: the
+## Obsidian weapons (^100-^500 milestones) use the same frames.
 func _milestone_rank(id: String) -> int:
-    if id=="" or not sim.catalog.items.has(id) or str(sim.catalog.items[id].kind)!="outfit":return 0
+    if id=="" or not sim.catalog.items.has(id) or (str(sim.catalog.items[id].kind)!="outfit" and not sim.final_weapon(id)):return 0
     return OUTFIT_SLOT_STYLES.rank(int(sim.state.items.get(id,{}).get("merge",0)))
 
 ## Shows the milestone frame over any slot-like control (a Button or Panel child named MilestoneFrame;
@@ -1610,7 +1764,11 @@ func _event(key: String) -> void:
     if key in ["PRESTIGE_DISCOVERED","PRESTIGE_READY","STAGE_UNLOCKED"]:return
     # Change 67: an evolution is announced by _manual_evolve or _on_evolved (which knows whether it was automatic).
     if key=="EVOLVED":return
+    # Change 81: the Green Alien's introduction is its own banner (_final_intro_check), not a short toast.
+    if key=="FINAL_DISCOVERED":return
     var text:=tr(key)
+    if key=="FINAL_SEALED":text=tr("FINAL_SEALED") % [sim.state.keys.size(),sim.campaign.FINAL_KEYS]
+    if key=="AUTO_SKILL_NEEDS_SLOT":text=tr("AUTO_SKILL_NEEDS_SLOT") % sim.auto_skill_required_slot()
     if key=="PLAYER_LEVEL_UP":text=tr("LEVEL_UP_NOTICE") % sim.state.player_level
     if key=="PRESTIGED":
         _close()
@@ -1853,6 +2011,7 @@ func _milestone(kind: String,id: String) -> void:
     match kind:
         "reset":
             banner.queue.clear();banner._finish();toast_queue.clear();toast_important.clear();auto_buy_edit=-1
+            if key_fx!=null:key_fx.clear()
         "discovered","ready":
             # Change 15: Prestige is introduced after the Snowman; earlier finds wait for its reveal.
             if not revealed("prestige"):return
@@ -2382,6 +2541,7 @@ func _item_panel() -> void:
     else:
         _card_line(details,tr("STOCK_BONUS") % fmt(maxi(0,int(r.qty)-1)*float(sim.catalog.progression.merge.stock_bonus_per_copy)*100),17,Color(.5,1,.65))
     if def.kind=="outfit":_outfit_milestone_lines(details,id)
+    elif sim.final_weapon(id):_weapon_milestone_lines(details,id)
     # Change 13: every skill shows its effective cooldown from the same getter the cast uses (Change 16:
     # it is part of skill_description, with targets and range).
     if def.get("skill","")=="heal":_text(tr("HEAL_ROLE_SHORT"),17,Color(.8,.84,.9))
@@ -2433,7 +2593,8 @@ func _item_panel() -> void:
     elif def.next!="" and r.merge>=cap:
         _text(tr("EVOLUTION_RULE") % [int(sim.catalog.progression.evolution.required_merge),sim.evolution_spare_cost(id),sim.evolution_spare_cost(id)+1],17,Color(.8,.84,.9))
     elif def.next=="":
-        _text(tr("MAX_ITEM_TIER"),17,Color(.8,.84,.9))
+        # Change 81: the final tier merges to its own cap (^500), with milestones every ^100.
+        _text(tr("MAX_ITEM_TIER_CAP") % cap,17,Color(.8,.84,.9))
     # Change 52: what boss copies add to this weapon (or have added this run). Change 78: boss outfits too.
     if (def.kind=="weapon" and not sim.is_legacy(id)) or sim.campaign.boss_only_outfit(id):
         var enhanced: bool=not sim.boss_extras(id).is_empty()
@@ -2600,6 +2761,27 @@ func _outfit_milestone_lines(box: VBoxContainer,id: String) -> void:
     else:
         _card_line(box,tr("MILESTONE_NEXT") % [int(step.merge),_milestone_step_text(step,float(sim.catalog.items[id].tier))],17,Color(1,.86,.5))
 
+## Change 81: the Obsidian weapon track, in the outfit form: what is active (only while this weapon is equipped)
+## and the next step. Values come from sim.weapon_milestones() / the catalog track.
+func _weapon_milestone_lines(box: VBoxContainer,id: String) -> void:
+    var parts:=_weapon_milestone_parts(sim.weapon_milestones(id))
+    var equipped_now: bool=sim.state.weapon==id
+    var tone:=Color(.5,1,.65) if equipped_now and not parts.is_empty() else Color(.75,.8,.87)
+    _card_line(box,(tr("MILESTONES_ACTIVE_WEAPON") % ", ".join(parts)) if not parts.is_empty() else tr("MILESTONES_NONE"),17,tone)
+    var step:=sim.next_weapon_milestone(id)
+    if step.is_empty():
+        _card_line(box,tr("MILESTONES_COMPLETE"),17,Color(1,.86,.5))
+    else:
+        _card_line(box,tr("MILESTONE_NEXT") % [int(step.merge),", ".join(_weapon_milestone_parts(sim.weapon_milestones(id,int(step.merge))))],17,Color(1,.86,.5))
+
+func _weapon_milestone_parts(values: Dictionary) -> Array[String]:
+    var parts: Array[String]=[]
+    if float(values.crit)>0:parts.append(tr("MILESTONE_WEAPON_CRIT") % fmt_value(float(values.crit)*100))
+    if float(values.crit_damage)>0:parts.append(tr("MILESTONE_WEAPON_CRIT_DAMAGE") % fmt_value(float(values.crit_damage)*100))
+    if float(values.lifesteal)>0:parts.append(tr("MILESTONE_WEAPON_LIFESTEAL") % fmt_value(float(values.lifesteal)*100))
+    if float(values.damage)>0:parts.append(tr("MILESTONE_WEAPON_DAMAGE") % fmt(float(values.damage)))
+    return parts
+
 func _milestone_step_text(step: Dictionary,tier: float) -> String:
     var parts: Array[String]=[]
     if step.has("defense_per_tier"):parts.append(tr("MILESTONE_GUARD") % fmt_value(float(step.defense_per_tier)*tier))
@@ -2656,7 +2838,7 @@ func _item_summary_card(id: String,ribbon: String,ribbon_color: Color,at:=-1,cou
         _card_line(details,tr("NOTHING_EQUIPPED"),18,Color(.7,.75,.82))
         return details
     _card_line(details,sim.catalog.display_name(id),21,_tier_color(id).lightened(.55))
-    var merge_text:=(tr("ITEM_TIER_MERGE_CAP") % [int(sim.catalog.items[id].tier),int(sim.record(id).merge),sim.merge_cap(id)]) if sim.copy_growth(id) else (tr("ITEM_TIER_MERGE") % [int(sim.catalog.items[id].tier),int(sim.record(id).merge)])
+    var merge_text:=(tr("ITEM_TIER_MERGE_CAP") % [int(sim.catalog.items[id].tier),int(sim.record(id).merge),sim.merge_cap(id)]) if sim.shows_merge_cap(id) else (tr("ITEM_TIER_MERGE") % [int(sim.catalog.items[id].tier),int(sim.record(id).merge)])
     if sim.catalog.items[id].kind=="consumable":merge_text=tr("SUPPLY_MASTERY_LEVEL") % [sim.supply_mastery(id),sim.merge_cap(id)]
     _card_line(details,merge_text,17,Color(.75,.8,.87))
     return details
@@ -2813,7 +2995,8 @@ static func cropped(source: Texture2D) -> Texture2D:
 func _upgrades_panel() -> void:
     _tabs(UPGRADE_TABS,player_tab,func(i: int)->void:player_tab=i)
     # Change 65: the one global Focused Farming unlock sits with the Player upgrades.
-    var sections: Array=[["respawn","movement","focus","skill_slots","skill_auto_slots","critical_chance","critical_damage"],["gear_slots","supply_slots","merge_all"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_skill","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate","offline_skill_rate"]]
+    # Change 81: Camp Reveal Radius is one permanent Gem upgrade for every camp (it was bought per camp in World).
+    var sections: Array=[["respawn","movement","focus","camp_radius","skill_slots","skill_auto_slots","critical_chance","critical_damage"],["gear_slots","supply_slots","merge_all"],["auto_use","use_speed"],["gem_chance","gem_amount","boss_gem_chance","boss_gem_amount"],["offline_cap","offline_coins","offline_gems","offline_weapon","offline_outfit","offline_consumable","offline_skill","offline_weapon_rate","offline_outfit_rate","offline_consumable_rate","offline_skill_rate"]]
     if player_tab==0:_text(tr("UPGRADES_PLAYER_HINT"),17,Color(.75,.8,.87))
     if player_tab==4:
         if not sim.state.offline_pending.is_empty():
@@ -3076,10 +3259,12 @@ func _group_upgrade_card(id: String,g: int) -> void:
     _card_line(text,tr("UP_"+id.to_upper()),20,Color.WHITE)
     _card_line(text,_upgrade_benefit(id,g),18,Color(.6,1,.75))
     var reason:=sim.upgrade_block_reason(id,g)
+    # Change 81: the Auto Skill prerequisite names the manual slot it waits for.
+    var reason_text: String=(tr(reason) % sim.auto_skill_required_slot()) if reason=="AUTO_SKILL_NEEDS_SLOT" else tr(reason)
     var status:=Label.new()
     status.name="BlockReason"
-    status.text=(tr("UPGRADE_LEVEL") % [current,mini(int(def.cap),ceili((float(sim.catalog.groups[g].respawn)-15.0)/5.0)) if id=="boss_spawn_cooldown" and g>=0 else def.cap])+("" if reason.is_empty() or reason=="UPGRADE_MAX" else "  ·  "+tr(reason))
-    status.tooltip_text=tr(reason) if not reason.is_empty() else ""
+    status.text=(tr("UPGRADE_LEVEL") % [current,mini(int(def.cap),ceili((float(sim.catalog.groups[g].respawn)-15.0)/5.0)) if id=="boss_spawn_cooldown" and g>=0 else def.cap])+("" if reason.is_empty() or reason=="UPGRADE_MAX" else "  ·  "+reason_text)
+    status.tooltip_text=reason_text if not reason.is_empty() else ""
     status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
     status.add_theme_font_size_override("font_size",17)
     status.add_theme_color_override("font_color",Color(1,.72,.45) if not reason.is_empty() and reason!="UPGRADE_MAX" else Color(.7,.75,.82))
@@ -3092,7 +3277,7 @@ func _group_upgrade_card(id: String,g: int) -> void:
     buy.add_theme_constant_override("icon_max_width",26)
     buy.disabled=not reason.is_empty()
     buy.theme_type_variation=&"Primary" if reason.is_empty() else &""
-    buy.tooltip_text=tr(reason) if not reason.is_empty() else tr("UP_"+id.to_upper())
+    buy.tooltip_text=reason_text if not reason.is_empty() else tr("UP_"+id.to_upper())
     buy.set_meta("upgrade",id)
     buy.set_meta("guide","buy_"+id if id in ["loot","gear_slots","supply_slots","map_detail","focus"] else "buy_upgrade")
     buy.pressed.connect(func()->void:
@@ -3534,7 +3719,8 @@ func _world_panel() -> void:
     _stage_progression()
     _section(tr("SECTION_MAP_UPGRADES"))
     for id in ["map_detail","reveal_radius"]:_group_upgrade_card(id,int(sim.state.stage))
-    for i in sim.state.spawns:_group_upgrade_card("camp_radius",int(sim.state.stage)*10+int(i))
+    # Change 81: the camps share one global Camp Reveal Radius (Upgrades > Player); no per-camp purchase here.
+    _text(tr("CAMP_RADIUS_GLOBAL_NOTE") % fmt_value(sim.player_upgrade_value("camp_radius")*100),17,Color(.75,.8,.87))
 
 ## Change 80: the stage selector. Every stage 01-08 in canonical order, one compact card each, grouped under its
 ## season, with this run's state from campaign.stage_progress(): a status line (gate cleared / unlocked with its
@@ -3936,6 +4122,9 @@ func _camp_panel() -> void:
     _set_title(tr("CAMP_NAME") % (selected_camp+1))
     _text(tr("CAMP_HELP"),18,Color(.8,.84,.9))
     _camp_row(selected_camp,true)
+    # Change 81: the radius this camp reveals now (the global upgrade applies to every owned camp).
+    if sim.state.spawns.has(selected_camp):
+        _text(tr("CAMP_REVEAL_RADIUS") % [fmt_count(sim.campaign.camp_reveal_radius()),fmt_value(sim.player_upgrade_value("camp_radius")*100)],17,Color(.75,.8,.87))
 
 # ---------------------------------------------------------------- stats, settings, history, inventory
 
@@ -4770,7 +4959,11 @@ func _missions_panel() -> void:
         if show_completed_main:
             for i in claimed_main:_text("✓ "+tr("MAIN_%d" % int(i)),17,Color(.5,1,.65))
     if sim.state.final_discovered:
-        _text(tr("KEY_PROGRESS") % sim.state.keys.size(),18,Color(1,.86,.5))
+        # Change 81: the quest's own section (the Boss Keys chip opens Missions here): the introduction, the count.
+        _section(tr("FINAL_KEYS_SECTION"))
+        _text(tr("FINAL_INTRO_BODY") % [sim.campaign.FINAL_KEYS,sim.campaign.FINAL_KEYS],17,Color(.8,.84,.9))
+        var objective: String=sim.campaign.final_objective()
+        _text(tr("FINAL_HUD_READY").replace(" · ",": ") if objective=="ready" else tr("KEY_PROGRESS") % sim.state.keys.size(),18,Color(.55,1,.6) if objective=="ready" else Color(1,.86,.5))
         var keys:=HFlowContainer.new();rows.add_child(keys)
         for d in sim.catalog.groups:
             if d.boss and not d.final:_card_icon(keys,icon_cache.get(d.body),Color.WHITE if sim.state.keys.has(d.id) else Color(.3,.3,.35))
@@ -5306,6 +5499,10 @@ func _manual_evolve_all(id: String) -> bool:
     return true
 
 func _on_merged(id: String,before: int,after: int) -> void:
+    # Change 81: an Obsidian weapon merge that crosses a milestone names it (manual, Merge All or Auto-Merge).
+    for step in sim.weapon_milestone_track(id):
+        if before<int(step.merge) and after>=int(step.merge):
+            _say(tr("WEAPON_MILESTONE_REACHED") % [sim.catalog.display_name(id),int(step.merge),", ".join(_weapon_milestone_parts(sim.weapon_milestones(id,int(step.merge))))],true)
     if fx_manual:
         fx_merges.append([id,before,after])
         return

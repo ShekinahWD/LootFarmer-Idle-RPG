@@ -715,9 +715,6 @@ msgstr "ตัวเลือกเพิ่มเติม"
 msgid "LOOT_HISTORY"
 msgstr "ประวัติของดรอป"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "เลเวล %d / 1,000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "เลเวล %d · HP และดาเมจเพิ่มขึ้น"
 
@@ -844,9 +841,6 @@ msgstr "ฟาร์ม %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "การฟาร์มที่เลือก: %s หลังเกิดใหม่จะกลับมาที่นี่"
 
-msgid "MAX_ITEM_TIER"
-msgstr "ถึงขั้นสุดท้ายแล้ว ยังผสานได้ถึง ^100"
-
 msgid "TAB_PLAYER"
 msgstr "ผู้เล่น"
 
@@ -876,9 +870,6 @@ msgstr "สำรวจค่ายนี้ก่อน"
 
 msgid "STAGE_UNLOCKED"
 msgstr "ปลดล็อกด่านถัดไปแล้ว!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "ผู้พิทักษ์สุดท้ายถูกผนึกไว้ ปราบบอสอีก 13 ตัวเพื่อเก็บกุญแจของพวกมัน กุญแจที่เก็บแล้วคงอยู่หลังเพรสทีจ"
 
 msgid "WORLD_COMPLETE"
 msgstr "ปราบศัตรูฤดูใบไม้ผลิ II ทั้งหมดแล้ว — ภารกิจสุดท้ายสำเร็จ!"
@@ -1077,9 +1068,6 @@ msgstr "%s · %d จุด · จุดละ %d · เกิดใหม่ %s�
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "ประเภทศัตรูด่านสุดท้ายที่ปราบแล้ว: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "รัศมีมองเห็นของค่าย"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "รัศมีมองเห็นของผู้เล่น"
@@ -4815,9 +4803,6 @@ msgstr "คูลดาวน์: %s วินาที"
 
 msgid "GATE_HUD"
 msgstr "ด่านถัดไป · บอส %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "เคลียร์โลก · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "บอสที่ต้องปราบบนแผนที่นี้เพื่อเปิดแผนที่ถัดไป บอสที่พบแล้วและยังนับอยู่จะมีแถบสีทอง"

@@ -46,7 +46,8 @@ func run() -> void:
     game.world.pan_camera(Vector2(100,100));await frames()
     check(sim.state.explored==before,"Camera panning does not reveal fog")
     sim.state.coins=1000000
-    check(sim.buy_upgrade("camp_radius",10),"Camp reveal upgrade")
+    sim.state.gems=float(sim.state.gems)+10.0 # fixture: Change 81 made Camp reveal radius one global Gem upgrade
+    check(sim.buy_upgrade("camp_radius"),"Camp reveal upgrade")
     check(sim.campaign.explored_count(1)>before['1'].count(1),"Camp upgrade really reveals larger area")
     fresh();sim.state.gear.resize(20);sim.state.gear.fill("")
     var id="wood_sword"

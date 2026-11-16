@@ -603,17 +603,22 @@ func reveal() -> void:
     if sim.state.player.hp>0:reveal_circle(sim.position_of(sim.state.player),player_radius())
     sight_camps()
     sight_bosses()
+    var camp_radius:=camp_reveal_radius()
     for camp in sim.state.spawns:
         var a: Array=stage().spawns[int(camp)]
-        reveal_circle(Vector2(a[0],a[1]),fog_rules.camp_radius*(1+.25*sim.level("camp_radius",int(sim.state.stage)*10+int(camp))+bonus("camp_reveal")))
+        reveal_circle(Vector2(a[0],a[1]),camp_radius)
     for g in stage().groups:
         if sim.catalog.groups[g].boss and boss_found(str(sim.catalog.groups[g].id)):
             reveal_circle(spot(g,2),fog_rules.camp_footprint_radius)
     identify_sites()
+## Change 81: the reveal radius of every owned camp: the base camp radius plus the one global Camp Reveal Radius
+## upgrade (+25% of the base per level, additive) and any camp_reveal bonus, each counted once.
+func camp_reveal_radius() -> float:
+    return fog_rules.camp_radius*(1+sim.player_upgrade_value("camp_radius")+bonus("camp_reveal"))
 func target_allowed(e: Dictionary,view: Sight=null) -> bool:
     var d: Dictionary=sim.catalog.groups[int(e.group)]
     var seen: bool=view.sees(sim.position_of(e)) if view!=null else can_see(sim.position_of(e))
-    return seen and (not d.final or sim.state.keys.size()==13)
+    return seen and not final_sealed(int(e.group))
 func damage_multiplier(a: Dictionary,b: Dictionary) -> float:
     var n=1.0
     if a.id=="player":n+=bonus("boss_damage" if sim.catalog.groups[int(b.group)].boss else "normal_damage")
@@ -870,7 +875,7 @@ func step(dt: float) -> void:
         if a.id=="player" or a.hp<=0:continue
         var d: Dictionary=sim.enemy_definition(a.group,a.variant)
         if d.final and not sim.state.final_discovered and sim.position_of(a).distance_to(sim.position_of(sim.state.player))<160:
-            sim.state.final_discovered=true;sim.touch();SaveService.save_now();sim.event.emit("FINAL_DISCOVERED")
+            discover_final()
         if d.final and sim.state.keys.size()<13:
             a.aggro=false;a.windup=0;continue
         # Change 13: summoners (EnemyAbilityRules) call helpers on their own timer; helpers never summon.
@@ -916,6 +921,25 @@ func step(dt: float) -> void:
         objective_clock=0;refresh_missions();evaluate();onboarding.evaluate();mastery.evaluate();check_follow_mission();sim.touch()
 ## Seconds before an enemy of this type casts again after a successful skill: a per-type override in
 ## EnemyAbilityRules, else the boss standard cooldown (Change 62: 10 s), else the catalog skill's.
+## Change 81: the boss keys (13 distinct other bosses defeated after the discovery) open the Green Alien. Until
+## then the final boss is sealed: it never fights, aggroes, takes a target or is farmed.
+const FINAL_KEYS:=13
+func final_sealed(g: int) -> bool:
+    return g>=0 and g<sim.catalog.groups.size() and bool(sim.catalog.groups[g].final) and sim.state.keys.size()<FINAL_KEYS
+## The one discovery transition (coming near the Green Alien, or tapping it): saved at once, announced once per
+## profile (final_discovered is kept by Prestige; the introduction's acknowledgement is tutorial.seen "final_intro").
+func discover_final() -> void:
+    if bool(sim.state.final_discovered):return
+    sim.state.final_discovered=true;sim.touch();SaveService.save_now();sim.event.emit("FINAL_DISCOVERED")
+## Change 81: the persistent final-boss objective: "" before the discovery and after the victory, "keys" while
+## keys are missing, "ready" with all 13 until the Green Alien is defeated.
+func final_objective() -> String:
+    if not bool(sim.state.final_discovered) or bool(sim.state.final_complete) or final_defeated():return ""
+    return "ready" if sim.state.keys.size()>=FINAL_KEYS else "keys"
+func final_defeated() -> bool:
+    for g in range(sim.catalog.groups.size()):
+        if bool(sim.catalog.groups[g].final):return int(sim.state.group_kills[g])>0
+    return false
 func enemy_skill_cooldown(d: Dictionary,key: String) -> float:
     return sim.abilities.skill_cooldown(str(d.id),key,float(sim.catalog.skills[key].cooldown),bool(d.get("boss",false)))
 ## Change 78: pause after a boss's telegraphed skill misses its resolution (the player left its reach).
@@ -1086,7 +1110,10 @@ func killed(a: Dictionary) -> void:
     progress("kill" if not d.boss else "boss_kill",d.id,1)
     if d.boss:
         progress("boss",d.id,1)
-        if sim.state.final_discovered and not d.final and not sim.state.keys.has(d.id):sim.state.keys.append(d.id)
+        # Change 81: the key is credited here (and saved below with the boss kill); key_earned is presentation only.
+        if sim.state.final_discovered and not d.final and not sim.state.keys.has(d.id):
+            sim.state.keys.append(d.id)
+            sim.key_earned.emit(int(a.group),Vector2(float(a.get("x",sim.state.player.x)),float(a.get("y",sim.state.player.y))),sim.state.keys.size())
         if int(a.get("encounter_uses",-1))==int(sim.state.consumable_uses):
             for op in sim.catalog.campaign.opportunities:
                 if op.path=="challenge" and prior.has(op.id) and boss_goal("challenge",int(op.id.right(1)))==d.id:progress("restricted",d.id,1)
@@ -1935,6 +1962,9 @@ func normalize_snapshot(data: Dictionary) -> Dictionary:
                     for field in ["group","variant"]:
                         if number(actor.get(field)):actor[field]=int(actor[field])
     migrate_focus_global(out)
+    migrate_camp_radius_global(out)
+    migrate_final_intro(out)
+    clamp_player_level(out)
     HelpCards.normalize(out)
     if out.get("upgrades") is Dictionary:
         for key in out.upgrades.keys():
@@ -1988,6 +2018,48 @@ func migrate_focus_global(out: Dictionary) -> void:
     if out.get("tutorial") is Dictionary and out.tutorial.get("seen") is Array and not out.tutorial.seen.has("focus_unlocked"):
         out.tutorial.seen.append("focus_unlocked")
     if out.get("migrations") is Array and not out.migrations.has("focus_global"):out.migrations.append("focus_global")
+## Change 81 (once, state.migrations "camp_radius_global"): Camp Reveal Radius was bought per camp
+## ("camp_radius:<stage*10+camp>", Coins, up to 4 levels of +25%); it is now one global Gem upgrade of 3 levels for
+## every camp. The profile keeps its best camp: global level = the highest per-camp level it owned, at most 3 (never
+## charged again; no Coin or Gem refund, and every other owned camp gains that level for free). An existing global
+## record is kept if higher. The per-camp records are removed, so nothing can be bought twice; later loads are a no-op.
+## legacy_camp_radius reports the last migrated snapshot: {records, best, level}.
+var legacy_camp_radius: Dictionary={}
+func migrate_camp_radius_global(out: Dictionary) -> void:
+    legacy_camp_radius={}
+    var migrations: Array=out.get("migrations",[]) if out.get("migrations",[]) is Array else []
+    if migrations.has("camp_radius_global") or not out.get("upgrades") is Dictionary:return
+    var best:=0;var records:=0
+    for key in out.upgrades.keys():
+        var parts: PackedStringArray=str(key).split(":")
+        if parts.size()!=2 or parts[0]!="camp_radius":continue
+        records+=1
+        if number(out.upgrades[key]):best=maxi(best,int(out.upgrades[key]))
+        out.upgrades.erase(key)
+    var cap:=int(sim.catalog.upgrades.camp_radius.cap)
+    var level:=clampi(maxi(best,int(out.upgrades.get("camp_radius",0)) if number(out.upgrades.get("camp_radius",0)) else 0),0,cap)
+    if level>0:out.upgrades["camp_radius"]=level
+    legacy_camp_radius={"records":records,"best":best,"level":level}
+    migrations.append("camp_radius_global")
+    out.migrations=migrations
+## Change 81 (once, "final_intro_seen"): a profile that met the Green Alien before this build already had the old
+## discovery message, so the new introduction is acknowledged for it (it never pops up on load); its tracker shows.
+func migrate_final_intro(out: Dictionary) -> void:
+    var migrations: Array=out.get("migrations",[]) if out.get("migrations",[]) is Array else []
+    if migrations.has("final_intro_seen"):return
+    if bool(out.get("final_discovered",false)) and out.get("tutorial") is Dictionary and out.tutorial.get("seen") is Array and not out.tutorial.seen.has("final_intro"):
+        out.tutorial.seen.append("final_intro")
+    migrations.append("final_intro_seen")
+    out.migrations=migrations
+## Change 81: the level cap fell from 1000 to 500. A profile above it is set to the cap (its stats follow from the
+## level, so they are those of level 500); XP beyond the cap is not kept (at the cap XP stays 0, as before).
+var clamped_player_level:=-1
+func clamp_player_level(out: Dictionary) -> void:
+    clamped_player_level=-1
+    if not number(out.get("player_level")):return
+    if int(out.player_level)>sim.max_level():
+        clamped_player_level=int(out.player_level)
+        out.player_level=sim.max_level();out.xp=0.0
 ## Change 61 (same schema 9): the per-stage respawn choice and the one-time 30-defeat mission. A save from
 ## before has neither: respawns starts empty (the current stage keeps its "spawn"), the mission starts
 ## locked and unlocks on the next tick if the Snowman was already found (counting defeats from then on).

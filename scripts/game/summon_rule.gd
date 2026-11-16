@@ -17,6 +17,6 @@ extends Resource
 @export_range(1,4) var max_alive:=2
 ## Helper HP and damage as a share of the copied type's normal values.
 @export_range(.05,1.0,.05) var hp_scale:=.5
-@export_range(.05,1.0,.05) var damage_scale:=.4
+@export_range(.05,1.0,.025) var damage_scale:=.4
 ## Helpers appear on a ring this far from the summoner.
 @export var spawn_radius:=34.0

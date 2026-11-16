@@ -715,9 +715,6 @@ msgstr "Opsi lainnya"
 msgid "LOOT_HISTORY"
 msgstr "Riwayat jarahan"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "LEVEL %d / 1.000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "LEVEL %d · HP dan damage naik"
 
@@ -844,9 +841,6 @@ msgstr "Farming %s · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Pilihan farming: %s. Kembali ke sini setelah bangkit."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Tingkat terakhir tercapai. Penggabungan masih bisa sampai ^100."
-
 msgid "TAB_PLAYER"
 msgstr "Pemain"
 
@@ -876,9 +870,6 @@ msgstr "Jelajahi kemah ini dulu."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Tahap berikutnya terbuka!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "Penjaga terakhir tersegel. Kalahkan 13 bos lainnya untuk mengumpulkan kunci mereka. Kunci yang terkumpul tetap ada setelah prestise."
 
 msgid "WORLD_COMPLETE"
 msgstr "Semua musuh Musim Semi II dikalahkan — misi terakhir selesai!"
@@ -1077,9 +1068,6 @@ msgstr "%s · %d titik · %d per titik · muncul ulang %s dtk"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Jenis tahap akhir dikalahkan: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Radius pandang kemah"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Radius pandang pemain"
@@ -4815,9 +4803,6 @@ msgstr "Jeda: %s dtk"
 
 msgid "GATE_HUD"
 msgstr "Tahap berikut · Bos %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Dunia tuntas · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Bos yang harus dikalahkan di peta ini untuk membuka peta berikutnya. Bos yang sudah ditemukan dan masih dihitung memakai pita emas."

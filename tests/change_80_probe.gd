@@ -104,7 +104,8 @@ func xp_checks() -> void:
         var r: float=float(XP_AFTER[normals[i]])/float(XP_AFTER[normals[i-1]])
         smooth=smooth and r>1.0 and r<=1.35
     check(smooth,"Normal XP rises at every step by at most 35% (old Spring II steps were x1.41 and x2.81)")
-    check(int(sim.catalog.progression.max_level)==1000 and near(float(sim.catalog.progression.xp_base),12.0) and near(float(sim.catalog.progression.xp_growth),1.35),"XP requirement data unchanged (12 x level^1.35, cap 1000)")
+    # Change 81 lowered the cap to 500 (change_81_probe); the requirement formula is unchanged.
+    check(int(sim.catalog.progression.max_level)==500 and near(float(sim.catalog.progression.xp_base),12.0) and near(float(sim.catalog.progression.xp_growth),1.35),"XP requirement data unchanged (12 x level^1.35, cap 500 since Change 81)")
     var formula:=true
     for l in [1,2,10,63,137,190,235,500]:formula=formula and near(sim.xp_required(l),ceilf(12.0*pow(l,1.35)))
     check(formula,"xp_required(level) == ceil(12 x level^1.35) at 1, 2, 10, 63, 137, 190, 235, 500")

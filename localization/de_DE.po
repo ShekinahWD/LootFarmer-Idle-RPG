@@ -715,9 +715,6 @@ msgstr "Mehr Optionen"
 msgid "LOOT_HISTORY"
 msgstr "Beuteverlauf"
 
-msgid "PLAYER_LEVEL_CAP"
-msgstr "STUFE %d / 1.000"
-
 msgid "LEVEL_UP_NOTICE"
 msgstr "STUFE %d · Leben und Schaden erhöht"
 
@@ -844,9 +841,6 @@ msgstr "%s farmen · %s"
 msgid "FARM_SELECTED_VARIANT"
 msgstr "Farm-Auswahl: %s. Nach dem Respawn kehrst du hierher zurück."
 
-msgid "MAX_ITEM_TIER"
-msgstr "Höchster Rang erreicht. Verschmelzen ist weiterhin bis ^100 möglich."
-
 msgid "TAB_PLAYER"
 msgstr "Spieler"
 
@@ -876,9 +870,6 @@ msgstr "Erkunde zuerst dieses Lager."
 
 msgid "STAGE_UNLOCKED"
 msgstr "Nächstes Gebiet freigeschaltet!"
-
-msgid "FINAL_DISCOVERED"
-msgstr "Der letzte Wächter ist versiegelt. Besiege die anderen 13 Bosse, um ihre Schlüssel zu sammeln. Gesammelte Schlüssel bleiben beim Prestige erhalten."
 
 msgid "WORLD_COMPLETE"
 msgstr "Alle Gegner in Frühling II besiegt – letzte Mission abgeschlossen!"
@@ -1077,9 +1068,6 @@ msgstr "%s · %d Fundorte · %d pro Fundort · Respawn %s s"
 
 msgid "FINAL_CLEAR_PROGRESS"
 msgstr "Besiegte Typen im letzten Gebiet: %d / 9"
-
-msgid "UP_CAMP_RADIUS"
-msgstr "Aufdeckradius der Lager"
 
 msgid "UP_REVEAL_RADIUS"
 msgstr "Aufdeckradius des Spielers"
@@ -4821,9 +4809,6 @@ msgstr "Abklingzeit: %s s"
 
 msgid "GATE_HUD"
 msgstr "Nächstes Gebiet · Bosse %d/%d"
-
-msgid "GATE_HUD_WORLD"
-msgstr "Welt geschafft · %d/%d"
 
 msgid "GATE_HUD_TOOLTIP"
 msgstr "Bosse, die du auf dieser Karte besiegen musst, um die nächste zu öffnen. Gefundene Bosse, die noch zählen, tragen das goldene Banner."
