@@ -197,9 +197,16 @@ func _stack_overhead(bar: Vector2,dead: bool) -> float:
         var count:=skill_icons.size()
         # Each icon's disc is 1.24 icon sides wide; rows and neighbours keep a unit of air around it.
         var cell:=skill_icon_size*1.24+1
+        # Change 85: as many icons per row as fit the HP bar's width (at least 2, so every existing one-
+        # and two-skill row is unchanged); more wrap into further rows above, centred, never wider than
+        # the bar. The Green Alien's six fit its 80-unit bar in one row of 73.
+        var per_row:=maxi(2,int(bar.x/cell))
+        var rows:=ceili(float(count)/per_row)
         for i in range(count):
-            (_skills.get_child(i) as Sprite2D).position=Vector2((i-(count-1)*.5)*cell,y-cell*.5)
-        y-=cell+1
+            var row:=i/per_row
+            var in_row:=mini(per_row,count-row*per_row)
+            (_skills.get_child(i) as Sprite2D).position=Vector2((i%per_row-(in_row-1)*.5)*cell,y-cell*(rows-row-.5))
+        y-=cell*rows+1
         _stack_used=true
     _gate.visible=gate and alive
     if _gate.visible:

@@ -1397,20 +1397,31 @@ func _summon_step(a: Dictionary,d: Dictionary,rule: SummonRule,dt: float) -> boo
 func heal_first(a: Dictionary) -> bool:
     return float(a.get("skill_cds",{}).get("heal",0))<=0 and skill_ready(a,"heal")
 
-## Change 84: the skills an enemy type shows over its head. The catalog's skill list (also its skill drops,
-## mastery and map icon); the final boss also casts Heal through its Change 13 kit (final_choice, Rage), which
-## is not in that list, so its Heal icon is added here (display only: drops and mastery keep the catalog list).
+## The final boss's non-Heal choices (final_choice): the attack pool, then Focus, existing skills only.
+func final_skill_pool() -> Array:
+    return (Array(sim.abilities.final_attack_pool)+["focus"]).filter(func(key):return sim.catalog.skills.has(key))
+
+## Changes 84-85: every skill an enemy can actually use, in the order its icons show. d is its definition
+## (sim.enemy_definition: the variant's own list, empty for helpers). A normal enemy or boss casts exactly its
+## definition's skill list (the Change 78 rotation). The final boss does not use that list: its Change 13 kit
+## casts Heal (final_choice, and Rage's immediate Heal) and draws from final_skill_pool, so it shows its list's
+## skills first, then the rest of the kit (Heal, then the pool). Display only: skill drops, mastery, the map icon
+## and every cast rule keep reading the catalog list or the kit itself.
 func shown_skills(d: Dictionary) -> Array:
-    var out: Array=Array(d.get("skills",[])).duplicate()
-    if bool(d.get("final",false)) and not out.has("heal"):out.append("heal")
+    var own: Array=Array(d.get("skills",[]))
+    if not bool(d.get("final",false)):return own.duplicate()
+    var kit: Array=(["heal"] if sim.catalog.skills.has("heal") else [])+final_skill_pool()
+    var out: Array=own.filter(func(key):return kit.has(key))
+    for key in kit:
+        if not out.has(key):out.append(key)
     return out
 
 func final_choice(a: Dictionary) -> String:
     if heal_first(a):return "heal"
     var options: Array=[]
     var cds: Dictionary=a.get("skill_cds",{})
-    for key in Array(sim.abilities.final_attack_pool)+["focus"]:
-        if not sim.catalog.skills.has(key) or float(cds.get(key,0))>0 or not skill_ready(a,key):continue
+    for key in final_skill_pool():
+        if float(cds.get(key,0))>0 or not skill_ready(a,key):continue
         if not key in SELF_SKILLS and sim.position_of(a).distance_to(sim.position_of(sim.state.player))>skill_range(key):continue
         options.append(key)
     if options.is_empty():return ""

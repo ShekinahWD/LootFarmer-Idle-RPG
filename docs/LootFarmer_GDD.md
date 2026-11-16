@@ -1,4 +1,15 @@
-# LootFarmer — Game Design Document — current (2026-11-16, Change 84)
+# LootFarmer — Game Design Document — current (2026-11-16, Change 85)
+
+## Change 85 — Enemy skill icons show every usable skill (16 November 2026)
+
+Display only; save schema, version, gameplay and balance unchanged. Probe: `tests/change_85_probe` (18 checks; a windowed run saves `generated/evidence/change_85/green_alien_icons_540x960.png`, ignored by Git).
+
+- **Rule.** The icons over an enemy are every skill it can actually use (`campaign.shown_skills`, read by `world._skill_icons`). An enemy casts from one of two sources: the Change 78 rotation (its definition's skill list, `sim.enemy_definition`, so variants without skills and summoned helpers show nothing) or, for the final boss only, the Change 13 kit (Heal, then `campaign.final_skill_pool`: the attack pool Fire, Strike, Frost, Lightning, then Focus). `final_choice` now reads the same `final_skill_pool` (same order and filter as before), so the icons and the AI cannot drift apart.
+- **Green Alien** shows six: Focus, Fire, Strike, Heal, Frost, Lightning (its catalog list first, then the rest of its kit). Change 84 had added only Heal.
+- **Audit.** Every other type and variant (191 pairs) already showed exactly its rotation, and each shown skill is selectable by it; the Green Alien was the only type with usable skills missing. Summoning (Grim Reaper, Sunflower, Green Alien) is a separate ability with no skill icon, as before.
+- **Unchanged gameplay.** Skill drops, mastery and the map marker keep the catalog list; damage, cooldowns (10 s boss standard) and activation conditions are untouched.
+- **Layout.** The icon row holds as many icons as fit the HP bar's width (at least 2, so every one- and two-icon row is unchanged) and wraps upward, centred, into further rows when more are needed. The Green Alien's six fit its 80-unit bar in one 73-unit row (about 262 px on a 540-wide portrait screen at the default zoom), stacked between its name and the target marker / World banner, clear of the HUD rails.
+- **Supersedes:** Change 84's four-icon Green Alien row.
 
 ## Change 84 — Green Alien Heal icon and attack 900 → 700 (16 November 2026)
 

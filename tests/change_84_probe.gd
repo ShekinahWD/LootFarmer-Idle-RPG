@@ -91,7 +91,7 @@ func icon_checks() -> void:
     print("-- Heal icon")
     var d: Dictionary=sim.catalog.groups[final_g()]
     check(d.skills==["focus","fire","strike"],"Cause: the catalog list has no Heal (%s); the final kit casts it anyway" % [d.skills])
-    check(sim.campaign.shown_skills(d)==["focus","fire","strike","heal"],"Shown skills add Heal for the final boss")
+    check(sim.campaign.shown_skills(d).slice(0,4)==["focus","fire","strike","heal"],"Shown skills add Heal for the final boss (Change 85 then adds Frost and Lightning)")
     var others:=true
     for g in range(sim.catalog.groups.size()):
         var o: Dictionary=sim.catalog.groups[g]
@@ -104,8 +104,8 @@ func icon_checks() -> void:
     check(view!=null,"Fixture: the Green Alien has a world view")
     if view==null:return
     var icons: Array=view.skill_icons
-    check(icons.size()==4 and icons[3]!=null and icons[3]==game.world.textures.get("skill_heal"),"World: 4 icons over the Green Alien, the last the Heal icon")
-    check(view._skills.visible and view._skills.get_child_count()==4,"World: the icon row is visible with 4 sprites")
+    check(icons.size()==6 and icons[3]!=null and icons[3]==game.world.textures.get("skill_heal"),"World: Heal is the 4th of the Green Alien's icons (6 since Change 85)")
+    check(view._skills.visible and view._skills.get_child_count()==6,"World: the icon row is visible with 6 sprites")
     var shown:=0
     for e in sim.state.enemies:
         var o: Dictionary=sim.catalog.groups[int(e.group)]

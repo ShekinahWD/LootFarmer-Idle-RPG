@@ -488,8 +488,8 @@ func _dispose_retired() -> void:
         budget-=1+item.get_child_count()
         item.free()
 
-## The skill icons of one enemy loadout (cached per type and variant: definitions never change). Change 84:
-## campaign.shown_skills, so the final boss also shows the Heal its Change 13 kit casts.
+## The skill icons of one enemy loadout (cached per type and variant: definitions never change). Changes 84-85:
+## campaign.shown_skills, every skill the type can use, including the final boss's Change 13 kit.
 var _icon_rows: Dictionary={}
 func _skill_icons(group: int,variant: int,def: Dictionary) -> Array:
     var key:=group*8+variant
