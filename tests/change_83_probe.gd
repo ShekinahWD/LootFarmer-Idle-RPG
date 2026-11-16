@@ -365,13 +365,16 @@ func victory_checks() -> void:
     check(not SettingsState.recommended_active() and is_equal_approx(SettingsState.music_volume,.8),"…and the player's volumes are back")
     check(float(sim.state.boss_respawns[str(alien().id)].remaining)==respawn,"The respawn clock waited")
     check(game.final_dialog.body.text.begins_with("You defeated the Green Alien and completed LootFarmer's main adventure."),"Ending text")
-    # Links: stubbed opener; Discord first (acknowledges), the panel never comes back.
+    # Links: stubbed opener. Change 88: Discord opens the invite and leaves the panel up (not an acknowledgment);
+    # Continue Playing acknowledges once and the panel never comes back.
     var opened: Array=[]
     var links=LINKS
     links.opener=func(url: String)->int:opened.append(url);return OK
     links.reset_guard()
     game.final_dialog.button("discord").pressed.emit();await frames(2)
-    check(opened==["https://discord.gg/JKjeP6PDAU"] and bool(sim.state.final_ending_seen) and not game.final_dialog.is_open(),"Discord opens the official invite and acknowledges once")
+    check(opened==["https://discord.gg/JKjeP6PDAU"] and not bool(sim.state.final_ending_seen) and game.final_dialog.is_open(),"Discord opens the official invite and keeps the panel (Change 88)")
+    game.final_dialog.button("continue").pressed.emit();await frames(2)
+    check(bool(sim.state.final_ending_seen) and not game.final_dialog.is_open(),"Continue Playing acknowledges once")
     links.opener=func(url: String)->int:return OS.shell_open(url)
     sim.movement=Vector2.ZERO
     var pos2: Vector2=sim.position_of(sim.state.player)

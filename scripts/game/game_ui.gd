@@ -605,6 +605,8 @@ func _safe_area() -> void:
     if $Confirm.visible:_layout_confirm()
 
 func _process(dt: float) -> void:
+    # Change 88: the open ending panel is part of the victory spectacle (campaign.final_spectacle).
+    if final_dialog!=null:sim.campaign.ending_showing=final_dialog.is_open() and final_dialog.kind=="ending"
     # Change 35: the review invitation holds the world while it is open (and only then).
     sim.held=$ReviewInvitation.is_open() or (help_viewer!=null and help_viewer.visible) or (evolution_show!=null and evolution_show.visible) or (final_dialog!=null and final_dialog.is_open())
     _update_final(dt)
@@ -1420,13 +1422,18 @@ func _final_answered(kind: String,choice: String) -> void:
                 AudioService.play("ui_click")
                 sim.campaign.decline_final_warning()
         "ending":
-            # Any answer acknowledges the message once; the links open after (they never block play).
-            sim.campaign.acknowledge_ending()
+            # Change 88: only Continue Playing (or Back) acknowledges the message; the links open with the panel
+            # still up, so a visit to the store or Discord never answers it by accident.
             match choice:
                 "review":
+                    AudioService.play("ui_click")
                     if not sim.campaign.review.open_store():_say(tr("REVIEW_OPEN_FAILED"))
-                "discord":_open_discord()
-                _:AudioService.play("ui_confirm")
+                "discord":
+                    AudioService.play("ui_click")
+                    _open_discord()
+                _:
+                    sim.campaign.acknowledge_ending()
+                    AudioService.play("ui_confirm")
 
 ## Rage Mode: a red warning over the map for about 5 s (non-blocking: never a modal, never a pause); the aura and
 ## the red wall stay after it.
@@ -1442,7 +1449,8 @@ func _final_victory(kind: String) -> void:
             stick.release();stick_input=Vector2.ZERO
             if sheet.visible:_close()
             if $Confirm.visible:_cancel_confirm()
-            world.follow_player()
+            # Change 88: the camera's own follow/pan state is left as it was; the spectacle shot blends over it and
+            # hands it back on Continue Playing.
             # The celebration has its own banner: the generic boss title (it would sit on the floor's caption) goes.
             if boss_title_tween!=null and boss_title_tween.is_valid():boss_title_tween.kill()
             boss_title.visible=false
@@ -1457,9 +1465,28 @@ func _update_final(_dt: float) -> void:
     if c.ending_due and not final_dialog.is_open() and not modal_open() and sim.state.prestige_batch.is_empty() and not get_tree().paused and not sim.suspended and sim.state.tutorial.mode!="pending":
         if sheet.visible:_close()
         stick.release();stick_input=Vector2.ZERO
+        final_dialog.lower_top=$Safe/Layout/Map.get_global_rect().end.y
         final_dialog.open_ending(_hero_art())
         AudioService.play("mastery_map")
+    _frame_spectacle()
     _refresh_final_audio_chip()
+
+## Change 88: tells the world how much of the map the spectacle shot may use: above the ending card while it is
+## open (the card sits over the inventory and may reach into the map), else the map above the joystick band.
+const SPECTACLE_OPEN_BOTTOM:=.8
+func _frame_spectacle() -> void:
+    var map: Control=$Safe/Layout/Map
+    var bottom:=SPECTACLE_OPEN_BOTTOM
+    if sim.campaign.ending_showing:
+        final_dialog.lower_top=map.get_global_rect().end.y
+        var r: Rect2=map.get_global_rect()
+        if r.size.y>0:bottom=clampf((final_dialog.card_top_global()-r.position.y)/r.size.y-.02,.35,1.0)
+    world.spectacle_bottom=bottom
+    # The joystick takes no part while controls are held: it fades out of the shot (visibility and layout unchanged).
+    var stick_alpha:=0.0 if sim.campaign.final_spectacle() else 1.0
+    if stick.modulate.a!=stick_alpha:
+        stick.modulate.a=move_toward(stick.modulate.a,stick_alpha,get_process_delta_time()/.3)
+        if stick_alpha==0.0:stick.release();stick_input=Vector2.ZERO
 
 func _hero_art() -> Texture2D:
     var outfit: String=str(sim.state.get("outfit",""))

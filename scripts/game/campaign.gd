@@ -278,6 +278,8 @@ func camp_action(st: int,camp: int,teleport: bool) -> bool:
             sim.state.enemies=saved.get("enemies",[]).duplicate(true)
             sim.state.pickups=saved.get("pickups",[]).duplicate(true)
             sim._sync_spawn_counts()
+            # Change 88: the player left this map, so any Green Alien fight here ended: it waits at full HP.
+            fresh_final_hp(sim.state.enemies,false)
         var pos: Array=stage().spawns[camp]
         sim.state.player.x=pos[0];sim.state.player.y=pos[1]
         sim.state.player.windup=0;sim.state.player.target="";sim.state.player.idle=0
@@ -1102,6 +1104,38 @@ func final_killer(killer: Dictionary) -> String:
     var boss: Dictionary=sim._find_actor(str(killer.get("summoner",""))) if sim.is_helper(killer) else killer
     if boss.is_empty() or not bool(sim.catalog.groups[int(boss.group)].final):return ""
     return str(boss.id)
+## Change 88: the Green Alien starts every fresh encounter at 100% of its current maximum HP. Its HP was only ever
+## restored on respawn or by the shared out-of-combat regeneration (10%/s after 5 s without a hit), so:
+## - after the player's death it walked home with the damage of the lost attempt, and a quick return (a nearby camp,
+##   a short respawn) met it part-healed (often near 80%);
+## - while locked (warning or ceremony owed) the loop skipped regeneration, and the ceremony's end reset `quiet`, so a
+##   stale absolute HP from an older save (a smaller earlier maximum, or damage from before an update) stayed on
+##   screen into the new fight.
+## This puts an idle Green Alien to full HP. keep_engaged: an actor saved mid-fight (aggro, not returning) keeps its
+## damage (a reload during a fight is legitimate); without it every living Green Alien here is idle (a map
+## re-entered, an inactive map's world). HP above the current maximum is always capped. Rage and skill state go with
+## the encounter.
+func fresh_final_hp(actors: Array,keep_engaged: bool) -> void:
+    for e in actors:
+        if not e is Dictionary or sim.is_helper(e) or float(e.get("hp",0))<=0:continue
+        var g:=int(e.get("group",-1))
+        if g<0 or g>=sim.catalog.groups.size() or not bool(sim.catalog.groups[g].final):continue
+        var maxhp:=actor_max_hp(e)
+        if keep_engaged and bool(e.get("aggro",false)) and not bool(e.get("returning",false)):
+            e.hp=minf(float(e.hp),maxhp)
+            continue
+        if float(e.hp)!=maxhp:e.hp=maxhp
+        e.erase("rage")
+## Change 88: the player's death ended the encounter: the Green Alien (alive) is back to full HP at once (not by
+## regeneration), its skills and timers reset with the approved Rage reset (simulation._kill).
+func reset_final_after_death() -> void:
+    for e in sim.state.enemies:
+        if sim.is_helper(e) or float(e.hp)<=0 or not bool(sim.catalog.groups[int(e.group)].final):continue
+        e.hp=actor_max_hp(e)
+        e.quiet=0.0;e.hurt=0.0
+        e.erase("rage")
+        reset_enemy_skills(e)
+
 func _rage_check(a: Dictionary) -> void:
     if bool(a.get("rage",false)) or not bool(a.aggro) or float(a.hp)<=0 or sim.is_helper(a):return
     var maxhp:=actor_max_hp(a)
@@ -1135,10 +1169,17 @@ var celebration_time:=-1.0
 var ending_due:=false
 var ending_wait:=-1.0
 func celebration_active() -> bool:return celebration_time>=0.0
+## Change 88: the ending panel is on screen now (game_ui keeps this in step with the dialog every frame).
+var ending_showing:=false
+## Change 88: the living victory spectacle: the forced celebration or the open ending panel. The world stays held
+## (no controls, combat, AI or encounter progress) while presentation keeps moving: the hero dances, the floor and
+## its effects run, the music plays, the camera frames the floor, and the Green Alien's respawn countdown is
+## paused (final_respawn_held) and hidden.
+func final_spectacle() -> bool:return celebration_active() or ending_showing
 func final_celebrated() -> bool:return bool(sim.state.get("final_celebrated",false))
 func final_ending_seen() -> bool:return bool(sim.state.get("final_ending_seen",false))
 ## The final boss's respawn clock is held (the celebration or the ending message is still owed this victory).
-func final_respawn_held() -> bool:return celebration_active() or ending_due or ending_wait>=0.0
+func final_respawn_held() -> bool:return celebration_active() or ending_due or ending_wait>=0.0 or ending_showing
 ## Called once per Green Alien defeat, after its rewards. Returns "first", "deferred" or "repeat".
 func final_victory() -> String:
     if final_ending_seen():
@@ -1168,10 +1209,11 @@ func ending_step(dt: float) -> void:
     if ending_wait<0.0:return
     ending_wait+=dt
     if ending_wait>=ENDING_DELAY:ending_wait=-1.0;ending_due=true
-## The ending panel was answered (Continue, review or Discord): never shown again on this profile.
+## The ending panel was answered (Continue Playing or Back; since Change 88 the links do not count): never shown
+## again on this profile.
 func acknowledge_ending() -> void:
     if final_ending_seen() and not ending_due:return
-    ending_due=false;ending_wait=-1.0
+    ending_due=false;ending_wait=-1.0;ending_showing=false
     sim.state.final_ending_seen=true
     sim.touch();SaveService.save_now()
     sim.final_victory.emit("acknowledged")
@@ -1238,6 +1280,8 @@ func ceremony_step(dt: float) -> bool:
     sim.state.final_unsealed=true
     # Change 83: the new introduction is complete only now (warning accepted earlier, ceremony played through).
     sim.state.final_experience=true
+    # Change 88: the fight starts at full HP (the boss could not be hit while locked; any shortfall is stale).
+    fresh_final_hp([boss],false)
     boss.aggro=true;boss.returning=false;boss.quiet=0.0
     begin_encounter(boss)
     sim.touch();SaveService.save_now()
@@ -1330,7 +1374,7 @@ func reset_final_encounter() -> void:
     arena_notice_clock=0.0
     # Change 83: an unanswered warning is not accepted; an unfinished celebration or unshown ending is owed again.
     warning_pending="";warning_armed=true
-    celebration_time=-1.0;ending_due=false;ending_wait=-1.0
+    celebration_time=-1.0;ending_due=false;ending_wait=-1.0;ending_showing=false
 func enemy_skill_cooldown(d: Dictionary,key: String) -> float:
     return sim.abilities.skill_cooldown(str(d.id),key,float(sim.catalog.skills[key].cooldown),bool(d.get("boss",false)))
 ## Change 78: pause after a boss's telegraphed skill misses its resolution (the player left its reach).

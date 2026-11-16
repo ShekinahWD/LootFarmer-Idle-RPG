@@ -343,6 +343,9 @@ func _tier_color(item: Dictionary) -> Color:
 func _cull_rect() -> Rect2:
     var zoom_factor: float=get_viewport_rect().size.x/360.0*SettingsState.camera_zoom
     var center: Vector2=sim.position_of(sim.state.player) if following_player else camera_position
+    # Change 88: during a cinematic shot the camera itself decides what is on screen.
+    if cine_weight>0.0:
+        zoom_factor=$Camera.zoom.x;center=$Camera.position
     var half: Vector2=get_viewport_rect().size/maxf(zoom_factor,.01)*.5
     return Rect2(center-half,half*2).grow(CULL_MARGIN)
 
@@ -358,6 +361,7 @@ func _update_view(actor: Dictionary,view_rect: Rect2,sight) -> void:
     var marker: Control=v._marker
     marker.visible=(id=="player" or id==sim.manual_target) and actor.hp>0
     marker.modulate=Color(1,.75,.2) if id==sim.manual_target else Color(.45,.8,1)
+    v.dancing=false
     if id=="player":
         var key: String=str(sim.state.outfit)+"|"+str(sim.state.weapon)
         if not _player_looks.has(key):_player_looks[key]=_visual_look(sim.state.outfit,sim.state.weapon)
@@ -368,6 +372,8 @@ func _update_view(actor: Dictionary,view_rect: Rect2,sight) -> void:
             v.visual_scale=1.0
         v.max_hp=sim.stats().hp
         v.disclosed=true
+        # Change 88: the hero joins the victory dance (presentation only; the world is held).
+        v.dancing=sim.campaign.final_spectacle()
     else:
         var group:=int(actor.group)
         var variant:=int(actor.get("variant",2))
@@ -565,7 +571,16 @@ const HERO_BAND:=.12
 const TOP_BAND:=.34
 const ARENA_SHOT:=1.6
 ## Change 83: world extent the celebration shot keeps in view (floor rings, fireworks above, caption below).
-const FLOOR_SHOT:=Vector2(250,250)
+## Change 88: as a box around the floor's centre: 48 dancers in four rings (x 96, y 53), fireworks up to 145 above,
+## the two caption lines below; the hero standing near it is added to the box.
+const FLOOR_BOX:=Rect2(-128,-152,256,262)
+## Change 88: fractions of the map's height the spectacle shot fills: below the top rails, above spectacle_bottom
+## (game_ui: the ending card's top while it is open, else the joystick band).
+const SPECTACLE_TOP:=.1
+var spectacle_bottom:=.8
+## How fast a framing already on screen follows a change of its goal (the celebration shot moving up when the
+## ending card appears), per second.
+const CINE_FOLLOW:=3.5
 var cine_weight:=0.0
 var cine_last: Dictionary={"pos":Vector2.ZERO,"zoom":1.0}
 var arena_shot:=0.0
@@ -576,11 +591,17 @@ func _cinematic(zoom_factor: float) -> Dictionary:
     cine_frame=Engine.get_process_frames()
     var goal: Dictionary={}
     var view: Vector2=get_viewport_rect().size
-    if sim.campaign.celebration_active() and dance_floor!=null:
-        # Change 83: the first victory's celebration frames the floor, its dancers, fireworks and caption in the
-        # open upper part of the map (above the joystick), then eases back to the player's own zoom and follow.
-        var zoom: float=minf(zoom_factor,minf(view.x/FLOOR_SHOT.x,view.y*.62/FLOOR_SHOT.y))
-        goal={"pos":dance_floor.position+Vector2(0,-30+view.y*.07/zoom),"zoom":zoom}
+    if sim.campaign.final_spectacle() and dance_floor!=null:
+        # Change 83/88: the victory spectacle (celebration and ending panel) frames the floor, its dancers,
+        # fireworks, caption and the dancing hero, centred in the open band of the map (below the top rails,
+        # above the joystick or the ending card), then eases back to the player's own zoom and follow.
+        var box:=Rect2(FLOOR_BOX.position+dance_floor.position,FLOOR_BOX.size)
+        var hero:=sim.position_of(sim.state.player)
+        if hero.distance_to(dance_floor.position)<FLOOR_BOX.size.x:box=box.merge(Rect2(hero+Vector2(-16,-40),Vector2(32,48)))
+        var band:=Vector2(SPECTACLE_TOP,maxf(SPECTACLE_TOP+.25,spectacle_bottom))
+        var zoom: float=minf(view.x*.96/box.size.x,view.y*(band.y-band.x)/box.size.y)
+        var mid:=view.y*(band.x+band.y)*.5
+        goal={"pos":box.get_center()+Vector2(0,(view.y*.5-mid)/zoom),"zoom":zoom}
     elif sim.campaign.ceremony_active():
         var boss: Dictionary=sim._find_actor(sim.campaign.ceremony_boss)
         if not boss.is_empty():
@@ -594,8 +615,14 @@ func _cinematic(zoom_factor: float) -> Dictionary:
         arena_shot-=dt
         var extent: float=sim.campaign.arena_radius()+30.0
         goal={"pos":sim.campaign.arena_center()+Vector2(0,-6),"zoom":minf(zoom_factor,minf(view.x,view.y)/(2*extent))}
+    var was:=cine_weight
     cine_weight=move_toward(cine_weight,1.0 if not goal.is_empty() else 0.0,dt/CINE_BLEND)
-    if not goal.is_empty():cine_last=goal
+    if not goal.is_empty():
+        # Change 88: a framing already on screen glides to a new goal instead of jumping.
+        if was<=0.0:cine_last=goal
+        else:
+            var k:=1.0-exp(-CINE_FOLLOW*dt)
+            cine_last={"pos":Vector2(cine_last.pos).lerp(goal.pos,k),"zoom":lerpf(float(cine_last.zoom),float(goal.zoom),k)}
     var w:=cine_weight*cine_weight*(3.0-2.0*cine_weight)
     return {"pos":cine_last.pos,"zoom":cine_last.zoom,"w":w}
 
@@ -604,6 +631,8 @@ func follow_player() -> void:
     update_camera()
 
 func pan_camera(delta: Vector2) -> void:
+    # Change 88: the spectacle owns the shot; a drag then would silently move the camera the player gets back.
+    if sim!=null and sim.campaign.final_spectacle():return
     following_player=false
     camera_position-=delta/$Camera.zoom
     camera_position=camera_position.clamp(Vector2.ZERO,Vector2(sim.catalog.world.size[0],sim.catalog.world.size[1]))
@@ -794,6 +823,8 @@ func _boss_countdowns() -> void:
     var live: Array=[]
     for entry in sim.boss_respawn_countdowns(int(sim.state.stage)):
         if float(entry.remaining)<=0 or not sim.campaign.boss_found(str(sim.catalog.groups[int(entry.group)].id)):continue
+        # Change 88: the Green Alien's countdown is paused (final_respawn_held) and hidden while its victory is owed.
+        if sim.campaign.final_respawn_held() and bool(sim.catalog.groups[int(entry.group)].final):continue
         if not sim.campaign.can_see(entry.position):continue
         var key: String=entry.actor_id
         live.append(key)

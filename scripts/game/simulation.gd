@@ -270,6 +270,10 @@ func restore(data: Dictionary) -> void:
     _rehome(state.enemies)
     for world_state in state.stage_worlds.values():_rehome(world_state.enemies)
     _sync_spawn_counts()
+    # Change 88: an idle Green Alien loads at full HP (an older save's absolute HP may come from an earlier maximum);
+    # one saved mid-fight keeps its real damage. Inactive maps hold no fight.
+    campaign.fresh_final_hp(state.enemies,true)
+    for world_state in state.stage_worlds.values():campaign.fresh_final_hp(world_state.get("enemies",[]),false)
     movement = Vector2.ZERO
     focus_walk_time = 0.0
     for a in [state.player] + state.enemies:
@@ -1622,6 +1626,8 @@ func _kill(a: Dictionary,killer: Dictionary={}) -> void:
             # mitigation and the healing bonus all derive from this latch); the next fight starts normal and
             # enrages again at 20%.
             e.erase("rage")
+        # Change 88: and the Green Alien is back to full HP now; the next attempt never inherits this one's damage.
+        campaign.reset_final_after_death()
         event.emit("PLAYER_DIED")
         var final_id:=campaign.final_killer(killer)
         if final_id!="":final_defeated_player.emit(final_id)
@@ -1871,6 +1877,8 @@ func step(dt: float) -> void:
             continue
         if campaign.final_locked(group):
             e.aggro=false;e.windup=0
+            # Change 88: a locked Green Alien cannot be hit, so it is always whole (no stale HP into its fight).
+            if float(e.hp)!=maxhp:e.hp=maxhp
             continue
         if e.quiet>=5:
             e.hp=minf(maxhp,e.hp+maxhp*.1*dt)

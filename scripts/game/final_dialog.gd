@@ -8,10 +8,14 @@ extends Control
 ##            Yes, Fight! (accept: saved, then the 13-key ceremony) and No, Not Yet (cancel; asked again later).
 ##   ending   the one-time end of the main adventure, after the first victory's celebration (or after a later
 ##            victory when it was never acknowledged): Continue Playing, Leave an Honest Review (the build's
-##            storefront), Join Our Discord. Any of the three acknowledges it once; the links never block play.
+##            storefront), Join Our Discord. Change 88: only Continue (or Back) acknowledges and closes it; the two
+##            links open and leave the panel where it is. It sits over the inventory / lower HUD (lower_top), never
+##            dims or blurs the map, so the dance floor stays in view and animated behind it; a transparent blocker
+##            still takes every other tap while it is open.
 ##
-## Layout: one centred card at most 600 wide and inside the safe area, its body scrolling if a language runs
-## long; buttons are full-width rows (64 px tall) so long translations wrap instead of truncating.
+## Layout: warning: one centred card at most 600 wide and inside the safe area. Ending: the same card in the lower
+## area, at most LOWER_MAX of the safe height. Bodies scroll if a language runs long; buttons are full-width rows
+## (64 px tall) so long translations wrap instead of truncating.
 signal answered(kind: String,choice: String)
 
 const BOSS_RED:=Color(1,.36,.32)
@@ -26,13 +30,17 @@ var note: Label
 var buttons: VBoxContainer
 var scroll: ScrollContainer
 var generation:=0
+## Change 88: the global y where the inventory / lower HUD starts (the map's bottom), set by game_ui; < 0 unknown.
+var lower_top:=-1.0
+const LOWER_MAX:=.56
+const DIM_COLOR:=Color(0,0,0,.62)
 
 func _ready() -> void:
     set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     mouse_filter=Control.MOUSE_FILTER_STOP
     process_mode=Node.PROCESS_MODE_ALWAYS
     z_index=21
-    dim=ColorRect.new();dim.color=Color(0,0,0,.62);dim.mouse_filter=Control.MOUSE_FILTER_STOP
+    dim=ColorRect.new();dim.color=DIM_COLOR;dim.mouse_filter=Control.MOUSE_FILTER_STOP
     dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     add_child(dim)
     card=PanelContainer.new();card.theme_type_variation=&"Card"
@@ -72,6 +80,7 @@ func is_open() -> bool:return visible
 func open_warning(boss_art: Texture2D) -> void:
     kind="warning"
     art.texture=boss_art
+    dim.color=DIM_COLOR
     title.text=tr("FINAL_DANGER_TITLE");title.add_theme_color_override("font_color",BOSS_RED)
     body.text=tr("FINAL_DANGER_BODY")
     note.text=tr("FINAL_DANGER_AUDIO_NOTE");note.visible=true
@@ -89,6 +98,8 @@ func open_warning(boss_art: Texture2D) -> void:
 func open_ending(hero_art: Texture2D) -> void:
     kind="ending"
     art.texture=hero_art
+    # Change 88: nothing darkens the celebration; the clear blocker still holds every other tap.
+    dim.color=Color(0,0,0,0)
     title.text=tr("FINAL_ENDING_TITLE");title.add_theme_color_override("font_color",GOLD)
     body.text=tr("FINAL_ENDING_BODY")
     note.visible=false
@@ -115,8 +126,13 @@ func button(role: String) -> Button:
 
 func _answer(choice: String) -> void:
     var was:=kind
-    if choice!="audio":close()
+    # Change 88: the ending's links (review, Discord) keep it open; only Continue answers it.
+    if choice!="audio" and not (was=="ending" and choice in ["review","discord"]):close()
     answered.emit(was,choice)
+
+## Change 88: the card's top edge in global coordinates (the camera keeps the dance floor above it).
+func card_top_global() -> float:
+    return card.get_global_rect().position.y if visible else INF
 
 func _toggle_audio() -> void:
     if SettingsState.recommended_active():SettingsState.restore_recommended()
@@ -176,7 +192,18 @@ func _layout() -> void:
     scroll.custom_minimum_size.y=0
     card.size=Vector2(width,0)
     var chrome:=card.get_combined_minimum_size().y
-    var height:=minf(room.y,chrome+content)
+    var lower:=kind=="ending"
+    var height:=minf(room.y*(LOWER_MAX if lower else 1.0),chrome+content)
     scroll.custom_minimum_size.y=maxf(60.0,height-chrome)
     card.size=Vector2(width,height)
-    card.position=Vector2(insets.x+(size.x-insets.x-insets.z-width)*.5,insets.y+24.0+(room.y-height)*.5)
+    var x:=insets.x+(size.x-insets.x-insets.z-width)*.5
+    if not lower:
+        card.position=Vector2(x,insets.y+24.0+(room.y-height)*.5)
+        return
+    # Change 88: over the inventory / lower HUD: centred in that band when it fits, else bottom-aligned and growing
+    # up into the lowest part of the map.
+    var bottom:=size.y-insets.w-12.0
+    var band_top:=(lower_top-get_global_rect().position.y) if lower_top>=0.0 else size.y*.6
+    band_top=clampf(band_top,insets.y+12.0,bottom)
+    var y:=band_top+(bottom-band_top-height)*.5 if bottom-band_top>=height else bottom-height
+    card.position=Vector2(x,y)

@@ -10076,3 +10076,18 @@ An automated purchase reuses the manual purchase function (price, room, currency
 Reusable rule:
 
 > Make progression permanent at the reset's keep list and re-alias any live view of it; return what earlier resets destroyed once, from a lifetime record; never let a queue shorten an important notice; automate purchases through the manual path, waiting silently on its block reason.
+
+
+# 149. A living victory spectacle and fresh boss encounters (LootFarmer Change 88)
+
+## 149.1 Holding the world must not freeze the presentation
+
+When a celebration or an end-of-game message holds the simulation (no input, combat, AI or clocks), anything drawn from simulation timers freezes with it: the hero stays on its last attack frame, a defeated boss stands on a death frame, and a modal dim hides the scene the moment is about. Drive spectacle animation from the view's own clock (the hero's dance, the floor, its effects, and a local death clock that takes the later of its own time and the simulation's), keep the music on the ordinary path (never paused by the panel), and put the message where it does not cover the subject (over the inventory / lower HUD, no dim, with a clear blocker for other taps). Hold related clocks (the boss's respawn countdown) and hide them, blend the camera over the player's own follow/pan/zoom without writing to it, ignore drags while the shot owns the camera, and give control back on the one acknowledgment action. A link that opens another app never counts as acknowledgment.
+
+## 149.2 A fresh encounter starts whole, by rule, not by regeneration
+
+Out-of-combat regeneration is not an encounter reset: after the player's death a boss walking home with the lost attempt's damage meets a quick return part-healed, and a locked boss that skips regeneration keeps a stale absolute HP from an older save (an earlier maximum) into its first fight. Reset the encounter at its boundaries (the player's death, a locked or ceremony phase, leaving the map) to 100% of the current maximum. On load, heal only an idle boss and cap any HP above today's maximum; a boss saved mid-fight (engaged, not returning) keeps its real damage. Measure each case on the old and new build (fresh spawn, after death, next approach, after the ceremony, idle and active saves) and check that the HP bar's maximum is the current definition.
+
+Reusable rule:
+
+> Hold the simulation, not the presentation: animate spectacles on view clocks, keep music and the subject visible, hold and hide the clocks the moment owes, and blend the camera without overwriting the player's own. Reset encounter HP at encounter boundaries, never by waiting for regeneration, and on load distinguish an idle boss (whole) from a fight in progress (keep damage).

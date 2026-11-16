@@ -46,6 +46,15 @@ var elapsed:=0.0
 var actor: Dictionary={}
 var disclosed:=true
 var max_hp:=100.0
+## Change 88: the hero dances during the Green Alien victory spectacle (the world is held, so its own walk and attack
+## state stand still): on this view's own clock, the outfit's idle row with a walk-row shuffle on the beat, a hop, a
+## sway and a turn every beat, like the floor's dancers; no frozen swing, recoil or hurt tint.
+var dancing:=false
+const DANCE_BEAT:=2.2
+## Change 88: the view's own time since this actor died. The death animation and fade use the later of it and the
+## simulation's dead_age, so a defeat finishes falling and fading while the world is held (the Green Alien's corpse
+## no longer stands frozen in the middle of its own celebration floor).
+var _dead_clock:=0.0
 var _last_body: Texture2D
 ## Change 24: the world's look id last applied to this view (world.gd bookkeeping; -1 = none).
 var look_id:=-1
@@ -86,6 +95,8 @@ func recycle() -> void:
     display_name=""
     skill_icons=[]
     gate=false
+    dancing=false
+    _dead_clock=0.0
     body_tint=Color.WHITE
     if hit_tween and hit_tween.is_valid():hit_tween.kill()
     if speech_tween and speech_tween.is_valid():speech_tween.kill()
@@ -103,12 +114,15 @@ func _process(dt: float) -> void:
     var facing:=1.0
     var attack_age:=9.0
     var dead:=false
+    var dead_age:=0.0
     if not actor.is_empty():
         walking=actor.moving
         facing=actor.facing
         attack_age=actor.attack_age
         dead=actor.hp<=0
-        visible=disclosed and (not dead or actor.dead_age<float(death_frames)/death_fps+.2)
+        _dead_clock=_dead_clock+dt if dead else 0.0
+        dead_age=maxf(float(actor.get("dead_age",0.0)),_dead_clock) if dead else 0.0
+        visible=disclosed and (not dead or dead_age<float(death_frames)/death_fps+.2)
         _shadow.visible=visible
         _hp.visible=not dead and actor.hp<max_hp
         _hp.value=100.0*actor.hp/max_hp
@@ -125,9 +139,21 @@ func _process(dt: float) -> void:
         col=int(elapsed*walk_fps)%walk_frames
     if dead:
         row=death_row
-        col=mini(death_frames-1,int(actor.dead_age*death_fps))
+        col=mini(death_frames-1,int(dead_age*death_fps))
+    var dance:=dancing and not dead
+    var beat:=elapsed*DANCE_BEAT
+    if dance:
+        var shuffle:=int(floor(beat*.5))%2==1
+        row=walk_row if shuffle else idle_row
+        col=int(elapsed*(10.0 if shuffle else 6.0))%(walk_frames if shuffle else idle_frames)
+        facing=1.0 if int(floor(beat))%2==0 else -1.0
+        attack_age=9.0
+        walking=false
+        _visual.modulate=Color.WHITE
     _visual.scale=Vector2(facing*visual_scale,visual_scale)
     _visual.position=Vector2.ZERO
+    _visual.rotation=sin(beat*PI)*.08 if dance else 0.0
+    if dance:_visual.position.y=-absf(sin(beat*PI))*4.0*visual_scale
     var bar:=Vector2(hp_bar_width*visual_scale,hp_bar_height)
     if _layout_scale!=visual_scale:
         _layout_scale=visual_scale
@@ -140,12 +166,12 @@ func _process(dt: float) -> void:
     _marker.position=Vector2(-8,top-16 if _stack_used else -38*visual_scale)
     overhead_top=minf(top,_marker.position.y)
     _speech.position.y=minf(-52*visual_scale,top-14)
-    if not dead and actor.get("hurt",0)>0:
+    if not dead and not dance and actor.get("hurt",0)>0:
         # Recoil away from the blow; a critical hit knocks the target back more than twice as far.
         var recoil:=5.0 if bool(actor.get("critical_hit",false)) else 2.0
         _visual.position.x=-facing*recoil*sin(float(actor.hurt)/.16*PI)
     if dead:
-        _visual.modulate.a=clampf((float(death_frames)/death_fps+.2-float(actor.dead_age))/.2,0,1)
+        _visual.modulate.a=clampf((float(death_frames)/death_fps+.2-dead_age)/.2,0,1)
     _body.self_modulate=body_tint
     _body.region_rect=Rect2(Vector2(col,row)*cell_size,cell_size)
     # First slash is frame 2. Match its onset to authoritative windup,
