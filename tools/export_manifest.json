@@ -16,7 +16,7 @@
   "Windows itch.io": "store_itch_io"
  },
  "counts": {
-  "files": 349,
+  "files": 350,
   "stages": 8,
   "imported": 212
  },
@@ -655,6 +655,7 @@
   "res://scripts/game/dance_floor.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/distribution_channels.gd": "dependency of res://resources/game/distribution_channels.tres",
   "res://scripts/game/enemy_ability_rules.gd": "class_name EnemyAbilityRules used by res://scripts/game/simulation.gd",
+  "res://scripts/game/enraged_text.gd": "literal in res://scripts/game/world.gd",
   "res://scripts/game/evolution_show.gd": "literal in res://scripts/game/game_ui.gd",
   "res://scripts/game/external_links.gd": "dependency of res://resources/game/external_links.tres",
   "res://scripts/game/final_audio.gd": "literal in res://scripts/game/game_ui.gd",
